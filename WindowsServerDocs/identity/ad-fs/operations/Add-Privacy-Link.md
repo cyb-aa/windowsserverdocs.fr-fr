@@ -7,19 +7,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3617335a179ab419982ab57343999ad4fcaf522a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: cd559e38c38e96d1417257fe7d6ff8ccfa180c6b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190164"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358422"
 ---
 # <a name="add-privacy-link"></a>Ajouter le lien de la déclaration de confidentialité 
 
 
-Pour ajouter le lien de confidentialité s’affiche sur le signe\-dans la page, utilisez l’applet de commande Windows PowerShell suivante et la syntaxe.  
+Pour ajouter le lien de confidentialité affiché dans la page Sign @ no__t-0in, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
 
 ![Ajouter un lien de confidentialité](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png) 
   
@@ -28,7 +28,7 @@ Pour ajouter le lien de confidentialité s’affiche sur le signe\-dans la page,
  
   
 > [!IMPORTANT]  
-> Le paramètre `linkText` de cette applet de commande n'est nécessaire que si vous utilisez une valeur autre que la valeur par défaut (*Privacy*). L'avantage de l'utilisation de la valeur par défaut est que les pages sont localisées d'après tous les paramètres régionaux du client. Après le signe\-dans la page est personnalisé, la personnalisation est prioritaire ; par conséquent, vous devez personnaliser pour toutes les langues que vous souhaitez prendre en charge. Tout le contenu personnalisé prend un paramètre local. Lorsque vous configurez le contenu localisé, vous devez les configurer avec un pays\-inférieure aux paramètres régionaux tout d’abord, par exemple, « en », avant de configurer les colonnes country et region\-des paramètres régionaux spécifiques, tels que « fr\-nous ».  
+> Le paramètre `linkText` de cette applet de commande n'est nécessaire que si vous utilisez une valeur autre que la valeur par défaut (*Privacy*). L'avantage de l'utilisation de la valeur par défaut est que les pages sont localisées d'après tous les paramètres régionaux du client. Une fois la page Sign @ no__t-0in personnalisée, la personnalisation est prioritaire. par conséquent, vous devez personnaliser pour toutes les langues que vous souhaitez prendre en charge. Tout le contenu personnalisé prend un paramètre local. Quand vous configurez un contenu localisé, vous devez d’abord le configurer avec les paramètres régionaux Country @ no__t-0less, par exemple, « en », avant de configurer les paramètres régionaux Country et Region @ no__t-1specific, tels que « fr @ no__t-2us ».  
 
 ## <a name="additional-references"></a>Références supplémentaires 
-[AD FS Sign-in personnalisation de l’utilisateur](AD-FS-user-sign-in-customization.md)  
+[Personnalisation de la connexion de l’utilisateur AD FS](AD-FS-user-sign-in-customization.md)  

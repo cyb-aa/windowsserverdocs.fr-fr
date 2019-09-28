@@ -1,25 +1,25 @@
 ---
 title: Déployer des espaces de stockage sur un serveur autonome
-description: Décrit comment déployer des espaces de stockage sur un serveur autonome basée sur Windows Server 2012.
-ms.prod: windows-server-threshold
+description: Décrit comment déployer des espaces de stockage sur un serveur Windows Server 2012 autonome.
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-spaces
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f9b5d2b0d5acfcbde52131c29704e38d835d048e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 52e6a4d53271a73bc0913e2ac500c4328f2e7009
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447550"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393732"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Déployer des espaces de stockage sur un serveur autonome
 
 >S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique décrit comment déployer des espaces de stockage sur un serveur autonome. Pour plus d’informations sur la façon de créer un espace de stockage en cluster, consultez [déployer un cluster d’espaces de stockage sur Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>).
+Cette rubrique explique comment déployer des espaces de stockage sur un serveur autonome. Pour plus d’informations sur la création d’un espace de stockage en cluster, voir [déployer un cluster d’espaces de stockage sur Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>).
 
 Pour créer un espace de stockage, vous devez d'abord créer un ou plusieurs pools de stockage. Un pool de stockage est une collection de disques physiques. Un pool de stockage permet de regrouper le stockage, d'étendre la capacité de façon souple et de déléguer l'administration.
 
@@ -28,74 +28,74 @@ Vous pouvez créer un ou plusieurs disques virtuels à partir d'un pool de stock
 >[!NOTE]
 >Vous ne pouvez pas utiliser un espace de stockage pour héberger le système d’exploitation Windows.
 
-Vous pouvez créer un ou plusieurs volumes à partir d'un disque virtuel. Lorsque vous créez un volume, vous pouvez configurer la taille de la lettre de lecteur ou dossier, système de fichiers (système de fichiers NTFS ou Resilient File System (ReFS)), taille d’unité d’allocation et une étiquette de volume facultative.
+Vous pouvez créer un ou plusieurs volumes à partir d'un disque virtuel. Lorsque vous créez un volume, vous pouvez configurer la taille, la lettre de lecteur ou le dossier, le système de fichiers (système de fichiers NTFS ou le système de fichiers résilient (ReFS)), la taille d’unité d’allocation et une étiquette de volume facultative.
 
 La figure suivante illustre le flux de travail des espaces de stockage.
 
 ![Flux de travail des espaces de stockage](media/deploy-standalone-storage-spaces/storage-spaces-workflow.png)
 
-**Figure 1 : Workflow d’espaces de stockage**
+**Figure 1 : Flux de travail des espaces de stockage @ no__t-0
 
 >[!NOTE]
 >Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser des espaces de stockage sur un serveur de 2012−based Windows Server autonome, assurez-vous que les disques physiques que vous souhaitez utiliser les conditions préalables suivantes.
+Pour utiliser des espaces de stockage sur un serveur autonome Windows Server 2012, assurez-vous que les disques physiques que vous voulez utiliser respectent les conditions préalables suivantes.
 
 > [!IMPORTANT]
-> Si vous souhaitez apprendre à déployer des espaces de stockage sur un cluster de basculement, consultez [déployer un cluster d’espaces de stockage sur Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>). Un déploiement de cluster de basculement a des conditions préalables différentes, telles que les types de bus de disque prises en charge, les types de résilience pris en charge et le nombre minimal requis de disques.
+> Si vous souhaitez savoir comment déployer des espaces de stockage sur un cluster de basculement, voir [déployer un cluster d’espaces de stockage sur Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>). Un déploiement de cluster de basculement présente des conditions préalables différentes, telles que les types de bus de disque pris en charge, les types de résilience pris en charge et le nombre minimal de disques requis.
 
 |Domaine|Condition requise|Notes|
 |---|---|---|
-|Types de bus du disque|-Serial Attached SCSI (SAS)<br>-Série Advanced Technology Attachment (SATA)<br>-iSCSI et Fibre Channel contrôleurs. |Vous pouvez également utiliser des lecteurs USB. Toutefois, il n’est pas optimal pour utiliser des lecteurs USB dans un environnement serveur.<br>Espaces de stockage est pris en charge iSCSI et Fibre Channel (FC) contrôleurs tant que les disques virtuels créés sur les sont non résilient (Simple avec n’importe quel nombre de colonnes).<br>|
-|Configuration de disque|-Disques physiques doivent être au moins 4 Go<br>-Les disques doivent être vierges et non formatés. Ne créez pas de volumes.||
-|Considérations relatives aux adaptateurs de bus hôte|-Adaptateurs de bus hôte simple (HBA) qui ne prennent pas en charge les fonctionnalités RAID sont recommandés.<br>-Si RAID prenant en charge, les adaptateurs de bus hôte doivent être en mode de non RAID avec toutes les fonctionnalités RAID désactivées<br>-Les adaptateurs ne doivent pas abstraire les disques physiques, les données du cache, ou masquer les périphériques connectés. Cela comprend les services de boîtier fournis par les périphériques JBOD (just-a-bunch-of-disks) connectés. |Les espaces de stockage sont compatibles uniquement avec les adaptateurs de bus hôte où vous pouvez désactiver intégralement toutes les fonctionnalités RAID.|
-|Boîtiers JBoD|-Boîtiers JBOD sont facultatifs<br>-Recommandé d’utiliser des espaces de stockage certifié boîtiers répertoriés dans le catalogue Windows Server<br>-Si vous utilisez un boîtier JBOD, vérifiez avec votre fournisseur de stockage que le boîtier prend en charge les espaces de stockage pour garantir la fonctionnalité complète<br>-Pour déterminer si le boîtier JBOD prend en charge l’identification des boîtiers et emplacements, exécutez l’applet de commande Windows PowerShell suivante :<br><br>`Get-PhysicalDisk \| ? {$_.BusType –eq "SAS"} \| fc`<br><br>Si le **EnclosureNumber** et **SlotNumber** champs contiennent des valeurs, puis le boîtier prend en charge ces fonctionnalités.||
+|Types de bus du disque|-SAS (Serial Attached SCSI)<br>-SATA (Serial Advanced Technology Attachment)<br>-les contrôleurs iSCSI et Fibre Channel. |Vous pouvez également utiliser des lecteurs USB. Toutefois, il n’est pas optimal d’utiliser des lecteurs USB dans un environnement de serveur.<br>Les espaces de stockage sont pris en charge sur les contrôleurs iSCSI et Fibre Channel (FC) tant que les disques virtuels créés sur ceux-ci ne sont pas résilients (simples avec un nombre quelconque de colonnes).<br>|
+|Configuration de disque|-Les disques physiques doivent avoir au moins 4 Go<br>-Les disques doivent être vierges et non formatés. Ne créez pas de volumes.||
+|Considérations relatives aux adaptateurs de bus hôte|-Les adaptateurs de bus hôte (HBA) simples qui ne prennent pas en charge la fonctionnalité RAID sont recommandés<br>-En cas de compatibilité RAID, les HBA doivent être en mode non RAID avec toutes les fonctionnalités RAID désactivées<br>-Les adaptateurs ne doivent pas abstraire les disques physiques, mettre en cache les données ni masquer les périphériques attachés. Cela comprend les services de boîtier fournis par les périphériques JBOD (just-a-bunch-of-disks) connectés. |Les espaces de stockage sont compatibles uniquement avec les adaptateurs de bus hôte où vous pouvez désactiver intégralement toutes les fonctionnalités RAID.|
+|Boîtiers JBoD|-Les boîtiers JBOD sont facultatifs<br>-Recommandé d’utiliser les boîtiers d’espaces de stockage certifiés répertoriés dans le catalogue Windows Server<br>-Si vous utilisez un boîtier JBOD, vérifiez auprès de votre fournisseur de stockage que le boîtier prend en charge les espaces de stockage pour garantir l’intégralité des fonctionnalités<br>-Pour déterminer si le boîtier JBOD prend en charge l’identification des boîtiers et des emplacements, exécutez l’applet de commande Windows PowerShell suivante :<br><br>`Get-PhysicalDisk \| ? {$_.BusType –eq "SAS"} \| fc`<br><br>Si les champs **EnclosureNumber** et **SlotNumber** contiennent des valeurs, le boîtier prend en charge ces fonctionnalités.||
 
 Pour planifier le nombre de disques physiques et le type de résilience voulu pour le déploiement d'un serveur autonome, utilisez les instructions suivantes.
 
-|Type de résilience|Configuration requise pour le disque|Quand l’utiliser|
+|Type de résilience|Configuration requise pour le disque|Quand utiliser|
 |---|---|---|
-|**Simple**<br><br>-Agrège les données sur des disques physiques<br>-Optimise la capacité du disque et augmente le débit<br>-Aucune résilience (ne protège pas contre une défaillance de disque)<br><br><br><br><br><br><br>|Nécessite au moins un disque physique.|À ne pas utiliser pour héberger des données irremplaçables. Espaces simples ne protègent pas contre les défaillances de disque.<br><br>À utiliser pour héberger des données temporaires ou facilement recréées à moindre coût.<br><br>Adapté aux charges de travail hautes performances où la résilience n’est pas nécessaire ou est déjà fournie par l’application.|
-|**Miroir**<br><br>-Stocke deux ou trois copies des données sur l’ensemble des disques physiques<br>-Améliore la fiabilité mais réduit la capacité. Une duplication se produit avec chaque écriture. Un espace en miroir agrège également les données par bandes sur plusieurs disques physiques.<br>-Un meilleur débit de données et la latence d’accès inférieure que la parité<br>-Utilise dirty région DRT () pour effectuer le suivi des modifications des disques dans le pool de suivi. Quand le système redémarre après un arrêt non planifié et que les espaces sont remis en ligne, DRT assure la cohérence des disques dans le pool.|Nécessite au moins deux disques physiques pour une protection contre une seule défaillance de disque.<br><br>Nécessite au moins cinq disques physiques pour une protection contre deux défaillances de disque simultanées.|À utiliser pour la plupart des déploiements. Par exemple, les espaces en miroir sont adaptés à un partage de fichiers à usage général ou à une bibliothèque de disques durs virtuels (VHD).|
-|**Parité**<br><br>-Répartit les informations de données et la parité sur les disques physiques<br>-Améliore la fiabilité lorsqu’il est comparé à un espace simple, mais réduit quelque peu la capacité<br>-Augmente la résilience par la journalisation. Vous pouvez ainsi empêcher tout endommagement des données en cas d'arrêt non planifié.|Nécessite au moins trois disques physiques pour une protection contre une seule défaillance de disque.|À utiliser pour les charges de travail hautement séquentielles, telles que l'archivage ou la sauvegarde.|
+|**Simple**<br><br>-Entrelace les données sur les disques physiques<br>-Optimise la capacité du disque et augmente le débit<br>-Aucune résilience (ne protège pas contre les défaillances de disque)<br><br><br><br><br><br><br>|Nécessite au moins un disque physique.|À ne pas utiliser pour héberger des données irremplaçables. Les espaces simples ne protègent pas les défaillances de disque.<br><br>À utiliser pour héberger des données temporaires ou facilement recréées à moindre coût.<br><br>Adapté aux charges de travail hautes performances dans lesquelles la résilience n’est pas requise ou est déjà fournie par l’application.|
+|**Miroir**<br><br>-Stocke deux ou trois copies des données sur l’ensemble des disques physiques.<br>-Augmente la fiabilité, mais réduit la capacité. Une duplication se produit avec chaque écriture. Un espace en miroir agrège également les données par bandes sur plusieurs disques physiques.<br>-Meilleur débit de données et latence d’accès inférieure à la parité<br>-Utilise le suivi des régions modifiées (DRT) pour effectuer le suivi des modifications apportées aux disques dans le pool. Quand le système redémarre après un arrêt non planifié et que les espaces sont remis en ligne, DRT assure la cohérence des disques dans le pool.|Nécessite au moins deux disques physiques pour une protection contre une seule défaillance de disque.<br><br>Nécessite au moins cinq disques physiques pour une protection contre deux défaillances de disque simultanées.|À utiliser pour la plupart des déploiements. Par exemple, les espaces en miroir sont adaptés à un partage de fichiers à usage général ou à une bibliothèque de disques durs virtuels (VHD).|
+|**Parité**<br><br>-Entrelace les données et les informations de parité sur les disques physiques<br>-Augmente la fiabilité lorsqu’il est comparé à un espace simple, mais réduit la capacité<br>-Augmente la résilience par le biais de la journalisation. Vous pouvez ainsi empêcher tout endommagement des données en cas d'arrêt non planifié.|Nécessite au moins trois disques physiques pour une protection contre une seule défaillance de disque.|À utiliser pour les charges de travail hautement séquentielles, telles que l'archivage ou la sauvegarde.|
 
 ## <a name="step-1-create-a-storage-pool"></a>Étape 1 : Créer un pool de stockage
 
 Vous devez d'abord regrouper les disques physiques disponibles en un ou plusieurs pools de stockage.
 
-1. Dans le volet de navigation de gestionnaire de serveur, sélectionnez **File and Storage Services**.
+1. Dans le volet de navigation Gestionnaire de serveur, sélectionnez **services de fichiers et de stockage**.
 
-2. Dans le volet de navigation, sélectionnez le **Pools de stockage** page.
+2. Dans le volet de navigation, sélectionnez la page **pools de stockage** .
     
     Par défaut, les disques disponibles sont inclus dans un pool appelé pool *primordial*. Si aucun pool primordial n'est répertorié sous **POOLS DE STOCKAGE**, cela indique que le stockage ne répond pas aux conditions requises pour les espaces de stockage. Assurez-vous que les disques répondent aux conditions requises qui sont présentées dans la section Conditions préalables.
     
     >[!TIP]
     >Si vous sélectionnez le pool de stockage **Primordial**, les disques physiques disponibles sont répertoriés sous **DISQUES PHYSIQUES**.
 
-3. Sous **POOLS de stockage**, sélectionnez le **tâches** liste, puis sélectionnez **nouveau Pool de stockage**. L’Assistant Nouveau Pool de stockage s’ouvre.
+3. Sous **pools de stockage**, sélectionnez la liste **tâches** , puis sélectionnez **nouveau pool de stockage**. L’assistant nouveau pool de stockage s’ouvre.
 
-4. Sur le **avant de commencer** page, sélectionnez **suivant**.
+4. Dans la page **avant de commencer** , sélectionnez **suivant**.
 
-5. Sur le **spécifier un nom de pool de stockage et le sous-système** page, entrez un nom et une description facultative pour le pool de stockage, sélectionnez le groupe de disques physiques disponibles que vous souhaitez utiliser, puis sélectionnez **suivant**.
+5. Dans la page **spécifier un nom et un sous-système de pool de stockage** , entrez un nom et une description facultative pour le pool de stockage, sélectionnez le groupe de disques physiques disponibles que vous souhaitez utiliser, puis sélectionnez **suivant**.
 
-6. Sur le **sélectionner les disques physiques du pool de stockage** page, procédez comme suit, puis sélectionnez **suivant**:
+6. Dans la page **Sélectionner les disques physiques pour le pool de stockage** , effectuez les opérations suivantes, puis sélectionnez **suivant**:
     
     1. Cochez la case en regard de chaque disque physique à inclure dans le pool de stockage.
     
-    2. Si vous souhaitez désigner un ou plusieurs disques comme disques d’échange à chaud, sous **Allocation**, sélectionnez la flèche déroulante, puis sélectionnez **échange à chaud**.
+    2. Si vous souhaitez désigner un ou plusieurs disques en tant que disques d’échange à chaud, sous **allocation**, sélectionnez la flèche déroulante, puis sélectionnez **disque d’échange à chaud**.
 
-7. Sur le **confirmer les sélections** , vérifiez que les paramètres sont corrects, puis sélectionnez **créer**.
+7. Sur la page **confirmer les sélections** , vérifiez que les paramètres sont corrects, puis sélectionnez **créer**.
 
-8. Sur le **afficher les résultats** , vérifiez que toutes les tâches terminées, puis sélectionnez **fermer**.
+8. Dans la page **afficher les résultats** , vérifiez que toutes les tâches sont terminées, puis sélectionnez **Fermer**.
     
     >[!NOTE]
     >Éventuellement, pour passer directement à l'étape suivante, vous pouvez cocher la case **Créer un disque virtuel lorsque l'Assistant se ferme**.
 
 9. Sous **POOLS DE STOCKAGE**, vérifiez que le nouveau pool de stockage est répertorié.
 
-### <a name="windows-powershell-equivalent-commands-for-creating-storage-pools"></a>Commandes équivalentes de Windows PowerShell pour la création de pools de stockage
+### <a name="windows-powershell-equivalent-commands-for-creating-storage-pools"></a>Commandes Windows PowerShell équivalentes pour la création de pools de stockage
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -105,13 +105,13 @@ L'exemple suivant indique les disques physiques qui sont disponibles dans le poo
 Get-StoragePool -IsPrimordial $true | Get-PhysicalDisk | Where-Object CanPool -eq $True
 ```
 
-L’exemple suivant crée un nouveau pool de stockage nommé *StoragePool1* qui utilise tous les disques disponibles.
+L’exemple suivant crée un pool de stockage nommé *StoragePool1* qui utilise tous les disques disponibles.
 
 ```PowerShell
 New-StoragePool –FriendlyName StoragePool1 –StorageSubsystemFriendlyName “Storage Spaces*” –PhysicalDisks (Get-PhysicalDisk –CanPool $True)
 ```
 
-L’exemple suivant crée un nouveau pool de stockage, *StoragePool1*, qui utilise quatre des disques disponibles.
+L’exemple suivant crée un pool de stockage, *StoragePool1*, qui utilise quatre des disques disponibles.
 
 ```PowerShell
 New-StoragePool –FriendlyName StoragePool1 –StorageSubsystemFriendlyName “Storage Spaces*” –PhysicalDisks (Get-PhysicalDisk PhysicalDisk1, PhysicalDisk2, PhysicalDisk3, PhysicalDisk4)
@@ -130,31 +130,31 @@ Vous devez ensuite créer un ou plusieurs disques virtuels à partir du pool de 
 
 1. Si l'Assistant Nouveau disque virtuel n'est pas déjà ouvert, dans la page **Pools de stockage** du Gestionnaire de serveur, sous **POOLS DE STOCKAGE**, assurez-vous que le pool de stockage voulu est sélectionné.
 
-2. Sous **disques virtuels**, sélectionnez le **tâches** liste, puis sélectionnez **nouveau disque virtuel**. L’Assistant Création de disque virtuel s’ouvre.
+2. Sous **disques virtuels**, sélectionnez la liste **tâches** , puis sélectionnez **nouveau disque virtuel**. L’assistant nouveau disque virtuel s’ouvre.
 
-3. Sur le **avant de commencer** page, sélectionnez **suivant**.
+3. Dans la page **avant de commencer** , sélectionnez **suivant**.
 
-4. Sur le **sélectionner le pool de stockage** page, sélectionnez le pool de stockage souhaité, puis **suivant**.
+4. Dans la page **Sélectionner le pool de stockage** , sélectionnez le pool de stockage souhaité, puis sélectionnez **suivant**.
 
-5. Sur le **spécifier le nom du disque virtuel** page, entrez un nom et une description facultative, puis sélectionnez **suivant**.
+5. Dans la page **spécifier le nom du disque virtuel** , entrez un nom et éventuellement une description, puis sélectionnez **suivant**.
 
-6. Sur le **sélectionner la disposition de stockage** page, sélectionnez la disposition souhaitée, puis sélectionnez **suivant**.
+6. Dans la page **Sélectionner la disposition de stockage** , sélectionnez la disposition souhaitée, puis sélectionnez **suivant**.
     
     >[!NOTE]
-    >Si vous sélectionnez une mise en page où vous n’avez pas suffisamment de disques physiques, vous recevrez un message d’erreur lorsque vous sélectionnez **suivant**. Pour plus d’informations sur la disposition à des conditions d’utilisation et les disque, consultez [conditions préalables](#prerequisites)).
+    >Si vous sélectionnez une disposition dans laquelle vous n’avez pas assez de disques physiques, un message d’erreur s’affiche lorsque vous sélectionnez **suivant**. Pour plus d’informations sur la disposition à utiliser et les disques requis, voir [conditions préalables requises](#prerequisites).
 
-7. Si vous avez sélectionné **miroir** comme la disposition de stockage et que vous avez au moins cinq disques dans le pool, le **configurer les paramètres de résilience** page s’affiche. Vous pouvez sélectionner l'une des options suivantes :
+7. Si vous avez sélectionné **miroir** comme disposition de stockage et que vous disposez de cinq disques ou plus dans le pool, la page **configurer les paramètres de résilience** s’affiche. Vous pouvez sélectionner l'une des options suivantes :
     
       - **Miroir double**
       - **Miroir triple**
 
-8. Sur le **spécifier le type d’approvisionnement** page, sélectionnez une des options suivantes, puis sélectionnez **suivant**.
+8. Dans la page **spécifier le type de provisionnement** , sélectionnez l’une des options suivantes, puis sélectionnez **suivant**.
     
    - **Dynamique**
         
      Avec l'allocation dynamique, l'espace est alloué en fonction des besoins. L'utilisation du stockage disponible est ainsi optimisée. Toutefois, comme cela vous permet d'allouer le stockage de façon excessive, vous devez soigneusement surveiller la quantité d'espace disque disponible.
     
-   - **fixe**
+   - **Des**
         
      Avec l'allocation fixe, la capacité de stockage est allouée immédiatement, au moment de la création d'un disque virtuel. Par conséquent, l'allocation fixe utilise une quantité d'espace du pool de stockage égale à la taille du disque virtuel.
     
@@ -163,13 +163,13 @@ Vous devez ensuite créer un ou plusieurs disques virtuels à partir du pool de 
 
 9. Dans la page **Spécifier la taille du disque virtuel**, procédez comme suit :
     
-    Si vous avez sélectionné l’allocation dynamique à l’étape précédente, dans le **taille du disque virtuel** , entrez une taille de disque virtuel, sélectionnez les unités (**Mo**, **Go**, ou **to** ), puis sélectionnez **suivant**.
+    Si vous avez sélectionné l’allocation dynamique à l’étape précédente, dans la **zone Taille du disque virtuel** , entrez une taille de disque virtuel, sélectionnez les unités (**Mo**, **Go**ou **to**), puis sélectionnez **suivant**.
     
-    Si vous avez sélectionné l’allocation fixe à l’étape précédente, sélectionnez une des opérations suivantes :
+    Si vous avez sélectionné l’approvisionnement fixe à l’étape précédente, sélectionnez l’une des options suivantes :
     
       - **Spécifier la taille**
         
-        Pour spécifier une taille, entrez une valeur dans le **taille du disque virtuel** zone, puis sélectionnez les unités (**Mo**, **Go**, ou **to**).
+        Pour spécifier une taille, entrez une valeur dans la zone **taille du disque virtuel** , puis sélectionnez les unités (**Mo**, **Go**ou **to**).
         
         Si vous utilisez une disposition de stockage autre que la disposition simple, le disque virtuel utilise plus d'espace libre que la taille que vous spécifiez. Pour éviter une erreur potentielle si la taille du volume dépasse l'espace libre du pool de stockage, vous pouvez cocher la case **Créer le disque virtuel le plus volumineux possible par rapport à la taille spécifiée**.
     
@@ -177,14 +177,14 @@ Vous devez ensuite créer un ou plusieurs disques virtuels à partir du pool de 
         
         Sélectionnez cette option pour créer un disque virtuel qui utilise la capacité maximale du pool de stockage.
 
-10. Sur le **confirmer les sélections** , vérifiez que les paramètres sont corrects, puis sélectionnez **créer**.
+10. Sur la page **confirmer les sélections** , vérifiez que les paramètres sont corrects, puis sélectionnez **créer**.
 
-11. Sur le **afficher les résultats** , vérifiez que toutes les tâches terminées, puis sélectionnez **fermer**.
+11. Dans la page **afficher les résultats** , vérifiez que toutes les tâches sont terminées, puis sélectionnez **Fermer**.
     
     >[!TIP]
     >Par défaut, la case **Créer un volume lorsque l'Assistant se ferme** est cochée. Vous passez directement à l'étape suivante.
 
-### <a name="windows-powershell-equivalent-commands-for-creating-virtual-disks"></a>Commandes équivalentes de Windows PowerShell pour la création de disques virtuels
+### <a name="windows-powershell-equivalent-commands-for-creating-virtual-disks"></a>Commandes Windows PowerShell équivalentes pour la création de disques virtuels
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -194,7 +194,7 @@ L’exemple suivant crée un disque virtuel de 50 Go nommé *VirtualDisk1* sur u
 New-VirtualDisk –StoragePoolFriendlyName StoragePool1 –FriendlyName VirtualDisk1 –Size (50GB)
 ```
 
-L’exemple suivant crée un disque virtuel en miroir nommé *VirtualDisk1* sur un pool de stockage nommé *StoragePool1*. Le disque utilise la capacité de stockage maximale du pool de stockage.
+L’exemple suivant crée un disque virtuel mis en miroir nommé *VirtualDisk1* sur un pool de stockage nommé *StoragePool1*. Le disque utilise la capacité de stockage maximale du pool de stockage.
 
 ```PowerShell
 New-VirtualDisk –StoragePoolFriendlyName StoragePool1 –FriendlyName VirtualDisk1 –ResiliencySettingName Mirror –UseMaximumSize
@@ -217,27 +217,27 @@ New-VirtualDisk -StoragePoolFriendlyName StoragePool1 -FriendlyName VirtualDisk1
 
 ## <a name="step-3-create-a-volume"></a>Étape 3 : Créer un volume
 
-Vous devez ensuite créer un volume à partir du disque virtuel. Vous pouvez affecter une lettre de lecteur facultative ou un dossier, puis formater le volume avec un système de fichiers.
+Vous devez ensuite créer un volume à partir du disque virtuel. Vous pouvez affecter une lettre de lecteur ou un dossier facultatif, puis formater le volume avec un système de fichiers.
 
-1. Si l’Assistant Nouveau Volume n’est pas déjà ouvert, dans le **Pools de stockage** page dans le Gestionnaire de serveur, sous **disques virtuels**, cliquez sur le disque virtuel voulu, puis sélectionnez **nouveau Volume**.
+1. Si l’Assistant Création d’un nouveau volume n’est pas déjà ouvert, dans la page **pools de stockage** de gestionnaire de serveur, sous **disques virtuels**, cliquez avec le bouton droit sur le disque virtuel de votre choix, puis sélectionnez **nouveau volume**.
     
     L'Assistant Création d'un nouveau volume s'ouvre.
 
-2. Sur le **avant de commencer** page, sélectionnez **suivant**.
+2. Dans la page **avant de commencer** , sélectionnez **suivant**.
 
-3. Sur le **sélectionner le serveur et le disque** page, procédez comme suit, puis sélectionnez **suivant**.
+3. Dans la page **Sélectionner le serveur et le disque** , effectuez les opérations suivantes, puis sélectionnez **suivant**.
     
-    1. Dans le **Server** zone, sélectionnez le serveur sur lequel vous souhaitez configurer le volume.
+    1. Dans la zone **serveur** , sélectionnez le serveur sur lequel vous souhaitez approvisionner le volume.
     
-    2. Dans le **disque** zone, sélectionnez le disque virtuel sur lequel vous souhaitez créer le volume.
+    2. Dans la zone **disque** , sélectionnez le disque virtuel sur lequel vous souhaitez créer le volume.
 
-4. Sur le **spécifier la taille du volume** , entrez une taille de volume, spécifiez le nombre d’unités (**Mo**, **Go**, ou **to**), puis sélectionnez **Suivant**.
+4. Dans la page **spécifier la taille du volume** , entrez une taille de volume, spécifiez les unités **(Mo**, **Go**ou **to**), puis sélectionnez **suivant**.
 
-5. Sur le **affecter à une lettre de lecteur ou le dossier** page, configurez l’option souhaitée, puis sélectionnez **suivant**.
+5. Dans la page **affecter à une lettre de lecteur ou à un dossier** , configurez l’option souhaitée, puis sélectionnez **suivant**.
 
-6. Sur le **sélectionner des paramètres système de fichiers** page, procédez comme suit, puis sélectionnez **suivant**.
+6. Dans la page **Sélectionner les paramètres du système de fichiers** , effectuez les opérations suivantes, puis sélectionnez **suivant**.
     
-    1. Dans le **système de fichiers** , sélectionnez soit **NTFS** ou **ReFS**.
+    1. Dans la liste **système de fichiers** , sélectionnez **NTFS** ou **ReFS**.
     
     2. Dans la liste **Taille d'unité d'allocation**, laissez la valeur de paramètre **Par défaut** ou définissez la taille d'unité d'allocation.
         
@@ -247,13 +247,13 @@ Vous devez ensuite créer un volume à partir du disque virtuel. Vous pouvez aff
     
     3. Vous pouvez éventuellement, dans la zone **Nom de volume**, entrer un nom d'étiquette de volume, par exemple **Données RH**.
 
-7. Sur le **confirmer les sélections** , vérifiez que les paramètres sont corrects, puis sélectionnez **créer**.
+7. Sur la page **confirmer les sélections** , vérifiez que les paramètres sont corrects, puis sélectionnez **créer**.
 
-8. Sur le **afficher les résultats** , vérifiez que toutes les tâches terminées, puis sélectionnez **fermer**.
+8. Dans la page **afficher les résultats** , vérifiez que toutes les tâches sont terminées, puis sélectionnez **Fermer**.
 
-9. Pour vérifier que le volume a été créé, dans le Gestionnaire de serveur, sélectionnez le **Volumes** page. Le volume est répertorié sous le serveur où il a été créé. Vous pouvez également vérifier que le volume figure dans l'Explorateur Windows.
+9. Pour vérifier que le volume a été créé, dans Gestionnaire de serveur, sélectionnez la page **volumes** . Le volume est répertorié sous le serveur où il a été créé. Vous pouvez également vérifier que le volume figure dans l'Explorateur Windows.
 
-### <a name="windows-powershell-equivalent-commands-for-creating-volumes"></a>Commandes équivalentes de Windows PowerShell pour la création de volumes
+### <a name="windows-powershell-equivalent-commands-for-creating-volumes"></a>Commandes Windows PowerShell équivalentes pour la création de volumes
 
 L’applet de commande Windows PowerShell suivante effectue la même fonction que la procédure précédente. Entrez la commande sur une seule ligne.
 
@@ -268,4 +268,4 @@ Get-VirtualDisk –FriendlyName VirtualDisk1 | Get-Disk | Initialize-Disk –Pas
 - [Espaces de stockage](overview.md)
 - [Applets de commande de stockage dans Windows PowerShell](https://docs.microsoft.com/powershell/module/storage/index?view=win10-ps)
 - [Déployer des espaces de stockage en cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11))
-- [Forum aux Questions (FAQ sur) les espaces de stockage](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)
+- [Espaces de stockage-Forum aux questions (FAQ)](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)

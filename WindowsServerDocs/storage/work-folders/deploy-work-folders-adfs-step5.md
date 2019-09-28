@@ -1,6 +1,6 @@
 ---
 title: 'Déployer Dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer les clients'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,28 +8,28 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: 44e3ab06ac29d770ad47b43db5eba06f0eb08a60
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f0a50913cbcf7773f792df4ce119b83d796a7155
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447796"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402773"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 5, les Clients de configuration
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Déployer des dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer des clients
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la cinquième étape de déploiement de dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Vue d’ensemble](deploy-work-folders-adfs-overview.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Vue d’ensemble @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 1, configurer AD FS](deploy-work-folders-adfs-step1.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 1 : configurer AD FS @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 2, le travail de post-configuration AD FS](deploy-work-folders-adfs-step2.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 3, configurer des dossiers de travail](deploy-work-folders-adfs-step3.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 4 : configurer le Proxy d’Application Web](deploy-work-folders-adfs-step4.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web @ no__t-0  
   
 Utilisez les procédures suivantes pour configurer les clients Windows joints au domaine et ceux qui ne sont pas joints au domaine. Vous pouvez utiliser ces clients pour tester si les fichiers se synchronisent correctement avec les dossiers de travail des clients.  
   
@@ -79,7 +79,7 @@ Pour configurer les dossiers de travail sur l’ordinateur client, procédez com
   
 2. Cliquez sur **Configurer Dossiers de travail**.  
   
-3. Sur le **Entrez votre adresse e-mail professionnelle** , entrez l’adresse de messagerie de l’utilisateur (par exemple, user@contoso.com) ou l’URL de dossiers de travail (dans l’exemple de test, https :\//workfolders.contoso.com), puis cliquez sur  **Suivant**.  
+3. Dans la page **Entrez votre adresse de messagerie professionnelle** , entrez l’adresse de messagerie de l’utilisateur (par exemple, user@contoso.com) ou l’URL des dossiers de travail (dans l’exemple de test, https : \//workfolders. contoso. com), puis cliquez sur **suivant**.  
   
 4. Si l’utilisateur est connecté au réseau d’entreprise, l’authentification est effectuée par l’authentification intégrée de Windows. Si l’utilisateur n’est pas connecté au réseau d’entreprise, l’authentification est effectuée par AD FS (OAuth) et on invitera l’utilisateur à fournir des informations d’identification. Entrez vos informations d’utilisation, puis cliquez sur **OK**.  
   

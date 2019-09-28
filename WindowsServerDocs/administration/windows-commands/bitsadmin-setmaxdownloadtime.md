@@ -1,8 +1,8 @@
 ---
 title: Bitsadmin setmaxdownloadtime
-description: Rubrique de commandes de Windows pour **bitsadmin setmaxdownloadtime** -définit le délai d’attente de téléchargement en secondes.
+description: La rubrique commandes Windows pour **Bitsadmin setmaxdownloadtime** -définit le délai d’attente de téléchargement en secondes.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f13b44429bec2718af1a648f273fead18d4e9e08
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 985453de5bd2f4a06b5635ae5b0a9794d30175b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830990"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380559"
 ---
 # <a name="bitsadmin-setmaxdownloadtime"></a>Bitsadmin setmaxdownloadtime
 
@@ -36,20 +36,20 @@ bitsadmin /SetMaxDownloadTime <Job> <Timeout>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|Délai d’expiration dépassé|Le délai d’expiration en secondes|
+|Tâche|Nom complet ou GUID du travail|
+|Délai d’expiration dépassé|Délai d’expiration en secondes|
 
 ## <a name="remarks"></a>Notes
 
 -   N/A
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant définit le délai d’attente pour le travail nommé *myDownloadJob* à 10 secondes.
+L’exemple suivant définit le délai d’attente pour la tâche nommée *myDownloadJob* sur 10 secondes.
 ```
 C:\>bitsadmin /SetMaxDownloadTime myDownloadJob 10
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
-title: Créer de SC
-description: 'Rubrique de commandes de Windows pour ***- '
+title: SC créer
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7931ddc91b91d5fce01335f4b090d0305790f65c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8ea8f1c33472b7ac95ec0282a50d902a9d7cf84d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826500"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384373"
 ---
-# <a name="sc-create"></a>Créer de SC
+# <a name="sc-create"></a>SC créer
 
 
 
-Crée une sous-clé et des entrées pour un service dans le Registre et dans la base de données du Gestionnaire de contrôle de Service.
+Crée une sous-clé et des entrées pour un service dans le registre et dans la base de données du gestionnaire de contrôle des services.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,28 +38,28 @@ sc [<ServerName>] create [<ServiceName>] [type= {own | share | kernel | filesys 
 
 |Paramètre|Description|
 |---------|-----------|
-|\<ServerName>|Spécifie le nom du serveur distant sur lequel se trouve le service. Le nom doit utiliser le format UNC Universal Naming Convention () (par exemple, \\ \\myserver). Pour exécuter SC.exe localement, omettez ce paramètre.|
-|\<ServiceName>|Spécifie le nom de service retourné par la **getkeyname** opération.|
-|type = {propre \| partager \| noyau \| filesys \| rec \| interagir type = {propre \| partager}}|Spécifie le type de service. Le paramètre par défaut est **type = propre**.</br>**propre** -Spécifie que le service s’exécute dans son propre processus. Il ne partage pas un fichier exécutable avec d’autres services. Il s’agit du paramètre par défaut.</br>**partager** -Spécifie que le service s’exécute comme un processus partagé. Il partage un fichier exécutable avec d’autres services.</br>**noyau** -spécifie un pilote.</br>**filesys** -spécifie un pilote de système de fichiers.</br>**Rec** -spécifie un pilote de reconnu de système de fichiers (identifie les systèmes de fichiers utilisés sur l’ordinateur).</br>**interagir** -Spécifie que le service peut interagir avec le bureau, en recevant des données des utilisateurs. Services interactifs doivent être exécutés sous le compte LocalSystem. Ce type doit être utilisé conjointement avec **type = propre** ou **type = partagé**. À l’aide de **type = interagir** proprement dit génère une erreur « paramètre non valide ».|
-|début = {démarrage \| système \| automatique \| à la demande \| désactivé}|Spécifie le type de démarrage pour le service. Le paramètre par défaut est **démarrer = à la demande**.</br>**démarrage** -spécifie un pilote de périphérique qui est chargé par le chargeur de démarrage.</br>**système** -spécifie un pilote de périphérique est démarré pendant l’initialisation du noyau.</br>**automatique** -spécifie un service qui démarre automatiquement chaque fois que l’ordinateur est redémarré. Notez que le service s’exécute même si personne n’ouvre une session sur l’ordinateur.</br>**à la demande** -spécifie un service qui doit être démarré manuellement. Ceci est la valeur par défaut si **Démarrer =** n’est pas spécifié.</br>**désactivé** -spécifie un service qui ne peut pas être démarré. Pour démarrer un service désactivé, modifiez le type de démarrage sur une autre valeur.|
-|erreur = {normal \| graves \| critique \| ignorer}|Spécifie la gravité de l’erreur si le service échoue au démarrage de l’ordinateur. Le paramètre par défaut est **erreur = normal**.</br>**normal** -Spécifie que l’erreur est enregistrée. Une boîte de message s’affiche, informant l’utilisateur qu’un service n’a pas pu démarrer. Le démarrage se poursuit. Il s’agit du paramètre par défaut.</br>**graves** -Spécifie que l’erreur est enregistrée (si possible). L’ordinateur tente de redémarrer avec la dernière bonne configuration connue. Cela pourrait entraîner l’ordinateur est capable de redémarrer, mais le service peut toujours être impossible d’exécuter.</br>**critique** -Spécifie que l’erreur est enregistrée (si possible). L’ordinateur tente de redémarrer avec la dernière bonne configuration connue. Si la dernière bonne configuration connue échoue, démarrage échoue également et le processus de démarrage s’arrête et une erreur d’arrêt.</br>**Ignorer** -Spécifie que l’erreur est enregistrée et démarrage se poursuit. Aucune notification n’est donnée à l’utilisateur au-delà de l’enregistrement de l’erreur dans le journal des événements.|
-|binpath= \<BinaryPathName>|Spécifie un chemin d’accès au fichier binaire du service. Il n’existe aucune valeur par défaut pour **chemin bin =**, et cette chaîne doit être fournie.|
-|group= \<LoadOrderGroup>|Spécifie le nom du groupe dont ce service est un membre. La liste des groupes est stockée dans le Registre dans le **HKLM\System\CurrentControlSet\Control\ServiceGroupOrder** sous-clé. La valeur par défaut est null.|
-|balise = {Oui \| aucune}|Spécifie si une TagID doit être obtenu à partir de l’appel de CreateService. Les balises sont utilisées uniquement pour les pilotes de démarrage et de démarrage système.|
-|depend= \<dependencies>|Spécifie les noms des services ou des groupes qui doivent démarrer avant le démarrage de ce service. Les noms sont séparés par des barres obliques (/).|
-|obj= {\<AccountName> \| \<ObjectName>}|Spécifie le nom d’un compte dans lequel un service s’exécutera, ou spécifie un nom de l’objet de pilote Windows dans lequel le pilote s’exécute.|
-|DisplayName = \<DisplayName >|Spécifie un nom convivial qui peut être utilisé par les programmes d’interface utilisateur pour identifier le service.|
-|mot de passe = \<mot de passe >|Spécifie un mot de passe. Cela est nécessaire si vous utilisez un compte autre que LocalSystem.|
+|@no__t 0ServerName >|Spécifie le nom du serveur distant sur lequel se trouve le service. Le nom doit utiliser le format UNC (Universal Naming Convention) (par exemple, \\ @ no__t-1myserver). Pour exécuter SC. exe localement, omettez ce paramètre.|
+|@no__t 0ServiceName >|Spécifie le nom du service retourné par l’opération **getkeyname** .|
+|type = {Own \| partage \| noyau \| files d' \| Rec \| Interact type = {Own \| Share}}|Spécifie le type de service. Le paramètre par défaut est **type = Own**.</br>**Own** : spécifie que le service s’exécute dans son propre processus. Il ne partage pas de fichier exécutable avec d’autres services. Il s’agit du paramètre par défaut.</br>**partage** : spécifie que le service s’exécute en tant que processus partagé. Il partage un fichier exécutable avec d’autres services.</br>**kernel** : spécifie un pilote.</br>**fichiers** -spécifie un pilote de système de fichiers.</br>**Rec** : spécifie un pilote reconnu par le système de fichiers (identifie les systèmes de fichiers utilisés sur l’ordinateur).</br>**Interact** : spécifie que le service peut interagir avec le bureau, en recevant les entrées des utilisateurs. Les services interactifs doivent être exécutés sous le compte LocalSystem. Ce type doit être utilisé conjointement avec **type = Own** ou **type = Shared**. L’utilisation de **type = interactly** génère une erreur « paramètre non valide ».|
+|Start = {Boot \| système \| @no__t de la demande auto-2 \| désactivé}|Spécifie le type de démarrage du service. Le paramètre par défaut est **Start = Demand**.</br>**démarrage** : spécifie un pilote de périphérique qui est chargé par le chargeur de démarrage.</br>**système** : spécifie un pilote de périphérique qui est démarré pendant l’initialisation du noyau.</br>**spécifie automatiquement un** service qui démarre automatiquement chaque fois que l’ordinateur est redémarré. Notez que le service s’exécute même s’il n’y a pas de connexion à l’ordinateur.</br>**Demand** : spécifie un service qui doit être démarré manuellement. Il s’agit de la valeur par défaut si **Start =** n’est pas spécifié.</br>**Disabled** : spécifie un service qui ne peut pas être démarré. Pour démarrer un service désactivé, remplacez le type de démarrage par une autre valeur.|
+|erreur = {normal \| grave \| critique \| ignor}|Spécifie la gravité de l’erreur si le service échoue au démarrage de l’ordinateur. Le paramètre par défaut est **Error = normal**.</br>**normal** : spécifie que l’erreur est consignée. Un message s’affiche, informant l’utilisateur qu’un service n’a pas pu démarrer. Le démarrage se poursuit. Il s’agit du paramètre par défaut.</br>**grave** : spécifie que l’erreur est consignée (si possible). L’ordinateur tente de redémarrer avec la dernière bonne configuration connue. Cela peut entraîner le redémarrage de l’ordinateur, mais le service n’est peut-être toujours pas en mesure de s’exécuter.</br>**critique** : spécifie que l’erreur est consignée (si possible). L’ordinateur tente de redémarrer avec la dernière bonne configuration connue. Si la dernière bonne configuration connue échoue, le démarrage échoue également et le processus de démarrage s’arrête avec une erreur d’arrêt.</br>**ignore** : spécifie que l’erreur est journalisée et que le démarrage se poursuit. Aucune notification n’est donnée à l’utilisateur au-delà de l’enregistrement de l’erreur dans le journal des événements.|
+|BinPath = \<BinaryPathName >|Spécifie un chemin d’accès au fichier binaire du service. Il n’y a pas de valeur par défaut pour **BinPath =** , et cette chaîne doit être fournie.|
+|Groupe = \<LoadOrderGroup >|Spécifie le nom du groupe dont ce service est membre. La liste des groupes est stockée dans le registre, dans la sous-clé **HKLM\System\CurrentControlSet\Control\ServiceGroupOrder** . La valeur par défaut est null.|
+|tag = {Oui \| non}|Spécifie si un TagID doit être obtenu à partir de l’appel de CreateService. Les balises sont utilisées uniquement pour les pilotes de démarrage système et de démarrage.|
+|depend = \<dependencies >|Spécifie les noms des services ou des groupes qui doivent démarrer avant le démarrage de ce service. Les noms sont séparés par des barres obliques (/).|
+|obj = {\<AccountName > \| \<ObjectName >}|Spécifie le nom d’un compte dans lequel un service s’exécute, ou spécifie un nom de l’objet pilote Windows dans lequel le pilote s’exécutera.|
+|DisplayName = \<DisplayName >|Spécifie un nom convivial qui peut être utilisé par les programmes de l’interface utilisateur pour identifier le service.|
+|Password = \<Password >|Spécifie un mot de passe. Cela est obligatoire si un compte autre que LocalSystem est utilisé.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Pour chaque option de ligne de commande, le signe égal fait partie du nom d’option.
--   Un espace est nécessaire entre une option et sa valeur (par exemple, **type = propre**. Si l’espace est omis l’opération échoue.
+-   Pour chaque option de ligne de commande, le signe égal fait partie du nom de l’option.
+-   Un espace est requis entre une option et sa valeur (par exemple, **type = Own**). Si l’espace est omis, l’opération échoue.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Les exemples suivants montrent comment vous pouvez utiliser la **sc créer** commande :
+Les exemples suivants illustrent la façon dont vous pouvez utiliser la commande **SC Create** :
 ```
 sc \\myserver create NewService binpath= c:\windows\system32\NewServ.exe
 sc create NewService binpath= c:\windows\system32\NewServ.exe type= share start= auto depend= "+TDI NetBIOS"
@@ -67,4 +67,4 @@ sc create NewService binpath= c:\windows\system32\NewServ.exe type= share start=
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

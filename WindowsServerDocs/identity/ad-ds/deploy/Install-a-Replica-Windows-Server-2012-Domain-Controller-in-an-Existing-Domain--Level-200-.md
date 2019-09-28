@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a7fec85301e2b70fb64f35f0b6e345adde29eed0
-ms.sourcegitcommit: 67833e36b8b2c6194a1426a974c5ad9c859fa4c9
+ms.openlocfilehash: 5e72c18d3aa49774cf73d5365748e7bf20764b22
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68329649"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390836"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>Installer un contrôleur de domaine Windows Server 2012 répliqué dans un domaine existant (niveau 200)
 
@@ -179,7 +179,7 @@ Les arguments de l'applet de commande ADDSDeployment **Options supplémentaires*
 -syskey <secure string>  
 ```  
   
-### <a name="paths"></a>Chemins d'accès  
+### <a name="paths"></a>Chemins d’accès  
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
   
 La page **Chemins d’accès** vous permet de remplacer les emplacements de dossier par défaut de la base de données AD DS, des journaux de transaction de base de données et du partage SYSVOL. Les emplacements par défaut sont toujours dans des sous-répertoires de %systemroot%.  

@@ -1,25 +1,25 @@
 ---
 title: Réglage des performances pour HTTP 1.1/2
-description: Recommandations pour HTTP 1.1/2 de réglage des performances
-ms.prod: windows-server-threshold
+description: Recommandations en matière de réglage des performances pour HTTP 1.1/2
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: IvanPash; GMonte
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: bf85efa88e377966135c23a548119f19c39cceba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7d7bd5145a0804b9ec86438602dfed7c75a2b02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866370"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384968"
 ---
-# <a name="performance-tuning-http-112"></a>HTTP 1.1/2 de réglage des performances
+# <a name="performance-tuning-http-112"></a>Réglage des performances HTTP 1.1/2
 
-HTTP/2 est destiné à améliorer les performances côté client (par exemple, temps de chargement page sur un navigateur). Sur le serveur, il peut représenter une légère augmentation de coût UC. Tandis que le serveur ne requiert plus une connexion TCP unique pour chaque demande, certaines de cet état seront désormais conservée dans la couche HTTP. En outre, HTTP/2 a la compression d’en-tête, qui représente la charge d’UC supplémentaire.
+HTTP/2 est conçu pour améliorer les performances côté client (par exemple, le temps de chargement de la page sur un navigateur). Sur le serveur, il peut représenter une légère augmentation du coût de l’UC. Alors que le serveur n’a plus besoin d’une connexion TCP unique pour chaque demande, une partie de cet État est désormais conservée dans la couche HTTP. En outre, HTTP/2 a une compression d’en-tête, qui représente une charge de processeur supplémentaire.
 
-Certaines situations nécessitent un secours (réinitialisation de la connexion HTTP/2 et à la place l’établissement d’une nouvelle connexion pour utiliser HTTP/1.1) HTTP/1.1. En particulier, renégociation TLS et l’authentification HTTP (autres que de base et Digest) requièrent secours HTTP/1.1. Bien que cela ajoute une surcharge, ces opérations déjà impliquent un délai et ne sont donc pas particulièrement sensibles aux performances.
+Certaines situations requièrent une solution de secours HTTP/1.1 (en réinitialisant la connexion HTTP/2 et en établissant une nouvelle connexion pour utiliser HTTP/1.1). En particulier, la renégociation TLS et l’authentification HTTP (autres que Basic et Digest) requièrent une solution de secours HTTP/1.1. Même si cela ajoute une surcharge, ces opérations impliquent déjà un certain délai et ne sont donc pas particulièrement sensibles aux performances.
 
 ## <a name="see-also"></a>Voir aussi
-- [Web le réglage des performances de serveur](index.md) 
-- [Réglage des performances d’IIS 10.0](tuning-iis-10.md)
+- [Réglage des performances du serveur Web](index.md) 
+- [Optimisation des performances d’IIS 10.0](tuning-iis-10.md)

@@ -2,18 +2,18 @@
 title: Ajouter des serveurs d’espaces de noms à un espace de noms DFS basé sur un domaine
 description: Cet article explique comment spécifier des serveurs d’espaces de noms supplémentaires pour héberger un espace de noms à l’aide de la gestion DFS.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 03b6920e75ba3c51f1d181cfd41887fef39b7412
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: fa28ec06448b67724ce8e3f29894fc70f6a6dae9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546326"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386247"
 ---
 # <a name="add-namespace-servers-to-a-domain-based-dfs-namespace"></a>Ajouter des serveurs d’espaces de noms à un espace de noms DFS basé sur un domaine
 

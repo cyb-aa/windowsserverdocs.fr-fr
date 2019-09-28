@@ -2,19 +2,19 @@
 title: Gérer les certificats pour la mise en réseau définie par logiciel
 description: Vous pouvez utiliser cette rubrique pour apprendre à gérer les certificats pour les communications Northbound et Southbound du contrôleur de réseau lorsque vous déployez la mise en réseau à définition logicielle (SDN) dans Windows Server 2016 Datacenter.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: 8e2feba8232ae87d59478d3522c4e6f02baf27b8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b1cff080630c68ee8c4b7f0904f8fd0978330edc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870101"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405988"
 ---
 # <a name="manage-certificates-for-software-defined-networking"></a>Gérer les certificats pour la mise en réseau définie par logiciel
 

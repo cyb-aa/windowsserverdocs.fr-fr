@@ -1,9 +1,9 @@
 ---
 title: Planifier le déploiement de la gestion à distance des clients DirectAccess
-description: Cette rubrique fait partie du guide les Clients DirectAccess de gérer à distance dans Windows Server 2016.
+description: Cette rubrique fait partie du guide gérer des clients DirectAccess à distance dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,22 +12,22 @@ ms.topic: article
 ms.assetid: ab518c0d-a496-414e-b9c7-f4378d8b13aa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 21783b2ac4135344a13d69a983fe22800df1f40d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 0224d47b85a3988a4adf312dad8f149a76c24778
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282806"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404589"
 ---
 # <a name="plan-deployment-for-remote-management-of-directaccess-clients"></a>Planifier le déploiement de la gestion à distance des clients DirectAccess
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Les rubriques suivantes fournissent des étapes de planification pour le déploiement d’un seul serveur d’accès à distance en cours d’exécution qui peuvent être utilisées pour la gestion à distance des clients DirectAccess.  
+Les rubriques suivantes fournissent des étapes de planification pour le déploiement d’un seul serveur d’accès à distance exécutant qui peut être utilisé pour la gestion à distance des clients DirectAccess.  
   
-[Étape 1 : Planifier l’Infrastructure d’accès à distance](Step-1-Plan-the-Remote-Access-Infrastructure.md): Cette rubrique vous aide à planifier les paramètres de serveur et de la topologie réseau, configuration requise du pare-feu, configuration requise des certificats, les exigences de système de nom de domaine, serveur d’emplacement réseau DirectAccess et la configuration de serveurs d’administration, Active Directory configuration requise et la création d’objets de stratégie de groupe.  
+[Étape 1 : Planifier l’infrastructure d’accès à distance @ no__t-0 : Cette rubrique vous aide à planifier la topologie du réseau et les paramètres du serveur, le pare-feu, les exigences de certificat, la configuration requise pour le nom de domaine, la configuration du serveur emplacement réseau DirectAccess et des serveurs d’administration, Active Directory la configuration requise et la création d’objets stratégie de groupe.  
   
-[Étape 2 : Planifier le déploiement de l’accès à distance](Step-2-Plan-the-Remote-Access-Deployment.md): Planifier le client et les stratégies de déploiement serveur et les configurations de serveurs d’infrastructure.  
+[Étape 2 : Planifier le déploiement de l’accès à distance @ no__t-0 : Planifiez les configurations des serveurs et des stratégies de déploiement des clients et des serveurs d’infrastructure.  
 
   
 

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/26/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: adb587412d65506c35705c5eaa8dbea8c660d117
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: f78c60ccd65b4c9148d53d894c572a4402948806
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590360"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407681"
 ---
 # <a name="configure-additional-authentication-methods-for-ad-fs"></a>Configurer des méthodes d'authentification supplémentaires pour AD FS
 
@@ -23,7 +23,7 @@ Pour activer l'authentification multifacteur, vous devez sélectionner au moins 
 > [!NOTE]
 > Si vous sélectionnez l’authentification par certificat, vérifiez que les certificats de carte à puce ont été configurés en toute sécurité et exigent un code confidentiel.
 
-Saviez-vous que Microsoft Azure offre une fonctionnalité similaire dans le cloud ? En savoir plus sur les [solutions de gestion des identités Microsoft Azure](http://aka.ms/m2w274).<br /><br />Créez une solution d’identité hybride dans Microsoft Azure :<br /> - [En savoir plus sur Azure Multi-Factor Authentication.](http://aka.ms/ey6o9r)<br /> - [Gérer les identités pour les environnements hybrides à forêt unique à l’aide de l’authentification Cloud.](http://aka.ms/g1jat8)<br /> - [Gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles.](http://aka.ms/kt1bbm)
+Saviez-vous que Microsoft Azure offre une fonctionnalité similaire dans le cloud ? En savoir plus sur les [solutions de gestion des identités Microsoft Azure](http://aka.ms/m2w274).<br /><br />Créez une solution d’identité hybride dans Microsoft Azure :<br /> - [en savoir plus sur Azure Multi-Factor Authentication.](http://aka.ms/ey6o9r)<br /> - [Gérez les identités pour les environnements hybrides à forêt unique à l’aide de l’authentification Cloud.](http://aka.ms/g1jat8)<br /> - [Gérez les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles.](http://aka.ms/kt1bbm)
 
 ## <a name="microsoft-and-third-party-additional-authentication-methods"></a>Méthodes d'authentification supplémentaires tierces et Microsoft
 Vous pouvez également configurer et activer des méthodes d’authentification Microsoft et tierces dans AD FS dans Windows Server 2012 R2. Une fois installé et inscrit auprès de AD FS, vous pouvez appliquer l’authentification multifacteur dans le cadre de la stratégie d’authentification globale ou par partie de confiance.
@@ -32,7 +32,7 @@ Voici une liste alphabétique des fournisseurs tiers et Microsoft avec les offre
 
 |Fournisseur|Offre|Lien pour en savoir plus|
 |-|-|-| 
-|aPersona|aPersona adaptative Multi-Factor Authentication pour l’authentification unique (SSO) Microsoft ADFS|[Adaptateur aPersona ASM ADFS](https://www.apersona.com/adfs)|
+|aPersona|Multi-Factor Authentication adaptative aPersona pour l’authentification unique (SSO) Microsoft ADFS|[Adaptateur aPersona ASM ADFS](https://www.apersona.com/adfs)|
 |Sécurité Duo|Adaptateur d’authentification multifacteur duo pour AD FS|[Authentification duo pour AD FS](https://duo.com/docs/adfs)|
 |Futurae|Suite d’authentification futurae pour AD FS|[Authentification forte futurae](https://futurae.com)|
 |Gemalto|Services de sécurité & et d'identité Gemalto|[http://www.gemalto.com/identity](http://www.gemalto.com/identity)|

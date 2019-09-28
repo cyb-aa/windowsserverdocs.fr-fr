@@ -1,43 +1,43 @@
 ---
 title: Exemple de fichier de commandes d'environnement réseau (Netsh)
-description: Vous pouvez utiliser cette rubrique pour apprendre à créer un fichier de commandes qui effectue plusieurs tâches à l’aide de Netsh dans Windows Server 2016.
-ms.prod: windows-server-threshold
+description: Vous pouvez utiliser cette rubrique pour apprendre à créer un fichier de commandes qui effectue plusieurs tâches à l’aide de la commande netsh dans Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: c94e37a4-3637-4613-9eb5-ed604e831eca
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b0528cfaef201ba30e00e30f56a763be39a6b828
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 86fbe66978f7c09a332bba16a27a13fa029cb5a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880170"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401921"
 ---
-# <a name="network-shell-netsh-example-batch-file"></a>Réseau d’interpréteur de commandes \(Netsh\) fichier Batch
+# <a name="network-shell-netsh-example-batch-file"></a>Exemple de fichier de commandes Network Shell \(Netsh @ no__t-1
 
 S'applique à : Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour apprendre à créer un fichier de commandes qui effectue plusieurs tâches à l’aide de Netsh dans Windows Server 2016. Dans cet exemple de fichier batch, le **netsh wins** contexte est utilisé.
+Vous pouvez utiliser cette rubrique pour apprendre à créer un fichier de commandes qui effectue plusieurs tâches à l’aide de la commande netsh dans Windows Server 2016. Dans cet exemple de fichier de commandes, le contexte **netsh WINS** est utilisé.
 
-## <a name="example-batch-file-overview"></a>Vue d’ensemble du fichier exemple Batch
+## <a name="example-batch-file-overview"></a>Exemple de vue d’ensemble du fichier batch
 
-Vous pouvez utiliser les commandes Netsh pour le service Windows Internet Name Service \(WINS\) dans les fichiers de commandes et d’autres scripts pour automatiser des tâches. L’exemple de fichier batch suivant montre comment utiliser les commandes Netsh pour WINS pour effectuer diverses tâches associées.
+Vous pouvez utiliser les commandes netsh pour Windows Internet Name Service \(WINS @ no__t-1 dans des fichiers de commandes et d’autres scripts pour automatiser des tâches. L’exemple de fichier de commandes suivant montre comment utiliser les commandes netsh pour WINS pour effectuer diverses tâches connexes.
 
-Dans cet exemple de fichier batch, WINS\-A est un serveur WINS avec l’adresse IP 192.168.125.30 et WINS\-B est un serveur WINS avec l’adresse IP est192.168.0.189.
+Dans cet exemple de fichier de commandes, WINS @ no__t-0A est un serveur WINS avec l’adresse IP 192.168.125.30 et WINS @ no__t-1B est un serveur WINS avec l’adresse IP 192.168.0.189.
 
-L’exemple de fichier batch effectue les tâches suivantes.
+L’exemple de fichier de commandes effectue les tâches suivantes.
 
-- Ajoute un enregistrement de noms dynamique avec l’adresse IP 192.168.0.205, MY\_enregistrement \[04h\], sur le service WINS\-A
-- Définit WINS\-B comme un partenaire de réplication par émission/réception de WINS\-A
-- Se connecte à WINS\-B, puis définit WINS\-A comme un partenaire de réplication par émission/réception de WINS\-B
-- Lance une réplication par émission de WINS\-A à WINS\-B
-- Se connecte à WINS\-B pour vérifier que le nouvel enregistrement, MY\_enregistrement, a été correctement répliqué
+- Ajoute un enregistrement de nom dynamique avec l’adresse IP 192.168.0.205, mon @ no__t-0RECORD \[04h @ no__t-2, à WINS @ no__t-3A
+- Définit WINS @ no__t-0B comme partenaire de réplication push/pull de WINS @ no__t-1A
+- Se connecte à WINS @ no__t-0B, puis définit WINS @ no__t-1A comme partenaire de réplication push/pull de WINS @ no__t-2B
+- Lance une réplication push de WINS @ no__t-0A vers WINS @ no__t-1B
+- Se connecte à WINS @ no__t-0B pour vérifier que le nouvel enregistrement, MY @ no__t-1RECORD, a été correctement répliqué
 
-## <a name="netsh-example-batch-file"></a>Fichier de commandes Netsh exemple
+## <a name="netsh-example-batch-file"></a>Exemple de fichier de commandes netsh
 
-Dans le fichier de commandes exemple suivant, les lignes qui contiennent des commentaires sont précédées par « rem », pour Remarque. Netsh ignore les commentaires.
+Dans l’exemple de fichier de commandes suivant, les lignes qui contiennent des commentaires sont précédées de la mention « rem ». Netsh ignore les commentaires.
 
     rem: Begin example batch file.
     
@@ -69,14 +69,14 @@ Dans le fichier de commandes exemple suivant, les lignes qui contiennent des com
     
     rem 6. End example batch file.
 
-## <a name="netsh-wins-commands-used-in-the-example-batch-file"></a>Commandes Netsh pour WINS est utilisés dans l’exemple de fichier batch
+## <a name="netsh-wins-commands-used-in-the-example-batch-file"></a>Commandes netsh WINS utilisées dans l’exemple de fichier de commandes
 
-La section suivante répertorie les **netsh wins** commandes qui sont utilisées dans cet exemple de procédure.
+La section suivante répertorie les commandes **WINS netsh** utilisées dans cet exemple de procédure.
 
-- **serveur**. Déplace la commande WINS actuelle\-contexte de ligne pour le serveur spécifié par son nom ou son adresse IP.
-- **ajouter le nom**. Inscrit un nom sur le serveur WINS.
-- **Ajouter un partenaire**. Ajoute un partenaire de réplication sur le serveur WINS.
-- **init push**. Active et envoie un déclencheur d’émission à un serveur WINS.
-- **afficher le nom**. Affiche des informations détaillées sur un enregistrement particulier dans la base de données du serveur WINS.  
+- **serveur**. Déplace le contexte de commande WINS @ no__t-0line actuel vers le serveur spécifié par son nom ou son adresse IP.
+- **Ajouter un nom**. Inscrit un nom sur le serveur WINS.
+- **Ajoutez un partenaire**. Ajoute un partenaire de réplication sur le serveur WINS.
+- **init push**. Lance et envoie un déclencheur Push à un serveur WINS.
+- **afficher le nom**. Affiche des informations détaillées pour un enregistrement particulier dans la base de données du serveur WINS.  
 
 Pour plus d’informations, consultez [Network Shell (Netsh)](netsh.md).

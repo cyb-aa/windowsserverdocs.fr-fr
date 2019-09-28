@@ -7,14 +7,14 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5b328db355810f8e3a33b28637f789e8c703d781
-ms.sourcegitcommit: f3b61dcd8aa0aa744db4ea938aac633c19217b0a
+ms.openlocfilehash: a3bd82feb3a0caf827091bd0cb10edf991921b3c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70746334"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390623"
 ---
 # <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Introduction to Active Directory Administrative Center Enhancements (Level 100)
 
@@ -36,7 +36,7 @@ Dans Active Directory sous Windows Server 2003 et dans les services AD DS sous W
 
 La corbeille Active Directory, introduite pour la première fois dans Windows Server 2008 R2, s’appuie sur l’infrastructure existante de réanimation des désactivations et améliore votre capacité à préserver et récupérer les objets Active Directory accidentellement supprimés.
 
-Lorsque vous activez la corbeille Active Directory, tous les attributs à valeur liée et à valeur non liée des objets Active Directory supprimés sont préservés et les objets sont restaurés dans leur intégralité dans le même état logique et cohérent qu’ils avaient juste avant la suppression. Par exemple, les comptes d’utilisateurs restaurés retrouvent automatiquement toutes les appartenances aux groupes et les droits d’accès correspondants dont ils disposaient juste avant la suppression, dans et entre les domaines. La corbeille Active Directory fonctionne pour les environnements AD DS et AD LDS. Pour obtenir une description détaillée de Active Directory corbeille, consultez [nouveautés de AD DS : Active Directory corbeille](https://technet.microsoft.com/library/dd391916(WS.10).aspx).
+Lorsque vous activez la corbeille Active Directory, tous les attributs à valeur liée et à valeur non liée des objets Active Directory supprimés sont préservés et les objets sont restaurés dans leur intégralité dans le même état logique et cohérent qu’ils avaient juste avant la suppression. Par exemple, les comptes d’utilisateurs restaurés retrouvent automatiquement toutes les appartenances aux groupes et les droits d’accès correspondants dont ils disposaient juste avant la suppression, dans et entre les domaines. La corbeille Active Directory fonctionne pour les environnements AD DS et AD LDS. Pour obtenir une description détaillée de Active Directory corbeille, consultez [What’s New in AD DS : Active Directory corbeille @ no__t-0.
 
 **Nouveautés** Dans Windows Server 2012 et versions ultérieures, la fonctionnalité corbeille Active Directory est améliorée avec une nouvelle interface utilisateur graphique permettant aux utilisateurs de gérer et de restaurer les objets supprimés. Les utilisateurs peuvent à présent localiser visuellement une liste d’objets supprimés et les restaurer à leur emplacement d’origine ou à un emplacement souhaité.
 
@@ -55,10 +55,10 @@ Si vous envisagez d’activer Active Directory corbeille dans Windows Server, te
 
 Dans les étapes suivantes, vous allez utiliser le Centre pour effectuer les tâches suivantes Active Directory corbeille dans Windows Server 2012 :
 
-- [Étape 1 : Augmenter le niveau fonctionnel de la forêt](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_raise_ffl)
-- [Étape 2 : Activer la corbeille](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_enable_recycle_bin)
-- [Étape 3 : Créer des utilisateurs, un groupe et une unité d’organisation de test](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env)
-- [Étape 4 : Restaurer les objets supprimés](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_restore_del_obj)
+- [Étape 1 : Augmenter le niveau fonctionnel de la forêt @ no__t-0
+- [Étape 2 : Activer la corbeille @ no__t-0
+- [Étape 3 : Créer des utilisateurs, un groupe et une unité d’organisation de test @ no__t-0
+- [Étape 4 : Restaurer les objets supprimés @ no__t-0
 
 > [!NOTE]
 > Pour effectuer les étapes suivantes, vous devez appartenir au groupe Administrateurs de l’entreprise ou posséder des autorisations équivalentes.
@@ -75,7 +75,7 @@ Dans cette étape, vous allez augmenter le niveau fonctionnel de la forêt. Vous
 
 3. Cliquez sur le domaine cible dans le volet de navigation gauche et, dans le volet **Tâches** , cliquez sur **Augmenter le niveau fonctionnel de la forêt**. Sélectionnez un niveau fonctionnel de forêt qui est au moins Windows Server 2008 R2 ou une version ultérieure, puis cliquez sur **OK**.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -85,7 +85,7 @@ Set-ADForestMode -Identity contoso.com -ForestMode Windows2008R2Forest -Confirm:
 
 Pour l’argument **-Identity** , spécifiez le nom de domaine DNS complet.
 
-### <a name="bkmk_enable_recycle_bin"></a>Étape 2 : Activer la Corbeille
+### <a name="bkmk_enable_recycle_bin"></a>Étape 2 : Activer la Corbeille
 
 Dans cette étape, vous allez activer la corbeille pour restaurer des objets supprimés dans AD DS.
 
@@ -99,7 +99,7 @@ Dans cette étape, vous allez activer la corbeille pour restaurer des objets sup
 
 4. Appuyez sur F5 pour actualiser le Centre d’administration Active Directory.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -107,7 +107,7 @@ L'applet ou les applets de commande Windows PowerShell suivantes remplissent la 
 Enable-ADOptionalFeature -Identity 'CN=Recycle Bin Feature,CN=Optional Features,CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=contoso,DC=com' -Scope ForestOrConfigurationSet -Target 'contoso.com'
 ```
 
-### <a name="bkmk_create_test_env"></a> Étape 3 : créer des utilisateurs, un groupe et une unité d’organisation de test
+### <a name="bkmk_create_test_env"></a>Étape 3 : créer des utilisateurs, un groupe et une unité d’organisation de test
 
 Dans les procédures suivantes, vous allez créer deux utilisateurs test. Vous créerez ensuite un groupe test et lui ajouterez les utilisateurs test. Vous créerez également une unité d’organisation (OU).
 
@@ -125,8 +125,8 @@ Dans les procédures suivantes, vous allez créer deux utilisateurs test. Vous c
 
    - Nom complet : test1
    - Ouverture de session SamAccountName de l’utilisateur : test1
-   - Dep@ssword1
-   - Confirmer le mot de passe :p@ssword1
+   - Mot de passe : p@ssword1
+   - Confirmer le mot de passe : p@ssword1
 
 5. Répétez les étapes précédentes pour créer un second utilisateur, test2.
 
@@ -142,7 +142,7 @@ Dans les procédures suivantes, vous allez créer deux utilisateurs test. Vous c
 5. Cliquez sur **group1**, puis, sous le volet **Tâches** , cliquez sur **Propriétés**.
 6. Cliquez sur **Membres**et sur **Ajouter**, tapez **test1;test2**, puis cliquez sur **OK**.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -159,7 +159,7 @@ Add-ADGroupMember -Identity group1 -Member test1
 
    - **NameOU1**
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -169,7 +169,7 @@ New-ADGroup -Name "group1" -SamAccountName group1 -GroupCategory Security -Group
 New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
 ```
 
-### <a name="bkmk_restore_del_obj"></a>Étape 4 : restaurer les objets supprimés
+### <a name="bkmk_restore_del_obj"></a>Étape 4 : restaurer les objets supprimés
 
 Dans les procédures suivantes, vous allez restaurer des objets supprimés à partir du conteneur **Objets supprimés** à leur emplacement d’origine et à un emplacement différent.
 
@@ -181,7 +181,7 @@ Dans les procédures suivantes, vous allez restaurer des objets supprimés à pa
 
 3. Sélectionnez les utilisateurs **test1** et **test2**, cliquez sur **Supprimer** dans le volet **Tâches** , puis cliquez sur **Oui** pour confirmer la suppression.
 
-    ![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+    ![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
     L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -198,7 +198,7 @@ Dans les procédures suivantes, vous allez restaurer des objets supprimés à pa
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 ```powershell
 Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADObject
@@ -218,7 +218,7 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 6. Pour confirmer que les objets ont été restaurés sur **OU1**, accédez au domaine cible, double-cliquez sur **OU1** et vérifiez que les comptes d’utilisateurs sont répertoriés.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -230,7 +230,7 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 Le système d’exploitation Windows Server 2008 fournit aux organisations une méthode pour définir des stratégies de mot de passe et de verrouillage de compte différentes pour des ensembles d’utilisateurs différents dans un domaine. Dans les domaines Active Directory antérieurs à Windows Server 2008, une seule stratégie de mot de passe et stratégie de verrouillage de compte pouvait être appliquée à tous les utilisateurs dans le domaine. Ces stratégies étaient spécifiées dans la stratégie de domaine par défaut pour le domaine. Par conséquent, les organisations qui voulaient des paramètres différents de mot de passe et de verrouillage de compte pour des ensembles d’utilisateurs différents devaient créer un filtre de mot de passe ou déployer plusieurs domaines. Ces deux options sont onéreuses.
 
-Vous pouvez utiliser des stratégies de mot de passe affinées pour spécifier plusieurs stratégies de mot de passe au sein d’un même domaine et appliquer des restrictions différentes pour les stratégies de mot de passe et de verrouillage de compte à des ensembles d’utilisateurs différents dans un domaine. Par exemple, vous pouvez appliquer des paramètres plus stricts à des comptes privilégiés et des paramètres moins stricts aux comptes des autres utilisateurs. Dans d’autres cas, vous pouvez appliquer une stratégie de mot de passe spéciale pour les comptes dont les mots de passe sont synchronisés avec d’autres sources de données. Pour obtenir une description détaillée de la stratégie de mot de passe affinée, voir [AD DS : Stratégies de mot de passe affinées](https://technet.microsoft.com/library/cc770394(WS.10).aspx)
+Vous pouvez utiliser des stratégies de mot de passe affinées pour spécifier plusieurs stratégies de mot de passe au sein d’un même domaine et appliquer des restrictions différentes pour les stratégies de mot de passe et de verrouillage de compte à des ensembles d’utilisateurs différents dans un domaine. Par exemple, vous pouvez appliquer des paramètres plus stricts à des comptes privilégiés et des paramètres moins stricts aux comptes des autres utilisateurs. Dans d’autres cas, vous pouvez appliquer une stratégie de mot de passe spéciale pour les comptes dont les mots de passe sont synchronisés avec d’autres sources de données. Pour obtenir une description détaillée de la stratégie de mot de passe affinée, voir [AD DS : Stratégies de mot de passe affinées @ no__t-0
 
 **Nouveautés**
 
@@ -251,12 +251,12 @@ Si vous envisagez d’utiliser des stratégies de mot de passe affinées dans Wi
 
 Dans les étapes suivantes, vous utiliserez le Centre d’administration Active Directory pour effectuer les tâches suivantes relatives aux stratégies de mot de passe affinées :
 
-- [Étape 1 : Augmenter le niveau fonctionnel du domaine](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_raise_dfl)
-- [Étape 2 : Créer des utilisateurs, un groupe et une unité d’organisation de test](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk2_test_fgpp)
-- [Étape 3 : Créer une nouvelle stratégie de mot de passe affinée](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)
-- [Étape 4 : Afficher un jeu de stratégies résultant pour un utilisateur](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_view_resultant_fgpp)
-- [Étape 5 : Modifier une stratégie de mot de passe affinée](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_edit_fgpp)
-- [Étape 6 : Supprimer une stratégie de mot de passe affinée](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_delete_fgpp)
+- [Étape 1 : Augmenter le niveau fonctionnel du domaine @ no__t-0
+- [Étape 2 : Créer des utilisateurs, un groupe et une unité d’organisation de test @ no__t-0
+- [Étape 3 : Créer une nouvelle stratégie de mot de passe affinée @ no__t-0
+- [Étape 4 : Afficher un jeu de stratégies résultant pour un utilisateur @ no__t-0
+- [Étape 5 : Modifier une stratégie de mot de passe affinée @ no__t-0
+- [Étape 6 : Supprimer une stratégie de mot de passe affinée @ no__t-0
 
 > [!NOTE]
 > Pour effectuer les étapes suivantes, vous devez appartenir au groupe Admins du domaine ou posséder des autorisations équivalentes.
@@ -273,7 +273,7 @@ Dans la procédure suivante, vous allez augmenter le niveau fonctionnel du domai
 
 3. Cliquez sur le domaine cible dans le volet de navigation gauche et, dans le volet **Tâches** , cliquez sur **Augmenter le niveau fonctionnel du domaine**. Sélectionnez un niveau fonctionnel de forêt au moins Windows Server 2008 ou une version ultérieure, puis cliquez sur **OK**.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -281,11 +281,11 @@ L'applet ou les applets de commande Windows PowerShell suivantes remplissent la 
 Set-ADDomainMode -Identity contoso.com -DomainMode 3
 ```
 
-#### <a name="bkmk2_test_fgpp"></a>Étape 2 : créer des utilisateurs, un groupe et une unité d’organisation de test
+#### <a name="bkmk2_test_fgpp"></a>Étape 2 : créer des utilisateurs, un groupe et une unité d’organisation de test
 
-Pour créer les utilisateurs et le groupe test requis pour cette étape, suivez les procédures situées ici : [Étape 3 : Créer des utilisateurs, un groupe et une](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env) unité d’organisation de test (vous n’avez pas besoin de créer l’unité d’organisation pour illustrer la stratégie de mot de passe affinée).
+Pour créer les utilisateurs et le groupe test requis pour cette étape, suivez les procédures situées ici : [Étape 3 : Créer des utilisateurs, un groupe et une unité d’organisation de test @ no__t-0 (vous n’avez pas besoin de créer l’unité d’organisation pour illustrer la stratégie de mot de passe affinée).
 
-#### <a name="bkmk_create_fgpp"></a> Étape 3 : créer une nouvelle stratégie de mot de passe affinée
+#### <a name="bkmk_create_fgpp"></a>Étape 3 : créer une nouvelle stratégie de mot de passe affinée
 
 Dans la procédure décrite ci-dessous, vous allez créer une nouvelle stratégie de mot de passe affinée à l’aide de l’interface utilisateur du Centre d’administration Active Directory.
 
@@ -309,7 +309,7 @@ Dans la procédure décrite ci-dessous, vous allez créer une nouvelle stratégi
 
 6. Cliquez sur **OK** pour soumettre la création.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -318,9 +318,9 @@ New-ADFineGrainedPasswordPolicy TestPswd -ComplexityEnabled:$true -LockoutDurati
 Add-ADFineGrainedPasswordPolicySubject TestPswd -Subjects group1
 ```
 
-#### <a name="bkmk_view_resultant_fgpp"></a>Étape 4 : afficher un jeu de stratégies résultant pour un utilisateur
+#### <a name="bkmk_view_resultant_fgpp"></a>Étape 4 : afficher un jeu de stratégies résultant pour un utilisateur
 
-Dans la procédure suivante, vous allez afficher les paramètres de mot de passe résultants pour un utilisateur qui est membre du groupe auquel vous avez attribué une stratégie de mot de [passe affinée à l’étape 3 : Créez une nouvelle stratégie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)de mot de passe affinée.
+Dans la procédure suivante, vous allez afficher les paramètres de mot de passe résultants pour un utilisateur qui est membre du groupe auquel vous avez attribué une stratégie de mot de passe affinée dans [Step 3 : Créer une nouvelle stratégie de mot de passe affinée @ no__t-0.
 
 ##### <a name="to-view-a-resultant-set-of-policies-for-a-user"></a>Pour afficher un jeu de stratégies résultant pour un utilisateur
 
@@ -328,13 +328,13 @@ Dans la procédure suivante, vous allez afficher les paramètres de mot de passe
 
 2. Cliquez sur **Gérer**, sur **Ajouter des nœuds de navigation**, puis sélectionnez le domaine cible approprié dans la boîte de dialogue **Ajouter des nœuds de navigation** et cliquez sur **OK**.
 
-3. Sélectionnez un utilisateur, **Test1** qui appartient au groupe, **Group1** , auquel vous avez associé une stratégie de mot de passe affinée [avec à l’étape 3 : Créez une nouvelle stratégie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)de mot de passe affinée.
+3. Sélectionnez un utilisateur, **Test1** qui appartient au groupe, **Group1** , auquel vous avez associé une stratégie de mot de passe affinée avec dans [step 3 : Créer une nouvelle stratégie de mot de passe affinée @ no__t-0.
 
 4. Cliquez sur **Afficher les paramètres de mot de passe résultants** dans le volet **Tâches** .
 
 5. Examinez la stratégie des paramètres de mot de passe, puis cliquez sur **Annuler**.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -342,9 +342,9 @@ L'applet ou les applets de commande Windows PowerShell suivantes remplissent la 
 Get-ADUserResultantPasswordPolicy test1
 ```
 
-#### <a name="bkmk_edit_fgpp"></a>Étape 5 : modifier une stratégie de mot de passe affinée
+#### <a name="bkmk_edit_fgpp"></a>Étape 5 : modifier une stratégie de mot de passe affinée
 
-Dans la procédure suivante, vous allez modifier la stratégie de mot de passe affinée que [vous avez créée à l’étape 3 : Créer une nouvelle stratégie de mot de passe affinée](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)
+Dans la procédure suivante, vous allez modifier la stratégie de mot de passe affinée que vous avez créée dans [Step 3 : Créer une nouvelle stratégie de mot de passe affinée @ no__t-0
 
 ##### <a name="to-edit-a-fine-grained-password-policy"></a>Pour modifier une stratégie de mot de passe affinée
 
@@ -354,13 +354,13 @@ Dans la procédure suivante, vous allez modifier la stratégie de mot de passe a
 
 3. Dans le **volet de navigation** du Centre d’administration Active Directory, développez **Système**, puis cliquez sur **Classe d’objets PSC** (Password Settings Container).
 
-4. Sélectionnez la stratégie de mot de passe affinée que [vous avez créée à l’étape 3 : Créez une nouvelle stratégie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) de mot de passe affinée et cliquez sur **Propriétés** dans le volet **tâches** .
+4. Sélectionnez la stratégie de mot de passe affinée que vous avez créée dans [Step 3 : Créez une nouvelle stratégie de mot de passe affinée @ no__t-0, puis cliquez sur **Propriétés** dans le volet **tâches** .
 
 5. Sous **Appliquer l’historique des mots de passe**, modifiez la valeur de **Nombre de mots de passe mémorisés** en spécifiant **30**.
 
 6. Cliquez sur **OK**.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -368,7 +368,7 @@ L'applet ou les applets de commande Windows PowerShell suivantes remplissent la 
 Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 ```
 
-#### <a name="bkmk_delete_fgpp"></a>Étape 6 : supprimer une stratégie de mot de passe affinée
+#### <a name="bkmk_delete_fgpp"></a>Étape 6 : supprimer une stratégie de mot de passe affinée
 
 ##### <a name="to-delete-a-fine-grained-password-policy"></a>Pour supprimer une stratégie de mot de passe affinée
 
@@ -378,7 +378,7 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 3. Dans le volet de navigation du Centre d’administration Active Directory, développez **Système** , puis cliquez sur **Classe d’objets PSC (Password Settings Container)** .
 
-4. Sélectionnez la stratégie de mot de passe affinée que [vous avez créée à l’étape 3 : Créez une nouvelle stratégie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) de mot de passe affinée et, dans le volet **tâches** , cliquez sur **Propriétés**.
+4. Sélectionnez la stratégie de mot de passe affinée que vous avez créée dans [Step 3 : Créez une nouvelle stratégie de mot de passe affinée @ no__t-0 et dans le volet **tâches** , cliquez sur **Propriétés**.
 
 5. Désactivez la case à cocher **Protéger contre la suppression accidentelle** et cliquez sur **OK**.
 
@@ -386,7 +386,7 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 7. Cliquez sur **OK** dans la boîte de dialogue de confirmation.
 
-![Présentation du centre d’administration Active Directory,](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
+![Intro au centre d’administration Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 

@@ -7,24 +7,24 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bf21860603b3055c2ef2c9e7b77bb106eb06e238
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 62d7549f124b96cd7addf7e54cc5d0c1d9897098
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191618"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408125"
 ---
 # <a name="deploying-ad-fs-in-the-account-partner-organization"></a>Déploiement des services AD FS dans l’organisation du partenaire de compte
 
-Un partenaire de compte dans Active Directory Federation Services \(AD FS\) représente l’organisation dans la relation d’approbation de fédération qui stocke physiquement les comptes d’utilisateur dans un magasin d’attributs pris en charge. Pour plus d’informations sur l’attribut magasins sont pris en charge, consultez [The Role of Attribute Stores](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md).  
+Un partenaire de compte dans Services ADFS \(AD FS @ no__t-1 représente l’organisation dans la relation d’approbation de Fédération qui stocke physiquement les comptes d’utilisateur dans un magasin d’attributs pris en charge. Pour plus d’informations sur les magasins d’attributs pris en charge, consultez [rôle des magasins d’attributs](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md).  
   
-Le serveur de fédération dans l’organisation partenaire de compte authentifie les utilisateurs locaux et crée des jetons de sécurité qui sont utilisés par le partenaire de ressource dans les décisions d’autorisation. Parties de confiance telles que les sites Web et les services Web peuvent ensuite facilement s’inscrivent auprès du serveur de fédération et consommer des jetons émis pour l’authentification et contrôle d’accès.  
+Le serveur de Fédération dans l’organisation partenaire de compte authentifie les utilisateurs locaux et crée des jetons de sécurité qui sont utilisés par le partenaire de ressource pour prendre des décisions d’autorisation. Les parties de confiance, telles que les sites Web et les services Web, sont ensuite en mesure de s’inscrire facilement auprès du serveur de Fédération et de consommer des jetons émis pour l’authentification et le contrôle d’accès.  
   
-Dans les scénarios dans lesquels vous devez fournir à vos utilisateurs d’accéder à plusieurs applications ou services fédérés, lorsque chaque application ou le service est hébergé par une autre organisation, vous pouvez configurer le serveur de fédération de partenaire de compte afin que vous puissiez déployer plusieurs parties de confiance.  
+Dans les scénarios dans lesquels vous devez fournir à vos utilisateurs l’accès à plusieurs applications ou services fédérés, lorsque chaque application ou service est hébergé par une autre organisation, vous pouvez configurer le serveur de Fédération du partenaire de compte afin de pouvoir déployer plusieurs parties de confiance.  
   
-Pour plus d’informations sur comment installer et configurer une organisation partenaire de compte, consultez [liste de vérification : Configuration de l’organisation partenaire de compte](../../ad-fs/deployment/Checklist--Configuring-the-Account-Partner-Organization.md).  
+Pour plus d’informations sur la configuration et la configuration d’une organisation partenaire de compte, voir [Checklist : Configuration de l’organisation partenaire de compte @ no__t-0.  
   
 ## <a name="in-this-section"></a>Dans cette section  
   

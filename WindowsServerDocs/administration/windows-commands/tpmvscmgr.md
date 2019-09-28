@@ -2,7 +2,7 @@
 title: tpmvscmgr
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b1d9b049615322bffc39b5b372ce145579b57b2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0051750f557786b0a564ec20a32089e089898cc0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868768"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385659"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
 
@@ -41,7 +41,7 @@ La commande CREATE définit de nouvelles cartes à puce virtuelles sur le systè
 
 |Paramètre|Description|
 |---------|-----------|
-|/Name|Requis. Indique le nom de la nouvelle carte à puce virtuelle.|
+|/Name|Obligatoire. Indique le nom de la nouvelle carte à puce virtuelle.|
 |/AdminKey|Indique la clé d’administrateur souhaitée qui peut être utilisée pour réinitialiser le code confidentiel de la carte si l’utilisateur oublie le code confidentiel.</br>**Par défaut** Spécifie la valeur par défaut de 010203040506070801020304050607080102030405060708.</br>**Invite** Invite l’utilisateur à entrer une valeur pour la clé d’administrateur.</br>**Aléatoire** Génère un paramètre aléatoire pour la clé d’administrateur pour une carte qui n’est pas renvoyée à l’utilisateur. Cela permet de créer une carte qui ne peut pas être gérée à l’aide des outils de gestion des cartes à puce. En cas de génération avec RANDOM, la clé d’administrateur doit être entrée sous la forme de caractères hexadécimaux 48.|
 |/PIN|Indique la valeur du code confidentiel utilisateur souhaité.</br>**Par défaut** Spécifie l’axe par défaut 12345678.</br>**Invite** Invite l’utilisateur à entrer un code confidentiel sur la ligne de commande. Le code confidentiel doit comporter au minimum huit caractères, et il peut contenir des chiffres, des caractères et des caractères spéciaux.|
 |/PUK|Indique la valeur de la clé de déverrouillage du code confidentiel (PUK) souhaitée. La valeur de PUK doit comporter au minimum huit caractères, et elle peut contenir des chiffres, des caractères et des caractères spéciaux. Si le paramètre est omis, la carte est créée sans PUK.</br>**Par défaut** Spécifie le PUK par défaut de 12345678.</br>**Invite** Demande à l’utilisateur d’entrer un PUK sur la ligne de commande.|

@@ -1,8 +1,8 @@
 ---
-title: Annuler la définition de Telnet
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Telnet non définie
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37c4d84d1664fdc13ea7ffec60bf981b264dba00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6f0eb98c4168d2f664780dad42ca1aea5463d24
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383485"
 ---
-# <a name="telnet-unset"></a>telnet: unset
+# <a name="telnet-unset"></a>Telnet : désactivé
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Désactive les options de set précédemment.   
+Désactive les options précédemment définies.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]  
@@ -32,18 +32,18 @@ u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]
 ### <a name="parameters"></a>Paramètres  
 |Paramètre|Description|  
 |-------|--------|  
-|bsasdel|Envoie **retour arrière** comme un **retour arrière**.|  
-|crlf|Envoie le **entrée** clés comme un retour chariot. Également appelé mode saut de ligne.|  
-|delasbs|Envoie **supprimer** comme **supprimer**.|  
-|échappement|Supprime le paramètre de caractère d’échappement.|  
-|écho local|Désactive l’écho local.|  
+|bsasdel|Envoie un **retour arrière** en **arrière.**|  
+|CRLF|Envoie la touche **entrée** sous forme de CR. Également appelé mode de saut de ligne.|  
+|delasbs|Envoie **Delete** en tant que **Delete**.|  
+|Sortie|supprime le paramètre de caractère d’échappement.|  
+|localecho|Désactive l’localecho.|  
 |logging|Désactive la journalisation.|  
 |ntlm|Désactive l’authentification NTLM.|  
 |?|Affiche l’aide de cette commande.|  
-## <a name="BKMK_Examples"></a>Exemples  
-Désactiver la journalisation.  
+## <a name="BKMK_Examples"></a>Illustre  
+Désactivez la journalisation.  
 ```  
 u logging  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

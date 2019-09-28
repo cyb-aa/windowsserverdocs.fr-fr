@@ -7,54 +7,54 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: abb00e14dd0b3ce7b06efba816fbd7452e7bf0f1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1356218c5f9f47073f007286e8acfdf4c3608b73
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189407"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407626"
 ---
 # <a name="create-a-rule-to-permit-all-users"></a>Créer une règle pour autoriser tous les utilisateurs
 
-Dans Windows Server 2016, vous pouvez utiliser un **stratégie de contrôle d’accès** pour créer une règle qui donnera tous les utilisateurs l’accès à une partie de confiance.  Dans Windows Server 2012 R2, à l’aide de la **autoriser tous les utilisateurs** le modèle de règle dans Active Directory Federation Services \(AD FS\), vous pouvez créer une règle d’autorisation qui donnera tous les utilisateurs l’accès à la partie de confiance tiers. 
+Dans Windows Server 2016, vous pouvez utiliser une **stratégie de Access Control** pour créer une règle qui donne à tous les utilisateurs l’accès à une partie de confiance.  Dans Windows Server 2012 R2, à l’aide du modèle de règle **autoriser tous les utilisateurs** dans services ADFS \(AD FS @ no__t-2, vous pouvez créer une règle d’autorisation qui donne à tous les utilisateurs l’accès à la partie de confiance. 
 
 Vous pouvez utiliser des règles d’autorisation supplémentaires pour restreindre davantage l’accès. Les utilisateurs dont l’accès à la partie de confiance est autorisé par le service de fédération peuvent se voir refuser le service par la partie de confiance.  
   
-Vous pouvez utiliser les procédures suivantes pour créer une règle de revendication avec le composant logiciel enfichable Gestion AD FS\-dans.  
+Vous pouvez utiliser les procédures suivantes pour créer une règle de revendication avec le composant logiciel enfichable de gestion AD FS no__t-0in.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477). 
 
 ## <a name="to-create-a-rule-to-permit-all-users-in-windows-server-2016"></a>Pour créer une règle pour autoriser tous les utilisateurs dans Windows Server 2016
 
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **confiance**. 
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall1.PNG)
+2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall1.PNG)
 
-3.  Cliquez sur le **Relying Party Trust** que vous souhaitez autoriser l’accès à et sélectionnez **modifier une stratégie de contrôle d’accès**.  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall2.PNG)
+3.  Cliquez avec le bouton droit sur l' **approbation de partie de confiance** à laquelle vous souhaitez autoriser l’accès, puis sélectionnez Modifier la stratégie de **Access Control**.  
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall2.PNG)
 
-4. Sur l’accès contrôle stratégie sélectionnez **autoriser tout le monde** puis cliquez sur **appliquer** et **Ok**.
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall3.PNG)
+4. Dans la stratégie de contrôle d’accès, sélectionnez **autoriser tout le monde** , puis cliquez sur **appliquer** , puis sur **OK**.
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall3.PNG)
   
 ## <a name="to-create-a-rule-to-permit-all-users-in-windows-server-2012-r2"></a>Pour créer une règle pour autoriser tous les utilisateurs dans Windows Server 2012 R2 
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation\\confiance**, cliquez sur une approbation spécifique dans la liste où vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **\\AD FS\\approbations de partie**de confiance de relations d’approbation, cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
 
-3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall4.PNG)  
+3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall4.PNG)  
 
-4.  Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur le **les règles d’autorisation d’émission** onglet ou la **règles d’autorisation de délégation** onglet \(selon le type de règle d’autorisation que vous avez besoin de\), puis cliquez sur **ajouter une règle** pour démarrer le **Assistant de règle de revendication d’autorisation Ajouter**.  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)  
-5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **autoriser tous les utilisateurs** dans la liste, puis cliquez sur **suivant**.  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall6.PNG)    
-6.  Sur le **configurer la règle** , cliquez sur **Terminer**.  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur l’onglet **règles d’autorisation d’émission** ou sur l’onglet \( **règles d’autorisation** de délégation\)en fonction du type de règle d’autorisation dont vous avez besoin, puis cliquez sur **Ajouter une règle.** pour démarrer l' **Assistant Ajouter une règle de revendication d’autorisation**.  
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)  
+5.  Dans la **page Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **autoriser tous les utilisateurs** dans la liste, puis cliquez sur **suivant**.  
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall6.PNG)    
+6.  Dans la page **configurer la règle** , cliquez sur **Terminer**.  
   
-7.  Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur **OK** pour enregistrer la règle.  
+7.  Dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur **OK** pour enregistrer la règle.  
 
 ## <a name="additional-references"></a>Références supplémentaires 
 [Configurer les règles de revendication](Configure-Claim-Rules.md)  

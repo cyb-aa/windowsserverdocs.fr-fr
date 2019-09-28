@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 03/07/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 72524fcc71f722daeb8238bc3cffc6d38a611098
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.prod: windows-server
+ms.openlocfilehash: c7f436ea9b2baa00294ccef52a5d7a27c7247e4a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590587"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406788"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Gérer les serveurs à l’aide du centre d’administration Windows
 
@@ -31,7 +31,7 @@ Vous pouvez ajouter des serveurs individuels exécutant Windows Server 2012 ou u
 
 ## <a name="adding-a-server-to-windows-admin-center"></a>Ajout d’un serveur au centre d’administration Windows
 
-Pour ajouter un serveur au centre d’administration Windows:
+Pour ajouter un serveur au centre d’administration Windows :
 
 1. Cliquez sur **+ Ajouter** sous toutes les connexions.
 2. Choisissez d’ajouter une **connexion au serveur**.
@@ -45,7 +45,7 @@ Le serveur sera ajouté à votre liste de connexions sur la page vue d’ensembl
 
 ## <a name="tools"></a>Outils
 
-Les outils suivants sont disponibles pour les connexions au serveur:
+Les outils suivants sont disponibles pour les connexions au serveur :
 
 | Tool | Description |
 | ---- | ----------- |
@@ -85,7 +85,7 @@ La **vue d’ensemble** vous permet de voir l’état actuel de l’UC, de la m�
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans Gestionnaire de serveur vue d’ensemble:
+Les fonctionnalités suivantes sont prises en charge dans Gestionnaire de serveur vue d’ensemble :
 
 - Afficher les détails du serveur
 - Afficher l’activité de l’UC
@@ -105,7 +105,7 @@ Les fonctionnalités suivantes sont prises en charge dans Gestionnaire de serveu
 
 ### <a name="features"></a>Fonctionnalités
 
-La gestion des Active Directory suivante est disponible:
+La gestion des Active Directory suivante est disponible :
 
 - Créer un utilisateur
 - Créer un groupe
@@ -113,9 +113,9 @@ La gestion des Active Directory suivante est disponible:
 - Volet d’informations pour les utilisateurs, les ordinateurs et les groupes lorsqu’ils sont sélectionnés dans la grille
 - Actions de grille globale utilisateurs, ordinateurs et groupes (désactiver/activer, supprimer)
 - Réinitialiser le mot de passe de l’utilisateur
-- Objets utilisateur: configurer des propriétés de base & les appartenances aux groupes
-- Objets ordinateur: configurer la délégation sur un seul ordinateur
-- Objets de groupe: gérer l’appartenance (ajouter/supprimer 1 utilisateur à la fois)  
+- Objets utilisateur : configurer des propriétés de base & les appartenances aux groupes
+- Objets ordinateur : configurer la délégation sur un seul ordinateur
+- Objets de groupe : gérer l’appartenance (ajouter/supprimer 1 utilisateur à la fois)  
 
 [**Affichez les commentaires et les fonctionnalités proposées pour Active Directory**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BActive%20Directory%5D).
 
@@ -128,7 +128,7 @@ La **sauvegarde** vous permet de protéger votre serveur Windows contre les alt�
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans la sauvegarde:
+Les fonctionnalités suivantes sont prises en charge dans la sauvegarde :
 
 - Afficher une vue d’ensemble de l’état de la sauvegarde Azure
 - Configurer les éléments et la planification de sauvegarde
@@ -143,7 +143,7 @@ Les **certificats** vous permettent de gérer des magasins de certificats sur un
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les certificats:
+Les fonctionnalités suivantes sont prises en charge dans les certificats :
 
 - Parcourir et Rechercher des certificats existants
 - Afficher les détails du certificat
@@ -166,7 +166,7 @@ Les **appareils** vous permettent de gérer les appareils connectés sur un ordi
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les appareils:
+Les fonctionnalités suivantes sont prises en charge dans les appareils :
 
 - Parcourir et Rechercher des appareils
 - Afficher les détails de l’appareil
@@ -208,7 +208,7 @@ Les **événements** vous permettent de gérer les journaux des événements sur
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les événements:
+Les fonctionnalités suivantes sont prises en charge dans les événements :
 
 - Parcourir et Rechercher des événements
 - Afficher les détails de l’événement
@@ -223,7 +223,7 @@ Les fonctionnalités suivantes sont prises en charge dans les événements:
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les fichiers:
+Les fonctionnalités suivantes sont prises en charge dans les fichiers :
 
 - Parcourir les fichiers et les dossiers
 - Rechercher un fichier ou un dossier
@@ -245,7 +245,7 @@ Le **pare-feu** vous permet de gérer les paramètres du pare-feu et les règles
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans le pare-feu:
+Les fonctionnalités suivantes sont prises en charge dans le pare-feu :
 
 - Afficher une vue d’ensemble des paramètres de pare-feu
 - Afficher les règles de pare-feu entrantes
@@ -271,7 +271,7 @@ Les **applications installées** vous permettent de répertorier et de désinsta
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans utilisateurs et groupes locaux:
+Les fonctionnalités suivantes sont prises en charge dans utilisateurs et groupes locaux :
 
 - Afficher et Rechercher des utilisateurs et des groupes
 - Créer un nouvel utilisateur ou un nouveau groupe
@@ -288,7 +288,7 @@ Le **réseau** vous permet de gérer les périphériques et les paramètres rés
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans le réseau:
+Les fonctionnalités suivantes sont prises en charge dans le réseau :
 
 - Parcourir et Rechercher des cartes réseau existantes
 - Afficher les détails d’une carte réseau
@@ -303,7 +303,7 @@ Les fonctionnalités suivantes sont prises en charge dans le réseau:
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans PowerShell:
+Les fonctionnalités suivantes sont prises en charge dans PowerShell :
 
 - Créer une session PowerShell interactive sur le serveur
 - Se déconnecter de la session PowerShell sur le serveur
@@ -316,7 +316,7 @@ Les **processus** vous permettent de gérer les processus en cours d’exécutio
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les processus:
+Les fonctionnalités suivantes sont prises en charge dans les processus :
 
 - Parcourir et rechercher les processus en cours d’exécution
 - Afficher les détails du processus
@@ -333,7 +333,7 @@ Le **Registre** vous permet de gérer les clés et les valeurs de Registre sur u
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans le registre:
+Les fonctionnalités suivantes sont prises en charge dans le registre :
 
 - Parcourir les clés et les valeurs de Registre
 - Ajouter ou modifier des valeurs de Registre
@@ -347,7 +347,7 @@ Les fonctionnalités suivantes sont prises en charge dans le registre:
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans Bureau à distance:
+Les fonctionnalités suivantes sont prises en charge dans Bureau à distance :
 
 - Démarrer une session de bureau à distance interactive
 - Se déconnecter d’une session Bureau à distance
@@ -361,7 +361,7 @@ Les fonctionnalités suivantes sont prises en charge dans Bureau à distance:
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les rôles et les fonctionnalités:
+Les fonctionnalités suivantes sont prises en charge dans les rôles et les fonctionnalités :
 
 - Parcourir la liste des rôles et des fonctionnalités sur un serveur
 - Afficher les détails des rôles ou des fonctionnalités
@@ -376,7 +376,7 @@ Les **tâches planifiées** vous permettent de gérer les tâches planifiées su
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les tâches planifiées:
+Les fonctionnalités suivantes sont prises en charge dans les tâches planifiées :
 
 - Parcourir la bibliothèque du planificateur de tâches
 - Modifier les tâches planifiées
@@ -392,7 +392,7 @@ Les fonctionnalités suivantes sont prises en charge dans les tâches planifiée
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les services:
+Les fonctionnalités suivantes sont prises en charge dans les services :
 
 - Parcourir et Rechercher des services sur un serveur
 - Afficher les détails d’un service
@@ -421,7 +421,7 @@ Le **stockage** vous permet de gérer les périphériques de stockage sur un ord
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans le stockage:
+Les fonctionnalités suivantes sont prises en charge dans le stockage :
 
 - Parcourir et Rechercher des disques existants sur un serveur
 - Afficher les détails du disque
@@ -465,7 +465,7 @@ Les **mises à jour** vous permettent de gérer les mises à jour Microsoft et/o
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les mises à jour:
+Les fonctionnalités suivantes sont prises en charge dans les mises à jour :
 
 - Afficher les mises à jour Windows ou Microsoft disponibles
 - Afficher la liste de l’historique des mises à jour
@@ -485,7 +485,7 @@ Les **commutateurs virtuels** vous permettent de gérer des commutateurs virtuel
 
 ### <a name="features"></a>Fonctionnalités
 
-Les fonctionnalités suivantes sont prises en charge dans les commutateurs virtuels:
+Les fonctionnalités suivantes sont prises en charge dans les commutateurs virtuels :
 
 - Parcourir et Rechercher des commutateurs virtuels sur un serveur
 - Créer un commutateur virtuel

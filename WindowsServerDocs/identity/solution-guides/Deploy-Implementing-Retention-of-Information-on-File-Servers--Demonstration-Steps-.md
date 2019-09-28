@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0acfa6eec1d83c246c43ad32f7548ea771eb3c11
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 994eadfa205b62c5a512ab130c71fa6c22d1cff6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445758"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357544"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez définir des périodes de rétention pour les dossiers et placer des fichiers en mode de conservation légale à l'aide de l'Infrastructure de classification des fichiers et du Gestionnaire de ressources du serveur de fichiers.  
   
@@ -26,13 +26,13 @@ Vous pouvez définir des périodes de rétention pour les dossiers et placer des
   
 -   [Conditions préalables](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
   
--   [Étape 1 : Créer des définitions de propriété de ressource](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
+-   [Étape 1 : Créer des définitions de propriétés de ressource @ no__t-0  
   
--   [Étape 2 : Configurer les notifications](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step2)  
+-   [Étape 2 : Configurer les notifications @ no__t-0  
   
--   [Étape 3 : Créer une tâche de gestion de fichiers](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
+-   [Étape 3 : Créer une tâche de gestion de fichiers @ no__t-0  
   
--   [Étape 4 : Classifier un fichier manuellement](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
+-   [Étape 4 : Classer un fichier manuellement @ no__t-0  
   
 > [!NOTE]  
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -57,7 +57,7 @@ Lors de cette étape, nous allons activer les propriétés de ressource de péri
   
 5.  Cliquez avec le bouton droit sur **Détectabilité**, puis cliquez sur **Activer**.  
   
-![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+@no__t-guides 0solution-](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -87,11 +87,11 @@ Lors de cette étape, nous allons utiliser la console Gestionnaire de ressources
   
     -   Dans la zone **Administrateurs destinataires par défaut**, tapez l'adresse de messagerie de l'administrateur qui doit recevoir la notification.  
   
-    -   Dans le **par défaut « From » de l’adresse de messagerie** , tapez l’adresse de messagerie qui doit être utilisée pour envoyer les notifications.  
+    -   Dans la zone **adresse de messagerie par défaut** , tapez l’adresse de messagerie à utiliser pour envoyer les notifications.  
   
 6.  Cliquez sur **OK**.  
   
-![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+@no__t-guides 0solution-](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -142,7 +142,7 @@ Lors de cette étape, nous allons utiliser la console Gestionnaire de ressources
   
 11. Cliquez sur **OK**.  
   
-![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+@no__t-guides 0solution-](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   

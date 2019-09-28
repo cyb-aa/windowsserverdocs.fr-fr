@@ -1,43 +1,43 @@
 ---
 title: Vue d’ensemble du partage de fichiers à l’aide du protocole SMB 3 dans Windows Server
-description: Vue d’ensemble de l’utilisation du protocole SMB 3 pour les partages de fichiers et les serveurs de fichiers avec Windows Server.
-ms.prod: windows-server-threshold
+description: Vue d’ensemble de l’utilisation du protocole SMB 3 pour les partages de fichiers et les services de fichiers avec Windows Server.
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: fc4c8b341ee78db80f862ee412400f0a930fe810
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b40c179d242a0c48c6eb176db1225979f9e6a123
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845050"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402085"
 ---
 # <a name="overview-of-file-sharing-using-the-smb-3-protocol-in-windows-server"></a>Vue d’ensemble du partage de fichiers à l’aide du protocole SMB 3 dans Windows Server
 
 >S’applique à : Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
 
-Cette rubrique décrit la fonctionnalité SMB 3.0 dans Windows Server® 2012, Windows Server 2012 R2 et Windows Server 2016, usages pratiques pour la fonctionnalité, les plus importantes nouvelles ou mises à jour de fonctionnalités dans cette version par rapport aux versions précédentes et le matériel configuration requise.
+Cette rubrique décrit la fonctionnalité SMB 3,0 de Windows Server® 2012, Windows Server 2012 R2 et Windows Server 2016 : les utilisations pratiques de la fonctionnalité, les fonctionnalités nouvelles ou mises à jour les plus significatives de cette version par rapport aux versions précédentes et le matériel exigences.
 
 ## <a name="feature-description"></a>Description des fonctionnalités
 
-Le protocole SMB (Server Message Block) est un protocole de partage de fichiers réseau qui permet à des applications installées sur un ordinateur d’accéder en lecture et en écriture à des fichiers et de solliciter des services auprès de programmes serveur sur un réseau informatique. Le protocole SMB peut être utilisé en plus du protocole TCP/IP ou d‘autres protocoles réseau. Grâce à lui, une application (ou bien l’utilisateur d’une application) peut accéder à des fichiers ou d’autres ressources sur un serveur distant. Les applications peuvent ainsi lire, créer et mettre à jour des fichiers sur le serveur distant. Il permet aussi de communiquer avec n’importe quel programme serveur configuré pour recevoir une demande de clientSMB. Windows Server 2012 introduit la nouvelle version 3.0 du protocole SMB.
+Le protocole SMB (Server Message Block) est un protocole de partage de fichiers réseau qui permet à des applications installées sur un ordinateur d’accéder en lecture et en écriture à des fichiers et de solliciter des services auprès de programmes serveur sur un réseau informatique. Le protocole SMB peut être utilisé en plus du protocole TCP/IP ou d‘autres protocoles réseau. Grâce à lui, une application (ou bien l’utilisateur d’une application) peut accéder à des fichiers ou d’autres ressources sur un serveur distant. Les applications peuvent ainsi lire, créer et mettre à jour des fichiers sur le serveur distant. Il permet aussi de communiquer avec n’importe quel programme serveur configuré pour recevoir une demande de clientSMB. Windows Server 2012 introduit la nouvelle version 3,0 du protocole SMB.
 
 ## <a name="practical-applications"></a>Cas pratiques
 
 Cette section aborde quelques-unes des nouvelles pratiques d’utilisation du nouveau protocole SMB 3.0.
 
-* **Stockage des fichiers pour virtualisation (Hyper-V™ sur SMB)**. La technologie Hyper-V permet de stocker des fichiers d’ordinateur virtuel, par exemple une configuration, des fichiers de disque dur virtuel (VHD) et des captures instantanées, dans des partages de fichiers sur le protocole SMB 3.0. Cette méthode peut être employée à la fois pour des serveurs de fichiers autonomes et des serveurs de fichiers en cluster utilisant Hyper-V et conjointement avec un système de stockage de fichiers partagés destiné au cluster.
+* **Stockage des fichiers pour virtualisation (Hyper-V™ sur SMB)** . La technologie Hyper-V permet de stocker des fichiers d’ordinateur virtuel, par exemple une configuration, des fichiers de disque dur virtuel (VHD) et des captures instantanées, dans des partages de fichiers sur le protocole SMB 3.0. Cette méthode peut être employée à la fois pour des serveurs de fichiers autonomes et des serveurs de fichiers en cluster utilisant Hyper-V et conjointement avec un système de stockage de fichiers partagés destiné au cluster.
 * **Microsoft SQL Server sur SMB**. SQL Server permet de stocker des fichiers de base de données utilisateur sur des partages de fichiers SMB. Pour l’heure, cette méthode est prise en charge avec SQL Server 2008 R2 pour des serveurs SQL autonomes. Les prochaines versions de SQL Server proposeront une prise en charge des serveurs SQL en cluster et des bases de données système.
 * **Stockage classique pour les données de l’utilisateur final**. Le protocole SMB 3.0 apporte des améliorations aux charges de travail des utilisateurs professionnels de l’information (Information Worker ou client). Ces améliorations réduisent notamment les valeurs de latence des applications auxquelles sont confrontés les utilisateurs des filiales lorsqu’ils accèdent à des données sur des réseaux étendus (WAN) et protègent des données contre des tentatives d’écoute clandestine.
 
 ## <a name="new-and-changed-functionality"></a>Fonctionnalités nouvelles et modifiées
 
-Pour plus d’informations sur les fonctionnalités nouvelles et modifiées dans Windows Server 2012 R2, consultez [What ' s New in SMB dans Windows Server](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)>).
+Pour plus d’informations sur les fonctionnalités nouvelles et modifiées de Windows Server 2012 R2, consultez [Nouveautés de SMB dans Windows Server](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)>).
 
-SMB dans Windows Server 2012 et Windows Server 2016 inclut le nouveau protocole SMB 3.0 et nombreuses nouvelles améliorations qui sont décrites dans le tableau suivant.
+SMB dans Windows Server 2012 et Windows Server 2016 intègre le nouveau protocole SMB 3,0 et de nombreuses nouvelles améliorations qui sont décrites dans le tableau suivant.
 
 <table>
 <colgroup>
@@ -108,29 +108,29 @@ Le basculement transparent SMB nécessite la configuration suivante :
 * Un cluster de basculement exécutant Windows Server 2012 ou Windows Server 2016 avec au moins deux nœuds configurés. Le cluster doit réussir les tests de validation de cluster intégrés dans l’Assistant Validation.
 * Les partages de fichiers doivent être créés avec la propriété de disponibilité en continu (Continuous Availability ou CA) qui constitue la valeur par défaut.
 * Vous devez créer les partages de fichiers sur des chemins d’accès au volume pour garantir une montée en charge SMB.
-* Ordinateurs clients doivent exécuter Windows® 8 ou Windows Server 2012, qui incluent le client SMB mis à jour qui prend en charge une disponibilité continue.
+* Les ordinateurs clients doivent exécuter Windows® 8 ou Windows Server 2012, qui incluent tous les deux le client SMB mis à jour qui prend en charge la disponibilité continue.
 
 >[!NOTE]
->Les clients de bas niveau peuvent se connecter aux partages de fichiers dont la propriété de l’autorité de certification, mais le basculement transparent ne sera pas pris en charge pour ces clients.
+>Les clients de niveau supérieur peuvent se connecter aux partages de fichiers qui possèdent la propriété autorité de certification, mais le basculement transparent n’est pas pris en charge pour ces clients.
 
 Les fonctionnalités SMB Multichannel nécessitent la configuration suivante :
 
-* Au moins deux ordinateurs exécutant Windows Server 2012 sont nécessaires. Aucune fonctionnalité supplémentaire n’est à installer ; la technologie est activée par défaut.
+* Au moins deux ordinateurs exécutant Windows Server 2012 sont requis. Aucune fonctionnalité supplémentaire n’est à installer ; la technologie est activée par défaut.
 * Pour plus d’informations sur les configurations réseau recommandées, consultez la section Voir aussi à la fin de cette rubrique.
 
 SMB Direct nécessite la configuration suivante :
 
-* Au moins deux ordinateurs exécutant Windows Server 2012 sont nécessaires. Aucune fonctionnalité supplémentaire n’est à installer ; la technologie est activée par défaut.
+* Au moins deux ordinateurs exécutant Windows Server 2012 sont requis. Aucune fonctionnalité supplémentaire n’est à installer ; la technologie est activée par défaut.
 * Des cartes réseau dotées de la technologie RDMA sont requises. Trois types de carte différents sont actuellement disponibles : iWARP, Infiniband ou RoCE (RDMA over Converged Ethernet).
 
-## <a name="more-information"></a>Informations supplémentaires
+## <a name="more-information"></a>Plus d’informations
 
-La liste suivante fournit des ressources supplémentaires sur le web, concernant SMB et les technologies connexes dans Windows Server 2012 R2, Windows Server 2012 et Windows Server 2016.
+La liste suivante fournit des ressources supplémentaires sur le Web sur SMB et les technologies associées dans Windows Server 2012 R2, Windows Server 2012 et Windows Server 2016.
 
-* [Stockage dans Windows Server](../storage.md)
-* [Serveur de fichiers de montée en puissance pour les données d’Application](../../failover-clustering/sofs-overview.md)
-* [Améliorer les performances d’un serveur de fichiers avec SMB Direct](smb-direct.md)
+* [Storage](../storage.md) (Stockage)
+* [Serveur de fichiers avec montée en puissance parallèle pour les données d’application](../../failover-clustering/sofs-overview.md)
+* [Améliorer les performances d’un serveur de fichiers avec SMB direct](smb-direct.md)
 * [Déployer Hyper-V sur SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)
 * [Déployer SMB Multichannel](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3dws.11)>)
-* [Déploiement de serveurs de fichiers rapides et efficaces pour les Applications serveur](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831723(v%3dws.11)>)
-* [SMB : Guide de dépannage](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn659439(v%3dws.11)>)
+* [Déploiement de serveurs de fichiers rapides et efficaces pour les applications serveur](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831723(v%3dws.11)>)
+* [SMB : Guide de résolution des problèmes @ no__t-0

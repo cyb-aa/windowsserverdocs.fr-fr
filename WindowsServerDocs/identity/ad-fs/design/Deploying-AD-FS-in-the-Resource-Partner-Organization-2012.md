@@ -7,22 +7,22 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 87849e1d7a5eb8fef24a551dfc681c65a202f027
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: f4741fcc683a8a22318caa47d5cbd66352862a86
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191541"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408133"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>Déploiement des services de fédération Active Directory (AD FS) dans l’organisation partenaire de ressource
 
-L’organisation du partenaire de ressource dans Active Directory Federation Services \(AD FS\) représente l’organisation dont les serveurs Web peuvent être protégés par une ressource\-serveur de fédération de côté. Le serveur de fédération du partenaire de ressource utilise les jetons de sécurité qui sont produites par le partenaire de compte pour fournir des revendications aux serveurs Web qui sont trouvent dans le partenaire de ressource.  
+L’organisation partenaire de ressource dans Services ADFS \(AD FS @ no__t-1 représente l’organisation dont les serveurs Web peuvent être protégés par un serveur de Fédération @ no__t-2side de ressource. Le serveur de Fédération du partenaire de ressource utilise les jetons de sécurité produits par le partenaire de compte pour fournir des revendications aux serveurs Web qui se trouvent dans le partenaire de ressource.  
   
-Dans les scénarios dans lesquels vous devez fournir l’accès aux services fédérés ou des applications à plusieurs utilisateurs différents, lorsque des utilisateurs se trouvent dans différentes organisations, vous pouvez configurer le serveur de fédération de ressources afin que vous puissiez déployer plusieurs partenaires de compte.  
+Dans les scénarios où vous devez fournir un accès à des services ou des applications fédérés à de nombreux utilisateurs différents, lorsque certains utilisateurs résident dans des organisations différentes, vous pouvez configurer le serveur de Fédération de ressources afin de pouvoir déployer plusieurs partenaires de compte.  
   
-Pour plus d’informations sur comment installer et configurer une organisation partenaire de ressource, consultez [liste de vérification : Configuration de l’organisation partenaire de ressource](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md).  
+Pour plus d’informations sur la configuration et la configuration d’une organisation partenaire de ressource, voir [Checklist : Configuration de l’organisation du partenaire de ressource @ no__t-0.  
   
 ## <a name="in-this-section"></a>Dans cette section  
   

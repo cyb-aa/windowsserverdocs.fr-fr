@@ -1,8 +1,8 @@
 ---
-title: La commande d’arrêt serveur
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Commande arrêter le serveur
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: adcb668ebfef009eecb98d746fb6c7b87cafa19b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 58e418af275dae7964f45d7ff6af1a6914a67920
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827640"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363947"
 ---
-# <a name="the-stop-server-command"></a>La commande d’arrêt serveur
+# <a name="the-stop-server-command"></a>Commande arrêter le serveur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Arrête les services des Services de déploiement Windows.
+Arrête les services de déploiement Windows.
 ## <a name="subcommands"></a>Sous-commandes
 |Sous-commande|Description|
 |-------|--------|
-|[Sous-commande : stop-Server](subcommand-stop-server.md)|Arrête tous les services sur un serveur de Services de déploiement Windows (serveur de déploiement).|
-|[Sous-commande : stop-TransportServer](subcommand-stop-transportserver.md)|Arrête tous les services sur un serveur de Transport.|
+|[Sous-commande : Stop-Server](subcommand-stop-server.md)|Arrête tous les services sur un serveur des services de déploiement Windows (serveur de déploiement).|
+|[Sous-commande : Stop-TransportServer](subcommand-stop-transportserver.md)|Arrête tous les services sur un serveur de transport.|

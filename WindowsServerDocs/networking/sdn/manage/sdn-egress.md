@@ -1,33 +1,33 @@
 ---
 title: Contrôle de sortie dans un réseau virtuel
-description: Un aspect fondamental de monétisation de mise en réseau de cloud est la sortie de la bande passante réseau. Par exemple, les transferts de données sortantes modèle d’entreprise dans Microsoft Azure. Données sortantes sont facturées en fonction de la quantité totale de données déplacées des centres de données Azure via Internet dans un cycle de facturation donné.
+description: Un aspect fondamental de la monétisation du réseau Cloud est la sortie de la bande passante réseau. Par exemple, les transferts de données sortantes dans Microsoft Azure modèle d’entreprise. Les données sortantes sont facturées en fonction de la quantité totale de données déplacées des centres de données Azure via Internet au cours d’un cycle de facturation donné.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 10/02/2018
-ms.openlocfilehash: bdfb2b7321d5a4d119c9710e9ad93fc2e91ea536
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: e68a3889867b75152ea941ac1d8eb113b9acd3cb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792288"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406004"
 ---
-# <a name="egress-metering-in-a-virtual-network"></a>Sortie de contrôle dans un réseau virtuel
+# <a name="egress-metering-in-a-virtual-network"></a>Sortie du contrôle dans un réseau virtuel
 
 >S’applique à : Windows Server 2019
 
 
-Un aspect fondamental de monétisation de mise en réseau de cloud est la possibilité de sont facturées à l’utilisation de la bande passante réseau. Données sortantes sont facturées en fonction de la quantité totale de données déplacées hors du centre de données via Internet dans un cycle de facturation donné.
+Un aspect fondamental de la monétisation du réseau Cloud est la capacité à facturer l’utilisation de la bande passante réseau. Les données sortantes sont facturées en fonction de la quantité totale de données déplacées en dehors du centre de données via Internet dans un cycle de facturation donné.
 
-Sortie de contrôle pour le trafic de réseau SDN dans Windows Server 2019 vous permettent d’offrir des compteurs d’utilisation pour les transferts de données sortantes. Le trafic réseau qui quitte chaque réseau virtuel, mais reste dans le centre de données peut par suivies séparément afin qu’il peut être exclu de calculs de facturation. Les paquets destinés aux adresses IP de destination qui ne sont pas inclus dans un des plages d’adresses non facturée en sont suivies comme facturés les transferts de données sortantes.
+Le contrôle de sortie pour le trafic réseau SDN dans Windows Server 2019 permet d’offrir des compteurs d’utilisation pour les transferts de données sortantes. Le trafic réseau qui quitte chaque réseau virtuel, mais reste dans le centre de données, peut être suivi séparément afin de pouvoir être exclu des calculs de facturation. Les paquets liés aux adresses IP de destination qui ne sont pas incluses dans l’une des plages d’adresses non facturées sont suivis comme des transferts de données sortants facturés.
 
-## <a name="virtual-network-unbilled-address-ranges-whitelist-of-ip-ranges"></a>(Liste d’autorisation de plages d’adresses IP) de plages d’adresses de réseau virtuel non facturé
+## <a name="virtual-network-unbilled-address-ranges-whitelist-of-ip-ranges"></a>Plages d’adresses non facturées du réseau virtuel (liste verte des plages d’adresses IP)
 
-Vous pouvez trouver des plages d’adresses non facturés sous le **UnbilledAddressRanges** propriété d’un réseau virtuel existant. Par défaut, il n’existe aucune des plages d’adresses ajoutés.
+Vous pouvez trouver des plages d’adresses non facturées sous la propriété **UnbilledAddressRanges** d’un réseau virtuel existant. Par défaut, aucune plage d’adresses n’est ajoutée.
 
    ```PowerShell
    import-module NetworkController
@@ -51,11 +51,11 @@ Votre sortie doit ressembler à ceci :
    ```
 
 
-## <a name="example-manage-the-unbilled-address-ranges-of-a-virtual-network"></a>Exemple : Gérer les plages d’adresses non facturée d’un réseau virtuel
+## <a name="example-manage-the-unbilled-address-ranges-of-a-virtual-network"></a>Exemple : Gérer les plages d’adresses non facturées d’un réseau virtuel
 
-Vous pouvez gérer le jeu de préfixes de sous-réseau IP à exclure de la facturation de sortie de contrôle en définissant le **UnbilledAddressRange** propriété d’un réseau virtuel.  Tout le trafic envoyé par les interfaces réseau sur le réseau virtuel avec une adresse IP de destination qui correspond à l’un préfixes de ne pas être inclus dans la propriété BilledEgressBytes.
+Vous pouvez gérer l’ensemble des préfixes de sous-réseau IP à exclure de la mesure de sortie facturée en définissant la propriété **UnbilledAddressRange** d’un réseau virtuel.  Tout trafic envoyé par les interfaces réseau sur le réseau virtuel avec une adresse IP de destination correspondant à l’un des préfixes ne sera pas inclus dans la propriété BilledEgressBytes.
 
-1.  Mise à jour le **UnbilledAddressRanges** propriété pour contenir les sous-réseaux qui ne seront pas facturés pour l’accès.
+1.  Mettez à jour la propriété **UnbilledAddressRanges** pour qu’elle contienne les sous-réseaux qui ne seront pas facturés pour l’accès.
 
     ```PowerShell
     $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1"
@@ -63,9 +63,9 @@ Vous pouvez gérer le jeu de préfixes de sous-réseau IP à exclure de la factu
     ```
 
     >[!TIP]
-    >Si vous ajoutez plusieurs sous-réseaux IP, utilisez une virgule entre chacun des sous-réseaux IP.  N’incluez pas d’espaces avant ou après la virgule.
+    >Si vous ajoutez plusieurs sous-réseaux IP, utilisez une virgule entre chacun des sous-réseaux IP.  N’incluez pas d’espace avant ou après la virgule.
 
-2.  Mettre à jour de la ressource de réseau virtuel avec le texte modifié **UnbilledAddressRanges** propriété.
+2.  Mettez à jour la ressource de réseau virtuel avec la propriété **UnbilledAddressRanges** modifiée.
 
     ```PowerShell
     New-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "VNet1" -Properties $unbilled.Properties -PassInnerException
@@ -90,7 +90,7 @@ Vous pouvez gérer le jeu de préfixes de sous-réseau IP à exclure de la factu
       ```
 
 
-3. Vérifiez le réseau virtuel a posteriori configuré **UnbilledAddressRanges**.
+3. Vérifiez le réseau virtuel pour voir les **UnbilledAddressRanges**configurés.
 
    ```PowerShell
    (Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1").properties
@@ -110,17 +110,17 @@ Vous pouvez gérer le jeu de préfixes de sous-réseau IP à exclure de la factu
    LogicalNetwork         : Microsoft.Windows.NetworkController.LogicalNetwork
    ```
 
-## <a name="check-the-billed-the-unbilled-egress-usage-of-a-virtual-network"></a>Vérifier le facturée l’utilisation non facturée en sortie d’un réseau virtuel
+## <a name="check-the-billed-the-unbilled-egress-usage-of-a-virtual-network"></a>Vérifier la facturation de l’utilisation de sortie non facturée d’un réseau virtuel
 
-Après avoir configuré le **UnbilledAddressRanges** propriété, vous pouvez vérifier l’utilisation de la facturation et non facturée en sortie de chaque sous-réseau au sein d’un réseau virtuel. Le trafic de sortie met à jour toutes les quatre minutes avec le nombre total d’octets des plages facturées et non facturés.
+Après avoir configuré la propriété **UnbilledAddressRanges** , vous pouvez vérifier l’utilisation facturée et non facturée de chaque sous-réseau au sein d’un réseau virtuel. Le trafic sortant est mis à jour toutes les quatre minutes avec le nombre total d’octets des plages facturées et non facturées.
 
 Les propriétés suivantes sont disponibles pour chaque sous-réseau virtuel :
 
--   **UnbilledEgressBytes** indique le nombre d’octets non envoyés par les interfaces réseau connectées à ce sous-réseau virtuel. Octets non facturée en sont des octets envoyés aux plages d’adresses qui font partie de la **UnbilledAddressRanges** propriété du réseau virtuel parent.
+-   **UnbilledEgressBytes** affiche le nombre d’octets non facturés envoyés par les interfaces réseau connectées à ce sous-réseau virtuel. Les octets non facturés sont des octets envoyés à des plages d’adresses qui font partie de la propriété **UnbilledAddressRanges** du réseau virtuel parent.
 
--   **BilledEgressBytes** affiche le nombre d’octets facturées envoyés par les interfaces réseau connectées à ce sous-réseau virtuel. Facturé octets sont des octets envoyés aux plages d’adresses qui ne sont pas dans le cadre de la **UnbilledAddressRanges** propriété du réseau virtuel parent.
+-   **BilledEgressBytes** affiche le nombre d’octets facturés envoyés par les interfaces réseau connectées à ce sous-réseau virtuel. Les octets facturés sont des octets envoyés à des plages d’adresses qui ne font pas partie de la propriété **UnbilledAddressRanges** du réseau virtuel parent.
 
-Utilisez l’exemple suivant pour l’utilisation de sortie de requête :
+Utilisez l’exemple suivant pour interroger l’utilisation de sortie :
 
 ```PowerShell
 (Get-NetworkControllerVirtualNetwork -ConnectionURI $URI -ResourceId "VNet1").properties.subnets.properties | ft AddressPrefix,BilledEgressBytes,UnbilledEgressBytes

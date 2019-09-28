@@ -2,7 +2,7 @@
 title: Gérer les systèmes MultiPoint à l’aide du tableau de bord MultiPoint
 description: Fournit une vue d’ensemble de l’utilisation du tableau de bord MultiPoint
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 2d1f7fbcd42b5157c441a12023c89d929f68ad7b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5d33d216c5c69c3f2eeb90b3abe9e68da3c64692
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830730"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395264"
 ---
 # <a name="manage-multipoint-systems-using-multipoint-dashboard"></a>Gérer les systèmes MultiPoint à l’aide du tableau de bord MultiPoint
-Dans le tableau de bord MultiPoint, sur le **systèmes** onglet, vous pouvez procédez comme suit :  
+Dans le tableau de bord MultiPoint, sous l’onglet **systèmes** , vous pouvez effectuer les opérations suivantes :  
   
 - Redémarrer ou arrêter des systèmes sélectionnés  
 Vous pouvez redémarrer ou arrêter des systèmes MultiPoint Services sélectionnés. Pour plus d’informations sur le redémarrage ou l’arrêt de systèmes sélectionnés, voir la rubrique [Redémarrer ou arrêter des systèmes MultiPoint](Restart-or-Shut-Down-MultiPoint-Systems.md).   
@@ -30,4 +30,4 @@ Vous pouvez remapper des systèmes MultiPoint Services sélectionnés. Pour plus
   
 ## <a name="see-also"></a>Voir aussi  
 [Redémarrer ou arrêter des systèmes MultiPoint](Restart-or-Shut-Down-MultiPoint-Systems.md)  
-[Remapper des systèmes MultiPoint sélectionnés](Remap-Selected-MultiPoint-Systems.md)  
+[Remapper les systèmes MultiPoint sélectionnés](Remap-Selected-MultiPoint-Systems.md)  

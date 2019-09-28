@@ -1,9 +1,9 @@
 ---
 title: Supprimer des enregistrements de ressources DNS
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
+description: Cette rubrique fait partie du Guide de gestion des adresses IP (IPAM) de Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,43 +12,43 @@ ms.topic: article
 ms.assetid: 366e6fd5-d563-4de3-9551-5614cbb8f2cb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ecbe5dcc452aa39a9afca7e1c8d5fe70d8d4528d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: fcaaf89989a44cc7a0e84e296ce16083fe021577
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283978"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405655"
 ---
 # <a name="delete-dns-resource-records"></a>Supprimer des enregistrements de ressources DNS
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour supprimer un ou plusieurs enregistrements de ressource DNS à l’aide de la console client IPAM.  
+Vous pouvez utiliser cette rubrique pour supprimer un ou plusieurs enregistrements de ressources DNS à l’aide de la console client IPAM.  
   
 Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
-### <a name="to-delete-dns-resource-records"></a>Pour supprimer des enregistrements de ressource DNS  
+### <a name="to-delete-dns-resource-records"></a>Pour supprimer des enregistrements de ressources DNS  
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
+1.  Dans Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
   
-2.  Dans le volet de navigation, dans **surveiller et gérer**, cliquez sur **Zones DNS**.  Le volet de navigation divise en un volet de navigation supérieur et un volet de navigation inférieur.  
+2.  Dans le volet de navigation, sous **surveiller et gérer**, cliquez sur **zones DNS**.  Le volet de navigation est divisé en un volet de navigation supérieur et un volet de navigation inférieur.  
   
-3.  Cliquez pour développer **recherche directe** et le domaine où se trouvent les enregistrements de ressources et de zone que vous souhaitez supprimer. Cliquez sur la zone, puis dans le volet d’informations, cliquez sur **affichage actuel**. Cliquez sur **enregistrements de ressource**.  
+3.  Cliquez pour développer **recherche directe** et le domaine dans lequel se trouvent les enregistrements de zone et de ressource que vous souhaitez supprimer. Cliquez sur la zone, puis dans le volet d’affichage, cliquez sur **affichage actuel**. Cliquez sur **enregistrements de ressources**.  
   
-4.  Dans le volet d’informations, recherchez et sélectionnez les enregistrements de ressources que vous souhaitez supprimer.  
+4.  Dans le volet d’informations, recherchez et sélectionnez les enregistrements de ressource que vous souhaitez supprimer.  
   
-    ![Sélectionnez les enregistrements de ressource à supprimer](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_01.jpg)  
+    ![Sélectionner les enregistrements de ressource à supprimer](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_01.jpg)  
   
-5.  Cliquez sur les enregistrements sélectionnés, puis cliquez sur **enregistrement de ressource DNS supprimer**.  
+5.  Cliquez avec le bouton droit sur les enregistrements sélectionnés, puis cliquez sur **Supprimer l’enregistrement de ressource DNS**.  
   
     ![Supprimer les enregistrements](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_02.jpg)  
   
-6.  Le **supprimer un enregistrement de ressource DNS** boîte de dialogue s’ouvre. Vérifiez que le serveur DNS correct est sélectionné. Si elle n’est pas le cas, cliquez sur **serveur DNS** et sélectionnez le serveur à partir de laquelle vous souhaitez supprimer les enregistrements de ressources. Cliquez sur **OK**. IPAM supprime les enregistrements de ressources du serveur DNS.  
+6.  La boîte de dialogue **supprimer un enregistrement de ressource DNS** s’ouvre. Vérifiez que le serveur DNS correct est sélectionné. Si ce n’est pas le cas, cliquez sur **serveur DNS** et sélectionnez le serveur à partir duquel vous souhaitez supprimer les enregistrements de ressources. Cliquez sur **OK**. IPAM supprime les enregistrements de ressource du serveur DNS.  
   
-    ![Vérifiez que le serveur DNS correct est sélectionné et supprimer des enregistrements](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_03.jpg)  
+    ![Vérifier que le serveur DNS correct est sélectionné et supprimer les enregistrements](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_03.jpg)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Gestion des enregistrements ressource DNS](DNS-Resource-Record-Management.md)  
+[Gestion des enregistrements de ressources DNS](DNS-Resource-Record-Management.md)  
 [Gérer IPAM](Manage-IPAM.md)  
   
 

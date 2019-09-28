@@ -1,9 +1,9 @@
 ---
 title: Afficher toutes les stations
-description: Découvrez comment afficher toutes les stations dans MultiPoint Services
+description: En savoir plus sur l’affichage de toutes les stations dans MultiPoint services
 ms.custom: na
 ms.date: 07/07/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ ms.assetid: 4fcb5354-b7cd-4015-b9e7-42aef98b55f7
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: dcf74b1024f3c1344548a8b819c2a40725d1e71d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc048746b21911e110227fd310990ba2101a9b25
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880790"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389306"
 ---
 # <a name="show-all-stations"></a>Afficher toutes les stations
-En tant qu’administrateur sur le système MultiPoint Services, vous souhaiterez afficher toutes les stations qui sont connectées à votre système, y compris non\-inactives ou déconnectées de stations. Par exemple, selon votre contrat de licence, vous devrez peut-être vérifier le nombre de stations qui ne sont connectés le système MultiPoint Services. Vous pouvez afficher ces informations à l’aide du gestionnaire MultiPoint.  
+En tant qu’administrateur sur le système MultiPoint services, vous souhaiterez peut-être afficher toutes les stations connectées à votre système, y compris les stations non-no__t-0active ou les stations déconnectées. Par exemple, selon votre contrat de licence, vous devrez peut-être vérifier le nombre de stations connectées au système MultiPoint services. Vous pouvez afficher ces informations à l’aide du gestionnaire MultiPoint.  
   
 1.  En mode normal, cliquez sur l’onglet **Bureaux**.  
   

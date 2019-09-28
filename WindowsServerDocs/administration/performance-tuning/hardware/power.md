@@ -1,74 +1,74 @@
 ---
-title: Considérations sur le serveur matériel Power
-description: Considérations sur le serveur matériel Power
-ms.prod: windows-server-threshold
+title: Considérations relatives à l’alimentation matérielle du serveur
+description: Considérations relatives à l’alimentation matérielle du serveur
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fe91888188796c96d5da80e8f9bd3ed627b9d43
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: a9d4653824d497ea0c42337260aa788bab354ba3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564739"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355014"
 ---
-# <a name="server-hardware-power-considerations"></a>Considérations sur le serveur matériel Power
+# <a name="server-hardware-power-considerations"></a>Considérations relatives à l’alimentation matérielle du serveur
 
-Il est important de reconnaître l’importance croissante de l’efficacité énergétique dans les environnements de centres de données et entreprise. Performances élevées et faible énergie utilisation sont souvent des objectifs contradictoires, mais en sélectionnant soigneusement les composants serveur, vous pouvez obtenir l’équilibre correct entre eux. Les sections suivantes répertorient les instructions pour les fonctionnalités des composants matériels de serveur et les caractéristiques de l’alimentation.
+Il est important de reconnaître l’importance croissante de l’efficacité énergétique dans les environnements d’entreprise et de centre de données. Les performances élevées et l’utilisation faible de l’énergie sont souvent des objectifs conflictuels, mais en sélectionnant soigneusement les composants serveur, vous pouvez obtenir un équilibre correct entre eux. Les sections suivantes répertorient les indications relatives aux caractéristiques de l’alimentation et aux fonctionnalités des composants matériels du serveur.
 
 ## <a name="processor-recommendations"></a>Recommandations concernant le processeur
 
-Fréquence, la tension de fonctionnement, taille du cache et technologie de traitement affecte la consommation d’énergie de processeurs. Les processeurs ont une conception thermique de point de contrôle d’accès (TDP) qui donne une indication de base de consommation d’énergie par rapport à d’autres modèles.
+La fréquence, la tension de fonctionnement, la taille du cache et la technologie de processus affectent la consommation d’énergie des processeurs. Les processeurs ont une évaluation TDP (Thermal Design point) qui donne une indication de base de la consommation d’énergie par rapport à d’autres modèles.
 
-En règle générale, opter pour le processeur TDP la plus basse qui répond à vos objectifs de performances. En outre, des générations plus récente de processeurs sont généralement plus efficace d’énergie, et ils risquent d’exposer plusieurs États d’alimentation pour les algorithmes de gestion d’alimentation de Windows, ce qui permet une meilleure gestion de l’alimentation à tous les niveaux de performances. Ou ils peuvent utiliser certaines techniques de gestion d’alimentation « coopérative » nouvelle développés par Microsoft en partenariat avec les fabricants de matériel.
+En général, optez pour le processeur TDP le plus bas qui répondra à vos objectifs en matière de performances. En outre, les générations plus récentes de processeurs sont généralement plus efficaces et peuvent exposer davantage d’États d’alimentation pour les algorithmes de gestion de l’alimentation Windows, ce qui permet une meilleure gestion de l’alimentation à tous les niveaux de performances. Ils peuvent également utiliser certaines des nouvelles techniques de gestion de l’alimentation « coopérative » que Microsoft a développées en partenariat avec les fabricants de matériel.
 
-Pour plus d’informations sur les techniques de gestion d’alimentation coopérative, consultez la section nommée Collaborative contrôle de performances de processeur dans le [Advanced Configuration and Power Interface Specification](http://www.uefi.org/sites/default/files/resources/ACPI_5_1release.pdf).
+Pour plus d’informations sur les techniques de gestion de l’alimentation coopérative, consultez la section contrôle des performances du processeur collaboratif dans la [spécification Advanced Configuration and Power Interface](http://www.uefi.org/sites/default/files/resources/ACPI_5_1release.pdf).
 
 
 ## <a name="memory-recommendations"></a>Recommandations de mémoire
-Comptes de la mémoire pour une fraction d’augmentation de la puissance totale du système. De nombreux facteurs affectent la consommation d’énergie d’une mémoire DIMM, telles que la technologie de mémoire, code de correction d’erreur (ECC), fréquence de bus, capacité, densité et nombre de rangs. Par conséquent, il est préférable de comparer des évaluations power attendu avant d’acheter de grandes quantités de mémoire.
+Comptes mémoire pour une fraction plus grande de la puissance totale du système. De nombreux facteurs affectent la consommation d’énergie d’un module de mémoire DIMM, telle que la technologie de mémoire, le code de correction d’erreur (ECC), la fréquence de bus, la capacité, la densité et le nombre de rangs. Par conséquent, il est préférable de comparer les évaluations de puissance attendues avant d’acheter de grandes quantités de mémoire.
 
-Mémoire de faible puissance est désormais disponible, mais vous devez prendre en compte les performances et coût compromis. Si votre serveur sera être la pagination, vous devez également tenir compte le coût des disques de la pagination.
+La mémoire insuffisante est désormais disponible, mais vous devez prendre en compte les performances et les compromis des coûts. Si votre serveur sera paginé, vous devez également prendre en compte le coût énergétique des disques de pagination.
 
 
-## <a name="disks-recommendations"></a>Recommandations de disques
-VITESSE est élevée, la consommation d’énergie accrue. Lecteurs SSD sont plus efficaces d’énergie que les disques de rotation. En outre, les lecteurs de 2,5 pouces nécessitent généralement moins d’énergie que les disques de 3,5 pouces.
+## <a name="disks-recommendations"></a>Recommandations relatives aux disques
+Un RPM plus élevé signifie une consommation énergétique accrue. Les lecteurs SSD sont plus efficaces que les lecteurs de rotation. En outre, les lecteurs 2,5 pouces nécessitent généralement moins d’énergie que les lecteurs de 3,5 pouces.
 
 ## <a name="network-and-storage-adapter-recommendations"></a>Recommandations concernant les adaptateurs réseau et du stockage
-Certains adaptateurs de diminuer la consommation d’énergie pendant les périodes d’inactivité. Il s’agit d’une considération importante pour les cartes réseau de 10 Go et les liens de stockage de bande passante élevée (du 4 au 8 Go). Ces appareils peuvent consommer de grandes quantités d’énergie.
+Certains adaptateurs réduisent la consommation d’énergie pendant les périodes d’inactivité. Il s’agit d’un point important à prendre en compte pour les cartes réseau de 10 Go et les liens de stockage à bande passante élevée (4-8 Go). Ces appareils peuvent consommer de grandes quantités d’énergie.
 
 
-## <a name="power-supply-recommendations"></a>Recommandations de fourniture de Power
-Amélioration de l’efficacité de puissance électrique est un excellent moyen de réduire la consommation d’énergie sans affecter les performances. Alimentations haute efficacité peuvent enregistrer plusieurs mégawattheures par an et par serveur.
+## <a name="power-supply-recommendations"></a>Recommandations relatives à l’alimentation
+L’amélioration de l’efficacité de l’alimentation est un excellent moyen de réduire la consommation d’énergie sans affecter les performances. Les alimentations à haut rendement peuvent économiser plusieurs kilowatts/heures par an, par serveur.
 
 
-## <a name="fan-recommendations"></a>Recommandations de ventilateur
-Ventilateurs, telles que des alimentations, correspondent à une zone où vous pouvez réduire la consommation d’énergie sans affecter les performances du système. Les fans de vitesse variable peuvent réduire tr/min en tant que la diminution de charge système, en éliminant la consommation d’énergie inutiles dans le cas contraire.
+## <a name="fan-recommendations"></a>Recommandations relatives aux ventilateurs
+Les ventilateurs, comme les alimentations, sont une zone où vous pouvez réduire la consommation d’énergie sans affecter les performances du système. Les ventilateurs à vitesse variable peuvent réduire les RPM lorsque la charge du système diminue, éliminant ainsi toute consommation d’énergie inutile.
 
 
-## <a name="usb-devices-recommendations"></a>Périphériques USB recommandations
-Windows Server 2016 Active la suspension sélective pour les périphériques USB par défaut. Toutefois, un pilote de périphérique mal écrite peut interrompre toujours l’efficacité énergétique du système par une marge importante. Pour éviter les problèmes potentiels, déconnectez les périphériques USB, les désactiver dans le BIOS ou choisir les serveurs qui ne nécessitent pas de périphériques USB.
+## <a name="usb-devices-recommendations"></a>Recommandations relatives aux périphériques USB
+Windows Server 2016 permet la suspension sélective des périphériques USB par défaut. Toutefois, un pilote de périphérique mal écrit peut toujours perturber l’efficacité énergétique du système par une marge considérable. Pour éviter les problèmes potentiels, déconnectez les périphériques USB, désactivez-les dans le BIOS ou choisissez des serveurs qui ne nécessitent pas de périphériques USB.
 
 
-## <a name="remotely-managed-power-strip-recommendations"></a>Recommandations de bande Power gérés à distance
-Barrettes d’alimentation ne sont pas partie intégrante du matériel de serveur, mais ils peuvent faire une grande différence dans le centre de données. Mesures font apparaître que les serveurs de volume qui sont connectés, mais qui ont été ostensiblement hors tension, peuvent toujours nécessiter jusqu'à 30 watts de puissance.
+## <a name="remotely-managed-power-strip-recommendations"></a>Recommandations de Power Strip gérées à distance
+Les barrettes d’alimentation ne font pas partie intégrante du matériel serveur, mais elles peuvent faire une grande différence dans le centre de données. Les mesures montrent que les serveurs de volume qui sont branchés, mais qui ont été soi-disants hors tension, peuvent toujours nécessiter jusqu’à 30 watts de puissance.
 
-Pour éviter de gaspiller d’électricité, vous pouvez déployer un onduleur gérés à distance pour chaque rack de serveurs par programmation déconnexion d’alimentation à partir des serveurs spécifiques.
+Pour éviter de gaspiller de l’électricité, vous pouvez déployer une bande d’alimentation gérée à distance pour chaque rack de serveurs afin de déconnecter par programmation l’alimentation de serveurs spécifiques.
 
-## <a name="processor-terminology"></a>Terminologie de processeur
-La terminologie de processeur utilisée tout au long de cette rubrique reflète la hiérarchie des composants disponibles dans la figure suivante. Termes utilisés du plus grand au plus petit niveau de granularité des composants sont les suivants :
+## <a name="processor-terminology"></a>Terminologie du processeur
+La terminologie du processeur utilisée dans cette rubrique reflète la hiérarchie des composants disponibles dans la figure suivante. Les termes utilisés du plus grand au plus petit niveau de granularité des composants sont les suivants :
 
 -   Socket de processeur
 -   nœud NUMA
 -   Standard
--   processeur logique
+-   Processeur logique
 
-![Terminologie de processeur](../media/perftune-guide-figure-1.png)
+![terminologie du processeur](../media/perftune-guide-figure-1.png)
 
 ## <a name="see-also"></a>Voir aussi
-- [Les considérations sur les performances du matériel serveur](index.md)
+- [Considérations relatives aux performances matérielles du serveur](index.md)
 - [Réglage de la puissance et des performances](power/power-performance-tuning.md)
 - [Réglage de la gestion de la puissance du processeur](power/processor-power-management-tuning.md)
 - [Paramètres de planification équilibrée recommandés](power/recommended-balanced-plan-parameters.md)

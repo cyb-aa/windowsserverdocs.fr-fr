@@ -1,19 +1,19 @@
 ---
 title: Créer une clé d’hôte et l’ajouter à SGH
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: a12c8494-388c-4523-8d70-df9400bbc2c0
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 655ebae66b234d62e5863e2a22e785d5a0028da7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2aea6c8416a0f3af04ad6056c5d09a4d07708eaa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386651"
 ---
 # <a name="create-a-host-key-and-add-it-to-hgs"></a>Créer une clé d’hôte et l’ajouter à SGH
 

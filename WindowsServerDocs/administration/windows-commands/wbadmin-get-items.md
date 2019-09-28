@@ -1,8 +1,8 @@
 ---
-title: WBADMIN get éléments
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Wbadmin obtient les éléments
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: eeb7c29ff552f968b4785612f626a86baf154ad7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6c3cc532381321655bbd3d5549b3c9b1896b9280
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842880"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362414"
 ---
-# <a name="wbadmin-get-items"></a>WBADMIN get éléments
+# <a name="wbadmin-get-items"></a>Wbadmin obtient les éléments
 
 
 
 Répertorie les éléments inclus dans une sauvegarde spécifique.
 
-Pour utiliser cette sous-commande, vous devez être membre du **opérateurs de sauvegarde** groupe ou le **administrateurs** groupe, ou vous devez vous avoir été délégué des autorisations appropriées. En outre, vous devez exécuter **wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir un invite de commandes avec élévation de privilèges de droit **invite de commandes** puis cliquez sur **exécuter en tant qu’administrateur**.)
+Pour utiliser cette sous-commande, vous devez être membre du groupe **opérateurs de sauvegarde** ou **administrateurs** , ou l’autorisation appropriée doit vous avoir été déléguée. En outre, vous devez exécuter **Wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir une invite de commandes avec élévation de privilèges, cliquez avec le bouton droit sur **invite de commandes** , puis cliquez sur **exécuter en tant qu’administrateur**.)
 
-Pour obtenir des exemples montrant comment utiliser cette sous-commande, consultez [exemples](#BKMK_examples).
+Pour obtenir des exemples d’utilisation de cette sous-commande, consultez [exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -43,23 +43,23 @@ wbadmin get items
 
 |Paramètre|Description|
 |---------|-----------|
-|-version|Spécifie la version de la sauvegarde en MM/jj/aaaa-format hh : mm. Si vous ne connaissez pas les informations de version, tapez **wbadmin get versions**.|
-|-backupTarget|Spécifie l’emplacement de stockage contenant les sauvegardes dont vous voulez les détails. Utilisation pour répertorier les sauvegardes stockées à cet emplacement cible. Emplacements de cible de sauvegarde peuvent être un lecteur de disque attaché localement ou un dossier partagé distant. Si **wbadmin obtenir les éléments**est exécuté sur le même ordinateur où la sauvegarde a été créée, ce paramètre n’est pas nécessaire. Toutefois, ce paramètre est obligatoire pour obtenir des informations sur une sauvegarde créée à partir d’un autre ordinateur.|
-|-machine|Spécifie le nom de l’ordinateur que vous souhaitez les informations de sauvegarde pour. Utile lorsque plusieurs ordinateurs ont été sauvegardés dans le même emplacement. Doit être utilisé lorsque **- backupTarget** est spécifié.|
+|-version|Spécifie la version de la sauvegarde au format MM/JJ/AAAA-HH : MM. Si vous ne connaissez pas les informations de version, tapez **Wbadmin obtenir des versions**.|
+|-backupTarget|Spécifie l’emplacement de stockage qui contient les sauvegardes pour lesquelles vous souhaitez obtenir des détails. Utilisez pour répertorier les sauvegardes stockées à cet emplacement cible. Les emplacements des cibles de sauvegarde peuvent être un lecteur de disque connecté localement ou un dossier partagé distant. Si **Wbadmin obten items**est exécuté sur le même ordinateur que celui sur lequel la sauvegarde a été créée, ce paramètre n’est pas nécessaire. Toutefois, ce paramètre est requis pour obtenir des informations sur une sauvegarde créée à partir d’un autre ordinateur.|
+|-machine|Spécifie le nom de l’ordinateur pour lequel vous souhaitez obtenir les détails de la sauvegarde. Utile lorsque plusieurs ordinateurs ont été sauvegardés au même emplacement. Doit être utilisé lorsque **-backupTarget** est spécifié.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour répertorier les éléments à partir de la sauvegarde a été exécutée sur le 31 mars 2013 à 9 h 00, type :
+Pour répertorier les éléments de la sauvegarde qui ont été exécutés le 31 mars 2013 à 9:00 A.M., tapez :
 ```
 wbadmin get items -version:03/31/2013-09:00
 ```
-Pour répertorier les éléments à partir de la sauvegarde de server01 qui a été exécuté sur le 30 avril 2013 à 9 h 00 et stocké dans \\ \\servername\share, type :
+Pour répertorier les éléments de la sauvegarde de SERVEUR01 qui a été exécutée le 30 avril 2013 à 9:00 h 00 et stockés sur \\ @ no__t-1servername\share, tapez :
 ```
 wbadmin get items -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
--   [Get-WBBackupSet](https://technet.microsoft.com/library/jj902473.aspx) applet de commande
+-   Applet [de commande WBBackupSet](https://technet.microsoft.com/library/jj902473.aspx)

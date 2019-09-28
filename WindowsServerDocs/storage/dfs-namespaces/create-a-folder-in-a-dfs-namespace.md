@@ -2,22 +2,22 @@
 title: Créer un dossier dans un espace de noms DFS
 description: Cet article décrit comment créer un dossier dans un espace de noms DFS.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 47bb13aa404cdf4fef86b7250425a92cc208ba9d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7389b825afe5ccae3059f50ffdedac72ecd5ac9a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856850"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402248"
 ---
 # <a name="create-a-folder-in-a-dfs-namespace"></a>Créer un dossier dans un espace de noms DFS
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Vous pouvez utiliser des dossiers pour créer des niveaux hiérarchiques supplémentaires dans un espace de noms. Vous pouvez également créer des dossiers avec cibles de dossier pour ajouter des dossiers partagés dans l’espace de noms. Les dossiers DFS avec cibles de dossier ne peuvent pas contenir d’autres dossiers DFS. Par conséquent, si vous voulez ajouter un niveau hiérarchique dans l’espace de noms, n’ajoutez pas de cibles de dossier dans le dossier.
 
@@ -40,7 +40,7 @@ Pour créer un dossier dans un espace de noms à l’aide de Gestion DFS :
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Déploiement d’espaces de noms DFS](deploying-dfs-namespaces.md)
--   [Déléguer des autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Déploiement d’espaces de noms DFS](deploying-dfs-namespaces.md)
+-   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
 
 

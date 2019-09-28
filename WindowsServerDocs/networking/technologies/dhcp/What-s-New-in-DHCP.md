@@ -1,52 +1,52 @@
 ---
 title: Nouveautés de DHCP
-description: Cette rubrique fournit une vue d’ensemble des nouvelles fonctionnalités pour DHCP Dynamic Host Configuration Protocol () dans Windows Server 2016.
+description: Cette rubrique fournit une vue d’ensemble des nouvelles fonctionnalités du protocole DHCP (Dynamic Host Configuration Protocol) dans Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: c6f36998-5b64-45d1-b1f0-0f0d6604dbe3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 73cc5134f7af5063c912ad578fa7d660b3194aa1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8032b7c8e78170d57b0367775672577d9fd900e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840230"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355453"
 ---
 # <a name="whats-new-in-dhcp"></a>Nouveautés de DHCP
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Cette rubrique décrit les fonctionnalités de Configuration protocole DHCP (Dynamic Host) qui sont nouvelles ou modifiées dans Windows Server 2016.
+Cette rubrique décrit les nouveautés et les modifications apportées à la fonctionnalité DHCP (Dynamic Host Configuration Protocol) dans Windows Server 2016.
   
-DHCP est une norme Internet Engineering Task Force (IETF) qui est conçue pour réduire la charge administrative et la complexité de la configuration des hôtes sur un TCP/IP\-en fonction du réseau, tel qu’un intranet privé. Le recours au service Serveur DHCP permet d’automatiser le processus de configuration de TCP/IP sur les clients DHCP.
+DHCP est une norme IETF (Internet Engineering Task Force) conçue pour réduire la charge et la complexité d’administration de la configuration des hôtes sur un réseau TCP/IP @ no__t-0based, tel qu’un intranet privé. Le recours au service Serveur DHCP permet d’automatiser le processus de configuration de TCP/IP sur les clients DHCP.
 
-Les sections suivantes fournissent des informations sur les nouvelles fonctionnalités et modifications de fonctionnalités pour DHCP.
+Les sections suivantes fournissent des informations sur les nouvelles fonctionnalités et les modifications apportées aux fonctionnalités de DHCP.
 
-## <a name="dhcp-subnet-selection-options"></a>Options de sélection de sous-réseau DHCP
+## <a name="dhcp-subnet-selection-options"></a>Options de sélection du sous-réseau DHCP
 
-DHCP prend désormais en charge les options 118 et 82 \(sous-composant option 5\). Vous pouvez utiliser ces options pour autoriser les clients de proxy DHCP et les agents de relais demander une adresse IP d’un sous-réseau spécifique et d’une plage d’adresses IP et de portée.
+DHCP prend désormais en charge les options 118 et 82 \(sub-option 5 @ no__t-1. Vous pouvez utiliser ces options pour autoriser les clients de proxy et les agents de relais DHCP à demander une adresse IP pour un sous-réseau spécifique, et à partir d’une plage d’adresses IP et d’une étendue spécifiques.
 
 
-Si vous utilisez un agent de relais DHCP qui est configuré avec l’option DHCP 82, sub\-option 5, l’agent de relais peut demander un bail d’adresse IP pour les clients DHCP à partir d’une plage d’adresses IP spécifique.
+Si vous utilisez un agent de relais DHCP configuré avec l’option DHCP 82, Sub @ no__t-0option 5, l’agent de relais peut demander un bail d’adresse IP pour les clients DHCP à partir d’une plage d’adresses IP spécifique.
 
-Pour plus d’informations, consultez [les Options de sélection de sous-réseau DHCP](dhcp-subnet-options.md).
+Pour plus d’informations, consultez [options de sélection du sous-réseau DHCP](dhcp-subnet-options.md).
 
 ## <a name="new-logging-events-for-dns-registration-failures-by-the-dhcp-server"></a>Nouveaux événements de journalisation pour les échecs d’inscription DNS par le serveur DHCP
 
-DHCP inclut désormais la journalisation d’événements pour les circonstances dans DHCP des enregistrements DNS server échouent sur le serveur DNS.
+DHCP comprend désormais des événements de journalisation dans les cas où les inscriptions d’enregistrements DNS du serveur DHCP échouent sur le serveur DNS.
 
-Pour plus d’informations, consultez [DHCP des événements de journalisation pour les inscriptions d’enregistrement DNS](dhcp-dns-events.md).
+Pour plus d’informations, consultez [événements de journalisation DHCP pour les inscriptions d’enregistrements DNS](dhcp-dns-events.md).
 
-## <a name="dhcp-nap-is-not-supported-in-windows-server-2016"></a>NAP par DHCP n’est pas pris en charge dans Windows Server 2016
+## <a name="dhcp-nap-is-not-supported-in-windows-server-2016"></a>La protection d’accès réseau DHCP n’est pas prise en charge dans Windows Server 2016
 
-Protection d’accès réseau \(NAP\) est déconseillée dans Windows Server 2012 R2 et dans le rôle serveur DHCP de Windows Server 2016 ne prend plus en charge NAP. Pour plus d’informations, consultez [fonctionnalités supprimées ou déconseillées dans Windows Server 2012 R2](https://technet.microsoft.com/library/dn303411.aspx).  
+La protection d’accès réseau \(NAP @ no__t-1 est déconseillée dans Windows Server 2012 R2 et dans Windows Server 2016 le rôle de serveur DHCP ne prend plus en charge la protection d’accès réseau. Pour plus d’informations, voir [fonctionnalités supprimées ou déconseillées dans Windows Server 2012 R2](https://technet.microsoft.com/library/dn303411.aspx).  
   
-Prise en charge NAP a été introduit pour le rôle de serveur DHCP avec Windows Server 2008 et ne prend en charge avant Windows 10 et Windows Server 2016 dans les systèmes d’exploitation de client et serveur Windows. Le tableau suivant résume la prise en charge pour la protection NAP dans Windows Server.  
+La prise en charge de la protection d’accès réseau a été introduite pour le rôle serveur DHCP avec Windows Server 2008 et est prise en charge dans les systèmes d’exploitation client et serveur Windows antérieurs à Windows 10 et Windows Server 2016. Le tableau suivant résume la prise en charge de la protection d’accès réseau dans Windows Server.  
   
-|Système d’exploitation|Prise en charge de la protection d’accès réseau|  
+|Système d'exploitation|Prise en charge NAP|  
 |--------------------|---------------|  
 | Windows Server 2008 |Prise en charge|  
 | Windows Server 2008 R2 |Prise en charge|  
@@ -54,14 +54,14 @@ Prise en charge NAP a été introduit pour le rôle de serveur DHCP avec Windows
 | Windows Server 2012 R2 |Prise en charge|  
 | Windows Server 2016|Non pris en charge|  
   
-Dans un déploiement NAP, un serveur DHCP exécutant un système d’exploitation qui prend en charge NAP peut fonctionner comme un point de mise en conformité NAP pour la méthode de mise en conformité NAP par DHCP. Pour plus d’informations sur DHCP NAP, consultez [liste de vérification : Implémentation d’une conception de mise en conformité DHCP](https://technet.microsoft.com/library/dd314186.aspx).  
+Dans un déploiement NAP, un serveur DHCP exécutant un système d’exploitation prenant en charge la protection d’accès réseau peut fonctionner comme point de contrainte de mise en conformité NAP pour la méthode de contrainte de mise en conformité DHCP NAP. Pour plus d’informations sur DHCP dans NAP, voir [Checklist : Implémentation d’une conception d’application DHCP @ no__t-0.  
   
-Dans Windows Server 2016, les serveurs DHCP n’appliquent pas les stratégies NAP et les étendues DHCP ne peut pas être NAP\-activé. Ordinateurs clients DHCP qui sont également les clients NAP envoient une déclaration d’intégrité \(SoH\) avec la demande DHCP. Si le serveur DHCP est en cours d’exécution Windows Server 2016, ces demandes sont traitées comme si aucune déclaration d’intégrité n’est présente. Le serveur DHCP accorde un bail DHCP normal au client. 
+Dans Windows Server 2016, les serveurs DHCP n’appliquent pas les stratégies NAP, et les étendues DHCP ne peuvent pas être NAP @ no__t-0enabled. Les ordinateurs clients DHCP qui sont également des clients NAP envoient une déclaration d’intégrité \(SoH @ no__t-1 avec la requête DHCP. Si le serveur DHCP exécute Windows Server 2016, ces demandes sont traitées comme si aucune SoH n’est présente. Le serveur DHCP accorde un bail DHCP normal au client. 
 
-Si les serveurs qui exécutent Windows Server 2016 sont des proxys RADIUS qui transfère les demandes d’authentification sur un serveur de stratégie réseau \(NPS\) qui prend en charge NAP, ces clients NAP sont évaluées par NPS en tant que non NAP\-capable, et Échec du traitement de NAP.
+Si les serveurs qui exécutent Windows Server 2016 sont des proxys RADIUS qui transfèrent les demandes d’authentification à un serveur de stratégie réseau \(NPS @ no__t-1 qui prend en charge la protection d’accès réseau, ces clients NAP sont évalués par NPS comme non NAP @ no__t-2capable et le traitement NAP échoue.
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Dynamic Host Configuration Protocol (DHCP)](Dynamic-Host-Configuration-Protocol--DHCP-.md)  
+-   [Protocole DHCP (Dynamic Host Configuration Protocol)](Dynamic-Host-Configuration-Protocol--DHCP-.md)  
   
 

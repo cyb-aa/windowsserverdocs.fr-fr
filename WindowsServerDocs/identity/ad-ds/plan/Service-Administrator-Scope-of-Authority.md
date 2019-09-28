@@ -7,42 +7,42 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b5bf2fb3b06a47d730b9dd124b2b66a0a4c9c691
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c54279f591545c6207dfec1536f16e29e69aa99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864850"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408668"
 ---
 # <a name="service-administrator-scope-of-authority"></a>Étendue de l’autorité de l’administrateur de service
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Si vous choisissez de participer à une forêt Active Directory, vous devez approuver le propriétaire de la forêt et les administrateurs de service. Les propriétaires de la forêt sont responsables de sélection et la gestion des administrateurs de service ; Par conséquent, lorsque vous faites confiance à un propriétaire de la forêt, vous également faire confiance aux administrateurs de service qui gère le propriétaire de la forêt. Ces administrateurs de service ont accès à toutes les ressources dans la forêt. Avant de décider de participer à une forêt, il est important de comprendre que le propriétaire de la forêt et les administrateurs de service ont un accès complet à vos données. Vous ne pouvez pas empêcher cet accès.  
+Si vous choisissez de participer à une forêt Active Directory, vous devez faire confiance au propriétaire de la forêt et aux administrateurs de service. Les propriétaires de la forêt sont responsables de la sélection et de la gestion des administrateurs de service. par conséquent, lorsque vous faites confiance à un propriétaire de forêt, vous faites également confiance aux administrateurs de service gérés par le propriétaire de la forêt. Ces administrateurs de service ont accès à toutes les ressources de la forêt. Avant de prendre la décision de participer à une forêt, il est important de comprendre que le propriétaire de la forêt et les administrateurs de service auront un accès complet à vos données. Vous ne pouvez pas empêcher cet accès.  
   
-Tous les administrateurs de service dans une forêt ont un contrôle total sur toutes les données et services sur tous les ordinateurs dans la forêt. Les administrateurs de service ont la possibilité d’effectuer les opérations suivantes :  
+Tous les administrateurs de service d’une forêt ont un contrôle total sur l’ensemble des données et des services sur tous les ordinateurs de la forêt. Les administrateurs de service ont la possibilité d’effectuer les opérations suivantes :  
   
--   Corrigez les erreurs sur les listes de contrôle d’accès (ACL) d’objets. Cela permet à l’administrateur de service lire, modifier ou supprimer des objets, quel que soit les ACL sont définies sur ces objets.  
+-   Corriger les erreurs sur les listes de contrôle d’accès (ACL) d’objets. Cela permet à l’administrateur de service de lire, modifier ou supprimer des objets indépendamment des listes de contrôle d’accès définies sur ces objets.  
   
--   Modifier le logiciel système sur un contrôleur de domaine à contourner les vérifications de sécurité normales. Cela permet à l’administrateur de service afficher ou manipuler n’importe quel objet dans le domaine, quel que soit l’ACL sur l’objet.  
+-   Modifiez le logiciel système sur un contrôleur de domaine pour contourner les vérifications de sécurité normales. Cela permet à l’administrateur de service d’afficher ou de manipuler n’importe quel objet dans le domaine, quelle que soit la liste de contrôle d’accès de l’objet.  
   
--   Utilisez la stratégie de sécurité des groupes restreints pour accorder pour n’importe quel utilisateur ou groupe l’accès administratif à n’importe quel ordinateur joint au domaine. De cette façon, les administrateurs de service peuvent prendre le contrôle de n’importe quel ordinateur joint au domaine, quel que soit les intentions du propriétaire de l’ordinateur.  
+-   Utilisez la stratégie de sécurité groupes restreints pour accorder à un utilisateur ou à un groupe un accès administratif à tout ordinateur joint au domaine. De cette façon, les administrateurs de service peuvent obtenir le contrôle de tout ordinateur joint au domaine, quelles que soient les intentions du propriétaire de l’ordinateur.  
   
--   Réinitialiser les mots de passe ou modifier les appartenances aux groupes pour les utilisateurs.  
+-   Réinitialiser les mots de passe ou modifier l’appartenance aux groupes pour les utilisateurs.  
   
--   Accéder à d’autres domaines dans la forêt en modifiant le logiciel du système sur un contrôleur de domaine. Les administrateurs de service peuvent affecter le fonctionnement de tout domaine inclus dans la forêt, vue ou manipuler les données de configuration de forêt, afficher ou manipuler les données stockées dans n’importe quel domaine et afficher ou manipuler les données stockées sur n’importe quel ordinateur joint à la forêt.  
+-   Accédez à d’autres domaines de la forêt en modifiant le logiciel système sur un contrôleur de domaine. Les administrateurs de services peuvent affecter le fonctionnement de n’importe quel domaine de la forêt, afficher ou manipuler les données de configuration de la forêt, afficher ou manipuler les données stockées dans n’importe quel domaine, et afficher ou manipuler les données stockées sur tout ordinateur joint à la forêt.  
   
-Pour cette raison, il s’agit de groupes qui stockent des données dans des unités d’organisation (UO) dans la forêt et que les ordinateurs de jointure à une forêt doivent approuver les administrateurs de service. Pour un groupe à joindre une forêt, il doit choisir d’approuver tous les administrateurs de service dans la forêt. Cela implique de s’assurer que :  
+Pour cette raison, les groupes qui stockent des données dans des unités d’organisation (UO) de la forêt et qui joignent des ordinateurs à une forêt doivent faire confiance aux administrateurs de service. Pour qu’un groupe rejoigne une forêt, il doit choisir d’approuver tous les administrateurs de service dans la forêt. Cela implique de s’assurer que :  
   
--   Le propriétaire de la forêt peut être approuvé pour agir dans l’intérêt du groupe et n’a pas de raison d’agir à des fins malveillantes sur le groupe.  
+-   Le propriétaire de la forêt peut être approuvé pour agir dans l’intérêt du groupe et n’a pas de raison d’agir de manière malveillante contre le groupe.  
   
--   Le propriétaire de la forêt limite en conséquence l’accès physique aux contrôleurs de domaine. Contrôleurs de domaine dans une forêt ne peut pas être isolés les uns des autres. Il est possible pour un attaquant possédant un accès physique à un seul contrôleur de domaine pour apporter des modifications hors connexion à la base de données d’annuaire et, en procédant ainsi, interférer avec l’opération de n’importe quel domaine de la forêt, afficher ou manipuler les données stockées n’importe où dans la forêt et afficher ou manipuler les données stockées sur n’importe quel ordinateur joint à la forêt. Pour cette raison, l’accès physique aux contrôleurs de domaine doit être limité aux personnes dignes de confiance.  
+-   Le propriétaire de la forêt restreint de manière appropriée l’accès physique aux contrôleurs de domaine. Les contrôleurs de domaine d’une forêt ne peuvent pas être isolés les uns des autres. Il est possible pour une personne malveillante ayant un accès physique à un contrôleur de domaine unique d’apporter des modifications hors connexion à la base de données de l’annuaire et, en procédant ainsi, de perturber le fonctionnement de n’importe quel domaine de la forêt, d’afficher ou de manipuler les données stockées n’importe où dans la forêt. , et afficher ou manipuler les données stockées sur tout ordinateur joint à la forêt. Pour cette raison, l’accès physique aux contrôleurs de domaine doit être limité au personnel de confiance.  
   
--   Comprendre et accepter les risques potentiels qui approuvé les administrateurs de service pouvant être convertis en compromettre la sécurité du système.  
+-   Vous comprenez et acceptez le risque potentiel que les administrateurs de services approuvés puissent être forcés à compromettre la sécurité du système.  
   
-Certains groupes peuvent déterminer que les avantages de collaboration et des coûts de participer à une infrastructure partagée compensent les risques que les administrateurs de service utilisera à mauvais escient ou seront converties en outrepassent leur autorité. Ces groupes peuvent partager une forêt et utiliser des unités d’organisation pour déléguer l’autorité. Autres groupes peuvent cependant pas accepter ce risque, car les conséquences d’une compromission de la sécurité sont trop graves. Ces groupes nécessitent des forêts distinctes.  
+Certains groupes peuvent déterminer que les avantages collaboratifs et économiques associés à la participation à une infrastructure partagée compensent les risques que les administrateurs de service pourraient abuser ou seront contraints d’utiliser leur autorité de manière incorrecte. Ces groupes peuvent partager une forêt et utiliser des unités d’organisation pour déléguer l’autorité. Toutefois, d’autres groupes peuvent ne pas accepter ce risque, car les conséquences d’un compromis en matière de sécurité sont trop graves. Ces groupes requièrent des forêts distinctes.  
   
 
 

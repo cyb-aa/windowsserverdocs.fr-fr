@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin pairs et découvrir des informations
-description: Rubrique de commandes de Windows pour **bitsadmin pairs et découvrir** -détecte les pairs à nouveau.
+title: Bitsadmin et découvrir
+description: La rubrique commandes Windows pour les **pairs Bitsadmin et Discover** -Découvre à nouveau les homologues.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c6fe6ea93e2bf8c103340feb1c9247130411c4d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bad7458d9cace050a9d07fc5978dc9d048094b4b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832650"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380969"
 ---
-# <a name="bitsadmin-peers-and-discover"></a>Bitsadmin pairs et découvrir des informations
+# <a name="bitsadmin-peers-and-discover"></a>Bitsadmin et découvrir
 
 
 
-Détecte les pairs à nouveau.
+Découvre à nouveau les homologues.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,13 +32,13 @@ Détecte les pairs à nouveau.
 bitsadmin /Peers /Discover 
 ```
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant détecte les homologues.
+L’exemple suivant Découvre des homologues.
 ```
 C:\>bitsadmin /Peers /Discover
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -7,98 +7,98 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 13259f7f12a37c4ceb8bdd2e35ae2fe131ec35cf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ded707276471fccd28f0ec17afef0a24015ff32f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442814"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390031"
 ---
 # <a name="spn-and-upn-uniqueness"></a>Unicité des noms SPN et UPN
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Auteur**: Justin Turner, ingénieur Support résolution Senior auprès du groupe Windows  
+**Auteur**: Justin Turner, ingénieur du support technique senior avec le groupe Windows  
   
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
 ## <a name="overview"></a>Vue d'ensemble  
-Contrôleurs de domaine exécutant Windows Server 2012 R2 bloquer la création de dupliquer les noms de principal du service (SPN) et les noms d’utilisateur principal (UPN). Cela inclut si la restauration ou la réanimation d’un objet supprimé ou le changement de nom d’un objet donne lieu à un doublon.  
+Les contrôleurs de domaine exécutant Windows Server 2012 R2 bloquent la création de noms de principal du service (SPN) et de noms principaux d’utilisateur (UPN) dupliqués. Cela implique si la restauration ou la réanimation d’un objet supprimé ou le changement de nom d’un objet entraînerait un doublon.  
   
-### <a name="background"></a>Arrière-plan  
-En double Service noms principaux (SPN) couramment se produire et entraîne des échecs d’authentification et peut entraîner une utilisation excessive de l’UC de processus LSASS. Il n’existe aucune méthode de l’emploi pour bloquer l’ajout d’un nom SPN en double ou un UPN. *  
+### <a name="background"></a>Présentation  
+Les noms de principal du service (SPN) dupliqués se produisent généralement et entraînent des échecs d’authentification et peuvent entraîner une utilisation excessive du processeur LSASS. Il n’existe aucune méthode intégrée pour bloquer l’ajout d’un SPN ou d’un UPN en double. *  
   
-Les valeurs de nom UPN en double rompre la synchronisation entre le site AD et Office 365.  
+Les valeurs UPN dupliquées rompent la synchronisation entre les services AD locaux et Office 365.  
   
-*Setspn.exe est couramment utilisé pour créer de nouveaux noms principaux de service et fonctionnellement a été intégrée à la version fournie avec Windows Server 2008 qui ajoute une vérification des doublons.  
+\* Setspn. exe est couramment utilisé pour créer de nouveaux noms de principal du service (SPN). il a été conçu de façon fonctionnelle dans la version publiée avec Windows Server 2008 qui ajoute une vérification des doublons.  
   
-**Table SEQ Table \\ \* arabe 1 : Unicité des noms UPN et le SPN**  
+**Table SEQ Table \\ @ no__t-2 arabe 1 : Unicité UPN et SPN @ no__t-0  
   
 |Fonctionnalité|Commentaire|  
 |-----------|-----------|  
-|Unicité du nom UPN|Synchronisation de saut UPN en double de AD comptes locaux avec les services Windows Azure basée sur Active Directory telles qu’Office 365.|  
-|Unicité du nom principal de service|Kerberos nécessite des noms principaux de service pour l’authentification mutuelle.  SPN en double entraînent des échecs d’authentification.|  
+|Unicité UPN|Les UPN dupliqués interrompent la synchronisation des comptes AD locaux avec les services Windows Azure AD tels que Office 365.|  
+|Unicité du SPN|Kerberos requiert des noms de principal du service pour l’authentification mutuelle.  Les SPN en double entraînent des échecs d’authentification.|  
   
-Pour plus d’informations sur les conditions d’unicité des noms d’utilisateurs principaux et les noms principaux de service, consultez [contraintes d’unicité](https://msdn.microsoft.com/library/dn392337.aspx).  
+Pour plus d’informations sur les exigences d’unicité pour les UPN et les noms de principal du service, consultez [contraintes d’unicité](https://msdn.microsoft.com/library/dn392337.aspx).  
   
 ## <a name="symptoms"></a>Symptômes  
-Codes d’erreur 8467 ou 8468 ou leurs hex, symbolique ou les chaînes équivalentes sont consignés à l’écran dans différentes boîtes de dialogue et dans l’événement 2974 d’ID dans le journal des événements Services d’annuaire. La tentative de création d’un UPN ou un SPN en double est bloquée uniquement dans les circonstances suivantes :  
+Les codes d’erreur 8467 ou 8468 ou leurs équivalents Hex, symboliques ou de chaîne sont consignés dans différentes boîtes de dialogue à l’écran et dans l’ID d’événement 2974 dans le journal des événements des services d’annuaire. La tentative de création d’un UPN ou SPN en double est bloquée uniquement dans les circonstances suivantes :  
   
--   L’écriture est traité par un contrôleur de domaine Windows Server 2012 R2  
+-   L’écriture est traitée par un contrôleur de périphérique Windows Server 2012 R2  
   
-**Table SEQ Table \\ \* arabe 2 : Codes d’erreur de l’unicité UPN et le SPN**  
+**Table SEQ Table \\ @ no__t-2 ARABIC 2 : Codes d’erreur d’unicité UPN et SPN @ no__t-0  
   
-|Decimal|Hexadécimal|Symbolique|Chaîne|  
+|Decimal|Hexadécimal|Symbol|Chaîne|  
 |-----------|-------|------------|----------|  
-|8467|21C7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|L’opération a échoué, car fournie pour l’ajout/modification de valeur de SPN n’est pas unique de la forêt.|  
-|8648|21C8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|L’opération a échoué, car valeur UPN fournie pour l’ajout/modification n’est pas unique de la forêt.|  
+|8467|21C7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|L’opération a échoué, car la valeur SPN fournie pour l’ajout/la modification n’est pas unique à l’ensemble de la forêt.|  
+|8648|21C8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|L’opération a échoué, car la valeur UPN fournie pour l’ajout/la modification n’est pas unique à l’ensemble de la forêt.|  
   
-## <a name="new-user-creation-fails-if-upn-is-not-unique"></a>Création d’un utilisateur échoue si l’UPN n’est pas unique  
+## <a name="new-user-creation-fails-if-upn-is-not-unique"></a>La création d’un nouvel utilisateur échoue si l’UPN n’est pas unique  
   
-### <a name="dsamsc"></a>DSA.msc  
-Le nom d’ouverture de session d’utilisateur que vous avez choisi est déjà en cours d’utilisation de cette entreprise. Choisissez un autre nom d’ouverture de session, puis recommencez l’opération.  
+### <a name="dsamsc"></a>DSA. msc  
+Le nom d’ouverture de session de l’utilisateur que vous avez choisi est déjà utilisé dans cette entreprise. Choisissez un autre nom de connexion, puis réessayez.  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig01_DupUPN.gif)  
   
 Modifier un compte existant :  
   
-Le nom d’utilisateur spécifié existe déjà dans l’entreprise. Spécifiez un autre, soit en modifiant le préfixe ou en sélectionnant un autre suffixe dans la liste.  
+Le nom d’ouverture de session de l’utilisateur spécifié existe déjà dans l’entreprise. Spécifiez-en un nouveau, soit en modifiant le préfixe, soit en sélectionnant un suffixe différent dans la liste.  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig02_DupUPNMod.gif)  
   
-### <a name="active-directory-administrative-center-dsacexe"></a>Centre d’administration Active Directory (DSAC.exe)  
-Une tentative de création d’un nouvel utilisateur dans le centre d’administration Active Directory avec un UPN qui existe déjà génèrera l’erreur suivante.  
+### <a name="active-directory-administrative-center-dsacexe"></a>Centre d’administration Active Directory (DSAC. exe)  
+Une tentative de création d’un nouvel utilisateur dans Centre d’administration Active Directory avec un UPN qui existe déjà génère l’erreur suivante.  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig03_DupUPNADAC.gif)  
   
-**Figure SEQ Figure \\ \* arabe 1 erreur affiché dans le centre d’administration Active Directory lors de la création d’un utilisateur échoue en raison de l’UPN en double**  
+**Figure SEQ figure \\ @ no__t-2 erreur arabe 1 s’affiche dans le centre d’administration Active Directory lorsque la création d’un nouvel utilisateur échoue en raison d’un UPN en double**  
   
-### <a name="event-2974-source-activedirectorydomainservice"></a>Source d’événement 2974 : ActiveDirectory_DomainService  
+### <a name="event-2974-source-activedirectory_domainservice"></a>Source de l’événement 2974 : ActiveDirectory_DomainService  
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig04_Event2974.gif)  
   
-**Figure SEQ Figure \\ \* arabe 2974 d’ID d’événement 2 avec l’erreur 8648**  
+**Figure SEQ figure \\ @ no__t-2 ARABIC 2 ID d’événement 2974 avec l’erreur 8648**  
   
-L’événement 2974 répertorie la valeur qui a été bloquée et une liste d’un ou plusieurs objets (jusqu'à 10) qui contient déjà cette valeur.  Dans l’illustration suivante, vous pouvez voir cette valeur de l’attribut UPN **<em>dhunt@blue.contoso.com</em>** existe déjà sur les quatre autres objets.  Dans la mesure où il s’agit d’une nouvelle fonctionnalité dans Windows Server 2012 R2, création accidentelle de l’UPN et les noms SPN en double dans un environnement mixte se produiront lors de la tentative d’écriture traitement les contrôleurs de domaine de bas niveau.  
+L’événement 2974 répertorie la valeur qui a été bloquée, ainsi qu’une liste d’un ou plusieurs objets (jusqu’à 10) qui contiennent déjà cette valeur.  Dans l’illustration suivante, vous pouvez voir que la valeur d’attribut UPN **<em>dhunt@blue.contoso.com</em>** existe déjà sur quatre autres objets.  Étant donné qu’il s’agit d’une nouvelle fonctionnalité de Windows Server 2012 R2, la création accidentelle d’un UPN et de SPN en double dans un environnement mixte se produit quand les contrôleurs de service de niveau supérieur traitent la tentative d’écriture.  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   
-**Figure SEQ Figure \\ \* arabe 2974 d’événement 3 montrant tous les objets qui contient l’UPN en double**  
+**Figure SEQ figure \\ @ no__t-2 ARABIC 3 Event 2974 qui montre tous les objets contenant l’UPN dupliqué**  
   
 > [!TIP]  
-> Passez en revue l’événement ID 2974s régulièrement :  
+> Examinez régulièrement l’ID d’événement 2974s pour :  
 >   
-> -   identifier les tentatives de création d’UPN en double ou les noms principaux de service  
+> -   identification des tentatives de création d’un UPN ou SPN en double  
 > -   identifier les objets qui contiennent déjà des doublons  
   
-8648 = « L’opération a échoué, car la valeur UPN fournie pour l’ajout/modification n’est pas unique de la forêt. »  
+8648 = « échec de l’opération, car la valeur UPN fournie pour l’ajout/la modification n’est pas unique à l’ensemble de la forêt ».  
   
-### <a name="setspn"></a>SetSPN :  
-Setspn.exe a été intégrée à celle-ci depuis la version de Windows Server 2008 de détection de SPN en double lorsque vous utilisez le **»-S «** option.  Vous pouvez ignorer la détection de SPN en double à l’aide de la **»-A »** option toutefois.  La création d’un SPN en double est bloquée lorsque vous ciblez un Windows Server 2012 R2 contrôleur de domaine à l’aide de SetSPN avec l’option - A.  Message d’erreur affiché est identique à celui qui est affiché lorsque vous utilisez l’option-s : « SPN en double trouvé, abandon de l’opération ! »  
+### <a name="setspn"></a>Setspn  
+Setspn. exe dispose d’une détection de SPN en double intégrée depuis la sortie de Windows Server 2008 lors de l’utilisation de l’option **« -S »** .  Toutefois, vous pouvez ignorer la détection de SPN en double en utilisant l’option **« -A »** .  La création d’un SPN en double est bloquée lors du ciblage d’un contrôleur de service Windows Server 2012 R2 à l’aide de SetSPN avec l’option-A.  Le message d’erreur affiché est le même que celui affiché lors de l’utilisation de l’option-S : « SPN dupliqué trouvé, abandon de l’opération ! »  
   
-### <a name="adsiedit"></a>ADSIEDIT :  
+### <a name="adsiedit"></a>UTILITAIRE  
   
 ```  
 Operation failed. Error code: 0x21c8  
@@ -108,43 +108,43 @@ The operation failed because UPN value provided for addition/modification is not
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig06_ADSI21c8.gif)  
   
-**Figure SEQ Figure \\ \* message d’erreur de 4 arabe affiché dans ADSIEdit lors de l’ajout de l’UPN en double est bloqué**  
+**Figure SEQ figure \\ @ no__t-2 message d’erreur arabe 4 affiché dans ADSIEdit lorsque l’ajout d’un UPN dupliqué est bloqué**  
   
 ### <a name="windows-powershell"></a>Windows PowerShell  
 Windows Server 2012 R2 :  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig07_SetADUser2012.gif)  
   
-PS en cours d’exécution à partir de 2012 Server ciblant un contrôleur de domaine Windows Server 2012 R2 :  
+PS exécuté à partir du serveur 2012 ciblant un contrôleur de service Windows Server 2012 R2 :  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig08_SetADUser2012R2.gif)  
   
-DSAC.exe s’exécutant sur Windows Server 2012 ciblant un contrôleur de domaine Windows Server 2012 R2 :  
+DSAC. exe s’exécutant sur Windows Server 2012 ciblant un contrôleur de service Windows Server 2012 R2 :  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig09_UserCreateError.gif)  
   
-**Figure SEQ Figure \\ \* erreur de création d’utilisateur arabe DSAC 5 sur non - Windows Server 2012 R2 tout en ciblant le contrôleur de domaine Windows Server 2012 R2**  
+**Figure SEQ figure \\ @ no__t-2 arabe 5 DSAC erreur de création de l’utilisateur sur un serveur autre que Windows Server 2012 R2 en ciblant Windows Server 2012 R2 DC**  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig10_UserModError.gif)  
   
-**Figure SEQ Figure \\ \* erreur de modification d’utilisateur arabe DSAC 6 sur non - Windows Server 2012 R2 tout en ciblant le contrôleur de domaine Windows Server 2012 R2**  
+**Figure SEQ figure \\ @ no__t-2 arabe 6 DSAC erreur de modification de l’utilisateur sur un serveur non-Windows Server 2012 R2 en ciblant Windows Server 2012 R2 DC**  
   
-### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>Échec de la restauration d’un objet qui entraînerait un UPN en double :  
+### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>La restauration d’un objet qui entraînerait l’échec d’un UPN en double :  
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig11_RestoreDupUPN.gif)  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig12_RestoreDupUPNError.gif)  
   
-Aucun événement n’est consigné quand un objet ne parvient pas à restaurer en raison d’un UPN en double / SPN.  
+Aucun événement n’est enregistré en cas d’échec de la restauration d’un objet en raison d’un UPN/SPN en double.  
   
-L’UPN de l’objet doit être unique dans l’ordre pour pouvoir être restaurées.  
+L’UPN de l’objet doit être unique pour pouvoir être restauré.  
   
-1.  Identifier le nom UPN qui existe sur l’objet dans la Corbeille  
+1.  Identifier l’UPN qui existe sur l’objet dans la corbeille  
   
 2.  Identifier tous les objets qui ont la même valeur  
   
-3.  Supprimer le UPN(s) en double  
+3.  Supprimer le ou les UPN en double  
   
-### <a name="identify-the-conflicting-upn-on-the-deleted-objectusing-repadminexe"></a>Identifier l’UPN en conflit sur repadmin.exe utilisation supprimé  
+### <a name="identify-the-conflicting-upn-on-the-deleted-objectusing-repadminexe"></a>Identifier l’UPN en conflit sur le objectUsing supprimé repadmin. exe  
   
 ```  
 Repadmin /showattr DCName "DN of deleted objects container" /subtree /filter:"(msDS-LastKnownRDN=<NAME>)" /deleted /atts:userprincipalname  
@@ -159,7 +159,7 @@ s,DC=blue,DC=contoso,DC=com
     1> userPrincipalName: dhunt@blue.contoso.com  
 ```  
   
-### <a name="to-identify-all-objects-with-the-same-upnusing-repadminexe"></a>Pour identifier tous les objets avec le même UPN : à l’aide de Repadmin.exe  
+### <a name="to-identify-all-objects-with-the-same-upnusing-repadminexe"></a>Pour identifier tous les objets ayant le même nom d’utilisateur principal : à l’aide de repadmin. exe  
   
 ```  
 repadmin /showattr WinBlueDC1 "DC=blue,DC=contoso,DC=com" /subtree /filter:"(userPrincipalName=dhunt@blue.contoso.com)" /deleted /atts:DN  
@@ -174,19 +174,19 @@ DN: CN=Dianne Hunt2\0ADEL:dd3ab8a4-3005-4f2f-814f-d6fc54a1a1c0,CN=Deleted Object
 ```  
   
 > [!TIP]  
-> Jusqu’ici non documentées **/ supprimé** paramètre dans repadmin.exe est utilisé pour inclure des objets supprimés dans le jeu de résultats  
+> Le paramètre **/Deleted** précédemment non documenté dans repadmin. exe est utilisé pour inclure les objets supprimés dans le jeu de résultats  
   
-### <a name="using-global-search"></a>À l’aide de la recherche globale  
+### <a name="using-global-search"></a>Utilisation de la recherche globale  
   
--   Ouvrez le centre d’administration Active Directory et accédez à **recherche globale**  
+-   Ouvrir Centre d’administration Active Directory et accéder à la **recherche globale**  
   
--   Sélectionnez le **convertir en LDAP** case d’option  
+-   Sélectionnez la case **d’option convertir en LDAP**  
   
--   Type **(userPrincipalName =*ConflictingUPN*)**  
+-   Type **(UserPrincipalName =*ConflictingUPN*)**  
   
-    -   Remplacez ***ConflictingUPN*** avec l’UPN réels qui est en conflit  
+    -   Remplacer ***ConflictingUPN*** par l’UPN réel en conflit  
   
--   Sélectionnez **appliquer**  
+-   Sélectionner **appliquer**  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig13_GlobalSearch.gif)  
   
@@ -198,21 +198,21 @@ Get-ADObject -LdapFilter "(userPrincipalName=dhunt@blue.contoso.com)" -IncludeDe
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig13_GlobalSearchPS.gif)  
   
-Si l’objet doit être restaurée, vous devez supprimera les noms UPN en double à partir des autres objets.  Pour qu’un seul objet, il est assez simple d’utiliser ADSIEdit pour supprimer le doublon.  S’il existe plusieurs objets avec des doublons, Windows PowerShell peut être le meilleur outil à utiliser.  
+Si l’objet doit être restauré, vous devrez supprimer les noms UPN en double des autres objets.  Pour un seul objet, il est assez simple d’utiliser ADSIEdit pour supprimer le doublon.  S’il y a plusieurs objets avec des doublons, Windows PowerShell peut être le meilleur outil à utiliser.  
   
-L’attribut UserPrincipalName à l’aide de Windows PowerShell, la valeur est null :  
+Pour utiliser la valeur null pour l’attribut UserPrincipalName à l’aide de Windows PowerShell :  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig15_NullUPN.gif)  
   
 > [!NOTE]  
-> L’attribut userPrincipalName est l’attribut à valeur unique, donc cette procédure supprime uniquement l’UPN en double.  
+> L’attribut userPrincipalName étant un attribut à valeur unique, cette procédure supprime uniquement l’UPN dupliqué.  
   
-### <a name="duplicate-spn"></a>Nom SPN en double  
+### <a name="duplicate-spn"></a>SPN en double  
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig16_DupSPN.gif)  
   
-**Figure SEQ Figure \\ \* message d’erreur de 8 arabe affiché dans ADSIEdit lors de l’ajout du nom SPN en double est bloqué**  
+**Figure SEQ figure \\ @ no__t-2 message d’erreur en arabe 8 affiché dans ADSIEdit quand l’ajout d’un SPN en double est bloqué**  
   
-Enregistré dans les Services de répertoire de journal des événements est un **ActiveDirectory_DomainService** ID d’événement **2974**.  
+Consigné dans le journal des événements des services d’annuaire est un ID d’événement **ActiveDirectory_DomainService** **2974**.  
   
 ```  
 Operation failed. Error code: 0x21c7  
@@ -224,89 +224,89 @@ servicePrincipalName Value=<SPN>
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig17_DupSPN2974.gif)  
   
-**Figure SEQ Figure \\ \* arabe erreur 9 connecté lors de la création de SPN en double est bloquée**  
+**Figure SEQ figure \\ @ no__t-2 erreur arabe 9 journalisée lors de la création d’un SPN en double**  
   
 ### <a name="workflow"></a>Flux de travail  
   
--   **If DC == GC**  
+-   **Si DC = = GC**  
   
-    -   Aucun appel offbox ne requis, requête peut être satisfaite localement  
+    -   Aucun appel offbox requis, la requête peut être satisfaite localement  
   
-    -   ***Cas d’UPN***  
+    -   ***Cas UPN***  
   
-        -   Requête locale forêt UPN index UPN fourni (*userPrincipalName ; index global*)  
+        -   Interroger l’index UPN à l’échelle de la forêt locale pour l’UPN fourni (*userPrincipalName ; un index global*)  
   
-            -   Si les entrées retournées == 0 -> écriture continue  
+            -   Si les entrées retournées = = 0-> l’écriture se poursuit  
   
-            -   Si les entrées retournées ! = 0 -> écriture échoue  
+            -   Si les entrées retournées sont ! = 0-> écriture échoue  
   
-                -   Événement enregistré  
+                -   Journal des événements  
   
-                -   Retourne également l’erreur étendue :  
+                -   Retourne également une erreur étendue :  
   
-                    -   **8648:**  
+                    -   **8648 :**  
   
                         *ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
     -   ***Cas SPN***  
   
-        -   Index de SPN de forêt locale requête SPN fourni (*servicePrincipalName ; index global*)  
+        -   Interroger l’index SPN à l’échelle de la forêt local pour le SPN fourni (*servicePrincipalName ; un index global*)  
   
-            -   If entries returned == 0 ->           write proceeds  
+            -   Si les entrées retournées = = 0-> l’écriture se poursuit  
   
-            -   Si les entrées retournées ! = 0 -> écriture échoue  
+            -   Si les entrées retournées sont ! = 0-> écriture échoue  
   
-                -   Événement enregistré  
+                -   Journal des événements  
   
-                -   Retourne également l’erreur étendue :  
+                -   Retourne également une erreur étendue :  
   
-                    -   **8647:**  
+                    -   **8647 :**  
   
                         **ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST**  
   
--   **If DC != GC**  
+-   **Si DC ! = GC**  
   
-    -   Appel de Offbox **souhaitable** mais pas critique, par exemple, il s’agit d’une vérification de l’unicité de meilleur effort  
+    -   L’appel de Offbox est **souhaitable** mais pas critique, c’est-à-dire qu’il s’agit d’un contrôle d’unicité optimal.  
   
-        -   Vérification se fait par rapport à DIT local uniquement si le GC ne peut pas être localisé  
+        -   Vérifier les Proceeds sur un DIT local uniquement si GC est introuvable  
   
-        -   Événement consigné pour indiquer ces  
+        -   Événement consigné pour indiquer une telle  
   
-    -   ***Cas d’UPN***  
+    -   ***Cas UPN***  
   
-        -   Envoyer la requête LDAP sur GC le plus proche ? index de UPN de forêt de requête GC pour UPN fourni (*userPrincipalName ; index global*)  
+        -   Envoyer une requête LDAP au GC le plus proche ? interroger l’index UPN de l’ensemble de la forêt du GC pour l’UPN fourni (*userPrincipalName ; un index global*)  
   
-            -   If entries returned == 0 ->           write proceeds  
+            -   Si les entrées retournées = = 0-> l’écriture se poursuit  
   
-            -   Si les entrées retournées ! = 0 -> écriture échoue  
+            -   Si les entrées retournées sont ! = 0-> écriture échoue  
   
-                -   Événement enregistré  
+                -   Journal des événements  
   
-                -   Retourne également l’erreur étendue :  
+                -   Retourne également une erreur étendue :  
   
-                    -   **8648:**  
+                    -   **8648 :**  
   
                         *ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
     -   ***Cas SPN***  
   
-        -   Envoyer la requête LDAP sur GC le plus proche ? index de SPN de forêt de requête du GC SPN fourni (*servicePrincipalName ; index global*)  
+        -   Envoyer une requête LDAP au GC le plus proche ? interroger l’index SPN à l’échelle de la forêt du GC pour le SPN fourni (*servicePrincipalName ; un index global*)  
   
-            -   Si les entrées retournées == 0 -> écriture continue  
+            -   Si les entrées retournées = = 0-> l’écriture se poursuit  
   
-            -   Si les entrées retournées ! = 0 -> écriture échoue  
+            -   Si les entrées retournées sont ! = 0-> écriture échoue  
   
-                -   Événement enregistré  
+                -   Journal des événements  
   
-                -   Retourne également l’erreur étendue :  
+                -   Retourne également une erreur étendue :  
   
-                    -   **8647:**  
+                    -   **8647 :**  
   
                         *ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
-Lorsque les objets supprimés sont ré-animées, valeurs SPN ou UPN présents sont activés pour l’unicité. Si un doublon est trouvé, la demande échoue.  
+Lorsque les objets supprimés sont réanimés, l’unicité des valeurs SPN ou UPN est vérifiée. Si un doublon est trouvé, la demande échoue.  
   
--   Pour certaines modifications d’attribut comme nom d’hôte DNS, etc. de nom de compte SAM, la modification est apportée, noms principaux de service sont mis à jour en conséquence. Dans le processus, les SPN obsolètes sont supprimés et de nouveaux noms principaux de service sont créés et ajoutés à la base de données. Les modifications d’attribut requis par rapport à laquelle ce chemin d’accès est déclenchée sont :  
+-   Pour certains changements d’attributs tels que le nom d’hôte DNS, le nom de compte SAM, etc., lorsque la modification est effectuée, les noms de principal du service sont mis à jour en conséquence. Dans le processus, les SPN obsolètes sont supprimés et les nouveaux SPN sont générés et ajoutés à la base de données. Les modifications d’attribut nécessaires pour lesquelles ce chemin est déclenché sont les suivantes :  
   
     -   ATT_DNS_HOST_NAME  
   
@@ -320,49 +320,49 @@ Lorsque les objets supprimés sont ré-animées, valeurs SPN ou UPN présents so
   
     -   ATT_USER_ACCOUNT_CONTROL  
   
-Si une de la nouvelle valeur de nom principal de service est un doublon, nous ne la modification. De la liste ci-dessus, les attributs importants sont ATT_DNS_HOST_NAME (nom de l’ordinateur) et ATT_SAM_ACCOUNT_NAME (nom de compte SAM).  
+Si une nouvelle valeur SPN est un doublon, la modification échoue. Dans la liste ci-dessus, les attributs importants sont ATT_DNS_HOST_NAME (nom de l’ordinateur) et ATT_SAM_ACCOUNT_NAME (nom du compte SAM).  
   
-### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Essayez ceci : Explorer l’unicité des noms SPN et UPN  
-C’est la première de plusieurs «**essayer cela**« activités dans le module.  Il n’est pas un guide de laboratoire distinct pour ce module.  Le **essayer cela** activités sont essentiellement les activités de forme libre qui permettent de vous explorez le matériel de la leçon dans l’environnement de laboratoire.  Vous avez la possibilité d’après l’invite ou sortir de script et élaborer votre propre activité.  
+### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Essayez ceci : Exploration de l’unicité SPN et UPN  
+Il s’agit de la première des nombreuses activités «**essayer**» dans le module.  Il n’existe pas de guide de laboratoire distinct pour ce module.  Les activités **try this** sont essentiellement des activités de forme libre qui vous permettent d’explorer le matériel de la leçon dans l’environnement Lab.  Vous avez la possibilité de suivre l’invite ou de passer le script et d’afficher votre propre activité.  
   
 > [!NOTE]  
-> -   C’est la première de plusieurs «**essayer cela**« activités.  
-> -   Il n’est pas un guide de laboratoire distinct pour ce module.  
-> -   Le **essayer cela** activités sont essentiellement les activités de forme libre qui permettent de vous explorez le matériel de la leçon dans l’environnement de laboratoire.  
-> -   Vous avez la possibilité d’après l’invite ou sortir de script et élaborer votre propre activité.  
-> -   Bien que pas toutes les sections ont un **essayer cela** invite, il est toujours conseillé d’Explorer le contenu de la leçon dans le laboratoire, le cas échéant.  
+> -   Il s’agit de la première des nombreuses activités «**try this**».  
+> -   Il n’existe pas de guide de laboratoire distinct pour ce module.  
+> -   Les activités **try this** sont essentiellement des activités de forme libre qui vous permettent d’explorer le matériel de la leçon dans l’environnement Lab.  
+> -   Vous avez la possibilité de suivre l’invite ou de passer le script et d’afficher votre propre activité.  
+> -   Même si toutes les sections ne comportent pas **d’invite de commandes, il est** encore recommandé d’explorer le contenu de la leçon dans le laboratoire, le cas échéant.  
   
-Faites des essais avec l’unicité des noms SPN et UPN.  Suivez ces indications ou effectuer votre propre.  
+Expérimentez l’unicité du SPN et de l’UPN.  Suivez ces invites ou effectuez les vôtres.  
   
-1.  Créer de nouveaux utilisateurs avec UPN  
+1.  Créer des utilisateurs avec UPN  
   
-2.  Créez des comptes avec des noms principaux de service  
+2.  Créer des comptes avec des noms de principal du service  
   
-3.  Créer un nouvel utilisateur avec un UPN déjà précédemment défini ou modifier le nom UPN d’un compte existant.  Faites de même pour un SPN dans un autre compte  
+3.  Créez un nouvel utilisateur avec un UPN déjà défini précédemment ou modifiez l’UPN d’un compte existant.  Faire de même pour un SPN sur un autre compte  
   
-    1.  Remplir un compte d’utilisateur existant avec un UPN déjà en cours d’utilisation  
+    1.  Remplir un compte d’utilisateur existant avec un UPN déjà utilisé  
   
-        1.  À l’aide de PowerShell, ADSIEDIT ou Active Directory Administrative Center (DSAC.exe)  
+        1.  Utilisation de PowerShell, ADSIEdit ou Centre d’administration Active Directory (DSAC. exe)  
   
-    2.  Remplir un compte existant avec un nom principal de service déjà en cours d’utilisation  
+    2.  Remplir un compte existant avec un nom de principal du service déjà utilisé  
   
-        1.  À l’aide de Windows PowerShell, ADSIEDIT ou SetSPN  
+        1.  Utilisation de Windows PowerShell, d’ADSIEdit ou de SetSPN  
   
-4.  Observez les erreurs  
+4.  Observer les erreurs  
   
-**Si vous le souhaitez**  
+**Éventuellement**  
   
-1.  Vérifiez auprès de l’instructeur en classe qu’il est OK pour activer la *[Corbeille AD](https://technet.microsoft.com/library/jj574144.aspx#BKMK_EnableRecycleBin)* dans le centre d’administration Active Directory.  Dans ce cas, passer à l’étape suivante.  
+1.  Vérifiez auprès de l’instructeur qu’il est OK d’activer la *[Corbeille ad](https://technet.microsoft.com/library/jj574144.aspx#BKMK_EnableRecycleBin)* dans Centre d’administration Active Directory.  Si c’est le cas, passez à l’étape suivante.  
   
 2.  Remplir l’UPN sur un compte d’utilisateur  
   
 3.  Supprimer le compte  
   
-4.  Remplir un autre compte avec le même UPN en tant que le compte supprimé  
+4.  Remplir un compte différent avec le même UPN que le compte supprimé  
   
-5.  Tentative d’utilisation de l’interface utilisateur graphique Bin recycler pour restaurer le compte  
+5.  Tentative d’utilisation de l’interface utilisateur graphique de la Corbeille pour restaurer le compte  
   
-6.  Imaginez que vous avez simplement été présenté avec l’erreur que vous voyez dans l’étape précédente.  (et n’avez pas l’historique des étapes réalisées uniquement) Votre objectif consiste à effectuer la restauration du compte.  Consultez que les étapes par exemple le classeur.  
+6.  Imaginez que vous venez de voir l’erreur que vous voyez à l’étape précédente.  (et n’ont pas d’historique des étapes que vous venez d’effectuer) Votre objectif est de terminer la restauration du compte.  Consultez le classeur pour obtenir des exemples d’étapes.  
   
 
 

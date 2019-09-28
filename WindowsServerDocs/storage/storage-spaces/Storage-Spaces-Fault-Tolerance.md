@@ -1,6 +1,6 @@
 ---
 title: Tolérance de pannes et efficacité du stockage dans les espaces de stockage direct
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosmosdarwin
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,16 +10,16 @@ ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
 description: Description des options de résilience dans les espaces de stockage direct, y compris la mise en miroir et la parité.
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e6a29e82a85ec9570cda827060dfe1cdf192c53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2220584c0021352110b27c3107d1113eb17ef59
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393807"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>Tolérance de pannes et efficacité du stockage dans les espaces de stockage direct
 
->S'applique à : Windows Server 2016
+>S’applique à : Windows Server 2016
 
 Cette rubrique présente les options de résilience disponibles dans les [espaces de stockage direct](storage-spaces-direct-overview.md) et décrit les exigences de mise à l’échelle, l’efficacité du stockage, ainsi que les avantages et inconvénients de chacun de ces aspects. Elle fournit également des instructions de prise en main, ainsi que des références (articles, blogs et autres contenus) que vous pouvez consulter pour en savoir plus.
 
@@ -102,7 +102,7 @@ L’efficacité de stockage de la parité accélérée grâce à la mise en miro
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser la mise en miroir pour la plupart des charges de travail dépendantes des performances. Pour plus d’informations sur la façon de trouver le juste équilibre entre performances et capacité en fonction de votre charge de travail, voir [Planifier des volumes](plan-volumes.md#choosing-the-resiliency-type).
 
-## <a name="summary"></a>Résumé
+## <a name="summary"></a>Tête
 
 Cette section résume les types de résilience disponibles dans les espaces de stockage direct, les échelles minimum pour utiliser chaque type, le nombre de pannes tolérées par chaque type et l’efficacité de stockage correspondante.
 
@@ -137,7 +137,7 @@ Ce tableau montre l’efficacité de stockage de la parité double et des codes�
 |    3                  |    –                |    –            |
 |    4                  |    RS 2+2           |    50 %        |
 |    5                  |    RS 2+2           |    50 %        |
-|    6                  |    RS 2+2           |    50 %        |
+|    6\.                  |    RS 2+2           |    50 %        |
 |    7                  |    RS 4+2           |    66,7 %        |
 |    8                  |    RS 4+2           |    66,7 %        |
 |    9                  |    RS 4+2           |    66,7 %        |
@@ -159,7 +159,7 @@ Ce tableau montre l’efficacité de stockage de la parité double et des codes�
 |    3                  |    –                |    –            |
 |    4                  |    RS 2+2           |    50 %        |
 |    5                  |    RS 2+2           |    50 %        |
-|    6                  |    RS 2+2           |    50 %        |
+|    6\.                  |    RS 2+2           |    50 %        |
 |    7                  |    RS 4+2           |    66,7 %        |
 |    8                  |    RS 4+2           |    66,7 %        |
 |    9                  |    RS 6+2           |    75 %        |
@@ -171,7 +171,7 @@ Ce tableau montre l’efficacité de stockage de la parité double et des codes�
 |    15                 |    RS 6+2           |    75 %        |
 |    16                 |    LRC (12, 2, 1)   |    80 %        |
 
-## <a name="examples"></a>Exemples
+## <a name="examples"></a>Illustre
 
 Sauf si vous n’avez que deux serveurs, nous recommandons d’utiliser la mise en miroir triple et/ou la parité double, car ce modèle offre une meilleure tolérance de pannes. Plus précisément, il garantit la sécurité et l’accessibilité de toutes les données en permanence, même en cas de défaillance simultanée des deux domaines d’erreur (avec les espaces de stockage direct, cela signifie deux serveurs).
 
@@ -179,18 +179,18 @@ Sauf si vous n’avez que deux serveurs, nous recommandons d’utiliser la mise
 
 Ces six exemples montrent ce que la mise en miroir triple et/ou la double parité **peuvent** tolérer.
 
-- **1.**    Un seul lecteur perdu (inclut les lecteurs de cache)
-- **2.**    Un seul serveur perdu
+- **1.**    Un lecteur perdu (y compris les lecteurs de cache)
+- **2.**    Un serveur est perdu
 
 ![fault-tolerance-examples-1-and-2](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.**    Un seul serveur et un lecteur perdu
-- **4.**    Deux lecteurs perdu de différents serveurs
+- **1,3.**    Un serveur et un lecteur sont perdus
+- **4.**    Deux disques perdus sur des serveurs différents
 
 ![fault-tolerance-examples-3-and-4](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.**    Plus de deux lecteurs perdus, tant qu’au plus deux serveurs sont affectés
-- **6.**    Deux serveurs perdus
+- **5,5.**    Plus de deux disques perdus, tant que deux serveurs au maximum sont affectés
+- **6,3.**    Deux serveurs perdus
 
 ![fault-tolerance-examples-5-and-6](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-56.png)
 
@@ -200,8 +200,8 @@ Ces six exemples montrent ce que la mise en miroir triple et/ou la double parit
 
 Pendant leur durée de vie, les espaces de stockage tolèrent un nombre illimité de pannes, car ils restaurent une résilience totale après chaque incident, pourvu qu’ils en aient le temps. Toutefois, le nombre maximum de domaines qui peuvent être affectés par des pannes à un moment donné est de deux. Les exemples suivants montrent ce que la mise en miroir triple et/ou la parité double **ne peuvent pas** tolérer.
 
-- **7.** Lecteurs perdu à la fois dans les trois serveurs ou plus
-- **8.** Au moins trois serveurs perdu à la fois
+- **Commission(7.** Disques perdus sur au moins trois serveurs à la fois
+- **version8.** Trois serveurs ou plus perdus simultanément
 
 ![fault-tolerance-examples-7-and-8](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
@@ -213,10 +213,10 @@ Consultez [Création de volumes dans les espaces de stockage direct](create-volu
 
 Chaque lien ci-dessous figure déjà dans le corps de cette rubrique.
 
-- [Espaces de stockage Direct dans Windows Server 2016](storage-spaces-direct-overview.md)
-- [Reconnaissance des domaines d’erreur dans Windows Server 2016](../../failover-clustering/fault-domains.md)
+- [espaces de stockage direct dans Windows Server 2016](storage-spaces-direct-overview.md)
+- [Connaissance du domaine d’erreur dans Windows Server 2016](../../failover-clustering/fault-domains.md)
 - [Codage d’effacement dans Azure par Microsoft Research](https://www.microsoft.com/en-us/research/publication/erasure-coding-in-windows-azure-storage/)
-- [Codes de Reconstruction locale et accélération des Volumes de parité](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
-- [Volumes dans l’API de gestion de stockage](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
-- [Démonstration de l’efficacité de stockage chez Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
-- [Espaces de capacité calculatrice PREVIEW pour le stockage Direct](http://aka.ms/s2dcalc)
+- [Codes de reconstruction locaux et volumes de parité accélérés](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
+- [Volumes de l’API de gestion du stockage](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
+- [Démonstration de l’efficacité du stockage chez Microsoft enflamme 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
+- [Aperçu de la capacité calculatrice pour espaces de stockage direct](http://aka.ms/s2dcalc)

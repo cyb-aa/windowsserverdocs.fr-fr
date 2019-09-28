@@ -7,32 +7,32 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9c5f49bd0ee0da9c3b92bad96f16ca310f82c239
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e9f72bd83c90a804749329521a72e3232589c735
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445332"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407969"
 ---
 # <a name="planning-for-interoperability-with-ad-fs-1x"></a>Planification de l’interopérabilité avec AD FS 1.x
 
-Active Directory Federation Services \(AD FS\) des serveurs de fédération exécutant Windows Server® 2012 peuvent interagir avec les deux an AD FS 1.0 \(installé avec Windows Server 2003 R2\) fédération et un Service AD FS 1.1 \(installé avec Windows Server 2008 ou Windows Server 2008 R2\) Service de fédération. Toutes les combinaisons d’interopérabilité suivantes sont pris en charge :  
+Les serveurs de Fédération Services ADFS \(AD FS @ no__t-1 exécutant Windows Server® 2012 peuvent interagir avec un AD FS 1,0 \(installed avec Windows Server 2003 R2 @ no__t-3 service FS (Federation Service) et un AD FS 1,1 \(installed avec Windows Server 2008 ou Windows Server 2008 R2 @ no__t-5 service FS (Federation Service). Toutes les combinaisons d’interopérabilité suivantes sont pris en charge :  
 
--   Les services AD FS 1. *x* Service de fédération peut envoyer une revendication qui peut être consommée par un Service de fédération AD FS dans Windows Server 2012. Pour plus d'informations, consultez [Liste de vérification : Configurer AD FS pour utiliser les revendications à partir d’AD FS 1.x](../../ad-fs/deployment/Checklist--Configuring-AD-FS--to-Consume-Claims-from-AD-FS-1.x.md).  
+-   Tout AD FS 1. *x* service FS (Federation Service) pouvez envoyer une revendication qui peut être consommée par un service FS (Federation Service) AD FS dans Windows Server 2012. Pour plus d'informations, consultez [Liste de vérification : Configuration de AD FS pour consommer des revendications à partir de AD FS 1. x @ no__t-0.  
 
--   N’importe quel Service de fédération AD FS dans Windows Server 2012 peut envoyer un AD FS 1. *x*\-compatible revendication qui peut être consommée par an AD FS 1. *x* Service de fédération. Pour plus d'informations, consultez [Liste de vérification : Configurer AD FS pour envoyer des revendications à un Service de fédération AD FS 1.x](../../ad-fs/deployment/Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Federation-Service.md).  
+-   Tout AD FS service FS (Federation Service) dans Windows Server 2012 peut envoyer un AD FS 1. revendication *x*\-Compatible qui peut être consommée par un AD FS 1. service FS (Federation Service) *x* . Pour plus d'informations, consultez [Liste de vérification : Configuration de AD FS pour envoyer des revendications à un AD FS 1. x service FS (Federation Service) @ no__t-0.  
 
--   N’importe quel Service de fédération AD FS dans Windows Server 2012 peut envoyer un AD FS 1. *x*\-revendication compatible avec qui peut être utilisée par un ou plusieurs serveurs Web exécutant AD FS 1. *x* revendications\-agent Web prenant en charge. Pour plus d'informations, consultez [Liste de vérification : Configurer AD FS pour envoyer des revendications à un Agent de Web prenant en charge les revendications AD FS 1.x](../../ad-fs/deployment/Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Claims-Aware-Web-Agent.md).  
+-   Tout AD FS service FS (Federation Service) dans Windows Server 2012 peut envoyer un AD FS 1. la revendication *x*\-Compatible qui peut être consommée par un ou plusieurs serveurs Web exécutant l’AD FS 1. *x* claims @ no__t-3aware Web agent. Pour plus d'informations, consultez [Liste de vérification : Configuration de AD FS pour envoyer des revendications à un AD FS 1. x agent Web prenant en charge les revendications @ no__t-0.  
 
 > [!NOTE]  
-> AD FS ne pas prendre en charge ou n’interagit pas avec les services AD FS 1. *x* agent Web de jeton Windows NT.  
+> AD FS ne prend pas en charge ou n’interagit pas avec le AD FS 1. agent Web *x* basé sur un jeton Windows NT.  
 
-An AD FS 1. *x*\-revendication compatible avec est une revendication qui peut être envoyée par un Service de fédération AD FS dans Windows Server 2012 et comprise par an AD FS 1. *x* Service de fédération. Afin qu’an AD FS 1. *x* Service de fédération puisse consommer les revendications qui envoie d’un Service de fédération AD FS, et un identificateur de nom \(ID\) revendication doit être envoyée.  
+AD FS 1. la revendication *x*\-Compatible est une revendication qui peut être envoyée par une AD FS service FS (Federation Service) dans Windows Server 2012 et comprise par un AD FS 1. service FS (Federation Service) *x* . Pour qu’une AD FS 1. *x* service FS (Federation Service) peut consommer les revendications envoyées par un AD FS service FS (Federation Service), un identificateur de nom \(ID @ no__t-2 doit être envoyé.  
 
 ## <a name="understanding-the-name-id-claim-type"></a>Comprendre le type de revendication d’identificateur de nom  
-Le type de revendication d’identificateur de nom correspond au type de revendication d’identité utilisé par AD FS 1.*x* . Il doit être utilisé lorsque vous souhaitez interagir avec AD FS 1.*x*. L’ID de nom type de revendication permet soit an AD FS 1. *x* Service de fédération ou AD FS 1. *x* revendications\-agent Web prenant en charge d’utiliser les revendications qui envoie des services AD FS dans Windows Server 2012, tant que ces revendications sont envoyées dans un des formats de nom ID dans le tableau suivant.  
+Le type de revendication d’identificateur de nom correspond au type de revendication d’identité utilisé par AD FS 1.*x* . Il doit être utilisé lorsque vous souhaitez interagir avec AD FS 1.*x*. Le type de revendication ID de nom active un AD FS 1. *x* service FS (Federation Service) ou le AD FS 1. *x* claims @ no__t-2Aware agent Web pour consommer les revendications que AD FS dans Windows Server 2012 envoie, tant que ces revendications sont envoyées dans l’un des formats d’ID de nom répertoriés dans le tableau suivant.  
 
 
 |      Format d’identificateur de nom       |               URI correspondant                |
@@ -45,7 +45,7 @@ Le type de revendication d’identificateur de nom correspond au type de revendi
 Une seule revendication d’identificateur de nom ID dans le format approprié doit être envoyée. Lorsque ce critère est rempli, plusieurs autres revendications peuvent être envoyées, en supposant qu’elles sont conformes aux restrictions décrites dans le tableau.  
 
 > [!NOTE]  
-> An AD FS 1. *x* Service de fédération peut interpréter les types de revendications entrantes uniquement qui commencent par l’identificateur de ressource uniforme \(URI\) de http://schemas.xmlsoap.org/claims/.  
+> AD FS 1. *x* service FS (Federation Service) pouvez interpréter uniquement les types de revendications entrantes qui commencent par le Uniform Resource Identifier \(URI @ no__t-2 de http://schemas.xmlsoap.org/claims/.  
 
 ## <a name="see-also"></a>Voir aussi
 [Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

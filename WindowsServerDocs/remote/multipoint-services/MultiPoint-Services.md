@@ -1,9 +1,9 @@
 ---
 title: MultiPoint Services
-description: Découvrez comment utiliser MultiPoint Services, une solution qui permet à plusieurs utilisateurs d’accéder au même système
+description: Découvrez comment utiliser MultiPoint services, une solution qui permet à plusieurs utilisateurs d’accéder au même système
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ ms.assetid: 426005e1-03af-4595-9418-964b0962b905
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 4ae58e672095d568fddc504ae0de19c8877a9dff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b5900039dc241acb0da75a680b52088a6a6f3c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885380"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405044"
 ---
 # <a name="multipoint-services"></a>MultiPoint Services
-MultiPoint Services est une solution qui permet à plusieurs utilisateurs, chacun avec leurs propres et expérience Windows familières pour partager simultanément un ordinateur.
+MultiPoint services est une solution qui permet à plusieurs utilisateurs, chacun avec leur propre expérience Windows indépendante et familière, de partager simultanément un ordinateur.
 
-Les stations d’utilisateur, composées d’un moniteur, d’un clavier et d’une souris, sont directement connectées à l’ordinateur hôte via des câbles USB ou vidéo. MultiPoint Services étant un produit logiciel publié Microsoft authentique, lors de la licence appropriée, vous êtes éligible pour recevoir la prise en charge par Microsoft ou un partenaire agréé. Cela vous donne toutes les fonctionnalités de Windows, l’accès à toutes les dernières mises à jour et en toute confiance que vous obtenez l’expérience que vous attendez.
+Les stations d’utilisateur, composées d’un moniteur, d’un clavier et d’une souris, sont directement connectées à l’ordinateur hôte via des câbles USB ou vidéo. MultiPoint services étant un produit logiciel authentique publié par Microsoft, si vous disposez d’une licence appropriée, vous pouvez bénéficier du support technique de Microsoft ou d’un partenaire agréé. Vous bénéficiez ainsi des fonctionnalités complètes de Windows, de l’accès à toutes les dernières mises à jour et de la confiance que vous vous attendez à obtenir.
 
-Étant donné que MultiPoint Services permet à plusieurs utilisateurs de partager un seul ordinateur, il peut fournir une alternative économique pour les scénarios de calcul traditionnels dans lequel chaque utilisateur a son propre ordinateur. MultiPoint Services fournit également une solution de gestion facile pour l’administration du système MultiPoint Services appelée Gestionnaire MultiPoint et une solution de gestion facile pour jour\-à\-administration jour, appelé MultiPoint Tableau de bord.  
+Comme MultiPoint services permet à plusieurs utilisateurs de partager un même ordinateur, il peut fournir une alternative économique aux scénarios de calcul traditionnels, où chaque utilisateur a son propre ordinateur. MultiPoint Services fournit également une solution de gestion facile pour l’administration du système MultiPoint Services appelée gestionnaire MultiPoint et une solution de gestion facile pour Day @ no__t-0to @ no__t-1Day administration, appelée tableau de bord MultiPoint.  
   

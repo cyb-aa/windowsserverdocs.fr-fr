@@ -1,8 +1,8 @@
 ---
 title: autoconv
-description: Rubrique de commandes de Windows pour **conversion** - convertit de fichiers Fat (allocation table) et le système de fichiers Fat32 des volumes au format NTFS.
+description: La rubrique commandes Windows pour **autoconv** -convertit les volumes FAT (File Allocation Table) et FAT32 dans le système de fichiers NTFS.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1d135da085558f12a51c8febfd72aa805e1d12f1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf36be6bcf3dd8f6c61c6ab0d8780ed77dd8903a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872490"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383447"
 ---
 # <a name="autoconv"></a>autoconv
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-convertit de fichiers Fat (allocation table) et les volumes Fat32 au système de fichiers NTFS, conservant les fichiers existants et des répertoires au démarrage après **autochk** s’exécute. les volumes convertis au système de fichiers NTFS ne peut pas être reconverties en Fat ou Fat32.
+convertit les volumes FAT (File Allocation Table) et FAT32 dans le système de fichiers NTFS, en laissant les fichiers et répertoires existants intacts au démarrage après l’exécution de **Autochk** . les volumes convertis dans le système de fichiers NTFS ne peuvent pas être reconvertis en FAT ou FAT32.
 ## <a name="remarks"></a>Notes
-Vous ne pouvez pas exécuter **conversion** sur la ligne de commande. Cela n’est exécutée au démarrage, si défini par le biais **convert.exe**.
+Vous ne pouvez pas exécuter **autoconv** sur la ligne de commande. Cette opération est exécutée uniquement au démarrage, si elle est définie via **Convert. exe**.
 ## <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[autochk](autochk.md)
+[Autochk](autochk.md)
 [convertir](convert.md)
-[fonctionne avec les systèmes de fichiers](https://go.microsoft.com/fwlink/?LinkId=4509)
+[utilisation des systèmes de fichiers](https://go.microsoft.com/fwlink/?LinkId=4509)

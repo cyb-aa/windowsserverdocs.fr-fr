@@ -2,7 +2,7 @@
 title: Déconnecter des sessions utilisateur
 description: Découvrez comment fermer la session d’un utilisateur manuellement
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 0e516a617341ffebadbdeb571a39f50369446f11
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c636af35a78eab76d69c68b6f506b64dcb555f81
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871646"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395268"
 ---
 # <a name="log-off-or-disconnect-user-sessions"></a>Déconnecter des sessions utilisateur
 Les utilisateurs de MultiPoint services peuvent se connecter et se déconnecter de leurs sessions de bureau comme pour toute session Windows. Les utilisateurs peuvent également se déconnecter ou interrompre leur session afin que la station MultiPoint services ne soit pas utilisée, mais que leur session reste active dans la mémoire de l’ordinateur du système MultiPoint services.  

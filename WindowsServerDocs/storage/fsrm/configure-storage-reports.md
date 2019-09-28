@@ -2,18 +2,18 @@
 title: Configurer des rapports de stockage
 description: Cet article explique comment configurer les paramètres par défaut des rapports de stockage
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f62109a8d3ea3e4e6386956789d276f9aa911e80
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3500f4ea4fc264f3cb663f17c3a50439b9cb454
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885230"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394261"
 ---
 # <a name="configure-storage-reports"></a>Configurer des rapports de stockage
 
@@ -42,5 +42,5 @@ Vous pouvez configurer les paramètres par défaut des rapports de stockage. Ces
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
+-   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
 -   [Gestion des rapports de stockage](storage-reports-management.md)

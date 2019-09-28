@@ -1,9 +1,9 @@
 ---
 title: Afficher les zones DNS
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
+description: Cette rubrique fait partie du Guide de gestion des adresses IP (IPAM) de Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 2cfe4e40-ec6d-4541-baa9-d772409fe27c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 22d00865d1fb30faa2cf9cd79479772f768bfbbe
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a362eb5d7b1a80d8b90bdf565debecb187d7a254
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283780"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405584"
 ---
 # <a name="view-dns-zones"></a>Afficher les zones DNS
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour afficher les zones DNS dans la console client IPAM.  
   
@@ -29,11 +29,11 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
   
 ### <a name="to-view-dns-zones-in-the-ipam-client-console"></a>Pour afficher les zones DNS dans la console client IPAM  
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
+1.  Dans Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
   
-2.  Dans le volet de navigation, dans **surveiller et gérer**, cliquez sur **Zones DNS**.  Le volet de navigation divise en un volet de navigation supérieur et un volet de navigation inférieur.  
+2.  Dans le volet de navigation, sous **surveiller et gérer**, cliquez sur **zones DNS**.  Le volet de navigation est divisé en un volet de navigation supérieur et un volet de navigation inférieur.  
   
-3.  Dans le volet de navigation inférieur, apportez l’une des options suivantes :  
+3.  Dans le volet de navigation inférieur, effectuez l’une des sélections suivantes :  
   
     -   Recherche directe  
   

@@ -1,8 +1,8 @@
 ---
 title: title
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d1d1ea70849c3beb4503edfdaa5116384c14a2fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 42094e0f1231fee5ac9ef0ec9184ba685c8846b1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848500"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385793"
 ---
 # <a name="title"></a>title
 
@@ -38,17 +38,17 @@ title [<String>]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<chaîne >|Spécifie le titre de la fenêtre d’invite de commandes.|
+|@no__t 0String >|Spécifie le titre de la fenêtre d’invite de commandes.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Pour créer le titre de la fenêtre pour les programmes de traitement par lots, incluez le **titre** commande au début d’un programme de traitement par lots.
--   Un titre de fenêtre est désactivée, vous pouvez le réinitialiser uniquement en utilisant le **titre** commande.
+-   Pour créer un titre de fenêtre pour les programmes batch, incluez la commande **title** au début d’un programme batch.
+-   Une fois que vous avez défini un titre de fenêtre, vous pouvez le réinitialiser uniquement à l’aide de la commande **titre** .
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Dans l’exemple de script, le titre de la fenêtre d’invite de commandes est remplacé par « Fichiers de la mise à jour » pendant que le fichier de commandes s’exécute le **copie** commande. Une fois que la commande est exécutée, le texte `Files Updated` s’affiche, et le titre de la fenêtre d’invite de commandes est modifié au « Invite de commandes ».
+Dans l’exemple de script suivant, le titre de la fenêtre d’invite de commandes est remplacé par « mise à jour des fichiers », tandis que le fichier de commandes exécute la commande de **copie** . Une fois la commande exécutée, le texte `Files Updated` s’affiche et le titre de la fenêtre d’invite de commandes est rétabli en « invite de commandes ».
 ```
 @echo off
 title Updating Files
@@ -59,4 +59,4 @@ title Command Prompt
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

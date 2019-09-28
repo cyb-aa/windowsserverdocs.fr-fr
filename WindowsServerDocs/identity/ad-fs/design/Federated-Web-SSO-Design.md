@@ -7,43 +7,43 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f7454279f234f65136b9fe6649a6e96ea53e5d51
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6a3e7eb6c42c8190da799c88c1e947e6aef1c29f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191509"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408102"
 ---
 # <a name="federated-web-sso-design"></a>Conception SSO de Web fédéré
 
-L’unique Web fédérée\-connexion\-sur \(SSO\) conception dans Active Directory Federation Services \(AD FS\) implique des communications sécurisées qui s’étend sur plusieurs pare-feux, périmètre réseaux et le nom\-serveurs de résolution, en plus de l’infrastructure de routage Internet.  
+La conception unique Web fédérée @ no__t-0Sign @ no__t-1On \(SSO @ no__t-3 dans Services ADFS \(AD FS @ no__t-5 implique des communications sécurisées qui s’étendent sur plusieurs pare-feu, réseaux de périmètre et nom @ no__t-6resolution serveurs : en plus de l’ensemble de l’infrastructure de routage Internet.  
   
-En règle générale, cette conception est utilisée lorsque deux organisations conviennent créer une relation d’approbation de fédération pour permettre aux utilisateurs d’une organisation \(l’organisation partenaire de compte\) pour accéder à Web\-en fonction des applications ou services , qui sont sécurisé par AD FS, dans l’autre organisation \(l’organisation partenaire ressource\).  
+En règle générale, cette conception est utilisée lorsque deux organisations conviennent de créer une relation d’approbation de Fédération pour permettre aux utilisateurs d’une organisation \(the-organisation partenaire de compte @ no__t-1 d’accéder aux applications ou services Web @ no__t-2based, qui sont sécurisés par AD FS, dans l’autre organisation \(La organisation du partenaire de ressource @ no__t-4.  
   
-En d’autres termes, une relation d’approbation de fédération est l’incarnation d’une entreprise\-contrat de niveau ou d’un partenariat entre deux organisations. Comme indiqué dans l’illustration suivante, vous pouvez établir une relation d’approbation de fédération entre deux entreprises, ce qui entraîne une fin\-à\-bout le scénario de fédération.  
+En d’autres termes, une relation d’approbation de Fédération est l’incarnation d’un accord Business @ no__t-0level ou d’un partenariat entre deux organisations. Comme indiqué dans l’illustration suivante, vous pouvez établir une relation d’approbation de Fédération entre deux entreprises, ce qui se traduit par un scénario de Fédération de fin @ no__t-0to @ no__t-1fin.  
   
-![sso de web fédéré](media/adfs2_FederatedWebSSODesign.gif)  
+![SSO Web fédéré](media/adfs2_FederatedWebSSODesign.gif)  
   
-Celui\-flèches dans l’illustration indique la direction de la fédération d’approbation, qui, comme la direction des approbations de Windows, pointe toujours vers le côté compte de la forêt. Cela signifie que le cheminement de l’authentification s’effectue de l’organisation partenaire de compte vers l’organisation partenaire de ressource.  
+La flèche un @ no__t-0way dans l’illustration indique la direction de l’approbation de Fédération, qui, comme la direction des approbations Windows, pointe toujours vers le côté compte de la forêt. Cela signifie que le cheminement de l’authentification s’effectue de l’organisation partenaire de compte vers l’organisation partenaire de ressource.  
   
-Dans cette conception SSO de Web fédéré, deux serveurs de fédération \(un dans Fabrikam et l’autre dans Contoso\) acheminer les demandes d’authentification à partir de comptes d’utilisateur dans Fabrikam sur le Web\-en fonction des applications ou services dans Contoso.  
+Dans cette conception SSO de Web fédéré, deux serveurs de Fédération \(one dans Fabrikam et l’autre dans contoso @ no__t-1 acheminent les demandes d’authentification des comptes d’utilisateur de Fabrikam vers les applications ou services Web @ no__t-2based dans contoso.  
   
 > [!NOTE]  
-> Pour renforcer la sécurité, vous pouvez utiliser des serveurs proxy de fédération pour relayer les demandes aux serveurs de fédération qui ne sont pas directement accessibles à partir d’Internet.  
+> Pour renforcer la sécurité, vous pouvez utiliser des proxies de serveur de Fédération pour relayer les demandes aux serveurs de Fédération qui ne sont pas directement accessibles à partir d’Internet.  
   
-Dans cet exemple, Fabrikam est le fournisseur d’identité ou de compte. La partie consacrée à Fabrikam de la conception SSO de Web fédéré utilise l’objectif de déploiement AD FS suivant :  
+Dans cet exemple, Fabrikam est le fournisseur d’identité ou de compte. La partie Fabrikam de la conception SSO de Web fédéré utilise les AD FS objectif de déploiement suivants :  
   
 -   [Fournir à vos utilisateurs Active Directory un accès aux applications et services d’autres organisations](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
   
-Contoso est le fournisseur de ressources. La partie de Contoso de la conception SSO de Web fédéré atteint les objectifs de déploiement AD FS suivants :  
+Contoso est le fournisseur de ressources. La partie contoso de la conception SSO de Web fédéré atteint les objectifs de déploiement AD FS suivants :  
   
 -   [Fournir aux utilisateurs d’une autre organisation un accès à vos applications et services prenant en charge les revendications](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
 -   [Fournir à vos utilisateurs Active Directory un accès à vos applications et services prenant en charge les revendications](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
-Pour obtenir la liste détaillée des tâches que vous pouvez utiliser pour planifier et déployer la conception SSO de Web fédéré, consultez [liste de vérification : Implémentation d’une conception SSO Web fédéré](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
+Pour obtenir la liste des tâches détaillées que vous pouvez utiliser pour planifier et déployer la conception SSO de Web fédéré, voir [Checklist : Implémentation d’une conception SSO de Web fédéré @ no__t-0.  
   
 ## <a name="see-also"></a>Voir aussi
 [Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

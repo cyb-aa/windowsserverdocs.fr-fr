@@ -1,55 +1,55 @@
 ---
-title: Créer un groupe de sécurité pour les hôtes service Guardian et inscrire le groupe avec SGH
+title: Créer un groupe de sécurité pour les hôtes service Guardian et inscrire le groupe auprès de SGH
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: a12c8494-388c-4523-8d70-df9400bbc2c0
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: fb84720b94746a3c5757037ceb5c9bc8c965ff7f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1a36cfa10cb16033f5ca92b7e408132e38f5989c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447161"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386846"
 ---
-# <a name="create-a-security-group-for-guarded-hosts-and-register-the-group-with-hgs"></a>Créer un groupe de sécurité pour les hôtes service Guardian et inscrire le groupe avec SGH
+# <a name="create-a-security-group-for-guarded-hosts-and-register-the-group-with-hgs"></a>Créer un groupe de sécurité pour les hôtes service Guardian et inscrire le groupe auprès de SGH
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 >[!IMPORTANT]
->Mode AD est déconseillé à compter de Windows Server 2019. Pour les environnements où l’attestation TPM n’est pas possible, configurez [héberger l’attestation de clé](guarded-fabric-initialize-hgs-key-mode.md). L’attestation de clé hôte fournit la garantie similaire au mode d’AD et est plus simple à configurer. 
+>Le mode AD est déconseillé à partir de Windows Server 2019. Pour les environnements où l’attestation de module de plateforme sécurisée n’est pas possible, configurez l' [attestation de clé hôte](guarded-fabric-initialize-hgs-key-mode.md). L’attestation de clé hôte offre une garantie similaire au mode AD et est plus simple à configurer. 
 
 
-Cette rubrique décrit les étapes intermédiaires pour préparer les hôtes Hyper-V pour devenir des hôtes service Guardian à l’aide de l’attestation approuvée par l’administrateur (mode AD). Avant d’effectuer ces étapes, suivez les étapes de [configuration de la structure DNS pour les hôtes qui deviendront des hôtes service Guardian](guarded-fabric-configuring-fabric-dns-ad.md).
+Cette rubrique décrit les étapes intermédiaires permettant de préparer les ordinateurs hôtes Hyper-V pour qu’ils deviennent des hôtes protégés à l’aide d’une attestation approuvée par l’administrateur (mode AD). Avant de suivre ces étapes, effectuez les étapes de la section [configuration du DNS de l’infrastructure pour les hôtes qui deviendront des hôtes service Guardian](guarded-fabric-configuring-fabric-dns-ad.md).
 
 
 ## <a name="create-a-security-group-and-add-hosts"></a>Créer un groupe de sécurité et ajouter des ordinateurs hôtes
 
-1. Créer un nouveau **GLOBAL** groupe du domaine de l’infrastructure de sécurité et ajouter des hôtes Hyper-V qui exécuteront les machines virtuelles protégées. Redémarrez les ordinateurs hôtes pour mettre à jour leur appartenance aux groupes.
+1. Créez un groupe de sécurité **Global** dans le domaine de l’infrastructure et ajoutez des ordinateurs hôtes Hyper-V qui exécuteront des machines virtuelles dotées d’une protection maximale. Redémarrez les ordinateurs hôtes pour mettre à jour leur appartenance à un groupe.
 
-2. Utilisez Get-ADGroup pour obtenir l’identificateur de sécurité (SID) du groupe de sécurité et à le fournir à l’administrateur SGH. 
+2. Utilisez l’opération obtenir un ID de sécurité pour obtenir l’identificateur de sécurité (SID) du groupe de sécurité et le fournir à l’administrateur SGH. 
 
     ```powershell
     Get-ADGroup "Guarded Hosts"
     ```
 
-    ![Commande Get-AdGroup avec sortie](../media/Guarded-Fabric-Shielded-VM/guarded-host-get-adgroup.png)
+    ![Commande d’extraction avec sortie](../media/Guarded-Fabric-Shielded-VM/guarded-host-get-adgroup.png)
 
-## <a name="register-the-sid-of-the-security-group-with-hgs"></a>Inscrire le SID du groupe de sécurité avec SGH  
+## <a name="register-the-sid-of-the-security-group-with-hgs"></a>Inscrire le SID du groupe de sécurité auprès de SGH  
 
-1. Sur un serveur SGH, exécutez la commande suivante pour inscrire le groupe de sécurité avec SGH. 
-   Réexécutez la commande si nécessaire pour des groupes supplémentaires. 
+1. Sur un serveur SGH, exécutez la commande suivante pour enregistrer le groupe de sécurité avec SGH. 
+   Exécutez à nouveau la commande si nécessaire pour des groupes supplémentaires. 
    Fournissez un nom convivial pour le groupe. 
-   Il n’a pas besoin de correspondre au nom de groupe de sécurité Active Directory. 
+   Elle n’a pas besoin de correspondre au nom du groupe de sécurité Active Directory. 
 
    ```powershell
    Add-HgsAttestationHostGroup -Name "<GuardedHostGroup>" -Identifier "<SID>"
    ```
 
-2. Pour vérifier que le groupe a été ajouté, exécutez [Get-HgsAttestationHostGroup](https://technet.microsoft.com/library/mt652172.aspx). 
+2. Pour vérifier que le groupe a été ajouté, exécutez la [HgsAttestationHostGroup](https://technet.microsoft.com/library/mt652172.aspx). 
 
 ## <a name="next-step"></a>Étape suivante
 
@@ -59,4 +59,4 @@ Cette rubrique décrit les étapes intermédiaires pour préparer les hôtes Hyp
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Déploiement du Service Guardian hôte pour les hôtes service Guardian et des machines virtuelles protégées](guarded-fabric-deploying-hgs-overview.md)
+- [Déploiement du service Guardian hôte pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-deploying-hgs-overview.md)

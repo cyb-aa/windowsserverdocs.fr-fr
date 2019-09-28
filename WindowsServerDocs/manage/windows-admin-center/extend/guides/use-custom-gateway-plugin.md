@@ -1,43 +1,43 @@
 ---
 title: Utiliser un plug-in de passerelle personnalisé dans votre extension d'outil
-description: 'Développer une extension de l’outil Kit de développement Windows Admin Center (projet Honolulu) : utilisez un plug-in passerelle personnalisée dans votre extension de l’outil'
+description: Développement d’une extension d’outil SDK du centre d’administration Windows (Project Honolulu)-utilisation d’un plug-in de passerelle personnalisé dans votre extension d’outil
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 348ebf5b99de7f582a3edf57b0a190f87f1c4a5b
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.prod: windows-server
+ms.openlocfilehash: 829cbf6df8cc2738bf4066b36210b860595774ed
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452599"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385228"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Utiliser un plug-in de passerelle personnalisé dans votre extension d'outil
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+>S'applique à : Windows Admin Center, Windows Admin Center Preview
 
-Dans cet article, nous allons utiliser un plug-in de passerelle personnalisée dans une extension de l’outil vide que nous avons créé avec l’interface CLI de Windows Admin Center.
+Dans cet article, nous allons utiliser un plug-in de passerelle personnalisé dans une nouvelle extension d’outil vide que nous avons créée à l’aide de l’interface de commande du centre d’administration Windows.
 
 ## <a name="prepare-your-environment"></a>Préparer votre environnement ##
 
-Si vous n’avez pas déjà, suivez les instructions de [développer une extension de l’outil](../develop-tool.md) pour préparer votre environnement et créer un nouveau, vide l’extension de l’outil.
+Si vous ne l’avez pas déjà fait, suivez les instructions fournies dans [développer une extension d’outil](../develop-tool.md) pour préparer votre environnement et créer une extension d’outil vide.
 
 ## <a name="add-a-module-to-your-project"></a>Ajouter un module à votre projet ##
 
-Si vous n’avez pas déjà, ajoutez une nouvelle [module vide](add-module.md) à votre projet, nous allons utiliser dans l’étape suivante.  
+Si vous ne l’avez pas encore fait, ajoutez un nouveau [module vide](add-module.md) à votre projet, que nous utiliserons à l’étape suivante.  
 
-## <a name="add-integration-to-custom-gateway-plugin"></a>Ajouter l’intégration au plug-in de la passerelle personnalisée ##
+## <a name="add-integration-to-custom-gateway-plugin"></a>Ajouter l’intégration au plug-in de passerelle personnalisé ##
 
-Maintenant, nous allons utiliser un plug-in passerelle personnalisée dans le module vide que nous venons de créer.
+À présent, nous allons utiliser un plug-in de passerelle personnalisé dans le nouveau module vide que nous venons de créer.
 
-### <a name="create-pluginservicets"></a>Créer plugin.service.ts
+### <a name="create-pluginservicets"></a>Créer un plug-in. service. TS
 
-Accédez au répertoire du nouveau module outil créé ci-dessus (```\src\app\{!Module-Name}```) et créez un nouveau fichier ```plugin.service.ts```.
+Accédez au répertoire du nouveau module d’outil créé ci-dessus (```\src\app\{!Module-Name}```), puis créez un nouveau fichier ```plugin.service.ts```.
 
-Ajoutez le code suivant au fichier venez de créer :
+Ajoutez le code suivant au fichier que vous venez de créer :
 ``` ts
 import { Injectable } from '@angular/core';
 import { AppContextService, HttpService } from '@microsoft/windows-admin-center-sdk/angular';
@@ -61,16 +61,16 @@ export class PluginService {
 }
 ```
 
-Modifier les références à ```Sample Uno``` et ```Sample%20Uno``` à votre nom de la fonctionnalité comme il convient.
+Remplacez les références par ```Sample Uno``` et ```Sample%20Uno``` par le nom de votre fonctionnalité, si nécessaire.
 
 [!WARNING]
-> Il est recommandé que la génération dans ```this.appContextService.node``` est utilisée pour appeler une API qui est définie dans votre plug-in de passerelle personnalisée. Cela garantit que si elles sont nécessaires à l’intérieur de votre plug-in de passerelle qu’ils soient traités correctement.
+> Il est recommandé d’utiliser le @no__t intégré-0 pour appeler toute API définie dans le plug-in de votre passerelle personnalisée. Ainsi, si des informations d’identification sont requises dans le plug-in de votre passerelle, elles seront gérées correctement.
 
-### <a name="modify-modulets"></a>Modifier le module.TS
+### <a name="modify-modulets"></a>Modifier le module. TS
 
-Ouvrez le ```module.ts``` fichier du nouveau module créé précédemment (par exemple, ```{!Module-Name}.module.ts```) :
+Ouvrez le fichier ```module.ts``` du nouveau module créé précédemment (c’est-à-dire ```{!Module-Name}.module.ts```) :
 
-Ajoutez les instructions import suivantes :
+Ajoutez les instructions d’importation suivantes :
 
 ``` ts
 import { HttpService } from '@microsoft/windows-admin-center-sdk/angular';
@@ -89,11 +89,11 @@ Ajoutez les fournisseurs suivants (après les déclarations) :
   ]
 ```
 
-### <a name="modify-componentts"></a>Modifier component.ts
+### <a name="modify-componentts"></a>Modifier le composant. TS
 
-Ouvrez le ```component.ts``` fichier du nouveau module créé précédemment (par exemple, ```{!Module-Name}.component.ts```) :
+Ouvrez le fichier ```component.ts``` du nouveau module créé précédemment (c’est-à-dire ```{!Module-Name}.component.ts```) :
 
-Ajoutez les instructions import suivantes :
+Ajoutez les instructions d’importation suivantes :
 
 ``` ts
 import { ActivatedRouteSnapshot } from '@angular/router';
@@ -110,7 +110,7 @@ Ajoutez les variables suivantes :
   private responseResult: string;
 ```
 
-Modifiez le constructeur et modifiez/ajoutez des fonctions suivantes :
+Modifiez le constructeur et modifiez/ajoutez les fonctions suivantes :
 
 ``` ts
   constructor(private appContextService: AppContextService, private plugin: PluginService) {
@@ -133,16 +133,16 @@ Modifiez le constructeur et modifiez/ajoutez des fonctions suivantes :
   }
 ```
 
-### <a name="modify-componenthtml"></a>Modifier component.html ###
+### <a name="modify-componenthtml"></a>Modifier Component. html ###
 
-Ouvrez le ```component.html``` fichier du nouveau module créé précédemment (par exemple, ```{!Module-Name}.component.html```) :
+Ouvrez le fichier ```component.html``` du nouveau module créé précédemment (c’est-à-dire ```{!Module-Name}.component.html```) :
 
-Ajoutez le contenu suivant au fichier html :
+Ajoutez le contenu suivant au fichier HTML :
 ``` html
 <button (click)="onClick()" >go</button>
 {{ responseResult }}
 ```
 
-## <a name="build-and-side-load-your-extension"></a>Génération et côté chargent votre extension
+## <a name="build-and-side-load-your-extension"></a>Créez et chargez votre extension
 
-Vous êtes maintenant prêt à [générer et côté charge](../develop-tool.md#build-and-side-load-your-extension) votre extension dans Windows Admin Center.
+Vous êtes maintenant prêt à [créer et à charger](../develop-tool.md#build-and-side-load-your-extension) votre extension dans le centre d’administration Windows.

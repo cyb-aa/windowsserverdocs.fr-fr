@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6af0dd0fe88099c04bca291a7b3351aa8e83d253
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 0119cb063d2a68fb4cc96d3fa1cc2867230989ff
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192560"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408577"
 ---
 # <a name="ad-fs-design"></a>Conception des services AD FS
 
@@ -26,8 +26,8 @@ ms.locfileid: "66192560"
 
   
 ## <a name="see-also"></a>Voir aussi  
-Planification de la capacité pour AD FS dans Windows Server 2016, consultez le [feuille de planification de capacité AD FS.](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)  
+Pour la planification de la capacité pour AD FS dans Windows Server 2016, consultez la feuille de planification de la [capacité AD FS.](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)  
   
-[Vue d’ensemble des Services de fédération Active Directory](../Active-Directory-Federation-Services.md)  
+[Présentation de Services ADFS](../Active-Directory-Federation-Services.md)  
   
 

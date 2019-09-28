@@ -7,29 +7,29 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a3eecec9d47f91bb6a9ba549abc3bf62482b2f49
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a24c88f5469890f12f821b9f729c7d283b687f43
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863280"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389903"
 ---
 # <a name="executive-summary"></a>Résumé
 
 >S'applique à : Windows Server 2012
 
 >[!IMPORTANT] 
->La documentation suivante a été écrite en 2013 et est fournie uniquement à des fins d’historique.  Actuellement, nous allons consulter cette documentation et il est susceptible de changer.  Il ne reflète pas les bonnes pratiques en vigueur.
+>La documentation suivante a été écrite en 2013 et est fournie à des fins d’historique uniquement.  Actuellement, nous examinons cette documentation et nous sommes susceptibles de changer.  Il peut ne pas refléter les meilleures pratiques actuelles.
 
-Aucune organisation dotée d’une infrastructure informatique (IT) n’est immune contre les attaques, mais si des contrôles, les processus et les stratégies appropriées sont implémentées pour protéger les principales composantes de l’infrastructure informatique d’une organisation, il est parfois possible pour empêcher un événement de violation d’augmenter pour un compromis en gros de l’environnement informatique.  
+Aucune organisation dotée d’une infrastructure informatique n’est protégée contre les attaques, mais si des stratégies, des processus et des contrôles appropriés sont implémentés pour protéger des segments clés de l’infrastructure informatique d’une organisation, il peut être possible de Empêchez un événement de violation de croître vers un compromis de gros de l’environnement informatique.  
   
-Ce résumé est destinée à être utile en tant que document autonome récapitulant le contenu du document, qui contient des recommandations qui aideront les organisations dans l’amélioration de la sécurité de leurs installations d’Active Directory. En implémentant ces recommandations, les organisations pourront identifier et hiérarchiser les activités de sécurité, protéger les principales composantes de l’infrastructure informatique de leur organisation et créer des contrôles qui réduisent considérablement la probabilité de attaques réussies contre les composants critiques de l’environnement informatique.  
+Ce résumé est destiné à être utile sous la forme d’un document autonome résumant le contenu du document, qui contient des recommandations qui aident les organisations à améliorer la sécurité de leurs installations Active Directory. En implémentant ces recommandations, les organisations sont en mesure d’identifier et de hiérarchiser les activités de sécurité, de protéger les segments clés de l’infrastructure informatique de leur organisation et de créer des contrôles qui réduisent considérablement la probabilité de attaques réussies contre les composants critiques de l’environnement informatique.  
   
-Bien que ce document aborde les attaques courantes contre Active Directory et les contre-mesures pour réduire la surface d’attaque, il contient également des recommandations pour la récupération en cas de compromission complète. La seule façon pour récupérer en cas de compromission complète d’Active Directory doit être préparé pour la compromission avant qu’elle se produise.  
+Bien que ce document présente les attaques les plus courantes contre les Active Directory et les contre-mesures visant à réduire la surface d’attaque, il contient également des recommandations pour la récupération en cas de compromission complète. La seule façon de procéder à la récupération en cas de compromission complète de Active Directory doit être préparée à la compromission avant qu’elle ne se produise.  
   
-Les principales sections de ce document sont :  
+Les principales sections de ce document sont les suivantes :  
   
 -   Voies de compromis  
   
@@ -40,57 +40,57 @@ Les principales sections de ce document sont :
 -   Planification des compromis  
   
 ## <a name="avenues-to-compromise"></a>Voies de compromis  
-Cette section fournit des informations sur certaines des vulnérabilités exploitées plus couramment utilisées par les pirates pour compromettre les infrastructures clients. Il contient des catégories générales de vulnérabilités et comment ils sont utilisés pour initialement pénétrer dans les infrastructures clients, propager compromission sur d’autres systèmes et finalement cibler Active Directory et contrôleurs de domaine pour obtenir terminée contrôle des forêts de l’organisation. Il ne fournit pas de recommandations détaillées sur l’adressage de chaque type de vulnérabilité, en particulier dans les domaines dans lequel les vulnérabilités ne sont pas utilisées pour cibler directement Active Directory. Toutefois, pour chaque type de vulnérabilité, nous avons compilé les liens vers des informations supplémentaires à utiliser pour développer des contre-mesures et réduire la surface d’attaque de l’organisation.  
+Cette section fournit des informations sur les vulnérabilités les plus couramment utilisées par les attaquants pour compromettre les infrastructures des clients. Elle contient des catégories générales de vulnérabilités et la façon dont elles sont utilisées pour pénétrer initialement les infrastructures des clients, propager la compromission sur des systèmes supplémentaires et finalement cibler Active Directory et les contrôleurs de domaine pour obtenir la totalité contrôle des forêts des organisations. Il ne fournit pas de recommandations détaillées sur la résolution de chaque type de vulnérabilité, en particulier dans les domaines dans lesquels les vulnérabilités ne sont pas utilisées pour cibler directement Active Directory. Toutefois, pour chaque type de vulnérabilité, nous avons fourni des liens vers des informations supplémentaires à utiliser pour développer des contre-mesures et réduire la surface d’attaque de l’organisation.  
   
-Voici les sujets suivants :  
+Les sujets suivants sont inclus :  
   
--   **Initiale des cibles de violation** -la plupart des violations de sécurité démarrent avec la compromission de petits morceaux de systèmes d’infrastructure souvent un ou deux d’une organisation à la fois. Ces événements initiales, ou les points d’entrée dans le réseau, souvent exploitent des vulnérabilités qui peuvent avoir été résolues, mais n’ont pas été. Des vulnérabilités couramment rencontrées sont :  
+-   **Cibles de violations initiales** : la plupart des violations de la sécurité des informations commencent avec la compromission de petites parties de l’infrastructure d’une organisation, souvent un ou deux systèmes à la fois. Ces événements initiaux, ou points d’entrée dans le réseau, exploitent souvent des vulnérabilités susceptibles d’avoir été corrigées, mais n’ont pas été résolues. Les vulnérabilités courantes sont les suivantes :  
   
-    -   Écarts dans les déploiements d’antivirus et anti-programme malveillant  
+    -   Lacunes dans les déploiements antivirus et anti-programme malveillant  
   
     -   Mise à jour corrective incomplète  
   
-    -   Les applications sont obsolètes et les systèmes d’exploitation  
+    -   Applications et systèmes d’exploitation obsolètes  
   
-    -   Misconfiguration  
+    -   Configuration incorrecte  
   
     -   Absence de pratiques de développement d’applications sécurisées  
   
--   **Comptes attrayants pour le vol d’informations d’identification** -vol de ces informations d’identification est celles dans lesquelles un attaquant initialement Obtient un accès privilégié à un ordinateur sur un réseau et utilise ensuite les outils disponibles gratuitement pour extraire des informations d’identification depuis les sessions des autres comptes connectés.   
-    Inclus dans cette section sont les suivantes :  
+-   **Comptes intéressants pour le vol d’informations d’identification** : les attaques par vol d’informations d’identification sont celles dans lesquelles une personne malveillante obtient un accès privilégié à un ordinateur sur un réseau, puis utilise les outils disponibles librement pour extraire les informations d’identification des sessions d’autres comptes connectés.   
+    Les éléments suivants sont inclus dans cette section :  
   
-    -   **Les activités qui augmentent la probabilité de compromission** - parce que la cible de vol d’informations d’identification est généralement des comptes de domaine disposant de privilèges élevés et « person très important » comptes (VIP), il est important que les administrateurs à être attentif activités qui augmentent la probabilité de réussite d’une attaque de vol d’informations d’identification. Ces activités sont :  
+    -   **Activités qui augmentent la probabilité de compromission** : étant donné que la cible des vols d’informations d’identification est généralement des comptes de domaine hautement privilégiés et des comptes d’adresse IP virtuelle (VIP), il est important que les administrateurs soient conscients des activités. Cela augmente la probabilité de réussite d’une attaque par vol d’informations d’identification. Ces activités sont les suivantes :  
   
-        -   Ouvrir une session sur des ordinateurs non sécurisés avec des comptes privilégiés  
+        -   Connexion à des ordinateurs non sécurisés avec des comptes privilégiés  
   
-        -   Naviguer sur Internet avec un compte disposant de privilèges élevés  
+        -   Navigation sur Internet avec un compte doté de privilèges élevés  
   
-        -   Configuration des comptes privilégiés locaux avec les mêmes informations d’identification dans les systèmes  
+        -   Configuration de comptes disposant de privilèges locaux avec les mêmes informations d’identification sur les systèmes  
   
-        -   Overpopulation et l’utilisation abusive des groupes de domaine avec privilèges  
+        -   Suralimentation et abus des groupes de domaines privilégiés  
   
-        -   Gestion insuffisante de la sécurité des contrôleurs de domaine.  
+        -   La gestion de la sécurité des contrôleurs de domaine est insuffisante.  
   
-    -   **Privilèges d’élévation et la Propagation** -comptes spécifiques, les serveurs et les composants d’infrastructure sont généralement les cibles principales d’attaques par rapport à Active Directory. Ces comptes sont :  
+    -   Les comptes, les serveurs et les composants d’infrastructure spécifiques à l' **élévation des privilèges et** à la propagation sont généralement les cibles principales des attaques contre les Active Directory. Ces comptes sont les suivants :  
   
-        -   Comptes privilégiés définitivement  
+        -   Comptes avec privilèges permanents  
   
-        -   Comptes d’adresse IP virtuelle  
+        -   Comptes VIP  
   
-        -   « Attaché au privilège » des comptes Active Directory  
+        -   Comptes de Active Directory « attachés par des privilèges »  
   
         -   Contrôleurs de domaine  
   
-        -   Autres services d’infrastructure qui affectent la gestion des identités, les accès et les configuration, tels que les serveurs d’infrastructure à clé publique (PKI) et les serveurs d’administration de systèmes  
+        -   Autres services d’infrastructure qui affectent la gestion de l’identité, de l’accès et de la configuration, tels que les serveurs d’infrastructure à clé publique (PKI) et les serveurs de gestion de systèmes  
   
 ## <a name="reducing-the-active-directory-attack-surface"></a>Réduire la Surface d'attaque Active Directory  
-Cette section se concentre sur les contrôles techniques pour réduire la surface d’attaque d’une installation d’Active Directory. Inclus dans cette section sont les sujets suivants :  
+Cette section se concentre sur les contrôles techniques pour réduire la surface d’attaque d’une installation Active Directory. Les sujets suivants sont inclus dans cette section :  
   
--   Le **comptes privilégiés et groupes dans Active Directory** section décrit les comptes à privilèges plus élevés et les groupes dans Active Directory et les mécanismes par lequel les comptes privilégiés sont protégés. Dans Active Directory, trois groupes intégrés sont les groupes de privilège le plus élevés dans le répertoire (administrateurs de l’entreprise, Admins du domaine et administrateurs), même si un nombre de comptes et des groupes supplémentaires doit également être protégé.  
+-   La section **comptes et groupes privilégiés dans Active Directory** présente les comptes et les groupes privilégiés les plus élevés dans Active Directory et les mécanismes par lesquels les comptes privilégiés sont protégés. Dans Active Directory, trois groupes prédéfinis sont les groupes de privilèges les plus élevés dans l’annuaire (administrateurs de l’entreprise, admins du domaine et administrateurs), bien qu’un certain nombre de groupes et de comptes supplémentaires doivent également être protégés.  
   
--   Le **implémentation de modèles d’administration doté des privilèges minimaux** section se concentre sur l’identification des risques et présentant l’utilisation de comptes à privilèges élevés pour l’administration quotidienne, en plus de fournir des recommandations pour réduire ce risque.  
+-   La section **implémentation de modèles d’administration à privilèges moindres** porte sur l’identification du risque que l’utilisation de comptes à privilèges élevés pour l’administration quotidienne présente, en plus de fournir des recommandations pour réduire ce risque.  
   
-Un privilège excessif n’est pas uniquement trouvé dans Active Directory dans les environnements compromis. Lorsqu’une organisation a développé l’habitude d’accorder le privilège plus élevé que nécessaire, il se trouve généralement dans l’infrastructure :  
+Un privilège excessif est introuvable dans les Active Directory dans les environnements compromis. Lorsqu’une organisation a développé l’habitude d’octroyer plus de privilèges que nécessaire, elle se trouve généralement dans toute l’infrastructure :  
   
 -   Dans Active Directory  
   
@@ -102,100 +102,100 @@ Un privilège excessif n’est pas uniquement trouvé dans Active Directory dans
   
 -   Dans les référentiels de données  
   
--   Le **implémentation des hôtes d’administration sécurisés** section décrit les hôtes d’administration sécurisés, qui sont des ordinateurs qui sont configurés pour prendre en charge d’administration d’Active Directory et des systèmes connectés. Ces hôtes sont dédiées à des fonctionnalités d’administration et n’exécutent pas de logiciels tels que les applications de messagerie, des navigateurs web ou des logiciels de productivité (telles que Microsoft Office).  
+-   La section implémentation d’ordinateurs **hôtes d’administration sécurisée** décrit les ordinateurs hôtes d’administration sécurisés, qui sont des ordinateurs configurés pour prendre en charge l’administration de Active Directory et de systèmes connectés. Ces ordinateurs hôtes sont dédiés aux fonctionnalités administratives et n’exécutent pas de logiciels tels que les applications de messagerie, les navigateurs Web ou les logiciels de productivité (tels que les Microsoft Office).  
   
-Inclus dans cette section sont les suivantes :  
+Les éléments suivants sont inclus dans cette section :  
   
--   **Principes de création de sécuriser les ordinateurs hôtes d’administration** -les principes généraux à prendre en compte sont :  
+-   **Principes de création d’ordinateurs hôtes d’administration sécurisés** : les principes généraux à prendre en compte sont les suivants :  
   
-    -   Administrer jamais un système approuvé à partir d’un hôte de niveau de confiance moindre.  
+    -   N’administrez jamais un système approuvé à partir d’un hôte moins approuvé.  
   
-    -   Ne comptez pas sur un facteur d’authentification unique lors de l’exécution des activités privilégiées.  
+    -   Ne vous fiez pas à un seul facteur d’authentification lors de l’exécution d’activités privilégiées.  
   
-    -   N’oubliez pas de sécurité physique lors de la conception et implémentation des hôtes d’administration sécurisés.  
+    -   N’oubliez pas la sécurité physique lors de la conception et de l’implémentation d’ordinateurs hôtes d’administration sécurisés.  
   
--   **Sécurisation des contrôleurs de domaine contre les attaques** -si un utilisateur malveillant obtient un accès privilégié à un contrôleur de domaine, cet utilisateur peut modifier endommagé et détruire la base de données Active Directory et par extension, tous les systèmes et les comptes géré par Active Directory.  
+-   **Sécurisation des contrôleurs de domaine contre les attaques** : si un utilisateur malveillant obtient un accès privilégié à un contrôleur de domaine, il peut modifier, corrompre et détruire la base de données Active Directory et, par extension, tous les systèmes et comptes gérés. par Active Directory.  
   
-Inclus dans cette section sont les sujets suivants :  
+Les sujets suivants sont inclus dans cette section :  
   
--   **Sécurité physique des contrôleurs de domaine** -contient des recommandations pour apporter une sécurité physique pour les contrôleurs de domaine dans les centres de données, les succursales et les emplacements distants.  
+-   **Sécurité physique pour les contrôleurs de domaine** : contient des recommandations pour assurer la sécurité physique des contrôleurs de domaine dans les centres de donnes, les filiales et les emplacements distants.  
   
--   **Systèmes d’exploitation de contrôleur de domaine** -contient des recommandations pour la sécurisation des systèmes d’exploitation de contrôleur de domaine.  
+-   **Systèmes d’exploitation de contrôleur de domaine** : contient des recommandations pour la sécurisation des systèmes d’exploitation de contrôleur de domaine.  
   
--   **Configuration de contrôleurs de domaine sécurisés** -paramètres et outils de configuration Native et disponibles gratuitement peuvent être utilisés pour créer des configurations de référence pour les contrôleurs de domaine qui peuvent être appliquées par la suite par des objets de stratégie de groupe (sécurité Stratégie de groupe).  
+-   **Configuration sécurisée des contrôleurs de domaine** : les outils et paramètres de configuration natifs et disponibles librement peuvent être utilisés pour créer des lignes de base de configuration de sécurité pour les contrôleurs de domaine qui peuvent être appliqués par la suite par des objets stratégie de groupe (GPO).  
   
 ## <a name="monitoring-active-directory-for-signs-of-compromise"></a>Surveillance des signes de compromission d'Active Directory  
-Cette section fournit des informations sur les catégories d’audit héritées et des sous-catégories de stratégie d’audit (qui ont été introduits dans Windows Vista et Windows Server 2008) et stratégie d’Audit avancée (qui a été introduite dans Windows Server 2008 R2). Également fourni d’informations sur les événements et les objets pour surveiller qui peuvent indiquer des tentatives de compromettre l’environnement et des références supplémentaires qui peuvent être utilisées pour construire une stratégie d’audit complète pour Active Directory.  
+Cette section fournit des informations sur les catégories d’audit héritées et les sous-catégories de stratégie d’audit (qui ont été introduites dans Windows Vista et Windows Server 2008), ainsi que sur la stratégie d’audit avancée (qui a été introduite dans Windows Server 2008 R2). Vous trouverez également des informations sur les événements et les objets à surveiller qui peuvent indiquer des tentatives de compromission de l’environnement et des références supplémentaires qui peuvent être utilisées pour construire une stratégie d’audit complète pour Active Directory.  
   
-Inclus dans cette section sont les sujets suivants :  
+Les sujets suivants sont inclus dans cette section :  
   
--   **Stratégie d’Audit de Windows** - journaux d’événements de sécurité de Windows ont les catégories et sous-catégories qui déterminent les événements de sécurité sont suivies et enregistrées.  
+-   **Stratégie d’audit Windows** : les journaux des événements de sécurité Windows ont des catégories et des sous-catégories qui déterminent les événements de sécurité suivis et enregistrés.  
   
--   **Recommandations de stratégie d’audit** -cette section décrit les paramètres de stratégie d’audit de Windows par défaut, les paramètres de stratégie qui sont recommandées par Microsoft et des recommandations plus agressives pour les organisations à utiliser pour auditer les serveurs critiques d’audit et stations de travail.  
+-   **Recommandations de stratégie d’audit** : cette section décrit les paramètres de stratégie d’audit par défaut de Windows, les paramètres de stratégie d’audit recommandés par Microsoft et des recommandations plus agressives pour les organisations à utiliser pour auditer les serveurs critiques et stations.  
   
 ## <a name="planning-for-compromise"></a>Planification des compromis  
-Cette section contient des recommandations qui permettent aux organisations de préparer un compromis avant qu’elle se produise, instaurez des contrôles qui peuvent détecter un événement de compromission avant une infraction complète et fournissent des instructions de réponse et de récupération pour les cas dans lesquels une compromission complète du répertoire est obtenue par des attaquants. Inclus dans cette section sont les sujets suivants :  
+Cette section contient des recommandations qui aident les organisations à se préparer à un compromis avant qu’elles ne se produisent, à implémenter des contrôles capables de détecter un événement compromis avant qu’une violation complète ne se produise, et à fournir des instructions de réponse et de récupération pour les cas où une compromission complète de l’annuaire est effectuée par des attaquants. Les sujets suivants sont inclus dans cette section :  
   
--   **Repenser l’approche** -contient des principes et des instructions pour créer des environnements sécurisés dans lequel une organisation peut placer leurs ressources les plus critiques. Ces directives sont les suivantes :  
+-   **Repenser l’approche** : contient des principes et des recommandations pour créer des environnements sécurisés dans lesquels une organisation peut placer les ressources les plus critiques. Ces instructions sont les suivantes :  
   
-    -   Identification des principes de séparation et de sécurisation des ressources critiques  
+    -   Identification des principes pour isoler et sécuriser les ressources critiques  
   
-    -   Définition d’un plan de migration limitées, en fonction des risques  
+    -   Définition d’un plan de migration limité et basé sur les risques  
   
-    -   En tirant parti des migrations « nonmigratory » lorsque cela est nécessaire  
+    -   Tirer parti des migrations « migratoires » lorsque cela est nécessaire  
   
-    -   Implémentation de « destruction creative »  
+    -   Implémentation de la « destruction créative »  
   
-    -   Isoler les systèmes hérités et les applications  
+    -   Isolation des systèmes et applications héritées  
   
-    -   Simplifiez-vous la sécurité pour les utilisateurs finaux  
+    -   Simplification de la sécurité pour les utilisateurs finaux  
   
--   **Maintenance d’un environnement plus sécurisé** -contient des recommandations de haut niveau destinées à être utilisés comme des lignes directrices à utiliser dans le développement de sécurité effectives non seulement, mais gestion du cycle de vie effective. Inclus dans cette section sont les sujets suivants :  
+-   **Maintenance d’un environnement plus sécurisé** : contient des recommandations de haut niveau destinées à être utilisées en tant que recommandations pour le développement d’une sécurité efficace, mais d’une gestion du cycle de vie efficace. Les sujets suivants sont inclus dans cette section :  
   
-    -   **Création des pratiques de sécurité centrée sur l’entreprise pour Active Directory** - pour efficacement gérer le cycle de vie des utilisateurs, des données, des applications et des systèmes gérés par Active Directory, appliquez ces principes.  
+    -   **Création de pratiques de sécurité axées sur l’entreprise pour Active Directory** pour gérer efficacement le cycle de vie des utilisateurs, des données, des applications et des systèmes gérés par Active Directory, suivez ces principes.  
   
-        -   **Attribuer une propriété de données Active Directory** -attribuer la propriété de composants d’infrastructure informatique ; pour les données qui sont ajoutées à Active Directory Domain Services (AD DS) pour prendre en charge de l’entreprise, par exemple, nouveaux employés, nouvelles applications, et de nouveaux référentiels d’informations, une unité commerciale désigné ou un utilisateur doit être associé aux données.  
+        -   **Affecter une propriété de l’entreprise à Active Directory données** -affecter la propriété des composants d’infrastructure à celle-ci ; pour les données ajoutées à Active Directory Domain Services (AD DS) pour la prise en charge de l’activité, par exemple, de nouveaux employés, de nouvelles applications et de nouveaux référentiels d’informations, une unité commerciale ou un utilisateur désigné doit être associé aux données.  
   
-        -   **Implémenter la gestion du cycle de vie Business-Driven** -gestion du cycle de vie doit être implémentée pour les données dans Active Directory.  
+        -   **Implémenter la gestion du cycle** de vie piloté par l’entreprise-la gestion du cycle de vie doit être implémentée pour les données dans Active Directory.  
   
-        -   **Classer toutes les données Active Directory** -chefs d’entreprise doivent fournir la classification des données dans Active Directory. Dans le modèle de classification, la classification pour les données d’Active Directory suivantes doit être incluse :  
+        -   **Classifier tous les Active Directory les** propriétaires d’entreprise doivent fournir une classification des données dans Active Directory. Dans le modèle de classification des données, la classification des données de Active Directory suivantes doit être incluse :  
   
-            -   **Systèmes** -classer les applications s’exécutant sur ceux-ci et de l’informatique de leur rôle, alimentations du serveur, leur système d’exploitation et les propriétaires de l’enregistrement.  
+            -   **Systèmes** : classification des populations de serveurs, du rôle de leur système d’exploitation, des applications qui s’y exécutent et des propriétaires de l’informatique et des professionnels de l’enregistrement.  
   
-            -   **Applications** -classer les applications par la fonctionnalité de base d’utilisateurs et leur système d’exploitation.  
+            -   **Applications** : classifier les applications par fonctionnalité, base d’utilisateurs et leur système d’exploitation.  
   
-            -   **Les utilisateurs** -les comptes dans les installations Active Directory qui sont susceptibles d’être la cible d’attaquants doivent être balisés et surveillées.  
+            -   **Utilisateurs** : les comptes des installations Active Directory les plus susceptibles d’être ciblés par les attaquants doivent être marqués et surveillés.  
   
-## <a name="summary-of-best-practices-for-securing-active-directory-domain-services"></a>Résumé des bonnes pratiques pour la sécurisation des Services de domaine Active Directory  
-Le tableau suivant fournit un résumé des recommandations fournies dans ce document pour la sécurisation d’une installation AD DS. Quelques-unes des meilleures pratiques sont par nature stratégiques et nécessitent une planification complète et projets d’implémentation ; d’autres sont tactiques et se concentrent sur des composants spécifiques d’Active Directory et l’infrastructure associée.  
+## <a name="summary-of-best-practices-for-securing-active-directory-domain-services"></a>Résumé des meilleures pratiques pour la sécurisation des Active Directory Domain Services  
+Le tableau suivant fournit un résumé des recommandations fournies dans ce document pour sécuriser une installation AD DS. Certaines meilleures pratiques sont de nature stratégique et nécessitent des projets de planification et d’implémentation complets. d’autres sont tactiques et se concentrent sur des composants spécifiques de Active Directory et de l’infrastructure associée.  
   
-Pratiques sont répertoriés dans l’ordre croissant de priorité, qui l’est., les nombres inférieurs indiquent une priorité plus élevée. Où applicable aux meilleures pratiques sont identifiés comme préventives ou détective par nature. Toutes ces recommandations doivent être soigneusement testé et modifié en fonction des besoins pour les caractéristiques et les exigences de votre organisation.  
+Les pratiques sont répertoriées dans l’ordre de priorité approximatif, autrement dit, les nombres inférieurs indiquent une priorité plus élevée. Le cas échéant, les meilleures pratiques sont identifiées comme préventives ou détectives par nature. Toutes ces recommandations doivent être rigoureusement testées et modifiées en fonction des besoins et des exigences de votre organisation.  
   
   
-||**Il est recommandé**|**Tactique ou stratégique**|**Préventives ou détective**|  
+||**Bonne pratique**|**Tactique ou stratégique**|**Préventive ou détective**|  
 |-|-|-|-|  
-|1|Applications de correctifs.|Tactique|Préventives|  
-|2|Correctifs des systèmes d’exploitation.|Tactique|Préventives|  
-|3|Déployez et rapidement mettre à jour des logiciels antivirus et anti-programme malveillant sur tous les systèmes et surveiller les tentatives de supprimer ou désactiver.|Tactique|Les deux|  
-|4|Surveiller les objets Active Directory sensibles pour les tentatives de modification et Windows pour les événements qui peuvent indiquer un abus tentée.|Tactique|Détective|  
-|5|Protéger et contrôler les comptes pour les utilisateurs qui ont accès aux données sensibles|Tactique|Les deux|  
-|6|Comptes puissants empêchent l’utilisation sur les systèmes non autorisés.|Tactique|Préventives|  
-|7|Éliminer l’appartenance permanente aux groupes disposant de privilèges élevés.|Tactique|Préventives|  
-|8|Implémenter des contrôles pour accorder une appartenance temporaire à des groupes privilégiés en cas de besoin.|Tactique|Préventives|  
-|9|Implémenter des hôtes d’administration sécurisés.|Tactique|Préventives|  
-|10|Utilisez la liste verte d’applications sur les contrôleurs de domaine, les hôtes d’administration et les autres systèmes sensibles.|Tactique|Préventives|  
-|11|Identifier les ressources critiques et de hiérarchiser leur sécurité et de surveillance.|Tactique|Les deux|  
-|12|Implémentez des contrôles d’accès de moindre privilège, en fonction du rôle pour l’administration de l’annuaire, son infrastructure de prise en charge et des systèmes joints à un domaine.|Stratégique|Préventives|  
-|13|Isoler les applications et les systèmes hérités.|Tactique|Préventives|  
-|14|Mettre hors service des applications et les systèmes hérités.|Stratégique|Préventives|  
-|15|Implémenter des programmes de cycle de vie de développement sécurisé pour les applications personnalisées.|Stratégique|Préventives|  
-|16|Implémenter la gestion de la configuration, vérifiez régulièrement la conformité et évaluer les paramètres avec chaque nouvelle version de matériel ou logiciel.|Stratégique|Préventives|  
-|17|Faites migrer des ressources critiques à des forêts vierge avec les exigences de surveillance et de sécurité strictes.|Stratégique|Les deux|  
-|18|Simplifiez la sécurité pour les utilisateurs finaux.|Stratégique|Préventives|  
-|19|Utilisez des pare-feu d’hôte pour le contrôle et de sécuriser les communications.|Tactique|Préventives|  
-|20|Appareils de correctif.|Tactique|Préventives|  
-|21|Implémenter la gestion du cycle de vie centrée sur l’entreprise pour les ressources informatiques.|Stratégique|N/A|  
-|22|Créer ou mettre à jour des plans de récupération de l’incident.|Stratégique|N/A|  
+|1|Application de correctifs.|Tactique|Intervenir|  
+|2|Corriger les systèmes d’exploitation.|Tactique|Intervenir|  
+|3|Déployez et mettez rapidement à jour les logiciels antivirus et anti-programme malveillant sur tous les systèmes et surveillez les tentatives de suppression ou de désactivation.|Tactique|Les deux|  
+|4|Surveiller les objets de Active Directory sensibles pour les tentatives de modification et Windows pour les événements qui peuvent indiquer une tentative de compromission.|Tactique|Simplifié|  
+|5|Protéger et surveiller les comptes pour les utilisateurs qui ont accès à des données sensibles|Tactique|Les deux|  
+|6\.|Empêchez l’utilisation de comptes puissants sur des systèmes non autorisés.|Tactique|Intervenir|  
+|7|Éliminez l’appartenance permanente aux groupes à privilèges élevés.|Tactique|Intervenir|  
+|8|Implémentez des contrôles pour accorder une appartenance temporaire à des groupes privilégiés si nécessaire.|Tactique|Intervenir|  
+|9|Implémentez des hôtes d’administration sécurisés.|Tactique|Intervenir|  
+|10|Utilisez la liste verte d’applications sur les contrôleurs de domaine, les hôtes administratifs et les autres systèmes sensibles.|Tactique|Intervenir|  
+|11|Identifiez les ressources critiques et hiérarchisez leur sécurité et leur surveillance.|Tactique|Les deux|  
+|12|Implémentez des contrôles d’accès en fonction du rôle et des privilèges minimaux pour l’administration de l’annuaire, son infrastructure de prise en charge et les systèmes joints à un domaine.|Stratégique|Intervenir|  
+|13|Isolez les systèmes et les applications héritées.|Tactique|Intervenir|  
+|14|Désaffecter des systèmes et des applications héritées.|Stratégique|Intervenir|  
+|15|Implémentez des programmes de cycle de vie de développement sécurisés pour les applications personnalisées.|Stratégique|Intervenir|  
+|16|Implémentez la gestion de la configuration, examinez la conformité régulièrement et évaluez les paramètres avec chaque nouvelle version matérielle ou logicielle.|Stratégique|Intervenir|  
+|17|Migrez les ressources critiques vers les forêts de grande valeur avec des exigences strictes en matière de sécurité et de surveillance.|Stratégique|Les deux|  
+|18|Simplifiez la sécurité pour les utilisateurs finaux.|Stratégique|Intervenir|  
+|19|Utilisez des pare-feu basés sur l’hôte pour contrôler et sécuriser les communications.|Tactique|Intervenir|  
+|20|Appareils à correctifs.|Tactique|Intervenir|  
+|21|Implémentez une gestion du cycle de vie centrée sur l’entreprise pour les ressources informatiques.|Stratégique|N/A|  
+|22|Créer ou mettre à jour des plans de récupération d’incident.|Stratégique|N/A|  
   
 
 

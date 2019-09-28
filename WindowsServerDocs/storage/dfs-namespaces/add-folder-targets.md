@@ -1,23 +1,23 @@
 ---
 title: Ajouter des cibles de dossier
 description: Cette rubrique explique comment ajouter des cibles de dossier (chemins d’accès UNC)
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: brianlic
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms-date: 06/05/2017
-ms.openlocfilehash: 8cc61189076669d5c24244294b2f0eee2b783517
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0685ea795d53b36fad92d54f817f67de57e3a82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831000"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403182"
 ---
 # <a name="add-folder-targets"></a>Ajouter des cibles de dossier
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Une cible de dossier est le chemin d’accès UNC (Universal Naming Convention) d’un dossier partagé ou d’un autre espace de noms associé à un dossier dans un espace de noms. L’ajout de plusieurs cibles de dossier augmente la disponibilité du dossier dans l’espace de noms.
 
@@ -41,6 +41,6 @@ Pour ajouter une cible de dossier à l’aide de la gestion DFS, effectuez les 
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Déploiement d’espaces de noms DFS](deploying-dfs-namespaces.md)
--   [Déléguer des autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
--   [Répliquer des cibles de dossier à l’aide de la réplication DFS](replicate-folder-targets-using-dfs-replication.md)
+-   [Déploiement d’espaces de noms DFS](deploying-dfs-namespaces.md)
+-   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Répliquer les cibles de dossier à l’aide de réplication DFS](replicate-folder-targets-using-dfs-replication.md)

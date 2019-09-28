@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la nouvelle commande
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande New
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d61d1fe652f3b41e5a02f9ec8a0d204d4dc8324
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8ca818468050cf21a55a4c9963ea2411ab018c7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873940"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392077"
 ---
-# <a name="using-the-new-command"></a>À l’aide de la nouvelle commande
+# <a name="using-the-new-command"></a>Utilisation de la commande New
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-crée la capture et découvrir des images, des transmissions par multidiffusion et des espaces de noms.
+crée des images de capture et de découverte, des transmissions par multidiffusion et des espaces de noms.
 ## <a name="subcommands"></a>Sous-commandes
 |Sous-commande|Description|
 |-------|--------|
-|[À l’aide de la commande Nouveau CaptureImage](using-the-new-captureimage-command.md)|Crée une nouvelle image de capture à partir d’une image de démarrage.|
-|[À l’aide de la commande Nouveau DiscoverImage](using-the-new-discoverimage-command.md)|Crée une nouvelle image de découverte à partir d’une image de démarrage.|
-|[À l’aide de la commande Nouveau MulticastTransmission](using-the-new-multicasttransmission-command.md)|Crée une nouvelle transmission par multidiffusion.|
-|[À l’aide de la commande Nouveau Namespace](using-the-new-namespace-command.md)|Crée un nouvel espace de noms.|
+|[Utilisation de la commande New-CaptureImage](using-the-new-captureimage-command.md)|crée une image de capture à partir d’une image de démarrage existante.|
+|[Utilisation de la commande New-DiscoverImage](using-the-new-discoverimage-command.md)|Crée une image de découverte à partir d’une image de démarrage existante.|
+|[Utilisation de la commande New-MulticastTransmission](using-the-new-multicasttransmission-command.md)|crée une transmission par multidiffusion.|
+|[Utilisation de la commande New-Namespace](using-the-new-namespace-command.md)|crée un espace de noms.|

@@ -7,29 +7,29 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4148614ba35ce29f567edb08b94e115d3f9152e9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: d72636d77fe3240caab66dcab8657225d291bec6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189099"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407542"
 ---
 # <a name="improved-interoperability-with-saml-20"></a>Interopérabilité améliorée avec SAML 2.0
 
 
 
   
-AD FS dans Windows Server 2016 contient SAML protocole prise en charge supplémentaire, notamment la prise en charge pour l’importation des approbations en fonction des métadonnées qui contient plusieurs entités.  Cela vous permet de configurer AD FS pour participer confédérations de l’industrie telles que la fédération InCommon et d’autres implémentations conformes à l’eGov 2.0 standard.   
+AD FS dans Windows Server 2016 contient une prise en charge du protocole SAML supplémentaire, notamment la prise en charge de l’importation d’approbations basées sur des métadonnées contenant plusieurs entités.  Cela vous permet de configurer AD FS pour participer à des conversions telles que la Fédération inhabituelle et d’autres implémentations conformes à la norme eGov 2,0.   
   
-La nouvelle fonctionnalité est basée sur des groupes de partie de confiance ou des approbations de fournisseur de revendications. Chaque groupe est un élément EntitiesDescriptor (< md:EntitiesDescriptor >) comme spécifié dans l’eGov profil 2.0, qui contient un ou plusieurs éléments de EntityDescriptor.  Les groupes ont des règles d’autorisation courants, et toutes les autres propriétés peuvent être modifiées comme objets d’approbation individuels.  
+La nouvelle fonctionnalité est basée sur des groupes d’approbations de partie de confiance ou de fournisseur de revendications. Chaque groupe est un élément EntitiesDescriptor (< MD : EntitiesDescriptor >) tel que spécifié dans le profil eGov 2,0, contenant un ou plusieurs éléments EntityDescriptor.  Les groupes ont des règles d’autorisation communes et toutes les autres propriétés peuvent être modifiées comme des objets d’approbation individuels.  
   
-Une fois que les groupes d’approbation sont importés dans AD FS, AD FS met automatiquement à jour les approbations en tant que groupe basé sur le document de métadonnées.  
+Une fois les groupes d’approbation importés dans AD FS, AD FS met automatiquement à jour les approbations en tant que groupe en fonction du document de métadonnées.  
   
-L’activation de ces scénarios est aussi simple que d’utiliser les nouvelles applets de commande PowerShell qui ajouter et supprimer des AdfsClaimsProviderTrustsGroup et AdfsRelyingPartyTrustsGroup des objets. Cela est possible en utilisant une URL de métadonnées ou un fichier, comme indiqué dans les exemples ci-dessous.  
+L’activation de ces scénarios est aussi simple que l’utilisation des nouveaux applets PowerShell qui ajoutent et suppriment des objets AdfsClaimsProviderTrustsGroup et AdfsRelyingPartyTrustsGroup. Cela peut être fait à l’aide d’une URL de métadonnées ou d’un fichier, comme indiqué dans les exemples ci-dessous.  
   
-En outre, AD FS 2016 prend en charge le paramètre d’étendue, comme décrit dans la spécification SAML Core, section 3.4.1.2. Cet élément permet de partie de confiance tiers pour spécifier l’un ou plusieurs fournisseurs d’identité pour une authentification demander.  
+En outre, AD FS 2016 prend en charge le paramètre d’étendue, comme décrit dans la spécification SAML Core, section 3.4.1.2. Cet élément permet aux parties de confiance de spécifier un ou plusieurs fournisseurs d’identité pour une demande d’authentification.  
   
 ## <a name="examples"></a>Exemples  
   
@@ -45,8 +45,8 @@ Add-AdfsClaimsProviderTrustsGroup -MetadataFile "C:\metadata.xml"
   
 ## <a name="references"></a>Références  
   
-Vous pouvez trouver le profil eGov 2.0 [ici.](https://kantarainitiative.org/confluence/download/attachments/60817482/kantara-report-egov-saml2-profile-2.0.pdf?version=1&modificationDate=1345580916000&api=v2)  
+Le profil eGov 2,0 est disponible [ici.](https://kantarainitiative.org/confluence/download/attachments/60817482/kantara-report-egov-saml2-profile-2.0.pdf?version=1&modificationDate=1345580916000&api=v2)  
   
-Vous pouvez trouver la spécification SAML Core [ici.](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)   
+La spécification SAML Core est disponible [ici.](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)   
 
 

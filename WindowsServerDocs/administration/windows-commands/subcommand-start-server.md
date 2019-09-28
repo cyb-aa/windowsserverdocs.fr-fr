@@ -1,8 +1,8 @@
 ---
-title: Sous-commande start-Server
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Sous-commande Start-Server
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a89e3f17aeed7eb3156e28997206517342be109
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 78407f3474c48b928535abb652d2c023dd1c1c14
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852040"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383817"
 ---
-# <a name="subcommand-start-server"></a>Sous-commande : start-Server
+# <a name="subcommand-start-server"></a>Sous-commande : Start-Server
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-démarre tous les services pour un serveur de Services de déploiement Windows.
+démarre tous les services d’un serveur des services de déploiement Windows.
 ## <a name="syntax"></a>Syntaxe
 ```
 wdsutil [Options] /start-Server [/Server:<Server name>]
@@ -32,9 +32,9 @@ wdsutil [Options] /start-Server [/Server:<Server name>]
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|[/Server:<Server name>]|Spécifie le nom du serveur doit être démarré. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local doit être utilisé.|
-## <a name="BKMK_examples"></a>Exemples
-Pour démarrer le serveur, tapez une des opérations suivantes :
+|[/Server:<Server name>]|Spécifie le nom du serveur à démarrer. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+## <a name="BKMK_examples"></a>Illustre
+Pour démarrer le serveur, tapez l’un des éléments suivants :
 ```
 wdsutil /start-Server
 wdsutil /verbose /start-Server /Server:MyWDSServer
@@ -42,9 +42,7 @@ wdsutil /verbose /start-Server /Server:MyWDSServer
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [à l’aide de la commande disable-Server](using-the-disable-server-command.md)
-[à l’aide de la commande enable-Server](using-the-enable-server-command.md)
-[à l’aide du Get-Server commande](using-the-get-server-command.md)
+[à l’aide de la commande Enable-Server](using-the-enable-server-command.md)
+[à l’aide de la commande d’extraction de serveur](using-the-get-server-command.md)
 [à l’aide de la commande Initialize-Server](using-the-initialize-server-command.md)
-[sous-commande : set-Server](subcommand-set-server.md) 
- [ Sous-commande : stop-Server](subcommand-stop-server.md)
-[l’Option de serveur uninitialize](the-uninitialize-server-option.md)
+[ Sous-commande : Set-Server](subcommand-set-server.md)1 sous-[commande : Stop-Server](subcommand-stop-server.md)3[l’option Uninitialize-Server](the-uninitialize-server-option.md)

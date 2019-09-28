@@ -1,6 +1,6 @@
 ---
 title: Qualité de service de stockage
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dongill
 ms.author: JGerend
 ms.technology: storage-qos
@@ -8,22 +8,22 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 159ed05717cbd0743e5b96215515293025352569
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e848260dd4ba3b37d1351fba7c24dd3cd283e69
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849630"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393937"
 ---
 # <a name="storage-quality-of-service"></a>Qualité de service de stockage
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 La qualité de service (QoS) de stockage dans Windows Server 2016 permet d’analyser et de gérer de manière centralisée les performances de stockage pour les machines virtuelles à l’aide d’Hyper-V et des rôles de serveur de fichiers avec montée en puissance parallèle. La fonctionnalité améliore automatiquement l’équité des ressources de stockage entre plusieurs machines virtuelles avec le même cluster de serveurs de fichiers et permet la configuration en unités d’E/S par seconde normalisées des objectifs de performances minimales et maximales basés sur des stratégies.  
 
 Vous pouvez utiliser la qualité de service de stockage dans Windows Server 2016 pour accomplir les tâches suivantes :  
 
--   **Atténuer les problèmes de voisin bruyant.** Par défaut, la qualité de service de stockage garantit qu’une seule machine virtuelle ne peut pas consommer toutes les ressources de stockage et priver les autres machines virtuelles de la bande passante de stockage.  
+-   **Atténuez les problèmes bruyants du voisin.** Par défaut, la qualité de service de stockage garantit qu’une seule machine virtuelle ne peut pas consommer toutes les ressources de stockage et priver les autres machines virtuelles de la bande passante de stockage.  
 
 -   **Surveiller les performances de stockage de bout en bout.** Dès que les machines virtuelles stockées sur un serveur de fichiers avec montée en puissance parallèle sont démarrées, leurs performances sont analysées. Les détails des performances de toutes les machines virtuelles en cours d’exécution et la configuration du cluster de serveurs de fichiers avec montée en puissance parallèle peuvent être affichés depuis un emplacement unique  
 
@@ -31,10 +31,10 @@ Vous pouvez utiliser la qualité de service de stockage dans Windows Server 201
 
 Ce document décrit comment votre entreprise peut bénéficier de la nouvelle fonctionnalité de qualité de service de stockage. Il part du principe que vous avez déjà utilisé Windows Server, le clustering de basculement Windows Server, le serveur de fichiers avec montée en puissance parallèle, Hyper-V et Windows PowerShell.
 
-## <a name="BKMK_Overview"></a>Vue d’ensemble  
+## <a name="BKMK_Overview"></a>Vue  
 Cette section décrit la configuration requise pour l’utilisation de la qualité de service de stockage, une vue d’ensemble d’une solution définie par un logiciel à l’aide de la qualité de service de stockage et une liste de termes liés à la qualité de service de stockage.  
 
-### <a name="BKMK_Requirements"></a>Configuration requise de QoS de stockage  
+### <a name="BKMK_Requirements"></a>Exigences de qualité de service de stockage  
 La qualité de service de stockage prend en charge deux scénarios de déploiement :  
 
 -   **Hyper-V avec un serveur de fichiers avec montée en puissance parallèle** Ce scénario nécessite les deux éléments suivants :  
@@ -45,9 +45,9 @@ La qualité de service de stockage prend en charge deux scénarios de déploieme
 
     Pour la qualité de service de stockage, le cluster de basculement est nécessaire sur les serveurs de stockage, mais il n’est pas obligatoire que les serveurs de calcul soient dans un cluster de basculement. Tous les serveurs (utilisés à la fois pour le stockage et le calcul) doivent exécuter Windows Server 2016.  
 
-    Si vous n’avez pas d’un cluster de Scale-Out File Server déployé à des fins d’évaluation, pour obtenir des instructions étape par étape créer un à l’aide de machines virtuelles ou des serveurs existants, consultez [stockage de Windows Server 2012 R2 : Pas à pas avec les espaces de stockage, SMB VHDX évolutif et partagé (physique)](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx).  
+    Si vous ne disposez pas d’un cluster Serveur de fichiers avec montée en puissance parallèle déployé à des fins d’évaluation, pour obtenir des instructions pas à pas pour en créer un à l’aide de serveurs ou de machines virtuelles existants, consultez [Windows Server 2012 R2 Storage : Pas à pas avec les espaces de stockage, la montée en charge SMB et le VHDX partagé (physique) ](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx).  
 
--   **À l’aide de Volumes partagés de Cluster Hyper-V.** Ce scénario nécessite les deux éléments suivants :  
+-   **Hyper-V à l’aide de volumes partagés de cluster.** Ce scénario nécessite les deux éléments suivants :  
 
     -   Cluster de calcul avec le rôle Hyper-V activé  
 
@@ -55,12 +55,12 @@ La qualité de service de stockage prend en charge deux scénarios de déploieme
 
 Un cluster de basculement est nécessaire. Tous les serveurs doivent exécuter la même version de Windows Server 2016.  
 
-### <a name="BKMK_SolutionOverview"></a>À l’aide de QoS de stockage dans une solution de stockage défini par logiciel  
+### <a name="BKMK_SolutionOverview"></a>Utilisation de la qualité de service de stockage dans une solution de stockage définie par logiciel  
 La qualité de service de stockage est intégrée à la solution de stockage défini par le logiciel Microsoft et fournie par le serveur de fichiers avec montée en puissance parallèle et Hyper-V. Le serveur de fichiers avec montée en puissance parallèle expose les partages de fichiers pour les serveurs Hyper-V à l’aide du protocole SMB3. Un nouveau Gestionnaire de stratégie a été ajouté au cluster de serveurs de fichiers, qui fournit l’analyse des performances de stockage central.  
 
 ![Serveur de fichiers avec montée en puissance parallèle et qualité de service de stockage](media/overview-Clustering_SOFSStorageQoS.png)  
 
-**Figure 1 : À l’aide de QoS de stockage dans une solution de stockage défini par le logiciel de serveur de fichiers avec montée en puissance**  
+**Figure 1 : Utilisation de la qualité de service de stockage dans une solution de stockage définie par logiciel dans Serveur de fichiers avec montée en puissance parallèle @ no__t-0  
 
 Quand les serveurs Hyper-V lancent des machines virtuelles, le Gestionnaire de stratégie les analyse. Le Gestionnaire de stratégie communique la stratégie de qualité de service de stockage ainsi que toutes les limites ou réserves au serveur Hyper-V, qui contrôle les performances de la machine virtuelle si besoin.  
 
@@ -74,17 +74,17 @@ Quand des modifications sont apportées aux stratégies de qualité de service d
 |Flux|Chaque descripteur de fichier ouvert par un serveur Hyper-V dans un fichier VHD ou VHDX est considéré comme un « flux ». Si une machine virtuelle est associée à deux disques durs virtuels, elle aura 1 flux vers le cluster de serveurs de fichiers par fichier. Si un VHDX est partagé avec plusieurs machines virtuelles, il aura 1 flux par machine virtuelle.|  
 |InitiatorName|Nom de la machine virtuelle qui est indiqué au serveur de fichiers avec montée en puissance parallèle pour chaque flux.|  
 |InitiatorID|Identificateur correspondant à l’ID de machine virtuelle.  Il peut toujours être utilisé pour identifier de façon unique les machines virtuelles des flux individuels même si les machines virtuelles ont le même InitiatorName.|  
-|Stratégie|Stratégies QoS de stockage sont stockées dans la base de données de cluster et ont les propriétés suivantes : PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy et PolicyType.|  
-|PolicyId|Identificateur unique pour une stratégie.  Il est généré par défaut, mais peut être spécifié si vous le souhaitez.|  
+|Stratégie|Les stratégies de qualité de service de stockage sont stockées dans la base de données de cluster et ont les propriétés suivantes : PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy et PolicyType.|  
+|`PolicyId`|Identificateur unique pour une stratégie.  Il est généré par défaut, mais peut être spécifié si vous le souhaitez.|  
 |MinimumIOPS|Nombre minimal d’opérations d’E/S par seconde normalisées qui sera fourni par une stratégie.  Le terme « réserve » est également employé.|  
 |MaximumIOPS|Nombre maximal d’opérations d’E/S par seconde normalisées qui sera limité par une stratégie.  Le terme « limite » est également employé.|  
 |Aggregated |Type de stratégie où les propriétés MinimumIOPS, MaximumIOPS et Bandwidth spécifiées sont partagées entre tous les flux affectés à la stratégie. Tous les disques durs virtuels auxquels la stratégie est appliquée sur ce système de stockage ont une seule allocation de bande passante d’E/S qu’ils doivent partager.|  
 |Dedicated|Type de stratégie où les propriétés MinimumIOPS, MaximumIOPS et Bandwidth spécifiées sont gérées pour les VHD/VHDX individuels.|  
 
-## <a name="BKMK_SetUpQoS"></a>Comment configurer la QoS de stockage et le moniteur de performances de base  
+## <a name="BKMK_SetUpQoS"></a>Comment configurer la qualité de service de stockage et surveiller les performances de base  
 Cette section décrit comment activer la nouvelle fonctionnalité de qualité de service de stockage et analyser les performances de stockage sans appliquer de stratégies personnalisées.  
 
-### <a name="BKMK_SetupStorageQoSonStorageCluster"></a>Configurer la QoS de stockage sur un Cluster de stockage  
+### <a name="BKMK_SetupStorageQoSonStorageCluster"></a>Configurer la qualité de service de stockage sur un cluster de stockage  
 Cette section explique comment activer la qualité de service de stockage sur un cluster de basculement nouveau ou existant et un serveur de fichiers avec montée en puissance parallèle qui exécute Windows Server 2016.  
 
 #### <a name="set-up-storage-qos-on-a-new-installation"></a>Configurer la qualité de service de stockage sur une nouvelle installation  
@@ -95,7 +95,7 @@ Après avoir créé un cluster de basculement et configuré un disque CSV, **Res
 
 ![Ressource QoS du système de stockage apparaît dans Principales ressources de cluster](media/overview-Clustering_StorageQoSFCM.png)  
 
-**Figure 2 : Ressource QoS du système de stockage est affiché sous la forme d’une ressource principale du Cluster dans le Gestionnaire de Cluster de basculement**  
+**Figure 2: Ressource QoS de stockage affichée en tant que ressource principale du cluster dans Gestionnaire du cluster de basculement @ no__t-0  
 
 Utilisez l’applet de commande PowerShell suivante pour afficher l’état de Ressource QoS du système de stockage.  
 
@@ -107,7 +107,7 @@ Name                   State      OwnerGroup        ResourceType
 Storage Qos Resource   Online     Cluster Group     Storage QoS Policy Manager  
 ```  
 
-### <a name="BKMK_SetupStorageQoSonComputeCluster"></a>Configurer la QoS de stockage sur un Cluster de calcul  
+### <a name="BKMK_SetupStorageQoSonComputeCluster"></a>Configurer la qualité de service de stockage sur un cluster de calcul  
 Le rôle Hyper-V dans Windows Server 2016 dispose de la prise en charge intégrée de la qualité de service de stockage et est activé par défaut.  
 
 #### <a name="install-remote-administration-tools-to-manage-storage-qos-policies-from-remote-computers"></a>Installer des outils d’administration à distance pour gérer les stratégies de qualité de service de stockage à partir d’ordinateurs distants  
@@ -115,14 +115,14 @@ Vous pouvez gérer les stratégies de qualité de service de stockage et analyse
 
 La fonctionnalité facultative **RSAT-Clustering** inclut le module Windows PowerShell pour la gestion à distance du clustering de basculement, y compris la qualité de service de stockage.  
 
--   Windows PowerShell : Add-WindowsFeature RSAT-Clustering  
+-   Windows PowerShell : Add-WindowsFeature RSAT-clustering  
 
 La fonctionnalité facultative **RSAT-Hyper-V-Tools** inclut le module Windows PowerShell pour la gestion à distance d’Hyper-V.  
 
--   Windows PowerShell : Ajouter-WindowsFeature RSAT-Hyper-V-Tools  
+-   Windows PowerShell : Add-WindowsFeature RSAT-Hyper-V-Tools  
 
 #### <a name="deploy-virtual-machines-to-run-workloads-for-testing"></a>Déployer des machines virtuelles pour exécuter des charges de travail de test  
-Quelques machines virtuelles doivent être stockées sur le serveur de fichiers avec montée en puissance parallèle avec les charges de travail appropriées.  Pour obtenir des conseils sur la façon de simuler la charge et effectuer des tests de stress, consultez la page suivante pour un outil recommandé (DiskSpd) et un exemple d’utilisation : [Performances DiskSpd, PowerShell et de stockage : mesure des e/s, débit et la latence pour les disques locaux et SMB des partages de fichiers.](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
+Quelques machines virtuelles doivent être stockées sur le serveur de fichiers avec montée en puissance parallèle avec les charges de travail appropriées.  Pour obtenir des conseils sur la façon de simuler la charge et d’effectuer des tests de contrainte, consultez la page suivante pour un outil recommandé (DiskSpd) et un exemple d’utilisation : [DiskSpd, PowerShell et les performances de stockage : mesure de l’e/s par seconde, du débit et de la latence pour les disques locaux et les partages de fichiers SMB.](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
 
 Les exemples de scénarios présentés dans ce guide comprennent cinq machines virtuelles. BuildVM1, BuildVM2, BuildVM3 et BuildVM4 exécutent une charge de travail de bureau avec des demandes de stockage faibles à modérées. TestVm1 exécute un test d’évaluation de traitement transactionnel en ligne avec une demande de stockage élevée.  
 
@@ -289,7 +289,7 @@ MaximumIops    : 0
 MinimumIops    : 781  
 ```  
 
-## <a name="BKMK_CreateQoSPolicies"></a>Comment créer et surveiller les stratégies QoS de stockage  
+## <a name="BKMK_CreateQoSPolicies"></a>Comment créer et surveiller des stratégies QoS de stockage  
 Cette section décrit comment créer des stratégies de qualité de service de stockage, appliquer ces stratégies à des machines virtuelles et analyser un cluster de stockage après l’application des stratégies.  
 
 ### <a name="create-storage-qos-policies"></a>Créer des stratégies de qualité de service de stockage  
@@ -300,7 +300,7 @@ Chaque fichier VHD/VHDX affecté à une machine virtuelle peut être configuré 
 Si vous créez plusieurs stratégies similaires pour différentes machines virtuelles et que celles-ci ont des demandes de stockage identiques, elles reçoivent le même partage d’E/S par seconde.  Si une machine virtuelle demande plus et l’autre moins, les E/S par seconde s’adaptent à la demande.  
 
 ### <a name="types-of-storage-qos-policies"></a>Types de stratégies de qualité de service de stockage  
-Il existe deux types de stratégies : Agrégées (anciennement SingleInstance) et Dedicated (anciennement MultiInstance). Les stratégies Aggregated appliquent les valeurs maximales et minimales pour l’ensemble combiné de fichiers VHD/VHDX et de machines virtuelles auquel elles s’appliquent. En réalité, elles partagent un ensemble défini d’E/S par seconde et de bande passante. Les stratégies Dedicated appliquent les valeurs maximales et minimales pour chaque VHD/VHDX, séparément. Il est ainsi facile de créer une stratégie unique qui applique des limites similaires à plusieurs fichiers VHD/VHDX.  
+Il existe deux types de stratégies : Agrégatd (précédemment appelé SingleInstance) et dédié (précédemment connu sous le nom de MultiInstance). Les stratégies Aggregated appliquent les valeurs maximales et minimales pour l’ensemble combiné de fichiers VHD/VHDX et de machines virtuelles auquel elles s’appliquent. En réalité, elles partagent un ensemble défini d’E/S par seconde et de bande passante. Les stratégies Dedicated appliquent les valeurs maximales et minimales pour chaque VHD/VHDX, séparément. Il est ainsi facile de créer une stratégie unique qui applique des limites similaires à plusieurs fichiers VHD/VHDX.  
 
 Créez par exemple une stratégie Aggregated avec une valeur minimale de 300 E/S par seconde et une valeur maximale de 500 E/S par seconde. Si vous appliquez cette stratégie à 5 fichiers VHD/VHDX différents, vous vous assurez que les 5 fichiers VHD/VHDX combinés obtiennent au moins 300 E/S par seconde (en cas de demande et si le système de stockage peut y répondre) et pas plus de 500 E/S par seconde. Si les fichiers VHD/VHDX ont la même demande élevée d’E/S par seconde et que le système de stockage peut la satisfaire, chaque fichier VHD/VHDX obtient environ 100 E/S par seconde.  
 
@@ -308,7 +308,7 @@ Toutefois, si vous créez une stratégie Dedicated avec des limites identiques e
 
 Par conséquent, si vous avez un groupe de fichiers VHD/VHDX qui doivent présenter les mêmes caractéristiques de performances et que vous ne voulez pas prendre la peine de créer plusieurs stratégies similaires, vous pouvez utiliser une stratégie Dedicated unique et l’appliquer aux fichiers de chaque machine virtuelle.
 
-Limiter le nombre de fichiers VHD/VHDx affecté à une seule stratégie Aggregated inférieur ou égal à 20.  Ce type de stratégie a été conçu pour effectuer l’agrégation avec plusieurs machines virtuelles sur un cluster.
+Gardez le nombre de fichiers VHD/VHDx affectés à une stratégie agrégée unique à 20 ou moins.  Ce type de stratégie a été conçu pour effectuer une agrégation avec quelques machines virtuelles sur un cluster.
 
 ### <a name="create-and-apply-a-dedicated-policy"></a>Créer et appliquer une stratégie Dedicated  
 Tout d’abord, utilisez l’applet de commande `New-StorageQosPolicy` pour créer une stratégie sur le serveur de fichiers avec montée en puissance parallèle, comme illustré dans l’exemple suivant :  
@@ -386,7 +386,7 @@ IsDeleted                     : False
 ```  
 
 ### <a name="query-for-storage-qos-policies"></a>Rechercher des stratégies de qualité de service de stockage  
-`Get-StorageQosPolicy` Répertorie toutes les stratégies configurées et leur état sur un serveur de fichiers avec montée en puissance.  
+`Get-StorageQosPolicy` répertorie toutes les stratégies configurées et leur état sur un Serveur de fichiers avec montée en puissance parallèle.  
 
 ```PowerShell
 PS C:\> Get-StorageQosPolicy  
@@ -578,7 +578,7 @@ WinOltp1      UnknownPolicyId           0           0            4926 UnknownPol
 WinOltp1      UnknownPolicyId           0           0               0 UnknownPolicyId BOO...  
 ```  
 
-#### <a name="BKMK_RecreateMatchingPolicy"></a>Recréer une stratégie QoS de stockage correspondante  
+#### <a name="BKMK_RecreateMatchingPolicy"></a>Recréer une stratégie de qualité de service de stockage correspondante  
 Si une stratégie a été accidentellement supprimée, vous pouvez en créer une autre à l’aide de l’ancien PolicyId.  Tout d’abord, obtenez le PolicyId nécessaire  
 
 ```PowerShell
@@ -629,7 +629,7 @@ TR20-VMM          Ok          33         666              10     Ok BOOT.VHDX
 WinOltp1          Ok          25         500               0     Ok 9914.0.AMD64FRE.WINMA...  
 ```  
 
-#### <a name="BKMK_RemovePolicyFromVM"></a>Supprimer des stratégies QoS de stockage  
+#### <a name="BKMK_RemovePolicyFromVM"></a>Supprimer les stratégies QoS de stockage  
 
 Si la stratégie a été intentionnellement supprimée, ou si une machine virtuelle a été importée avec une stratégie dont vous n’avez pas besoin, elle peut être supprimée.  
 
@@ -667,7 +667,7 @@ WinOltp1                0           0            1811     Ok IOMETER.VHDX
 WinOltp1                0           0               0     Ok BOOT.VHDX  
 ```  
 
-### <a name="BKMK_VMsThatDoNotMeetStorageQoSPoilicies"></a>Rechercher des machines virtuelles qui ne répondent pas aux stratégies QoS de stockage  
+### <a name="BKMK_VMsThatDoNotMeetStorageQoSPoilicies"></a>Rechercher les machines virtuelles qui ne répondent pas aux stratégies QoS de stockage  
 L’état **InsufficientThroughput** est affecté à n’importe quel flux qui :  
 
 -   a un nombre minimal d’opérations d’E/S par seconde défini par une stratégie ; et  
@@ -729,7 +729,7 @@ MaximumIops        : 20000
 MinimumIops        : 15000  
 ```  
 
-## <a name="BKMK_Health"></a>Surveiller l’intégrité à l’aide de QoS de stockage  
+## <a name="BKMK_Health"></a>Surveiller l’intégrité avec la qualité de service de stockage  
 Le nouveau service d’intégrité simplifie l’analyse du cluster de stockage, en fournissant un emplacement unique pour rechercher des événements pouvant être actionnés dans les nœuds. Cette section décrit comment analyser l’intégrité de votre cluster de stockage à l’aide de l’applet de commande `debug-storagesubsystem`.  
 
 ### <a name="view-storage-status-with-debug-storagesubsystem"></a>Afficher l’état de stockage avec Debug-StorageSubSystem  
@@ -812,7 +812,7 @@ while ($true)
 }  
 ```  
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions  
+## <a name="frequently-asked-questions"></a>Questions fréquemment posées  
 
 ### <a name="how-do-i-retain-a-storage-qos-policy-being-enforced-for-my-virtual-machine-if-i-move-its-vhdvhdx-files-to-another-storage-cluster"></a>Comment faire pour qu’une stratégie de qualité de service de stockage reste appliquée pour ma machine virtuelle si je déplace ses fichiers VHD/VHDX vers un autre cluster de stockage ?  
 
@@ -823,7 +823,7 @@ System Center Virtual Machine Manager peut être utilisé pour appliquer des str
 
 Si un flux atteint le maximum d’une stratégie, que vous modifiez la stratégie pour lui affecter une valeur supérieure ou inférieure et que vous définissez immédiatement la latence/les E/S par seconde/la bande passante des flux à l’aide des applets de commande PowerShell, jusqu’à 5 minutes peuvent être nécessaires pour voir les effets globaux de la modification de stratégie sur les flux.  Les nouvelles limites sont valables en quelques secondes, mais l’applet de commande **Get-StorgeQoSFlow** PowerShell utilise une moyenne de chaque compteur avec une fenêtre glissante de 5 minutes.  Sinon, si une valeur était affichée quand vous avez exécuté l’applet de commande PowerShell plusieurs fois d’affilée, vous pouvez constater des valeurs très différentes, car les valeurs relatives aux E/S par seconde et latences peuvent varier considérablement d’une seconde à l’autre.
 
-### <a name="BKMK_Updates"></a>Quelle nouvelle fonctionnalité a été ajoutée dans Windows Server 2016
+### <a name="BKMK_Updates"></a>Quelles nouvelles fonctionnalités ont été ajoutées dans Windows Server 2016
 
 Dans Windows Server 2016, les types de stratégies de qualité de service de stockage ont été renommés.  Le nom du type de stratégie **MultiInstance** est remplacé par **Dedicated** et celui de **SingleInstance** est remplacé par **Aggregated**. Le comportement de gestion des stratégies Dedicated est également modifié : les fichiers VHD/VHDX dans la même machine virtuelle auxquels la même stratégie **Dedicated** est appliquée ne partagent pas les allocations d’E/S.  
 
@@ -834,13 +834,13 @@ Windows Server 2016 offre deux nouvelles fonctionnalités de qualité de servic
     La qualité de service de stockage dans Windows Server 2016 offre la possibilité de spécifier la bande passante maximale qui peut être consommée par les flux affectés à la stratégie.  Le paramètre est **MaximumIOBandwidth** quand vous la spécifiez dans les applets de commande **StorageQosPolicy** et la sortie est exprimée en octets par seconde.  
     Si les deux paramètres **MaximimIops** et **MaximumIOBandwidth** sont définis dans une stratégie, ils sont tous deux en vigueur et le premier qui est atteint par le ou les flux limite les E/S des flux.  
 
--   **Normalisation des e/s est configurable**  
+-   **La normalisation des e/s par seconde est configurable**  
 
     La qualité de service de stockage utilise la normalisation des E/S par seconde.  La valeur par défaut consiste à utiliser une taille de normalisation de 8 Ko.  La qualité de service de stockage dans Windows Server 2016 offre la possibilité de spécifier une taille de normalisation différente pour le cluster de stockage.  Cette taille de normalisation affecte tous les flux sur le cluster de stockage et prend effet immédiatement (en quelques secondes) une fois qu’elle a été modifiée.  La valeur minimale est 1 Ko et la valeur maximale est 4 Go (il est recommandé de ne pas définir une valeur supérieure à 4 Mo, car il est rare d’avoir des E/S de plus de 4 Mo).  
 
     Vous devez également tenir compte du fait que le même modèle/débit d’E/S s’affiche avec différents nombres d’E/S par seconde dans la sortie de qualité de service de stockage quand vous modifiez la normalisation des E/S par seconde en raison de la modification dans le calcul de normalisation.  Si vous comparez les E/S par seconde entre les clusters de stockage, vous pouvez également vérifier la valeur de normalisation que chacun utilise, car elle a un impact sur les E/S par seconde normalisées signalées.    
 
-#### <a name="example-1-creating-a-new-policy-and-viewing-the-maximum-bandwidth-on-the-storage-cluster"></a>Exemple 1 : Création d’une stratégie et l’affichage de la bande passante maximale sur le cluster de stockage  
+#### <a name="example-1-creating-a-new-policy-and-viewing-the-maximum-bandwidth-on-the-storage-cluster"></a>Exemple 1 : Création d’une nouvelle stratégie et affichage de la bande passante maximale sur le cluster de stockage  
 Dans PowerShell, vous pouvez spécifier en quelles unités un nombre est exprimé.  Dans l’exemple suivant, 10 Mo sont utilisés comme valeur de la bande passante maximale.  La qualité de service de stockage convertit cette valeur et l’enregistre sous forme d’octets par seconde, ce qui fait que 10 Mo sont convertis en 10 485 760 octets par seconde.  
 
 ```PowerShell
@@ -866,7 +866,7 @@ InitiatorLatency   : 1.5455
 InitiatorBandwidth : 37888  
 ```  
 
-#### <a name="example-2-get-iops-normalization-settings-and-specify--a-new-value"></a>Exemple 2 : Obtenir les paramètres de normalisation des e/s et spécifier une nouvelle valeur  
+#### <a name="example-2-get-iops-normalization-settings-and-specify--a-new-value"></a>Exemple 2 : Obtenir les paramètres de normalisation des e/s par seconde et spécifier une nouvelle valeur  
 
 L’exemple suivant montre comment obtenir les paramètres de normalisation des E/S par seconde des clusters de stockage (8 Ko par défaut), leur affecter la valeur de 32 Ko, puis les afficher à nouveau.  Notez que vous pouvez indiquer « 32 Ko » dans cet exemple, car PowerShell permet de spécifier l’unité au lieu de demander la conversion en octets.   La sortie n’affiche pas la valeur en octets par seconde.  
 
@@ -888,4 +888,4 @@ IOPSNormalizationSize
 ## <a name="see-also"></a>Voir aussi  
 - [Windows Server 2016](../../get-started/windows-server-2016.md)  
 - [Réplica de stockage dans Windows Server 2016](../storage-replica/storage-replica-overview.md)  
-- [Espaces de stockage Direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  
+- [espaces de stockage direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

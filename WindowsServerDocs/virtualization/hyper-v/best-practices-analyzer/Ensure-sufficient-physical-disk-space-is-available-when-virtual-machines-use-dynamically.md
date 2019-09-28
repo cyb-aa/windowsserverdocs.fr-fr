@@ -1,7 +1,7 @@
 ---
-title: Vérifiez que suffisamment d’espace disque physique est disponible lorsque les machines virtuelles utilisent des disques durs virtuels de taille dynamique
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Assurez-vous que l’espace disque physique est suffisant lorsque les machines virtuelles utilisent des disques durs virtuels de taille dynamique.
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 9e3e3e64-4b3a-4b9d-acf1-e4df61a04f1e
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 09e481b99594ac543dadab2b60bf9b3f4c29e54b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c38d7c11a05eef9d29097e625fec2830000cf550
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883290"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393641"
 ---
-# <a name="ensure-sufficient-physical-disk-space-is-available-when-virtual-machines-use-dynamically-expanding-virtual-hard-disks"></a>Vérifiez que suffisamment d’espace disque physique est disponible lorsque les machines virtuelles utilisent des disques durs virtuels de taille dynamique
+# <a name="ensure-sufficient-physical-disk-space-is-available-when-virtual-machines-use-dynamically-expanding-virtual-hard-disks"></a>Assurez-vous que l’espace disque physique est suffisant lorsque les machines virtuelles utilisent des disques durs virtuels de taille dynamique.
 
 >S'applique à : Windows Server 2016
 
@@ -27,21 +27,21 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
-*Un ou plusieurs ordinateurs virtuels utilisent des disques durs virtuels de taille dynamique.*  
+*Une ou plusieurs machines virtuelles utilisent des disques durs virtuels de taille dynamique.*  
   
 ## <a name="impact"></a>Impact  
-*Taille dynamique des disques durs virtuels nécessitent l’espace disponible sur le volume hôte afin que l’espace peut être alloué lorsque des écritures sur les disques durs virtuels se produisent. Si l’espace disponible est épuisé, toute machine virtuelle qui s’appuie sur le stockage physique pourrait être affectée. Cela affecte les ordinateurs virtuels suivants :*  
+*Dynamically le développement de disques durs virtuels nécessite de l’espace disponible sur le volume d’hébergement pour allouer de l’espace lors de l’écriture sur les disques durs virtuels. Si l’espace disponible est épuisé, toute machine virtuelle qui s’appuie sur le stockage physique peut être affectée. Cela a un impact sur les ordinateurs virtuels suivants :*  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
-## <a name="resolution"></a>Résolution  
-*Moniteur d’espace disque disponible pour garantir un espace suffisant est disponible pour l’extension. Vous devez arrêter la machine virtuelle et utiliser l’Assistant Modification de disque dans le Gestionnaire Hyper-V pour convertir chaque disque dur virtuel dynamique pour cette machine virtuelle sur un disque dur virtuel taille fixe.*  
+## <a name="resolution"></a>Résolution :  
+*Monitor d’espace disque disponible pour garantir que l’espace disponible est suffisant pour l’extension. Envisagez d’arrêter la machine virtuelle et d’utiliser l’Assistant modification du disque dans le Gestionnaire Hyper-V pour convertir chaque disque dur virtuel de taille dynamique de cet ordinateur virtuel en disque dur virtuel de taille fixe.*  
   
 
 

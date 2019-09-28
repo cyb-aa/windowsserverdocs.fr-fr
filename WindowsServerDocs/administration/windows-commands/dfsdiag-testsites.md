@@ -1,8 +1,8 @@
 ---
 title: Dfsdiag TestSites
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6486c79cfa58bb262fd3161ad0801e84185b6629
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af72da64dd20d4b37824355a494cb8f97f597b28
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873970"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378382"
 ---
 # <a name="dfsdiag-testsites"></a>Dfsdiag TestSites
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Vérifie la configuration des Services de domaine active directory \(AD DS\) sites en vérifiant que les serveurs qui agissent comme serveurs de l’espace de noms ou un dossier \(lien\) cibles possèdent les mêmes associations de site sur tous les domaine contrôleurs.  
+Vérifie la configuration des services de domaine Active Directory \(AD DS @ no__t-1 sites en vérifiant que les serveurs qui jouent le rôle de serveurs d’espaces de noms ou de dossiers \(link @ no__t-3 cibles ont les mêmes associations de site sur tous les contrôleurs de domaine.  
   
   
   
@@ -38,12 +38,12 @@ dfsdiag /TestSites </Machine:<server name>| /DFSpath:<namespace root or DFS fold
   
 |Paramètre|Description|  
 |-------|--------|  
-|\/Ordinateur :<server name>|Le nom du serveur sur lequel vérifier l’association du site.|  
-|\/DFSpath :<namespace root or DFS folder>|L’espace de noms racine ou le système de fichiers distribués \(DFS\) dossier \(lien\) avec des cibles pour lequel vérifier l’association du site.|  
-|\/Recurse|Énumère et vérifie les associations de site pour toutes les cibles de dossier sous la racine de l’espace de noms spécifié.|  
-|\/complet|vérifie que les services AD DS et le Registre du serveur contiennent les mêmes informations d’association de site.|  
+|\/Machine : <server name>|Nom du serveur sur lequel vérifier l’Association de sites.|  
+|\/DFSpath : <namespace root or DFS folder>|La racine de l’espace de noms ou système de fichiers DFS \(DFS @ no__t-1 \(link @ no__t-3 avec les cibles pour lesquelles vérifier l’Association de site.|  
+|@no__t 0Recurse|Énumère et vérifie les associations de sites pour toutes les cibles de dossiers sous la racine d’espace de noms spécifiée.|  
+|@no__t 0Full|vérifie que AD DS et que le Registre du serveur contiennent les mêmes informations d’association de site.|  
   
-## <a name="BKMK_Examples"></a>Exemples  
+## <a name="BKMK_Examples"></a>Illustre  
 À TBD, tapez :  
   
 ```  
@@ -64,8 +64,8 @@ dfsdiag /TestSites /DFSpath:\\Contoso.com\Namespace2 /Recurse /Full
   
 ## <a name="additional-references"></a>Références supplémentaires  
   
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
--   [dfsdiag](dfsdiag.md)  
+-   [Dfsdiag](dfsdiag.md)  
   
 

@@ -2,7 +2,7 @@
 title: Projeter une station sur d’autres stations
 description: Découvrez comment partager un bureau d’un système à un autre dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: db2b718154a7c41646ab25b16420eb0ee46a17cd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 242214ba69fc3265c9984e218110a16242b1cff3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871580"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395144"
 ---
 # <a name="project-a-station-to-other-stations"></a>Projeter une station sur d’autres stations
 En tant qu’utilisateur du tableau de bord MultiPoint, vous pouvez projeter votre bureau sur la station d’un seul utilisateur ou sur tous les postes de travail (non-administrateur). Cette fonctionnalité est utile quand vous souhaitez expliquer une tâche à un ou plusieurs utilisateurs.  

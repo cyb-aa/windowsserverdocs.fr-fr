@@ -7,40 +7,40 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b781d6fe99864b13d6e7f8ab65f3a14d205c2aa6
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 624d2e26bc0277129e44eee3fdce7c7396b735a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190804"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407905"
 ---
 # <a name="service-communications-certificates"></a>Certificats de communication du service
 
-Un serveur de fédération requiert l’utilisation de certificats de communication de service pour les scénarios dans lesquels la sécurité des messages WCF est utilisée.  
+Un serveur de Fédération requiert l’utilisation de certificats de communication de service pour les scénarios dans lesquels la sécurité des messages WCF est utilisée.  
   
-## <a name="service-communication-certificate-requirements"></a>Exigences de certificat de communication de service  
-Certificats de communication du service doivent répondre aux exigences suivantes pour travailler avec AD FS :  
+## <a name="service-communication-certificate-requirements"></a>Conditions requises pour les certificats de communication de service  
+Les certificats de communication de service doivent remplir les conditions suivantes pour fonctionner avec AD FS :  
   
--   Le certificat de communication de service doit inclure l’utilisation de la clé de serveur d’authentification renforcée \(EKU\) extension.  
+-   Le certificat de communication du service doit inclure l’extension de l’utilisation améliorée de la clé d’authentification du serveur \(EKU @ no__t-1.  
   
--   Les listes de révocation de certificat \(CRL\) doivent être accessibles pour tous les certificats de la chaîne à partir du certificat de communication de service pour le certificat d’autorité de certification racine. L’autorité de certification racine doit également être approuvé par les serveurs proxy de fédération et les serveurs Web qui approuvent ce serveur de fédération.  
+-   Les listes de révocation de certificats \(CRLs @ no__t-1 doivent être accessibles pour tous les certificats de la chaîne du certificat de communication du service au certificat d’autorité de certification racine. L’autorité de certification racine doit également être approuvée par les serveurs proxy de Fédération et les serveurs Web qui approuvent ce serveur de Fédération.  
   
--   Le nom d’objet qui est utilisé dans le certificat de communication de service doit correspondre au nom de Service de fédération dans les propriétés du Service de fédération.  
+-   Le nom du sujet utilisé dans le certificat de communication du service doit correspondre au nom de service FS (Federation Service) dans les propriétés de l’service FS (Federation Service).  
   
 ## <a name="deployment-considerations-for-service-communication-certificates"></a>Considérations relatives au déploiement des certificats de communication de service  
-Configurer les certificats de communication de service afin que tous les serveurs de fédération utilisent le même certificat. Si vous déployez l’unique Web fédérée\-connexion\-sur \(SSO\) conception, nous recommandons que votre certificat de communication du service être émis par une autorité de certification publique. Vous pouvez demander et installer ces certificats via le composant logiciel enfichable Gestionnaire des services Internet\-dans.  
+Configurez des certificats de communication de service afin que tous les serveurs de Fédération utilisent le même certificat. Si vous déployez la conception no__t-0Sign @ no__t-1On \(SSO @ no__t-3 fédérée Web fédéré, nous vous recommandons d’émettre votre certificat de communication de service par une autorité de certification publique. Vous pouvez demander et installer ces certificats via le composant logiciel enfichable Gestionnaire des services Internet @ no__t-0in.  
   
-Vous pouvez utiliser self\-signé, des certificats de communication avec succès sur les serveurs de fédération dans un environnement de laboratoire de test de service. Toutefois, pour un environnement de production, nous recommandons que vous obtenez des certificats de communication de service à partir d’une autorité de certification publique. Voici les raisons pour lesquelles vous devez utiliser pas self\-signé, des certificats de communication pour un déploiement de service :  
+Vous pouvez utiliser Self @ no__t-0signed, les certificats de communication de service avec succès sur les serveurs de Fédération dans un environnement de laboratoire de test. Toutefois, pour un environnement de production, nous vous recommandons d’obtenir des certificats de communication de service auprès d’une autorité de certification publique. Voici les raisons pour lesquelles vous ne devez pas utiliser Self @ no__t-0signed, les certificats de communication de service pour un déploiement en direct :  
   
--   Un libre-service\-signé, certificat SSL doit être ajouté au magasin racine approuvé sur chacun des serveurs de fédération de l’organisation partenaire ressource. Alors que seul, cela n’active pas une personne malveillante de compromettre un serveur de fédération de ressources, approbation self\-certificats auto-signés augmente la surface d’attaque d’un ordinateur, et cela peut entraîner des failles de sécurité si le certificat de signataire n’est pas digne de confiance.  
+-   Un certificat SSL Self @ no__t-0signed doit être ajouté au magasin racine approuvé sur chacun des serveurs de Fédération de l’organisation partenaire de ressource. Bien que ce seul ne permette pas à une personne malveillante de compromettre un serveur de Fédération de ressources, l’approbation des certificats Self @ no__t-0signed augmente la surface d’attaque d’un ordinateur et peut entraîner des failles de sécurité si le signataire de certificat n’est pas sûr.  
   
--   Il crée une expérience utilisateur incorrects. Les clients reçoivent des invites de l’alerte de sécurité lorsqu’ils tentent d’accéder aux ressources fédérés qui affichent le message suivant : « Le certificat de sécurité a été délivré par une société que vous n’avez pas choisi de faire confiance. » Il s’agit du comportement attendu, étant donné que self\-certificat signé n’est pas approuvé.  
+-   Il crée une expérience utilisateur incorrecte. Les clients recevront des invites d’alerte de sécurité lorsqu’ils tenteront d’accéder aux ressources fédérées qui affichent le message suivant : « Le certificat de sécurité a été émis par une société à laquelle vous n’avez pas choisi de faire confiance ». Ce comportement est normal, car le certificat Self @ no__t-0signed n’est pas approuvé.  
   
     > [!NOTE]  
-    > Si nécessaire, vous pouvez contourner cette condition à l’aide de la stratégie de groupe pour envoyer manuellement vers le bas self\-signé le certificat au magasin racine approuvé sur chaque ordinateur client qui tente d’accéder à un site AD FS.  
+    > Si nécessaire, vous pouvez contourner cette condition en utilisant stratégie de groupe pour pousser manuellement le certificat Self @ no__t-0signed vers le magasin racine approuvé sur chaque ordinateur client qui tente d’accéder à un site AD FS.  
   
--   Autorités de certification fournissent certificat supplémentaire\-en fonction des fonctionnalités, telles que l’archivage de la clé privée, renouvellement et la révocation, qui ne sont pas fournies par self\-certificats auto-signés.  
+-   Les autorités de certification fournissent des fonctionnalités de certificat supplémentaires @ no__t-0based, telles que l’archive de clé privée, le renouvellement et la révocation, qui ne sont pas fournies par les certificats Self @ no__t-1signed.  
   
 

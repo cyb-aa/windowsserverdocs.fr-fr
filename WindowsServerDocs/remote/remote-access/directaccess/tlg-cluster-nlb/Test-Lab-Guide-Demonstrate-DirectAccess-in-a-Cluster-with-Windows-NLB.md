@@ -1,9 +1,9 @@
 ---
-title: 'Guide de laboratoire de test : décrire DirectAccess dans un Cluster avec équilibrage de charge réseau de Windows'
-description: Cette rubrique fait partie du Guide de laboratoire de Test - décrire de DirectAccess dans un Cluster avec équilibrage de charge réseau Windows pour Windows Server 2016
+title: Guide de laboratoire de test-démonstration de DirectAccess dans un cluster avec Windows NLB
+description: Cette rubrique fait partie du Guide de laboratoire de test-démonstration de DirectAccess dans un cluster avec Windows NLB pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: db15dcf5-4d64-48d7-818a-06c2839e1289
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2318fa58a343b24ec401390b3cbbd6f22fe86870
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: e0c82f9f56ea680c11cd612e17326fe7cf96aeca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281598"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388430"
 ---
-# <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guide du laboratoire de test : Décrire DirectAccess dans un Cluster avec équilibrage de charge réseau de Windows
+# <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guide du laboratoire de test : Démonstration de DirectAccess dans un cluster avec Windows NLB
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Accès à distance est un rôle de serveur dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 les systèmes d’exploitation qui permet aux utilisateurs distants un accès sécurisé aux ressources réseau internes à l’aide de DirectAccess ou VPN RRAS. Ce guide contient des instructions pas à pas permettant d’élargir le [Guide de laboratoire de Test : Démontrer DirectAccess configuration d’un serveur dans un environnement mixte IPv4 et IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004) à démontrer DirectAccess équilibrage de charge et la configuration de cluster.  
+L’accès à distance est un rôle serveur dans les systèmes d’exploitation Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité aux ressources réseau internes à l’aide de DirectAccess ou du VPN RRAS. Ce guide contient des instructions pas à pas pour l’extension du Guide de laboratoire [Test : Démonstration de la configuration d’un seul serveur DirectAccess avec Mixed IPv4 et IPv6 @ no__t-0 pour illustrer l’équilibrage de la charge réseau DirectAccess et la configuration du cluster.  
   
 ## <a name="about-this-guide"></a>À propos de ce guide  
 Ce guide contient des instructions permettant de configurer le rôle serveur Accès à distance et d’en faire la démonstration à l’aide de six serveurs et deux ordinateurs clients. Le laboratoire de test Accès à distance réalisé avec équilibrage de la charge réseau simule un intranet, Internet, ainsi qu’un réseau domestique. Il fait la démonstration de la fonctionnalité Accès à distance dans différents scénarios de connexion Internet.  

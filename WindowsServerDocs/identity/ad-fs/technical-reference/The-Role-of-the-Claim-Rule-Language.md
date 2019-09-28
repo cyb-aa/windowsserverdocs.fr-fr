@@ -6,15 +6,15 @@ ms.author: billmath
 manager: femila
 ms.date: 07/07/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c2d411be7ef807198df30074ea706d7c5398617
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ff4c43bb8dc5582716638f0a3f6e4f6a8022aece
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407372"
 ---
 # <a name="the-role-of-the-claim-rule-language"></a>Rôle du langage de règle de revendication
 Le langage de règle de revendication Services ADFS (AD FS) agit en tant que bloc de construction administratif pour le comportement des revendications entrantes et sortantes, tandis que le moteur de revendications agit en tant que moteur de traitement pour la logique du langage de règle de revendication qui définit la règle personnalisée. Pour plus d’informations sur la façon dont toutes les règles sont traitées par le moteur de revendications, consultez [le rôle du moteur de revendications](The-Role-of-the-Claims-Engine.md).  
@@ -144,7 +144,7 @@ L’accès aux propriétés de revendication suivantes est disponible :
 
 -   Claim.ValueType  
 
--   Nom\_\[delapropriétéclaim.Properties(cettepropriétéretourneunechaînevidesilapropriété_nameestintrouvabledanslacollectionPropertiesdelarevendication.\] )  
+-   Claim. Properties @ no__t-0property @ no__t-1Nom @ no__t-2 (cette propriété retourne une chaîne vide si la propriété _name est introuvable dans la collection de propriétés de la revendication. )  
 
 Vous pouvez utiliser la fonction RegexReplace pour appeler un élément dans un expression. Cette fonction prend une expression d’entrée et la fait correspondre avec le modèle donné. Si le modèle correspond, la sortie de la correspondance est remplacée par la valeur de remplacement.  
 

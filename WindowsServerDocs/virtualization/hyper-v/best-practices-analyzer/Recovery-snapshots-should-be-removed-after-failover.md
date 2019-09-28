@@ -1,7 +1,7 @@
 ---
-title: Captures instantanées de récupération doivent être supprimées après le basculement
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Les instantanés de récupération doivent être supprimés après le basculement
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 922115fa-e8dd-4055-aaf1-4a4437c5cf28
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 4663320df91019fc7dc1d8ca7ffdb2fcc3e0de42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b8574956fb1b46ca0cf9678187fffcd68c2d261
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837680"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393528"
 ---
-# <a name="recovery-snapshots-should-be-removed-after-failover"></a>Captures instantanées de récupération doivent être supprimées après le basculement
+# <a name="recovery-snapshots-should-be-removed-after-failover"></a>Les instantanés de récupération doivent être supprimés après le basculement
 
 >S'applique à : Windows Server 2016
 
@@ -27,21 +27,21 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016| 
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Opérations|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>**Problème**  
-*Une machine virtuelle basculée a un ou plusieurs instantanés de récupération.*  
+*Une machine virtuelle basculée possède un ou plusieurs instantanés de récupération.*  
   
 ## <a name="impact"></a>**Impact**  
-*Espace disponible peut manquer sur le disque physique qui stocke les fichiers d’instantanés. Si cela se produit, aucune opération de disque supplémentaire peut être effectuée sur le stockage physique. Toute machine virtuelle qui s’appuie sur le stockage physique pourrait être affectée. Cela affecte les ordinateurs virtuels suivants :*  
+l’espace @no__t 0Available peut s’exécuter sur le disque physique qui stocke les fichiers d’instantanés. Si cela se produit, aucune opération de disque supplémentaire ne peut être effectuée sur le stockage physique. Tout ordinateur virtuel qui s’appuie sur le stockage physique peut être affecté. Cela a un impact sur les ordinateurs virtuels suivants : *  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
-*Pour chaque machine virtuelle basculée, utilisez l’applet de commande Complete-VMFailover dans Windows PowerShell pour supprimer les captures instantanées de récupération et indiquer l’achèvement de basculement.*  
+*Pour chaque machine virtuelle basculée, utilisez l’applet de commande Complete-VMFailover dans Windows PowerShell pour supprimer les instantanés de récupération et indiquer la fin du basculement.*  
   
 
 

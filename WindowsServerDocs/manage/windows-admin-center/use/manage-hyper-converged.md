@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 5df035b448b80aa147067004c6a2f14aa03a9684
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: d692251e1ba0fef43e4eeee6f259f26f4347f3c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869090"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356877"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Gérer l’infrastructure hyper-convergée avec le centre d’administration Windows
 
@@ -131,7 +131,7 @@ Le cluster est ajouté à votre liste de connexions. Cliquez dessus pour lancer 
 > [!Important]
 > Les environnements SDN avec l’authentification Kerberos pour la communication Northbound ne sont actuellement pas pris en charge.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
 
 ### <a name="are-there-differences-between-managing-windows-server-2016-and-windows-server-2019"></a>Existe-t-il des différences entre la gestion de Windows Server 2016 et celle de Windows Server 2019 ?
 
@@ -157,7 +157,7 @@ Le centre d’administration Windows pour l’infrastructure convergée hyper-co
 
 Windows Admin Center ne donne lieu à aucun frais supplémentaire par rapport à Windows.
 
-Vous pouvez utiliser le centre d’administration Windows (disponible en tant que téléchargement distinct) avec des licences valides de Windows Server ou Windows 10 sans coût supplémentaire. il est concédé sous licence dans le cadre d’un contrat de niveau de service Windows supplémentaire.
+Vous pouvez utiliser Windows Admin Center (disponible en téléchargement distinct) avec des licences valides de Windows Server ou Windows 10 sans coût supplémentaire : il est fourni sous licence dans un avenant au contrat CLUF de Windows.
 
 ### <a name="does-windows-admin-center-require-system-center"></a>Windows Admin Center nécessite-t-il System Center ?
 

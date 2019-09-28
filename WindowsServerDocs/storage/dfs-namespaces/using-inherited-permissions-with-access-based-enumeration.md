@@ -2,24 +2,24 @@
 title: Utilisation d'autorisations héritées avec l'énumération basée sur l'accès
 description: Cet article explique comment utiliser des autorisations héritées avec l’énumération basée sur l’accès
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e6bd7a018a7f3a245581b5a9c63494048c7187a2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 433fe53a3d580aafc50b152ec20156436b05481f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812130"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402141"
 ---
 # <a name="using-inherited-permissions-with-access-based-enumeration"></a>Utilisation d’autorisations héritées avec l’énumération basée sur l’accès
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
-Par défaut, les autorisations utilisées pour un dossier DFS sont héritées du système de fichiers local du serveur d’espaces de noms. Les autorisations sont héritées à partir du répertoire racine du lecteur système et accorder le domaine\\les autorisations de lecture du groupe utilisateurs. Par conséquent, même après l’activation de l’énumération basée sur l’accès, tous les dossiers de l’espace de noms restent visibles pour tous les utilisateurs du domaine.
+Par défaut, les autorisations utilisées pour un dossier DFS sont héritées du système de fichiers local du serveur d’espaces de noms. Les autorisations sont héritées du répertoire racine du lecteur système et accordent au groupe @ no__t-0Users des autorisations de lecture. Par conséquent, même après l’activation de l’énumération basée sur l’accès, tous les dossiers de l’espace de noms restent visibles pour tous les utilisateurs du domaine.
 
 ## <a name="advantages-and-limitations-of-inherited-permissions"></a>Avantages et limites des autorisations héritées
 
@@ -42,7 +42,7 @@ Malgré leurs avantages, les autorisations héritées dans les espaces de noms D
 
 Pour limiter les utilisateurs autorisés à afficher un dossier DFS, vous devez effectuer l’une des tâches suivantes :
 
--   **Définir les autorisations explicites pour le dossier, la désactivation de l’héritage.** Pour définir des autorisations explicites sur un dossier avec cibles (un lien) à l’aide de la gestion DFS ou de la commande **Dfsutil**, voir [Activer l’énumération basée sur l’accès pour un espace de noms](enable-access-based-enumeration-on-a-namespace.md).
+-   **Définissez des autorisations explicites pour le dossier, en désactivant l’héritage.** Pour définir des autorisations explicites sur un dossier avec cibles (un lien) à l’aide de la gestion DFS ou de la commande **Dfsutil**, voir [Activer l’énumération basée sur l’accès pour un espace de noms](enable-access-based-enumeration-on-a-namespace.md).
 -   **Modifiez les autorisations héritées sur le parent dans le système de fichiers local**. Pour modifier les autorisations héritées par un dossier avec cibles, si vous avez déjà défini des autorisations explicites sur le dossier, basculez des autorisations explicites vers les autorisations héritées, comme indiqué dans la procédure suivante. Utilisez l’Explorateur Windows ou la commande **Icacls** pour modifier les autorisations du dossier à partir duquel le dossier avec cibles hérite de ses autorisations.
 
 > [!NOTE]
@@ -60,4 +60,4 @@ Pour limiter les utilisateurs autorisés à afficher un dossier DFS, vous devez 
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Créer un Namespace DFS](create-a-dfs-namespace.md)
+-   [Créer un espace de noms DFS](create-a-dfs-namespace.md)

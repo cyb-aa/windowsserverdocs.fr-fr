@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8e454a9b1a7375be5cfdbc1e76316ad62ff40067
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 05da1b7df2e3242c9b68bd7858c824f91e81a563
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445806"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407100"
 ---
 # <a name="deploy-encryption-of-office-files-demonstration-steps"></a>Déployer le chiffrement des fichiers Office (étapes de démonstration)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Service Finance de Contoso a un nombre de serveurs de fichiers qui stockent leurs documents. Il peut s'agir de documentation générale ou de documents à fort impact commercial (HBI, High-Business Impact). Par exemple, tout document qui contient des informations confidentielles est considéré par Contoso comme ayant un fort impact commercial. Contoso souhaite s'assurer que toute sa documentation dispose d'un niveau de protection minimal et que l'accès à sa documentation HBI est limité aux personnel autorisé. Pour ce faire, Contoso envisage d’utiliser l’Infrastructure de Classification de fichiers (ICF) et les services AD RMS qui est disponible dans Windows Server 2012. L'Infrastructure de classification des fichiers permettra à Contoso de classifier tous les documents sur ses serveurs de fichiers en fonction du contenu, puis d'utiliser les services AD RMS pour appliquer la stratégie de droits appropriée.  
+Le service finance de Contoso a un certain nombre de serveurs de fichiers qui stockent leurs documents. Il peut s'agir de documentation générale ou de documents à fort impact commercial (HBI, High-Business Impact). Par exemple, tout document qui contient des informations confidentielles est considéré par Contoso comme ayant un fort impact commercial. Contoso souhaite s'assurer que toute sa documentation dispose d'un niveau de protection minimal et que l'accès à sa documentation HBI est limité aux personnel autorisé. Pour ce faire, contoso explore à l’aide des Infrastructure de classification des fichiers (FCI) et AD RMS disponibles dans Windows Server 2012. L'Infrastructure de classification des fichiers permettra à Contoso de classifier tous les documents sur ses serveurs de fichiers en fonction du contenu, puis d'utiliser les services AD RMS pour appliquer la stratégie de droits appropriée.  
   
 Dans ce scénario, vous allez effectuer les étapes suivantes :  
   
@@ -28,16 +28,16 @@ Dans ce scénario, vous allez effectuer les étapes suivantes :
 |--------|---------------|  
 |[Activer les propriétés de ressource](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_1.1)|Activer les propriétés de ressources **Impact** et **Informations d'identification personnelle** .|  
 |[Créer des règles de classification](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_2)|Créer les règles de classification suivantes : **Règle de classification HBI** et **Règle de classification IIP**.|  
-|[Utiliser des tâches de gestion de fichiers pour protéger automatiquement les documents avec AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_3)|Créer une tâche de gestion de fichiers qui utilise automatiquement les services AD RMS pour protéger les documents contenant des informations d'identification personnelle (IIP). Seuls les membres du groupe FinanceAdmin auront accès aux documents qui contiennent des informations d'identification personnelle.|  
+|[Utilisez des tâches de gestion de fichiers pour protéger automatiquement les documents avec AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_3)|Créer une tâche de gestion de fichiers qui utilise automatiquement les services AD RMS pour protéger les documents contenant des informations d'identification personnelle (IIP). Seuls les membres du groupe FinanceAdmin auront accès aux documents qui contiennent des informations d'identification personnelle.|  
 |[Afficher les résultats](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_4)|Examiner la classification des documents et observer les changements à mesure que vous modifiez le contenu des documents. Vérifier également comment les documents sont protégés par les services AD RMS.|  
-|[Vérifier la protection AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_5)|Vérifier que les documents sont protégés par les services AD RMS.|  
+|[Vérifier AD RMS protection](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_5)|Vérifier que les documents sont protégés par les services AD RMS.|  
 |||  
   
 ## <a name="BKMK_1.1"></a>Étape 1 : Activer les propriétés de ressource  
   
 #### <a name="to-enable-resource-properties"></a>Pour activer les propriétés de ressource  
   
-1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_DC1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_DC1. Connectez-vous au serveur à l’aide de CONTOSO\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
 2. Ouvrez le Centre d'administration Active Directory et cliquez sur **Arborescence**.  
   
@@ -51,7 +51,7 @@ Dans ce scénario, vous allez effectuer les étapes suivantes :
   
 7. Cliquez sur **Ajouter**, puis accédez à **Impact** et cliquez dessus pour l'ajouter à la liste. Faites de même pour **Informations d'identification personnelle**. Cliquez deux fois sur **OK** pour terminer.  
   
-![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+@no__t-guides 0solution-](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -61,13 +61,13 @@ Set-ADResourceProperty -Enabled:$true -Identity:"CN=PII_MS,CN=Resource Propertie
 ```  
   
 ## <a name="BKMK_2"></a>Étape 2 : Créer des règles de classification  
-Cette étape explique comment créer la règle de classification **Fort impact** . Cette règle recherche le contenu de documents et si la chaîne « Confidentiel Contoso » est trouvée, elle classifie ce document comme ayant fort impact commercial. Cette classification remplace toute classification de faible impact commercial assignée précédemment.  
+Cette étape explique comment créer la règle de classification **Fort impact** . Cette règle recherche le contenu des documents et, si la chaîne « contoso Confidential » est trouvée, elle classifie ce document comme ayant un impact élevé sur l’activité. Cette classification remplace toute classification de faible impact commercial assignée précédemment.  
   
 Vous allez aussi créer une règle **Niveau IIP élevé** . Cette règle analyse aussi le contenu des documents et, si un numéro de sécurité social est détecté, elle classifie ce document comme ayant un niveau IIP élevé.  
   
 #### <a name="to-create-the-high-impact-classification-rule"></a>Pour créer la règle de classification de fort impact  
   
-1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de CONTOSO\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
 2. Vous devez actualiser les propriétés de ressource globales à partir d'Active Directory. Ouvrez Windows PowerShell, tapez `Update-FSRMClassificationPropertyDefinition`, puis appuyez sur ENTRÉE. Fermez Windows PowerShell.  
   
@@ -81,7 +81,7 @@ Vous allez aussi créer une règle **Niveau IIP élevé** . Cette règle analyse
   
 7. Dans la zone **Nom de la règle**, tapez **Fort impact commercial**.  
   
-8. Dans le **Description** , tapez **détermine si le document a un fort impact commercial en fonction de la présence de la chaîne « Confidentiel Contoso »**  
+8. Dans la zone **Description** , tapez **détermine si le document a un impact élevé sur l’entreprise en fonction de la présence de la chaîne « contoso Confidential »** .  
   
 9. Sous l'onglet **Étendue** , cliquez sur **Set Folder Management Properties**, sélectionnez **Folder Usage**, cliquez sur **Ajouter**, puis sur **Parcourir**, accédez au chemin d'accès D:\Finance Documents, cliquez sur **OK**, puis choisissez une valeur de propriété nommée **Fichiers de groupe** et cliquez sur **Fermer**. Une fois les propriétés de gestion définies, sous l'onglet **Étendue de la règle** , sélectionnez **Fichiers de groupe**.  
   
@@ -95,7 +95,7 @@ Vous allez aussi créer une règle **Niveau IIP élevé** . Cette règle analyse
   
 14. Cliquez sur l'onglet **Type d'évaluation**.  Cliquez sur Réévaluer les valeurs de propriété existantes, cliquez sur **Remplacer**la valeur existante, puis cliquez sur **OK** pour terminer.  
   
-![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+@no__t-guides 0solution-](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -109,9 +109,9 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 #### <a name="to-create-the-high-pii-classification-rule"></a>Pour créer la règle de classification de niveau IIP élevé  
   
-1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de CONTOSO\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
-2. Sur le Bureau, ouvrez le dossier **Expressions régulières**, puis ouvrez le document texte nommé **RegEx-SSN**. Mettez en surbrillance et copiez la chaîne d’expression régulière suivante : **^ ( ? 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-] ?) (?! 00) \d\d\3 ( ? ! 0000) \d{4}$** . Nous utiliserons cette chaîne plus loin lors de cette étape. Conservez-la dans votre Presse-papiers.  
+2. Sur le Bureau, ouvrez le dossier **Expressions régulières**, puis ouvrez le document texte nommé **RegEx-SSN**. Mettez en surbrillance et copiez la chaîne d’expression régulière suivante : **^ ( ?! 000) ([0-7] \d @ no__t-1 | 7 ([0-7] \d | 7 [012])) ([-] ?) (?! 00) \d\d\3 ( ?! 0000) \d @ no__t-2 $** . Nous utiliserons cette chaîne plus loin lors de cette étape. Conservez-la dans votre Presse-papiers.  
   
 3. Ouvrez le Gestionnaire de ressources du serveur de fichiers. Pour ouvrir le Gestionnaire de ressources du serveur de fichiers, cliquez sur **Démarrer**, tapez **gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Gestionnaire de ressources du serveur de fichiers**.  
   
@@ -130,14 +130,14 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
 10. Sous **Spécifiez une valeur**, sélectionnez **Élevé** dans la liste déroulante.  
   
 11. Cliquez sur **Configurer** sous **Paramètres**.   
-    Dans le volet **Paramètres de classification**, dans la liste **Type d'expression** , sélectionnez **Expression régulière**. Dans le **Expression** , collez le texte à partir de votre Presse-papiers : **^ ( ? 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-] ?) (?! 00) \d\d\3 ( ? ! 0000) \d{4}$** , puis cliquez sur **OK**.  
+    Dans le volet **Paramètres de classification**, dans la liste **Type d'expression** , sélectionnez **Expression régulière**. Dans la zone **expression** , collez le texte de votre presse-papiers : **^ ( ?! 000) ([0-7] \d @ no__t-2 | 7 ([0-7] \d | 7 [012])) ([-] ?) (?! 00) \d\d\3 ( ?! 0000) \d @ no__t-3 $** , puis cliquez sur **OK**.  
   
     > [!NOTE]  
     > Cette expression autorise les numéros de sécurité sociale non valides. Cela nous permet d'utiliser des numéros de sécurité sociale fictifs dans la démonstration.  
   
 12. Cliquez sur l'onglet **Type d'évaluation**.  Sélectionnez Réévaluer les valeurs de propriété existantes, **Remplacer**la valeur existante, puis cliquez sur **OK** pour terminer.  
   
-![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+@no__t-guides 0solution-](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -151,12 +151,12 @@ Vous devez maintenant avoir deux règles de classification :
   
 -   Niveau IIP élevé  
   
-## <a name="BKMK_3"></a>Étape 3 : Utiliser des tâches de gestion de fichiers pour protéger automatiquement les documents avec AD RMS  
-Maintenant que vous avez créé des règles pour classifier automatiquement les documents en fonction du contenu, l’étape suivante consiste à créer une tâche de gestion de fichiers qui utilise les services AD RMS pour protéger automatiquement certains documents en fonction de leur classification. Lors de cette étape, vous allez créer une tâche de gestion de fichiers qui protège automatiquement tout document ayant un niveau IIP élevé. Seuls les membres du groupe FinanceAdmin auront accès aux documents qui contiennent des informations d'identification personnelle.  
+## <a name="BKMK_3"></a>Étape 3 : Utilisez des tâches de gestion de fichiers pour protéger automatiquement les documents avec AD RMS  
+Maintenant que vous avez créé des règles pour classifier automatiquement les documents en fonction du contenu, l’étape suivante consiste à créer une tâche de gestion de fichiers qui utilise AD RMS pour protéger automatiquement certains documents en fonction de leur classification. Lors de cette étape, vous allez créer une tâche de gestion de fichiers qui protège automatiquement tout document ayant un niveau IIP élevé. Seuls les membres du groupe FinanceAdmin auront accès aux documents qui contiennent des informations d'identification personnelle.  
   
 #### <a name="to-protect-documents-with-ad-rms"></a>Pour protéger les documents avec les services AD RMS  
   
-1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de CONTOSO\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
 2. Ouvrez le Gestionnaire de ressources du serveur de fichiers. Pour ouvrir le Gestionnaire de ressources du serveur de fichiers, cliquez sur **Démarrer**, tapez **gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Gestionnaire de ressources du serveur de fichiers**.  
   
@@ -174,7 +174,7 @@ Maintenant que vous avez créé des règles pour classifier automatiquement les 
   
 9. Dans la section **Opération continue**, sélectionnez **Exécuter la tâche en continu sur les nouveaux fichiers**, puis cliquez sur **OK**. Vous devez maintenant avoir une tâche de gestion de fichiers nommée Niveau IIP élevé.  
   
-![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+@no__t-guides 0solution-](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -187,11 +187,11 @@ $fmj1=New-FSRMFileManagementJob -Name "High PII" -Description "Automatic RMS pro
 ```  
   
 ## <a name="BKMK_4"></a>Étape 4 : Afficher les résultats  
-Il est temps de jeter un œil à votre nouvelle classification automatique et les règles de protection AD RMS en action. Lors de cette étape, vous allez examiner la classification des documents et observer les changements à mesure que vous modifiez le contenu des documents.  
+Il est temps de jeter un coup d’œil à vos nouvelles règles de classification automatique et de AD RMS de protection en action. Lors de cette étape, vous allez examiner la classification des documents et observer les changements à mesure que vous modifiez le contenu des documents.  
   
 #### <a name="to-view-the-results"></a>Pour afficher les résultats  
   
-1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de CONTOSO\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
 2. Dans l'Explorateur Windows, accédez à D:\Finance Documents.  
   
@@ -201,7 +201,7 @@ Il est temps de jeter un œil à votre nouvelle classification automatique et le
   
 5. Cliquez sur l'onglet **Classification** et notez que la propriété **Informations d'identification personnelle** n'a pas de valeur actuellement. Cliquez sur **Annuler**.  
   
-6. Basculez vers CLIENT1. Déconnectez tout utilisateur qui s’est connecté, puis connectez-vous en tant que Contoso\MReid avec le mot de passe <strong>pass@word1</strong>.  
+6. Basculez vers CLIENT1. Déconnectez tout utilisateur connecté, puis connectez-vous en tant que Contoso\MReid avec le mot de passe <strong>pass@word1</strong>.  
   
 7. Sur le Bureau, ouvrez le dossier partagé **Finance Documents** .  
   

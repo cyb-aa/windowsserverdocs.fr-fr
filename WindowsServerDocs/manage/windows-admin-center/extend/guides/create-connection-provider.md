@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: c1f3a7f7004b573fece71cdaf2f43661c13ad496
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 9c04db3196d1e806e50af9164b3c8bcdfb19b079
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869632"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406881"
 ---
 # <a name="create-a-connection-provider-for-a-solution-extension"></a>Créer un fournisseur de connexion pour une extension de solution
 
@@ -23,7 +23,7 @@ Les fournisseurs de connexions jouent un rôle important dans la façon dont le 
 
 Par défaut, le centre d’administration Windows est fourni avec les fournisseurs de connexions suivants :
 
-* Serveur
+* Server
 * Client Windows
 * Cluster de basculement
 * Cluster HCI
@@ -119,12 +119,12 @@ Propriétés de l’État :
 
   | Value | Description |
   | ----- | ----------- |
-  | 0 | Online |
+  | 0 | La licence |
   | 1 | Warning |
   | 2 | Non autorisé |
   | 3 | Error |
   | 4 | Fatal |
-  | 5\. | Inconnu |
+  | 5 | Inconnu |
 
 * <strong>Détails</strong> : détails supplémentaires qui décrivent le type de retour de l’État.
 

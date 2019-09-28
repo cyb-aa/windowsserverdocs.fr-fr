@@ -7,47 +7,47 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cd8febf9eff300b1a83d22828874b4a577b8af36
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 9f0b04f9dc050117fdefc630759c86d2b1bb1ecc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192317"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408443"
 ---
 # <a name="configure-corporate-dns-for-the-federation-service-and-drs"></a>Configurer le système DNS d’entreprise pour le service de fédération et DRS
   
-## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>Étape 6 : Ajouter un hôte \(A\) et Alias \(CNAME\) enregistrement de ressource au DNS d’entreprise pour le Service de fédération et DRS  
-Vous devez ajouter les enregistrements de ressource suivants au système de nom de domaine d’entreprise \(DNS\) pour votre service de fédération et le Service d’inscription de périphérique que vous avez configuré dans les étapes précédentes.  
+## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>Étape 6 : Ajouter un hôte \(A @ no__t-1 et un alias \(CNAME @ no__t-3 à un enregistrement de ressource DNS pour les service FS (Federation Service) et DRS  
+Vous devez ajouter les enregistrements de ressource suivants au système de nom de domaine d’entreprise @no__t 0DNS @ no__t-1 pour votre service de Fédération et votre service d’inscription de périphérique que vous avez configurés dans les étapes précédentes.  
   
-|Entrée|type|Address|  
+|Entrée|Type|Address|  
 |---------|--------|-----------|  
-|fédération\_service\_nom|Hôte \(A\)|Adresse IP du serveur AD FS ou l’adresse IP de l’équilibreur de charge est configuré devant votre batterie de serveurs AD FS|  
-|enterpriseregistration|Alias \(CNAME\)|federation\_server\_name.contoso.com|  
+|Fédération @ no__t-0Service @ no__t-1Nom|@No__t hôte-0A @ no__t-1|Adresse IP du serveur AD FS ou adresse IP de l’équilibreur de charge configuré devant votre batterie de serveurs AD FS|  
+|enterpriseregistration|Alias \(CNAME @ no__t-1|Fédération @ no__t-0server\_name.contoso.com|  
   
-Vous pouvez utiliser la procédure suivante pour ajouter un hôte \(A\) et alias \(CNAME\) enregistrements de ressource au DNS d’entreprise pour le serveur de fédération et Device Registration Service.  
+Vous pouvez utiliser la procédure suivante pour ajouter des enregistrements de ressource Host \(A @ no__t-1 et alias \(CNAME @ no__t-3 à des enregistrements de ressources DNS d’entreprise pour le serveur de Fédération et le service d’inscription d’appareils.  
   
-L’appartenance au **administrateurs**, ou équivalente, est la configuration minimale requise pour effectuer cette procédure.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **administrateurs**ou à un groupe équivalent.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-#### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>Pour ajouter un hôte \(A\) et alias \(CNAME\) des enregistrements de ressource DNS pour votre serveur de fédération  
+#### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>Pour ajouter un ordinateur hôte \(A @ no__t-1 et alias \(CNAME @ no__t-3 enregistrements de ressources à DNS pour votre serveur de Fédération  
   
-1.  Sur vous contrôleur de domaine dans le Gestionnaire de serveur, sur le **outils** menu, cliquez sur **DNS** pour ouvrir le composant logiciel enfichable DNS\-dans.  
+1.  Sur votre contrôleur de domaine, dans Gestionnaire de serveur, dans le menu **Outils** , cliquez sur **DNS** pour ouvrir le composant logiciel enfichable DNS @ no__t-2in.  
   
-2.  Dans l’arborescence de la console, développez le **domaine\_contrôleur\_nom** nœud, développez **Zones de recherche directe**, à droite\-cliquez sur **domaine\_nom**, puis cliquez sur **nouvel hôte \(A ou AAAA\)** .  
+2.  Dans l’arborescence de la console, développez le nœud **Domain @ no__t-1controller @ no__t-2name** , développez **zones de recherche directes**, cliquez avec le bouton droit sur @ no__t-4click **Domain @ no__t-6Name**, puis cliquez sur **nouvel hôte \(A ou AAAA @ no__t-9**.  
   
-3.  Dans le **nom** , tapez le nom à utiliser pour votre batterie de serveurs AD FS.  
+3.  Dans la zone **nom** , tapez le nom à utiliser pour votre batterie de AD FS.  
   
 4.  Dans la zone **adresse IP**, saisissez l’adresse IP de votre serveur de fédération. Cliquez sur **Ajouter un hôte**.  
   
-5.  Droite\-cliquez sur le **domaine\_nom** nœud, puis cliquez sur **nouvel Alias \(CNAME\)** .  
+5.  Right @ no__t-0click le nœud **Domain @ no__t-2name** , puis cliquez sur **New alias \(CNAME @ no__t-5**.  
   
 6.  Dans la boîte de dialogue **Nouvel enregistrement de ressource**, tapez **enterpriseregistration** dans la zone **Nom de l'alias**.  
   
-7.  Dans le nom de domaine pleinement qualifié \(nom de domaine complet\) de la zone d’hôte cible, tapez **fédération\_service\_batterie\_où\_name.com**, puis Cliquez sur **OK**.  
+7.  Dans le nom de domaine complet \(FQDN @ no__t-1 de la zone hôte cible, tapez **Federation @ no__t-3Service @ no__t-4farm @ no__t-5name. Domain @ no__t-6name. com**, puis cliquez sur **OK**.  
   
     > [!IMPORTANT]  
-    > Dans un déploiement réel, si votre société comprend plusieurs nom d’utilisateur Principal \(UPN\) suffixes, vous devez créer plusieurs enregistrements CNAME pour chacun de ces suffixes UPN dans DNS.  
+    > Dans un déploiement réel, si votre entreprise possède plusieurs suffixes de nom d’utilisateur principal \(UPN @ no__t-1, vous devez créer plusieurs enregistrements CNAMe pour chacun de ces suffixes UPN dans DNS.  
   
 ## <a name="see-also"></a>Voir aussi 
 

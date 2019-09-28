@@ -2,7 +2,7 @@
 title: Paramètres du Registre TLS (Transport Layer Security)
 description: Sécurité de Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-tls-ssl
@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
-ms.openlocfilehash: 83146bd8a65b90994ed90a6dda29a4bc00a2533a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 60202e537093bd21515043ba56f70f3895c91d42
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870296"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403408"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Paramètres du Registre TLS (Transport Layer Security)
 
@@ -125,7 +125,7 @@ Les algorithmes de hachage TLS/SSL doivent être contrôlés en configurant l’
 
 Cette entrée contrôle la taille du cache de l’émetteur. Elle est utilisée avec le mappage de l’émetteur. Le SSP Schannel tente de mapper tous les émetteurs dans la chaîne de certificats du client, et non pas seulement l’émetteur direct du certificat client. Lorsque les émetteurs ne correspondent pas à un compte, ce qui est le cas par défaut, le serveur peut tenter de mapper le même nom de l’émetteur à plusieurs reprises, des centaines de fois par seconde. 
 
-Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Cette entrée de Registre spécifie la taille du cache. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 100. 
+Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Cette entrée de Registre spécifie la taille du cache. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 100. 
 
 Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
@@ -211,7 +211,7 @@ Par défaut, cette entrée n’existe pas dans le Registre.
 
 Comportement de la liste envoyer un émetteur approuvé par défaut
 
-| Version Windows | Time |
+| Version de Windows | Time |
 |-----------------|------|
 | Windows Server 2012 et Windows 8 et versions ultérieures | FALSE |
 | Windows Server 2008 R2 et Windows 7 et versions antérieures | TRUE |
@@ -246,7 +246,7 @@ Table de sous-clé SSL 2,0
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de SSL 2,0 sur le client SSL. |
-| Serveur | Contrôle l’utilisation de SSL 2,0 sur le serveur SSL. |
+| Server | Contrôle l’utilisation de SSL 2,0 sur le serveur SSL. |
 
 Pour désactiver SSL 2,0 pour le client ou le serveur, remplacez la valeur DWORD par 0. Si une application SSPI demande l’utilisation de SSL 2,0, elle est refusée. 
 
@@ -273,7 +273,7 @@ Table de sous-clé SSL 3,0
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de SSL 3,0 sur le client SSL. |
-| Serveur | Contrôle l’utilisation de SSL 3,0 sur le serveur SSL. |
+| Server | Contrôle l’utilisation de SSL 3,0 sur le serveur SSL. |
 
 Pour désactiver SSL 3,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de SSL 3,0, elle est refusée. 
@@ -299,7 +299,7 @@ Table de sous-clé TLS 1,0
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de TLS 1,0 sur le client TLS. |
-| Serveur | Contrôle l’utilisation de TLS 1,0 sur le serveur TLS. |
+| Server | Contrôle l’utilisation de TLS 1,0 sur le serveur TLS. |
 
 Pour désactiver TLS 1,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de TLS 1,0, elle est refusée. 
@@ -325,7 +325,7 @@ Table de sous-clé TLS 1,1
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de TLS 1,1 sur le client TLS. |
-| Serveur | Contrôle l’utilisation de TLS 1,1 sur le serveur TLS. |
+| Server | Contrôle l’utilisation de TLS 1,1 sur le serveur TLS. |
 
 Pour désactiver TLS 1,1 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de TLS 1,1, elle est refusée. 
@@ -351,7 +351,7 @@ Table de sous-clé TLS 1,2
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de TLS 1,2 sur le client TLS. |
-| Serveur | Contrôle l’utilisation de TLS 1,2 sur le serveur TLS. |
+| Server | Contrôle l’utilisation de TLS 1,2 sur le serveur TLS. |
 
 Pour désactiver TLS 1,2 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de TLS 1,2, elle est refusée. 
@@ -377,7 +377,7 @@ Table de sous-clé DTLS 1,0
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de DTLS 1,0 sur le client DTLS. |
-| Serveur | Contrôle l’utilisation de DTLS 1,0 sur le serveur DTLS. |
+| Server | Contrôle l’utilisation de DTLS 1,0 sur le serveur DTLS. |
 
 Pour désactiver DTLS 1,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de DTLS 1,0, elle est refusée. 
@@ -403,7 +403,7 @@ Table de sous-clé DTLS 1,2
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de DTLS 1,2 sur le client DTLS. |
-| Serveur | Contrôle l’utilisation de DTLS 1,2 sur le serveur DTLS. |
+| Server | Contrôle l’utilisation de DTLS 1,2 sur le serveur DTLS. |
 
 
 Pour désactiver DTLS 1,2 pour le client ou le serveur, remplacez la valeur DWORD par 0.

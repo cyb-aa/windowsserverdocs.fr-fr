@@ -1,19 +1,19 @@
 ---
 title: Utilisation du nettoyage de disque sur Windows Server
 description: Découvrez comment utiliser les options de ligne de commande pour configurer l’outil de nettoyage de disque (Cleanmgr. exe) pour nettoyer automatiquement certains fichiers.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: iangpgh
 ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 4bf32520dc6fa2be36d44fbd66a7efc885a8f5d7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2de3452a3528122beb26f403fb0c73d7ff13efd7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867412"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402116"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>Utilisation du nettoyage de disque sur Windows Server
 
@@ -61,10 +61,10 @@ L’outil Nettoyage de disque (Cleanmgr. exe) n’est pas présent sur Windows S
 
 Pour utiliser Cleanmgr. exe, installez l’expérience utilisateur comme décrit précédemment, ou copiez deux fichiers déjà présents sur le serveur, Cleanmgr. exe et Cleanmgr. exe. mui. Utilisez le tableau suivant pour rechercher les fichiers de votre système d’exploitation.
 
-| Système d’exploitation  | Architecture  | Emplacement du fichier  |
+| Système d’exploitation  | Architecture  | Emplacement du fichier  |
 | ----------------- | -------------- | --------------- |
-| Windows Server 2008 R2 | 64 bits | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da\cleanmgr.exe 
-| Windows Server 2008 R2 | 64 bits | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr.resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63\cleanmgr.exe.mui |
+| Windows Server 2008 R2 | 64 bits | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da\cleanmgr.exe 
+| Windows Server 2008 R2 | 64 bits | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr.resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63\cleanmgr.exe.mui |
 
 Localisez Cleanmgr. exe et déplacez le fichier vers **%systemroot%\System32**.
 

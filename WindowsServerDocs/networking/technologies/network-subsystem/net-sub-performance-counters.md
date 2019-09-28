@@ -1,33 +1,33 @@
 ---
 title: Compteurs de performance liées au réseau
-description: Cette rubrique fait partie du guide de réglage de performances du sous-système de réseau pour Windows Server 2016.
-ms.prod: windows-server-threshold
+description: Cette rubrique fait partie du Guide d’optimisation des performances du sous-système réseau pour Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bcb0c1c5a08a306fbd9b419d0c458c3bc54e1786
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7ebff972d670f3fd0b8d12959d161bce03ac487e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446205"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401846"
 ---
 # <a name="network-related-performance-counters"></a>Compteurs de performance liées au réseau
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Cette rubrique répertorie les compteurs qui sont pertinents pour la gestion des performances du réseau et contient les sections suivantes.  
+Cette rubrique répertorie les compteurs pertinents pour la gestion des performances réseau et contient les sections suivantes.  
   
 -   [Utilisation des ressources](#bkmk_ru)  
   
--   [Problèmes potentiels de réseau](#bkmk_np)  
+-   [Problèmes potentiels liés au réseau](#bkmk_np)  
   
--   [Recevoir des performances de la fusion côté (RSC)](#bkmk_rsc)  
+-   [Performances de la fusion côté réception (RSC)](#bkmk_rsc)  
   
-##  <a name="bkmk_ru"></a> Utilisation des ressources  
+##  <a name="bkmk_ru"></a>Utilisation des ressources  
 
 Les compteurs de performances suivants sont pertinents pour l’utilisation des ressources réseau.  
   
@@ -45,7 +45,7 @@ Les compteurs de performances suivants sont pertinents pour l’utilisation des 
   
   -   Segments retransmis/s  
   
-- Interface(*) du réseau, la carte réseau (\*)  
+- Interface réseau (*), carte réseau (\*)  
   
   - Octets reçus/s  
   
@@ -57,31 +57,31 @@ Les compteurs de performances suivants sont pertinents pour l’utilisation des 
   
   - Longueur de la file d'attente de sortie  
   
-    Ce compteur est la longueur de la file d’attente des paquets de sortie \(dans les paquets\). S’il s’agit plu de 2, sont rencontrés. Vous devez trouver le goulot d’étranglement et éliminer si vous le pouvez. Étant donné que NDIS files d’attente les demandes, cette longueur doit toujours être 0.  
+    Ce compteur est la longueur de la file d’attente de paquets en sortie @no__t les paquets 0in-no__t-1. Si la longueur est supérieure à 2, des retards se produisent. Vous devez trouver le goulot d’étranglement et l’éliminer si possible. Étant donné que NDIS met en file d’attente les requêtes, cette longueur doit toujours être 0.  
   
-- Informations de processeur  
+- Informations sur le processeur  
   
   - % Processor Time  
   
   - Interruptions/s  
   
-  - Les appels DPC en file d’attente/s  
+  - DPC mis en file d’attente/s  
   
-    Ce compteur est un taux moyen auquel les appels DPC ont été ajoutés à la file d’attente DPC du processeur logique. Chaque processeur logique a sa propre file d’attente DPC. Ce compteur mesure le taux auquel les appels DPC sont ajoutés à la file d’attente, pas le nombre de DPC dans la file d’attente. Il affiche la différence entre les valeurs qui ont été observées dans les deux derniers intervalles de temps, divisée par la durée de l’intervalle échantillon.  
+    Ce compteur est une vitesse moyenne à laquelle les appels DPC ont été ajoutés à la file d’attente DPC du processeur logique. Chaque processeur logique a sa propre file d’attente DPC. Ce compteur mesure la vitesse à laquelle les DPC sont ajoutés à la file d’attente, et non le nombre de DPC dans la file d’attente. Il affiche la différence entre les valeurs observées dans les deux derniers échantillons, divisée par la durée de l’intervalle échantillon.  
   
-##  <a name="bkmk_np"></a> Problèmes potentiels de réseau  
+##  <a name="bkmk_np"></a>Problèmes potentiels liés au réseau  
 
-Les compteurs de performances suivants sont pertinentes aux éventuels problèmes de réseau.  
+Les compteurs de performances suivants sont pertinents pour les problèmes réseau potentiels.  
   
--   Interface(*) du réseau, la carte réseau (\*)  
+-   Interface réseau (*), carte réseau (\*)  
   
-    -   Paquets reçus et jetés  
+    -   Paquets reçus ignorés  
   
-    -   Paquets reçus, erreurs  
+    -   Paquets reçus, Erreurs  
   
     -   Paquets sortants rejetés  
   
-    -   Paquets sortants, erreurs  
+    -   Paquets sortants, Erreurs  
   
 -   WFPv4, WFPv6  
   
@@ -89,7 +89,7 @@ Les compteurs de performances suivants sont pertinentes aux éventuels problème
 
 -   UDPv4, UDPv6
 
-    -   Datagrammes reçus, erreurs  
+    -   Datagrammes reçus, Erreurs  
   
 -   TCPv4, TCPv6  
   
@@ -97,21 +97,21 @@ Les compteurs de performances suivants sont pertinentes aux éventuels problème
   
     -   Connexions réinitialisées  
   
--   Stratégie de qualité de service réseau  
+-   Stratégie QoS réseau  
   
-    -   Paquets abandonnés  
+    -   Paquets supprimés  
   
-    -   Paquets supprimés/s  
+    -   Paquets ignorés/s  
   
--   Par Processor Network Interface Card Activity  
+-   Activité de la carte d’interface réseau par processeur  
   
-    -   Insuffisance de ressources de la réception des Indications/s  
+    -   Indications sur la réception des ressources faibles/s  
   
-    -   Insuffisance de ressources reçu des paquets/s  
+    -   Paquets reçus de ressources faibles/s  
   
--   Microsoft Winsock BSP  
+-   BSP Microsoft Winsock  
   
-    -   Datagrammes supprimées  
+    -   Datagrammes abandonnés  
   
     -   Datagrammes ignorés/s  
   
@@ -119,18 +119,18 @@ Les compteurs de performances suivants sont pertinentes aux éventuels problème
   
     -   Connexions rejetées/s  
   
-##  <a name="bkmk_rsc"></a> Recevoir des performances de la fusion côté (RSC)  
+##  <a name="bkmk_rsc"></a>Performances de la fusion côté réception (RSC)  
 
-Les compteurs de performances suivants sont pertinents pour les performances RSC.  
+Les compteurs de performances suivants sont pertinents pour les performances de RSC.  
   
 -   Carte réseau(*)  
   
-    -   Connexions TCP RSC Active  
+    -   Connexions TCP actives RSC  
   
-    -   Taille de paquet moyenne TCP RSC  
+    -   Taille moyenne des paquets TCP RSC  
   
-    -   TCP RSC fusionnés paquets/s  
+    -   Paquets TCP RSC fusionnés/s  
   
-    -   TCP RSC Exceptions/s
+    -   Exceptions TCP RSC/s
 
-Pour obtenir des liens vers toutes les rubriques de ce guide, consultez [réglage des performances réseau sous-système](net-sub-performance-top.md).
+Pour obtenir des liens vers toutes les rubriques de ce guide, consultez [réglage des performances du sous-système réseau](net-sub-performance-top.md).

@@ -1,9 +1,9 @@
 ---
 title: Gérer SDN
-description: Cette rubrique fait partie du guide Sdn sur la façon de gérer les charges de travail clientes et des réseaux virtuels dans Windows Server 2016.
+description: Cette rubrique fait partie du Guide de mise en réseau à définition logicielle sur la gestion des charges de travail client et des réseaux virtuels dans Windows Server 2016.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,21 +13,21 @@ ms.assetid: 7e2b4540-de56-4d5f-bb8e-9f81ca0ea4eb
 ms.author: pashort
 author: shortpatti
 ms.date: 08/26/2018
-ms.openlocfilehash: 869d201da6b3f3c34b04f3270f26ef9899dfc62e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: acfbfbde5a10393b100be36ce8853fc54b05a7a5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406029"
 ---
 # <a name="manage-sdn"></a>Gérer SDN
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser les rubriques de cette section pour gérer Sdn, y compris les charges de travail clientes et les réseaux virtuels.  
+Vous pouvez utiliser les rubriques de cette section pour gérer la mise en réseau définie par les logiciels, y compris les charges de travail des locataires et les réseaux virtuels.  
   
 >[!NOTE]  
->Pour plus de documentation Sdn, vous pouvez utiliser les sections suivantes de la bibliothèque.  
+>Pour obtenir des informations supplémentaires sur la mise en réseau, vous pouvez utiliser les sections suivantes de la bibliothèque.  
 >- [Technologies SDN](../technologies/Software-Defined-Networking-Technologies.md)  
 >- [Planifier SDN](../plan/plan-a-software-defined-network-infrastructure.md)  
 >- [Déployer SDN](../deploy/Deploy-Software-Defined-Networking.md)
@@ -37,6 +37,6 @@ Vous pouvez utiliser les rubriques de cette section pour gérer Sdn, y compris l
 Cette section contient les rubriques suivantes :  
   
 - [Gérer les réseaux virtuels locataires](Manage-Tenant-Virtual-Networks.md)
-- [Gérer les charges de travail clientes](Manage-Tenant-Workloads.md)
-- [Mise à jour, la sauvegarde et restauration logiciel défini Infrastructure de mise en réseau](Update-Backup-Restore.md)
+- [Gérer les charges de travail des locataires](Manage-Tenant-Workloads.md)
+- [Mettre à jour, sauvegarder et restaurer l’infrastructure réseau définie par logiciel](Update-Backup-Restore.md)
 

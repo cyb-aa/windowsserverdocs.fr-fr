@@ -1,39 +1,39 @@
 ---
-title: Performances d’e/s de réseau Hyper-V
-description: Considérations sur les performances d’e/s de réglage des performances d’Hyper-V du réseau
-ms.prod: windows-server-threshold
+title: Performances des e/s réseau Hyper-V
+description: Considérations sur les performances des e/s réseau dans le réglage des performances d’Hyper-V
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f576963a93c8c0b9d6c05f406cc3331c407ceb9
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: e8f4261c11a63786c2d170105fb0fa65dc6966a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811518"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385119"
 ---
-# <a name="hyper-v-network-io-performance"></a>Performances d’e/s de réseau Hyper-V
+# <a name="hyper-v-network-io-performance"></a>Performances des e/s réseau Hyper-V
 
-Server 2016 contient plusieurs améliorations et nouvelles fonctionnalités pour optimiser les performances réseau sous Hyper-V.  Documentation sur la façon d’optimiser les performances réseau sera incluse dans une future version de cet article.
+Le serveur 2016 contient plusieurs améliorations et de nouvelles fonctionnalités permettant d’optimiser les performances du réseau sous Hyper-V.  La documentation sur l’optimisation des performances du réseau sera incluse dans une future version de cet article.
 
 ## <a name="live-migration"></a>Migration dynamique
 
-Migration dynamique vous permet en toute transparence déplacer les machines virtuelles en cours d’exécution d’un nœud d’un cluster de basculement vers un autre nœud dans le même cluster sans une connexion réseau ou d’une indisponibilité perceptible.
+Migration dynamique vous permet de déplacer de façon transparente des ordinateurs virtuels en cours d’exécution d’un nœud d’un cluster de basculement vers un autre nœud du même cluster sans perte de connexion réseau ou de temps d’arrêt perçu.
 
 > [!NOTE]
-> Le Clustering de basculement nécessite un stockage partagé pour les nœuds de cluster.
+> Le clustering de basculement nécessite un stockage partagé pour les nœuds de cluster.
 
-Le processus de déplacement d’une machine virtuelle en cours d’exécution peut être divisé en deux phases principales. La première phase copie la mémoire de la machine virtuelle à partir de l’hôte actuel vers le nouvel hôte. La deuxième phase transfère l’état de la machine virtuelle à partir de l’hôte actuel vers le nouvel hôte. Les durées des deux phases est largement déterminée par la vitesse à laquelle les données peuvent être transférées à partir de l’hôte actuel vers le nouvel hôte.
+Le processus de déplacement d’un ordinateur virtuel en cours d’exécution peut être divisé en deux phases principales. La première phase copie la mémoire de l’ordinateur virtuel de l’hôte actuel vers le nouvel hôte. La deuxième phase transfère l’état de l’ordinateur virtuel de l’hôte actuel vers le nouvel hôte. Les durées des deux phases sont déterminées en fonction de la vitesse à laquelle les données peuvent être transférées de l’hôte actuel vers le nouvel hôte.
 
-En fournissant un réseau dédié pour la migration en direct le trafic permet de réduire le temps nécessaire pour effectuer une migration dynamique et elle garantit que les temps de migration cohérent.
+Le fait de fournir un réseau dédié pour le trafic de migration dynamique contribue à réduire le temps nécessaire à la réalisation d’une migration dynamique et garantit des temps de migration cohérents.
 
-![exemple de configuration de migration dynamique hyper-v](../../media/perftune-guide-live-migration.png)
+![exemple de configuration de la migration dynamique Hyper-v](../../media/perftune-guide-live-migration.png)
 
-En outre, augmentation du nombre d’envoi et réception des mémoires tampons de chaque réseau adaptateur est impliqué dans la migration peut améliorer les performances de migration.
+En outre, l’augmentation du nombre de tampons d’envoi et de réception sur chaque carte réseau impliquée dans la migration peut améliorer les performances de la migration.
 
-Windows Server 2012 R2 a introduit une option pour accélérer la Migration dynamique par la compression de la mémoire avant de le transférer sur le réseau ou utiliser l’accès à distance directe mémoire (RDMA), si votre matériel le prend en charge.
+Windows Server 2012 R2 a introduit une option pour accélérer Migration dynamique en compressant la mémoire avant de la transférer sur le réseau ou d’utiliser l’accès direct à la mémoire à distance (RDMA) si votre matériel la prend en charge.
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -2,19 +2,19 @@
 title: Sécurité du contrôleur de réseau
 description: Vous pouvez utiliser cette rubrique pour apprendre à configurer la sécurité de toutes les communications entre le contrôleur de réseau et d’autres logiciels et périphériques.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: cea660eb28645fb814d718ac04d0c9acea7b2e34
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: bd44b4d696fef3c167c7bcd4ffbc7ca79009cebc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867136"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405977"
 ---
 # <a name="secure-the-network-controller"></a>Sécuriser le contrôleur de réseau
 

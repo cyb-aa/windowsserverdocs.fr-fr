@@ -1,9 +1,9 @@
 ---
 title: Nouveautés de la passerelle du serveur d’accès à distance
-description: Vous pouvez utiliser cette rubrique pour en savoir plus sur les nouvelles fonctionnalités pour la passerelle RAS, qui est basé sur un logiciel, mutualisée, routeur capable de protocole BGP (Border Gateway) dans Windows Server 2016.
+description: Vous pouvez utiliser cette rubrique pour en savoir plus sur les nouvelles fonctionnalités de la passerelle RAS, qui est un routeur prenant en charge les Border Gateway Protocol (BGP) basé sur le logiciel dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,87 +12,87 @@ ms.topic: get-started-article
 ms.assetid: 709cb192-313a-47b5-954e-eb5f6fee51a7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5cc7d8bab3f2783750dbd723da745b1df3c2e462
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 85595c47c599a72039e93e67ea2f33f92af7200c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863020"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405900"
 ---
 # <a name="whats-new-in-ras-gateway"></a>Nouveautés de la passerelle du serveur d’accès à distance
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour en savoir plus sur les nouvelles fonctionnalités pour la passerelle RAS, qui est basé sur un logiciel, mutualisée, routeur capable de protocole BGP (Border Gateway) dans Windows Server 2016. Le routeur BGP mutualisée de passerelle RAS est conçu pour les fournisseurs de services Cloud (CSP) et les entreprises qui hébergent plusieurs réseaux virtuels client à l’aide de la virtualisation de réseau Hyper-V.  
+Vous pouvez utiliser cette rubrique pour en savoir plus sur les nouvelles fonctionnalités de la passerelle RAS, qui est un routeur prenant en charge les Border Gateway Protocol (BGP) basé sur le logiciel dans Windows Server 2016. Le routeur BGP multilocataire de la passerelle RAS est conçu pour les fournisseurs de services Cloud (CSP) et les entreprises qui hébergent plusieurs réseaux virtuels de locataire à l’aide de la virtualisation de réseau Hyper-V.  
   
 > [!NOTE]  
-> Dans Windows Server 2012 R2, passerelle RAS est nommée passerelle RRAS ; et dans System Center Virtual Machine Manager, passerelle RAS est nommée passerelle Windows Server.  
+> Dans Windows Server 2012 R2, la passerelle RAS est nommée passerelle RRAS. et dans System Center Virtual Machine Manager, la passerelle RAS est nommée passerelle Windows Server.  
   
 Cette rubrique contient les sections suivantes.  
   
 -   [Options de connectivité de site à site](#bkmk_s2s)  
   
--   [Pools de passerelles](#bkmk_pools)  
+-   [Pools de passerelle](#bkmk_pools)  
   
--   [Évolutivité de Pool de passerelle](#bkmk_gps)  
+-   [Extensibilité du pool de passerelles](#bkmk_gps)  
   
--   [Redondance de Pool de passerelle M + N](#bkmk_m)  
+-   [Redondance du pool de passerelle M + N](#bkmk_m)  
   
 -   [Réflecteur d’itinéraire](#bkmk_rr)  
   
 ## <a name="bkmk_s2s"></a>Options de connectivité de site à site  
-Passerelle RAS prend désormais en charge trois types de connexions VPN de site à site :  Internet Key Exchange version 2 (IKEv2) tunnels de réseau privé virtuel (VPN) site à site VPN de couche 3 (L3) et l’Encapsulation GRE (Generic Routing).  
+La passerelle RAS prend désormais en charge trois types de connexions VPN de site à site :  Les tunnels VPN (réseau privé virtuel) de site à site (VPN), de couche 3 (L3) et d’encapsulation générique de routage (GRE) de protocole IKE (Internet Key Exchange) version 2 (IKEv2).  
   
-Pour plus d’informations sur GRE, consultez [Tunneling GRE dans Windows Server 2016](../../../../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
+Pour plus d’informations sur GRE, voir [tunneling GRE dans Windows Server 2016](../../../../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
   
-## <a name="bkmk_pools"></a>Pools de passerelles  
-Dans Windows Server 2016, vous pouvez créer des pools de passerelles de types différents. Pools de passerelles contiennent de nombreuses instances de passerelle RAS et acheminent le trafic réseau entre les réseaux physiques et virtuels. Pools de passerelles peuvent effectuer toutes les fonctions de passerelle individuelles - Internet Key Exchange version 2 (IKEv2) tunnels de réseau privé virtuel (VPN) site à site VPN de couche 3 (L3) et l’Encapsulation générique de routage (GRE) - ou le pool peut effectuer toutes ces fonctions et agir en tant qu’un pool mixte.  
+## <a name="bkmk_pools"></a>Pools de passerelle  
+Dans Windows Server 2016, vous pouvez créer des pools de passerelle de types différents. Les pools de passerelle contiennent de nombreuses instances de passerelle RAS et acheminent le trafic réseau entre les réseaux physiques et virtuels. Les pools de passerelle peuvent exécuter n’importe quelle fonction de passerelle, à protocole IKE (Internet Key Exchange) version 2 (IKEv2), un réseau privé virtuel (VPN) de site à site, un VPN de couche 3 (L3) et des tunnels GRE (Generic Routing Encapsulation), ou le pool peut effectuer toutes ces opérations Functions et jouent le rôle de pool mixte.  
   
-Vous pouvez créer des pools de passerelle à l’aide d’une logique que vous préférez selon les besoins de votre infrastructure. Par exemple, vous pouvez créer des pools de passerelle en fonction d’une des caractéristiques suivantes.  
+Vous pouvez créer des pools de passerelle à l’aide de n’importe quelle logique que vous préférez en fonction de vos besoins en matière d’infrastructure. Par exemple, vous pouvez créer des pools de passerelle basés sur l’une des caractéristiques suivantes.  
   
--   Types de tunnel VPN IKEv2, VPN L3, GRE VPN)  
+-   Types de tunnels (VPN IKEv2, VPN L3, VPN GRE)  
   
 -   Capacité  
   
--   Niveau de redondance (selon votre plan de facturation pour les clients de la fiabilité)  
+-   Niveau de redondance (fiabilité basé sur votre plan de facturation pour les locataires)  
   
 -   Séparation personnalisée pour les clients  
   
-Pour plus d’informations, consultez [passerelle RAS haute disponibilité](RAS-Gateway-High-Availability.md).  
+Pour plus d’informations, consultez [haute disponibilité de la passerelle RAS](RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_gps"></a>Évolutivité de Pool de passerelle  
-Vous pouvez facilement augmenter un pool de passerelle vers le haut ou vers le bas en ajoutant ou supprimant des machines virtuelles de passerelle dans le pool. Suppression ou ajout de passerelles n’interrompt pas les services fournis par un pool. Vous pouvez également ajouter et supprimer des pools d’ensemble des passerelles.  
+## <a name="bkmk_gps"></a>Extensibilité du pool de passerelles  
+Vous pouvez facilement mettre à l’échelle un pool de passerelle en ajoutant ou en supprimant des machines virtuelles de passerelle dans le pool. La suppression ou l’ajout de passerelles n’interrompt pas les services fournis par un pool. Vous pouvez également ajouter et supprimer des pools complets de passerelles.  
   
-Pour plus d’informations, consultez [passerelle RAS haute disponibilité](RAS-Gateway-High-Availability.md).  
+Pour plus d’informations, consultez [haute disponibilité de la passerelle RAS](RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_m"></a>Redondance de Pool de passerelle M + N  
-Chaque pool de passerelle est redondant M + N. Cela signifie qu’un suis ' nombre de passerelle active les machines virtuelles (VM) est sauvegardé par un nombre « n » des machines virtuelles de passerelle de secours. M + N redondance vous offre davantage de flexibilité dans la détermination du niveau de fiabilité dont vous avez besoin lorsque vous déployez la passerelle RAS. Au lieu d’utiliser une seule passerelle RAS secours par RAS passerelle machine virtuelle active, qui est la seule option de configuration avec Windows Server 2012 R2 - vous pouvez désormais configurer des machines virtuelles secours autant que nécessaire. La fonctionnalité de gestionnaire de Service de passerelle de contrôleur réseau utilise efficacement la capacité de machine virtuelle de passerelle RAS de secours pour assurer le basculement fiable si un actif échoue ou perd la connectivité de machine virtuelle de passerelle RAS.  
+## <a name="bkmk_m"></a>Redondance du pool de passerelle M + N  
+Chaque pool de passerelle est M + N redondant. Cela signifie qu’un nombre « m » d’ordinateurs virtuels de passerelle active (VM) est sauvegardé par un nombre « N » de machines virtuelles de passerelle de secours. La redondance M + N offre une plus grande flexibilité pour déterminer le niveau de fiabilité dont vous avez besoin lorsque vous déployez la passerelle RAS. Au lieu d’utiliser une seule passerelle RAS de secours par machine virtuelle de passerelle RAS active, qui est la seule option de configuration avec Windows Server 2012 R2, vous pouvez désormais configurer autant de machines virtuelles de secours que nécessaire. La fonctionnalité de Service Manager de passerelle du contrôleur de réseau utilise efficacement la capacité de la machine virtuelle de la passerelle RAS de secours pour fournir un basculement fiable si une machine virtuelle de passerelle RAS active échoue ou perd la connectivité.  
   
-Pour plus d’informations, consultez [passerelle RAS haute disponibilité](RAS-Gateway-High-Availability.md).  
+Pour plus d’informations, consultez [haute disponibilité de la passerelle RAS](RAS-Gateway-High-Availability.md).  
   
 ## <a name="bkmk_rr"></a>Réflecteur d’itinéraire  
-Le réflecteur d’itinéraire de protocole BGP (Border Gateway) est désormais inclus avec la passerelle RAS et fournit une alternative à la topologie de maille pleine BGP est requis pour la synchronisation de routage entre des routeurs. Avec la synchronisation de maillage complet, tous les routeurs BGP doivent se connecter tous les autres routeurs dans la topologie de routage. Lorsque vous utilisez réflecteur d’itinéraire, toutefois, le réflecteur d’itinéraire est le seul routeur qui se connecte avec tous les autres routeurs, appelés BGP clients, simplifiant ainsi la synchronisation de l’itinéraire et réduire le trafic réseau. Le réflecteur d’itinéraire apprend les itinéraires de tous les calcule les itinéraires meilleures et redistribue les itinéraires meilleures à ses clients BGP.  
+Le réflecteur d’itinéraire Border Gateway Protocol (BGP) est désormais inclus dans la passerelle RAS et fournit une alternative à la topologie de maillage complet BGP requise pour la synchronisation d’itinéraires entre les routeurs. Avec la synchronisation de maillage complète, tous les routeurs BGP doivent se connecter à tous les autres routeurs de la topologie de routage. Toutefois, lorsque vous utilisez le réflecteur d’itinéraire, le réflecteur d’itinéraire est le seul routeur qui se connecte à tous les autres routeurs, appelés clients BGP, ce qui simplifie la synchronisation des itinéraires et réduit le trafic réseau. Le réflecteur d’itinéraire apprend tous les routages, calcule les meilleurs itinéraires et redistribue les meilleurs itinéraires à ses clients BGP.  
   
-Avec Windows Server 2016, vous pouvez configurer les tunnels d’accès à distance d’un client individuel à la fermeture de plusieurs machines virtuelles de passerelle RAS. Cela offre une flexibilité accrue pour les fournisseurs de Service Cloud face à des circonstances où une seule machine virtuelle de la passerelle RAS ne peut pas répondre à toutes les exigences de bande passante des connexions client.  
+Avec Windows Server 2016, vous pouvez configurer les tunnels d’accès à distance d’un locataire individuel pour qu’ils se terminent sur plusieurs machines virtuelles de passerelle RAS. Cela offre une plus grande flexibilité pour les fournisseurs de services Cloud dans le cas où une machine virtuelle de passerelle RAS ne peut pas satisfaire à toutes les exigences de bande passante des connexions client.  
   
-Cette fonctionnalité, présente toutefois, la complexité supplémentaire de gestion d’itinéraires et une synchronisation efficace des itinéraires entre les sites distants de locataire et leurs ressources virtuelles dans le centre de données cloud. En fournissant des locataires avec des connexions à plusieurs passerelles RAS introduit également une complexité supplémentaire dans la configuration à la fin de l’entreprise, où chaque site client aura des voisins de routage distincts.  
+Toutefois, cette fonctionnalité introduit la complexité supplémentaire de la gestion des itinéraires et une synchronisation efficace des itinéraires entre les sites distants du client et leurs ressources virtuelles dans le centre de donnes Cloud. Fournir des clients avec des connexions à plusieurs passerelles RAS introduit également une complexité supplémentaire dans la configuration au niveau de l’entreprise, où chaque site locataire aura des voisins de routage distincts.  
   
-Un réflecteur d’itinéraire BGP dans le plan de contrôle résout ces problèmes et rend le déploiement d’infrastructure interne CSP transparent pour les clients d’entreprise. Voici quelques points clés concernant le réflecteur d’itinéraire BGP qui est inclus avec la passerelle RAS et intégré avec un contrôleur de réseau.  
+Un réflecteur d’itinéraire BGP dans le plan de contrôle résout ces problèmes et rend le déploiement de l’infrastructure interne du CSP transparent pour les locataires de l’entreprise. Voici quelques points clés relatifs au réflecteur d’itinéraires BGP inclus avec la passerelle RAS et intégrés au contrôleur de réseau.  
   
--   Réflecteur d’itinéraire A dans un déploiement de Sdn est une entité logique qui se trouve sur le plan de contrôle entre les passerelles RAS et le contrôleur de réseau. Il ne participe pas, toutefois, routage de plan de données.  
+-   Un réflecteur d’itinéraire dans un déploiement réseau à définition logicielle est une entité logique qui se trouve sur le plan de contrôle entre les passerelles RAS et le contrôleur de réseau. Toutefois, il ne participe pas au routage du plan de données.  
   
--   Lorsque vous ajoutez un nouveau locataire pour votre centre de données, contrôleur de réseau configure automatiquement le premier locataire passerelle RAS comme un réflecteur d’itinéraire.  
+-   Lorsque vous ajoutez un nouveau locataire à votre centre de donné, le contrôleur de réseau configure automatiquement la première passerelle RAS du client en tant que réflecteur d’itinéraire.  
   
--   Chaque client possède un réflecteur d’itinéraire correspondant, et il se trouve sur l’une des machines virtuelles de la passerelle de RAS qui sont associés à ce client.  
+-   Chaque locataire a un réflecteur d’itinéraire correspondant et se trouve sur l’une des machines virtuelles de passerelle RAS associées à ce locataire.  
   
--   Un client de réflecteur d’itinéraire agit en tant que le réflecteur d’itinéraire pour tous les ordinateurs virtuels passerelle RAS qui sont associés au locataire. Passerelles de client autres que le réflecteur d’itinéraire de passerelle RAS sont les Clients de réflecteur d’itinéraire. Le réflecteur d’itinéraire assure la synchronisation de routage entre tous les Clients de réflecteur d’itinéraire afin que le routage de chemin d’accès de données réelles peut se produire.  
+-   Un réflecteur d’itinéraire de locataire fait office de réflecteur de routage pour toutes les machines virtuelles de passerelle RAS associées au locataire. Les passerelles de locataire autres que le réflecteur de routage de passerelle RAS sont les clients de réflecteur d’itinéraire. Le réflecteur d’itinéraire effectue une synchronisation d’itinéraire entre tous les clients de réflecteur d’itinéraires afin que le routage du chemin de données réel puisse se produire.  
   
--   Réflecteur d’itinéraire A ne fournit pas de services de réflecteur d’itinéraire pour la passerelle RAS sur lequel il est configuré.  
+-   Un réflecteur d’itinéraire ne fournit pas de services de réflecteur d’itinéraire pour la passerelle RAS sur laquelle il est configuré.  
   
--   Réflecteur d’itinéraire A met à jour le contrôleur de réseau avec les itinéraires d’entreprise qui correspondent à des sites d’entreprise du client. Ainsi, le contrôleur de réseau configurer les stratégies de virtualisation de réseau Hyper-V requis sur le réseau virtuel client pour l’accès du chemin d’accès des données de bout en bout.  
+-   Un réflecteur de route met à jour le contrôleur de réseau avec les itinéraires d’entreprise qui correspondent aux sites d’entreprise du locataire. Cela permet au contrôleur de réseau de configurer les stratégies de virtualisation de réseau Hyper-V requises sur le réseau virtuel du locataire pour l’accès au chemin de données de bout en bout.  
   
--   Si vos clients d’entreprise utilisent le routage BGP dans l’espace d’adressage du client, le réflecteur d’itinéraire de passerelle RAS est voisin BGP (eBGP) externe uniquement pour tous les sites du client correspondant. Cela est vrai quel que soit les points de terminaison de tunnel du client d’entreprise. En d’autres termes, peu importe quelle machine virtuelle à la passerelle RAS dans le CSP, centre de données termine le tunnel VPN de site à site pour un site locataire, eBGP homologue pour tous les sites de locataire est le réflecteur d’itinéraire.  
+-   Si les clients de votre entreprise utilisent le routage BGP dans l’espace d’adressage du client, le réflecteur de l’itinéraire de la passerelle RAS est le seul voisin BGP externe (eBGP) pour tous les sites du locataire correspondant. Cela est vrai, quels que soient les points de terminaison de tunnel du locataire d’entreprise. En d’autres termes, quelle que soit la machine virtuelle de passerelle RAS dans le centre de production CSP qui termine le tunnel VPN de site à site pour un site locataire, l’homologue eBGP pour tous les sites locataires est le réflecteur d’itinéraire.  
   
-Pour plus d’informations, consultez [Architecture de déploiement de passerelle RAS](RAS-Gateway-Deployment-Architecture.md) et la demande Internet Engineering Task Force (IETF) pour la rubrique de commentaires [RFC 4456 BGP itinéraire réflexion : Une Alternative à intégral Mesh BGP interne (IBGP)](https://tools.ietf.org/html/rfc4456).  
+Pour plus d’informations, consultez Architecture de déploiement de la [passerelle RAS](RAS-Gateway-Deployment-Architecture.md) et la rubrique Request for Comments IETF (Internet Engineering Task Force) [RFC 4456 BGP route Reflection : Une alternative à la maille complète BGP (IBGP) ](https://tools.ietf.org/html/rfc4456).  
   
 

@@ -1,35 +1,35 @@
 ---
 title: RSC (Receive Segment Coalescing) dans le commutateur virtuel
-description: Réception Segment fusion (RSC) dans le commutateur virtuel est une fonctionnalité de Windows Server 2019 et mettre à jour du 10 octobre 2018 Windows est que vous aide à réduire l’utilisation du processeur d’ordinateur hôte et augmente le débit pour les charges de travail virtuelles par fusion de plusieurs segments TCP en moins, mais plus grand segments. Traitement des segments de moins de grande taille (fusionnés) est plus efficace que le traitement nombreux, petits segments.
+description: La fusion de segment de réception (RSC) dans le vSwitch est une fonctionnalité de Windows Server 2019 et de la mise à jour 2018 d’octobre de Windows 10, qui permet de réduire l’utilisation du processeur de l’ordinateur hôte et augmente le débit des charges de travail virtuelles en fusionnant plusieurs segments TCP en un nombre inférieur, mais plus grand segments. Le traitement d’un nombre réduit de segments de grande taille (fusionné) est plus efficace que le traitement de nombreux petits segments.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.author: dacuo
 author: shortpatti
 ms.date: 09/07/2018
-ms.openlocfilehash: 667e795e398443cadd4c966cc31e65eeee4962f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dce890d5ae542789c49bf08b5e7f25e62ea2e8c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827780"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355303"
 ---
-# <a name="rsc-in-the-vswitch"></a>RSC dans le commutateur virtuel
+# <a name="rsc-in-the-vswitch"></a>RSC dans le vSwitch
 >S’applique à : Windows Server 2019
 
-Réception Segment fusion (RSC) dans le commutateur virtuel est une fonctionnalité de Windows Server 2019 et mettre à jour du 10 octobre 2018 Windows est que vous aide à réduire l’utilisation du processeur d’ordinateur hôte et augmente le débit pour les charges de travail virtuelles par fusion de plusieurs segments TCP en moins, mais plus grand segments. Traitement des segments de moins de grande taille (fusionnés) est plus efficace que le traitement nombreux, petits segments.
+La fusion de segment de réception (RSC) dans le vSwitch est une fonctionnalité de Windows Server 2019 et de la mise à jour 2018 d’octobre de Windows 10, qui permet de réduire l’utilisation du processeur de l’ordinateur hôte et augmente le débit des charges de travail virtuelles en fusionnant plusieurs segments TCP en un nombre inférieur, mais plus grand segments. Le traitement d’un nombre réduit de segments de grande taille (fusionné) est plus efficace que le traitement de nombreux petits segments.
 
-Windows Server 2012 et versions ultérieur comprenait une version de déchargement de matériel uniquement (implémentée dans la carte réseau physique) de la technologie, également appelée de réception de la fusion du Segment. Cette version déchargée de RSC est toujours disponible dans les versions ultérieures de Windows. Toutefois, il n’est pas compatible avec les charges de travail virtuelles et a été désactivée une fois qu’une carte réseau physique est attachée à un commutateur virtuel. Pour plus d’informations sur la version du matériel uniquement de RSC, consultez [fusion de Segment de réception (RSC)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh997024(v=ws.11)).
+Windows Server 2012 et versions ultérieures comprenaient une version de déchargement matérielle uniquement (implémentée dans la carte réseau physique) de la technologie également connue sous le nom de fusion de segment de réception. Cette version déchargée de RSC est toujours disponible dans les versions ultérieures de Windows. Toutefois, il est incompatible avec les charges de travail virtuelles et a été désactivé une fois qu’une carte réseau physique est attachée à un vSwitch. Pour plus d’informations sur la version matérielle uniquement de RSC, consultez [réception de la fusion de segments (RSC)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh997024(v=ws.11)).
 
-## <a name="scenarios-that-benefit-from-rsc-in-the-vswitch"></a>Scénarios qui bénéficient de RSC dans le commutateur virtuel
+## <a name="scenarios-that-benefit-from-rsc-in-the-vswitch"></a>Scénarios qui tirent parti de RSC dans le vSwitch
 
-Charges de travail dont datapath traverse un commutateur virtuel tire parti de cette fonctionnalité.
+Les charges de travail dont chemin traverse un commutateur virtuel tirent parti de cette fonctionnalité.
 
 Exemple :
 
--   Hôte virtuel cartes d’interface réseau, notamment :
+-   Héberger des cartes réseau virtuelles, notamment :
 
     -   Mise en réseau SDN (Software Defined Networking)
 
@@ -37,45 +37,45 @@ Exemple :
 
     -   Espaces de stockage directs
 
--   Cartes réseau virtuelles invité Hyper-V
+-   Cartes réseau virtuelles invitées Hyper-V
 
 -   Passerelles GRE de mise en réseau à définition logicielle
 
 -   Conteneur
 
-Charges de travail qui ne sont pas compatibles avec cette fonctionnalité sont les suivantes :
+Les charges de travail qui ne sont pas compatibles avec cette fonctionnalité sont les suivantes :
 
--   Passerelles IPSEC de mise en réseau à définition logicielle
+-   Passerelles IPSEC de mise en réseau définie par logiciel
 
--   SR-IOV activé des cartes réseau virtuelles
+-   Cartes réseau virtuelles SR-IOV activées
 
 -   SMB Direct
 
-## <a name="configure-rsc-in-the-vswitch"></a>Configurer RSC dans le commutateur virtuel
+## <a name="configure-rsc-in-the-vswitch"></a>Configurer RSC dans le vSwitch
 
 
 Par défaut, sur les commutateurs virtuels externes, RSC est activé.
 
-**Afficher les paramètres actuels :**
+**Affichez les paramètres actuels :**
 
 ```PowerShell
 Get-VMSwitch -Name vSwitchName | Select-Object *RSC*
 ```
 
-**Activer ou désactiver les RSC dans le commutateur virtuel**
+**Activer ou désactiver RSC dans le vSwitch**
 
 
 >[!IMPORTANT]
->Important : RSC dans le commutateur virtuel peut être activé et désactivé à la volée sans impact sur les connexions existantes.
+>Important : RSC dans le vSwitch peut être activé et désactivé à la volée sans impact sur les connexions existantes.
 
 
-**Désactiver RSC dans le commutateur virtuel**
+**Désactiver RSC dans le vSwitch**
 
 ```PowerShell
 Set-VMSwitch -Name vSwitchName -EnableSoftwareRsc $false
 ```
 
-**Réactiver RSC dans le commutateur virtuel**
+**Réactivez RSC dans le vSwitch**
 
 ```PowerShell
 Set-VMSwitch -Name vSwitchName -EnableSoftwareRsc $True

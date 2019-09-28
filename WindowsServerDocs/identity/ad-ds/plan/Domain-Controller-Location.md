@@ -7,22 +7,22 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 6b66b224278f15b6abeecbef8fe0778a98159bb7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48ea357b952738c63274d194b4a5aa5d4adcb3d8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872620"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408843"
 ---
 # <a name="domain-controller-location"></a>Emplacement des contrôleurs de domaine
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Les clients utilisent le système DNS (Domain Name) pour localiser les contrôleurs de domaine pour accomplir des opérations telles que le traitement des demandes d’ouverture de session ou la recherche dans l’annuaire pour les ressources publiées. Contrôleurs de domaine enregistrent plusieurs enregistrements dans DNS pour aider les clients et autres ordinateurs pour les localiser. Ces enregistrements sont collectivement appelés les enregistrements de localisateur.  
+Les clients utilisent le système DNS (Domain Name System) pour localiser les contrôleurs de domaine et effectuer des opérations telles que le traitement des demandes de connexion ou la recherche de ressources publiées dans l’annuaire. Les contrôleurs de domaine inscrivent un grand nombre d’enregistrements dans DNS pour aider les clients et les autres ordinateurs à les localiser. Ces enregistrements sont collectivement désignés par le terme « enregistrements de localisateur ».  
   
-Contrôleurs de domaine utilisent également DNS pour localiser les autres contrôleurs de domaine et effectuer des tâches telles que la réplication. Le processus par lequel les contrôleurs de domaine localiser d’autres contrôleurs de domaine est le même que le processus par lequel les clients rechercher les contrôleurs de domaine.  
+Les contrôleurs de domaine utilisent également le DNS pour rechercher d’autres contrôleurs de domaine et effectuer des tâches telles que la réplication. Le processus par lequel les contrôleurs de domaine localisent les autres contrôleurs de domaine est le même que le processus par lequel les clients localisent les contrôleurs de domaine.  
   
 
 

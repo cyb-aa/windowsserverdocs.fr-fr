@@ -2,18 +2,18 @@
 title: Modifier les propriétés de quota automatique
 description: Cet article décrit la procédure pour modifier les propriétés de quota automatique
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: aa2155268d42293ade925d53da5e29142d13aae4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b4fda5cdfeed8df02fee922c8dc5fddc75c56ff
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878060"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403119"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>Modifier les propriétés de quota automatique
 
@@ -45,6 +45,6 @@ Lorsque vous modifiez un quota automatique, vous avez la possibilité d’étend
 ## <a name="see-also"></a>Voir aussi
 
 -   [Gestion de quota](quota-management.md)
--   [Créer une fonction automatique d’un quota](create-auto-apply-quota.md)
+-   [Créer un quota automatique](create-auto-apply-quota.md)
 
 

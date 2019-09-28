@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 19013c3f132b7486647ade2c9c4950b65c21b8e7
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.prod: windows-server
+ms.openlocfilehash: 72e71ce2d1427f392aa02d32597f92d031f9a5c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975316"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407006"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Préparer votre environnement pour Windows Admin Center
 
@@ -108,7 +108,7 @@ Pour pouvoir gérer Microsoft Hyper-V Server 2012 R2 avec Windows Admin Center
 3. Activer le rôle de serveur de fichiers
 4. Activer le module Hyper-V pour PowerShell
 
-### <a name="step-1-install-windows-management-framework-51"></a>Étape 1 : Installer Windows Management Framework 5,1
+### <a name="step-1-install-windows-management-framework-51"></a>Étape 1 : Installer Windows Management Framework 5,1
 
 Windows Admin Center requiert des fonctionnalités de PowerShell qui ne sont pas incluses par défaut dans Microsoft Hyper-V Server 2012 R2. Pour gérer Microsoft Hyper-V Server 2012 R2 avec Windows Admin Center, vous devez installer WMF version 5.1 ou ultérieure.
 
@@ -116,7 +116,7 @@ Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé
 
 S’il n’est pas installé, vous pouvez [télécharger WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
 
-### <a name="step-2-enable-remote-management"></a>Étape 2 : Activer la gestion à distance
+### <a name="step-2-enable-remote-management"></a>Étape 2 : Activer la gestion à distance
 
 Pour activer la gestion à distance d’Hyper-V Server :
 
@@ -125,7 +125,7 @@ Pour activer la gestion à distance d’Hyper-V Server :
 3. Tapez **1** pour permettre la gestion à distance.
 4. Tapez **4** pour revenir au menu principal.
 
-### <a name="step-3-enable-file-server-role"></a>Étape 3 : Activer le rôle de serveur de fichiers
+### <a name="step-3-enable-file-server-role"></a>Étape 3 : Activer le rôle de serveur de fichiers
 
 Pour activer le rôle de serveur de fichiers pour une gestion à distance et un partage de fichiers de base :
 
@@ -134,7 +134,7 @@ Pour activer le rôle de serveur de fichiers pour une gestion à distance et un 
 
 ![Capture d’écran des rôles et des fonctionnalités montrant le rôle Services de fichiers et de services iSCSI sélectionné](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
 
-### <a name="step-4-enable-hyper-v-module-for-powershell"></a>Étape 4 : Activer le module Hyper-V pour PowerShell
+### <a name="step-4-enable-hyper-v-module-for-powershell"></a>Étape 4 : Activer le module Hyper-V pour PowerShell
 
 Pour activer le module Hyper-V pour les fonctionnalités de PowerShell :
 

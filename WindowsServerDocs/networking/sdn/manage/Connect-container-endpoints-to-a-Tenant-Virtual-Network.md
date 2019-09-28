@@ -1,9 +1,9 @@
 ---
 title: Connecter les points de terminaison de conteneur à un réseau virtuel locataire
-description: Dans cette rubrique, nous vous montrons comment se connecter les points de terminaison de conteneur à un réseau virtuel locataire existant créé par le biais SDN. Vous utilisez la l2bridge (et éventuellement l2tunnel) pilote réseau disponible avec le plug-in de libnetwork Windows pour Docker créer un réseau de conteneurs sur la machine virtuelle locataire.
+description: Dans cette rubrique, nous vous montrons comment connecter des points de terminaison de conteneur à un réseau virtuel client existant créé par le biais de SDN. Vous utilisez le pilote réseau l2bridge (et éventuellement l2tunnel) disponible avec le plug-in Windows libnetwork pour l’ordinateur de veille pour créer un réseau de conteneurs sur la machine virtuelle du locataire.
 manager: ravirao
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,42 +13,42 @@ ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: pashort
 author: jmesser81
 ms.date: 08/24/2018
-ms.openlocfilehash: cb9c7157ffb07233e41e1c933f6775f1cd0766a9
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 83996f7ffb82d01c9f36945efa022f0dd0b9825b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446349"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355820"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Connecter les points de terminaison de conteneur à un réseau virtuel locataire
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, nous vous montrons comment se connecter les points de terminaison de conteneur à un réseau virtuel locataire existant créé par le biais SDN. Vous utilisez le *l2bridge* (et éventuellement *l2tunnel*) pilote réseau disponible avec le plug-in de libnetwork Windows pour Docker créer un réseau de conteneurs sur la machine virtuelle locataire.
+Dans cette rubrique, nous vous montrons comment connecter des points de terminaison de conteneur à un réseau virtuel client existant créé par le biais de SDN. Vous utilisez le pilote réseau *l2bridge* (et éventuellement *l2tunnel*) disponible avec le plug-in Windows libnetwork pour l’ordinateur de veille pour créer un réseau de conteneurs sur la machine virtuelle du locataire.
 
-Dans le [pilotes réseau de conteneur](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/network-drivers-topologies) rubrique, nous avons abordé les pilotes réseau plusieurs sont disponibles via Docker sur Windows. Pour les SDN, utilisez le *l2bridge* et *l2tunnel* pilotes. Pour les deux pilotes, chaque point de terminaison de conteneur est dans le même sous-réseau virtuel que la machine de virtuelle conteneur hôte (client). 
+Dans la rubrique relative aux [pilotes réseau de conteneur](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/network-drivers-topologies) , nous avons abordé les différents pilotes réseau disponibles par le biais de l’arrimeur sur Windows. Pour SDN, utilisez les pilotes *l2bridge* et *l2tunnel* . Pour les deux pilotes, chaque point de terminaison de conteneur se trouve dans le même sous-réseau virtuel que l’ordinateur virtuel de l’hôte de conteneur (locataire). 
 
-L’hôte de mise en réseau Service HNS (), via le plug-in de cloud privé, attribue dynamiquement les adresses IP des points de terminaison de conteneur. Les points de terminaison de conteneur ont des adresses IP uniques, mais partagent la même adresse MAC de la machine de virtuelle conteneur hôte (client) en raison de la traduction d’adresses de couche 2. 
+Le service de mise en réseau hôte (HNS), via le plug-in de cloud privé, attribue dynamiquement les adresses IP pour les points de terminaison de conteneur. Les points de terminaison de conteneur ont des adresses IP uniques, mais partagent la même adresse MAC de l’ordinateur virtuel de l’hôte de conteneur (locataire) en raison de la traduction d’adresses de couche 2. 
 
-Stratégie réseau (ACL, l’encapsulation et QoS) pour ces points de terminaison de conteneur sont appliquées dans l’hôte Hyper-V physique comme reçu par le contrôleur de réseau et définis dans les systèmes de gestion de la couche supérieure. 
+La stratégie réseau (ACL, encapsulation et QoS) de ces points de terminaison de conteneur est appliquée à l’hôte Hyper-V physique comme reçu par le contrôleur de réseau et défini dans les systèmes de gestion de couche supérieure. 
 
-La différence entre la *l2bridge* et *l2tunnel* pilotes sont :
+La différence entre les pilotes *l2bridge* et *l2tunnel* est la suivante :
 
 
 |                                                                                                                                                                                                                                                                            l2bridge                                                                                                                                                                                                                                                                            |                                                                                                 l2tunnel                                                                                                  |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Points de terminaison de conteneur qui résident sur : <ul><li>Le même conteneur hôte de machine virtuelle et sur le même sous-réseau a tout le trafic réseau ponté au sein du commutateur virtuel Hyper-V. </li><li>Autre conteneur héberger les machines virtuelles ou sur des sous-réseaux différents leur trafic transmis à l’hôte Hyper-V physique. </li></ul>Stratégie de réseau ne pas obtenir appliquée dans la mesure où le trafic réseau entre les conteneurs sur le même hôte et dans le même sous-réseau ne sont pas acheminées à l’hôte physique. Stratégie de réseau s’applique le trafic réseau de conteneur uniquement entre les hôtes ou entre sous-réseaux. | *Tous les* le trafic réseau entre deux points de terminaison de conteneur est transmis à l’hôte Hyper-V physique, quel que soit l’hôte ou au sous-réseau. Stratégie de réseau s’applique au trafic de réseau entre sous-réseaux et entre les hôtes. |
+| Points de terminaison de conteneur résidant sur : <ul><li>La même machine virtuelle d’hôte de conteneur et sur le même sous-réseau ont tout le trafic réseau relié dans le commutateur virtuel Hyper-V. </li><li>Le trafic des machines virtuelles hôtes de conteneur ou sur des sous-réseaux différents est transféré à l’hôte Hyper-V physique. </li></ul>La stratégie réseau n’est pas appliquée car le trafic réseau entre les conteneurs sur le même ordinateur hôte et dans le même sous-réseau n’est pas transmis à l’hôte physique. La stratégie réseau s’applique uniquement au trafic réseau de conteneurs inter-hôtes ou entre sous-réseaux. | *Tout* le trafic réseau entre deux points de terminaison de conteneur est transféré à l’hôte Hyper-V physique, quel que soit l’hôte ou le sous-réseau. La stratégie réseau s’applique à la fois au trafic réseau entre les sous-réseaux et entre les hôtes. |
 
 ---
 
 >[!NOTE]
->Ces modes de mise en réseau ne fonctionnent pas pour les points de terminaison de conteneur windows qui se connecte à un réseau virtuel locataire dans le cloud public Azure.
+>Ces modes de mise en réseau ne fonctionnent pas pour connecter des points de terminaison de conteneur Windows à un réseau virtuel de locataire dans le cloud public Azure.
 
 
 ## <a name="prerequisites"></a>Prérequis
 -  Une infrastructure SDN déployée avec le contrôleur de réseau.
--  Un réseau virtuel locataire a été créé.
--  Une machine virtuelle de locataire déployé avec la fonctionnalité de conteneur de Windows est activé, Docker est installé et la fonctionnalité Hyper-V est activée. La fonctionnalité Hyper-V est nécessaire pour installer plusieurs fichiers binaires pour les réseaux l2bridge et l2tunnel.
+-  Un réseau virtuel client a été créé.
+-  Une machine virtuelle cliente déployée avec la fonctionnalité de conteneur Windows activée, Dockr installé et la fonctionnalité Hyper-V activée. La fonctionnalité Hyper-V est requise pour installer plusieurs fichiers binaires pour les réseaux l2bridge et l2tunnel.
 
    ```powershell
    # To install HyperV feature without checks for nested virtualization
@@ -56,21 +56,18 @@ La différence entre la *l2bridge* et *l2tunnel* pilotes sont :
    ```
 
 >[!Note]
->[Virtualisation imbriquée](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/nesting) et exposer les extensions de virtualisation n’est nécessaire, sauf si l’utilisation de conteneurs de Hyper-V. 
+>[La virtualisation imbriquée](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/nesting) et l’exposition d’extensions de virtualisation ne sont pas nécessaires, sauf en cas d’utilisation de conteneurs Hyper-V. 
 
 
 ## <a name="workflow"></a>Flux de travail
 
-[1. Ajouter plusieurs configurations IP à une ressource VM NIC existante via le contrôleur de réseau (hôte Hyper-V)](#1-add-multiple-ip-configurations)
-[2. Activer le proxy réseau sur l’ordinateur hôte à allouer des adresses IP autorité de certification pour les points de terminaison de conteneur (hôte Hyper-V)](#2-enable-the-network-proxy)
-[3. Installer le plug-in pour affecter des adresses IP de l’autorité de certification aux points de terminaison de conteneur (conteneur hôte VM) de cloud privé](#3-install-the-private-cloud-plug-in)
-[4. Créer un *l2bridge* ou *l2tunnel* réseau à l’aide de docker (conteneur hôte VM)](#4-create-an-l2bridge-container-network)
+[1. Ajouter plusieurs configurations IP à une ressource de carte réseau de machine virtuelle existante via le contrôleur de réseau (hôte Hyper-V) ](#1-add-multiple-ip-configurations) @ no__t-1 @ no__t-22. Activez le proxy réseau sur l’ordinateur hôte pour allouer des adresses IP d’autorité de certification pour les points de terminaison de conteneur (hôte Hyper-V) ](#2-enable-the-network-proxy) @ no__t-1 @ no__t-23. Installez le plug-in de cloud privé pour affecter des adresses IP d’autorité de certification aux points de terminaison de conteneur (machine virtuelle hôte de conteneur) ](#3-install-the-private-cloud-plug-in) @ no__t-1 @ no__t-24. Créer un réseau *l2bridge* ou *l2tunnel* à l’aide de l’amarrage (ordinateur hôte de conteneur) ](#4-create-an-l2bridge-container-network)
 
 >[!NOTE]
->Plusieurs configurations IP n’est pas pris en charge sur les ressources de VM NIC créées par le biais de System Center Virtual Machine Manager. Il est recommandé pour ces types de déploiements que vous créez la ressource VM NIC hors bande à l’aide de PowerShell du contrôleur de réseau.
+>Plusieurs configurations IP ne sont pas prises en charge sur les ressources de carte réseau de machine virtuelle créées via System Center Virtual Machine Manager. Pour ces types de déploiement, il est recommandé de créer la ressource de carte réseau de machine virtuelle hors bande à l’aide de PowerShell de contrôleur de réseau.
 
-### <a name="1-add-multiple-ip-configurations"></a>1. Ajouter plusieurs Configurations IP
-Dans cette étape, nous partons du principe la VM NIC de la machine virtuelle locataire a une configuration d’adresse IP avec l’adresse IP de 192.168.1.9 et associée à un ID de ressource de réseau virtuel de « VNet1 » et les ressources de sous-réseau de machine virtuelle de « Subnet1 » dans le sous-réseau IP 192.168.1.0/24. Nous ajoutons 10 adresses IP pour les conteneurs à partir de 192.168.1.101 - 192.168.1.110.
+### <a name="1-add-multiple-ip-configurations"></a>1. Ajouter plusieurs configurations IP
+Dans cette étape, nous supposons que la carte réseau de machine virtuelle de la machine virtuelle cliente a une configuration IP avec l’adresse IP 192.168.1.9 et qu’elle est associée à l’ID de ressource de réseau virtuel « VNet1 » et à la ressource de sous-réseau de machine virtuelle « Subnet1 » dans le sous-réseau IP 192.168.1.0/24. Nous ajoutons 10 adresses IP pour les conteneurs à partir de 192.168.1.101-192.168.1.110.
 
 ```powershell
 Import-Module NetworkController
@@ -121,26 +118,26 @@ New-NetworkControllerNetworkInterface -ResourceId $vmnic.ResourceId -Properties 
 ```
 
 ### <a name="2-enable-the-network-proxy"></a>2. Activer le proxy réseau
-Dans cette étape, vous allez autoriser le proxy réseau à allouer des adresses IP pour la machine virtuelle hôte de conteneur. 
+Au cours de cette étape, vous allez autoriser le proxy réseau à allouer plusieurs adresses IP pour la machine virtuelle de l’hôte de conteneur. 
 
-Pour activer le proxy réseau, exécutez le [ConfigureMCNP.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1) de script sur le **hôte Hyper-V** héberge la machine de virtuelle conteneur hôte (client).
+Pour activer le proxy réseau, exécutez le script [ConfigureMCNP. ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1) sur l' **hôte Hyper-V** hébergeant l’ordinateur virtuel de l’hôte de conteneur (locataire).
 
 ```powershell
 PS C:\> ConfigureMCNP.ps1
 ```
 
-### <a name="3-install-the-private-cloud-plug-in"></a>3. Installer le plug-in de Cloud privé
-Dans cette étape, vous installez un plug-in pour autoriser le HNS communiquer avec le proxy réseau sur l’ordinateur hôte Hyper-V.
+### <a name="3-install-the-private-cloud-plug-in"></a>3. Installer le plug-in de cloud privé
+Dans cette étape, vous installez un plug-in pour permettre à HNS de communiquer avec le proxy réseau sur l’hôte Hyper-V.
 
-Pour installer le plug-in, exécutez le [InstallPrivateCloudPlugin.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) de script à l’intérieur de la **machine virtuelle de conteneur hôte (locataire)** .
+Pour installer le plug-in, exécutez le script [InstallPrivateCloudPlugin. ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) à l’intérieur de la **machine virtuelle de l’hôte de conteneur (locataire)** .
 
 
 ```powershell
 PS C:\> InstallPrivateCloudPlugin.ps1
 ```
 
-### <a name="4-create-an-l2bridge-container-network"></a>4. Créer un *l2bridge* réseau de conteneurs
-Dans cette étape, vous utilisez le `docker network create` commande sur le **machine virtuelle de conteneur hôte (locataire)** pour créer un réseau l2bridge. 
+### <a name="4-create-an-l2bridge-container-network"></a>4. Créer un réseau de conteneurs *l2bridge*
+Au cours de cette étape, vous allez utiliser la commande `docker network create` sur la **machine virtuelle de l’hôte de conteneur (locataire)** pour créer un réseau l2bridge. 
 
 ```powershell
 # Create the container network
@@ -151,8 +148,8 @@ C:\> docker run -it --network=MyContainerOverlayNetwork <image> <cmd>
 ```
 
 >[!NOTE]
->Attribution IP statique n’est pas pris en charge avec *l2bridge* ou *l2tunnel* conteneur réseaux lorsqu’il est utilisé avec la pile SDN de Microsoft.
+>L’attribution d’adresses IP statiques n’est pas prise en charge avec les réseaux de conteneurs *l2bridge* ou *l2tunnel* lorsqu’elle est utilisée avec la pile Microsoft Sdn.
 
-## <a name="more-information"></a>Informations supplémentaires
-Pour plus d’informations sur le déploiement d’une infrastructure SDN, consultez [déployer une Infrastructure de réseau défini par logiciel](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure).
+## <a name="more-information"></a>Plus d’informations
+Pour plus d’informations sur le déploiement d’une infrastructure SDN, consultez [déployer une infrastructure réseau à définition logicielle](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure).
 

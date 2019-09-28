@@ -1,8 +1,8 @@
 ---
 title: tpmtool
-description: Rubrique de commandes de Windows pour tpmtool - Obtient des informations sur le Module de plateforme sécurisée.
+description: 'Rubrique relative aux commandes Windows pour tpmtool : obtient des informations sur la Module de plateforme sécurisée (TPM).'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,16 +12,16 @@ author: ashleytqy
 ms.author: ashleytqy
 manager: ronaldai
 ms.date: 05/07/2019
-ms.openlocfilehash: e125dbf6127b92c91e041c431f1e462e1f884168
-ms.sourcegitcommit: 0ff812a80f654fa2c35b1632524e27841eca75c7
+ms.openlocfilehash: 3967136bc64d1e06425a019466dea15ddce3a563
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68230866"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385719"
 ---
 # <a name="tpmtool"></a>tpmtool
 
-Cet utilitaire peut être utilisé pour obtenir des informations le [du Module de plateforme sécurisée (TPM)](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
+Cet utilitaire peut être utilisé pour obtenir des informations sur le [module de plateforme sécurisée (TPM) (TPM)](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 >[!IMPORTANT]
 >Certaines informations concernent la version préliminaire de produits susceptibles d’être considérablement modifiés d’ici leur commercialisation. Microsoft ne donne aucune garantie, expresse ou implicite, concernant les informations fournies ici.
@@ -37,27 +37,27 @@ tpmtool /parameter [<arguments>]
 
 |Paramètre|Description|
 |---------|-----------|
-|getdeviceinformation|Affiche les informations de base du module TPM. Vous pouvez trouver la signification des valeurs d’indicateur d’informations [ici](https://docs.microsoft.com/windows/desktop/SecProv/win32-tpm-isreadyinformation#parameters).|
-|GatherLogs [chemin d’accès de répertoire de sortie]|Collecte des journaux de module de plateforme sécurisée et les place dans le répertoire spécifié. Si ce répertoire n’existe pas, il est créé. Par défaut, ils sont placés dans le répertoire actif. Les fichiers possible générés sont : </br>-TpmEvents.evtx</br>-TpmInformation.txt</br>-SRTMBoot.dat</br>-SRTMResume.dat</br>-DRTMBoot.dat</br>-DRTMResume.dat</br>|
-|drivertracing [Démarrer / arrêter]|Démarrer / arrêter la collecte des traces de pilote de module de plateforme sécurisée. Le journal des traces, TPMTRACE.etl, sera généré et placé dans le répertoire actif.|
-|parsetcglogs [-valider (-v)]|Affiche le journal TCG analysé, également connu sous le Windows Boot Configuration journal (WBCL). Vous trouverez les descriptions d’événement plus récentes sur le [site Web TCG](https://trustedcomputinggroup.org/resource/pc-client-specific-platform-firmware-profile-specification/), sous **Descriptions d’événement**. Si le `-validate` l’indicateur est défini, valide le fait que les valeurs de Registre de Configuration plateforme (PCR) sur le module de plateforme sécurisée correspondent aux valeurs dans le journal.|
+|getdeviceinformation|Affiche les informations de base du module de plateforme sécurisée. La signification des valeurs des indicateurs d’informations est disponible [ici](https://docs.microsoft.com/windows/desktop/SecProv/win32-tpm-isreadyinformation#parameters).|
+|GatherLogs [chemin du répertoire de sortie]|Collecte les journaux TPM et les place dans le répertoire spécifié. Si ce répertoire n’existe pas, il est créé. Par défaut, ils sont placés dans le répertoire actif. Les fichiers générés sont les suivants : </br>-TpmEvents. evtx</br>-TpmInformation. txt</br>-SRTMBoot. dat</br>-SRTMResume. dat</br>-DRTMBoot. dat</br>-DRTMResume. dat</br>|
+|drivertracing [démarrer/arrêter]|Démarrer/arrêter la collecte des traces du pilote du module de plateforme sécurisée. Le journal des traces, TPMTRACE. etl, sera généré et placé dans le répertoire actif.|
+|parsetcglogs [-Validate (-v)]|Affiche le journal TCG analysé, également appelé journal de configuration de démarrage Windows (WBCL). Les descriptions d’événements les plus récentes se trouvent sur le [site Web TCG](https://trustedcomputinggroup.org/resource/pc-client-specific-platform-firmware-profile-specification/), sous **descriptions des événements**. Si l’indicateur `-validate` est défini, valide que les valeurs de registre de configuration de plateforme (PCR) sur le module de plateforme sécurisée correspondent aux valeurs du journal.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="tpmtool_examples"></a>Exemples
+## <a name="tpmtool_examples"></a>Illustre
 
-Pour afficher les informations de base du module TPM, tapez :
+Pour afficher les informations de base du module de plateforme sécurisée, tapez :
 ```
 tpmtool getdeviceinformation
 ```
-Pour collecter les journaux du module de plateforme sécurisée et placez-les dans le répertoire actif, tapez :
+Pour collecter les journaux TPM et les placer dans le répertoire actif, tapez :
 ```
 tpmtool gatherlogs
 ```
-Pour collecter les journaux de module de plateforme sécurisée et de les placer dans `C:\Users\Public`, type :
+Pour collecter les journaux TPM et les placer dans `C:\Users\Public`, tapez :
 ```
 tpmtool gatherlogs C:\Users\Public
 ```
-Pour collecter des traces de pilote de module de plateforme sécurisée, tapez :
+Pour collecter les traces du pilote du module de plateforme sécurisée, tapez :
 ```
 tpmtool drivertracing start
 # Run scenario
@@ -67,11 +67,11 @@ Pour analyser le journal TCG :
 ```
 tpmtool parsetcglogs
 ```
-Pour analyser le journal TCG et valider les PCR :
+Pour analyser le journal TCG et valider le PCR :
 ```
 tpmtool parsetcglogs -validate
 ```
 
-## <a name="decoding-error-codes"></a>Décodage des Codes d’erreur
+## <a name="decoding-error-codes"></a>Décodage des codes d’erreur
 
-Codes d’erreur spécifique au module de plateforme sécurisée sont documentées [ici](https://docs.microsoft.com/windows/desktop/com/com-error-codes-6).
+Les codes d’erreur spécifiques au module de plateforme sécurisée sont décrits [ici](https://docs.microsoft.com/windows/desktop/com/com-error-codes-6).

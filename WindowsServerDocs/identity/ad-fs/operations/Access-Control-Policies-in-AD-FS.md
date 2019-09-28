@@ -7,83 +7,83 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c690f81620f97622a2f068b07c36e0a6c59e90d4
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 27eb5b4b52dd727afae5cffc60e7d9749dd5d59f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190340"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407760"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Stratégies de contrôle d’accès dans AD FS Windows Server 2016
 
   
-## <a name="access-control-policy-templates-in-ad-fs"></a>Modèles de stratégie de contrôle de l’accès dans AD FS  
-Active Directory Federation Services prend désormais en charge l’utilisation des modèles de stratégie de contrôle de l’accès.  À l’aide de modèles de stratégie de contrôle de l’accès, un administrateur peut appliquer des paramètres de stratégie en assignant le modèle de stratégie à un groupe des parties de confiance (RPs). Administrateur peut également mettre à jour le modèle de stratégie et les modifications s’appliqueront aux parties de confiance automatiquement s’il n’existe aucune interaction utilisateur nécessitée.  
+## <a name="access-control-policy-templates-in-ad-fs"></a>Access Control des modèles de stratégie dans AD FS  
+Services ADFS prend désormais en charge l’utilisation de modèles de stratégie de contrôle d’accès.  Grâce aux modèles de stratégie de contrôle d’accès, un administrateur peut appliquer des paramètres de stratégie en affectant le modèle de stratégie à un groupe de parties de confiance (RPs). L’administrateur peut également effectuer des mises à jour du modèle de stratégie et les modifications sont appliquées automatiquement aux parties de confiance si aucune intervention de l’utilisateur n’est nécessaire.  
   
-## <a name="what-are-access-control-policy-templates"></a>Quels sont les modèles de stratégie de contrôle d’accès ?  
-Le pipeline de core AD FS pour le traitement de la stratégie comprend trois phases : émission de l’authentification, autorisation et de revendication. Actuellement, les administrateurs AD FS ont de configurer une stratégie pour chacune de ces phases séparément.  Cela implique également de comprendre les implications de ces stratégies et si ces stratégies ont une inter dépendance. En outre, les administrateurs doivent comprendre les revendication règle langage et l’auteur des règles personnalisées pour activer une stratégie simple/common (par ex. bloquer l’accès externe).  
+## <a name="what-are-access-control-policy-templates"></a>Que sont les modèles de stratégie Access Control ?  
+Le pipeline de base AD FS pour le traitement de stratégie comporte trois phases : l’authentification, l’autorisation et l’émission de revendications. Actuellement, AD FS administrateurs doivent configurer une stratégie pour chacune de ces phases séparément.  Cela implique également de comprendre les implications de ces stratégies et si ces stratégies ont une interdépendance. En outre, les administrateurs doivent comprendre le langage de règle de revendication et créer des règles personnalisées pour activer une stratégie simple/courante (par exemple, bloquer l’accès externe).  
   
-Quelle stratégie de contrôle d’accès modèles faire est de remplacer cet ancien modèle où les administrateurs doivent configurer des règles d’autorisation d’émission de revendications de langage.  Les applets de commande PowerShell ancien de règles d’autorisation d’émission s’appliquent toujours, mais il est mutuellement exclusif le nouveau modèle. Les administrateurs peuvent choisir d’utiliser le nouveau modèle ou l’ancien modèle.  Le nouveau modèle permet aux administrateurs de contrôler quand accorder l’accès, y compris faire appliquer l’authentification multifacteur.  
+Les modèles de stratégie de contrôle d’accès remplacent cet ancien modèle dans lequel les administrateurs doivent configurer des règles d’autorisation d’émission à l’aide du langage de revendications.  Les anciennes applets de commande PowerShell des règles d’autorisation d’émission s’appliquent toujours, mais elles s’excluent mutuellement du nouveau modèle. Les administrateurs peuvent choisir d’utiliser le nouveau modèle ou l’ancien modèle.  Le nouveau modèle permet aux administrateurs de contrôler le moment auquel accorder l’accès, y compris l’application de l’authentification multifacteur.  
   
-Modèles de stratégie de contrôle de l’accès utilisent un modèle d’autorisation.  Par défaut, aucune autre n’a accès et que l’accès doit être accordé explicitement.  Toutefois, il s’agit pas simplement un tout ou rien autoriser.  Les administrateurs peuvent ajouter des exceptions à la règle d’autorisation.  Par exemple, un administrateur peut souhaiter accorder l’accès basé sur un réseau spécifique en sélectionnant cette option et en spécifiant la plage d’adresses IP.  Toutefois, l’administrateur peut ajouter et d’exception, par exemple, l’administrateur peut ajouter une exception à partir d’un réseau spécifique et spécifiez la plage d’adresses IP.  
+Les modèles de stratégie de contrôle d’accès utilisent un modèle d’autorisation.  Cela signifie par défaut que personne n’a accès et que l’accès doit être accordé explicitement.  Toutefois, il ne s’agit pas simplement d’un permis de tout ou rien.  Les administrateurs peuvent ajouter des exceptions à la règle d’autorisation.  Par exemple, un administrateur peut souhaiter accorder l’accès en fonction d’un réseau spécifique en sélectionnant cette option et en spécifiant la plage d’adresses IP.  Toutefois, l’administrateur peut ajouter une exception, par exemple, l’administrateur peut ajouter une exception à partir d’un réseau spécifique et spécifier cette plage d’adresses IP.  
   
 ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP2.PNG)  
   
-## <a name="built-in-access-control-policy-templates-vs-custom-access-control-policy-templates"></a>Modèles de stratégie contrôle les modèles Visual Studio accès personnalisé accès intégré contrôle stratégie  
-AD FS comprend plusieurs modèles de stratégie de contrôle d’accès intégré.  Cibles des scénarios courants qui ont le même ensemble d’exigences de stratégie, par exemple les stratégie d’accès client pour Office 365.  Ces modèles ne peut pas être modifiés.  
+## <a name="built-in-access-control-policy-templates-vs-custom-access-control-policy-templates"></a>Modèles de stratégie de contrôle d’accès intégrés et modèles de stratégie de contrôle d’accès personnalisés  
+AD FS comprend plusieurs modèles de stratégie de contrôle d’accès intégrés.  Ils ciblent des scénarios courants qui présentent le même ensemble de spécifications de stratégie, par exemple la stratégie d’accès client pour Office 365.  Ces modèles ne peuvent pas être modifiés.  
   
 ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP3.PNG)  
   
-Pour fournir une flexibilité accrue pour répondre aux besoins de votre entreprise, les administrateurs peuvent créer leur propre accès modèles de stratégie.  Elles peuvent être modifiées après la création et modifications apportées au modèle de stratégie personnalisée seront applique à tous les fournisseurs de ressources qui sont contrôlées par les modèles de stratégie.  Pour ajouter un modèle de stratégie personnalisé cliquez simplement ajouter une stratégie contrôle l’accès à partir de dans Gestion AD FS.  
+Pour offrir une plus grande flexibilité pour répondre aux besoins de votre entreprise, les administrateurs peuvent créer leurs propres modèles de stratégie d’accès.  Celles-ci peuvent être modifiées après la création et les modifications apportées au modèle de stratégie personnalisé s’appliqueront à tous les RPs contrôlés par ces modèles de stratégie.  Pour ajouter un modèle de stratégie personnalisée, il vous suffit de cliquer sur Ajouter une stratégie de Access Control dans AD FS Management.  
   
-Pour créer un modèle de stratégie, un administrateur doit tout d’abord spécifier quelles conditions une demande sera autorisée pour d’émission de jeton et/ou de délégation. Options de condition et une action s’affichent dans le tableau ci-dessous.   Conditions en gras peuvent être affinées par l’administrateur avec des valeurs différentes ou nouveau. Administrateur peut également spécifier des exceptions cas échéant. Lorsqu’une condition est remplie, une action d’autorisation ne sera pas déclenchée si une exception spécifiée et la demande entrante correspond à la condition spécifiée dans l’exception.  
+Pour créer un modèle de stratégie, un administrateur doit d’abord spécifier dans quelles conditions une demande sera autorisée pour l’émission et/ou la délégation de jetons. Les options de condition et d’action sont indiquées dans le tableau ci-dessous.   Les conditions en gras peuvent être configurées par l’administrateur avec des valeurs différentes ou nouvelles. L’administrateur peut également spécifier des exceptions, le cas échéant. Lorsqu’une condition est remplie, une action d’autorisation n’est pas déclenchée si une exception est spécifiée et que la demande entrante correspond à la condition spécifiée dans l’exception.  
   
-|Autoriser les utilisateurs|À l’exception| 
+|Autoriser les utilisateurs|Mais| 
 | --- | --- | 
- |À partir de **spécifique** réseau|À partir de **spécifique** réseau<br /><br />À partir de **spécifique** groupes<br /><br />À partir d’appareils avec **spécifique** niveaux de confiance<br /><br />Avec **spécifique** revendications dans la demande|  
-|À partir de **spécifique** groupes|À partir de **spécifique** réseau<br /><br />À partir de **spécifique** groupes<br /><br />À partir d’appareils avec **spécifique** niveaux de confiance<br /><br />Avec **spécifique** revendications dans la demande|  
-|À partir d’appareils avec **spécifique** niveaux de confiance|À partir de **spécifique** réseau<br /><br />À partir de **spécifique** groupes<br /><br />À partir d’appareils avec **spécifique** niveaux de confiance<br /><br />Avec **spécifique** revendications dans la demande|  
-|Avec **spécifique** revendications dans la demande|À partir de **spécifique** réseau<br /><br />À partir de **spécifique** groupes<br /><br />À partir d’appareils avec **spécifique** niveaux de confiance<br /><br />Avec **spécifique** revendications dans la demande|  
-|Et exiger une authentification multifacteur|À partir de **spécifique** réseau<br /><br />À partir de **spécifique** groupes<br /><br />À partir d’appareils avec **spécifique** niveaux de confiance<br /><br />Avec **spécifique** revendications dans la demande|  
+ |À partir d’un réseau **spécifique**|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
+|À partir de groupes **spécifiques**|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
+|À partir d’appareils avec des niveaux de confiance **spécifiques**|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
+|Avec des revendications **spécifiques** dans la demande|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
+|Et requièrent l’authentification multifacteur|À partir d’un réseau **spécifique**<br /><br />À partir de groupes **spécifiques**<br /><br />À partir d’appareils avec des niveaux de confiance **spécifiques**<br /><br />Avec des revendications **spécifiques** dans la demande|  
   
-Si un administrateur sélectionne plusieurs conditions, elles sont de **AND** relation. Les actions sont mutuellement exclusifs et de règle d’une stratégie, vous pouvez uniquement choisir une action. Si l’administrateur sélectionne plusieurs exceptions, ils sont d’un **ou** relation. Voici quelques exemples de règle de stratégie :  
+Si un administrateur sélectionne plusieurs conditions, il s’agit d’une relation de **et** de. Les actions s’excluent mutuellement et, pour une règle de stratégie, vous ne pouvez choisir qu’une seule action. Si l’administrateur sélectionne plusieurs exceptions, il s’agit d’une relation **ou** . Quelques exemples de règles de stratégie sont affichés ci-dessous :  
   
 |**Règlement**|**Règles de stratégie**|
 | --- | --- |  
-|MFA obligatoire pour l’accès extranet<br /><br />Tous les utilisateurs sont autorisés.|**Règle #1**<br /><br />à partir de **extranet**<br /><br />et avec l’authentification Multifacteur<br /><br />Autoriser<br /><br />**Rule#2**<br /><br />from **intranet**<br /><br />Autoriser|  
-|Accès externe ne sont pas autorisées à l’exception non FTE<br /><br />Accès à l’intranet pour FTE sur un appareil joint à un espace de travail sont autorisés.|**Règle #1**<br /><br />à partir de **extranet**<br /><br />et à partir de **non FTE** groupe<br /><br />Autoriser<br /><br />**Règle #2**<br /><br />from **intranet**<br /><br />et à partir de **rattaché** appareil<br /><br />et à partir de **FTE** groupe<br /><br />Autoriser|  
-|MFA obligatoire pour l’accès extranet à l’exception de « service admin »<br /><br />Tous les utilisateurs sont autorisés à accéder|**Règle #1**<br /><br />à partir de **extranet**<br /><br />et avec l’authentification Multifacteur<br /><br />Autoriser<br /><br />À l’exception **groupe d’administration de service**<br /><br />**Règle #2**<br /><br />Toujours<br /><br />Autoriser|  
-|APPAREIL joint à un lieu de travail non - accès à partir d’extranet exige l’authentification Multifacteur<br /><br />Autoriser l’infrastructure AD pour l’accès intranet et extranet|**Règle #1**<br /><br />from **intranet**<br /><br />Et à partir de **AD Fabric** groupe<br /><br />Autoriser<br /><br />**Règle #2**<br /><br />à partir de **extranet**<br /><br />et à partir de **non-rattaché** appareil<br /><br />Et à partir de **AD Fabric** groupe<br /><br />et avec l’authentification Multifacteur<br /><br />Autoriser<br /><br />**Règle #3**<br /><br />à partir de **extranet**<br /><br />et à partir de **rattaché** appareil<br /><br />Et à partir de **AD Fabric** groupe<br /><br />Autoriser|  
+|L’accès extranet requiert MFA<br /><br />Tous les utilisateurs sont autorisés|**#1 de la règle**<br /><br />à partir de l' **extranet**<br /><br />et avec MFA<br /><br />Autoriser<br /><br />**Règle n ° 2**<br /><br />à partir de l' **Intranet**<br /><br />Autoriser|  
+|L’accès externe n’est pas autorisé sauf le non-ETP<br /><br />L’accès intranet pour ETP sur un appareil joint à un espace de travail est autorisé|**#1 de la règle**<br /><br />À partir de l' **extranet**<br /><br />et à partir d' **un groupe non-ETP**<br /><br />Autoriser<br /><br />**#2 de la règle**<br /><br />à partir de l' **Intranet**<br /><br />et à partir d’un appareil joint à l' **espace de travail**<br /><br />et à partir du groupe **ETP**<br /><br />Autoriser|  
+|L’accès extranet requiert MFA, à l’exception de « service admin »<br /><br />Tous les utilisateurs sont autorisés à accéder à|**#1 de la règle**<br /><br />à partir de l' **extranet**<br /><br />et avec MFA<br /><br />Autoriser<br /><br />Sauf le **groupe d’administration de service**<br /><br />**#2 de la règle**<br /><br />Toujours<br /><br />Autoriser|  
+|l’accès d’un appareil non lié à un emplacement de travail à partir d’un extranet requiert l’authentification MFA<br /><br />Autoriser l’accès intranet et extranet pour l’infrastructure AD|**#1 de la règle**<br /><br />à partir de l' **Intranet**<br /><br />Et à partir d’un groupe **ad Fabric**<br /><br />Autoriser<br /><br />**#2 de la règle**<br /><br />à partir de l' **extranet**<br /><br />et à partir d' **un appareil non joint à un espace de travail**<br /><br />et à partir d’un groupe **ad Fabric**<br /><br />et avec MFA<br /><br />Autoriser<br /><br />**#3 de la règle**<br /><br />à partir de l' **extranet**<br /><br />et à partir d’un appareil joint à l' **espace de travail**<br /><br />et à partir d’un groupe **ad Fabric**<br /><br />Autoriser|  
   
-## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Modèle de stratégie non paramétrées stratégie paramétrable modèle vs  
-Stratégies de contrôle d’accès peuvent être  
+## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Modèle de stratégie paramétré et modèle de stratégie non paramétrable  
+Les stratégies de contrôle d’accès peuvent être  
   
-Un modèle de stratégie paramétrable est un modèle de stratégie comportant des paramètres. Un administrateur a besoin d’entrer la valeur de ces paramètres lors de l’attribution de ce modèle à RPs.An administrateur ne peut pas apporter des modifications au modèle de stratégie paramétrable après que qu’il a été créé.  Un exemple d’une stratégie paramétrable est la stratégie intégrée, un groupe spécifique d’autoriser.  Chaque fois que cette stratégie est appliquée à une partie de confiance, ce paramètre doit être spécifié.  
+Un modèle de stratégie paramétré est un modèle de stratégie qui possède des paramètres. Un administrateur doit entrer la valeur de ces paramètres lors de l’affectation de ce modèle à RPs.An l’administrateur ne peut pas apporter de modifications au modèle de stratégie paramétré une fois qu’il a été créé.  Un exemple de stratégie paramétrable est la stratégie intégrée, autoriser un groupe spécifique.  Chaque fois que cette stratégie est appliquée à un RP, ce paramètre doit être spécifié.  
   
 ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP5.PNG)  
   
-Un modèle de stratégie non paramétrable est un modèle de stratégie qui n’a pas de paramètres. Un administrateur peut affecter ce modèle RPs sans aucune entrée nécessitée et peut apporter des modifications à un modèle de stratégie non paramétrées après que qu’il a été créé.  Un exemple de ceci est la stratégie intégrée, autoriser tout le monde et exiger une authentification Multifacteur.  
+Un modèle de stratégie non paramétrable est un modèle de stratégie qui n’a pas de paramètres. Un administrateur peut attribuer ce modèle à RPs sans aucune entrée nécessaire et peut apporter des modifications à un modèle de stratégie non paramétrable une fois qu’il a été créé.  Par exemple, la stratégie intégrée, autoriser tout le monde et demander l’authentification MFA.  
   
 ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP4.PNG)  
   
-## <a name="how-to-create-a-non-parameterized-access-control-policy"></a>Comment créer une stratégie de contrôle d’accès non paramétrées  
-Pour créer un accès non paramétrée, stratégie de contrôle d’utiliser la procédure suivante  
+## <a name="how-to-create-a-non-parameterized-access-control-policy"></a>Comment créer une stratégie de contrôle d’accès non paramétrable  
+Pour créer une stratégie de contrôle d’accès non paramétrable, utilisez la procédure suivante :  
   
-#### <a name="to-create-a-non-parameterized-access-control-policy"></a>Pour créer une stratégie de contrôle d’accès non paramétrées  
+#### <a name="to-create-a-non-parameterized-access-control-policy"></a>Pour créer une stratégie de contrôle d’accès non paramétrable  
   
-1.  À partir de gestion AD FS sur la gauche, sélectionnez Stratégies de contrôle d’accès et sur la droite, cliquez sur Ajouter une stratégie de contrôle d’accès.  
+1.  Dans AD FS gestion sur la gauche, sélectionnez Access Control stratégies, puis cliquez avec le bouton droit sur Ajouter une stratégie de Access Control.  
   
-2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec des appareils authentifiés.  
+2.  Entrez un nom et une description.  Exemple :  Autorisez les utilisateurs avec des appareils authentifiés.  
   
-3.  Sous **autoriser l’accès si une des règles suivantes est remplie**, cliquez sur **ajouter**.  
+3.  Sous **autoriser l’accès si l’une des règles suivantes est remplie**, cliquez sur **Ajouter**.  
   
-4.  Sous Autoriser, cochez la case dans la zone à côté **à partir d’appareils avec le niveau de confiance spécifique**  
+4.  Sous autoriser, activez la case à cocher en regard **de appareils avec un niveau de confiance spécifique** .  
   
-5.  En bas, sélectionnez le texte souligné **spécifique**  
+5.  En bas, sélectionnez la ligne **spécifique** soulignée.  
   
-6.  Dans la fenêtre pop-up autrement, sélectionnez **authentifié** à partir de la liste déroulante.  Cliquez sur **OK**.  
+6.  Dans la fenêtre qui s’affiche, sélectionnez **authentifié** dans la liste déroulante.  Cliquez sur **OK**.  
   
     ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP6.PNG)  
   
@@ -92,21 +92,21 @@ Pour créer un accès non paramétrée, stratégie de contrôle d’utiliser la 
     ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP7.PNG)  
   
 ## <a name="how-to-create-a-parameterized-access-control-policy"></a>Comment créer une stratégie de contrôle d’accès paramétrable  
-Pour créer un contrôle d’accès paramétrable stratégie procédez comme suit  
+Pour créer une stratégie de contrôle d’accès paramétrable, utilisez la procédure suivante :  
   
 #### <a name="to-create-a-parameterized-access-control-policy"></a>Pour créer une stratégie de contrôle d’accès paramétrable  
   
-1.  À partir de gestion AD FS sur la gauche, sélectionnez Stratégies de contrôle d’accès et sur la droite, cliquez sur Ajouter une stratégie de contrôle d’accès.  
+1.  Dans AD FS gestion sur la gauche, sélectionnez Access Control stratégies, puis cliquez avec le bouton droit sur Ajouter une stratégie de Access Control.  
   
 2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec une revendication spécifique.  
   
-3.  Sous **autoriser l’accès si une des règles suivantes est remplie**, cliquez sur **ajouter**.  
+3.  Sous **autoriser l’accès si l’une des règles suivantes est remplie**, cliquez sur **Ajouter**.  
   
-4.  Sous Autoriser, cochez la case dans la zone à côté **avec des revendications spécifiques dans la demande**  
+4.  Sous autoriser, activez la case à cocher en regard de **avec des revendications spécifiques dans la demande** .  
   
-5.  En bas, sélectionnez le texte souligné **spécifique**  
+5.  En bas, sélectionnez la ligne **spécifique** soulignée.  
   
-6.  Dans la fenêtre pop-up autrement, sélectionnez **paramètre spécifié lorsque la stratégie de contrôle d’accès est attribuée**.  Cliquez sur **OK**.  
+6.  Dans la fenêtre qui s’affiche, sélectionnez le **paramètre spécifié lorsque la stratégie de contrôle d’accès est assignée**.  Cliquez sur **OK**.  
   
     ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP8.PNG)  
   
@@ -114,69 +114,69 @@ Pour créer un contrôle d’accès paramétrable stratégie procédez comme sui
   
     ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP9.PNG)  
   
-## <a name="how-to-create-a-custom-access-control-policy-with-an-exception"></a>Comment créer une stratégie de contrôle d’accès personnalisé avec une exception  
-Pour créer un contrôle d’accès stratégie avec une exception utiliser la procédure suivante.  
+## <a name="how-to-create-a-custom-access-control-policy-with-an-exception"></a>Comment créer une stratégie de contrôle d’accès personnalisée à l’aide d’une exception  
+Pour créer une stratégie de contrôle d’accès avec une exception, utilisez la procédure suivante.  
   
-#### <a name="to-create-a-custom-access-control-policy-with-an-exception"></a>Pour créer une stratégie de contrôle d’accès personnalisé avec une exception  
+#### <a name="to-create-a-custom-access-control-policy-with-an-exception"></a>Pour créer une stratégie de contrôle d’accès personnalisée à l’aide d’une exception  
   
-1.  À partir de gestion AD FS sur la gauche, sélectionnez Stratégies de contrôle d’accès et sur la droite, cliquez sur Ajouter une stratégie de contrôle d’accès.  
+1.  Dans AD FS gestion sur la gauche, sélectionnez Access Control stratégies, puis cliquez avec le bouton droit sur Ajouter une stratégie de Access Control.  
   
-2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec authentifié des appareils, mais pas géré.  
+2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec des appareils authentifiés mais non gérés.  
   
-3.  Sous **autoriser l’accès si une des règles suivantes est remplie**, cliquez sur **ajouter**.  
+3.  Sous **autoriser l’accès si l’une des règles suivantes est remplie**, cliquez sur **Ajouter**.  
   
-4.  Sous Autoriser, cochez la case dans la zone à côté **à partir d’appareils avec le niveau de confiance spécifique**  
+4.  Sous autoriser, activez la case à cocher en regard **de appareils avec un niveau de confiance spécifique** .  
   
-5.  En bas, sélectionnez le texte souligné **spécifique**  
+5.  En bas, sélectionnez la ligne **spécifique** soulignée.  
   
-6.  Dans la fenêtre pop-up autrement, sélectionnez **authentifié** à partir de la liste déroulante.  Cliquez sur **OK**.  
+6.  Dans la fenêtre qui s’affiche, sélectionnez **authentifié** dans la liste déroulante.  Cliquez sur **OK**.  
   
-7.  Sous sauf, cochez la case à côté dans la zone **à partir d’appareils avec le niveau de confiance spécifique**  
+7.  Sous sauf, activez la case à cocher en regard **de appareils avec un niveau de confiance spécifique** .  
   
-8.  En bas, sauf sous, sélectionnez le texte souligné **spécifique**  
+8.  En bas sous sauf, sélectionnez la ligne **spécifique** soulignée.  
   
-9. Dans la fenêtre pop-up autrement, sélectionnez **gérés** à partir de la liste déroulante.  Cliquez sur **OK**.  
+9. Dans la fenêtre qui s’affiche, sélectionnez **géré** dans la liste déroulante.  Cliquez sur **OK**.  
   
 10. Cliquez sur **OK**. Cliquez sur **OK**.  
   
     ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP10.PNG)  
   
-## <a name="how-to-create-a-custom-access-control-policy-with-multiple-permit-conditions"></a>Comment créer une stratégie de contrôle d’accès personnalisé avec plusieurs conditions de l’autorisation  
-Pour créer une stratégie de contrôle d’accès avec autorisation de plusieurs conditions procédez comme suit  
+## <a name="how-to-create-a-custom-access-control-policy-with-multiple-permit-conditions"></a>Comment créer une stratégie de contrôle d’accès personnalisée avec plusieurs conditions d’autorisation  
+Pour créer une stratégie de contrôle d’accès avec plusieurs conditions d’autorisation, utilisez la procédure suivante :  
   
 #### <a name="to-create-a-parameterized-access-control-policy"></a>Pour créer une stratégie de contrôle d’accès paramétrable  
   
-1.  À partir de gestion AD FS sur la gauche, sélectionnez Stratégies de contrôle d’accès et sur la droite, cliquez sur Ajouter une stratégie de contrôle d’accès.  
+1.  Dans AD FS gestion sur la gauche, sélectionnez Access Control stratégies, puis cliquez avec le bouton droit sur Ajouter une stratégie de Access Control.  
   
-2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec une revendication spécifique et à partir de groupe spécifique.  
+2.  Entrez un nom et une description.  Exemple :  Autoriser les utilisateurs avec une revendication spécifique et à partir d’un groupe spécifique.  
   
-3.  Sous **autoriser l’accès si une des règles suivantes est remplie**, cliquez sur **ajouter**.  
+3.  Sous **autoriser l’accès si l’une des règles suivantes est remplie**, cliquez sur **Ajouter**.  
   
-4.  Sous Autoriser, cochez la case dans la zone à côté **à partir d’un groupe spécifique** et **avec des revendications spécifiques dans la demande**  
+4.  Sous autoriser, activez la case à cocher en regard **de à partir d’un groupe spécifique** et **avec des revendications spécifiques dans la demande** .  
   
-5.  En bas, sélectionnez le texte souligné **spécifique** pour la première condition, en regard des groupes  
+5.  En bas, sélectionnez la ligne **spécifique** soulignée pour la première condition, en regard de groupes  
   
-6.  Dans la fenêtre pop-up autrement, sélectionnez **paramètre spécifié lorsque la stratégie est affectée**.  Cliquez sur **OK**.  
+6.  Dans la fenêtre qui s’affiche, sélectionnez le **paramètre spécifié lorsque la stratégie est affectée**.  Cliquez sur **OK**.  
   
-7.  En bas, sélectionnez le texte souligné **spécifique** pour la deuxième condition, en regard de revendications  
+7.  En bas, sélectionnez la ligne **spécifique** soulignée pour la deuxième condition, en regard de revendications.  
   
-8.  Dans la fenêtre pop-up autrement, sélectionnez **paramètre spécifié lorsque la stratégie de contrôle d’accès est attribuée**.  Cliquez sur **OK**.  
+8.  Dans la fenêtre qui s’affiche, sélectionnez le **paramètre spécifié lorsque la stratégie de contrôle d’accès est assignée**.  Cliquez sur **OK**.  
   
 9. Cliquez sur **OK**. Cliquez sur **OK**.  
   
 ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP12.PNG)  
   
 ## <a name="how-to-assign-an-access-control-policy-to-a-new-application"></a>Comment attribuer une stratégie de contrôle d’accès à une nouvelle application  
-Affectation d’une stratégie de contrôle d’accès à une nouvelle application est relativement simple et a maintenant été intégrée dans l’Assistant pour l’ajout d’un fournisseur de ressources.  À partir de l’Assistant d’approbation de partie de confiance de confiance, vous pouvez sélectionner la stratégie de contrôle d’accès que vous souhaitez affecter.  Il s’agit d’une exigence lors de la création d’une nouvelle partie de confiance.  
+L’attribution d’une stratégie de contrôle d’accès à une nouvelle application est relativement simple et est désormais intégrée à l’Assistant pour l’ajout d’un RP.  À partir de l’Assistant approbation de partie de confiance, vous pouvez sélectionner la stratégie de contrôle d’accès que vous souhaitez affecter.  Il s’agit d’une condition requise lors de la création d’une approbation de partie de confiance.  
   
 ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP13.PNG)  
   
-## <a name="how-to-assign-an-access-control-policy-to-an-existing-application"></a>Guide pratique pour attribuer une stratégie de contrôle d’accès à une application existante  
-Affectation d’une stratégie de contrôle d’accès à une application existante Sélectionnez simplement l’application à partir de la partie de confiance et sur le bouton droit sur **modifier une stratégie de contrôle d’accès**.  
+## <a name="how-to-assign-an-access-control-policy-to-an-existing-application"></a>Comment attribuer une stratégie de contrôle d’accès à une application existante  
+L’attribution d’une stratégie de contrôle d’accès à une application existante consiste simplement à sélectionner l’application auprès des approbations de partie de confiance, puis à cliquer avec le bouton droit sur **modifier la stratégie de Access Control**.  
   
 ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP14.PNG)  
   
-À ce stade, vous pouvez sélectionner la stratégie de contrôle d’accès et s’appliquent à l’application.  
+À partir de là, vous pouvez sélectionner la stratégie de contrôle d’accès et l’appliquer à l’application.  
   
 ![stratégies de contrôle d’accès](media/Access-Control-Policies-in-AD-FS/ADFSACP15.PNG)  
   

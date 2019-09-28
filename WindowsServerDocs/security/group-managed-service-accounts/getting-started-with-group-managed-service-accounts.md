@@ -2,7 +2,7 @@
 title: Getting Started with Group Managed Service Accounts
 description: Sécurité de Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-gmsa
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 3d07f137aa40b26b4f4fd69c050415b82608ed7e
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 8086ce329c532e07363fd22fe424a9a1dda04250
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546368"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386887"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>Getting Started with Group Managed Service Accounts
 
@@ -45,10 +45,10 @@ Ce guide fournit des instructions pas à pas et des informations générales sur
 > [!NOTE]
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).
 
-## <a name="BKMK_Prereqs"></a>Configuration requise
+## <a name="BKMK_Prereqs"></a>Conditions préalables
 Consultez la section de cette rubrique portant sur [Conditions requises pour les comptes de service administrés de groupe](#BKMK_gMSA_Req).
 
-## <a name="BKMK_Intro"></a>Introduction
+## <a name="BKMK_Intro"></a>Présentation
 Lorsqu'un ordinateur client se connecte à un service qui est hébergé sur une batterie de serveurs à l'aide de l'équilibrage de la charge réseau ou d'une autre méthode dans laquelle tous les serveurs sont présentés au client comme étant un même service, les protocoles d'authentification prenant en charge l'authentification mutuelle comme Kerberos ne peuvent alors pas être utilisés sauf si toutes les instances des services utilisent le même principal. Cela signifie que tous les services doivent utiliser les mêmes mots de passe/clés pour prouver leur identité.
 
 > [!NOTE]
@@ -58,12 +58,12 @@ Les principaux suivants sont disponibles pour les services, chacun avec certaine
 
 |Principaux|`Scope`|Services pris en charge|Gestion des mots de passe|
 |-------|-----|-----------|------------|
-|Compte d'ordinateur du système Windows|Domaine|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
-|Compte d'ordinateur sans système Windows|Domaine|Tout serveur joint à un domaine|Aucun|
+|Compte d'ordinateur du système Windows|domaine.|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
+|Compte d'ordinateur sans système Windows|domaine.|Tout serveur joint à un domaine|Aucune|
 |Compte virtuel|Local|Limité à un serveur|Géré par l'ordinateur|
-|Compte de service administré autonome Windows 7|Domaine|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
-|Compte d’utilisateur|Domaine|Tout serveur joint à un domaine|Aucun|
-|Compte de service administré de groupe|Domaine|Tout serveur joint à un domaine Windows Server 2012|Le contrôleur de domaine gère et l'hôte récupère|
+|Compte de service administré autonome Windows 7|domaine.|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
+|Compte d’utilisateur|domaine.|Tout serveur joint à un domaine|Aucune|
+|Compte de service administré de groupe|domaine.|Tout serveur joint à un domaine Windows Server 2012|Le contrôleur de domaine gère et l'hôte récupère|
 
 Un compte d'ordinateur Windows, un compte de service administré autonome (sMSA) Windows 7 ou des comptes virtuels ne peuvent pas être partagés sur plusieurs systèmes. Si vous configurez un compte à partager par les services de la batterie de serveurs, vous devrez choisir un compte d'utilisateur ou un compte d'ordinateur en dehors d'un système Windows. Dans tous les cas, ces comptes n'ont pas la capacité de gérer les mots de passe depuis un seul point de contrôle. Cette situation est problématique, car chaque organisation doit alors créer une solution coûteuse pour mettre à jour les clés du service dans Active Directory, puis les distribuer à toutes les instances de ces services.
 
@@ -84,7 +84,7 @@ Une architecture 64 bits est requise pour exécuter les commandes Windows PowerS
 
 **Configuration requise pour le système d’exploitation**
 
-|Élément|Prérequis|Système d’exploitation|
+|Élément|Condition requise|Système d'exploitation|
 |------|--------|----------|
 |Hôte d'application cliente|Client Kerberos conforme aux RFC|Au minimum Windows XP|
 |Contrôleurs de domaine du domaine du compte d’utilisateur|KDC conforme aux RFC|Au minimum Windows Server 2003|
@@ -153,11 +153,11 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
 2.  À l'invite de commandes de Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée : (Le module Active Directory sera chargé automatiquement.)
 
-    **New-ADServiceAccount [-name] <string> -dNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]-sAMAccountName <string> -ServicePrincipalNames < String [] >**
+    **New-ADServiceAccount [-name] <string>-DNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]-SamAccountName <string>-ServicePrincipalNames < chaîne [] >**
 
-    |Paramètre|String|Exemple|
+    |Paramètre|Chaîne|Exemple|
     |-------|-----|------|
-    |Name|Nom du compte|BatterieIT1|
+    |Nom|Nom du compte|BatterieIT1|
     |DNSHostName|Nom d'hôte DNS du service|BatterieIT1.contoso.com|
     |KerberosEncryptionType|Tout type de chiffrement pris en charge par les serveurs hôtes|RC4, AES128, AES256|
     |ManagedPasswordIntervalInDays|Intervalle de modification de mot de passe exprimé en jours (la valeur par défaut est 30 jours)|90|
@@ -185,9 +185,9 @@ Vous devez au minimum appartenir au groupe **Admins du domaine** ou **Opérateur
 
 2.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **New-ADServiceAccount [-name] <string> -RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]**
+    **New-ADServiceAccount [-name] <string>-RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]**
 
-    |Paramètre|String|Exemple|
+    |Paramètre|Chaîne|Exemple|
     |-------|-----|------|
     |Nom|Nom du compte|BatterieIT1|
     |ManagedPasswordIntervalInDays|Intervalle de modification de mot de passe exprimé en jours (la valeur par défaut est 30 jours)|75|
@@ -203,8 +203,8 @@ New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsA
 
 ```
 
-### <a name="BKMK_ConfigureServiceIdentity"></a>Étape 2 : Configuration du service d'application d'identité au service
-Pour configurer les services dans Windows Server 2012, consultez la documentation sur les fonctionnalités suivantes:
+### <a name="BKMK_ConfigureServiceIdentity"></a>Étape 2 : Configuration du service d'application d'identité au service
+Pour configurer les services dans Windows Server 2012, consultez la documentation sur les fonctionnalités suivantes :
 
 -   Pool d'applications IIS
 
@@ -225,7 +225,7 @@ Si vous utilisez des groupes de sécurité pour la gestion des hôtes membres, a
 
 Vous devez au minimum appartenir au groupe **Admins du domaine** ou avoir la capacité d'ajouter des membres à l'objet de groupe de sécurité pour réaliser ces procédures.
 
--   Méthode 1 : Utilisateurs et ordinateurs Active Directory
+-   Méthode 1 : Utilisateurs et ordinateurs Active Directory
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Ajouter un compte d’ordinateur à un groupe](https://technet.microsoft.com/library/cc733097.aspx) et [Gérer des domaines différents dans le Centre d’administration Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
 
@@ -247,13 +247,13 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
 2.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
+    **ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **Set-ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
+    **Set-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
 
-|Paramètre|String|Exemple|
+|Paramètre|Chaîne|Exemple|
 |-------|-----|------|
 |Nom|Nom du compte|BatterieIT1|
 |PrincipalsAllowedToRetrieveManagedPassword|Comptes d'ordinateur des hôtes membres ou groupe de sécurité auquel appartiennent les hôtes membres|Hôte1, Hôte2, Hôte3|
@@ -282,10 +282,10 @@ Pour plus d’informations sur la définition de ces propriétés, voir [Set-ADS
 ## <a name="BKMK_DecommMemberHosts"></a>Désaffectation d’hôtes membres d’une batterie de serveurs existante
 Vous devez au minimum appartenir au groupe **Admins du domaine**ou avoir la capacité de supprimer des membres de l'objet de groupe de sécurité pour réaliser ces procédures.
 
-### <a name="step-1-remove-member-host-from-gmsa"></a>Étape 1 : Supprimer l'hôte membre du compte gMSA
+### <a name="step-1-remove-member-host-from-gmsa"></a>Étape 1 : Supprimer l'hôte membre du compte gMSA
 Si vous utilisez des groupes de sécurité pour la gestion des hôtes membres, supprimez le compte d’ordinateur de l’hôte membre retiré du groupe de sécurité auquel les hôtes membres de gMSA sont membres à l’aide de l’une des méthodes suivantes.
 
--   Méthode 1 : Utilisateurs et ordinateurs Active Directory
+-   Méthode 1 : Utilisateurs et ordinateurs Active Directory
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Supprimer un compte d’ordinateur](https://technet.microsoft.com/library/cc754624.aspx) à l’aide de l’interface Windows et [Gérer des domaines différents dans le Centre d’administration Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
 
@@ -307,13 +307,13 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
 2.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
+    **ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **Set-ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
+    **Set-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
 
-|Paramètre|String|Exemple|
+|Paramètre|Chaîne|Exemple|
 |-------|-----|------|
 |Nom|Nom du compte|BatterieIT1|
 |PrincipalsAllowedToRetrieveManagedPassword|Comptes d'ordinateur des hôtes membres ou groupe de sécurité auquel appartiennent les hôtes membres|Hôte1, Hôte3|
@@ -332,7 +332,7 @@ Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
 
 ```
 
-### <a name="BKMK_RemoveGMSA"></a>Étape 2 : Suppression d'un compte de service administré de groupe du système
+### <a name="BKMK_RemoveGMSA"></a>Étape 2 : Suppression d'un compte de service administré de groupe du système
 Supprimez les informations d'identification de compte gMSA mises en cache de l'hôte membre à l'aide de Uninstall-ADServiceAccount ou de l'API NetRemoveServiceAccount sur le système hôte.
 
 Vous devez au minimum appartenir au groupe **Administrateurs**ou à un groupe équivalent pour réaliser ces procédures.

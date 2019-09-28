@@ -7,28 +7,28 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e3a746ec003cf312ffe0b9804f84a55c98aa8089
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5725f4a7761d08a25ee8c67c0568977e3646397e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407948"
 ---
 # <a name="prepare-client-computers-in-the-account-partner"></a>Préparer les ordinateurs clients dans le partenaire de compte
 
-Le moyen le plus simple pour un administrateur d’un compte partenaire organisation pour préparer les ordinateurs clients pour l’accès à Active Directory Federation Services \(AD FS\) applications fédérées consiste à utiliser la stratégie de groupe. La stratégie de groupe permet de distribuer les certificats et les paramètres requis pour la fédération sur tous les ordinateurs clients qui seront utilisés pour accéder aux applications fédérées.  
+Le moyen le plus simple pour un administrateur dans une organisation partenaire de compte de préparer les ordinateurs clients à accéder aux applications fédérées Services ADFS \(AD FS @ no__t-1 consiste à utiliser stratégie de groupe. La stratégie de groupe permet de distribuer les certificats et les paramètres requis pour la fédération sur tous les ordinateurs clients qui seront utilisés pour accéder aux applications fédérées.  
   
-Pour que vos ordinateurs clients puissent accéder en toute transparence des applications fédérées sans invite de certificat ni invites liée à un site de confiance, nous vous recommandons de tout d’abord préparer chaque ordinateur client avant de déployer AD FS largement de votre organisation. Utilisez la stratégie de groupe pour automatiquement :  
+Afin que vos ordinateurs clients puissent accéder en toute transparence aux applications fédérées sans invite de certificat ni invites de site de confiance, nous vous recommandons de préparer tout d’abord chaque ordinateur client avant de déployer AD FS de manière large dans votre organisation. Utilisez la stratégie de groupe pour automatiquement :  
   
--   Configurez Internet Explorer sur chaque ordinateur client à approuver le serveur de fédération de compte.  
+-   Configurez Internet Explorer sur chaque ordinateur client pour faire confiance au serveur de Fédération de comptes.  
   
     Pour plus d’informations, consultez [configurer des ordinateurs clients à approuver le serveur de fédération de compte](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
   
--   Installer le serveur de fédération de compte approprié, le serveur de fédération de ressources et le serveur Web (Secure Sockets Layer) \(SSL\) certificats \(ou équivalent certificats liés à une racine approuvée\) sur chaque ordinateur client.  
+-   Installez le serveur de Fédération de compte approprié, le serveur de Fédération de ressources et le serveur Web protocole SSL les certificats \(SSL @ no__t-1, \(or certificats équivalents qui sont liés à une racine approuvée @ no__t-3 sur chaque ordinateur client.  
   
-    Pour plus d’informations, consultez [distribuer des certificats sur les ordinateurs clients à l’aide de la stratégie de groupe](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md).  
+    Pour plus d’informations, consultez [distribuer des certificats aux ordinateurs clients à l’aide de stratégie de groupe](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md).  
   
 
 ## <a name="see-also"></a>Voir aussi

@@ -1,19 +1,19 @@
 ---
 title: Gérer la stratégie QoS
 description: Cette rubrique fournit des instructions sur la création et la gestion de la stratégie de qualité de service (QoS) dans Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3cff51b3cf76d3224832bf99ff966bf473d6ff6c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ac717555d1ab751600527e294d32f10d1f05bfa5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871850"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395877"
 ---
 # <a name="manage-qos-policy"></a>Gérer la stratégie QoS
 
@@ -255,8 +255,8 @@ La fenêtre de réception TCP a été modifiée dans Windows Server 2012, Window
   
 |Niveau de débit entrant|Maximale|  
 |------------------------|-------|  
-|0|64 Ko|
-|1|256 KB|
+|0|64 KO|
+|1|256 KO|
 |2|1 Mo|
 |3|16 MO|
 
@@ -280,7 +280,7 @@ Par défaut, les ordinateurs qui exécutent Windows Server 2016, Windows 10, Win
 
 ##### <a name="wireless-multimedia-and-dscp-values"></a>Valeurs multimédias et DSCP sans fil
 
-Le [Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) a établi une certification pour le WMM \(\) multimédia sans fil qui définit quatre \(catégories\) d’accès WMM_AC pour hiérarchiser le trafic réseau transmis sur un réseau Wi\-Réseau sans fil fi. Les catégories d’accès \(incluent dans l’ordre de priorité\)la plus élevée à la plus basse : voix, vidéo, meilleur effort et arrière-plan ; respectivement, les abréviations VO, VI, is et BK. La spécification WMM définit les valeurs DSCP qui correspondent à chacune des quatre catégories d’accès :
+[Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) a établi une certification pour Wireless Multimedia \(WMM @ no__t-2 qui définit quatre catégories d’accès \(WMM_AC @ no__t-4 pour définir la priorité du trafic réseau transmis sur un réseau sans fil Wi-No__t-5Fi. Les catégories d’accès \(incluent dans l’ordre de priorité\)la plus élevée à la plus basse : voix, vidéo, meilleur effort et arrière-plan ; respectivement, les abréviations VO, VI, is et BK. La spécification WMM définit les valeurs DSCP qui correspondent à chacune des quatre catégories d’accès :
   
 |Valeur DSCP|Catégorie d’accès WMM|
 |----------|-------------------|
@@ -312,7 +312,7 @@ Lorsque plusieurs stratégies de QoS correspondent au trafic spécifique, la str
 
 En guise d’alternative, plusieurs stratégies de QoS peuvent s’appliquer au même trafic en spécifiant des conditions qui ne se chevauchent pas. Entre les conditions des applications et le réseau quintuple, la stratégie qui spécifie l’application est considérée comme plus spécifique et est appliquée. 
 
-Par exemple, policy_A spécifie uniquement un nom d’application (App. exe) et policy_B spécifie l’adresse IP de destination 192.168.1.0/24. Lorsque ces stratégies de QoS \(sont en conflit, app. exe envoie le trafic à une adresse IP dans la\)plage de 192.168.4.0/24, policy_A est appliqué.
+Par exemple, policy_A spécifie uniquement un nom d’application (App. exe) et policy_B spécifie l’adresse IP de destination 192.168.1.0/24. Lorsque ces stratégies de QoS sont en conflit @no__t -0app. exe envoie le trafic à une adresse IP dans la plage de 192.168.4.0/24 @ no__t-1, policy_A est appliqué.
 
  **Une plus grande spécificité est prioritaire dans le quintuple réseau**
 

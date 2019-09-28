@@ -1,7 +1,7 @@
 ---
 title: Suppression de serveurs dans les espaces de stockage direct
 ms.assetid: 9d8499a7-1307-473d-9f00-8a051164fad2
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ author: cosmosdarwin
 description: Comment supprimer des serveurs d’un cluster d'espaces de stockage direct dans Windows Server.
 ms.date: 2/5/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 9fcb67b3c5fbcff0ca2a48ee9a1d2e109af3e9a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce8caef2b51279c97cc012045750b7a73d97a4ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890780"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402807"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>Suppression de serveurs dans les espaces de stockage direct
 
@@ -58,7 +58,7 @@ Pour définitivement se mettre à l'échelle (supprimer un serveur *et* ses lect
 
 #### <a name="enough-capacity"></a>Capacité suffisante
 
-Tout d’abord, vous devez disposer de capacité de stockage suffisante dans les autres serveurs pour prendre en charge tous les volumes.
+Tout d’abord, vous devez disposer d’une capacité de stockage suffisante sur les serveurs restants pour prendre en charge tous vos volumes.
 
 Par exemple, si vous disposez de quatre serveurs, possédant chacun 10 lecteurs d'une capacité d'1 To, vous disposez d'une capacité destockage physique totale de 40 To. Après avoir supprimé un serveur et tous ses lecteurs, il vous restera 30 To de capacité. Si les empreintes de vos volumes représentent plus de 30 To au total, elles ne tiendront pas dans les serveurs restants. L'applet de commande renverra alors une erreur et ne déplacera aucune donnée.
 
@@ -81,4 +81,4 @@ Le tableau suivant indique le nombre minimum de domaines d’erreur requis pour 
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Vue d’ensemble Direct des espaces de stockage](storage-spaces-direct-overview.md)
+- [Présentation de espaces de stockage direct](storage-spaces-direct-overview.md)

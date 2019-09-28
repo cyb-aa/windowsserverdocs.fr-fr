@@ -1,7 +1,7 @@
 ---
 title: Fonctionnalités et technologies logicielles uniquement (SO)
 description: Ces fonctionnalités sont implémentées dans le cadre du système d’exploitation et sont indépendantes de la ou des cartes réseau sous-jacentes. Parfois, ces fonctionnalités nécessitent un paramétrage de la carte réseau pour un fonctionnement optimal. Les fonctionnalités Hyper-v telles que la qualité de service (vmQoS) de l’ordinateur virtuel, les listes de Access Control (ACL) et les fonctionnalités non-Hyper-V, telles que l’Association de cartes réseau, sont des exemples.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/20/2018
-ms.openlocfilehash: 27fbbcc5eedb1bc8ee37a85356542335c2eac77a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8c354d53db983d0437749de918b2d5f12ede0f5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405696"
 ---
 # <a name="software-only-so-features-and-technologies"></a>Fonctionnalités et technologies logicielles uniquement (SO)
 Les fonctionnalités logicielles uniquement sont implémentées dans le cadre du système d’exploitation et sont indépendantes de la ou des cartes réseau sous-jacentes. Parfois, ces fonctionnalités nécessitent un paramétrage de la carte réseau pour un fonctionnement optimal. Les fonctionnalités Hyper-v telles que la qualité de service (vmQoS) de l’ordinateur virtuel, les listes de Access Control (ACL) et les fonctionnalités non-Hyper-V, telles que l’Association de cartes réseau, sont des exemples.

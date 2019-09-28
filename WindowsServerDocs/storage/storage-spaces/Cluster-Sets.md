@@ -1,6 +1,6 @@
 ---
 title: Jeux de clusters
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/30/2019
 description: Cet article décrit le scénario des ensembles de clusters
 ms.localizationpriority: medium
-ms.openlocfilehash: 973725d56fcd3a276a2aad3c61820b454d613684
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 52d686fa9797d84f56182b15c36a26440792ec13
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865015"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402913"
 ---
 # <a name="cluster-sets"></a>Jeux de clusters
 
@@ -325,55 +325,55 @@ Par exemple, la commande permettant de supprimer le cluster CLUSTER1 des ensembl
 
 ## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
-**Question :** Dans mon ensemble de clusters, suis-je limité à l’utilisation de clusters hyper-convergents uniquement ? <br>
-**Réponse :** Non.  Vous pouvez mélanger des espaces de stockage direct avec des clusters traditionnels.
+**Question** Dans mon ensemble de clusters, suis-je limité à l’utilisation de clusters hyper-convergents uniquement ? <br>
+**Réponse** Non.  Vous pouvez mélanger des espaces de stockage direct avec des clusters traditionnels.
 
-**Question :** Puis-je gérer mon ensemble de clusters via System Center Virtual Machine Manager ? <br>
-**Réponse :** System Center Virtual Machine Manager ne prend actuellement pas en charge les ensembles de clusters <br><br> **Question :** Les clusters Windows Server 2012 R2 ou 2016 peuvent-ils coexister dans le même ensemble de cluster ? <br>
-**Question :** Puis-je migrer des charges de travail de clusters Windows Server 2012 R2 ou 2016 en faisant simplement en sorte que ces clusters rejoignent le même ensemble de clusters ? <br>
-**Réponse :** Cluster sets est une nouvelle technologie introduite dans Windows Server 2019. par conséquent, elle n’existe pas dans les versions précédentes. Les clusters de base du système d’exploitation ne peuvent pas joindre un ensemble de clusters. Toutefois, la technologie des mises à niveau propagées du système d’exploitation de cluster doit fournir la fonctionnalité de migration que vous recherchez en mettant à niveau ces clusters vers Windows Server 2019.
+**Question** Puis-je gérer mon ensemble de clusters via System Center Virtual Machine Manager ? <br>
+**Réponse** System Center Virtual Machine Manager ne prend actuellement pas en charge les ensembles de clusters <br><br> **Question** Les clusters Windows Server 2012 R2 ou 2016 peuvent-ils coexister dans le même ensemble de cluster ? <br>
+**Question** Puis-je migrer des charges de travail de clusters Windows Server 2012 R2 ou 2016 en faisant simplement en sorte que ces clusters rejoignent le même ensemble de clusters ? <br>
+**Réponse** Cluster sets est une nouvelle technologie introduite dans Windows Server 2019. par conséquent, elle n’existe pas dans les versions précédentes. Les clusters de base du système d’exploitation ne peuvent pas joindre un ensemble de clusters. Toutefois, la technologie des mises à niveau propagées du système d’exploitation de cluster doit fournir la fonctionnalité de migration que vous recherchez en mettant à niveau ces clusters vers Windows Server 2019.
 
-**Question :** Les ensembles de clusters peuvent-ils me permettre de mettre à l’échelle le stockage ou le calcul (seul) ? <br>
-**Réponse :** Oui, en ajoutant simplement un cluster d’espace de stockage direct ou un cluster Hyper-V traditionnel. Avec les ensembles de clusters, il s’agit d’un changement simple du ratio de calcul à stockage même dans un ensemble de clusters hyper-convergé.
+**Question** Les ensembles de clusters peuvent-ils me permettre de mettre à l’échelle le stockage ou le calcul (seul) ? <br>
+**Réponse** Oui, en ajoutant simplement un cluster d’espace de stockage direct ou un cluster Hyper-V traditionnel. Avec les ensembles de clusters, il s’agit d’un changement simple du ratio de calcul à stockage même dans un ensemble de clusters hyper-convergé.
 
-**Question :** Qu’est-ce que les outils de gestion pour les ensembles de clusters ? <br>
-**Réponse :** PowerShell ou WMI dans cette version.
+**Question** Qu’est-ce que les outils de gestion pour les ensembles de clusters ? <br>
+**Réponse** PowerShell ou WMI dans cette version.
 
-**Question :** Comment la migration dynamique entre clusters fonctionne-t-elle avec des processeurs de générations différentes ?  <br>
-**Réponse :** Les ensembles de clusters ne contournent pas les différences de processeur et remplacent ce qu’Hyper-V prend actuellement en charge.  Par conséquent, le mode de compatibilité du processeur doit être utilisé avec les migrations rapides.  La recommandation pour les ensembles de clusters consiste à utiliser le même matériel de processeur au sein de chaque cluster individuel, ainsi que le jeu de clusters entier pour les migrations dynamiques entre les clusters.
+**Question** Comment la migration dynamique entre clusters fonctionne-t-elle avec des processeurs de générations différentes ?  <br>
+**Réponse** Les ensembles de clusters ne contournent pas les différences de processeur et remplacent ce qu’Hyper-V prend actuellement en charge.  Par conséquent, le mode de compatibilité du processeur doit être utilisé avec les migrations rapides.  La recommandation pour les ensembles de clusters consiste à utiliser le même matériel de processeur au sein de chaque cluster individuel, ainsi que le jeu de clusters entier pour les migrations dynamiques entre les clusters.
 
-**Question :** Mes machines virtuelles de l’ensemble de clusters peuvent-elles basculer automatiquement en cas de défaillance du cluster ?  <br>
-**Réponse :** Dans cette version, les machines virtuelles de l’ensemble de clusters peuvent uniquement être migrées manuellement sur les clusters ; mais ne peut pas basculer automatiquement. 
+**Question** Mes machines virtuelles de l’ensemble de clusters peuvent-elles basculer automatiquement en cas de défaillance du cluster ?  <br>
+**Réponse** Dans cette version, les machines virtuelles de l’ensemble de clusters peuvent uniquement être migrées manuellement sur les clusters ; mais ne peut pas basculer automatiquement. 
 
-**Question :** Comment garantir que le stockage est résilient aux défaillances de cluster ? <br>
-**Réponse :** Utilisez la solution de réplica de stockage entre clusters (SR) entre les clusters membres pour tirer parti de la résilience du stockage pour les défaillances de cluster.
+**Question** Comment garantir que le stockage est résilient aux défaillances de cluster ? <br>
+**Réponse** Utilisez la solution de réplica de stockage entre clusters (SR) entre les clusters membres pour tirer parti de la résilience du stockage pour les défaillances de cluster.
 
-**Question :** J’utilise le réplica de stockage (SR) pour répliquer les clusters membres. Les chemins d’accès UNC de stockage de l’espace de noms du cluster sont-ils modifiés sur le basculement SR vers la cible de réplica espaces de stockage direct cluster ? <br>
-**Réponse :** Dans cette version, la modification de la référence d’espace de noms d’un ensemble de clusters n’a pas lieu avec le basculement SR. Indiquez à Microsoft si ce scénario est essentiel pour vous et comment vous envisagez de l’utiliser.
+**Question** J’utilise le réplica de stockage (SR) pour répliquer les clusters membres. Les chemins d’accès UNC de stockage de l’espace de noms du cluster sont-ils modifiés sur le basculement SR vers la cible de réplica espaces de stockage direct cluster ? <br>
+**Réponse** Dans cette version, la modification de la référence d’espace de noms d’un ensemble de clusters n’a pas lieu avec le basculement SR. Indiquez à Microsoft si ce scénario est essentiel pour vous et comment vous envisagez de l’utiliser.
 
-**Question :** Est-il possible de basculer des machines virtuelles entre des domaines d’erreur dans une situation de récupération d’urgence (disons que le domaine d’erreur entier est tombé en panne) ? <br>
-**Réponse :** Non, Notez que le basculement entre clusters au sein d’un domaine d’erreur logique n’est pas encore pris en charge. 
+**Question** Est-il possible de basculer des machines virtuelles entre des domaines d’erreur dans une situation de récupération d’urgence (disons que le domaine d’erreur entier est tombé en panne) ? <br>
+**Réponse** Non, Notez que le basculement entre clusters au sein d’un domaine d’erreur logique n’est pas encore pris en charge. 
 
-**Question :** Mon ensemble de cluster peut-il couvrir des clusters dans plusieurs sites (ou domaines DNS) ? <br> 
+**Question** Mon ensemble de cluster peut-il couvrir des clusters dans plusieurs sites (ou domaines DNS) ? <br> 
 **Réponse** Il s’agit d’un scénario non testé qui n’est pas immédiatement planifié pour la prise en charge de la production. Indiquez à Microsoft si ce scénario est essentiel pour vous et comment vous envisagez de l’utiliser.
 
-**Question :** L’ensemble de clusters fonctionne-t-il avec IPv6 ? <br>
-**Réponse :** IPv4 et IPv6 sont tous deux pris en charge avec les clusters de basculement.
+**Question** L’ensemble de clusters fonctionne-t-il avec IPv6 ? <br>
+**Réponse** IPv4 et IPv6 sont tous deux pris en charge avec les clusters de basculement.
 
-**Question :** Quelles sont les exigences en matière de forêt Active Directory pour les ensembles de clusters ? <br>
-**Réponse :** Tous les clusters membres doivent se trouver dans la même forêt Active Directory.
+**Question** Quelles sont les exigences en matière de forêt Active Directory pour les ensembles de clusters ? <br>
+**Réponse** Tous les clusters membres doivent se trouver dans la même forêt Active Directory.
 
-**Question :** Combien de nœuds ou de clusters peuvent faire partie d’un seul ensemble de clusters ? <br>
-**Réponse :** Dans Windows Server 2019, les ensembles de clusters ont été testés et pris en charge jusqu’à 64 nœuds de cluster au total. Toutefois, l’architecture des ensembles de clusters s’adapte aux plus grandes limites et n’est pas une valeur codée en dur pour une limite. Indiquez à Microsoft si une plus grande échelle est essentielle pour vous et comment vous envisagez de l’utiliser.
+**Question** Combien de nœuds ou de clusters peuvent faire partie d’un seul ensemble de clusters ? <br>
+**Réponse** Dans Windows Server 2019, les ensembles de clusters ont été testés et pris en charge jusqu’à 64 nœuds de cluster au total. Toutefois, l’architecture des ensembles de clusters s’adapte aux plus grandes limites et n’est pas une valeur codée en dur pour une limite. Indiquez à Microsoft si une plus grande échelle est essentielle pour vous et comment vous envisagez de l’utiliser.
 
-**Question :** Toutes les espaces de stockage direct clusters d’un ensemble de cluster forment-ils un seul pool de stockage ? <br>
-**Réponse :** Non. Espaces de stockage direct technologie continue de fonctionner dans un cluster unique et non pas entre les clusters membres d’un ensemble de clusters.
+**Question** Toutes les espaces de stockage direct clusters d’un ensemble de cluster forment-ils un seul pool de stockage ? <br>
+**Réponse** Non. Espaces de stockage direct technologie continue de fonctionner dans un cluster unique et non pas entre les clusters membres d’un ensemble de clusters.
 
-**Question :** L’espace de noms de l’ensemble de clusters est-il hautement disponible ? <br>
-**Réponse :** Oui, l’espace de noms de l’ensemble de clusters est fourni via un serveur d’espaces de noms SOFS de référence en continu (CA) qui s’exécute sur le cluster de gestion. Microsoft recommande de disposer d’un nombre suffisant de machines virtuelles à partir de clusters membres pour le rendre résilient aux défaillances localisées à l’ensemble du cluster. Toutefois, pour tenir compte des défaillances catastrophiques imprévues (par exemple, toutes les machines virtuelles dans le cluster de gestion sont en cours d’exécution en même temps), les informations de référence sont en outre mises en cache de manière permanente dans chaque nœud de l’ensemble de clusters, même au redémarrage.
+**Question** L’espace de noms de l’ensemble de clusters est-il hautement disponible ? <br>
+**Réponse** Oui, l’espace de noms de l’ensemble de clusters est fourni via un serveur d’espaces de noms SOFS de référence en continu (CA) qui s’exécute sur le cluster de gestion. Microsoft recommande de disposer d’un nombre suffisant de machines virtuelles à partir de clusters membres pour le rendre résilient aux défaillances localisées à l’ensemble du cluster. Toutefois, pour tenir compte des défaillances catastrophiques imprévues (par exemple, toutes les machines virtuelles dans le cluster de gestion sont en cours d’exécution en même temps), les informations de référence sont en outre mises en cache de manière permanente dans chaque nœud de l’ensemble de clusters, même au redémarrage.
  
-**Question :** L’accès au stockage basé sur l’espace de noms de l’ensemble de clusters a-t-il ralenti les performances de stockage dans un cluster ? <br>
-**Réponse :** Non. L’espace de noms de l’ensemble de clusters offre un espace de noms de référence dans un ensemble de clusters, conceptuellement comme les espaces de noms système de fichiers DFS (DFSN). Et contrairement à DFSN, toutes les métadonnées de référence de l’espace de noms du jeu de clusters sont automatiquement remplies et mises à jour automatiquement sur tous les nœuds sans aucune intervention de l’administrateur. il n’y a donc pratiquement aucune surcharge de performance dans le chemin d’accès de stockage. 
+**Question** L’accès au stockage basé sur l’espace de noms de l’ensemble de clusters a-t-il ralenti les performances de stockage dans un cluster ? <br>
+**Réponse** Non. L’espace de noms de l’ensemble de clusters offre un espace de noms de référence dans un ensemble de clusters, conceptuellement comme les espaces de noms système de fichiers DFS (DFSN). Et contrairement à DFSN, toutes les métadonnées de référence de l’espace de noms du jeu de clusters sont automatiquement remplies et mises à jour automatiquement sur tous les nœuds sans aucune intervention de l’administrateur. il n’y a donc pratiquement aucune surcharge de performance dans le chemin d’accès de stockage. 
 
-**Question :** Comment sauvegarder les métadonnées du jeu de clusters ? <br>
-**Réponse :** Ce guide est le même que celui du cluster de basculement. La sauvegarde de l’état du système va également sauvegarder l’état du cluster.  Par Sauvegarde Windows Server, vous pouvez effectuer des restaurations de la base de données de cluster d’un nœud (ce qui ne doit jamais être nécessaire en raison de la logique de réparation spontanée dont nous disposons) ou d’une restauration faisant autorité pour restaurer l’ensemble de la base de données de cluster sur tous les nœuds. Dans le cas des ensembles de clusters, Microsoft recommande d’abord d’exécuter une restauration faisant autorité sur le cluster membre, puis sur le cluster de gestion, le cas échéant.
+**Question** Comment sauvegarder les métadonnées du jeu de clusters ? <br>
+**Réponse** Ce guide est le même que celui du cluster de basculement. La sauvegarde de l’état du système va également sauvegarder l’état du cluster.  Par Sauvegarde Windows Server, vous pouvez effectuer des restaurations de la base de données de cluster d’un nœud (ce qui ne doit jamais être nécessaire en raison de la logique de réparation spontanée dont nous disposons) ou d’une restauration faisant autorité pour restaurer l’ensemble de la base de données de cluster sur tous les nœuds. Dans le cas des ensembles de clusters, Microsoft recommande d’abord d’exécuter une restauration faisant autorité sur le cluster membre, puis sur le cluster de gestion, le cas échéant.

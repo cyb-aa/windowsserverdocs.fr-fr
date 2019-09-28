@@ -1,126 +1,126 @@
 ---
 title: Tunneling GRE dans Windows Server 2016
-description: Vous pouvez utiliser cette rubrique pour mieux comprendre des mises à jour pour la fonctionnalité de tunnel GRE Generic Routing Encapsulation () pour la passerelle RAS dans Windows Server 2016.
+description: Vous pouvez utiliser cette rubrique pour mieux comprendre les mises à jour de la fonctionnalité de tunnel GRE (Generic Routing Encapsulation) pour la passerelle RAS dans Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: df2023bf-ba64-481e-b222-6f709edaa5c1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e0ec077ad5e97edd3db7d1dc4e662bb191f7885b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be57bc0ce1b509c49f269618765c79f380fd3b12
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887860"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404678"
 ---
 # <a name="gre-tunneling-in-windows-server-2016"></a>Tunneling GRE dans Windows Server 2016
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Windows Server 2016 fournit des mises à jour pour l’Encapsulation générique de routage \(GRE\) fonctionnalité de tunnel pour la passerelle RAS.  
+Windows Server 2016 fournit des mises à jour de l’encapsulation générique de routage \(GRE @ no__t-1 pour la passerelle RAS.  
   
 GRE est un protocole de tunneling léger qui peut encapsuler une grande variété de protocoles de la couche réseau dans les liaisons point à point virtuelles sur un réseau d’interconnexion IP. L’implémentation Microsoft GRE peut encapsuler IPv4 et IPv6.  
   
 Les tunnels GRE sont utiles dans de nombreux scénarios, car :  
   
--   Ils sont légers et 2890 RFC conforme, rendant interopérable avec différents périphériques de fournisseur  
+-   Ils sont conformes à la norme Lightweight et RFC 2890, ce qui les rend interopérables avec différents appareils de fournisseurs  
   
--   Vous pouvez utiliser le protocole de passerelle frontière \(BGP\) pour le routage dynamique  
+-   Vous pouvez utiliser Border Gateway Protocol \(BGP @ no__t-1 pour le routage dynamique  
   
--   Vous pouvez configurer mutualisée GRE RAS passerelles pour une utilisation avec Sdn \(SDN\)
+-   Vous pouvez configurer des passerelles RAS multi-locataires GRE pour une utilisation avec un réseau à définition logicielle \(SDN @ no__t-1
   
--   Vous pouvez utiliser System Center Virtual Machine Manager pour gérer GRE\-RAS passerelles
+-   Vous pouvez utiliser System Center Virtual Machine Manager pour gérer les passerelles RAS GRE @ no__t-0based
   
--   Vous pouvez obtenir jusqu'à 2.0 débit Gbits/s sur une machine virtuelle 6 cœurs qui est configuré comme passerelle RAS GRE
+-   Vous pouvez atteindre jusqu’à 2,0 Gbits/s de débit sur une machine virtuelle 6 cœurs configurée en tant que passerelle RAS GRE
   
 -   Une seule passerelle prend en charge plusieurs modes de connexion  
   
-Les tunnels GRE activent la connectivité entre les réseaux virtuels clients et les réseaux externes. Étant donné que le protocole GRE est léger et prise en charge est disponible sur la plupart des périphériques réseau, il devient un choix idéal pour le tunneling, où le chiffrement de données n’est pas nécessaire. 
+Les tunnels GRE activent la connectivité entre les réseaux virtuels clients et les réseaux externes. Étant donné que le protocole GRE est léger et que la prise en charge de GRE est disponible sur la plupart des périphériques réseau, il constitue un choix idéal pour le tunneling où le chiffrement des données n’est pas nécessaire. 
 
-Prise en charge GRE dans les tunnels de Site à Site (S2S) résout le problème de transfert entre réseaux virtuels clients et les réseaux externes clients à l’aide d’une passerelle mutualisée, comme décrit plus loin dans cette rubrique.  
+La prise en charge de GRE dans les tunnels de site à site (S2S) résout le problème de transfert entre les réseaux virtuels clients et les réseaux externes clients à l’aide d’une passerelle mutualisée, comme décrit plus loin dans cette rubrique.  
   
 La fonctionnalité de tunnel GRE est conçue pour répondre aux exigences suivantes :  
   
--   Un fournisseur d’hébergement doit être en mesure de créer des réseaux virtuels pour le transfert sans modification de la configuration de commutateur physique.  
+-   Un fournisseur d’hébergement doit être en mesure de créer des réseaux virtuels à transférer sans modifier la configuration du commutateur physique.  
   
--   Un fournisseur d’hébergement doit être en mesure d’ajouter des sous-réseaux à leurs réseaux exposée en externe sans modifier la configuration des commutateurs physiques au sein de leur infrastructure.  
-La fonctionnalité de tunnel GRE permet ou améliore les différents scénarios clés pour l’hébergement de fournisseurs de services à l’aide des technologies Microsoft pour implémenter Sdn dans leurs offres de service.  
+-   Un fournisseur d’hébergement doit être en mesure d’ajouter des sous-réseaux à leurs réseaux connectés en externe sans modifier la configuration des commutateurs physiques au sein de leur infrastructure.  
+La fonctionnalité de tunnel GRE active ou améliore plusieurs scénarios clés pour l’hébergement de fournisseurs de services à l’aide des technologies Microsoft pour implémenter la mise en réseau définie par logiciel dans leurs offres de service.  
   
 Voici quelques exemples de scénarios :  
   
--   [Accès à partir de réseaux virtuels des locataires à des réseaux physiques de locataires](#BKMK_Access)  
+-   [Accès à partir de réseaux virtuels locataires à des réseaux physiques locataires](#BKMK_Access)  
   
--   [Connectivité haut débit](#BKMK_Speed)  
+-   [Connectivité à grande vitesse](#BKMK_Speed)  
   
--   [Isolation basée sur l’intégration de réseau local virtuel](#BKMK_Integration)  
+-   [Intégration avec l’isolation basée sur un réseau local virtuel](#BKMK_Integration)  
   
--   [Ressources d’accès partagé](#BKMK_Shared)  
+-   [Accéder aux ressources partagées](#BKMK_Shared)  
   
--   [Services de périphériques tiers aux locataires](#BKMK_thirdparty)  
+-   [Services d’appareils tiers aux locataires](#BKMK_thirdparty)  
   
 ## <a name="key-scenarios"></a>Principaux scénarios
 
-Scénarios clés que la GRE tunnel des adresses de fonctionnalité sont les suivantes :  
+Voici les principaux scénarios que la fonctionnalité de tunnel GRE adresse.  
   
-### <a name="BKMK_Access"></a>Accès à partir de réseaux virtuels des locataires à des réseaux physiques de locataires
+### <a name="BKMK_Access"></a>Accès à partir de réseaux virtuels locataires à des réseaux physiques locataires
 
-Ce scénario permet à une méthode évolutive fournir l’accès à partir de réseaux virtuels des locataires à des réseaux physiques situés sur le fournisseur de services hébergement local du client. Un point de terminaison de tunnel GRE est établi sur la passerelle mutualisée, l’autre extrémité du tunnel GRE est établie sur un périphérique tiers sur le réseau physique. Le trafic de couche 3 est acheminé entre les ordinateurs virtuels dans le réseau virtuel et l’appareil par des tiers sur le réseau physique.  
+Ce scénario offre un moyen évolutif de fournir un accès à partir de réseaux virtuels locataires à des réseaux physiques clients situés sur le site du fournisseur de services d’hébergement. Un point de terminaison de tunnel GRE est établi sur la passerelle mutualisée. l’autre point de terminaison de tunnel GRE est établi sur un appareil tiers sur le réseau physique. Le trafic de couche 3 est routé entre les machines virtuelles du réseau virtuel et l’appareil tiers sur le réseau physique.  
   
-![Tunnel GRE connexion réseau physique hébergeur et réseau virtuel locataire](../../media/gre-tunneling-in-windows-server/GRE_.png)  
+![Tunnel GRE connectant le réseau physique de l’hébergeur et le réseau virtuel du locataire](../../media/gre-tunneling-in-windows-server/GRE_.png)  
   
-### <a name="BKMK_Speed"></a>Connectivité haut débit
+### <a name="BKMK_Speed"></a>Connectivité à grande vitesse
 
-Ce scénario permet à une méthode évolutive fournir une connectivité haut débit du réseau de locataire en local à son réseau virtuel situé sur le réseau de fournisseur de service hébergement. Un client se connecte au réseau de fournisseur de service par le biais de MPLS (MPLS), où un tunnel GRE est établi entre le routeur de périphérie du fournisseur service d’hébergement et de la passerelle mutualisée à réseau virtuel du locataire.  
+Ce scénario offre une méthode évolutive pour fournir une connectivité à haut débit à partir du réseau local du client vers son réseau virtuel situé dans le réseau du fournisseur de services d’hébergement. Un locataire se connecte au réseau du fournisseur de services via MPLS (Multiprotocol Label Switching), où un tunnel GRE est établi entre le routeur de périphérie du fournisseur de services d’hébergement et la passerelle mutualisée sur le réseau virtuel du locataire.  
   
-![Tunnel GRE connexion réseau MPLS entreprise du client et réseau virtuel locataire](../../media/gre-tunneling-in-windows-server/GRE-.png)  
+![Tunnel GRE connectant le réseau client MPLS et le réseau virtuel du locataire de l’entreprise](../../media/gre-tunneling-in-windows-server/GRE-.png)  
   
-### <a name="BKMK_Integration"></a>Isolation basée sur l’intégration de réseau local virtuel
+### <a name="BKMK_Integration"></a>Intégration avec l’isolation basée sur un réseau local virtuel
 
-Ce scénario vous permet d’intégrer isolation du VLAN en fonction avec la virtualisation de réseau Hyper-V. Un réseau physique sur le réseau de fournisseur hébergement contient un équilibreur de charge utilisant l’isolement basé sur le réseau local virtuel. Une passerelle mutualisée établit les tunnels GRE entre l’équilibreur de charge sur le réseau physique et de la passerelle mutualisée sur le réseau virtuel.  
+Ce scénario vous permet d’intégrer l’isolation basée sur un réseau local virtuel avec la virtualisation de réseau Hyper-V. Un réseau physique sur le réseau du fournisseur d’hébergement contient un équilibreur de charge à l’aide de l’isolation basée sur un réseau local virtuel. Une passerelle mutualisée établit des tunnels GRE entre l’équilibreur de charge sur le réseau physique et la passerelle mutualisée sur le réseau virtuel.  
   
-Possible d’établir plusieurs tunnels entre la source et la destination, et la clé GRE est utilisée pour faire la distinction entre les tunnels.  
+Il est possible d’établir plusieurs tunnels entre la source et la destination, et la clé GRE est utilisée pour distinguer les tunnels.  
   
-![GRE plusieurs tunnels de connexion de réseaux virtuels client](../../media/gre-tunneling-in-windows-server/GRE-VLANIsolation.png)  
+![Plusieurs tunnels GRE connectant des réseaux virtuels locataires](../../media/gre-tunneling-in-windows-server/GRE-VLANIsolation.png)  
   
-### <a name="BKMK_Shared"></a>Ressources d’accès partagé
+### <a name="BKMK_Shared"></a>Accéder aux ressources partagées
 
-Ce scénario vous permet d’accéder aux ressources partagées sur un réseau physique sur le réseau de fournisseur hébergement.  
+Ce scénario vous permet d’accéder à des ressources partagées sur un réseau physique situé sur le réseau du fournisseur d’hébergement.  
   
-Vous pouvez avoir un service partagé situé sur un serveur sur un réseau physique situé dans le réseau de fournisseur hébergement que vous souhaitez partager avec plusieurs réseaux virtuels clients.  
+Vous pouvez avoir un service partagé situé sur un serveur sur un réseau physique situé dans le réseau du fournisseur d’hébergement que vous souhaitez partager avec plusieurs réseaux virtuels locataires.  
   
-Les réseaux de clients avec des sous-réseaux sans chevauchement accéder au réseau courantes via un tunnel GRE. Une passerelle unique locataire achemine entre les tunnels GRE, par conséquent, routage des paquets vers les réseaux client correspondante.  
+Les réseaux locataires avec des sous-réseaux qui ne se chevauchent pas accèdent au réseau commun via un tunnel GRE. Une passerelle de locataire unique achemine les paquets entre les tunnels GRE, acheminant ainsi les paquets vers les réseaux de locataire appropriés.  
   
-Dans ce scénario, la passerelle client unique peut être remplacée par les appliances matérielles de fournisseurs tiers.  
+Dans ce scénario, la passerelle de locataire unique peut être remplacée par des appliances matérielles tierces.  
   
-![Une passerelle à client unique à l’aide de plusieurs tunnels pour se connecter plusieurs réseaux virtuels](../../media/gre-tunneling-in-windows-server/GRE-SharedResource.png)  
+![Une passerelle à locataire unique utilisant plusieurs tunnels pour connecter plusieurs réseaux virtuels](../../media/gre-tunneling-in-windows-server/GRE-SharedResource.png)  
   
-### <a name="BKMK_thirdparty"></a>Services de périphériques tiers aux locataires
+### <a name="BKMK_thirdparty"></a>Services d’appareils tiers aux locataires
 
-Ce scénario peut être utilisé pour intégrer les périphériques tiers (par exemple, les équilibreurs de charge matérielle) dans le flux de trafic de réseau virtuel locataire. Par exemple, le trafic en provenance d’un site d’entreprise passe via un tunnel S2S à la passerelle mutualisée. Le trafic est acheminé vers l’équilibreur de charge via un tunnel GRE. L’équilibrage de charge achemine le trafic vers plusieurs machines virtuelles sur le réseau virtuel de l’entreprise. La même chose se produit pour un autre locataire avec potentiellement chevauchement des adresses IP dans les réseaux virtuels. Le trafic réseau est isolé sur l’équilibreur de charge à l’aide de réseaux locaux virtuels et s’applique à tous les appareils de couche 3 qui prennent en charge des réseaux locaux virtuels.  
+Ce scénario peut être utilisé pour intégrer des appareils tiers (tels que des équilibreurs de charge matérielle) au flux de trafic de réseau virtuel du locataire. Par exemple, le trafic provenant d’un site d’entreprise passe par un tunnel S2S à la passerelle mutualisée. Le trafic est acheminé vers l’équilibreur de charge via un tunnel GRE. L’équilibreur de charge achemine le trafic vers plusieurs machines virtuelles sur le réseau virtuel de l’entreprise. La même chose se produit pour un autre client avec des adresses IP qui se chevauchent potentiellement dans les réseaux virtuels. Le trafic réseau est isolé sur l’équilibreur de charge à l’aide de réseaux locaux virtuels et s’applique à tous les appareils de couche 3 qui prennent en charge les réseaux locaux virtuels.  
   
-![GRE plusieurs tunnels de connexion de réseaux virtuels pour les périphériques tiers](../../media/gre-tunneling-in-windows-server/GREThirdParty.png)  
+![Plusieurs tunnels GRE connectant des réseaux virtuels à des appareils tiers](../../media/gre-tunneling-in-windows-server/GREThirdParty.png)  
   
 ## <a name="configuration-and-deployment"></a>Configuration et déploiement
 
-Un tunnel GRE est exposé comme un protocole supplémentaire au sein d’une interface S2S. Il est implémenté de manière similaire en tant qu’un tunnel IPSec S2S décrit dans le Blog de mise en réseau suivantes : [Architecture mutualisée de Site à Site (S2S) VPN Gateway avec Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
+Un tunnel GRE est exposé en tant que protocole supplémentaire au sein d’une interface S2S. Elle est implémentée de façon similaire à un tunnel IPSec S2S décrit dans le blog de mise en réseau suivant : [Passerelle VPN de site à site (S2S) mutualisée avec Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
   
-Consultez la rubrique suivante pour obtenir un exemple qui déploie des passerelles, y compris les passerelles de tunnel GRE :  
+Consultez la rubrique suivante pour obtenir un exemple de déploiement de passerelles, notamment les passerelles de tunnel GRE :  
   
-[Déployer une infrastructure de réseau à définition logicielle à l’aide de scripts](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
+[Déployer une infrastructure réseau définie par logiciel à l’aide de scripts](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
   
-## <a name="more-information"></a>Informations supplémentaires
+## <a name="more-information"></a>Plus d’informations
 
-Pour plus d’informations sur le déploiement de passerelles de S2S, consultez les rubriques suivantes :  
+Pour plus d’informations sur le déploiement de passerelles S2S, consultez les rubriques suivantes :  
   
--   [Passerelle RAS](RAS-Gateway.md)  
+-   [Passerelle du serveur d’accès à distance](RAS-Gateway.md)  
   
--   [Protocole de passerelle frontière &#40;BGP&#41;](../bgp/Border-Gateway-Protocol-BGP.md)  
+-   [Border Gateway Protocol &#40;BGP&#41;](../bgp/Border-Gateway-Protocol-BGP.md)  
   
--   [Nouveau ! Guide de déploiement de Windows Server 2012 R2 RAS passerelle mutualisée](https://blogs.technet.com/b/wsnetdoc/archive/2014/03/26/new-windows-server-2012-r2-RAS-multitenant-gateway-deployment-guide.aspx)  
+-   @no__t 0New ! Guide de déploiement de la passerelle mutualisée RAS Windows Server 2012 R2 @ no__t-0  
   
--   [Déployer le protocole de passerelle frontière (BGP) avec la passerelle mutualisée RAS](https://blogs.technet.com/b/wsnetdoc/archive/2014/04/03/deploy-border-gateway-protocol-bgp-with-the-RAS-multitenant-gateway.aspx)  
+-   [Déployer Border Gateway Protocol (BGP) avec la passerelle mutualisée RAS](https://blogs.technet.com/b/wsnetdoc/archive/2014/04/03/deploy-border-gateway-protocol-bgp-with-the-RAS-multitenant-gateway.aspx)  
   
 
 

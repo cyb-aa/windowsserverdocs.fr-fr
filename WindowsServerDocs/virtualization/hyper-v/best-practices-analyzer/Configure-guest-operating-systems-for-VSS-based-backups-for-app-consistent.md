@@ -1,7 +1,7 @@
 ---
-title: Configurer les systèmes d’exploitation invités, pour les sauvegardes VSS activer les instantanés cohérents au niveau de l’application pour réplica Hyper-V
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Configurer des systèmes d’exploitation invités pour les sauvegardes basées sur VSS afin d’activer des captures instantanées cohérentes avec les applications pour le réplica Hyper-V
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 7638e996-d42d-47b8-a670-1e09e7183850
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: b4300dd4b7adc0cef8544215b5da62044a97301b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 032ca585da1c556fff6f9e06b3bde0662a5d64db
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364958"
 ---
-# <a name="configure-guest-operating-systems-for-vss-based-backups-to-enable-application-consistent-snapshots-for-hyper-v-replica"></a>Configurer les systèmes d’exploitation invités, pour les sauvegardes VSS activer les instantanés cohérents au niveau de l’application pour réplica Hyper-V
+# <a name="configure-guest-operating-systems-for-vss-based-backups-to-enable-application-consistent-snapshots-for-hyper-v-replica"></a>Configurer des systèmes d’exploitation invités pour les sauvegardes basées sur VSS afin d’activer des captures instantanées cohérentes avec les applications pour le réplica Hyper-V
 
 >S'applique à : Windows Server 2016
 
@@ -27,21 +27,21 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Erreur|  
+|**Va**|Error|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
-*Instantanés cohérents au niveau de l’application nécessite que le Volume Shadow Copy Services (VSS) est activé et configuré dans les systèmes d’exploitation invités d’ordinateurs virtuels participant à la réplication.*  
+*Les captures instantanées cohérentes avec les applications requièrent que le service VSS (Volume Shadow Copy Services) soit activé et configuré dans les systèmes d’exploitation invités des ordinateurs virtuels participant à la réplication.*  
   
 ## <a name="impact"></a>Impact  
-*Même si des captures instantanées cohérentes de l’application sont spécifiées dans la configuration de réplication, Hyper-V n’utilise pas les sauf si VSS est configuré. Cela affecte les ordinateurs virtuels suivants :*  
+*Even si des captures instantanées de cohérence des applications sont spécifiées dans la configuration de la réplication, Hyper-V ne les utilise pas, sauf si VSS est configuré. Cela a un impact sur les ordinateurs virtuels suivants :*  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
-## <a name="resolution"></a>Résolution  
-*Utiliser la connexion de Machine virtuelle pour installer integration services dans la machine virtuelle.*  
+## <a name="resolution"></a>Résolution :  
+*Utilisez connexion à un ordinateur virtuel pour installer les services d’intégration sur l’ordinateur virtuel.*  
   
 
 

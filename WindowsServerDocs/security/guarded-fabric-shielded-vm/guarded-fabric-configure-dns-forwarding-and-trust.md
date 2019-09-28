@@ -1,37 +1,37 @@
 ---
-title: Configurer la redirection DNS et approbation de domaine
+title: Configuration du transfert DNS et de l’approbation de domaine
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 3f9083d749ba9251ba47ecb64b7cb3d7c6290f1d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5d8ffe82065caeee27c5d13f5243f13addc6c325
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386741"
 ---
-# <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>Configurer la redirection DNS dans le domaine SGH et une approbation à sens unique avec le domaine de fabric
+# <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>Configurer le transfert DNS dans le domaine SGH et une approbation unidirectionnelle avec le domaine de l’infrastructure
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 >[!IMPORTANT]
->Mode AD est déconseillé à compter de Windows Server 2019. Pour les environnements où l’attestation TPM n’est pas possible, configurez [héberger l’attestation de clé](guarded-fabric-initialize-hgs-key-mode.md). L’attestation de clé hôte fournit la garantie similaire au mode d’AD et est plus simple à configurer. 
+>Le mode AD est déconseillé à partir de Windows Server 2019. Pour les environnements où l’attestation de module de plateforme sécurisée n’est pas possible, configurez l' [attestation de clé hôte](guarded-fabric-initialize-hgs-key-mode.md). L’attestation de clé hôte offre une garantie similaire au mode AD et est plus simple à configurer. 
 
-Utilisez les étapes suivantes pour configurer la redirection DNS et établir une approbation à sens unique avec le domaine de fabric. Ces étapes permettent le SGH pour localiser l’infrastructure de contrôleurs de domaine et valider l’appartenance au groupe des ordinateurs hôtes Hyper-V.
+Procédez comme suit pour configurer le transfert DNS et établir une relation d’approbation unidirectionnelle avec le domaine de l’infrastructure. Ces étapes permettent à SGH de localiser les contrôleurs de domaine de l’infrastructure et de valider l’appartenance au groupe des ordinateurs hôtes Hyper-V.
 
-1.  Exécutez la commande suivante dans une session PowerShell avec élévation de privilèges pour configurer la redirection DNS. Remplacez fabrikam.com par le nom du domaine fabric et tapez les adresses IP des serveurs DNS dans le domaine de fabric. Pour accroître la disponibilité, pointez sur plusieurs serveurs DNS.
+1.  Exécutez la commande suivante dans une session PowerShell avec élévation de privilèges pour configurer le transfert DNS. Remplacez fabrikam.com par le nom du domaine de l’infrastructure et tapez les adresses IP des serveurs DNS dans le domaine de la structure. Pour une haute disponibilité, pointez sur plusieurs serveurs DNS.
 
     ```powershell
     Add-DnsServerConditionalForwarderZone -Name "fabrikam.com" -ReplicationScope "Forest" -MasterServers <DNSserverAddress1>, <DNSserverAddress2>
     ```
 
-2.  Pour créer une approbation de forêt à sens unique, exécutez la commande suivante dans une invite de commandes avec élévation de privilèges :
+2.  Pour créer une approbation de forêt unidirectionnelle, exécutez la commande suivante dans une invite de commandes avec élévation de privilèges :
 
-    Remplacez `bastion.local` avec le nom du domaine SGH et `fabrikam.com` avec le nom du domaine de fabric. Fournir le mot de passe pour un administrateur du domaine de fabric.
+    Remplacez `bastion.local` par le nom du domaine SGH et `fabrikam.com` par le nom du domaine de l’infrastructure. Indiquez le mot de passe d’un administrateur du domaine de l’infrastructure.
 
         netdom trust bastion.local /domain:fabrikam.com /userD:fabrikam.com\Administrator /passwordD:<password> /add
 

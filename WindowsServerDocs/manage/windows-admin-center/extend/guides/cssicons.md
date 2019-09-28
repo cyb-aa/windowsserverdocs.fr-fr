@@ -1,23 +1,23 @@
 ---
-title: Liste actuelle des icônes dans Windows Admin Center
-description: Liste actuelle des icônes dans le Kit de développement Windows Admin Center (projet Honolulu)
+title: Liste actuelle des icônes dans le centre d’administration Windows
+description: Liste actuelle des icônes dans le kit de développement logiciel (SDK) du centre d’administration Windows (projet Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: e908e088cd92127a785004e22d51934c13afc1ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.prod: windows-server
+ms.openlocfilehash: 4b9ffe55b97bac93ab983b25e0971e2c07eeb520
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844560"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357094"
 ---
-# <a name="current-list-of-icons-in-windows-admin-center"></a>Liste actuelle des icônes dans Windows Admin Center
+# <a name="current-list-of-icons-in-windows-admin-center"></a>Liste actuelle des icônes dans le centre d’administration Windows
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+>S'applique à : Windows Admin Center, Windows Admin Center Preview
 
 ```
 .icon-win-globalNavButton:before { content: "\E700"; }

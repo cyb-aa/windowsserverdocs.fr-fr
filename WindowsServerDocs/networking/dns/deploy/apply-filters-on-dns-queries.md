@@ -2,18 +2,18 @@
 title: Utiliser une stratégie DNS pour l’application de filtres sur les requêtes DNS
 description: Cette rubrique fait partie du Guide de scénario de stratégie DNS pour Windows Server 2016
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: b86beeac-b0bb-4373-b462-ad6fa6cbedfa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 71e6bb5bf5fd439682277a9a8304aa785eba658d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 95b68995326dc3d3bf48ca36caa9b2ab4923a7c3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868911"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406210"
 ---
 # <a name="use-dns-policy-for-applying-filters-on-dns-queries"></a>Utiliser une stratégie DNS pour l’application de filtres sur les requêtes DNS
 

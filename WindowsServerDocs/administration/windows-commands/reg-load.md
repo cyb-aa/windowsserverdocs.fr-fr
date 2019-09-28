@@ -1,8 +1,8 @@
 ---
-title: charge de reg
-description: 'Rubrique de commandes de Windows pour ***- '
+title: charge reg
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ebc75ad78b7334f4d48a085f6870a443b31fa2a9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: db661e311e3fe8c393750716de5dab375e7817f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852190"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384701"
 ---
-# <a name="reg-load"></a>charge de reg
+# <a name="reg-load"></a>charge reg
 
 
 
-Écritures enregistrement des sous-clés et entrées dans une autre sous-clé dans le Registre. Destinée aux fichiers temporaires qui sont utilisés pour la résolution des problèmes ou la modification des entrées de Registre.
+Écrit les sous-clés et les entrées enregistrées dans une autre sous-clé du Registre. Destiné à être utilisé avec les fichiers temporaires utilisés pour la résolution des problèmes ou la modification des entrées de registre.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,26 +38,26 @@ reg load KeyName FileName
 
 |Paramètre|Description|
 |---------|-----------|
-|\<KeyName>|Spécifie le chemin d’accès complet de la sous-clé à charger. Pour spécifier les ordinateurs distants, incluez le nom d’ordinateur (au format \\ \\ComputerName\) dans le cadre de la *KeyName*. En omettant \\ \\ComputerName\, l’opération par défaut sur l’ordinateur local. Le *KeyName* doit inclure une clé racine valide. Les clés racine valide pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont : HKLM et HKU.|
-|\<FileName>|Spécifie le nom et le chemin d’accès du fichier à charger. Ce fichier doit être créé au préalable à l’aide de la **reg enregistrer** opération et une extension .hiv.|
-|/?|Affiche l’aide de **reg charge** à l’invite de commandes.|
+|@no__t 0KeyName >|Spécifie le chemin d’accès complet de la sous-clé à charger. Pour spécifier des ordinateurs distants, incluez le nom de l’ordinateur (au format \\ @ no__t-1ComputerName @ no__t-2 dans le cadre du *keyName*. Si vous omettez \\ @ no__t-1ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont les suivantes : HKLM et HKU.|
+|\<Nom de fichier >|Spécifie le nom et le chemin d’accès du fichier à charger. Ce fichier doit être créé à l’avance à l’aide de l’opération **reg save** et de l’extension. HIV.|
+|/?|Affiche l’aide pour **reg Load** à l’invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
-Le tableau suivant répertorie les valeurs de retour pour la **reg charge** opération.
+Le tableau suivant répertorie les valeurs renvoyées pour l’opération de **chargement de Reg** .
 
 |Value|Description|
 |-----|-----------|
-|0|Opération réussie|
+|0|Succès|
 |1|Échec|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour charger le fichier nommé RuchTemp.hiv à la clé HKLM\RuchTemp, tapez :
+Pour charger le fichier nommé TempHive. HIV dans la clé HKLM\TempHive, tapez :
 ```
 REG LOAD HKLM\TempHive TempHive.hiv
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

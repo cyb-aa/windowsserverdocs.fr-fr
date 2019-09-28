@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: brianlic
 ms.technology: storage
@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: Le Gestionnaire des ressources de serveur de fichiers (FSRM) est un outil qui vous permet de gérer et de classer des données sur un serveur de fichiers Windows Server.
-ms.openlocfilehash: 49e7731c9f1e0f312728894e99bc88b0391738d8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 719176307afc320ad676fd1acfc07ad9d15920cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866946"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394167"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers
 
@@ -98,7 +98,7 @@ Pour empêcher les Gestionnaire des ressources du serveur de fichiers de créer 
         ```
 
         > [!NOTE] 
-        > L’éditeur du Registre peut vous indiquer qu’il a supprimé des chaînes vides, en affichant cet avertissement que vous pouvez ignorer en toute sécurité : *Les données de type REG_MULTI_SZ ne peuvent pas contenir de chaînes vides. L’éditeur du Registre va supprimer toutes les chaînes vides trouvées.*
+        > L’éditeur du Registre peut vous indiquer qu’il a supprimé des chaînes vides, en affichant cet avertissement que vous pouvez ignorer en toute sécurité : *Data de type REG_MULTI_SZ ne peut pas contenir de chaînes vides. L’éditeur du Registre va supprimer toutes les chaînes vides trouvées.*
 
 7. Démarrez le service SRMSVC. Par exemple, dans une session PowerShell, `Start-Service SrmSvc`entrez.
 

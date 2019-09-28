@@ -1,32 +1,32 @@
 ---
 title: Initialiser le cluster SGH à l’aide du mode AD dans une nouvelle forêt dédiée (par défaut)
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7a3d38818bfdaa48f53ca7a54bf10b68e4e4a7d3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4dd10efecf391f7087962e514db7a59135bd93e8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447438"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403644"
 ---
 # <a name="initialize-the-hgs-cluster-using-ad-mode-in-a-new-dedicated-forest-default"></a>Initialiser le cluster SGH à l’aide du mode AD dans une nouvelle forêt dédiée (par défaut)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 >[!IMPORTANT]
->Attestation approuvée par l’administrateur (mode AD) est déconseillée à compter de Windows Server 2019. Pour les environnements où l’attestation TPM n’est pas possible, configurez [héberger l’attestation de clé](guarded-fabric-initialize-hgs-key-mode-default.md). L’attestation de clé hôte fournit la garantie similaire au mode d’AD et est plus simple à configurer. 
+>L’attestation approuvée par l’administrateur (mode AD) est déconseillée à compter de Windows Server 2019. Pour les environnements où l’attestation de module de plateforme sécurisée n’est pas possible, configurez l' [attestation de clé hôte](guarded-fabric-initialize-hgs-key-mode-default.md). L’attestation de clé hôte offre une garantie similaire au mode AD et est plus simple à configurer. 
 
 1.  [!INCLUDE [Initialize HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-one.md)] 
 2.  [!INCLUDE [Obtain certificates for HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-two.md)]
 
-3.  Exécutez [Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx) dans une fenêtre PowerShell avec élévation de privilèges sur le premier nœud SGH. La syntaxe de cette applet de commande prend en charge le nombre d’entrées différents, mais les appels courants 2 sont ci-dessous :
+3.  Exécutez [Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx) dans une fenêtre PowerShell avec élévation de privilèges sur le premier nœud SGH. La syntaxe de cette applet de commande prend en charge de nombreuses entrées différentes, mais les deux appels les plus courants sont les suivants :
 
-    -   Si vous utilisez des fichiers PFX pour vos certificats de signature et le chiffrement, exécutez les commandes suivantes :
+    -   Si vous utilisez des fichiers PFX pour vos certificats de signature et de chiffrement, exécutez les commandes suivantes :
 
         ```powershell
         $signingCertPass = Read-Host -AsSecureString -Prompt "Signing certificate password"

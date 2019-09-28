@@ -2,31 +2,31 @@
 title: Activer l’énumération basée sur l’accès pour un espace de noms
 description: Cet article décrit comment activer l’énumération basée sur l’accès pour un espace de noms.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7e9a5b397127e9eb88352fb4d7bc28955023d4b7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 246df5b13a1dbea614886ab7fe445dd448ae1763
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447217"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402179"
 ---
 # <a name="enable-access-based-enumeration-on-a-namespace"></a>Activer l’énumération basée sur l’accès pour un espace de noms
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 L’énumération basée sur l’accès masque les fichiers et les dossiers auxquels les utilisateurs ne sont pas autorisés à accéder. Par défaut, cette fonctionnalité n’est pas activée pour les espaces de noms DFS. Vous pouvez activer l’énumération basée sur l’accès des dossiers DFS à l’aide de Gestion DFS. Pour contrôler l’énumération basée sur l’accès des fichiers et des dossiers dans les cibles de dossier, vous devez activer l’énumération basée sur l’accès pour chaque dossier partagé à l’aide de Gestion du partage et du stockage.
 
-Pour activer l’énumération basée sur l’accès sur un espace de noms, tous les serveurs d’espace de noms doivent exécuter Windows Server 2008 ou version ultérieure. En outre, les espaces de noms de domaine doivent utiliser le mode de Windows Server 2008. Pour plus d’informations sur la configuration requise du mode Windows Server 2008, consultez [choisir un Type de Namespace](choose-a-namespace-type.md).
+Pour activer l’énumération basée sur l’accès sur un espace de noms, tous les serveurs d’espaces de noms doivent exécuter Windows Server 2008 ou une version plus récente. En outre, les espaces de noms basés sur un domaine doivent utiliser le mode Windows Server 2008. Pour plus d’informations sur la configuration requise du mode Windows Server 2008, consultez [choisir un type d’espace de noms](choose-a-namespace-type.md).
 
 Dans certains environnements, l’activation de l’énumération basée sur l’accès peut entraîner une utilisation élevée du processeur sur le serveur et des temps de réponse lents pour les utilisateurs.
 
 > [!NOTE]
-> Si vous mettez à niveau le domaine fonctionnel niveau vers Windows Server 2008, bien qu’il existe existants basés sur domaine espaces de noms, la gestion DFS vous permettra d’activer l’accès en fonction d’énumération sur ces espaces de noms. Toutefois, vous ne serez pas en mesure de modifier les autorisations pour masquer des dossiers à partir des groupes ou utilisateurs, sauf si vous migrez les espaces de noms vers le mode Windows Server 2008. Pour plus d’informations, voir [Migrer un espace de noms basé sur un domaine vers le mode Windows Server 2008](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md).
+> Si vous mettez à niveau le niveau fonctionnel du domaine vers Windows Server 2008 alors qu’il existe des espaces de noms basés sur un domaine, la gestion DFS vous permettra d’activer l’énumération basée sur l’accès sur ces espaces de noms. Toutefois, vous ne pourrez pas modifier les autorisations pour masquer les dossiers des groupes ou des utilisateurs, sauf si vous migrez les espaces de noms vers le mode Windows Server 2008. Pour plus d’informations, voir [Migrer un espace de noms basé sur un domaine vers le mode Windows Server 2008](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md).
 
 
 Pour utiliser l’énumération basée sur l’accès avec des espaces de noms DFS, vous devez effectuer les étapes suivantes :
@@ -51,7 +51,7 @@ Vous pouvez activer l’énumération basée sur l’accès pour un espace de no
 
 1.  Ouvrez une fenêtre d’invite de commandes sur un serveur sur lequel est installé le service de rôle **Système de fichiers DFS** ou la fonctionnalité **Outils du système de fichiers DFS**.
 
-2.  Tapez la commande suivante, où *< espace de noms\_racine >* est la racine de l’espace de noms :
+2.  Tapez la commande suivante, où *< espace de noms @ no__t-1root >* est la racine de l’espace de noms :
 
     ```  
     dfsutil property abe enable \\ <namespace_root>
@@ -80,13 +80,13 @@ Vous pouvez contrôler les utilisateurs et les groupes qui peuvent afficher des 
 
 1. Ouvrez une fenêtre d’invite de commandes sur un serveur sur lequel est installé le service de rôle **Système de fichiers DFS** ou la fonctionnalité **Outils du système de fichiers DFS**.
 
-2. Tapez la commande suivante, où *&lt;DFSPath&gt;* est le chemin d’accès du dossier DFS (lien), *< domaine\\compte >* est le nom du compte d’utilisateur ou de groupe et *(...)*  est remplacé par les autres entrées de contrôle d’accès (ACE) :
+2. Tapez la commande suivante, où *&lt;DFSPath @ no__t-2* est le chemin d’accès du dossier DFS (lien), *< domaine @ no__t-4Account >* est le nom du compte de groupe ou d’utilisateur, et *(...)* est remplacé par des entrées de Access Control supplémentaires ( ACE) :
 
    ```
    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
    ```
 
-   Par exemple, pour remplacer les autorisations existantes avec des autorisations qui permet les Admins du domaine CONTOSO\\formateurs groupes Read (R) l’accès à la \\contoso.office\public\training dossier, tapez la commande suivante :
+   Par exemple, pour remplacer les autorisations existantes par des autorisations qui permettent aux administrateurs de domaine et aux groupes CONTOSO @ no__t-0Trainers d’accéder en lecture (R) au dossier \\contoso. office\public\training, tapez la commande suivante :
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -97,13 +97,13 @@ Vous pouvez contrôler les utilisateurs et les groupes qui peuvent afficher des 
 
 | Command | Description |
 |---|---|
-|[Propriété de Dfsutil sd refuser](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)|Refuse à un groupe ou un utilisateur la possibilité d’afficher le dossier.|
-|[Propriété de Dfsutil sd réinitialiser](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx) |Supprime toutes les autorisations du dossier.|
-|[Revoke de Dfsutil propriété sd](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)| Supprime une entrée de contrôle d’accès d’un groupe ou d’un utilisateur du dossier. |
+|[Dfsutil Property SD Deny](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)|Refuse à un groupe ou un utilisateur la possibilité d’afficher le dossier.|
+|[Dfsutil Property Reset SD](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx) |Supprime toutes les autorisations du dossier.|
+|[Dfsutil Property SD Revoke](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)| Supprime une entrée de contrôle d’accès d’un groupe ou d’un utilisateur du dossier. |
 
 ## <a name="see-also"></a>Voir aussi
 
 -   [Créer un espace de noms DFS](create-a-dfs-namespace.md)
 -   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
--   [L’installation de DFS](https://technet.microsoft.com/library/cc731089(v=ws.11).aspx)
--   [À l’aide d’autorisations héritées avec l’énumération basée sur l’accès](using-inherited-permissions-with-access-based-enumeration.md)
+-   [Installation de DFS](https://technet.microsoft.com/library/cc731089(v=ws.11).aspx)
+-   [Utilisation des autorisations héritées avec l’énumération basée sur l’accès](using-inherited-permissions-with-access-based-enumeration.md)

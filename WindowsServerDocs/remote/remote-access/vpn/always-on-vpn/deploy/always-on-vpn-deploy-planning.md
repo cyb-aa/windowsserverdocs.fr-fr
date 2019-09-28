@@ -1,7 +1,7 @@
 ---
 title: Planifier le déploiement de VPN Toujours actif (AlwaysOn)
 description: Cette rubrique fournit des instructions de planification pour le déploiement de Always On VPN dans Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 3c9de3ec-4bbd-4db0-b47a-03507a315383
@@ -9,19 +9,19 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
-ms.openlocfilehash: 7b194bc2eefbe28b75b66ef644c199f3416c14fb
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f92cfdbe13633dd4c59012f566c6888fdc7fc7a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871369"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388157"
 ---
-# <a name="step-1-plan-the-always-on-vpn-deployment"></a>Étape 1. Planifiez le déploiement de VPN Toujours actif (AlwaysOn)
+# <a name="step-1-plan-the-always-on-vpn-deployment"></a>Étape 1. Planifiez le déploiement de VPN Toujours actif (AlwaysOn)
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Premier** En savoir plus sur le flux de travail pour le déploiement de Always On VPN](always-on-vpn-deploy-deployment.md)
-- [**Situé** Étape 2. Configurer l’infrastructure de serveur](vpn-deploy-server-infrastructure.md)
+- [**Situé** Étape 2. Configurer l’infrastructure de serveur](vpn-deploy-server-infrastructure.md)
 
 Au cours de cette étape, vous allez commencer à planifier et à préparer votre déploiement Always On VPN. Avant d’installer le rôle serveur d’accès à distance sur l’ordinateur sur lequel vous envisagez d’utiliser en tant que serveur VPN, effectuez les tâches suivantes. Après une planification appropriée, vous pouvez déployer VPN Toujours actif (AlwaysOn) et éventuellement configurer l’accès conditionnel pour une connectivité VPN à l’aide d’Azure AD.
 

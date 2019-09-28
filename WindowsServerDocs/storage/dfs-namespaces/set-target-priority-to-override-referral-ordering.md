@@ -2,22 +2,22 @@
 title: Définir la priorité de cible pour remplacer le classement des références
 description: Cet article décrit comment définir la priorité de cible pour remplacer le classement des références
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 59db08d5ef46b696f550a5fa0738c5c1f9375fda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0a6496802d2be16e84ef62c41fea6f0ae9f6438
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826360"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386121"
 ---
 # <a name="set-target-priority-to-override-referral-ordering"></a>Définir la priorité de cible pour remplacer le classement des références
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Une référence constitue une liste de cibles, organisées selon un ordre particulier, que l’ordinateur client reçoit à partir d’un contrôleur de domaine ou d’un serveur d’espaces de noms lorsque l’utilisateur accède à une racine d’espace de noms ou à un dossier avec cibles dans l’espace de noms. Dans une référence, chaque cible est classée en fonction de la méthode de classement définie pour la racine d’espace de noms ou le dossier. 
 
@@ -57,5 +57,5 @@ Pour définir la priorité d’une cible de dossier, suivez la procédure décri
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Réglage des espaces de noms DFS](tuning-dfs-namespaces.md)
--   [Déléguer des autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Optimisation des espaces de noms DFS](tuning-dfs-namespaces.md)
+-   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)

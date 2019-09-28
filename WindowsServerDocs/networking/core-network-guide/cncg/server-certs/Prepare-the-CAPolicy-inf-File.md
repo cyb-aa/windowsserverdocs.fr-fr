@@ -4,16 +4,16 @@ description: Le fichier CAPolicy. INF contient différents paramètres utilisés
 manager: alanth
 ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fb2e25dcd27ed3046eeeb444a9f167ccff6e1dd3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 810f6f8ba9e33f1f26f49f542ad6d23819deb463
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868958"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406290"
 ---
 # <a name="capolicyinf-syntax"></a>Syntaxe CAPolicy. inf
 >   S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
@@ -42,7 +42,7 @@ Les termes suivants sont utilisés pour décrire la structure du fichier. inf :
 
 -   _Valeur_ : est le paramètre et apparaît à droite du signe égal.
 
-Dans l’exemple ci-dessous, **[version]** est la section, la **signature** est la clé et **\$«\$Windows NT »** est la valeur.
+Dans l’exemple ci-dessous, **[version]** est la section, **signature** est la clé, et **« \$Windows NT @ no__t-4 »** est la valeur.
 
 Exemple :
 
@@ -105,7 +105,7 @@ URL=http://pki.wingtiptoys.com/cdp/WingtipToysRootCA.crl
 ```
 
 Pour plus d’informations sur cette section, procédez comme suit :
--   Prend en charge :
+-   Permet
     - HTTP 
     - URL de fichier
     - URL LDAP 

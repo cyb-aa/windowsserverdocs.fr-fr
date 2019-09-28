@@ -1,9 +1,9 @@
 ---
 title: Étapes de configuration du laboratoire de test de cluster DirectAccess avec équilibrage de charge réseau
-description: Cette rubrique fait partie du Guide de laboratoire de Test - décrire de DirectAccess dans un Cluster avec équilibrage de charge réseau Windows pour Windows Server 2016
+description: Cette rubrique fait partie du Guide de laboratoire de test-démonstration de DirectAccess dans un cluster avec Windows NLB pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,36 +12,36 @@ ms.topic: article
 ms.assetid: e508d3ee-ffa6-463f-a3dd-9e35e745c005
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2ebda017b41f27c2f69c7b850de44e771732415d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 108c63298ad3382f5ece790258f2d278bb03b78b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283327"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388402"
 ---
 # <a name="steps-for-configuring-the-directaccess-cluster-nlb-test-lab"></a>Étapes de configuration du laboratoire de test de cluster DirectAccess avec équilibrage de charge réseau
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Les étapes suivantes décrivent comment configurer l’infrastructure d’accès à distance, de configurer les serveurs d’accès à distance et les clients et de tester la connectivité DirectAccess depuis les sous-réseaux du réseau domestique et Internet.  
+Les étapes suivantes décrivent comment configurer l’infrastructure d’accès à distance, configurer les serveurs et les clients d’accès à distance et tester la connectivité DirectAccess à partir d’Internet et de sous-réseaux HomeNet.  
   
-Dans ce test guide de laboratoire vous allez créer un réseau équilibrage de charge (NLB) activé cluster d’accès à distance en effectuant les étapes suivantes :  
+Dans ce guide de laboratoire de test, vous allez créer un cluster d’accès à distance avec équilibrage de la charge réseau (NLB) en procédant comme suit :  
   
--   [ÉTAPE 1 terminer la Configuration de DirectAccess](STEP-1-Complete-the-DirectAccess-Configuration.md). Toutes les étapes dans le [Guide de laboratoire de Test : Montrez l’installation du serveur DirectAccess unique avec un environnement mixte IPv4 et IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004).  
+-   [Étape 1 : terminer la configuration de DirectAccess](STEP-1-Complete-the-DirectAccess-Configuration.md). Effectuez toutes les étapes décrites dans le Guide de laboratoire [Test : Démonstration de la configuration d’un seul serveur DirectAccess avec mixte IPv4 et IPv6 @ no__t-0.  
   
--   [ÉTAPE 2 : Configurer EDGE1](STEP-2-Configure-EDGE1.md). Configurer le rôle accès à distance sur EDGE1 pour l’équilibrage de charge.  
+-   [ÉTAPE 2 : Configurez EDGE1 @ no__t-0. Configurez le rôle accès à distance sur EDGE1 pour l’équilibrage de charge.  
   
--   [ÉTAPE 3 : Installer et configurer EDGE2](STEP-3-Install-and-Configure-EDGE2.md). EDGE2 agit comme le second serveur d’accès à distance dans un cluster de l’accès à distance.  
+-   [ÉTAPE 3 : Installez et configurez EDGE2 @ no__t-0. EDGE2 joue le rôle de second serveur d’accès à distance dans un cluster d’accès à distance.  
   
--   [ÉTAPE 4 : Créer le cluster de l’accès à distance d’équilibrage de charge réseau](STEP-4-Create-the-Network-Load-Balanced-Remote-Access-Cluster.md)-EDGE1 est configuré en tant que le premier serveur dans un cluster de l’accès à distance. EDGE2 est joint au cluster et NLB est configuré pour le cluster.  
+-   [ÉTAPE 4 : Créer le cluster d’accès à distance avec équilibrage de la charge réseau @ no__t-0-EDGE1 est configuré en tant que premier serveur dans un cluster d’accès à distance. EDGE2 est joint au cluster et l’équilibrage de la charge réseau est configuré pour le cluster.  
   
--   [ÉTAPE 5 : Tester la connectivité DirectAccess à partir d’Internet et via le cluster](STEP-5-Test-DirectAccess-Connectivity-from-the-Internet-and-Through-the-Cluster.md). Une fois la configuration NLB et du cluster terminée vous pouvez tester la connectivité du client DirectAccess via le cluster d’équilibrage de charge.  
+-   [ÉTAPE 5 : Testez la connectivité DirectAccess à partir d’Internet et par le biais du cluster @ no__t-0. Une fois l’équilibrage de la charge réseau et la configuration du cluster terminés, vous pouvez tester la connectivité du client DirectAccess via le cluster à charge équilibrée.  
   
--   [ÉTAPE 6 : Tester la connectivité du client DirectAccess situé derrière un périphérique NAT](STEP-6-Test-DirectAccess-Client-Connectivity-from-Behind-a-NAT-Device.md). Déplacer l’ordinateur client derrière un périphérique NAT pour simuler la connectivité des clients DirectAccess test derrière un routeur domestique.  
+-   [ÉTAPE 6 : Tester la connectivité du client DirectAccess derrière un périphérique NAT @ no__t-0. Déplacez l’ordinateur client derrière un périphérique NAT pour simuler le test de la connectivité du client DirectAccess derrière un routeur d’hébergement.  
   
--   [ÉTAPE 7 : Tester la connectivité lors du retour au réseau d’entreprise](STEP-7-Test-Connectivity-When-Returning-to-the-Corpnet.md). Vérifiez que l’ordinateur client peut toujours accéder à des ressources d’entreprise lors du retour au réseau d’entreprise.  
+-   [ÉTAPE 7 : Tester la connectivité lors du retour au corpnet @ no__t-0. Assurez-vous que l’ordinateur client peut toujours accéder aux ressources de l’entreprise lors du retour à Corpnet.  
   
--   [ÉTAPE 8 : La configuration de capture instantanée](da-cluster-nlb-s8-snapshot.md). À l’issue de ce laboratoire de test, prenez un instantané de l’utilisation de cluster NLB d’accès à distance afin que vous pouvez y revenir plus tard pour tester des scénarios supplémentaires.  
+-   [ÉTAPE 8 : Capture instantanée de la configuration @ no__t-0. À l’issue du laboratoire de test, prenez un instantané du cluster NLB d’accès à distance opérationnel pour pouvoir y revenir ultérieurement et tester des scénarios supplémentaires.  
   
 
 

@@ -1,9 +1,9 @@
 ---
-title: Comprendre l’utilisation des réseaux virtuels et réseaux locaux virtuels
-description: Dans cette rubrique, vous en savoir plus sur les réseaux virtuels de virtualisation de réseau Hyper-V et la façon dont ils diffèrent des réseaux locaux virtuels (VLAN). Avec la virtualisation de réseau Hyper-V, vous créez des réseaux virtuels de superposition, également appelés réseaux virtuels.
+title: Comprendre l’utilisation des réseaux virtuels et des réseaux locaux virtuels
+description: Dans cette rubrique, vous allez découvrir les réseaux virtuels de virtualisation de réseau Hyper-V et leurs différences par rapport aux réseaux locaux virtuels (VLAN). Avec la virtualisation de réseau Hyper-V, vous créez des réseaux virtuels de superposition, également appelés réseaux virtuels.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,32 +13,32 @@ ms.assetid: 84ac2458-3fcf-4c4f-acfe-6105443dd83f
 ms.author: pashort
 author: shortpatti
 ms.date: 08/26/2018
-ms.openlocfilehash: d126e97a91e4c61ecff00cc2b5a527618b2d4d0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 854adf0e7bb2a8715e3d447c04e2f09c3470a781
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875530"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355831"
 ---
-# <a name="understand-the-usage-of-virtual-networks-and-vlans"></a>Comprendre l’utilisation des réseaux virtuels et réseaux locaux virtuels
+# <a name="understand-the-usage-of-virtual-networks-and-vlans"></a>Comprendre l’utilisation des réseaux virtuels et des réseaux locaux virtuels
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, vous en savoir plus sur les réseaux virtuels de virtualisation de réseau Hyper-V et la façon dont ils diffèrent des réseaux locaux virtuels (VLAN). Avec la virtualisation de réseau Hyper-V, vous créez des réseaux virtuels de superposition, également appelés réseaux virtuels.
+Dans cette rubrique, vous allez découvrir les réseaux virtuels de virtualisation de réseau Hyper-V et leurs différences par rapport aux réseaux locaux virtuels (VLAN). Avec la virtualisation de réseau Hyper-V, vous créez des réseaux virtuels de superposition, également appelés réseaux virtuels.
 
 
 
   
-Mise en réseau SDN (Software Defined) dans Windows Server 2016 est basée sur la programmation de stratégie pour les réseaux virtuels de superposition au sein d’un commutateur virtuel Hyper-V. Vous pouvez créer des réseaux virtuels de superposition, également appelés réseaux virtuels, avec la virtualisation de réseau Hyper-V. 
+La mise en réseau SDN (Software Defined Networking) dans Windows Server 2016 est basée sur la stratégie de programmation pour les réseaux virtuels de superposition au sein d’un commutateur virtuel Hyper-V. Vous pouvez créer des réseaux virtuels de superposition, également appelés réseaux virtuels, avec la virtualisation de réseau Hyper-V. 
   
-Lorsque vous déployez la virtualisation de réseau Hyper-V, les réseaux de superposition sont créés en encapsulant la trame Ethernet de couche 2 de d’origine client de la machine virtuelle avec une superposition - ou tunnel - en-tête (par exemple, VXLAN ou NVGRE), IP de couche 3 et Ethernet de couche 2 réseau d’en-têtes à partir de la sous-couche (ou physiques). Les réseaux virtuels de superposition sont identifiés par un 24 bits virtuels réseau identificateur (VNI) pour garantir l’isolation du trafic client et pour autoriser les adresses IP qui se chevauchent. Le VNI est composé d’un sous-réseau virtuel ID (VSID), l’ID du commutateur logique et ID de tunnel.  
+Lorsque vous déployez la virtualisation de réseau Hyper-V, les réseaux de superposition sont créés en encapsulant la trame Ethernet de couche 2 de la machine virtuelle du locataire d’origine avec un en-tête de superposition ou de tunnel (par exemple, VXLAN ou NVGRE) et une adresse IP de couche 3 et une Ethernet de couche 2. en-têtes du réseau Underlay (ou physique). Les réseaux virtuels de superposition sont identifiés par un identificateur de réseau virtuel (VNI) de 24 bits pour assurer l’isolation du trafic du client et autoriser les adresses IP qui se chevauchent. VNI se compose d’un ID de sous-réseau virtuel, d’un ID de commutateur logique et d’un ID de tunnel.  
   
-En outre, chaque client est attribué à un domaine de routage (semblable à un routage virtuel et le transfert - VRF) afin que plusieurs préfixes de sous-réseau virtuel (chacun représenté par un VNI) peuvent être acheminées directement entre eux. Inter-clients (ou entre domaines de routage) routage n’est pas pris en charge sans passer par une passerelle.   
+En outre, chaque locataire se voit attribuer un domaine de routage (semblable à un routage et un transfert virtuel-VRF) de manière à ce que plusieurs préfixes de sous-réseau virtuel (chacun représenté par un VNI) puissent être acheminés directement entre eux. Le routage entre locataires (ou domaine de routage croisé) n’est pas pris en charge sans passer par une passerelle.   
   
-Le réseau physique sur lequel le trafic encapsulé de chaque locataire est acheminée est représenté par un réseau logique appelé le réseau logique de fournisseur. Ce réseau logique de fournisseur se compose d’un ou plusieurs sous-réseaux, chacun représenté par un préfixe IP et, éventuellement, un VLAN 802. 1 q balise.  
+Le réseau physique sur lequel le trafic encapsulé de chaque locataire est tunnelé est représenté par un réseau logique appelé réseau logique du fournisseur. Ce réseau logique de fournisseur est constitué d’un ou de plusieurs sous-réseaux, chacun représenté par un préfixe IP et, éventuellement, d’une étiquette 802.1 q VLAN.  
   
-Vous pouvez créer des réseaux logiques supplémentaires et sous-réseaux pour des raisons d’infrastructure transporter le trafic de gestion, le trafic de stockage en direct, le trafic de migration, etc.  
+Vous pouvez créer des réseaux logiques et des sous-réseaux logiques à des fins d’infrastructure pour transporter le trafic de gestion, le trafic de stockage, le trafic de migration dynamique, etc.  
   
-Microsoft SDN ne prend pas en charge l’isolation des réseaux de clients à l’aide de réseaux locaux virtuels. Isolation des locataires s’effectue uniquement à l’aide de la superposition de virtualisation de réseau Hyper-V de réseaux virtuels et l’encapsulation. 
+Microsoft SDN ne prend pas en charge l’isolation des réseaux locataires à l’aide de réseaux locaux virtuels. L’isolation des locataires s’effectue uniquement à l’aide de la virtualisation de réseau Hyper-V superposition des réseaux virtuels et de l’encapsulation. 
 
 

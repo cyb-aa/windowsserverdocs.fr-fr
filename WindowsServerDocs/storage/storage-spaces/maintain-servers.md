@@ -1,6 +1,6 @@
 ---
 title: Mise hors connexion d'un serveur d'espaces de stockage direct pour la maintenance
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: eldenc
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ ms.date: 10/08/2018
 Keywords: Espaces de stockage directs, S2D, maintenance
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: 96ae0ad0d1def12ab68466f0a9ae60d0afcc2c17
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 20439a06c255a73f20a297f765e6ed11abfde6f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871220"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402831"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Mise hors connexion d'un serveur d'espaces de stockage direct pour la maintenance
 
@@ -97,7 +97,7 @@ MyVolume2    Mirror                Incomplete        Warning      True          
 MyVolume3    Mirror                Incomplete        Warning      True           1 TB
 ```
 
-Incomplet ou l’état de fonctionnement détérioré est normal lorsque les nœuds sont en cours d’arrêt ou de démarrage/arrêt du cluster sur un nœud de service et ne doivent pas provoquer de problème. Tous vos volumes restent en ligne et accessibles.
+L’état opérationnel incomplet ou détérioré est normal lorsque les nœuds sont en cours d’arrêt ou de démarrage/arrêt du service de cluster sur un nœud et ne doivent pas poser de problème. Tous vos volumes restent en ligne et accessibles.
 
 ## <a name="resuming-the-server"></a>Reprise du serveur
 
@@ -121,7 +121,7 @@ Pour ce faire dans le Gestionnaire du cluster de basculement, accédez à **Nœu
 
 ## <a name="waiting-for-storage-to-resync"></a>En attente de resynchronisation du stockage
 
-Lorsque le serveur reprend, toutes les écritures qui se sont produites pendant qu’il était indisponible doivent resynchroniser. Cela se fait de manière automatique. Grâce au suivi des modifications intelligent, il n’est pas nécessaire d'analyse ou de synchroniser *toutes les* données, mais uniquement les modifications. Ce processus est limité pour atténuer l’impact sur les charges de travail de production. En fonction de la durée pendant laquelle le serveur a été mis en pause et de la quantité de nouvelles données écrites, plusieurs minutes peuvent être nécessaires.
+Lorsque le serveur reprend, toute nouvelle écriture qui s’est produite alors qu’il n’était pas disponible doit être resynchronisée. Cela se fait de manière automatique. Grâce au suivi des modifications intelligent, il n’est pas nécessaire d'analyse ou de synchroniser *toutes les* données, mais uniquement les modifications. Ce processus est limité pour atténuer l’impact sur les charges de travail de production. En fonction de la durée pendant laquelle le serveur a été mis en pause et de la quantité de nouvelles données écrites, plusieurs minutes peuvent être nécessaires.
 
 Vous devez attendre la fin de la resynchronisation avant de mettre d’autres serveurs du cluster hors connexion.
 
@@ -167,24 +167,24 @@ MyVolume3    Mirror                OK                Healthy      True          
 
 Vous pouvez maintenant mettre en pause et redémarrer les autres serveurs du cluster en toute sécurité.
 
-## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>Comment mettre à jour les espaces de stockage Direct nœuds hors connexion
-Procédez comme suit pour le chemin d’accès de votre système d’espaces de stockage Direct rapidement. Elle implique la planification d’une fenêtre de maintenance et d’arrêter le système pour la mise à jour corrective. S’il existe une mise à jour de sécurité critiques dont vous avez besoin appliquées rapidement ou vous avez peut-être besoin garantir la mise à jour corrective se termine dans votre fenêtre de maintenance, cette méthode peut être pour vous. Ce processus vous permet de diminuer le cluster d’espaces de stockage Direct, il corrige et rend tout à nouveau. Le compromis est le temps d’arrêt sur les ressources hébergées.
+## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>Mise à jour des nœuds espaces de stockage direct hors connexion
+Suivez les étapes ci-dessous pour suivre rapidement votre espaces de stockage direct système. Cela implique la planification d’une fenêtre de maintenance et la mise en service du système pour la mise à jour corrective. Si vous avez besoin d’appliquer rapidement une mise à jour de sécurité critique ou si vous devez vous assurer que la mise à jour corrective est terminée dans votre fenêtre de maintenance, cette méthode peut vous être utile. Ce processus met en avant le cluster espaces de stockage direct, le corrige, puis le réintègre. Le compromis est le temps d’arrêt des ressources hébergées.
 
 1. Planifiez votre fenêtre de maintenance.
 2. Mettre les disques virtuels hors connexion.
-3. Arrêter le cluster pour mettre le pool de stockage hors connexion. Exécutez le **Stop-Cluster** applet de commande ou utilisez le Gestionnaire du Cluster de basculement pour arrêter le cluster.
-4. La valeur est le service de cluster **désactivé** dans Services.msc sur chaque nœud. Cela empêche le service de cluster de démarrer tout en étant corrigé.
-5. Appliquer la mise à jour Cumulative du serveur Windows et toute requise des mises à jour de la pile de maintenance à tous les nœuds. (Vous pouvez mettre à jour tous les nœuds en même temps, sans plus attendre dans la mesure où le cluster est arrêté).  
-6. Redémarrez les nœuds et vérifiez que tout semble correct.
-7. Ensemble, le service de cluster au **automatique** sur chaque nœud.
-8. Démarrez le cluster. Exécutez le **Start-Cluster** applet de commande ou utilisez le Gestionnaire du Cluster de basculement. 
+3. Arrêtez le cluster pour mettre le pool de stockage hors connexion. Exécutez l’applet de commande **Stop-cluster** ou utilisez gestionnaire du cluster de basculement pour arrêter le cluster.
+4. Définissez le service de cluster sur **désactivé** dans services. msc sur chaque nœud. Cela empêche le service de cluster de démarrer pendant la mise à jour corrective.
+5. Appliquez la mise à jour cumulative de Windows Server et toutes les mises à jour de pile de maintenance requises pour tous les nœuds. (Vous pouvez mettre à jour tous les nœuds en même temps, sans attendre que le cluster ne soit en cours).  
+6. Redémarrez les nœuds et assurez-vous que tout fonctionne correctement.
+7. Réactivez le service de cluster sur **automatique** sur chaque nœud.
+8. Démarrez le cluster. Exécutez l’applet de commande **Start-Cluster** ou utilisez gestionnaire du cluster de basculement. 
 
-   Patientez quelques minutes.  Assurez-vous que le pool de stockage est sain.
-9. Mettre les disques virtuels en ligne.
-10. Surveiller l’état des disques virtuels en exécutant la **Get-Volume** et **Get-VirtualDisk** applets de commande.
+   Veuillez le faire quelques minutes.  Assurez-vous que le pool de stockage est sain.
+9. Remettez les disques virtuels en ligne.
+10. Surveillez l’état des disques virtuels en exécutant les applets de commande **« obtient-volume »** et **« VirtualDisk »** .
 
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Vue d’ensemble Direct des espaces de stockage](storage-spaces-direct-overview.md)
-- [La mise à jour adaptée à du cluster](https://technet.microsoft.com/library/hh831694.aspx)
+- [Présentation de espaces de stockage direct](storage-spaces-direct-overview.md)
+- [Mise à jour adaptée aux clusters](https://technet.microsoft.com/library/hh831694.aspx)

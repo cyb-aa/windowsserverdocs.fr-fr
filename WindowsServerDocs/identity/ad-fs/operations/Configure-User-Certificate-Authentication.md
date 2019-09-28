@@ -7,14 +7,14 @@ ms.author: billmath
 manager: samueld
 ms.date: 01/18/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1616a1fe2e28534cc30c8955b0309c233555fa14
-ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
+ms.openlocfilehash: 82d826d41e95be18fba689706025ce6f5195f726
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878143"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407665"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configuration de AD FS pour l’authentification par certificat utilisateur
 
@@ -106,7 +106,7 @@ De nombreuses applications Office 365 envoient prompt = Login à Azure AD. Azure
 
 Pour plus d’informations, consultez [ce lien](ad-fs-prompt-login.md). 
 
-### <a name="additional-troubleshooting"></a>Résolution de problèmes supplémentaires
+### <a name="additional-troubleshooting"></a>Résolution des problèmes supplémentaires
 Il s’agit d’occurrences rares
 1)  Si vos listes de révocation de certificats sont très longues, il se peut qu’elles atteignent un délai d’expiration lors de la tentative de téléchargement. Dans ce cas, vous devez mettre à jour le « MaxFieldLength » et le « MaxRequestByte » en fonction de https://support.microsoft.com/en-us/help/820129/http-sys-registry-settings-for-windows
 

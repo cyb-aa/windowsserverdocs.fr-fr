@@ -1,8 +1,8 @@
 ---
-title: FTP rmdir_1
-description: 'Rubrique de commandes de Windows pour ftp rmdir_1 '
+title: rmdir_1 FTP
+description: 'Rubrique relative aux commandes Windows pour FTP rmdir_1 '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5825a398d43f1a615ba0146ef2681558b7f23108
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bc42887c0ea7085e84eee8b1b5e2315a1b54d8b5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438861"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376629"
 ---
-# <a name="ftp-rmdir1"></a>ftp: rmdir_1
+# <a name="ftp-rmdir_1"></a>FTP : rmdir_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Supprime un répertoire distant.   
+supprime un répertoire distant.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 rmdir <directory>  
@@ -35,8 +35,8 @@ rmdir <directory>
 |-------------|-------------------------------------------------------|
 | <directory> | Spécifie le nom du répertoire distant à supprimer. |
 
-## <a name="BKMK_Examples"></a>Exemples  
-supprimer le **images** répertoire distant.  
+## <a name="BKMK_Examples"></a>Illustre  
+Supprimez le répertoire distant **images** .  
 ```  
 rmdir Pictures  
 ```  

@@ -1,7 +1,7 @@
 ---
-title: dfsutil
+title: Dfsutil
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45545b4e12d31c293ead5b18b83efd50d7bc37bb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1a06806b109bbd324213f935892bbbab415362df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439651"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377978"
 ---
-# <a name="dfsutil"></a>dfsutil
+# <a name="dfsutil"></a>Dfsutil
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-La commande dfsutil gère les espaces de noms DFS, les serveurs et clients. commandes de Dfsutil utilisent la terminologie de système de fichiers distribués d’origine, avec mise à jour les espaces de noms DFS la terminologie fournie comme explication pour la plupart des commandes.
+La commande dfsutil gère les espaces de noms, les serveurs et les clients DFS. les commandes dfsutil utilisent la terminologie d’origine système de fichiers DFS, avec la terminologie mise à jour des espaces de noms DFS fournie comme explication pour la plupart des commandes.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez 
+pour obtenir des exemples d’utilisation de cette commande, consultez. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,28 +38,28 @@ command </parameter> </param2>
 
 |Paramètre|Description|
 |-------|--------|
-|[Dfsutil racine](dfsutil-root.md)|Affiche, crée, supprime, importe, exporte les racines de l’espace de noms.|
-|[Dfsutil lien](dfsutil-link.md)|Affiche, crée, supprime ou déplace des dossiers \(liens\).|
-|[Dfsutil cible](dfsutil-target.md)|Affichages, créer, supprimer le serveur cible ou l’espace de noms de dossier.|
-|[Dfsutil, propriété](dfsutil-property.md)|Affiche ou modifie un serveur cible ou l’espace de noms de dossier.|
-|[Dfsutil Client](dfsutil-client.md)|Affiche ou modifie les clés d’informations ou de Registre du client.|
-|[Dfsutil Server](dfsutil-server.md)|Affiche ou modifie la configuration de l’espace de noms.|
-|[Dfsutil Diag](dfsutil-diag.md)|Effectuer des diagnostics ou afficher dfsdirs\/dfspath.|
-|[Dfsutil domaine](dfsutil-domain.md)|Affiche tous les domaine\-en fonction des espaces de noms dans un domaine.|
-|[dfsutil Cache](dfsutil-cache.md)|Affiche ou vide le cache du client.|
-|[dfsutil oldcli](dfsutil-oldcli.md)|Utilisez la commande dfsutil \/commande oldcli à l’utilisation de la syntaxe de commande dfsutil d’origine.|
+|[dfsutil root](dfsutil-root.md)|Affiche, crée, supprime, importe, exporte des racines d’espace de noms.|
+|[Lien Dfsutil](dfsutil-link.md)|Affiche, crée, supprime ou déplace les dossiers \(links @ no__t-1.|
+|[dfsutil target](dfsutil-target.md)|Affiche, crée, supprime une cible de dossier ou un serveur d’espaces de noms.|
+|[dfsutil, propriété](dfsutil-property.md)|Affiche ou modifie une cible de dossier ou un serveur d’espaces de noms.|
+|[dfsutil client](dfsutil-client.md)|Affiche ou modifie des informations sur le client ou des clés de registre.|
+|[dfsutil Server](dfsutil-server.md)|Affiche ou modifie la configuration de l’espace de noms.|
+|[dfsutil diag](dfsutil-diag.md)|Effectuez des diagnostics ou affichez dfsdirs @ no__t-0dfspath.|
+|[dfsutil Domain](dfsutil-domain.md)|Affiche tous les espaces de noms Domain @ no__t-0based dans un domaine.|
+|[dfsutil cache](dfsutil-cache.md)|Affiche ou vide le cache du client.|
+|[dfsutil oldcli](dfsutil-oldcli.md)|Utilisez la commande dfsutil \/oldcli pour utiliser la syntaxe dfsutil d’origine.|
 
 ## <a name="remarks-optional-section"></a>Remarques <optional section>
-Si vous spécifiez un objet \(tel qu’un serveur d’espace de noms\) à la fin d’une commande, la plupart des commandes affiche des informations sur l’objet sans nécessiter davantage de paramètres ou des commandes. Par exemple, lorsque vous utilisez la commande Root dfsutil, vous pouvez ajouter un espace de noms racine à la commande pour afficher des informations sur la racine.
+Si vous spécifiez un objet \(such en tant que serveur d’espaces de noms @ no__t-1 à la fin d’une commande, la plupart des commandes affichent des informations sur l’objet sans nécessiter de paramètres ou de commandes supplémentaires. Par exemple, lors de l’utilisation de la commande dfsutil root, vous pouvez ajouter une racine d’espace de noms à la commande pour afficher des informations sur la racine.
 
-## <a name="BKMK_Examples"></a>Exemples
-&lt;Voici où vous placez une description détaillée de votre exemple.&gt;
+## <a name="BKMK_Examples"></a>Illustre
+&lt;Here est l’endroit où vous placez une description détaillée de votre exemple. &gt;
 
 ```
 This /is /the /example /of /calling /command /with /parameters
 ```
 
-&lt;Voici où vous placez une description détaillée d’un autre exemple.&gt;
+&lt;Here est l’endroit où vous placez une description détaillée d’un autre exemple. &gt;
 
 ```
 This /is /a:different /example

@@ -1,9 +1,9 @@
 ---
-title: Étape 1 Plan l’Infrastructure DirectAccess avancée
-description: Cette rubrique fait partie du guide de déployer un serveur DirectAccess unique avec les paramètres avancés pour Windows Server 2016
+title: Étape 1 planifier l’infrastructure DirectAccess avancée
+description: Cette rubrique fait partie du guide déployer un serveur DirectAccess unique avec des paramètres avancés pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,29 +12,29 @@ ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 339189928d3ce5403d0fca4a06efc36b867e2a50
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 9fa6fe4de0c8723c17f6a61717281d0a38d1b579
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281779"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388661"
 ---
-# <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Étape 1 Plan l’Infrastructure DirectAccess avancée
+# <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Étape 1 planifier l’infrastructure DirectAccess avancée
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 La première étape de la planification d'un déploiement avancé de DirectAccess sur un serveur unique consiste à planifier l'infrastructure requise pour le déploiement. Cette rubrique décrit les étapes de planification de l’infrastructure. Vous pouvez effectuer les tâches de planification dans l'ordre qui vous convient.  
   
 |Tâche|Description|
 |----|--------|  
-|[1.1 planifier la topologie de réseau et les paramètres](#11-plan-network-topology-and-settings)|Décidez où placer le serveur DirectAccess (à la périphérie ou derrière un pare-feu ou un périphérique de traduction d'adresses réseau (NAT)) et planifiez l'adressage IP, le routage et le tunneling forcé.|  
-|[1.2 planifier la configuration requise du pare-feu](#12-plan-firewall-requirements)|Planifiez l'autorisation du trafic DirectAccess via des pare-feu de périmètre.|  
-|[1.3 planifier la configuration requise des certificats](#13-plan-certificate-requirements)|Déterminez si vous souhaitez utiliser Kerberos ou des certificats pour l'authentification client, et planifiez vos certificats de site web. IP-HTTPS est un protocole de transition utilisé par les clients DirectAccess pour transférer le trafic IPv6 via des réseaux IPv4. Décidez d'authentifier le serveur utilisant IP-HTTPS à l'aide d'un certificat émis par une autorité de certification ou d'un certificat auto-signé émis automatiquement par le serveur DirectAccess.|  
-|[1.4 planifier la configuration DNS requise](#14-plan-dns-requirements)|Planifiez les paramètres DNS (Domain Name System) pour le serveur DirectAccess, les serveurs d'infrastructure, les options de résolution de noms locale et la connectivité client.|  
-|[1.5 planifier le serveur emplacement réseau](#15-plan-the-network-location-server)|Les clients DirectAccess utilisent le serveur Emplacement réseau pour déterminer s'ils se trouvent sur le réseau interne. Décidez où placer le site web du serveur Emplacement réseau dans votre organisation (sur le serveur DirectAccess ou sur un autre serveur) et planifiez les certificats requis si le serveur Emplacement réseau se trouve sur le serveur DirectAccess.|  
-|[1.6 planifier les serveurs d’administration](#16-plan-management-servers)|Vous pouvez administrer à distance les ordinateurs clients DirectAccess situés en dehors du réseau d'entreprise sur Internet. Planifiez les serveurs d’administration (tels que les serveurs de mise à jour) utilisés lors de l’administration à distance des clients.|  
-|[1.7 planifier Active Directory Domain Services](#17-plan-active-directory-domain-services)|Planifiez vos contrôleurs de domaine, la configuration Active Directory requise, l'authentification client et plusieurs domaines.|  
-|[1.8 les objets de stratégie de groupe de plan de](#18-plan-group-policy-objects)|Déterminez quels objets de stratégie de groupe sont requis dans votre organisation et comment les créer ou les modifier.|  
+|[1,1 planifier la topologie et les paramètres du réseau](#11-plan-network-topology-and-settings)|Décidez où placer le serveur DirectAccess (à la périphérie ou derrière un pare-feu ou un périphérique de traduction d'adresses réseau (NAT)) et planifiez l'adressage IP, le routage et le tunneling forcé.|  
+|[1,2 planifier la configuration requise du pare-feu](#12-plan-firewall-requirements)|Planifiez l'autorisation du trafic DirectAccess via des pare-feu de périmètre.|  
+|[1,3 planifier les exigences de certificat](#13-plan-certificate-requirements)|Déterminez si vous souhaitez utiliser Kerberos ou des certificats pour l'authentification client, et planifiez vos certificats de site web. IP-HTTPS est un protocole de transition utilisé par les clients DirectAccess pour transférer le trafic IPv6 via des réseaux IPv4. Décidez d'authentifier le serveur utilisant IP-HTTPS à l'aide d'un certificat émis par une autorité de certification ou d'un certificat auto-signé émis automatiquement par le serveur DirectAccess.|  
+|[1,4 planifier la configuration DNS requise](#14-plan-dns-requirements)|Planifiez les paramètres DNS (Domain Name System) pour le serveur DirectAccess, les serveurs d'infrastructure, les options de résolution de noms locale et la connectivité client.|  
+|[1,5 planifier le serveur emplacement réseau](#15-plan-the-network-location-server)|Les clients DirectAccess utilisent le serveur Emplacement réseau pour déterminer s'ils se trouvent sur le réseau interne. Décidez où placer le site web du serveur Emplacement réseau dans votre organisation (sur le serveur DirectAccess ou sur un autre serveur) et planifiez les certificats requis si le serveur Emplacement réseau se trouve sur le serveur DirectAccess.|  
+|[1,6 planifier les serveurs d’administration](#16-plan-management-servers)|Vous pouvez administrer à distance les ordinateurs clients DirectAccess situés en dehors du réseau d'entreprise sur Internet. Planifiez les serveurs d’administration (tels que les serveurs de mise à jour) utilisés lors de l’administration à distance des clients.|  
+|[1,7 Active Directory Domain Services de plan](#17-plan-active-directory-domain-services)|Planifiez vos contrôleurs de domaine, la configuration Active Directory requise, l'authentification client et plusieurs domaines.|  
+|[1,8 stratégie de groupe les objets de plan](#18-plan-group-policy-objects)|Déterminez quels objets de stratégie de groupe sont requis dans votre organisation et comment les créer ou les modifier.|  
   
 ## <a name="11-plan-network-topology-and-settings"></a>1.1 Planifier la topologie et les paramètres réseau
 
@@ -42,9 +42,9 @@ Cette section explique comment planifier votre réseau, y compris :
   
 - [1.1.1 planifier les cartes réseau et l’adressage IP](#111-plan-network-adapters-and-ip-addressing)  
   
-- [1.1.2 planifier la connectivité intranet IPv6](#112-plan-ipv6-intranet-connectivity)  
+- [1.1.2 planifier la connectivité Intranet IPv6](#112-plan-ipv6-intranet-connectivity)  
   
-- [1.1.3 planifier le tunneling forcé](#113-plan-for-force-tunneling)  
+- [1.1.3 plan pour le tunneling forcé](#113-plan-for-force-tunneling)  
   
 ### <a name="111-plan-network-adapters-and-ip-addressing"></a>1.1.1 Planifier les cartes réseau et l'adressage IP  
   
@@ -58,16 +58,16 @@ Cette section explique comment planifier votre réseau, y compris :
   
     DirectAccess utilise IPv6 avec IPsec pour créer une connexion sécurisée entre les ordinateurs clients DirectAccess et le réseau d'entreprise interne. Pourtant, DirectAccess ne requiert pas systématiquement une connectivité Internet IPv6 ni une prise en charge IPv6 native sur les réseaux internes. Au lieu de cela, il configure et utilise automatiquement des technologies de transition IPv6 pour transférer le trafic IPv6 sur Internet IPv4 (en utilisant 6to4, Teredo ou IP-HTTPS) et sur votre intranet IPv4 uniquement (en utilisant NAT64 ou ISATAP). Pour obtenir une vue d'ensemble de ces technologies de transition, consultez les ressources suivantes :  
   
-    - [Technologies de Transition IPv6](https://technet.microsoft.com/library/bb726951.aspx)  
+    - [Technologies de transition IPv6](https://technet.microsoft.com/library/bb726951.aspx)  
   
-    - [Spécification du protocole de Tunneling IP-HTTPS](https://msdn.microsoft.com/library/dd358571(PROT.10).aspx)  
+    - [Spécification du protocole de tunnel IP-HTTPs](https://msdn.microsoft.com/library/dd358571(PROT.10).aspx)  
   
 3. Configurez les cartes et les adresses requises selon le tableau ci-dessous. Pour les déploiements qui utilisent une seule carte réseau et sont configurés derrière un périphérique NAT, configurez vos adresses IP en utilisant uniquement la colonne **Carte réseau interne**.  
   
     ||Carte réseau externe|Carte réseau interne|Exigences en matière de routage|  
     |-|--------------|--------------|------------|  
-    |Internet IPv4 et intranet IPv4|Configurez deux adresses IPv4 publiques statiques, consécutives avec les masques de sous-réseau appropriés (requis pour Teredo uniquement).<br/><br/>Configurez également l'adresse IPv4 de la passerelle par défaut de votre pare-feu Internet ou du routeur de votre fournisseur de services Internet local. **Remarque :** Le serveur DirectAccess requiert deux adresses IPv4 publiques consécutives pour pouvoir agir comme un serveur Teredo et pour que les clients Windows puissent utiliser le serveur DirectAccess pour détecter le type de périphérique NAT derrière lequel ils se trouvent.|Configurez ce qui suit :<br/><br/>-Adresse intranet IPv4 avec le masque de sous-réseau approprié.<br/>-Le suffixe DNS spécifique à la connexion de votre espace de noms intranet. Vous devez également configurer un serveur DNS sur l'interface interne. **Attention :** Ne configurez pas de passerelle par défaut sur toutes les interfaces intranet.|Pour configurer le serveur DirectAccess afin d'atteindre tous les sous-réseaux du réseau IPv4 interne, procédez comme suit :<br/><br/>-Répertorie les espaces d’adressage IPv4 pour tous les emplacements sur votre intranet.<br/>-Utilisez le **itinéraire Ajouter -p** ou**netsh interface ipv4 ajouter itinéraire** commande pour ajouter les espaces d’adressage IPv4 en tant qu’itinéraires statiques dans la table de routage IPv4 du serveur DirectAccess.|  
-    |Internet IPv6 et intranet IPv6|Configurez ce qui suit :<br/><br/>-Utilisez la configuration d’adresse qui est fournie par votre fournisseur de services Internet.<br/>-Utilisez le **Route Print** commande pour vous assurer qu’itinéraire IPv6 par défaut existe et qu’il pointe vers le routeur du fournisseur de services Internet dans la table de routage IPv6.<br/>-Déterminer si les fournisseur de services Internet et les routeurs intranet utilisent les préférences de routeur par défaut décrit dans RFC 4191 et à l’aide d’une préférence par défaut plus élevée que vos routeurs intranet locaux.<br/>    Si vous avez répondu par l'affirmative dans les deux cas, aucune autre configuration n'est requise pour l'itinéraire par défaut. Une préférence plus élevée pour le routeur ISP permet de s'assurer que l'itinéraire IPv6 par défaut actif du serveur DirectAccess pointe vers Internet IPv6.<br/><br/>Étant donné que le serveur DirectAccess est un routeur IPv6, si vous disposez d'une infrastructure IPv6 native, l'interface Internet peut également atteindre les contrôleurs de domaine sur l'intranet. Dans ce cas, ajoutez des filtres de paquets au contrôleur de domaine dans le réseau de périmètre pour empêcher la connectivité IPv6 de l'interface Internet du serveur DirectAccess.|Configurez ce qui suit :<br/><br/>-Si vous n’utilisez pas les niveaux de préférence par défaut, vous pouvez configurer vos interfaces intranet à l’aide de la commande suivante**netsh interface ipv6 définir InterfaceIndex ignoredefaultroutes = activé**.<br/>    Cette commande vérifie que les itinéraires par défaut supplémentaires qui pointent vers les routeurs intranet ne seront pas ajoutés à la table de routage IPv6. Vous pouvez obtenir l’index de vos interfaces intranet à l’aide de la commande suivante : **netsh interface ipv6 show interface**.|Si vous avez un intranet IPv6, procédez comme suit pour configurer le serveur DirectAccess afin d'atteindre tous les emplacements IPv6 :<br/><br/>-Répertorie les espaces d’adressage IPv6 pour tous les emplacements sur votre intranet.<br/>-Utilisez le **netsh interface ipv6 ajouter itinéraire** commande pour ajouter les espaces d’adressage IPv6 en tant qu’itinéraires statiques dans la table de routage IPv6 du serveur DirectAccess.|  
+    |Internet IPv4 et intranet IPv4|Configurez deux adresses IPv4 publiques statiques, consécutives avec les masques de sous-réseau appropriés (requis pour Teredo uniquement).<br/><br/>Configurez également l'adresse IPv4 de la passerelle par défaut de votre pare-feu Internet ou du routeur de votre fournisseur de services Internet local. **Remarque :** Le serveur DirectAccess requiert deux adresses IPv4 publiques consécutives pour pouvoir agir comme un serveur Teredo et pour que les clients Windows puissent utiliser le serveur DirectAccess pour détecter le type de périphérique NAT derrière lequel ils se trouvent.|Configurez ce qui suit :<br/><br/>-Une adresse intranet IPv4 avec le masque de sous-réseau approprié.<br/>-Suffixe DNS spécifique à la connexion de votre espace de noms intranet. Vous devez également configurer un serveur DNS sur l'interface interne. **Attention :** Ne configurez pas de passerelle par défaut sur toutes les interfaces intranet.|Pour configurer le serveur DirectAccess afin d'atteindre tous les sous-réseaux du réseau IPv4 interne, procédez comme suit :<br/><br/>-Répertorier les espaces d’adressage IPv4 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **route Add-p** ou**netsh interface ipv4 add route** pour ajouter les espaces d’adressage IPv4 en tant qu’itinéraires statiques dans la table de routage IPv4 du serveur DirectAccess.|  
+    |Internet IPv6 et intranet IPv6|Configurez ce qui suit :<br/><br/>-Utilisez la configuration d’adresses fournie par votre fournisseur de services Internet.<br/>-Utilisez la commande **route print** pour vous assurer qu’il existe un itinéraire IPv6 par défaut et qu’il pointe vers le routeur du fournisseur de services Internet dans la table de routage IPv6.<br/>-Déterminez si le fournisseur de services Internet et les routeurs intranet utilisent les préférences de routeur par défaut décrites dans le document RFC 4191 et utilisent une préférence par défaut supérieure à celle de vos routeurs intranet locaux.<br/>    Si vous avez répondu par l'affirmative dans les deux cas, aucune autre configuration n'est requise pour l'itinéraire par défaut. Une préférence plus élevée pour le routeur ISP permet de s'assurer que l'itinéraire IPv6 par défaut actif du serveur DirectAccess pointe vers Internet IPv6.<br/><br/>Étant donné que le serveur DirectAccess est un routeur IPv6, si vous disposez d'une infrastructure IPv6 native, l'interface Internet peut également atteindre les contrôleurs de domaine sur l'intranet. Dans ce cas, ajoutez des filtres de paquets au contrôleur de domaine dans le réseau de périmètre pour empêcher la connectivité IPv6 de l'interface Internet du serveur DirectAccess.|Configurez ce qui suit :<br/><br/>-Si vous n’utilisez pas les niveaux de préférence par défaut, vous pouvez configurer vos interfaces intranet à l’aide de la commande suivante :**netsh interface ipv6 set InterfaceIndex ignoredefaultroutes = Enabled**.<br/>    Cette commande vérifie que les itinéraires par défaut supplémentaires qui pointent vers les routeurs intranet ne seront pas ajoutés à la table de routage IPv6. Vous pouvez obtenir l’index de vos interfaces intranet à l’aide de la commande suivante : **netsh interface ipv6 show interface**.|Si vous avez un intranet IPv6, procédez comme suit pour configurer le serveur DirectAccess afin d'atteindre tous les emplacements IPv6 :<br/><br/>-Répertorier les espaces d’adressage IPv6 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **netsh interface ipv6 add route** pour ajouter les espaces d’adressage IPv6 en tant qu’itinéraires statiques dans la table de routage IPv6 du serveur DirectAccess.|  
     |Internet IPv4 et intranet IPv6|Le serveur DirectAccess transfère le trafic de l'itinéraire IPv6 par défaut via la carte Microsoft 6to4 à un relais 6to4 sur Internet IPv4. Vous pouvez configurer un serveur DirectAccess pour l'adresse IPv4 de la carte Microsoft 6to4 à l'aide de la commande suivante : `netsh interface ipv6 6to4 set relay name=<ipaddress> state=enabled`.|||  
   
     > [!NOTE]  
@@ -119,11 +119,11 @@ L'activation de Forcer le mode tunneling a les conséquences suivantes :
 
 Si le serveur DirectAccess se trouve derrière un pare-feu de périmètre, les exceptions suivantes sont requises pour le trafic d'accès à distance quand le serveur DirectAccess est sur Internet IPv4 :  
   
-- Utilisateur le trafic Teredo le port UDP (Datagram Protocol) destination 3544 entrant et port UDP source 3544 sortant.  
+- Trafic Teredo-port UDP (User Datagram Protocol) de destination 3544 entrant et port UDP source 3544 sortant.  
   
-- 6to4 le trafic IP protocole 41 entrant et sortant.  
+- trafic 6to4 : protocole IP 41 entrant et sortant.  
   
-- Port de destination IP-HTTPS-protocole TCP (Transmission Control) 443 et le port TCP source 443 sortant.  
+- IP-HTTPs-port TCP (Transmission Control Protocol) 443 et port TCP source 443 sortant.  
   
 - Si vous déployez l'accès à distance avec une seule carte réseau et installez le serveur Emplacement réseau sur le serveur DirectAccess, vous devez également exempter le port TCP 62000.  
   
@@ -142,7 +142,7 @@ Les exceptions suivantes sont requises pour le trafic d'accès à distance lorsq
   
 Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de pare-feu de réseau interne suivantes pour le trafic d'accès à distance :  
   
-- ISATAP : protocole 41 entrant et sortant  
+- ISATAP-Protocole 41 entrant et sortant  
   
 - TCP/UDP pour tout le trafic IPv4 et IPv6  
   
@@ -156,9 +156,9 @@ Il existe trois scénarios qui requièrent des certificats lorsque vous déploye
   
     En matière de certificats, les exigences pour IPsec incluent un certificat d'ordinateur utilisé par les ordinateurs clients DirectAccess pour établir la connexion IPsec entre le client et le serveur DirectAccess, ainsi qu'un certificat d'ordinateur utilisé par les serveurs DirectAccess pour établir des connexions IPsec avec les clients DirectAccess.  
   
-    L’utilisation de ces certificats IPsec n’est pas obligatoire pour DirectAccess dans Windows Server 2012. Le serveur DirectAccess peut également agir en tant que proxy Kerberos pour effectuer l'authentification IPsec sans exiger de certificats. Si le protocole Kerberos est utilisé, il fonctionne via SSL et le proxy Kerberos utilise le certificat configuré pour IP-HTTPS à cet effet. Certains scénarios d'entreprise (y compris l'authentification client par déploiement multisite et mot de passe à usage unique) requièrent l'utilisation de l'authentification par certificat et non pas du protocole Kerberos.  
+    Pour DirectAccess dans Windows Server 2012, l’utilisation de ces certificats IPsec n’est pas obligatoire. Le serveur DirectAccess peut également agir en tant que proxy Kerberos pour effectuer l'authentification IPsec sans exiger de certificats. Si le protocole Kerberos est utilisé, il fonctionne via SSL et le proxy Kerberos utilise le certificat configuré pour IP-HTTPS à cet effet. Certains scénarios d'entreprise (y compris l'authentification client par déploiement multisite et mot de passe à usage unique) requièrent l'utilisation de l'authentification par certificat et non pas du protocole Kerberos.  
   
--   [1.3.2 planifier des certificats pour IP-HTTPS](#132-plan-certificates-for-ip-https)  
+-   [1.3.2 planifier des certificats pour IP-HTTPs](#132-plan-certificates-for-ip-https)  
   
     Quand vous configurez l'accès à distance, le serveur DirectAccess est automatiquement configuré pour agir en tant qu'écouteur IP-HTTPS. Le site IP-HTTPS requiert un certificat de site web. Les ordinateurs clients doivent être en mesure de contacter le site de la liste de révocation de certificats correspondant.  
   
@@ -170,9 +170,9 @@ Les exigences liées à l'autorité de certification sont résumées pour chaque
   
 |Authentification IPsec|Serveur IP-HTTPS|Serveur Emplacement réseau|  
 |------------|----------|--------------|  
-|Une autorité de certification interne est requise pour émettre les certificats d’ordinateur pour le serveur DirectAccess et les clients pour l’authentification IPsec quand vous n’utilisez pas le proxy Kerberos pour l’authentification|Autorité de certification interne :<br/><br/>Vous pouvez utiliser une autorité de certification interne pour émettre le certificat IP-HTTPS. Toutefois, vous devez vous assurer que le point de distribution de la liste de révocation de certificats est disponible en externe.|Autorité de certification interne :<br/><br/>Vous pouvez utiliser une autorité de certification interne pour émettre le certificat de site web du serveur Emplacement réseau. Assurez-vous que le point de distribution de la liste de révocation de certificats présente une haute disponibilité à partir du réseau interne.|  
+|Une autorité de certification interne est requise pour émettre des certificats d’ordinateur sur le serveur et les clients DirectAccess pour l’authentification IPsec lorsque vous n’utilisez pas le proxy Kerberos pour l’authentification.|Autorité de certification interne :<br/><br/>Vous pouvez utiliser une autorité de certification interne pour émettre le certificat IP-HTTPS. Toutefois, vous devez vous assurer que le point de distribution de la liste de révocation de certificats est disponible en externe.|Autorité de certification interne :<br/><br/>Vous pouvez utiliser une autorité de certification interne pour émettre le certificat de site web du serveur Emplacement réseau. Assurez-vous que le point de distribution de la liste de révocation de certificats présente une haute disponibilité à partir du réseau interne.|  
 ||Certificat auto-signé :<br/><br/>Vous pouvez utiliser un certificat auto-signé pour le serveur IP-HTTPS. Toutefois, vous devez vous assurer que le point de distribution de la liste de révocation de certificats est disponible en externe.<br/><br/>Un certificat auto-signé n'est pas utilisable dans des déploiements multisites.|Certificat auto-signé :<br/><br/>Vous pouvez utiliser un certificat auto-signé pour le site web du serveur Emplacement réseau.<br/><br/>Un certificat auto-signé n'est pas utilisable dans des déploiements multisites.|  
-||**Recommandé**<br/><br/>Autorité de certification publique :<br/><br/>Il est recommandé d'utiliser une autorité de certification publique pour émettre le certificat IP-HTTPS. Cela garantit que le point de distribution de la liste de révocation de certificats est disponible en externe.|  
+||**Recommandations**<br/><br/>Autorité de certification publique :<br/><br/>Il est recommandé d'utiliser une autorité de certification publique pour émettre le certificat IP-HTTPS. Cela garantit que le point de distribution de la liste de révocation de certificats est disponible en externe.|  
   
 ### <a name="131-plan-computer-certificates-for-ipsec-authentication"></a>1.3.1 Planifier des certificats d'ordinateur pour l'authentification IPsec  
 Si vous utilisez l'authentification IPsec basée sur les certificats, le serveur et les clients DirectAccess doivent obtenir un certificat d'ordinateur. La façon la plus simple d'installer les certificats est de configurer une inscription automatique basée sur une stratégie de groupe pour les certificats d'ordinateur. Cela garantit que tous les membres du domaine obtiendront un certificat à partir d'une autorité de certification d'entreprise. Si vous n'avez pas d'entreprise définis dans votre organisation, consultez[Active Directory Certificate Services](https://technet.microsoft.com/library/cc770357.aspx).  
@@ -305,7 +305,7 @@ Lors de la planification du site web du serveur Emplacement réseau, notez les p
 ## <a name="14-plan-dns-requirements"></a>1.4 Planifier la configuration DNS requise  
 Cette section explique la configuration DNS requise pour les serveurs d'infrastructure et les demandes des clients DirectAccess dans un déploiement d'accès à distance. Elle inclut les sous-sections suivantes :  
   
--   [1.4.1 planifier la configuration requise du serveur DNS](#141-plan-for-dns-server-requirements)  
+-   [1.4.1 planifier la configuration requise pour le serveur DNS](#141-plan-for-dns-server-requirements)  
   
 -   [1.4.2 planifier la résolution de noms locale](#142-plan-for-local-name-resolution)  
   
@@ -317,7 +317,7 @@ DNS sert à résoudre les demandes des ordinateurs clients DirectAccess qui ne s
   
 -   Si la connexion échoue, les clients sont considérés comme étant sur Internet. Les clients DirectAccess utilisent la table de stratégie de résolution de noms (NRPT) pour déterminer quel serveur DNS utiliser pour résoudre les demandes de noms.  
   
-Vous pouvez préciser que les clients doivent utiliser DirectAccess DNS64 pour résoudre les noms, ou un autre serveur DNS interne. Pendant la résolution des noms, la table NRPT est utilisée par les clients DirectAccess pour identifier la manière de traiter une demande. Les clients demandent un nom de domaine complet ou un nom simple tel que <https://internal>. Si un nom en une partie est demandé, un suffixe DNS est ajouté pour créer un nom de domaine complet (FQDN). Si la requête DNS correspond à une entrée dans la table NRPT, et que DNS64 ou un serveur DNS sur le réseau interne est spécifié pour l'entrée, alors la requête est envoyée pour la résolution de noms à l'aide du serveur spécifié. S'il existe une correspondance alors qu'aucun serveur DNS n'est spécifié, celle-ci indique une règle d'exemption et la résolution de noms habituelle est appliquée.  
+Vous pouvez préciser que les clients doivent utiliser DirectAccess DNS64 pour résoudre les noms, ou un autre serveur DNS interne. Pendant la résolution des noms, la table NRPT est utilisée par les clients DirectAccess pour identifier la manière de traiter une demande. Les clients demandent un nom de domaine complet (FQDN) ou un nom en une partie, tel que <https://internal>. Si un nom en une partie est demandé, un suffixe DNS est ajouté pour créer un nom de domaine complet (FQDN). Si la requête DNS correspond à une entrée dans la table NRPT, et que DNS64 ou un serveur DNS sur le réseau interne est spécifié pour l'entrée, alors la requête est envoyée pour la résolution de noms à l'aide du serveur spécifié. S'il existe une correspondance alors qu'aucun serveur DNS n'est spécifié, celle-ci indique une règle d'exemption et la résolution de noms habituelle est appliquée.  
   
 > [!NOTE]  
 > Notez que quand un nouveau suffixe est ajouté à la table NRPT dans la console de gestion de l'accès à distance, vous avez la possibilité de détecter automatiquement les serveurs DNS par défaut pour le suffixe en cliquant sur **Détecter**.  
@@ -330,7 +330,7 @@ La détection automatique fonctionne comme suit :
   
 **Serveurs d’infrastructure**  
   
--   **Serveur d’emplacement réseau**  
+-   **Serveur emplacement réseau**  
   
     Les clients DirectAccess essaient d'atteindre le serveur Emplacement réseau pour déterminer s'ils se situent sur le réseau interne. Les clients qui se trouvent sur le réseau interne doivent être en mesure de résoudre le nom du serveur Emplacement réseau, mais il est impératif de les empêcher de le faire quand ils se situent sur Internet. Pour garantir cela, le nom de domaine complet (FQDN) du serveur Emplacement réseau est, par défaut, ajouté en tant que règle d'exemption à la table NRPT. De plus, quand vous configurez l'accès à distance, les règles suivantes sont automatiquement créées :  
   
@@ -338,11 +338,11 @@ La détection automatique fonctionne comme suit :
   
     -   Règle d'exemption pour le nom de domaine complet du serveur d'emplacement réseau. Par exemple, si l’URL du serveur emplacement réseau est <https://nls.corp.contoso.com>, une règle d’exemption est créée pour le nom de domaine complet nls.corp.contoso.com.  
   
--   **Serveur IP-HTTPS**  
+-   **Serveur IP-HTTPs**  
   
     Le serveur DirectAccess agit en tant qu'écouteur IP-HTTPS et utilise son certificat de serveur pour s'authentifier auprès des clients IP-HTTPS. Les clients DirectAccess qui utilisent des serveurs DNS publics doivent être en mesure de résoudre le nom IP-HTTPS.  
   
--   **Vérification de la révocation de révocation de certificats**  
+-   **Vérification de la révocation des certificats**  
   
     DirectAccess utilise la vérification de la révocation des certificats pour la connexion IP-HTTPS entre les clients DirectAccess et le serveur DirectAccess, ainsi que pour la connexion HTTPS entre le client DirectAccess et le serveur Emplacement réseau. Dans les deux cas, les clients DirectAccess doivent être en mesure de résoudre le point de distribution de liste de révocation de certificats et d'y accéder.  
   
@@ -356,9 +356,9 @@ La détection automatique fonctionne comme suit :
   
     L'accès à distance crée une sonde web par défaut utilisée par les ordinateurs clients DirectAccess pour vérifier la connectivité au réseau interne. Pour que la sonde fonctionne comme prévu, les noms suivants doivent être enregistrés manuellement dans DNS :  
   
-    -   **DirectAccess-webprobehost**-doit se résoudre en adresse IPv4 interne du serveur DirectAccess, ou à l’adresse IPv6 dans un environnement IPv6 uniquement.  
+    -   **DirectAccess-webprobehost**: doit correspondre à l’adresse IPv4 interne du serveur DirectAccess, ou à l’adresse IPv6 dans un environnement IPv6 uniquement.  
   
-    -   **DirectAccess-corpconnectivityhost**-doit correspondre à l’adresse d’hôte local (bouclage). Les enregistrements de ressource hôte (A) et (AAAA) doivent être créés : un enregistrement de ressource hôte (A) doté de la valeur 127.0.0.1 et un enregistrement de ressource hôte (AAAA) avec la valeur construite à partir du préfixe NAT64 avec les 32 derniers bits sous la forme 127.0.0.1. Pour récupérer le préfixe NAT64, vous pouvez exécuter la commande Windows PowerShell **get-netnattransitionconfiguration**.  
+    -   **DirectAccess-corpconnectivityhost**: doit correspondre à l’adresse de l’hôte local (bouclage). Les enregistrements de ressource hôte (A) et (AAAA) doivent être créés : un enregistrement de ressource hôte (A) doté de la valeur 127.0.0.1 et un enregistrement de ressource hôte (AAAA) avec la valeur construite à partir du préfixe NAT64 avec les 32 derniers bits sous la forme 127.0.0.1. Pour récupérer le préfixe NAT64, vous pouvez exécuter la commande Windows PowerShell **get-netnattransitionconfiguration**.  
   
         > [!NOTE]  
         > Cela n'est valide que dans un environnement IPv4 uniquement. Dans un environnement IPv4 + IPv6 ou IPv6 uniquement, seul un enregistrement de ressource hôte (AAAA) doit être créé avec l'adresse IP de bouclage ::1.  
@@ -368,14 +368,14 @@ La détection automatique fonctionne comme suit :
 ### <a name="141-plan-for-dns-server-requirements"></a>1.4.1 Planifier la configuration requise par les serveurs DNS  
 La configuration requise pour DNS lorsque vous déployez DirectAccess est présentée ci-dessous.  
   
--   Pour les clients DirectAccess, vous devez utiliser un serveur DNS exécutant Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 ou tout autre serveur DNS qui prend en charge IPv6.  
+-   Pour les clients DirectAccess, vous devez utiliser un serveur DNS qui exécute Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 ou tout autre serveur DNS qui prend en charge IPv6.  
   
     > [!NOTE]  
     > Il est déconseillé d'utiliser des serveurs DNS qui exécutent Windows Server 2003 lorsque vous déployez DirectAccess. Bien que les serveurs DNS Windows Server 2003 prennent en charge les enregistrements IPv6, Windows Server 2003 n’est plus pris en charge par Microsoft. En outre, vous ne devez pas déployer DirectAccess si vos contrôleurs de domaine exécutent Windows Server  2003 en raison d’un problème avec le service de réplication de fichiers. Pour plus d'informations, consultez [Configurations non prises en charge par DirectAccess](https://technet.microsoft.com/library/dn464274.aspx).  
   
 -   Utilisez un serveur DNS qui prend en charge les mises à jour dynamiques. Vous pouvez utiliser des serveurs DNS qui ne prennent pas en charge les mises à jour dynamiques, mais vous devez mettre à jour manuellement les entrées sur ces serveurs.  
   
--   Le nom de domaine complet de vos points de distribution de liste de révocation de certificats accessibles par Internet doit pouvoir être résolu à l'aide de serveurs DNS Internet. Par exemple, si URL <https://crl.contoso.com/crld/corp-DC1-CA.crl> est dans le **Points de Distribution CRL** champ du certificat IP-HTTPS du serveur DirectAccess, vous devez vous assurer que le nom de domaine complet crld.contoso.com ne peut être résolu à l’aide de serveurs DNS Internet.  
+-   Le nom de domaine complet de vos points de distribution de liste de révocation de certificats accessibles par Internet doit pouvoir être résolu à l'aide de serveurs DNS Internet. Par exemple, si l’URL <https://crl.contoso.com/crld/corp-DC1-CA.crl> se trouve dans le champ **points de distribution de liste de révocation de certificats** du certificat IP-HTTPS du serveur DirectAccess, vous devez vous assurer que le nom de domaine complet crld.contoso.com peut être résolu à l’aide de serveurs DNS Internet.  
   
 ### <a name="142-plan-for-local-name-resolution"></a>1.4.2 Planifier la résolution de noms locale  
 Lorsque vous planifiez la résolution de noms locale, prenez en compte les problèmes suivants :  
@@ -394,9 +394,9 @@ Vous pouvez être amené à créer des règles NRPT supplémentaires dans les ca
   
     Par exemple, si vous testez un site web externe nommé test.contoso.com, ce nom ne peut pas être résolu via les serveurs DNS Internet, mais le serveur proxy web de Contoso sait comment résoudre le nom et diriger les demandes pour le site web vers le serveur web externe. Pour empêcher que les utilisateurs qui ne trouvent pas sur l'intranet Contoso puissent accéder au site, le site web externe autorise uniquement les demandes provenant de l'adresse Internet IPv4 du proxy web Contoso. Par conséquent, les utilisateurs de l'intranet peuvent accéder au site web car ils utilisent le proxy web Contoso, ce qui n'est pas le cas des utilisateurs DirectAccess. En configurant une règle d'exemption NRPT pour test.contoso.com qui utilise le proxy web Contoso, les demandes de page web pour test.contoso.com sont routées vers le serveur proxy web intranet via le réseau Internet IPv4.  
   
-**Noms d’étiquette unique**  
+**Noms en une partie**  
   
-Unique des noms d’étiquette, tel que <https://paycheck>, sont parfois utilisés pour les serveurs intranet. Si un nom en une partie est demandé et qu'une liste de recherche de suffixe DNS est configurée, les suffixes DNS de la liste sont ajoutés au nom en une partie. Par exemple, lorsqu’un utilisateur sur un ordinateur qui est membre du domaine corp.contoso.com tape <https://paycheck> dans le navigateur web, le nom de domaine complet qui est créée en tant que le nom est paycheck.corp.contoso.com. Par défaut, le suffixe ajouté est basé sur le suffixe DNS principal de l'ordinateur client.  
+Les noms en une partie, tels que <https://paycheck>, sont parfois utilisés pour les serveurs intranet. Si un nom en une partie est demandé et qu'une liste de recherche de suffixe DNS est configurée, les suffixes DNS de la liste sont ajoutés au nom en une partie. Par exemple, lorsqu’un utilisateur sur un ordinateur qui est membre des types de domaine corp.contoso.com <https://paycheck> dans le navigateur Web, le nom de domaine complet qui est construit comme nom est paycheck.corp.contoso.com. Par défaut, le suffixe ajouté est basé sur le suffixe DNS principal de l'ordinateur client.  
   
 > [!NOTE]  
 > Dans un scénario d'espace de noms dissocié (où un ou plusieurs ordinateurs de domaine ont un suffixe DNS qui ne correspond pas au domaine Active Directory auquel les ordinateurs appartiennent), vous devez vous assurer que la liste de recherche est personnalisée pour inclure tous les suffixes requis. Par défaut, l'Assistant Accès à distance configurera le nom DNS Active Directory comme suffixe DNS principal sur le client. Assurez-vous d'ajouter le suffixe DNS utilisé par les clients pour la résolution de noms.  
@@ -411,7 +411,7 @@ Si plusieurs domaines et Windows Internet Name Service (WINS) sont déployés da
   
 Le DNS « split brain » désigne l'utilisation du même domaine DNS pour la résolution des noms Internet et intranet.  
   
-Pour les déploiements DNS « split brain », vous devez répertorier les noms de domaines complets dupliqués sur Internet et intranet et décider quelles ressources le client DirectAccess doit atteindre l’intranet ou la version d’Internet. Pour chaque nom qui correspond à une ressource pour laquelle vous souhaitez que les clients DirectAccess atteignent la version Internet, vous devez ajouter le nom de domaine complet correspondant en tant que règle d'exemption à la table NRPT pour vos clients DirectAccess.  
+Pour les déploiements DNS de fractionnement Brain, vous devez répertorier les noms de domaine complets dupliqués sur Internet et l’intranet, et décider quelles ressources le client DirectAccess doit atteindre : la version intranet ou Internet. Pour chaque nom qui correspond à une ressource pour laquelle vous souhaitez que les clients DirectAccess atteignent la version Internet, vous devez ajouter le nom de domaine complet correspondant en tant que règle d'exemption à la table NRPT pour vos clients DirectAccess.  
   
 Dans un environnement DNS « split brain », si vous souhaitez que les deux versions de la ressource soient disponibles, configurez vos ressources intranet avec d'autres noms qui ne sont pas des doublons des noms déjà utilisés sur Internet, et indiquez à vos utilisateurs d'utiliser l'autre nom lorsqu'ils se trouvent sur le réseau intranet. Par exemple, configurez l'autre nom www.internal.contoso.com pour le nom interne www.contoso.com.  
   
@@ -419,7 +419,7 @@ Dans un environnement DNS non « split brain », l'espace de noms Internet est
   
 **Comportement de résolution de noms locale pour les clients DirectAccess**  
   
-Si un nom ne peut pas être résolu avec DNS, pour résoudre le nom du sous-réseau local, le service Client DNS dans Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 8, et Windows 7 permettent la résolution de noms locale, avec l’élément Link-Local Multicast nom R esolution (LLMNR) et NetBIOS sur les protocoles TCP/IP.  
+Si un nom ne peut pas être résolu avec DNS, pour résoudre le nom sur le sous-réseau local, le service client DNS dans Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 8 et Windows 7 peut utiliser la résolution de noms locale, avec le nom de la multidiffusion local de lien R esolution (LLMNR) et NetBIOS sur les protocoles TCP/IP.  
   
 La résolution de noms locale est généralement nécessaire pour la connectivité de réseau pair à pair lorsque l'ordinateur se trouve sur des réseaux privés, tels que des réseaux domestiques à sous-réseau unique. Lorsque le service Client DNS exécute la résolution de noms locale pour des noms de serveur intranet et que l'ordinateur est connecté sur Internet à un sous-réseau partagé, les utilisateurs malveillants peuvent capturer LLMNR et NetBIOS sur des messages TCP/IP afin de déterminer des noms de serveur intranet. Dans la page DNS de l'Assistant Installation du serveur d'infrastructure, vous configurez le comportement de résolution de noms locale en fonction des types de réponses reçus à partir des serveurs DNS intranet. Les options suivantes sont disponibles :  
   
@@ -463,13 +463,13 @@ Les clients DirectAccess essaient d'atteindre le serveur Emplacement réseau pou
 ## <a name="16-plan-management-servers"></a>1.6 Planifier les serveurs d'administration  
 Les clients DirectAccess initient une communication avec les serveurs d'administration qui fournissent des services tels que Windows Update et les mises à jour d'antivirus. Les clients DirectAccess utilisent également le protocole Kerberos pour contacter les contrôleurs de domaine afin de s'authentifier avant d'accéder au réseau interne. Au cours de l'administration distante des clients DirectAccess, les serveurs d'administration communiquent avec les ordinateurs clients pour exécuter des fonctions d'administration telles que l'évaluation de l'inventaire logiciel et matériel. L'accès à distance peut détecter automatiquement certains serveurs d'administration, dont notamment :  
   
--   Domaine contrôleurs-la détection automatique des contrôleurs de domaine est effectuée pour tous les domaines dans la même forêt que le serveur DirectAccess et les ordinateurs clients.  
+-   Contrôleurs de domaine : la détection automatique des contrôleurs de domaine s’effectue pour tous les domaines de la même forêt que le serveur DirectAccess et les ordinateurs clients.  
   
--   System Center Configuration Manager serveurs-la détection automatique des serveurs System Center Configuration Manager est effectuée pour tous les domaines dans la même forêt que le serveur DirectAccess et les ordinateurs clients.  
+-   Serveurs de System Center Configuration Manager-la détection automatique des serveurs de System Center Configuration Manager est effectuée pour tous les domaines de la même forêt que le serveur DirectAccess et les ordinateurs clients.  
   
-Les contrôleurs de domaine et les serveurs System Center Configuration Manager sont détectés automatiquement la première fois que DirectAccess est configuré. Contrôleurs de domaine détectés ne sont pas affichés dans la console, mais les paramètres peuvent être récupérées à l’aide de l’applet de commande Windows PowerShell **Get-DAMgmtServer-Type All**. Si un contrôleur de domaine ou des serveurs System Center Configuration Manager sont modifiés, cliquez sur **Actualiser les serveurs d'administration** dans la console d'administration de l'accès à distance pour actualiser la liste des serveurs d'administration.  
+Les contrôleurs de domaine et les serveurs System Center Configuration Manager sont détectés automatiquement la première fois que DirectAccess est configuré. Les contrôleurs de domaine détectés ne sont pas affichés dans la console, mais les paramètres peuvent être récupérés à l’aide de l’applet de commande Windows PowerShell **-DAMgmtServer-type All**. Si un contrôleur de domaine ou des serveurs System Center Configuration Manager sont modifiés, cliquez sur **Actualiser les serveurs d'administration** dans la console d'administration de l'accès à distance pour actualiser la liste des serveurs d'administration.  
   
-**Configuration requise du serveur Management**  
+**Configuration requise du serveur d’administration**  
   
 -   Les serveurs d'administration doivent être accessibles via le premier tunnel (infrastructure). Lorsque vous configurez l'accès à distance, l'ajout de serveurs dans la liste des serveurs d'administration les rend accessibles via ce tunnel.  
   
@@ -478,17 +478,17 @@ Les contrôleurs de domaine et les serveurs System Center Configuration Manager 
 ## <a name="17-plan-active-directory-domain-services"></a>1.7 Planifier les services de domaine Active Directory  
 Cette section explique comment DirectAccess utilise les services de domaine Active Directory (AD DS), et elle inclut les sous-sections suivantes :  
   
--   [1.7.1 planifier l’authentification client](#171-plan-client-authentication)  
+-   [authentification du client du plan 1.7.1](#171-plan-client-authentication)  
   
 -   [1.7.2 planifier plusieurs domaines](#172-plan-multiple-domains)  
   
-DirectAccess utilise AD DS et groupes Active Directory des objets de stratégie (GPO) comme suit :  
+DirectAccess utilise AD DS et Active Directory objets de stratégie de groupe (GPO) comme suit :  
   
 -   **Authentification**  
   
     Les services de domaine Active Directory sont utilisés pour l'authentification. Le tunnel d'infrastructure utilise l'authentification NTLMv2 pour le compte d'ordinateur qui se connecte au serveur DirectAccess et le compte doit être répertorié dans un domaine Active Directory. Le tunnel intranet utilise l'authentification Kerberos pour que l'utilisateur crée le second tunnel.  
   
--   **Objets de stratégie de groupe**  
+-   **Objets stratégie de groupe**  
   
     DirectAccess regroupe les paramètres de configuration dans des objets de stratégie de groupe (GPO) qui sont appliqués aux serveurs DirectAccess, aux clients et aux serveurs d'applications internes.  
   
@@ -500,7 +500,7 @@ DirectAccess utilise AD DS et groupes Active Directory des objets de stratégie 
   
     DirectAccess peut utiliser l'authentification et le chiffrement IPsec entre les clients et le serveur DirectAccess. Vous pouvez étendre l'authentification et le chiffrement IPsec à partir du client jusqu'aux serveurs d'applications internes spécifiés. Pour cela, ajoutez les serveurs d'applications requis dans un groupe de sécurité.  
   
-**Requise pour AD DS**  
+**Configuration requise pour la AD DS**  
   
 Lorsque vous planifiez d'utiliser les services de domaine Active Directory pour un déploiement DirectAccess, prenez en compte les exigences suivantes :  
   
@@ -547,45 +547,45 @@ La liste des serveurs d'administration doit inclure les contrôleurs de domaine 
   
 Dans la mesure du possible, les suffixes de noms de domaine communs doivent être ajoutés dans la table de stratégie de résolution de noms pendant le déploiement de l'accès à distance. Par exemple, si vous possédez deux domaines, domain1.corp.contoso.com et domain2.corp.contoso.com, au lieu d'ajouter deux entrées dans la table NRPT, vous pouvez ajouter une entrée de suffixe DNS commun, où le suffixe de nom de domaine est corp.contoso.com. Cela s'effectue automatiquement pour des domaines dans une même racine, mais des domaines qui ne figurent pas dans une même racine doivent être ajoutés manuellement.  
   
-Si le service WINS (Windows Internet Name Service) est déployé dans un environnement à plusieurs domaines, vous devez déployer une zone de recherche directe WINS dans DNS. Pour plus d’informations, consultez **unique des noms d’étiquette** dans le [1.4.2 planifier la résolution de noms locale](#142-plan-for-local-name-resolution) section plus haut dans ce document.  
+Si le service WINS (Windows Internet Name Service) est déployé dans un environnement à plusieurs domaines, vous devez déployer une zone de recherche directe WINS dans DNS. Pour plus d’informations, consultez **noms en une partie** dans la section [1.4.2 planifier la résolution de noms locale](#142-plan-for-local-name-resolution) , plus haut dans ce document.  
   
 ## <a name="18-plan-group-policy-objects"></a>1.8 Planifier les objets de stratégie de groupe  
 Cette section explique le rôle des objets de stratégie de groupe (GPO) dans votre infrastructure d'accès à distance, et elle inclut les sous-sections suivantes :  
   
--   [1.8.1 configurer les objets stratégie de groupe créés automatiquement](#181-configure-automatically-created-gpos)  
+-   [1.8.1 configurer les objets de stratégie de groupe créés automatiquement](#181-configure-automatically-created-gpos)  
   
--   [1.8.2 configurer la stratégie de groupe créés manuellement](#182-configure-manually-created-gpos)  
+-   [1.8.2 configurer les objets de stratégie de groupe créés manuellement](#182-configure-manually-created-gpos)  
   
--   [1.8.3 administrer les objets stratégie de groupe dans un environnement de plusieurs contrôleurs de domaine](#183-manage-gpos-in-a-multi-domain-controller-environment)  
+-   [1.8.3 administrer gérer les objets de stratégie de groupe dans un environnement à plusieurs domaines](#183-manage-gpos-in-a-multi-domain-controller-environment)  
   
--   [1.8.4 administrer les GPO de l’accès à distance avec des autorisations limitées](#184-manage-remote-access-gpos-with-limited-permissions)  
+-   [1.8.4 gérer les objets de stratégie de groupe d’accès à distance avec des autorisations limitées](#184-manage-remote-access-gpos-with-limited-permissions)  
   
 -   [1.8.5 récupérer à partir d’un objet de stratégie de groupe supprimé](#185-recover-from-a-deleted-gpo)  
   
 Les paramètres DirectAccess configurés quand vous configurez l'accès à distance sont rassemblés dans des objets de stratégie de groupe. Les types suivants d'objets de stratégie de groupe sont renseignés avec les paramètres DirectAccess, puis distribués comme suit :  
   
--   **Client DirectAccess GPO**  
+-   **Objet de stratégie de groupe du client DirectAccess**  
   
     Cet objet de stratégie de groupe contient des paramètres client, notamment les paramètres de technologie de transition IPv6, les entrées de la table NRPT et les règles de sécurité de connexion du Pare-feu Windows avec fonctions avancées de sécurité. Il est appliqué aux groupes de sécurité spécifiés pour les ordinateurs clients.  
   
--   **Serveur DirectAccess GPO**  
+-   **Objet de stratégie de groupe du serveur DirectAccess**  
   
     Cet objet de stratégie de groupe contient les paramètres de configuration DirectAccess qui sont appliqués à tout serveur configuré en tant que serveur DirectAccess dans votre déploiement. Il contient également les règles de sécurité de connexion du Pare-feu Windows avec fonctions avancées de sécurité.  
   
--   **Serveurs d’applications GPO**  
+-   **Objet de stratégie de groupe serveurs d’applications**  
   
     Cet objet de stratégie de groupe contient les paramètres des serveurs d'applications sélectionnés auxquels vous étendez éventuellement l'authentification et le chiffrement à partir des clients DirectAccess. Si l'authentification et le chiffrement ne sont pas étendus, cet objet de stratégie de groupe n'est pas utilisé.  
   
 Vous pouvez configurer les objets de stratégie de groupe de deux manières :  
   
--   **Automatiquement**-vous pouvez spécifier qu’ils sont créés automatiquement. Un nom par défaut est spécifié pour chaque objet de stratégie de groupe.  
+-   **Automatiquement**: vous pouvez spécifier qu’elles sont créées automatiquement. Un nom par défaut est spécifié pour chaque objet de stratégie de groupe.  
   
--   **Manuellement**-vous pouvez utiliser des objets de stratégie de groupe qui ont été prédéfinis par l’administrateur Active Directory.  
+-   **Manuellement**: vous pouvez utiliser des objets de stratégie de groupe qui ont été prédéfinis par l’administrateur Active Directory.  
   
 > [!NOTE]  
 > Une fois que DirectAccess a été configuré pour utiliser des objets de stratégie de groupe spécifiques, il ne peut plus être configuré pour en utiliser d'autres.  
   
-Que vous utilisiez des objets de stratégie de groupe configurés automatiquement ou manuellement, vous devez ajouter une stratégie pour la détection des liaisons lentes si vos clients utilisent des réseaux 3G. Le chemin d’accès pour **stratégie : Configurer la détection de liaison lente de stratégie de groupe** est : **Computer configuration/Policies/Administrative Templates/System/Group Policy**.  
+Que vous utilisiez des objets de stratégie de groupe configurés automatiquement ou manuellement, vous devez ajouter une stratégie pour la détection des liaisons lentes si vos clients utilisent des réseaux 3G. Chemin d’accès pour **Policy : Configurez stratégie de groupe détection de liaison lente @ no__t-0 : **Computer configuration/Policies/Administrative Templates/System/Group Policy**.  
   
 > [!CAUTION]  
 > Utilisez la procédure suivante pour sauvegarder tous les objets de stratégie de groupe d'accès à distance avant d'exécuter des applets de commande DirectAccess : [Sauvegarder et restaurer la configuration d’Accès à distance](https://go.microsoft.com/fwlink/?LinkID=257928).  
@@ -670,12 +670,12 @@ Quand des modifications sont apportées aux objets de stratégie de groupe inter
   
 Le diagramme suivant illustre cette configuration.  
   
-![Gérer les GPO de l’accès à distance](../../../media/Step-1-Plan-the-DirectAccess-Infrastructure/DA_Plan_Advanced_Step1_GPOS.png)  
+![Gérer les objets de stratégie de groupe d’accès à distance](../../../media/Step-1-Plan-the-DirectAccess-Infrastructure/DA_Plan_Advanced_Step1_GPOS.png)  
   
 ### <a name="185-recover-from-a-deleted-gpo"></a>1.8.5 Récupérer après la suppression d'un objet de stratégie de groupe  
 Si un objet de stratégie de groupe de client, de serveur DirectAccess ou de serveur d'applications est supprimé par inadvertance et qu'aucune sauvegarde n'est disponible, vous devez supprimer les paramètres de configuration et les reconfigurer. Si vous disposez d'une sauvegarde, vous pouvez restaurer l'objet de stratégie de groupe.  
   
-La console de gestion de l'accès à distance affiche le message d'erreur suivant : **Impossible de trouver l’objet de stratégie de groupe (nom de l’objet stratégie de groupe)** . Pour supprimer les paramètres de configuration, procédez comme suit :  
+La console de gestion de l'accès à distance affiche le message d'erreur suivant : **Objet de stratégie de groupe (nom de l’objet de stratégie de groupe) introuvable**. Pour supprimer les paramètres de configuration, procédez comme suit :  
   
 1.  Exécutez l'applet de commande Windows PowerShell **Uninstall-remoteaccess**.  
   
@@ -685,7 +685,7 @@ La console de gestion de l'accès à distance affiche le message d'erreur suivan
   
 ## <a name="next-steps"></a>Étapes suivantes  
   
--   [Étape 2 : Planifier les déploiements de DirectAccess](da-adv-plan-s2-deployments.md)  
+-   [Étape 2 : Planifier les déploiements DirectAccess @ no__t-0  
   
 
 

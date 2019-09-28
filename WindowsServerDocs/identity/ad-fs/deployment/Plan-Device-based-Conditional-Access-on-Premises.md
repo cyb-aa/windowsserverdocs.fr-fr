@@ -7,90 +7,90 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a78334f64d9e51515757b01f2d788bf87f67a35
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 79dfc7fbf9e2dcc753829cc53d914f374010f925
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501605"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408334"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Planifier l’accès conditionnel local basé sur un périphérique
 
 
-Ce document décrit les stratégies d’accès conditionnel basés sur des appareils dans un scénario hybride où les répertoires locaux sont connectés à Azure AD à l’aide d’Azure AD Connect.     
+Ce document décrit les stratégies d’accès conditionnel basées sur les appareils dans un scénario hybride dans lequel les annuaires locaux sont connectés à Azure AD à l’aide de Azure AD Connect.     
 
-## <a name="ad-fs-and-hybrid-conditional-access"></a>Accès conditionnel AD FS et hybrides  
+## <a name="ad-fs-and-hybrid-conditional-access"></a>AD FS et accès conditionnel hybride  
 
-AD FS fournit le composant de site sur des stratégies d’accès conditionnel dans un scénario hybride.  Lorsque vous inscrivez des appareils avec Azure AD pour l’accès conditionnel aux ressources du cloud, l’appareil Azure AD Connect réécrit fonctionnalité rend des informations d’inscription de périphérique disponibles en local pour consommer et d’appliquer des stratégies AD FS.  De cette façon, vous avez une approche cohérente pour les stratégies de contrôle d’accès pour les deux en local et de ressources de cloud.  
+AD FS fournit le composant local des stratégies d’accès conditionnel dans un scénario hybride.  Lorsque vous inscrivez des appareils avec Azure AD pour l’accès conditionnel aux ressources du Cloud, la fonctionnalité de réécriture de l’appareil Azure AD Connect rend les informations d’inscription de l’appareil disponibles localement pour les stratégies de AD FS à consommer et à appliquer.  De cette façon, vous disposez d’une approche cohérente pour accéder aux stratégies de contrôle des ressources locales et du Cloud.  
 
 ![Accès conditionnel](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 ### <a name="types-of-registered-devices"></a>Types d’appareils inscrits  
-Il existe trois types d’appareils inscrits, tous sont représentés en tant qu’objets d’appareil dans Azure AD et peuvent être utilisées pour l’accès conditionnel avec AD FS en local également.  
+Il existe trois types d’appareils inscrits, qui sont tous représentés en tant qu’objets de périphérique dans Azure AD et peuvent être utilisés pour l’accès conditionnel avec AD FS également sur site.  
 
-| |Ajouter un travail ou scolaire  |Joindre Azure AD  |Jonction de domaine 10 de Windows    
+| |Ajouter un compte professionnel ou scolaire  |Joindre Azure AD  |Jonction de domaine Windows 10    
 | --- | --- |--- | --- |
-|Description    |  Les utilisateurs d’ajouter leur travail compte scolaire ou pour leur appareil BYOD interactivement.  **Remarque :** Ajouter le compte professionnel ou scolaire est le remplacement pour la jonction dans Windows 8/8.1       | Les utilisateurs joindre leurs appareils de travail de Windows 10 à Azure AD.|Les appareils Windows 10 joints à un domaine s’inscrivent automatiquement auprès d’Azure AD.|           
-|Comment les utilisateurs se connecter à l’appareil     |  Aucun compte de connexion à Windows en tant que le compte professionnel ou scolaire.  Connexion à l’aide d’un compte Microsoft.       |   Connectez-vous à Windows en tant que le compte (Professionnel ou scolaire) qui inscrit l’appareil.      |     Connexion à l’aide de compte Active Directory.|      
-|La gestion des appareils    |      Stratégies de gestion des appareils mobiles (avec l’inscription à Intune supplémentaire)   | Stratégies de gestion des appareils mobiles (avec l’inscription à Intune supplémentaire)        |   Stratégie de groupe, System Center Configuration Manager (SCCM) |
-|Type d’approbation AD Azure|Espace de travail joint|Joint à Azure AD|Client appartenant à un domaine  |     
-|Emplacement des paramètres de W10    | Paramètres > comptes > votre compte > Ajouter un compte professionnel ou scolaire        | Paramètres > système > sur > joindre Azure AD       |   Paramètres > système > sur > joindre un domaine |       
+|Description    |  Les utilisateurs ajoutent leur compte professionnel ou scolaire à leur appareil BYOD de manière interactive.  **Remarque :** Ajouter un compte professionnel ou scolaire est le remplacement de Workplace Join dans Windows 8/8.1       | Les utilisateurs joignent leur appareil de travail Windows 10 à Azure AD.|Les appareils Windows 10 joints à un domaine s’inscrivent automatiquement auprès de Azure AD.|           
+|Comment les utilisateurs se connectent à l’appareil     |  Aucune connexion à Windows en tant que compte professionnel ou scolaire.  Connectez-vous à l’aide d’un compte Microsoft.       |   Connectez-vous à Windows en tant que compte (professionnel ou scolaire) qui a inscrit l’appareil.      |     Connectez-vous à l’aide du compte Active Directory.|      
+|Gestion des appareils    |      Stratégies MDM (avec inscription Intune supplémentaire)   | Stratégies MDM (avec inscription Intune supplémentaire)        |   Stratégie de groupe, System Center Configuration Manager (SCCM) |
+|Type d’approbation Azure AD|Espace de travail joint|Azure AD joint|Client appartenant à un domaine  |     
+|Emplacement des paramètres W10    | Paramètres > comptes > votre compte > Ajouter un compte professionnel ou scolaire        | Paramètres > système > sur > joindre Azure AD       |   Paramètres > système > sur > joindre un domaine |       
 |Également disponible pour les appareils iOS et Android ?   |    Oui     |       Non  |   Non   |   
 
   
 
 Pour plus d’informations sur les différentes façons d’inscrire des appareils, consultez également :  
-* [À l’aide d’appareils Windows 10 dans votre espace de travail](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices/)  
+* [Utilisation d’appareils Windows 10 dans votre espace de travail](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices/)  
 * [Configuration des appareils Windows 10 pour le travail](https://jairocadena.com/2016/01/18/setting-up-windows-10-devices-for-work-domain-join-azure-ad-join-and-add-work-or-school-account/)  
-[Joindre Windows 10 Mobile à Azure Active Directory](https://technet.microsoft.com/itpro/windows/manage/join-windows-10-mobile-to-azure-active-directory)  
+[Joindre Windows 10 mobile à Azure Active Directory](https://technet.microsoft.com/itpro/windows/manage/join-windows-10-mobile-to-azure-active-directory)  
 
-### <a name="how-windows-10-user-and-device-sign-on-is-different-from-previous-versions"></a>Comment Windows 10 utilisateur et appareil de l’authentification est différent des versions précédentes  
-Pour Windows 10 et AD FS 2016, il existe certains nouveaux aspects de l’inscription et d’authentification que vous devez connaître (surtout si vous êtes familiarisé avec l’inscription et « jonction » dans les versions précédentes).  
+### <a name="how-windows-10-user-and-device-sign-on-is-different-from-previous-versions"></a>La façon dont l’authentification des utilisateurs et des appareils Windows 10 est différente de celle des versions précédentes  
+Pour Windows 10 et AD FS 2016, vous devez connaître les nouveaux aspects de l’inscription et de l’authentification des appareils (surtout si vous êtes familiarisé avec l’inscription des appareils et la « jonction d’espace de travail » dans les versions précédentes).  
 
-Tout d’abord, dans Windows 10 et AD FS dans Windows Server 2016, l’inscription et l’authentification n’est plus repose uniquement sur un X509 certificat utilisateur.  Il existe un protocole de nouveaux et plus robuste qui fournit une meilleure sécurité et une expérience utilisateur plus transparente.  Les principales différences sont que, pour la jonction de domaine Windows 10 et Azure AD Join, est un X509 certificat d’ordinateur et une information d’identification appelé un PRT.  Vous pouvez lire tous les il [ici](https://jairocadena.com/2016/01/18/how-domain-join-is-different-in-windows-10-with-azure-ad/) et [ici](https://jairocadena.com/2016/02/01/azure-ad-join-what-happens-behind-the-scenes/).  
+Tout d’abord, dans Windows 10 et AD FS dans Windows Server 2016, l’inscription et l’authentification de l’appareil ne sont plus basées uniquement sur un certificat d’utilisateur x509.  Il existe un nouveau protocole plus robuste qui offre une meilleure sécurité et une expérience utilisateur plus transparente.  Les principales différences résident dans le fait que, pour la jonction de domaine Windows 10 et la jonction de Azure AD, il existe un certificat d’ordinateur x509 et une nouvelle information d’identification appelée PRT.  Vous pouvez le lire [ici](https://jairocadena.com/2016/01/18/how-domain-join-is-different-in-windows-10-with-azure-ad/) et [ici](https://jairocadena.com/2016/02/01/azure-ad-join-what-happens-behind-the-scenes/).  
 
-En second lieu, Windows 10 et AD FS 2016 prennent en charge l’authentification des utilisateurs à l’aide de Microsoft Passport for Work, vous pouvez en savoir plus sur [ici](https://jairocadena.com/2016/03/09/azure-ad-and-microsoft-passport-for-work-in-windows-10/) et [ici](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/).  
+Deuxièmement, Windows 10 et AD FS 2016 prennent en charge l’authentification utilisateur à l’aide de Microsoft Passport for Work, que vous pouvez consulter [ici](https://jairocadena.com/2016/03/09/azure-ad-and-microsoft-passport-for-work-in-windows-10/) et [ici](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/).  
 
-AD FS 2016 fournit l’appareil en toute transparence et utilisateur SSO avec les informations d’identification PRT et Passport.  Suivant les étapes de ce document, vous pouvez activer ces fonctionnalités et les afficher à fonctionner.  
+AD FS 2016 fournit une authentification unique des appareils et des utilisateurs en fonction des informations d’identification PRT et Passport.  À l’aide des étapes décrites dans ce document, vous pouvez activer ces fonctionnalités et les voir fonctionner.  
 
-### <a name="device-access-control-policies"></a>Stratégies de contrôle d’accès aux appareils  
-Appareils peuvent être utilisés dans les règles de contrôle d’accès AD FS simples tel que :  
+### <a name="device-access-control-policies"></a>Stratégies de Access Control des appareils  
+Les appareils peuvent être utilisés dans des règles de contrôle d’accès AD FS simples telles que :  
 
-- Autoriser l’accès uniquement à partir d’un appareil enregistré   
-- exiger l’authentification multifacteur lorsqu’un appareil n’est pas inscrit.  
+- autoriser l’accès uniquement à partir d’un appareil inscrit   
+- exiger l’authentification multifacteur lorsqu’un appareil n’est pas inscrit  
 
-Ces règles peuvent ensuite être combinées avec d’autres facteurs tels que l’emplacement d’accès réseau et l’authentification multifacteur, création de stratégies d’accès conditionnel riches, telles que :  
+Ces règles peuvent ensuite être combinées avec d’autres facteurs tels que l’emplacement d’accès réseau et l’authentification multifacteur, créant ainsi des stratégies d’accès conditionnel riches, telles que :  
 
 
-- Exigez l’authentification multifacteur pour les appareils non enregistrés accéder à partir en dehors du réseau d’entreprise, sauf pour les membres d’un groupe particulier ou de groupes  
+- exiger l’authentification multifacteur pour les appareils non inscrits qui accèdent à l’extérieur du réseau d’entreprise, à l’exception des membres d’un groupe ou de groupes particuliers  
 
-Avec AD FS 2016, ces stratégies peuvent être configurées en particulier pour nécessitent également un niveau de confiance périphérique particulier : soit **authentifié**, **gérés**, ou **conformes**.  
+Avec AD FS 2016, ces stratégies peuvent être configurées spécifiquement pour exiger un niveau de confiance d’appareil particulier : **authentifié**, **géré**ou **conforme**.  
 
-Pour plus d’informations sur la configuration AD FS stratégies de contrôle d’accès, consultez [stratégies de contrôle d’accès dans AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md).  
+Pour plus d’informations sur la configuration des stratégies de contrôle d’accès AD FS, consultez [stratégies de contrôle d’accès dans AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md).  
 
 #### <a name="authenticated-devices"></a>Appareils authentifiés  
-Appareils authentifiés sont les appareils inscrits ne sont pas inscrits dans MDM (Intune et 3e partie MDMs pour Windows 10, Intune uniquement pour iOS et Android).   
+Les appareils authentifiés sont des appareils inscrits qui ne sont pas inscrits dans MDM (Intune et MDMs tiers pour Windows 10, Intune uniquement pour iOS et Android).   
 
-Appareils authentifiés auront le **isManaged** avec la valeur de revendication AD FS **FALSE**. (Tandis que les appareils non enregistrés ne disposera pas de cette revendication.)  Appareils authentifiés (et tous les appareils inscrits) auront l’isKnown AD FS revendication avec la valeur **TRUE**.  
+Les appareils authentifiés auront la revendication **isManaged** AD FS avec la valeur **false**. (Alors que les appareils qui ne sont pas inscrits sur le tout n’auront pas cette revendication.)  Les appareils authentifiés (et tous les appareils inscrits) comporteront la revendication isKnown AD FS avec la valeur **true**.  
 
 #### <a name="managed-devices"></a>Appareils gérés :   
 
-Périphériques gérés se trouvent les appareils inscrits qui sont inscrits avec des appareils mobiles.  
+Les appareils gérés sont des appareils inscrits inscrits auprès de MDM.  
 
-Les appareils gérés auront l’isManaged AD FS revendication avec la valeur **TRUE**.  
+Les appareils gérés comporteront la revendication isManaged AD FS avec la valeur **true**.  
 
-#### <a name="devices-compliant-with-mdm-or-group-policies"></a>Appareils conformes (avec gestion des appareils mobiles ou des stratégies de groupe)  
-Les appareils conformes sont les appareils inscrits ne sont pas uniquement inscrits avec la gestion des appareils mobiles, mais il est conforme aux stratégies de gestion des appareils mobiles. (Informations de conformité est associée à la gestion des appareils mobiles et sont écrite dans Azure AD).  
+#### <a name="devices-compliant-with-mdm-or-group-policies"></a>Appareils conformes (avec MDM ou stratégies de groupe)  
+Les appareils conformes sont des appareils inscrits non seulement inscrits avec MDM, mais conformes aux stratégies MDM. (Les informations de conformité proviennent de MDM et sont écrites dans Azure AD.)  
 
-Les appareils conformes aura le **isCompliant** avec la valeur de revendication AD FS **TRUE**.    
+Les appareils conformes comporteront la revendication **isCompliant** AD FS avec la valeur **true**.    
 
-Pour obtenir une liste complète de l’appareil d’AD FS 2016 et les revendications de l’accès conditionnel, consultez [référence](#reference).  
+Pour obtenir la liste complète des revendications de l’appareil AD FS 2016 et de l’accès conditionnel, consultez [référence](#reference).  
 
 
 ## <a name="reference"></a>Référence  
-#### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>Liste complète des nouvelles des AD FS 2016 et les appareils des revendications  
+#### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>Liste complète des nouvelles AD FS 2016 et des revendications de périphérique  
 
 * https://schemas.microsoft.com/ws/2014/01/identity/claims/anchorclaimtype  
 * http://schemas.xmlsoap.org/ws/2005/05/identity/claims/implicitupn  

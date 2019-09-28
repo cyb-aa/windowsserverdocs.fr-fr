@@ -7,27 +7,27 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ec111954bbe39a3089072f41778990546b6287e5
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5fb6d150f91042d31caea2a51acebbb18a3167cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191292"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408070"
 ---
 # <a name="identifying-your-ad-fs-deployment-goals"></a>Identification de vos objectifs de déploiement d'AD FS
 
-L’identification correcte de votre Active Directory Federation Services \(AD FS\) objectifs de déploiement est essentielle pour la réussite de votre projet de conception AD FS. Selon la taille de votre organisation et le niveau d’implication à fournir pour les technologies de l’information \(informatique\) auxiliaire dans toutes les organisations partenaires, de former une équipe de projet capable de clairement articuler réel\-des problèmes de déploiement mondial dans un énoncé de vision. Assurez-vous que les membres de cette équipe comprennent la direction dans laquelle votre projet de déploiement doit afin d’atteindre vos objectifs de déploiement AD FS.  
+L’identification correcte de \(votre\) services ADFS AD FS objectifs du déploiement est essentiel pour la réussite de votre projet de conception de AD FS. Selon la taille de votre organisation et le niveau d’implication que vous souhaitez fournir à la technologie de l’information \(IT @ no__t-1 personnel dans les organisations partenaires, former une équipe de projet qui peut clairement articuler le déploiement réel de @ no__t-2world problèmes dans une instruction de vision. Assurez-vous que les membres de cette équipe comprennent la direction dans laquelle votre projet de déploiement doit se déplacer afin d’atteindre vos objectifs de déploiement AD FS.  
   
-Quand vous rédigez votre énoncé de vision, identifiez, clarifiez et affinez vos objectifs de déploiement. Hiérarchisez et, éventuellement, combinez vos objectifs de déploiement afin que vous pouvez concevoir et déployer AD FS à l’aide d’une approche itérative. Vous pouvez tirer parti d’existant, documentés et prédéfinis des objectifs de déploiement AD FS qui sont pertinents pour les conceptions AD FS et de développement une solution à votre situation.  
+Quand vous rédigez votre énoncé de vision, identifiez, clarifiez et affinez vos objectifs de déploiement. Hiérarchisez et, éventuellement, combinez vos objectifs de déploiement afin de pouvoir concevoir et déployer des AD FS à l’aide d’une approche itérative. Vous pouvez tirer parti des objectifs de déploiement AD FS existants, documentés et prédéfinis qui sont pertinents pour les AD FS conceptions et développer une solution de travail adaptée à votre situation.  
   
-Le tableau suivant répertorie les tâches pour articuler, affiner et documenter vos objectifs de déploiement AD FS.  
+Le tableau suivant répertorie les tâches permettant d’articuler, de raffiner et de documenter vos objectifs de déploiement AD FS.  
   
 |Tâche|Liens de référence|  
 |--------|-------------------|  
-|Évaluer les objectifs de déploiement AD FS prédéfinis qui sont fournis dans cette section du guide et combinent un ou plusieurs objectifs à atteindre vos objectifs d’organisation|-   [Fournir l’accès aux utilisateurs de votre Active Directory pour vos Services et Applications prenant en charge les revendications](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)<br />-   [Fournir l’accès aux utilisateurs de votre Active Directory pour les Applications et Services d’autres organisations](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)<br />-   [Fournir aux utilisateurs d’une autre organisation un accès à vos Services et Applications prenant en charge les revendications](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)|  
-|Mapper un objectif ou une combinaison quelconque des objectifs de déploiement AD FS prédéfinies à une conception AD FS existante|-   [Mappage de vos objectifs de déploiement pour une conception AD FS](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md)|  
+|Évaluez les objectifs prédéfinis de déploiement AD FS qui sont fournis dans cette section du guide, et combinez un ou plusieurs objectifs pour atteindre les objectifs de votre organisation.|-   [fournir à vos utilisateurs Active Directory l’accès à vos applications et services prenant en charge les revendications](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)<br />-   [fournir à vos utilisateurs Active Directory l’accès aux applications et services d’autres organisations](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)<br />-   [fournir aux utilisateurs d’une autre organisation un accès à vos applications et services prenant en charge les revendications](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)|  
+|Mapper un objectif ou une combinaison de l’un des objectifs prédéfinis de AD FS de déploiement à une conception de AD FS existante|-   [mappage de vos objectifs de déploiement à une conception de AD FS](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md)|  
   
 ## <a name="see-also"></a>Voir aussi
 [Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

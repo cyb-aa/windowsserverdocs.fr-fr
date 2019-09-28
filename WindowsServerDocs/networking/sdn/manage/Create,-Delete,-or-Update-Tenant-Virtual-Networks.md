@@ -1,9 +1,9 @@
 ---
-title: Créer, supprimer ou mettre à jour le réseau virtuel locataire
-description: Dans cette rubrique, vous allez apprendre à créer, supprimer et mettre à jour des réseaux virtuels de virtualisation de réseau Hyper-V après avoir déployé la mise en réseau SDN (Software Defined). Virtualisation de réseau Hyper-V vous permet d’isoler les réseaux clients afin que chaque réseau client est une entité distincte. Chaque entité n’a aucun risque de connexion croisée sauf si vous configurez des charges de travail de l’accès public.
+title: Créer, supprimer ou mettre à jour un réseau virtuel locataire
+description: Dans cette rubrique, vous allez apprendre à créer, supprimer et mettre à jour des réseaux virtuels de virtualisation de réseau Hyper-V après avoir déployé SDN (Software Defined Networking). La virtualisation de réseau Hyper-V vous permet d’isoler les réseaux locataires afin que chaque réseau client soit une entité distincte. Chaque entité n’a aucune possibilité de connexion croisée, sauf si vous configurez des charges de travail d’accès public.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,30 +13,30 @@ ms.assetid: 6a820826-e829-4ef2-9a20-f74235f8c25b
 ms.author: pashort
 author: shortpatti
 ms.date: 08/24/2018
-ms.openlocfilehash: a125ec220b4769a57a6be30f1425283afb7f0fe6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 779c7bc4f6c4ff1e66fca68ced8b0eeb4d54abc5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838350"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406070"
 ---
 # <a name="create-delete-or-update-tenant-virtual-networks"></a>Créer, supprimer ou mettre à jour des réseaux virtuels locataires
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, vous allez apprendre à créer, supprimer et mettre à jour des réseaux virtuels de virtualisation de réseau Hyper-V après avoir déployé la mise en réseau SDN (Software Defined). Virtualisation de réseau Hyper-V vous permet d’isoler les réseaux clients afin que chaque réseau client est une entité distincte. Chaque entité n’a aucun risque de connexion croisée sauf si vous configurez des charges de travail de l’accès public.   
+Dans cette rubrique, vous allez apprendre à créer, supprimer et mettre à jour des réseaux virtuels de virtualisation de réseau Hyper-V après avoir déployé SDN (Software Defined Networking). La virtualisation de réseau Hyper-V vous permet d’isoler les réseaux locataires afin que chaque réseau client soit une entité distincte. Chaque entité n’a aucune possibilité de connexion croisée, sauf si vous configurez des charges de travail d’accès public.   
   
-## <a name="create-a-new-virtual-network"></a>Créer un réseau virtuel  
-Création d’un réseau virtuel pour un client place au sein d’un domaine de routage unique sur l’ordinateur hôte Hyper-V. Sous chaque réseau virtuel, il existe au moins un sous-réseau virtuel. Sous-réseaux virtuels obtient définis par un préfixe IP et référencent une ACL précédemment définie.  
+## <a name="create-a-new-virtual-network"></a>Créer un nouveau réseau virtuel  
+La création d’un réseau virtuel pour un locataire le place dans un domaine de routage unique sur l’hôte Hyper-V. Sous chaque réseau virtuel, il existe au moins un sous-réseau virtuel. Les sous-réseaux virtuels sont définis par un préfixe IP et font référence à une liste de contrôle d’accès précédemment définie.  
 
-Les étapes pour créer un nouveau réseau virtuel sont :
+Les étapes de création d’un réseau virtuel sont les suivantes :
 
-1. Identifiez les préfixes d’adresse IP à partir de laquelle vous souhaitez créer des sous-réseaux virtuels.   
-2. Identifiez le réseau de fournisseur logique sur lequel le trafic de client est acheminée.   
-3. Créez au moins un sous-réseau virtuel pour chaque préfixe d’adresse IP que vous avez identifiée à l’étape 1. 
-4. (Facultatif) Ajouter les ACL créés précédemment pour les sous-réseaux virtuels ou ajouter une connectivité de passerelle pour les clients. 
+1. Identifiez les préfixes d’adresses IP à partir desquels vous souhaitez créer les sous-réseaux virtuels.   
+2. Identifiez le réseau du fournisseur logique sur lequel le trafic du locataire est acheminé par tunnel.   
+3. Créez au moins un sous-réseau virtuel pour chaque préfixe d’adresse IP que vous avez identifié à l’étape 1. 
+4. Facultatif Ajoutez les listes de contrôle d’accès précédemment créées aux sous-réseaux virtuels ou ajoutez la connectivité de passerelle pour les locataires. 
 
-Le tableau suivant contient les préfixes et les ID de sous-réseau exemple pour les deux clients fictifs. Le locataire Fabrikam a deux sous-réseaux virtuels, tandis que le client Contoso a trois sous-réseaux virtuels.  
+Le tableau suivant contient des exemples d’ID de sous-réseau et de préfixes pour deux locataires fictifs. Fabrikam dispose de deux sous-réseaux virtuels, tandis que le locataire Contoso a trois sous-réseaux virtuels.  
  
   
 Nom du locataire  |ID de sous-réseau virtuel  |Préfixe de sous-réseau virtuel    
@@ -47,7 +47,7 @@ Contoso    |6001         |  24.30.1.0/24
 Contoso    | 6002        |  24.30.2.0/24         
 Contoso     | 6003        | 24.30.3.0/24          
   
-L’exemple de script suivant utilise les commandes Windows PowerShell exportées à partir de la **NetworkController** module permettant de créer le réseau virtuel et un sous-réseau de Contoso :   
+L’exemple de script suivant utilise des commandes Windows PowerShell exportées à partir du module **NetworkController** pour créer un réseau virtuel et un sous-réseau de Contoso :   
   
 ```Powershell  
 import-module networkcontroller  
@@ -86,9 +86,9 @@ New-NetworkControllerVirtualNetwork -ResourceId "Contoso_VNet1" -ConnectionUri $
 ```  
   
 ## <a name="modify-an-existing-virtual-network"></a>Modifier un réseau virtuel existant  
-Vous pouvez utiliser Windows PowerShell pour mettre à jour d’un réseau ou sous-réseau virtuel existant.   
+Vous pouvez utiliser Windows PowerShell pour mettre à jour un sous-réseau virtuel ou un réseau existant.   
   
-Lorsque vous exécutez l’exemple de script suivant, les ressources mises à jour sont simplement placés au contrôleur de réseau avec le même ID de ressource. Si votre locataire Contoso souhaite ajouter un nouveau sous-réseau virtuel (24.30.2.0/24) à son réseau virtuel, vous ou l’administrateur de Contoso peut utiliser le script suivant.  
+Lorsque vous exécutez l’exemple de script suivant, les ressources mises à jour sont simplement PLACÉes dans le contrôleur de réseau avec le même ID de ressource. Si votre locataire contoso souhaite ajouter un nouveau sous-réseau virtuel (24.30.2.0/24) à son réseau virtuel, vous ou l’administrateur contoso pouvez utiliser le script suivant.  
   
 ```PowerShell  
 $acllist = Get-NetworkControllerAccessControlList -ConnectionUri $uri -ResourceId "AllowAll"  
@@ -113,7 +113,7 @@ New-NetworkControllerVirtualNetwork -ResourceId "Contoso_VNet1" -ConnectionUri $
   
 Vous pouvez utiliser Windows PowerShell pour supprimer un réseau virtuel.  
   
-L’exemple de Windows PowerShell suivant supprime un réseau virtuel locataire en émettant un delete HTTP à l’URI de l’ID de ressource.  
+L’exemple Windows PowerShell suivant supprime un réseau virtuel client en émettant une suppression HTTP à l’URI de l’ID de ressource.  
 
 ```PowerShell  
 Remove-NetworkControllerVirtualNetwork -ResourceId "Contoso_Vnet1" -ConnectionUri $uri  

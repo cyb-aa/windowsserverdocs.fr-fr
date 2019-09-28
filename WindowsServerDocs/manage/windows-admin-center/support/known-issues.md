@@ -6,14 +6,14 @@ ms.topic: article
 author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: b222cd4b97beecd25c14b9f8f39627bf46cb7716
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a579d0274ff4b53a72c17760a6d53ef796625d3a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869538"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356911"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problèmes connus de Windows Admin Center
 
@@ -45,7 +45,7 @@ Le problème d’incompatibilité précédemment divulgué de l’extension de l
     New-NetFirewallRule -DisplayName "SmeInboundOpenException" -Description "Windows Admin Center inbound port exception" -LocalPort <port> -RemoteAddress Any -Protocol TCP
     ```
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 - Si le centre d’administration Windows est installé en tant que passerelle sur **Windows Server 2016** en cas d’utilisation intensive, le service peut se bloquer avec une erreur dans ```Faulting application name: sme.exe``` le ```Faulting module name: WsmSvc.dll```journal des événements qui contient et. Cela est dû à un bogue qui a été corrigé dans Windows Server 2019. Le correctif pour Windows Server 2016 a été inclus dans la mise à jour cumulative du 2019 du 1er février, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
 
@@ -146,7 +146,7 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
 
 ### <a name="files"></a>Fichiers
 
-- Le chargement ou téléchargement de fichiers volumineux n’est pas encore pris en charge. (\~limite de 100 Mo) [12524234]
+- Le chargement ou téléchargement de fichiers volumineux n’est pas encore pris en charge. (@no__t-limite 0100mb) [12524234]
 
 ### <a name="powershell"></a>PowerShell
 

@@ -1,8 +1,8 @@
 ---
 title: volume en ligne
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6bacba1e204f1eee2e3d4772ff9024aedbfc4fed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 06a3c81313180b2880c1e47c3b6c12236fda4245
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882000"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372517"
 ---
 # <a name="online-volume"></a>volume en ligne
 
 
 
-Apporte des volumes qui sont actuellement hors connexion à un état en ligne
+Remet les volumes actuellement hors connexion à un État en ligne
 
 > [!IMPORTANT]
-> Cette commande n’est pas disponible dans n’importe quelle édition de Windows Vista.
+> Cette commande n’est disponible dans aucune édition de Windows Vista.
 
 > [!IMPORTANT]
 > Cette commande échoue si elle est utilisée sur un volume en lecture seule.
@@ -42,21 +42,21 @@ online volume [noerr]
 
 |Paramètre|Description|
 |---------|-----------|
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|
+|noerr|À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|
 
 ## <a name="remarks"></a>Notes
 
--   Cette commande fonctionne sur les volumes qui ont échoué, échouent ou sont en état d’échec de la redondance.
--   Un volume doit être sélectionné pour cette commande réussisse. Utilisez le **sélectionnez volume** commande pour sélectionner un volume et déplacer le focus vers elle.
+-   Cette commande fonctionne sur les volumes qui ont échoué, qui échouent ou qui sont dans l’état Échec de la redondance.
+-   Pour que cette commande aboutisse, vous devez sélectionner un volume. Utilisez la commande **Sélectionner un volume** pour sélectionner un volume et lui déplacer le focus.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour mettre le volume en ligne, tapez :
+Pour mettre le volume avec le focus en ligne, tapez :
 ```
 online volume
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

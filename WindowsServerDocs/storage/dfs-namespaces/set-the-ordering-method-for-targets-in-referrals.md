@@ -2,22 +2,22 @@
 title: Définir la méthode de classement des cibles contenues dans les références
 description: Cet article décrit comment définir la méthode de classement des cibles contenues dans les références.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 52568944a98bed7960b37335b2e3cbbde61479ca
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bb42a98666941c5dfa50a8dfbf45635ad25dc767
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447203"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386144"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Définir la méthode de classement des cibles contenues dans les références
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Une référence constitue une liste de cibles, organisée selon un ordre particulier, qu’un ordinateur client reçoit à partir d’un contrôleur de domaine ou d’un serveur d’espace de noms lorsque l’utilisateur accède à une racine d’espace de noms ou à un dossier avec cibles. Une fois en possession de la référence, le client tente d’accéder à la première cible de la liste. Si cette cible n’est pas disponible, le client tente d’accéder à la suivante.
 Les cibles sur le site du client sont toujours répertoriées en premier dans une référence. Les cibles en dehors du site du client sont répertoriées en fonction de la méthode de classement.
@@ -40,7 +40,7 @@ Utilisez la procédure suivante pour définir la méthode de classement sur la r
 >    -   **EnableInsiteReferrals** Spécifie la méthode de classement **Exclure les cibles en dehors du site du client**
 >    -   Si vous omettez l’un de ces paramètres, la méthode de classement des références **Ordre aléatoire** est spécifiée. 
 
-Le module DFSN Windows PowerShell a été introduit dans Windows Server 2012.
+Le module Windows PowerShell DFSN a été introduit dans Windows Server 2012.
    
 ## <a name="to-set-the-ordering-method-for-targets-in-folder-referrals"></a>Pour définir la méthode de classement des cibles contenues dans les références de dossiers
 
@@ -67,7 +67,7 @@ Les trois méthodes de classement sont :
 
 Dans cette méthode, les cibles sont classées comme suit :
 
-1.  Cibles dans le même site Active Directory Directory Services (AD DS) que le client sont répertoriées dans un ordre aléatoire en haut de la référence.
+1.  Les cibles situées dans le même site Active Directory Directory Services (AD DS) que le client sont répertoriées dans un ordre aléatoire en haut de la référence.
 2.  Les cibles situées en dehors du site du client sont répertoriées dans un ordre aléatoire.
 
 Si aucun serveur cible de même site n’est disponible, l’ordinateur client est référencé sur un serveur cible aléatoire, quel que soit le coût de la connexion ou la distance de la cible.

@@ -1,8 +1,8 @@
 ---
 title: bootcfg copy
-description: Rubrique de commandes de Windows pour **bootcfg copie** -effectue une copie d’une entrée de démarrage existante, à laquelle vous pouvez ajouter des options de ligne de commande.
+description: La rubrique commandes Windows pour **bootcfg Copy** -effectue une copie d’une entrée de démarrage existante, à laquelle vous pouvez ajouter des options de ligne de commande.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b76ecfe953d1a462e311fdaaeba35e8f962165c4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 42a408443cbe6722c25780f7c27d70b05da7eb8e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434860"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380118"
 ---
 # <a name="bootcfg-copy"></a>bootcfg copy
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Effectue une copie d’une entrée de démarrage existante, auquel vous pouvez ajouter des options de ligne de commande.
+Effectue une copie d’une entrée de démarrage existante, à laquelle vous pouvez ajouter des options de ligne de commande.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -35,14 +35,14 @@ bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Descriptio
 |      Paramètre       |                                                                                             Description                                                                                             |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                         Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                          |
-| /u <Domain>\\<User>  | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User>ou <Domain> \\ <User>. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté sur l’ordinateur exécutant la commande. |
-|    /p <Password>     |                                                        Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                        |
-|   /d <Description>   |                                                                    Spécifie la description de la nouvelle entrée de système d’exploitation.                                                                    |
-| /id <OSEntryLineNum> |         Spécifie le numéro de ligne d’entrée système d’exploitation dans la section [operating systems] du fichier Boot.ini à copier. La première ligne après l’en-tête de section de la section [operating systems] est 1.         |
+| /u <Domain> @ no__t-1 @ no__t-2  | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User>or <Domain> @ no__t-2 @ no__t-3. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande. |
+|    /p <Password>     |                                                        Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                        |
+|   /d <Description>   |                                                                    Spécifie la description de la nouvelle entrée du système d’exploitation.                                                                    |
+| /ID <OSEntryLineNum> |         Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini à copier. La première ligne après l’en-tête de la section [Operating Systems] est 1.         |
 |          /?          |                                                                                Affiche l'aide à l'invite de commandes.                                                                                 |
 
-## <a name="BKMK_examples"></a>Exemples
-Les exemples suivants montrent comment vous pouvez utiliser la **bootcfg /copy** commande pour copier l’entrée de démarrage 1 et entrez « \ABC Server\\» comme description :
+## <a name="BKMK_examples"></a>Illustre
+Les exemples suivants montrent comment vous pouvez utiliser la commande **bootcfg/Copy** pour copier l’entrée de démarrage 1 et entrer « \abc Server @ no__t-1 » comme Description :
 ```
 bootcfg /copy /d "\ABC Server\" /id 1
 ```

@@ -1,8 +1,8 @@
 ---
 title: Communiquer à l’aide de la messagerie instantanée
-description: Découvrez comment utiliser la messagerie instantanée dans MultiPoint Services
+description: En savoir plus sur l’utilisation de la messagerie instantanée dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 9c87024206f08c18915805a492de052caa8adcba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 202c5c1c336bb1692f819e5dfb9dba41914c288e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832830"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394861"
 ---
 # <a name="use-im"></a>Communiquer à l’aide de la messagerie instantanée
 Si elle a été activée dans les paramètres du serveur, les utilisateurs du tableau de bord MultiPoint et de la station peuvent échanger des messages privés via la messagerie instantanée.
   
 #### <a name="to-send-a-chat-message-from-the-multipoint-dashboard-to-a-user"></a>Pour envoyer un message de conversation à partir du tableau de bord MultiPoint à un utilisateur  
   
-1.  Dans le tableau de bord MultiPoint, cliquez sur l’image miniature ou images des utilisateurs auxquels vous souhaitent envoyer un message.  
+1.  Dans le tableau de bord MultiPoint, cliquez sur l’image miniature ou les images de l’utilisateur vous souhaitez envoyer un message.  
   
 2.  Cliquez sur **Envoyer** dans le ruban : une fenêtre de discussion de messagerie instantanée s’ouvre.  
 

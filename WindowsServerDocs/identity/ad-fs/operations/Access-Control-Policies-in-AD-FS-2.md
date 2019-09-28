@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b73baacc1115359b1d3d8b494cc285b5edd7c5fc
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b0d6133a6fb43b8624dc1329db632fb5dd4aa070
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866031"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358454"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Stratégies de Access Control client dans AD FS 2,0
 Les stratégies d’accès client dans Services ADFS 2,0 vous permettent de restreindre ou d’accorder aux utilisateurs l’accès aux ressources.  Ce document explique comment activer les stratégies d’accès client dans AD FS 2,0 et comment configurer les scénarios les plus courants.
@@ -23,11 +23,11 @@ Les stratégies d’accès client dans Services ADFS 2,0 vous permettent de rest
 
 Pour activer la stratégie d’accès client, suivez les étapes ci-dessous.
 
-### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Étape 1 : Installer la mise à jour cumulative 2 pour le package AD FS 2,0 sur vos serveurs AD FS
+### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Étape 1 : Installer la mise à jour cumulative 2 pour le package AD FS 2,0 sur vos serveurs AD FS
 
 Téléchargez le package [de correctif cumulatif 2 pour services ADFS (AD FS) 2,0](https://support.microsoft.com/en-us/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) et installez-le sur tous les serveurs proxys de Fédération et de serveur de Fédération.
 
-### <a name="step-2-add-five-claim-rules-to-the-active-directory-claims-provider-trust"></a>Étape 2 : Ajouter cinq règles de revendication à l’Active Directory approbation de fournisseur de revendications
+### <a name="step-2-add-five-claim-rules-to-the-active-directory-claims-provider-trust"></a>Étape 2 : Ajouter cinq règles de revendication à l’Active Directory approbation de fournisseur de revendications
 
 Une fois que le correctif cumulatif 2 a été installé sur tous les serveurs et proxys de AD FS, utilisez la procédure suivante pour ajouter un ensemble de règles de revendication qui rend les nouveaux types de revendication disponibles pour le moteur de stratégie.
 
@@ -60,14 +60,14 @@ Sur l’Active Directory approbation de fournisseur de revendications, créez un
 `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
 ~~~
 
-### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>Étape 3 : Mettre à jour l’approbation de partie de confiance Microsoft Office 365 Identity Platform
+### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>Étape 3 : Mettre à jour l’approbation de partie de confiance Microsoft Office 365 Identity Platform
 
 Choisissez l’un des exemples de scénarios ci-dessous pour configurer les règles de revendication sur l’approbation de partie de confiance Microsoft Office 365 Identity qui répond le mieux aux besoins de votre organisation.
 
 ## <a name="client-access-policy-scenarios-for-ad-fs-20"></a>Scénarios de stratégie d’accès client pour AD FS 2,0
 Les sections suivantes décrivent les scénarios qui existent pour AD FS 2,0
 
-### <a name="scenario-1-block-all-external-access-to-office-365"></a>Scénario 1 : Bloquer tout accès externe à Office 365
+### <a name="scenario-1-block-all-external-access-to-office-365"></a>Scénario 1: Bloquer tout accès externe à Office 365
 
 Ce scénario de stratégie d’accès client autorise l’accès à partir de tous les clients internes et bloque tous les clients externes en fonction de l’adresse IP du client externe. L’ensemble de règles construit sur la règle d’autorisation d’émission par défaut autorise l’accès à tous les utilisateurs. Vous pouvez utiliser la procédure suivante pour ajouter une règle d’autorisation d’émission à l’approbation de partie de confiance Office 365.
 
@@ -116,7 +116,7 @@ L’exemple suivant autorise l’accès à toutes les applications Office 365, y
 >[!NOTE]
 >Vous devrez remplacer la valeur ci-dessus pour « Regex adresse IP publique » par une expression IP valide. Pour plus d’informations, consultez génération de l’expression de plage d’adresses IP.
 
-### <a name="scenario-3-block-all-external-access-to-office-365-except-browser-based-applications"></a>Scénario 3 : Bloquer tout accès externe à Office 365 à l’exception des applications basées sur un navigateur
+### <a name="scenario-3-block-all-external-access-to-office-365-except-browser-based-applications"></a>Scénario 3 : Bloquer tout accès externe à Office 365 à l’exception des applications basées sur un navigateur
 
 L’ensemble de règles s’appuie sur la règle d’autorisation d’émission par défaut intitulée autoriser l’accès à tous les utilisateurs. Procédez comme suit pour ajouter une règle d’autorisation d’émission à l’approbation de la partie de confiance Microsoft Office 365 Identity Platform à l’aide de l’Assistant règle de revendication :
 
@@ -166,11 +166,11 @@ L’exemple suivant active l’accès à partir de clients internes en fonction 
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |              Règle de AD FS par défaut pour autoriser l’accès à tous les utilisateurs. Cette règle doit déjà exister dans la liste des règles d’autorisation d’émission de la plateforme d’identité Microsoft Office 365 Identity Platform.              |                                  = > problème (type = "<https://schemas.microsoft.com/authorization/claims/permit>", valeur = "true");                                   |
 |                               L’ajout de cette clause à une nouvelle règle personnalisée spécifie que la demande provient du serveur proxy de Fédération (c’est-à-dire qu’elle a l’en-tête x-ms-proxy)                                |                                                                                                                                                                    |
-|                                                                                 Il est recommandé d’inclure toutes les règles.                                                                                  |                                    Exists ([type = =<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy>""])                                    |
-|                                                         Permet d’établir que la demande provient d’un client avec une adresse IP dans la plage acceptable définie.                                                         | N’existe pas ([type = =<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip>"", valeur = ~ "Regex de l’adresse IP publique fournie par le client"]) |
-|                                    Cette clause permet de spécifier que si l’application faisant l’objet d’un accès n’est pas Microsoft. Exchange. ActiveSync, la demande doit être refusée.                                     |       N’existe pas ([type = =<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application>"", valeur = = "Microsoft. Exchange. ActiveSync"])        |
-|                                                      Cette règle vous permet de déterminer si l’appel s’est fait via un navigateur Web et ne sera pas refusé.                                                      |              N’existe pas ([type = =<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path>"", valeur = = "/adfs/ls/"])               |
-| Cette règle indique que les seuls utilisateurs d’un groupe de Active Directory particulier (basé sur la valeur SID) doivent être refusés. L’ajout de NOT à cette instruction signifie qu’un groupe d’utilisateurs est autorisé, quel que soit l’emplacement. |             Exists ([type = =<https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid>"", valeur = ~ "{valeur SID de groupe du groupe ad autorisé}"])              |
+|                                                                                 Il est recommandé d’inclure toutes les règles.                                                                                  |                                    Exists ([type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy>"])                                    |
+|                                                         Permet d’établir que la demande provient d’un client avec une adresse IP dans la plage acceptable définie.                                                         | N’existe pas ([type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip>", valeur = ~ "Regex adresse IP publique fournie par le client"]) |
+|                                    Cette clause permet de spécifier que si l’application faisant l’objet d’un accès n’est pas Microsoft. Exchange. ActiveSync, la demande doit être refusée.                                     |       N’existe pas ([type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application>", valeur = = "Microsoft. Exchange. ActiveSync"])        |
+|                                                      Cette règle vous permet de déterminer si l’appel s’est fait via un navigateur Web et ne sera pas refusé.                                                      |              N’existe pas ([type = = "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path>", valeur = = "/adfs/ls/"])               |
+| Cette règle indique que les seuls utilisateurs d’un groupe de Active Directory particulier (basé sur la valeur SID) doivent être refusés. L’ajout de NOT à cette instruction signifie qu’un groupe d’utilisateurs est autorisé, quel que soit l’emplacement. |             Exists ([type = = "<https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid>", valeur = ~ "{valeur SID de groupe du groupe AD autorisé}"])              |
 |                                                                Il s’agit d’une clause requise pour émettre un refus lorsque toutes les conditions précédentes sont remplies.                                                                 |                                   = > problème (type = "<https://schemas.microsoft.com/authorization/claims/deny>", valeur = "true");                                    |
 
 ### <a name="building-the-ip-address-range-expression"></a>Génération de l’expression de plage d’adresses IP
@@ -209,7 +209,7 @@ En étendant cela, nous pouvons faire correspondre deux adresses IP différentes
 
 Par conséquent, voici un exemple qui correspond à deux adresses (telles que 192.168.1.1 ou 10.0.0.1) : \b192\.168\.1\.1 \ b | \b10\.0\.0\.1 \ b
 
-Cela vous donne la technique qui vous permet d’entrer un nombre quelconque d’adresses. Si une plage d’adresses doit être autorisée, par exemple 192.168.1.1 – 192.168.1.25, la correspondance doit être effectuée caractère par caractère : \b192\.168\.1\.([1-9] | 1 [0-9] | 2 [0-5]) \b
+Cela vous donne la technique qui vous permet d’entrer un nombre quelconque d’adresses. Si une plage d’adresses doit être autorisée, par exemple 192.168.1.1 – 192.168.1.25, la correspondance doit être effectuée caractère par caractère : \b192 @ no__t-0168 @ no__t-11 @ no__t-2 ([1-9] | 1 [0-9] | 2 [0-5]) \b
 
 >[!Note] 
 >L’adresse IP est traitée comme une chaîne et non un nombre.
@@ -229,9 +229,9 @@ Les éléments suivants correspondent aux plages requises pour la partie de l’
 >[!Note]
 >Les parenthèses doivent être correctement positionnées, de sorte que vous ne commencez pas à faire correspondre d’autres parties d’adresses IP.
 
-Une fois le bloc 192 mis en correspondance, nous pouvons écrire une expression similaire pour le bloc 10\.:\.\b10\.0 0 ([1-9] | 1 [0-4]) \b
+Une fois le bloc 192 mis en correspondance, nous pouvons écrire une expression similaire pour le bloc 10 : \b10 @ no__t-00 @ no__t-10 @ no__t-2 ([1-9] | 1 [0-4]) \b
 
-Et en les plaçant ensemble, l’expression suivante doit correspondre à toutes les adresses pour « 192.168.1.1 ~ 25 » et « 10.0.0.1 ~ 14 »\.:\.\b192\.168 1 ([1-9] | 1 [0-9] | 2 [0-5]) \b\.|\.\b10 0 0\. ([1-9] | 1 [0-4]) \b
+Et en les plaçant ensemble, l’expression suivante doit correspondre à toutes les adresses pour « 192.168.1.1 ~ 25 » et « 10.0.0.1 ~ 14 » : \b192 @ no__t-0168 @ no__t-11 @ no__t-2 ([1-9] | 1 [0-9] | 2 [0-5]) \b | \b10 @ no__t-30 @ no__t-40 @ no__t-5 ([1-9] | 1 [0-4]) \b
 
 #### <a name="testing-the-expression"></a>Test de l’expression
 
@@ -271,6 +271,6 @@ AD FS événements de suivi sont consignés dans le journal de débogage AD FS 2
 
 Une fois que vous avez activé le suivi, utilisez la syntaxe de ligne de commande suivante pour activer le niveau de journalisation verbose : wevtutil. exe SL « AD FS 2,0 Tracing/Debug »/l : 5  
 
-## <a name="related"></a>Rubriques connexes
+## <a name="related"></a>Liens apparentés
 Pour plus d’informations sur les nouveaux types de revendication, consultez [AD FS types de revendications](AD-FS-Claims-Types.md).
 

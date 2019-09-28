@@ -1,9 +1,9 @@
 ---
 title: Gérer l’accès à distance
-description: Cette rubrique fournit des informations sur la façon de gérer l’accès à distance dans Windows Server 2016.
+description: Cette rubrique fournit des informations sur la gestion de l’accès à distance dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: 1459819a-b1b6-4800-8770-4a85d02c7a2b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3b2c251f99be455ec11e3ea3ef25ca14c8399de2
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 2b9065b2d4541063c8cd6f09d47f48a9ba7833e1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282977"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404658"
 ---
 # <a name="manage-remote-access"></a>Gérer l’accès à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Le scénario de déploiement de l’administration à distance des clients DirectAccess utilise DirectAccess pour gérer des clients sur Internet. Cette section décrit le scénario, y compris ses phases, ses rôles, ses fonctionnalités et les liens vers des ressources supplémentaires.  
   
-Permet de combiner DirectAccess, routage et Service d’accès distant (RRAS) VPN dans un seul rôle accès à distance Windows Server 2016 et Windows Server 2012.   
+Windows Server 2016 et Windows Server 2012 combinent DirectAccess et le réseau privé virtuel (RRAS) du service de routage et d’accès à distance (RRAS) en un seul rôle d’accès à distance.   
   
 > [!NOTE]  
 > Outre cette rubrique, les rubriques suivantes sur l’administration de l’accès à distance sont disponibles.  
@@ -38,7 +38,7 @@ Les ordinateurs clients DirectAccess sont connectés à l’intranet lorsqu’il
   
 Dans certains cas, les serveurs ou ordinateurs intranet doivent établir des connexions avec les clients DirectAccess. Par exemple, les techniciens du support technique peuvent utiliser des connexions Bureau à distance pour se connecter à des clients DirectAccess distants et les dépanner. Ce scénario vous permet de conserver votre solution d’accès à distance existante pour la connectivité des utilisateurs, tout en utilisant DirectAccess pour l’administration à distance.  
   
-DirectAccess offre une configuration qui prend en charge la gestion à distance des clients DirectAccess. Vous pouvez utiliser l’option de l’Assistant Déploiement qui limite la création de stratégies à celles nécessaires pour la gestion à distance des ordinateurs clients.  
+DirectAccess fournit une configuration qui prend en charge la gestion à distance des clients DirectAccess. Vous pouvez utiliser l’option de l’Assistant Déploiement qui limite la création de stratégies à celles nécessaires pour la gestion à distance des ordinateurs clients.  
   
 > [!NOTE]  
 > Dans ce déploiement, les options de configuration de niveau utilisateur, comme le tunneling forcé, l’intégration de la protection d’accès réseau (NAP) et l’authentification à deux facteurs, ne sont pas disponibles.  
@@ -56,15 +56,15 @@ la planification de ce scénario ne présente que quelques conditions requises e
 -   **Clients DirectAccess** : Identifiez les ordinateurs gérés qui seront configurés en tant que clients DirectAccess.  
   
 ### <a name="configure-the-deployment"></a>Configurer le déploiement  
-La configuration de votre déploiement comprend un certain nombre d’étapes. Par exemple :  
+La configuration de votre déploiement comprend un certain nombre d’étapes. Elles incluent notamment :  
   
 1.  **Configurer l’infrastructure** : configurez les paramètres DNS, joignez les ordinateurs clients et serveur à un domaine, si nécessaire, et configurez les groupes de sécurité Active Directory.  
   
-    Dans ce scénario de déploiement, les objets de stratégie de groupe (GPO) sont créés automatiquement par l’accès à distance. Pour les options de certificat avancée GPO, consultez [déployer l’accès à distance avancé](assetId:///3475e527-541f-4a34-b940-18d481ac59f6).  
+    Dans ce scénario de déploiement, les objets de stratégie de groupe (GPO) sont créés automatiquement par l’accès à distance. Pour les options de GPO de certificat avancé, consultez [déploiement de l’accès à distance avancé](assetId:///3475e527-541f-4a34-b940-18d481ac59f6).  
   
 2.  **Configurer le serveur d’accès à distance et les paramètres réseau** : Configurez les cartes réseau, les adresses IP et le routage.  
   
-3.  **Configurer les paramètres de certificats** : Dans ce scénario de déploiement, l’Assistant Mise en route crée des certificats auto-signés, il est donc inutile de configurer l’infrastructure de certificat plus avancée.  
+3.  **Configurer les paramètres de certificats** : Dans ce scénario de déploiement, l’Assistant Prise en main crée des certificats auto-signés. il n’est donc pas nécessaire de configurer l’infrastructure de certificat plus avancée.  
   
 4.  **Configurer le serveur Emplacement réseau** :  Dans ce scénario, le serveur Emplacement réseau est installé sur le serveur d’accès à distance.  
   
@@ -77,24 +77,24 @@ La configuration de votre déploiement comprend un certain nombre d’étapes. P
 ## <a name="BKMK_APP"></a>Applications pratiques  
 Le déploiement d’un serveur d’accès à distance individuel pour la gestion des clients DirectAccess fournit les avantages suivants :  
   
--   **Simplicité d'accès** : Les ordinateurs exécutant Windows 8 ou Windows 7 peuvent être configurés en tant que les ordinateurs clients DirectAccess de client managé. Ces clients peuvent accéder aux ressources réseau internes via DirectAccess chaque fois qu’ils sont connectés à Internet, sans avoir à utiliser une connexion VPN. Les ordinateurs clients qui n’exécutent pas l’un de ces systèmes d’exploitation peuvent se connecter au réseau interne via VPN. DirectAccess et VPN sont gérés dans la même console et avec le même jeu d’Assistants.  
+-   **Simplicité d'accès** : Les ordinateurs clients gérés exécutant Windows 8 ou Windows 7 peuvent être configurés en tant qu’ordinateurs clients DirectAccess. Ces clients peuvent accéder aux ressources réseau internes via DirectAccess chaque fois qu’ils sont connectés à Internet, sans avoir à utiliser une connexion VPN. Les ordinateurs clients qui n’exécutent pas l’un de ces systèmes d’exploitation peuvent se connecter au réseau interne via VPN. DirectAccess et VPN sont gérés dans la même console et avec le même jeu d’Assistants.  
   
 -   **Facilité de gestion** : les ordinateurs clients DirectAccess qui sont connectés à Internet peuvent être gérés à distance par des administrateurs d’accès à distance via DirectAccess, même si ces ordinateurs ne font pas partie du réseau interne de l’entreprise. Les ordinateurs clients qui ne répondent pas aux spécifications de l’entreprise peuvent être automatiquement mis à jour par les serveurs d’administration. Un ou plusieurs serveurs d’accès à distance peuvent être gérés à partir d’une seule console de gestion de l’accès à distance.  
   
-## <a name="BKMK_NEW"></a>Fonctionnalités et rôles inclus dans ce scénario  
+## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau suivant répertorie les fonctionnalités et rôles requis pour ce scénario :  
   
 |Rôle ou fonctionnalité|Prise en charge de ce scénario|  
 |----------|-----------------|  
-|*Rôle accès à distance*|Ce rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur ou de Windows PowerShell. Ce rôle englobe DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et les Services de routage et d'accès à distance, qui étaient auparavant un service de rôle sous le rôle serveur Services de stratégie et d'accès réseau. Le rôle Accès à distance est constitué de deux composants :<br /><br />1.  VPN DirectAccess et des Services de routage et d'accès à distance(RRAS) : DirectAccess et VPN sont gérés dans la console de gestion de l’accès à distance.<br />2.  RRAS : les fonctionnalités sont gérées dans la console Accès à distance et routage.<br /><br />Le rôle de serveur Accès à distance dépend des fonctionnalités suivantes :<br /><br />-Le serveur web (IIS) : requis pour configurer le serveur Emplacement réseau et la sonde web par défaut.<br />-Base de données interne Windows : utilisée pour la gestion locale des comptes sur le serveur d'accès à distance.|  
-|Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<br /><br />-Par défaut sur un serveur d’accès à distance lorsque le rôle accès à distance est installé et qu’il prend en charge de l’interface utilisateur de console Administration à distance.<br />-En tant qu’option sur un serveur qui n’exécute pas le rôle de serveur d’accès à distance. Dans ce cas, elle est utilisée pour la gestion à distance d’un serveur d’accès à distance.<br /><br />Cette fonctionnalité est constituée des éléments suivants :<br /><br />-Accès à distance GUI et outils de ligne de commande<br />-Module d’accès distant pour Windows PowerShell<br /><br />Les dépendances incluent :<br /><br />-Console de gestion de stratégie de groupe<br />-Kit d’Administration RAS Gestionnaire de connexions (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastructure et des outils de gestion graphique|  
+|*Rôle accès à distance*|Ce rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur ou de Windows PowerShell. Ce rôle englobe DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et les Services de routage et d'accès à distance, qui étaient auparavant un service de rôle sous le rôle serveur Services de stratégie et d'accès réseau. Le rôle Accès à distance est constitué de deux composants :<br /><br />1.  VPN DirectAccess et des Services de routage et d'accès à distance(RRAS) : DirectAccess et VPN sont gérés dans la console de gestion de l’accès à distance.<br />2.  RRAS : les fonctionnalités sont gérées dans la console Accès à distance et routage.<br /><br />Le rôle de serveur Accès à distance dépend des fonctionnalités suivantes :<br /><br />-Serveur Web (IIS) : requis pour configurer le serveur Emplacement réseau et la sonde web par défaut.<br />-Base de données interne Windows : utilisée pour la gestion locale des comptes sur le serveur d'accès à distance.|  
+|Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<br /><br />-Par défaut, sur un serveur d’accès à distance lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance.<br />-En tant qu’option sur un serveur qui n’exécute pas le rôle serveur accès à distance. Dans ce cas, elle est utilisée pour la gestion à distance d’un serveur d’accès à distance.<br /><br />Cette fonctionnalité est constituée des éléments suivants :<br /><br />-Interface utilisateur graphique d’accès à distance et outils en ligne de commande<br />-Module d’accès à distance pour Windows PowerShell<br /><br />Les dépendances incluent :<br /><br />-Console de gestion des stratégies de groupe<br />-Kit d’administration du gestionnaire des connexions (CMAK) RAS<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
   
 ## <a name="BKMK_HARD"></a>Configuration matérielle requise  
 La configuration matérielle requise pour ce scénario comprend les éléments suivants :  
   
 ### <a name="server-requirements"></a>Configuration requise du serveur  
   
--   Un ordinateur qui répond à la configuration matérielle requise pour Windows Server 2016. Pour plus d’informations, consultez Windows Server 2016 [requise](https://technet.microsoft.com/windows-server-docs/get-started/system-requirements-and-installation).  
+-   Un ordinateur qui répond à la configuration matérielle requise pour Windows Server 2016. Pour plus d’informations, voir [Configuration système requise](https://technet.microsoft.com/windows-server-docs/get-started/system-requirements-and-installation)pour Windows Server 2016.  
   
 -   Au moins une carte réseau doit être installée et activée sur le serveur. Une seule carte doit être connectée au réseau interne de l’entreprise et une seule carte doit être connectée au réseau externe (Internet).  
   

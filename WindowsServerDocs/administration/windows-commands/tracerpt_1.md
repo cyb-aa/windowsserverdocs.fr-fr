@@ -2,7 +2,7 @@
 title: tracerpt
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25014d23c797f37dcc488b5fea20c73907eb6f4c
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.openlocfilehash: 1c8e85acc59383d0a027c8d5ec51e68942a76b85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975302"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385678"
 ---
 # <a name="tracerpt"></a>tracerpt
 
@@ -57,7 +57,7 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 |           -rapport [nom de fichier]           |                                  Générez un fichier de rapport de sortie texte. Nom de fichier s’il n’est pas spécifié est Workload. Xml.                                   |
 |                  -LR                   |                        Spécifiez « moins restrictif ». Cela utilise les meilleurs efforts pour les événements qui ne correspondent pas au schéma d’événements.                         |
 |           -Export [nom de fichier]           |                                  Générez un fichier d’exportation du schéma d’événement. Nom de fichier s’il n’est pas spécifié est Schema. Man.                                   |
-|       [-l] \<valeur [valeur [...]] >        |                                                   Spécifiez le fichier journal de suivi d’événements à traiter.                                                    |
+|       [-l] \<value [valeur [...]] >        |                                                   Spécifiez le fichier journal de suivi d’événements à traiter.                                                    |
 | -RT \<session_name [session_name [...]] > |                                                Spécifiez les sources de données de session de suivi d’événements en temps réel.                                                |
 
 ## <a name="BKMK_EXAMPLES"></a>Illustre

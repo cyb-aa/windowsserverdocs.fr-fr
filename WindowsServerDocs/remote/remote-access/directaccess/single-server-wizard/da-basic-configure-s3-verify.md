@@ -1,9 +1,9 @@
 ---
 title: Étape 3 vérifier les déploiements
-description: Cette rubrique fait partie du guide de déployer un serveur DirectAccess unique à l’aide de la prise en main Assistant pour Windows Server 2016
+description: Cette rubrique fait partie du guide déployer un serveur DirectAccess unique à l’aide de l’Assistant Prise en main pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 45e9edd6-acca-4d59-851a-a0cc8bd8b4c6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e9e78ed78671c5c61fb3736cccf4e095b5186e23
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 29457f6f1859a8f3aee2f9d0f84e226b20905175
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388532"
 ---
 # <a name="step-3-verify-deployments"></a>Étape 3 vérifier les déploiements
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment vérifier que vous avez correctement configuré votre déploiement de base de DirectAccess.  
   
@@ -39,7 +39,7 @@ Cette rubrique décrit comment vérifier que vous avez correctement configuré v
   
 ## <a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 2 : Configurer le serveur DirectAccess](da-basic-configure-s2-server.md)  
+-   [Étape 2 : Configurer le serveur DirectAccess @ no__t-0  
   
 
 

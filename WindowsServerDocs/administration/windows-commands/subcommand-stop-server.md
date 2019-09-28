@@ -1,8 +1,8 @@
 ---
-title: Sous-commande stop-Server
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Sous-commande Stop-Server
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ddb681234cfcbe6d02e56f2e366167faeeb25280
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7584dcbca5bfc52d303f187f62be24cbad407416
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834730"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383742"
 ---
-# <a name="subcommand-stop-server"></a>Sous-commande : stop-Server
+# <a name="subcommand-stop-server"></a>Sous-commande : Stop-Server
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Arrête tous les services sur un serveur de Services de déploiement Windows.
+Arrête tous les services sur un serveur des services de déploiement Windows.
 ## <a name="syntax"></a>Syntaxe
 ```
 wdsutil [Options] /Stop-Server [/Server:<Server name>]
@@ -32,9 +32,9 @@ wdsutil [Options] /Stop-Server [/Server:<Server name>]
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local doit être utilisé.|
-## <a name="BKMK_examples"></a>Exemples
-Pour arrêter les services, tapez une des opérations suivantes :
+|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+## <a name="BKMK_examples"></a>Illustre
+Pour arrêter les services, tapez l’un des éléments suivants :
 ```
 wdsutil /Stop-Server
 wdsutil /verbose /Stop-Server /Server:MyWDSServer
@@ -42,9 +42,7 @@ wdsutil /verbose /Stop-Server /Server:MyWDSServer
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [à l’aide de la commande disable-Server](using-the-disable-server-command.md)
-[à l’aide de la commande enable-Server](using-the-enable-server-command.md)
-[à l’aide du Get-Server commande](using-the-get-server-command.md)
+[à l’aide de la commande Enable-Server](using-the-enable-server-command.md)
+[à l’aide de la commande d’extraction de serveur](using-the-get-server-command.md)
 [à l’aide de la commande Initialize-Server](using-the-initialize-server-command.md)
-[sous-commande : set-Server](subcommand-set-server.md) 
- [ Sous-commande : start-Server](subcommand-start-server.md)
-[l’Option de serveur uninitialize](the-uninitialize-server-option.md)
+[ Sous-commande : Set-Server](subcommand-set-server.md)1 sous-[commande : Start-Server](subcommand-start-server.md)3[l’option Uninitialize-Server](the-uninitialize-server-option.md)

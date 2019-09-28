@@ -6,16 +6,16 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2ab6141b84d03102c5dedd1ede0ba99e5adf3e4a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 106262b63b5aad0eddb08618eb808d2d9ff5b425
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867747"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407803"
 ---
-# <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>Scénario : API Web appelant l’API Web (pour le compte du scénario) 
+# <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>Scénario : API Web appelant l’API Web (pour le compte du scénario) 
 > S'applique à : AD FS 2019 et versions ultérieures 
  
 Découvrez comment créer une API Web appelant une autre API Web pour le compte de l’utilisateur.  
@@ -37,7 +37,7 @@ Pour mieux comprendre comment configurer pour le compte du scénario d’authent
 
 - Outils clients GitHub 
 - AD FS 2019 ou une version ultérieure configurée et en cours d’exécution 
-- Visual Studio 2013 ou une version ultérieure 
+- Visual Studio 2013 ou version ultérieure 
  
 ## <a name="app-registration-in-ad-fs"></a>Inscription d’application dans AD FS 
 

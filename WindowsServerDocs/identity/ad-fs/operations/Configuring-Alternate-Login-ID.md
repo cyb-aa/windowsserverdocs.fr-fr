@@ -7,14 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 11/14/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 586f2d7b73c6017f8b69103a09f6b38bb31f542d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 12c47f98af24331b25355178370cc4cd28c0aa10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865794"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358054"
 ---
 # <a name="configuring-alternate-login-id"></a>Configuration des ID de connexion alternatif
 
@@ -126,13 +126,13 @@ La configuration de votre annuaire pour l’authentification unique avec un autr
 
 Avec la configuration supplémentaire suivante, l’expérience utilisateur est considérablement améliorée et vous pouvez obtenir des invites presque zéro pour l’authentification pour les autres utilisateurs de votre organisation.
 
-##### <a name="step-1-update-to-required-office-version"></a>Étape 1. Mise à jour vers la version d’Office requise
+##### <a name="step-1-update-to-required-office-version"></a>Étape 1. Mise à jour vers la version d’Office requise
 Office version 1712 (Build no 8827,2148) et versions ultérieures ont mis à jour la logique d’authentification pour gérer le scénario d’ID secondaire. Pour tirer parti de la nouvelle logique, les ordinateurs clients doivent être mis à jour vers Office version 1712 (Build no 8827,2148) et versions ultérieures.
 
-##### <a name="step-2-update-to-required-windows-version"></a>Étape 2. Mise à jour vers la version requise de Windows
+##### <a name="step-2-update-to-required-windows-version"></a>Étape 2. Mise à jour vers la version requise de Windows
 Windows version 1709 et versions ultérieures ont mis à jour la logique d’authentification pour gérer le scénario d’ID secondaire. Pour tirer parti de la nouvelle logique, les ordinateurs clients doivent être mis à jour vers Windows version 1709 et versions ultérieures.
 
-##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Étape 3. Configurer le registre pour les utilisateurs affectés à l’aide d’une stratégie de groupe
+##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Étape 3. Configurer le registre pour les utilisateurs affectés à l’aide d’une stratégie de groupe
 Les applications Office s’appuient sur les informations transmises par l’administrateur d’annuaire pour identifier l’environnement de substitution d’ID. Les clés de Registre suivantes doivent être configurées pour aider les applications Office à authentifier l’utilisateur avec un autre ID sans afficher d’invites supplémentaires.
 
 |RegKey à ajouter|Nom, type et valeur des données de la RegKey|Windows 7/8|Windows 10|Description|
@@ -143,7 +143,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>Nouveau workflow d’authentification après une configuration supplémentaire
 
-![Flux d’authentification](media/Configure-Alternate-Login-ID/alt1a.png)
+![Workflow d’authentification](media/Configure-Alternate-Login-ID/alt1a.png)
 
 1. Un L’utilisateur est approvisionné dans Azure AD à l’aide d’un autre ID
    </br>p L’administrateur de l’annuaire pousse les paramètres de RegKey requis sur les ordinateurs clients concernés
@@ -158,21 +158,21 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 |Client|Support (instruction)|Notes|
 | ----- | -----|-----|
-|Microsoft Teams|Pris en charge|<li>Microsoft teams prend en charge les AD FS (SAML-P, WS-FED, WS-Trust et OAuth) et l’authentification moderne.</li><li> Les fonctionnalités principales de Microsoft, telles que les canaux, les conversations et les fonctionnalités de fichiers, fonctionnent avec un ID de connexion de substitution.</li><li>les applications de première et tierces doivent être examinées séparément par le client. Cela est dû au fait que chaque application possède ses propres protocoles d’authentification de prise en charge.</li>|     
+|Microsoft Teams|Prise en charge|<li>Microsoft teams prend en charge les AD FS (SAML-P, WS-FED, WS-Trust et OAuth) et l’authentification moderne.</li><li> Les fonctionnalités principales de Microsoft, telles que les canaux, les conversations et les fonctionnalités de fichiers, fonctionnent avec un ID de connexion de substitution.</li><li>les applications de première et tierces doivent être examinées séparément par le client. Cela est dû au fait que chaque application possède ses propres protocoles d’authentification de prise en charge.</li>|     
 |OneDrive Entreprise|Prise en charge : clé de Registre côté client recommandée |Avec l’ID secondaire configuré, vous voyez que l’UPN local est prérempli dans le champ vérification. Cela doit être remplacé par l’identité qui est utilisée. Nous vous recommandons d’utiliser la clé de Registre côté client indiquée dans cet article : Office 2013 et Lync 2013 demandent périodiquement des informations d’identification pour SharePoint Online, OneDrive et Lync Online.|
-|Client mobile OneDrive entreprise|Pris en charge|| 
+|Client mobile OneDrive entreprise|Prise en charge|| 
 |Page d’activation d’Office 365 Pro plus|Prise en charge : clé de Registre côté client recommandée|Avec l’ID secondaire configuré, vous voyez que l’UPN local est prérempli dans le champ vérification. Cela doit être remplacé par l’identité qui est utilisée. Nous vous recommandons d’utiliser la clé de Registre côté client indiquée dans cet article : Office 2013 et Lync 2013 demandent périodiquement des informations d’identification pour SharePoint Online, OneDrive et Lync Online.|
 
 ### <a name="exchange-and-skype-for-business-clients"></a>Clients Exchange et Skype entreprise
 
 |Client|Support Statement-with HMA|Déclaration de support-sans HMA|
 | ----- |----- | ----- |
-|Outlook|Pris en charge, aucune invite supplémentaire|Pris en charge</br></br>Avec **l’authentification moderne** pour Exchange Online : Pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : Pris en charge avec les avertissements suivants :</br><li>Vous devez être sur un ordinateur joint à un domaine et être connecté au réseau d’entreprise </li><li>Vous pouvez utiliser uniquement un autre ID dans les environnements qui n’autorisent pas l’accès externe pour les utilisateurs de boîtes aux lettres. Cela signifie que les utilisateurs peuvent uniquement s’authentifier sur leur boîte aux lettres de manière prise en charge lorsqu’ils sont connectés et joints au réseau d’entreprise, sur un VPN ou connectés via des ordinateurs à accès direct, mais vous recevez quelques invites supplémentaires lors de la configuration de votre profil Outlook.| 
-|Dossiers publics hybrides|Pris en charge, aucune invite supplémentaire.|Avec **l’authentification moderne** pour Exchange Online : Pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : Non pris en charge</br></br><li>Les dossiers publics hybrides ne peuvent pas être étendus si des ID de substitution sont utilisés et ne doivent donc pas être utilisés aujourd’hui avec les méthodes d’authentification standard.|
+|Outlook|Pris en charge, aucune invite supplémentaire|Prise en charge</br></br>Avec **l’authentification moderne** pour Exchange Online : Prise en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : Pris en charge avec les avertissements suivants :</br><li>Vous devez être sur un ordinateur joint à un domaine et être connecté au réseau d’entreprise </li><li>Vous pouvez utiliser uniquement un autre ID dans les environnements qui n’autorisent pas l’accès externe pour les utilisateurs de boîtes aux lettres. Cela signifie que les utilisateurs peuvent uniquement s’authentifier sur leur boîte aux lettres de manière prise en charge lorsqu’ils sont connectés et joints au réseau d’entreprise, sur un VPN ou connectés via des ordinateurs à accès direct, mais vous recevez quelques invites supplémentaires lors de la configuration de votre profil Outlook.| 
+|Dossiers publics hybrides|Pris en charge, aucune invite supplémentaire.|Avec **l’authentification moderne** pour Exchange Online : Prise en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : Non prise en charge</br></br><li>Les dossiers publics hybrides ne peuvent pas être étendus si des ID de substitution sont utilisés et ne doivent donc pas être utilisés aujourd’hui avec les méthodes d’authentification standard.|
 |Délégation entre locaux|Consultez [configurer Exchange pour prendre en charge les autorisations déléguées de boîte aux lettres dans un déploiement hybride](https://technet.microsoft.com/library/mt784505.aspx)|Consultez [configurer Exchange pour prendre en charge les autorisations déléguées de boîte aux lettres dans un déploiement hybride](https://technet.microsoft.com/library/mt784505.aspx)|
 |Archiver l’accès aux boîtes aux lettres (boîte aux lettres locale-Archive dans le Cloud)|Pris en charge, aucune invite supplémentaire|Pris en charge : les utilisateurs reçoivent une invite supplémentaire pour les informations d’identification lors de l’accès à l’archive. ils doivent fournir leur autre ID lorsque vous y êtes invité.| 
-|Outlook Web Access|Pris en charge|Pris en charge|
-|Outlook Mobile Apps pour Android, IOS et Windows Phone|Pris en charge|Pris en charge|
+|Outlook Web Access|Prise en charge|Prise en charge|
+|Outlook Mobile Apps pour Android, IOS et Windows Phone|Prise en charge|Prise en charge|
 |Skype entreprise/Lync|Pris en charge, sans invite supplémentaire|Pris en charge (sauf indication contraire), mais il existe un risque de confusion pour l’utilisateur.</br></br>Sur les clients mobiles, l’ID alternatif est pris en charge uniquement si adresse SIP = adresse de messagerie = autre ID.</br></br> Il se peut que les utilisateurs doivent se connecter deux fois au client de bureau Skype entreprise, en utilisant d’abord l’UPN local, puis l’ID secondaire. (Notez que l’adresse de connexion est en fait l’adresse SIP qui peut ne pas être la même que le « nom d’utilisateur », bien que c’est souvent le cas). Quand vous êtes invité à entrer un nom d’utilisateur pour la première fois, l’utilisateur doit entrer l’UPN, même s’il est pré-rempli de manière incorrecte avec l’ID ou l’adresse SIP de remplacement. Une fois que l’utilisateur a cliqué sur se connecter avec l’UPN, l’invite de nom d’utilisateur réapparaît et cette fois prérempli avec l’UPN. Cette fois-ci, l’utilisateur doit remplacer ceci par l’ID de substitution, puis cliquer sur se connecter pour terminer le processus de connexion. Sur les clients mobiles, les utilisateurs doivent entrer l’ID d’utilisateur local dans la page avancé, en utilisant le format de type SAM (domaine\nom_utilisateur), et non le format UPN.</br></br>Après une connexion réussie, si Skype entreprise ou Lync indique « Exchange a besoin de vos informations d’identification », vous devez fournir les informations d’identification valides pour l’emplacement de la boîte aux lettres. Si la boîte aux lettres se trouve dans le Cloud, vous devez fournir l’ID de remplacement. Si la boîte aux lettres est locale, vous devez fournir l’UPN local.| 
 
 ## <a name="additional-details--considerations"></a>Détails supplémentaires & considérations
@@ -212,7 +212,7 @@ Voici les différents cas d’erreur et l’impact correspondant sur l’expéri
 
 
 
-|                       **Cas d’erreur**                        | **Impact sur l’expérience de connexion** |                                                              **Event**                                                              |
+|                       **Cas d’erreur**                        | **Impact sur l’expérience de connexion** |                                                              **Événement**                                                              |
 |--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Impossible d’obtenir une valeur pour SAMAccountName pour l’objet utilisateur |          Échec de la connexion           |                  ID d’événement 364 avec le message d’exception MSIS8012 : SamAccountName introuvable pour l’utilisateur : '{0}'.                   |
 |        L’attribut CanonicalName n’est pas accessible         |          Échec de la connexion           |               ID d’événement 364 avec le message d’exception MSIS8013 : CanonicalName : '{0}'de l’utilisateur : '{1}'est dans un format incorrect.                |

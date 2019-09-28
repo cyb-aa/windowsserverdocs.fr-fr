@@ -3,7 +3,7 @@ title: Configurer une station à écran partagé
 description: Décrit comment configurer MultiPoint services pour que deux utilisateurs puissent partager un même système
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 35d1d434-79b2-4e0a-835f-d94ed8ee6b21
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: a0f1ea32112865c7120a3fe0af0c9f413032a32e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d50148e9d39fb337bf02d95d0db09b4e07ee4720
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871595"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395040"
 ---
 # <a name="set-up-a-split-screen-station"></a>Configurer une station à écran partagé
 Vous pouvez configurer une station à écran partagé pour que deux utilisateurs puissent utiliser simultanément le système.

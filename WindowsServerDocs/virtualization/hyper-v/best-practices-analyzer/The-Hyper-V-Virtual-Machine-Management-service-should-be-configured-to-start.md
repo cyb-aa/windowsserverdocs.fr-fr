@@ -1,7 +1,7 @@
 ---
 title: Le service de gestion d’ordinateurs virtuels Hyper-V doit être configuré pour démarrer automatiquement
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 222bbe76-c514-4a3f-b61b-860a4dc2826a
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: c33f81678d7fdc71e81834a002fd3d7917a6f632
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f35f94a815e9f895f7f7690737b6b8fb2bed82e1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833250"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393417"
 ---
 # <a name="the-hyper-v-virtual-machine-management-service-should-be-configured-to-start-automatically"></a>Le service de gestion d’ordinateurs virtuels Hyper-V doit être configuré pour démarrer automatiquement
 
@@ -27,40 +27,40 @@ Pour plus d'informations sur les meilleures pratiques et les analyses, consultez
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
 
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.
 
 ## <a name="issue"></a>Problème  
   
-*Le Service de gestion d’ordinateurs virtuels Hyper-V n’est pas configuré pour démarrer automatiquement.*  
+*Le service de gestion d’ordinateurs virtuels Hyper-V n’est pas configuré pour démarrer automatiquement.*  
   
 ## <a name="impact"></a>Impact  
   
-*Machines virtuelles ne peuvent pas être gérés jusqu'à ce que le service est démarré.*  
+*Les machines virtuelles ne peuvent pas être gérées tant que le service n’est pas démarré.*  
   
-Les machines virtuelles qui sont en cours d’exécution continue de s’exécuter. Toutefois, vous ne pourrez gérer des machines virtuelles, ou créer ou supprimez-les jusqu'à ce que le service est en cours d’exécution.  
+Les ordinateurs virtuels en cours d’exécution continuent à s’exécuter. Toutefois, vous ne pourrez pas gérer les machines virtuelles, ni les créer ou les supprimer tant que le service n’est pas en cours d’exécution.  
   
-## <a name="resolution"></a>Résolution  
+## <a name="resolution"></a>Résolution :  
   
-*Utilisez l’outil Services de composant logiciel enfichable ou sc config de ligne de commande pour reconfigurer le service pour démarrer automatiquement.*  
+*Utilisez le composant logiciel enfichable Services ou l’outil de ligne de commande sc config pour reconfigurer le service pour qu’il démarre automatiquement.*  
   
 > [!TIP]  
-> Si vous ne trouvez pas le service dans l’application de bureau ou de l’outil de ligne de commande indique que le service n’existe pas, les outils de gestion Hyper-V probablement ne sont pas installés. Pour les installer :  
+> Si vous ne trouvez pas le service dans l’application de bureau ou si l’outil en ligne de commande signale que le service n’existe pas, les outils de gestion Hyper-V ne sont probablement pas installés. Pour les installer :  
 >   
-> - Sur Windows Server, ouvrez le Gestionnaire de serveur et utilisez l’Assistant Ajout de rôles et fonctionnalités. Pour plus d’informations, consultez [installer le rôle Hyper-V sur Windows Server 2016](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
-> - Sur Windows, à partir du bureau, commencez à taper **programmes**, cliquez sur **programmes et fonctionnalités** (panneau) > **ou désactiver des fonctionnalités Windows activer**  >   **Hyper-V** > **les outils de gestion Hyper-V**. Cliquez ensuite sur **OK**.  
+> - Sur Windows Server, ouvrez Gestionnaire de serveur et utilisez l’Assistant Ajout de rôles et de fonctionnalités. Pour plus d’informations, consultez [installer le rôle Hyper-V sur Windows Server 2016](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
+> - Sur Windows, à partir du bureau, commencez à taper **programmes**, cliquez sur **programmes et fonctionnalités** (panneau de configuration) > **activer ou désactiver les fonctionnalités Windows** >  outils de**gestion hyper**-v  > **hyper**-v. Cliquez ensuite sur **OK**.  
   
-#### <a name="to-reconfigure-the-service-to-start-automatically-using-the-services-desktop-app"></a>Pour reconfigurer le service pour démarrer automatiquement à l’aide de l’application de bureau de Services  
+#### <a name="to-reconfigure-the-service-to-start-automatically-using-the-services-desktop-app"></a>Pour reconfigurer le service de façon à ce qu’il démarre automatiquement à l’aide de l’application de bureau services  
   
-1.  Ouvrez l’application de bureau de Services. (Cliquez sur **Démarrer**, cliquez dans la zone de recherche, commencez à taper **Services**, puis cliquez sur Services dans la liste des résultats.  
+1.  Ouvrez l’application de bureau Services. (Cliquez sur **Démarrer**, cliquez dans la zone de recherche, commencez à taper **services**, puis cliquez sur services dans la liste des résultats.  
   
-2.  Dans le volet détails, cliquez sur **gestion d’ordinateurs virtuels Hyper-V**, puis cliquez sur **propriétés**.  
+2.  Dans le volet d’informations, cliquez avec le bouton droit sur **gestion des machines virtuelles Hyper-V**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **général** sous l’onglet **démarrage** tapez, cliquez sur **automatique**.  
+3.  Sous l’onglet **général** , dans type de **démarrage** , cliquez sur **automatique**.  
   
-#### <a name="to-reconfigure-the-service-to-start-automatically-using-the-sc-config-command"></a>Pour reconfigurer le service pour démarrer automatiquement à l’aide de la commande SC Config  
+#### <a name="to-reconfigure-the-service-to-start-automatically-using-the-sc-config-command"></a>Pour reconfigurer le service pour qu’il démarre automatiquement à l’aide de la commande SC config  
   
 1.  Ouvrez Windows PowerShell.  
   

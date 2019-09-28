@@ -2,40 +2,40 @@
 title: Meilleures pratiques relatives au serveur NPS
 description: Cette rubrique présente les meilleures pratiques pour le déploiement et la gestion du serveur NPS (Network Policy Server) dans Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 90e544bd-e826-4093-8c3b-6a6fc2dfd1d6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a0bfa96e5fb3b562c23904ebef096d06e0c2d3c8
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 364783e2188152fc5c57bba04991ae124b0bb8d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546545"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405496"
 ---
 # <a name="network-policy-server-best-practices"></a>Meilleures pratiques relatives au serveur NPS
 
 >S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour en savoir plus sur les meilleures pratiques pour le déploiement et la \(gestion\)du serveur NPS NPS (Network Policy Server).
+Vous pouvez utiliser cette rubrique pour en savoir plus sur les meilleures pratiques pour le déploiement et la gestion du serveur de stratégie réseau \(NPS @ no__t-1.
 
 Les sections suivantes présentent les meilleures pratiques pour différents aspects de votre déploiement NPS.
 
-## <a name="accounting"></a>Comptabilité
+## <a name="accounting"></a>Gestion des comptes
 
 Voici les meilleures pratiques pour la journalisation NPS.
 
-Il existe deux types de comptabilité, ou journalisation, dans NPS:
+Il existe deux types de comptabilité, ou journalisation, dans NPS :
 
 - Journalisation des événements pour NPS. Vous pouvez utiliser la journalisation des événements pour enregistrer des événements NPS dans les journaux des événements système et de sécurité. Cela est principalement utilisé pour l’audit et le dépannage des tentatives de connexion.
 
 - Enregistrement des demandes d’authentification des utilisateurs et de gestion des comptes. Vous pouvez consigner les demandes d’authentification des utilisateurs et de gestion des comptes dans les fichiers journaux au format texte ou au format de base de données, ou vous pouvez vous connecter à une procédure stockée dans une base de données SQL Server 2000. La journalisation des demandes est principalement utilisée pour l’analyse de la connexion et la facturation. elle est également utile en tant qu’outil d’investigation de sécurité, ce qui vous permet de suivre l’activité d’une personne malveillante.
 
-Pour tirer le meilleur parti de la journalisation NPS:
+Pour tirer le meilleur parti de la journalisation NPS :
 
-- Activez la \(journalisation\) initiale pour les enregistrements d’authentification et de gestion des comptes. Modifiez ces sélections après avoir déterminé ce qui convient à votre environnement.
+- Activez la journalisation \(initially @ no__t-1 pour les enregistrements d’authentification et de gestion des comptes. Modifiez ces sélections après avoir déterminé ce qui convient à votre environnement.
 
 - Assurez-vous que la journalisation des événements est configurée avec une capacité suffisante pour gérer vos journaux.
 
@@ -55,8 +55,8 @@ Pour plus d’informations, consultez [configurer la gestion des stratégies de 
 
 Voici les meilleures pratiques pour l’authentification.
 
-- Utilisez des méthodes d’authentification basées sur les certificats, telles que \(Protected Extensible Authentication \(Protocol\) PEAP\) et EAP (Extensible Authentication Protocol) pour l’authentification forte. N’utilisez pas les méthodes d’authentification par mot de passe uniquement, car elles sont vulnérables à diverses attaques et ne sont pas sécurisées. Pour une authentification sans fil sécurisée\-,\-l’utilisation de PEAP MS CHAP v2 est recommandée, car le serveur NPS prouve son identité aux clients sans fil à l’aide d’un certificat de serveur, tandis que les utilisateurs prouvent leur identité avec leur nom d’utilisateur et leur mot de passe.  Pour plus d’informations sur l’utilisation de NPS dans votre déploiement sans fil, consultez [déployer un accès sans fil authentifié 802.1 x basé sur un mot de passe](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/a-deploy-8021x-wireless-access).
-- Déployez votre propre autorité \(\) de certification d'&reg; autorité de certification avec\) Active Directory Services \(de certificats AD CS quand vous utilisez des méthodes d’authentification fortes basées sur les certificats, telles que PEAP et EAP, qui exiger l’utilisation d’un certificat de serveur sur NPSs. Vous pouvez également utiliser votre autorité de certification pour inscrire des certificats d’ordinateur et d’utilisateur. Pour plus d’informations sur le déploiement de certificats de serveur sur des serveurs NPS et d’accès à distance, consultez [déployer des certificats de serveur pour les déploiements sans fil et câblés 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments).
+- Utilisez des méthodes d’authentification basées sur les certificats, telles que Protected Extensible Authentication Protocol \(PEAP @ no__t-1 et Extensible Authentication Protocol \(EAP @ no__t-3 pour une authentification forte. N’utilisez pas les méthodes d’authentification par mot de passe uniquement, car elles sont vulnérables à diverses attaques et ne sont pas sécurisées. Pour une authentification sans fil sécurisée, l’utilisation de PEAP @ no__t-0 ms @ no__t-1CHAP v2 est recommandée, car le serveur NPS prouve son identité aux clients sans fil à l’aide d’un certificat de serveur, tandis que les utilisateurs prouvent leur identité avec leur nom d’utilisateur et leur mot de passe.  Pour plus d’informations sur l’utilisation de NPS dans votre déploiement sans fil, consultez [déployer un accès sans fil authentifié 802.1 x basé sur un mot de passe](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/a-deploy-8021x-wireless-access).
+- Déployez votre propre autorité de certification \(CA @ no__t-1 avec Active Directory @ no__t-2 Certificate Services \(AD CS @ no__t-4 quand vous utilisez des méthodes d’authentification fortes basées sur les certificats, telles que PEAP et EAP, qui requièrent l’utilisation d’un serveur certificat sur NPSs. Vous pouvez également utiliser votre autorité de certification pour inscrire des certificats d’ordinateur et d’utilisateur. Pour plus d’informations sur le déploiement de certificats de serveur sur des serveurs NPS et d’accès à distance, consultez [déployer des certificats de serveur pour les déploiements sans fil et câblés 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments).
 
 > [!IMPORTANT]
 > Le serveur NPS (Network Policy Server) ne prend pas en charge l’utilisation des caractères ASCII étendus dans les mots de passe.
@@ -65,7 +65,7 @@ Voici les meilleures pratiques pour l’authentification.
 
 Voici les meilleures pratiques pour la configuration des ordinateurs clients.
 
-- Configurez automatiquement tous les ordinateurs clients 802.1 X du membre du domaine à l’aide de stratégie de groupe. Pour plus d’informations, consultez la section «configurer des stratégies de réseau sans fil (IEEE 802,11)» dans la rubrique déploiement de l' [accès sans fil](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/e-wireless-access-deployment#bkmk_policies).
+- Configurez automatiquement tous les ordinateurs clients 802.1 X du membre du domaine à l’aide de stratégie de groupe. Pour plus d’informations, consultez la section « configurer des stratégies de réseau sans fil (IEEE 802,11) » dans la rubrique déploiement de l' [accès sans fil](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/e-wireless-access-deployment#bkmk_policies).
 
 ## <a name="installation-suggestions"></a>Suggestions d’installation
 
@@ -85,9 +85,9 @@ Voici les meilleures pratiques pour le réglage des performances du serveur NPS.
 
 - Pour optimiser l’authentification NPS et les temps de réponse d’autorisation et réduire le trafic réseau, installez NPS sur un contrôleur de domaine.
 
-- Lorsque des noms UPN \(\) (Universal principal name) ou Windows Server 2008 et Windows Server 2003 sont utilisés, le serveur NPS utilise le catalogue global pour authentifier les utilisateurs. Pour réduire le temps nécessaire à cette opération, installez NPS sur un serveur de catalogue global ou un serveur qui se trouve sur le même sous-réseau que le serveur de catalogue global.
+- Lorsque les noms de principal universel \(UPNs @ no__t-1 ou Windows Server 2008 et les domaines Windows Server 2003 sont utilisés, NPS utilise le catalogue global pour authentifier les utilisateurs. Pour réduire le temps nécessaire à cette opération, installez NPS sur un serveur de catalogue global ou un serveur qui se trouve sur le même sous-réseau que le serveur de catalogue global.
 
-- Lorsque vous avez configuré des groupes de serveurs RADIUS distants et, dans stratégies de demande de connexion NPS, vous désactivez les **informations de gestion des enregistrements sur les serveurs dans le groupe de serveurs RADIUS distants suivant** , ces groupes reçoivent toujours l’accès réseau. messages \(de\) notification de démarrage et d’arrêt du serveur NAS. Cela crée un trafic réseau inutile. Pour éliminer ce trafic, désactivez le transfert de notifications NAS pour des serveurs individuels dans chaque groupe de serveurs RADIUS distants en désactivant la case à cocher **transférer le démarrage réseau et arrêter les notifications à ce serveur** .
+- Lorsque vous avez configuré des groupes de serveurs RADIUS distants et, dans stratégies de demande de connexion NPS, vous désactivez les **informations de gestion des enregistrements sur les serveurs dans le groupe de serveurs RADIUS distants suivant** , ces groupes reçoivent toujours l’accès réseau. Server \(NAS @ no__t-2 démarre et arrête les messages de notification. Cela crée un trafic réseau inutile. Pour éliminer ce trafic, désactivez le transfert de notifications NAS pour des serveurs individuels dans chaque groupe de serveurs RADIUS distants en désactivant la case à cocher **transférer le démarrage réseau et arrêter les notifications à ce serveur** .
 
 ## <a name="using-nps-in-large-organizations"></a>Utilisation de NPS dans les grandes organisations
 
@@ -97,15 +97,15 @@ Voici les meilleures pratiques pour l’utilisation de NPS dans les grandes orga
 
 - Utilisez un nom d’utilisateur principal pour faire référence aux utilisateurs chaque fois que cela est possible. Un utilisateur peut avoir le même nom d’utilisateur principal, quelle que soit l’appartenance à un domaine. Cette pratique fournit une évolutivité qui peut être nécessaire dans les organisations avec un grand nombre de domaines.
 
-- Si vous avez installé NPS \(\) (Network Policy Server) sur un ordinateur autre qu’un contrôleur de domaine et que le serveur NPS reçoit un grand nombre de demandes d’authentification par seconde, vous pouvez améliorer les performances de NPS en accroissant le nombre de authentifications simultanées autorisées entre le serveur NPS et le contrôleur de domaine. Pour plus d'informations, voir 
+- Si vous avez installé le serveur de stratégie réseau \(NPS @ no__t-1 sur un ordinateur autre qu’un contrôleur de domaine et que le serveur NPS reçoit un grand nombre de demandes d’authentification par seconde, vous pouvez améliorer les performances de NPS en renforçant le nombre de connexions simultanées. authentifications autorisées entre le serveur NPS et le contrôleur de domaine. Pour plus d'informations, voir 
 
 ## <a name="security-issues"></a>Problèmes de sécurité
 
 Voici les meilleures pratiques pour réduire les problèmes de sécurité.
 
-Lorsque vous administrez un serveur NPS à distance, n’envoyez pas de données sensibles ou confidentielles (par exemple, secrets partagés ou mots de passe) sur le réseau en texte en clair. Il existe deux méthodes recommandées pour l’administration à distance de NPSs:
+Lorsque vous administrez un serveur NPS à distance, n’envoyez pas de données sensibles ou confidentielles (par exemple, secrets partagés ou mots de passe) sur le réseau en texte en clair. Il existe deux méthodes recommandées pour l’administration à distance de NPSs :
 
-- Utilisez Services Bureau à distance pour accéder au serveur NPS. Lorsque vous utilisez Services Bureau à distance, les données ne sont pas envoyées entre le client et le serveur. Seule l’interface utilisateur du serveur (par exemple, l’image de bureau du système d’exploitation et de la console NPS) est envoyée au client Services Bureau à distance, nommé Connexion Bureau à distance dans&reg; Windows 10. Le client envoie une entrée au clavier et à la souris, qui est traitée localement par le serveur sur lequel Services Bureau à distance activé. Lorsque Services Bureau à distance utilisateurs ouvrent une session, ils peuvent afficher uniquement leurs sessions clientes individuelles, qui sont gérées par le serveur et sont indépendantes les unes des autres. En outre, Connexion Bureau à distance fournit un chiffrement 128 bits entre le client et le serveur.
+- Utilisez Services Bureau à distance pour accéder au serveur NPS. Lorsque vous utilisez Services Bureau à distance, les données ne sont pas envoyées entre le client et le serveur. Seule l’interface utilisateur du serveur (par exemple, l’image de bureau du système d’exploitation et de la console NPS) est envoyée au client Services Bureau à distance, nommé Connexion Bureau à distance dans Windows @ no__t-0 10. Le client envoie une entrée au clavier et à la souris, qui est traitée localement par le serveur sur lequel Services Bureau à distance activé. Lorsque Services Bureau à distance utilisateurs ouvrent une session, ils peuvent afficher uniquement leurs sessions clientes individuelles, qui sont gérées par le serveur et sont indépendantes les unes des autres. En outre, Connexion Bureau à distance fournit un chiffrement 128 bits entre le client et le serveur.
 
 - Utilisez la sécurité du protocole Internet (IPsec) pour chiffrer les données confidentielles. Vous pouvez utiliser IPsec pour chiffrer les communications entre le serveur NPS et l’ordinateur client distant que vous utilisez pour administrer le serveur NPS. Pour administrer le serveur à distance, vous pouvez installer le [Outils d’administration de serveur distant pour Windows 10](https://www.microsoft.com/download/details.aspx?id=45520) sur l’ordinateur client. Après l’installation, utilisez la console MMC (Microsoft Management Console) pour ajouter le composant logiciel enfichable NPS à la console.
 

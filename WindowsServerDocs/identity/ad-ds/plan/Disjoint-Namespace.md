@@ -7,116 +7,116 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0a2e911e889343b05a515c94e615d3648289f2df
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5abe67c89ce4c2f4b5056f6197242b5db8db340e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408851"
 ---
 # <a name="disjoint-namespace"></a>Espace de noms dissocié
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Un espace de noms disjoint se produit lorsqu’un ou plusieurs ordinateurs membres du domaine ont un suffixe principal de Service DNS (Domain Name) qui ne correspond pas au nom DNS du domaine Active Directory auquel appartiennent les ordinateurs. Par exemple, un ordinateur membre qui utilise un suffixe DNS principal corp.fabrikam.com dans un domaine Active Directory appelé na.corp.fabrikam.com utilise un espace de noms disjoint.  
+Un espace de noms disjoint se produit lorsqu’un ou plusieurs ordinateurs membres du domaine ont un suffixe DNS (Domain Name Service) principal qui ne correspond pas au nom DNS du domaine Active Directory dont les ordinateurs sont membres. Par exemple, un ordinateur membre qui utilise un suffixe DNS principal corp.fabrikam.com dans un domaine Active Directory nommé na.corp.fabrikam.com utilise un espace de noms disjoint.  
   
-Un espace de noms disjoint est plus complexe à administrer, gérer et résoudre les problèmes à un espace de noms contigu. Dans un espace de noms contigu, le suffixe DNS principal correspond au nom de domaine Active Directory. Les applications réseau qui sont écrits de supposer que l’espace de noms Active Directory est identique au suffixe DNS principal pour tous les ordinateurs membres du domaine ne fonctionnent pas correctement dans un espace de noms disjoint.  
+Un espace de noms disjoint est plus complexe à administrer, à gérer et à dépanner qu’un espace de noms contigu. Dans un espace de noms contigu, le suffixe DNS principal correspond au nom de domaine Active Directory. Les applications réseau qui sont écrites pour supposer que l’espace de noms Active Directory est identique au suffixe DNS principal pour tous les ordinateurs membres du domaine ne fonctionnent pas correctement dans un espace de noms disjoint.  
   
-## <a name="support-for-disjoint-namespaces"></a>Prise en charge des espaces de noms disjoints  
-Ordinateurs membres du domaine, y compris les contrôleurs de domaine, peuvent fonctionner dans un espace de noms disjoint. Ordinateurs membres du domaine peuvent inscrire leur hôte (A) enregistrement de ressource et le protocole IP version 6 (IPv6) hébergent l’enregistrement de ressource (AAAA) dans un espace de noms DNS disjoint. Lorsque des ordinateurs membres du domaine s’inscrivent leurs enregistrements de ressources de cette façon, les contrôleurs de domaine continuent à inscrire des enregistrements de ressources globaux et spécifiques de service (SRV) dans la zone DNS est identique au nom de domaine Active Directory.  
+## <a name="support-for-disjoint-namespaces"></a>Prise en charge des espaces de noms disjoint  
+Les ordinateurs membres du domaine, y compris les contrôleurs de domaine, peuvent fonctionner dans un espace de noms disjoint. Les ordinateurs membres du domaine peuvent inscrire leur enregistrement de ressource hôte (A) et l’enregistrement de ressource d’hôte IPv6 (AAAA) dans un espace de noms DNS disjoint. Lorsque les ordinateurs membres du domaine inscrivent leurs enregistrements de ressources de cette manière, les contrôleurs de domaine continuent d’inscrire les enregistrements de ressource de service (SRV) globaux et spécifiques au site dans la zone DNS qui est identique au nom de domaine Active Directory.  
   
-Par exemple, supposons qu’un contrôleur de domaine pour le domaine Active Directory appelé na.corp.fabrikam.com qui utilise un suffixe DNS principal corp.fabrikam.com s’inscrit à un hôte (A) et les enregistrements de ressource hôte (AAAA) IPv6 dans la zone DNS corp.fabrikam.com. Le contrôleur de domaine continue à inscrire des enregistrements de ressources globaux et spécifiques de service (SRV) dans les zones DNS _msdcs.na.corp.fabrikam.com et na.corp.fabrikam.com, ce qui permet l’emplacement du service.  
+Par exemple, supposons qu’un contrôleur de domaine pour le domaine Active Directory nommé na.corp.fabrikam.com qui utilise un suffixe DNS principal de corp.fabrikam.com enregistre les enregistrements de ressource d’hôte (A) et d’hôte IPv6 (AAAA) dans la zone DNS corp.fabrikam.com. Le contrôleur de domaine continue à enregistrer les enregistrements de ressource de service (SRV) globaux et spécifiques aux sites dans les zones DNS _ msdcs. na. Corp. fabrikam. com et na.corp.fabrikam.com, ce qui rend possible l’emplacement du service.  
   
 > [!IMPORTANT]  
-> Bien que les systèmes d’exploitation Windows peuvent prendre en charge un espace de noms disjoint, les applications qui sont écrites de supposer que le suffixe DNS principal est le même que le suffixe de domaine Active Directory ne peuvent pas fonctionner dans un tel environnement. Pour cette raison, vous devez tester toutes les applications et leurs systèmes d’exploitation respectifs soigneusement avant de déployer un espace de noms disjoint.  
+> Bien que les systèmes d’exploitation Windows puissent prendre en charge un espace de noms disjoint, les applications qui sont écrites pour supposer que le suffixe DNS principal est le même que le suffixe de domaine Active Directory peut ne pas fonctionner dans un tel environnement. Pour cette raison, vous devez tester soigneusement toutes les applications et leurs systèmes d’exploitation respectifs avant de déployer un espace de noms disjoint.  
   
-Un espace de noms disjoint devrait fonctionner (et est pris en charge) dans les situations suivantes :  
+Un espace de noms disjoint doit fonctionner (et est pris en charge) dans les cas suivants :  
   
--   Lorsqu’une forêt avec plusieurs domaines Active Directory utilise un espace de noms DNS unique, qui est également appelé une zone DNS  
+-   Lorsqu’une forêt avec plusieurs domaines de Active Directory utilise un seul espace de noms DNS, qui est également appelé zone DNS  
   
-    Un exemple de ceci est une société qui utilise des domaines régionaux avec des noms tels que na.corp.fabrikam.com, sa.corp.fabrikam.com et asia.corp.fabrikam.com et utilise un espace de noms DNS unique, tels que corp.fabrikam.com.  
+    Par exemple, une entreprise qui utilise des domaines régionaux avec des noms tels que na.corp.fabrikam.com, sa.corp.fabrikam.com et asia.corp.fabrikam.com et utilise un espace de noms DNS unique, tel que corp.fabrikam.com.  
   
--   Quand un seul domaine Active Directory est divisé en espaces de noms DNS distincts  
+-   Lorsqu’un domaine Active Directory unique est fractionné en espaces de noms DNS distincts  
   
-    Un exemple de ceci est une entreprise avec un domaine Active Directory corp.contoso.com qui utilise les zones DNS, hr.corp.contoso.com production.corp.contoso.com et it.corp.contoso.com.  
+    C’est le cas, par exemple, d’une société disposant d’un domaine Active Directory corp.contoso.com qui utilise des zones DNS telles que hr.corp.contoso.com, production.corp.contoso.com et it.corp.contoso.com.  
   
-Un espace de noms disjoint ne fonctionne pas correctement (et n’est pas pris en charge) dans les situations suivantes :  
+Un espace de noms disjoint ne fonctionne pas correctement (et n’est pas pris en charge) dans les cas suivants :  
   
--   Un suffixe disjoint utilisé par les membres du domaine correspond à un nom de domaine Active Directory dans la forêt ou dans un autre. Cela interrompt le routage des suffixes de nom de Kerberos.  
+-   Un suffixe disjoint utilisé par les membres du domaine correspond à un nom de domaine Active Directory dans cette forêt ou dans une autre forêt. Cela interrompt le routage du suffixe de nom Kerberos.  
   
--   Le même suffixe disjoint est utilisé dans une autre forêt. Cela empêche le routage de manière unique ces suffixes entre forêts.  
+-   Le même suffixe disjoint est utilisé dans une autre forêt. Cela empêche le routage de ces suffixes de manière unique entre les forêts.  
   
--   Lorsque serveur membre de domaine certification authority (CA) modifie son nom de domaine complet (FQDN) afin qu’il ne plus utiliser le même suffixe DNS principal qui est utilisé par les contrôleurs de domaine du domaine auquel le serveur d’autorité de certification est un membre. Dans ce cas, peut avoir des problèmes de validation des certificats le serveur d’autorité de certification émis, selon les noms DNS sont utilisés dans les Points de Distribution CRL. Mais si vous placez un serveur d’autorité de certification dans un espace de noms disjoint stable, il fonctionne correctement et est pris en charge.  
+-   Lorsqu’un serveur d’autorité de certification de membre de domaine modifie son nom de domaine complet (FQDN) afin qu’il n’utilise plus le même suffixe DNS principal utilisé par les contrôleurs de domaine du domaine auquel le serveur d’autorité de certification est membre. Dans ce cas, vous risquez de rencontrer des problèmes de validation des certificats émis par le serveur de l’autorité de certification, en fonction des noms DNS utilisés dans les points de distribution de la liste de révocation de certificats. Toutefois, si vous placez un serveur d’autorité de certification dans un espace de noms disjoint stable, il fonctionne correctement et est pris en charge.  
   
-## <a name="considerations-for-disjoint-namespaces"></a>Considérations pour les espaces de noms disjoints  
-Les considérations suivantes peuvent vous aider à décider si vous devez utiliser un espace de noms disjoint.  
+## <a name="considerations-for-disjoint-namespaces"></a>Considérations relatives aux espaces de noms disjoint  
+Les considérations suivantes peuvent vous aider à déterminer si vous devez utiliser un espace de noms disjoint.  
   
 ### <a name="application-compatibility"></a>Compatibilité des applications  
-Comme mentionné précédemment, un espace de noms disjoint peut entraîner des problèmes pour les applications et services qui sont écrits supposent qu’un suffixe DNS principal d’ordinateur est identique au nom du nom de domaine dont il est membre. Avant de déployer un espace de noms disjoint, vous devez vérifier les problèmes de compatibilité des applications. En outre, veillez à vérifier la compatibilité de toutes les applications que vous utilisez lorsque vous effectuez votre analyse. Cela inclut les applications à partir de Microsoft et d’autres développeurs de logiciels.  
+Comme mentionné précédemment, un espace de noms disjoint peut provoquer des problèmes pour les applications et services écrits pour supposer qu’un suffixe DNS principal de l’ordinateur est identique au nom du domaine dont il est membre. Avant de déployer un espace de noms disjoint, vous devez vérifier les problèmes de compatibilité des applications. Veillez également à vérifier la compatibilité de toutes les applications que vous utilisez lorsque vous effectuez votre analyse. Cela comprend les applications de Microsoft et d’autres développeurs de logiciels.  
   
-### <a name="advantages-of-disjoint-namespaces"></a>Avantages des espaces de noms disjoints  
-À l’aide d’un espace de noms disjoint peut avoir les avantages suivants :  
+### <a name="advantages-of-disjoint-namespaces"></a>Avantages des espaces de noms disjoint  
+L’utilisation d’un espace de noms disjoint peut présenter les avantages suivants :  
   
--   Étant donné que le suffixe DNS principal d’un ordinateur peut indiquer des informations différentes, vous pouvez gérer l’espace de noms DNS séparément à partir du nom de domaine Active Directory.  
+-   Étant donné que le suffixe DNS principal d’un ordinateur peut indiquer des informations différentes, vous pouvez gérer l’espace de noms DNS séparément du nom de domaine Active Directory.  
   
--   Vous pouvez séparer l’espace de noms DNS en fonction de l’emplacement géographique ou de la structure de l’entreprise. Par exemple, vous pouvez séparer l’espace de noms basé sur les noms d’unité métier ou un emplacement physique comme continent, pays/région ou bâtiment.  
+-   Vous pouvez séparer l’espace de noms DNS en fonction de la structure métier ou de l’emplacement géographique. Par exemple, vous pouvez séparer l’espace de noms en fonction des noms de divisions ou de l’emplacement physique, tels que le continent, le pays/la région ou la génération.  
   
-### <a name="disadvantages-of-disjoint-namespaces"></a>Inconvénients des espaces de noms disjoints  
-À l’aide d’un espace de noms disjoint peut avoir les inconvénients suivants :  
+### <a name="disadvantages-of-disjoint-namespaces"></a>Inconvénients des espaces de noms disjoint  
+L’utilisation d’un espace de noms disjoint peut présenter les inconvénients suivants :  
   
--   Vous devez créer et gérer des zones DNS distinctes pour chaque domaine Active Directory dans la forêt qui est membre d’ordinateurs qui utilisent un espace de noms disjoint. (Autrement dit, elle nécessite une configuration supplémentaire et plus complexe).  
+-   Vous devez créer et gérer des zones DNS distinctes pour chaque Active Directory domaine de la forêt qui contient des ordinateurs membres qui utilisent un espace de noms disjoint. (Autrement dit, il requiert une configuration supplémentaire et plus complexe.)  
   
--   Vous devez effectuer les étapes manuelles pour modifier et gérer l’attribut Active Directory qui permet aux membres du domaine à utiliser les suffixes DNS spécifiés, le principales.  
+-   Vous devez effectuer les étapes manuelles pour modifier et gérer l’attribut Active Directory qui permet aux membres du domaine d’utiliser des suffixes DNS principaux spécifiés.  
   
--   Pour optimiser la résolution de noms, vous devez effectuer les étapes manuelles pour modifier et gérer la stratégie de groupe pour configurer des ordinateurs membres avec des suffixes DNS principaux autre.  
-  
-    > [!NOTE]  
-    > Le Service de nom Internet Windows (WINS) peut être utilisée pour décaler cet inconvénient en résolvant les noms en une partie. Pour plus d’informations sur WINS, consultez la référence technique WINS ([https://go.microsoft.com/fwlink/?LinkId=102303](https://go.microsoft.com/fwlink/?LinkId=102303)).  
-  
--   Lorsque votre environnement requiert plusieurs suffixes DNS principaux, vous devez configurer correctement l’ordre de recherche de suffixe DNS pour tous les domaines Active Directory dans la forêt.  
-  
-    Pour définir l’ordre de recherche de suffixe DNS, vous pouvez utiliser des objets de stratégie de groupe ou les paramètres du service serveur de Configuration protocole DHCP (Dynamic Host). Vous pouvez également modifier le Registre.  
-  
--   Vous devez soigneusement tester toutes les applications des problèmes de compatibilité.  
-  
-Pour plus d’informations sur les étapes que vous pouvez prendre pour résoudre ces inconvénients, voir créer un Disjoint Namespace ([https://go.microsoft.com/fwlink/?LinkId=106638](https://go.microsoft.com/fwlink/?LinkId=106638)).  
-  
-### <a name="planning-a-namespace-transition"></a>Planification d’une transition de l’espace de noms  
-Avant de modifier un espace de noms, passez en revue les considérations suivantes, qui s’appliquent à des transitions à partir des espaces de noms contigus à disjointes des espaces de noms (ou l’inverse) :  
-  
--   Configuré manuellement les noms de principal du Service (SPN) ne corresponde plus à des noms DNS après une modification de l’espace de noms. Cela peut entraîner des échecs d’authentification.  
-  
-    Pour plus d’informations, consultez Service ouvertures de session échouent Due to Incorrectly Set SPNs ([https://go.microsoft.com/fwlink/?LinkId=102304](https://go.microsoft.com/fwlink/?LinkId=102304)).  
-  
-    -   Si vous utilisez des ordinateurs basés sur Windows Server 2003 avec la délégation contrainte, ces ordinateurs peuvent nécessiter une configuration supplémentaire pour modifier les noms principaux de service. Pour plus d’informations, consultez l’article 936628 dans la Base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=102306](https://go.microsoft.com/fwlink/?LinkId=102306)).  
-  
-    -   Si vous souhaitez déléguer des autorisations pour modifier les noms principaux de service pour d’autres administrateurs subordonnés, voir Délégation de l’autorité pour modifier les noms principaux de service ([https://go.microsoft.com/fwlink/?LinkId=106639](https://go.microsoft.com/fwlink/?LinkId=106639)).  
-  
--   Si vous utilisez Lightweight Directory Access Protocol (LDAP) sur couche SSL (Secure Sockets) (appelée LDAPS) avec une autorité de certification dans un déploiement comportant des contrôleurs de domaine qui sont configurés dans un espace de noms disjoint, vous devez utiliser le nom de domaine Active Directory approprié et suffixe DNS principal lorsque vous configurez les certificats LDAPS.  
-  
-    Pour plus d’informations sur les exigences de certificat de contrôleur de domaine, consultez l’article 321051 dans la Base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=102307](https://go.microsoft.com/fwlink/?LinkId=102307)).  
+-   Pour optimiser la résolution de noms, vous devez effectuer des étapes manuelles pour modifier et gérer des stratégie de groupe pour configurer des ordinateurs membres avec d’autres suffixes DNS principaux.  
   
     > [!NOTE]  
-    > Les contrôleurs de domaine qui utilisent des certificats pour LDAPS peuvent vous obliger à redéployer leurs certificats. Lorsque vous procédez ainsi, contrôleurs de domaine ne peuvent pas sélectionner un certificat approprié jusqu'à ce qu’ils sont redémarrés. Pour plus d’informations sur l’authentification LDAPS et une mise à jour associée pour Windows Server 2003, consultez l’article 932834 dans la Base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=102308](https://go.microsoft.com/fwlink/?LinkId=102308)).  
+    > Le service WINS (Windows Internet Name Service) peut être utilisé pour décaler cet inconvénient en résolvant les noms en une partie. Pour plus d’informations sur WINS, consultez la référence technique WINS ([https://go.microsoft.com/fwlink/?LinkId=102303](https://go.microsoft.com/fwlink/?LinkId=102303)).  
   
-### <a name="planning-for-disjoint-namespace-deployments"></a>Planification de déploiements de l’espace de noms disjoint  
-Prenez les précautions suivantes si vous déployez des ordinateurs dans un environnement qui comporte un espace de noms disjoint :  
+-   Lorsque votre environnement requiert plusieurs suffixes DNS principaux, vous devez configurer l’ordre de recherche de suffixe DNS pour tous les domaines de Active Directory de la forêt de manière appropriée.  
   
-1.  Notifier tous les éditeurs de logiciels avec lesquels vous travaillez qu’ils doivent tester et prendre en charge un espace de noms disjoint. Demandez-lui de vérifier qu’ils prennent en charge leurs applications dans les environnements qui utilisent des espaces de noms disjoints.  
+    Pour définir l’ordre de recherche du suffixe DNS, vous pouvez utiliser des objets stratégie de groupe ou des paramètres du service serveur DHCP (Dynamic Host Configuration Protocol). Vous pouvez également modifier le registre.  
   
-2.  Testez toutes les versions des systèmes d’exploitation et des applications dans des environnements de lab d’espace de noms disjoint. Lorsque vous effectuez, suivez ces recommandations :  
+-   Vous devez soigneusement tester les problèmes de compatibilité de toutes les applications.  
   
-    1.  Résolvez tous les problèmes de logiciel avant de déployer le logiciel dans votre environnement.  
+Pour plus d’informations sur les étapes à suivre pour résoudre ces inconvénients, consultez créer un espace de noms disjoint ([https://go.microsoft.com/fwlink/?LinkId=106638](https://go.microsoft.com/fwlink/?LinkId=106638)).  
   
-    2.  Dans la mesure du possible, participer à des tests bêta des systèmes d’exploitation et des applications que vous prévoyez de déployer des espaces de noms disjoints.  
+### <a name="planning-a-namespace-transition"></a>Planification d’une transition d’espace de noms  
+Avant de modifier un espace de noms, passez en revue les considérations suivantes, qui s’appliquent aux transitions d’espaces de noms contigus à des espaces de noms disjoints (ou inversement) :  
   
-3.  Assurez-vous que les administrateurs et le personnel du support technique est informé de l’espace de noms disjoint et son impact.  
+-   Les noms de principal du service (SPN) configurés manuellement peuvent ne plus correspondre aux noms DNS après la modification d’un espace de noms. Cela peut entraîner des échecs d’authentification.  
   
-4.  Créer un plan qui rend possible pour vous à la transition à partir d’un espace de noms disjoint à un espace de noms contigu, si nécessaire.  
+    Pour plus d’informations, consultez échec des ouvertures de session de service en raison de la définition incorrecte des noms de principal du service ([https://go.microsoft.com/fwlink/?LinkId=102304](https://go.microsoft.com/fwlink/?LinkId=102304)).  
   
-5.  Promouvez l’importance de la prise en charge de l’espace de noms disjoint avec le système d’exploitation et les fournisseurs d’application.  
+    -   Si vous utilisez des ordinateurs Windows Server 2003 avec la délégation avec restriction, ces ordinateurs peuvent nécessiter une configuration supplémentaire pour modifier les noms de principal du service. Pour plus d’informations, voir l’article 936628 de la base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=102306](https://go.microsoft.com/fwlink/?LinkId=102306)).  
+  
+    -   Si vous souhaitez déléguer des autorisations pour modifier les noms de principal du service (SPN) pour les administrateurs subordonnés, consultez délégation d’autorité pour modifier les noms de principal du service ([https://go.microsoft.com/fwlink/?LinkId=106639](https://go.microsoft.com/fwlink/?LinkId=106639)).  
+  
+-   Si vous utilisez le protocole LDAP (Lightweight Directory Access Protocol) sur protocole SSL (SSL) (appelé LDAPs) avec une autorité de certification dans un déploiement dont les contrôleurs de domaine sont configurés dans un espace de noms disjoint, vous devez utiliser le nom de domaine Active Directory approprié et suffixe DNS principal lorsque vous configurez les certificats LDAPs.  
+  
+    Pour plus d’informations sur la configuration requise des certificats de contrôleur de domaine, voir l’article 321051 de la base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=102307](https://go.microsoft.com/fwlink/?LinkId=102307)).  
+  
+    > [!NOTE]  
+    > Les contrôleurs de domaine qui utilisent des certificats pour LDAPs peuvent vous obliger à redéployer leurs certificats. Dans ce cas, les contrôleurs de domaine ne peuvent pas sélectionner un certificat approprié tant qu’ils n’ont pas été redémarrés. Pour plus d’informations sur l’authentification LDAPs et une mise à jour associée pour Windows Server 2003, voir l’article 932834 de la base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=102308](https://go.microsoft.com/fwlink/?LinkId=102308)).  
+  
+### <a name="planning-for-disjoint-namespace-deployments"></a>Planification des déploiements d’espaces de noms disjoint  
+Si vous déployez des ordinateurs dans un environnement doté d’un espace de noms disjoint, prenez les précautions suivantes :  
+  
+1.  Informez tous les éditeurs de logiciels avec lesquels vous faites des affaires qu’ils doivent tester et prendre en charge un espace de noms disjoint. Demandez-lui de vérifier qu’ils prennent en charge leurs applications dans des environnements qui utilisent des espaces de noms disjoint.  
+  
+2.  Testez toutes les versions des systèmes d’exploitation et des applications dans des environnements de laboratoire d’espaces de noms disjoints. Dans ce cas, suivez ces recommandations :  
+  
+    1.  Résolvez tous les problèmes logiciels avant de déployer le logiciel dans votre environnement.  
+  
+    2.  Dans la mesure du possible, participez aux tests bêta des systèmes d’exploitation et des applications que vous envisagez de déployer dans des espaces de noms disjoint.  
+  
+3.  Assurez-vous que les administrateurs et le personnel du support technique prennent connaissance de l’espace de noms disjoint et de son impact.  
+  
+4.  Créez un plan qui vous permet de passer d’un espace de noms disjoint à un espace de noms contigu, si nécessaire.  
+  
+5.  Promeut l’importance de la prise en charge des espaces de noms disjoints avec le système d’exploitation et les fournisseurs d’applications.  
   
 
 

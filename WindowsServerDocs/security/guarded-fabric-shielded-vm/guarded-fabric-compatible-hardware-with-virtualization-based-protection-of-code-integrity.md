@@ -1,42 +1,42 @@
 ---
-title: Matériel compatible avec la protection sur la virtualisation Windows Server de l’intégrité du Code
+title: Matériel compatible avec la protection de l’intégrité du code basée sur la virtualisation Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 15ded82c-f70f-4efb-9e26-2731127931af
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: a52ff808af94159fe50c72bf0466768047ceea90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5a9a4b91cc3528ce59f8ef3e4952b6162ca5c74e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820370"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403689"
 ---
-# <a name="compatible-hardware-with-windows-server-virtualization-based-protection-of-code-integrity"></a>Matériel compatible avec la protection sur la virtualisation Windows Server de l’intégrité du Code
+# <a name="compatible-hardware-with-windows-server-virtualization-based-protection-of-code-integrity"></a>Matériel compatible avec la protection de l’intégrité du code basée sur la virtualisation Windows Server
 
 >S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
 
-Windows Server 2016 a introduit un nouveau groupe de protection de code basé sur la virtualisation pour protéger physiques et machines virtuelles contre les attaques qui modifient le code du système. Pour atteindre ce niveau de protection élevé, Microsoft travaille en tandem avec les fabricants de matériel ordinateur (Original Equipment Manufacturers ou OEM) pour empêcher les écritures malveillants dans le code de l’exécution du système. Cette protection peut être appliquée à n’importe quel système et est utilisée comme l’un des blocs de construction pour l’implémentation de l’intégrité de l’hôte Hyper-V pour les machines virtuelles protégées (machines virtuelles). 
+Windows Server 2016 a introduit une nouvelle protection du code basée sur la virtualisation pour aider à protéger les machines physiques et virtuelles contre les attaques qui modifient le code système. Pour atteindre ce niveau de protection élevé, Microsoft travaille en tandem avec les fabriques de matériel informatique (fabricants d’ordinateurs OEM) pour empêcher les écritures malveillantes dans le code d’exécution du système. Cette protection peut être appliquée à n’importe quel système et est utilisée comme l’un des blocs de construction permettant d’implémenter l’intégrité de l’hôte Hyper-V pour les machines virtuelles protégées. 
 
-Comme avec toute protection matérielle, certains systèmes peuvent ne pas être conformes en raison de problèmes tels que marquage incorrect de pages de mémoire en tant qu’exécutables ou en essayant de réellement modifier le code au moment de l’exécution, ce qui peut entraîner des erreurs inattendues, y compris la perte de données ou un bleu Erreur de l’écran (également appelé une erreur d’arrêt). 
+Comme pour toute protection matérielle, certains systèmes peuvent ne pas être conformes en raison de problèmes tels que le marquage incorrect des pages de mémoire en tant qu’exécutables ou en tentant de modifier le code au moment de l’exécution, ce qui peut entraîner des défaillances inattendues, y compris la perte de données ou un bleu erreur d’écran (également appelée erreur d’arrêt). 
 
-Pour être compatibles et prennent entièrement en charge la nouvelle fonctionnalité de sécurité, les fabricants OEM doivent implémenter la Table des adresses mémoire définis dans UEFI 2.6, ce qui a été publiée en janvier 2016. L’adoption de la nouvelle UEFI standard prend du temps ; pendant ce temps, pour empêcher les clients de rencontrer des problèmes, nous souhaitons fournissent des informations sur les systèmes et les configurations que nous avons testés à cet ensemble de fonctionnalités à ainsi que les systèmes qui nous savons ne sont ne pas compatibles. 
+Pour être compatible et prendre en charge la nouvelle fonctionnalité de sécurité, les fabricants d’ordinateurs OEM doivent implémenter la table d’adresses mémoire définie dans UEFI 2,6, qui a été publié en janvier 2016. L’adoption de la nouvelle norme UEFI prend du temps. pendant ce temps, pour empêcher les clients rencontrant des problèmes, nous souhaitons fournir des informations sur les systèmes et les configurations sur lesquels nous avons testé ce jeu de fonctionnalités, ainsi que sur les systèmes dont nous savons qu’ils ne sont pas compatibles. 
 
 ## <a name="non-compatible-systems"></a>Systèmes non compatibles
 
-Les configurations suivantes sont connues comme étant non compatible avec la protection sur la virtualisation de l’intégrité du code et ne peut pas être utilisé en tant qu’hôte pour les machines virtuelles protégées :
+Les configurations suivantes sont connues pour être non compatibles avec la protection basée sur la virtualisation de l’intégrité du code et ne peuvent pas être utilisées en tant qu’hôte pour les machines virtuelles protégées :
 
-- Les serveurs PowerEdge Dell en cours d’exécution contrôleurs RAID PERC H330 pour plus d’informations, consultez l’article suivant du support technique de Dell [H330 – activation « Support de Hyper-V Guardian hôte » ou « Device Guard » sur le système d’exploitation de Win 2016 entraîne l’échec de démarrage du système d’exploitation](http://www.dell.com/Support/Article/us/en/19/QNA44045).  
+- Serveurs Dell PowerEdge exécutant les contrôleurs RAID PERC H330 pour plus d’informations, consultez l’article suivant de la page support Dell [H330 : activation de la « prise en charge d’Hyper-V Guardian hôte » ou « Device Guard » sur le système d’exploitation Win 2016 provoque l’échec du démarrage du système d’exploitation](http://www.dell.com/Support/Article/us/en/19/QNA44045).  
 
 
 ## <a name="compatible-systems"></a>Systèmes compatibles
 
-Voici les systèmes de nos partenaires et nous avons testé dans notre environnement. Assurez-vous que vous vérifiez que le système fonctionne comme prévu dans votre environnement : 
+Il s’agit des systèmes que nous et nos partenaires testons dans notre environnement. Veillez à vérifier que le système fonctionne comme prévu dans votre environnement : 
 
-- Machines virtuelles – vous pouvez activer la protection de basés sur la virtualisation de l’intégrité du code sur des machines virtuelles qui s’exécutent sur un hôte Hyper-V à partir de Windows Server 2016.
+- Machines virtuelles : vous pouvez activer la protection basée sur la virtualisation de l’intégrité du code sur les machines virtuelles qui s’exécutent sur un hôte Hyper-V à compter de Windows Server 2016.
 
 
 

@@ -2,22 +2,22 @@
 title: Activer ou désactiver les références et la restauration du client
 description: Cet article décrit comment activer ou désactiver les références et la restauration du client.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 20ac61f86ede938efd574fc6a048775437a51211
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7dd11b530c61e2536db425d3e85e0fbe458d349
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835020"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386219"
 ---
 # <a name="enable-or-disable-referrals-and-client-failback"></a>Activer ou désactiver les références et la restauration du client
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Une référence correspond à une liste de serveurs, organisée selon un ordre particulier, qu’un ordinateur client reçoit d’un contrôleur de domaine ou d’un serveur d’espace de noms lorsque l’utilisateur accède à une racine d’espace de noms ou à un dossier DFS avec cibles. Une fois en possession de la référence, l’ordinateur tente d’accéder au premier serveur de la liste. Si ce serveur n’est pas disponible, l’ordinateur client tente d’accéder au suivant. Si un serveur devient indisponible, vous pouvez configurer les clients pour qu’ils soient restaurés automatiquement sur le serveur préféré dès que celui-ci est disponible.
 
@@ -39,11 +39,11 @@ En désactivant la référence d’un serveur d’espaces de noms ou d’une cib
 
 
 > [!TIP]
-> Pour activer ou désactiver des références à l’aide de Windows PowerShell, utilisez le [Set-DfsnRootTarget – état](https://technet.microsoft.com/library/jj884266.aspx) ou [Set-DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx) applets de commande, qui ont été introduits dans Windows Server 2012.
+> Pour activer ou désactiver les références à l’aide de Windows PowerShell, utilisez les applets de commande [Set-DfsnRootTarget – State](https://technet.microsoft.com/library/jj884266.aspx) ou [Set-DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx) , qui ont été introduites dans Windows Server 2012.
 
 ## <a name="enable-client-failback"></a>Activer la restauration automatique du client
 
-Si une cible devient indisponible, vous pouvez configurer les clients pour qu’ils soient restaurés automatiquement sur cette cible après sa restauration. Pour la restauration automatique fonctionne, les ordinateurs clients doivent respecter les exigences répertoriées dans la rubrique suivante : [Passez en revue les exigences du Client d’espaces de noms DFS](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx).
+Si une cible devient indisponible, vous pouvez configurer les clients pour qu’ils soient restaurés automatiquement sur cette cible après sa restauration. Pour que la restauration automatique fonctionne, les ordinateurs clients doivent remplir les conditions requises décrites dans la rubrique suivante : [Passez en revue la configuration requise pour les espaces de noms DFS](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx).
 
 
 > [!NOTE]
@@ -70,6 +70,6 @@ Les dossiers avec cibles héritent, de la racine de l’espace de noms, les para
 
 ## <a name="see-also"></a>Voir aussi 
 
--   [Réglage des espaces de noms DFS](tuning-dfs-namespaces.md)
--   [Passez en revue les exigences du Client d’espaces de noms DFS](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
--   [Déléguer des autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Optimisation des espaces de noms DFS](tuning-dfs-namespaces.md)
+-   [Examiner la configuration requise du client des espaces de noms DFS](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
+-   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)

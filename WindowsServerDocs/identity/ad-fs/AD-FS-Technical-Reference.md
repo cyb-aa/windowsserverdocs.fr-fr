@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 541ad987b81e7192c565c5be5ac93ef37db4d19b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 29c52b21e5bb30fc54c2f561015c64ae93447836
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192543"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408564"
 ---
 # <a name="ad-fs-technical-reference"></a>Informations techniques de référence sur ADFS
 
@@ -22,7 +22,7 @@ ms.locfileid: "66192543"
 - [AD FS et informations de propriété KeySpec de certificat](../ad-fs/technical-reference/AD-FS-and-KeySpec-Property.md)
 - [Améliorations de l’audit apportées à AD FS dans Windows Server](../ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server.md)
 -   [Présentation des concepts AD FS clés](../ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)
--   [Référence technique de l’inscription de périphérique](../ad-fs/technical-reference/Device-Registration-Technical-Reference.md)
+-   [Informations techniques de référence sur l’inscription d’appareils](../ad-fs/technical-reference/Device-Registration-Technical-Reference.md)
 -   [Protection contre les attaques de mot de passe AD FS](../ad-fs/technical-reference/ad-fs-password-protection.md)
 -   [Confidentialité des utilisateurs et AD FS](../ad-fs/technical-reference/GDPR-and-AD-FS-Compliance.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "66192543"
 > Vous trouverez du contenu de conception AD FS 2.0 supplémentaire à la page [Plan de contenu AD FS 2.0](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx) sur Microsoft TechNet Wiki. Cette page est gérée par des membres de la communauté AD FS 2.0 et est régulièrement contrôlée par l’équipe du produit AD FS.
 
 ## <a name="see-also"></a>Voir aussi
-[Vue d’ensemble des Services de fédération Active Directory](AD-FS-2016-Overview.md)
+[Présentation de Services ADFS](AD-FS-2016-Overview.md)
 
 
 

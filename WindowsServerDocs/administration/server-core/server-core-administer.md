@@ -1,19 +1,19 @@
 ---
 title: Administrer Server Core
 description: En savoir plus sur l’administration d’une installation Server Core de Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.date: 12/18/2018
-ms.openlocfilehash: 78006dbbd2bdc569c15ac9967d8c5c542664312c
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: bcc4bf7b3fbdbff1aed2c8dd07b90346fe9eebab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546290"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383434"
 ---
 # <a name="administer-a-server-core-server"></a>Administrer un serveur Server Core
 
@@ -31,11 +31,11 @@ Pour afficher votre configuration réseau actuelle, utilisez la **NetIPConfigura
 
 Pour afficher les adresses IP que vous utilisez déjà, utilisez la **NetIPAddress**.
 
-Pour définir une adresse IP statique, procédez comme suit: 
+Pour définir une adresse IP statique, procédez comme suit : 
 
 1. Exécutez la **NetIPInterface**. 
 2. Notez le nombre dans la colonne **IfIndex** pour votre interface IP ou la chaîne **InterfaceDescription** . Si vous avez plusieurs cartes réseau, notez le nombre ou la chaîne correspondant à l’interface pour laquelle vous souhaitez définir l’adresse IP statique.
-3. Exécutez l’applet de commande suivante pour définir l’adresse IP statique:
+3. Exécutez l’applet de commande suivante pour définir l’adresse IP statique :
 
    ```powershell
    New-NetIPaddress -InterfaceIndex 12 -IPAddress 192.0.2.2 -PrefixLength 24 -DefaultGateway 192.0.2.1
@@ -46,7 +46,7 @@ Pour définir une adresse IP statique, procédez comme suit:
    - **IPAddress** est l’adresse IP statique que vous souhaitez définir. (Dans notre exemple, 191.0.2.2)
    - **PrefixLength** est la longueur de préfixe (une autre forme de masque de sous-réseau) pour l’adresse IP que vous définissez. (Pour notre exemple, 24)
    - **DefaultGateway** est l’adresse IP de la passerelle par défaut. (Pour notre exemple, 192.0.2.1)
-4. Exécutez l’applet de commande suivante pour définir l’adresse du serveur client DNS: 
+4. Exécutez l’applet de commande suivante pour définir l’adresse du serveur client DNS : 
 
    ```powershell
    Set-DNSClientServerAddress –InterfaceIndex 12 -ServerAddresses 192.0.2.4
@@ -55,7 +55,7 @@ Pour définir une adresse IP statique, procédez comme suit:
    où :
    - **InterfaceIndex** est la valeur de IfIndex de l’étape 2.
    - **ServerAddresses** est l’adresse IP de votre serveur DNS.
-5. Pour ajouter plusieurs serveurs DNS, exécutez l’applet de commande suivante: 
+5. Pour ajouter plusieurs serveurs DNS, exécutez l’applet de commande suivante : 
 
    ```powershell
    Set-DNSClientServerAddress –InterfaceIndex 12 -ServerAddresses 192.0.2.4,192.0.2.5
@@ -69,26 +69,26 @@ Si vous devez passer à l’utilisation de DHCP, exécutez **Set-DnsClientServer
 Utilisez les applets de commande suivantes pour joindre un ordinateur à un domaine.
 
 1. Exécutez **Add-Computer**. Vous êtes invité à entrer les informations d’identification pour joindre le domaine et le nom de domaine.
-2. Si vous devez ajouter un compte d’utilisateur de domaine au groupe Administrateurs local, exécutez la commande suivante à partir d’une invite de commandes (et non dans la fenêtre PowerShell):
+2. Si vous devez ajouter un compte d’utilisateur de domaine au groupe Administrateurs local, exécutez la commande suivante à partir d’une invite de commandes (et non dans la fenêtre PowerShell) :
 
    ```
    net localgroup administrators /add <DomainName>\<UserName>
    ```
-3. Redémarrez l’ordinateur. Pour ce faire, vous pouvez exécuter restart **-Computer**.
+3. Redémarrez l’ordinateur. Pour ce faire, vous pouvez exécuter **Restart-Computer**.
 
 ### <a name="rename-the-server"></a>Renommer le serveur
 Pour renommer le serveur, procédez comme suit.
 
 1. Recherchez le nom actuel du serveur à l’aide de la commande **hostname** ou **ipconfig** .
-2. Exécutez **Rename-Computer- \<ComputerName nouveau_nom.\>**
+2. Exécutez **Rename-Computer-ComputerName \<new_name @ no__t-2**.
 3. Redémarrez l’ordinateur.
 
 ### <a name="activate-the-server"></a>Activer le serveur
 
-Exécutez **slmgr. vbs – IPK\<ProductKey\>** . Exécutez ensuite **slmgr. vbs – ATO**. Si l’activation a échoué, vous n’obtiendrez pas de message.
+Exécutez **slmgr. vbs – IPK @ no__t-1productkey @ no__t-2**. Exécutez ensuite **slmgr. vbs – ATO**. Si l’activation a échoué, vous n’obtiendrez pas de message.
 
 > [!NOTE]
-> Vous pouvez également activer le serveur par téléphone, à l’aide d’un [serveur de service de gestion de clés (kms)](../../get-started/server-2016-activation.md), ou à distance. Pour activer à distance, exécutez l’applet de commande suivante à partir d’un ordinateur distant: 
+> Vous pouvez également activer le serveur par téléphone, à l’aide d’un [serveur de service de gestion de clés (kms)](../../get-started/server-2016-activation.md), ou à distance. Pour activer à distance, exécutez l’applet de commande suivante à partir d’un ordinateur distant : 
 > 
 > ```
 > cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato
@@ -111,32 +111,32 @@ Utilisez les informations de référence suivantes pour effectuer des tâches d�
 
 |                             Tâche                              |                                                                                                                                                                                                                 Command                                                                                                                                                                                                                 |
 |---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|             Définir le mot de passe d’administrateur local             |                                                                                                                                                                                                      **administrateur d’utilisateur NET**\*                                                                                                                                                                                                      |
-|                  Joindre un ordinateur à un domaine                  |                                                                                                                                                       **NETDOM rejoindre% ComputerName%** **/domain:\<domaine\> /userd:\<domaine\\nom_utilisateur/passwordd:\>** \* <br> Redémarrez l’ordinateur.                                                                                                                                                        |
+|             Définir le mot de passe d’administrateur local             |                                                                                                                                                                                                      **administrateur de l’utilisateur net** \*                                                                                                                                                                                                      |
+|                  Joindre un ordinateur à un domaine                  |                                                                                                                                                       **NETDOM Join% ComputerName%** **/domain : \<domain @ no__t-3/userd : \<domain @ no__t-5Username @ no__t-6/passwordd :** \* <br> Redémarrez l’ordinateur.                                                                                                                                                        |
 |              Confirmer le changement de domaine              |                                                                                                                                                                                                                 **set**                                                                                                                                                                                                                 |
-|                Supprimer un ordinateur d’un domaine                |                                                                                                                                                                                                   **Netdom Remove \<nom_ordinateur\>**                                                                                                                                                                                                    |
-|         Ajouter un utilisateur au groupe Administrateurs local          |                                                                                                                                                                                       **nom d’utilisateur du \<domaine\\de l’administrateur net localgroup\>**                                                                                                                                                                                       |
-|       Supprimer un utilisateur du groupe Administrateurs local       |                                                                                                                                                                                     **net localgroup Administrators \</delete\\domaine nom_utilisateur\>**                                                                                                                                                                                      |
-|               Ajouter un utilisateur à l’ordinateur local                |                                                                                                                                                                                                **net user \<domaine\nom_utilisateur\> /Add\***                                                                                                                                                                                                 |
-|               Ajouter un groupe à l’ordinateur local               |                                                                                                                                                                                                 **\<nom\> du groupe d’appartenances .net/Add**                                                                                                                                                                                                  |
-|          Renommer un ordinateur joint au domaine          |                                                                                                                                                           **NETDOM renamecomputer% ComputerName%/NewName:\<nouveau nom\> d’ordinateur/userd\<:\\domaine\> nom_utilisateur/passwordd:** \*                                                                                                                                                            |
+|                Supprimer un ordinateur d’un domaine                |                                                                                                                                                                                                   **Netdom Remove \<computername @ no__t-2**                                                                                                                                                                                                    |
+|         Ajouter un utilisateur au groupe Administrateurs local          |                                                                                                                                                                                       **net localgroup Administrators/Add \<domain @ no__t-2username @ no__t-3**                                                                                                                                                                                       |
+|       Supprimer un utilisateur du groupe Administrateurs local       |                                                                                                                                                                                     **net localgroup Administrators/Delete \<domain @ no__t-2username @ no__t-3**                                                                                                                                                                                      |
+|               Ajouter un utilisateur à l’ordinateur local                |                                                                                                                                                                                                **net user \<domain \ username @ no__t-2 \*/Add**                                                                                                                                                                                                 |
+|               Ajouter un groupe à l’ordinateur local               |                                                                                                                                                                                                 **net localgroup @no__t-nom 1group @ no__t-2/Add**                                                                                                                                                                                                  |
+|          Renommer un ordinateur joint au domaine          |                                                                                                                                                           **NETDOM renamecomputer% ComputerName%/NewName : \<New nom d’ordinateur @ no__t-2/userd : \<domain @ no__t-4username @ no__t-5/passwordd :** \*                                                                                                                                                            |
 |                 Confirmer le nouveau nom de l’ordinateur                 |                                                                                                                                                                                                                 **set**                                                                                                                                                                                                                 |
-|         Renommer un ordinateur dans un groupe de travail         |                                                                                                                                                                **Netdom renamecomputer \<currentcomputername\> /NewName:\<NEWCOMPUTERNAME\>** <br>Redémarrez l’ordinateur.                                                                                                                                                                 |
-|                Désactiver la gestion des fichiers de pagination                 |                                                                                                                                                                        **WMIC ComputerSystem où name = "\<ComputerName\>" définir AutomaticManagedPagefile = false**                                                                                                                                                                         |
-|                   Configurer un fichier de pagination                   |                                                            **WMIC pagefileset où name = "\<Path/filename\>" Set InitialSize =\<InitialSize\>, MaximumSize =\<MaxSize\>** <br>Où *chemin d’accès/nom* de fichier est le chemin d’accès et le nom du fichier d’échange, *InitialSize* est la taille de départ du fichier d’échange, en octets, et *MaxSize* est la taille maximale du fichier d’échange, en octets.                                                             |
-|                 Modifier une adresse IP statique                 | **ipconfig/all** <br>Enregistrez les informations pertinentes ou redirigez-les vers un fichier texte (**ipconfig/all > ipconfig. txt**).<br>**netsh interface IPv4 show interfaces**<br>Vérifiez l’existence d’une liste d’interfaces.<br>**netsh interface IPv4 set address name \<ID from interface List\> source = statique address =\<adresse IP\> préférée Gateway =\<adresse de la passerelle\>**<br>Exécutez **ipconfig/all** pour vérifier que DHCP Enabled a la valeur **no**. |
-|                   Définissez une adresse DNS statique.                   |   <strong>netsh interface IPv4 Add dnsserver name =\<nom ou ID de l’adresse de la\> carte d'\<interface réseau = adresse IP de l'\> index du serveur DNS principal = 1 <br></strong>netsh interface IPv4 Add dnsserver name =\<nom de l’adresse du\> serveur DNS\<secondaire = adresse IP de l’index\> du serveur DNS secondaire = 2\*\* <br> Répétez l’opération si nécessaire pour ajouter des serveurs supplémentaires.<br>Exécutez **ipconfig/all** pour vérifier que les adresses sont correctes.   |
-| Changer une adresse IP statique en adresse IP fournie par un DHCP |                                                                                                                                      **netsh interface IPv4 set address name =\<adresse IP de la source\> système locale = DHCP** <br>Exécutez **ipconfig/all** pour vérifier que le protocole DCHP Enabled a la valeur **Oui**.                                                                                                                                      |
-|                      Entrer une clé de produit                      |                                                                                                                                                                                                   **slmgr. vbs – clé \<de produit IPK\>**                                                                                                                                                                                                    |
+|         Renommer un ordinateur dans un groupe de travail         |                                                                                                                                                                **Netdom renamecomputer \<currentcomputername @ no__t-2/NewName : \<newcomputername @ no__t-4** <br>Redémarrez l’ordinateur.                                                                                                                                                                 |
+|                Désactiver la gestion des fichiers de pagination                 |                                                                                                                                                                        **WMIC ComputerSystem WHERE Name = "\<computername @ no__t-2" Set AutomaticManagedPagefile = false**                                                                                                                                                                         |
+|                   Configurer un fichier de pagination                   |                                                            **WMIC pagefileset où name = "\<path/filename @ no__t-2" Set InitialSize = \<initialsize @ no__t-4, MaximumSize = \<maxsize @ no__t-6** <br>Où *chemin d’accès/nom* de fichier est le chemin d’accès et le nom du fichier d’échange, *InitialSize* est la taille de départ du fichier d’échange, en octets, et *MaxSize* est la taille maximale du fichier d’échange, en octets.                                                             |
+|                 Modifier une adresse IP statique                 | **ipconfig/all** <br>Enregistrez les informations pertinentes ou redirigez-les vers un fichier texte (**ipconfig/all > ipconfig. txt**).<br>**netsh interface IPv4 show interfaces**<br>Vérifiez l’existence d’une liste d’interfaces.<br>**netsh interface IPv4 Set Address Name \<ID à partir de la liste d’interfaces @ no__t-2 source = static address = \<preferred adresse IP @ no__t-4 Gateway = \<gateway adresse @ no__t-6**<br>Exécutez **ipconfig/all** pour vérifier que DHCP Enabled a la valeur **no**. |
+|                   Définissez une adresse DNS statique.                   |   <strong>netsh interface IPv4 Add dnsserver Name = \<Nom ou ID de la carte d’interface réseau @ no__t-2 Address = \<IP adresse du serveur DNS principal @ no__t-4 index = 1 <br></strong>netsh interface IPv4 Add dnsserver Name = \<Nom du serveur DNS secondaire @ no__t-2 Address = \<IP adresse du serveur DNS secondaire @ no__t-4 index = 2 @ no__t-5 @ no__t-6 <br> Répétez l’opération si nécessaire pour ajouter des serveurs supplémentaires.<br>Exécutez **ipconfig/all** pour vérifier que les adresses sont correctes.   |
+| Changer une adresse IP statique en adresse IP fournie par un DHCP |                                                                                                                                      **netsh interface IPv4 Set Address Name = @no__t-adresse 1IP du système local @ no__t-2 source = DHCP** <br>Exécutez **ipconfig/all** pour vérifier que le protocole DCHP Enabled a la valeur **Oui**.                                                                                                                                      |
+|                      Entrer une clé de produit                      |                                                                                                                                                                                                   **slmgr. vbs – IPK \<Product clé @ no__t-2**                                                                                                                                                                                                    |
 |                  Activer le serveur localement                  |                                                                                                                                                                                                           **slmgr. vbs-ATO**                                                                                                                                                                                                            |
-|                 Activer le serveur à distance                  |                                            **cscript slmgr. vbs – IPK \<nom de\>serveur clé\>\<de\>produit nom\<d’utilisateur\<mot de passe\>** <br>**cscript slmgr. vbs-ATO \<\> \<nom d'\> utilisateur \<mot_de_passe mot de passe\>** <br>Récupérez le GUID de l’ordinateur en exécutant **cscript slmgr. vbs-** <br> Exécuter **cscript slmgr. vbs-dli \<GUID\>** <br>Vérifiez que l’état de la licence est défini sur **Licensed (activé)** .                                             |
+|                 Activer le serveur à distance                  |                                            **cscript slmgr. vbs – IPK \<Product clé @ no__t-2 @ no__t-3server nom @ no__t-4 @ no__t-5Username @ no__t-6 @ no__t-7password @ no__t-8** <br>**cscript slmgr. vbs-ATO \<servername @ no__t-2 \<username @ no__t-4 \<password @ no__t-6** <br>Récupérez le GUID de l’ordinateur en exécutant **cscript slmgr. vbs-** <br> Exécuter **cscript slmgr. vbs-dli \<GUID @ no__t-2** <br>Vérifiez que l’état de la licence est défini sur **Licensed (activé)** .                                             |
 
 ### <a name="networking-and-firewall"></a>Mise en réseau et pare-feu
 
 |Tâche|Command| 
 |----|-------|
-|Configurer votre serveur pour utiliser un serveur proxy|**netsh WinHTTP Set proxy \<ServerName\>:\<numéro de port\>** <br>**Remarque :** Les installations Server Core ne peuvent pas accéder à Internet via un proxy qui requiert un mot de passe pour autoriser les connexions.|
-|Configurer votre serveur pour contourner le proxy pour les adresses Internet|**netsh WinHTTP Set proxy \<ServerName\>:\<port number\> Bypass-List = "\<local\>"**| 
+|Configurer votre serveur pour utiliser un serveur proxy|**netsh WinHTTP Set proxy \<servername @ no__t-2 : \<port Number @ no__t-4** <br>**Remarque :** Les installations Server Core ne peuvent pas accéder à Internet via un proxy qui requiert un mot de passe pour autoriser les connexions.|
+|Configurer votre serveur pour contourner le proxy pour les adresses Internet|**netsh WinHTTP Set proxy \<servername @ no__t-2 : \<port Number @ no__t-4 Bypass-List = "\<local @ no__t-6"**| 
 |Afficher ou modifier la configuration IPSEC|**netsh ipsec**| 
 |Afficher ou modifier la configuration NAP|**netsh nap**| 
 |Afficher ou modifier l’adresse IP à la traduction d’adresses physiques|**arp**| 
@@ -154,52 +154,52 @@ Utilisez les informations de référence suivantes pour effectuer des tâches d�
 
 |                               Tâche                                |                                                                                                                               Command                                                                                                                                |
 |-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                         Installer une mise à jour                         |                                                                                                                    **Wusa \<Update\>. msu/quiet**                                                                                                                    |
+|                         Installer une mise à jour                         |                                                                                                                    **Wusa @no__t -1update\>.msu/quiet**                                                                                                                    |
 |                      Afficher les mises à jour installées                       |                                                                                                                            **systeminfo**                                                                                                                            |
-|                         Supprimer une mise à jour                          |                                 **Expand/f:\* \<Update\>. msu c:\test** <br>Accédez à répertoire c:\test\ et ouvrez \<Update\>. xml dans un éditeur de texte.<br>Remplacez **install** par **Remove** et enregistrez le fichier.<br>**pkgmgr/n:\<Update\>. Xml**                                 |
-|                    Configurer les mises à jour automatiques                    |          Pour vérifier le paramètre actuel: **cscript%systemroot%\system32\scregedit.wsf/au/v \* \* <br>pour activer les mises à jour automatiques \*: \*cscript scregedit. wsf/au 4** <br>Pour désactiver les mises à jour automatiques: **cscript%systemroot%\SYSTEM32\SCREGEDIT.wsf/au 1**          |
-|                      Activer les rapports d’erreurs                       | Pour vérifier le paramètre actuel: **serverWerOptin/Query** <br>Pour envoyer automatiquement des rapports détaillés: **serverWerOptin/detailed** <br>Pour envoyer automatiquement des rapports de synthèse: **serverWerOptin/Summary** <br>Pour désactiver le rapport d’erreurs: **serverWerOptin/Disable** |
-| Participer au Programme d’amélioration du produit |                                                     Pour vérifier le paramètre actuel: **serverCEIPOptin/Query** <br>Pour activer CEIP: **serverCEIPOptin/Enable** <br>Pour désactiver le programme d’amélioration du produit: **serverCEIPOptin/Disable**                                                      |
+|                         Supprimer une mise à jour                          |                                 **Expand/f : \* @no__t -2update\>.msu c:\test** <br>Accédez à répertoire c:\test\ et ouvrez @no__t -0update\>.xml dans un éditeur de texte.<br>Remplacez **install** par **Remove** et enregistrez le fichier.<br>**pkgmgr/n : @no__t -1update\>.xml**                                 |
+|                    Configurer les mises à jour automatiques                    |          Pour vérifier le paramètre actuel : **cscript%systemroot%\SYSTEM32\SCREGEDIT.wsf/au/v \* @ no__t-2 @ no__t-3Pour activer les mises à jour automatiques : \* @ no__t-5cscript scregedit. wsf/au 4** <br>Pour désactiver les mises à jour automatiques : **cscript%systemroot%\SYSTEM32\SCREGEDIT.wsf/au 1**          |
+|                      Activer les rapports d’erreurs                       | Pour vérifier le paramètre actuel : **serverWerOptin/Query** <br>Pour envoyer automatiquement des rapports détaillés : **serverWerOptin/detailed** <br>Pour envoyer automatiquement des rapports de synthèse : **serverWerOptin/Summary** <br>Pour désactiver le rapport d’erreurs : **serverWerOptin/Disable** |
+| Participer au Programme d’amélioration du produit |                                                     Pour vérifier le paramètre actuel : **serverCEIPOptin/Query** <br>Pour activer CEIP : **serverCEIPOptin/Enable** <br>Pour désactiver le programme d’amélioration du produit : **serverCEIPOptin/Disable**                                                      |
 
 ### <a name="services-processes-and-performance"></a>Services, processus et performances
 
 |                               Tâche                               |                                                                                                                                                                                                             Command                                                                                                                                                                                                              |
 |------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                    Répertorier les services en cours d’exécution                     |                                                                                                                                                                                                  **requête SC** ou **net start**                                                                                                                                                                                                   |
-|                         Démarrer un service                          |                                                                                                                                                                                 **SC Start \<service name\>**  ou **net start \<service name\>**                                                                                                                                                                                  |
-|                          Arrêter un service                          |                                                                                                                                                                                  **sc stop \<service name\>**  ou **net stop \<service name\>**                                                                                                                                                                                   |
+|                         Démarrer un service                          |                                                                                                                                                                                 **sc start \<Service Name @ no__t-2** ou **net start \<Service Name @ no__t-5**                                                                                                                                                                                  |
+|                          Arrêter un service                          |                                                                                                                                                                                  **sc stop \<Service Name @ no__t-2** ou **net stop \<Service Name @ no__t-5**                                                                                                                                                                                   |
 | Obtenir une liste des applications en cours d’exécution et des processus associés |                                                                                                                                                                                                           **tasklist**                                                                                                                                                                                                           |
 |                        Démarrer le Gestionnaire des tâches                        |                                                                                                                                                                                                           **taskmgr**                                                                                                                                                                                                            |
-|    Créer et gérer des journaux de performances et de session de suivi d’événements    | Pour créer un compteur, une trace, une collecte de données de configuration ou une API: **Logman créer** <br>Pour interroger les propriétés du collecteur de données: **Logman Query** <br>Pour démarrer ou arrêter la collecte de données: **\|logman start stop** <br>Pour supprimer un collecteur: **Logman Delete** <br> Pour mettre à jour les propriétés d’un collecteur: **logman update** <br>Pour importer un ensemble de collecteurs de données à partir d’un fichier XML ou l’exporter dans un fichier XML: **\|logman Import Export** |
+|    Créer et gérer des journaux de performances et de session de suivi d’événements    | Pour créer un compteur, une trace, une collecte de données de configuration ou une API : **Logman créer** <br>Pour interroger les propriétés du collecteur de données : **Logman Query** <br>Pour démarrer ou arrêter la collecte de données : **logman start @ no__t-1STOP** <br>Pour supprimer un collecteur : **Logman Delete** <br> Pour mettre à jour les propriétés d’un collecteur : **logman update** <br>Pour importer un ensemble de collecteurs de données à partir d’un fichier XML ou l’exporter dans un fichier XML, procédez comme suit : **Logman Import @ no__t-1export** |
 
-### <a name="event-logs"></a>Journaux d’événements
+### <a name="event-logs"></a>Journaux des événements
 
 |Tâche|Command| 
 |----|-------|
 |Répertorier les journaux des événements|**wevtutil El**| 
-|Interroger des événements dans un journal spécifié|**wevtutil qe/f: nom \<du journal de texte\>**| 
-|Exporter un journal des événements|**nom de \<journal wevtutil EPL\>**| 
-|Effacer un journal des événements|**nom de \<journal wevtutil CL\>**| 
+|Interroger des événements dans un journal spécifié|**wevtutil qe/f : texte @no__t-nom 1log @ no__t-2**| 
+|Exporter un journal des événements|**wevtutil EPL \<log nom @ no__t-2**| 
+|Effacer un journal des événements|**wevtutil CL @no__t 1log-nom @ no__t-2**| 
 
 
 ### <a name="disk-and-file-system"></a>Système de disque et de fichiers
 
 |                   Tâche                   |                        Command                        |
 |------------------------------------------|-------------------------------------------------------|
-|          Gérer les partitions de disque          | Pour obtenir la liste complète des commandes, exécutez **diskpart/?**  |
-|           Gérer les volumes RAID logiciels           | Pour obtenir la liste complète des commandes, exécutez **DiskRAID/?**  |
-|        Gérer les points de montage de volume        | Pour obtenir la liste complète des commandes, exécutez **mountvol/?**  |
-|           défragmenter un volume            |  Pour obtenir la liste complète des commandes, exécutez **Defrag/?**   |
-| Convertir un volume en système de fichiers NTFS |        **convertir \<la lettre\> de volume/FS: NTFS**         |
-|              Compacter un fichier              |  Pour obtenir la liste complète des commandes, exécutez **compact/?**  |
-|          Administrer des fichiers ouverts           | Pour obtenir la liste complète des commandes, exécutez **openfiles/?** |
-|          Administrer des dossiers VSS          | Pour obtenir la liste complète des commandes, exécutez **vssadmin/?**  |
-|        Administrer le système de fichiers        |  Pour obtenir la liste complète des commandes, exécutez **fsutil/?**   |
-|    S’approprier un fichier ou un dossier    |  Pour obtenir la liste complète des commandes, exécutez **icacls/?**   |
+|          Gérer les partitions de disque          | Pour obtenir la liste complète des commandes, exécutez **diskpart/ ?**  |
+|           Gérer les volumes RAID logiciels           | Pour obtenir la liste complète des commandes, exécutez **DiskRAID/ ?**  |
+|        Gérer les points de montage de volume        | Pour obtenir la liste complète des commandes, exécutez **mountvol/ ?**  |
+|           défragmenter un volume            |  Pour obtenir la liste complète des commandes, exécutez **Defrag/ ?**   |
+| Convertir un volume en système de fichiers NTFS |        **Convert @no__t 1Volume @ no__t-2/FS : NTFS**         |
+|              Compacter un fichier              |  Pour obtenir la liste complète des commandes, exécutez **compact/ ?**  |
+|          Administrer des fichiers ouverts           | Pour obtenir la liste complète des commandes, exécutez **openfiles/ ?** |
+|          Administrer des dossiers VSS          | Pour obtenir la liste complète des commandes, exécutez **vssadmin/ ?**  |
+|        Administrer le système de fichiers        |  Pour obtenir la liste complète des commandes, exécutez **fsutil/ ?**   |
+|    S’approprier un fichier ou un dossier    |  Pour obtenir la liste complète des commandes, exécutez **icacls/ ?**   |
  
 ### <a name="hardware"></a>Matériel
 
 |Tâche|Command| 
 |----|-------|
-|Ajouter un lecteur pour un nouveau périphérique matériel|Copiez le pilote dans un dossier situé dans le\\dossier\>% HomeDrive%\<Driver. Exécuter **PnPUtil-i-a% HomeDrive%\\\<Driver dossier\>\\\<Driver\>. inf**|
-|Supprimer un lecteur pour un périphérique matériel|Pour obtenir la liste des pilotes chargés, exécutez la **requête SC type = Driver**. Exécutez ensuite **sc delete \<nom_service\>**|
+|Ajouter un lecteur pour un nouveau périphérique matériel|Copiez le pilote dans un dossier situé dans le dossier% HomeDrive% \\ @ no__t-1driver @ no__t-2. Exécuter **PnPUtil-i-a% HomeDrive% \\ @ no__t-2driver \ no__t-3 @ no__t-4 @ no__t-5driver\>.inf**|
+|Supprimer un lecteur pour un périphérique matériel|Pour obtenir la liste des pilotes chargés, exécutez la **requête SC type = Driver**. Exécutez ensuite **sc delete \<service_name @ no__t-2**|

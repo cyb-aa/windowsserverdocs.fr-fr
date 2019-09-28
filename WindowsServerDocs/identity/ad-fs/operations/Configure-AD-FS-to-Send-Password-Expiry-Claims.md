@@ -7,21 +7,21 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3be14b824038e9424b86c40bfd657dd988fa99e9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 29760dcc0dffe9fe29289f20f1abca4cfd8325b1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189869"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407695"
 ---
 # <a name="configure-ad-fs-to-send-password-expiry-claims"></a>Configurer AD FS pour envoyer les revendications d’expiration de mot de passe
 
 
-Vous pouvez configurer Active Directory Federation Services (ADFS) pour envoyer des revendications d’expiration de mot de passe à la confiance (applications) qui est protégés par AD FS. Comment ces revendications sont utilisées dépendent de l’application. Par exemple, avec Office 365 en tant que votre partie de confiance, les mises à jour ont été implémentées pour Exchange et Outlook pour informer les utilisateurs fédérés de leurs mots de passe bientôt expirer.
+Vous pouvez configurer Services ADFS (AD FS) pour envoyer des revendications d’expiration de mot de passe aux approbations de partie de confiance (applications) protégées par ADFS. Le mode d’utilisation de ces revendications dépend de l’application. Par exemple, avec Office 365 en tant que partie de confiance, des mises à jour ont été implémentées sur Exchange et Outlook pour notifier les utilisateurs fédérés de leurs mots de passe arrivant à expiration.
 
-Pour configurer AD FS pour envoyer le mot de passe de revendications d’expiration pour une partie de confiance, vous devez ajouter les règles de revendication suivante à cette partie de confiance :
+Pour configurer AD FS pour envoyer des revendications d’expiration de mot de passe à une approbation de partie de confiance, vous devez ajouter les règles de revendication suivantes à cette approbation de partie de confiance :
 
 ```
 @RuleName = "Issue Password Expiry Claims"
@@ -30,10 +30,10 @@ c1:[Type == "http://schemas.microsoft.com/ws/2012/01/passwordexpirationtime"]
 ```
 
 > [!NOTE]
-> Revendications d’expiration de mot de passe sont uniquement disponibles pour nom d’utilisateur et mot de passe et Microsoft Passport pour les types d’authentification de travail.  Si l’utilisateur s’authentifie à l’aide de l’authentification intégrée Windows et Passport n’est pas configuré, les revendications ne seront pas disponibles et les utilisateurs ne voient pas de notifications d’expiration de mot de passe.
+> Les revendications d’expiration de mot de passe sont uniquement disponibles pour le nom d’utilisateur et le mot de passe et les types d’authentification Microsoft Passport for Work.  Si l’utilisateur s’authentifie à l’aide de l’authentification intégrée de Windows et que Passport n’est pas configuré, les revendications ne sont pas disponibles et les utilisateurs ne voient pas les notifications d’expiration de mot de passe.
 
 > [!NOTE]
-> Une fenêtre de 14 jours étant les revendications envoyées seront remplies uniquement si le mot de passe arrive à expiration dans les 14 jours.
+> Il existe une fenêtre de 14 jours pour que les revendications envoyées soient remplies uniquement si le mot de passe expire dans un délai de 14 jours.
 
 ## <a name="see-also"></a>Voir aussi
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)

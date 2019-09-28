@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 594e1605f44dad69ab7eee8b22e6a620ade02ad0
-ms.sourcegitcommit: c307886e96622e9595700c94128103b84f5722ce
+ms.openlocfilehash: 99167850ff9ee193aca888d34d98503ea0554c30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70108741"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408553"
 ---
 # <a name="ad-fs-operations"></a>Opérations d'AD FS
 
@@ -84,8 +84,8 @@ Ce document contient une liste de toutes les opérations de documentation pour A
 - [Configurer un environnement de laboratoire AD FS](../ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
 - [Guide pas à pas : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Guide pas à pas : Gérer les risques avec le contrôle d’accès conditionnel](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
-- [Démonstration : Joindre un espace de travail avec un appareil Windows](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
-- [Démonstration : Joindre un espace de travail avec un appareil iOS](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+- [Procédure pas à pas : Joindre un espace de travail avec un appareil Windows](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+- [Procédure pas à pas : Joindre un espace de travail avec un appareil iOS](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
   
 

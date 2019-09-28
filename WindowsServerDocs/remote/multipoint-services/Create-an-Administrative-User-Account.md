@@ -1,8 +1,8 @@
 ---
 title: Créer un compte d’utilisateur administratif
-description: Créer un compte avec des privilèges d’administrateur dans MultiPoint Services
+description: Créer un compte avec des privilèges d’administrateur dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: bf460107e57de5e19f8eaa311e497e9d984680e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6737f7b96396a13aa18485095e0687425cf8b93e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879760"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389699"
 ---
 # <a name="create-an-administrative-user-account"></a>Créer un compte d’utilisateur administratif
-Créez des *comptes d’utilisateur administratif* pour les personnes qui gèrent le système MultiPoint Services. Pour connaître les utilisateurs ayant un accès administratif, dans le gestionnaire MultiPoint, cliquez sur le **utilisateurs** onglet. Les comptes d’utilisateur administratif sont affichés dans la colonne Type de compte comme **Administrateur**. *Les utilisateurs administratifs* ont accès à toutes les tâches du gestionnaire MultiPoint qui modifient les paramètres système et du bureau, tels que :  
+Créez des *comptes d’utilisateur administratif* pour les personnes qui gèrent le système MultiPoint Services. Pour voir qui dispose d’un accès administrateur, dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** . Les comptes d’utilisateur administratif sont affichés dans la colonne Type de compte comme **Administrateur**. Les *utilisateurs administratifs* ont accès à toutes les tâches du gestionnaire multipoint qui modifient les paramètres du bureau et du système, par exemple :  
   
 -   Création de comptes  
   
@@ -40,7 +40,7 @@ Pour plus d’informations sur les problèmes qui vous intéressent en tant qu�
   
 #### <a name="to-create-an-administrative-user-account"></a>Pour créer un compte d’utilisateur administratif  
   
-1.  Dans le gestionnaire MultiPoint, cliquez sur le **utilisateurs** onglet.  
+1.  Dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** .  
   
 2.  Sous **Tâches utilisateur**, cliquez sur **Ajouter un compte d’utilisateur**. L’Assistant **Ajouter un compte d’utilisateur** s’ouvre.  
   

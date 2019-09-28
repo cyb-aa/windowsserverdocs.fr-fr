@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 06/05/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 43a42c211557a41400fada17baaab6a0d5ab822a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 517582661374c388d44362538da6933a916b0039
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866094"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407759"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Stratégies de Access Control dans Windows Server 2012 R2 et Windows Server 2012 AD FS
 
@@ -56,11 +56,11 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 ## <a name="client-access-policies-scenarios"></a>Scénarios de stratégies d’accès client  
 
-|**Scénario**|**Description**| 
+|**Consiste**|**Description**| 
 | --- | --- | 
-|Scénario 1 : Bloquer tout accès externe à Office 365|L’accès à Office 365 est autorisé à partir de tous les clients sur le réseau interne de l’entreprise, mais les demandes des clients externes sont refusées en fonction de l’adresse IP du client externe.|  
+|Scénario 1: Bloquer tout accès externe à Office 365|L’accès à Office 365 est autorisé à partir de tous les clients sur le réseau interne de l’entreprise, mais les demandes des clients externes sont refusées en fonction de l’adresse IP du client externe.|  
 |Scénario 2 : Bloquer tout accès externe à Office 365, à l’exception d’Exchange ActiveSync|L’accès à Office 365 est autorisé à partir de tous les clients sur le réseau d’entreprise interne, ainsi qu’à partir de tous les périphériques clients externes, tels que les téléphones intelligents, qui utilisent Exchange ActiveSync. Tous les autres clients externes, tels que ceux qui utilisent Outlook, sont bloqués.|  
-|Scénario 3 : Bloquer tout accès externe à Office 365 à l’exception des applications basées sur un navigateur|Bloque l’accès externe à Office 365, à l’exception des applications passives (basées sur un navigateur) telles qu’Outlook Accès web ou SharePoint Online.|  
+|Scénario 3 : Bloquer tout accès externe à Office 365 à l’exception des applications basées sur un navigateur|Bloque l’accès externe à Office 365, à l’exception des applications passives (basées sur un navigateur) telles qu’Outlook Accès web ou SharePoint Online.|  
 |Scénario 4 : Bloquer tout accès externe à Office 365, à l’exception des groupes de Active Directory désignés|Ce scénario est utilisé pour tester et valider le déploiement de la stratégie d’accès client. Il bloque l’accès externe à Office 365 uniquement pour les membres d’un ou de plusieurs groupes de Active Directory. Il peut également être utilisé pour fournir un accès externe uniquement aux membres d’un groupe.|  
 
 ## <a name="enabling-client-access-policy"></a>Activation de la stratégie d’accès client  
@@ -87,7 +87,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 7.  Pour enregistrer les nouvelles règles, dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur **OK**. La liste résultante doit ressembler à ce qui suit.  
 
-     ![Règles d’autorisation d’émission](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
+     ![Règles d’authentification d’émission](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
 ###  <a name="scenario2"></a>Scénario 2 : Bloquer tout accès externe à Office 365, à l’exception d’Exchange ActiveSync  
  L’exemple suivant autorise l’accès à toutes les applications Office 365, y compris Exchange Online, à partir des clients internes, y compris Outlook. Il bloque l’accès à partir de clients résidant en dehors du réseau d’entreprise, comme indiqué par l’adresse IP du client, à l’exception des clients Exchange ActiveSync tels que les téléphones intelligents.  
@@ -259,7 +259,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
   Par conséquent, voici un exemple qui correspond à deux adresses (telles que 192.168.1.1 ou 10.0.0.1) : \b192\\.\\168\\. 1.1&#124;/\\b\\\b10\\. 0 \ b  
 
-  Cela vous donne la technique qui vous permet d’entrer un nombre quelconque d’adresses. Si une plage d’adresses doit être autorisée, par exemple 192.168.1.1 – 192.168.1.25, la correspondance doit être effectuée caractère par caractère : \b192\\.\\168\\. 1. ( [1-9] &#124;1 [0-9]&#124;2 [0-5]) \b  
+  Cela vous donne la technique qui vous permet d’entrer un nombre quelconque d’adresses. Si une plage d’adresses doit être autorisée, par exemple 192.168.1.1 – 192.168.1.25, la correspondance doit être effectuée caractère par caractère : \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b  
 
   Notez les points suivants :  
 
@@ -279,9 +279,9 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 - Notez que les parenthèses doivent être correctement positionnées, de sorte que vous ne commencez pas à mettre en correspondance d’autres parties des adresses IP.  
 
-- Une fois le bloc 192 mis en correspondance, nous pouvons écrire une expression similaire pour le bloc 10\\:\\\b10\\. 0.0. ( [1-9] &#124;1 [0-4]) \b  
+- Une fois le bloc 192 mis en correspondance, nous pouvons écrire une expression similaire pour le bloc 10 : \b10 @ no__t-0.0 @ no__t-1.0 @ no__t-2. ([1-9]&#124;1 [0-4]) \b  
 
-- Et en les plaçant ensemble, l’expression suivante doit correspondre à toutes les adresses pour « 192.168.1.1 ~ 25 » et « 10.0.0.1 ~ 14 »\\: \b192\\.\\168.1. ( [1-9] &#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10\\0\\\\0. ( [1-9] &#124;1 [0-4]) \b  
+- Et en les rassemblant, l’expression suivante doit correspondre à toutes les adresses pour « 192.168.1.1 ~ 25 » et « 10.0.0.1 ~ 14 » : \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10 @ no__t-6.0 @ no__t-7.0 @ no__t-8. ([1-9]&#124;1 [0-4]) \b  
 
 ### <a name="testing-the-expression"></a>Test de l’expression  
  Les expressions Regex peuvent devenir assez difficiles. nous vous recommandons donc vivement d’utiliser un outil de vérification Regex. Si vous effectuez une recherche sur Internet pour « générateur d’expressions Regex en ligne », vous trouverez plusieurs utilitaires en ligne de qualité qui vous permettront de tester vos expressions par rapport à des exemples de données.  

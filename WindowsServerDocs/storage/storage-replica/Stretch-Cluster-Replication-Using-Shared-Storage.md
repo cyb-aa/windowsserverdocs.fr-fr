@@ -1,6 +1,6 @@
 ---
 title: Réplication de cluster étendu à l’aide d’un stockage partagé
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: eldenc
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 6c5b9431-ede3-4438-8cf5-a0091a8633b0
-ms.openlocfilehash: 3acfcfd13ee3f78bac59a96b6021e5489f4e39ac
-ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
+ms.openlocfilehash: 654b4aea135c360f5fc5f59fdf85627fe8dd4cc2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000753"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402969"
 ---
 # <a name="stretch-cluster-replication-using-shared-storage"></a>Réplication de cluster étendu à l’aide d’un stockage partagé
 
@@ -36,7 +36,7 @@ Cette procédure pas à pas utilise l’environnement suivant comme exemple :
 
 ![Diagramme montrant deux nœuds à Redmond se répliquant avec deux nœuds du même cluster sur le site de Bellevue](./media/Stretch-Cluster-Replication-Using-Shared-Storage/Storage_SR_StretchClusterExample.png)  
 
-**FIGURE 1:  Réplication du stockage dans un cluster étendu**  
+@NO__T 0FIGURE 1 :  Réplication du stockage dans un cluster Stretch @ no__t-0  
 
 ## <a name="prerequisites"></a>Prérequis  
 -   Forêt de services de domaine Active Directory (exécution de Windows Server 2016 non nécessaire).  
@@ -110,19 +110,19 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
     > - Les volumes doivent être formatés en NTFS ou ReFS.
     > - Le rôle serveur de fichiers est uniquement nécessaire pour que Test-SRTopology fonctionne, car elle ouvre les ports de pare-feu nécessaires au test.  
 
-    -   **Pour les boîtiers JBOD:**  
+    -   **Pour les boîtiers JBOD :**  
 
         1.  Vérifiez que chaque ensemble de nœuds de serveur associés peut voir uniquement les boîtiers de stockage de ce site (autrement dit, un stockage asymétrique) et que les connexions SAS sont correctement configurées.  
 
         2.  Configurez le stockage à l’aide d’espaces de stockage en suivant les **étapes1 à3** indiquées dans [Déployer des espaces de stockage sur un serveur autonome](../storage-spaces/deploy-standalone-storage-spaces.md) à l’aide de Windows PowerShell ou du Gestionnaire de serveur.  
 
-    -   **Pour le stockage iSCSI:**  
+    -   **Pour le stockage iSCSI :**  
 
         1.  Vérifiez que chaque ensemble de nœuds de serveur associés peut voir uniquement les boîtiers de stockage de ce site (autrement dit, un stockage asymétrique). Vous devez utiliser plusieurs cartes réseau si vous utilisez iSCSI.  
 
         2.  Configurez le stockage à l’aide de la documentation de votre fournisseur. Si vous utilisez le ciblage iSCSI basé sur Windows, voir [Stockage par blocs de cibles iSCSI, procédure](../iscsi/iscsi-target-server.md).  
 
-    -   **Pour le stockage SAN FC:**  
+    -   **Pour le stockage SAN FC :**  
 
         1.  Vérifiez que chaque ensemble de nœuds de serveur associés peut voir uniquement les boîtiers de stockage de ce site (autrement dit, un stockage asymétrique) et que vous avez correctement segmenté les hôtes.  
 
@@ -150,7 +150,7 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
    > [!NOTE]  
    > Vous devez vous attendre à des erreurs de stockage suite à la validation du cluster, en raison de l’utilisation du stockage asymétrique.  
 
-3. Créez le cluster de calcul Hyper-V. Vérifiez que le nom du cluster comporte au maximum 15 caractères. L’exemple utilisé ci-dessous est SR-SRVCLUS. Si les nœuds se trouvent dans des sous-réseaux différents, vous devez créer une adresse IP pour le nom de cluster pour chaque sous-réseau et utiliser la dépendance «ou».  Pour plus d’informations, consultez [Configuration des adresses IP et des dépendances pour les clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
+3. Créez le cluster de calcul Hyper-V. Vérifiez que le nom du cluster comporte au maximum 15 caractères. L’exemple utilisé ci-dessous est SR-SRVCLUS. Si les nœuds se trouvent dans des sous-réseaux différents, vous devez créer une adresse IP pour le nom de cluster pour chaque sous-réseau et utiliser la dépendance « ou ».  Pour plus d’informations, consultez [Configuration des adresses IP et des dépendances pour les clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
 4. Configurez un témoin de partage de fichiers ou un témoin de cloud pour fournir un quorum en cas de perte du site.  
 
@@ -220,7 +220,7 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
 
 14. **(Facultatif)** Configurez la mise en réseau de cluster et Active Directory pour un basculement plus rapide du site DNS. Vous pouvez utiliser la mise en réseau SDN (Software-Defined Networking) Hyper-V, des réseaux VLAN étirés, des périphériques d’abstraction de réseau, le TTL du DNS abaissé et d’autres techniques courantes.
 
-    Pour plus d’informations, consultez la session Microsoft de l’allumage: L’étirement des [clusters de basculement et l’utilisation du réplica de stockage dans Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) et le billet de blog activer les notifications de [modifications entre les sites-comment et pourquoi?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) .  
+    Pour plus d’informations, consultez la session Microsoft de l’allumage : L' [étirement des clusters de basculement et l’utilisation du réplica de stockage dans Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) et le billet de blog [activer les notifications de modifications entre les sites-comment et pourquoi ?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) .  
 
 15. **(Facultatif)** Configurez la résilience d’ordinateur virtuel afin que les invités ne soient pas en pause longtemps pendant les défaillances de nœud. Au lieu de cela, ils basculent vers le nouveau stockage source de réplication dans les 10 secondes.  
 
@@ -242,7 +242,7 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
    > [!NOTE]
    >  Vous devez vous attendre à des erreurs de stockage suite à la validation du cluster, en raison de l’utilisation du stockage asymétrique.  
 
-2. Créez le serveur de fichiers pour le cluster de stockage à usage général (vous devez spécifier votre propre adresse IP statique que le cluster utilisera). Vérifiez que le nom du cluster comporte au maximum 15 caractères.  Si les nœuds se trouvent dans des sous-réseaux différents, vous devez créer une adresse IP pour le site supplémentaire à l’aide de la dépendance «ou». Pour plus d’informations, consultez [Configuration des adresses IP et des dépendances pour les clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).
+2. Créez le serveur de fichiers pour le cluster de stockage à usage général (vous devez spécifier votre propre adresse IP statique que le cluster utilisera). Vérifiez que le nom du cluster comporte au maximum 15 caractères.  Si les nœuds se trouvent dans des sous-réseaux différents, vous devez créer une adresse IP pour le site supplémentaire à l’aide de la dépendance « ou ». Pour plus d’informations, consultez [Configuration des adresses IP et des dépendances pour les clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).
    ```PowerShell  
    New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here>  
    Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
@@ -287,7 +287,7 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
 
 9. **(Facultatif)** Configurez la mise en réseau de cluster et Active Directory pour un basculement plus rapide du site DNS. Vous pouvez utiliser la mise en réseau SDN (Software-Defined Networking) Hyper-V, des réseaux VLAN étirés, des périphériques d’abstraction de réseau, le TTL du DNS abaissé et d’autres techniques courantes.  
 
-   Pour plus d’informations, consultez la session Microsoft de l’allumage: [Étirement des clusters de basculement et utilisation du réplica de stockage dans Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) et [activation des notifications de changement entre les sites-comment et pourquoi](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx).  
+   Pour plus d’informations, consultez la session Microsoft de l’allumage : [Étirement des clusters de basculement et utilisation du réplica de stockage dans Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) et [activation des notifications de changement entre les sites-comment et pourquoi](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx).  
 
 10. **(Facultatif)** Configurez la résilience de machine virtuelle afin que les invités ne soient pas en pause longtemps pendant les défaillances de nœud. Au lieu de cela, ils basculent vers le nouveau stockage source de réplication dans les 10 secondes.  
 
@@ -314,7 +314,7 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
 2. Validez le cluster proposé et analysez les résultats pour vérifier que vous pouvez continuer.  
    >[!NOTE]
    >Vous devez vous attendre à des erreurs de stockage suite à la validation du cluster, en raison de l’utilisation du stockage asymétrique.   
-3. Créez le cluster de stockage Serveur de fichiers pour une utilisation générale. Vérifiez que le nom du cluster comporte au maximum 15 caractères. L’exemple utilisé ci-dessous est SR-SRVCLUS.  Si les nœuds se trouvent dans des sous-réseaux différents, vous devez créer une adresse IP pour le nom de cluster pour chaque sous-réseau et utiliser la dépendance «ou».  Pour plus d’informations, consultez [Configuration des adresses IP et des dépendances pour les clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
+3. Créez le cluster de stockage Serveur de fichiers pour une utilisation générale. Vérifiez que le nom du cluster comporte au maximum 15 caractères. L’exemple utilisé ci-dessous est SR-SRVCLUS.  Si les nœuds se trouvent dans des sous-réseaux différents, vous devez créer une adresse IP pour le nom de cluster pour chaque sous-réseau et utiliser la dépendance « ou ».  Pour plus d’informations, consultez [Configuration des adresses IP et des dépendances pour les clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
 4. Configurez un témoin de partage de fichiers ou un témoin de cloud pour fournir un quorum en cas de perte du site.  
    >[!NOTE]
@@ -379,7 +379,7 @@ Pour plus d’informations, consultez la session Microsoft Ignite : [Stretching
     > [!NOTE]
     >  Vous devez vous attendre à des erreurs de stockage suite à la validation du cluster, en raison de l’utilisation du stockage asymétrique.   
 
-2.  Créez le cluster de calcul Hyper-V (vous devez spécifier votre propre adresseIP statique que le cluster utilisera). Vérifiez que le nom du cluster comporte au maximum 15 caractères.  Si les nœuds se trouvent dans des sous-réseaux différents, vous devez créer une adresse IP pour le site supplémentaire à l’aide de la dépendance «ou». Pour plus d’informations, consultez [Configuration des adresses IP et des dépendances pour les clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
+2.  Créez le cluster de calcul Hyper-V (vous devez spécifier votre propre adresseIP statique que le cluster utilisera). Vérifiez que le nom du cluster comporte au maximum 15 caractères.  Si les nœuds se trouvent dans des sous-réseaux différents, vous devez créer une adresse IP pour le site supplémentaire à l’aide de la dépendance « ou ». Pour plus d’informations, consultez [Configuration des adresses IP et des dépendances pour les clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
     ```PowerShell
     New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here> 
@@ -664,9 +664,9 @@ Vous allez maintenant gérer et faire fonctionner votre cluster étendu. Vous po
         > Dans Windows Server2016, vous devrez peut-être utiliser le Gestionnaire du cluster de basculement ou Move-ClusterGroup pour ramener manuellement les disques de destination sur l’autre site une fois les nœuds remis en ligne.  
 
         > [!NOTE]
-        > Le réplica de stockage démonte les volumes de destination. C’est normal.  
+        > Le réplica de stockage démonte les volumes de destination. Cela est normal.  
 
-4.  Pour modifier la taille du journal par défaut de 8 Go, cliquez avec le bouton droit sur les disques du journal source et de destination, cliquez sur l’onglet **Journal** de réplication, puis modifiez la taille des deux disques pour les faire correspondre.  
+4.  Pour modifier la taille du journal par défaut de 8 Go, cliquez avec le bouton droit sur les disques du journal source et de destination, cliquez sur l’onglet **Journal de réplication** , puis modifiez la taille des deux disques pour les faire correspondre.  
 
     > [!NOTE]  
     > La taille du journal par défaut est de 8 Go. En fonction des résultats de l’applet de commande `Test-SRTopology`, vous pouvez décider d’utiliser `-LogSizeInBytes` avec une valeur supérieure ou inférieure.  
@@ -768,7 +768,7 @@ Vous allez maintenant gérer et faire fonctionner votre cluster étendu. Vous po
     3.  Pour effectuer un basculement non planifié du sens de la réplication entre deux sites: coupez l’alimentation des deux nœuds dans un site.  
 
         > [!NOTE]  
-        > Le réplica de stockage démonte les volumes de destination. C’est normal.  
+        > Le réplica de stockage démonte les volumes de destination. Cela est normal.  
 
 4.  Pour modifier la taille du journal par défaut de 8 Go, utilisez **Set-SRGroup** sur les groupes de réplicas de stockage source et de destination.   Par exemple, pour définir une taille de 2Go pour tous les journaux:  
 

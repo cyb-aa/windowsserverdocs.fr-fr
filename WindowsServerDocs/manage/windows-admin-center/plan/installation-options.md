@@ -6,14 +6,14 @@ ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 36c9dfcb38ef417df56206cdb18633cc877183c4
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 144c57bba621ee1b94a66914f8d9b6c0292f8b03
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658900"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406878"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Quel type d’installation vous convient ?
 
@@ -30,7 +30,7 @@ Cette rubrique décrit les différentes options d’installation du centre d’a
 
 ## <a name="installation-supported-operating-systems"></a>Installation : Systèmes d’exploitation pris en charge
 
-Vous pouvez **installer** le centre d’administration Windows sur les systèmes d’exploitation Windows suivants:
+Vous pouvez **installer** le centre d’administration Windows sur les systèmes d’exploitation Windows suivants :
 
 | **Multi**                       | **Mode d’installation** |
 | -----------------------------------| --------------------- |
@@ -39,33 +39,33 @@ Vous pouvez **installer** le centre d’administration Windows sur les systèmes
 | Windows Server 2016                | Serveur de passerelle, serveur géré, cluster de basculement |
 | Windows Server 2019                | Serveur de passerelle, serveur géré, cluster de basculement |
 
-Pour faire fonctionner le centre d’administration Windows:
+Pour faire fonctionner le centre d’administration Windows :
 
-- **Dans le scénario client local:** Lancez la passerelle du centre d’administration Windows à partir du menu Démarrer et connectez-vous à partir d’un navigateur `https://localhost:6516`Web client en accédant à.
-- **Dans d’autres scénarios:** Connectez-vous à la passerelle du centre d’administration Windows sur un autre ordinateur à partir d’un navigateur client via son URL, par exemple,`https://servername.contoso.com`
+- **Dans le scénario client local :** Lancez la passerelle du centre d’administration Windows à partir du menu Démarrer et connectez-vous à partir d’un navigateur Web client en accédant à `https://localhost:6516`.
+- **Dans d’autres scénarios :** Connectez-vous à la passerelle du centre d’administration Windows sur un autre ordinateur à partir d’un navigateur client via son URL, par exemple, `https://servername.contoso.com`
 
 > [!WARNING]
 > L’installation du centre d’administration Windows sur un contrôleur de domaine n’est pas prise en charge. [En savoir plus sur les meilleures pratiques en matière de sécurité du contrôleur de domaine](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack). 
 
 ## <a name="installation-supported-web-browsers"></a>Installation : Navigateurs Web pris en charge
 
-Microsoft Edge et Google Chrome sont testés et pris en charge sur Windows 10. D’autres navigateurs Web, y compris Internet Explorer et Firefox, ne font pas partie de notre matrice de test et ne sont donc pas *officiellement* pris en charge. Ces navigateurs peuvent rencontrer des problèmes lors de l’exécution du centre d’administration Windows. Par exemple, Firefox possède son propre magasin de certificats. vous devez donc importer le `Windows Admin Center Client` certificat dans Firefox pour utiliser le centre d’administration Windows sur Windows 10. Pour plus d’informations, consultez [problèmes connus spécifiques au navigateur](../support/known-issues.md#browser-specific-issues).
+Microsoft Edge et Google Chrome sont testés et pris en charge sur Windows 10. D’autres navigateurs Web, y compris Internet Explorer et Firefox, ne font pas partie de notre matrice de test et ne sont donc pas *officiellement* pris en charge. Ces navigateurs peuvent rencontrer des problèmes lors de l’exécution du centre d’administration Windows. Par exemple, Firefox possède son propre magasin de certificats. vous devez donc importer le certificat `Windows Admin Center Client` dans Firefox pour utiliser le centre d’administration Windows sur Windows 10. Pour plus d’informations, consultez [problèmes connus spécifiques au navigateur](../support/known-issues.md#browser-specific-issues).
 
-## <a name="management-target-supported-operating-systems"></a>Cible de gestion: Systèmes d’exploitation pris en charge
+## <a name="management-target-supported-operating-systems"></a>Cible de gestion : Systèmes d’exploitation pris en charge
 
-Vous pouvez **gérer** les systèmes d’exploitation Windows suivants à l’aide du centre d’administration Windows:
+Vous pouvez **gérer** les systèmes d’exploitation Windows suivants à l’aide du centre d’administration Windows :
 
-| Version | Gérer les nœuds via *Gestionnaire de serveur* | Gérer le *cluster* via *Gestionnaire du cluster de basculement* | Gérer *HCI* via le *Gestionnaire de cluster HCI* |
+| Version | Gérer les *nœuds* via *Gestionnaire de serveur* | Gérer le *cluster* via *Gestionnaire du cluster de basculement* | Gérer *HCI* via le *Gestionnaire de cluster HCI* |
 | ------------------------- |--------------- | ----- | ------------------------ |
 | Windows 10, version 1709 ou ultérieure | Oui (via gestion de l’ordinateur) | N/A | N/A |
 | Canal semi-annuel Windows Server | Oui | Oui | N/A |
 | Windows Server 2019 | Oui | Oui | Oui |
 | Windows Server 2016 | Oui | Oui | Oui, avec la [dernière mise à jour cumulative](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
 | Microsoft Hyper-V Server 2016 | Oui | Oui | N/A |
-| Windows Server 2012 R2 | Oui | Oui | N/A |
+| Windows Server 2012 R2 | Oui | Oui | N/A |
 | Microsoft Hyper-V Server 2012 R2 | Oui | Oui | N/A |
 | Windows Server 2012 | Oui | Oui | N/A |
-| Windows Server 2008 R2 | Oui, fonctionnalités limitées | N/A | N/A |
+| Windows Server 2008 R2 | Oui, fonctionnalités limitées | N/A | N/A |
 
 > [!NOTE]
 > Le centre d’administration Windows requiert des fonctionnalités PowerShell qui ne sont pas incluses dans Windows Server 2008 R2, 2012 et 2012 R2. Si vous souhaitez les gérer à l’aide du centre d’administration Windows, vous devez installer Windows Management Framework (WMF) version 5,1 ou ultérieure sur ces serveurs.

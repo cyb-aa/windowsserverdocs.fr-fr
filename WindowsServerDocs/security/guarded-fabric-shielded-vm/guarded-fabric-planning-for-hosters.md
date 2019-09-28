@@ -1,19 +1,19 @@
 ---
 title: Guide de planification de l’infrastructure protégée et de la machine virtuelle protégée pour les hébergeurs
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 854defc8-99f8-4573-82c0-f484e0785859
 manager: dongill
 author: nirb-ms
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: baa360ecb81c0e8bd54e66771d41c11968b57714
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7e0ffb24f888760df58711a867b7ac0ba2650647
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870453"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386528"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-hosters"></a>Guide de planification de l’infrastructure protégée et de la machine virtuelle protégée pour les hébergeurs
 
@@ -60,7 +60,7 @@ Déployez le service Guardian hôte (SGH) dans un environnement hautement sécur
 
 | Domaine | Détails |
 |------|---------|
-| Configuration requise | <ul><li>Un serveur (cluster à trois nœuds recommandé pour la haute disponibilité)</li><li>Pour le secours, au moins deux serveurs SGH sont requis</li><li>Les serveurs peuvent être de type virtuel ou physique (serveur physique avec module de plateforme sécurisée 2,0 recommandé ; TPM 1,2 également pris en charge)</li><li>Installation Server Core de Windows Server 2016 ou version ultérieure</li><li>Réseau de vue de l’infrastructure autorisant la configuration HTTP ou de [secours](guarded-fabric-manage-branch-office.md#fallback-configuration)</li><li>Certificat HTTPs recommandé pour la validation de l’accès</li></ul> |
+| Configuration requise pour l’installation | <ul><li>Un serveur (cluster à trois nœuds recommandé pour la haute disponibilité)</li><li>Pour le secours, au moins deux serveurs SGH sont requis</li><li>Les serveurs peuvent être de type virtuel ou physique (serveur physique avec module de plateforme sécurisée 2,0 recommandé ; TPM 1,2 également pris en charge)</li><li>Installation Server Core de Windows Server 2016 ou version ultérieure</li><li>Réseau de vue de l’infrastructure autorisant la configuration HTTP ou de [secours](guarded-fabric-manage-branch-office.md#fallback-configuration)</li><li>Certificat HTTPs recommandé pour la validation de l’accès</li></ul> |
 | Dimensionnement | Chaque nœud de serveur SGH de taille moyenne (8 cœurs/4 Go) peut gérer des ordinateurs hôtes Hyper-V 1 000. |
 | gestion | Désigner des personnes spécifiques qui géreront le SGH. Ils doivent être distincts des administrateurs de l’infrastructure. À des fins de comparaison, les clusters SGH peuvent être considérés de la même manière qu’une autorité de certification en termes d’isolation administrative, de déploiement physique et de niveau global de sensibilité de sécurité. |
 | Active Directory du service Guardian hôte | Par défaut, SGH installe son propre Active Directory interne pour la gestion. Il s’agit d’une forêt autonome et autogérée, qui est la configuration recommandée pour aider à isoler le SGH de votre infrastructure.<br><br>Si vous disposez déjà d’une forêt Active Directory à privilèges élevés que vous utilisez pour l’isolation, vous pouvez utiliser cette forêt au lieu de la forêt par défaut SGH. Il est important que SGH ne soit pas joint à un domaine dans la même forêt que les hôtes Hyper-V ou vos outils de gestion de structure. Cela pourrait permettre à un administrateur d’infrastructure d’obtenir le contrôle de SGH. |
@@ -73,6 +73,6 @@ Déployez le service Guardian hôte (SGH) dans un environnement hautement sécur
 | Domaine | Détails |
 |------|---------|
 | Matériel | <ul><li>Attestation de clé hôte : Vous pouvez utiliser n’importe quel matériel existant comme hôte service Guardian. Il existe quelques exceptions (pour vous assurer que votre hôte peut utiliser de nouveaux mécanismes de sécurité à partir de Windows Server 2016, consultez [matériel compatible avec la protection de l’intégrité du code basée sur la virtualisation Windows server 2016](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).</li><li>Attestation approuvée par le module de plateforme sécurisée : Vous pouvez utiliser n’importe quel matériel ayant la [qualification matérielle assurance supplémentaire](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/systems#system-server-assurance) tant qu’il est correctement configuré (voir les [configurations de serveur compatibles avec les machines virtuelles protégées et la protection de l’intégrité du code basée sur la virtualisation). ](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md)pour la configuration spécifique). Cela comprend TPM 2,0 et UEFI version 2.3.1 c et versions ultérieures.</li></ul> |
-| SE | Nous vous recommandons d’utiliser l’option Server Core pour le système d’exploitation hôte Hyper-V. |
+| Système d’exploitation | Nous vous recommandons d’utiliser l’option Server Core pour le système d’exploitation hôte Hyper-V. |
 | Implications sur les performances | En s’appuyant sur les tests de performances, nous prévoyons une différence de densité de 5% environ entre les machines virtuelles protégées et les machines virtuelles non protégées. Cela signifie que si un hôte Hyper-V donné peut exécuter 20 machines virtuelles non protégées, nous pensons qu’il peut exécuter 19 machines virtuelles protégées.<br><br>Veillez à vérifier le dimensionnement avec vos charges de travail standard. Par exemple, il peut y avoir des valeurs hors norme avec des charges de travail d’e/s orientées écriture intensives qui affectent davantage la différence de densité. |
 | Éléments à prendre en compte en matière de filiale | À partir de la version 1709 de Windows Server, vous pouvez spécifier une URL de secours pour un serveur SGH virtualisé exécuté localement en tant que machine virtuelle protégée dans la filiale. L’URL de secours peut être utilisée lorsque la succursale perd la connectivité aux serveurs SGH dans le centre de l’entreprise. Dans les versions précédentes de Windows Server, un hôte Hyper-V qui s’exécute dans une filiale a besoin d’une connexion au service Guardian hôte pour mettre à niveau ou pour migrer dynamiquement des machines virtuelles protégées. Pour plus d’informations, consultez [considérations relatives aux succursales](guarded-fabric-manage-branch-office.md). |

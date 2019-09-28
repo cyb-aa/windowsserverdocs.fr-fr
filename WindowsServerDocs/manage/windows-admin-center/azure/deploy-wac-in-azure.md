@@ -7,13 +7,13 @@ author: jwwool
 ms.author: jeffrew
 ms.date: 04/12/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: d0ebc957715f88898a9c14d2841d8b820f862a0d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 42216375d1784a5bc853994a9de7cff72920088d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869140"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357321"
 ---
 # <a name="deploy-windows-admin-center-in-azure"></a>Déployer le centre d’administration Windows dans Azure
 
@@ -103,7 +103,7 @@ $scriptParams = @{
 ./Deploy-WACAzVM.ps1 @scriptParams
 ```
 
-#### <a name="example-2-same-as-1-but-using-a-certificate-from-azure-key-vault"></a>Exemple 2 : Identique à #1, mais en utilisant un certificat de Azure Key Vault.
+#### <a name="example-2-same-as-1-but-using-a-certificate-from-azure-key-vault"></a>Exemple 2 : Identique à #1, mais en utilisant un certificat de Azure Key Vault.
 
 ```PowerShell
 $scriptParams = @{

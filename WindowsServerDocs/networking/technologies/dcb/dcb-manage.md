@@ -1,19 +1,19 @@
 ---
 title: Gérer Data Center Bridging (DCB)
 description: Cette rubrique fournit des instructions sur l’utilisation des commandes Windows PowerShell pour gérer le pontage des centres de données dans Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fd6e8e5dd0bb4103011269473c3e1091739c775e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d635f96516040fcb30504f752c8194b0323c63f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869799"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405778"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Gérer Data Center Bridging (DCB)
 
@@ -109,7 +109,7 @@ Vous pouvez utiliser la commande **New-NetQosTrafficClass** pour créer une clas
     SMB  ETS   30   4Global
       
 
-Par défaut, toutes les valeurs p 802.1 sont mappées à une classe de trafic par défaut, qui a 100% de la bande passante de la liaison physique. La commande **New-NetQosTrafficClass** crée une nouvelle classe de trafic, à laquelle tout paquet balisé avec 802.1 p Priority value 4 est mappé. L’algorithme \(de sélection\) de transmission TSA est ETS et a 30% de la bande passante.
+Par défaut, toutes les valeurs p 802.1 sont mappées à une classe de trafic par défaut, qui a 100% de la bande passante de la liaison physique. La commande **New-NetQosTrafficClass** crée une nouvelle classe de trafic, à laquelle tout paquet balisé avec 802.1 p Priority value 4 est mappé. L’algorithme de sélection de transmission \(TSA @ no__t-1 est ETS et a 30% de la bande passante.
 
 Vous pouvez créer jusqu’à 7 nouvelles classes de trafic. En incluant la classe de trafic par défaut, il peut y avoir au maximum 8 classes de trafic dans le système. Toutefois, une carte réseau compatible DCB peut ne pas prendre en charge de nombreuses classes de trafic dans le matériel. Si vous créez plusieurs classes de trafic qui peuvent être prises en charge sur une carte réseau et que vous activez DCB sur cette carte réseau, le pilote de miniport signale une erreur au système d’exploitation. L’erreur est consignée dans le journal des événements.
 

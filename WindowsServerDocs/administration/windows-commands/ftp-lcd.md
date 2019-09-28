@@ -1,8 +1,8 @@
 ---
-title: FTP lcd
-description: 'Rubrique de commandes de Windows pour ***- '
+title: écran LCD FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: eac028c8aa675e680dedefcfe9f0b8da18ce7179
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47058cc62e4e87d1fcd951ec3b4a7885eeef2ae2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376311"
 ---
-# <a name="ftp-lcd"></a>ftp: lcd
+# <a name="ftp-lcd"></a>FTP : LCD
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-change le répertoire de travail sur l’ordinateur local. Par défaut, le répertoire de travail est le répertoire dans lequel **ftp** a été démarré.   
+modifie le répertoire de travail sur l’ordinateur local. Par défaut, le répertoire de travail est le répertoire dans lequel **FTP** a été démarré.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 lcd [<directory>]  
@@ -32,11 +32,11 @@ lcd [<directory>]
 ### <a name="parameters"></a>Paramètres  
 |Paramètre|Description|  
 |-------|--------|  
-|[<directory>]|Spécifie le répertoire sur l’ordinateur local vers lequel basculer. Si *directory* n’est pas spécifiée, le répertoire de travail actuel est modifié dans le répertoire par défaut.|  
-## <a name="BKMK_Examples"></a>Exemples  
-modifier le répertoire de travail sur l’ordinateur local à **C:\dir1**  
+|[<directory>]|Spécifie le répertoire sur l’ordinateur local à modifier. Si le *répertoire* n’est pas spécifié, le répertoire de travail actuel est remplacé par le répertoire par défaut.|  
+## <a name="BKMK_Examples"></a>Illustre  
+Remplacez le répertoire de travail de l’ordinateur local par **C:\Dir1**  
 ```  
 lcd C:\dir1  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

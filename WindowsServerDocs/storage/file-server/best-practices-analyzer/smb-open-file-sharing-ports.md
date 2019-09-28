@@ -2,26 +2,26 @@
 title: ELLE Les ports de partage de fichiers et d’imprimantes doivent être ouverts
 TOCTitle: 'SMB: File and printer sharing ports should be open'
 ms.date: 07/02/2012
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: a22801be6ec73b6819a190c793d28feae4edcf69
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 22cd926fdb873538631a6f6850157dceb5a020d7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560426"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385833"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>ELLE Les ports de partage de fichiers et d’imprimantes doivent être ouverts
 
 
-Date de mise à jour : 2 février 2011
+Mise à jour : 2 février 2011
 
 S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012, Windows Server 2008 R2
 
-*Cette rubrique vise à résoudre un problème spécifique identifié par une analyse Best Practices Analyzer. Vous devez appliquer les informations contenues dans cette rubrique uniquement aux ordinateurs sur lesquels les services de fichiers Best Practices Analyzer exécutés et qui rencontrent le problème traité dans cette rubrique. Pour plus d’informations sur les meilleures pratiques et les analyses* , consultez [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
+@no__t rubrique 0This a pour but de résoudre un problème spécifique identifié par une analyse de Best Practices Analyzer. Vous devez appliquer les informations contenues dans cette rubrique uniquement aux ordinateurs sur lesquels les services de fichiers Best Practices Analyzer exécutés et qui rencontrent le problème traité dans cette rubrique. Pour plus d’informations sur les meilleures pratiques et les analyses, consultez @ no__t-0 [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
 
 
 <table>
@@ -31,8 +31,8 @@ S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><p><strong>Système d’exploitation</strong></p></td>
-<td><p>Windows Server</p></td>
+<td><p><strong>Système d'exploitation</strong></p></td>
+<td><p>Windows Server</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Produit/fonctionnalité</strong></p></td>

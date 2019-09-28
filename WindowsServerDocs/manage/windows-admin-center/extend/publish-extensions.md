@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: d2bb97fb65e3fbf5c7809317a8565ff7051d0447
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 24beb287aa35757e1f8057920e8fd95828baf83b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869698"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385204"
 ---
 # <a name="publishing-extensions"></a>Extensions de publication
 
@@ -119,7 +119,7 @@ Voici un exemple de fichier. NuSpec et la liste des propriétés requises ou rec
 | iconUrl | Recommandé lors de la publication dans le flux du centre d’administration Windows | URL de l’icône à afficher dans le gestionnaire d’extensions. |
 | projectUrl | Requis pour la publication dans le flux du centre d’administration Windows | URL du site Web de votre extension. Si vous n’avez pas de site Web distinct, utilisez l’URL de la page Web du package sur le flux NuGet. |
 | licenseUrl | Requis pour la publication dans le flux du centre d’administration Windows | URL du contrat de licence utilisateur final de votre extension. |
-| fichiers d'entrée | Obligatoire | Ces deux paramètres configurent la structure de dossiers attendue par le centre d’administration Windows pour les extensions d’interface utilisateur et les plug-ins de passerelle. |
+| fichiers | Obligatoire | Ces deux paramètres configurent la structure de dossiers attendue par le centre d’administration Windows pour les extensions d’interface utilisateur et les plug-ins de passerelle. |
 
 ### <a name="3-build-the-extension-nuget-package"></a>3. Générer le package NuGet d’extension
 

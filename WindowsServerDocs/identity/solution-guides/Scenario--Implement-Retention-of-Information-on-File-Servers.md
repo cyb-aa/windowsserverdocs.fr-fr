@@ -1,24 +1,24 @@
 ---
 ms.assetid: 81c55015-82e5-4ba1-b15e-cc7b49af28fc
-title: Scénario implémentent rétention d’informations sur les serveurs de fichiers
+title: Scénario implémenter la rétention des informations sur les serveurs de fichiers
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 59fd7f0a0a4d9ed8f5cec57b17be21e1aa4cd592
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b6df28987e9e6d2fa1382b00e9403f2d112fc226
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880250"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406988"
 ---
 # <a name="scenario-implement-retention-of-information-on-file-servers"></a>Scénario : implémenter la rétention des informations sur les serveurs de fichiers
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La période de rétention désigne le temps pendant lequel un document doit être conservé avant qu’il n’expire. La période de rétention peut varier en fonction de l’organisation. Vous pouvez classer des fichiers dans un dossier avec une période de rétention à court, moyen ou long terme, puis définir la durée de chaque période. Vous pouvez conserver un fichier indéfiniment en proclamant sa mise en suspens pour raisons juridiques.  
   
@@ -27,10 +27,10 @@ L’infrastructure de classification des fichiers et le Gestionnaire de ressourc
   
 Vous trouverez des informations sur la configuration de la rétention dans [Plan for Retention of Information on File Servers](assetId:///edf13190-7077-455a-ac01-f534064a9e0c).  
   
-Vous trouverez les étapes pour classer les fichiers de conservation légale et la configuration d’une période de rétention dans [déployer implémentation de rétention des informations sur les serveurs de fichiers &#40;étapes de démonstration&#41;](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md).  
+Pour plus d’informations sur la classification des fichiers en vue de leur conservation légale et sur la configuration d’une période de rétention, consultez [ &#40;&#41;étapes de mise en œuvre de la rétention des informations sur les serveurs de fichiers](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md).  
   
 > [!NOTE]  
-> Ce scénario traite uniquement de la manière de classifier manuellement un document en mode de conservation légale. Toutefois, il est possible dans Windows Server 2012 pour classifier automatiquement les documents de conservation légale. Vous pouvez pour cela créer un classifieur Windows PowerShell qui compare le propriétaire du fichier à une liste de comptes d'utilisateur qui sont en mode de conservation légale. Si le propriétaire du fichier figure dans la liste des comptes d'utilisateur, le fichier est classifié en mode de conservation légale.  
+> Ce scénario traite uniquement de la manière de classifier manuellement un document en mode de conservation légale. Toutefois, il est possible dans Windows Server 2012 de classer automatiquement les documents en vue de leur conservation légale. Vous pouvez pour cela créer un classifieur Windows PowerShell qui compare le propriétaire du fichier à une liste de comptes d'utilisateur qui sont en mode de conservation légale. Si le propriétaire du fichier figure dans la liste des comptes d'utilisateur, le fichier est classifié en mode de conservation légale.  
   
 ## <a name="in-this-scenario"></a>Dans ce scénario  
 Ce scénario fait partie du scénario de contrôle d'accès dynamique. Pour plus d'informations sur le contrôle d'accès dynamique, voir :  
@@ -42,8 +42,8 @@ Le tableau ci-dessous répertorie les fonctionnalités incluses dans ce scénari
   
 |Fonctionnalité|Prise en charge de ce scénario|  
 |-----------|---------------------------------|  
-|[Vue d’ensemble de la file Server Resource Manager](https://technet.microsoft.com/library/hh831701.aspx)|L'infrastructure de classification des fichiers est une fonctionnalité du Gestionnaire de ressources du serveur de fichiers.|  
-|[Présentation des Services de stockage et de fichier](https://technet.microsoft.com/library/hh831487.aspx)|Le Gestionnaire de ressources du serveur de fichiers est une fonctionnalité du rôle serveur Services de fichiers.|  
+|[Vue d’ensemble du serveur de fichiers Gestionnaire des ressources](https://technet.microsoft.com/library/hh831701.aspx)|L'infrastructure de classification des fichiers est une fonctionnalité du Gestionnaire de ressources du serveur de fichiers.|  
+|[Vue d’ensemble des services de stockage et de fichiers](https://technet.microsoft.com/library/hh831487.aspx)|Le Gestionnaire de ressources du serveur de fichiers est une fonctionnalité du rôle serveur Services de fichiers.|  
   
   
 
