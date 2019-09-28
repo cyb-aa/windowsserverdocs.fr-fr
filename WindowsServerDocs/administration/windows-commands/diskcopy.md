@@ -1,8 +1,8 @@
 ---
 title: diskcopy
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: aadb3a77cda7f1403cd2f04ced12c17617f046df
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 553a85ac4fd9b7708d7adc668be4e000b36a9346
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439572"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377821"
 ---
 # <a name="diskcopy"></a>diskcopy
 
 
 
-Copie le contenu de la disquette dans le lecteur source vers une disquette formatée ou non dans le lecteur de destination. Si utilisée sans paramètres, **diskcopy** utilise le lecteur actuel pour le disque source et le disque de destination.
+Copie le contenu de la disquette dans le lecteur source vers une disquette formatée ou non formatée dans le lecteur de destination. En cas d’utilisation sans paramètre, **diskcopy** utilise le lecteur actif pour le disque source et le disque de destination.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -41,70 +41,70 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Drive1>|Spécifie le lecteur qui contient le disque source.|
-|\<Drive2>|Spécifie le lecteur qui contient le disque de destination.|
-|/v|Vérifie que les informations sont correctement copiées. Cette option ralentit le processus de copie.|
+|@no__t 0Drive1 >|Spécifie le lecteur qui contient le disque source.|
+|@no__t 0Drive2 >|Spécifie le lecteur qui contient le disque de destination.|
+|/v|Vérifie que les informations sont copiées correctement. Cette option ralentit le processus de copie.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   À l’aide de disques
+-   Utilisation de disques
 
-    **Diskcopy** fonctionne uniquement avec des disques amovibles, tels que des disquettes, qui doit être du même type. Vous ne pouvez pas utiliser **diskcopy** avec un disque dur. Si vous spécifiez un lecteur de disque dur *lecteur1* ou *lecteur2*, **diskcopy** affiche le message d’erreur suivant :  
+    **Diskcopy** fonctionne uniquement avec les disques amovibles tels que les disquettes, qui doivent être du même type. Vous ne pouvez pas utiliser **diskcopy** avec un disque dur. Si vous spécifiez un disque dur pour *lecteur1* ou *lecteur2*, **diskcopy** affiche le message d’erreur suivant :  
     ```
     Invalid drive specification
     Specified drive does not exist or is nonremovable
     ```  
-    Le **diskcopy** commande vous invite à insérer la source et destination des disques et attend que vous appuyiez sur n’importe quelle touche du clavier avant de continuer.
+    La commande **diskcopy** vous invite à insérer les disques source et de destination et attend que vous appuyiez sur une touche du clavier avant de continuer.
 
-    Après la copie du disque, **diskcopy** affiche le message suivant :  
+    Une fois le disque copié, **diskcopy** affiche le message suivant :  
     ```
     Copy another diskette (Y/N)?
     ```  
-    Si vous appuyez sur O, **diskcopy** vous invite à insérer les disques source et destination pour la prochaine opération de copie. Pour arrêter la **diskcopy** traiter, appuyez sur **N**.
+    Si vous appuyez sur o, **diskcopy** vous invite à insérer les disques source et de destination pour l’opération de copie suivante. Pour arrêter le processus **diskcopy** , appuyez sur **N**.
 
-    Si vous copiez vers une disquette non formatée dans *lecteur2*, **diskcopy** formate le disque avec le même nombre de côtés et secteurs par piste de la disquette dans *lecteur1*. **Diskcopy** affiche le message suivant pendant qu’il formate le disque et copie les fichiers :  
+    Si vous effectuez une copie sur une disquette non formatée dans *lecteur2*, **diskcopy** formate le disque avec le même nombre de côtés et de secteurs par piste que sur le disque de *lecteur1*. **Diskcopy** affiche le message suivant pendant qu’il formate le disque et copie les fichiers :  
     ```
     Formatting while copying
     ```  
--   Numéros de série de disque
+-   Numéros de série des disques
 
-    Si le disque source a un numéro de série du volume **diskcopy** crée un nouveau numéro de série du volume pour le disque de destination et affiche le nombre lorsque l’opération de copie est terminée.
--   En omettant les paramètres de lecteur
+    Si le disque source a un numéro de série de volume, **diskcopy** crée un nouveau numéro de série de volume pour le disque de destination et affiche le nombre lorsque l’opération de copie est terminée.
+-   Omission des paramètres de lecteur
 
-    Si vous omettez le *lecteur2* paramètre, **diskcopy** utilise le lecteur actuel en tant que le lecteur de destination. Si vous omettez les deux paramètres de lecteur, **diskcopy** utilise le lecteur en cours pour les deux. Si le lecteur actuel est identique à *lecteur1*, **diskcopy** vous invite à permuter des disques en fonction des besoins.
--   À l’aide d’un seul lecteur pour la copie
+    Si vous omettez le paramètre *lecteur2* , **diskcopy** utilise le lecteur actuel comme lecteur de destination. Si vous omettez les deux paramètres de lecteur, **diskcopy** utilise le lecteur actif pour les deux. Si le lecteur actif est le même que le *lecteur1*, **diskcopy** vous invite à échanger des disques en fonction des besoins.
+-   Utilisation d’un lecteur pour la copie
 
-    Exécutez **diskcopy** à partir d’un lecteur autre que le lecteur de disquette, par exemple le C le lecteur. Si disquette *lecteur1* et disquette *lecteur2* sont les mêmes, **diskcopy** vous invite à permuter des disques. Si les disques contiennent plus d’informations que la mémoire disponible peut contenir, **diskcopy** ne peut pas lire toutes les informations à la fois. **Diskcopy** lit à partir du disque source, écrit sur le disque de destination, et vous invite à réinsérer le disque source. Ce processus se poursuit jusqu'à ce que vous avez copié la totalité du disque.
--   Éviter la fragmentation du disque
+    Exécutez **diskcopy** à partir d’un lecteur autre que le lecteur de disquette, par exemple le lecteur C. Si le lecteur de disquette *lecteur1* et le *lecteur2* de disquette sont identiques, **diskcopy** vous invite à changer de disque. Si les disques contiennent plus d’informations que la mémoire disponible ne peut en contenir, **diskcopy** ne peut pas lire toutes les informations à la fois. **Diskcopy** lit à partir du disque source, écrit sur le disque de destination et vous invite à insérer à nouveau le disque source. Ce processus se poursuit jusqu’à ce que vous ayez copié la totalité du disque.
+-   Prévention de la fragmentation de disque
 
-    La fragmentation est la présence de petites zones d’espace disque inutilisé entre les fichiers existants sur un disque. Un disque source fragmenté peut ralentir le processus de recherche, de lecture ou d’écriture de fichiers.
+    La fragmentation est la présence de petites zones d’espace disque inutilisé entre des fichiers existants sur un disque. Un disque source fragmenté peut ralentir le processus de recherche, de lecture ou d’écriture de fichiers.
 
-    Étant donné que **diskcopy** effectue une copie exacte du disque source sur le disque de destination, toute fragmentation sur le disque source est transférée vers le disque de destination. Pour éviter de transférer la fragmentation d’un disque vers un autre, utilisez **copie** ou **xcopy** pour copier votre disque. Étant donné que **copie** et **xcopy** copie des fichiers de manière séquentielle, le nouveau disque n’est pas fragmentée.
+    Étant donné que **diskcopy** effectue une copie exacte du disque source sur le disque de destination, toute fragmentation sur le disque source est transférée vers le disque de destination. Pour éviter de transférer la fragmentation d’un disque à un autre, utilisez **Copy** ou **xcopy** pour copier votre disque. Étant donné que **Copy** et **xcopy** copient les fichiers de façon séquentielle, le nouveau disque n’est pas fragmenté.
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser **xcopy** pour copier un disque de démarrage.
-> -   Présentation de **diskcopy** les codes de sortie
+> -   Fonctionnement des codes de sortie de **diskcopy**
 
     The following table explains each exit code.  
     |Code de sortie|Description|
     |---------|-----------|
-    |0|Opération de copie a réussi|
-    |1|Erreur de lecture/écriture non fatale s’est produite|
-    |3|Erreur matérielle irrécupérable s’est produite|
-    |4|Erreur d’initialisation s’est produite|
+    |0|L’opération de copie a réussi|
+    |1|Une erreur de lecture/écriture récupérable s’est produite|
+    |3|Une erreur matérielle irrécupérable s’est produite|
+    |4|Une erreur d’initialisation s’est produite|
 
     To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour copier le disque dans le lecteur B sur le disque dans le lecteur A, tapez :
+Pour copier le disque du lecteur B sur le disque du lecteur A, tapez :
 ```
 diskcopy b: a:
 ```
-Pour utiliser le lecteur de disquette A pour copier une disquette à l’autre, tout d’abord basculer vers le lecteur C et tapez :
+Pour utiliser le lecteur de disquette A afin de copier une disquette sur une autre, commencez par basculer vers le lecteur C, puis tapez :
 
-diskcopy a: a:
+diskcopy a :
 
 #### <a name="additional-references"></a>Références supplémentaires
 

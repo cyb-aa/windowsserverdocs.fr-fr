@@ -1,8 +1,8 @@
 ---
 title: help
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 078c779e7813d2aa7499e515d9729edf92452237
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c3d76a71ec287e5c874ae3e4dec34016c5c80336
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438204"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375581"
 ---
 # <a name="help"></a>help
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche une liste des commandes disponibles ou des informations détaillées sur une commande spécifiée.  
+Affiche la liste des commandes disponibles ou des informations d’aide détaillées sur une commande spécifiée.  
   
   
   
@@ -38,20 +38,20 @@ help [<command>]
   
 | Paramètre |                              Description                              |
 |-----------|-----------------------------------------------------------------------|
-| <command> | Spécifie la commande pour laquelle afficher des informations détaillées. |
+| <command> | Spécifie la commande pour laquelle afficher des informations détaillées sur l’aide. |
   
 ## <a name="remarks"></a>Notes  
   
--   Si aucune commande n’est spécifiée, **aide** affiche toutes les commandes possibles.  
+-   Si aucune commande n’est spécifiée, **l’aide** affiche toutes les commandes possibles.  
   
-## <a name="BKMK_examples"></a>Exemples  
-Pour afficher une liste de toutes les commandes disponibles dans DiskPart, tapez :  
+## <a name="BKMK_examples"></a>Illustre  
+Pour afficher la liste de toutes les commandes disponibles dans DiskPart, tapez :  
   
 ```  
 help  
 ```  
   
-Pour afficher les informations d’aide détaillées sur la façon d’utiliser le **créer une partition principale** commande DiskPart, type :  
+Pour afficher des informations d’aide détaillées sur l’utilisation de la commande **Create partition Primary** dans DiskPart, tapez :  
   
 ```  
 help create partition primary  

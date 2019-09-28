@@ -1,8 +1,8 @@
 ---
-title: EXEC
-description: 'Rubrique de commandes de Windows pour ***- '
+title: exécutable
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ecdfd05b8abefb35946b783daaa3220a6713a38d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 514503e4920e16ba6778185af32f925541805223
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882920"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377433"
 ---
-# <a name="exec"></a>EXEC
+# <a name="exec"></a>exécutable
 
 
 
-exécute un fichier sur l’ordinateur local. Le fichier peut être un **cmd** script.
+exécute un fichier sur l’ordinateur local. Le fichier peut être un script **cmd** .
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,13 +36,13 @@ exec <ScriptFile.cmd>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<ScriptFile.cmd>|Spécifie le fichier de script à exécuter.|
+|@no__t -0ScriptFile. cmd >|Spécifie le fichier de script à exécuter.|
 
 ## <a name="remarks"></a>Notes
 
--   Cette commande permet de dupliquer ou de restaurer des données dans le cadre d’une sauvegarde ou de séquence de restauration.
--   Si le script échoue, une erreur est retournée et DiskShadow se ferme.
+-   Cette commande permet de dupliquer ou de restaurer des données dans le cadre d’une séquence de sauvegarde ou de restauration.
+-   Si le script échoue, une erreur est retournée et DiskShadow s’arrête.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

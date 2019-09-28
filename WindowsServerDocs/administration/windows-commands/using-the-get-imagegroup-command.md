@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande get-ImageGroup
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande ImageGroup
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9dcb76155dc1044730673ed46a53cad57441a246
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6531a3b69840a0a4910b2effdd3e349b76edf2c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862600"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363119"
 ---
-# <a name="using-the-get-imagegroup-command"></a>À l’aide de la commande get-ImageGroup
+# <a name="using-the-get-imagegroup-command"></a>Utilisation de la commande ImageGroup
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Récupère des informations sur un groupe d’images et les images qu’il contient.
 ## <a name="syntax"></a>Syntaxe
@@ -32,21 +32,21 @@ wdsutil [Options] /Get-ImageGroumediaGroup:<Image group name> [/Server:<Server n
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-mediaGroup :<Image group name>|Spécifie le nom du groupe d'images.|
-|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local doit être utilisé.|
-|[/detailed]|Retourne les métadonnées d’image pour chaque image. Si ce paramètre n’est pas utilisé, le comportement par défaut consiste à retourner uniquement le nom de l’image, description et nom de fichier.|
-## <a name="BKMK_examples"></a>Exemples
+mediaGroup : <Image group name>|Spécifie le nom du groupe d'images.|
+|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|/detailed|Retourne les métadonnées d’image pour chaque image. Si ce paramètre n’est pas utilisé, le comportement par défaut consiste à retourner uniquement le nom de l’image, la description et le nom du fichier.|
+## <a name="BKMK_examples"></a>Illustre
 Pour afficher des informations sur un groupe d’images, tapez :
 ```
 wdsutil /Get-ImageGroumediaGroup:ImageGroup1
 ```
-Pour afficher plus d’informations, y compris les métadonnées, tapez :
+Pour afficher des informations telles que des métadonnées, tapez :
 ```
 wdsutil /verbose /Get-ImageGroumediaGroup:ImageGroup1 /Server:MyWDSServer /detailed
 ```
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [à l’aide de la commande add-ImageGroup](using-the-add-imagegroup-command.md)
-[à l’aide de la commande get-AllImageGroups](using-the-get-allimagegroups-command.md) 
- [ À l’aide de la commande remove-ImageGroup](using-the-remove-imagegroup-command.md)
-[sous-commande : set-ImageGroup](subcommand-set-imagegroup.md)
+[à l’aide de la commande AllImageGroups](using-the-get-allimagegroups-command.md)
+[à l’aide de la commande Remove-ImageGroup](using-the-remove-imagegroup-command.md)
+ sous-[commande : Set-ImageGroup](subcommand-set-imagegroup.md)

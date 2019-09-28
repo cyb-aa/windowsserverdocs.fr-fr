@@ -1,8 +1,8 @@
 ---
-title: Disque d’attributs
-description: Rubrique de commandes de Windows pour **disque d’attributs** -affiche, définit ou efface les attributs d’un disque.
+title: disque d’attributs
+description: Rubrique relative aux commandes Windows pour les **attributs disque** -affiche, définit ou efface les attributs d’un disque.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cacc2fb6b47d095f5e452ca470c89f228949594
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 415125208b13d82adeed736107f59fda9489a953
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890350"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382570"
 ---
-# <a name="attributes-disk"></a>Disque d’attributs
+# <a name="attributes-disk"></a>disque d’attributs
 
 
 
 Affiche, définit ou efface les attributs d’un disque.
 
 > [!IMPORTANT]
-> Ce paramètre n’est pas disponible dans n’importe quelle édition de Windows Vista.
+> Ce paramètre n’est pas disponible dans les éditions de Windows Vista.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -39,28 +39,28 @@ attributes disk [{set | clear}] [readonly] [noerr]
 
 |Paramètre|Description|
 |---------|-----------|
-|jeu|Définit l’attribut spécifié du disque qui a le focus.|
-|clear|Supprime l’attribut spécifié du disque qui a le focus.|
-|en lecture seule|Spécifie que le disque est en lecture seule.|
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|
+|jeu|Définit l’attribut spécifié du disque avec le focus.|
+|clear|Efface l’attribut spécifié du disque qui a le focus.|
+|seulement|Spécifie que le disque est en lecture seule.|
+|noerr|À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|
 
 ## <a name="remarks"></a>Notes
 
--   Lorsque **disque d’attributs** est utilisé pour afficher les attributs en cours d’un disque, l’attribut de disque de démarrage désigne le disque qui est utilisé pour démarrer l’ordinateur. Pour une mise en miroir dynamique, il est affiché pour le disque qui contient le bre de démarrage du volume de démarrage.
--   Un disque doit être sélectionné pour le **disque d’attributs** commande réussisse. Utilisez le **sélectionnez disque** commande pour sélectionner un disque et de déplacer le focus vers elle.
+-   Lorsque le **disque des attributs** est utilisé pour afficher les attributs actuels d’un disque, l’attribut disque de démarrage indique le disque utilisé pour démarrer l’ordinateur. Pour un miroir dynamique, il est affiché pour le disque qui contient le plex de démarrage du volume de démarrage.
+-   Pour que la commande de disque des **attributs** aboutisse, vous devez sélectionner un disque. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Pour afficher les attributs du disque sélectionné, tapez :
 ```
 attributes disk
 ```
-Pour définir le disque sélectionné comme étant en lecture seule, tapez :
+Pour définir le disque sélectionné en lecture seule, tapez :
 ```
 attributes disk set readonly
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

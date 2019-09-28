@@ -1,8 +1,8 @@
 ---
 title: nslookup set recurse
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de948d9e182cf6489c1869a5725bce8319484293
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 68a5dc26387ddeb6541cc1c85005cd9dab4b433a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436670"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372891"
 ---
 # <a name="nslookup-set-recurse"></a>nslookup set recurse
 
 
 
-Indique au serveur de nom de système DNS (Domain Name) d’interroger d’autres serveurs s’il ne possède pas les informations.
+Indique au serveur de noms DNS (Domain Name System) d’interroger d’autres serveurs s’il ne contient pas les informations.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,8 +36,8 @@ set [no]recurse
 
 |   Paramètre   |                                                                  Description                                                                  |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| **norecurse** |                Arrête le serveur de noms système DNS (Domain Name) à partir d’interroger d’autres serveurs s’il ne possède pas les informations.                |
-|  **recurse**  | Indique au serveur de nom de système DNS (Domain Name) d’interroger d’autres serveurs s’il ne possède pas les informations. La syntaxe par défaut est **recurse**. |
+| **norépéter** |                Arrête le serveur de noms DNS (Domain Name System) pour interroger d’autres serveurs s’il ne contient pas les informations.                |
+|  **recurse**  | Indique au serveur de noms DNS (Domain Name System) d’interroger d’autres serveurs s’il ne contient pas les informations. La syntaxe par défaut est **recurse**. |
 |     {aide     |                                                                      ?}                                                                       |
 
 #### <a name="additional-references"></a>Références supplémentaires

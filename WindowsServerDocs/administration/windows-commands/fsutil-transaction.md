@@ -1,7 +1,7 @@
 ---
 ms.assetid: f2eefaaf-2817-4ac7-abac-d2b65fa971dc
-title: transaction de fsutil
-ms.prod: windows-server-threshold
+title: Fsutil transaction
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: c225c99919a2558559b1ec7a47b61d716e199a73
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 286660baad699e21abe751a9cb956b1ac7613e80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439000"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376858"
 ---
-# <a name="fsutil-transaction"></a>transaction de fsutil
+# <a name="fsutil-transaction"></a>Fsutil transaction
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
 
-Gère les transactions de NTFS.
+Gère les transactions NTFS.
 
-Pour obtenir des exemples montrant comment utiliser cette commande, consultez [exemples](#BKMK_examples) .
+Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples) .
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,19 +37,19 @@ fsutil transaction [rollback] <GUID>
 
 | Paramètre  |                                                                                                                                                     Description                                                                                                                                                     |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   validation   |                                                                                                                      Marque la fin d’une transaction réussie implicite ou explicite spécifiée.                                                                                                                      |
+|   validation   |                                                                                                                      Marque la fin d’une transaction spécifiée implicite ou explicite.                                                                                                                      |
 |   <GUID>   |                                                                                                                               Spécifie la valeur GUID qui représente une transaction.                                                                                                                               |
-|  fileinfo  |                                                                                                                              Affiche des informations de transaction pour le fichier spécifié.                                                                                                                               |
-| <Filename> |                                                                                                                                         Spécifie le chemin d’accès complet et nom de fichier.                                                                                                                                          |
-|    list    |                                                                                                                                 Affiche une liste de transactions en cours d’exécution.                                                                                                                                  |
-|   requête    | Affiche des informations pour la transaction spécifiée.<br /><br />-If **fsutil transaction des fichiers de requête** est spécifié, les informations de fichier seront affichera uniquement pour la transaction spécifiée.<br />-If **fsutil transaction interroger tous les** est spécifié, toutes les informations de la transaction seront affichera. |
-|  rollback  |                                                                                                                                Restaure une transaction spécifiée au début.                                                                                                                                 |
+|  FileInfo  |                                                                                                                              Affiche des informations sur les transactions pour le fichier spécifié.                                                                                                                               |
+| <Filename> |                                                                                                                                         Spécifie le chemin d’accès complet et le nom de fichier.                                                                                                                                          |
+|    list    |                                                                                                                                 Affiche la liste des transactions en cours d’exécution.                                                                                                                                  |
+|   requête    | Affiche des informations pour la transaction spécifiée.<br /><br />-Si les **fichiers de requête fsutil transaction** sont spécifiés, les informations de fichier s’affichent uniquement pour la transaction spécifiée.<br />-Si l’ensemble de la **requête fsutil transaction** est spécifié, toutes les informations relatives à la transaction sont affichées. |
+|  instruction  |                                                                                                                                Restaure une transaction spécifiée au début.                                                                                                                                 |
 
 ### <a name="remarks"></a>Notes
 
--   NTFS transactionnel a été introduit dans Windows Server 2008.
+-   Le NTFS transactionnel a été introduit dans Windows Server 2008.
 
-### <a name="BKMK_examples"></a>Exemples
+### <a name="BKMK_examples"></a>Illustre
 Pour afficher les informations de transaction pour le fichier c:\test.txt, tapez :
 
 ```

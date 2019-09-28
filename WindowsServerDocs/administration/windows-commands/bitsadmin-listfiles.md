@@ -1,8 +1,8 @@
 ---
 title: bitsadmin listfiles
-description: Rubrique de commandes de Windows pour **bitsadmin listfiles** -répertorie les fichiers dans le travail spécifié.
+description: Rubrique relative aux commandes Windows pour **Bitsadmin listfiles** -répertorie les fichiers du travail spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4f0f86a7e176c601c51dbdf403baf51f70e53dc4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 43823e4f5c8443396e21405f22ba8b3c5687da44
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852970"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381062"
 ---
 # <a name="bitsadmin-listfiles"></a>bitsadmin listfiles
 
 
 
-Répertorie les fichiers dans le travail spécifié.
+Répertorie les fichiers du travail spécifié.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,9 +36,9 @@ bitsadmin /ListFiles <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 L’exemple suivant récupère la liste des fichiers pour le travail nommé *myDownloadJob*.
 ```
@@ -47,4 +47,4 @@ C:\>bitsadmin /GetNotifyFlags myDownloadJob
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

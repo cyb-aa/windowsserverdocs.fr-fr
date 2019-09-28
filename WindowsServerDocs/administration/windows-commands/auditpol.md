@@ -1,8 +1,8 @@
 ---
 title: auditpol
-description: Rubrique de commandes de Windows pour **auditpol** - affiche des informations sur et effectue des fonctions pour manipuler des stratégies d’audit.
+description: 'Rubrique relative aux commandes Windows pour **Auditpol** : affiche des informations sur et exécute des fonctions pour manipuler les stratégies d’audit.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7e8364be977e868ac161704e67c37ec5c400e49
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e249a9e2a07505f052b774208c514b4d16879b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849220"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382380"
 ---
 # <a name="auditpol"></a>auditpol
 
 
 
-Affiche des informations et effectue des fonctions pour manipuler des stratégies d’audit.
+Affiche des informations sur et exécute des fonctions pour manipuler les stratégies d’audit.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez la section exemples dans chaque rubrique.
 
@@ -38,27 +38,27 @@ Auditpol command [<sub-command><options>]
 
 |Sous-commande|Description|
 |-----------|-----------|
-|/get|Affiche la stratégie d’audit actuelle.</br>Consultez [Auditpol get](auditpol-get.md) pour la syntaxe et les options.|
-|/set|Définit la stratégie d’audit.</br>Consultez [Auditpol set](auditpol-set.md) pour la syntaxe et les options.|
-|/list|Affiche les éléments de la stratégie peut être sélectionné.</br>Consultez [Auditpol liste](auditpol-list.md) pour la syntaxe et les options.|
-|/backup|Enregistre la stratégie d’audit dans un fichier.</br>Consultez [Auditpol sauvegarde](auditpol-backup.md) pour la syntaxe et les options.|
-|/restore|Restaure la stratégie d’audit à partir d’un fichier qui a été créé précédemment à l’aide d’auditpol /backup.</br>Consultez [Auditpol restauration](auditpol-restore.md) pour la syntaxe et les options.|
-|/clear|Efface la stratégie d’audit.</br>Consultez [Auditpol clair](auditpol-clear.md) pour la syntaxe et les options.|
-|/remove|Supprime tous les paramètres de stratégie d’audit par utilisateur et désactive tous les paramètres de stratégie d’audit système.</br>Consultez [Auditpol remove](auditpol-remove.md) pour la syntaxe et les options.|
-|/resourceSACL|Configure les listes de contrôle d’accès système (SACL) ressources globales.</br>Remarque: S’applique uniquement à Windows 7 et Windows Server 2008 R2.</br>Consultez [Auditpol resourceSACL](auditpol-resourcesacl.md).|
+|/Get|Affiche la stratégie d’audit actuelle.</br>Pour [obtenir](auditpol-get.md) la syntaxe et les options, consultez auditpol.|
+|/Set|Définit la stratégie d’audit.</br>Consultez l' [ensemble d’Auditpol](auditpol-set.md) pour connaître la syntaxe et les options.|
+|/List|Affiche des éléments de stratégie sélectionnables.</br>Consultez [liste d’Auditpol](auditpol-list.md) pour connaître la syntaxe et les options.|
+|/Backup|Enregistre la stratégie d’audit dans un fichier.</br>Consultez [sauvegarde Auditpol](auditpol-backup.md) pour connaître la syntaxe et les options.|
+|/Restore|Restaure la stratégie d’audit à partir d’un fichier qui a été créé précédemment à l’aide d’Auditpol/Backup.</br>Consultez [restauration d’Auditpol](auditpol-restore.md) pour connaître la syntaxe et les options.|
+|/Clear|Efface la stratégie d’audit.</br>Consultez l’option [Auditpol Clear](auditpol-clear.md) pour connaître la syntaxe et les options.|
+|/remove|Supprime tous les paramètres de stratégie d’audit par utilisateur et désactive tous les paramètres de stratégie d’audit système.</br>Consultez l’outil [Auditpol Remove](auditpol-remove.md) pour connaître la syntaxe et les options.|
+|/resourceSACL|Configure les listes de contrôle d’accès (SACL) du système de ressources globales.</br>Remarque : S’applique uniquement à Windows 7 et Windows Server 2008 R2.</br>Consultez [Auditpol resourceSACL](auditpol-resourcesacl.md).|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
-L’outil de ligne de commande de stratégie d’audit peut être utilisé pour :
--   Définir et interroger une stratégie d’audit système.
+L’outil en ligne de commande de la stratégie d’audit peut être utilisé pour :
+-   Définir et interroger une stratégie d’audit du système.
 -   Définir et interroger une stratégie d’audit par utilisateur.
--   Définir et interroger des options d’audit.
+-   Définissez et interrogez les options d’audit.
 -   Définir et interroger le descripteur de sécurité utilisé pour déléguer l’accès à une stratégie d’audit.
--   Signaler ou sauvegarder une stratégie d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).
+-   Créez un rapport ou sauvegardez une stratégie d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).
 -   Charger une stratégie d’audit à partir d’un fichier texte CSV.
--   Configurer les ressources globales SACL.
+-   Configurer des listes SACL de ressources globales.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

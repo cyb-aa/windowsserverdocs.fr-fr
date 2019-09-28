@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getbytestransferred
-description: Rubrique de commandes de Windows pour **bitsadmin getbytestransferred** -récupère le nombre d’octets transférés pour le travail spécifié.
+description: La rubrique commandes Windows pour **Bitsadmin getbytestransferred** -récupère le nombre d’octets transférés pour le travail spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cce2c051af169385c43fdff4efdeff46d8422926
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f690fa55a4ac5ae31223794c5e7eabc0c982c2ce
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814610"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381735"
 ---
 # <a name="bitsadmin-getbytestransferred"></a>bitsadmin getbytestransferred
 
@@ -36,9 +36,9 @@ bitsadmin /GetBytesTransferred <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 L’exemple suivant récupère le nombre d’octets transférés pour le travail nommé *myDownloadJob*.
 ```
@@ -47,4 +47,4 @@ C:\>bitsadmin /GetBytesTransferred myDownloadJob
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

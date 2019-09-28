@@ -1,8 +1,8 @@
 ---
-title: créer la partition efi
-description: 'Rubrique de commandes de Windows pour ***- '
+title: créer une partition EFI
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99970fba41a747a6bb4b1ca6cc4b7f603c547790
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 76d97129fd67345f23eee2fc7b300493a1632cc6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434162"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379011"
 ---
-# <a name="create-partition-efi"></a>créer la partition efi
+# <a name="create-partition-efi"></a>créer une partition EFI
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Sur Itanium\-ordinateurs, crée une Interface micrologicielle Extensible \(EFI\) partition système sur une Table de Partition GUID \(gpt\) disque.  
+Sur les ordinateurs Itanium @ no__t-0based, crée une partition système Extensible Firmware Interface \(EFI @ no__t-2 sur une table de partition GUID \(gpt @ no__t-4.  
   
   
   
@@ -38,18 +38,18 @@ create partition efi [size=<n>] [offset=<n>] [noerr]
   
 |  Paramètre  |                                                                                             Description                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  size\=<n>  |                         La taille de la partition en mégaoctets \(Mo\). Si aucune taille n’est donnée, la partition se poursuit jusqu'à ce que l’espace libre dans la région actuelle.                         |
-| offset\=<n> |             Le décalage en kilo-octets \(Ko\), à laquelle la partition est créée. Si aucun décalage n’est fourni, la partition est placée dans la première étendue de disque qui est assez grande pour le contenir.              |
-|    NOERR    | Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart. |
+|  taille @ no__t-0 @ no__t-1  |                         Taille de la partition en mégaoctets \(MB @ no__t-1. Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la région actuelle.                         |
+| décalage @ no__t-0 @ no__t-1 |             Décalage en kilo-octets @no__t-taille 0 Ko @ no__t-1, à partir duquel la partition est créée. Si aucun décalage n’est spécifié, la partition est placée dans la première étendue de disque qui est suffisamment grande pour la contenir.              |
+|    noerr    | À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
   
 ## <a name="remarks"></a>Notes  
   
--   Une fois que la partition a été créée, le focus est donné à la nouvelle partition.  
+-   Une fois la partition créée, le focus est donné à la nouvelle partition.  
   
--   Un disque gpt doit être sélectionné pour cette opération réussisse. Utilisez le **sélectionnez disque** commande pour sélectionner un disque et de déplacer le focus vers elle.  
+-   Pour que cette opération aboutisse, vous devez sélectionner un disque GPT. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.  
   
-## <a name="BKMK_examples"></a>Exemples  
-Pour créer une partition EFI de 1 000 mégaoctets sur le disque sélectionné, tapez :  
+## <a name="BKMK_examples"></a>Illustre  
+Pour créer une partition EFI de 1000 mégaoctets sur le disque sélectionné, tapez :  
   
 ```  
 create partition efi size=1000  

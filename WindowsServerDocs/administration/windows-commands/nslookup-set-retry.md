@@ -1,8 +1,8 @@
 ---
 title: nslookup set retry
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 876d8332e778aa0b3049354a21fbe01adb883729
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 306bcc4f5e7ac98767c3c2e274100cf917874a8e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436649"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372860"
 ---
 # <a name="nslookup-set-retry"></a>nslookup set retry
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Définit le nombre de tentatives.
+Définit le nombre de nouvelles tentatives.
 ## <a name="syntax"></a>Syntaxe
 ```
 set retry=<Number>
@@ -33,11 +33,11 @@ set retry=<Number>
 
 |    Paramètre    |                                      Description                                       |
 |-----------------|----------------------------------------------------------------------------------------|
-|    <Number>     | Spécifie la nouvelle valeur pour le nombre de tentatives. Le nombre de nouvelles tentatives par défaut est 4. |
-| {aide &#124; ?} |                 Affiche un résumé de **nslookup** sous-commandes.                  |
+|    <Number>     | Spécifie la nouvelle valeur pour le nombre de nouvelles tentatives. Le nombre de tentatives par défaut est de 4. |
+| {Help &#124; ?} |                 Affiche un bref résumé des sous-commandes **nslookup** .                  |
 
 ## <a name="remarks"></a>Notes
-- Une réponse à une demande n’est pas reçue dans un certain laps de temps, le délai d’attente est doublé et la demande est renvoyée. La valeur de nouvelle tentative contrôle le nombre de fois où une demande est renvoyée avant d’abandonner. Vous pouvez modifier le délai d’attente avec le **définir le délai d’attente** sous-commande.
+- Quand une réponse à une demande n’est pas reçue dans un laps de temps donné, le délai d’attente est doublé et la demande est renvoyée. La valeur de nouvelle tentative contrôle le nombre de fois qu’une demande est renvoyée avant d’abandonner. Vous pouvez modifier le délai d’attente à l’aide de la sous-commande **Set Timeout** .
   ## <a name="additional-references"></a>Références supplémentaires
   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [nslookup définie le délai d’expiration](nslookup-set-timeout.md)
+  [nslookup Set Timeout](nslookup-set-timeout.md)

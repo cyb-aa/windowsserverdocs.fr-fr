@@ -1,8 +1,8 @@
 ---
 title: créer une partition logique
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3af60aed6c8305e410c6ebfba3cf2e006034ad7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4f18048272eda710f7cb53a631ddeda81784a56b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434153"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378891"
 ---
 # <a name="create-partition-logical"></a>créer une partition logique
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Crée une partition logique dans une partition étendue existante. Vous pouvez uniquement utiliser cette commande sur l’enregistrement de démarrage principal \(MBR\) disques.  
+crée une partition logique dans une partition étendue existante. Vous pouvez utiliser cette commande uniquement sur un enregistrement de démarrage principal \(MBR @ no__t-1 disques.  
   
   
   
@@ -38,21 +38,21 @@ create partition logical [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 |  Paramètre  |                                                                                                                                                                                                                       Description                                                                                                                                                                                                                        |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  size\=<n>  |                                                                                                              Spécifie la taille de la partition logique en mégaoctets \(Mo\), qui doit être inférieur à la partition étendue. Si aucune taille n’est donnée, la partition se poursuit jusqu'à ce que l’espace libre dans la partition étendue.                                                                                                               |
-| offset\=<n> | Spécifie le décalage en kilo-octets \(Ko\), à laquelle la partition est créée. L’arrondi de manière à remplir complètement la taille de cylindre est utilisé. Si aucun décalage n’est fourni, la partition est placée dans la première étendue de disque qui est assez grande pour le contenir. La partition est au moins aussi longue en octets que le nombre spécifié par **taille\=<n>** . Si vous spécifiez une taille pour la partition logique, il doit être inférieure à la partition étendue. |
-| align\=<n>  |                                                                                     Aligne toutes les étendues de volume ou une partition à la limite d’alignement le plus proche. Généralement utilisé avec le matériel RAID numéro d’unité logique \(LUN\) tableaux pour améliorer les performances.  <n> est le nombre de kilo-octets \(Ko\) à partir du début du disque à la limite d’alignement le plus proche.                                                                                      |
-|    NOERR    |                                                                                                                           Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.                                                                                                                           |
+|  taille @ no__t-0 @ no__t-1  |                                                                                                              Spécifie la taille de la partition logique en mégaoctets \(MB @ no__t-1, qui doit être plus petite que la partition étendue. Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la partition étendue.                                                                                                               |
+| décalage @ no__t-0 @ no__t-1 | Spécifie l’offset en kilo-octets @no__t-taille 0 Ko @ no__t-1, à partir duquel la partition est créée. Le décalage est arrondi pour remplir complètement la taille de cylindre utilisée. Si aucun décalage n’est spécifié, la partition est placée dans la première étendue de disque qui est suffisamment grande pour la contenir. La partition est au moins aussi longue en octets que le nombre spécifié par la **taille @ no__t-1 @ no__t-2**. Si vous spécifiez une taille pour la partition logique, celle-ci doit être plus petite que la partition étendue. |
+| aligner @ no__t-0 @ no__t-1  |                                                                                     Aligne toutes les étendues de volume ou de partition sur la limite d’alignement la plus proche. Généralement utilisé avec le numéro d’unité logique RAID matériel @no__t 0LUN @ no__t-1 pour améliorer les performances.  <n> est le nombre de kilo-octets \( Ko @ no__t-2 à partir du début du disque jusqu’à la limite d’alignement la plus proche.                                                                                      |
+|    noerr    |                                                                                                                           À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.                                                                                                                           |
   
 ## <a name="remarks"></a>Notes  
   
--   Si le **taille** et **décalage** paramètres ne sont pas spécifiés, la partition logique est créée dans l’étendue la plus grande de disque disponible dans la partition étendue.  
+-   Si les paramètres **taille** et **décalage** ne sont pas spécifiés, la partition logique est créée dans la plus grande étendue de disque disponible dans la partition étendue.  
   
--   Une fois que la partition a été créée, le focus passe automatiquement à la nouvelle partition logique.  
+-   Une fois la partition créée, le focus se déplace automatiquement vers la nouvelle partition logique.  
   
--   Un disque MBR de base doit être sélectionné pour cette opération réussisse. Utilisez le **sélectionnez disque** commande pour sélectionner un disque et de déplacer le focus vers elle.  
+-   Vous devez sélectionner un disque MBR de base pour que cette opération aboutisse. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.  
   
-## <a name="BKMK_examples"></a>Exemples  
-Pour créer une partition logique de 1 000 mégaoctets de la taille, dans la partition étendue du disque sélectionné, tapez :  
+## <a name="BKMK_examples"></a>Illustre  
+Pour créer une partition logique d’une taille de 1000 mégaoctets, dans la partition étendue du disque sélectionné, tapez :  
   
 ```  
 create partition logical size=1000  

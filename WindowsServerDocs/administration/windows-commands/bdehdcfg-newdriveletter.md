@@ -1,8 +1,8 @@
 ---
-title: bdehdcfg newdriveletter
-description: Rubrique de commandes de Windows pour bdehdcfg newdriveletter - assigne une nouvelle lettre de lecteur à la partie d’un lecteur utilisé comme lecteur système.
+title: BdeHdCfg newdriveletter
+description: La rubrique commandes Windows pour BdeHdCfg newdriveletter-attribue une nouvelle lettre de lecteur à la partie d’un lecteur utilisée comme lecteur système.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd40942dfb724d46c0fa9a43c4646e1db09d2a76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2abd4a686f358b5dd844514735edb3ffaa13845
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887140"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382228"
 ---
-# <a name="bdehdcfg-newdriveletter"></a>bdehdcfg: newdriveletter
+# <a name="bdehdcfg-newdriveletter"></a>BdeHdCfg : newdriveletter
 
 
 
-Affecte une nouvelle lettre de lecteur à la partie d’un lecteur utilisé comme lecteur système. Pour obtenir un exemple d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Affecte une nouvelle lettre de lecteur à la partie d’un lecteur utilisée comme lecteur système. Pour obtenir un exemple de la façon dont cette commande peut être utilisée, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,20 +36,20 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge} 
 
 |Paramètre|Description|
 |---------|-----------|
-|\<DriveLetter>|Définit la lettre de lecteur qui sera affectée au lecteur cible spécifié.|
+|@no__t 0DriveLetter >|Définit la lettre de lecteur qui sera attribuée au lecteur cible spécifié.|
 
 ## <a name="remarks"></a>Notes
 
-Comme meilleure pratique, il est recommandé que vous n’affectez pas une lettre de lecteur sur votre lecteur système.
+Il est recommandé de ne pas attribuer de lettre de lecteur à votre lecteur système.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-L’exemple suivant montre le lecteur par défaut assigné la lettre de lecteur P.
+L’exemple suivant montre le lecteur par défaut auquel la lettre de lecteur P est attribuée.
 ```
 bdehdcfg -target default -newdriveletter P:
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
--   [Bdehdcfg](bdehdcfg.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [BdeHdCfg](bdehdcfg.md)

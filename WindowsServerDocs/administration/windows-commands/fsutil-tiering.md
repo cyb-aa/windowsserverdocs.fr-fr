@@ -1,7 +1,7 @@
 ---
 ms.assetid: e5f55f3e-8d2a-4526-8d67-36a539126c22
-title: la hiérarchisation fsutil
-ms.prod: windows-server-threshold
+title: Hiérarchisation de fsutil
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: dcb69e4e9c71a723bfd735eb7915472f1232a92b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6863940d69e30f4984897a7e03369a834da21d1d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859250"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376779"
 ---
-# <a name="fsutil-tiering"></a>la hiérarchisation fsutil
+# <a name="fsutil-tiering"></a>Hiérarchisation de fsutil
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
 
-Permet la gestion des fonctions de niveau de stockage, comme la définition et la désactivation des indicateurs et répertorier des niveaux.
+Active la gestion des fonctions de niveau de stockage, telles que la définition et la désactivation des indicateurs et la liste des niveaux.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,13 +35,13 @@ fsutil tiering [tierlist] <volume>
 
 |Paramètre|Description|
 |-------------|---------------|
-|ClearFlags|Désactive les indicateurs de comportement de hiérarchisation d’un volume.|
-|\<volume>|Spécifie le volume.|
-|/TrNH|Pour les volumes avec le stockage hiérarchisé, provoque la chaleur collecte pour être désactivé.<br /><br>S’applique uniquement à NTFS et ReFS.|
+|clearflags|Désactive les indicateurs de comportement de hiérarchisation d’un volume.|
+|@no__t 0volume >|Spécifie le volume.|
+|/TrNH|Pour les volumes avec stockage hiérarchisé, la collecte de chaleur est désactivée.<br /><br>S’applique uniquement aux fichiers NTFS et ReFS.|
 |queryflags|Interroge les indicateurs de comportement de hiérarchisation d’un volume.|
-|regionlist|Répertorie les régions à plusieurs niveaux d’un volume et de leurs niveaux de stockage respectives.|
-|définis par|Active les indicateurs de comportement de hiérarchisation d’un volume.|
-|tierlist|Répertorie les tieres de stockage associé à un volume.|
+|regionlist|Répertorie les régions à plusieurs niveaux d’un volume et leurs niveaux de stockage respectifs.|
+|setflags|Active les indicateurs de comportement de hiérarchisation d’un volume.|
+|tierlist|Répertorie les niveaux de stockage associés à un volume.|
 
 
 ### <a name="examples"></a>Exemples
@@ -64,13 +64,13 @@ Pour effacer les indicateurs sur le volume C, tapez :
 fsutil tiering clearflags C: /TrNH
 ```
 
-Pour répertorier les régions de volume C et leurs niveaux de stockage respectives, tapez :
+Pour répertorier les régions du volume C et leurs niveaux de stockage respectifs, tapez :
 
 ```
 fsutil tiering regionlist C:
 ```
 
-Pour répertorier les niveaux de volume C, tapez :
+Pour répertorier les niveaux du volume C, tapez :
 
 ```
 fsutil tiering tierlist C:
@@ -79,7 +79,7 @@ fsutil tiering tierlist C:
 
 
 ### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

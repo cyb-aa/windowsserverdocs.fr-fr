@@ -1,8 +1,8 @@
 ---
 title: list
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aacc93e1c7a16a7327ddbd17515f19cf41a5b458
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91b42925fc822b10157bb488167d06fe82cfe1e3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374701"
 ---
 # <a name="list"></a>list
 
 
 
-Répertorie les enregistreurs, clichés instantanés ou actuellement des fournisseurs qui se trouvent sur le système. Si utilisée sans paramètres, **liste** affiche l’aide à l’invite de commandes.
+répertorie les writers, les clichés instantanés ou les fournisseurs de clichés instantanés actuellement enregistrés qui se trouvent sur le système. S’il est utilisé sans paramètres, la commande **liste** affiche l’aide à l’invite de commandes.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -40,11 +40,11 @@ list providers
 
 |Paramètre|Description|
 |---------|-----------|
-|enregistreurs|Répertorie les enregistreurs. Consultez [List writers](list-writers.md) pour la syntaxe et les paramètres.|
-|Shadows|Répertorie les persistant et existantes non persistant clichés instantanés. Consultez [liste shadows](list-shadows.md) pour la syntaxe et les paramètres.|
-|fournisseurs|Listes actuellement enregistré des fournisseurs de clichés instantanés. Consultez [répertorier fournisseurs](list-providers.md) pour la syntaxe et les paramètres.|
+|script|Répertorie les enregistreurs. Consultez [répertorier les enregistreurs](list-writers.md) pour la syntaxe et les paramètres.|
+|Shadows|Répertorie les clichés instantanés non persistants permanents et existants. Consultez [liste des Shadows](list-shadows.md) pour la syntaxe et les paramètres.|
+|éditeurs|Répertorie les fournisseurs de clichés instantanés actuellement inscrits. Consultez [répertorier les fournisseurs](list-providers.md) pour la syntaxe et les paramètres.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Pour répertorier tous les clichés instantanés, tapez :
 ```
@@ -53,4 +53,4 @@ list shadows all
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

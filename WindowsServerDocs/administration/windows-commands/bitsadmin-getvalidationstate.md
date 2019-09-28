@@ -1,8 +1,8 @@
 ---
 title: Bitsadmin getvalidationstate
-description: 'Rubrique de commandes de Windows pour **bitsadmin getvalidationstate** -signale l’état de validation du contenu du fichier donné au sein du travail. '
+description: 'La rubrique commandes Windows pour **Bitsadmin getvalidationstate** -signale l’état de validation du contenu du fichier donné au sein du travail. '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8abff3fc9fddb9cff1758739fdc540a9c945efe2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca4269a596010258edd0479f5a7e9844bc9c98df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879160"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381258"
 ---
 # <a name="bitsadmin-getvalidationstate"></a>Bitsadmin getvalidationstate
 
@@ -36,10 +36,10 @@ bitsadmin /GetValidationState <Job> <file index>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|Fichier d’index|Démarre à 0|
+|Tâche|Nom complet ou GUID du travail|
+|Index de fichiers|Commence à 0|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 L’exemple suivant obtient l’état de validation du contenu du fichier 2 au sein du travail nommé *myJob*.
 ```
@@ -48,4 +48,4 @@ C:\>bitsadmin /GetValidationState myJob 1
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

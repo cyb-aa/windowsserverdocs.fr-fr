@@ -1,8 +1,8 @@
 ---
-title: aide et bitsadmin cache
-description: Rubrique de commandes de Windows pour **bitsadmin cache et aide** -affiche l’utilisation de ligne de commande pour le **Cache** commutateurs.
+title: cache Bitsadmin et aide
+description: 'Rubrique relative aux commandes Windows pour le **cache Bitsadmin et l’aide** : affiche l’utilisation de la ligne de commande pour les commutateurs de **cache** .'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7af78c21f4d96886d1050a95dc16594159bc2c0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 453464ebcc305bdc2fbbc73f2e46f7392bba1033
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869060"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381978"
 ---
-# <a name="bitsadmin-cache-and-help"></a>aide et bitsadmin cache
+# <a name="bitsadmin-cache-and-help"></a>cache Bitsadmin et aide
 
 
 
-Affiche l’utilisation de ligne de commande pour le **Cache** commutateurs.
+Affiche l’utilisation de la ligne de commande pour les commutateurs de **cache** .
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,13 +32,13 @@ Affiche l’utilisation de ligne de commande pour le **Cache** commutateurs.
 Bitsadmin /Cache /Help 
 ```
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-La commande suivante affiche l’aide en ligne de commande pour le **Cache** commutateurs.
+La commande suivante affiche l’aide de la ligne de commande pour les commutateurs de **cache** .
 ```
 Bitsadmin /Cache /Help
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

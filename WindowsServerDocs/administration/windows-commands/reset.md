@@ -1,8 +1,8 @@
 ---
-title: Réinitialiser
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Initialisation
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0bd9b6735697cbcefdcf68dc3d4a53a6870a7a76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a8903c300d12a019f8fb4aef6d367131a195d034
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850960"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371461"
 ---
-# <a name="reset"></a>Réinitialiser
+# <a name="reset"></a>Initialisation
 
 
 
-Rétablit l’état par défaut DiskShadow.exe. **Réinitialiser** est particulièrement utile de séparer des opérations composées DiskShadow comme **créer**, **importer**, **sauvegarde**, ou **restaurer**.
+Rétablit l’État par défaut de DiskShadow. exe. La **réinitialisation** est particulièrement utile pour séparer les opérations de cliché instantané composé, telles que la **création**, l' **importation**, la **sauvegarde**ou la **restauration**.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,8 +34,8 @@ reset
 
 ## <a name="remarks"></a>Notes
 
--   Lorsque vous utilisez le **réinitialiser** commande, vous perdez état à partir des commandes telles que **ajouter**, **définir**, **charger**, ou **writer**. **Réinitialiser** également libère les interfaces IVssBackupComponent et perd les clichés instantanés non persistant.
+-   Lorsque vous utilisez la commande de **réinitialisation** , vous perdez l’État à partir de commandes telles que **Add**, **Set**, **Load**ou **writer**. La **réinitialisation** libère également les interfaces IVssBackupComponent et perd les clichés instantanés non persistants.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
-title: Disque hors connexion
-description: 'Rubrique de commandes de Windows pour ***- '
+title: disque hors connexion
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 617371583a3f0cb3d0cb739845208e4216573d9c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f28d473cdb557d6adb3aaf235bebdfbc4e78b24a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834620"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372601"
 ---
-# <a name="offline-disk"></a>Disque hors connexion
+# <a name="offline-disk"></a>disque hors connexion
 
 
 
-Utilise le disque en ligne avec le focus à l’état hors connexion.
+Met le disque en ligne avec le focus à l’état hors connexion.
 
 > [!IMPORTANT]
-> Cette commande DiskPart n’est pas disponible dans n’importe quelle édition de Windows Vista.
+> Cette commande DiskPart n’est pas disponible dans les éditions de Windows Vista.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -39,15 +39,15 @@ offline disk [noerr]
 
 |Paramètre|Description|
 |---------|-----------|
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|
+|noerr|À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|
 
 ## <a name="remarks"></a>Notes
 
--   Cette commande fonctionne sur des disques SAN en mode en ligne. Il devient leur mode SAN hors connexion.
--   Si un disque dynamique dans un groupe de disques est mis hors connexion, l’état du disque passe à **manquant** et le groupe affiche un disque qui est hors connexion. Le disque manquant est déplacé vers le groupe non valide. Si le disque dynamique est le dernier disque dans le groupe, l’état du disque passe à **hors connexion**, et le groupe vide sera supprimé.
--   Un disque doit être sélectionné pour le **disque hors connexion** commande réussisse. Utilisez le **sélectionnez disque** commande pour sélectionner un disque et de déplacer le focus vers elle.
+-   Cette commande fonctionne sur les disques en mode SAN en ligne. Il remplace le mode SAN par offline.
+-   Si un disque dynamique d’un groupe de disques est mis hors connexion, l’état du disque devient **manquant** et le groupe affiche un disque hors connexion. Le disque manquant est déplacé vers le groupe non valide. Si le disque dynamique est le dernier disque du groupe, l’état du disque passe à **hors connexion**et le groupe vide est supprimé.
+-   Pour que la commande de **disque hors connexion** aboutisse, vous devez sélectionner un disque. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Pour mettre le disque avec le focus hors connexion, tapez :
 ```
@@ -56,5 +56,5 @@ offline disk
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

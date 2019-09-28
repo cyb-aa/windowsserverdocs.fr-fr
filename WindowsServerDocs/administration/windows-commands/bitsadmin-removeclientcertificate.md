@@ -1,8 +1,8 @@
 ---
 title: Bitsadmin removeclientcertificate
-description: Rubrique de commandes de Windows pour **bitsadmin removeclientcertificate** -supprime le certificat client à partir de la tâche.
+description: Rubrique relative aux commandes Windows pour **Bitsadmin removeclientcertificate** -supprime le certificat client du travail.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b720800fe80037f38ff01ac3a90d5cbb41a6ec8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c664ba9b26f3511dedf35477a1cd393db709337e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868660"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381042"
 ---
 # <a name="bitsadmin-removeclientcertificate"></a>Bitsadmin removeclientcertificate
 
 
 
-Supprime le certificat client à partir de la tâche.
+Supprime le certificat client du travail.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,15 +36,15 @@ bitsadmin /RemoveClientCertificate <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant supprime le certificat client à partir de la tâche nommée *myJob*.
+L’exemple suivant supprime le certificat client du travail nommé *myJob*.
 ```
 C:\>Bitsadmin /RemoveClientCertificate myJob 
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

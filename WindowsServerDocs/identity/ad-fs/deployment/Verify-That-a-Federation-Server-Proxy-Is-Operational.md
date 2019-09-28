@@ -6,37 +6,37 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 26b0ae4f331607d83c6b94a2655ddc9eded8a356
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 24f4fe2a152244dc904be82c4c10abe71abffcc4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191866"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359967"
 ---
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>Vérifier qu’un serveur proxy de fédération est opérationnel
 
 
-Vous pouvez utiliser la procédure suivante pour vérifier que le serveur proxy de fédération peut communiquer avec le Service de fédération dans Active Directory Federation Services \(AD FS\). Vous exécutez cette procédure après avoir exécuté le **Assistant Configuration Proxy du serveur de fédération AD FS** pour configurer l’ordinateur pour exécuter le rôle de proxy de serveur de fédération. Pour plus d’informations sur l’exécution de cet Assistant, consultez [configurer un ordinateur pour le rôle de Proxy de serveur de fédération](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
+Vous pouvez utiliser la procédure suivante pour vérifier que le serveur proxy de Fédération peut communiquer avec le service FS (Federation Service) dans Services ADFS \(AD FS @ no__t-1. Vous exécutez cette procédure après avoir exécuté l' **Assistant Configuration du serveur proxy de fédération AD FS** pour configurer l’ordinateur afin qu’il s’exécute dans le rôle de serveur proxy de Fédération. Pour plus d’informations sur l’exécution de cet Assistant, consultez [configurer un ordinateur pour le rôle de serveur proxy de Fédération](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
 > [!IMPORTANT]  
 > Le résultat du test est la génération réussie d’un événement spécifique dans l’Observateur d’événements sur le serveur proxy de fédération.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-verify-that-a-federation-server-proxy-is-operational"></a>Pour vérifier qu’un serveur proxy de fédération est opérationnel  
+### <a name="to-verify-that-a-federation-server-proxy-is-operational"></a>Pour vérifier qu’un serveur proxy de Fédération est opérationnel  
   
-1.  Ouvrez une session le serveur proxy de fédération en tant qu’administrateur.  
+1.  Connectez-vous au serveur proxy de Fédération en tant qu’administrateur.  
   
-2.  Sur le **Démarrer** , tapez**Observateur d’événements**, puis appuyez sur ENTRÉE.  
+2.  Dans l’écran d' **Accueil** , tapez**Observateur d’événements**, puis appuyez sur entrée.  
   
-3.  Dans le volet de détails, double-cliquez\-cliquez sur **journaux des Applications et Services**, double\-cliquez sur **événements AD FS**, puis cliquez sur **administrateur**.  
+3.  Dans le volet d’informations,\-double-cliquez sur **journaux des applications et des services**, double\--cliquez sur **AD FS Eventing**, puis cliquez sur **admin**.  
   
 4.  Dans la colonne **ID de l’événement**, recherchez l’ID 198.  
   
-    Si le serveur proxy de fédération est correctement configuré, vous voyez un nouvel événement dans le journal des applications de l’Observateur d’événements, avec l’événement ID 198. Cet événement vérifie que le service de proxy de serveur de fédération a été démarré avec succès et est désormais en ligne.  
+    Si le serveur proxy de Fédération est correctement configuré, vous voyez un nouvel événement dans le journal des applications de observateur d’événements, avec l’ID d’événement 198. Cet événement vérifie que le service de serveur proxy de Fédération a été démarré avec succès et qu’il est maintenant en ligne.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
 [Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setproxysettings
-description: Rubrique de commandes de Windows pour **bitsadmin setproxysettings** -définit les paramètres de proxy pour le travail spécifié.
+description: La rubrique commandes Windows pour **Bitsadmin setproxysettings n'** -définit les paramètres de proxy pour le travail spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3503aab55f5650cb9283ce8a9f1a17359bfd48b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38987c88bcfc93ea9251583b7914f982cf79e057
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825590"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380467"
 ---
 # <a name="bitsadmin-setproxysettings"></a>bitsadmin setproxysettings
 
@@ -36,20 +36,20 @@ bitsadmin /SetProxySettings <Job> <Usage> [List] [Bypass]
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|Utilisation|Une des valeurs suivantes :</br>-PRECONFIG : utiliser les valeurs par défaut de Internet Explorer du propriétaire.</br>-NO_PROXY : n’utilisez pas un serveur proxy.</br>-REMPLACER, utilisez une liste de proxy explicite et la liste de contournement. Un proxy et la liste de contournement proxy doivent suivre.</br>-Détection automatique, détecter automatiquement les paramètres de proxy.|
-|List|Utilisé lorsque le *utilisation* paramètre est défini sur le remplacement, contient une liste délimitée par des virgules des serveurs proxy à utiliser.|
-|Contournement|Utilisé lorsque le *utilisation* paramètre est défini sur le remplacement, contient une liste délimitée de noms d’hôtes ou adresses IP ou les deux, pour lequel les transferts ne doivent ne pas être acheminé via un proxy. Il peut s’agir  **\<local >** pour faire référence à tous les serveurs sur le même réseau local. Valeurs NULL ou « » peut être utilisé pour obtenir une liste de contournement proxy vide.|
+|Tâche|Nom complet ou GUID du travail|
+|Utilisation|L’une des valeurs suivantes :</br>-Preconfig : utilisez les paramètres par défaut d’Internet Explorer du propriétaire.</br>-NO_PROXY : n’utilise pas de serveur proxy.</br>-OVERRIDE : utilisez une liste de proxy explicite et une liste de contournement. Une liste de contournement proxy et proxy doit suivre.</br>-DÉTECTION automatique : détecte automatiquement les paramètres du proxy.|
+|List|Utilisé lorsque le paramètre d' *utilisation* est défini sur override : contient une liste délimitée par des virgules de serveurs proxy à utiliser.|
+|Omettre|Utilisé lorsque le paramètre d' *utilisation* est défini sur override : contient une liste délimitée par des espaces de noms d’hôtes ou d’adresses IP, ou les deux, pour lesquels les transferts ne doivent pas être routés via un proxy. Il peut s’agir de **@no__t > 1local** pour faire référence à tous les serveurs sur le même réseau local. Les valeurs NULL ou «» peuvent être utilisées pour une liste de contournement vide du proxy.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant définit les paramètres de proxy pour le travail nommé *myDownloadJob*.
+L’exemple suivant définit les paramètres de proxy pour la tâche nommée *myDownloadJob*.
 
 ```
 C:\>bitsadmin /SetProxySettings myDownloadJob PRECONFIG
 ```
 
-Voici quelques autres exemples.
+Voici d’autres exemples.
 
 ```
 bitsadmin /setproxysettings myDownloadJob NO_PROXY
@@ -59,4 +59,4 @@ bitsadmin /setproxysettings myDownloadJob OVERRIDE proxy1,proxy2,proxy3 NULL
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

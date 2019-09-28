@@ -7,33 +7,33 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b883126f60950c0015b3a21e2ca5abc251b25b84
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: c64b28f0e62839ff771cd50c0f09b534861cf9e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190459"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358777"
 ---
 # <a name="where-to-place-a-federation-server"></a>Où placer un serveur de fédération
 
-Comme les raisons de sécurité, place les Services de fédération Active Directory \(AD FS\)devant un pare-feu, les serveurs de fédération et les connecter à votre réseau d’entreprise pour empêcher l’exposition à partir d’Internet. Ceci est important, car les serveurs de fédération sont autorisés à octroyer des jetons de sécurité. Par conséquent, ils doivent avoir le même niveau de protection qu’un contrôleur de domaine. Si un serveur de fédération est compromis, un utilisateur malveillant a la possibilité d’émettre des jetons d’accès complet à toutes les applications Web et aux serveurs de fédération qui sont protégés par Active Directory Federation Services \(AD FS\) dans toutes les ressources organisations partenaires.  
+En guise de meilleure pratique de sécurité, placez Services ADFS serveurs \(AD FS @ no__t-1federation devant un pare-feu et connectez-les à votre réseau d’entreprise pour empêcher l’exposition à Internet. Cela est important, car les serveurs de Fédération ont une autorisation complète pour accorder des jetons de sécurité. Par conséquent, ils doivent avoir le même niveau de protection qu’un contrôleur de domaine. Si un serveur de Fédération est compromis, un utilisateur malveillant a la possibilité d’émettre des jetons d’accès complets à toutes les applications Web et à des serveurs de Fédération protégés par Services ADFS \(AD FS @ no__t-1 dans tous les partenaires de ressources lucratif.  
   
 > [!NOTE]  
-> En tant qu’une sécurité optimale, évitez d’avoir vos serveurs de fédération directement accessibles sur Internet. Donnez vos serveurs de fédération un accès Internet direct uniquement lors de la configuration d’un environnement de laboratoire de test ou lorsque votre organisation ne dispose pas d’un réseau de périmètre.  
+> Pour des raisons de sécurité, évitez d’accéder directement à vos serveurs de Fédération sur Internet. Envisagez de donner à vos serveurs de Fédération un accès direct à Internet uniquement lorsque vous configurez un environnement de laboratoire de test ou que votre organisation ne dispose pas d’un réseau de périmètre.  
   
-Pour les réseaux d’entreprise, un intranet\-accessible sur le pare-feu est établie entre le réseau d’entreprise et le réseau de périmètre et un Internet\-accessible sur le pare-feu est souvent établi entre le réseau de périmètre et le Internet. Dans ce cas, le serveur de fédération se trouve à l’intérieur du réseau d’entreprise, et il n’est pas directement accessible par les clients Internet.  
+Pour les réseaux d’entreprise types, un pare-feu intranet @ no__t-0facing est établi entre le réseau d’entreprise et le réseau de périmètre, et un pare-feu Internet @ no__t-1facing est souvent établi entre le réseau de périmètre et Internet. Dans ce cas, le serveur de Fédération se trouve dans le réseau d’entreprise et n’est pas directement accessible par les clients Internet.  
   
 > [!NOTE]  
-> Les ordinateurs clients qui sont connectés au réseau d’entreprise peuvent communiquer directement avec le serveur de fédération via l’authentification intégrée Windows.  
+> Les ordinateurs clients qui sont connectés au réseau d’entreprise peuvent communiquer directement avec le serveur de Fédération par le biais de l’authentification intégrée de Windows.  
   
-Un serveur proxy de fédération doit être placé dans le réseau de périmètre avant de configurer vos serveurs pare-feu pour une utilisation avec AD FS. Pour plus d'informations, voir [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md).  
+Un proxy de serveur de Fédération doit être placé dans le réseau de périmètre avant de configurer vos serveurs pare-feu pour une utilisation avec AD FS. Pour plus d'informations, voir [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md).  
   
 ## <a name="configuring-your-firewall-servers-for-a-federation-server"></a>Configuration de vos serveurs pare-feu pour un serveur de fédération  
-Afin que les serveurs de fédération peuvent communiquer directement avec les serveurs proxy de fédération, le serveur pare-feu d’intranet doit être configuré pour autoriser Secure Hypertext Transfer Protocol \(HTTPS\) le trafic en provenance du serveur proxy de fédération pour le serveur de fédération. Il s’agit d’une exigence, car le serveur pare-feu d’intranet doit publier le serveur de fédération à l’aide du port 443 afin que le serveur proxy de fédération dans le réseau de périmètre peut accéder au serveur de fédération.  
+Pour que les serveurs de Fédération puissent communiquer directement avec les serveurs proxys de Fédération, le serveur pare-feu d’intranet doit être configuré pour @no__t autoriser le trafic 0HTTPS @ no__t-1 à partir du serveur proxy de Fédération vers le serveur de Fédération. Il s’agit d’une condition requise car le serveur pare-feu d’intranet doit publier le serveur de Fédération à l’aide du port 443 afin que le serveur proxy de Fédération dans le réseau de périmètre puisse accéder au serveur de Fédération.  
   
-En outre, l’intranet\-accessible sur le serveur pare-feu, tel qu’un serveur exécutant Internet Security and Acceleration \(ISA\) serveur, utilise un processus appelé publication de serveur pour distribuer des demandes des clients Internet vers le serveurs de fédération d’entreprise approprié. Cela signifie que vous devez créer manuellement une règle de publication de serveur sur le serveur intranet exécutant ISA Server qui publie l’URL du serveur de fédération en cluster, par exemple, http :\/\/fs.fabrikam.com.  
+En outre, le serveur de pare-feu intranet @ no__t-0facing, tel qu’un serveur exécutant Internet Security and Acceleration \(ISA @ no__t-2 Server, utilise un processus appelé publication de serveur pour distribuer les demandes des clients Internet à l’entreprise appropriée. serveurs de Fédération. Cela signifie que vous devez créer manuellement une règle de publication de serveur sur le serveur intranet exécutant ISA Server, qui publie l’URL du serveur de Fédération en cluster, par exemple, http : @no__t -0\/fs.fabrikam.com.  
   
 Pour plus d'informations sur la configuration de la publication de serveur dans un réseau de périmètre, consultez [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md). Pour plus d’informations sur la configuration d’ISA Server pour publier un serveur, consultez [créer une règle de publication Web sécurisée](https://go.microsoft.com/fwlink/?LinkId=75182).  
   

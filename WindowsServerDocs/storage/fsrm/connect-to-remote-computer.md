@@ -2,18 +2,18 @@
 title: Se connecter à un ordinateur distant
 description: Cet article explique comment se connecter à un ordinateur distant pour gérer les ressources de stockage à partir du Gestionnaire de ressources du serveur de fichiers
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 93d2be926437b65ed8eb84a828ea0d7da6a51086
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4d813933ec3073ecb3348468ca4b8f2e124c403d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818860"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402018"
 ---
 # <a name="connect-to-a-remote-computer"></a>Se connecter à un ordinateur distant 
 
@@ -47,4 +47,4 @@ Pour gérer des ressources distantes à l'aide du Gestionnaire de ressources du 
 
 ## <a name="see-also"></a>Voir aussi
 
--   [La gestion des ressources de stockage à distance](managing-remote-storage-resources.md)
+-   [Gestion des ressources de stockage distant](managing-remote-storage-resources.md)

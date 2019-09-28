@@ -1,8 +1,8 @@
 ---
 title: PowerShell_ise
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,59 +13,59 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a5619396e29b446dbc6804ece7444f355dae4c0a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 65d8b9e7b7952ec64cd24e8106802cf66de693c6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436301"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372189"
 ---
-# <a name="powershellise"></a>PowerShell_ise
+# <a name="powershell_ise"></a>PowerShell_ise
 
 
 
-Windows PowerShell Integrated Scripting Environment (ISE) est une application hôte graphique qui vous permet de lire, écrire, exécuter, déboguer et tester des scripts et modules dans un environnement assisté par graphique. Clé des fonctionnalités telles qu’IntelliSense, Show-Command, des extraits de code, saisie semi-automatique par tabulation, la coloration de syntaxe, visual débogage et une aide contextuelle fournissent une riche expérience de script.
+Environnement d’écriture de scripts intégré de Windows PowerShell (ISE) est une application hôte graphique qui vous permet de lire, d’écrire, d’exécuter, de déboguer et de tester des scripts et des modules dans un environnement assisté par graphique. Les fonctionnalités clés, telles qu’IntelliSense, les commandes Show-Command, les extraits de code, la saisie semi-automatique par tabulation, la coloration syntaxique, le débogage visuel et l’aide contextuelle, fournissent une expérience de script riche.
 
-Le **PowerShell_ISE.exe** outil démarre une session Windows PowerShell ISE. Lorsque vous utilisez **PowerShell_ISE.exe**, vous pouvez utiliser des paramètres facultatifs pour ouvrir des fichiers dans Windows PowerShell ISE ou pour démarrer une session Windows PowerShell ISE sans profil ou avec un multithread cloisonné.
+L’outil **PowerShell_ISE. exe** démarre une session Windows PowerShell ISE. Lorsque vous utilisez **PowerShell_ISE. exe**, vous pouvez utiliser ses paramètres facultatifs pour ouvrir des fichiers dans Windows PowerShell ISE ou pour démarrer une session de Windows PowerShell ISE sans profil ou avec un cloisonnement multithread.
 
-**PowerShell_ISE.exe** a été introduit dans Windows PowerShell 2.0 et développé de manière significative dans Windows PowerShell 3.0.
+**PowerShell_ISE. exe** a été introduit dans windows PowerShell 2,0 et développé de manière significative dans windows PowerShell 3,0.
 
-## <a name="using-powershelliseexe"></a>À l’aide de PowerShell_ISE.exe
+## <a name="using-powershell_iseexe"></a>Utilisation de PowerShell_ISE. exe
 
-Vous pouvez utiliser **PowerShell_ISE.exe** pour commencer et se terminer une session Windows PowerShell comme suit :
-- Pour démarrer une session Windows PowerShell ISE, dans une fenêtre d’invite de commandes, dans Windows PowerShell, ou dans le menu Démarrer, tapez :  
+Vous pouvez utiliser **PowerShell_ISE. exe** pour démarrer et terminer une session Windows PowerShell comme suit :
+- Pour démarrer une session Windows PowerShell ISE, dans une fenêtre d’invite de commandes, dans Windows PowerShell ou dans le menu Démarrer, tapez :  
   ```
   PowerShell_Ise
   ```  
-- Pour ouvrir un script (.ps1), module de script (.psm1), le manifeste de module (.psd1), fichier XML ou tout autre fichier pris en charge dans Windows PowerShell ISE, utilisez le format de commande suivant :  
+- Pour ouvrir un script (. ps1), un module de script (. psm1), un manifeste de module (. psd1), un fichier XML ou tout autre fichier pris en charge dans Windows PowerShell ISE, utilisez le format de commande suivant :  
   ```
   PowerShell_Ise <FilePath>
   ```  
-  Dans Windows PowerShell 3.0, vous pouvez utiliser le paramètre facultatif **fichier** paramètre comme suit :  
+  Dans Windows PowerShell 3,0, vous pouvez utiliser le paramètre de **fichier** facultatif comme suit :  
   ```
   PowerShell_Ise -File <FilePath>
   ```  
-- Pour démarrer une session Windows PowerShell ISE sans votre profil Windows PowerShell, utilisez le **NoProfile** paramètre. (Le **NoProfile** paramètre est introduit dans Windows PowerShell 3.0.)  
+- Pour démarrer une session de Windows PowerShell ISE sans vos profils Windows PowerShell, utilisez le paramètre **noprofile** . (Le paramètre **noprofile** est introduit dans Windows PowerShell 3,0.)  
   ```
   PowerShell_Ise -NoProfile
   ```  
-- Pour voir les **PowerShell_ISE.exe** aide dans une fenêtre d’invite de commandes, utilisez le format de la commande suivante :  
+- Pour afficher le fichier d’aide de **PowerShell_ISE. exe** dans une fenêtre d’invite de commandes, utilisez le format de commande suivant :  
   ```
   PowerShell_Ise -help, -?, /?
   ```  
-  Pour obtenir la liste complète de la **PowerShell_ISE.exe** des paramètres de ligne de commande, consultez [about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512).
+  Pour obtenir la liste complète des paramètres de ligne de commande de **PowerShell_ISE. exe** , consultez [about_PowerShell_Ise. exe](https://go.microsoft.com/fwlink/?LinkId=256512).
 
-## <a name="start-windows-powershell-ise-in-other-ways"></a>Démarrez Windows PowerShell ISE par d’autres moyens
+## <a name="start-windows-powershell-ise-in-other-ways"></a>Démarrer Windows PowerShell ISE d’une autre manière
 
-Pour plus d’informations sur les autres méthodes pour démarrer Windows PowerShell ISE, consultez [démarrage de Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=135259).
+Pour plus d’informations sur les autres façons de démarrer Windows PowerShell ISE, consultez [démarrage de Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=135259).
 
 ## <a name="remarks"></a>Notes
 
-Windows PowerShell s’exécute sur l’option d’installation Server Core de systèmes d’exploitation Windows Server. Toutefois, étant donné que Windows PowerShell ISE nécessite une interface utilisateur graphique, il ne s’exécute pas sur les installations Server Core.
+Windows PowerShell s’exécute sur l’option d’installation minimale des systèmes d’exploitation Windows Server. Toutefois, étant donné que Windows PowerShell ISE nécessite une interface graphique utilisateur, il ne s’exécute pas sur les installations minimales.
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512)
-[about_PowerShell.exe](https://go.microsoft.com/fwlink/?LinkID=113439)
-[Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=107116)
-[écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/scriptcenter/dd742419) Voir aussi
+[about_PowerShell_Ise. exe](https://go.microsoft.com/fwlink/?LinkId=256512)
+[about_PowerShell. exe](https://go.microsoft.com/fwlink/?LinkID=113439)
+ scripts[Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=107116)
+[avec Windows PowerShell](https://technet.microsoft.com/scriptcenter/dd742419) Voir aussi

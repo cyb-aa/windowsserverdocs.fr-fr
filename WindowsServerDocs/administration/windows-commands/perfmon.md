@@ -1,8 +1,8 @@
 ---
 title: perfmon
-description: 'Rubrique de commandes de Windows pour l’Analyseur de performances '
+description: 'Rubrique relative aux commandes Windows pour Perfmon '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/25/2018
-ms.openlocfilehash: 000ed11a0eaae36d158ae7a9f044871d4b18aacc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52503952f2212f7de00d8e7677925b0123f0bbef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814580"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372327"
 ---
 # <a name="perfmon"></a>perfmon
 
-Démarrer l’Analyseur de performances et de fiabilité de Windows en mode autonome spécifique.
+Démarrez l’analyseur de fiabilité et de performances Windows dans un mode autonome spécifique.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,10 +34,10 @@ perfmon </res|report|rel|sys>
 
 |Paramètre|Description|
 |---------|-----------|
-|/res|Démarrer l’affichage des ressources.|
-|/report|Démarrez l’ensemble de collecteurs système Diagnostics données et afficher un rapport des résultats.|
-|/rel|Démarrer le moniteur de fiabilité.|
-|/sys|Démarrer l’Analyseur de performances.|
+|/res|Démarrez Affichage des ressources.|
+|/Report|Démarrez l’ensemble de collecteurs de données de diagnostics du système et affichez un rapport des résultats.|
+|/rel|Démarrez le moniteur de fiabilité.|
+|/sys|Démarrez l’analyseur de performances.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 

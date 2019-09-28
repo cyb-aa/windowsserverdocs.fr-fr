@@ -2,7 +2,7 @@
 title: diskraid
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2dfda058a7ca266adedbacf8860137c5d1782c7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f72e91f856da3b24e7450381b293f4b365d914f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867083"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377797"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -48,7 +48,7 @@ Pour afficher la syntaxe de la commande, cliquez sur une commande :
 -   [détail](#BKMK_8)
 -   [dissocier](#BKMK_9)
 -   [exit](#BKMK_10)
--   [extend](#BKMK_11)
+-   [étendre](#BKMK_11)
 -   [flushcache](#BKMK_12)
 -   [help](#BKMK_13)
 -   [importtarget](#BKMK_14)
@@ -175,7 +175,7 @@ automagic {set | clear | apply} all <flag=value> [<flag=value> [...]]
 
 Affecte les valeurs spécifiées aux indicateurs spécifiés.
 
-**effacé**
+**clear**
 
 Efface les indicateurs spécifiés. Le mot clé **All** efface tous les indicateurs automagic.
 
@@ -269,7 +269,7 @@ Définit le secret partagé dans la cible iSCSI actuellement sélectionnée util
 
 Communique le secret CHAP d’un initiateur iSCSI à la cible iSCSI actuellement active afin que la cible puisse utiliser le secret pour s’authentifier auprès de l’initiateur pendant l’authentification CHAP mutuelle.
 
-**secret**
+**confidentialité**
 
 Spécifie le secret à utiliser. S’il est vide, le secret sera effacé.
 
@@ -561,7 +561,7 @@ Pour spécifier la taille à l’aide d’autres unités, utilisez l’un des su
 
 **lecteurs =**
 
-Spécifie \<le > drive_number pour les lecteurs à utiliser lors de la création d’un numéro d’unité logique. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé est la plus grande taille possible autorisée par tous les lecteurs spécifiés. Les fournisseurs utilisent les lecteurs dans l’ordre spécifié dans la mesure du possible.
+Spécifie le > @no__t 0drive_number pour les lecteurs à utiliser lors de la création d’un numéro d’unité logique. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé est la plus grande taille possible autorisée par tous les lecteurs spécifiés. Les fournisseurs utilisent les lecteurs dans l’ordre spécifié dans la mesure du possible.
 
 **noerr**
 
@@ -944,7 +944,7 @@ replace drive=<drive_number>
 
 **lecteur =**
 
-Spécifie \<le > drive_number pour le lecteur à remplacer.
+Spécifie le > \<drive_number pour le lecteur à remplacer.
 
 #### <a name="remarks"></a>Notes
 
@@ -982,59 +982,59 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 #### <a name="parameters"></a>Paramètres
 
-**object**
+**dessin**
 
 Spécifie le type d’objet à sélectionner. Le \<type d' > d’objet peut être **Provider**, **Subsystem**, **Controller**, **Drive**ou **lun**.
 
-**HBAPORT** [\<n >]
+**HBAPORT** [\<N >]
 
 Définit le focus sur le port de l’adaptateur de bus hôte local spécifié. Si aucun port HBA n’est spécifié, la commande affiche le port HBA actuellement sélectionné (le cas échéant). Si vous spécifiez un index de port HBA non valide, le port HBA est inactif. La sélection d’un port HBA désélectionne les adaptateurs initiateurs et les portails de l’initiateur sélectionnés.
 
-**IADAPTER** [\<n >]
+**IADAPTER** [\<N >]
 
 Définit le focus sur l’adaptateur d’initiateur iSCSI local spécifié. Si aucun adaptateur d’initiateur n’est spécifié, la commande affiche la carte initiatrice actuellement sélectionnée (le cas échéant). La spécification d’un index d’adaptateur initiateur non valide entraîne l’absence d’un adaptateur initiateur en cours. La sélection d’un adaptateur d’initiateur désélectionne les ports HBA et les portails de l’initiateur sélectionnés.
 
-**IPORTAL** [\<n >]
+**IPORTAL** [\<N >]
 
 Définit le focus sur le portail de l’initiateur iSCSI local spécifié au sein de la carte de l’initiateur iSCSI sélectionnée. Si aucun portail initiateur n’est spécifié, la commande affiche le portail initiateur actuellement sélectionné (le cas échéant). Si vous spécifiez un index du portail de l’initiateur non valide, aucun portail initiateur n’est sélectionné.
 
-**fournisseur** [\<n >]
+**fournisseur** [\<N >]
 
 Définit le focus sur le fournisseur spécifié. Si aucun fournisseur n’est spécifié, la commande affiche le fournisseur actuellement sélectionné (le cas échéant). La spécification d’un index de fournisseur non valide entraîne l’absence de fournisseur en cours.
 
-**sous-système** [\<n >]
+**sous-système** [\<N >]
 
 Définit le focus sur le sous-système spécifié. Si aucun sous-système n’est spécifié, la commande affiche le sous-système avec le focus (le cas échéant). La spécification d’un index de sous-système non valide n’entraîne pas de sous-système in-focus. La sélection d’un sous-système sélectionne implicitement son fournisseur associé.
 
-**contrôleur de domaine** [\<n >]
+**contrôleur** [\<N >]
 
 Définit le focus sur le contrôleur spécifié dans le sous-système actuellement sélectionné. Si aucun contrôleur n’est spécifié, la commande affiche le contrôleur actuellement sélectionné (le cas échéant). Si vous spécifiez un index de contrôleur non valide, aucun contrôleur n’est actif. La sélection d’un contrôleur désélectionne les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**port** [\<n >]
+**port** [\<N >]
 
 Définit le focus sur le port de contrôleur spécifié au sein du contrôleur actuellement sélectionné. Si aucun port n’est spécifié, la commande affiche le port actuellement sélectionné (le cas échéant). Si vous spécifiez un index de port non valide, aucun port n’est sélectionné.
 
-**lecteur** [\<n >]
+**lecteur** [\<N >]
 
 Définit le focus sur le lecteur spécifié, ou sur l’axe physique, dans le sous-système actuellement sélectionné. Si aucun lecteur n’est spécifié, la commande affiche le lecteur actuellement sélectionné (le cas échéant). Si vous spécifiez un index de lecteur non valide, aucun lecteur n’est actif. La sélection d’un lecteur désélectionne les contrôleurs, les ports de contrôleur, les numéros d’unités logiques, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**numéro d’unité logique** [\<n >]
+**lun** [\<N >]
 
 Définit le focus sur le numéro d’unité logique spécifié dans le sous-système actuellement sélectionné. Si aucun numéro d’unité logique n’est spécifié, la commande affiche le numéro d’unité logique actuellement sélectionné (le cas échéant). Si vous spécifiez un index de LUN non valide, aucun numéro d’unité logique n’est sélectionné. La sélection d’un numéro d’unité logique désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**TPORTAL** [\<n >]
+**TPORTAL** [\<N >]
 
 Définit le focus sur le portail cible iSCSI spécifié dans le sous-système actuellement sélectionné. Si aucun portail cible n’est spécifié, la commande affiche le portail cible actuellement sélectionné (le cas échéant). Si vous spécifiez un index de portail cible non valide, aucun portail cible n’est sélectionné. La sélection d’un portail cible désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les cibles et les groupes de portails cibles.
 
-**cible** [\<n >]
+**cible** [\<N >]
 
 Définit le focus sur la cible iSCSI spécifiée dans le sous-système actuellement sélectionné. Si aucune cible n’est spécifiée, la commande affiche la cible actuellement sélectionnée (le cas échéant). La spécification d’un index cible non valide n’entraîne aucune cible sélectionnée. La sélection d’une cible désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les portails cibles et les groupes de portails cibles.
 
-**TPGROUP** [\<n >]
+**TPGROUP** [\<N >]
 
 Définit le focus sur le groupe de portails cibles iSCSI spécifié au sein de la cible iSCSI actuellement sélectionnée. Si aucun groupe de portails cible n’est spécifié, la commande affiche le groupe de portails cibles actuellement sélectionné (le cas échéant). Si vous spécifiez un index de groupe de portails cible non valide, aucun groupe de portails cibles n’est actif.
 
-[\<n >]
+[@no__t 0n >]
 
 Spécifie \<le numéro d’objet > à sélectionner. Si le <object number> spécifié n’est pas valide, toutes les sélections existantes pour les objets du type spécifié sont effacées. Si aucun <object number> n’est spécifié, l’objet actuel est affiché.
 
@@ -1150,14 +1150,14 @@ Par défaut, DiskRAID arrête le traitement des commandes et retourne un code d�
 
 ### <a name="diskraid-error-codes"></a>Codes d’erreur DiskRAID
 
-|Code d'erreur|Description de l’erreur|
+|Code d'erreur|Description de l'erreur|
 |----------|-----------------|
 |0|Aucune erreur ne s’est produite. L’ensemble du script s’est exécuté sans échec.|
 |1|Une exception irrécupérable s’est produite.|
 |2|Les arguments spécifiés sur une ligne de commande DiskRAID sont incorrects.|
 |3|DiskRAID n’a pas pu ouvrir le script ou le fichier de sortie spécifié.|
 |4|L’un des services que DiskRAID utilise a renvoyé une erreur.|
-|5\.|Une erreur de syntaxe de commande s’est produite. Le script a échoué, car un objet n’a pas été correctement sélectionné ou n’était pas valide pour une utilisation avec cette commande.|
+|5|Une erreur de syntaxe de commande s’est produite. Le script a échoué, car un objet n’a pas été correctement sélectionné ou n’était pas valide pour une utilisation avec cette commande.|
 
 ## <a name="example-interactively-view-status-of-subsystem"></a>Exemple : Afficher l’état du sous-système de manière interactive
 

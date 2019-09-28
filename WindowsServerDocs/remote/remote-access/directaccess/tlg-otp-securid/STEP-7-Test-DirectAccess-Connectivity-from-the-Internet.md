@@ -1,9 +1,9 @@
 ---
-title: ÉTAPE 7 de tester la connectivité DirectAccess à partir d’Internet
-description: Cette rubrique fait partie du Guide de laboratoire de Test - démontrer DirectAccess avec l’authentification OTP et RSA SecurID pour Windows Server 2016
+title: ÉTAPE 7 Testez la connectivité DirectAccess à partir d’Internet
+description: 'Cette rubrique fait partie du Guide de laboratoire de test : illustrer DirectAccess avec l’authentification par mot de passe à usage unique et RSA SecurID pour Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,56 +12,56 @@ ms.topic: article
 ms.assetid: ed2a1616-30c6-482a-9a02-4a5023621f58
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a7f67cfc33c2511bf4edbc5030235c97ceb9acf6
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 738e0f10762c0d292e344ba25fa34cdb0d17b766
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281276"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367537"
 ---
-# <a name="step-7-test-directaccess-connectivity-from-the-internet"></a>ÉTAPE 7 de tester la connectivité DirectAccess à partir d’Internet
+# <a name="step-7-test-directaccess-connectivity-from-the-internet"></a>ÉTAPE 7 Testez la connectivité DirectAccess à partir d’Internet
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Le déploiement de mot de passe à usage unique (OTP) DirectAccess a été testé à partir du sous-réseau de réseau domestique et peut maintenant être testé à partir d’Internet.  
+Le déploiement du mot de passe à usage unique DirectAccess a été testé à partir du sous-réseau HomeNet et peut maintenant être testé à partir d’Internet.  
   
-### <a name="to-test-otp-functionality-from-the-internet-on-client1"></a>Pour tester la fonctionnalité de secret à usage unique à partir d’Internet sur CLIENT1  
+### <a name="to-test-otp-functionality-from-the-internet-on-client1"></a>Pour tester la fonctionnalité de mot de passe à usage unique à partir d’Internet sur CLIENT1  
   
-1. Sur CLIENT1, assurez-vous que vous êtes connecté en tant que **User1**. Connectez CLIENT1 au sous-réseau Corpnet.  
+1. Sur CLIENT1, assurez-vous que vous êtes connecté en tant qu’utilisateur **User1**. Connectez CLIENT1 au sous-réseau Corpnet.  
   
-2. Sur le **Démarrer** , tapez**powershell.exe**, avec le bouton droit **powershell**, cliquez sur **avancé**, puis cliquez sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+2. Dans l’écran d' **Accueil** , tapez**PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
   
-3. Dans la fenêtre Windows PowerShell, tapez **gpupdate /force** et appuyez sur ENTRÉE.  
+3. Dans la fenêtre Windows PowerShell, tapez **gpupdate/force** , puis appuyez sur entrée.  
   
-4. Débranchez CLIENT1 du sous-réseau de réseau domestique, se connecter à Internet et redémarrez l’ordinateur.  
+4. Débranchez CLIENT1 du sous-réseau HomeNet, connectez-le à Internet, puis redémarrez l’ordinateur.  
   
-5. Sur CLIENT1, ouvrez Internet Explorer et dans la barre d’adresses, tapez **https://app1.corp.contoso.com/** et appuyez sur ENTRÉE. Appuyez sur F5.  
+5. Sur CLIENT1, ouvrez Internet Explorer, et dans la barre d’adresses, tapez **https://app1.corp.contoso.com/** , puis appuyez sur entrée. Appuyez sur F5.  
   
-   N’ouvrez pas le site.  
+   Le site ne doit pas s’ouvrir.  
   
-6. Sur le **Démarrer** , tapez**RSA**, puis cliquez sur **RSA SecurID jeton**.  
+6. Dans l’écran d' **Accueil** , tapez**RSA**, puis cliquez sur **jeton RSA SecurID**.  
   
-7. Attendez que le jeton RSA SecurID modifie le mot de passe à usage unique, puis cliquez sur **copie**.  
+7. Attendez que le jeton RSA SecurID change le mot de passe à usage unique, puis cliquez sur **copier**.  
   
 8. Cliquez sur le**connexions réseau**icône dans la zone de notification pour accéder au Gestionnaire de médias DA.  
   
-9. Cliquez sur **connexion de l’espace de travail**, puis cliquez sur **continuer**.  
+9. Cliquez sur connexion à l' **espace de travail**, puis sur **Continuer**.  
   
-10. Appuyez sur Ctrl + Alt + Suppr, puis cliquez sur le **mot de passe à usage unique (OTP)** vignette.  
+10. Appuyez sur Ctrl + Alt + Suppr, puis cliquez sur la vignette **mot de passe à usage** unique.  
   
-11. Collez le code de jeton précédemment copiés à huit chiffres, puis cliquez sur **OK**. Attendez que l’authentification. L’état de connexion d’espace de travail de DirectAccess seront désormais **connecté**.  
+11. Collez le jeton de jeton à huit chiffres précédemment copié, puis cliquez sur **OK**. Attendez la fin de l’authentification. L’état de la connexion à l’espace de travail DirectAccess sera maintenant **connecté**.  
   
-12. Dans Internet Explorer, dans la barre d’adresses, tapez **https://app1.corp.contoso.com/** et appuyez sur ENTRÉE. Appuyez sur F5. Vous allez voir le site web IIS par défaut sur APP1.  
+12. Dans Internet Explorer, dans la barre d’adresses, tapez **https://app1.corp.contoso.com/** et appuyez sur entrée. Appuyez sur F5. Vous allez voir le site web IIS par défaut sur APP1.  
   
-13. Dans la barre d’adresses Internet Explorer, tapez **https://app2.corp.contoso.com/** et appuyez sur ENTRÉE. Appuyez sur F5. Vous verrez le site Web IIS par défaut sur APP2.  
+13. Dans la barre d’adresses d’Internet Explorer, tapez **https://app2.corp.contoso.com/** et appuyez sur entrée. Appuyez sur F5. Le site Web IIS par défaut s’affiche sur APP2.  
   
-14. Sur le **Démarrer** , tapez<strong>\\\app1\files</strong>, puis appuyez sur ENTRÉE.  
+14. Dans l’écran d' **Accueil** , tapez<strong>\\ \ app1\files</strong>, puis appuyez sur entrée.  
   
-15. Dans le **fichiers** fenêtre de dossier partagé, double-cliquez sur le **Example.txt** fichier. Vous verrez le contenu du fichier Example.txt.  
+15. Dans la fenêtre dossiers partagés de **fichiers** , double-cliquez sur le fichier **example. txt** . Vous verrez le contenu du fichier example. txt.  
   
-16. Sur le **Démarrer** , tapez<strong>\\\app2\files</strong>, puis appuyez sur ENTRÉE.  
+16. Dans l’écran d' **Accueil** , tapez<strong>\\ \ app2\files</strong>, puis appuyez sur entrée.  
   
-17. Dans le **fichiers** fenêtre de dossier partagé, double-cliquez sur le **nouveau texte seulement.txt** fichier. Vous verrez le contenu du fichier nouveau texte seulement.txt.  
+17. Dans la fenêtre dossiers partagés de **fichiers** , double-cliquez sur le **nouveau fichier texte Text. txt** . Vous verrez le contenu du nouveau fichier texte document. txt.  
   
 
 

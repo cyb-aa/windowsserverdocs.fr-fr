@@ -1,7 +1,7 @@
 ---
-title: Commandes Netsh pour l’interface portproxy
-description: Utiliser les commandes netsh interface portproxy pour agir en tant que proxy entre les réseaux et applications IPv4 et IPv6.
-ms.prod: windows-server-threshold
+title: Commandes netsh pour l’interface portproxy
+description: Utilisez les commandes netsh de l’interface portproxy pour agir en tant que proxies entre des réseaux et des applications IPv4 et IPv6.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
@@ -9,71 +9,71 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 8ac4f8e7cd0aed5a81e89672354622dd81afce2a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6244213ea689f07230ce53288e52959972112037
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446179"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405511"
 ---
 # <a name="netsh-interface-portproxy-commands"></a>Commandes Netsh interface portproxy
 
-Utilisez le **netsh interface portproxy** commandes en tant que proxy entre les réseaux et applications IPv4 et IPv6. Vous pouvez utiliser ces commandes pour établir un service de proxy comme suit :
+Utilisez les commandes netsh de l' **interface portproxy** pour agir en tant que proxies entre des réseaux et des applications IPv4 et IPv6. Vous pouvez utiliser ces commandes pour établir le service proxy des manières suivantes :
 
--   Ordinateurs configurés avec IPv4 et application les messages envoyés à d’autres applications et ordinateurs configurés avec IPv4.
+-   Messages d’application et d’ordinateur configurés IPv4 envoyés à d’autres ordinateurs et applications configurés avec IPv4.
 
--   Application et les ordinateurs configurés avec IPv4 des messages envoyés à IPv6 configurée des ordinateurs et des applications.
+-   Messages d’application et d’ordinateur configurés par IPv4 envoyés aux ordinateurs et applications configurés par IPv6.
 
--   Ordinateurs envoyés au configurés avec IPv4 et les applications messages des applications et des ordinateurs configurés avec IPv6.
+-   Messages d’ordinateur et d’application configurés IPv6 envoyés aux ordinateurs et applications configurés par IPv4.
 
--   Ordinateurs configurés avec IPv6 et l’application messages envoyés à d’autres applications et ordinateurs configurés avec IPv6.
+-   Messages d’ordinateur et d’application configurés IPv6 envoyés à d’autres ordinateurs et applications configurés par IPv6.
 
-Lorsque vous écrivez des fichiers de commandes ou des scripts à l’aide de ces commandes, chaque commande doit commencer par **netsh interface portproxy**. Par exemple, lorsque vous utilisez le **supprimer v4tov6** commande pour spécifier que le serveur portproxy supprime un port IPv4 et une adresse à partir de la liste des adresses IPv4 que le serveur écoute, le fichier de commandes ou le script doit utiliser la syntaxe suivante :
+Lorsque vous écrivez des fichiers de commandes ou des scripts à l’aide de ces commandes, chaque commande doit commencer par l' **interface portproxy**. Par exemple, lors de l’utilisation de la commande **Delete v4tov6** pour spécifier que le serveur portproxy supprime un port et une adresse IPv4 de la liste des adresses IPv4 que le serveur écoute, le fichier de commandes ou le script doit utiliser la syntaxe suivante :
 
 ```PowerShell
 netsh interface portproxy delete v4tov6listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address| HostName}] [[protocol=]tcp]
 ```
 
-Les commandes de portproxy interface netsh disponibles sont :
+Les commandes de l’interface netsh portproxy disponibles sont les suivantes :
 
--   [add v4tov4](#add-v4tov4)
+-   [Ajouter v4tov4](#add-v4tov4)
 
--   [add v4tov6](#add-v4tov6)
+-   [Ajouter v4tov6](#add-v4tov6)
 
--   [add v6tov4](#add-v6tov4)
+-   [Ajouter v6tov4](#add-v6tov4)
 
--   [add v6tov6](#add-v6tov6)
+-   [Ajouter v6tov6](#add-v6tov6)
 
--   [delete v4tov4](#delete-v4tov4)
+-   [supprimer v4tov4](#delete-v4tov4)
 
--   [delete v4tov6](#delete-v4tov6)
+-   [supprimer v4tov6](#delete-v4tov6)
 
--   [delete v6tov6](#delete-v6tov6)
+-   [supprimer v6tov6](#delete-v6tov6)
 
--   [reset](#reset)
+-   [initialisation](#reset)
 
--   [set v4tov4](#set-v4tov4)
+-   [définir v4tov4](#set-v4tov4)
 
--   [set v4tov6](#set-v4tov6)
+-   [définir v4tov6](#set-v4tov6)
 
 -   [setv6tov4](#set-v6tov4)
 
--   [set v6tov6](#set-v6tov6)
+-   [définir v6tov6](#set-v6tov6)
 
 -   [Afficher tout](#show-all)
 
--   [show v4tov4](#show-v4tov4)
+-   [afficher v4tov4](#show-v4tov4)
 
--   [show v4tov6](#show-v4tov6)
+-   [afficher v4tov6](#show-v4tov6)
 
--   [show v6tov4](#show-v6tov4)
+-   [afficher v6tov4](#show-v6tov4)
 
--   [show v6tov6](#show-v6tov6)
+-   [afficher v6tov6](#show-v6tov6)
 
 
-## <a name="add-v4tov4"></a>add v4tov4
+## <a name="add-v4tov4"></a>Ajouter v4tov4
 
-Le serveur portproxy écoute les messages envoyés à un port spécifique et adresse IPv4 et mappages d’adresses d’un port et IPv4 pour envoyer les messages reçus après l’établissement d’une connexion TCP distincte.
+Le serveur portproxy écoute les messages envoyés à un port et une adresse IPv4 spécifiques et mappe un port et une adresse IPv4 pour envoyer les messages reçus après l’établissement d’une connexion TCP distincte.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -86,15 +86,15 @@ add v4tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 |                    |                                                                                                                                                                                                   |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   **listenport**   |                                                           Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                            |
-| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
-| **listenaddress**  | Spécifie l’adresse IPv4 à écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
+|   **ListenPort**   |                                                           Spécifie le port IPv4, par numéro de port ou nom de service, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou nom de service, auquel se connecter. Si **ConnectPort** n’est pas spécifié, la valeur par défaut est la valeur de **ListenPort** sur l’ordinateur local.        |
+| **écouter**  | Spécifie l’adresse IPv4 à écouter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|    **No**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
-## <a name="add-v4tov6"></a>add v4tov6
+## <a name="add-v4tov6"></a>Ajouter v4tov6
 
-Le serveur portproxy écoute les messages envoyés à un port spécifique et d’adresse IPv4 et de mappages d’adresses d’un port et IPv6 pour envoyer les messages reçus après l’établissement d’une connexion TCP distincte.
+Le serveur portproxy écoute les messages envoyés à un port et une adresse IPv4 spécifiques, et mappe un port et une adresse IPv6 pour envoyer les messages reçus après l’établissement d’une connexion TCP distincte.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -106,15 +106,15 @@ add v4tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 |                    |                                                                                                                                                                                                   |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   **listenport**   |                                                           Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                            |
-| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
-| **listenaddress**  | Spécifie l’adresse IPv4 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
-|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
+|   **ListenPort**   |                                                           Spécifie le port IPv4, par numéro de port ou nom de service, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou nom de service, auquel se connecter. Si **ConnectPort** n’est pas spécifié, la valeur par défaut est la valeur de **ListenPort** sur l’ordinateur local.        |
+| **écouter**  | Spécifie l’adresse IPv4 sur laquelle écouter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **No**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
-## <a name="add-v6tov4"></a>add v6tov4
+## <a name="add-v6tov4"></a>Ajouter v6tov4
 
-Le serveur portproxy écoute les messages envoyés à un port spécifique et d’adresse IPv6 et de mappages d’un port et IPv4 d’adresses auxquelles envoyer les messages reçus après l’établissement d’une connexion TCP distincte.
+Le serveur portproxy écoute les messages envoyés à un port et une adresse IPv6 spécifiques, et mappe un port et une adresse IPv4 auxquels envoyer les messages reçus après l’établissement d’une connexion TCP distincte.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -126,15 +126,15 @@ add v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 |                    |                                                                                                                                                                                                   |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   **listenport**   |                                                           Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.                                                            |
-| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
-| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
-|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
+|   **ListenPort**   |                                                           Spécifie le port IPv6, par numéro de port ou nom de service, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou nom de service, auquel se connecter. Si **ConnectPort** n’est pas spécifié, la valeur par défaut est la valeur de **ListenPort** sur l’ordinateur local.        |
+| **écouter**  | Spécifie l’adresse IPv6 sur laquelle écouter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **No**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
-## <a name="add-v6tov6"></a>add v6tov6
+## <a name="add-v6tov6"></a>Ajouter v6tov6
 
-Le serveur portproxy écoute les messages envoyés à un port spécifique et d’adresse IPv6 et de mappages d’adresses d’un port et IPv6 auquel envoyer les messages reçus après l’établissement d’une connexion TCP distincte.
+Le serveur portproxy écoute les messages envoyés à un port et une adresse IPv6 spécifiques, et mappe un port et une adresse IPv6 auxquels envoyer les messages reçus après l’établissement d’une connexion TCP distincte.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -146,15 +146,15 @@ add v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 |                    |                                                                                                                                                                                                   |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   **listenport**   |                                                           Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.                                                            |
-| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
-| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
-|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
+|   **ListenPort**   |                                                           Spécifie le port IPv6, par numéro de port ou nom de service, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou nom de service, auquel se connecter. Si **ConnectPort** n’est pas spécifié, la valeur par défaut est la valeur de **ListenPort** sur l’ordinateur local.        |
+| **écouter**  | Spécifie l’adresse IPv6 sur laquelle écouter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **No**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
-## <a name="delete-v4tov4"></a>delete v4tov4
+## <a name="delete-v4tov4"></a>supprimer v4tov4
 
-Le serveur portproxy supprime une adresse IPv4 dans la liste des ports et pour lequel le serveur écoute des adresses IPv4.
+Le serveur portproxy supprime une adresse IPv4 de la liste des ports et adresses IPv4 que le serveur écoute.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -166,13 +166,13 @@ delete v4tov4 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address
 
 |                   |                                                                                                          |
 |-------------------|----------------------------------------------------------------------------------------------------------|
-|  **listenport**   |                                    Spécifie le port IPv4 à supprimer.                                    |
-| **listenaddress** | Spécifie l’adresse IPv4 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|   **protocol**    |                                      Spécifie le protocole à utiliser.                                      |
+|  **ListenPort**   |                                    Spécifie le port IPv4 à supprimer.                                    |
+| **écouter** | Spécifie l’adresse IPv4 à supprimer. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|   **No**    |                                      Spécifie le protocole à utiliser.                                      |
 
-## <a name="delete-v4tov6"></a>delete v4tov6
+## <a name="delete-v4tov6"></a>supprimer v4tov6
 
-Le serveur portproxy supprime la liste des adresses IPv4 que le serveur écoute un port IPv4 et une adresse.
+Le serveur portproxy supprime un port et une adresse IPv4 de la liste des adresses IPv4 que le serveur écoute.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -184,13 +184,13 @@ delete v4tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address
 
 |                   |                                                                                                          |
 |-------------------|----------------------------------------------------------------------------------------------------------|
-|  **listenport**   |                                    Spécifie le port IPv4 à supprimer.                                    |
-| **listenaddress** | Spécifie l’adresse IPv4 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|   **protocol**    |                                      Spécifie le protocole à utiliser.                                      |
+|  **ListenPort**   |                                    Spécifie le port IPv4 à supprimer.                                    |
+| **écouter** | Spécifie l’adresse IPv4 à supprimer. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|   **No**    |                                      Spécifie le protocole à utiliser.                                      |
 
-## <a name="delete-v6tov4"></a>delete v6tov4
+## <a name="delete-v6tov4"></a>supprimer v6tov4
 
-Le serveur portproxy supprime un port d’IPv6 et l’adresse à partir de la liste des adresses IPv6 pour lequel le serveur écoute.
+Le serveur portproxy supprime un port IPv6 et une adresse de la liste des adresses IPv6 que le serveur écoute.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -202,13 +202,13 @@ delete v6tov4 listenport= {Integer | ServiceName} [[listenaddress=] {IPv6Address
 
 |                   |                                                                                                          |
 |-------------------|----------------------------------------------------------------------------------------------------------|
-|  **listenport**   |                                    Spécifie le port IPv6 à supprimer.                                    |
-| **listenaddress** | Spécifie l’adresse IPv6 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|   **protocol**    |                                      Spécifie le protocole à utiliser.                                      |
+|  **ListenPort**   |                                    Spécifie le port IPv6 à supprimer.                                    |
+| **écouter** | Spécifie l’adresse IPv6 à supprimer. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|   **No**    |                                      Spécifie le protocole à utiliser.                                      |
 
-## <a name="delete-v6tov6"></a>delete v6tov6
+## <a name="delete-v6tov6"></a>supprimer v6tov6
 
-Le serveur portproxy supprime une adresse IPv6 à partir de la liste des adresses IPv6 pour lequel le serveur écoute.
+Le serveur portproxy supprime une adresse IPv6 de la liste des adresses IPv6 que le serveur écoute.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -220,11 +220,11 @@ delete v6tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv6Address
 
 |                   |                                                                                                          |
 |-------------------|----------------------------------------------------------------------------------------------------------|
-|  **listenport**   |                                    Spécifie le port IPv6 à supprimer.                                    |
-| **listenaddress** | Spécifie l’adresse IPv6 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|   **protocol**    |                                      Spécifie le protocole à utiliser.                                      |
+|  **ListenPort**   |                                    Spécifie le port IPv6 à supprimer.                                    |
+| **écouter** | Spécifie l’adresse IPv6 à supprimer. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|   **No**    |                                      Spécifie le protocole à utiliser.                                      |
 
-## <a name="reset"></a>Réinitialiser
+## <a name="reset"></a>Initialisation
 
 Réinitialise l’état de configuration IPv6.
 
@@ -232,9 +232,9 @@ Réinitialise l’état de configuration IPv6.
 
 `reset`
 
-## <a name="set-v4tov4"></a>ensemble v4tov4
+## <a name="set-v4tov4"></a>définir v4tov4
 
-Modifie les valeurs de paramètre d’une entrée existante sur le serveur portproxy créé avec le **add v4tov4** commande, ou ajoute une nouvelle entrée à la liste que met en correspondance les paires port/adresse.
+Modifie les valeurs des paramètres d’une entrée existante sur le serveur portproxy créé à l’aide de la commande **add v4tov4** ou ajoute une nouvelle entrée à la liste qui mappe les paires port/adresse.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -246,15 +246,15 @@ set v4tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 |                    |                                                                                                                                                                                                   |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   **listenport**   |                                                           Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                            |
-| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
-| **listenaddress**  | Spécifie l’adresse IPv4 à écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
+|   **ListenPort**   |                                                           Spécifie le port IPv4, par numéro de port ou nom de service, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou nom de service, auquel se connecter. Si **ConnectPort** n’est pas spécifié, la valeur par défaut est la valeur de **ListenPort** sur l’ordinateur local.        |
+| **écouter**  | Spécifie l’adresse IPv4 à écouter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|    **No**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
-## <a name="set-v4tov6"></a>ensemble v4tov6
+## <a name="set-v4tov6"></a>définir v4tov6
 
-Modifie les valeurs de paramètre d’une entrée existante sur le serveur portproxy créé avec le **ajouter v4tov6** commande, ou ajoute une nouvelle entrée à la liste que met en correspondance les paires port/adresse.
+Modifie les valeurs des paramètres d’une entrée existante sur le serveur portproxy créé à l’aide de la commande **Add v4tov6** ou ajoute une nouvelle entrée à la liste qui mappe les paires port/adresse.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -266,15 +266,15 @@ set v4tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 |                    |                                                                                                                                                                                                   |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   **listenport**   |                                                           Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                            |
-| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
-| **listenaddress**  | Spécifie l’adresse IPv4 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
-|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
+|   **ListenPort**   |                                                           Spécifie le port IPv4, par numéro de port ou nom de service, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou nom de service, auquel se connecter. Si **ConnectPort** n’est pas spécifié, la valeur par défaut est la valeur de **ListenPort** sur l’ordinateur local.        |
+| **écouter**  | Spécifie l’adresse IPv4 sur laquelle écouter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **No**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
-## <a name="set-v6tov4"></a>set v6tov4
+## <a name="set-v6tov4"></a>définir v6tov4
 
-Modifie les valeurs de paramètre d’une entrée existante sur le serveur portproxy créé avec le **ajouter v6tov4** commande, ou ajoute une nouvelle entrée à la liste que met en correspondance les paires port/adresse.
+Modifie les valeurs des paramètres d’une entrée existante sur le serveur portproxy créé à l’aide de la commande **Add v6tov4** ou ajoute une nouvelle entrée à la liste qui mappe les paires port/adresse.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -286,15 +286,15 @@ set v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 |                    |                                                                                                                                                                                                   |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   **listenport**   |                                                           Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.                                                            |
-| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
-|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
-| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
-|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
+|   **ListenPort**   |                                                           Spécifie le port IPv6, par numéro de port ou nom de service, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou nom de service, auquel se connecter. Si **ConnectPort** n’est pas spécifié, la valeur par défaut est la valeur de **ListenPort** sur l’ordinateur local.        |
+| **écouter**  | Spécifie l’adresse IPv6 sur laquelle écouter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **No**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
-## <a name="set-v6tov6"></a>ensemble v6tov6
+## <a name="set-v6tov6"></a>définir v6tov6
 
-Modifie les valeurs de paramètre d’une entrée existante sur le serveur portproxy créé avec le **add v6tov6** commande, ou ajoute une nouvelle entrée à la liste que met en correspondance les paires port/adresse.
+Modifie les valeurs des paramètres d’une entrée existante sur le serveur portproxy créé à l’aide de la commande **Add v6tov6** ou ajoute une nouvelle entrée à la liste qui mappe les paires port/adresse.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -306,11 +306,11 @@ set v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 |                    |                                                                                                                                                                                                    |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   **listenport**   |                                                            Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.                                                            |
-| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
-|  **connectport**   |        Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
-| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si vous ne spécifiez pas une adresse, la valeur par défaut est l’ordinateur local. |
-|    **protocol**    |                                                                                   Spécifie le protocole à utiliser.                                                                                   |
+|   **ListenPort**   |                                                            Spécifie le port IPv6, par numéro de port ou nom de service, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si aucune adresse n’est spécifiée, la valeur par défaut est l’ordinateur local.  |
+|  **connectport**   |        Spécifie le port IPv6, par numéro de port ou nom de service, auquel se connecter. Si **ConnectPort** n’est pas spécifié, la valeur par défaut est la valeur de **ListenPort** sur l’ordinateur local.        |
+| **écouter**  | Spécifie l’adresse IPv6 sur laquelle écouter. Les valeurs acceptables sont adresse IP, nom NetBIOS de l’ordinateur ou nom DNS de l’ordinateur. Si vous ne spécifiez pas d’adresse, la valeur par défaut est l’ordinateur local. |
+|    **No**    |                                                                                   Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="show-all"></a>afficher tous
 
@@ -321,34 +321,34 @@ Affiche tous les paramètres portproxy, y compris les paires port/adresse pour v
 `show all`
 
 
-## <a name="show-v4tov4"></a>show v4tov4
+## <a name="show-v4tov4"></a>afficher v4tov4
 
-Affiche les paramètres portproxy v4tov4.
+Affiche les paramètres v4tov4 portproxy.
 
 ### <a name="syntax"></a>Syntaxe
 
 `show v4tov4`
 
-## <a name="show-v4tov6"></a>show v4tov6
+## <a name="show-v4tov6"></a>afficher v4tov6
 
-Affiche les paramètres portproxy v4tov6.
+Affiche les paramètres v4tov6 portproxy.
 
 ### <a name="syntax"></a>Syntaxe
 
 `show v4tov6`
 
-## <a name="show-v6tov4"></a>show v6tov4
+## <a name="show-v6tov4"></a>afficher v6tov4
 
-Affiche les paramètres portproxy v6tov4.
+Affiche les paramètres v6tov4 portproxy.
 
 ### <a name="syntax"></a>Syntaxe
 
 `show v6tov4`
 
 
-## <a name="show-v6tov6"></a>show v6tov6
+## <a name="show-v6tov6"></a>afficher v6tov6
 
-Affiche les paramètres portproxy v6tov6.
+Affiche les paramètres v6tov6 portproxy.
 
 ### <a name="syntax"></a>Syntaxe
 

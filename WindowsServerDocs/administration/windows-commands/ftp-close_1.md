@@ -1,8 +1,8 @@
 ---
-title: FTP close_1
-description: Rubrique de commandes de Windows pour ftp close_1
+title: close_1 FTP
+description: Rubrique relative aux commandes Windows pour FTP close_1
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,28 +13,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 802cf238e2120f947decebec65d63da6477e8ed1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ca7dc3e6d0d90155c49eaf4ae4184d442c17521
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842580"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376529"
 ---
-# <a name="ftp-close1"></a>FTP : close_1
+# <a name="ftp-close_1"></a>FTP : close_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Termine la session ftp avec le serveur distant et reste à la **ftp >** invite.   
+Met fin à la session FTP avec le serveur distant et reste à l’invite de **> FTP** .   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 close  
 ```  
 ### <a name="parameters"></a>Paramètres  
 aucune  
-## <a name="BKMK_Examples"></a>Exemples  
-Terminer la session ftp avec le serveur distant et de rester à la **ftp >** invite.  
+## <a name="BKMK_Examples"></a>Illustre  
+Mettez fin à la session FTP avec le serveur distant et restez à l’invite **> FTP** .  
 ```  
 close  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

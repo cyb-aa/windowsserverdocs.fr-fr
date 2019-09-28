@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getreplyfilename
-description: Rubrique de commandes de Windows pour **bitsadmin getreplyfilename** -Obtient le chemin d’accès du fichier qui contient la réponse du serveur.
+description: Rubrique relative aux commandes Windows pour **Bitsadmin getreplyfilename** -obtient le chemin d’accès du fichier qui contient la réponse du serveur.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 46130700e9ac7e2d0076b368712e5dcb3f02ba2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 96b77e9bd19cdc094e6b025e143b05aff7bc60d5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862150"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381272"
 ---
 # <a name="bitsadmin-getreplyfilename"></a>bitsadmin getreplyfilename
 
 Obtient le chemin d’accès du fichier qui contient la réponse du serveur.
 
-**BITS 1.2 et versions antérieures**: Non pris en charge.
+**BITS 1,2 et versions antérieures**: Non pris en charge.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,19 +36,19 @@ bitsadmin /GetReplyFileName <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
 ## <a name="remarks"></a>Notes
 
 Valide uniquement pour les travaux de chargement-réponse.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant récupère le nom du fichier de réponse pour le travail nommé *myDownloadJob*.
+L’exemple suivant récupère le nom de fichier de réponse pour la tâche nommée *myDownloadJob*.
 ```
 C:\>bitsadmin /GetReplyFileName myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
-title: ombres de liste
-description: 'Rubrique de commandes de Windows pour ***- '
+title: répertorier les ombres
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 50e4c4b8c7ea97ec65cecb6b8e904abd8c6d98eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2640c04aef34cd6433efe529ac08c0294ba1c3b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848770"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374759"
 ---
-# <a name="list-shadows"></a>ombres de liste
+# <a name="list-shadows"></a>répertorier les ombres
 
 
 
-Listes persistant et existantes non persistant clichés instantanés qui se trouvent sur le système.
+Répertorie les clichés instantanés non persistants et persistants qui se trouvent sur le système.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,9 +37,9 @@ list shadows {all | set <SetID> | id <ShadowID>}
 |Paramètre|Description|
 |---------|-----------|
 |tous|Répertorie tous les clichés instantanés.|
-|Définissez \<SetID >|Répertorie les clichés instantanés qui appartiennent à l’ID spécifié le jeu de copies de clichés instantanés.|
-|ID \<ShadowID >|Répertorie toute copie de clichés instantanés avec l’ID de copie de clichés instantanés spécifiée.|
+|définir @no__t > 0SetID|Répertorie les clichés instantanés qui appartiennent à l’ID du jeu de clichés instantanés spécifié.|
+|ID \<ShadowID >|Répertorie tout cliché instantané avec l’ID de cliché instantané spécifié.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

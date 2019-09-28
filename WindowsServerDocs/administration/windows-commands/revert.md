@@ -1,8 +1,8 @@
 ---
 title: Rétablir
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5bc77b17317f602d642c7a9e025b67be10ad7256
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3243f13a4997824d9fff7c874ce26d56325fefa4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875110"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371453"
 ---
 # <a name="revert"></a>Rétablir
 
 
 
-Rétablit un volume vers un cliché instantané spécifié. Cela est pris en charge uniquement pour les clichés instantanés dans le contexte CLIENTACCESSIBLE. Ces clichés sont persistantes et peuvent uniquement être effectuées par le fournisseur du système. Si utilisée sans paramètres, **rétablir** affiche l’aide à l’invite de commandes.
+ramène un volume à un cliché instantané spécifié. Cela est pris en charge uniquement pour les clichés instantanés dans le contexte CLIENTACCESSIBLE. Ces clichés instantanés sont persistants et peuvent être effectués uniquement par le fournisseur système. S’il est utilisé sans paramètres, l’option **rétablir** affiche l’aide à l’invite de commandes.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,8 +36,8 @@ revert <ShadowCopyID>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<ShadowCopyID>|Spécifie l’ID du cliché instantané pour restaurer le volume.|
+|@no__t 0ShadowCopyID >|Spécifie l’ID de cliché instantané pour rétablir le volume.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

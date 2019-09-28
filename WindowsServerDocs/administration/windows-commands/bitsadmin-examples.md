@@ -1,8 +1,8 @@
 ---
-title: exemples de bitsadmin
-description: Les exemples suivants montrent comment utiliser l’outil bitsadmin pour effectuer les tâches les plus courantes.
+title: exemples Bitsadmin
+description: Les exemples suivants montrent comment utiliser l’outil Bitsadmin pour effectuer les tâches les plus courantes.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,60 +13,60 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/31/2018
-ms.openlocfilehash: a98e1a876c972b0f146ff37aff0a77399b684e99
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: c675f08752b3464f7ab1eddd4e9fddf3b16db5f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308558"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381770"
 ---
-# <a name="bitsadmin-examples"></a>exemples de bitsadmin
+# <a name="bitsadmin-examples"></a>exemples Bitsadmin
 
-Les exemples suivants montrent comment utiliser le `bitsadmin` outil pour effectuer les tâches les plus courantes.
+Les exemples suivants montrent comment utiliser l’outil `bitsadmin` pour effectuer les tâches les plus courantes.
 
 ## <a name="transfer-a-file"></a>Transférer un fichier
 
-Le **/transfert** commutateur est un raccourci pour effectuer les tâches répertoriées ci-dessous. Ce commutateur crée la tâche ajoute les fichiers au travail, Active le travail dans la file d’attente de transfert et termine la tâche. BITSAdmin continue d’afficher des informations sur la progression dans la fenêtre MS-DOS jusqu'à ce que le transfert se termine ou une erreur se produit.
+Le commutateur **/Transfer** est un raccourci permettant d’effectuer les tâches ci-dessous. Ce commutateur crée le travail, ajoute les fichiers au travail, active le travail dans la file d’attente de transfert et termine le travail. BITSAdmin continue à afficher les informations de progression dans la fenêtre MS-DOS jusqu’à ce que le transfert soit terminé ou qu’une erreur se produise.
 
-**Bitsadmin /transfer myDownloadJob /download /priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
+**Bitsadmin/Transfer myDownloadJob/Download/Priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
 
-## <a name="create-a-download-job"></a>Créer une tâche de téléchargement
+## <a name="create-a-download-job"></a>Créer un travail de téléchargement
 
-Utilisez le **/ créer** commutateur pour créer une tâche de téléchargement nommée myDownloadJob.
+Utilisez le commutateur **/Create** pour créer une tâche de téléchargement nommée myDownloadJob.
 
-**Bitsadmin / créer myDownloadJob**
+**Bitsadmin/Create myDownloadJob**
 
-BITSAdmin retourne un GUID qui identifie de façon unique le travail. Utilisez le nom de travail ou le GUID dans les appels suivants. Le texte suivant est un exemple de sortie.
+BITSAdmin retourne un GUID qui identifie de façon unique le travail. Utilisez le GUID ou le nom de la tâche dans les appels suivants. Le texte suivant est un exemple de sortie.
 
 ``` syntax
 Created job {C775D194-090F-431F-B5FB-8334D00D1CB6}.
 ```
 
-Ensuite, utilisez le **/AddFile.** commutateur à ajouter un ou plusieurs fichiers à la tâche de téléchargement.
+Ensuite, utilisez le commutateur **/AddFile** pour ajouter un ou plusieurs fichiers au travail de téléchargement.
 
-## <a name="add-files-to-the-download-job"></a>Ajouter des fichiers à la tâche de téléchargement
+## <a name="add-files-to-the-download-job"></a>Ajouter des fichiers au travail de téléchargement
 
-Utilisez le **/AddFile.** commutateur pour ajouter un fichier à la tâche. Répétez cet appel pour chaque fichier que vous souhaitez ajouter. Si plusieurs travaux utilisent myDownloadJob comme leur nom, vous devez remplacer myDownloadJob avec le GUID du travail pour identifier de façon unique le travail.
+Utilisez le commutateur **/AddFile** pour ajouter un fichier au travail. Répétez cet appel pour chaque fichier que vous souhaitez ajouter. Si plusieurs travaux utilisent myDownloadJob comme nom, vous devez remplacer myDownloadJob par le GUID du travail pour identifier le travail de façon unique.
 
-**Bitsadmin /AddFile. myDownloadJob https://downloadsrv/10mb.zip c:\\10mb.zip**
+**Bitsadmin/AddFile myDownloadJob https://downloadsrv/10mb.zip c : @no__t -210mb. zip**
 
-Pour activer la tâche dans la file d’attente de transfert, utilisez le **/reprendre** basculer.
+Pour activer le travail dans la file d’attente de transfert, utilisez le commutateur **/Resume**
 
-## <a name="activate-the-download-job"></a>Activer la tâche de téléchargement
+## <a name="activate-the-download-job"></a>Activer le travail de téléchargement
 
-Lorsque vous créez une nouvelle tâche, le service BITS interrompt le travail. Pour activer la tâche dans la file d’attente de transfert, utilisez le **/reprendre** basculer. Si plusieurs travaux utilisent myDownloadJob comme leur nom, vous devez remplacer myDownloadJob avec le GUID du travail pour identifier de façon unique le travail.
+Lorsque vous créez un nouveau travail, le service BITS interrompt le travail. Pour activer le travail dans la file d’attente de transfert, utilisez le commutateur **/Resume** Si plusieurs travaux utilisent myDownloadJob comme nom, vous devez remplacer myDownloadJob par le GUID du travail pour identifier le travail de façon unique.
 
-**Bitsadmin /resume myDownloadJob**
+**Bitsadmin/Resume myDownloadJob**
 
-Pour déterminer la progression du travail, utilisez le **/la liste**, **/info**, ou **/surveiller** basculer.
+Pour déterminer la progression du travail, utilisez le commutateur **/List**, **/info**ou **/Monitor** .
 
-## <a name="determine-the-progress-of-the-download-job"></a>Déterminer la progression de la tâche de téléchargement
+## <a name="determine-the-progress-of-the-download-job"></a>Déterminer la progression du travail de téléchargement
 
-Utilisez le **/info** commutateur pour déterminer la progression d’une tâche. Si plusieurs travaux utilisent myDownloadJob comme leur nom, vous devez remplacer myDownloadJob avec le GUID du travail pour identifier de façon unique le travail.
+Utilisez le commutateur **/info** pour déterminer la progression d’un travail. Si plusieurs travaux utilisent myDownloadJob comme nom, vous devez remplacer myDownloadJob par le GUID du travail pour identifier le travail de façon unique.
 
-**bitsadmin /info myDownloadJob /verbose**
+**Bitsadmin/info myDownloadJob/verbose**
 
-Le **/info** switch renvoie l’état du travail et le nombre de fichiers et d’octets transférés. Lorsque l’état est transféré, BITS a transféré tous les fichiers dans le travail. Le **/verbose** argument fournit des détails complets de la tâche. Le texte suivant est un exemple de sortie.
+Le commutateur **/info** retourne l’état du travail et le nombre de fichiers et d’octets transférés. Lorsque l’État est transféré, le service BITS a transféré avec succès tous les fichiers du travail. L’argument **/Verbose** fournit des détails complets sur le travail. Le texte suivant est un exemple de sortie.
 
 ``` syntax
 GUID: {482FCAF0-74BF-469B-8929-5CCD028C9499} DISPLAY: myDownloadJob
@@ -87,21 +87,21 @@ JOB FILES:
 NOTIFICATION COMMAND LINE: none
 ```
 
-Pour recevoir des informations pour tous les travaux dans la file d’attente de transfert, utilisez le **/la liste** ou **/surveiller** basculer.
+Pour recevoir des informations pour tous les travaux de la file d’attente de transfert, utilisez le commutateur **/List** ou **/Monitor**
 
-## <a name="completing-the-download-job"></a>Fin de la tâche de téléchargement
+## <a name="completing-the-download-job"></a>Fin du travail de téléchargement
 
-Lorsque l’état du travail est transféré, BITS a transféré tous les fichiers dans le travail. Toutefois, les fichiers ne sont pas disponibles tant que vous utilisez le **/ complète** basculer. Si plusieurs travaux utilisent myDownloadJob comme leur nom, vous devez remplacer myDownloadJob avec le GUID du travail pour identifier de façon unique le travail.
+Lorsque l’état du travail est transféré, le service BITS a transféré tous les fichiers du travail. Toutefois, les fichiers ne sont pas disponibles tant que vous n’utilisez pas le commutateur **/Complete** Si plusieurs travaux utilisent myDownloadJob comme nom, vous devez remplacer myDownloadJob par le GUID du travail pour identifier le travail de façon unique.
 
-**Bitsadmin / complete myDownloadJob**
+**Bitsadmin/Complete myDownloadJob**
 
 ## <a name="monitoring-jobs-in-the-transfer-queue"></a>Surveillance des travaux dans la file d’attente de transfert
 
-Utilisez le **/la liste**, **/surveiller**, ou **/info** commutateur pour surveiller les travaux dans la file d’attente de transfert. Le **/la liste** commutateur fournit des informations pour tous les travaux dans la file d’attente.
+Utilisez le commutateur **/List**, **/Monitor**ou **/info** pour surveiller les travaux dans la file d’attente de transfert. Le commutateur **/List** fournit des informations pour tous les travaux de la file d’attente.
 
-**bitsadmin /list**
+**bitsadmin/list**
 
-Le **/la liste** switch renvoie l’état du travail et le nombre de fichiers et d’octets transférés pour tous les travaux dans la file d’attente de transfert. Le texte suivant est un exemple de sortie.
+Le commutateur **/List** retourne l’état du travail et le nombre de fichiers et d’octets transférés pour tous les travaux de la file d’attente de transfert. Le texte suivant est un exemple de sortie.
 
 ``` syntax
 {6AF46E48-41D3-453F-B7AF-A694BBC823F7} job1 SUSPENDED 0 / 0 0 / 0
@@ -110,11 +110,11 @@ Le **/la liste** switch renvoie l’état du travail et le nombre de fichiers et
 Listed 2 job(s).
 ```
 
-Utilisez le **/surveiller** commutateur pour surveiller tous les travaux dans la file d’attente. Le **/surveiller** commutateur actualise les données toutes les 5 secondes. Pour arrêter l’actualisation, entrez CTRL + C.
+Utilisez le commutateur **/Monitor** pour surveiller tous les travaux dans la file d’attente. Le commutateur **/Monitor** actualise les données toutes les 5 secondes. Pour arrêter l’actualisation, entrez CTRL + C.
 
-**bitsadmin /monitor**
+**Bitsadmin/Monitor**
 
-Le **/surveiller** switch renvoie l’état du travail et le nombre de fichiers et d’octets transférés pour tous les travaux dans la file d’attente de transfert. Le texte suivant est un exemple de sortie.
+Le commutateur **/Monitor** retourne l’état du travail et le nombre de fichiers et d’octets transférés pour tous les travaux de la file d’attente de transfert. Le texte suivant est un exemple de sortie.
 
 ``` syntax
 MONITORING BACKGROUND COPY MANAGER(5 second refresh)
@@ -123,11 +123,11 @@ MONITORING BACKGROUND COPY MANAGER(5 second refresh)
 {0B138008-304B-4264-B021-FD04455588FF} job3 TRANSFERRED 1 / 1 100379370 / 100379370
 ```
 
-## <a name="deleting-jobs-from-the-transfer-queue"></a>Suppression de travaux à partir de la file d’attente de transfert
+## <a name="deleting-jobs-from-the-transfer-queue"></a>Suppression de travaux de la file d’attente de transfert
 
-Utilisez le **/réinitialisation** commutateur pour supprimer tous les travaux de la file d’attente de transfert.
+Utilisez le commutateur **/Reset** pour supprimer tous les travaux de la file d’attente de transfert.
 
-**bitsadmin /reset**
+**Bitsadmin/Reset**
 
 Le texte suivant est un exemple de sortie.
 

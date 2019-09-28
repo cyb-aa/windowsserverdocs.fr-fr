@@ -2,7 +2,7 @@
 title: imprimer la référence des commandes
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a9b0ab1e3e9ecb170eb4535cb7e4e643d791e5b
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 73850c35b6f228c49496a2bb4505fe8203cb52ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372171"
 ---
 # <a name="print-command-reference"></a>imprimer la référence des commandes
 
@@ -34,10 +34,10 @@ La liste suivante répertorie les outils en ligne de commande d’impression.
 |                    [print](print.md)                     |                                                      Envoie un fichier texte à une imprimante.                                                       |
 |                  [prncnfg](prncnfg.md)                   |                                     Configure ou affiche les informations de configuration relatives à une imprimante.                                      |
 |                  [prndrvr](prndrvr.md)                   |                                                 Ajoute, supprime et répertorie les pilotes d’imprimante.                                                  |
-|                  [prnjobs](prnjobs.md)                   |                                              suspend, reprend, annule et répertorie les travaux d’impression.                                               |
+|                  [prnjobs](prnjobs.md)                   |                                              Suspend, reprend, annule et répertorie les travaux d’impression.                                               |
 |                  [prnmngr](prnmngr.md)                   |            Ajoute, supprime et répertorie des imprimantes ou des connexions d’imprimante, en plus de définir et d’afficher l’imprimante par défaut.            |
-|                  [prnport](prnport.md)                   |           crée, supprime et répertorie les ports d’imprimante TCP/IP standard, en plus de l’affichage et de la modification de la configuration du port.            |
-|                  [prnqctl](prnqctl.md)                   |                                imprime une page de test, interrompt ou reprend une imprimante et efface une file d’attente d’impression.                                |
+|                  [prnport](prnport.md)                   |           Crée, supprime et répertorie les ports d’imprimante TCP/IP standard, en plus de l’affichage et de la modification de la configuration du port.            |
+|                  [prnqctl](prnqctl.md)                   |                                Imprime une page de test, interrompt ou reprend une imprimante et efface une file d’attente d’impression.                                |
 |                   [pubprn](pubprn.md)                    |                                       Publie une imprimante dans le service d’annuaire Active Directory.                                       |
 | [rundll32 printui. dll, printUIEntry](rundll32-printui.md) |                Vous permet d’automatiser l’installation et la configuration des imprimantes à l’aide de scripts ou de l’invite de commandes.                 |
 

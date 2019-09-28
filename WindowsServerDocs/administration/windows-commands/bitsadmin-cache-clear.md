@@ -1,8 +1,8 @@
 ---
-title: cache Bitsadmin clair
-description: Rubrique de commandes de Windows pour **cache bitsadmin clair** -vide le cache local.
+title: désactivation du cache Bitsadmin
+description: Rubrique relative aux commandes Windows pour **cache Bitsadmin Clear** -purge le cache local.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ebf99efad228899129e696fe9cf56ef03a80bee4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c91079c439c505a0e73e48cc5fbcb26679b150b6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868480"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381927"
 ---
-# <a name="bitsadmin-cache-and-clear"></a>cache de bitsadmin et effacez-le
+# <a name="bitsadmin-cache-and-clear"></a>cache Bitsadmin et Clear
 
 
 
-Vide le cache local.
+Purge le cache local.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,13 +32,13 @@ Vide le cache local.
 bitsadmin /Cache /Clear 
 ```
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant vide le cache local.
+L’exemple suivant purge le cache local.
 ```
 C:\>bitsadmin /Cache /Clear 
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

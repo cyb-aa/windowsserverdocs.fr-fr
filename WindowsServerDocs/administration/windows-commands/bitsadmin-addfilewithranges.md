@@ -1,8 +1,8 @@
 ---
 title: bitsadmin addfilewithranges
-description: Rubrique de commandes de Windows pour **bitsadmin addfilewithranges** -ajoute un fichier pour le travail spécifié. BITS télécharge les plages spécifiées à partir du fichier distant.
+description: 'Rubrique relative aux commandes Windows pour **Bitsadmin ADDFILEWITHRANGES** : ajoute un fichier au travail spécifié. Le service BITS télécharge les plages spécifiées à partir du fichier distant.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5e1e4f8af9117928f9ab044d29e65f57aa5a119
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 557f19f6e106e5fb73b3a229090eecf0fc048758
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382020"
 ---
 # <a name="bitsadmin-addfilewithranges"></a>bitsadmin addfilewithranges
 
-Ajoute un fichier pour le travail spécifié. BITS télécharge les plages spécifiées à partir du fichier distant. Ce commutateur est valide uniquement pour les travaux de téléchargement.
+Ajoute un fichier au travail spécifié. Le service BITS télécharge les plages spécifiées à partir du fichier distant. Ce commutateur est valide uniquement pour les travaux de téléchargement.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,23 +34,23 @@ bitsadmin /AddFileWithRanges <Job> <RemoteURL> <LocalName> <RangeList>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|RemoteURL|*RemoteURL* est l’URL du fichier sur le serveur.|
+|Tâche|Nom complet ou GUID du travail|
+|RemoteURL|*RemoteUrl* est l’URL du fichier sur le serveur.|
 |LocalName|*LocalName* est le nom du fichier sur l’ordinateur local. *LocalName* doit contenir un chemin d’accès absolu au fichier.|
-|RangeList|*RangeList* est une liste délimitée par des virgules de paires de décalage : longueur. Utilisez un signe deux-points pour séparer la valeur de décalage à partir de la valeur de longueur. Par exemple, une valeur de `0:100,2000:100,5000:eof` indique les BITS pour transférer des 100 octets à partir de l’offset 0, 100 octets à partir de l’offset 2000 et les octets restants à partir de décalage 5000 à la fin du fichier.|
+|RangeList|*RangeList* est une liste délimitée par des virgules de paires offset : length. Utilisez un signe deux-points pour séparer la valeur de décalage de la valeur de longueur. Par exemple, la valeur `0:100,2000:100,5000:eof` indique à BITS de transférer 100 octets à partir du décalage 0, 100 octets du décalage 2000, et les octets restants de l’offset 5000 à la fin du fichier.|
 
 ## <a name="more-information"></a>Plus d’informations
 
--   Le jeton **eof** est une valeur de longueur valide dans les paires de décalage et la longueur dans le  *\<RangeList >* . Il indique au service pour lire à la fin du fichier spécifié.
--   Notez que AddFileWithRanges échoue avec le code d’erreur 0x8020002c lors d’une plage de longueur nulle est spécifiée, ainsi que d’une autre plage avec le même décalage, telles que : C:\bits > bitsadmin /addfilewithranges j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:0, 100:5
+-   Le **EOF** du jeton est une valeur de longueur valide dans les paires décalage/longueur de la *> \<RangeList*. Elle indique au service de lire jusqu’à la fin du fichier spécifié.
+-   Notez que AddFileWithRanges échouera avec le code d’erreur 0x8020002c quand une plage de longueur nulle est spécifiée avec une autre plage du même décalage, par exemple : C:\bits > Bitsadmin/ADDFILEWITHRANGES J2 http://bitsdc/dload/1k.zip c:\1k.zip 100:0100:5
 
-    Message d’erreur : Impossible d’ajouter le fichier au travail - 0x8020002c. La liste de plages d’octets contient des plages qui se chevauchent, qui ne sont pas pris en charge.
+    Message d’erreur : Impossible d’ajouter le fichier au travail-0x8020002c. La liste de plages d’octets contient des plages qui se chevauchent, ce qui n’est pas pris en charge.
 
-    Solution de contournement : ne spécifiez pas du tout d’abord la plage de longueur nulle. Par exemple : bitsadmin /addfilewithranges j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:5, 100:0.
+    Solution de contournement : ne spécifiez pas d’abord la plage de longueur nulle. Par exemple : Bitsadmin/ADDFILEWITHRANGES J2 http://bitsdc/dload/1k.zip c:\1k.zip 100:5100:0.
 
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant indique les BITS pour transférer des 100 octets à partir de l’offset 0, 100 octets de décalage 2000 et les octets restants à partir d’un décalage 5000 à la fin du fichier.
+L’exemple suivant indique à BITS de transférer 100 octets à partir du décalage 0, 100 octets du décalage 2000, et les octets restants de l’offset 5000 à la fin du fichier.
 
 ```
 C:\>bitsadmin /addfilewithranges http://downloadsrv/10mb.zip c:\10mb.zip "0:100,2000:100,5000:eof"

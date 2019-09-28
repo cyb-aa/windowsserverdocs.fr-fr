@@ -1,8 +1,8 @@
 ---
 title: mmc
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4bdc093bd16ea08153b7dbc4a0e3380251f2ed7d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1bf9efe257e9e2b6cf20c28c1e6c0cf27230a6bc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437330"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373598"
 ---
 # <a name="mmc"></a>mmc
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-À l’aide des options de ligne de commande mmc, vous pouvez ouvrir un spécifique **mmc** console, ouvrez **mmc** en mode auteur, ou pour spécifier que la version 32 bits ou 64 bits de **mmc** est ouvert.
+À l’aide des options de ligne de commande MMC, vous pouvez ouvrir une console **MMC** spécifique, ouvrir la console **MMC** en mode auteur, ou spécifier que la version 32 bits ou 64 bits de **MMC** est ouverte.
 ## <a name="syntax"></a>Syntaxe
 ```
 mmc <path>\<filename>.msc [/a] [/64] [/32]
@@ -33,17 +33,17 @@ mmc <path>\<filename>.msc [/a] [/64] [/32]
 
 |       Paramètre        |                                                                                                 Description                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <path>\\<filename>.msc |        démarre **mmc** et ouvre une console enregistrée. Vous devez spécifier le chemin d’accès et le nom complet pour le fichier de console enregistrée. Si vous ne spécifiez pas un fichier de console, **mmc** ouvre une nouvelle console.         |
-|           /a           |                                                               Ouvre une console enregistrée en mode auteur.  Permet d’apporter des modifications aux consoles enregistrées.                                                                |
-|          /64           |                         Ouvre la version 64 bits de **mmc** (mmc64). Utilisez cette option uniquement si vous exécutez un système d’exploitation Microsoft 64 bits et que vous souhaitez utiliser un composant logiciel enfichable 64 bits.                          |
-|          /32           | Ouvre la version 32 bits de **mmc** (mmc32). Lorsque vous exécutez un système d’exploitation Microsoft 64 bits, vous pouvez exécuter des composants logiciels enfichables 32 bits en ouvrant de mmc avec cette option de ligne de commande lorsque vous disposez uniquement de composants logiciels enfichables 32 bits. |
+| <path> @ no__t-1<filename>.msc |        démarre **MMC** et ouvre une console enregistrée. Vous devez spécifier le chemin d’accès complet et le nom de fichier pour le fichier de console enregistré. Si vous ne spécifiez pas de fichier de console, **MMC** ouvre une nouvelle console.         |
+|           /a           |                                                               Ouvre une console enregistrée en mode auteur.  Utilisé pour apporter des modifications aux consoles enregistrées.                                                                |
+|          /64           |                         Ouvre la version 64 bits de **MMC** (MMC64). Utilisez cette option uniquement si vous exécutez un système d’exploitation Microsoft 64 bits et souhaitez utiliser un composant logiciel enfichable 64 bits.                          |
+|          /32           | Ouvre la version 32 bits de **MMC** (MMC32). Quand vous exécutez un système d’exploitation Microsoft 64 bits, vous pouvez exécuter des composants logiciels enfichables 32 bits en ouvrant MMC avec cette option de ligne de commande lorsque vous avez des composants logiciels enfichables 32 bits uniquement. |
 |           /?           |                                                                                    Affiche l'aide à l'invite de commandes.                                                                                     |
 
 ## <a name="remarks"></a>Notes
-- À l’aide de la <path> **\\** <filename> **.msc** option de ligne de commande, vous pouvez utiliser des variables d’environnement pour créer des lignes de commande ou des raccourcis qui ne dépendent pas explicites emplacement des fichiers de console. Par exemple, si le chemin d’accès à un fichier de console est dans le dossier système (par exemple, **mmc c:\winnt\system32\console_name.msc**), vous pouvez utiliser la chaîne de données extensible **%SystemRoot%** pour spécifier l’emplacement (**mmc%systemroot%\system32\console_name.msc**). Cela peut être utile si vous déléguez des tâches aux personnes de votre organisation qui travaillent sur des ordinateurs différents.
-- À l’aide de la **/a** option de ligne de commande lors de l’ouverture des consoles avec cette option, ils sont ouverts en mode auteur, quel que soit leur mode par défaut. Cela ne modifie pas définitivement le paramètre de mode par défaut pour les fichiers ; Lorsque vous omettez cette option, mmc ouvre les fichiers de console en fonction de leurs paramètres de mode par défaut.
-- Après avoir ouvert **mmc** ou un fichier de console en mode auteur, vous pouvez ouvrir n’importe quelle console existante en cliquant sur **ouvrir** sur le **Console** menu.
-- Vous pouvez utiliser la ligne de commande pour créer des raccourcis pour l’ouverture **mmc** et les consoles enregistrées. Une ligne de commande fonctionne avec les **exécuter** commande sur le **Démarrer** menu, dans n’importe quelle fenêtre d’invite de commandes, dans les raccourcis ou dans n’importe quel fichier de commandes ou d’un programme qui appelle la commande.
+- À l’aide de l’option de ligne de commande <path> **\\** <filename> **. msc** , vous pouvez utiliser des variables d’environnement pour créer des lignes de commande ou des raccourcis qui ne dépendent pas de l’emplacement explicite des fichiers de console. Par exemple, si le chemin d’accès à un fichier de console se trouve dans le dossier système (par exemple, **MMC c:\winnt\system32\console_name.msc**), vous pouvez utiliser la chaîne de données développable **% systemroot%** pour spécifier l’emplacement (**MMC% Systemroot% \ system32 \ console_ Name. msc**). Cela peut être utile si vous déléguez des tâches à des personnes de votre organisation qui travaillent sur des ordinateurs différents.
+- À l’aide de l’option de ligne de commande **/A** lorsque les consoles sont ouvertes avec cette option, elles sont ouvertes en mode auteur, quel que soit leur mode par défaut. Cela ne modifie pas définitivement le paramètre de mode par défaut des fichiers. Lorsque vous omettez cette option, MMC ouvre les fichiers de console en fonction de leurs paramètres de mode par défaut.
+- Après avoir ouvert **MMC** ou un fichier de console en mode auteur, vous pouvez ouvrir une console existante en cliquant sur **ouvrir** dans le menu de la **console** .
+- Vous pouvez utiliser la ligne de commande pour créer des raccourcis pour ouvrir **MMC** et les consoles enregistrées. Une commande de ligne de commande fonctionne avec la commande **exécuter** du menu **Démarrer** , dans une fenêtre d’invite de commandes, dans des raccourcis ou dans un fichier de commandes ou un programme qui appelle la commande.
   ## <a name="additional-references"></a>Références supplémentaires
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

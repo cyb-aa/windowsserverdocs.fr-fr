@@ -1,56 +1,56 @@
 ---
-title: AD FS dépannage - initiées par un fournisseur d’identité d’authentification
-description: Ce document décrit comment résoudre les problèmes de la page authentification AD FS.
+title: Résolution des problèmes de AD FS-authentification initiée par IDP
+description: Ce document décrit comment résoudre les problèmes liés à la page de connexion AD FS.
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 01/03/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 61e9adc708e95a6ab4a82550280737b2f4bad0a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 89ee45bd0387cf728bc126529169b6b1ca045d6f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844940"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366190"
 ---
-# <a name="ad-fs-troubleshooting---idp-initiated-sign-on"></a>AD FS dépannage - initiées par un fournisseur d’identité d’authentification
-La page de l’authentification AD FS peut servir à tester l’authentification fonctionne ou non.  Pour cela, en accédant à la page et la connexion.  En outre, nous pouvons utiliser la page de connexion pour vérifier que toutes les parties de confiance SAML 2.0 sont répertoriés.
+# <a name="ad-fs-troubleshooting---idp-initiated-sign-on"></a>Résolution des problèmes de AD FS-authentification initiée par IDP
+La page d’authentification AD FS peut être utilisée pour déterminer si l’authentification fonctionne.  Pour ce faire, accédez à la page et connectez-vous.  En outre, nous pouvons utiliser la page de connexion pour vérifier que toutes les parties de confiance SAML 2,0 sont répertoriées.
 
-## <a name="enable-the-idp-intiated-sign-on-page"></a>Activer la page authentification Idp lancée
-Par défaut, AD FS dans Windows 2016 n’a pas la connexion sur la page est activée.  Pour l’activer, vous pouvez utiliser la commande PowerShell Set-AdfsProperties.  Utilisez la procédure suivante pour activer la page :
+## <a name="enable-the-idp-initiated-sign-on-page"></a>Activer la page de connexion initiée par IDP
+Par défaut, les AD FS dans Windows 2016 ne sont pas activés sur la page de connexion.  Pour l’activer, vous pouvez utiliser la commande PowerShell Set-AdfsProperties.  Pour activer la page, procédez comme suit :
 
-1.  Ouvrez Windows PowerShell
-2.  Entrez : `Get-AdfsProperties` puis appuyez sur entrée
-3.  Vérifiez que **EnableIdpInitiatedSignonPage** est défini sur false ![False](media/ad-fs-tshoot-initiatedsignon/idp2.png)
-4.  Dans PowerShell, entrez :  `Set-AdfsProperties -EnableIdpInitiatedSignonPage $true`
-5.  Vous ne verrez pas une confirmation donc entrer à nouveau de Get-AdfsProperties et vérifiez que **EnableIdpInitatedSignonPage** est définie sur true.
-![True](media/ad-fs-tshoot-initiatedsignon/idp4.png)
+1.  Ouvrir Windows PowerShell
+2.  Entrée : `Get-AdfsProperties` et appuyez sur entrée
+3.  Vérifiez que **EnableIdpInitiatedSignonPage** est défini sur false ![False @ no__t-2
+4.  Dans PowerShell, entrez : `Set-AdfsProperties -EnableIdpInitiatedSignonPage $true`
+5.  Vous ne verrez pas de confirmation, puis entrez à nouveau AdfsProperties et vérifiez que **EnableIdpInitatedSignonPage** est défini sur true.
+![True @ no__t-1
 
 ## <a name="test-authentication"></a>Tester l'authentification
-Utilisez la procédure suivante pour tester l’authentification AD FS avec la page authentification Idp-Initiated.
+Utilisez la procédure suivante pour tester l’authentification AD FS avec la page de connexion initiée par IDP.
 
-1.  Ouvrez un navigateur web et accédez à la page authentification Idp.  Exemple :  https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
-2.  Vous devez invité pour se connecter.  Entrez vos informations d’identification.
-![l’authentification](media/ad-fs-tshoot-initiatedsignon/idp5.png)
-3.  Si cela réussit, vous devez être connecté.
+1.  Ouvrez un navigateur Web et accédez à la page d’authentification IDP.  Exemple : https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
+2.  Vous devez être invité à vous connecter.  Entrez vos informations d’identification.
+![Sign-on @ no__t-1
+3.  Si cela a réussi, vous devez être connecté.
 
 
-## <a name="test-authentication-using-a-seamless-logon-experience"></a>Tester l’authentification à l’aide d’une expérience transparente d’ouverture de session
-Vous pouvez tester l’expérience transparente d’ouverture de session en vous assurant que l’URL pour vos serveurs AD FS sont ajoutés à la zone intranet local de vos options internet.  Utilisez la procédure suivante :
+## <a name="test-authentication-using-a-seamless-logon-experience"></a>Tester l’authentification à l’aide d’une expérience de connexion transparente
+Vous pouvez tester l’expérience de connexion transparente en vous assurant que l’URL de vos serveurs AD FS est ajoutée à la zone Intranet local de vos options Internet.  Utilisez la procédure suivante :
 
-1.  Sur un client Windows 10, cliquez sur Démarrer et entrez les options internet et sélectionnez options internet.
-2.   Cliquez sur l’onglet sécurité, cliquez sur l’intranet local et cliquez sur le bouton sites.
-![Transparente](media/ad-fs-tshoot-initiatedsignon/idp8.png)
+1.  Sur un client Windows 10, cliquez sur Démarrer et tapez options Internet, puis sélectionnez Options Internet.
+2.   Cliquez sur l’onglet sécurité, cliquez sur intranet local, puis cliquez sur le bouton sites.
+![Seamless @ no__t-1
 1.  Cliquez sur Paramètres avancés.
-2.  Entrez votre url et cliquez sur Ajouter.  Cliquez sur Fermer.
-![Ajouter des url](media/ad-fs-tshoot-initiatedsignon/idp9.png)
-1.  Cliquez sur Ok.  Cliquez sur Ok.  Cela doit fermer les options internet.
-2.  Ouvrez un navigateur web et accédez à la page authentification Idp.  Exemple :  https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
-3.  Cliquez sur le bouton de connexion.  Vous devez vous connecter automatiquement et ne pas invité à entrer d’informations d’identification.
-![Transparente](media/ad-fs-tshoot-initiatedsignon/idp6.png)
+2.  Entrez votre URL, puis cliquez sur Ajouter.  Cliquez sur Fermer.
+URL de @no__t 0Add @ no__t-1
+1.  Cliquez sur OK.  Cliquez sur OK.  Cela doit fermer les options Internet.
+2.  Ouvrez un navigateur Web et accédez à la page d’authentification IDP.  Exemple : https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
+3.  Cliquez sur le bouton se connecter.  Vous devez vous connecter automatiquement et ne pas être invité à entrer vos informations d’identification.
+![Seamless @ no__t-1
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Résolution des problèmes de AD FS](ad-fs-tshoot-overview.md)
+- [Résolution des problèmes AD FS](ad-fs-tshoot-overview.md)

@@ -1,8 +1,8 @@
 ---
-title: gérer-bde pause
-description: 'Rubrique de commandes de Windows pour ***- '
+title: gérer-pause BDE
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03b4cc18bbf2c9288b99956fcc6f8a38b538a84f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b44fb2cbd21307baeee6321605c83177dd5155e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821640"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373989"
 ---
-# <a name="manage-bde-pause"></a>gérer-bde : suspendre
+# <a name="manage-bde-pause"></a>Manage-bde : pause
 
 
 
-Suspend le chiffrement BitLocker ou le déchiffrement. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Suspend le chiffrement ou le déchiffrement BitLocker. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,20 +36,20 @@ manage-bde -pause <Volume> [-computername <Name>] [{-?|/?}] [{-help|-h}]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Volume>|Une lettre de lecteur suivie par un signe deux-points, un chemin d’accès GUID de volume ou un volume monté.|
-|-computername|Spécifie que gérer-bde.exe permet de modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **- cn** comme une version abrégée de cette commande.|
-|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
-|-? ou /?|Affiche un résumé aide à l’invite de commandes.|
-|-help ou-h|Affiche une aide complète à l’invite de commandes.|
+|@no__t 0Volume >|Lettre de lecteur suivie d’un signe deux-points, d’un chemin d’accès de GUID de volume ou d’un volume monté.|
+|-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
+|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
+|-? ou /?|Affiche une brève aide à l’invite de commandes.|
+|-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-L’exemple suivant illustre l’utilisation de la **-suspendre** commande pour suspendre le chiffrement BitLocker sur le lecteur C.
+L’exemple suivant illustre l’utilisation de la commande **-Pause** pour suspendre le chiffrement BitLocker sur le lecteur C.
 ```
 manage-bde –pause C:
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
--   [Manage-bde](manage-bde.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Gérer-bde](manage-bde.md)

@@ -1,8 +1,8 @@
 ---
-title: exposer
-description: 'Rubrique de commandes de Windows pour ***- '
+title: poser
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 51cc744bc2b61862ed05ca2e7d0aaa8f70d38692
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 819484364e8375c4d58e4d022681eedeaa7084ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886660"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377277"
 ---
-# <a name="expose"></a>exposer
+# <a name="expose"></a>poser
 
 
 
-expose un cliché instantané persistant comme lettre de lecteur, le partage ou le point de montage.
+expose un cliché instantané persistant sous la forme d’une lettre de lecteur, d’un partage ou d’un point de montage.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,22 +38,22 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 
 |Paramètre|Description|
 |---------|-----------|
-|ShadowID|Spécifie l’ID de l’ombre de la copie de clichés instantanés que vous souhaitez exposer.|
-|\<Lecteur : >|Expose le cliché instantané spécifié sous la forme d’une lettre de lecteur (par exemple, P:).|
-|\<Partage >|Expose le cliché instantané spécifié à un partage (par exemple, \\ \\ *MachineName*\).|
-|\<MountPoint>|Expose le cliché instantané spécifié à un point de montage (par exemple, C:\shadowcopy\).|
+|ShadowID|Spécifie l’ID d’ombre du cliché instantané que vous souhaitez exposer.|
+|\<Drive : >|Expose le cliché instantané spécifié comme une lettre de lecteur (par exemple, P :).|
+|@no__t 0Share >|Expose le cliché instantané spécifié sur un partage (par exemple, \\ @ no__t-1*MachineName*\).|
+|@no__t 0MountPoint >|Expose le cliché instantané spécifié à un point de montage (par exemple, C:\shadowcopy @ no__t-0.|
 
 ## <a name="remarks"></a>Notes
 
--   Vous pouvez utiliser un alias existant ou une variable d’environnement à la place de *ShadowID*. Utilisez **ajouter** sans paramètres pour voir les alias existants.
+-   Vous pouvez utiliser un alias existant ou une variable d’environnement à la place de *ShadowID*. Utilisez **Ajouter** sans paramètres pour afficher les alias existants.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour exposer le cliché instantané persistant associé à la variable d’environnement VSS_SHADOW_1 en tant que lecteur X, tapez :
+Pour exposer le cliché instantané persistant associé à la variable d’environnement VSS_SHADOW_1 comme lecteur X, tapez :
 ```
 expose %vss_shadow_1% x:
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

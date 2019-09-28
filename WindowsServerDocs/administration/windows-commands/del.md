@@ -1,8 +1,8 @@
 ---
 title: del
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b10da1a6035155d525a516f35f83a25209e90075
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6e569443a56646862c7a2c9fbd2c599cede941a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433889"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378702"
 ---
 # <a name="del"></a>del
 
 
 
-Supprime un ou plusieurs fichiers. Cette commande est identique à la **effacer** commande.
+Supprime un ou plusieurs fichiers. Cette commande est identique à la commande **Erase** .
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -39,50 +39,50 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Names>|Spécifie une liste d’un ou plusieurs fichiers ou répertoires. Caractères génériques peuvent être utilisés pour supprimer plusieurs fichiers. Si un répertoire est spécifié, tous les fichiers dans le répertoire seront supprimés.|
-|/p|Demande une confirmation avant de supprimer le fichier spécifié.|
+|@no__t 0Names >|Spécifie une liste d’un ou plusieurs fichiers ou répertoires. Les caractères génériques peuvent être utilisés pour supprimer plusieurs fichiers. Si un répertoire est spécifié, tous les fichiers du répertoire sont supprimés.|
+|/p|Demande confirmation avant de supprimer le fichier spécifié.|
 |/f|Force la suppression des fichiers en lecture seule.|
-|/s|Supprime les fichiers du répertoire actif et tous les sous-répertoires spécifiés. Affiche les noms des fichiers comme ils sont en cours de suppression.|
-|/q|Spécifie le mode silencieux. Vous n’êtes pas invité à confirmer l’opération delete.|
-|/ a [ ::]\<attributs >|Supprime les fichiers basés sur les attributs de fichier suivants :</br>**r** des fichiers en lecture seule</br>**h** répertorier les fichiers cachés</br>**J’ai** pas les fichiers indexés de contenu</br>**s** fichiers système</br>**un** prêt pour l’archivage des fichiers</br>**l** des points d’analyse</br>-Préfixe ce qui signifie « not »|
+|/s|Supprime les fichiers spécifiés du répertoire actif et de tous ses sous-répertoires. Affiche les noms des fichiers au fur et à mesure de leur suppression.|
+|/q|Spécifie le mode silencieux. Vous n’êtes pas invité à confirmer la suppression.|
+|/a [ :] \<Attributes >|Supprime les fichiers en fonction des attributs de fichier suivants :</br>fichiers en lecture seule **r**</br>fichiers masqués **h**</br>**je** ne trouve pas les fichiers indexés</br>fichiers système **s**</br>**fichiers prêts** pour l’archivage</br>points d’analyse **l**</br>-Le préfixe signifie « not »|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
 > [!CAUTION]
-> Si vous utilisez **del** pour supprimer un fichier à partir de votre disque, vous ne pouvez pas le récupérer.
+> Si vous utilisez **del** pour supprimer un fichier de votre disque, vous ne pouvez pas le récupérer.
 > -   Si vous utilisez **/p**, **del** affiche le nom d’un fichier et envoie le message suivant :
 
     `FileName, Delete (Y/N)?`
 
     To confirm the deletion, press Y. To cancel the deletion and display the next file name (that is, if you specified a group of files), press N. To stop the **del** command, press CTRL+C.
-- Si vous désactivez les extensions de commande, **/s** affiche les noms de tous les fichiers qui n’ont pas été trouvés au lieu d’afficher les noms des fichiers qui sont en cours de suppression (autrement dit, le comportement est inversé).
-- Si vous spécifiez un dossier dans *noms*, tous les fichiers dans le dossier sont supprimés. Par exemple, la commande suivante supprime tous les fichiers du dossier \Work :  
+- Si vous désactivez les extensions de commande, **/s** affiche les noms de tous les fichiers qui n’ont pas été trouvés au lieu d’afficher les noms des fichiers en cours de suppression (autrement dit, le comportement est inversé).
+- Si vous spécifiez un dossier dans *noms*, tous les fichiers du dossier sont supprimés. Par exemple, la commande suivante supprime tous les fichiers dans le dossier \work :  
   ```
   del \work
   ```  
-- Vous pouvez utiliser des caractères génériques ( **&#42;** et **?** ) pour supprimer plusieurs fichiers à la fois. Toutefois, pour éviter de supprimer des fichiers par inadvertance, vous devez utiliser des caractères génériques avec précaution avec le **del** commande. Par exemple, si vous tapez la commande suivante :  
+- Vous pouvez utiliser des caractères génériques **&#42;** (et **?** ) pour supprimer plusieurs fichiers à la fois. Toutefois, pour éviter la suppression accidentelle de fichiers, vous devez utiliser des caractères génériques avec prudence avec la commande **del** . Par exemple, si vous tapez la commande suivante :  
   ```
   del *.*
   ```  
-  Le **del** commande affiche l’invite suivante :
+  La commande **del** affiche l’invite suivante :
 
   `Are you sure (Y/N)?`
 
-  Pour supprimer tous les fichiers dans le répertoire actif, appuyez sur o et appuyez sur ENTRÉE. Pour annuler la suppression, appuyez sur N puis appuyez sur ENTRÉE.
+  Pour supprimer tous les fichiers du répertoire actif, appuyez sur o, puis sur entrée. Pour annuler la suppression, appuyez sur N, puis sur entrée.
 
 > [!NOTE]
-> Avant d’utiliser des caractères génériques avec la **del** de commande, utilisez les mêmes caractères génériques avec la **dir** commande pour répertorier tous les fichiers qui seront supprimés.
-> -   Le **del** commande, avec des paramètres différents, est disponible à partir de la Console de récupération.
+> Avant d’utiliser des caractères génériques avec la commande **del** , utilisez les mêmes caractères génériques avec la commande **dir** pour répertorier tous les fichiers qui seront supprimés.
+> -   La commande **del** , avec des paramètres différents, est disponible à partir de la console de récupération.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour supprimer tous les fichiers dans un dossier nommé Test sur le lecteur C, tapez une des opérations suivantes :
+Pour supprimer tous les fichiers d’un dossier nommé test sur le lecteur C, tapez l’un des éléments suivants :
 ```
 del c:\test
 del c:\test\*.*
 ```
-Pour supprimer tous les fichiers portant l’extension de nom de fichier .bat à partir du répertoire actuel, tapez :
+Pour supprimer tous les fichiers avec l’extension de nom de fichier. bat du répertoire actif, tapez :
 ```
 del *.bat
 ```

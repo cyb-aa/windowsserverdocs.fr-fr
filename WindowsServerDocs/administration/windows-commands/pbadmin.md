@@ -1,8 +1,8 @@
 ---
 title: pbadmin
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,17 +13,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d9cd45eac240e499e79504d73c8fad83be254636
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 99d642d6ba9f498c58ad909cf0f226354b522fbc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827310"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372349"
 ---
 # <a name="pbadmin"></a>pbadmin
 
 
 
-Pbadmin est déconseillée et n’est pas garanti d’être pris en charge dans les versions futures de Windows.
+Pbadmin est déconseillé et n’est pas nécessairement pris en charge dans les futures versions de Windows.
 
-Cet outil est inclus dans Windows Server 2003. Pour plus d’informations, consultez [Pbadmin](https://technet.microsoft.com/library/cc755767(v=ws.10).aspx).
+Cet outil est inclus dans Windows Server 2003. Pour plus d’informations, consultez [pbadmin](https://technet.microsoft.com/library/cc755767(v=ws.10).aspx).

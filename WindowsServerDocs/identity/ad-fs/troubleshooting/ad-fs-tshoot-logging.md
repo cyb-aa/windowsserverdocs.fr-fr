@@ -6,14 +6,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: da3214b715b415eed2cbce351cae93eff14a88c7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5985fc022a084e0e36e12ea60f18d1650c8c6b51
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865525"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366200"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>Résolution des problèmes de AD FS des événements et de la journalisation
 AD FS fournit deux journaux principaux qui peuvent être utilisés lors de la résolution des problèmes.  Celles-ci sont les suivantes :
@@ -57,9 +57,9 @@ Le tableau ci-dessous décrit les niveaux d’audit disponibles.
 
 |Niveau d'audit|Syntaxe PowerShell|Description|  
 |----- | ----- | ----- |
-|Aucun|Set-AdfsProperties-AuditLevel aucun|L’audit est désactivé et aucun événement n’est enregistré.|  
+|Aucune|Set-AdfsProperties-AuditLevel aucun|L’audit est désactivé et aucun événement n’est enregistré.|  
 |De base (par défaut)|Set-AdfsProperties-AuditLevel de base|Plus de 5 événements seront journalisés pour une demande unique|  
-|Détaillé|Set-AdfsProperties-AuditLevel verbose|Tous les événements sont consignés.  Cela permet de consigner une quantité importante d’informations par demande.|  
+|Verbose|Set-AdfsProperties-AuditLevel verbose|Tous les événements sont consignés.  Cela permet de consigner une quantité importante d’informations par demande.|  
   
 Pour afficher le niveau d’audit actuel, vous pouvez utiliser le applet PowerShell:  Accédez à AdfsProperties.  
   
@@ -78,7 +78,7 @@ Le tableau ci-dessous décrit les types d’événements de base.
 |----- | ----- | ----- | 
 |Réussite de la validation des informations d’identification|1202|Demande dans laquelle les nouvelles informations d’identification sont validées correctement par le service FS (Federation Service). Cela comprend WS-Trust, WS-Federation, SAML-P (premier tronçon pour générer l’authentification unique) et des points de terminaison d’autorisation OAuth.|  
 |Nouvelle erreur de validation des informations d’identification|1203|Demande dans laquelle la validation des informations d’identification a échoué sur le service FS (Federation Service). Cela comprend WS-Trust, WS-FED, SAML-P (premier tronçon pour générer l’authentification unique) et des points de terminaison d’autorisation OAuth.|  
-|Jeton d’application réussi|1 200|Demande dans laquelle un jeton de sécurité est émis avec succès par le service FS (Federation Service). Pour WS-Federation, SAML-P est consigné lors du traitement de la demande avec l’artefact SSO. (par exemple, le cookie SSO).|  
+|Jeton d’application réussi|1200|Demande dans laquelle un jeton de sécurité est émis avec succès par le service FS (Federation Service). Pour WS-Federation, SAML-P est consigné lors du traitement de la demande avec l’artefact SSO. (par exemple, le cookie SSO).|  
 |Échec du jeton d’application|1201|Demande dans laquelle l’émission du jeton de sécurité a échoué sur le service FS (Federation Service). Pour WS-Federation, SAML-P est consigné lorsque la requête a été traitée avec l’artefact SSO. (par exemple, le cookie SSO).|  
 |Réussite de la demande de modification de mot de passe|1204|Transaction dans laquelle la demande de modification de mot de passe a été traitée avec succès par le service FS (Federation Service).|  
 |Erreur de demande de modification de mot de passe|1205|Transaction dans laquelle la demande de modification de mot de passe n’a pas pu être traitée par le service FS (Federation Service).| 
@@ -91,7 +91,7 @@ L’audit de sécurité du compte de service AD FS peut parfois faciliter le sui
 ### <a name="to-enable-security-auditing"></a>Pour activer l’audit de sécurité
 1. Cliquez sur Démarrer, pointez sur **programmes**, sur **Outils d’administration**, puis cliquez sur **stratégie de sécurité locale**.
 2. Accédez au dossier **Paramètres de sécurité\Stratégies locales\Gestion des droits utilisateur**, puis double-cliquez sur **Générer des audits de sécurité**.
-3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. S’il n’est pas présent, cliquez sur Ajouter un utilisateur ou un groupe et ajoutez-le à la liste, puis cliquez sur OK.
+3. Sous l’onglet **paramètre de sécurité locale** , vérifiez que le compte de service AD FS est listé. S’il n’est pas présent, cliquez sur Ajouter un utilisateur ou un groupe et ajoutez-le à la liste, puis cliquez sur OK.
 4. Ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante pour activer l’audit d’auditpol. exe/set/Subcategory: "application générée"/Failure: Enable/Success: Enable
 5. Fermez **stratégie de sécurité locale**, puis ouvrez le composant logiciel enfichable gestion des AD FS.
  
@@ -99,7 +99,7 @@ Pour ouvrir le composant logiciel enfichable Gestion des AD FS, cliquez sur Dém
  
 6. Dans le volet Actions, cliquez sur modifier les propriétés de l’service FS (Federation Service)
 7. Dans la boîte de dialogue Propriétés du service FS (Federation Service), cliquez sur l’onglet événements.
-8. Cochez les cases **Audits des succès** et **Audits des échecs**.
+8. Activez les cases à cocher audits des **succès** et audits des **échecs** .
 9. Cliquez sur OK.
 
 ![améliorations de l’audit](media/ad-fs-tshoot-logging/event4.PNG)  

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getproxybypasslist
-description: Rubrique de commandes de Windows pour **bitsadmin getproxybypasslist** -récupère la liste de contournement proxy pour le travail spécifié.
+description: La rubrique commandes Windows pour **Bitsadmin getproxybypasslist** -récupère la liste de contournement du proxy pour le travail spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 020b8fc0019eb103a0e469258be8705b80dd45de
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 87cc131402707eac40329750e98218ec52083b94
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854110"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381416"
 ---
 # <a name="bitsadmin-getproxybypasslist"></a>bitsadmin getproxybypasslist
 
-Récupère la liste de contournement proxy pour le travail spécifié.
+Récupère la liste de contournement du proxy pour le travail spécifié.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,19 +34,19 @@ bitsadmin /GetProxyBypassList <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
 ## <a name="remarks"></a>Notes
 
-La liste de contournement contient les noms d’hôtes ou adresses IP ou les deux, qui ne doivent ne pas être acheminé via un proxy. La liste peut contenir «\<local > » pour faire référence à tous les serveurs sur le même réseau local. La liste peut être point-virgule ou délimitées par des espaces.
+La liste de contournement contient les noms d’hôte ou les adresses IP, ou les deux, qui ne doivent pas être routés via un proxy. La liste peut contenir « \<local > » pour faire référence à tous les serveurs sur le même réseau local. La liste peut être délimitée par des points-virgules ou délimités par des espaces.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant récupère la liste de contournement proxy pour le travail nommé *myDownloadJob*.
+L’exemple suivant récupère la liste de contournement du proxy pour le travail nommé *myDownloadJob*.
 ```
 C:\>bitsadmin /GetProxyBypassList myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

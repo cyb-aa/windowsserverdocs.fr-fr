@@ -2,7 +2,7 @@
 title: appel
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: e4331870f31309646974f5839d5aa70e534351e5
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 0e5f9f2b0102c12ee0925bb434fdeddde85e34cd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590433"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379719"
 ---
 # <a name="call"></a>appel
 
@@ -41,19 +41,19 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 
 |           Paramètre           |                                                                         Description                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Lecteur >:] [\<chemin >]<FileName> | Spécifie l’emplacement et le nom du programme de traitement par lots que vous souhaitez appeler. Le paramètre *filename* est obligatoire et doit avoir une extension. bat ou. cmd. |
-|      \<BatchParameters >       |                                            Spécifie les informations de ligne de commande requises par le programme de traitement par lots.                                             |
-|           :\<Étiquette >           |                                            Spécifie l’étiquette à laquelle vous souhaitez qu’un contrôle de programme de traitement par lots accède.                                             |
-|         \<Arguments >          |                     Spécifie les informations de ligne de commande à transmettre à la nouvelle instance du programme de traitement par lots, à partir de *: étiquette.*                     |
+| [@no__t 0Drive >:] [@no__t 1Path >] <FileName> | Spécifie l’emplacement et le nom du programme de traitement par lots que vous souhaitez appeler. Le paramètre *filename* est obligatoire et doit avoir une extension. bat ou. cmd. |
+|      @no__t 0BatchParameters >       |                                            Spécifie les informations de ligne de commande requises par le programme de traitement par lots.                                             |
+|           : \<Label >           |                                            Spécifie l’étiquette à laquelle vous souhaitez qu’un contrôle de programme de traitement par lots accède.                                             |
+|         @no__t 0Arguments >          |                     Spécifie les informations de ligne de commande à transmettre à la nouvelle instance du programme de traitement par lots, à partir de *: étiquette.*                     |
 |              /?               |                                                             Affiche l'aide à l'invite de commandes.                                                             |
 
 ## <a name="batch-parameters"></a>Paramètres du lot
 
 Les références de l’argument de script batch ( **% 0**, **% 1**,...) sont répertoriées dans les tableaux suivants.
 
-**%\*** dans un script de commandes, fait référence à tous les arguments (par exemple, **% 1**, **% 2**, **% 3**...)
+**% @ no__t-2** dans un script de commandes fait référence à tous les arguments (par exemple, **% 1**, **% 2**, **% 3**...)
 
-Vous pouvez utiliser les syntaxes facultatives suivantes comme substitutions pour les paramètres de lot ( **% n**):
+Vous pouvez utiliser les syntaxes facultatives suivantes comme substitutions pour les paramètres de lot ( **% n**) :
 
 |Paramètre batch|Description|
 |---------------|-----------|
@@ -67,18 +67,18 @@ Vous pouvez utiliser les syntaxes facultatives suivantes comme substitutions pou
 |% ~ a1|Développe **% 1** vers les attributs du fichier.|
 |% ~ T1|Développe **% 1** jusqu’à la date et à l’heure du fichier.|
 |% ~ Z1|Développe **% 1** jusqu’à la taille du fichier.|
-|% ~ $PATH: 1|Recherche dans les répertoires figurant dans la variable d’environnement PATH et développe **% 1** avec le nom complet du premier répertoire trouvé. Si le nom de la variable d’environnement n’est pas défini ou si le fichier est introuvable par la recherche, ce modificateur se développe en une chaîne vide.|
+|% ~ $PATH : 1|Recherche dans les répertoires figurant dans la variable d’environnement PATH et développe **% 1** avec le nom complet du premier répertoire trouvé. Si le nom de la variable d’environnement n’est pas défini ou si le fichier est introuvable par la recherche, ce modificateur se développe en une chaîne vide.|
 
-Le tableau suivant montre comment combiner des modificateurs avec les paramètres de lot pour les résultats composés:
+Le tableau suivant montre comment combiner des modificateurs avec les paramètres de lot pour les résultats composés :
 
 |Paramètre batch avec modificateur|Description|
 |-----------------------------|-----------|
 |% ~ DP1|Développe **% 1** en une lettre de lecteur et un chemin d’accès uniquement.|
 |% ~ NX1|Développe **% 1** vers un nom de fichier et une extension uniquement.|
-|% ~ DP $ chemin: 1|Recherche dans les répertoires figurant dans la variable d’environnement PATH pour **% 1**, puis développe la lettre de lecteur et le chemin d’accès du premier répertoire trouvé.|
+|% ~ DP $ chemin : 1|Recherche dans les répertoires figurant dans la variable d’environnement PATH pour **% 1**, puis développe la lettre de lecteur et le chemin d’accès du premier répertoire trouvé.|
 |% ~ ftza1|Développe **% 1** pour afficher une sortie similaire à la commande **dir** .|
 
-Dans les exemples ci-dessus, **% 1** et Path peuvent être remplacés par d’autres valeurs valides. La <strong>%~</strong> syntaxe se termine par un numéro d’argument valide. Les <strong>%~</strong> modificateurs ne peuvent pas être **% \\ \*** utilisés avec.
+Dans les exemples ci-dessus, **% 1** et Path peuvent être remplacés par d’autres valeurs valides. La syntaxe <strong>%~</strong> se termine par un numéro d’argument valide. Les modificateurs <strong>%~</strong> ne peuvent pas être utilisés avec **% @ no__t-4 @ no__t-5**.
 
 ## <a name="remarks"></a>Notes
 
@@ -90,23 +90,23 @@ Dans les exemples ci-dessus, **% 1** et Path peuvent être remplacés par d’au
     En utilisant **Call** avec le paramètre *label* , vous créez un nouveau contexte de fichier de commandes et vous transmettez le contrôle à l’instruction après l’étiquette spécifiée. La première fois que la fin du fichier de commandes est rencontrée (autrement dit, après avoir atteint l’étiquette), le contrôle retourne à l’instruction après l’instruction **Call** . La deuxième fois que la fin du fichier de commandes est rencontrée, le script de traitement est fermé.
 -   Utilisation de canaux et de symboles de redirection
 
-    N’utilisez pas de canaux **|** () et de symboles de redirection **>** ( **<** ou) avec l' **appel**.
+    N’utilisez pas de canaux ( **|** ) et de symboles de redirection ( **<** ou **>** ) avec l' **appel**.
 -   Exécution d’un appel récursif
 
     Vous pouvez créer un programme de traitement par lots qui s’appelle lui-même. Toutefois, vous devez fournir une condition de sortie. Dans le cas contraire, les programmes de traitement par lots parent et enfant peuvent être en boucle infinis.
 -   Utilisation des extensions de commande
 
-    Si les extensions de commande sont activées, **Call** accepte *étiquette* comme cible de l’appel. La syntaxe correcte est la suivante:
+    Si les extensions de commande sont activées, **Call** accepte *étiquette* comme cible de l’appel. La syntaxe correcte est la suivante :
 
     `call :\<Label> <Arguments>`
 
 ## <a name="BKMK_examples"></a>Illustre
 
-Pour exécuter le programme Checknew. bat à partir d’un autre programme de traitement par lots, tapez la commande suivante dans le programme de traitement par lots parent:
+Pour exécuter le programme Checknew. bat à partir d’un autre programme de traitement par lots, tapez la commande suivante dans le programme de traitement par lots parent :
 ```
 call checknew
 ```
-Si le programme de traitement par lots parent accepte deux paramètres de lot et que vous souhaitez qu’il transmette ces paramètres à Checknew. bat, tapez la commande suivante dans le programme de traitement par lots parent:
+Si le programme de traitement par lots parent accepte deux paramètres de lot et que vous souhaitez qu’il transmette ces paramètres à Checknew. bat, tapez la commande suivante dans le programme de traitement par lots parent :
 ```
 call checknew %1 %2
 ```

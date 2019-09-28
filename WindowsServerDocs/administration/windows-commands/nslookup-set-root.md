@@ -1,8 +1,8 @@
 ---
 title: nslookup set root
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38cd5a2e9878a8e43393befc5cbd4fc47c65ec53
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 08cf41ec9b6ac30699013112216a538dcf625fd5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436605"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372839"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-modifie le nom du serveur racine utilisé pour les requêtes.
+Modifie le nom du serveur racine utilisé pour les requêtes.
 ## <a name="syntax"></a>Syntaxe
 ```
 set root=<RootServer>
@@ -33,11 +33,11 @@ set root=<RootServer>
 
 |    Paramètre    |                                   Description                                    |
 |-----------------|----------------------------------------------------------------------------------|
-|  <RootServer>   | Spécifie le nouveau nom pour le serveur racine. La valeur par défaut est ns.nic.ddn.mil. |
-| {aide &#124; ?} |              Affiche un résumé de **nslookup** sous-commandes.               |
+|  <RootServer>   | Spécifie le nouveau nom du serveur racine. La valeur par défaut est ns.nic.ddn.mil. |
+| {Help &#124; ?} |              Affiche un bref résumé des sous-commandes **nslookup** .               |
 
 ## <a name="remarks"></a>Notes
-- Le **racine du jeu** sous-commande affecte le **racine** sous-commande.
+- La sous-commande **Set root** affecte la sous-commande **racine** .
   ## <a name="additional-references"></a>Références supplémentaires
   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [racine de nslookup](nslookup-root.md)
+   de la[racine nslookup](nslookup-root.md)

@@ -1,18 +1,18 @@
 ---
 title: Planification de la capacité pour Active Directory Domain Services
 description: Présentation détaillée des facteurs à prendre en compte lors de la planification de la capacité pour AD DS.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: v-tea; kenbrunf
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: dac13ac94e38cf671239d35507e07d7ac3a0c1ab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8b17d7f5c7774c1c332d49962b14fe31128f1a27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866731"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370432"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Planification de la capacité pour Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Au cours des dernières années, les recommandations en matière de planificatio
 - Virtualisation  
 - Plus grande attention à la consommation énergétique  
 - Stockage SSD  
-- Scénarios cloud  
+- Scénarios de Cloud  
 
 En outre, l’approche passe d’un exercice de planification de la capacité basé sur un serveur à un exercice de planification de la capacité basé sur les services. Active Directory Domain Services (AD DS), un service distribué mature que de nombreux produits Microsoft et tiers utilisent comme backend, devient l’un des produits les plus importants à planifier correctement pour garantir la capacité nécessaire à l’exécution d’autres applications.
 
@@ -99,22 +99,22 @@ En général :
 
 #### <a name="new-environment"></a>Nouvel environnement
 
-| Composant | Devis |
+| Component | Devis |
 |-|-|
 |Taille du stockage/de la base de données|40 Ko à 60 Ko pour chaque utilisateur|
 |RAM|Taille de la base de données<br />Recommandations relatives au système d’exploitation de base<br />Applications tierces|
 |Réseau|1 Go|
-|UC|1000 utilisateurs simultanés pour chaque cœur|
+|Processeur|1000 utilisateurs simultanés pour chaque cœur|
 
 #### <a name="high-level-evaluation-criteria"></a>Critères d’évaluation de haut niveau
 
-| Composant | Critères d’évaluation | Considérations de planification |
+| Component | Critères d’évaluation | Considérations de planification |
 |-|-|-|
 |Taille du stockage/de la base de données|La section intitulée « pour activer la journalisation de l’espace disque libéré par la défragmentation » dans les [limites de stockage](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10))| |
 |Performances du stockage/de la base de données|<ul><li>«Disque logique ( *\<disque de\>base de données NTDS*) \Avg disque s/lecture», «disque logique ( *\<lecteur\>de base de données NTDS*) \Avg s/écriture», «disque logique ( *\<lecteur de base de données NTDS) )\>* \Avg disque s/transfert»</li><li>«Disque logique ( *\<lecteur\>de base de données NTDS*) \ lectures/s», «disque logique ( *\<lecteur\>de base de données NTDS*) \ écritures/s», «disque logique ( *\<lecteur\>debasededonnéesNTDS)* ) \ Transferts/s»</li></ul>|<ul><li>Le stockage a deux préoccupations à résoudre<ul><li>L’espace disponible, avec la taille du stockage basé sur les disques et le disque SSD d’aujourd’hui, est sans importance pour la plupart des environnements AD.</li> <li>Opérations d’entrée/sortie (e/s) disponibles : dans de nombreux environnements, cela est souvent négligé. Toutefois, il est important d’évaluer uniquement les environnements où il n’y a pas assez de RAM pour charger l’intégralité de la base de données NTDS en mémoire.</li></ul><li>Le stockage peut être un sujet complexe et doit impliquer l’expertise du fournisseur de matériel pour le dimensionnement approprié. Notamment avec des scénarios plus complexes tels que les scénarios SAN, NAS et iSCSI. Toutefois, en général, le coût par gigaoctet de stockage est souvent en opposition directe au coût par e/s :<ul><li>RAID 5 a un coût inférieur à 1 gigaoctet par rapport à RAID 1, mais RAID 1 a un coût réduit par e/s</li><li>Les disques durs basés sur des piles ont un coût réduit par gigaoctet, mais les disques SSD ont un coût inférieur par e/s</li></ul><li>Après un redémarrage de l’ordinateur ou du service Active Directory Domain Services, le cache ESE (Extensible Storage Engine) est vide et les performances sont limitées sur le disque pendant le préchauffage du cache.</li><li>Dans la plupart des environnements, AD utilise des e/s de lecture intensives dans un modèle aléatoire sur les disques, ce qui inverse la majeure partie des avantages de la mise en cache et des stratégies d’optimisation de lecture.  En outre, Active Directory dispose d’une mémoire cache plus grande que la plupart des caches du système de stockage.</li></ul>
 |RAM|<ul><li>Taille de la base de données</li><li>Recommandations relatives au système d’exploitation de base</li><li>Applications tierces</li></ul>|<ul><li>Le stockage est le composant le plus lent d’un ordinateur. Plus il est possible de résider dans la mémoire vive, moins il est nécessaire d’accéder au disque.</li><li>Assurez-vous que la RAM est suffisante pour stocker le système d’exploitation, les agents (antivirus, sauvegarde, surveillance), la base de données NTDS et la croissance dans le temps.</li><li>Pour les environnements où l’optimisation de la quantité de RAM n’est pas rentable (par exemple, les emplacements satellites) ou non faisable (DIT trop grand), référencez la section stockage pour vous assurer que le stockage est correctement dimensionné.</li></ul>|
 |Réseau|<ul><li>« Interface réseau (\*) \Octets reçues/s »</li><li>« Interface réseau (\*) \Octets envoyés/s »|<ul><li>En général, le trafic envoyé à partir d’un contrôleur de périphérique dépasse le trafic envoyé à un contrôleur de flux de contrôle.</li><li>Comme une connexion Ethernet commutée est en duplex intégral, le trafic réseau entrant et sortant doit être dimensionné indépendamment.</li><li>La consolidation du nombre de contrôleurs de contrôle augmentera la quantité de bande passante utilisée pour renvoyer les réponses aux demandes des clients pour chaque contrôleur de groupe, mais sera suffisamment proche de linéaire pour le site dans son ensemble.</li><li>Si vous supprimez des contrôleurs de l’emplacement satellites, n’oubliez pas d’ajouter la bande passante du contrôleur de réseau satellite dans les contrôleurs de flux de concentrateur, et de l’utiliser pour évaluer la quantité de trafic WAN.</li></ul>|
-|UC|<ul><li>« Disque logique ( *\<lecteur\>de base de données NTDS*) \Avg disque s/lecture »</li><li>« Processus (LSASS)\\% temps processeur »</li></ul>|<ul><li>Après avoir éliminé le stockage comme un goulot d’étranglement, corrigez la quantité de puissance de calcul nécessaire.</li><li>Bien qu’il ne soit pas parfaitement linéaire, le nombre de cœurs de processeur consommés sur tous les serveurs au sein d’une étendue spécifique (par exemple, un site) peut être utilisé pour évaluer le nombre de processeurs nécessaires pour prendre en charge la charge totale du client. Ajoutez le minimum nécessaire pour maintenir le niveau de service actuel sur tous les systèmes de l’étendue.</li><li>Modifications de la vitesse du processeur, y compris les modifications liées à la gestion de l’alimentation, les numéros d’impact dérivés de l’environnement actuel. En règle générale, il est impossible d’évaluer précisément la manière dont le passage d’un processeur de 2,5 GHz à un processeur de 3 GHz réduira le nombre de processeurs nécessaires.</li></ul>|
+|Processeur|<ul><li>« Disque logique ( *\<lecteur\>de base de données NTDS*) \Avg disque s/lecture »</li><li>« Processus (LSASS) \\% de temps processeur »</li></ul>|<ul><li>Après avoir éliminé le stockage comme un goulot d’étranglement, corrigez la quantité de puissance de calcul nécessaire.</li><li>Bien qu’il ne soit pas parfaitement linéaire, le nombre de cœurs de processeur consommés sur tous les serveurs au sein d’une étendue spécifique (par exemple, un site) peut être utilisé pour évaluer le nombre de processeurs nécessaires pour prendre en charge la charge totale du client. Ajoutez le minimum nécessaire pour maintenir le niveau de service actuel sur tous les systèmes de l’étendue.</li><li>Modifications de la vitesse du processeur, y compris les modifications liées à la gestion de l’alimentation, les numéros d’impact dérivés de l’environnement actuel. En règle générale, il est impossible d’évaluer précisément la manière dont le passage d’un processeur de 2,5 GHz à un processeur de 3 GHz réduira le nombre de processeurs nécessaires.</li></ul>|
 |Accès réseau (Netlogon)|<ul><li>« Netlogon (\*) \Semaphore acquiert »</li><li>« Netlogon (\*) \Semaphore délais d’expiration »</li><li>« Netlogon ()\*\Latence de temps d’attente du sémaphore »</li></ul>|<ul><li>Le canal sécurisé Net Logon/MaxConcurrentAPI affecte uniquement les environnements avec authentifications NTLM et/ou validation PAC. La validation PAC est activée par défaut dans les versions de système d’exploitation antérieures à Windows Server 2008. Il s’agit d’un paramètre client, de sorte que les contrôleurs de contrôle sont affectés jusqu’à ce que cette option soit désactivée sur tous les systèmes clients.</li><li>Les environnements avec une authentification croisée importante, qui comprend des approbations intra-forêts, présentent un risque plus élevé si leur taille n’est pas correcte.</li><li>Les consolidations de serveur augmentent la concurrence de l’authentification inter-approbation.</li><li>Les pics doivent être pris en charge, tels que les basculements de cluster, à mesure que les utilisateurs réauthentifient en massive sur le nouveau nœud de cluster.</li><li>Les systèmes clients individuels (par exemple, un cluster) peuvent également nécessiter un réglage.</li></ul>|
 
 ## <a name="planning"></a>Planification
@@ -155,7 +155,7 @@ Pour les environnements où l’optimisation de la quantité de RAM n’est pas 
 
 ### <a name="calculation-summary-example"></a>Exemple de résumé du calcul
 
-|Composant|Mémoire estimée (exemple)|
+|Component|Mémoire estimée (exemple)|
 |-|-|
 |Mémoire vive recommandée pour le système d’exploitation (Windows Server 2008)|2 Go|
 |Tâches internes LSASS|200 MO|
@@ -232,7 +232,7 @@ DC 2|6,25 Mo/s|
 |DC 5|4,75 Mo/s|
 |Total|28,5 Mo/s|
 
-**Recommandations 72 Mo/s** (28,5 Mo/s divisés par 40%)
+**Recommandations 72 Mo/s @ no__t-0 (28,5 Mo/s divisé par 40%)
 
 |Nombre de systèmes (s) cible (s)|Bande passante totale (ci-dessus)|
 |-|-|
@@ -355,7 +355,7 @@ Détermination de la quantité d’e/s nécessaires pour un système sain dans d
 - Pour déterminer la quantité d’e/s nécessaire pour le stockage où la capacité du stockage sous-jacent est dépassée :
   >Opérations d' *e/s par seconde nécessaires* = (disque logique ( *\<disque\>de base de données*) \Avg disque s &times; / &divide; *\<lecture cible moyenne disque s/lecture\>* ) ( *\< Lecteur\>de base de données NTDS*) \ lecture/s
 
-|Compteur|Value|
+|)|Value|
 |-|-|
 |Disque logique réel ( *\<lecteur\>de base de données NTDS*) \Avg disque s/transfert|.02 secondes (20 millisecondes)|
 |Disque logique cible ( *\<lecteur\>de base de données NTDS*) \Avg disque s/transfert|.01 secondes|
@@ -387,7 +387,7 @@ Notez que le taux calculé, bien que exact, ne sera pas exact, car les pages pr�
 |Calculer le nombre de pages dans la base de données|2 097 152 Ko &divide; 8 Ko = *nombre de pages*|262 144 pages|
 |Calculer les e/s par seconde nécessaires pour le démarrage complet du cache|262 144 pages &divide; 600 secondes = *IOPS nécessaires*|437 E/S PAR SECONDE|
 
-## <a name="processing"></a>Traitement en cours
+## <a name="processing"></a>Traitement de
 
 ### <a name="evaluating-active-directory-processor-usage"></a>Évaluation de l’utilisation du processeur Active Directory
 
@@ -398,7 +398,7 @@ Pour la plupart des environnements, une fois que le stockage, la RAM et la mise 
   Dans les environnements plus grands, la raison en est que les applications mal codées peuvent conduire à la volatilité de la charge de l’UC, « voler » une quantité inégale de temps processeur à partir d’autres applications, à créer des besoins de capacité de manière artificielle et à répartir la charge de manière inégale les contrôleurs de contrôle.  
 - Comme AD DS est un environnement distribué avec un grand nombre de clients potentiels, l’estimation des dépenses d’un « client unique » est environnementalement subjective en raison des modèles d’utilisation et du type ou de la quantité d’applications tirant parti de AD DS. En bref, comme la section mise en réseau, pour une mise en application étendue, cette approche est mieux adaptée du point de vue de l’évaluation de la capacité totale nécessaire dans l’environnement.
 
-Pour les environnements existants, au fur et à mesure que le dimensionnement du stockage a été abordé précédemment, l’hypothèse est que le stockage est maintenant dimensionné correctement et que les données relatives à la charge du processeur sont donc valides. Pour réitérer, il est essentiel de s’assurer que le goulot d’étranglement dans le système n’est pas le niveau de performance du stockage. Lorsqu’il existe un goulot d’étranglement et que le processeur attend, des États inactifs disparaissent une fois le goulot d’étranglement supprimé.  Lorsque les États d’attente du processeur sont supprimés, par définition, l’utilisation de l’UC augmente, car elle n’a plus à attendre les données. Par conséquent, collectez les compteurs de performances « disque logique ( *\<lecteur\>de base de données NTDS*) \Avg disque s/lecture »\\et « processus (LSASS)% temps processeur ». Les données de « processus (LSASS)\\% temps processeur » sont artificiellement basses si « disque logique ( *\<lecteur\>de base de données NTDS*) \Avg disque s/lecture » dépasse 10 à 15 ms, ce qui correspond au seuil général utilisé par le support technique Microsoft. pour résoudre les problèmes de performances liés au stockage. Comme précédemment, il est recommandé d’utiliser des intervalles d’échantillonnage de 15, 30 ou 60 minutes. Tout ce qui est moins est généralement trop volatil pour les mesures appropriées ; tout ce qui est plus important lissera les aperçus quotidiens de manière excessive.
+Pour les environnements existants, au fur et à mesure que le dimensionnement du stockage a été abordé précédemment, l’hypothèse est que le stockage est maintenant dimensionné correctement et que les données relatives à la charge du processeur sont donc valides. Pour réitérer, il est essentiel de s’assurer que le goulot d’étranglement dans le système n’est pas le niveau de performance du stockage. Lorsqu’il existe un goulot d’étranglement et que le processeur attend, des États inactifs disparaissent une fois le goulot d’étranglement supprimé.  Lorsque les États d’attente du processeur sont supprimés, par définition, l’utilisation de l’UC augmente, car elle n’a plus à attendre les données. Par conséquent, collectez les compteurs de performances « disque logique ( *\<NTDS de la base de données no__t-2*) \Avg disque s/lecture » et « processus (lsass) \\% du temps processeur ». Les données de « processus (LSASS) \\% du temps processeur » sont artificiellement basses si « disque logique ( *@no__t lecteur de base de données 2NTDS @ no__t-3*) \Avg disque s/lecture » dépasse 10 à 15 ms, ce qui représente un seuil général que le support technique de Microsoft utilise pour la résolution des problèmes. problèmes de performances liés au stockage. Comme précédemment, il est recommandé d’utiliser des intervalles d’échantillonnage de 15, 30 ou 60 minutes. Tout ce qui est moins est généralement trop volatil pour les mesures appropriées ; tout ce qui est plus important lissera les aperçus quotidiens de manière excessive.
 
 ### <a name="introduction"></a>Présentation
 
@@ -421,7 +421,7 @@ Dans l’exemple suivant, les hypothèses suivantes sont effectuées :
 
 ![Graphique d’utilisation de l’UC](media/capacity-planning-considerations-cpu-chart.png)
 
-Analyse des données dans le graphique (utilitaire processeur des informations sur\% le processeur (_ total)) pour chacun des contrôleurs de contrôle :
+Analyse des données dans le graphique (utilitaire informations sur le processeur (_ total) \%) pour chacun des contrôleurs de processus :
 
 - Dans la plupart des cas, la charge est distribuée de manière relativement uniforme, ce qui est attendu lorsque les clients utilisent le localisateur de contrôleur de site et ont des recherches bien écrites. 
 - Il y a un certain nombre de pics de 5 minutes de 10%, dont certains peuvent atteindre 20%. En règle générale, à moins qu’ils ne provoquent le dépassement de la cible du plan de capacité, l’examen de ces dernières n’est pas utile.  
@@ -436,7 +436,7 @@ Analyse des données dans le graphique (utilitaire processeur des informations s
 
 ### <a name="calculating-cpu-demands"></a>Calcul des demandes de l’UC
 
-Le compteur d'\\objets de performance « processus% temps processeur » totalise la durée totale d’utilisation de tous les threads d’une application sur le processeur et divise par la quantité totale de temps système écoulée. Cela est lié au fait qu’une application multithread sur un système multiprocesseur peut dépasser 100% du temps processeur et être interprétée de manière très différente de « l’utilitaire processeur d'\\informations sur le processeur ». Dans la pratique, le « processus (\\LSASS)% temps processeur » peut être considéré comme le nombre d’UC s’exécutant à 100% qui sont nécessaires pour prendre en charge les demandes du processus. Une valeur de 200% signifie que 2 processeurs, chacun à 100%, sont nécessaires pour prendre en charge la charge de AD DS complète. Bien qu’un processeur s’exécutant à 100% de la capacité soit le plus rentable du point de vue de l’argent passé sur les processeurs et la consommation d’énergie et d’énergie, pour plusieurs raisons détaillées dans l’annexe A, une meilleure réactivité sur un système multithread se produit lorsque le système est ne s’exécute pas à 100%.
+Le compteur d’objets de performances « traiter @ no__t-0% du temps processeur » totalise la durée totale pendant laquelle tous les threads d’une application sont répartis sur le processeur et se divise par la quantité totale de temps système écoulée. Cela est lié au fait qu’une application multithread sur un système multiprocesseur peut dépasser 100% du temps processeur, et être interprétée de manière très différente de « l’utilitaire processeur pour les informations sur le processeur @ no__t-0% ». Dans la pratique, le « processus (LSASS) \\% du temps processeur » peut être considéré comme le nombre de processeurs qui s’exécutent à 100% et sont nécessaires pour prendre en charge les demandes du processus. Une valeur de 200% signifie que 2 processeurs, chacun à 100%, sont nécessaires pour prendre en charge la charge de AD DS complète. Bien qu’un processeur s’exécutant à 100% de la capacité soit le plus rentable du point de vue de l’argent passé sur les processeurs et la consommation d’énergie et d’énergie, pour plusieurs raisons détaillées dans l’annexe A, une meilleure réactivité sur un système multithread se produit lorsque le système est ne s’exécute pas à 100%.
 
 Pour tenir compte des pics transitoires dans la charge du client, il est recommandé de cibler une période de pointe de temps processeur de entre 40% et 60% de la capacité du système. À l’aide de l’exemple ci-dessus, cela signifie qu’entre 3,33 (60% cible) et 5 (40% de la cible) UC est nécessaire pour la charge du AD DS (processus LSASS). Une capacité supplémentaire doit être ajoutée dans en fonction des besoins du système d’exploitation de base et des autres agents requis (tels que les antivirus, la sauvegarde, la surveillance, etc.). Bien que l’impact des agents doive être évalué en fonction de l’environnement, une estimation de 5% et 10% d’un processeur unique peut être effectuée. Dans l’exemple actuel, cela suggère qu’entre 3,43 (60% cible) et 5,1 (40% cible) UC sont nécessaires pendant les périodes de pointe.
 
@@ -448,7 +448,7 @@ Hypothèses :
 
 ![Graphique de temps processeur pour le processus LSASS (sur tous les processeurs)](media/capacity-planning-considerations-proc-time-chart.png)
 
-Connaissances obtenues à partir des données du graphique (processus (LSASS)\\% temps processeur) :
+Connaissances obtenues à partir des données du graphique (processus (LSASS) \\% du temps processeur) :
 
 - Le jour ouvrable commence à 7:00 et diminue à 5:00 PM.
 - La période de pointe la plus chargée est comprise entre 9:30 et 11:00 AM. 
@@ -486,7 +486,7 @@ Le problème est que si le rôle d’émulateur de contrôleur de domaine princi
 
 #### <a name="example-2---differing-cpu-counts"></a>Exemple 2-nombre de PROCESSEURs différents
 
-| |Utilitaire processeur\\d’informations sur %&nbsp;le processeur (_ total)<br />Utilisation avec valeurs par défaut|Nouveau LdapSrvWeight|Estimation de la nouvelle utilisation|
+| |Informations sur le processeur @ no__t-0 @ no__t-1 @ no__t-2Processor Utility (_ total)<br />Utilisation avec valeurs par défaut|Nouveau LdapSrvWeight|Estimation de la nouvelle utilisation|
 |-|-|-|-|
 |4 PROCESSEURS DC 1|40|100|30|
 |4 PROCESSEURS DC 2|40|100|30|
@@ -521,7 +521,7 @@ Tout au long de l’analyse et du calcul des quantités d’UC nécessaires à l
 |-|-|
 |UC nécessaires à 40% de la cible|4,85 &divide; . 4 = 12,25|
 
-En raison de l’importance de ce point, *pensez à planifier la croissance*. En supposant une croissance de 50% au cours des trois prochaines années, cet environnement aura besoin &times; de 18,375 UC (12,25 1,5) sur la marque de trois ans. Un autre plan consiste à passer en revue après la première année et à ajouter de la capacité supplémentaire en fonction des besoins.
+En raison de l’importance de ce point, *pensez à planifier la croissance*. En supposant une croissance de 50% au cours des trois prochaines années, cet environnement aura besoin de 18,375 UC (12,25 &times; 1,5) sur la marque de trois ans. Un autre plan consiste à passer en revue après la première année et à ajouter de la capacité supplémentaire en fonction des besoins.
 
 ### <a name="cross-trust-client-authentication-load-for-ntlm"></a>Charge d’authentification du client de confiance croisée pour NTLM
 
@@ -574,9 +574,9 @@ Pour ce système pour cette période, les valeurs par défaut sont acceptables.
 
 Tout au long de cet article, nous avons vu que la planification et la mise à l’échelle vont vers les objectifs d’utilisation. Voici un graphique récapitulatif des seuils recommandés qui doivent être analysés pour s’assurer que les systèmes fonctionnent dans des seuils de capacité appropriés. Gardez à l’esprit qu’il ne s’agit pas de seuils de performances, mais de seuils de planification de la capacité. Un serveur fonctionnant au-delà de ces seuils fonctionnera, mais il est temps de commencer à valider que toutes les applications fonctionnent correctement. Si ces applications sont bien connues, il est temps de commencer à évaluer les mises à niveau matérielles ou d’autres modifications de configuration.
 
-|Category|Compteur de performances|Intervalle/échantillonnage|Cible|Warning|
+|Catégorie|Compteur de performances|Intervalle/échantillonnage|Cible|Warning|
 |-|-|-|-|-|
-|Processeur|Informations processeur (_ total\\)% utilitaire processeur|60 min|40%|60 %|
+|Processeur|Informations sur le processeur (_ total) \\% utilitaire processeur|60 min|40%|60 %|
 |RAM (Windows Server 2008 R2 ou version antérieure)|Mémoire \ Mo|< 100 MO|N/A|< 100 MO|
 |RAM (Windows Server 2012)|Durée de vie moyenne du cache en attente Memory\Long-Term|30 minutes|Doit être testé|Doit être testé|
 |Réseau|Interface réseau (\*) \Octets envoyés/s<br /><br />Interface réseau (\*) \Octets reçues/s|30 minutes|40%|60 %|
@@ -655,7 +655,7 @@ L’instruction ci-dessus considère que le calcul du temps processeur est ident
 - Fonctionnement de la Math :
   - *U* k = 1 –% de temps processeur
   - % Temps processeur = 1 – *U* k
-  - % Temps processeur = 1 – *B* / *T*
+  - % Temps processeur = 1 – *B* / *t*
   - % Temps processeur = 1 – *x1* – *x0* / *Y1* – *Y0*
 
 ### <a name="applying-the-concepts-to-capacity-planning"></a>Application des concepts à la planification de la capacité
@@ -667,7 +667,7 @@ Les mathématiques précédentes peuvent déterminer si le nombre de processeurs
 - L’ajout de processeurs à un système exécutant 90% qui est lié au disque ne va probablement pas améliorer de manière significative les performances. Une analyse plus poussée du système permettra probablement d’identifier un grand nombre de threads qui ne se trouvent même pas sur le processeur, car ils sont en attente de la fin des e/s.
 - La résolution des problèmes liés au disque signifie potentiellement que les threads qui ont déjà passé beaucoup de temps dans un état d’attente ne seront plus en attente d’e/s et qu’il y aura plus de concurrence pour le temps processeur, ce qui signifie que l’utilisation de 90% dans le précédent l’exemple passera à 100% (car il ne peut pas aller plus haut). Les deux composants doivent être paramétrés conjointement.
   > [!NOTE]
-  > Les informations sur le processeur\\(*)% l’utilitaire processeur peuvent dépasser 100% avec les systèmes qui ont un mode « Turbo ».  C’est dans ce cas que le processeur dépasse la vitesse nominale du processeur pendant de courtes périodes.  Pour plus d’informations, consultez documentation des fabricants de PROCESSEURs et description du compteur.  
+  > Les informations sur le processeur (*) \\% l’utilitaire processeur peut dépasser 100% avec les systèmes qui ont un mode « Turbo ».  C’est dans ce cas que le processeur dépasse la vitesse nominale du processeur pendant de courtes périodes.  Pour plus d’informations, consultez documentation des fabricants de PROCESSEURs et description du compteur.  
 
 Les considérations relatives à l’utilisation de l’ensemble du système intègrent également les contrôleurs de domaine de conversation en tant qu’invités virtualisés. Le [temps de réponse/la manière dont l’occupation du système influe](#response-timehow-the-system-busyness-impacts-performance) sur les performances s’applique à la fois à l’hôte et à l’invité dans un scénario virtualisé. C’est pourquoi, dans un hôte avec un seul invité, un contrôleur de domaine (et généralement tout système) a presque les mêmes performances que le matériel physique. L’ajout d’invités supplémentaires aux hôtes augmente l’utilisation de l’hôte sous-jacent, ce qui augmente les temps d’attente pour accéder aux processeurs comme expliqué précédemment. En résumé, l’utilisation du processeur logique doit être gérée au niveau de l’hôte et au niveau de l’invité.
 
@@ -770,7 +770,7 @@ Une fois les composants identifiés, une idée de la quantité de données pouva
   |E/s prises en charge par le bus SCSI par taille de bloc|taille de bloc de 2 Ko|taille de bloc de 8 Ko (AD jet) (SQL Server 7.0/SQL Server 2000)
   |-|-|-|
   |20 Mo/s|10 000|2 500|
-  |40 Mo/s|20 000|5 000|
+  |40 Mo/s|20 000|5 000|
   |128 Mo/s|65 536|16 384|
   |320 Mo/s|160 000|40 000|
 

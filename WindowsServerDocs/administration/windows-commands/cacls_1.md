@@ -2,7 +2,7 @@
 title: cacls
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3c2ba6dca1797cda3851b3c270938d47828ed7a
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 04b60bd852abdb55059efb96aec4c290361d6a74
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590398"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379955"
 ---
 # <a name="cacls"></a>cacls
 
@@ -33,22 +33,22 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 
 |        Paramètre        |                                                                                            Description                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      \<filename\>       |                                                                            Requis. Affiche les listes de contrôle d’accès des fichiers spécifiés.                                                                             |
+|      \<filename\>       |                                                                            Obligatoire. Affiche les listes de contrôle d’accès des fichiers spécifiés.                                                                             |
 |           commutateur            |                                                          modifie les listes de contrôle d’accès des fichiers spécifiés dans le répertoire actif et tous les sous-répertoires.                                                          |
 |           /m            |                                                                          modifie les listes de contrôle d’accès des volumes montés dans un répertoire.                                                                           |
 |           /l            |                                                                        Travaillez sur le lien symbolique lui-même et sur la cible.                                                                         |
-|         /s: SDDL         |                                       remplace les listes de contrôle d’accès par celles spécifiées dans la chaîne SDDL (non valide avec **/e**, **/g**, **/r**, **/p**ou **/d**).                                        |
+|         /s : SDDL         |                                       remplace les listes de contrôle d’accès par celles spécifiées dans la chaîne SDDL (non valide avec **/e**, **/g**, **/r**, **/p**ou **/d**).                                        |
 |           /e            |                                                                                 Modifiez l’ACL au lieu de le remplacer.                                                                                  |
 |           /c            |                                                                                 Continuer en cas d’erreurs de refus d’accès.                                                                                  |
-|    /g utilisateur:\<Perm\>     |   Accordez les droits d’accès utilisateur spécifiés.<br /><br />Valeurs valides pour l’autorisation:<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total   |
+|    /g utilisateur : \<perm @ no__t-1     |   Accordez les droits d’accès utilisateur spécifiés.<br /><br />Valeurs valides pour l’autorisation :<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total   |
 |      /r utilisateur [...]      |                                                                  Révoquer les droits d’accès de l’utilisateur spécifié (valide uniquement avec **/e**).                                                                   |
-| [/p utilisateur:\<Perm\> [...] | remplacer les droits d’accès de l’utilisateur spécifié.<br /><br />Valeurs valides pour l’autorisation:<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total |
+| [/p utilisateur : \<perm @ no__t-1 [...] | remplacer les droits d’accès de l’utilisateur spécifié.<br /><br />Valeurs valides pour l’autorisation :<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total |
 |     [/d utilisateur [...]      |                                                                                    Refuser l’accès utilisateur spécifié.                                                                                     |
 |           /?            |                                                                                Affiche l'aide à l'invite de commandes.                                                                                |
 
 ## <a name="remarks"></a>Notes  
 - Cette commande est dépréciée. Utilisez [icacls](icacls.md) à la place.  
-- Utilisez le tableau suivant pour interpréter les résultats:  
+- Utilisez le tableau suivant pour interpréter les résultats :  
 
 
   |      Sortie       |                L’entrée de contrôle d’accès (ACE) s’applique à                |
@@ -63,7 +63,7 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
   |     OI ENTRÉES      |                             Fichiers uniquement.                             |
 
 
-- Vous pouvez utiliser des caractères génériques ( **?** **et\\) pourspécifierplusieursfichiers.\***  
+- Vous pouvez utiliser des caractères génériques ( **?** et **\\ @ no__t-2**) pour spécifier plusieurs fichiers.  
 - Vous pouvez spécifier plusieurs utilisateurs.  
 
 #### <a name="additional-references"></a>Références supplémentaires  

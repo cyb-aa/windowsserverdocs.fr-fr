@@ -1,6 +1,6 @@
 ---
 title: Problèmes connus liés au réplica de stockage
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: 681e07b85af603d11295bf1ca2a08f0eb7181725
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 32020dba2ccca04e8d0bdc29d47dc9fef1f05a01
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865251"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402931"
 ---
 # <a name="known-issues-with-storage-replica"></a>Problèmes connus liés au réplica de stockage
 
@@ -411,7 +411,7 @@ Lors de l’exécution de test-SRTopology entre deux clusters et leurs chemins d
     + CategoryInfo          : ObjectNotFound: (:) [Test-SRTopology], FileNotFoundException
     + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand 
 
-Cela est dû à un défaut de code connu dans Windows Server 2016. Ce problème a été résolu pour la première fois dans Windows Server, version 1709 et les outils RSAT associés. Pour une résolution de niveau inférieur, contactez Support Microsoft et demandez une mise à jour rétroporter. Il n’existe aucune solution de contournement.
+Cela est dû à un défaut de code connu dans Windows Server 2016. Ce problème a été résolu pour la première fois dans Windows Server, version 1709 et les outils RSAT associés. Pour une résolution de niveau inférieur, contactez Support Microsoft et demandez une mise à jour rétroporter. Il n'existe aucune solution à ce problème.
 
 ## <a name="error-specified-volume-could-not-be-found-when-running-test-srtopology-between-two-clusters"></a>Erreur « le volume spécifié est introuvable » lors de l’exécution de test-SRTopology entre deux clusters
 

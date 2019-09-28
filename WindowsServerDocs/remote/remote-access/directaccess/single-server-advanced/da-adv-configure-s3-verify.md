@@ -1,9 +1,9 @@
 ---
-title: Étape 3 vérifier le déploiement d’une infrastructure DirectAccess avancée
-description: Cette rubrique fait partie du guide de déployer un serveur DirectAccess unique avec les paramètres avancés pour Windows Server 2016
+title: Étape 3 vérifier le déploiement avancé de DirectAccess
+description: Cette rubrique fait partie du guide déployer un serveur DirectAccess unique avec des paramètres avancés pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: ae8bbff0-c981-4bc6-8df1-861621d0627f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 386d10dda9f61724a012801840e6471e48c0905a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 51ce3fa1a72420f7272141bb5361b20360b7000c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283537"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404903"
 ---
-# <a name="step-3-verify-the-advanced-directaccess-deployment"></a>Étape 3 vérifier le déploiement d’une infrastructure DirectAccess avancée
+# <a name="step-3-verify-the-advanced-directaccess-deployment"></a>Étape 3 vérifier le déploiement avancé de DirectAccess
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Cette rubrique décrit comment vérifier que vous avez correctement configuré votre déploiement DirectAccess.  
+Cette rubrique décrit comment vérifier que vous avez correctement configuré votre déploiement de DirectAccess.  
   
 ### <a name="to-verify-access-to-internal-resources-through-directaccess"></a>Pour vérifier l’accès aux ressources internes via DirectAccess  
   
-1.  Connecter un ordinateur client DirectAccess au réseau d’entreprise et d’obtenir l’objet de stratégie de groupe.  
+1.  Connectez un ordinateur client DirectAccess au réseau d’entreprise et obtenez l’objet stratégie de groupe.  
   
-2.  Cliquez sur le **connexions réseau** icône dans la zone de notification pour accéder au Gestionnaire de médias de DirectAccess.  
+2.  Cliquez sur l’icône **connexions réseau** dans la zone de notification pour accéder au gestionnaire multimédia DirectAccess.  
   
-3.  Cliquez sur **connexion DirectAccess**, et vous verrez que l’état est **connecté localement**.  
+3.  Cliquez sur **connexion DirectAccess**. vous verrez que l’État est **connecté localement**.  
   
 4.  Connectez l’ordinateur client au réseau externe et tentez d’accéder aux ressources internes.  
   
@@ -39,7 +39,7 @@ Cette rubrique décrit comment vérifier que vous avez correctement configuré v
   
 ## <a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 2 : Configuration des serveurs DirectAccess](Step-2-Configuring-DirectAccess-Servers.md)  
+-   [Étape 2 : Configuration des serveurs DirectAccess @ no__t-0  
   
 
 

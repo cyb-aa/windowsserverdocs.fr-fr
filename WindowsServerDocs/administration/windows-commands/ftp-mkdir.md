@@ -1,8 +1,8 @@
 ---
-title: ftp mkdir
-description: 'Rubrique de commandes de Windows pour ***- '
+title: la mkdir FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a03bb9766ffe62a80e8661bf8ce2a8eea2ce536b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 900548cbca67c53887d2d46b4e05612ed00a1660
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438565"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376244"
 ---
-# <a name="ftp-mkdir"></a>ftp: mkdir
+# <a name="ftp-mkdir"></a>FTP : mkdir
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Crée un répertoire sur l’ordinateur distant.   
+crée un répertoire sur l’ordinateur distant.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 mkdir <directory>  
@@ -35,7 +35,7 @@ mkdir <directory>
 |-------------|-------------------------------------------------|
 | <directory> | Spécifie le nom du nouveau répertoire distant. |
 
-## <a name="BKMK_Examples"></a>Exemples  
+## <a name="BKMK_Examples"></a>Illustre  
 Créez un répertoire appelé **dir1** sur l’ordinateur distant.  
 ```  
 mkdir dir1  

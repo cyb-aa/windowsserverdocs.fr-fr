@@ -1,8 +1,8 @@
 ---
 title: move
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d651e586c31ff64664079bdd10ffde3701ec317d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4302a3403f73892500c3f9deb608e9489c7e91ae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824990"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373526"
 ---
 # <a name="move"></a>move
 
@@ -39,23 +39,23 @@ move [{/y | /-y}] [<Source>] [<Target>]
 |Paramètre|Description|
 |---------|-----------|
 |/y|Supprime l’invite pour confirmer que vous souhaitez remplacer un fichier de destination existant.|
-|/-y|Demande la confirmation que vous souhaitez remplacer un fichier de destination existant.|
-|\<Source>|Spécifie le chemin d’accès et le nom du fichier ou des fichiers à déplacer. Si vous souhaitez déplacer ou renommer un répertoire, *Source* doit être le chemin d’accès du répertoire actuel et le nom.|
-|\<Target>|Spécifie le chemin d’accès et le nom à déplacer les fichiers vers. Si vous souhaitez déplacer ou renommer un répertoire, *cible* doit contenir le nom et le chemin d’accès du répertoire de votre choix.|
+|/-y|Invite à confirmer que vous souhaitez remplacer un fichier de destination existant.|
+|@no__t 0Source >|Spécifie le chemin d’accès et le nom du ou des fichiers à déplacer. Si vous souhaitez déplacer ou renommer un répertoire, la *source* doit être le chemin d’accès et le nom du répertoire actif.|
+|@no__t 0Target >|Spécifie le chemin d’accès et le nom des fichiers à déplacer. Si vous souhaitez déplacer ou renommer un répertoire, *cible* doit être le chemin d’accès au répertoire et le nom souhaités.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Le **/y** option de ligne de commande peut être prédéfinie dans la variable d’environnement COPYCMD. Vous pouvez remplacer cette avec **/-y** sur la ligne de commande. La valeur par défaut consiste à demander confirmation avant de remplacer les fichiers, sauf si le **copie** commande est exécutée à partir d’un script de commande.
--   Déplacement de fichiers cryptés vers un volume qui ne prend pas en charge les résultats du système de fichiers EFS (Encrypting File System) dans une erreur. Tout d’abord de déchiffrer les fichiers ou déplacez les fichiers vers un volume qui prend en charge EFS.
+-   L’option de ligne de commande **/y** peut être prédéfinie dans la variable d’environnement COPYCMD. Vous pouvez le remplacer par **/-y** sur la ligne de commande. La valeur par défaut est l’invite à confirmer le remplacement des fichiers, sauf si la commande de **copie** est exécutée à partir d’un script de commandes.
+-   Le déplacement de fichiers chiffrés vers un volume qui ne prend pas en charge système de fichiers EFS (EFS) génère une erreur. Déchiffrez les fichiers en premier ou déplacez les fichiers vers un volume qui prend en charge EFS.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour déplacer tous les fichiers portant l’extension .xls à partir du répertoire \Data vers le répertoire \Second_Q\Reports, tapez :
+Pour déplacer tous les fichiers avec l’extension. xls du répertoire \Data vers le répertoire \Second_Q\Reports, tapez :
 ```
 move \data\*.xls \second_q\reports\ 
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

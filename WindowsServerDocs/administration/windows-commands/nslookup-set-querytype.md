@@ -2,7 +2,7 @@
 title: nslookup set querytype
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 496eededd8b0b5eb79cdc1b4a7e35bc017157768
-ms.sourcegitcommit: f3b61dcd8aa0aa744db4ea938aac633c19217b0a
+ms.openlocfilehash: bc0eb19fd66e738b4bfc110a2bbc172153a12d98
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70746298"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372902"
 ---
 # <a name="nslookup-set-querytype"></a>nslookup set querytype
 
@@ -35,8 +35,8 @@ set querytype=<ResourceRecordtype>
 | Value |                                                   Description                                                   |
 |-------|-----------------------------------------------------------------------------------------------------------------|
 |   A   |                                      Spécifie l'&#39;adresse IP de l’ordinateur                                      |
-|  TOUTES  |                                     Spécifie l'&#39;adresse IP de l’ordinateur.                                      |
-| CNAME |                                    Spécifie un nom canonique pour un alias.                                     |
+|  AUX  |                                     Spécifie l'&#39;adresse IP de l’ordinateur.                                      |
+| CANONIQUE |                                    Spécifie un nom canonique pour un alias.                                     |
 |  ID  |                                  Spécifie un identificateur de groupe d’un nom de groupe.                                  |
 | HINFO |                          Spécifie le&#39;processeur et le type de système d’exploitation de l’ordinateur.                           |
 |  Mo   |                                        Spécifie un nom de domaine de boîte aux lettres.                                         |
@@ -58,5 +58,5 @@ Affiche un bref résumé des sous-commandes <strong>nslookup</strong>
 - La commande <strong>Set type</strong> effectue la même fonction que la commande <strong>Set QueryType</strong> .
 - Pour plus d’informations sur les types d’enregistrements de ressources, consultez Request for Comment (RFC) 1035.
   ## <a name="additional-references"></a>Références supplémentaires
-  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Clé de syntaxe de ligne de commande</a><a href="nslookup-set-type.md" data-raw-source="[nslookup set type](nslookup-set-type.md)">nslookup Set type</a> 
-  
+  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Clé de syntaxe de ligne de commande</a>
+  <a href="nslookup-set-type.md" data-raw-source="[nslookup set type](nslookup-set-type.md)">nslookup (type de jeu</a> )

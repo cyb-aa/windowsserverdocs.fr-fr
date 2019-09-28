@@ -1,8 +1,8 @@
 ---
 title: bootcfg query
-description: Rubrique de commandes de Windows pour **bootcfg requête** -requêtes et affiche le [chargeur de démarrage] et [systèmes d’exploitation] section entrées à partir du fichier Boot.ini.
+description: La rubrique commandes Windows pour **bootcfg Query** -Queries et affiche les entrées de la section [Boot Loader] et [Operating Systems] à partir de boot. ini.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e79acc100a9ec9955f2692a3c6ee812d0310b687
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ae82357cfe178343872448c2ebd46c49a797b5a9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434730"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379909"
 ---
 # <a name="bootcfg-query"></a>bootcfg query
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Interroge et affiche le [chargeur de démarrage] et les entrées de Boot.ini de section [operating systems].
+Interroge et affiche les entrées de la section [Boot Loader] et [Operating Systems] à partir de boot. ini.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -35,12 +35,12 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
 |        Terme         |                                                                                             Définition                                                                                              |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>    |                                         Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                          |
-| /u <Domain>\\<User> | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User>ou <Domain> \\ <User>. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté sur l’ordinateur exécutant la commande. |
-|    /p <Password>    |                                                        Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                        |
+| /u <Domain> @ no__t-1 @ no__t-2 | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User>or <Domain> @ no__t-2 @ no__t-3. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande. |
+|    /p <Password>    |                                                        Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                        |
 |         /?          |                                                                                Affiche l'aide à l'invite de commandes.                                                                                 |
 
 ##### <a name="remarks"></a>Notes
-- Voici un exemple de **bootcfg /query** sortie :
+- Voici un exemple de sortie de **bootcfg/Query** :
   ```
   Boot Loader Settings
   ----------
@@ -53,10 +53,10 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
   path:            multi(0)disk(0)rdisk(0)partition(1)\WINDOWS
   OS Load Options: /fastdetect /debug /debugport=com1:
   ```
-- La partie paramètres du chargeur de démarrage de la **bootcfg requête** sortie affiche chaque entrée dans la section [boot loader] du fichier Boot.ini.
-- La partie des entrées de démarrage de la **bootcfg requête** sortie affiche les informations suivantes pour chaque entrée de système d’exploitation dans la section [operating systems] du fichier Boot.ini : ID d’entrée de démarrage, nom convivial, chemin d’accès et les Options de chargement du système d’exploitation.
-  ## <a name="BKMK_examples"></a>Exemples
-  Les exemples suivants montrent comment vous pouvez utiliser la **bootcfg /query** commande :
+- La partie paramètres du chargeur de démarrage de la sortie de **requête bootcfg** affiche chaque entrée dans la section [Boot Loader] de boot. ini.
+- La partie entrées de démarrage de la sortie de **requête bootcfg** affiche les détails suivants pour chaque entrée de système d’exploitation dans la section [Operating Systems] de boot. ini : ID d’entrée de démarrage, nom convivial, chemin d’accès et options de chargement du système d’exploitation.
+  ## <a name="BKMK_examples"></a>Illustre
+  Les exemples suivants illustrent la façon dont vous pouvez utiliser la commande **bootcfg/Query** :
   ```
   bootcfg /query
   bootcfg /query /s srvmain /u maindom\hiropln /p p@ssW23

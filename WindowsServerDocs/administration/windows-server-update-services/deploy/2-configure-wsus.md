@@ -1,7 +1,7 @@
 ---
-title: 'Étape 2: configurer WSUS'
+title: 'Étape 2 : configurer WSUS'
 description: Rubrique Windows Server Update Service (WSUS)-configurer WSUS est l’étape 2 dans un processus en quatre étapes pour le déploiement de WSUS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: article
@@ -10,14 +10,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 660cb0412abdf1ecb1afcba53a4aeb79ac407e56
-ms.sourcegitcommit: a9625758fbfb066494fe62e0da5f9570ccb738a3
+ms.openlocfilehash: d1a78d2006a45bb2af8f87a91d7bb888964ddbcb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952459"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361674"
 ---
-# <a name="step-2-configure-wsus"></a>Étape 2 : Configurer WSUS
+# <a name="step-2-configure-wsus"></a>Étape 2 : Configurer WSUS
 
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
@@ -25,11 +25,11 @@ Après l’installation du rôle serveur WSUS sur votre serveur, vous devez le c
 
 |Tâche|Description|
 |----|--------|
-|[2,1. Configurer les connexions réseau](#21-configure-network-connections)|Configurez le réseau de clusters en utilisant l’Assistant Configuration du réseau.|
-|[2,2. Configurer WSUS à l’aide de l’Assistant configuration WSUS](#22-configure-wsus-by-using-the-wsus-configuration-wizard)|Utilisez l’Assistant Configuration WSUS pour effectuer la configuration WSUS de base.|
-|[2,3. Configurer des groupes d’ordinateurs WSUS](#23-configure-wsus-computer-groups)|Créez des groupes d’ordinateurs dans la console d’administration WSUS pour gérer les mises à jour dans votre organisation.|
-|[2,4. Configurer les mises à jour du client](#24-configure-client-updates)|Spécifiez comment et quand les mises à jour automatiques sont appliquées aux ordinateurs clients.|
-|[2,5. Sécuriser WSUS avec le protocole protocole SSL](#25-secure-wsus-with-the-secure-sockets-layer-protocol)|Configurez le protocole Secure Sockets Layer (SSL) pour protéger Windows Server Update Services (WSUS).|
+|[2,1. Configurer les connexions réseau @ no__t-0|Configurez le réseau de clusters en utilisant l’Assistant Configuration du réseau.|
+|[2,2. Configurer WSUS à l’aide de l’Assistant Configuration de WSUS @ no__t-0|Utilisez l’Assistant Configuration WSUS pour effectuer la configuration WSUS de base.|
+|[2,3. Configurer des groupes d’ordinateurs WSUS @ no__t-0|Créez des groupes d’ordinateurs dans la console d’administration WSUS pour gérer les mises à jour dans votre organisation.|
+|[2,4. Configurer les mises à jour du client @ no__t-0|Spécifiez comment et quand les mises à jour automatiques sont appliquées aux ordinateurs clients.|
+|[2,5. Sécuriser WSUS avec le protocole protocole SSL @ no__t-0|Configurez le protocole Secure Sockets Layer (SSL) pour protéger Windows Server Update Services (WSUS).|
 
 ## <a name="21-configure-network-connections"></a>2.1. Configurer des connexions réseau
 Avant de commencer le processus de configuration, assurez-vous de connaître les réponses aux questions suivantes :
@@ -54,35 +54,35 @@ Lorsque vous disposez des réponses à ces questions, vous pouvez commencer à c
 -   **Pare-feu** si vous avez identifié que WSUS se trouve derrière un pare-feu d’entreprise, vous devez effectuer quelques étapes supplémentaires sur le périphérique de périmètre pour autoriser correctement le trafic WSUS.
 
 ### <a name="211-connection-from-the-wsus-server-to-the-internet"></a>2.1.1. Connexion Internet à partir du serveur WSUS
-Si un pare-feu d’entreprise est placé entre WSUS et Internet, il peut être nécessaire de le configurer afin de garantir que WSUS peut obtenir les mises à jour. Pour obtenir des mises à jour de Microsoft Update, le serveur WSUS utilise le port 443 pour le protocole HTTPS. Bien que la plupart des pare-feu d’entreprise autorisent ce type de trafic, certaines entreprises restreignent l’accès à Internet à partir des serveurs en raison des stratégies de sécurité de l’entreprise. Si votre entreprise restreint l’accès, vous devez obtenir l’autorisation d’autoriser l’accès à Internet à partir de WSUS à la liste suivante d’URL:
+Si un pare-feu d’entreprise est placé entre WSUS et Internet, il peut être nécessaire de le configurer afin de garantir que WSUS peut obtenir les mises à jour. Pour obtenir des mises à jour de Microsoft Update, le serveur WSUS utilise le port 443 pour le protocole HTTPS. Bien que la plupart des pare-feu d’entreprise autorisent ce type de trafic, certaines entreprises restreignent l’accès à Internet à partir des serveurs en raison des stratégies de sécurité de l’entreprise. Si votre entreprise restreint l’accès, vous devez obtenir l’autorisation d’autoriser l’accès à Internet à partir de WSUS à la liste suivante d’URL :
 
-- http\://windowsupdate.Microsoft.com
+- http @ no__t-0//windowsupdate. Microsoft. com
 
-- http\://.windowsupdate.Microsoft.com\*
+- http @ no__t-0 @ no__t-1\*.windowsupdate.microsoft.com
 
-- \:https\*. windowsupdate.Microsoft.com//
+- https @ no__t-0 @ no__t-1\*.windowsupdate.microsoft.com
 
-- http\://.Update.Microsoft.com\*
+- http @ no__t-0 @ no__t-1\*.update.microsoft.com
 
-- \:https\*. Update.Microsoft.com//
+- https @ no__t-0 @ no__t-1\*.update.microsoft.com
 
-- http\://.windowsupdate.com\*
+- http @ no__t-0 @ no__t-1\*.windowsupdate.com
 
-- http\://Download.windowsupdate.com
+- http @ no__t-0//Télécharger. windowsupdate. com
 
-- https\://Download.Microsoft.com
+- https @ no__t-0//Télécharger. Microsoft. com
 
-- http\://.download.windowsupdate.com\*
+- http @ no__t-0 @ no__t-1\*.download.windowsupdate.com
 
-- http\://wustat.Windows.com
+- http @ no__t-0//wustat. Windows. com
 
-- http\://NtServicePack.Microsoft.com
+- http @ no__t-0//NtServicePack. Microsoft. com
 
-- http\://Go.Microsoft.com
+- http @ no__t-0//Go. Microsoft. com
 
-- http\://DL.Delivery.MP.Microsoft.com
+- http @ no__t-0//DL. Delivery. MP. Microsoft. com
 
-- https\://DL.Delivery.MP.Microsoft.com
+- https @ no__t-0//DL. Delivery. MP. Microsoft. com
 
 > [!IMPORTANT]
 > Pour un scénario dans lequel WSUS ne parvient pas à obtenir les mises à jour en raison des configurations de pare-feu, voir l' [article 885819](https://support.microsoft.com/kb/885819) de la base de connaissances Microsoft.
@@ -121,9 +121,9 @@ Pour configurer deux serveurs proxy, chacun d’eux gérant un protocole pour WS
 
 3.  Ouvrez une invite de commandes (Cmd.exe) en tant qu'administrateur. Pour ouvrir une invite de commandes en tant qu’administrateur, accédez à **Démarrer**. Dans **Démarrer la recherche**, tapez **invite de commandes**. en haut du menu Démarrer, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **contrôle de compte d’utilisateur** s’affiche, entrez les informations d’identification appropriées (si nécessaire), confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-4.  Dans la fenêtre d’invite de commandes, accédez au dossier C:\Program Files\Update Services\Tools tapez la commande suivante:
+4.  Dans la fenêtre d’invite de commandes, accédez au dossier C:\Program Files\Update Services\Tools Tapez la commande suivante :
 
-    **WSUSutil ConfigureSSlproxy [< proxy_server proxy_port >]-enable**, où:
+    **WSUSutil ConfigureSSlproxy [< proxy_server proxy_port >]-enable**, où :
 
     1.  proxy_server est le nom du serveur proxy qui prend en charge HTTPS.
 
@@ -264,7 +264,7 @@ Utilisez les procédures suivantes pour configurer les Mises à jour automatique
 
 -   [Étape 4 : configurer les paramètres de stratégie de groupe pour les mises à jour automatiques](4-configure-group-policy-settings-for-automatic-updates.md)
 
--   [2,3. Configurer des groupes](#23-configure-wsus-computer-groups) d’ordinateurs dans cette rubrique
+-   [2,3. Configurer des groupes d’ordinateurs @ no__t-0 dans cette rubrique
 
 ### <a name="configure-automatic-updates-in-group-policy"></a>Configurer les Mises à jour automatiques dans une stratégie de groupe
 
@@ -304,7 +304,7 @@ Liez cet objet de stratégie de groupe WSUS à un conteneur Active Directory app
 9. Cliquez sur **Activé**, puis sur Serveur dans les zones de texte **Configurer le service intranet de mise à jour pour la détection des mises à jour** et **Configurer le serveur intranet de statistiques** . Entrez la même URL que celle du serveur WSUS. Par exemple, tapez *http://servername* dans les deux zones (où *nom_serveur* est le nom du serveur WSUS).
 
     > [!WARNING]
-    > Lorsque vous tapez l’adresse intranet de votre serveur WSUS, veillez à indiquer le port qui sera utilisé. Par défaut, WSUS utilise le port 8530 pour HTTP et le port 8531 pour HTTPS. Par exemple, si vous utilisez le protocole HTTP, vous devez **http://servername:8530** taper.
+    > Lorsque vous tapez l’adresse intranet de votre serveur WSUS, veillez à indiquer le port qui sera utilisé. Par défaut, WSUS utilise le port 8530 pour HTTP et le port 8531 pour HTTPS. Par exemple, si vous utilisez le protocole HTTP, vous devez taper **http://servername:8530** .
 
 10. Cliquez sur **OK**.
 
@@ -375,7 +375,7 @@ WSUS requiert deux ports SSL : un port qui utilise le protocole HTTPS pour envoy
 
 -   Vous devez importer le certificat sur tous les ordinateurs qui communiqueront avec le serveur WSUS. Cela inclut tous les ordinateurs clients, les serveurs en aval et les ordinateurs qui exécutent la console d’administration WSUS. Le certificat doit être importé dans le magasin AC racine de confiance de l’ordinateur local ou dans le magasin AC racine de confiance de Windows Server Update Service.
 
--   Vous pouvez utiliser n’importe quel port pour SSL. Toutefois, le port que vous définissez pour SSL détermine également le port que WSUS utilise pour envoyer le trafic HTTP non sécurisé. Prenons les exemples suivants :
+-   Vous pouvez utiliser n’importe quel port pour SSL. Toutefois, le port que vous définissez pour SSL détermine également le port que WSUS utilise pour envoyer le trafic HTTP non sécurisé. Penchez-vous sur les exemples suivants :
 
     -   Si vous utilisez le port standard de l’industrie 443 pour le trafic HTTPs, WSUS utilise le port standard 80 pour le trafic HTTP en clair.
 
@@ -389,9 +389,9 @@ WSUS requiert deux ports SSL : un port qui utilise le protocole HTTPS pour envoy
 
 2.  Accédez à **Démarrer**, tapez **cmd**, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.
 
-3.  Accédez au dossier _% ProgramFiles%_ **\\Update Services\\Tools\\**  .
+3.  Accédez au dossier _% ProgramFiles%_ **\\Update services @ no__t-3Tools @ no__t-4** .
 
-4.  Dans la fenêtre d’invite de commandes, tapez la commande suivante:
+4.  Dans la fenêtre d’invite de commandes, tapez la commande suivante :
 
     **Wsusutil configuressl**_certificateName_
 

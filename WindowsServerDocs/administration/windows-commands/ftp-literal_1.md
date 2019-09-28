@@ -1,8 +1,8 @@
 ---
-title: FTP literal_1
-description: 'Rubrique de commandes de Windows pour ***- '
+title: literal_1 FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 693916507488a9a480315a8e9299baa93a223b8a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 393dea27e8567a72a5bd25c927282ade93e317c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438659"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376272"
 ---
-# <a name="ftp-literal1"></a>ftp: literal_1
+# <a name="ftp-literal_1"></a>FTP : literal_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 envoie textuellement des arguments au serveur ftp distant. Un code de réponse ftp unique est renvoyé.   
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 envoie des arguments textuels au serveur FTP distant. Un seul code de réponse FTP est retourné.   
 
 ## <a name="syntax"></a>Syntaxe  
 ```  
@@ -32,15 +32,15 @@ literal <Argument> [ ]
 
 | Paramètre  |                    Description                    |
 |------------|---------------------------------------------------|
-| <Argument> | Spécifie l’argument à envoyer au serveur ftp. |
+| <Argument> | Spécifie l’argument à envoyer au serveur FTP. |
 
 ## <a name="remarks"></a>Notes  
-Le **littéral** commande est identique à la **devis** commande.  
-## <a name="BKMK_Examples"></a>Exemples  
-Envoyer un **quitter** commande au serveur ftp distant.  
+La commande **littérale** est identique à la commande **quote** .  
+## <a name="BKMK_Examples"></a>Illustre  
+Envoyez une commande **Quit** au serveur FTP distant.  
 ```  
 literal quit  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [ftp: quote](ftp-quote.md)  
+-   [FTP : citation](ftp-quote.md)  
 -   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

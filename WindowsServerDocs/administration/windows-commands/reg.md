@@ -1,8 +1,8 @@
 ---
 title: reg
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,39 +13,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a4ca4f354462c1e34b1ccd6357913e3b72d569b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 196c32775fe17afc29d75969ec2ba98465768cce
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371710"
 ---
 # <a name="reg"></a>reg
 
 
 
-Effectue des opérations sur les valeurs et les informations de sous-clé de Registre dans les entrées de Registre. Le **reg** commandes incluent :
+Effectue des opérations sur les informations et les valeurs de la sous-clé de Registre dans les entrées de registre. Les commandes **reg** sont les suivantes :
 
-[Ajout de reg](reg-add.md)
+[Reg add](reg-add.md)
 
-[comparaison de reg](reg-compare.md)
+[Reg compare](reg-compare.md)
 
-[copie de reg](reg-copy.md)
+[Reg copy](reg-copy.md)
 
 [Reg delete](reg-delete.md)
 
-[reg export](reg-export.md)
+[Reg export](reg-export.md)
 
-[reg import](reg-import.md)
+[Reg import](reg-import.md)
 
-[charge de reg](reg-load.md)
+[Reg load](reg-load.md)
 
-[reg query](reg-query.md)
+[Reg query](reg-query.md)
 
-[restauration de reg](reg-restore.md)
+[Reg restore](reg-restore.md)
 
-[reg enregistrer](reg-save.md)
+[Reg save](reg-save.md)
 
 [Reg unload](reg-unload.md)
 
-Certaines opérations permettent d’afficher ou configurer les entrées de Registre sur les ordinateurs locaux ou distants, alors que d’autres vous permettent de configurer des ordinateurs locaux uniquement. À l’aide de **reg** pour configurer le Registre de remote ordinateurs limite les paramètres que vous pouvez utiliser dans certaines opérations. Vérifiez la syntaxe et les paramètres pour chaque opération vérifier qu’ils peuvent être utilisés sur des ordinateurs distants
+Certaines opérations vous permettent d’afficher ou de configurer des entrées de Registre sur des ordinateurs locaux ou distants, tandis que d’autres vous permettent de configurer uniquement des ordinateurs locaux. L’utilisation de la commande **reg** pour configurer le registre des ordinateurs distants limite les paramètres que vous pouvez utiliser dans certaines opérations. Vérifiez la syntaxe et les paramètres de chaque opération pour vérifier qu’ils peuvent être utilisés sur des ordinateurs distants.

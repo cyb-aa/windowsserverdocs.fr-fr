@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getcompletiontime
-description: Rubrique de commandes de Windows pour **bitsadmin getcompletiontime** -récupère le temps que la tâche a terminé le transfert de données.
+description: La rubrique commandes Windows pour **Bitsadmin getcompletiontime** -récupère l’heure à laquelle le travail a terminé le transfert des données.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3790a91c4b347b982c0f0a023d5977a8d6cd1f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 190467d5f3a7b7244ed0d7ab3b75d4cbbf56c8d5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857380"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381743"
 ---
 # <a name="bitsadmin-getcompletiontime"></a>bitsadmin getcompletiontime
 
 
 
-Récupère le temps que la tâche a terminé le transfert de données.
+Récupère l’heure à laquelle le travail a terminé le transfert des données.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,15 +36,15 @@ bitsadmin /GetCompletionTime <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant récupère l’heure à laquelle le travail nommé *myDownloadJob* a terminé le transfert de données.
+L’exemple suivant récupère l’heure à laquelle le travail nommé *myDownloadJob* a terminé le transfert des données.
 ```
 C:\>bitsadmin /GetCompletionTime myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
-title: ksetup:delkdc
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : delkdc'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e2fa065ca60338b04cc8718e199805cc494c908
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b918f8c2fa0ec09c2aae77517a0ee2c9e77ce2dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814560"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375139"
 ---
-# <a name="ksetupdelkdc"></a>ksetup:delkdc
+# <a name="ksetupdelkdc"></a>Ksetup : delkdc
 
 
 
-Supprime des instances de noms de centre de Distribution de clés (KDC) pour le domaine Kerberos. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Supprime les instances de noms de centre de distribution de clés (KDC) pour le domaine Kerberos. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,24 +36,24 @@ ksetup /delkdc <RealmName> <KDCName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<RealmName>|Le nom de domaine est indiqué comme un nom DNS en majuscules, telles que CORP. CONTOSO.COM et il est répertorié en tant que le domaine par défaut lorsque **ksetup** est exécuté. Il est de ce domaine à partir de laquelle vous essayez de supprimer l’autre contrôleur de domaine Kerberos.|
-|\<KDCName>|Le nom de contrôleur de domaine Kerberos est établi comme un nom de domaine complet, non-respect de la casse, comme mitkdc.contoso.com.|
+|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté. Il s’agit de ce domaine à partir duquel vous tentez de supprimer l’autre KDC.|
+|@no__t 0KDCName >|Le nom KDC est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.contoso.com.|
 
 ## <a name="remarks"></a>Notes
 
-Ces mappages sont stockés dans le Registre **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains**. Pour supprimer les données de configuration de domaine à partir de plusieurs ordinateurs, utilisez la distribution de logiciel enfichable et la stratégie de modèle de Configuration de sécurité au lieu d’utiliser **ksetup** explicitement sur des ordinateurs individuels.
+Ces mappages sont stockés dans le registre dans **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains**. Pour supprimer les données de configuration de domaine de plusieurs ordinateurs, utilisez le composant logiciel enfichable modèle de configuration de sécurité et la distribution de stratégie au lieu d’utiliser le modèle d’informations de **sécurité explicitement sur** des ordinateurs individuels.
 
-Sur les ordinateurs exécutant Windows 2000 Server avec Service Pack 1 (SP1) et versions antérieures, l’ordinateur doit être redémarré avant que la configuration du paramètre domaine modifié sera utilisée.
+Sur les ordinateurs exécutant Windows 2000 Server avec Service Pack 1 (SP1) et versions antérieures, l’ordinateur doit être redémarré avant que la configuration du paramètre de domaine modifié ne soit utilisée.
 
-Pour vérifier le nom de domaine par défaut pour l’ordinateur, ou pour vérifier que cette commande a fonctionné comme prévu, exécutez **ksetup** à l’invite de commandes et vérifiez que le contrôleur de domaine Kerberos qui a été supprimé n’existe pas dans la liste.
+Pour vérifier le nom de domaine par défaut de l’ordinateur, ou pour vérifier que cette commande fonctionnait comme prévu, exécutez **Ksetup** à l’invite de commandes et vérifiez que le KDC qui a été supprimé n’existe pas dans la liste.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Les exigences de sécurité pour cet ordinateur ont été modifiés, le lien entre le domaine Windows et le domaine non Windows doit être supprimé. Tout d’abord, déterminez laquelle l’association à supprimer et de produire le résultat des associations existantes :
+Les exigences de sécurité de cet ordinateur ont été modifiées, de sorte que le lien entre le domaine Windows et le domaine non-Windows doit être supprimé. Tout d’abord, déterminez l’Association à supprimer et générez la sortie des associations existantes :
 ```
 ksetup
 ```
-Supprimer l’association à l’aide de la commande suivante :
+Supprimez l’Association à l’aide de la commande suivante :
 ```
 Ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
@@ -61,4 +61,4 @@ Ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
 #### <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup](ksetup.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

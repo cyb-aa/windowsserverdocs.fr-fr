@@ -1,8 +1,8 @@
 ---
 title: Ajouter un alias
-description: Rubrique de commandes de Windows pour **ajouter l’alias** -ajoute des alias à l’environnement de l’alias.
+description: Rubrique relative aux commandes Windows pour **Ajouter un alias** -ajoute des alias à l’environnement d’alias.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 50de932ea0153546816face61f0852a08707ea85
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2834376e497f54eadf1d9077e74f9c398202c5a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862220"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382819"
 ---
 # <a name="add-alias"></a>Ajouter un alias
 
 
 
-Ajoute les alias à l’environnement de l’alias. Si utilisée sans paramètres, **ajouter l’alias** affiche l’aide à l’invite de commandes.
+Ajoute des alias à l’environnement d’alias. S’il est utilisé sans paramètres, l’option **Ajouter un alias** affiche l’aide à l’invite de commandes.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,34 +38,34 @@ add alias <AliasName> <AliasValue>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<AliasName>|Spécifie le nom de l’alias.|
-|\<AliasValue>|Spécifie la valeur de l’alias.|
+|@no__t 0AliasName >|Spécifie le nom de l’alias.|
+|@no__t 0AliasValue >|Spécifie la valeur de l’alias.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Alias sont enregistrés dans le fichier de métadonnées et ne sera chargées avec les **charger les métadonnées** commande.
+-   Les alias sont enregistrés dans le fichier de métadonnées et sont chargés à l’aide de la commande **charger les métadonnées** .
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Pour répertorier toutes les ombres, y compris leurs alias, tapez :
 ```
 list shadows all
 ```
-L’extrait suivant montre un cliché instantané pour lequel l’alias par défaut, VSS_SHADOW_x, a été affectée :
+L’extrait suivant montre un cliché instantané auquel l’alias par défaut, VSS_SHADOW_x, a été affecté :
 ```
 * Shadow Copy ID = {ff47165a-1946-4a0c-b7f4-80f46a309278}
 %VSS_SHADOW_1%
 ```
-Pour affecter un nouvel alias avec le nom System1 à cette copie de clichés instantanés, tapez :
+Pour affecter un nouvel alias portant le nom system1 à ce cliché instantané, tapez :
 ```
 add alias System1 %VSS_SHADOW_1%
 ```
-Vous pouvez également affecter l’alias à l’aide de l’ID du cliché instantané :
+Vous pouvez également attribuer l’alias à l’aide de l’ID de cliché instantané :
 ```
 add alias System1 {ff47165a-1946-4a0c-b7f4-80f46a309278}
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

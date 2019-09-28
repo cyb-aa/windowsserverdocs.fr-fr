@@ -1,8 +1,8 @@
 ---
 title: Bitsadmin setpeercachingflags
-description: Rubrique de commandes de Windows pour **bitsadmin setpeercachingflags** -définit les indicateurs qui déterminent si les fichiers de la tâche peuvent être mis en cache et prise en charge pour les homologues et si le travail peut télécharger du contenu à partir d’homologues.
+description: La rubrique commandes Windows pour **Bitsadmin setpeercachingflags** -définit des indicateurs qui déterminent si les fichiers du travail peuvent être mis en cache et desservis aux homologues et si le travail peut télécharger du contenu à partir de pairs.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d50a6ccd83a6251808ca3d66437e52f641c60a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 147f28268f1b4dd6dfb40cff85f073feabbc35a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814250"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380465"
 ---
 # <a name="bitsadmin-setpeercachingflags"></a>Bitsadmin setpeercachingflags
 
 
 
-Définit les indicateurs qui déterminent si les fichiers de la tâche peuvent être mis en cache et prise en charge pour les homologues et si le travail peut télécharger contenu à partir d’homologues.
+Définit des indicateurs qui déterminent si les fichiers du travail peuvent être mis en cache et desservis aux homologues et si le travail peut télécharger du contenu à partir de pairs.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,16 +36,16 @@ bitsadmin /SetPeerCachingFlags <Job> <value>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|Value|La valeur est un entier non signé avec l’interprétation suivante des bits dans la représentation binaire.</br>1 - la tâche peut télécharger du contenu à partir d’homologues.</br>2 : les fichiers de la tâche peuvent être mis en cache et prise en charge pour les homologues.|
+|Tâche|Nom complet ou GUID du travail|
+|Value|La valeur est un entier non signé avec l’interprétation suivante pour les bits dans la représentation binaire.</br>1-la tâche peut télécharger du contenu à partir de pairs.</br>2-les fichiers du travail peuvent être mis en cache et pris en charge par les homologues.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant définit des indicateurs pour le travail nommé *myJob* qui lui permet de télécharger le contenu à partir d’homologues.
+L’exemple suivant définit des indicateurs pour le travail nommé *myJob* , ce qui lui permet de télécharger du contenu à partir de pairs.
 ```
 C:\>bitsadmin / SetPeerCachingFlags myJob 1 
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

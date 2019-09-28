@@ -1,9 +1,9 @@
 ---
 title: Résolution des problèmes d’activation du déploiement multisite
-description: Cette rubrique fait partie du guide de déploiement de plusieurs serveurs d’accès distant dans un déploiement Multisite dans Windows Server 2016.
+description: Cette rubrique fait partie du guide déployer plusieurs serveurs d’accès à distance dans un déploiement multisite dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 570c81d6-c4f4-464c-bee9-0acbd4993584
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7fafc2e95f30a3956a1e2fdfcdf2f368a1798d28
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: fc42040d68b8a22dcfc46aa30db3a2a3c3bc060a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280959"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367062"
 ---
 # <a name="troubleshooting-enabling-multisite"></a>Résolution des problèmes d’activation du déploiement multisite
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique contient des informations de résolution des problèmes liés à la commande `Enable-DAMultisite`. Pour confirmer que l’erreur que vous avez reçue est liée à l’activation du déploiement multisite, recherchez l’ID d’événement 10051 dans le journal des événements Windows.  
   
@@ -34,12 +34,12 @@ Dans un déploiement multisite, les ordinateurs clients Windows 10 et Windows 8 
   
 **Solution**  
   
-DirectAccess requiert au moins un groupe de sécurité pour tous les ordinateurs de clients Windows 10 et Windows 8 ; Nous vous recommandons d’utiliser un groupe de sécurité pour tous les ordinateurs Windows 10 et Windows 8 par domaine. DirectAccess requiert également un groupe de sécurité pour les ordinateurs clients Windows 7 pour chaque point d’entrée. Chaque ordinateur client doit être inclus dans un seul groupe de sécurité. Par conséquent, vous devez vous assurer que les groupes de sécurité pour Windows 10 et les clients Windows 8 contient uniquement des ordinateurs exécutant Windows 10 ou Windows 8, et que chaque ordinateur client de Windows 7 appartient à un groupe de sécurité dédié pour le point d’entrée concerné et qu’aucun client Windows 10 ou Windows 8 n’appartiennent aux groupes de sécurité de Windows 7.  
+DirectAccess requiert au moins un groupe de sécurité pour tous les ordinateurs clients Windows 10 et Windows 8 ; Nous vous recommandons d’utiliser un groupe de sécurité pour tous les ordinateurs Windows 10 et Windows 8 par domaine. DirectAccess requiert également un groupe de sécurité pour les ordinateurs clients Windows 7 pour chaque point d’entrée. Chaque ordinateur client doit être inclus dans un seul groupe de sécurité. Par conséquent, vous devez vous assurer que les groupes de sécurité pour les clients Windows 10 et Windows 8 contiennent uniquement des ordinateurs exécutant Windows 10 ou Windows 8, et que chaque ordinateur client Windows 7 appartient à un seul groupe de sécurité dédié pour le point d’entrée concerné et qu’aucun client Windows 10 ou Windows 8 n’appartient aux groupes de sécurité Windows 7.  
   
-Configurer les groupes de sécurité de Windows 8 sur le **sélectionner des groupes** page de la **installation des clients DirectAccess** Assistant. Configurer des groupes de sécurité de Windows 7 sur le **prise en charge Client** page de la **activer le déploiement Multisite** Assistant, ou sur le **prise en charge Client** page de la  **Ajouter un Point d’entrée** Assistant.  
+Configurez les groupes de sécurité Windows 8 dans la page **Sélectionner des groupes** de l’Assistant **installation du client DirectAccess** . Configurez les groupes de sécurité Windows 7 sur la page **prise en charge des clients** de l’Assistant **activer le déploiement multisite** ou sur la page **prise en charge des clients** de l’Assistant **Ajouter un point d’entrée** .  
   
 ## <a name="kerberos-proxy-authentication"></a>Authentification du proxy Kerberos  
-**Erreur reçue**. Authentification du proxy Kerberos n’est pas pris en charge dans un déploiement multisite. Vous devez activer l’utilisation de certificats d’ordinateur pour l’authentification d’utilisateurs IPsec.  
+**Erreur reçue**. L’authentification du proxy Kerberos n’est pas prise en charge dans un déploiement multisite. Vous devez activer l’utilisation de certificats d’ordinateur pour l’authentification d’utilisateurs IPsec.  
   
 **Cause**  
   
@@ -53,10 +53,10 @@ Pour activer l’authentification du certificat d’ordinateur :
   
 2.  Dans l’Assistant **Installation du serveur d’accès à distance**, depuis la page **Authentification**, activez la case à cocher **Utiliser les certificats d’ordinateur**, puis sélectionnez l’autorité de certification racine ou intermédiaire qui émet les certificats dans votre déploiement.  
   
-Pour activer l’authentification de certificat d’ordinateur à l’aide de Windows PowerShell, utilisez le `Set-DAServer` applet de commande et spécifiez le *IPsecRootCertificate* paramètre.  
+Pour activer l’authentification par certificat d’ordinateur à l’aide de Windows PowerShell, utilisez l’applet de commande `Set-DAServer` et spécifiez le paramètre *IPsecRootCertificate* .  
   
 ## <a name="ip-https-certificates"></a>Certificats IP-HTTPS  
-**Erreur reçue**. Le serveur DirectAccess utilise un certificat IP-HTTPS auto-signé. Configurez IP-HTTPS de manière à utiliser un certificat signé d’une autorité de certification connue.  
+**Erreur reçue**. Le serveur DirectAccess utilise un certificat IP-HTTPs auto-signé. Configurez IP-HTTPS de manière à utiliser un certificat signé d’une autorité de certification connue.  
   
 **Cause**  
   
@@ -90,7 +90,7 @@ Pour sélectionner un certificat IP-HTTPS :
   
 -   **Problème 2**  
   
-    **Erreur reçue**. Pour déployer une charge de réseau à charge équilibrée déploiement en cluster ou multisite, obtenez un certificat pour le serveur d’emplacement réseau avec un nom d’objet qui est différent du nom interne du serveur d’accès à distance.  
+    **Erreur reçue**. Pour déployer un cluster à charge réseau équilibrée ou un déploiement multisite, obtenez un certificat pour le serveur emplacement réseau avec un nom de sujet différent du nom interne du serveur d’accès à distance.  
   
     **Cause**  
   
@@ -107,18 +107,18 @@ Pour sélectionner un certificat IP-HTTPS :
     2.  Dans l’Assistant **Installation du serveur d’infrastructure**, depuis la page **Serveur Emplacement réseau**, sous **Le serveur Emplacement réseau est déployé sur le serveur d’accès à distance**, cliquez sur **Parcourir** pour sélectionner le certificat que vous avez préalablement obtenu. Le certificat doit porter un nom du sujet différent du nom interne du serveur d’accès à distance.  
   
 ## <a name="windows-7-client-computers"></a>Ordinateurs clients Windows 7  
-**Avertissement reçu**. Lors de l’activation multisite, les groupes de sécurité configurés pour les clients DirectAccess ne doivent pas contenir les ordinateurs Windows 7. Pour prendre en charge les ordinateurs clients Windows 7 dans un déploiement multisite, sélectionnez un groupe de sécurité contenant les clients pour chaque point d’entrée.  
+**Avertissement reçu**. Lorsque vous activez multisite, les groupes de sécurité configurés pour les clients DirectAccess ne doivent pas contenir d’ordinateurs Windows 7. Pour prendre en charge les ordinateurs clients Windows 7 dans un déploiement multisite, sélectionnez un groupe de sécurité contenant les clients pour chaque point d’entrée.  
   
 **Cause**  
   
-Dans le déploiement de DirectAccess existant, la prise en charge du client Windows 7 a été activée.  
+Dans le déploiement DirectAccess existant, la prise en charge du client Windows 7 a été activée.  
   
 **Solution**  
   
-DirectAccess requiert au moins un groupe de sécurité pour tous les ordinateurs clients de Windows 8 et un groupe de sécurité pour les ordinateurs clients Windows 7 pour chaque point d’entrée. Chaque ordinateur client doit être inclus dans un seul groupe de sécurité. Par conséquent, vous devez vous assurer que le groupe de sécurité pour les clients Windows 8 contient uniquement des ordinateurs exécutant Windows 8, et que chaque ordinateur client de Windows 7 appartient à un groupe de sécurité dédié pour le point d’entrée concerné et qu’aucun client de Windows 8 appartenir aux groupes de sécurité de Windows 7.  
+DirectAccess requiert au moins un groupe de sécurité pour tous les ordinateurs clients Windows 8 et un groupe de sécurité pour les ordinateurs clients Windows 7 pour chaque point d’entrée. Chaque ordinateur client doit être inclus dans un seul groupe de sécurité. Par conséquent, vous devez vous assurer que le groupe de sécurité pour les clients Windows 8 contient uniquement des ordinateurs exécutant Windows 8 et que chaque ordinateur client Windows 7 appartient à un seul groupe de sécurité dédié pour le point d’entrée concerné et qu’aucun client Windows 8 n’est présent. appartiennent aux groupes de sécurité Windows 7.  
   
 ## <a name="active-directory-site"></a>Site Active Directory  
-**Erreur reçue**. Le serveur < nom_serveur > n’est pas associé à un Site Active Directory.  
+**Erreur reçue**. Le serveur < nom_serveur > n’est pas associé à un site Active Directory.  
   
 **Cause**  
   
@@ -128,18 +128,18 @@ DirectAccess n’a pas pu déterminer le site Active Directory. Dans la console 
   
 Confirmez que ce site est la source du problème en exécutant la commande `nltest /dsgetsite` sur votre serveur d’accès à distance. Si tel est le cas, la commande renvoie ERROR_NO_SITENAME. Pour remédier à ce problème, sur votre contrôleur de domaine, vérifiez qu’il existe un sous-réseau contenant l’adresse IP du serveur interne et qu’il est défini avec un site Active Directory.  
   
-## <a name="SaveGPOSettings"></a>Enregistrement des paramètres du GPO de serveur  
-**Erreur reçue**. Une erreur s’est produite lors de l’enregistrement des paramètres d’accès à distance à l’objet de stratégie de groupe < nom_objet_de_stratégie_de_groupe >.  
+## <a name="SaveGPOSettings"></a>Enregistrement des paramètres d’objet de stratégie de groupe de serveur  
+**Erreur reçue**. Une erreur s’est produite lors de l’enregistrement des paramètres d’accès à distance dans l’objet de stratégie de groupe < GPO_name >.  
   
 **Cause**  
   
-Modifications apportées à l’objet stratégie de groupe serveur n’a pas pu être enregistrées en raison de problèmes de connectivité ou s’il existe une violation de partage sur le fichier registry.pol, par exemple, un autre utilisateur a verrouillé le fichier.  
+Les modifications apportées à l’objet de stratégie de groupe du serveur n’ont pas pu être enregistrées en raison de problèmes de connectivité ou en cas de violation de partage sur le fichier Registry. pol, par exemple, un autre utilisateur a verrouillé le fichier.  
   
 **Solution**  
   
 Assurez-vous que la connectivité est établie entre le serveur d’accès à distance et le contrôleur de domaine. En cas de connectivité, vérifiez sur le contrôleur de domaine si le fichier registry.pol est verrouillé par un autre utilisateur et si besoin, mettez fin à la session de cet utilisateur pour déverrouiller le fichier.  
   
-## <a name="InternalServerError"></a>Erreur interne s’est produite  
+## <a name="InternalServerError"></a>Une erreur interne s’est produite  
 **Erreur reçue**. Une erreur interne s'est produite.  
   
 **Cause**  

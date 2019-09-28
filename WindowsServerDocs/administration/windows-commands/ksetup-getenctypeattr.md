@@ -1,8 +1,8 @@
 ---
-title: ksetup:getenctypeattr
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : getenctypeattr'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 302f94616f98eb350332b08ad37a58305a0a0be1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ff55cfd204f76b42c5f1342b3cf206ee4c14f14
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841990"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374999"
 ---
-# <a name="ksetupgetenctypeattr"></a>ksetup:getenctypeattr
+# <a name="ksetupgetenctypeattr"></a>Ksetup : getenctypeattr
 
 
 
@@ -36,19 +36,19 @@ ksetup /getenctypeattr <DomainName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<DomainName>|Nom du domaine auquel vous souhaitez établir une connexion. Utilisez le nom de domaine complet ou un formulaire simple du nom, tel que corp.contoso.com ou contoso.|
+|@no__t 0DomainName >|Nom du domaine auquel vous souhaitez établir une connexion. Utilisez le nom de domaine complet ou une forme simple du nom, par exemple corp.contoso.com ou contoso.|
 
 ## <a name="remarks"></a>Notes
 
-Pour afficher le type de chiffrement pour le Kerberos ticket-granting ticket (TGT ticket) et la clé de session, exécutez le **klist** commande et afficher la sortie.
+Pour afficher le type de chiffrement du ticket TGT (Ticket-Granting Ticket) Kerberos et de la clé de session, exécutez la commande **Klist** et affichez la sortie.
 
-Si la commande réussit ou échoue, un message d’état s’affiche à l’achèvement réussi ou échoué.
+Si la commande réussit ou échoue, un message d’État s’affiche lorsque l’exécution a réussi ou a échoué.
 
-Pour définir le domaine que vous souhaitez vous connecter à et utiliser, exécutez le **ksetup /domain \<DomainName >** commande.
+Pour définir le domaine auquel vous souhaitez vous connecter et utiliser, exécutez la commande **Ksetup/domain \<DomainName >** .
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Vérifiez que l’attribut de type de chiffrement pour le domaine :
+Vérifiez l’attribut type de chiffrement pour le domaine :
 ```
 ksetup /getenctypeattr mit.contoso.com
 ```
@@ -60,4 +60,4 @@ ksetup /getenctypeattr mit.contoso.com
 -   [Ksetup:addenctypeattr](ksetup-addenctypeattr.md)
 -   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
 -   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

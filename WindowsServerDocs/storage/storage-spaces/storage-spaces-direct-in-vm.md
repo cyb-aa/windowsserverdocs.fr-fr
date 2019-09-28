@@ -1,84 +1,84 @@
 ---
-title: À l’aide d’espaces de stockage Direct dans une machine virtuelle
-ms.prod: windows-server-threshold
+title: Utilisation de espaces de stockage direct sur une machine virtuelle
+ms.prod: windows-server
 ms.author: eldenc
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/25/2017
-description: Comment déployer des espaces de stockage Direct dans un cluster invité de machine virtuelle, par exemple, dans Microsoft Azure.
+description: Comment déployer des espaces de stockage direct dans un cluster invité d’ordinateur virtuel, par exemple, dans Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: d05afb5ee564b866dcd15ec6aa473cee608dbd8f
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ab0ce792c5a948e763a48493a78ccdac7a6fe74c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284402"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366047"
 ---
-# <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>À l’aide d’espaces de stockage Direct dans les clusters invités de machine virtuelle
+# <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Utilisation de espaces de stockage direct dans les clusters d’ordinateurs virtuels invités
 
 > S’applique à : Windows Server 2019, Windows Server 2016
 
-Vous pouvez déployer les espaces de stockage Direct sur un cluster de serveurs physiques, ou sur des clusters invités de machine virtuelle comme indiqué dans cette rubrique. Ce type de déploiement offre un stockage partagé virtuel avec un ensemble de machines virtuelles sur un cloud privé ou public afin que les solutions de haute disponibilité d’application peuvent être utilisées pour augmenter la disponibilité des applications.
+Vous pouvez déployer des espaces de stockage direct sur un cluster de serveurs physiques ou sur des clusters invités d’ordinateurs virtuels comme indiqué dans cette rubrique. Ce type de déploiement fournit un stockage partagé virtuel sur un ensemble de machines virtuelles sur un Cloud privé ou public afin que les solutions de haute disponibilité de l’application puissent être utilisées pour augmenter la disponibilité des applications.
 
 ![](media/storage-spaces-direct-in-vm/storage-spaces-direct-in-vm.png)
 
-## <a name="deploying-in-azure-iaas-vm-guest-clusters"></a>Déploiement de clusters invités de machine virtuelle Azure Iaas
+## <a name="deploying-in-azure-iaas-vm-guest-clusters"></a>Déploiement dans des clusters invités de machine virtuelle Azure IaaS
 
-[Les modèles Azure](https://github.com/robotechredmond/301-storage-spaces-direct-md) ont été publiée diminuer la complexité, configurez les meilleures pratiques et la vitesse de vos déploiements d’espaces de stockage Direct dans une machine virtuelle Azure Iaas. Il s’agit de la solution recommandée pour le déploiement dans Azure.
+Les [modèles Azure](https://github.com/robotechredmond/301-storage-spaces-direct-md) ont été publiés réduisent la complexité, configurent les meilleures pratiques et accélèrent vos déploiements espaces de stockage direct sur une machine virtuelle Azure IaaS. Il s’agit de la solution recommandée pour le déploiement dans Azure.
 
 <iframe src="https://channel9.msdn.com/Series/Microsoft-Hybrid-Cloud-Best-Practices-for-IT-Pros/Step-by-Step-Deploy-Windows-Server-2016-Storage-Spaces-Direct-S2D-Cluster-in-Microsoft-Azure/player" width="960" height="540" allowfullscreen></iframe>
 
 ## <a name="requirements"></a>Configuration requise
 
-Les considérations suivantes s’appliquent lors du déploiement d’espaces de stockage Direct dans un environnement virtualisé.
+Les considérations suivantes s’appliquent lors du déploiement d’espaces de stockage direct dans un environnement virtualisé.
 
 > [!TIP]
-> Les modèles Azure configure automatiquement le ci-dessous les considérations pour vous et sont la solution recommandée lors du déploiement de machines virtuelles IaaS Azure.
+> Les modèles Azure configurent automatiquement les éléments ci-dessous pour vous et sont la solution recommandée lors du déploiement dans des machines virtuelles IaaS Azure.
 
--   Minimum de 2 nœuds et maximum de 3 nœuds
+-   Au moins 2 nœuds et 3 nœuds au maximum
 
--   déploiements de 2 nœuds doivent configurer un témoin (témoin de Cloud ou témoin de partage de fichiers)
+-   les déploiements à 2 nœuds doivent configurer un témoin (témoin de Cloud ou témoin de partage de fichiers)
 
--   déploiements de 3 nœuds peuvent tolérer 1 nœud vers le bas et la perte de 1 ou plusieurs disques sur un autre nœud.  Si les 2 nœuds sont arrêtées ensuite les disques virtuels nous être hors connexion jusqu'à ce qu’un des nœuds retourne.  
+-   les déploiements à 3 nœuds peuvent tolérer 1 nœud en panne et la perte de 1 ou plusieurs disques sur un autre nœud.  Si deux nœuds sont arrêtés, les disques virtuels sont hors connexion jusqu’à ce que l’un des nœuds retourne.  
 
--   Configurer les machines virtuelles puissent être déployées dans des domaines d’erreur
+-   Configurer les ordinateurs virtuels à déployer dans les domaines d’erreur
 
-    -   Azure : configurer la haute disponibilité
+    -   Azure – configurer un groupe à haute disponibilité
 
-    -   Hyper-V – AntiAffinityClassNames configurer sur les machines virtuelles pour séparer les machines virtuelles entre les nœuds
+    -   Hyper-V : configurer AntiAffinityClassNames sur les machines virtuelles pour séparer les machines virtuelles sur les nœuds
 
-    -   VMware – règle configurer anti-affinité des machines virtuelles de la machine virtuelle en créant un type de Rule DRS » des Machines virtuelles distinctes » pour séparer les machines virtuelles sur les hôtes ESX. Disques présentés pour une utilisation avec les espaces de stockage Direct doivent utiliser l’adaptateur Paravirtual SCSI (PVSCSI). Pour un support PVSCSI avec Windows Server, consultez https://kb.vmware.com/s/article/1010398.
+    -   VMware : configurer la règle d’anti-affinité des machines virtuelles en créant une règle DRS de type « machines virtuelles distinctes » pour séparer les machines virtuelles sur les hôtes ESX. Les disques présentés pour une utilisation avec espaces de stockage direct doivent utiliser l’adaptateur PVSCSI (paravirtual SCSI). Pour la prise en charge de PVSCSI avec Windows Server, consultez https://kb.vmware.com/s/article/1010398.
 
--   Tirer parti d’une latence faible / stockage hautes performances - stockage Premium Azure gérée disques sont nécessaires
+-   Tirez parti du stockage à faible latence/hautes performances-les disques managés Azure Premium Storage sont requis
 
--   Déployer une conception de stockage plat avec aucun appareil de mise en cache configuré
+-   Déployer une conception de stockage plat sans aucun appareil de mise en cache configuré
 
--   Minimum de 2 disques de données virtuel présentés à chaque machine virtuelle (VHD / VHDX / VMDK)
+-   Au moins deux disques de données virtuels présentés à chaque machine virtuelle (VHD/VHDX/VMDK)
 
-    Ce nombre est différent de celui des déploiements de systèmes nus, car les disques virtuels peuvent être implémentées en tant que fichiers qui ne sont pas vulnérables aux défaillances physiques.
+    Ce nombre est différent des déploiements nus, car les disques virtuels peuvent être implémentés en tant que fichiers qui ne sont pas vulnérables aux défaillances physiques.
 
--   Désactiver les fonctionnalités de remplacement automatique des lecteurs dans le Service de contrôle d’intégrité en exécutant l’applet de commande PowerShell suivante :
+-   Désactivez les fonctionnalités de remplacement automatique de lecteur dans le Service de contrôle d’intégrité en exécutant l’applet de commande PowerShell suivante :
 
     ```powershell
     Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
     ```
 
--   Non pris en charge : Capture instantanée de disque virtuel au niveau hôte/restauration
+-   Non pris en charge : Instantané/restauration du disque virtuel au niveau de l’hôte
 
-    Au lieu de cela, utilisez les solutions de sauvegarde au niveau invité traditionnel pour sauvegarder et restaurer les données sur les volumes d’espaces de stockage Direct.
+    Au lieu de cela, utilisez les solutions de sauvegarde de niveau invité traditionnelles pour sauvegarder et restaurer les données sur les volumes de espaces de stockage direct.
 
--   Pour donner une résilience accrue au disque dur virtuel possible / VHDX / latence de stockage VMDK dans les clusters invités, augmentez la valeur de délai d’attente d’e/s de stockage espaces :
+-   Pour offrir une plus grande résilience à la latence de stockage VHD/VHDX/VMDK possible dans les clusters invités, augmentez la valeur du délai d’attente d’e/s des espaces de stockage :
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
 
     `dword: 00007530`
 
-    L’équivalent décimal de 7530 hexadécimal est 30000, qui est de 30 secondes. Notez que la valeur par défaut est 1770 hexadécimal ou 6000 décimal, ce qui est de 6 secondes.
+    L’équivalent décimal de la valeur hexadécimale 7530 est 30000, ce qui correspond à 30 secondes. Notez que la valeur par défaut est 1770 hexadécimale, ou 6000 décimal, soit 6 secondes.
 
 ## <a name="see-also"></a>Voir aussi
 
-[Autres modèles de machine virtuelle Azure Iaas pour déployer des espaces de stockage Direct, des vidéos et des guides étape par étape](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
+[Autres modèles de machine virtuelle IaaS Azure pour le déploiement de espaces de stockage direct, de vidéos et de guides pas à pas](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 
-[Vue d’ensemble des espaces de stockage supplémentaire Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Présentation des espaces de stockage direct supplémentaires](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

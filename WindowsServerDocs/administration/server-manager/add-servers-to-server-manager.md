@@ -2,7 +2,7 @@
 title: Ajouter des serveurs au Gestionnaire de serveur
 description: Gestionnaire de serveur
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-server-manager
@@ -14,16 +14,16 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: a47ecbc0c7359438ed60ed34c94adf0096b14967
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ad30a8f1c4c1e0aa317512eb68fffbd76413175b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435451"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383258"
 ---
 # <a name="add-servers-to-server-manager"></a>Ajouter des serveurs au Gestionnaire de serveur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Dans Windows Server, vous pouvez gérer plusieurs serveurs distants à l’aide d’une seule console du Gestionnaire de serveur. Les serveurs que vous voulez gérer à l’aide du Gestionnaire de serveur peuvent exécuter Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008. Notez que vous ne pouvez pas gérer une version plus récente de Windows Server avec une version antérieure du Gestionnaire de serveur.
 

@@ -1,7 +1,7 @@
 ---
-title: Le nombre d’en cours d’exécution ou machines virtuelles configurées doivent se trouver dans les limites prises en charge
+title: Le nombre d’ordinateurs virtuels en cours d’exécution ou configurés doit être compris dans les limites de prise en charge
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 9d3c4aa3-8416-46ec-a253-26dc98088d7b
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 8a971a48b2d8199a6c279f1bd3f1715039fa6e0d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56d7fd528d7fda20dbdbb16a6262bb072f053ef0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855350"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364628"
 ---
-# <a name="the-number-of-running-or-configured-virtual-machines-must-be-within-supported-limits"></a>Le nombre d’en cours d’exécution ou machines virtuelles configurées doivent se trouver dans les limites prises en charge
+# <a name="the-number-of-running-or-configured-virtual-machines-must-be-within-supported-limits"></a>Le nombre d’ordinateurs virtuels en cours d’exécution ou configurés doit être compris dans les limites de prise en charge
 
 >S'applique à : Windows Server 2016
 
@@ -27,74 +27,74 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Erreur  
+|**Va**|Error  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
-*Plus de machines virtuelles sont en cours d’exécution ou configurés que sont pris en charge.*  
+*Davantage d’ordinateurs virtuels sont en cours d’exécution ou configurés que ce qui est pris en charge.*  
   
 ## <a name="impact"></a>Impact  
-*Microsoft ne prend pas en charge le nombre actuel de machines virtuelles en cours d’exécution ou configuré sur ce serveur.*  
+*Microsoft ne prend pas en charge le nombre actuel de machines virtuelles en cours d’exécution ou configurées sur ce serveur.*  
   
-## <a name="resolution"></a>Résolution  
+## <a name="resolution"></a>Résolution :  
 *Déplacer un ou plusieurs ordinateurs virtuels vers un autre serveur.*  
   
-Pour plus d’informations sur les configurations prises en charge maximales pour Hyper-V, comme le nombre de machines virtuelles en cours d’exécution, consultez [planifier extensibilité Hyper-V dans Windows Server 2016](../plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md).  
+Pour plus d’informations sur les configurations maximales prises en charge pour Hyper-V, telles que le nombre d’ordinateurs virtuels en cours d’exécution, consultez [planifier l’extensibilité d’Hyper-v dans Windows Server 2016](../plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md).  
   
 Pour déplacer un ordinateur virtuel vers un autre serveur, vous pouvez :  
   
-- Exporter l’ordinateur virtuel à partir du serveur en cours et les importer vers un nouveau serveur comme décrit ci-dessous.   
-- Effectuez une migration dynamique :   
-    - Si ce serveur appartienne à un cluster de basculement, utilisez les outils fournis avec la fonctionnalité de Clustering de basculement. Pour obtenir des instructions, consultez [Live migrer, migration rapide ou déplacer un ordinateur virtuel à partir du nœud à nœud](https://go.microsoft.com/fwlink/?LinkID=181519).  
-    - S’il s’agit d’un serveur autonome, consultez les instructions dans [configurer la Migration en direct et migration d’ordinateurs virtuels sans Clustering de basculement](https://technet.microsoft.com//library/jj134199(v=ws.11).aspx)  
+- Exportez l’ordinateur virtuel à partir du serveur actuel, puis importez-le sur un nouveau serveur, comme décrit ci-dessous.   
+- Effectuer une migration dynamique :   
+    - Si ce serveur appartient à un cluster de basculement, utilisez les outils fournis avec la fonctionnalité de clustering de basculement. Pour obtenir des instructions, consultez [migration dynamique, migration rapide ou déplacement d’un ordinateur virtuel d’un nœud à un nœud](https://go.microsoft.com/fwlink/?LinkID=181519).  
+    - S’il s’agit d’un serveur autonome, consultez [les instructions dans configurer migration dynamique et migration d’ordinateurs virtuels sans clustering de basculement](https://technet.microsoft.com//library/jj134199(v=ws.11).aspx)  
   
-### <a name="to-export-a-virtual-machine"></a>Pour exporter une machine virtuelle  
+### <a name="to-export-a-virtual-machine"></a>Pour exporter un ordinateur virtuel  
   
    > [!IMPORTANT]  
-   > Si l’hôte Hyper-V que vous exportez à partir d’appartient à un domaine et que vous souhaitez stocker les fichiers exportés dans un emplacement distant, l’hôte Hyper-V doit être configuré pour la délégation contrainte. Un emplacement distant peut être un dossier réseau partagé ou un dossier sur l’ordinateur hôte que vous importez à. La délégation contrainte permet le compte d’ordinateur de l’hôte Hyper-V fournissent des informations d’identification déléguées pour le service de fichier système CIFS (Common Internet) à l’ordinateur distant. Pour obtenir des instructions sur la configuration de la délégation contrainte, consultez la section suivante de l’exportation et importer des instructions, ci-dessous.  
+   > Si l’hôte Hyper-V que vous exportez appartient à un domaine et que vous souhaitez stocker les fichiers exportés sur un emplacement distant, l’ordinateur hôte Hyper-V doit être configuré pour la délégation avec restriction. Un emplacement distant peut être un dossier réseau partagé ou un dossier sur l’ordinateur hôte sur lequel vous effectuez l’importation. La délégation avec restriction permet au compte d’ordinateur de l’hôte Hyper-V de fournir des informations d’identification déléguées pour le service CIFS (Common Internet File System) à l’ordinateur distant. Pour obtenir des instructions sur la configuration de la délégation avec restriction, consultez la section suivant les instructions d’exportation et d’importation, ci-dessous.  
   
 1.  Ouvrez le Gestionnaire Hyper-V. Cliquez sur **Démarrer**, pointez sur **Outils d'administration**, puis cliquez sur **Gestionnaire Hyper-V**.  
   
-2.  Dans le volet de résultats, sous **Machines virtuelles**, cliquez sur une machine virtuelle, puis sur **exporter**.  
+2.  Dans le volet de résultats, sous **ordinateurs virtuels**, cliquez avec le bouton droit sur un ordinateur virtuel, puis cliquez sur **Exporter**.  
   
-3.  Dans le **exporter une Machine virtuelle** boîte de dialogue, tapez ou accédez à un emplacement qui dispose de suffisamment d’espace libre pour stocker toutes les ressources de machine virtuelle. Lorsque vous exportez une machine virtuelle, tous les disques durs virtuels (fichiers .vhd ou .vhdx fichiers), points de contrôle (fichiers .avhd) et les fichiers d’état enregistré associés à la machine virtuelle sont copiés dans le dossier spécifié.  
+3.  Dans la boîte de dialogue **exporter un ordinateur virtuel** , tapez ou accédez à un emplacement disposant de suffisamment d’espace libre pour stocker toutes les ressources de l’ordinateur virtuel. Lorsque vous exportez un ordinateur virtuel, tous les disques durs virtuels (fichiers. vhd ou fichiers. vhdx), les points de contrôle (fichiers. avhd) et les fichiers d’État enregistrés associés à l’ordinateur virtuel sont copiés dans le dossier spécifié.  
   
 4.  Cliquez sur **Exporter**.  
   
-Après avoir exporté les ordinateurs virtuels, importer les ordinateurs virtuels à l’autre serveur.  
+Après avoir exporté les machines virtuelles, importez les machines virtuelles sur l’autre serveur.  
   
-### <a name="to-import-a-virtual-machine-to-another-server"></a>Pour importer un ordinateur virtuel vers un autre serveur  
+### <a name="to-import-a-virtual-machine-to-another-server"></a>Pour importer un ordinateur virtuel sur un autre serveur  
   
 1.  Connectez-vous au serveur exécutant Hyper-V et ouvrez le Gestionnaire Hyper-V.  
   
-2.  Dans le **Action** volet, cliquez sur **importer l’ordinateur virtuel**.  
+2.  Dans le volet **action** , cliquez sur **Importer un ordinateur virtuel**.  
   
-3.  Dans le **importer l’ordinateur virtuel** boîte de dialogue, spécifiez l’emplacement où vous avez exporté la machine virtuelle. Sauf si vous souhaitez importer à nouveau cette machine virtuelle, laissez les paramètres d’importation en l’état.  
+3.  Dans la boîte de dialogue **importer l’ordinateur virtuel** , spécifiez l’emplacement où vous avez exporté l’ordinateur virtuel. À moins que vous ne souhaitiez réimporter cet ordinateur virtuel, laissez les paramètres d’importation tels quels.  
   
 4.  Cliquez sur **Importer**.  
   
 ### <a name="to-configure-constrained-delegation"></a>Pour configurer la délégation contrainte  
   
-L’appartenance à la **administrateurs de domaine** groupe est requis pour effectuer cette procédure.  
+Pour effectuer cette procédure, vous devez appartenir au groupe **administrateurs du domaine** .  
   
-1.  Sur un ordinateur muni des outils des Services de domaine Active Directory, en **outils d’administration**, ouvrez **Active Directory Users and Computers**, puis accédez au compte d’ordinateur pour l’ordinateur exécutant Hyper-V.  
+1.  Sur un ordinateur sur lequel la fonctionnalité outils Active Directory Domain Services est installée, dans **Outils d’administration**, ouvrez **Active Directory utilisateurs et ordinateurs**, puis accédez au compte d’ordinateur de l’ordinateur exécutant Hyper-V.  
   
     > [!NOTE]  
-    > Si **Utilisateurs et ordinateurs Active Directory** n'est pas répertorié, installez la fonction Outils des Services de domaine Active Directory. Pour obtenir des instructions, consultez [l’installation de Server Outils d’Administration distant pour AD DS](https://go.microsoft.com/fwlink/?LinkId=140463) (https://go.microsoft.com/fwlink/?LinkId=140463).  
+    > Si **Utilisateurs et ordinateurs Active Directory** n'est pas répertorié, installez la fonction Outils des Services de domaine Active Directory. Pour obtenir des instructions, consultez [installation de outils d’administration de serveur distant pour AD DS](https://go.microsoft.com/fwlink/?LinkId=140463) (https://go.microsoft.com/fwlink/?LinkId=140463).  
   
-2.  Cliquez sur le compte d’ordinateur pour l’ordinateur exécutant Hyper-V, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le compte d’ordinateur de l’ordinateur exécutant Hyper-V, puis cliquez sur **Propriétés**.  
   
 3.  Sous l'onglet **Délégation**, cliquez sur **N'approuver cet ordinateur que pour la délégation aux services spécifiés**, puis cliquez sur **Utiliser tout protocole d'authentification**.  
   
-4.  Pour autoriser le compte d’ordinateur Hyper-V présenter des informations d’identification déléguées à l’ordinateur distant :  
+4.  Pour permettre au compte d’ordinateur Hyper-V de présenter des informations d’identification déléguées à l’ordinateur distant :  
   
     1.  Cliquez sur **Ajouter**.  
   
-    2.  Dans le **ajouter des Services** boîte de dialogue, cliquez sur **utilisateurs ou ordinateurs**, sélectionnez l’ordinateur distant, puis cliquez sur **OK**.  
+    2.  Dans la boîte de dialogue **Ajouter des services** , cliquez sur **utilisateurs ou ordinateurs**, sélectionnez l’ordinateur distant, puis cliquez sur **OK**.  
   
-    3.  Dans le **services disponibles** liste, sélectionnez le **cifs** de protocole (également appelé le protocole Server Message Block (SMB)), puis cliquez sur **ajouter**.  
+    3.  Dans la liste **services disponibles** , sélectionnez le protocole **CIFS** (également appelé protocole SMB (Server Message Block)), puis cliquez sur **Ajouter**.  
   
   
   
