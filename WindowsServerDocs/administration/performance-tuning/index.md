@@ -1,18 +1,18 @@
 ---
 title: Recommandations relatives à l’optimisation des performances pour Windows Server 2016
 description: Recommandations relatives à l’optimisation des performances pour Windows Server 2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
 ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1445ae40428bc8626f8e2a12cbfc2a1e6f41592f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f684a87b091ffd95bb65c0b5f3aa0dfc9f405825
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891960"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355036"
 ---
 # <a name="performance-tuning-guidelines-for-windows-server-2016"></a>Recommandations relatives à l’optimisation des performances pour Windows Server 2016
 
