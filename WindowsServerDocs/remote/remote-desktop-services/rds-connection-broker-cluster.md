@@ -2,7 +2,7 @@
 title: Ajouter un serveur du service Broker pour les connexions Bureau à distance afin de configurer la haute disponibilité dans les services Bureau à distance
 description: Découvrez comment ajouter un service Broker pour les connexions Bureau à distance à un déploiement des services Bureau à distance à des fins de haute disponibilité.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: b1e5726e3976527278b11f105007a32548da0bc4
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 511f852568aa4cc7498e3a0b8deacea83db22c08
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404054"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Ajouter le serveur du service Broker pour les connexions Bureau à distance au déploiement et configurer la haute disponibilité
 

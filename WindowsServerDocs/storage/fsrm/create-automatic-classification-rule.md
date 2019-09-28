@@ -2,18 +2,18 @@
 title: Créer une règle de classification automatique
 description: Cet article explique comment créer une règle de classification pour une propriété.
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c472949228184c6202681d257412c046bbc90d37
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8907c15106f4615ce26ba830e11e5f887a3f22aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812300"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402043"
 ---
 # <a name="create-an-automatic-classification-rule"></a>Créer une règle de classification automatique
 
@@ -42,9 +42,9 @@ La procédure suivante vous guide tout au long du processus de création d’une
 
 5.  Si vous le souhaitez, cliquez sur le bouton **Avancé** pour sélectionner d'autres options. Sous l'onglet **Type d’évaluation**, la case à cocher **Réévaluer les fichiers** est désactivée par défaut. Les options qui peuvent être sélectionnées ici sont les suivantes :
 
-    -   **Réévaluer les fichiers** unchecked : Une règle est appliquée à un fichier si et uniquement si la propriété spécifiée par la règle n’a pas été définie pour n’importe quelle valeur sur le fichier.
+    -   **Réévaluer les fichiers** désactivés : Une règle est appliquée à un fichier si, et seulement si, la propriété spécifiée par la règle n’a pas de valeur sur le fichier.
     -   **Réévaluer les fichiers** activé et l'option **Remplacer la valeur existante** sélectionnée : la règle doit être appliquée aux fichiers chaque fois que le processus de classification automatique s’exécute. Par exemple, si un fichier a une propriété booléenne définie sur **Oui**, une règle qui utilise le classificateur de dossiers pour définir tous les fichiers sur **Non** avec cette option définie laisse la propriété définie sur **Non**.
-    -   **Réévaluer les fichiers** vérifiée et le **agréger les valeurs** option est sélectionnée : La règle sera appliquée aux fichiers chaque fois que le processus de classification automatique s’exécute. Toutefois, lorsque la règle a déterminé la valeur à définir pour le fichier de propriété, elle agrège cette valeur à celle déjà présente dans le fichier. Par exemple, si un fichier a une propriété booléenne définie sur **Oui**, une règle qui utilise le classificateur de dossiers pour définir tous les fichiers sur **Non** avec cette option définie laisse la propriété définie sur **Oui**.
+    -   **Réévaluez les fichiers** vérifiés et l’option **agréger les valeurs** sélectionnée : La règle est appliquée aux fichiers chaque fois que le processus de classification automatique s’exécute. Toutefois, lorsque la règle a déterminé la valeur à définir pour le fichier de propriété, elle agrège cette valeur à celle déjà présente dans le fichier. Par exemple, si un fichier a une propriété booléenne définie sur **Oui**, une règle qui utilise le classificateur de dossiers pour définir tous les fichiers sur **Non** avec cette option définie laisse la propriété définie sur **Oui**.
 
     Sous l'onglet **Paramètres de classification supplémentaires**, vous pouvez spécifier d'autres paramètres qui sont reconnus par la méthode de classification sélectionnée en entrant le nom et la valeur et en cliquant sur le bouton **Insérer**.
 
@@ -54,5 +54,5 @@ La procédure suivante vous guide tout au long du processus de création d’une
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Créer une propriété de Classification](create-classification-property.md)
+-   [Créer une propriété de classification](create-classification-property.md)
 -   [Gestion de la classification](classification-management.md)

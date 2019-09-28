@@ -2,7 +2,7 @@
 title: Activer la reprise d’activité après sinistre des services Bureau à distance à l’aide d’Azure Site Recovery
 description: Découvrez comment activer la reprise d’activité après sinistre des services Bureau à distance à l’aide d’Azure Site Recovery.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 7aa25602c71e5d114be7ae59c5e3ce168844d700
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 38aea3dfced6ec67ae8418f697d78fa7e3c72420
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446548"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403988"
 ---
 # <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Activer la reprise d’activité après sinistre des services Bureau à distance à l’aide d’Azure Site Recovery
 

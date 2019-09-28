@@ -1,8 +1,8 @@
 ---
 title: bitsadmin addfileset
-description: Rubrique de commandes de Windows pour **bitsadmin addfileset** -ajoute un ou plusieurs fichiers pour le travail spécifié.
+description: Rubrique relative aux commandes Windows pour **Bitsadmin ADDFILESET** -ajoute un ou plusieurs fichiers au travail spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8f6ff32dfa6042272c68647477d77183ce9cb76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 464f2da151d5a7bfffde286e52d9158560d48dcc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381992"
 ---
 # <a name="bitsadmin-addfileset"></a>bitsadmin addfileset
 
-Ajoute un ou plusieurs fichiers pour le travail spécifié.
+Ajoute un ou plusieurs fichiers au travail spécifié.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,10 +34,10 @@ bitsadmin /addfileset <Job> <TextFile>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|TextFile|Un fichier texte, chaque ligne contenant un référentiel distant et un nom de fichier local.</br>Remarque: Les noms sont délimitées par des espaces. Les lignes qui commencent par un caractère # sont traitées comme un commentaire.|
+|Tâche|Nom complet ou GUID du travail|
+|TextFile|Un fichier texte, chaque ligne contenant un nom de fichier distant et un nom de fichier local.</br>Remarque : Les noms sont délimités par des espaces. Les lignes qui commencent par un caractère # sont traitées comme un commentaire.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 ```
 C:\>bitsadmin /addfileset files.txt
@@ -45,4 +45,4 @@ C:\>bitsadmin /addfileset files.txt
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

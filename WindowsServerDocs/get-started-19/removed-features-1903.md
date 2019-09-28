@@ -1,19 +1,19 @@
 ---
 title: Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server, version 1903
 description: Voici la liste des fonctions et fonctionnalités de Windows Server, version 1903 qui ont été supprimées de cette version du produit ou dont la suppression est envisagée dans les prochaines versions. Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
 ms.date: 08/22/2019
 author: jasongerend
 ms.author: jgerend
 manager: daveba
-ms.openlocfilehash: 4471d6f9d98d58f7444151a7b8be33d2d81423e1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b31cde8216b3ceb230c9c197924b40e8cc8fc3f8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868657"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361179"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1903"></a>Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server, version 1903
 

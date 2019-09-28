@@ -1,8 +1,8 @@
 ---
 title: qappsrv
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,26 +13,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c104146422abb0ccc69ba9bcbd83393878dde45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6968b7a456ceee409993e22a7a101ed2d76a3d6a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841690"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371942"
 ---
 # <a name="qappsrv"></a>qappsrv
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche une liste de tous les serveurs hôte de Session Bureau à distance (RD Session Host) sur le réseau.
+Affiche la liste de tous les serveurs Bureau à distance hôte de session Bureau à distance (hôte de session Bureau à distance) sur le réseau.
 
 > [!NOTE]
-> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour savoir quelles sont les nouveautés dans la version la plus récente, consultez [les nouveautés des Services Bureau à distance dans Windows Server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 
 ## <a name="remarks"></a>Notes
-Cette commande est identique à la **interroger termserver** commande.
+Cette commande est identique à la commande **query termserver** .
 
 #### <a name="additional-references"></a>Références supplémentaires
-[interroger termserver](query-termserver.md)
-[clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[Services Bureau à distance &#40;Services Terminal Server&#41; référence des commandes](remote-desktop-services-terminal-services-command-reference.md)
+[clé de syntaxe de ligne de commande](command-line-syntax-key.md) [termserver](query-termserver.md)
+ @no__t-[3 &#40;services Bureau à distance référence&#41; de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

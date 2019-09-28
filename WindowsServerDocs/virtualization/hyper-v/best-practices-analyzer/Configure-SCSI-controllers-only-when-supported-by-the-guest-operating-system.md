@@ -1,7 +1,7 @@
 ---
-title: Configurer les contrôleurs SCSI uniquement lors de la prise en charge par le système d’exploitation invité
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Configurer des contrôleurs SCSI uniquement lorsqu’ils sont pris en charge par le système d’exploitation invité
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 861f194f-467e-4b07-a1c5-55b35f6327c4
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 3dc48602ab6c71c60fdb734ca98cf1359f58d87c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da8d929a8f06f58610913d28d2f1e90299efb235
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830390"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366420"
 ---
-# <a name="configure-scsi-controllers-only-when-supported-by-the-guest-operating-system"></a>Configurer les contrôleurs SCSI uniquement lors de la prise en charge par le système d’exploitation invité
+# <a name="configure-scsi-controllers-only-when-supported-by-the-guest-operating-system"></a>Configurer des contrôleurs SCSI uniquement lorsqu’ils sont pris en charge par le système d’exploitation invité
 
 >S'applique à : Windows Server 2016
 
@@ -27,10 +27,10 @@ ms.locfileid: "59830390"
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
   
@@ -38,13 +38,13 @@ Dans les sections suivantes, italique indique le texte de l’interface utilisat
   
 ## <a name="impact"></a>Impact  
   
-*Machines virtuelles ne peuvent pas utiliser le stockage attaché au contrôleur SCSI. Cela affecte les ordinateurs virtuels suivants :*  
+les ordinateurs @no__t 0Virtual ne peuvent pas utiliser le stockage attaché au contrôleur SCSI. Cela a un impact sur les ordinateurs virtuels suivants : *  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
-## <a name="resolution"></a>Résolution  
+## <a name="resolution"></a>Résolution :  
   
-*Arrêter la machine virtuelle et utilisez le Gestionnaire Hyper-V pour supprimer le contrôleur SCSI à partir de la machine virtuelle. Ensuite, redémarrez la machine virtuelle.*  
+*Shut sur la machine virtuelle et utilisez le Gestionnaire Hyper-V pour supprimer le contrôleur SCSI de l’ordinateur virtuel. Ensuite, redémarrez la machine virtuelle.*  
   
 
 

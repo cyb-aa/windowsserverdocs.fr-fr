@@ -1,7 +1,7 @@
 ---
 title: Développement d’applets de commande PowerShell pour Nano Server
 description: 'portage CIM, applets de commande .NET, C++ '
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: DonGill
 ms.technology: server-nano
@@ -12,19 +12,19 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: c3376d03a2e9f02b20aba608de0228efd7dfddea
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 80d6cdd3056d9c7e0a0815ce5856f961d79fcc34
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443621"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391785"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Développement d’applets de commande PowerShell pour Nano Server
 
 >S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À partir de Windows Server version 1709, Nano Server sera uniquement disponible sous forme d'[image de système d'exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
+> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
   
 ## <a name="overview"></a>Vue d’ensemble  
 Nano Server inclut PowerShell Core par défaut dans toutes les installations. PowerShell Core est une édition à encombrement réduit de PowerShell qui repose sur .NET Core et s’exécute sur des éditions à encombrement réduit de Windows, telles que Nano Server et Windows IoT Core. PowerShell Core fonctionne de la même manière que les autres éditions de PowerShell, par exemple Windows PowerShell exécuté sur Windows Server 2016. Toutefois, l’encombrement réduit de Nano Server signifie que certaines fonctionnalités PowerShell de Windows Server 2016 ne sont pas disponibles dans PowerShell Core sur Nano Server.  
@@ -36,7 +36,7 @@ Si vous disposez déjà d’applets de commande PowerShell que vous souhaiteriez
   
 À compter de la version 5.1, PowerShell est disponible dans plusieurs éditions, dont les ensembles de fonctionnalités et la compatibilité de plateforme diffèrent.  
   
-- **Édition Desktop :** repose sur .NET Framework et offre une compatibilité avec les scripts et les modules ciblant les versions de PowerShell exécutées sur les éditions complètes de Windows, telles que Server Core et le Bureau Windows.  
+- **Édition Desktop :** repose sur le .NET Framework et offre une compatibilité avec les scripts et les modules ciblant les versions de PowerShell exécutées sur les éditions complètes de Windows, telles que Server Core et le Bureau Windows.  
 - **Édition Core :** repose sur .NET Core et offre une compatibilité avec les scripts et les modules ciblant les versions de PowerShell exécutées sur les éditions à encombrement réduit de Windows, telles que Nano Server et Windows IoT.  
   
 L’édition de PowerShell exécutée est indiquée dans la propriété PSEdition de $PSVersionTable.  

@@ -2,18 +2,18 @@
 ms.assetid: d11acbc2-40c6-4ab2-9514-2bc3ad81499a
 title: Nouveautés de la déduplication des données
 ms.technology: storage-deduplication
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 04/17/2019
-ms.openlocfilehash: ab32f6bec44b69b70c9e8cca2dadb4dff752cf88
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 577926035840fbd571c8a1157f1da0c2e1b4851b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870238"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403171"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Nouveautés de la déduplication des données
 

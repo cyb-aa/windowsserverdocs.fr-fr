@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble du système de fichiers résilient (ReFS)
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: gawatu
 ms.manager: mchad
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 06/17/2019
-ms.openlocfilehash: 133358e959e24abc506be13259d750753d3727f7
-ms.sourcegitcommit: 6fec3ca19ddaecbc936320d98cca0736dd8505d1
+ms.openlocfilehash: 91fdd5aa696c170cacc8903a65e996beb71c4b8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196174"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403014"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Vue d’ensemble du système de fichiers résilient (ReFS)
 
@@ -35,7 +35,7 @@ ReFS fournit de nouvelles fonctionnalités qui permettent de détecter avec pré
 
 En plus des améliorations apportées à la résilience, ReFS propose de nouvelles fonctionnalités pour les charges de travail virtualisées et dépendantes des performances. L’optimisation de niveau en temps réel, le clonage de bloc et le VDL fragmenté sont des exemples de nouvelles fonctionnalités du système ReFS conçues pour prendre en charge diverses charges de travail dynamiques :
 
-- **[Parité avec accélération miroir](./mirror-accelerated-parity.md)**  -parité avec accélération miroir offre à la fois des performances élevées et un stockage efficace pour vos données de capacité. 
+- La parité à accélération **[miroir](./mirror-accelerated-parity.md)** avec mise en miroir à accélération miroir offre des performances élevées et un stockage à capacité efficace pour vos données. 
 
     - Pour offrir des performances élevées ainsi qu’un stockage de haute capacité, ReFS divise un volume en deux groupes de stockage logiques appelés niveaux. Ces niveaux peuvent avoir des types de disque et de résilience qui leur sont propres, ce qui permet à chaque niveau d’optimiser les performances ou la capacité. Voici des exemples de configurations : 
     
@@ -47,10 +47,10 @@ En plus des améliorations apportées à la résilience, ReFS propose de nouvell
             
     - Une fois que ces niveaux sont configurés, ReFS les utilise pour fournir un stockage rapide pour les données actives (« hot ») et un stockage de haute capacité pour les données passives (« cold ») :
         - Toutes les écritures sont effectuées dans le niveau des performances. Les blocs de données volumineux qui restent dans ce niveau sont transférés en temps réel dans le niveau de capacité.
-        - Si vous utilisez un déploiement hybride (mélange flash et des lecteurs de disque dur), [le cache dans les espaces de stockage Direct](../storage-spaces/understand-the-cache.md) permet d’accélérer les lectures, de réduire l’effet de données fragmentation caractéristique des charges de travail virtualisées. Sinon, si vous utilisez un déploiement exclusivement flash, lectures également se produisent dans le niveau de performances.
+        - Si vous utilisez un déploiement hybride (mélange de lecteurs de disque dur et de mémoire flash), [le cache de espaces de stockage direct](../storage-spaces/understand-the-cache.md) permet d’accélérer les lectures, réduisant ainsi l’effet de la caractéristique de fragmentation des données des charges de travail virtualisées. Dans le cas contraire, si vous utilisez un déploiement tout-Flash, les lectures se produisent également dans le niveau de performance.
 
 > [!NOTE]
-> Pour les déploiements de serveur, la parité accélérée grâce à la mise en miroir est uniquement prise en charge par les [espaces de stockage direct](../storage-spaces/storage-spaces-direct-overview.md). Nous recommandons à l’aide de la parité avec accélération miroir avec l’archivage et sauvegarde des charges de travail uniquement. Pour charges de travail virtualisées et autres hautes performances aléatoires, nous vous recommandons d’utiliser des miroirs triples pour de meilleures performances.
+> Pour les déploiements de serveur, la parité accélérée grâce à la mise en miroir est uniquement prise en charge par les [espaces de stockage direct](../storage-spaces/storage-spaces-direct-overview.md). Nous vous recommandons d’utiliser la parité avec accélération miroir uniquement avec les charges de travail d’archivage et de sauvegarde. Pour les charges de travail virtualisées et d’autres charges de travail aléatoires hautes performances, nous vous recommandons d’utiliser des miroirs triples pour de meilleures performances.
 
 - **Opérations de machine virtuelle plus rapides**. ReFS introduit de nouvelles fonctionnalités dont le principal objectif est d’améliorer les performances des charges de travail virtualisées :
     - [Clonage de bloc](./block-cloning.md) : cette fonctionnalité rend les opérations de copie plus rapides, en permettant d’effectuer rapidement et avec peu d’impact les opérations de fusion des points de contrôle de machine virtuelle.
@@ -64,43 +64,43 @@ ReFS est conçu pour prendre en charge des jeux de données extrêmement volumin
 
 ## <a name="supported-deployments"></a>Déploiements pris en charge
 
-Microsoft a développé NTFS spécifiquement pour une utilisation à usage général avec un large éventail de configurations et les charges de travail, mais pour les clients spécialement nécessitant la disponibilité, la résilience, et/ou mise à l’échelle qui fournit des références, Microsoft prend en charge les références pour une utilisation sous les configurations et scénarios suivants. 
+Microsoft a développé NTFS spécifiquement pour une utilisation à usage général avec un large éventail de configurations et de charges de travail. Toutefois, pour les clients qui requièrent expressément la disponibilité, la résilience et/ou la mise à l’échelle fournis par ReFS, Microsoft prend en charge les ReFS en vue de leur utilisation sous les configurations et les scénarios suivants. 
 
 > [!NOTE]
-> Toutes les configurations prises en charge de ReFS doivent utiliser [catalogue Windows Server](https://www.WindowsServerCatalog.com) certifié de matériel et répondre aux exigences des applications.
+> Toutes les configurations prises en charge par ReFS doivent utiliser le matériel certifié du [Catalogue Windows Server](https://www.WindowsServerCatalog.com) et répondre aux exigences de l’application.
 
 ### <a name="storage-spaces-direct"></a>Espaces de stockage directs
 
 Le déploiement de ReFS sur des espaces de stockage direct est recommandé pour les charges de travail virtualisées ou le stockage connecté au réseau (NAS) : 
 - La parité accélérée grâce à la mise en miroir et [le cache dans les espaces de stockage direct](../storage-spaces/understand-the-cache.md) offrent des performances élevées ainsi qu’un stockage de haute capacité. 
 - Le clonage de bloc et le VDL fragmenté accélèrent considérablement les opérations sur les fichiers .vhdx, telles que la création, la fusion et l’extension.
-- Flux d’intégrité, de réparation en ligne et de copies de données alternatif activent ReFS et espaces de stockage Direct à conjointement pour détecter et corriger le contrôleur de stockage et les altérations de support de stockage dans les métadonnées et données. 
+- Intégrité : les flux de données, la réparation en ligne et les autres copies de données permettent à ReFS et espaces de stockage direct de détecter et de corriger les altérations du contrôleur de stockage et du support de stockage dans les métadonnées et les données. 
 - ReFS fournit les fonctionnalités nécessaires pour s’adapter et prendre en charge les jeux de données volumineux. 
 
 ### <a name="storage-spaces"></a>Espaces de stockage
 
-- Flux d’intégrité, de réparation en ligne et de copies de données alternatif activent ReFS et [espaces de stockage](../storage-spaces/overview.md) à conjointement pour détecter et corriger le contrôleur de stockage et les altérations de support de stockage dans les métadonnées et données.
+- Intégrité : les flux de données, la réparation en ligne et les copies de données secondaires permettent aux [espaces de stockage](../storage-spaces/overview.md) et ReFS de détecter et de corriger les altérations du contrôleur de stockage et du support de stockage dans les métadonnées et les données.
 - Les déploiements d’espaces de stockage peuvent également utiliser le clonage de bloc et l’évolutivité proposés dans ReFS.
-- Le déploiement de références sur les espaces de stockage avec des boîtiers SAS partagés est approprié pour l’hébergement des données d’archivage et de stocker des documents de l’utilisateur.
+- Le déploiement de références sur les espaces de stockage avec des boîtiers SAS partagés est adapté à l’hébergement des données d’archivage et au stockage des documents utilisateur.
 
 > [!NOTE]
-> Prend en charge de stockage espaces local non amovible en attachée direct via BusTypes SATA, SAS, NVME ou rattachés au moyen de HBA (également appelé contrôleur RAID en mode Pass-Through).
+> Les espaces de stockage prennent en charge l’attachement direct non amovible local via BusTypes SATA, SAS, NVME ou attaché via HBA (également appelé contrôleur RAID en mode pass-through).
 
 ### <a name="basic-disks"></a>Disques de base
 
-Déploiement de références sur les disques de base convient le mieux pour les applications qui implémentent leurs propres solutions de résilience et disponibilité des logiciels. 
+Le déploiement de références sur des disques de base est mieux adapté aux applications qui implémentent leurs propres solutions de résilience et de disponibilité logicielles. 
 - Les applications qui introduisent leurs propres solutions logicielles de résilience et de disponibilité peuvent exploiter les flux d’intégrité, le clonage de bloc et la capacité de dimensionner et prendre en charge les jeux de données volumineux. 
 
 > [!NOTE]
-> Les disques de base incluent local non amovible en attachement direct via BusTypes SATA, SAS, NVME ou RAID. 
+> Les disques de base incluent une connexion directe non amovible locale via BusTypes SATA, SAS, NVME ou RAID. 
 
 ### <a name="backup-target"></a>Cible de sauvegarde
 
-Déploiement ReFS comme cible de sauvegarde est meilleure adapté aux applications et le matériel qui implémentent leurs propres solutions de résilience et de disponibilité.
+Le déploiement de ReFS en tant que cible de sauvegarde est idéal pour les applications et le matériel qui implémentent leurs propres solutions de résilience et de disponibilité.
 - Les applications qui introduisent leurs propres solutions logicielles de résilience et de disponibilité peuvent exploiter les flux d’intégrité, le clonage de bloc et la capacité de dimensionner et prendre en charge les jeux de données volumineux.
 
 > [!NOTE]
-> Cibles de sauvegarde incluent les configurations prises en charge ci-dessus. Veuillez contacter les fournisseurs de baies de stockage et d’application pour plus d’informations de prise en charge sur Fibre Channel et SAN iSCSI. Pour les réseaux SAN, si les fonctionnalités telles que mince approvisionnement, TRIM/UNMAP ou transfert de données déchargées (ODX) sont requises, NTFS doit être utilisé.   
+> Les cibles de sauvegarde incluent les configurations prises en charge ci-dessus. Pour plus d’informations sur la prise en charge de Fibre Channel et des réseaux SAN iSCSI, contactez les fournisseurs d’applications et de groupes de stockage. Pour les réseaux SAN, si des fonctionnalités telles que l’allocation dynamique, le démappage/le démappage ou le Transfert de données déchargée (ODX) sont nécessaires, NTFS doit être utilisé.   
 
 ## <a name="feature-comparison"></a>Comparaison des fonctionnalités
 
@@ -110,7 +110,7 @@ Déploiement ReFS comme cible de sauvegarde est meilleure adapté aux applicatio
 |----------------|------------------------------------------------|-----------------------|
 | Longueur maximale des noms de fichier | 255 caractères Unicode  | 255 caractères Unicode               |
 | Longueur maximale des chemins |32 000 caractères Unicode | 32 000 caractères Unicode                |
-| Taille de fichier maximale | 35 Po (pétaoctets)  | 256 To               |
+| Taille de fichier maximale | 35 po (pétaoctets)  | 256 To               |
 | Taille de volume maximale | 35 PO                           | 256 To                |
 
 ### <a name="functionality"></a>Fonctionnalité
@@ -136,8 +136,8 @@ Déploiement ReFS comme cible de sauvegarde est meilleure adapté aux applicatio
 | Fichiers partiellement alloués | Oui | Oui |
 | Flux avec nom | Oui | Oui |
 | Allocation dynamique | Oui<sup>3</sup> | Oui |
-| / Annuler le mappage de Trim | Oui<sup>3</sup> | Oui |
-1. Disponible sur Windows Server, version 1709 et versions ultérieure.
+| Supprimer/démapper | Oui<sup>3</sup> | Oui |
+1. Disponible sur Windows Server, version 1709 et versions ultérieures.
 2. Disponible sur Windows Server 2012 R2 et versions ultérieures.
 3. Espaces de stockage uniquement
 
@@ -163,12 +163,12 @@ Déploiement ReFS comme cible de sauvegarde est meilleure adapté aux applicatio
 | Attributs étendus | Non | Oui |
 | Quotas de disque | Non | Oui |
 | Démarrable | Non | Oui |
-| Prise en charge des fichiers de page | Non | Oui |
+| Prise en charge des fichiers d’échange | Non | Oui |
 | Prise en charge sur les médias amovibles | Non | Oui |
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Recommandations de taille de cluster pour NTFS et ReFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
-- [Vue d’ensemble Direct des espaces de stockage](../storage-spaces/storage-spaces-direct-overview.md)
-- [Clonage de bloc reFS](block-cloning.md)
-- [Flux d’intégrité (Refs)](integrity-streams.md)
+- [Recommandations en matière de taille de cluster pour ReFS et NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
+- [Présentation de espaces de stockage direct](../storage-spaces/storage-spaces-direct-overview.md)
+- [Clonage de bloc ReFS](block-cloning.md)
+- [Flux d’intégrité ReFS](integrity-streams.md)

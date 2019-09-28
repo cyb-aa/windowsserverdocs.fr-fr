@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b8832e7e53e94761a489e850726bbd206b8be62b
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: 4b0ea70bd9346bf8abee4e0d96a8915e29cac462
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863433"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357780"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>Personnalisation de la AD FS dans Windows Server 2016
 
@@ -31,7 +31,7 @@ Avant de tenter les procédures décrites dans ce document, les conditions préa
 -   AD FS dans Windows Server 2016 TP4 ou version ultérieure  
   
 ## <a name="configure-ad-fs-relying-parties"></a>Configurer AD FS des parties de confiance  
-Les éléments et les thèmes Web de connexion par partie de confiance peuvent être configurés à l’aide des exemples PowerShell ci-dessous:  
+Les éléments et les thèmes Web de connexion par partie de confiance peuvent être configurés à l’aide des exemples PowerShell ci-dessous :  
   
 ### <a name="customize-messages"></a>Personnaliser les messages  
   
@@ -66,7 +66,7 @@ Pour les thèmes personnalisés, reportez-vous à [Personnalisation des pages de
   
 ## <a name="assigning-custom-web-themes-per-rp"></a>Affectation de thèmes Web personnalisés par RP  
   
-Pour affecter un thème personnalisé par RP, utilisez la procédure suivante:  
+Pour affecter un thème personnalisé par RP, utilisez la procédure suivante :  
   
 1. Créer un nouveau thème en tant que copie pour le thème global par défaut dans AD FS  
 `New-AdfsWebTheme -Name AppSpecificTheme -SourceName default`  
@@ -85,11 +85,11 @@ Pour la personnalisation de la découverte du domaine d’hébergement, consulte
 Pour plus d’informations sur la personnalisation de la page de mise à jour du mot de passe, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
   
 ## <a name="customizing-and-alternate-ids"></a>Personnalisation et autres ID  
-Les utilisateurs peuvent se connecter à des applications Services ADFS (AD FS) à l’aide de n’importe quelle forme d’identificateur d’utilisateur acceptée par Active Directory Domain Services (AD DS). Celles-ci incluent les noms d’utilisateur principaljohndoe@contoso.com(UPN) () ou les noms de compte Sam qualifiés de domaine (contoso\johndoe ou contoso. com\johndoe).  Pour plus d’informations, consultez [configuration d’un ID de connexion de substitution.](Configuring-Alternate-Login-ID.md)  
+Les utilisateurs peuvent se connecter à des applications Services ADFS (AD FS) à l’aide de n’importe quelle forme d’identificateur d’utilisateur acceptée par Active Directory Domain Services (AD DS). Celles-ci incluent les noms d’utilisateur principal (UPN) (johndoe@contoso.com) ou les noms de compte Sam qualifiés de domaine (contoso\johndoe ou contoso. com\johndoe).  Pour plus d’informations, consultez [configuration d’un ID de connexion de substitution.](Configuring-Alternate-Login-ID.md)  
   
 Vous pouvez en outre personnaliser la page de connexion AD FS pour fournir aux utilisateurs finaux des indications sur l’ID de connexion de substitution. Vous pouvez le faire en ajoutant la description de la page de connexion personnalisée pour plus d’informations, consultez [Personnalisation des pages de connexion AD FS.](https://technet.microsoft.com/library/dn280950.aspx)   
   
-Vous pouvez également effectuer cette opération en personnalisant la chaîne «se connecter avec le compte de l’organisation» au-dessus du champ nom d’utilisateur.  Pour plus d’informations, consultez [personnalisation avancée des pages de connexion AD FS](https://technet.microsoft.com/library/dn636121.aspx).  
+Vous pouvez également effectuer cette opération en personnalisant la chaîne « se connecter avec le compte de l’organisation » au-dessus du champ nom d’utilisateur.  Pour plus d’informations, consultez [personnalisation avancée des pages de connexion AD FS](https://technet.microsoft.com/library/dn636121.aspx).  
 
 ## <a name="additional-references"></a>Références supplémentaires 
 [Personnalisation de la connexion de l’utilisateur AD FS](AD-FS-user-sign-in-customization.md)  

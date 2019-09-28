@@ -1,8 +1,8 @@
 ---
-title: ftp pwd_1
-description: 'Rubrique de commandes de Windows pour ***- '
+title: pwd_1 FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,28 +13,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6efccb7eb0c0e6f17d3ecbf3c83dea3709ef5319
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9dcd46508be1c32500bb4180968e4eac18ccec4c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841640"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376088"
 ---
-# <a name="ftp-pwd1"></a>ftp: pwd_1
+# <a name="ftp-pwd_1"></a>FTP : pwd_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche le répertoire distant en cours.   
+Affiche le répertoire actuel de l’ordinateur distant.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 pwd  
 ```  
 ### <a name="parameters"></a>Paramètres  
 aucune  
-## <a name="BKMK_Examples"></a>Exemples  
-Afficher le répertoire distant en cours.  
+## <a name="BKMK_Examples"></a>Illustre  
+Affichez le répertoire actuel de l’ordinateur distant.  
 ```  
 pwd  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

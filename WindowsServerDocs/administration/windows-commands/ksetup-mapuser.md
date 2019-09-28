@@ -1,8 +1,8 @@
 ---
-title: ksetup:mapuser
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : mapuser'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5bc68fe9e8f4cbb9869cb74e4eb20a3400eb56ad
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b80538999c364e9ed10ca0ed43387f603ac9ad3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437961"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374979"
 ---
-# <a name="ksetupmapuser"></a>ksetup:mapuser
+# <a name="ksetupmapuser"></a>Ksetup : mapuser
 
 
 
-Mappe le nom d’une entité Kerberos vers un compte. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Mappe le nom d’un principal Kerberos à un compte. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,36 +36,36 @@ ksetup /mapuser <Principal> <Account>
 
 |  Paramètre   |                                                   Description                                                   |
 |--------------|-----------------------------------------------------------------------------------------------------------------|
-| \<Principal> |              Le nom de domaine complet de n’importe quel principal ; par exemple, mike@corp.CONTOSO.COM.              |
-|  \<Compte >  | N’importe quel nom de groupe compte ou de sécurité qui existe sur cet ordinateur, telles que les invités, les utilisateurs de domaine ou administrateur. |
+| @no__t 0Principal > |              Nom de domaine complet d’un principal ; par exemple, mike@corp.CONTOSO.COM.              |
+|  @no__t 0Account >  | Tout nom de compte ou de groupe de sécurité existant sur cet ordinateur, par exemple un invité, un utilisateur de domaine ou un administrateur. |
 
 ## <a name="remarks"></a>Notes
 
-Un compte peut être spécifiquement identifié, telles que les invités du domaine. Ou vous pouvez utiliser le caractère générique (*) pour inclure tous les comptes.
+Un compte peut être identifié spécifiquement, tel que les invités du domaine. Vous pouvez également utiliser le caractère générique (*) pour inclure tous les comptes.
 
 Si un nom de compte est omis, le mappage est supprimé pour le principal spécifié.
 
-L’ordinateur authentifiera uniquement les principaux du domaine donné si ils présentent des tickets Kerberos valides.
+L’ordinateur n’authentifiera que les principaux du domaine donné s’ils présentent des tickets Kerberos valides.
 
-Utilisez **ksetup** sans paramètres ou arguments à voir actuel mis en correspondance les paramètres et le domaine par défaut.
+Utilisez **Ksetup** sans paramètres ou arguments pour voir les paramètres mappés actuels et le domaine par défaut.
 
-Chaque fois que les modifications sont apportées pour le centre de Distribution de clés (KDC) externe et la configuration de domaine, un redémarrage de l’ordinateur où le paramètre a été modifié est nécessaire.
+Chaque fois que des modifications sont apportées à l’centre de distribution de clés externe (KDC) et à la configuration du domaine, un redémarrage de l’ordinateur sur lequel le paramètre a été modifié est nécessaire.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Mapper le compte Danseglio dans le domaine Kerberos CONTOSO pour le compte invité sur cet ordinateur, lui accorder tous les privilèges d’un membre du compte Invité prédéfini sans devoir s’authentifier à cet ordinateur :
+Mappez le compte de Mike Danseglio dans le domaine Kerberos CONTOSO au compte invité sur cet ordinateur, en lui accordant tous les privilèges d’un membre du compte invité intégré sans avoir à s’authentifier sur cet ordinateur :
 ```
 ksetup /mapuser mike@corp.CONTOSO.COM guest
 ```
-Supprimer le mappage du compte Danseglio au compte d’invité sur cet ordinateur pour lui empêcher de s’authentifier sur cet ordinateur avec ses informations d’identification à partir de CONTOSO :
+Supprimez le mappage du compte de Mike Danseglio au compte invité sur cet ordinateur pour l’empêcher de s’authentifier auprès de cet ordinateur avec ses informations d’identification de CONTOSO :
 ```
 ksetup /mapuser mike@corp.CONTOSO.COM 
 ```
-Mapper le compte Danseglio dans le domaine CONTOSO Kerberos à n’importe quel compte existant sur cet ordinateur. (uniquement si l’utilisateur standard et les comptes invités sont actifs sur cet ordinateur, les privilèges de Mike seront définis à ceux) :
+Mappez le compte de Mike Danseglio dans le domaine Kerberos CONTOSO à un compte existant sur cet ordinateur. (si seuls les comptes utilisateur et invité standard sont actifs sur cet ordinateur, les privilèges de Mike sont définis sur ceux-ci) :
 ```
 ksetup /mapuser mike@corp.CONTOSO.COM *
 ```
-Mapper tous les comptes dans le domaine CONTOSO Kerberos à n’importe quel compte existant du même nom sur cet ordinateur :
+Mappez tous les comptes du domaine Kerberos CONTOSO à un compte existant portant le même nom sur cet ordinateur :
 ```
 ksetup /mapuser * *
 ```

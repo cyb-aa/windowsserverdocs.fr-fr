@@ -7,27 +7,27 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0206197b24f13d80019cbc864057e99e195ebc4b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 607dc34c8f44d8d96a8dc0c9d1ed004edc799167
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407996"
 ---
 # <a name="planning-your-deployment"></a>Planification de votre déploiement
 
-Lorsque vous planifiez cross\-d’organisation \(fédération\-en\) collaboration à l’aide d’Active Directory Federation Services \(AD FS\), tout d’abord déterminer si votre organisation hébergera une ressource Web accessible par d’autres organisations via Internet ou si vous souhaitez fournir l’accès à la ressource Web pour les employés de votre organisation. Ce choix affecte la façon dont vous déployez AD FS, et il est fondamental dans la planification de votre infrastructure AD FS.  
+Lorsque vous planifiez la collaboration entre @ no__t-0organizational \(federation @ no__t-2based @ no__t-3 à l’aide d’Services ADFS \(AD FS @ no__t-5, déterminez d’abord si votre organisation doit héberger une ressource Web accessible par d’autres organisations sur Internet ou si vous fournissez un accès à la ressource Web pour les employés de votre organisation. Cette détermination affecte la façon dont vous déployez AD FS, et il est fondamental dans la planification de votre infrastructure AD FS.  
   
 > [!NOTE]  
 > Assurez-vous que le rôle que joue l’organisation dans l’accord de fédération est clairement compris par toutes les parties.  
   
-Pour le [Federated Web SSO Design](Federated-Web-SSO-Design.md), ADFS utilise des termes tels que *partenaire de compte* \(également appelé *fournisseur d’identité* dans le composant logiciel enfichable Gestion AD FS\-dans\) et *partenaire de ressource* \(également appelé *confiance* dans le composant logiciel enfichable Gestion AD FS\-dans\) à différencier l’organisation qui héberge les comptes \(le partenaire de compte\) à partir de l’organisation qui héberge le site Web\-ressources \(le partenaire de ressource\).  
+Pour la [conception SSO de Web fédéré](Federated-Web-SSO-Design.md), AD FS utilise des termes tels que le *partenaire de compte* \(also appelé « *fournisseur d’identité* » dans le composant logiciel enfichable de gestion des AD FS de gestion @ no__t-fois WVGA @ no__t-5 et le *partenaire de ressource* \(also appelé  *partie de confiance* dans le composant logiciel enfichable de gestion de AD FS @ no__t-9in @ no__t-10 pour aider à différencier l’organisation qui héberge les comptes 1La compte partenaire @ no__t-12 de l’organisation qui héberge les ressources Web @ no__t-13based 4 ressources partenaire @ no__t-15.  
   
 Dans la [Web SSO Design](Web-SSO-Design.md), l’entreprise intervient dans les rôles de compte partenaire et de ressource partenaire, car elle fournit à ses utilisateurs l’accès aux applications.  
   
-Les rubriques suivantes expliquent que certains des services AD FS concepts de l’organisation du partenaire. Elles contiennent également des liens vers des rubriques qui contiennent des informations sur la configuration et la configuration des organisations partenaires de compte et des organisations partenaires de ressource en fonction de vos objectifs de déploiement AD FS dans le Guide de déploiement d’AD FS.  
+Les rubriques suivantes expliquent certains concepts de l’organisation AD FS partenaire. Ils contiennent également des liens vers des rubriques du Guide de déploiement AD FS qui contiennent des informations sur la configuration et la configuration des organisations partenaires de compte et des organisations partenaires de ressource en fonction de vos objectifs de déploiement AD FS.  
   
 ## <a name="in-this-section"></a>Dans cette section  
   

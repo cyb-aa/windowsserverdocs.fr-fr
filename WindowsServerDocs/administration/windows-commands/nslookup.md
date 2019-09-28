@@ -2,7 +2,7 @@
 title: nslookup
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84e3e9ee920f458ca775dd7b76d892f10ba2f992
-ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
+ms.openlocfilehash: 6b47592be57d5999ac26465097490da266bd0aea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878116"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372704"
 ---
 # <a name="nslookup"></a>nslookup
 
@@ -106,7 +106,7 @@ nslookup /view <FileName>
   |`No response from server`|Aucun serveur de noms DNS n’est en cours d’exécution sur l’ordinateur serveur.|
   |`No records`|Le serveur de noms DNS n’a pas d’enregistrements de ressource du type de requête actuel pour l’ordinateur, bien que le nom de l’ordinateur soit valide. Le type de requête est spécifié à l’aide de la commande **Set QueryType** .|
   |`Nonexistent domain`|L’ordinateur ou le nom de domaine DNS n’existe pas.|
-  |`Connection refused`<br /><br />ou<br /><br />`Network is unreachable`|La connexion au serveur de noms DNS ou au serveur Finger n’a pas pu être établie. Cette erreur se produit généralement avec les requêtes **ls** et **Finger** .|
+  |`Connection refused`<br /><br />\- ou -<br /><br />`Network is unreachable`|La connexion au serveur de noms DNS ou au serveur Finger n’a pas pu être établie. Cette erreur se produit généralement avec les requêtes **ls** et **Finger** .|
   |`Server failure`|Le serveur de noms DNS a trouvé une incohérence interne dans sa base de données et n’a pas pu retourner une réponse valide.|
   |`Refused`|Le serveur de noms DNS a refusé de traiter la demande.|
   |`format error`|Le serveur de noms DNS a détecté que le format du paquet de demande n’était pas correct. Elle peut indiquer une erreur dans **nslookup**.|

@@ -2,7 +2,7 @@
 title: Considérations relatives au compte d’utilisateur
 description: Fournit des considérations sur le compte d’utilisateur, le nom d’utilisateur et le mot de passe pour MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: c4a0355b5e081e0673447fb86f1475d0b34c3792
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c81d14d46e96d39676e1fb6fa31892e0d5e1b683
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871499"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389258"
 ---
 # <a name="user-account-considerations"></a>Considérations relatives au compte d’utilisateur
 Cette rubrique décrit les problèmes que vous devez prendre en compte, en tant qu’utilisateur administratif, lorsque vous créez et gérez des comptes d’utilisateur. Vous gérez les comptes d’utilisateur sous l’onglet utilisateurs du gestionnaire MultiPoint. Pour plus d’informations, voir la rubrique [Gérer les comptes d’utilisateur](Manage-User-Accounts.md).  

@@ -1,7 +1,7 @@
 ---
 title: Démarrage rapide de Nano Server
 description: Étapes pour déployer rapidement un serveur Nano Server de base sur des machines virtuelles ou physiques
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: DonGill
 ms.technology: server-nano
@@ -11,19 +11,19 @@ ms.topic: get-started-article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c1623e365be71cac2fd58da5444ce4358d75309
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 5de589d9da1c7d4fc9eb116e6ea1f6a326d1ad7c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391721"
 ---
 # <a name="nano-server-quick-start"></a>Démarrage rapide de Nano Server
 
 >S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À partir de Windows Server version 1709, Nano Server sera uniquement disponible sous forme d'[image de système d'exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
+> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
 
 Suivez les étapes décrites dans cette section pour effectuer rapidement un déploiement de base de Nano Server, en utilisant DHCP pour obtenir une adresse IP. Vous pouvez exécuter un disque dur virtuel Nano Server dans une machine virtuelle ou le démarrer sur un ordinateur physique. La procédure est légèrement différente.
 

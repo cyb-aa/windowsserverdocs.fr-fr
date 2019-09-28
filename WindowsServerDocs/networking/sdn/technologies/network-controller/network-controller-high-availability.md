@@ -1,89 +1,89 @@
 ---
 title: Contrôleur de réseau haute disponibilité
-description: Vous pouvez utiliser cette rubrique pour en savoir plus sur la haute disponibilité du contrôleur de réseau pour la mise en réseau SDN (Software Defined) dans Windows Server 2016.
+description: Vous pouvez utiliser cette rubrique pour en savoir plus sur la haute disponibilité du contrôleur de réseau pour la mise en réseau SDN (Software Defined Networking) dans Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 334b090d-bec4-4e67-8307-13831dbdd1d8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dbd3ae9f4c1f1fc3035fae9ace880046312df2f0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11f392e99803f0e0ddd0f8b62c9dbca5827a831c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813350"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405932"
 ---
 # <a name="network-controller-high-availability"></a>Contrôleur de réseau haute disponibilité
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour en savoir plus sur le contrôleur de réseau haute disponibilité et évolutivité configuration pour Sdn \(SDN\).
+Vous pouvez utiliser cette rubrique pour en savoir plus sur la configuration de la haute disponibilité et de l’évolutivité du contrôleur de réseau pour la mise en réseau définie par logiciel \(SDN @ no__t-1.
 
-Lorsque vous déployez SDN dans votre centre de données, vous pouvez utiliser le contrôleur de réseau pour déployer, surveiller et gérer de nombreux éléments de réseau, y compris les passerelles RAS, équilibreurs de charge logiciels, des stratégies de mise en réseau virtuels pour la communication client, de manière centralisée les pare-feu de centre de données stratégies de qualité de Service \(QoS\) pour SDN stratégies, stratégies de mise en réseau hybride et bien plus encore.
+Lorsque vous déployez SDN dans votre centre de messages, vous pouvez utiliser le contrôleur de réseau pour déployer, surveiller et gérer de manière centralisée de nombreux éléments réseau, y compris les passerelles RAS, les équilibreurs de charge logicielle, les stratégies de réseau virtuel pour la communication avec les locataires, le pare-feu de centre de messages les stratégies, la qualité de service @no__t 0QoS @ no__t-1 pour les stratégies SDN, les stratégies de mise en réseau hybride, et bien plus encore.
 
-Étant donné que le contrôleur de réseau est la pierre angulaire de gestion SDN, il est essentiel pour les déploiements de contrôleur de réseau haute disponibilité et la possibilité de vous fournir à l’échelle facilement monter ou Descendre les nœuds de contrôleur de réseau avec les besoins de votre centre de données.
+Étant donné que le contrôleur de réseau est la pierre angulaire de la gestion de SDN, il est essentiel pour les déploiements de contrôleur de réseau de fournir une haute disponibilité et la possibilité de mettre à l’échelle facilement des nœuds de contrôleur de réseau avec vos besoins en matière de centre de donnes.
 
-Bien que vous pouvez déployer le contrôleur de réseau en tant que machine unique cluster, pour le basculement et une haute disponibilité, vous devez déployer le contrôleur de réseau dans un cluster de machines multiples avec un minimum de trois ordinateurs.
-
->[!NOTE]
->Vous pouvez déployer le contrôleur de réseau sur des ordinateurs de serveur ou sur des machines virtuelles \(machines virtuelles\) qui exécutent Windows Server 2016 Datacenter edition. Si vous déployez le contrôleur de réseau sur des machines virtuelles, les machines virtuelles doivent s’exécuter sur les hôtes Hyper-V qui sont exécutent également Datacenter edition. Contrôleur de réseau n’est pas disponible sur Windows Server 2016 Standard edition.
-
-## <a name="network-controller-as-a-service-fabric-application"></a>Contrôleur de réseau comme une Application Service Fabric
-
-Pour obtenir évolutivité et haute disponibilité, le contrôleur de réseau s’appuie sur Service Fabric. Service Fabric fournit une plateforme de systèmes distribués pour créer évolutives, fiables et facile à gérer des applications.
-
-En tant que plateforme, Service Fabric fournit des fonctionnalités qui est requises pour la création d’un système distribué évolutif. Il assure l’hébergement de service sur plusieurs instances de système d’exploitation, synchronisation des informations d’état entre des instances, élire un responsable, la détection de défaillance, l’équilibrage de charge et bien plus encore.
+Bien que vous puissiez déployer un contrôleur de réseau en tant que cluster à ordinateur unique, pour la haute disponibilité et le basculement, vous devez déployer le contrôleur de réseau dans un cluster à plusieurs ordinateurs avec un minimum de trois machines.
 
 >[!NOTE]
->Pour plus d’informations sur Service Fabric dans Azure, consultez [vue d’ensemble d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
+>Vous pouvez déployer un contrôleur de réseau sur les ordinateurs serveurs ou sur les ordinateurs virtuels \(VMs @ no__t-1 qui exécute Windows Server 2016 Datacenter Edition. Si vous déployez un contrôleur de réseau sur des machines virtuelles, les machines virtuelles doivent être en cours d’exécution sur des ordinateurs hôtes Hyper-V qui exécutent également Datacenter Edition. Le contrôleur de réseau n’est pas disponible sur Windows Server 2016 Standard Edition.
 
-Lorsque vous déployez un contrôleur de réseau sur plusieurs ordinateurs, contrôleur de réseau s’exécute comme une seule application de Service Fabric sur un cluster Service Fabric. Vous pouvez former un cluster Service Fabric en vous connectant à un ensemble d’instances de système d’exploitation.
+## <a name="network-controller-as-a-service-fabric-application"></a>Contrôleur de réseau en tant qu’application Service Fabric
 
-L’application de contrôleur de réseau se compose de plusieurs services Service Fabric avec état. Chaque service est responsable pour une fonction réseau, telles que la gestion de réseau physique, la gestion de réseau virtuel, gestion du pare-feu ou gestion de la passerelle. 
+Pour obtenir une disponibilité et une évolutivité élevées, le contrôleur de réseau s’appuie sur Service Fabric. Service Fabric fournit une plateforme de systèmes distribués pour créer des applications évolutives, fiables et faciles à gérer.
 
-Chaque Service service Fabric a un réplica principal et deux réplicas secondaires. Le réplica principal de service traite les demandes, tandis que les deux réplicas de service secondaire fournissent une haute disponibilité dans les cas où le réplica principal est désactivé ou indisponible pour une raison quelconque.
+En tant que plateforme, Service Fabric fournit les fonctionnalités nécessaires à la création d’un système distribué évolutif. Il permet l’hébergement de service sur plusieurs instances de système d’exploitation, la synchronisation des informations d’État entre les instances, l’élection d’un responsable, la détection de défaillance, l’équilibrage de charge, etc.
 
-L’illustration suivante représente un cluster Service Fabric contrôleur de réseau avec cinq machines. Quatre services sont réparties entre les cinq ordinateurs : Service, Service de passerelle, équilibrage de charge de pare-feu \(SLB\) service et le réseau virtuel \(réseau virtuel\) service.  Chacun des quatre services inclut un réplica de service principal et deux réplicas de service secondaire.
+>[!NOTE]
+>Pour plus d’informations sur les Service Fabric dans Azure, consultez [vue d’ensemble d’azure service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
 
-![Cluster Service Fabric de contrôleur de réseau](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
+Lorsque vous déployez un contrôleur de réseau sur plusieurs ordinateurs, le contrôleur de réseau s’exécute en tant qu’application Service Fabric unique sur un cluster Service Fabric. Vous pouvez former un cluster Service Fabric en connectant un ensemble d’instances de système d’exploitation.
+
+L’application de contrôleur de réseau est composée de plusieurs services de Service Fabric avec état. Chaque service est responsable d’une fonction réseau, telle que la gestion de réseau physique, la gestion de réseau virtuel, la gestion de pare-feu ou la gestion de passerelle. 
+
+Chaque service de Service Fabric a un réplica principal et deux réplicas secondaires. Le réplica de service principal traite les demandes, tandis que les deux réplicas de service secondaires offrent une haute disponibilité dans les cas où le réplica principal est désactivé ou indisponible pour une raison quelconque.
+
+L’illustration suivante représente un contrôleur de réseau Service Fabric cluster avec cinq machines. Quatre services sont répartis sur les cinq machines : Service de pare-feu, service de passerelle, équilibrage de charge logiciel \(SLB @ no__t-1 service et réseau virtuel \(Vnet @ no__t-3.  Chacun des quatre services comprend un réplica de service principal et deux réplicas de service secondaires.
+
+![Contrôleur de réseau Service Fabric cluster](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
 
 ## <a name="advantages-of-using-service-fabric"></a>Avantages de l’utilisation de Service Fabric
 
-Voici les principaux avantages d’utilisation de Service Fabric pour les clusters de contrôleur de réseau.
+Voici les principaux avantages de l’utilisation de Service Fabric pour les clusters de contrôleur de réseau.
 
-### <a name="high-availability-and-scalability"></a>Évolutivité et haute disponibilité
+### <a name="high-availability-and-scalability"></a>Haute disponibilité et évolutivité
 
-Étant donné que le contrôleur de réseau est le cœur d’un réseau de centre de données, il doit être résistant aux défaillances et être suffisamment flexible pour permettre des modifications agiles dans des réseaux de centre de données au fil du temps. Les fonctionnalités suivantes fournissent ces capacités : 
+Étant donné que le contrôleur de réseau est le cœur d’un réseau de centre de temps, il doit être résilient à la défaillance et être suffisamment évolutif pour permettre des modifications agiles dans les réseaux de centres de centres au fil du temps. Les fonctionnalités suivantes offrent les possibilités suivantes : 
 
-- **Basculement rapide**. Service Fabric fournit un basculement très rapide. Plusieurs réplicas de service secondaire à chaud sont toujours disponibles. Si une instance de système d’exploitation devenue indisponible en raison d’une défaillance matérielle, un des réplicas secondaires est promu immédiatement au réplica principal. 
-- **Agilité de mise à l’échelle**. Vous pouvez facilement et rapidement mettre à l’échelle de ces services fiables à partir de quelques instances allant jusqu'à plusieurs milliers d’instances, puis vers le bas à nouveau quelques instances, selon vos besoins en ressources. 
+- **Basculement rapide**. Service Fabric offre un basculement extrêmement rapide. Plusieurs réplicas de service secondaire à chaud sont toujours disponibles. Si une instance de système d’exploitation devient indisponible en raison d’une défaillance matérielle, l’un des réplicas secondaires est immédiatement promu au réplica principal. 
+- **Agilité de l’échelle**. Vous pouvez facilement et rapidement mettre à l’échelle ces services fiables à partir de quelques milliers d’instances, puis revenir à quelques instances, en fonction de vos besoins en ressources. 
 
 ### <a name="persistent-storage"></a>Stockage persistant
 
-L’application de contrôleur de réseau a des exigences de stockage volumineux pour sa configuration et son état. L’application également doit être utilisable sur les interruptions planifiées et. À cet effet, Service Fabric fournit un Store de clé-valeur \(KVS\) qui est un magasin répliqué, transactionnels et persistant.
+L’application du contrôleur de réseau a des exigences de stockage importantes pour sa configuration et son état. L’application doit également être utilisable sur des interruptions planifiées et non planifiées. À cet effet, Service Fabric fournit un magasin clé-valeur \(KVS @ no__t-1 qui est un magasin répliqué, transactionnel et persistant.
 
 ### <a name="modularity"></a>Modularité
 
-Contrôleur de réseau est conçu avec une architecture modulaire, avec chacun des services réseau, telles que les services de réseaux virtuels et pare-feu, conçues\-dans en tant que services individuels. 
+Le contrôleur de réseau est conçu avec une architecture modulaire, avec chacun des services réseau, tels que le service de pare-feu et le service de réseaux virtuels, conçu @ no__t-0in en tant que services individuels. 
 
 Cette architecture d’application offre les avantages suivants.
 
-1. Contrôleur de réseau modularité permet un développement indépendant de chacun des services pris en charge, en tant que doit évoluer. Par exemple, le service Équilibrage de charge peut être mis à jour sans affecter aucune des autres services ou le fonctionnement normal du contrôleur de réseau.
-2. Modularité de contrôleur de réseau permet l’ajout de nouveaux services, à mesure que le réseau évolue. Nouveaux services peuvent être ajoutés au contrôleur de réseau sans impact sur les services existants.
+1. La modularité du contrôleur de réseau permet le développement indépendant de chacun des services pris en charge, car les besoins évoluent. Par exemple, le service d’équilibrage de charge logiciel peut être mis à jour sans affecter les autres services ou le fonctionnement normal du contrôleur de réseau.
+2. La modularité du contrôleur de réseau permet l’ajout de nouveaux services au fur et à mesure que le réseau évolue. De nouveaux services peuvent être ajoutés au contrôleur de réseau sans impact sur les services existants.
 
 >[!NOTE]
 >Dans Windows Server 2016, l’ajout de services tiers au contrôleur de réseau n’est pas pris en charge.
 
-Modularité de service Fabric utilise les schémas de modèle de service pour optimiser la facilité de développement, de déploiement et de maintenance d’une application.
+La modularité Service Fabric utilise des schémas de modèle de service pour optimiser la facilité de développement, de déploiement et de maintenance d’une application.
 
-## <a name="network-controller-deployment-options"></a>Options de déploiement de contrôleur de réseau
+## <a name="network-controller-deployment-options"></a>Options de déploiement du contrôleur de réseau
 
-Pour déployer un contrôleur de réseau à l’aide de System Center Virtual Machine Manager \(VMM\), consultez [configurer un contrôleur de réseau SDN dans l’infrastructure VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Pour déployer un contrôleur de réseau à l’aide de System Center Virtual Machine Manager \(VMM @ no__t-1, consultez [configurer un contrôleur de réseau SDN dans l’infrastructure VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
-Pour déployer un contrôleur de réseau à l’aide de scripts, consultez [déployer un logiciel défini Infrastructure à l’aide de Scripts réseau](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
+Pour déployer un contrôleur de réseau à l’aide de scripts, consultez [déployer une infrastructure réseau définie par logiciel à l’aide de scripts](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
 
-Pour déployer un contrôleur de réseau à l’aide de Windows PowerShell, consultez [déployer de contrôleur de réseau à l’aide de Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)
+Pour déployer un contrôleur de réseau à l’aide de Windows PowerShell, consultez [déployer un contrôleur de réseau à l’aide de Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)
 
 Pour plus d’informations sur le contrôleur de réseau, consultez [contrôleur de réseau](Network-Controller.md).

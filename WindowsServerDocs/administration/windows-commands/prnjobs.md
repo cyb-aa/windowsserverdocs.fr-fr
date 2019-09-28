@@ -1,8 +1,8 @@
 ---
 title: prnjobs
-description: Découvrez comment gérer des travaux d’impression à partir de la ligne de commande.
+description: Apprenez à gérer les travaux d’impression à partir de la ligne de commande.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 5e9e71a21acac73aa27e8a936360c6a1e9f9b754
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c4fb9be9545274bbbf33926042f7a4deec5ceb05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436164"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372096"
 ---
 # <a name="prnjobs"></a>prnjobs
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-met en pause reprend, annule et répertorie les travaux d’impression.
+Suspend, reprend, annule et répertorie les travaux d’impression.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -36,29 +36,29 @@ cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>]
 
 |          Paramètre           |                                                                                                                                                                                        Description                                                                                                                                                                                        |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              -z              |                                                                                                                                                                 Suspend le travail d’impression spécifié avec le **-j** paramètre.                                                                                                                                                                 |
-|              -m              |                                                                                                                                                                Reprend le travail d’impression spécifié avec le **-j** paramètre.                                                                                                                                                                 |
-|              -x              |                                                                                                                                                                Annule le travail d’impression spécifié avec le **-j** paramètre.                                                                                                                                                                 |
-|              -l              |                                                                                                                                                                        Répertorie tous les travaux d’impression dans une file d’attente à l’impression.                                                                                                                                                                         |
-|       s - \<nom_serveur >       |                                                                                                                  Spécifie le nom de l’ordinateur distant qui héberge l’imprimante que vous souhaitez gérer. Si vous ne spécifiez pas un ordinateur, l’ordinateur local est utilisé.                                                                                                                  |
-|      -p \<printerName>       |                                                                                                                                                           Spécifie le nom de l’imprimante que vous souhaitez gérer. Obligatoire.                                                                                                                                                            |
-|         -j \<JobID>          |                                                                                                                                                                Spécifie (par numéro d’identification) pour annuler le travail d’impression.                                                                                                                                                                 |
-| -u \<nom d’utilisateur > -w <Password> | Spécifie un compte disposant d’autorisations pour se connecter à l’ordinateur qui héberge l’imprimante que vous souhaitez gérer. Tous les membres du groupe Administrateurs local de l’ordinateur cible disposent de ces autorisations, mais les autorisations peuvent également être accordées aux autres utilisateurs. Si vous ne spécifiez pas un compte, vous devez être connecté sous un compte disposant de ces autorisations pour la commande fonctionne. |
+|              -z              |                                                                                                                                                                 suspend le travail d’impression spécifié avec le paramètre **-j** .                                                                                                                                                                 |
+|              -m              |                                                                                                                                                                Reprend le travail d’impression spécifié avec le paramètre **-j** .                                                                                                                                                                 |
+|              -x              |                                                                                                                                                                Annule le travail d’impression spécifié avec le paramètre **-j** .                                                                                                                                                                 |
+|              -l              |                                                                                                                                                                        répertorie tous les travaux d’impression dans une file d’attente à l’impression.                                                                                                                                                                         |
+|       -s \<ServerName >       |                                                                                                                  Spécifie le nom de l’ordinateur distant qui héberge l’imprimante que vous souhaitez gérer. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est utilisé.                                                                                                                  |
+|      -p @no__t 0printerName >       |                                                                                                                                                           Spécifie le nom de l’imprimante que vous souhaitez gérer. Obligatoire.                                                                                                                                                            |
+|         -j \<JobID >          |                                                                                                                                                                Spécifie (par numéro d’identification) le travail d’impression que vous souhaitez annuler.                                                                                                                                                                 |
+| -u \<UserName >-w <Password> | Spécifie un compte disposant des autorisations nécessaires pour se connecter à l’ordinateur qui héberge l’imprimante que vous souhaitez gérer. Tous les membres du groupe Administrateurs local de l’ordinateur cible disposent de ces autorisations, mais les autorisations peuvent également être accordées à d’autres utilisateurs. Si vous ne spécifiez pas de compte, vous devez avoir ouvert une session sous un compte disposant de ces autorisations pour que la commande fonctionne. |
 |              /?              |                                                                                                                                                                           Affiche l'aide à l'invite de commandes.                                                                                                                                                                            |
 
 ## <a name="remarks"></a>Notes
--   Le **prnjobs** commande est un script Visual Basic situé dans le %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Pour utiliser cette commande, à une invite de commandes, tapez **cscript** suivie du chemin d’accès complet au fichier de prnjobs, ou modifiez les répertoires vers le dossier approprié. Exemple :
+-   La commande **prnjobs** est un script Visual Basic situé dans le répertoire%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Pour utiliser cette commande, à l’invite de commandes, tapez **cscript** suivi du chemin d’accès complet au fichier prnjobs ou accédez au dossier approprié. Exemple :
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnjobs.vbs
     ```
--   Si les informations que vous fournissez contient des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).
+-   Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).
 
-## <a name="BKMK_examples"></a>Exemples
-Pour suspendre un travail d’impression avec un ID de tâche de 27 envoyé à l’ordinateur distant appelé HRServeur pour l’impression sur l’imprimante nommée ImprimanteCouleur, tapez :
+## <a name="BKMK_examples"></a>Illustre
+Pour suspendre un travail d’impression avec un ID de travail 27 envoyé à l’ordinateur distant nommé HRServer pour l’impression sur l’imprimante nommée colorprinter, tapez :
 ```
 cscript prnjobs.vbs -z -s HRServer -p colorprinter -j 27
 ```
-Pour répertorier tous les travaux d’impression en cours dans la file d’attente pour l’imprimante locale appelée ImprimanteCouleur_2, tapez :
+Pour répertorier tous les travaux d’impression en cours dans la file d’attente de l’imprimante locale nommée colorprinter_2, tapez :
 ```
 cscript prnjobs.vbs -l -p colorprinter_2
 ```

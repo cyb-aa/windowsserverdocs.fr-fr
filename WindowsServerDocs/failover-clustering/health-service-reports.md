@@ -1,6 +1,6 @@
 ---
-title: Rapports de Service d’intégrité
-ms.prod: windows-server-threshold
+title: Rapports de Service de contrôle d’intégrité
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,35 +8,35 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: e018c0270a0bf410dada9c05d2c25e51fdfac1d8
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: e65db8834bd0b059dc7bbebbcaf9288fb46da225
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280157"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369680"
 ---
-# <a name="health-service-reports"></a>Rapports de Service d’intégrité
+# <a name="health-service-reports"></a>Rapports de Service de contrôle d’intégrité
 > S’applique à : Windows Server 2019, Windows Server 2016
 
-## <a name="what-are-reports"></a>Que sont les rapports  
+## <a name="what-are-reports"></a>Présentation des rapports  
 
-Le Service d’intégrité réduit le travail nécessaire pour obtenir des performances en direct et des informations sur la capacité de votre cluster d’espaces de stockage Direct. Une nouvelle applet de commande fournit une liste organisée des mesures essentielles qui sont collectées de manière efficace et agrégées de façon dynamique entre les nœuds, avec une logique intégrée pour détecter l’appartenance au cluster. Toutes les valeurs sont en temps réel et ponctuelles uniquement.  
+Le Service de contrôle d’intégrité réduit le travail nécessaire pour recevoir des informations de performances et de capacité en temps réel à partir de votre cluster espaces de stockage direct. Une nouvelle applet de commande fournit une liste organisée de métriques essentielles, qui sont collectées efficacement et agrégées dynamiquement entre les nœuds, avec une logique intégrée pour la détection de l’appartenance au cluster. Toutes les valeurs sont en temps réel et ponctuelles uniquement.  
 
 ## <a name="usage-in-powershell"></a>Utilisation dans PowerShell
 
-Utilisez cette applet de commande pour obtenir des mesures pour l’ensemble du cluster espaces de stockage Direct :
+Utilisez cette applet de commande pour obtenir les métriques pour l’ensemble du cluster espaces de stockage direct :
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Get-StorageHealthReport
 ```
 
-Le paramètre facultatif **nombre** paramètre indique le nombre de jeux de valeurs à retourner, à intervalles d’une seconde.  
+Le paramètre facultatif **Count** indique le nombre de jeux de valeurs à retourner, à un intervalle d’une seconde.  
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Get-StorageHealthReport -Count <Count>  
 ```
 
-Vous pouvez également obtenir des métriques pour un volume spécifique ou serveur :  
+Vous pouvez également obtenir des métriques pour un volume ou un serveur spécifique :  
 
 ```PowerShell
 Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>  
@@ -44,11 +44,11 @@ Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>
 Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 ```
 
-## <a name="usage-in-net-and-c"></a>L’utilisation de .NET etC#
+## <a name="usage-in-net-and-c"></a>Utilisation dans .NET etC#
 
 ### <a name="connect"></a>Connection
 
-Pour interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous devez les éléments qui sont uniquement disponibles dans .NET complet, ce qui signifie que vous ne pouvez pas facilement cela directement à partir d’une application web ou mobile. Ces exemples de code utilisera C\#, sont les plus simples choix pour cette couche d’accès aux données.
+Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utilisent C @ no__t-0, le choix le plus simple pour cette couche d’accès aux données.
 
 ``` 
 ...
@@ -74,13 +74,13 @@ public CimSession Connect(string Domain = "...", string Computer = "...", string
 
 Le nom d’utilisateur fourni doit être un administrateur local de l’ordinateur cible.
 
-Il est recommandé que vous construisez le mot de passe **SecureString** directement à partir de l’entrée d’utilisateur dans en temps réel, par conséquent, leur mot de passe n’est jamais stocké en mémoire en texte clair. Cela permet d’atténuer une variété de problèmes de sécurité. Mais dans la pratique, la construction de comme indiqué ci-dessus est courant à des fins de prototypage.
+Il est recommandé de construire la **SecureString** de mot de passe directement à partir de l’entrée d’utilisateur en temps réel, de sorte que leur mot de passe ne soit jamais stocké en texte en clair. Cela permet d’atténuer un grand nombre de problèmes de sécurité. Toutefois, dans la pratique, il est courant de les construire comme indiqué ci-dessus à des fins de prototypage.
 
 ### <a name="discover-objects"></a>Détecter des objets
 
-Avec le **CimSession** établie, vous pouvez interroger Windows Management Instrumentation (WMI) sur le cluster.
+Une fois le **CimSession** établi, vous pouvez interroger Windows Management Instrumentation (WMI) sur le cluster.
 
-Avant de pouvoir obtenir des erreurs ou des mesures, vous devez obtenir des instances de plusieurs objets appropriés. Tout d’abord, le **MSFT\_StorageSubSystem** qui représente les espaces de stockage Direct sur le cluster. À l’utiliser, vous pouvez obtenir chaque **MSFT\_StorageNode** dans le cluster et chaque **MSFT\_Volume**, les volumes de données. Enfin, vous devez le **MSFT\_StorageHealth**, l’intégrité du Service lui-même, trop.
+Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, **msft @ no__t-1StorageSubSystem** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **msft @ no__t-1StorageNode** dans le cluster, et chaque **msft @ no__t-3Volume**, les volumes de données. Enfin, vous aurez besoin de **msft @ no__t-1StorageHealth**, le service de contrôle d’intégrité lui-même.
 
 ```
 CimInstance Cluster;
@@ -108,9 +108,9 @@ public void DiscoverObjects(CimSession Session)
 }
 ```
 
-Ces objets sont les mêmes dans PowerShell, vous obtenez à l’aide des applets de commande comme **Get-StorageSubSystem**, **Get-StorageNode**, et **Get-Volume**.
+Il s’agit des mêmes objets que ceux que vous recevez dans PowerShell à l’aide d’applets de commande, telles que **« StorageSubSystem »** , **« obten-StorageNode**» et **« obtient-volume »** .
 
-Vous pouvez accéder à tous les mêmes propriétés, décrites à l’adresse [Classes API de gestion du stockage](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
+Vous pouvez accéder aux mêmes propriétés, documentées dans les classes de l' [API de gestion du stockage](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
 ...
@@ -123,15 +123,15 @@ foreach (CimInstance Node in Nodes)
 }
 ```
 
-Appeler **GetReport** pour commencer la diffusion en continu des exemples d’une liste organisée d’expert des mesures essentielles qui sont collectées de manière efficace et agrégées de façon dynamique entre les nœuds, avec une logique intégrée pour détecter l’appartenance au cluster. Exemples arriveront à chaque seconde par la suite. Toutes les valeurs sont en temps réel et ponctuelles uniquement.
+Appelez **GetReport** pour commencer à diffuser en continu des exemples d’une liste organisée d’experts des métriques essentielles, qui sont collectées efficacement et agrégées dynamiquement entre les nœuds, avec une logique intégrée pour la détection de l’appartenance au cluster. Les exemples arrivent après chaque seconde. Toutes les valeurs sont en temps réel et ponctuelles uniquement.
 
-Métriques peuvent être diffusés en continu pour les trois portées : le cluster, n’importe quel nœud ou n’importe quel volume.
+Les métriques peuvent être diffusées en continu pour trois étendues : le cluster, n’importe quel nœud ou n’importe quel volume.
 
-La liste complète des métriques disponibles dans chaque étendue dans Windows Server 2016 est documentée ci-dessous.
+La liste complète des métriques disponibles à chaque étendue dans Windows Server 2016 est décrite ci-dessous.
 
-### <a name="iobserveronnext"></a>IObserver.OnNext()
+### <a name="iobserveronnext"></a>IObserver. OnNext ()
 
-Cet exemple de code utilise le [modèle de Design Observateur](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx) pour implémenter une méthode Observer dont **OnNext()** méthode sera appelée l’arrivée de chaque nouvel exemple de mesures. Son **OnCompleted()** méthode sera appelée si/quand se termine de diffusion en continu. Par exemple, vous utiliseriez il pour relancer la diffusion en continu, afin qu’il continue indéfiniment.
+Cet exemple de code utilise le [modèle de conception observateur](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx) pour implémenter un observateur dont la méthode **OnNext ()** est appelée quand chaque nouvel échantillon de métriques arrive. Sa méthode **OnCompleted ()** est appelée si/à la fin de la diffusion en continu. Par exemple, vous pouvez l’utiliser pour relancer la diffusion en continu, de sorte qu’il continue indéfiniment.
 
 ```
 class MetricsObserver<T> : IObserver<T>
@@ -172,13 +172,13 @@ class MetricsObserver<T> : IObserver<T>
 }
 ```
 
-### <a name="begin-streaming"></a>Commencer le streaming
+### <a name="begin-streaming"></a>Commencer la diffusion en continu
 
-Avec l’observateur est défini, vous pouvez commencer la diffusion en continu.
+Une fois l’observateur défini, vous pouvez commencer la diffusion en continu.
 
-Spécifiez la cible **CimInstance** à laquelle vous souhaitez que les mesures de portée. Il peut être le cluster, n’importe quel nœud ou n’importe quel volume.
+Spécifiez le **CimInstance** cible pour lequel vous souhaitez étendre les métriques. Il peut s’agir du cluster, de n’importe quel nœud ou de n’importe quel volume.
 
-Le paramètre de nombre est le nombre d’échantillons avant la fin de la diffusion en continu.
+Le paramètre Count est le nombre d’échantillons avant la fin de la diffusion en continu.
 
 ```
 CimInstance Target = Cluster; // From among the objects discovered in DiscoverObjects()
@@ -203,31 +203,31 @@ public void BeginStreamingMetrics(CimSession Session, CimInstance HealthService,
 }
 ```
 
-Inutile de préciser que ces mesures peuvent être visualisés stockée dans une base de données, ou utilisés en fonction de vos besoins.
+Il est inutile de préciser que ces métriques peuvent être visualisées, stockées dans une base de données ou utilisées de la façon que vous voyez.
 
 ### <a name="properties-of-reports"></a>Propriétés des rapports
 
-Chaque échantillon de mesures est un « rapport » qui contient de nombreux « enregistrements » correspondant à des mesures individuelles.
+Chaque exemple de métrique est un « rapport » qui contient de nombreux « enregistrements » correspondant à des mesures individuelles.
 
-Pour le schéma complet, inspecter la **MSFT\_StorageHealthReport** et **MSFT\_HealthRecord** classes de *storagewmi.mof*.
+Pour le schéma complet, examinez les classes **msft @ no__t-1StorageHealthReport** et **msft @ no__t-3HealthRecord** dans *storagewmi. mof*.
 
-Chaque mesure a uniquement trois propriétés, conformément à cette table.
+Chaque mesure a seulement trois propriétés, par cette table.
 
 | **Propriété** | **Exemple**       |
 | -------------|-------------------|
 | Nom         | IOLatencyAverage  |
-| Value        | 0.00021           |
-| Unités        | 3                 |
+| Value        | 0,00021           |
+| Sections        | 3                 |
 
-Unités = {0, 1, 2, 3, 4}, où 0 = « Octets », 1 = « BytesPerSecond », 2 = « CountPerSecond », 3 = « Secondes » ou 4 = « Pourcentage ».
+Units = {0, 1, 2, 3, 4}, où 0 = « octets », 1 = « BytesPerSecond », 2 = « CountPerSecond », 3 = « secondes » ou 4 = « pourcentage ».
 
 ## <a name="coverage"></a>Couverture
 
 Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 
-### <a name="msftstoragesubsystem"></a>MSFT_StorageSubSystem
+### <a name="msft_storagesubsystem"></a>MSFT_StorageSubSystem
 
-| **Nom**                        | **Unités** |
+| **Nom**                        | **Sections** |
 |---------------------------------|-----------|
 | CPUUsage                        | 4         |
 | CapacityPhysicalPooledAvailable | 0         |
@@ -249,9 +249,9 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 | MemoryTotal                     | 0         |
 
 
-### <a name="msftstoragenode"></a>MSFT_StorageNode
+### <a name="msft_storagenode"></a>MSFT_StorageNode
 
-| **Nom**            | **Unités** |
+| **Nom**            | **Sections** |
 |---------------------|-----------|
 | CPUUsage            | 4         |
 | IOLatencyAverage    | 3         |
@@ -266,9 +266,9 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 | MemoryAvailable     | 0         |
 | MemoryTotal         | 0         |
 
-### <a name="msftvolume"></a>MSFT_Volume
+### <a name="msft_volume"></a>MSFT_Volume
 
-| **Nom**            | **Unités** |
+| **Nom**            | **Sections** |
 |---------------------|-----------|
 | CapacityAvailable   | 0         |
 | CapacityTotal       | 0         |
@@ -284,4 +284,4 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Service d’intégrité de Windows Server 2016](health-service-overview.md)
+- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)

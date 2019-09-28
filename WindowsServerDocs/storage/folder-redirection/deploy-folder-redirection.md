@@ -1,19 +1,19 @@
 ---
 title: Déployer la redirection de dossiers avec Fichiers hors connexion
 description: Comment utiliser Windows Server pour déployer la redirection de dossiers avec Fichiers hors connexion sur des ordinateurs clients Windows.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 90b3e3d0b5030f8c0140e54c8b0bf55317437427
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 21172d9d3e6d91af691986bfd84b0e32049f3b88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867307"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401970"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Déployer la redirection de dossiers avec Fichiers hors connexion
 
@@ -48,7 +48,7 @@ La redirection de dossiers présente la configuration logicielle suivante :
 > [!NOTE]
 > Certaines fonctionnalités plus récentes de la redirection de dossiers ont des exigences supplémentaires en matière d’ordinateur client et de schéma Active Directory. Pour plus d’informations, consultez [déployer des ordinateurs principaux](deploy-primary-computers.md), [désactiver des fichiers hors connexion sur les dossiers](disable-offline-files-on-folders.md), activer le [mode toujours hors connexion](enable-always-offline.md)et [activer le déplacement de dossiers optimisés](enable-optimized-moving.md).
 
-## <a name="step-1-create-a-folder-redirection-security-group"></a>Étape 1 : Créer un groupe de sécurité de redirection de dossiers
+## <a name="step-1-create-a-folder-redirection-security-group"></a>Étape 1 : Créer un groupe de sécurité de redirection de dossiers
 
 Si votre environnement n’est pas déjà configuré avec la redirection de dossiers, la première étape consiste à créer un groupe de sécurité qui contient tous les utilisateurs auxquels vous souhaitez appliquer les paramètres de stratégie de redirection de dossiers.
 
@@ -63,7 +63,7 @@ Voici comment créer un groupe de sécurité pour la redirection de dossiers :
 5. Dans la section **membres** , sélectionnez **Ajouter**. La boîte de dialogue Sélectionnez Utilisateurs, Contacts, Ordinateurs ou Groupes s’affiche.
 6. Tapez les noms des utilisateurs ou des groupes dans lesquels vous souhaitez déployer la redirection de dossiers, sélectionnez **OK**, puis cliquez de nouveau sur **OK** .
 
-## <a name="step-2-create-a-file-share-for-redirected-folders"></a>Étape 2 : Créer un partage de fichiers pour les dossiers redirigés
+## <a name="step-2-create-a-file-share-for-redirected-folders"></a>Étape 2 : Créer un partage de fichiers pour les dossiers redirigés
 
 Si vous ne disposez pas déjà d’un partage de fichiers pour les dossiers redirigés, utilisez la procédure suivante pour créer un partage de fichiers sur un serveur exécutant Windows Server 2012.
 
@@ -93,16 +93,16 @@ Voici comment créer un partage de fichiers sur Windows Server 2019, Windows Ser
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>Autorisations requises pour le partage de fichiers hébergeant des dossiers redirigés
 
-| Compte d’utilisateur  | Access  | S'applique à  |
+| Compte d’utilisateur  | Accès  | S'applique à  |
 | --------- | --------- | --------- |
-| Compte d’utilisateur | Access | S'applique à |
+| Compte d’utilisateur | Accès | S'applique à |
 | System     | Contrôle total        |    Ce dossier, ses sous-dossiers et ses fichiers     |
 | Administrateurs     | Contrôle total       | Ce dossier uniquement        |
 | Propriétaire créateur     |   Contrôle total      |   Sous-dossiers et fichiers uniquement      |
 | Groupe de sécurité des utilisateurs qui doivent placer des données sur le partage (utilisateurs redirection de dossiers)     |   Répertorier le dossier/lire les données *(autorisations avancées)* <br /><br />Créer des dossiers/ajouter des données *(autorisations avancées)* <br /><br />Attributs *de lecture (autorisations avancées)* <br /><br />Lire les attributs étendus *(autorisations avancées)* <br /><br />Autorisations *de lecture (autorisations avancées)*      |  Ce dossier uniquement       |
 | Autres groupes et comptes     |  Aucun (supprimer)       |         |
 
-## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Étape 3 : Créer un objet de stratégie de groupe pour la redirection de dossiers
+## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Étape 3 : Créer un objet de stratégie de groupe pour la redirection de dossiers
 
 Si vous ne disposez pas déjà d’un objet de stratégie de groupe créé pour les paramètres de redirection de dossiers, utilisez la procédure suivante pour en créer un.
 
@@ -123,7 +123,7 @@ Voici comment créer un objet de stratégie de groupe pour la redirection de dos
 > [!IMPORTANT]
 > En raison des modifications de sécurité apportées à [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), vous devez maintenant accorder au groupe utilisateurs authentifiés des autorisations de lecture déléguées sur l’objet de stratégie de groupe de redirection de dossiers. sinon, l’objet de stratégie de groupe n’est pas appliqué aux utilisateurs, ou s’il est déjà appliqué, l’objet de stratégie de groupe est supprimé, redirection dossiers sur l’ordinateur local. Pour plus d’informations, consultez [déploiement d’stratégie de groupe mise à jour de sécurité MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/).
 
-## <a name="step-4-configure-folder-redirection-with-offline-files"></a>Étape 4 : Configurer la redirection de dossiers avec Fichiers hors connexion
+## <a name="step-4-configure-folder-redirection-with-offline-files"></a>Étape 4 : Configurer la redirection de dossiers avec Fichiers hors connexion
 
 Après avoir créé un objet de stratégie de groupe pour les paramètres de redirection de dossiers, modifiez les paramètres de stratégie de groupe pour activer et configurer la redirection de dossiers, comme indiqué dans la procédure suivante.
 
@@ -145,7 +145,7 @@ Voici comment configurer la redirection de dossiers dans stratégie de groupe :
 6. Sélectionnez l’onglet **paramètres** , et dans la section **Suppression de stratégie** , sélectionnez éventuellement **Rediriger le dossier vers l’emplacement du profil local local lorsque la stratégie est supprimée** (ce paramètre peut aider à faire en sorte que la redirection de dossiers se comporte davantage prévisible pour les adminisitrators et les utilisateurs).
 7. Sélectionnez **OK**, puis cliquez sur **Oui** dans la boîte de dialogue d’avertissement.
 
-## <a name="step-5-enable-the-folder-redirection-gpo"></a>Étape 5 : Activer l’objet de stratégie de groupe de redirection de dossiers
+## <a name="step-5-enable-the-folder-redirection-gpo"></a>Étape 5 : Activer l’objet de stratégie de groupe de redirection de dossiers
 
 Une fois que vous avez terminé la configuration de la redirection de dossiers stratégie de groupe les paramètres, l’étape suivante consiste à activer l’objet de stratégie de groupe, en lui permettant de l’appliquer aux utilisateurs affectés.
 

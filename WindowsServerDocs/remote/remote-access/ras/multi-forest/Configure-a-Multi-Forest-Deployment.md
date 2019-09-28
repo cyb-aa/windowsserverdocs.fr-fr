@@ -1,9 +1,9 @@
 ---
 title: Configure a Multi-Forest Deployment
-description: Cette rubrique fait partie du guide de déploiement des accès à distance dans un environnement à plusieurs forêts dans Windows Server 2016.
+description: Cette rubrique fait partie du guide déployer l’accès à distance dans un environnement à plusieurs forêts dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: 3c8feff2-cae1-4376-9dfa-21ad3e4d5d99
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bf9222293dfd22b6f32cf00021f34b44c555e340
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 41c4de30482ff09cb0db8a113fa324b7299af43d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281107"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404536"
 ---
 # <a name="configure-a-multi-forest-deployment"></a>Configure a Multi-Forest Deployment
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment configurer un déploiement à forêts multiples de l’accès à distance dans plusieurs scénarios possibles. Tous les scénarios partent du principe que DirectAccess est actuellement déployé sur une seule forêt nommée Forest1 et que vous êtes en train de configurer DirectAccess à des fins d’utilisation d’une nouvelle forêt nommée Forest2.  
   
-## <a name="AccessForest2"></a>Accéder aux ressources depuis Forest2  
+## <a name="AccessForest2"></a>Accéder aux ressources à partir de Forest2  
 Dans ce scénario, DirectAccess est déjà déployé sur Forest1 et est configuré de sorte à permettre aux clients provenant de Forest1 d’accéder au réseau d’entreprise. Par défaut, les clients connectés via DirectAccess peuvent accéder uniquement aux ressources incluses dans Forest1 et ils ne peuvent accéder à aucun serveur de Forest2.  
   
 #### <a name="to-enable-directaccess-clients-to-access-resources-from-forest2"></a>Pour permettre aux clients DirectAccess d’accéder aux ressources depuis Forest2  
@@ -41,13 +41,13 @@ Dans ce scénario, vous configurez le déploiement de l’accès à distance afi
   
 1.  Ajoutez le groupe de sécurité des clients depuis Forest2.  
   
-2.  Si le suffixe DNS de Forest2 ne fait pas partie du suffixe DNS de Forest1, ajoutez des règles NRPT avec les suffixes de domaine des clients dans Forest2 pour permettre l’accès aux contrôleurs de domaine pour l’authentification et si vous le souhaitez, ajoutez les suffixes des domaines dans Forest2 à la suf DNS corriger la liste de recherche. 
+2.  Si le suffixe DNS de Forest2 ne fait pas partie du suffixe DNS de Forest1, ajoutez des règles NRPT avec les suffixes du domaine des clients dans Forest2 pour permettre l’accès aux contrôleurs de domaine pour l’authentification et, éventuellement, ajoutez les suffixes des domaines de Forest2 au DNS SUF corriger la liste de recherche. 
   
 3.  Ajoutez les préfixes IPv6 internes dans Forest2 pour permettre à DirectAccess de créer le tunnel IPsec vers les contrôleurs de domaine destinés à l’authentification.  
   
 4.  Actualisez la liste des serveurs d’administration.  
   
-## <a name="AddEPForest2"></a>Ajouter des points d’entrée depuis Forest2  
+## <a name="AddEPForest2"></a>Ajouter des points d’entrée à partir de Forest2  
 Dans ce scénario, DirectAccess est déployé dans une configuration multisite sur Forest1 et vous voulez ajouter un serveur d’accès à distance, nommé DA2, depuis Forest2 en tant que point d’entrée vers le déploiement multisite DirectAccess existant.  
   
 #### <a name="to-add-a-remote-access-server-from-forest2-as-an-entry-point"></a>Pour ajouter un serveur d’accès à distance depuis Forest2 en tant que point d’entrée  
@@ -62,23 +62,23 @@ Dans ce scénario, DirectAccess est déployé dans une configuration multisite s
   
 5.  Actualisez la liste des serveurs d’administration.  
   
-## <a name="OTPMultiForest"></a>Configurer le secret à usage unique dans un déploiement à forêts multiples  
+## <a name="OTPMultiForest"></a>Configurer le mot de passe à usage unique dans un déploiement à forêts multiples  
 Notez les termes suivants lors de la configuration du mot de passe à usage unique dans un déploiement à forêts multiples :  
   
--   Organigramme PKI principal forêts d’autorité de certification, l’autorité de certification de racine.  
+-   Autorité de certification racine-forêt (s) principale d’autorité de certification PKI.  
   
--   Autorité de certification d’entreprise-All autres autorités de certification.  
+-   Autorité de certification d’entreprise : toutes les autres autorités de certification.  
   
--   Forêt de la forêt de ressources qui contient l’autorité de certification racine et est considéré comme la « gestion des forest\domain'.  
+-   Forêt de ressources-la forêt qui contient l’autorité de certification racine et est considérée comme la « gestion des administration\domaine ».  
   
--   Forêt Account-All autres forêts dans la topologie.  
+-   Forêt de comptes : toutes les autres forêts dans la topologie.  
   
-Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Consultez [AD CS : Script PKISync.ps1 pour l’inscription de certificats inter-forêts](https://technet.microsoft.com/library/ff961506.aspx).  
+Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Voir [AD CS : Script script pkisync. ps1 pour l’inscription de certificats inter-forêts @ no__t-0.  
   
 > [!NOTE]  
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-### <a name="BKMK_CertPub"></a>Configurer des autorités de certification en tant qu’éditeurs de certificats  
+### <a name="BKMK_CertPub"></a>Configurer les autorités de certification en tant qu’éditeurs de certificats  
   
 1.  Activez la prise en charge de la référence LDAP sur toutes les autorités de certification d’entreprise dans toutes les forêts en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :  
   
@@ -100,7 +100,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Consultez [
     certutil -config <Computer-Name>\<Root-CA-Name> -ca.cert <root-ca-cert-filename.cer>  
     ```  
   
-    (Si vous exécutez la commande sur l’autorité de certification racine, vous pouvez omettre les informations de connexion, - config < Computer-Name >\\< nom de la CA racine >)  
+    (Si vous exécutez la commande sur l’autorité de certification racine, vous pouvez omettre les informations de connexion,-config < Computer-Name > \\ < Root-CA-name >)  
   
     1.  Importez le certificat de l’autorité de certification racine de l’étape précédente dans l’autorité de certification de la forêt de comptes en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :  
   
@@ -108,7 +108,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Consultez [
         certutil -dspublish -f <root-ca-cert-filename.cer> RootCA  
         ```  
   
-    2.  Autorisations de lecture/écriture de modèles de certificat forêt de ressources d’accorder à le \<forêt de comptes\>\\< compte d’administrateur\>.  
+    2.  Accordez des autorisations de lecture/écriture de modèles de certificat de forêt de ressources à la forêt \<Account @ no__t-1 @ no__t-2 < compte administrateur @ no__t-3.  
   
     3.  Extrayez tous les certificats d’autorité de certification d’entreprise de la forêt de ressources en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :  
   
@@ -116,7 +116,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Consultez [
         certutil -config <Computer-Name>\<Enterprise-CA-Name> -ca.cert <enterprise-ca-cert-filename.cer>  
         ```  
   
-        (Si vous exécutez la commande sur l’autorité de certification racine, vous pouvez omettre les informations de connexion, - config < Computer-Name >\\< nom de la CA racine >)  
+        (Si vous exécutez la commande sur l’autorité de certification racine, vous pouvez omettre les informations de connexion,-config < Computer-Name > \\ < Root-CA-name >)  
   
     4.  Importez les certificats de l’autorité de certification d’entreprise de l’étape précédente dans l’autorité de certification de la forêt de comptes en exécutant les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :  
   
@@ -127,7 +127,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Consultez [
   
     5.  Supprimez de la liste des modèles de certificat émis les modèles de certificat de mot de passe à usage unique de la forêt de comptes.  
   
-### <a name="BKMK_DelImp"></a>Supprimer et importer les modèles de certificats OTP  
+### <a name="BKMK_DelImp"></a>Supprimer et importer des modèles de certificats avec mot de passe à usage unique  
   
 1.  Supprimer les modèles de certificat de mot de passe à usage unique de la forêt de comptes, à savoir, Forest2.  
   
@@ -139,7 +139,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Consultez [
     .\PKISync.ps1 -sourceforest <resource forest DNS> -targetforest <account forest DNS> -type Oid -f  
     ```  
   
-### <a name="BKMK_Publish"></a>Publier des modèles de certificats OTP  
+### <a name="BKMK_Publish"></a>Publier les modèles de certificats OTP  
   
 -   Émettez les modèles de certificat récemment importés sur toutes les autorités de certification des forêts de comptes.  
   
@@ -177,7 +177,7 @@ La liste de recherche de suffixes DNS permet aux clients d’utiliser des noms d
   
 2.  Dans la page **Serveur Emplacement réseau** , cliquez sur **Suivant**.  
   
-3.  Dans la page **DNS**, dans la table, entrez tous les suffixes de noms supplémentaires qui font partie du réseau d’entreprise dans Forest2. Dans **Adresse du serveur DNS**, entrez l’adresse du serveur DNS manuellement ou en cliquant sur **Détecter**. Si vous n’entrez pas l’adresse, les nouvelles entrées sont appliquées comme exemptions NRPT. Ensuite, cliquez sur **Suivant**.  
+3.  Dans la page **DNS**, dans la table, entrez tous les suffixes de noms supplémentaires qui font partie du réseau d’entreprise dans Forest2. Dans **Adresse du serveur DNS**, entrez l’adresse du serveur DNS manuellement ou en cliquant sur **Détecter**. Si vous n’entrez pas l’adresse, les nouvelles entrées sont appliquées en tant qu’exemptions NRPT. Ensuite, cliquez sur **Suivant**.  
   
 4.  Facultatif : Sur la page **Liste de recherche de suffixes DNS**, ajoutez un suffixe DNS en l’entrant dans la zone **Nouveau suffixe**, puis en cliquant sur **Ajouter**. Ensuite, cliquez sur **Suivant**.  
   
@@ -194,7 +194,7 @@ La liste de recherche de suffixes DNS permet aux clients d’utiliser des noms d
 > [!NOTE]  
 > L’ajout d’un préfixe IPv6 interne convient uniquement lorsque le protocole IPv6 est déployé sur le réseau interne.  
   
-L’accès à distance gère la liste des préfixes IPv6 pour les ressources d’entreprise. Seules les ressources dotées de ces préfixes IPv6 sont accessibles par les clients connectés via DirectAccess. Étant donné que la console de gestion de l’accès à distance et les commandes Windows PowerShell automatiquement ajouter les préfixes IPv6 de Forest1 et ne peuvent pas ajouter ceux des autres forêts, vous devez ajouter tous les préfixes manquants de Forest2 manuellement.  
+L’accès à distance gère la liste des préfixes IPv6 pour les ressources d’entreprise. Seules les ressources dotées de ces préfixes IPv6 sont accessibles par les clients connectés via DirectAccess. Étant donné que la console de gestion de l’accès à distance et les commandes Windows PowerShell ajoutent automatiquement les préfixes IPv6 de Forest1, et peuvent ne pas ajouter les préfixes d’autres forêts, vous devez ajouter manuellement les préfixes manquants de Forest2.  
   
 ##### <a name="to-add-an-ipv6-prefix"></a>Pour ajouter un préfixe IPv6  
   
@@ -212,8 +212,8 @@ L’accès à distance gère la liste des préfixes IPv6 pour les ressources d�
   
 7.  Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance**, cliquez sur **Fermer**.  
   
-### <a name="SGs"></a>Ajouter des groupes de sécurité clients  
-Pour activer les ordinateurs clients Windows 8 de Forest2 d’accéder aux ressources via DirectAccess, vous devez ajouter le groupe de sécurité depuis Forest2 au déploiement de l’accès à distance.  
+### <a name="SGs"></a>Ajouter des groupes de sécurité client  
+Pour permettre aux ordinateurs clients Windows 8 de Forest2 d’accéder aux ressources via DirectAccess, vous devez ajouter le groupe de sécurité de Forest2 au déploiement de l’accès à distance.  
   
 ##### <a name="to-add-windows-8-client-security-groups"></a>Pour ajouter des groupes de sécurité clients Windows 8  
   
@@ -231,9 +231,9 @@ Pour activer les ordinateurs clients Windows 8 de Forest2 d’accéder aux resso
   
 7.  Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance**, cliquez sur **Fermer**.  
   
-Pour activer 7 Windows les ordinateurs clients de Forest2 d’accéder aux ressources via DirectAccess lorsque le déploiement multisite est activé, vous devez ajouter le groupe de sécurité depuis Forest2 au déploiement de l’accès à distance pour chaque point d’entrée. Pour plus d’informations sur l’ajout de groupes de sécurité de Windows 7, consultez la description de la **prise en charge Client** page dans 3.6. Activer le déploiement multisite.  
+Pour permettre aux ordinateurs clients Windows 7 de Forest2 d’accéder aux ressources via DirectAccess lorsque le multisite est activé, vous devez ajouter le groupe de sécurité de Forest2 au déploiement de l’accès à distance pour chaque point d’entrée. Pour plus d’informations sur l’ajout de groupes de sécurité Windows 7, consultez la description de la page de **support client** dans 3,6. Activez le déploiement multisite.  
   
-### <a name="RefreshMgmtServers"></a>Actualiser la liste de serveurs d’administration  
+### <a name="RefreshMgmtServers"></a>Actualiser la liste des serveurs d’administration  
 L’accès à distance découvre automatiquement les serveurs d’infrastructure dans toutes les forêts qui contiennent des objets de stratégie de groupe de configuration DirectAccess. Si DirectAccess a été déployé sur un serveur depuis Forest1, l’objet de stratégie de groupe du serveur est écrit sur son domaine dans Forest1. Si vous avez activé l’accès à DirectAccess pour les clients depuis Forest2, l’objet de stratégie de groupe du client est écrit sur un domaine dans Forest2.  
   
 Le processus de découverte automatique des serveurs d’infrastructure est requis pour autoriser l’accès via DirectAccess aux contrôleurs de domaine et à System Center Configuration Manager. Vous devez démarrer manuellement le processus de découverte.  

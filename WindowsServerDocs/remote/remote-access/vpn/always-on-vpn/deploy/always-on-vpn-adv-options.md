@@ -2,7 +2,7 @@
 title: Fonctionnalités avancées de VPN Toujours actif (AlwaysOn)
 description: Au-delà du scénario de déploiement fourni dans ce déploiement, vous pouvez ajouter d’autres fonctionnalités VPN avancées pour améliorer la sécurité et la disponibilité de votre connexion VPN.
 ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 07/24/19
@@ -10,12 +10,12 @@ ms.author: pashort, v-tea
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: e09a23b6f1c14c4c14b00fd19d84d0abb71d0163
-ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
+ms.openlocfilehash: aee2f14d0d99fd453fa6fb1f3147a515ca57abb1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68787215"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366913"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Fonctionnalités avancées de Always On VPN
 
@@ -52,7 +52,7 @@ Vous trouverez ci-dessous des options supplémentaires pour les fonctionnalités
 |---------|---------|
 |Filtrage du trafic     |Si vous devez appliquer le choix des applications auxquelles les clients VPN peuvent accéder, vous pouvez activer les filtres de trafic VPN.<p>Pour plus d’informations, consultez [fonctionnalités de sécurité VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features).         |
 |VPN déclenché par l’application     |Vous pouvez configurer des profils VPN pour qu’ils se connectent automatiquement au démarrage de certaines applications ou types d’applications.<p>Pour plus d’informations sur cette option et d’autres options de déclenchement, consultez [options de profil déclenchés automatiquement par VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-auto-trigger-profile).         |
-|Accès conditionnel VPN   |L’accès conditionnel et la conformité des appareils peuvent exiger que les appareils gérés respectent les normes avant de pouvoir se connecter au VPN. L’une des fonctionnalités avancées pour l’accès conditionnel VPN vous permet de limiter les connexions VPN à celles sur lesquelles le certificat d’authentification client contient l’OID d’accès conditionnel AAD de **1.3.6.1.4.1.311.87**.<p>Pour restreindre les connexions VPN, vous devez effectuer les opérations suivantes:<ol><li>Sur le serveur NPS, ouvrez le composant logiciel enfichable **serveur de stratégie réseau** .</li><li>Développez **stratégies** > **réseau**stratégies.</li><li>Cliquez avec le bouton droit sur la stratégie réseau des **connexions de réseau privé virtuel (VPN)** et sélectionnez **Propriétés**.</li><li>Sélectionnez l’onglet **paramètres** .</li><li>Sélectionnez **spécifique au fournisseur**, puis cliquez sur **Ajouter**.</li><li>Sélectionnez l’option **allowed-Certificate-OID** , puis sélectionnez **Ajouter**.</li><li>Collez l’OID d’accès conditionnel AAD de **1.3.6.1.4.1.311.87** en tant que valeur d’attribut, puis sélectionnez **OK** deux fois.</li><li>Sélectionnez **Fermer**, puis **appliquer**.<p>Une fois que vous avez suivi ces étapes, lorsque les clients VPN essaient de se connecter à l’aide d’un certificat autre que le certificat Cloud à courte durée de vie, la connexion échoue.</li></ol>Pour plus d’informations sur l’accès conditionnel, consultez [VPN et accès conditionnel](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).   |
+|Accès conditionnel VPN   |L’accès conditionnel et la conformité des appareils peuvent exiger que les appareils gérés respectent les normes avant de pouvoir se connecter au VPN. L’une des fonctionnalités avancées pour l’accès conditionnel VPN vous permet de limiter les connexions VPN à celles sur lesquelles le certificat d’authentification client contient l’OID d’accès conditionnel AAD de **1.3.6.1.4.1.311.87**.<p>Pour restreindre les connexions VPN, vous devez effectuer les opérations suivantes :<ol><li>Sur le serveur NPS, ouvrez le composant logiciel enfichable **serveur de stratégie réseau** .</li><li>Développez **stratégies** > **réseau**stratégies.</li><li>Cliquez avec le bouton droit sur la stratégie réseau des **connexions de réseau privé virtuel (VPN)** et sélectionnez **Propriétés**.</li><li>Sélectionnez l’onglet **paramètres** .</li><li>Sélectionnez **spécifique au fournisseur**, puis cliquez sur **Ajouter**.</li><li>Sélectionnez l’option **allowed-Certificate-OID** , puis sélectionnez **Ajouter**.</li><li>Collez l’OID d’accès conditionnel AAD de **1.3.6.1.4.1.311.87** en tant que valeur d’attribut, puis sélectionnez **OK** deux fois.</li><li>Sélectionnez **Fermer**, puis **appliquer**.<p>Une fois que vous avez suivi ces étapes, lorsque les clients VPN essaient de se connecter à l’aide d’un certificat autre que le certificat Cloud à courte durée de vie, la connexion échoue.</li></ol>Pour plus d’informations sur l’accès conditionnel, consultez [VPN et accès conditionnel](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).   |
 
 
 ---

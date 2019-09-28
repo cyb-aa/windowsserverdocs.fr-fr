@@ -2,7 +2,7 @@
 title: Mise à niveau de votre hôte de virtualisation des services Bureau à distance vers Windows Server 2016
 description: Cet article explique comment mettre à niveau vos déploiements existants des services Bureau à distance vers Windows Server 2016.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 5aed8ba7-f541-4416-b01c-4d3b1712e2b1
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: a58231d908ff1ac32eca7d4ba3f1d5a6a18dd7fe
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 319074987ae161e2b567c15e9e56cce0e2106a1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870567"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403786"
 ---
 # <a name="upgrading-your-remote-desktop-virtualization-host-to-windows-server-2016"></a>Mise à niveau de votre hôte de virtualisation des services Bureau à distance vers Windows Server 2016
 

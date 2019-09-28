@@ -1,8 +1,8 @@
 ---
-title: utilisateur de la requête
-description: 'Rubrique de commandes de Windows pour ***- '
+title: interroger l’utilisateur
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c6e0d936e03e14e134c7bfd450a878fda1a796c4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 65bf42281e6e1956331c061167aea23d1cd61a1d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441999"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384866"
 ---
-# <a name="query-user"></a>utilisateur de la requête
+# <a name="query-user"></a>interroger l’utilisateur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche des informations sur les sessions utilisateur sur un serveur hôte de Session Bureau à distance (hôte de Session Bureau à distance).
-Pour obtenir des exemples montrant comment utiliser cette commande, consultez [exemples](#BKMK_examples).
+Affiche des informations sur les sessions utilisateur sur un serveur hôte de session Bureau à distance (hôte de session Bureau à distance).
+Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 > [!NOTE]
-> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour savoir quelles sont les nouveautés dans la version la plus récente, consultez [les nouveautés des Services Bureau à distance dans Windows Server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 > ## <a name="syntax"></a>Syntaxe
 > ```
 > query user [<UserName> | <SessionName> | <SessionID>] [/server:<ServerName>]
@@ -39,22 +39,22 @@ Pour obtenir des exemples montrant comment utiliser cette commande, consultez [e
 > |      <UserName>      |                            Spécifie le nom d’ouverture de session de l’utilisateur que vous souhaitez interroger.                             |
 > |    <SessionName>     |                              Spécifie le nom de la session que vous souhaitez interroger.                              |
 > |     <SessionID>      |                               Spécifie l’ID de la session que vous souhaitez interroger.                               |
-> | /server:<ServerName> | Spécifie le serveur hôte de Session Bureau à distance que vous souhaitez interroger. Sinon, le serveur hôte de Session Bureau à distance en cours est utilisé. |
+> | /server:<ServerName> | Spécifie le serveur hôte de session Bureau à distance que vous souhaitez interroger. Dans le cas contraire, le serveur hôte de session Bureau à distance actuel est utilisé. |
 > |          /?          |                                        Affiche l'aide à l'invite de commandes.                                         |
 > 
 > ## <a name="remarks"></a>Notes
-> - Vous pouvez utiliser cette commande pour savoir si un utilisateur spécifique est connecté à un serveur hôte de Session Bureau à distance par spécifique. **utilisateur de la requête** renvoie les informations suivantes :
->   -   Le nom de l’utilisateur
->   -   Le nom de la session sur le serveur hôte de Session Bureau à distance
->   -   L’ID de session
->   -   L’état de la session (active ou déconnectée)
->   -   Temps d’inactivité (le nombre de minutes depuis la dernière séquence de touches ou mouvements de la souris lors de la session)
->   -   Date et heure de l’utilisateur connecté
-> - Pour utiliser **utilisateur de la requête**, vous devez avoir l’autorisation contrôle total ou informations autorisation spéciale d’accès de requête.
-> - Si vous utilisez **utilisateur de la requête** sans spécifier <*nom d’utilisateur*>, <*SessionName*>, ou <*SessionID*>, une liste de tous les les utilisateurs connectés au serveur est retournée. Sinon, vous pouvez également utiliser **interroger session** pour afficher une liste de toutes les sessions sur un serveur.
-> - Lorsque **utilisateur de la requête** renvoie des informations, un symbole supérieur à (>) s’affiche avant la session active.
-> - Le **/server** paramètre est obligatoire uniquement si vous utilisez **utilisateur de la requête** à partir d’un serveur distant.
->   ## <a name="BKMK_examples"></a>Exemples
+> - Vous pouvez utiliser cette commande pour déterminer si un utilisateur spécifique est connecté à un serveur hôte de session Bureau à distance spécifique. l’utilisateur de la **requête** renvoie les informations suivantes :
+>   -   Nom de l’utilisateur
+>   -   Nom de la session sur le serveur hôte de session Bureau à distance
+>   -   ID de session
+>   -   État de la session (active ou déconnectée)
+>   -   Durée d’inactivité (nombre de minutes depuis la dernière frappe ou déplacement de la souris au cours de la session)
+>   -   Date et heure auxquelles l’utilisateur a ouvert une session
+> - Pour utiliser l’utilisateur de la **requête**, vous devez disposer de l’autorisation contrôle total ou informations spéciales sur l’accès aux requêtes.
+> - Si vous utilisez **query User** sans spécifier <*UserName*>, <*nomsession*> ou <*SessionID*>, une liste de tous les utilisateurs qui sont connectés au serveur est retournée. Vous pouvez également utiliser la session de **requête** pour afficher une liste de toutes les sessions sur un serveur.
+> - Quand l’utilisateur de la **requête** retourne des informations, un symbole supérieur à (>) s’affiche avant la session active.
+> - Le paramètre **/Server** est requis uniquement si vous utilisez **interroger l’utilisateur** à partir d’un serveur distant.
+>   ## <a name="BKMK_examples"></a>Illustre
 > - Pour afficher des informations sur tous les utilisateurs connectés au système, tapez :
 >   ```
 >   query user
@@ -66,4 +66,4 @@ Pour obtenir des exemples montrant comment utiliser cette commande, consultez [e
 >   #### <a name="additional-references"></a>Références supplémentaires
 >   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 >   [requête](query.md)
->   [Services Bureau à distance &#40;Services Terminal Server&#41; référence des commandes](remote-desktop-services-terminal-services-command-reference.md)
+>   [ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

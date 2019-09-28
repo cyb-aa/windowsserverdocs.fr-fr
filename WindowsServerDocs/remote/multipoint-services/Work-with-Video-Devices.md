@@ -2,7 +2,7 @@
 title: Utiliser des périphériques vidéo
 description: Découvrez comment les moniteurs vidéo et les projecteurs fonctionnent avec les stations dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 4439d72165d70623d854d0221137c1fe282c922b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b7019000c99295204f196ee918129cded02e084f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871477"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389249"
 ---
 # <a name="work-with-video-devices"></a>Utiliser des périphériques vidéo
 Découvrez comment fonctionnent les périphériques vidéo, comme les moniteurs ou les projecteurs, quand ils sont connectés à un ordinateur de votre système MultiPoint Services ou une *station* MultiPoint Services.  

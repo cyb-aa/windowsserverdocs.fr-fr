@@ -1,8 +1,8 @@
 ---
 title: prnqctl
-description: Imprimer une page de test, suspendre ou reprendre une imprimante.
+description: Imprimez une page de test, interrompez ou reprenez une imprimante.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1ba58970e76497f6e91c53c73a429eb65a275b2f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 189b344dc0c4f587ba7a6382c481304242e22c74
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442107"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372040"
 ---
 # <a name="prnqctl"></a>prnqctl
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Imprime une page de test s’interrompt ou reprend une imprimante et efface une file d’attente de l’imprimante.  
+Imprime une page de test, interrompt ou reprend une imprimante et efface une file d’attente d’impression.  
 
 ## <a name="syntax"></a>Syntaxe  
 ```  
@@ -35,24 +35,24 @@ cscript Prnqctl {-z | -m | -e | -x | -?} [-s <ServerName>]
 
 |Paramètre|Description|  
 |-------|--------|  
-|-z|Suspend l’impression sur l’imprimante spécifiée avec le **-p** paramètre.|  
-|-m|Reprend l’impression sur l’imprimante spécifiée avec le **-p** paramètre.|  
-|-e|Imprime une page de test sur l’imprimante spécifiée avec le **-p** paramètre.|  
-|-x|Annule tous les travaux d’impression sur l’imprimante spécifiée avec le **-p** paramètre.|  
-|s - \<nom_serveur >|Spécifie le nom de l’ordinateur distant qui héberge l’imprimante que vous souhaitez gérer. Si vous ne spécifiez pas un ordinateur, l’ordinateur local est utilisé.|  
-|-p \<printerName>|Spécifie le nom de l’imprimante que vous souhaitez gérer. Obligatoire.|  
-|-u \<nom d’utilisateur > -w \<mot de passe >|Spécifie un compte disposant d’autorisations pour se connecter à l’ordinateur qui héberge l’imprimante que vous souhaitez gérer. Tous les membres du groupe Administrateurs local de l’ordinateur cible disposent de ces autorisations, mais les autorisations peuvent également être accordées aux autres utilisateurs. Si vous ne spécifiez pas un compte, vous devez être connecté sous un compte disposant de ces autorisations pour la commande fonctionne.|  
+|-z|suspend l’impression sur l’imprimante spécifiée avec le paramètre **-p** .|  
+|-m|Reprend l’impression sur l’imprimante spécifiée avec le paramètre **-p** .|  
+|-e|imprime une page de test sur l’imprimante spécifiée avec le paramètre **-p** .|  
+|-x|Annule tous les travaux d’impression sur l’imprimante spécifiée avec le paramètre **-p** .|  
+|-s \<ServerName >|Spécifie le nom de l’ordinateur distant qui héberge l’imprimante que vous souhaitez gérer. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est utilisé.|  
+|-p @no__t 0printerName >|Spécifie le nom de l’imprimante que vous souhaitez gérer. Obligatoire.|  
+|-u \<UserName >-w \<Password >|Spécifie un compte disposant des autorisations nécessaires pour se connecter à l’ordinateur qui héberge l’imprimante que vous souhaitez gérer. Tous les membres du groupe Administrateurs local de l’ordinateur cible disposent de ces autorisations, mais les autorisations peuvent également être accordées à d’autres utilisateurs. Si vous ne spécifiez pas de compte, vous devez avoir ouvert une session sous un compte disposant de ces autorisations pour que la commande fonctionne.|  
 |/?|Affiche l'aide à l'invite de commandes.|  
 
 ## <a name="remarks"></a>Notes  
-- Le **prnqctl** commande est un script Visual Basic situé dans le %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Pour utiliser cette commande, à une invite de commandes, tapez **cscript** suivie du chemin d’accès complet au fichier de prnqctl, ou modifiez les répertoires vers le dossier approprié. Exemple :  
+- La commande **prnqctl** est un script Visual Basic situé dans le répertoire%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Pour utiliser cette commande, à l’invite de commandes, tapez **cscript** suivi du chemin d’accès complet au fichier prnqctl ou accédez au dossier approprié. Exemple :  
   ```  
   cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnqctl  
   ```  
-- Si les informations que vous fournissez contient des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).  
+- Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).  
 
-## <a name="BKMK_examples"></a>Exemples  
-Pour imprimer une page de test sur l’imprimante Laserprinter1 partagé par le \\\Server1 ordinateur, tapez :  
+## <a name="BKMK_examples"></a>Illustre  
+Pour imprimer une page de test sur l’imprimante Laserprinter1 partagée par l’ordinateur \\ \ Serveur1, tapez :  
 ```  
 cscript Prnqctl -e -s Server1 -p Laserprinter1  
 ```  
@@ -67,4 +67,4 @@ cscript Prnqctl -x -p Laserprinter1
 
 #### <a name="additional-references"></a>Références supplémentaires  
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
-[Référence des commandes d’impression](print-command-reference.md)  
+[imprimer la référence des commandes](print-command-reference.md)  

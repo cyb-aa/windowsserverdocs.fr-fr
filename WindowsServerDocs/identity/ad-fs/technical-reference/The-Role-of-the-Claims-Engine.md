@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 055f9baff9c20019493a54fbb92e5c53c199a5e3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4d227be18cd69d79f24edca96bd873afda3f2d2a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865518"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385450"
 ---
 # <a name="the-role-of-the-claims-engine"></a>Rôle du moteur de revendications
 À son niveau le plus élevé, le moteur de \(revendications\) dans services ADFS AD FS\-est un moteur basé sur des règles qui est dédié au traitement et au traitement des demandes de revendication pour le service FS (Federation Service). Le moteur de revendications est la seule entité du service de fédération qui est chargée de l’exécution de chacun des ensembles de règles sur toutes les relations d’approbation fédérée que vous avez configurées, ainsi que de la transmission du résultat de sortie au pipeline de revendications.  

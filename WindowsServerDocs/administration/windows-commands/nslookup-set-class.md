@@ -1,8 +1,8 @@
 ---
 title: nslookup set class
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7953f450c17afdee849515f8d8945631a30f4b98
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 312b409490603fcb0ded63a78f3a2936f5216de1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436838"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372981"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
 
 
-Modifie la classe de requête. La classe spécifie le groupe de protocole des informations.
+Modifie la classe de requête. La classe spécifie le groupe de protocoles des informations.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,7 +36,7 @@ set class=<Class>
 
 | Paramètre |                                                                                                                                    Description                                                                                                                                    |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<Class>  | La classe par défaut est in. Ce qui suit répertorie les valeurs valides pour cette commande.</br>-IN : Spécifie la classe Internet.</br>-CHAOS : Spécifie la classe Chaos.</br>-HESIOD : Spécifie la classe MIT Athena Hesiod.</br>-TOUTE : Spécifie un des caractères génériques précédemment répertoriées. |
+| \<> De la classe  | La classe par défaut est dans. La liste suivante répertorie les valeurs valides pour cette commande.</br>DANS Spécifie la classe Internet.</br>CHAOS Spécifie la classe chaos.</br>- HESIOD: Spécifie la classe MIT Athena Hesiod.</br>AUX Spécifie l’un des caractères génériques précédemment listés. |
 |   {aide   |                                                                                                                                        ?}                                                                                                                                         |
 
 #### <a name="additional-references"></a>Références supplémentaires

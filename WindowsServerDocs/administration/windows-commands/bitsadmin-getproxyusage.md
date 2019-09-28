@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getproxyusage
-description: Rubrique de commandes de Windows pour **bitsadmin getproxyusage** -récupère le paramètre d’utilisation de proxy pour le travail spécifié.
+description: La rubrique commandes Windows pour **Bitsadmin getproxyusage** -récupère le paramètre d’utilisation du proxy pour le travail spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 20ba418b8dfcf3d96d9b20b22e53797a232a13f1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea9a22f4fb35af3436d02d9f23b62ce0888a26b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863880"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381290"
 ---
 # <a name="bitsadmin-getproxyusage"></a>bitsadmin getproxyusage
 
 
 
-Récupère le paramètre de l’utilisation de proxy pour le travail spécifié.
+Récupère le paramètre d’utilisation du proxy pour le travail spécifié.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,23 +36,23 @@ bitsadmin /GetProxyUsage <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
 ## <a name="remarks"></a>Notes
 
 Les valeurs possibles sont :
--   PRÉCONFIGURATION, utiliser les valeurs par défaut de Internet Explorer du propriétaire.
--   NO_PROXY : n’utilisez pas un serveur proxy.
--   REMPLACER, utilisez une liste de proxy explicite.
--   Détection automatique, détecter automatiquement les paramètres de proxy.
+-   Préconfiguration : utilisez les paramètres par défaut d’Internet Explorer du propriétaire.
+-   NO_PROXY : n’utilisez pas de serveur proxy.
+-   OVERRIDE : utilisez une liste de proxys explicite.
+-   DÉTECTION automatique : détecte automatiquement les paramètres du proxy.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant récupère l’utilisation de proxy pour le travail nommé *myDownloadJob*.
+L’exemple suivant récupère l’utilisation du proxy pour le travail nommé *myDownloadJob*.
 ```
 C:\>bitsadmin /GetProxyUsage myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

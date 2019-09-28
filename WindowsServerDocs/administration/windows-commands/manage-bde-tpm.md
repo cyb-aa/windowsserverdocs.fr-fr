@@ -1,8 +1,8 @@
 ---
-title: gérer-bde tpm
-description: 'Rubrique de commandes de Windows pour ***- '
+title: gérer-TPM BDE
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc3cfa583866335d214282be08366854dec77d0f
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 577f5f2ecb85ac8c0c28fef2ca343635796454d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280006"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373828"
 ---
-# <a name="manage-bde-tpm"></a>gérer-bde : module de plateforme sécurisée
+# <a name="manage-bde-tpm"></a>Manage-bde : TPM
 
-> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 > 
 > [!IMPORTANT]
-> Cette commande n’est pas pris en charge pour une utilisation sur les ordinateurs exécutant Windows 8, Windows Server 2012 ou des systèmes d’exploitation ultérieurs. Pour ces ordinateurs, vous pouvez utiliser la [applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell](https://docs.microsoft.com/powershell/module/trustedplatformmodule/).
-> Si vous utilisez cette commande sur l’ordinateur qui exécute Windows 7 ou Windows Server 2008, vous pouvez toujours configurer Trusted Platform Module (TPM l’ordinateur) à l’aide de cette commande. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+> Cette commande n’est pas prise en charge pour une utilisation sur des ordinateurs exécutant Windows 8, Windows Server 2012 ou des systèmes d’exploitation ultérieurs. Pour ces ordinateurs, vous pouvez utiliser les [applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell](https://docs.microsoft.com/powershell/module/trustedplatformmodule/).
+> Si vous utilisez cette commande sur un ordinateur exécutant Windows 7 ou Windows Server 2008, vous pouvez toujours configurer le Module de plateforme sécurisée (TPM) de l’ordinateur à l’aide de cette commande. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 > ## <a name="syntax"></a>Syntaxe
 > ```
 > manage-bde -tpm [-turnon] [-takeownership <OwnerPassword>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
@@ -35,20 +35,20 @@ ms.locfileid: "67280006"
 > 
 > |    Paramètre    |                                                                              Description                                                                               |
 > |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> |     -Activer     |              Active et Active le module TPM, le mot de passe du propriétaire TPM à définir. Vous pouvez également utiliser **-t** comme une version abrégée de cette commande.              |
-> | -takeownership  |                      Prend possession du module TPM en définissant un mot de passe de propriétaire. Vous pouvez également utiliser **-o** comme une version abrégée de cette commande.                       |
-> | <OwnerPassword> |                                                      Représente le mot de passe de propriétaire que vous spécifiez pour le module de plateforme sécurisée.                                                       |
-> |  -computername  | Spécifie que bde.exe gérer permet de modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **- cn** comme une version abrégée de cette commande. |
-> |     <Name>      |    Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.     |
-> |    -? ou /?     |                                                               Affiche un résumé aide à l’invite de commandes.                                                               |
-> |   -help ou-h   |                                                             Affiche une aide à l’invite de commande complète.                                                              |
+> |     -turnon     |              Active et active le module de plateforme sécurisée, ce qui permet de définir le mot de passe du propriétaire du module de plateforme sécurisée. Vous pouvez également utiliser **-t** comme version abrégée de cette commande.              |
+> | -TakeOwnership  |                      Prend possession du module de plateforme sécurisée en définissant un mot de passe propriétaire. Vous pouvez également utiliser **-o** comme version abrégée de cette commande.                       |
+> | <OwnerPassword> |                                                      Représente le mot de passe propriétaire que vous spécifiez pour le module de plateforme sécurisée.                                                       |
+> |  -ComputerName  | Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande. |
+> |     <Name>      |    Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.     |
+> |    -? ou /?     |                                                               Affiche une brève aide à l’invite de commandes.                                                               |
+> |   -Help ou-h   |                                                             Affiche l’aide complète à l’invite de commandes.                                                              |
 > 
-> ## <a name="BKMK_Examples"></a>Exemples
-> L’exemple suivant illustre l’utilisation de la **- tpm** commande pour activer le TPM.
+> ## <a name="BKMK_Examples"></a>Illustre
+> L’exemple suivant illustre l’utilisation de la commande **-TPM** pour activer le module de plateforme sécurisée.
 > ```
 > manage-bde  tpm -turnon
 > ```
-> L’exemple suivant illustre l’utilisation de la **tpm** commande pour prendre possession du module TPM et de définir le mot de passe de propriétaire sur 0wnerP@ss.
+> L’exemple suivant illustre l’utilisation de la commande **TPM** pour prendre possession du module de plateforme sécurisée et définir le mot de passe du propriétaire sur 0wnerP@ss.
 > ```
 > manage-bde  tpm  takeownership 0wnerP@ss
 > ```

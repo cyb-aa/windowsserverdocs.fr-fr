@@ -2,7 +2,7 @@
 title: Migrer vos licences d’accès client aux services Bureau à distance
 description: Cet article décrit comment migrer vos licences d’accès client des services Bureau à distance vers de nouveaux serveurs de licence Windows Server 2016.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 msreviewer: ''
 nams.suite: ''
 nams.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: c947375b58c0ad88781335b799055e101bd2a193
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 02d783916625a6f24e3413e8801686d8e5ddb8f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66447099"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404042"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Migrer vos licences d’accès client aux services Bureau à distance
 

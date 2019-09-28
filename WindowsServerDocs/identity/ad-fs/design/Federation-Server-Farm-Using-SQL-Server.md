@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c6c37b6f98b3ac80179b0ae3b7e2a0c1e34a4975
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0ab150a5070f076db70941bb106b42c3fb15411e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867881"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408096"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Batterie de serveurs de fédération utilisant SQL Server
 
@@ -23,7 +23,7 @@ Cette topologie pour \(services ADFS AD FS\) diffère de la batterie de serveurs
 > [!IMPORTANT]  
 > Si vous souhaitez créer une batterie de AD FS et utiliser SQL Server pour stocker vos données de configuration, vous pouvez utiliser SQL Server 2008 et versions plus récentes, y compris SQL Server 2012 et SQL Server 2014.  
   
-## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement  
+## <a name="deployment-considerations"></a>Considérations relatives au déploiement  
 Cette section décrit les différentes considérations à prendre en compte concernant le public concerné, les avantages et les limitations associés à cette topologie de déploiement.  
   
 ### <a name="who-should-use-this-topology"></a>Qui doit utiliser cette topologie ?  
@@ -54,9 +54,9 @@ Les versions suivantes de SQL Server sont prises en charge avec AD FS dans Windo
   
 -   SQL Server 2008 \/ R2  
   
--   SQL Server 2012  
+-   SQL Server 2012  
   
--   SQL Server 2014  
+-   SQL Server 2014  
   
 ## <a name="server-placement-and-network-layout-recommendations"></a>Recommandations relatives à l’emplacement du serveur et à la disposition du réseau  
 À l’instar de la batterie de serveurs de Fédération avec la topologie wid, tous les serveurs de Fédération de la batterie de serveurs sont configurés\) pour \(utiliser un nom DNS du système \(de noms de domaine de cluster qui représente le nom\)duserviceFS(FederationService)et une adresse IP de cluster dans le cadre de la configuration \(du\) cluster NLB d’équilibrage de charge réseau. Cela permet à l’hôte NLB d’allouer des demandes de client aux serveurs de Fédération individuels. Les serveurs proxys de Fédération peuvent être utilisés pour effectuer un proxy des demandes des clients vers la batterie de serveurs de Fédération.  

@@ -1,8 +1,8 @@
 ---
 title: nfsstat
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9db8b903d4c3681b2b3bae3424f8af83696ae2c7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4f9db119596b5602f18acfa10af6aa1b7cbbc9b2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853290"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373180"
 ---
 # <a name="nfsstat"></a>nfsstat
 
 
 
-Vous pouvez utiliser **nfsstat appartient** pour afficher ou réinitialiser le nombre d’appels passés au serveur pour NFS.
+Vous pouvez utiliser **nfsstat** pour afficher ou réinitialiser le nombre d’appels effectués vers le serveur pour NFS.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,4 +34,4 @@ nfsstat [-z]
 
 ## <a name="description"></a>Description
 
-Lorsqu’il est utilisé sans le **- z** option, le **nfsstat appartient** utilitaire de ligne de commande affiche le nombre de NFS V2, NFS V3 et les appels de montage V3 apportées au serveur dans la mesure où les compteurs ont été définies sur 0, soit lorsque le service démarrage ou lors de la réinitialisation des compteurs à l’aide de **nfsstat appartient - z**.
+Lorsqu’il est utilisé sans l’option **-z** , l’utilitaire de ligne de commande **nfsstat** affiche le nombre d’appels NFS v2, NFS v3 et Mount v3 effectués au serveur depuis que les compteurs ont été définis sur 0, au moment du démarrage du service ou de la réinitialisation des compteurs à l’aide **de nfsstat-z**.

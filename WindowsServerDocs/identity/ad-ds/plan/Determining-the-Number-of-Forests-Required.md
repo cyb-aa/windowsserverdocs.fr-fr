@@ -7,61 +7,61 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1721190bf592b6f7a1274d60d47bbc755eeff1c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21bece55ef64a552ddc641befd94d3ce19e78db6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820650"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408884"
 ---
 # <a name="determining-the-number-of-forests-required"></a>Détermination du nombre de forêts nécessaires
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Pour déterminer le nombre de forêts que vous devez déployer, vous devez soigneusement identifier et évaluer les exigences d’isolation et d’autonomie pour chaque groupe dans votre organisation et comment atteindre ces objectifs pour les modèles de conception de forêt appropriée.  
+Pour déterminer le nombre de forêts que vous devez déployer, vous devez identifier et évaluer soigneusement les exigences d’isolation et d’autonomie pour chaque groupe de votre organisation et mapper ces spécifications aux modèles de conception de forêt appropriés.  
   
-Lors de la détermination du nombre de forêts pour déployer dans votre organisation, considérez les points suivants :  
+Lorsque vous déterminez le nombre de forêts à déployer pour votre organisation, tenez compte des points suivants :  
   
--   Exigences d’isolation limitent vos choix de conception. Par conséquent, si vous identifiez les exigences d’isolation, assurez-vous que les groupes nécessitent en fait d’isolation des données et que l’autonomie des données n’est pas suffisante pour leurs besoins. Vérifiez que les différents groupes de votre organisation comprennent clairement les concepts d’isolation et d’autonomie.  
+-   Les exigences d’isolation limitent vos choix de conception. Par conséquent, si vous identifiez les exigences d’isolation, assurez-vous que les groupes requièrent réellement l’isolation des données et que l’autonomie des données n’est pas suffisante pour répondre à leurs besoins. Veillez à ce que les différents groupes de votre organisation comprennent clairement les concepts d’isolation et d’autonomie.  
   
--   Négociation de la conception peut prendre du temps. Il peut s’avérer difficile pour les groupes de parvenir à un accord sur la propriété et l’utilise pour les ressources disponibles. Assurez-vous d’allouer suffisamment de temps pour les groupes dans votre organisation pour effectuer des recherches adéquates pour identifier leurs besoins. Définissez des échéances fermes pour prendre des décisions de conception et obtenir un consensus à partir de toutes les parties sur les délais établis.  
+-   La négociation de la conception peut être un processus long. Il peut être difficile pour les groupes d’arriver à un accord sur la propriété et les utilisations des ressources disponibles. Veillez à laisser suffisamment de temps aux groupes de votre organisation pour effectuer des recherches adéquates afin d’identifier leurs besoins. Définir des échéances fermes pour les décisions de conception et obtenir le consensus de toutes les parties sur les échéances établies.  
   
--   Détermination du nombre de forêts pour déployer implique l’équilibrage des coûts par rapport à des avantages. Un modèle de forêt unique est l’option la plus rentable et nécessite le moins de surcharge administrative. Bien qu’un groupe dans l’organisation peut préférer des opérations de service autonome, il peut être plus rentable pour l’organisation pour vous abonner à la prestation de services d’un groupe d’informatique centralisé des informations fiables. Ainsi, le groupe de gestion des données propre sans créer de coûts supplémentaires pour la gestion des services. Équilibrage des coûts par rapport à des avantages peut nécessiter une entrée à partir du sponsor exécutif.  
+-   La détermination du nombre de forêts à déployer implique l’équilibrage des coûts par rapport aux avantages. Un modèle à forêt unique est l’option la plus rentable et requiert le moins de charge administrative. Bien qu’un groupe de l’Organisation puisse préférer des opérations de service autonomes, il peut être plus rentable pour l’organisation de s’abonner à la livraison de service à partir d’un groupe informatique centralisé et approuvé. Cela permet au groupe de gérer ses données sans créer les coûts supplémentaires de la gestion des services. L’équilibrage des coûts par rapport aux avantages peut nécessiter l’intervention du sponsor exécutif.  
   
-    Une seule forêt est la configuration le plus simple à gérer. Il permet une collaboration maximale au sein de l’environnement, car :  
+    Une seule forêt est la configuration la plus simple à gérer. Cela permet une collaboration maximale au sein de l’environnement, car :  
   
-    -   Tous les objets dans une forêt unique sont répertoriés dans le catalogue global. Par conséquent, aucune synchronisation entre les forêts n’est nécessaire.  
+    -   Tous les objets d’une même forêt sont répertoriés dans le catalogue global. Par conséquent, aucune synchronisation entre les forêts n’est requise.  
   
-    -   Gestion d’une infrastructure en double n’est pas nécessaire.  
+    -   La gestion d’une infrastructure en double n’est pas obligatoire.  
   
--   Nous déconseillons copropriété d’une forêt unique par deux les organisations informatiques distinctes et autonomes. À l’avenir, les objectifs des deux groupes informatiques peuvent changer, afin qu’ils ne peuvent plus accepter contrôle partagé.  
+-   Nous ne recommandons pas la copropriété d’une forêt unique par deux organisations informatiques distinctes et autonomes. À l’avenir, les objectifs des deux groupes informatiques peuvent changer, afin qu’ils ne puissent plus accepter le contrôle partagé.  
   
--   Nous ne recommandons pas l’administration des services de sous-traitance à plusieurs en dehors du partenaire. Les organisations multinationales qui ont des groupes dans différents pays ou régions peuvent choisir externaliser l’administration du service à un autre partenaire externe pour chaque pays ou région. Étant donné que plusieurs partenaires extérieurs ne peut pas être isolés les uns des autres, les actions d’un partenaire peuvent affecter le service de l’autre, ce qui rend difficile contenir les partenaires envers leurs contrats de niveau de service.  
+-   Nous ne recommandons pas l’administration du service d’externalisation à plusieurs partenaires externes. Les organisations multinationales qui possèdent des groupes dans des pays ou régions différents peuvent choisir d’externaliser l’administration des services à un autre partenaire externe pour chaque pays ou région. Étant donné que plusieurs partenaires extérieurs ne peuvent pas être isolés les uns des autres, les actions d’un partenaire peuvent affecter le service de l’autre, ce qui rend difficile la responsabilité des partenaires envers leurs contrats de niveau de service.  
   
--   Une seule instance d’un domaine Active Directory doit exister à tout moment. Microsoft ne prend pas en charge le clonage, le fractionnement, copie contrôleurs de domaine ou d’un domaine dans une tentative pour établir une deuxième instance du même domaine. Pour plus d’informations sur cette limitation, consultez la section suivante.  
+-   Une seule instance d’un domaine Active Directory doit exister à tout moment. Microsoft ne prend pas en charge le clonage, le fractionnement ou la copie de contrôleurs de domaine à partir d’un domaine lors d’une tentative d’établissement d’une deuxième instance du même domaine. Pour plus d’informations sur cette limitation, consultez la section suivante.  
   
-## <a name="restructuring-limitations"></a>Restructuration de limitations  
-Quand une entreprise acquiert une autre société, unité commerciale, ou ligne de produits, la société peut également acquérir des ressources informatiques correspondantes du vendeur. Plus précisément, l’acheteur souhaiterez acquérir tout ou partie des contrôleurs de domaine qui hébergent les comptes d’utilisateur, les comptes d’ordinateurs et les groupes de sécurité qui correspondent aux ressources d’entreprise qui doivent être acquises. Les seules méthodes prises en charge pour l’acheteur acquérir les ressources informatiques qui sont stockés dans la forêt d’Active Directory du vendeur sont les suivantes :  
+## <a name="restructuring-limitations"></a>Limitations de la restructuration  
+Lorsqu’une entreprise acquiert une autre société, une unité commerciale ou une gamme de produits, elle souhaitera peut-être également acquérir des ressources informatiques correspondantes auprès du vendeur. Plus précisément, l’acheteur peut souhaiter acquérir une partie ou la totalité des contrôleurs de domaine qui hébergent les comptes d’utilisateur, les comptes d’ordinateurs et les groupes de sécurité qui correspondent aux ressources de l’entreprise qui doivent être acquises. Les seules méthodes prises en charge pour que l’acheteur obtienne les ressources informatiques stockées dans la forêt Active Directory du vendeur sont les suivantes :  
   
-1.  Acquérir la seule instance de la forêt, y compris tous les contrôleurs de domaine et les données d’annuaire dans l’ensemble de la forêt du vendeur.  
+1.  Acquérir la seule instance de la forêt, y compris tous les contrôleurs de domaine et les données d’annuaire de l’ensemble de la forêt du vendeur.  
   
-2.  Migrer les données d’annuaire nécessaires à partir de la forêt ou des domaines du vendeur à un ou plusieurs des domaines de l’acheteur. La cible pour une telle migration peut être un entièrement nouvelle forêt ou un ou plusieurs domaines existants qui sont déjà déployées dans la forêt de l’acheteur.  
+2.  Migrez les données d’annuaire nécessaires de la forêt ou des domaines du vendeur vers un ou plusieurs des domaines de l’acheteur. La cible d’une telle migration peut être une toute nouvelle forêt ou un ou plusieurs domaines existants déjà déployés dans la forêt de l’acheteur.  
   
-Cette limitation existe parce que :  
+Cette limitation de support existe, car :  
   
--   Chaque domaine dans une forêt Active Directory est affecté à une identité unique lors de la création de la forêt. Copie de contrôleurs de domaine à partir d’un domaine d’origine à une compromission de domaine cloné la sécurité des domaines et de la forêt. Menaces pour le domaine d’origine et le domaine cloné sont les suivantes :  
+-   Chaque domaine d’une forêt Active Directory se voit affecter une identité unique lors de la création de la forêt. La copie de contrôleurs de domaine d’un domaine d’origine vers un domaine cloné compromet la sécurité des domaines et de la forêt. Les menaces pesant sur le domaine d’origine et le domaine cloné sont les suivantes :  
   
-    -   Partage des mots de passe qui peuvent être utilisées pour accéder aux ressources  
+    -   Partage des mots de passe qui peuvent être utilisés pour accéder aux ressources  
   
-    -   Informations concernant les comptes d’utilisateur disposant de privilèges et les groupes  
+    -   Insight sur les comptes et les groupes d’utilisateurs privilégiés  
   
-    -   Mappage d’adresses IP pour les noms d’ordinateurs  
+    -   Mappage d’adresses IP aux noms d’ordinateurs  
   
-    -   Ajouts, suppressions et les modifications des informations d’annuaire si les contrôleurs de domaine dans un domaine cloné jamais établissent une connectivité de réseau avec des contrôleurs de domaine du domaine d’origine  
+    -   Ajouts, suppressions et modifications d’informations d’annuaire si des contrôleurs de domaine dans un domaine cloné établissent déjà une connectivité réseau avec les contrôleurs de domaine du domaine d’origine  
   
--   Domaines clonés partagent une identité de sécurité commune ; Par conséquent, relations d’approbation ne peut pas être établies entre eux, même si un ou les deux domaines ont été renommées.  
+-   Les domaines clonés partagent une identité de sécurité commune ; par conséquent, les relations d’approbation ne peuvent pas être établies entre elles, même si l’un des domaines ou les deux ont été renommés.  
   
 ## <a name="in-this-section"></a>Dans cette section  
   
@@ -69,7 +69,7 @@ Cette limitation existe parce que :
   
 -   [Mappage des exigences de conception aux modèles de conception de forêt](Forest-Design-Models.md)  
   
--   [À l’aide du modèle de forêt de domaines d’organisation](../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md)  
+-   [Utilisation du modèle de forêt de domaine d’organisation](../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md)  
   
 
 

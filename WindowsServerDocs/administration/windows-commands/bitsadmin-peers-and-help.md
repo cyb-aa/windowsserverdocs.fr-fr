@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin homologues et aide
-description: Rubrique de commandes de Windows pour **bitsadmin pairs et aider à** -affiche l’utilisation de ligne de commande pour le **homologues** commutateurs.
+title: Bitsadmin et aide
+description: 'Rubrique relative aux commandes Windows pour les **pairs Bitsadmin et l’aide** : affiche l’utilisation de la ligne de commande pour les commutateurs **pairs** .'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 90231e6bbc467b0798548e098491aae2de9616ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a61c16c9fb390409697b11586ac05384b56f07e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856310"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380943"
 ---
-# <a name="bitsadmin-peers-and-help"></a>Bitsadmin homologues et aide
+# <a name="bitsadmin-peers-and-help"></a>Bitsadmin et aide
 
 
 
-Affiche l’utilisation de ligne de commande pour le **homologues** commutateurs.
+Affiche l’utilisation de la ligne de commande pour les commutateurs **pairs** .
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,13 +32,13 @@ Affiche l’utilisation de ligne de commande pour le **homologues** commutateurs
 Bitsadmin /Peers /Help 
 ```
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-La commande suivante affiche l’aide en ligne de commande pour le **homologues** commutateurs.
+La commande suivante affiche l’aide de la ligne de commande pour les commutateurs **pairs** .
 ```
 Bitsadmin /Peers /Help
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

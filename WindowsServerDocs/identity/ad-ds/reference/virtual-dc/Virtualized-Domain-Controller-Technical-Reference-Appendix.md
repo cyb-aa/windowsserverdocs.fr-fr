@@ -7,44 +7,44 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 9e3a5cc2c71455bb040f1311bdbfed1ac7e213fb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1018d5bbff5922df5a696e5c4fad12dc9f6ec3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832230"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408588"
 ---
 # <a name="virtualized-domain-controller-technical-reference-appendix"></a>Annexe des informations techniques de référence sur les contrôleurs de domaine virtualisés
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique traite des sujets suivants :  
   
 -   [Terminologie](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_Terms)  
   
--   [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
+-   [FixVDCPermissions. ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
   
-## <a name="BKMK_Terms"></a>Terminologie  
+## <a name="BKMK_Terms"></a>Correspondance  
   
--   **Instantané** -l’état d’un ordinateur virtuel à un moment précis dans le temps. Il est dépendant de la chaîne de prise de captures instantanées, sur le matériel et sur la plateforme de virtualisation.  
+-   **Instantané** : état d’une machine virtuelle à un moment donné. Elle dépend de la chaîne des captures instantanées précédentes prises, sur le matériel et sur la plateforme de virtualisation.  
   
--   **Clone** : un terminer et de séparer la copie d’une machine virtuelle. Il est dépendant sur le matériel virtuel (hyperviseur).  
+-   **Cloner** : copie complète et séparée d’une machine virtuelle. Il dépend du matériel virtuel (hyperviseur).  
   
--   **Total Clone** -un clone complet est une copie indépendante d’une machine virtuelle qui ne partage aucune ressource avec la machine virtuelle parent après l’opération de clonage. Opération en cours d’un clone complet est totalement distincte à partir de la machine virtuelle parente.  
+-   **Clone complet** : un clone complet est une copie indépendante d’une machine virtuelle qui ne partage aucune ressource avec la machine virtuelle parente après l’opération de clonage. Le fonctionnement en cours d’un clone complet est entièrement distinct de l’ordinateur virtuel parent.  
   
--   **Disque de différenciation** -une copie d’une machine virtuelle qui partage des disques virtuels avec la machine virtuelle parente de manière continue. Généralement, cela permet d’économiser de l’espace disque et permet à plusieurs machines virtuelles à utiliser la même installation de logiciel.  
+-   **Disque de différenciation** : copie d’un ordinateur virtuel qui partage des disques virtuels avec la machine virtuelle parente de manière continue. Cela permet généralement d’économiser de l’espace disque et permet à plusieurs machines virtuelles d’utiliser la même installation de logiciel.  
   
--   **Copie de la machine virtuelle**- une copie des fichiers système de tous les fichiers connexes et les dossiers d’un ordinateur virtuel.  
+-   **Copie de machine virtuelle**: copie du système de fichiers de tous les fichiers et dossiers associés d’un ordinateur virtuel.  
   
--   **Copie de fichiers de disque dur virtuel** -une copie du disque dur virtuel d’une machine virtuelle  
+-   **Copie de fichier VHD** : copie du disque dur virtuel d’une machine virtuelle  
   
--   **ID de génération de machine virtuelle** : un entier de 128 bits donné à la machine virtuelle par l’hyperviseur. Cet ID est stocké en mémoire et réinitialiser chaque fois qu’un instantané est appliqué. La conception utilise un mécanisme indépendant de l’hyperviseur pour exposer l’ID de génération d’ordinateur virtuel dans la machine virtuelle. L’implémentation de Hyper-V expose l’ID de la table ACPI de la machine virtuelle.  
+-   **ID de génération d’ordinateur virtuel** : entier 128 bits donné à la machine virtuelle par l’hyperviseur. Cet ID est stocké en mémoire et réinitialisé chaque fois qu’un instantané est appliqué. La conception utilise un mécanisme indépendant de l’hyperviseur pour exposer l’ID de génération d’ordinateur virtuel à l’ordinateur virtuel. L’implémentation d’Hyper-V expose l’ID dans la table ACPI de l’ordinateur virtuel.  
   
--   **Import/Export** -fonctionnalité de Hyper-V, A, qui permet à l’utilisateur enregistrer la machine virtuelle complète (fichiers machine virtuelle, disque dur virtuel et la configuration d’ordinateur). Il permet ensuite aux utilisateurs de mettre l’ordinateur sur le même ordinateur que la même machine virtuelle (restauration), à l’aide de cet ensemble de fichiers sur un autre ordinateur en tant que la même machine virtuelle (déplacer) ou une nouvelle machine virtuelle (copie)  
+-   **Importation/exportation** : fonctionnalité Hyper-V qui permet à l’utilisateur d’enregistrer l’intégralité de l’ordinateur virtuel (fichiers de machine virtuelle, VHD et configuration de l’ordinateur). Il permet ensuite aux utilisateurs d’utiliser ce jeu de fichiers pour ramener l’ordinateur sur le même ordinateur que la même machine virtuelle (restauration), sur un autre ordinateur que la même machine virtuelle (déplacement) ou sur une nouvelle machine virtuelle (copie).  
   
-## <a name="BKMK_FixPDCPerms"></a>FixVDCPermissions.ps1  
+## <a name="BKMK_FixPDCPerms"></a>FixVDCPermissions. ps1  
   
 ```  
 # Unsigned script, requires use of set-executionpolicy remotesigned -force  

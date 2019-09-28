@@ -2,7 +2,7 @@
 title: typeperf
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cfcbac82b88c0c8d8bcc706ebfd807f96e359de7
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 087b201c51d5aec8e6f61c7469c59307d3ed8b4d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66440778"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392298"
 ---
 # <a name="typeperf"></a>typeperf
 
@@ -41,30 +41,30 @@ typeperf -qx [object] [options]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<compteur [compteur [...]] >|Spécifie les compteurs de performance à surveiller.|
+|\<counter [Counter [...]] >|Spécifie les compteurs de performance à surveiller.|
 
 > [!NOTE]
-> le > de compteur est le nom complet d’un compteur de performance au  *\\ \\format Computer\Object (instance) \Counter* , par exemple  **\<**  **\\ \\Server1\Processor (0)\%Heure**de l’utilisateur.
+> **\<counter >** est le nom complet d’un compteur de performance au format *\\ @ no__t-4Computer\Object (instance) \Counter* , par exemple **\\ @ no__t-7Server1\Processor (0) \%** .
 
 ## <a name="options"></a>Options
 
 |                   Option                   |                                                         Description                                                          |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 |                     -?                     |                                               Affiche l’aide contextuelle.                                               |
-| -f \<&verbar;CSVbin&verbar;SQL> CSV&verbar; |                                    Spécifie le format du fichier de sortie. La valeur par défaut est CSV.                                     |
-|              -CF \<nom du fichier >               |              Spécifie un fichier contenant une liste de compteurs de performances à surveiller, avec un compteur par ligne.               |
-|             -Si < [[hh:] mm:] SS >             |                                  Spécifie l’intervalle d’échantillonnage. La valeur par défaut est d’une seconde.                                   |
+| -f \<CSV @ no__t-1TSV @ no__t-2BIN @ no__t-3SQL > |                                    Spécifie le format du fichier de sortie. La valeur par défaut est CSV.                                     |
+|              -CF \<filename >               |              Spécifie un fichier contenant une liste de compteurs de performances à surveiller, avec un compteur par ligne.               |
+|             -Si < [[hh :] mm :] SS >             |                                  Spécifie l’intervalle d’échantillonnage. La valeur par défaut est d’une seconde.                                   |
 |               -o \<filename >               |     Spécifie le chemin d’accès pour le fichier de sortie ou la base de données SQL. La valeur par défaut est STDOUT (écrit dans la fenêtre commande).      |
-|                -q [objet]                 | Affiche la liste des compteurs installés (aucune instance). Pour répertorier les compteurs d’un objet, incluez le nom de l’objet. \*\*\*TELS |
+|                -q [objet]                 | Affiche la liste des compteurs installés (aucune instance). Pour répertorier les compteurs d’un objet, incluez le nom de l’objet. \* @ NO__T-1 @ NO__T-2EXAMPLE |
 |                -QX [objet]                |        Affiche la liste des compteurs installés avec des instances de. Pour répertorier les compteurs d’un objet, incluez le nom de l’objet.        |
-|               -SC \<Samples >               |             Spécifie le nombre d’échantillons à collecter. La valeur par défaut consiste à collecter les données jusqu’à ce que CTRL + C soit enfoncé.              |
+|               -SC \<samples >               |             Spécifie le nombre d’échantillons à collecter. La valeur par défaut consiste à collecter les données jusqu’à ce que CTRL + C soit enfoncé.              |
 |            -nom \<de fichier de configuration >             |                                    Spécifie un fichier de paramètres contenant les options de commande.                                     |
-|            -s \<nom_ordinateur >             |                   Spécifie un ordinateur distant à surveiller si aucun ordinateur n’est spécifié dans le chemin d’accès au compteur.                    |
+|            -s \<computer_name >             |                   Spécifie un ordinateur distant à surveiller si aucun ordinateur n’est spécifié dans le chemin d’accès au compteur.                    |
 |                     -y                     |                                        Répondez oui à toutes les questions sans demander confirmation.                                        |
 
 ## <a name="BKMK_EXAMPLES"></a>Illustre
 
-- L’exemple suivant écrit les valeurs du temps processeur du processeur de compteur  **\\ \\de performance (_\% total)** de l’ordinateur local dans la fenêtre de commande à un intervalle d’échantillonnage par défaut de 1 seconde jusqu’à ce que CTRL + C soit enfoncé. .  
+- L’exemple suivant écrit les valeurs du compteur de performance de l’ordinateur local **\\ @ no__t-2Processor (_ total) \% temps processeur** dans la fenêtre de commande à un intervalle d’échantillonnage par défaut de 1 seconde jusqu’à ce que CTRL + C soit enfoncé.  
   ```
   typeperf "\Processor(_Total)\% Processor Time"
   ```  

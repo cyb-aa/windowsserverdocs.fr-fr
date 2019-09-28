@@ -1,23 +1,23 @@
 ---
 title: Gérer Windows Server
 description: Découvrez des outils, des recommandations et des conseils déiés à la gestion de Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ae87b12997aa3cb3ae3fe290c9243995b30d6b0
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 880f8da5bfb872fba6fe4886198d932c91f4bf86
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452818"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370466"
 ---
 # <a name="manage-windows-server"></a>Gérer Windows Server
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 >[!TIP]
 > Vous recherchez des informations sur des versions plus anciennes de Windows Server ? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
@@ -66,7 +66,7 @@ Outre les outils mentionnés ci-après, vous pouvez également utiliser les [Ser
 >Windows Admin Center est le nom officiel de ce que nous appelions auparavant « Projet Honolulu ».
 
 ### <a name="manage-on-premises-systems-with-server-manager"></a>Gérer des systèmes locaux avec le Gestionnaire de serveur
-Le [Gestionnaire de serveur](server-manager/server-manager.md) est une console de gestion incluse dans l’installation complète de Windows Server. (Il n’est pas disponible pour les installations qui n’ont pas l’interface utilisateur, Server Core n’inclut pas le Gestionnaire de serveur). Utilisez le Gestionnaire de serveur pour installer et supprimer des rôles de serveur, ajouter et supprimer des serveurs distants, démarrer et arrêter les services et afficher les données collectées relatives à votre environnement.
+Le [Gestionnaire de serveur](server-manager/server-manager.md) est une console de gestion incluse dans l’installation complète de Windows Server. (Elle n’est pas disponible pour les installations qui n’ont pas d’interface utilisateur ; Server Core n’inclut pas le Gestionnaire de serveur). Utilisez le Gestionnaire de serveur pour installer et supprimer des rôles de serveur, ajouter et supprimer des serveurs distants, démarrer et arrêter des services et afficher les données collectées sur votre environnement.
 
 ### <a name="manage-remote-systems-and-systems-without-ui-with-remote-server-administration-tools-rsat"></a>Gérer les systèmes distants et les systèmes sans interface utilisateur avec RSAT (Remote Server Administration Tools)
 Si votre environnement comprend des installations de Server Core ou des serveurs distants (locaux ou des ordinateurs virtuels), vous pouvez utiliser les outils [RSAT (Remote Server Administration Tools)](../remote/remote-server-administration-tools.md) pour gérer ces systèmes. Les outils RSAT comprennent le Gestionnaire de serveur, qui vous permet de gérer tous vos serveurs.
@@ -84,21 +84,21 @@ Bon nombre de décisions que vous prenez en tant qu’administrateur dépendent 
 
 Commencez par [Configurer les données de diagnostic Windows dans votre organisation](/windows/configuration/configure-windows-diagnostic-data-in-your-organization) pour plus d’informations sur les données de diagnostic qui peuvent être collectées à partir de Windows 10 et Windows Server.
 
-### <a name="setup-and-boot-event-collectionget-started-with-setup-and-boot-event-collectionmd"></a>[Le programme d’installation et de collecte d’événements de démarrage](get-started-with-setup-and-boot-event-collection.md)
-La Collection des événements de configuration et de démarrage vous permet de désigner un ordinateur « collecteur » capable de rassembler divers événements importants qui se produisent sur d’autres ordinateurs lors de leur démarrage ou de leur processus de configuration. Vous pouvez ensuite analyser les événements collectés avec l’Observateur d’événements, l’Analyseur de messages, Wevtutil ou les applets de commande Windows PowerShell. 
+### <a name="setup-and-boot-event-collectionget-started-with-setup-and-boot-event-collectionmd"></a>[Collecte d’événements de configuration et de démarrage](get-started-with-setup-and-boot-event-collection.md)
+La collecte des événements de configuration et de démarrage vous permet de désigner un ordinateur « collecteur » capable de rassembler divers événements importants qui se produisent sur d’autres ordinateurs lors de leur démarrage ou de leur processus de configuration. Vous pouvez ensuite analyser les événements collectés avec l’observateur d’événements, l’analyseur de messages, Wevtutil ou les applets de commande Windows PowerShell. 
 
-### <a name="software-inventory-logging-silsoftware-inventory-loggingget-started-with-software-inventory-loggingmd"></a>[Software Inventory Logging (SIL)](software-inventory-logging/get-started-with-software-inventory-logging.md)
+### <a name="software-inventory-logging-silsoftware-inventory-loggingget-started-with-software-inventory-loggingmd"></a>[Journalisation de l’inventaire logiciel](software-inventory-logging/get-started-with-software-inventory-logging.md)
 
 La journalisation de l’inventaire logiciel dans Windows Server est une fonctionnalité comprenant des applets de commande PowerShell qui permettant aux administrateurs de serveurs de récupérer la liste des logiciels qui sont installés sur ces derniers. De plus, elle collecte et transmet ces données régulièrement à un serveur web cible via le réseau, à l'aide du protocole HTTPS, à des fins d'agrégation. La gestion de cette fonctionnalité, principalement pour la collecte et le transfert quotidiens, est également assurée par des commandes PowerShell.
 
-### <a name="user-access-logging-ualuser-access-loggingget-started-with-user-access-loggingmd"></a>[Journalisation des (accès utilisateur UAL) des accès utilisateur](user-access-logging/get-started-with-user-access-logging.md)
+### <a name="user-access-logging-ualuser-access-loggingget-started-with-user-access-loggingmd"></a>[Journalisation des accès utilisateur](user-access-logging/get-started-with-user-access-logging.md)
 
-La Journalisation des accès utilisateur regroupe les événements d’appareils clients uniques et les requête des utilisateurs qui sont journalisés sur un ordinateur exécutant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 dans une base de données locale. Ces enregistrements sont accessibles (via une requête d’un administrateur de serveur) pour récupérer les quantités et les instances par rôle de serveur, par utilisateur, par périphérique, par serveur local et par date. De plus, la journalisation des accès utilisateur permet aux développeurs de logiciels non Microsoft d’instrumenter les événements de journalisation des accès utilisateur qui doivent être regroupés. 
+La journalisation des accès utilisateur regroupe les événements d’appareils clients uniques et les requêtes des utilisateurs qui sont journalisés sur un ordinateur exécutant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 dans une base de données locale. Ces enregistrements sont accessibles (via une requête d’un administrateur de serveur) pour récupérer les quantités et les instances par rôle de serveur, par utilisateur, par périphérique, par serveur local et par date. De plus, la journalisation des accès utilisateur permet aux développeurs de logiciels non-Microsoft d’instrumenter les événements de journalisation des accès utilisateur qui doivent être regroupés. 
 
 ## <a name="tune-your-windows-server-environment-for-performance"></a>Optimiser les performances de votre environnement Windows Server
 Utilisez les informations suivantes pour optimiser les performances de votre environnement.
 
-### <a name="performance-tuning-guidelinesperformance-tuningindexmd"></a>[Instructions de réglage des performances](performance-tuning/index.md)
+### <a name="performance-tuning-guidelinesperformance-tuningindexmd"></a>[Conseils d’optimisation des performances](performance-tuning/index.md)
 Passez en revue un ensemble d’instructions utiles pour régler les paramètres de serveur dans Windows Server 2016 et obtenir des gains de performance ou d’efficacité énergétique, en particulier lorsque la nature de la charge de travail varie peu au fil du temps.
 
 ### <a name="microsoft-server-performance-advisorserver-performance-advisormicrosoft-server-performance-advisormd"></a>[Microsoft Server Performance Advisor](server-performance-advisor/microsoft-server-performance-advisor.md)

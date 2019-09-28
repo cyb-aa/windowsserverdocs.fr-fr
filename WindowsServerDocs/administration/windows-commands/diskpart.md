@@ -1,16 +1,16 @@
 ---
 title: Commandes DiskPart
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 7155dbf34f9986b3ebdd8b549b6a861cf7fcfe3a
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 0826b773927f09cc846fb1cfdf4d5dfbf75d5cca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560428"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377827"
 ---
 # <a name="diskpart-commands"></a>Commandes DiskPart
 
@@ -18,7 +18,7 @@ S'applique à : Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2
 
 Les commandes DiskPart vous aident à gérer les lecteurs de votre PC (disques, partitions, volumes ou disques durs virtuels). Avant de pouvoir utiliser les commandes DiskPart, vous devez d’abord Lister, puis sélectionner un objet pour lui attribuer le focus. Quand un objet a le focus, toutes les commandes DiskPart que vous tapez agiront sur cet objet.
 
-Vous pouvez répertorier les objets disponibles et déterminer le numéro ou la lettre de lecteur d’un objet à l’aide des commandes **List Disk, List volume, List partition**et **List vdisk** . Les commandes **List Disk, List vdisk** et **List volume** affichent tous les disques et volumes présents sur l’ordinateur. Toutefois, la commande **List partition** affiche uniquement les partitions sur le disque qui a le focus. Lorsque vous utilisez les commandes de **liste** , un astérisque\*() s’affiche en regard de l’objet qui a le focus.
+Vous pouvez répertorier les objets disponibles et déterminer le numéro ou la lettre de lecteur d’un objet à l’aide des commandes **List Disk, List volume, List partition**et **List vdisk** . Les commandes **List Disk, List vdisk** et **List volume** affichent tous les disques et volumes présents sur l’ordinateur. Toutefois, la commande **List partition** affiche uniquement les partitions sur le disque qui a le focus. Lorsque vous utilisez les commandes de **liste** , un astérisque (\*) s’affiche en regard de l’objet qui a le focus.
 
 Lorsque vous sélectionnez un objet, le focus reste sur cet objet jusqu’à ce que vous sélectionnez un autre objet. Par exemple, si le focus est défini sur le disque 0 et que vous sélectionnez Volume 8 sur le disque 2, le focus passe du disque 0 au disque 2, volume 8. Certaines commandes modifient automatiquement le focus. Par exemple, lorsque vous créez une nouvelle partition, le focus bascule automatiquement vers la nouvelle partition.
 
@@ -26,20 +26,20 @@ Vous ne pouvez attribuer le focus qu’à une partition sur le disque sélection
 
 ## <a name="diskpart-commands"></a>Commandes DiskPart
 
-Pour démarrer l’interpréteur de commandes DiskPart, à l’invite de commandes, tapez:
+Pour démarrer l’interpréteur de commandes DiskPart, à l’invite de commandes, tapez :
 
 `diskpart`
 
 > [!IMPORTANT]
 > L’appartenance au groupe **administrateurs** local, ou équivalent, est la condition minimale requise pour exécuter Diskpart. 
 
-Vous pouvez exécuter les commandes suivantes dans l’interpréteur de commandes DiskPart:
+Vous pouvez exécuter les commandes suivantes dans l’interpréteur de commandes DiskPart :
 
   - [Proactive](active.md)  
       
   - [Ajouter](add.md)  
       
-  - [Assign](assign.md)  
+  - [Assignés](assign.md)  
       
   - [Attacher vdisk](attach-vdisk.md)  
       
@@ -77,7 +77,7 @@ Vous pouvez exécuter les commandes suivantes dans l’interpréteur de commande
       
   - [Aide](help.md)  
       
-  - [Importationation](import.md)  
+  - [Importer](import.md)  
       
   - [Inactive](inactive.md)  
       

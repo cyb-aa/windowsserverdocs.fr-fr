@@ -1,18 +1,18 @@
 ---
 title: Performances du processeur Hyper-V
 description: Considérations sur les performances du processeur dans le réglage des performances Hyper-V
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 232141758032a8e21eca50ddb73ac9bc3cf6af56
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5d61d0e37bd80033bfcfb0cf5c601d8bcedda104
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866548"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370040"
 ---
 # <a name="hyper-v-processor-performance"></a>Performances du processeur Hyper-V
 

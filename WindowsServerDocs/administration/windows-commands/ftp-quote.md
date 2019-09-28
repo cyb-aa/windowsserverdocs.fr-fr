@@ -1,8 +1,8 @@
 ---
-title: guillemet de FTP
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Devis FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f468bfc384673818dc53be303f82cd4803cb2eb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 65660cf7311713295dae8a94c9174229f5ee44be
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438494"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376081"
 ---
-# <a name="ftp-quote"></a>FTP : devis
+# <a name="ftp-quote"></a>FTP : citation
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Transmet textuellement des arguments au serveur ftp distant. Un code de réponse ftp unique est renvoyé.   
+Envoie des arguments textuels au serveur FTP distant. Un seul code de réponse FTP est retourné.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 quote <Argument>[ ]  
@@ -33,15 +33,15 @@ quote <Argument>[ ]
 
 | Paramètre  |                    Description                    |
 |------------|---------------------------------------------------|
-| <Argument> | Spécifie l’argument à envoyer au serveur ftp. |
+| <Argument> | Spécifie l’argument à envoyer au serveur FTP. |
 
 ## <a name="remarks"></a>Notes  
-Le **devis** commande est identique à la **littéral** commande.  
-## <a name="BKMK_Examples"></a>Exemples  
-Envoyer un **quitter** commande au serveur ftp distant.  
+La commande **quot** est identique à la commande **littérale** .  
+## <a name="BKMK_Examples"></a>Illustre  
+Envoyez une commande **Quit** au serveur FTP distant.  
 ```  
 quote quit  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [ftp: literal_1](ftp-literal_1.md)  
+-   [FTP : literal_1](ftp-literal_1.md)  
 -   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

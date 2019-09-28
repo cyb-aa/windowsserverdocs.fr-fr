@@ -1,7 +1,7 @@
 ---
 title: Mise en réseau
 description: Cette rubrique fournit une vue d’ensemble des technologies de mise en réseau SDN (Software Defined Networking) et de plateforme réseau qui sont disponibles dans Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 layout: LandingPage
 ms.technology: networking
 ms.topic: landing-page
@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: fb36f0ff804b139149922596a05d1ff649884bdd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0d9c30f52082f10b482df3403fc79daa6c888798
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868968"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406770"
 ---
 # <a name="networking"></a>Mise en réseau
 
@@ -545,7 +545,7 @@ DirectAccess et VPN est un service de rôle du rôle de serveur d'accès à dist
     </li>
 </ul>
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources complémentaires
 
 Vous trouverez des ressources de mise en réseau pour les systèmes antérieurs à Windows Server 2016 aux emplacements suivants.
 

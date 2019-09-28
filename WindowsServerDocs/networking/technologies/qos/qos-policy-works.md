@@ -1,76 +1,76 @@
 ---
-title: Fonctionnement de la stratégie de QoS
-description: Cette rubrique fournit une vue d’ensemble de la stratégie de qualité de Service (QoS), qui vous permet d’utiliser la stratégie de groupe pour classer par priorité de la bande passante du trafic réseau des applications spécifiques et des services dans Windows Server 2016.
-ms.prod: windows-server-threshold
+title: Fonctionnement de la stratégie QoS
+description: Cette rubrique fournit une vue d’ensemble de la stratégie de qualité de service (QoS), qui vous permet d’utiliser stratégie de groupe pour hiérarchiser la bande passante du trafic réseau d’applications et de services spécifiques dans Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 25097cb8-b9b1-41c9-b3c7-3610a032e0d8
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 272272c833bb38924f1daa5561037901f6ff4e25
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4de9674e2d1700d342af380c79a611c3d5961cda
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864280"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405173"
 ---
-# <a name="how-qos-policy-works"></a>Fonctionnement de la stratégie de QoS
+# <a name="how-qos-policy-works"></a>Fonctionnement de la stratégie QoS
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Lorsque le démarrage ou l’obtention d’utilisateur mis à jour ou les paramètres de stratégie de groupe configuration ordinateur pour la qualité de service, le processus suivant se produit.
+Lors du démarrage ou de l’obtention de la configuration de l’utilisateur ou de l’ordinateur mis à jour stratégie de groupe paramètres pour QoS, le processus suivant se produit.
 
-1. Le moteur de stratégie de groupe récupère les paramètres de stratégie de groupe configuration utilisateur ou un ordinateur à partir d’Active Directory.
+1. Le moteur de stratégie de groupe récupère les paramètres de la configuration de l’utilisateur ou de l’ordinateur stratégie de groupe à partir de Active Directory.
 
-2. Le moteur de stratégie de groupe informe l’Extension côté Client de qualité de service qu’il y avait des modifications dans les stratégies de QoS.
+2. Le moteur de stratégie de groupe informe l’extension de QoS côté client qu’il y a eu des modifications dans les stratégies de QoS.
 
-3. L’Extension côté Client de qualité de service envoie une notification d’événement de stratégie QoS pour le Module d’Inspection de qualité de service.
+3. L’extension côté client QoS envoie une notification d’événement de stratégie de qualité de service au module d’inspection QoS.
 
-4. Le Module d’Inspection de qualité de service récupère les stratégies de QoS utilisateur ou d’ordinateur et les stocke.
+4. Le module d’inspection QoS récupère les stratégies QoS utilisateur ou ordinateur et les stocke.
 
-Quand un nouveau point de terminaison de couche de Transport \(TCP connexion ou le trafic UDP\) est créé, le processus suivant se produit.
+Lorsqu’un nouveau point de terminaison de couche de transport @no__t la connexion 0TCP-ou le trafic UDP @ no__t-1 est créé, le processus suivant se produit.
 
-1. Le composant de couche de Transport de la pile TCP/IP informe le Module d’Inspection de qualité de service.
+1. Le composant couche transport de la pile TCP/IP informe le module d’inspection QoS.
 
-2. Le Module d’Inspection de QoS compare les paramètres du point de terminaison de couche de Transport pour les stratégies de QoS stockées.
+2. Le module d’inspection de la qualité de service compare les paramètres du point de terminaison de la couche de transport aux stratégies de QoS stockées.
 
-3. Si une correspondance est trouvée, le Module d’Inspection de QoS contacte Pacer.sys pour créer un flux, une structure de données contenant la valeur DSCP et le trafic de la limitation des paramètres de la stratégie de qualité de service correspondante. S’il existe plusieurs stratégies de QoS qui correspondent aux paramètres du point de terminaison de couche de Transport, la stratégie de QoS plus spécifique est utilisée.
+3. Si une correspondance est trouvée, le module d’inspection QoS contacte Pacer. sys pour créer un flux, une structure de données contenant la valeur DSCP et les paramètres de limitation du trafic de la stratégie QoS correspondante. S’il existe plusieurs stratégies de QoS qui correspondent aux paramètres du point de terminaison de la couche de transport, la stratégie QoS la plus spécifique est utilisée.
 
-4. Pacer.sys stocke le flux et retourne un nombre de flux correspondant au flux pour le Module d’Inspection de qualité de service.
+4. Pacer. sys stocke le Flow et retourne un numéro de canal correspondant au Flow dans le module d’inspection de la qualité de service (QoS).
 
-5. Le Module d’Inspection de qualité de service retourne le nombre de flux à la couche de Transport.
+5. Le module d’inspection de la qualité de service renvoie le numéro de Flow à la couche de transport.
 
-6. La couche de Transport stocke le nombre de flux avec le point de terminaison de couche de Transport.
+6. La couche de transport stocke le numéro de Flow avec le point de terminaison de la couche de transport.
 
-Lorsqu’un paquet correspondant à un point de terminaison de couche de Transport marquée avec un nombre de flux est envoyée, le processus suivant se produit.
+Lorsqu’un paquet correspondant à un point de terminaison de couche de transport marqué avec un numéro de workflow est envoyé, le processus suivant se produit.
 
-1. En interne, la couche de Transport marque le paquet avec le nombre de flux.
+1. La couche de transport marque en interne le paquet avec le numéro de Flow.
 
-2. La couche réseau interroge Pacer.sys pour la valeur DSCP correspondant au nombre de flux du paquet.
+2. La couche réseau interroge Pacer. sys pour obtenir la valeur DSCP correspondant au numéro de flow du paquet.
 
-3. Pacer.sys retourne la valeur DSCP pour la couche réseau.
+3. Pacer. sys renvoie la valeur DSCP à la couche réseau.
 
-4. La couche réseau modifie le champ TOS IPv4 ou le champ classe de trafic IPv6 à la valeur DSCP spécifiée par Pacer.sys et, pour les paquets IPv4, calcule la somme de contrôle en-tête IPv4 finale.
+4. La couche réseau remplace le champ IPv4 TOS ou la classe de trafic IPv6 par la valeur DSCP spécifiée par Pacer. sys et, pour les paquets IPv4, calcule la somme de contrôle de l’en-tête IPv4 finale.
 
 5. La couche réseau transmet le paquet à la couche de tramage.
 
-6. Étant donné que le paquet a été marqué avec un nombre de flux, la couche de tramage transmet le paquet à Pacer.sys via NDIS 6.x.
+6. Étant donné que le paquet a été marqué avec un numéro de Flow, la couche de tramage transmet le paquet à Pacer. sys via NDIS 6. x.
 
-7. Pacer.sys utilise le nombre de flux de paquet pour déterminer si le paquet doit être limitée et cas dans ce, il planifie le paquet pour l’envoi.
+7. Pacer. sys utilise le numéro de flow du paquet pour déterminer si le paquet doit être limité et, le cas échéant, planifie le paquet pour l’envoi.
 
-8. Pacer.sys transmet le paquet la soit immédiatement \(si aucun trafic n’est la limitation\) ou comme prévu \(de trafic limitation\) pour NDIS 6.x pour la transmission via la carte réseau appropriée.
+8. Pacer. sys transmet le paquet immédiatement \(if il n’y a pas de limitation du trafic @ no__t-1 ou comme prévu \(if il existe une limitation du trafic de @ no__t-3 à NDIS 6. x pour la transmission sur la carte réseau appropriée.
 
-Ces processus de QoS basée sur des stratégies offrent les avantages suivants.
+Ces processus de QoS basée sur la stratégie offrent les avantages suivants.
 
-- L’inspection du trafic pour déterminer si une stratégie de QoS s’applique s’effectue de point de terminaison de couche Transport, plutôt que par paquet.
+- L’inspection du trafic pour déterminer si une stratégie de QoS s’applique est effectuée par point de terminaison de la couche transport, plutôt que par paquet.
 
-- Il n’a aucun impact sur les performances pour le trafic qui ne correspond pas à une stratégie de QoS.
+- Il n’y a aucun impact sur les performances pour le trafic qui ne correspond pas à une stratégie QoS.
 
-- Les applications n’avez pas besoin être modifié pour tirer parti de service différencié DSCP ou la limitation du trafic.
+- Les applications n’ont pas besoin d’être modifiées pour tirer parti de la limitation du trafic ou du service différencié basé sur DSCP.
 
-- Les stratégies QoS peuvent s’appliquent au trafic protégé avec IPsec.
+- Les stratégies de QoS peuvent s’appliquer au trafic protégé par IPsec.
 
-Pour la rubrique suivante de ce guide, consultez [Architecture de stratégie de QoS](qos-policy-architecture.md).
+Pour la rubrique suivante de ce guide, consultez [architecture de la stratégie QoS](qos-policy-architecture.md).
 
-Pour la première rubrique de ce guide, consultez [stratégie de qualité de Service (QoS)](qos-policy-top.md).
+Pour obtenir la première rubrique de ce guide, consultez [stratégie de qualité de service (QoS)](qos-policy-top.md).

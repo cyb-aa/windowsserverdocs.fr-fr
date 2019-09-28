@@ -1,9 +1,9 @@
 ---
 title: Analyser la charge existante sur le serveur d'accès à distance
-description: Cette rubrique fait partie du guide de la surveillance de l’accès à distance et la gestion des comptes dans Windows Server 2016.
+description: Cette rubrique fait partie du Guide d’analyse et de gestion de l’accès à distance dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,53 +12,53 @@ ms.topic: article
 ms.assetid: 62fa2895-62ae-42cf-817c-53e06ac2a26c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dc232a52e82f3b66164d30a134ed9e422db0964a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 43c447205a5ef0cbd33b0486e01d630e6d00c633
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282685"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367222"
 ---
 # <a name="monitor-the-existing-load-on-the-remote-access-server"></a>Analyser la charge existante sur le serveur d'accès à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 **Remarque :** Windows Server 2012 associe DirectAccess et le service Routage et accès distant (RRAS) dans un rôle Accès à distance unique.  
   
-Le terme **charge** fait référence aux statistiques relatives au nombre de connexions sur le serveur d’accès à distance. Voici les étapes requises pour effectuer le suivi de la charge sur le serveur d’accès à distance.  
+Le terme « **charge** » fait référence aux statistiques relatives au nombre de connexions sur le serveur d’accès à distance. Voici les étapes nécessaires pour suivre la charge sur le serveur d’accès à distance.  
   
-Vous pouvez utiliser le tableau de bord de surveillance qui est disponible dans la console de gestion sur le serveur d’accès à distance pour afficher les statistiques de charge pour le serveur, ou vous pouvez utiliser des compteurs de l’Analyseur de performances pour suivre les statistiques.  
+Vous pouvez utiliser le tableau de bord de surveillance qui est disponible dans la console de gestion sur le serveur d’accès à distance pour afficher les statistiques de charge du serveur, ou vous pouvez utiliser les compteurs de l’analyseur de performances pour effectuer le suivi des statistiques.  
   
 > [!NOTE]  
-> Vous devez être connecté en tant que membre du groupe Admins du domaine ou un membre du groupe Administrateurs sur chaque ordinateur pour effectuer les tâches décrites dans cette rubrique. Si vous ne pouvez pas effectuer une tâche pendant que vous êtes connecté avec un compte qui est membre du groupe Administrateurs, essayez d’effectuer la tâche pendant que vous êtes connecté avec un compte qui est membre du groupe Admins du domaine.  
+> Vous devez être connecté en tant que membre du groupe Admins du domaine ou membre du groupe Administrateurs sur chaque ordinateur pour effectuer les tâches décrites dans cette rubrique. Si vous ne pouvez pas effectuer une tâche lorsque vous êtes connecté avec un compte membre du groupe administrateurs, essayez d’exécuter la tâche lorsque vous êtes connecté avec un compte membre du groupe Admins du domaine.  
   
-#### <a name="to-use-the-monitoring-dashboard-to-monitor-the-remote-access-server-load"></a>Pour utiliser le tableau de bord de surveillance pour surveiller la charge du serveur accès à distance  
+#### <a name="to-use-the-monitoring-dashboard-to-monitor-the-remote-access-server-load"></a>Pour utiliser le tableau de bord de surveillance pour surveiller la charge du serveur d’accès à distance  
   
 1.  Dans **Gestionnaire de serveur**, cliquez sur **Outils**, puis sur **Gestion de l'accès à distance**.  
   
 2.  Cliquez sur **TABLEAU DE BORD** pour accéder à **Tableau de bord des accès distants** dans la **Console de gestion de l'accès distant**.  
   
-3.  Dans le tableau de bord de surveillance, notez le **statut du Client distant** vignette dans le **état du serveur** vignette. Cette vignette répertorie des statistiques, telles que le nombre total de clients distants qui sont connectés, le nombre total de clients DirectAccess qui sont connectés et le nombre maximal d’utilisateurs qui se sont connectés dans les dernières 24 heures.  
+3.  Dans le tableau de bord de surveillance, notez la vignette **État du client distant** dans la vignette **État du serveur** . Cette vignette répertorie des statistiques telles que le nombre total de clients distants qui sont connectés, le nombre total de clients DirectAccess connectés et le nombre maximal d’utilisateurs qui se sont connectés au cours des dernières 24 heures.  
   
 4.  Vous pouvez cliquer sur **Actualiser** sous **tâches** dans le volet droit pour recharger l’état d’intégrité. Pour modifier l’intervalle d’actualisation par défaut, cliquez sur **configurer l’intervalle d’actualisation** sous **tâches**.  
   
 #### <a name="to-use-the-performance-monitor-tool-to-monitor-performance-counters-on-the-remote-access-server"></a>Pour utiliser l’outil Analyseur de performances pour surveiller les compteurs de performances sur le serveur d’accès à distance  
   
-1.  Cliquez sur **Démarrer**, cliquez sur **outils d’administration**, puis double-cliquez sur **Analyseur de performances**.  
+1.  Cliquez sur **Démarrer**, sur **Outils d’administration**, puis double-cliquez sur **Analyseur de performances**.  
   
 2.  Sous **performances**, cliquez sur **Analyseur de performances**.  
   
-3.  Cliquez sur le **ajouter** bouton (indiquée par une icône de croix vert) dans le **Analyseur de performances** barre d’outils.  
+3.  Cliquez sur le bouton **Ajouter** (indiqué par une croix verte) dans la barre d’outils de l' **Analyseur de performances** .  
   
-4.  Dans la liste des **compteurs disponibles**, sélectionnez tous les compteurs dans la **RAS** et **RAmgmtsvc** catégories, puis cliquez sur **Ajouter >>** .  
+4.  Dans la liste des **compteurs disponibles**, sélectionnez tous les compteurs dans les catégories **RAS** et **RAmgmtsvc** , puis cliquez sur **Ajouter > >** .  
   
-5.  Là encore, dans la liste des **compteurs disponibles**, sélectionnez tous les compteurs dans la **des connexions IPsec** catégorie, puis cliquez sur **Ajouter >>.**  
+5.  Là encore, dans la liste des **compteurs disponibles**, sélectionnez tous les compteurs de la catégorie **connexions IPsec** , puis cliquez sur **Ajouter > >.**  
   
-6.  Cliquez sur **OK** pour ajouter les compteurs sélectionnés dans le **Analyseur de performances** console pour le suivi.  
+6.  Cliquez sur **OK** pour ajouter les compteurs sélectionnés dans la console de l' **Analyseur de performances** pour le suivi.  
   
-**Analyseur de performances** affichent désormais sous forme graphique les statistiques de charge de serveur sélectionné.  
+L' **Analyseur de performances** affiche désormais sous forme graphique les statistiques de chargement de serveur sélectionnées.  
   
-![Windows PowerShell](../../../media/Monitor-the-existing-load-on-the-Remote-Access-server/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+](../../../media/Monitor-the-existing-load-on-the-Remote-Access-server/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   

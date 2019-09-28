@@ -1,7 +1,7 @@
 ---
-title: Évitez de stocker des fichiers sur un disque de système de pagination intelligente
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Éviter de stocker les fichiers de pagination intelligente sur un disque système
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 9b57c9b8-76c5-43c7-bfa6-2c95b3cb6510
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 6abc84b406de7e7c33628ccee4e3af706efe5c70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3ddb662d14545693e26eb680527d93eb65d5d13
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886170"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365239"
 ---
-# <a name="avoid-storing-smart-paging-files-on-a-system-disk"></a>Évitez de stocker des fichiers sur un disque de système de pagination intelligente
+# <a name="avoid-storing-smart-paging-files-on-a-system-disk"></a>Éviter de stocker les fichiers de pagination intelligente sur un disque système
 
 >S'applique à : Windows Server 2016
 
@@ -27,21 +27,21 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Opérations|  
   
-Dans les sections suivantes, italique indique le texte qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
-*La configuration de la mémoire pour un ou plusieurs machines virtuelles peut nécessiter l’utilisation de la pagination intelligente si l’ordinateur virtuel est redémarré, et l’emplacement spécifié pour le fichier de pagination intelligente est le disque du système du serveur exécutant Hyper-V.*  
+*La configuration de la mémoire pour un ou plusieurs ordinateurs virtuels peut nécessiter l’utilisation de la pagination intelligente si la machine virtuelle est redémarrée, et que l’emplacement spécifié pour le fichier de pagination intelligente est le disque système du serveur exécutant Hyper-V.*  
   
 ## <a name="impact"></a>Impact  
-*Utilisation du disque du système pour la pagination intelligente peut entraîner le serveur exécutant Hyper-V à rencontrer des problèmes. Cela affecte les ordinateurs virtuels suivants :*  
+*Use du disque système pour la pagination intelligente peut entraîner des problèmes au niveau du serveur exécutant Hyper-V. Cela affecte les ordinateurs virtuels suivants :*  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
-## <a name="resolution"></a>Résolution  
-*Reconfigurer les machines virtuelles pour stocker les fichiers de pagination intelligente sur un disque non-système.*  
+## <a name="resolution"></a>Résolution :  
+*Reconfigurez les machines virtuelles pour stocker les fichiers de pagination intelligente sur un disque non-système.*  
   
 
 

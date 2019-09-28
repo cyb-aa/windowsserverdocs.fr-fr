@@ -1,19 +1,19 @@
 ---
 title: À propos du chiffrement de vidage
 description: Décrit comment chiffrer des fichiers dump et résoudre les problèmes de chiffrement.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dongill
 ms.topic: article
 author: larsiwer
 ms.asset: b78ab493-e7c3-41f5-ab36-29397f086f32
 ms.author: kathydav
 ms.date: 11/03/2016
-ms.openlocfilehash: d46deee7fc9d911de2a6ee44ae097affe1d658a3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e1e374a75c11321820393bede83ca9ea225f5424
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872138"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392814"
 ---
 # <a name="about-dump-encryption"></a>À propos du chiffrement de vidage
 Le chiffrement de vidage peut être utilisé pour chiffrer des vidages sur incident et des vidages dynamiques générés pour un système. Les vidages sont chiffrés à l’aide d’une clé de chiffrement symétrique qui est générée pour chaque vidage. Cette clé est ensuite chiffrée à l’aide de la clé publique spécifiée par l’administrateur approuvé de l’hôte (protecteur de clé de chiffrement de vidage sur incident). Cela garantit que seule une personne ayant la clé privée correspondante peut déchiffrer et donc accéder au contenu de l’image mémoire. Cette fonctionnalité est exploitée dans une infrastructure protégée.
@@ -27,7 +27,7 @@ Pour activer le chiffrement de vidage à l’aide du Registre, configurez les va
 | ---------- | ---- | ----- |
 | DumpEncryptionEnabled | DWORD | 1 pour activer le chiffrement de vidage, 0 pour désactiver le chiffrement de vidage |
 | EncryptionCertificates\Certificate.1 ::P ublicKey | Binary | Clé publique (RSA, 2048 bits) qui doit être utilisée pour le chiffrement des vidages. Celui-ci doit être au format [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx). |
-| EncryptionCertificates\Certificate.1 :: empreinte | String | Empreinte numérique du certificat permettant la recherche automatique de la clé privée dans le magasin de certificats local lors du déchiffrement d’un vidage sur incident. |
+| EncryptionCertificates\Certificate.1 :: empreinte | Chaîne | Empreinte numérique du certificat permettant la recherche automatique de la clé privée dans le magasin de certificats local lors du déchiffrement d’un vidage sur incident. |
 
 
 ## <a name="configuration-using-script"></a>Configuration à l’aide d’un script
@@ -52,7 +52,7 @@ Après le déchiffrement, les outils tels que WinDbg peuvent ouvrir le fichier d
 # <a name="troubleshooting-dump-encryption"></a>Résolution des problèmes de chiffrement de vidage
 Si le chiffrement de vidage est activé sur un système mais qu’aucun vidage n’est généré, consultez le `System` journal des événements `Kernel-IO` du système pour obtenir l’événement 1207. Lorsque le chiffrement du dump ne peut pas être initialisé, cet événement est créé et les vidages sont désactivés.
 
-| Messages d’erreur détaillés | Étapes à suivre pour atténuer |
+| Message d’erreur détaillé | Étapes à suivre pour atténuer |
 | ---------------------- | ----------------- |
 | Registre de clé publique ou d’empreinte manquant | Vérifier si les deux valeurs de Registre existent à l’emplacement attendu |
 | Clé publique non valide | Assurez-vous que la clé publique stockée dans la valeur de Registre PublicKey est stockée en tant que [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx). |

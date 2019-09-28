@@ -1,8 +1,8 @@
 ---
-title: ensemble de Telnet
-description: 'Rubrique de commandes de Windows pour ***- '
+title: ensemble Telnet
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b68ce0ee87d80b25cf13db5bebc6c407a9fe091f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e39e2812edc9cd5f169a046def26beebda1d007e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441020"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383619"
 ---
-# <a name="telnet-set"></a>telnet: set
+# <a name="telnet-set"></a>Telnet : définir
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Définit les options.   
 ## <a name="syntax"></a>Syntaxe  
@@ -33,23 +33,23 @@ set [bsasdel] [crlf] [delasbs] [escape <Char>] [localecho] [logfile <FileName>] 
 
 |                    Paramètre                     |                                                                                                                                              Description                                                                                                                                              |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                     bsasdel                      |                                                                                                                                 Envoie **retour arrière** comme un **supprimer**.                                                                                                                                  |
-|                       crlf                       |                                                                                                        Envoie CR et LF (0x0D, 0 x 0 a) lors de la **entrée** touche est enfoncée. Appelé mode nouvelle ligne.                                                                                                        |
-|                     delasbs                      |                                                                                                                                 Envoie **supprimer** comme un **retour arrière**.                                                                                                                                  |
-|                échappement <Character>                | Définit le caractère d’échappement permet d’entrer l’invite du client telnet. Le caractère d’échappement peut être un caractère unique, ou il peut être une combinaison de la **CTRL** clé plus un caractère. Pour définir une combinaison de touches, maintenez la **CTRL** enfoncée pendant que vous tapez le caractère que vous souhaitez affecter. |
-|                    écho local                     |                                                                                                                                         Active l’écho local.                                                                                                                                          |
-|                fichier journal <FileName>                |                                                                                               Enregistre la session telnet active dans le fichier local. L’enregistrement démarre automatiquement lorsque vous paramétrez cette option.                                                                                               |
-|                     logging                      |                                                                                                                  Active la journalisation. Si aucun fichier journal n’est définie, un message d’erreur s’affiche.                                                                                                                   |
-|           mode {console &#124; écran}           |                                                                                                                                       Définit le mode d’opération.                                                                                                                                        |
+|                     bsasdel                      |                                                                                                                                 Envoie le **retour arrière** en tant que **suppression**.                                                                                                                                  |
+|                       CRLF                       |                                                                                                        Envoie CR & LF (0x0D, 0x 0A) quand la touche **entrée** est enfoncée. Appelé mode nouvelle ligne.                                                                                                        |
+|                     delasbs                      |                                                                                                                                 Envoie la **suppression** comme un **retour arrière**.                                                                                                                                  |
+|                @no__t d’échappement-0                | Définit le caractère d’échappement utilisé pour accéder à l’invite du client Telnet. Le caractère d’échappement peut être un caractère unique, ou il peut s’agir d’une combinaison de la touche **CTRL** et d’un caractère. Pour définir une combinaison de touches de contrôle, maintenez la touche **CTRL** enfoncée pendant que vous tapez le caractère que vous souhaitez affecter. |
+|                    localecho                     |                                                                                                                                         Active l’écho local.                                                                                                                                          |
+|                fichier journal <FileName>                |                                                                                               Journalise la session Telnet en cours dans le fichier local. La journalisation démarre automatiquement lorsque vous définissez cette option.                                                                                               |
+|                     logging                      |                                                                                                                  Active la journalisation. Si aucun fichier journal n’est défini, un message d’erreur s’affiche.                                                                                                                   |
+|           mode {écran &#124; de console}           |                                                                                                                                       Définit le mode d’opération.                                                                                                                                        |
 |                       ntlm                       |                                                                                                                                     Active l’authentification NTLM.                                                                                                                                     |
-| term {ansi &#124; vt100 &#124; vt52 &#124; vtnt} |                                                                                                                                        Définit le type de terminal.                                                                                                                                        |
+| terme {ANSI &#124; VT100 &#124; VT52 &#124; VTNT} |                                                                                                                                        Définit le type de terminal.                                                                                                                                        |
 |                        ?                         |                                                                                                                                    Affiche l’aide de cette commande.                                                                                                                                    |
 
 ## <a name="remarks"></a>Notes  
-1. Vous pouvez utiliser la **unset** commande pour désactiver une option qui a été définie précédemment.  
-2. Sur les versions non anglaises de telnet, le **codeset** <option> est disponible. **CodeSet** <option> définit le code actuel défini avec une option qui peut être l’une des opérations suivantes : **shift JIS**, **EUC japonais**, **JIS Kanji**, **JIS Kanji (78)** , **DEC Kanji**, **NEC Kanji**. Vous devez définir le même code sur l’ordinateur distant.  
-   ## <a name="BKMK_Examples"></a>Exemples  
-   Définir le fichier journal et commencer la journalisation pour le fichier local tnlog.txt  
+1. Vous pouvez utiliser la commande **unset** pour désactiver une option précédemment définie.  
+2. Dans **les versions** non anglaises de Telnet, le @no__tet-1 est disponible. Le jeu de **codes @no__t-** 1 définit l’ensemble du code actuel sur une option, qui peut être l’une des suivantes : **Shift JIS**, **japonais EUC**, **JIS kanji**, **JIS kanji (78)** , **Dec kanji**, **NEC kanji**. Vous devez définir le même jeu de code sur l’ordinateur distant.  
+   ## <a name="BKMK_Examples"></a>Illustre  
+   Définir le fichier journal et commencer la journalisation dans le fichier local tnlog. txt  
    ```  
    set logfile tnlog.txt  
    ```  

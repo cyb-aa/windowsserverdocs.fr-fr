@@ -2,7 +2,7 @@
 title: Groupe de sécurité Utilisateurs protégés
 description: Sécurité de Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-credential-protection
@@ -13,53 +13,53 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bd6b53c0febdfb2d344136097a9654c981405568
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0cbec876ebf8a3ce27bf0d6f099ade6a5d6bc032
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862360"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403773"
 ---
 # <a name="protected-users-security-group"></a>Groupe de sécurité Utilisateurs protégés
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique destinée aux professionnels de l'informatique décrit le groupe de sécurité Active Directory nommé Utilisateurs protégés et explique son fonctionnement. Ce groupe a été introduit dans les contrôleurs de domaine Windows Server 2012 R2.
 
-## <a name="BKMK_ProtectedUsers"></a>Vue d’ensemble
+## <a name="BKMK_ProtectedUsers"></a>Vue
 
-Ce groupe de sécurité est conçu dans le cadre d’une stratégie pour gérer l’exposition des informations d’identification au sein de l’entreprise. Les membres de ce groupe disposent automatiquement de protections non configurables qui sont appliquées à leurs comptes. L'appartenance au groupe Utilisateurs protégés est censée être restrictive et sécurisée de manière proactive par défaut. La seule méthode permettant de modifier ces protections pour un compte consiste à supprimer le compte du groupe de sécurité.
+Ce groupe de sécurité est conçu dans le cadre d’une stratégie de gestion de l’exposition des informations d’identification au sein de l’entreprise. Les membres de ce groupe disposent automatiquement de protections non configurables qui sont appliquées à leurs comptes. L'appartenance au groupe Utilisateurs protégés est censée être restrictive et sécurisée de manière proactive par défaut. La seule méthode permettant de modifier ces protections pour un compte consiste à supprimer le compte du groupe de sécurité.
 
 > [!WARNING]
-> Comptes de services et les ordinateurs ne doivent jamais être membres du groupe utilisateurs protégés. Ce groupe est offre une protection incomplète malgré tout, car le mot de passe ou le certificat est toujours disponible sur l’ordinateur hôte. L’authentification échoue avec l’erreur \"le nom d’utilisateur ou le mot de passe est incorrect\" pour n’importe quel service ou d’un ordinateur qui est ajouté au groupe utilisateurs protégés.
+> Les comptes de services et d’ordinateurs ne doivent jamais être membres du groupe utilisateurs protégés. Malgré tout, ce groupe fournit une protection incomplète, car le mot de passe ou le certificat est toujours disponible sur l’ordinateur hôte. L’authentification échoue avec l’erreur @no__t le nom d’utilisateur ou le mot de passe 0the est incorrect @ no__t-1 pour tout service ou ordinateur ajouté au groupe utilisateurs protégés.
 
-Ce groupe global lié au domaine déclenche une protection non configurable sur les appareils et ordinateurs hôtes exécutant Windows Server 2012 R2 et Windows 8.1 ou version ultérieure pour les utilisateurs dans des domaines avec un contrôleur de domaine principal exécutant Windows Server 2012 R2. Cela réduit considérablement l’encombrement de mémoire par défaut des informations d’identification quand les utilisateurs connectez-vous aux ordinateurs avec ces protections.
+Ce groupe global lié au domaine déclenche une protection non configurable sur les appareils et ordinateurs hôtes exécutant Windows Server 2012 R2 et Windows 8.1 ou version ultérieure pour les utilisateurs des domaines avec un contrôleur de domaine principal exécutant Windows Server 2012 R2. Cela réduit considérablement l’encombrement de mémoire par défaut des informations d’identification quand les utilisateurs se connectent aux ordinateurs avec ces protections.
 
-Pour plus d’informations, consultez [comment les utilisateurs protégés groupe works](#BKMK_HowItWorks) dans cette rubrique.
+Pour plus d’informations, voir fonctionnement [du groupe utilisateurs protégés](#BKMK_HowItWorks) dans cette rubrique.
 
 
 
-## <a name="BKMK_Requirements"></a>Besoins de groupe utilisateurs protégés
-La configuration requise pour fournir des protections de périphérique pour les membres du groupe utilisateurs protégés :
+## <a name="BKMK_Requirements"></a>Conditions requises pour le groupe utilisateurs protégés
+Les conditions requises pour fournir des protections d’appareils aux membres du groupe utilisateurs protégés sont les suivantes :
 
 - Le groupe de sécurité global Utilisateurs protégés est répliqué vers tous les contrôleurs du domaine du compte.
 
-- Windows 8.1 et Windows Server 2012 R2 prise en charge par défaut. [Microsoft Security Advisory 2871997](https://technet.microsoft.com/library/security/2871997) prend désormais en charge Windows 7, Windows Server 2008 R2 et Windows Server 2012.
+- Windows 8.1 et Windows Server 2012 R2 ajoutent la prise en charge par défaut. L' [avis de sécurité Microsoft 2871997](https://technet.microsoft.com/library/security/2871997) ajoute la prise en charge de Windows 7, windows Server 2008 R2 et windows server 2012.
 
 Les conditions requises pour fournir une protection de contrôleur de domaine aux membres du groupe Utilisateurs protégés sont notamment les suivantes :
 
-- Les utilisateurs doivent être dans des domaines Windows Server 2012 R2 ou plus élevé niveau fonctionnel du domaine.
+- Les utilisateurs doivent se trouver dans des domaines qui sont des niveaux fonctionnels de domaine Windows Server 2012 R2 ou version ultérieure.
 
-### <a name="adding-protected-user-global-security-group-to-down-level-domains"></a>Ajout du groupe global de sécurité utilisateurs protégés à des domaines de bas niveau
+### <a name="adding-protected-user-global-security-group-to-down-level-domains"></a>Ajout d’un groupe de sécurité global utilisateur protégé à des domaines de niveau supérieur
 
-Les contrôleurs de domaine qui exécutent un système d’exploitation antérieurs à Windows Server 2012 R2 peuvent prendre en charge l’ajout de membres au nouveau groupe de sécurité utilisateurs protégés. Cela permet aux utilisateurs de tirer parti des protections de périphérique avant que le domaine est mis à niveau. 
+Les contrôleurs de domaine qui exécutent un système d’exploitation antérieur à Windows Server 2012 R2 peuvent prendre en charge l’ajout de membres au nouveau groupe de sécurité utilisateur protégé. Cela permet aux utilisateurs de bénéficier des protections de l’appareil avant la mise à niveau du domaine. 
 
 > [!Note]
-> Les contrôleurs de domaine ne prendra pas en charge les protections de domaine. 
+> Les contrôleurs de domaine ne prennent pas en charge les protections de domaine. 
 
-Groupe utilisateurs protégés peut être créé par [transférer le rôle d’émulateur de contrôleur principal de domaine](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) à un contrôleur de domaine qui exécute Windows Server 2012 R2. Une fois l'objet de groupe répliqué sur d'autres contrôleurs de domaine, le rôle de l'émulateur PDC peut être hébergé sur un contrôleur de domaine qui exécute une version antérieure de Windows Server.
+Le groupe utilisateurs protégés peut être créé en [transférant le rôle d’émulateur de contrôleur de domaine principal (PDC)](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) sur un contrôleur de domaine qui exécute Windows Server 2012 R2. Une fois l'objet de groupe répliqué sur d'autres contrôleurs de domaine, le rôle de l'émulateur PDC peut être hébergé sur un contrôleur de domaine qui exécute une version antérieure de Windows Server.
 
-### <a name="BKMK_ADgroup"></a>Propriétés du groupe AD les utilisateurs protégées
+### <a name="BKMK_ADgroup"></a>Propriétés AD du groupe utilisateurs protégés
 
 Le tableau suivant spécifie les propriétés du groupe Utilisateurs protégés.
 
@@ -75,33 +75,33 @@ Le tableau suivant spécifie les propriétés du groupe Utilisateurs protégés.
 |Délégation de la gestion de ce groupe à des administrateurs extérieurs au service sécurisée ?|Non|
 |Droits d’utilisateur par défaut|Aucun droit d’utilisateur par défaut|
 
-## <a name="BKMK_HowItWorks"></a>Fonctionne du groupe utilisateurs protégés
+## <a name="BKMK_HowItWorks"></a>Fonctionnement du groupe utilisateurs protégés
 Cette section décrit le fonctionnement du groupe Utilisateurs protégés quand :
 
--   Connecter un appareil Windows
+-   Signé sur un appareil Windows
 
--   Domaine de compte d’utilisateur est dans un Windows Server 2012 R2 ou le plus élevé niveau fonctionnel du domaine
+-   Le domaine du compte d’utilisateur se trouve dans un niveau fonctionnel de domaine Windows Server 2012 R2 ou version supérieure
 
-### <a name="device-protections-for-signed-in-protected-users"></a>Protections d’appareil pour connecter des utilisateurs protégés
+### <a name="device-protections-for-signed-in-protected-users"></a>Protections des appareils pour les utilisateurs protégés
 Lorsque l’utilisateur connecté est membre du groupe utilisateurs protégés, les protections suivantes sont appliquées :
 
--   Va délégation (CredSSP) pas mettre en cache les informations d’identification en texte brut même lorsque des informations d’identification du **autoriser la délégation des informations d’identification par défaut** paramètre de stratégie de groupe est activé.
+-   La délégation des informations d’identification (CredSSP) ne met pas en cache les informations d’identification de texte brut de l’utilisateur, même lorsque le paramètre **autoriser la délégation des informations d’identification par défaut** stratégie de groupe est activé.
 
--   Depuis Windows 8.1 et Windows Server 2012 R2, Windows Digest ne mettra pas en cache les informations d’identification en texte brut même quand Windows Digest est activé.
+-   À partir de Windows 8.1 et de Windows Server 2012 R2, Windows Digest ne met pas en cache les informations d’identification en texte brut de l’utilisateur, même quand Windows Digest est activé.
 
 > [!Note]
-> Après avoir installé [2871997 avis de sécurité Microsoft](https://technet.microsoft.com/library/security/2871997) Windows Digest continue aux informations d’identification du cache jusqu'à ce que la clé de Registre est configurée. Consultez [avis de sécurité Microsoft : Mise à jour pour améliorer la gestion et la protection des informations d’identification : Le 13 mai 2014](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) pour obtenir des instructions.
+> Après l’installation de l' [avis de sécurité Microsoft 2871997](https://technet.microsoft.com/library/security/2871997) , Windows Digest continue de mettre en cache les informations d’identification jusqu’à ce que la clé de registre soit configurée. Consultez l’avis de sécurité de @no__t 0Microsoft : Mise à jour pour améliorer la protection et la gestion des informations d’identification : 13 mai 2014 @ no__t-0 pour obtenir des instructions.
 
--   NTLM ne sera pas mettre en cache les informations d’identification de l’utilisateur en texte brut ou fonction unidirectionnelle NT (NTOWF).
+-   NTLM ne met pas en cache les informations d’identification en texte brut de l’utilisateur ou la fonction unidirectionnelle NT (NTOWF).
 
--   Kerberos n’est plus créé les clés DES ou RC4. Également il ne mettra pas en cache informations d’identification en texte brut ou des clés à long terme de l’utilisateur une fois que le ticket TGT initial est acquis.
+-   Kerberos ne crée plus de clés DES ou RC4. En outre, il ne met pas en cache les informations d’identification de texte brut de l’utilisateur ou les clés à long terme après l’acquisition du ticket TGT initial.
 
--   Aucun vérificateur en cache n’est pas créé à la connexion ou de déverrouiller, donc dans l’authentification en mode hors connexion n’est plus pris en charge.
+-   Aucun vérificateur mis en cache n’est créé lors de la connexion ou du déverrouillage. la connexion hors connexion n’est donc plus prise en charge.
 
-Une fois que le compte d’utilisateur est ajouté au groupe utilisateurs protégés, protection commence lorsque l’utilisateur se connecte à l’appareil.
+Une fois le compte d’utilisateur ajouté au groupe utilisateurs protégés, la protection commence lorsque l’utilisateur se connecte à l’appareil.
 
-### <a name="domain-controller-protections-for-protected-users"></a>Protections de contrôleur de domaine pour les utilisateurs protégés
-Comptes qui sont membres du groupe utilisateurs protégés qui s’authentifient auprès d’un domaine Windows Server 2012 R2 ne parvenez pas à :
+### <a name="domain-controller-protections-for-protected-users"></a>Protection du contrôleur de domaine pour les utilisateurs protégés
+Les comptes qui sont membres du groupe utilisateurs protégés qui s’authentifient auprès d’un domaine Windows Server 2012 R2 ne peuvent pas :
 
 -   s'authentifier avec l'authentification NTLM ;
 
@@ -121,7 +121,7 @@ Deux journaux d'administration opérationnels sont disponibles pour résoudre le
 |ID d'événement et journal|Description|
 |----------|--------|
 |104<br /><br />**ProtectedUser-Client**|Cause : Le package de sécurité sur le client ne contient pas les informations d'identification.<br /><br />L'erreur est consignée sur l'ordinateur client quand le compte est membre du groupe de sécurité Utilisateurs protégés. Cet événement indique que le package de sécurité ne met pas en cache les informations d'identification nécessaires pour une authentification auprès du serveur.<br /><br />Affiche le nom du package, le nom d'utilisateur, le nom du domaine et le nom du serveur.|
-|304<br /><br />**ProtectedUser-Client**|Cause : Le package de sécurité ne stocke pas les informations d’identification de l’utilisateur protégé.<br /><br />Un événement d’information est consigné dans le client pour indiquer que le package de sécurité ne met pas de cache des identifiants de connexion de l’utilisateur. Normalement, Digest (WDigest), la délégation des informations d'identification (CredSSP) et NTLM ne devraient pas pouvoir obtenir les informations d'identification de connexion pour les utilisateurs protégés. Les applications peuvent quand même réussir si elles demandent des informations d'identification.<br /><br />Affiche le nom du package, le nom d'utilisateur et le nom du domaine.|
+|304<br /><br />**ProtectedUser-Client**|Cause : Le package de sécurité ne stocke pas les informations d’identification de l’utilisateur protégé.<br /><br />Un événement d’information est consigné dans le client pour indiquer que le package de sécurité ne met pas en cache les informations d’identification de connexion de l’utilisateur. Normalement, Digest (WDigest), la délégation des informations d'identification (CredSSP) et NTLM ne devraient pas pouvoir obtenir les informations d'identification de connexion pour les utilisateurs protégés. Les applications peuvent quand même réussir si elles demandent des informations d'identification.<br /><br />Affiche le nom du package, le nom d'utilisateur et le nom du domaine.|
 |100<br /><br />**ProtectedUserFailures-DomainController**|Cause : Un échec de connexion NTLM se produit pour un compte qui figure dans le groupe de sécurité Utilisateurs protégés.<br /><br />Une erreur est consignée dans le contrôleur de domaine pour indiquer l'échec de l'authentification NTLM en raison de l'appartenance du compte au groupe de sécurité Utilisateurs protégés.<br /><br />Affiche le nom du compte et le nom de l'appareil.|
 |104<br /><br />**ProtectedUserFailures-DomainController**|Cause : Les types de chiffrement DES ou RC4 sont utilisés pour l'authentification Kerberos et un échec de connexion se produit pour un utilisateur dans le groupe de sécurité Utilisateurs protégés.<br /><br />La pré-authentification Kerberos a échoué, car les types de chiffrement DES et RC4 ne peuvent pas être utilisés quand le compte est membre du groupe de sécurité Utilisateurs protégés.<br /><br />(AES est acceptable.)|
 |303<br /><br />**ProtectedUserSuccesses-DomainController**|Cause : Un ticket TGT Kerberos a été correctement émis pour un membre du groupe Utilisateurs protégés.|
@@ -132,7 +132,7 @@ Deux journaux d'administration opérationnels sont disponibles pour résoudre le
 
 -   [Gestion et protection des informations d'identification](credentials-protection-and-management.md)
 
--   [Stratégies d’authentification et Silos de stratégies](authentication-policies-and-authentication-policy-silos.md)
+-   [Stratégies d’authentification et silos de stratégies d’authentification](authentication-policies-and-authentication-policy-silos.md)
 
 -   [Comment configurer des comptes protégés](how-to-configure-protected-accounts.md)
 

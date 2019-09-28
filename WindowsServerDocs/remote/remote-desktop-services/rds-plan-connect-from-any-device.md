@@ -2,7 +2,7 @@
 title: Services Bureau à distance - Se connecter à partir d’un appareil
 description: Découvrez les différentes manières dont les utilisateurs peuvent se connecter au Bureau à distance.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ author: lizap
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: 7ff06314dc518dcc206da331327e2f974c9a5f6d
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 55c2e92ffa7c2fc8236c9d6ea06d7606343ef4b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743439"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387310"
 ---
 # <a name="remote-desktop-services---connect-from-any-device"></a>Services Bureau à distance - Se connecter à partir d’un appareil
 

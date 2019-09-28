@@ -2,7 +2,7 @@
 title: Effectuer un scale-out de votre déploiement de services Bureau à distance en ajoutant une batterie de serveurs Hôte de session Bureau à distance
 description: Ajoutez un second hôte de session Bureau à distance à votre environnement de services Bureau à distance.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 0e3852b4ea5f1080a3798c0806e5c87ca808c3be
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: da0dbd4332cd05d580c2b1f4dc5eb0734b36b13e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446522"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403887"
 ---
 # <a name="scale-out-your-remote-desktop-services-deployment-by-adding-an-rd-session-host-farm"></a>Effectuer un scale-out de votre déploiement de services Bureau à distance en ajoutant une batterie de serveurs Hôte de session Bureau à distance
 
@@ -32,7 +32,7 @@ Utilisez les étapes suivantes pour ajouter un nouvel hôte de session Bureau à
 2. Activez la gestion à distance sur le nouveau serveur ou la nouvelle machine virtuelle :
    1. Dans le Gestionnaire de serveur, cliquez sur **Serveur local > paramètre actuel de l’Administration à distance (désactivé)** . 
    2. Sélectionnez **Activer l’administration à distance pour ce serveur**, puis cliquez sur **OK**. 
-   3. Facultatif : Vous pouvez temporairement définir Windows Update pour que les mises à jour ne soient ni téléchargées ni installées automatiquement. Cela permet d’éviter les modifications et les redémarrages du système pendant que vous déployez le serveur Hôte de session Bureau à distance. Dans le Gestionnaire de serveur, cliquez sur **Serveur local > paramètre actuel de Windows Update**. Cliquez sur **Options avancées > Différer les mises à niveau**. 
+   3. Facultatif : Vous pouvez temporairement définir Windows Update pour que les mises à jour ne soient ni téléchargées ni installées automatiquement. Cela permet d’éviter les modifications et les redémarrages du système pendant que vous déployez le serveur d’hôte de session Bureau à distance. Dans le Gestionnaire de serveur, cliquez sur **Serveur local > paramètre actuel de Windows Update**. Cliquez sur **Options avancées > Différer les mises à niveau**. 
 3. Ajoutez le serveur ou la machine virtuelle au domaine :
    1. Dans le Gestionnaire de serveur, cliquez sur **Serveur local > paramètre actuel du Groupe de travail**. 
    2. Cliquez sur **Modifier > Domaine**, puis entrez le nom de domaine (par exemple, Contoso.com). 
@@ -45,9 +45,9 @@ Utilisez les étapes suivantes pour ajouter un nouvel hôte de session Bureau à
    1. Créez une adresse IP publique pour la machine virtuelle exécutant les services de gestion Bureau à distance. La machine virtuelle RDMS est généralement la machine virtuelle qui exécute la première instance du rôle Service Broker pour les connexions Bureau à distance.  
        1. Dans le portail Azure, cliquez sur **Parcourir > Groupes de ressources**, puis cliquez sur le groupe de ressources pour le déploiement, et sur la machine virtuelle RDMS (par exemple, Contoso-Cb1).  
        2. Cliquez sur **Paramètres > Interfaces réseau**, puis sur l’interface réseau correspondante.   
-       3. Cliquez sur **Paramètres > Adresse IP**.
-       4. Pour **Adresse IP publique**, sélectionnez **Activé**, puis cliquez sur **Adresse IP**.   
-       5. Si vous disposez d’une adresse IP publique existante à utiliser, sélectionnez-la dans la liste. Sinon, cliquez sur **Créer**, entrez un nom, puis cliquez sur **OK** et ensuite sur **Enregistrer**.   
+       3. Cliquez sur **Paramètres > Adresse IP**.
+       4. Pour **Adresse IP publique**, sélectionnez **Activé**, puis cliquez sur **Adresse IP**.   
+       5. Si vous souhaitez utiliser une adresse IP publique existante, sélectionnez-la dans la liste. Sinon, cliquez sur **Créer**, entrez un nom, puis cliquez sur **OK** et ensuite sur **Enregistrer**.   
    2. Connectez-vous aux services de gestion Bureau à distance (RDMS).
    3. Ajoutez le nouveau serveur Hôte de session Bureau à distance au Gestionnaire de serveur :   
        1. Lancez le Gestionnaire de serveur, cliquez sur **Gérer > Ajouter des serveurs**.   

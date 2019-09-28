@@ -3,7 +3,7 @@ title: Planifier une infrastructure SDN (Software Defined Networking)
 description: Cette rubrique fournit des informations sur la façon de planifier le déploiement de votre infrastructure SDN (Software Defined Network).
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.service: virtual-network
 ms.suite: na
@@ -14,12 +14,12 @@ ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: pashort
 author: shortpatti
 ms.date: 08/10/2018
-ms.openlocfilehash: e2c125867b461cee9f694849db5c8f61be91211d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ed2dc8861366b929de346d5bd5b3d40998cc8dd5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869943"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355788"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planifier une infrastructure SDN (Software Defined Networking)
 
@@ -91,14 +91,14 @@ Des réseaux logiques supplémentaires doivent être créés et configurés pour
 Modifiez l’exemple de préfixes de sous-réseau IP et d’ID de réseau local virtuel pour votre environnement. 
 
 
-| **Nom du réseau** |  **Sous-réseau**  | **Filtrage** | **ID de réseau local virtuel sur le camion** | **Gateway**  |                                                           **Réservations (exemples)**                                                           |
+| **Nom du réseau** |  **Subnet**  | **Filtrage** | **ID de réseau local virtuel sur le camion** | **Gateway**  |                                                           **Réservations (exemples)**                                                           |
 |------------------|--------------|----------|----------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 |    gestion    | 10.184.108.0 |    24    |          7           | 10.184.108.1 | 10.184.108.1 – routeur 10.184.108.4-contrôleur de réseau 10.184.108.10-hôte de calcul 110.184.108.11-hôte de calcul 210.184.108. X-hôte de calcul X |
 |   Fournisseur HNV   |  10.10.56.0  |    23    |          11          |  10.10.56.1  |                                                    10.10.56.1 – routeur 10.10.56.2-SLB/MUX1                                                     |
 |     Transition      |  10.10.10.0  |    24    |          10          |  10.10.10.1  |                                                               10.10.10.1 – routeur                                                               |
-|    Adresse IP virtuelle publique    |  41.40.40.0  |    27    |          N/D          |  41.40.40.1  |                                    41.40.40.1 – routeur 41.40.40.2-SLB/multiplex VIP 41.40.40.3-adresse IP virtuelle VPN S2S IPSec                                    |
-|   Adresse IP virtuelle privée    |  20.20.20.0  |    27    |          N/D          |  20.20.20.1  |                                                        20.20.20.1-GW (routeur) par défaut                                                         |
-|     ADRESSE IP VIRTUELLE GRE      |  31.30.30.0  |    24    |          N/D          |  31.30.30.1  |                                                             31.30.30.1-GW par défaut                                                             |
+|    Adresse IP virtuelle publique    |  41.40.40.0  |    27    |          N/A          |  41.40.40.1  |                                    41.40.40.1 – routeur 41.40.40.2-SLB/multiplex VIP 41.40.40.3-adresse IP virtuelle VPN S2S IPSec                                    |
+|   Adresse IP virtuelle privée    |  20.20.20.0  |    27    |          N/A          |  20.20.20.1  |                                                        20.20.20.1-GW (routeur) par défaut                                                         |
+|     ADRESSE IP VIRTUELLE GRE      |  31.30.30.0  |    24    |          N/A          |  31.30.30.1  |                                                             31.30.30.1-GW par défaut                                                             |
 
 ---
 
@@ -109,7 +109,7 @@ Si vous utilisez un stockage basé sur RDMA, définissez un réseau local virtue
 >[!IMPORTANT]
 >Pour que la qualité de service (QoS) soit appliquée de manière appropriée, les commutateurs physiques nécessitent un VLAN balisé pour le trafic RDMA.
 
-| **Nom du réseau** |  **Sous-réseau**  | **Filtrage** | **ID de réseau local virtuel sur le camion** | **Gateway**  |                                                           **Réservations (exemples)**                                                            |
+| **Nom du réseau** |  **Subnet**  | **Filtrage** | **ID de réseau local virtuel sur le camion** | **Gateway**  |                                                           **Réservations (exemples)**                                                            |
 |------------------|--------------|----------|----------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 |     Storage1     |  10.60.36.0  |    25    |          8           |  10.60.36.1  |  10.60.36.1 – routeur<p>10.60.36. x-hôte de calcul X<p>10.60.36. y-hôte de calcul Y<p>10.60.36. V-cluster de calcul<p>10.60.36. W-cluster de stockage  |
 |     Storage2     | 10.60.36.128 |    25    |          9           | 10.60.36.129 | 10.60.36.129 – routeur<p>10.60.36. x-hôte de calcul X<p>10.60.36. y-hôte de calcul Y<p>10.60.36. V-cluster de calcul<p>10.60.36. W-cluster de stockage |
@@ -225,7 +225,7 @@ Les machines virtuelles de l’infrastructure et du locataire peuvent être redi
 Pour faciliter la configuration de votre commutateur ou routeur physique, un ensemble d’exemples de fichiers de configuration pour un large éventail de modèles de commutateur et de fournisseurs sont disponibles dans le [dépôt github Microsoft SDN](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples). Un fichier Lisez-moi détaillé et des commandes d’interface de ligne de commande (CLI) testées pour des commutateurs spécifiques sont fournis.         
 
 
-## <a name="compute"></a>Calcul  
+## <a name="compute"></a>Calcul :  
 Pour tous les ordinateurs hôtes Hyper-V, Windows Server 2016 doit être installé, Hyper-V est activé et un commutateur virtuel Hyper-V externe créé avec au moins une carte physique connectée au réseau logique de gestion. L’hôte doit être accessible via une adresse IP de gestion affectée à l’hôte de gestion carte réseau virtuelle.  
 
 Tout type de stockage compatible avec Hyper-V, partagé ou local, peut être utilisé.   
@@ -236,7 +236,7 @@ Tout type de stockage compatible avec Hyper-V, partagé ou local, peut être uti
 **Exigences de calcul pour l’hôte**  
 Le tableau suivant indique la configuration matérielle et logicielle minimale requise pour les quatre hôtes physiques utilisés dans l’exemple de déploiement.  
 
-Hôte|Configuration matérielle requise|Configuration logicielle|  
+Host|Configuration matérielle requise|Configuration logicielle requise|  
 --------|-------------------------|-------------------------  
 |Hôte Hyper-v physique|PROCESSEUR 4 cœurs 2,66 GHz<br /><br />32 Go de RAM<br /><br />300 Go d’espace disque<br /><br />carte réseau physique 1 Go/s (ou plus rapide)|SYSTÈME D’EXPLOITATION Windows Server 2016<br /><br />Rôle Hyper-V installé|  
 

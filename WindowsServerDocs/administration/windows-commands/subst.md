@@ -2,7 +2,7 @@
 title: subst
 description: Découvrez comment associer un chemin d’accès à une lettre de lecteur.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 858195de89ca8661cf47c25b6cf9b519cc4efbf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3010d1e58fbd360b8311512e6664873b020c12b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383754"
 ---
 # <a name="subst"></a>subst
 
 
 
-Associe un chemin d’accès à une lettre de lecteur. Si utilisée sans paramètres, **subst** affiche les noms des lecteurs virtuels en vigueur.
+Associe un chemin d’accès à une lettre de lecteur. En cas d’utilisation sans paramètre, **subst** affiche le nom des lecteurs virtuels en vigueur.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -39,14 +39,14 @@ subst <Drive1>: /d
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Lecteur1 > :|Spécifie le lecteur virtuel auquel vous souhaitez affecter un chemin d’accès.|
-|[\<Lecteur2 > :]\<chemin d’accès >|Spécifie le lecteur physique et le chemin d’accès que vous souhaitez affecter à un lecteur virtuel.|
-|/d|Supprime un lecteur substitué (virtuel).|
+|> @no__t 0Drive1 :|Spécifie le lecteur virtuel auquel vous souhaitez affecter un chemin d’accès.|
+|[\<Drive2 >:] \<Path >|Spécifie le lecteur physique et le chemin d’accès que vous souhaitez affecter à un lecteur virtuel.|
+|/d|Supprime un lecteur (virtuel) substitué.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Les commandes suivantes ne fonctionnent pas et ne doit pas être utilisés sur les lecteurs qui sont spécifiés dans le **subst** commande :
+-   Les commandes suivantes ne fonctionnent pas et ne doivent pas être utilisées sur les lecteurs spécifiés dans la commande **subst** :
 
     **chkdsk**
 
@@ -59,21 +59,21 @@ subst <Drive1>: /d
     **label**
 
     **recover**
--   Le *lecteur1* paramètre doit être dans la plage spécifiée par la **lastdrive** commande. Si ce n’est pas le cas, **subst** affiche le message d’erreur suivant :
+-   Le paramètre *lecteur1* doit être compris dans la plage spécifiée par la commande **LASTDRIVE** . Si ce n’est pas le cas, **subst** affiche le message d’erreur suivant :
 
     `Invalid parameter - drive1:`
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Pour créer un lecteur virtuel Z pour le chemin d’accès B:\User\Betty\Forms, tapez :
 ```
 subst z: b:\user\betty\forms 
 ```
-Au lieu de taper le chemin d’accès complet, vous pouvez atteindre ce répertoire en tapant la lettre du lecteur virtuel suivie d’un signe deux-points comme suit :
+Au lieu de taper le chemin d’accès complet, vous pouvez accéder à ce répertoire en tapant la lettre du lecteur virtuel suivie d’un signe deux-points, comme suit :
 ```
 z: 
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

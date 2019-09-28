@@ -2,7 +2,7 @@
 title: Services Bureau à distance - Exécution et réglage
 description: Informations de planification pour vous aider à concevoir votre déploiement de Bureau à distance.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 047b08be-7f91-4194-a641-5b6941b92515
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 534fbef473c2627f65189c6f3dfcc9a89200f289
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 99930f1b4448bdadad3023558696d77294bd1a91
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743494"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387341"
 ---
 # <a name="plan-and-design-your-remote-desktop-services-environment"></a>Planifier et concevoir votre environnement des services Bureau à distance
 

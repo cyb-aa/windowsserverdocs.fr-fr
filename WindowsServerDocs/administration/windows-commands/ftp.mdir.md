@@ -1,8 +1,8 @@
 ---
-title: ftp mdir
-description: 'Rubrique de commandes de Windows pour ***- '
+title: mdir FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c4ec445c3e367a46dc40d10a37c0b3b8e53a10e3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 08aa5bb216a3d0155c100c761e476bb963e59311
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438333"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375846"
 ---
 # <a name="ftp-mdir"></a>FTP : mdir
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche une liste de répertoires de fichiers et sous-répertoires dans un répertoire distant.   
+Affiche une liste de répertoires de fichiers et de sous-répertoires dans un répertoire distant.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 mdir <remoteFile>[ ] <LocalFile>  
@@ -33,21 +33,21 @@ mdir <remoteFile>[ ] <LocalFile>
 
 |  Paramètre   |                               Description                                |
 |--------------|--------------------------------------------------------------------------|
-| <remoteFile> |   Spécifie le répertoire ou le fichier pour lequel vous souhaitez afficher une liste.   |
+| <remoteFile> |   Spécifie le répertoire ou le fichier dont vous souhaitez afficher la liste.   |
 | <LocalFile>  | Spécifie un fichier local pour stocker la liste. Ce paramètre est obligatoire. |
 
 ## <a name="remarks"></a>Notes  
 - Vous pouvez utiliser **mdir** pour spécifier plusieurs fichiers.  
-- Spécification *Fichier_distant*  
-  Tapez un trait d’union ( **-** ) à utiliser le répertoire de travail actuel sur l’ordinateur distant.  
-- En spécifiant un *LocalFile*  
-  Tapez un trait d’union ( **-** ) pour afficher la liste à l’écran.  
-  ## <a name="BKMK_Examples"></a>Exemples  
-  Afficher une liste des répertoires **dir1** et **dir2** sur l’écran  
+- Spécification de *remoteFile*  
+  tapez un trait d’Union ( **-** ) pour utiliser le répertoire de travail actuel sur l’ordinateur distant.  
+- Spécification d’un *fichier_local*  
+  tapez un trait d’Union ( **-** ) pour afficher la liste à l’écran.  
+  ## <a name="BKMK_Examples"></a>Illustre  
+  Afficher une liste de répertoires de **dir1** et **dir2** à l’écran  
   ```  
   mdir dir1 dir2 -  
   ```  
-  Enregistrer la liste des répertoires combiné **dir1** et **dir2** dans un fichier local appelé **ListRép.txt**  
+  Enregistrez la liste de répertoires combinée de **dir1** et **dir2** dans un fichier local nommé **DirList. txt**  
   ```  
   mdir dir1 dir2 dirlist.txt  
   ```  

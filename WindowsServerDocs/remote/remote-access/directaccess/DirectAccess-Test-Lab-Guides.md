@@ -3,7 +3,7 @@ title: Guides de laboratoire de Test de DirectAccess
 description: Cette rubrique fournit des liens vers les guides de laboratoire de test pour DirectAccess dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,21 +12,21 @@ ms.topic: article
 ms.assetid: 931a75ac-80f8-434c-8789-1dffb308ee13
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 667f7be5e31118a7ec62d98b5b6e095d5473d603
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d128105c457dbb183b79afe42a4ce7826516cadd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281973"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394548"
 ---
 # <a name="directaccess-test-lab-guides"></a>Guides de laboratoire de Test de DirectAccess
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Voici des liens vers les guides de laboratoire de test pour DirectAccess dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012.
+Vous trouverez ci-dessous des liens vers les guides de laboratoire de test pour DirectAccess dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012.
 
-- [Guide de laboratoire de test : Décrire DirectAccess dans un cluster avec équilibrage de charge réseau Windows](tlg-cluster-nlb/Test-Lab-Guide-Demonstrate-DirectAccess-in-a-Cluster-with-Windows-NLB.md)
+- [Guide de laboratoire de test : Démonstration de DirectAccess dans un cluster avec Windows NLB @ no__t-0
 
-- [Guide de laboratoire de test : Décrire un déploiement multisite DirectAccess](tlg-multisite/Test-Lab-Guide-Demonstrate-a-DirectAccess-Multisite-Deployment.md)
+- [Guide de laboratoire de test : Illustrer un déploiement multisite DirectAccess @ no__t-0
 
-- [Guide de laboratoire de test : Illustrer DirectAccess avec l’authentification OTP et RSA SecurID](tlg-otp-securid/Test-Lab-Guide-Demonstrate-DirectAccess-with-OTP-Authentication-and-RSA-SecurID.md)
+- [Guide de laboratoire de test : Illustrer DirectAccess avec l’authentification par mot de passe à usage unique et RSA SecurID @ no__t-0

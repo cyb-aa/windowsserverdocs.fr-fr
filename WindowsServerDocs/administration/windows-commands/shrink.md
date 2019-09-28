@@ -1,8 +1,8 @@
 ---
 title: shrink
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09cc9ce7beebc04a0a45cd93c2b0da25c5a1a49e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f0e5caa0103018c94671d7441a6d2349ab734be6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441264"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370902"
 ---
 # <a name="shrink"></a>shrink
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-La commande de réduction Diskpart réduit la taille du volume sélectionné par le montant que vous spécifiez. Cette commande rend disponible l’espace disque disponible à partir de l’espace inutilisé à la fin du volume.
+La commande DiskPart Shrink réduit la taille du volume sélectionné en spécifiant la quantité spécifiée. Cette commande permet d’libérer de l’espace disque disponible à partir de l’espace inutilisé à la fin du volume.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -35,29 +35,29 @@ shrink querymax [noerr]
 
 |  Paramètre  |                                                                                             Description                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| desired=<n> |                                                     Spécifie la quantité souhaitée d’espace en mégaoctets (Mo) pour réduire la taille du volume par.                                                     |
-| minimum=<n> |                                                           Spécifie la quantité minimale d’espace en Mo pour réduire la taille du volume.                                                           |
-|  querymax   |                       Retourne la quantité maximale d’espace en Mo par lequel le volume peut être réduit. Cette valeur peut changer si les applications qui accèdent actuellement au volume.                        |
-|   NOWAIT    |                                                       force la commande pour retourner immédiatement le processus de réduction est en cours d’exécution.                                                        |
-|    NOERR    | Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart. |
+| desired = <n> |                                                     Spécifie la quantité d’espace souhaitée en mégaoctets (Mo) pour réduire la taille du volume.                                                     |
+| minimum = <n> |                                                           Spécifie la quantité minimale d’espace en Mo pour réduire la taille du volume.                                                           |
+|  QueryMax   |                       Retourne la quantité maximale d’espace en Mo en fonction de laquelle le volume peut être réduit. Cette valeur peut changer si les applications accèdent actuellement au volume.                        |
+|   NOWAIT    |                                                       force la commande à retourner immédiatement pendant que le processus de réduction est toujours en cours.                                                        |
+|    noerr    | À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
 
 ## <a name="remarks"></a>Notes
-- Vous pouvez réduire la taille d’un volume uniquement si elle est mise en forme à l’aide du système de fichiers NTFS ou si elle n’a pas d’un système de fichiers.
+- Vous pouvez réduire la taille d’un volume uniquement s’il est formaté à l’aide du système de fichiers NTFS ou s’il ne dispose pas d’un système de fichiers.
 - Cette commande fonctionne sur les volumes de base et sur les volumes dynamiques simples ou fractionnés.
-- Si une quantité souhaitée n’est pas spécifiée, le volume sera réduit par la quantité minimale (si spécifié).
-- Si une quantité minimale n’est pas spécifiée, le volume sera réduit par la quantité souhaitée (si spécifié).
-- Si une quantité minimale, ni une quantité souhaitée n’est spécifiée, le volume sera réduit autant que possible.
-- Si une quantité minimale est spécifiée, mais pas suffisamment d’espace libre est disponible, la commande échoue.
-- Un volume doit être sélectionné pour cette opération réussisse. Utilisez le **sélectionnez volume** commande pour sélectionner un volume et déplacer le focus vers elle.
-- Cette commande ne fonctionne pas sur les partitions OEM (OEM), les partitions système Extensible Firmware Interface (EFI) ou les partitions de récupération.
-  ## <a name="BKMK_examples"></a>Exemples
-  Pour réduire la taille du volume sélectionné par la plus grande quantité possible entre 250 et 500 Mo, tapez :
+- Si une quantité souhaitée n’est pas spécifiée, le volume est réduit d’une quantité minimale (si elle est spécifiée).
+- Si une quantité minimale n’est pas spécifiée, le volume est réduit selon la quantité souhaitée (si elle est spécifiée).
+- Si ni une quantité minimale, ni une quantité souhaitée n’est spécifiée, le volume est réduit de la manière la plus possible.
+- Si une quantité minimale est spécifiée mais que l’espace libre disponible est insuffisant, la commande échoue.
+- Vous devez sélectionner un volume pour que cette opération aboutisse. Utilisez la commande **Sélectionner un volume** pour sélectionner un volume et lui déplacer le focus.
+- Cette commande ne fonctionne pas sur les partitions OEM (Original Equipment Manufacturer), les partitions système Extensible Firmware Interface (EFI) ou les partitions de récupération.
+  ## <a name="BKMK_examples"></a>Illustre
+  Pour réduire la taille du volume sélectionné par la plus grande quantité possible comprise entre 250 et 500 mégaoctets, tapez :
   ```
   shrink desired=500 minimum=250
   ```
-  Pour afficher le nombre maximal de Mo le volume peut être réduit par, tapez :
+  Pour afficher le nombre maximal de Mo que le volume peut réduire, tapez :
   ```
   shrink querymax
   ```
 
-[Resize-Partition](https://technet.microsoft.com/library/hh848680.aspx)
+[Redimensionner-partition](https://technet.microsoft.com/library/hh848680.aspx)

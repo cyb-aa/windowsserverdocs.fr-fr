@@ -2,18 +2,18 @@
 title: Créer un quota
 description: Cet article explique comment créer un quota basé sur un modèle
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f3c677f5ebf7dda44f4b99a64d0fbf8d2c72b92e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6b199d8cc520021fcbbe32397997cc483f9c68cb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883190"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403135"
 ---
 # <a name="create-a-quota"></a>Créer un quota
 
@@ -47,12 +47,12 @@ Quand vous créez un quota, vous choisissez un chemin d’accès, c'est-à-dire 
 
 6.  Sous **Dériver les propriétés de ce modèle de quota**, le modèle que vous avez utilisé à l’étape 2 pour créer le quota est présélectionné (ou vous pouvez sélectionner un autre modèle dans la liste). Notez que les propriétés du modèle sont affichées sous **Résumé des propriétés de quota**.
 
-7.  Cliquez sur **Create (Créer)**.
+7.  Cliquez sur **Create (Créer)** .
 
 ## <a name="see-also"></a>Voir aussi
 
 -   [Gestion de quota](quota-management.md)
--   [Créer une fonction automatique d’un quota](create-auto-apply-quota.md)
--   [Créer un modèle de Quota](create-quota-template.md)
+-   [Créer un quota automatique](create-auto-apply-quota.md)
+-   [Créer un modèle de quota](create-quota-template.md)
 
 

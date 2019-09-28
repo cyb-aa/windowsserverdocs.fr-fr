@@ -1,54 +1,54 @@
 ---
-title: Options de sélection de sous-réseau DHCP
-description: Cette rubrique fournit des informations sur les options de sélection de sous-réseau DHCP pour DHCP Dynamic Host Configuration Protocol () dans Windows Server 2016.
+title: Options de sélection du sous-réseau DHCP
+description: Cette rubrique fournit des informations sur les options de sélection du sous-réseau DHCP pour le protocole DHCP (Dynamic Host Configuration Protocol) dans Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: ca19e7d1-e445-48fc-8cf5-e4c45f561607
 ms.author: pashort
 author: shortpatti
 ms.date: 08/17/2018
-ms.openlocfilehash: 034ca48ef13a6bdac63ca99ac753fc9826460922
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4718204fad49b23c84cc73b67164f34a803ddd86
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870810"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405755"
 ---
-# <a name="dhcp-subnet-selection-options"></a>Options de sélection de sous-réseau DHCP
+# <a name="dhcp-subnet-selection-options"></a>Options de sélection du sous-réseau DHCP
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour plus d’informations sur les nouvelles options de sélection de sous-réseau DHCP.
+Vous pouvez utiliser cette rubrique pour obtenir des informations sur les nouvelles options de sélection de sous-réseau DHCP.
 
-DHCP maintenant prend en charge l’option 82 \(sous-composant option 5\). Vous pouvez utiliser ces options pour autoriser les clients de proxy DHCP et les agents de relais demander une adresse IP d’un sous-réseau spécifique et d’une plage d’adresses IP et de portée.  Pour plus d’informations, consultez **Option 82 Sub Option 5**: [Option de sélection de lien de RFC 3527 secondaires pour l’Option informations d’Agent relais pour DHCPv4](https://tools.ietf.org/html/rfc3527).
+DHCP prend désormais en charge l’option 82 \(sub-option 5 @ no__t-1. Vous pouvez utiliser ces options pour autoriser les clients de proxy et les agents de relais DHCP à demander une adresse IP pour un sous-réseau spécifique, et à partir d’une plage d’adresses IP et d’une étendue spécifiques.  Pour plus d’informations, consultez **option 82 Sub option 5**: [Sous-option de sélection de lien RFC 3527 pour l’option d’informations de l’agent de relais pour DHCPv4](https://tools.ietf.org/html/rfc3527).
 
-Si vous utilisez un agent de relais DHCP qui est configuré avec l’option DHCP 82, sous-composant option 5, l’agent de relais peut demander un bail d’adresse IP pour les clients DHCP à partir d’une plage d’adresses IP spécifique.
+Si vous utilisez un agent de relais DHCP configuré avec l’option DHCP 82, sous-option 5, l’agent de relais peut demander un bail d’adresse IP pour les clients DHCP à partir d’une plage d’adresses IP spécifique.
 
 
-## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Option 82 sous-option 5 : Sélection de lien sous-option
+## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Option 82 Sub 5 : Sous-option de sélection de lien
 
-sous-L’option de sélection de lien de l’Agent de relais permet à un Agent de relais DHCP spécifier un sous-réseau IP à partir de laquelle le serveur DHCP doit affecter des adresses IP et les options.
+La sous-option sélection du lien de l’agent de relais permet à un agent de relais DHCP de spécifier un sous-réseau IP à partir duquel le serveur DHCP doit affecter des adresses IP et des options.
 
-En règle générale, les agents de relais DHCP s’appuient sur l’adresse IP de passerelle \(GIADDR\) champ pour communiquer avec les serveurs DHCP. Toutefois, GIADDR est limité par ses fonctions opérationnelles deux :
+En règle générale, les agents de relais DHCP s’appuient sur le champ d’adresse IP de la passerelle \(GIADDR @ no__t-1 pour communiquer avec les serveurs DHCP. Toutefois, GIADDR est limité par ses deux fonctions opérationnelles :
 
-1. Pour informer le serveur DHCP sur le sous-réseau sur lequel réside le client DHCP qui demande le bail d’adresse IP.
+1. Pour informer le serveur DHCP du sous-réseau sur lequel réside le client DHCP qui demande le bail d’adresse IP.
 2. Pour informer le serveur DHCP de l’adresse IP à utiliser pour communiquer avec l’agent de relais.
 
-Dans certains cas, l’adresse IP par l’agent de relais pour communiquer avec le serveur DHCP peut être différente de celle de la plage d’adresses IP à partir de laquelle l’adresse IP du client DHCP doit être affectée. 
+Dans certains cas, l’adresse IP que l’agent de relais utilise pour communiquer avec le serveur DHCP peut être différente de la plage d’adresses IP à partir de laquelle l’adresse IP du client DHCP doit être allouée. 
 
-L’option Sub de sélection de lien d’option 82 est utile dans ce cas, ce qui permet de déclarer explicitement le sous-réseau à partir de laquelle il veut l’adresse IP allouée dans le formulaire de l’option DHCP v4 sous-option 82 5, l’agent de relais.
+La sous-option de sélection de lien de l’option 82 est utile dans cette situation, ce qui permet à l’agent de relais d’indiquer explicitement le sous-réseau à partir duquel il veut que l’adresse IP soit allouée sous la forme de l’option 5 de la sous-option 5 DHCP 82 v4.
 
 > [!NOTE]
 >
-> Toutes les adresses IP de l’agent relais (GIADDR) doivent faire partie d’une plage d’adresses IP d’étendue DHCP active. N’importe quel GIADDR en dehors des plages d’adresses IP DHCP étendue est considéré comme un relais non fiables et serveur DHCP de Windows ne reconnaît pas les demandes du client à partir de ces agents de relais DHCP.
+> Toutes les adresses IP de l’agent de relais (GIADDR) doivent faire partie d’une plage d’adresses IP d’étendue DHCP active. Tout GIADDR en dehors des plages d’adresses IP de l’étendue DHCP est considéré comme un relais non autorisé et le serveur DHCP Windows n’accuse pas réception des demandes du client DHCP à partir de ces agents de relais.
 >
-> Une portée spéciale peut être créée pour les agents de relais « autoriser ». Créer une étendue avec le GIADDR (ou plusieurs si le GIADDR est des adresses IP séquentiels), exclure les adresses GIADDR de la distribution, puis activer l’étendue. Cela autorise les agents de relais tout en empêchant les adresses GIADDR leur soient assignés.
+> Une étendue spéciale peut être créée pour « autoriser » les agents de relais. Créez une étendue avec le GIADDR (ou plusieurs si les GIADDR sont des adresses IP séquentielles), excluez les adresses GIADDR de la distribution, puis activez l’étendue. Cela permet d’autoriser les agents de relais tout en empêchant l’attribution des adresses GIADDR.
 
 
-### <a name="use-case-scenario"></a>Scénario d’utilisation
+### <a name="use-case-scenario"></a>Scénario de cas d’usage
 
-Dans ce scénario, un réseau d’entreprise inclut un serveur DHCP et un Point d’accès sans fil \(AP\) pour les utilisateurs invités. Adresses IP des clients invités sont affectées à partir du serveur DHCP d’organisation : Toutefois, en raison de restrictions de stratégie de pare-feu, le serveur DHCP ne peut pas accéder au réseau sans fil invité ou les clients sans fil avec les messages pendant.
+Dans ce scénario, un réseau d’organisation comprend un serveur DHCP et un point d’accès sans fil \(AP @ no__t-1 pour les utilisateurs invités. Les adresses IP des clients invités sont attribuées à partir du serveur DHCP de l’organisation. Toutefois, en raison des restrictions de stratégie de pare-feu, le serveur DHCP ne peut pas accéder au réseau sans fil invité ni aux clients sans fil avec des messages broadcase.
 
-Pour résoudre cette restriction, le point d’accès est configuré avec l’Option Sub lien sélection 5 pour spécifier le sous-réseau à partir de laquelle il veut l’adresse IP allouée pour les clients de l’invité, tandis que dans le GIADDR également en spécifiant l’adresse IP de l’interface interne qui mène à la réseau d’entreprise.
+Pour résoudre cette restriction, le point d’accès est configuré avec la sous-option 5 de la sélection de lien afin de spécifier le sous-réseau à partir duquel il veut que l’adresse IP soit allouée pour les clients invités, tandis que dans le GIADDR spécifient également l’adresse IP de l’interface interne qui amène à la réseau d’entreprise.

@@ -1,8 +1,8 @@
 ---
-title: ksetup:delkpasswd
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : delkpasswd'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1c701707f736fe51a1f4af70a2571e63025f281
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: dce7d9666040ff0c234139932ea60e3589dfecb2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438045"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375135"
 ---
-# <a name="ksetupdelkpasswd"></a>ksetup:delkpasswd
+# <a name="ksetupdelkpasswd"></a>Ksetup : delkpasswd
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Supprime un serveur de mot de passe Kerberos (Kpasswd) pour un domaine. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+supprime un serveur de mot de passe Kerberos (kpasswd) pour un domaine. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 ## <a name="syntax"></a>Syntaxe
 ```
 ksetup /delkpasswd <RealmName> <KpasswdName>
@@ -33,18 +33,18 @@ ksetup /delkpasswd <RealmName> <KpasswdName>
 
 |   Paramètre   |                                                                                                   Description                                                                                                   |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  <RealmName>  |                                Le nom de domaine est indiqué comme un nom DNS en majuscules, telles que CORP. CONTOSO.COM et est répertorié en tant que la valeur par défaut domaine ou du domaine Kerberos = quand **ksetup** est exécuté.                                |
-| <KpasswdName> | Le nom de contrôleur de domaine Kerberos à utiliser en tant que le serveur de mot de passe Kerberos est établi comme un nom de domaine complet, non-respect de la casse, comme mitkdc.contoso.com. Si le nom de contrôleur de domaine Kerberos est omis, DNS peut être utilisé pour localiser le KDC. |
+|  <RealmName>  |                                Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM et est indiqué comme domaine par défaut ou domaine = lorsque **Ksetup** est exécuté.                                |
+| <KpasswdName> | Le nom KDC à utiliser comme serveur de mot de passe Kerberos est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.contoso.com. Si le nom du KDC est omis, DNS peut être utilisé pour localiser les KDC. |
 
 ## <a name="remarks"></a>Notes
-Exécutez la commande **ksetup** pour vérifier le nom de contrôleur de domaine Kerberos. Si **kpasswd =** n’apparaît pas dans la sortie, puis le mappage n’a pas été configuré. Plusieurs mappages apparaît, si définie.
-## <a name="BKMK_Examples"></a>Exemples
-vérifier le domaine CORP. CONTOSO.COM utilise le mitkdc.contoso.com serveur KDC Windows non - que le serveur de mot de passe :
+Exécutez la commande **Ksetup** pour vérifier le nom du KDC. Si **kpasswd =** n’apparaît pas dans la sortie, cela signifie que le mappage n’a pas été configuré. Les mappages multiples sont listés, s’ils sont définis.
+## <a name="BKMK_Examples"></a>Illustre
+Vérifiez le domaine CORP. CONTOSO.COM utilise le serveur KDC non-Windows mitkdc.contoso.com comme serveur de mot de passe :
 ```
 ksetup /delkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-Pour vérifier que la commande a fonctionné comme prévu, exécutez **ksetup** sur l’ordinateur Windows pour vérifier le domaine CORP. CONTOSO.COM n’est pas mappé à un serveur de mot de passe Kerberos (le nom de contrôleur de domaine Kerberos).
+Pour vérifier que la commande fonctionnait comme prévu, exécutez **Ksetup** sur l’ordinateur Windows pour vérifier le domaine Corp. CONTOSO.COM n’est pas mappé à un serveur de mot de passe Kerberos (nom KDC).
 ## <a name="additional-references"></a>Références supplémentaires
 -   [ksetup](ksetup.md)
--   [ksetup:delkpasswd](ksetup-delkpasswd.md)
+-   [Ksetup : delkpasswd](ksetup-delkpasswd.md)
 -   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

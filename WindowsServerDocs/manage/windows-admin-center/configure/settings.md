@@ -7,13 +7,13 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 04/12/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: e184064aa913bf4fb18cadd8ddbb08b5b97c59c6
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: e0fd6618f275058d4e22fe9abb9e484d4752ac9a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865323"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407058"
 ---
 # <a name="windows-admin-center-settings"></a>Paramètres du centre d’administration Windows
 
@@ -46,7 +46,7 @@ L’onglet **avancé** donne des fonctionnalités supplémentaires aux développ
 Les paramètres au niveau de la passerelle sont constitués des sections suivantes :
 
 - Extensions
-- Access
+- Accès
 - Azure
 - Connexions partagées
 

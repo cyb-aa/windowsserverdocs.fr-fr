@@ -1,8 +1,8 @@
 ---
 title: Commandes par rôle serveur
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a855926b9648a7c0f1a0db3e59ca802f8654ab0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5201e7291ce93c6bc45180aa8b9df2e36409c8f8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873750"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379252"
 ---
 # <a name="commands-by-server-role"></a>Commandes par rôle serveur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Un rôle de serveur décrit la fonction principale du serveur. Les administrateurs peuvent choisir de dédier un serveur entier à un seul rôle, ou installer plusieurs rôles de serveur et sub sur un seul ordinateur. Chaque rôle peut inclure des outils de ligne de commande supplémentaires, installés en tant que partie du rôle. Les rubriques suivantes fournissent une liste de commandes associées à chaque rôle de serveur.
+Un rôle de serveur décrit la fonction principale du serveur. Les administrateurs peuvent choisir de dédier un serveur entier à un rôle, ou d’installer plusieurs rôles de serveur et sous-rôles sur un seul ordinateur. Chaque rôle peut inclure des outils en ligne de commande supplémentaires, installés dans le cadre du rôle. Les rubriques suivantes fournissent une liste de commandes associées à chaque rôle de serveur.
 
 -   [Référence des commandes d’impression](print-command-reference.md)
--   [Services pour la référence de commande de système de fichiers réseau](services-for-network-file-system-command-reference.md)
--   [Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)
--   [Référence de commande de sauvegarde de Windows Server](windows-server-backup-command-reference.md)
+-   [Référence des commandes des services pour NFS](services-for-network-file-system-command-reference.md)
+-   [Services Bureau à distance &#40;la référence&#41; des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+-   [Référence des commandes de sauvegarde Windows Server](windows-server-backup-command-reference.md)

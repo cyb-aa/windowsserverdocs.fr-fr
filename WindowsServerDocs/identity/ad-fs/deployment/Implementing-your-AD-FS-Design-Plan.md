@@ -6,36 +6,36 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6150b52030734c57b345aea731302650bcbddbfd
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6306b87dd06774bfde5ffc3ff98818d47d0c858f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192129"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408373"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implémentation de votre plan de conception AD FS
 
-Les conditions environnementales suivantes et les exigences sont des facteurs importants dans l’implémentation de votre Active Directory Federation Services \(AD FS\) plan de conception :  
+Les conditions et exigences environnementales suivantes sont des facteurs importants dans l’implémentation de votre plan de conception Services ADFS \(AD FS @ no__t-1 :  
   
--   **Partenaires pris en charge :** Généralement, vous utilisez AD FS pour travailler avec des organisations partenaires. Pour établir la fédération des identités, déterminez les organisations avec laquelle vous souhaitez forment un partenariat. Après qu’un déploiement de FS base AD est en place, le fonctionnement avec des partenaires implique l’ajout de partenaires, la suppression des partenaires et la mise à jour des informations sur le partenaire. Modifications apportées aux partenariats peuvent se produire pour diverses raisons. Par exemple, votre déploiement AD FS peut nécessiter des mises à jour de partenariat si votre partenaire change ses activités de façon significative, votre organisation devient partie intégrante d’une plus grande organisation ou d’une fédération des organisations, ou votre organisation est acquis par un autre entreprise. Dans tout scénario dans lequel vous fédérer des identités à partir de plusieurs domaines, vous devez connaître les domaines \(partenaires\) qui vous sont actuellement en charge et tous les domaines supplémentaires qui représentent des partenaires potentiels.  
+-   **Partenaires pris en charge :** En général, vous utilisez AD FS pour travailler avec des organisations partenaires. Pour établir la Fédération des identités, déterminez les organisations avec lesquelles vous souhaitez former un partenariat. Après la mise en place d’un déploiement de AD FS de référence, l’utilisation de partenaires implique l’ajout de partenaires, la suppression de partenaires et la mise à jour des informations de partenaire. Les modifications apportées aux partenariats peuvent se produire pour diverses raisons. Par exemple, votre déploiement AD FS peut nécessiter des mises à jour de partenariat si votre partenaire change de manière significative son entreprise, si votre organisation fait partie d’une plus grande organisation ou d’une Fédération d’organisations, ou si votre organisation est acquise par une autre entreprise. Dans tout scénario dans lequel vous fédérer des identités à partir de plusieurs domaines, vous devez connaître les domaines \(partners @ no__t-1 que vous prenez actuellement en charge et tous les domaines supplémentaires qui représentent des partenaires potentiels.  
   
--   **Applications prises en charge et les types de service :** Certains services et applications requièrent l’accès aux ressources du système d’exploitation, tandis que d’autres sont des « revendications prenant en charge. » Il est important de comprendre les types d’applications et services prenant en charge AD FS afin que vous pouvez formuler les besoins d’administration.  
+-   **Types d’applications et de services pris en charge :** Certaines applications et certains services requièrent l’accès aux ressources du système d’exploitation, tandis que d’autres sont « compatibles avec les revendications ». Il est important de comprendre les types d’applications et de services pris en charge par AD FS afin que vous puissiez formuler des exigences d’administration.  
   
--   **Diagrammes d’architecture logiques et physiques ou la topologie de déploiement :** Vous devez connaître :  
+-   **Diagrammes d’architecture logique et physique ou topologie de déploiement :** Vous devez connaître les éléments suivants :  
   
-    -   Indique si les serveurs de fédération fonctionnera dans un ensemble de serveurs de batterie de serveurs ou sur un serveur unique.  
+    -   Si les serveurs de Fédération fonctionnent dans un ensemble de serveurs de batterie ou sur un serveur unique.  
   
-    -   Où votre réseau déploie les pare-feux et proxys.  
+    -   Où votre réseau déploie des pare-feu et des proxys.  
   
-    -   L’emplacement des ressources et indique si les utilisateurs accèdent à des ressources à partir de votre organisation, à l’extérieur de l’organisation, ou les deux.  
+    -   L’emplacement des ressources et si les utilisateurs accèdent aux ressources de votre organisation, en dehors de l’organisation, ou les deux.  
   
-## <a name="how-to-implement-your-ad-fs-design-using-this-guide"></a>Comment implémenter votre conception AD FS à l’aide de ce guide  
-L’étape suivante de l’implémentation de votre conception consiste à déterminer l’ordre dans lequel chaque tâche de déploiement doit être exécutée. Ce guide utilise les listes de vérification pour vous guider à travers les différentes tâches de déploiement du serveur et de l’application requises pour l’implémentation de votre plan de conception. Listes de contrôle parent et enfant sont utilisés si nécessaire pour représenter l’ordre dans lequel les tâches pour un spécifique AD FS design doit être traité.  
+## <a name="how-to-implement-your-ad-fs-design-using-this-guide"></a>Comment implémenter votre conception de AD FS à l’aide de ce guide  
+L’étape suivante de l’implémentation de votre conception consiste à déterminer dans quel ordre chaque tâche de déploiement doit être exécutée. Ce guide utilise les listes de vérification pour vous guider à travers les différentes tâches de déploiement du serveur et de l’application requises pour l’implémentation de votre plan de conception. Les listes de contrôle parent et enfant sont utilisées si nécessaire pour représenter l’ordre dans lequel les tâches pour une conception de AD FS spécifique doivent être traitées.  
   
-Utilisez les listes de contrôle parent suivantes dans cette section du guide pour vous familiariser avec les tâches de déploiement pour l’implémentation de conception AD FS par défaut de votre organisation :  
+Utilisez les listes de contrôle parentes suivantes de cette section du guide pour vous familiariser avec les tâches de déploiement permettant d’implémenter la conception de AD FS préférée de votre organisation :  
   
 -   [Liste de vérification : implémentation d’une conception SSO de web](Checklist--Implementing-a-Web-SSO-Design.md)  
   

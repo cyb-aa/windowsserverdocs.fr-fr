@@ -1,8 +1,8 @@
 ---
-title: Ajout de reg
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Reg ajouter
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,17 +13,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d46fc2df23391a1dbb782014addc68d9522d603a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5b478ce0c98ec77f1387d8f894364f53cf8d2142
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441916"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371758"
 ---
-# <a name="reg-add"></a>Ajout de reg
+# <a name="reg-add"></a>Reg ajouter
 
 
-Ajoute une nouvelle sous-clé ou une entrée au Registre.
+Ajoute une nouvelle sous-clé ou une entrée au registre.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,42 +36,42 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 
 |      Paramètre      |                                                                                                                                                                                                                                                                   Description                                                                                                                                                                                                                                                                   |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<KeyName<em>></em> | Spécifie le chemin d’accès complet de la sous-clé ou l’entrée à ajouter. Pour spécifier un ordinateur distant, incluez le nom d’ordinateur (au format \\ \\ \<nom_ordinateur >\) dans le cadre de la *KeyName*. En omettant \\ \\ComputerName\, l’opération par défaut sur l’ordinateur local. Le *KeyName* doit inclure une clé racine valide. Les clés racine valide pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont : HKLM et HKU. Si le nom de clé de Registre contient un espace, placez le nom de clé entre guillemets. |
-|   /v \<ValueName>   |                                                                                                                                                                                                                                Spécifie le nom de l’entrée de Registre à ajouter sous la sous-clé spécifiée.                                                                                                                                                                                                                                 |
-|         /ve         |                                                                                                                                                                                                                                Spécifie que l’entrée de Registre qui est ajoutée au Registre a une valeur null.                                                                                                                                                                                                                                |
-|     /t \<Type>      |                                                                                                                                          Spécifie le type pour l’entrée de Registre. *Type* doit être une des opérations suivantes :</br>REG_SZ</br>REG_MULTI_SZ</br>REG_DWORD_BIG_ENDIAN</br>REG_DWORD</br>REG_BINARY</br>REG_DWORD_LITTLE_ENDIAN</br>REG_LINK</br>REG_FULL_RESOURCE_DESCRIPTOR</br>REG_EXPAND_SZ                                                                                                                                          |
-|   /s \<séparateur >   |                                                                                                                                                              Spécifie le caractère à utiliser pour séparer plusieurs instances de données lorsque le type de données REG_MULTI_SZ est spécifié, et plus d’une entrée doit être répertorié. Si non spécifié, le séparateur par défaut est **\0**.                                                                                                                                                              |
-|     /d \<Data>      |                                                                                                                                                                                                                                                 Spécifie les données de la nouvelle entrée de Registre.                                                                                                                                                                                                                                                  |
-|         /f          |                                                                                                                                                                                                                                           Ajoute l’entrée de Registre sans demander confirmation.                                                                                                                                                                                                                                           |
-|         /?          |                                                                                                                                                                                                                                              Affiche l’aide de **reg ajouter** à l’invite de commandes.                                                                                                                                                                                                                                               |
+| \<KeyName<em>></em> | Spécifie le chemin d’accès complet de la sous-clé ou de l’entrée à ajouter. Pour spécifier un ordinateur distant, incluez le nom de l’ordinateur (au format \\ @ no__t-1 @ no__t-2ComputerName > \) dans le cadre du *keyName*. Si vous omettez \\ @ no__t-1ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont les suivantes : HKLM et HKU. Si le nom de la clé de registre contient un espace, mettez-le entre guillemets. |
+|   /v \<ValueName >   |                                                                                                                                                                                                                                Spécifie le nom de l’entrée de Registre à ajouter dans la sous-clé spécifiée.                                                                                                                                                                                                                                 |
+|         /ve         |                                                                                                                                                                                                                                Spécifie que l’entrée de Registre ajoutée au registre a une valeur null.                                                                                                                                                                                                                                |
+|     /t \<Type >      |                                                                                                                                          Spécifie le type de l’entrée de registre. Le *type* doit être l’un des suivants :</br>REG_SZ</br>REG_MULTI_SZ</br>REG_DWORD_BIG_ENDIAN</br>REG_DWORD</br>REG_BINARY</br>REG_DWORD_LITTLE_ENDIAN</br>REG_LINK</br>REG_FULL_RESOURCE_DESCRIPTOR</br>REG_EXPAND_SZ                                                                                                                                          |
+|   /s \<Separator >   |                                                                                                                                                              Spécifie le caractère à utiliser pour séparer plusieurs instances de données lorsque le type de données REG_MULTI_SZ est spécifié et que plusieurs entrées doivent être listées. S’il n’est pas spécifié, le séparateur par défaut est **\ 0**.                                                                                                                                                              |
+|     /d \<Data >      |                                                                                                                                                                                                                                                 Spécifie les données de la nouvelle entrée de registre.                                                                                                                                                                                                                                                  |
+|         /f          |                                                                                                                                                                                                                                           Ajoute l’entrée de registre sans demander confirmation.                                                                                                                                                                                                                                           |
+|         /?          |                                                                                                                                                                                                                                              Affiche l’aide pour **reg Add** à l’invite de commandes.                                                                                                                                                                                                                                               |
 
 ## <a name="remarks"></a>Notes
 
--   Sous-arborescences ne peut pas être ajoutés à cette opération. Cette version de **reg** ne pas demander confirmation lors de l’ajout d’une sous-clé.
--   Le tableau suivant répertorie les valeurs de retour pour la **reg ajouter** opération.
+-   Impossible d’ajouter des sous-arborescences avec cette opération. Cette version de **reg** ne demande pas de confirmation lors de l’ajout d’une sous-clé.
+-   Le tableau suivant répertorie les valeurs renvoyées pour l’opération **reg Add** .
 
 | Value | Description |
 |-------|-------------|
-|   0   |   Opération réussie   |
+|   0   |   Succès   |
 |   1   |   Échec   |
 
--   Pour le type de clé REG_EXPAND_SZ, utilisez le symbole de signe insertion ( **^** ) avec **%** « dans le paramètre /d
+-   Pour le type de clé REG_EXPAND_SZ, utilisez le symbole de signe insertion ( **^** ) avec **%** » à l’intérieur du paramètre/d
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour ajouter la clé HKLM\Software\MaClé sur l’ordinateur distant ABC, tapez :
+Pour ajouter la clé HKLM\Software\MyCo sur l’ordinateur distant ABC, tapez :
 ```
 REG ADD \\ABC\HKLM\Software\MyCo
 ```
-Pour ajouter une entrée de Registre à HKLM\Software\MyCo avec une valeur nommée **données** de type REG_BINARY et les données de **fe340ead**, type :
+Pour ajouter une entrée de Registre à HKLM\Software\MyCo avec une valeur nommée **Data** de type REG_BINARY et Data of **fe340ead**, tapez :
 ```
 REG ADD HKLM\Software\MyCo /v Data /t REG_BINARY /d fe340ead
 ```
-Pour ajouter une entrée de Registre à valeurs multiples à HKLM\Software\MyCo avec un nom de la valeur de **MRU** de type REG_MULTI_SZ et les données de **fax\0mail\0\0**, type :
+Pour ajouter une entrée de Registre à plusieurs valeurs à HKLM\Software\MyCo avec un nom de valeur **MRU** de type REG_MULTI_SZ et des données de **fax\0mail\0\0**, tapez :
 ```
 REG ADD HKLM\Software\MyCo /v MRU /t REG_MULTI_SZ /d fax\0mail\0\0
 ```
-Pour ajouter une entrée de Registre étendue à HKLM\Software\MyCo avec un nom de la valeur de **chemin d’accès** de type REG_EXPAND_SZ et les données de **%SystemRoot%** , type :
+Pour ajouter une entrée de Registre développée à HKLM\Software\MyCo avec un nom de valeur **chemin d’accès** de type REG_EXPAND_SZ et des données de **% systemroot%** , tapez :
 ```
 REG ADD HKLM\Software\MyCo /v Path /t REG_EXPAND_SZ /d ^%systemroot^%
 ```

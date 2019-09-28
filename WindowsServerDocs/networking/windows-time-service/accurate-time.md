@@ -6,14 +6,14 @@ author: shortpatti
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: acc46dacdf1d8b11aaa45b3665e8d11ee75635cf
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 1399ed6a50085baa37f06c09b8c3e18ca8bca98b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871834"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395706"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Heure précise pour Windows Server 2016
 
@@ -22,7 +22,7 @@ ms.locfileid: "70871834"
 Le service de temps Windows est un composant qui utilise un modèle de plug-in pour les fournisseurs de synchronisation de l’heure du client et du serveur.  Il existe deux fournisseurs clients intégrés sur Windows et des plug-ins tiers sont disponibles. Un fournisseur utilise le [protocole NTP (RFC 1305)](https://tools.ietf.org/html/rfc1305) ou [MS-NTP](https://msdn.microsoft.com/library/cc246877.aspx) pour synchroniser l’heure système locale sur un serveur de référence NTP et/ou compatible MS-NTP. L’autre fournisseur est pour Hyper-V et synchronise les machines virtuelles (VM) avec l’hôte Hyper-V.  Lorsque plusieurs fournisseurs existent, Windows choisit d’abord le meilleur fournisseur à l’aide du niveau de couche, suivi du délai racine, de la dispersion racine et du décalage de temps final.
 
 > [!NOTE]
-> Pour une présentation rapide du service d’heure de Windows, regardez cette [vidéo de présentation globale](https://aka.ms/WS2016TimeVideo).
+> Pour une vue d’ensemble rapide du service de temps Windows, jetez un coup d’œil à cette [vidéo de présentation de haut niveau](https://aka.ms/WS2016TimeVideo).
 
 Dans cette rubrique, nous aborderons... ces rubriques sont liées à l’activation de l’heure précise : 
 

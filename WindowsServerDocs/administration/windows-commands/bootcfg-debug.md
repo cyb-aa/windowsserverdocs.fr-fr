@@ -1,8 +1,8 @@
 ---
 title: bootcfg debug
-description: Rubrique de commandes de Windows pour **bootcfg débogage** - ajoute ou modifie les paramètres de débogage pour une entrée de système d’exploitation spécifié.
+description: Rubrique relative aux commandes Windows pour **bootcfg Debug** -ajoute ou modifie les paramètres de débogage pour une entrée de système d’exploitation spécifiée.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44a1145384a62d30f055cb48fd7ed6adccd2c69b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f6659cf2bfdf83b1b2fe6f6c811365775526768a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434821"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380053"
 ---
 # <a name="bootcfg-debug"></a>bootcfg debug
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Ajoute ou modifie les paramètres de débogage pour une entrée de système d’exploitation spécifié.
+Ajoute ou modifie les paramètres de débogage pour une entrée de système d’exploitation spécifiée.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -34,19 +34,19 @@ bootcfg /debug {ON | OFF | edit}[/s <computer> [/u <Domain>\<User> /p <Password>
 
 |                           Paramètre                           |                                                                                                                                                                                                                    Description                                                                                                                                                                                                                    |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                  {ON &#124; OFF&#124; edit}                   | Spécifie la valeur pour le débogage.<br /><br />**ON** -permet la prise en charge du débogage à distance en ajoutant l’option /debug spécifié <OSEntryLineNum>.<br /><br />**DÉSACTIVER** -désactive la prise en charge du débogage à distance en supprimant l’option /debug à partir du spécifié <OSEntryLineNum>.<br /><br />**modifier** -permet des paramètres de la fréquence des modifications port et le débit en modifiant les valeurs associées à l’option /debug spécifié <OSEntryLineNum>. |
+|                  {À &#124; l'&#124; arrêt de la modification}                   | Spécifie la valeur à déboguer.<br /><br />**Activé** -active la prise en charge du débogage à distance en ajoutant l’option/debug au @no__t spécifié-1.<br /><br />**Off** -désactive la prise en charge du débogage à distance en supprimant l’option/debug du @no__t spécifié-1.<br /><br />**modifier** : autorise les modifications des paramètres de port et de vitesse en bauds en modifiant les valeurs associées à l’option/debug pour le @no__t spécifié-1. |
 |                         /s <computer>                         |                                                                                                                                                                Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                                                                                                                                 |
-|                      /u <Domain>\\<User>                      |                                                                                                                       Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain> \\ <User>. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté sur l’ordinateur exécutant la commande.                                                                                                                        |
-|                         /p <Password>                         |                                                                                                                                                                               Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                                                                                                                                               |
-|       /port {COM1 &#124; COM2 &#124; COM3 &#124; COM4}        |                                                                                                                                                                Spécifie le port COM à utiliser pour le débogage. N’utilisez pas le **portd’insertion/** paramètre si le débogage est désactivé.                                                                                                                                                                |
-| /baud {9600&#124; 19 200 bauds&#124; 38400&#124; 57600&#124; 115200} |                                                                                                                                                               Spécifie la vitesse de transmission à utiliser pour le débogage. N’utilisez pas le **/baud** paramètre si le débogage est désactivé.                                                                                                                                                                |
-|                     /id <OSEntryLineNum>                      |                                                                                                               Spécifie le numéro de ligne d’entrée système d’exploitation dans la section [operating systems] du fichier Boot.ini auquel sont ajoutées les options de débogage. La première ligne après l’en-tête de section de la section [operating systems] est 1.                                                                                                                |
+|                      /u <Domain> @ no__t-1 @ no__t-2                      |                                                                                                                       Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain> @ no__t-2 @ no__t-3. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.                                                                                                                        |
+|                         /p <Password>                         |                                                                                                                                                                               Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                                                                                                                               |
+|       /port {COM1 &#124; COM2 &#124; COM3 &#124; COM4}        |                                                                                                                                                                Spécifie le port COM à utiliser pour le débogage. N’utilisez pas le paramètre **/port** si le débogage est désactivé.                                                                                                                                                                |
+| /Baud {9600&#124; 19200&#124; 38400&#124; 57600&#124; 115200} |                                                                                                                                                               Spécifie la vitesse en bauds à utiliser pour le débogage. N’utilisez pas le paramètre **/Baud** si le débogage est désactivé.                                                                                                                                                                |
+|                     /ID <OSEntryLineNum>                      |                                                                                                               Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini auquel les options de débogage sont ajoutées. La première ligne après l’en-tête de la section [Operating Systems] est 1.                                                                                                                |
 |                              /?                               |                                                                                                                                                                                                       Affiche l'aide à l'invite de commandes.                                                                                                                                                                                                        |
 
 ##### <a name="remarks"></a>Notes
 - Si le débogage de port 1394 est requis, utilisez [bootcfg dbg1394](bootcfg-dbg1394.md).
-  ## <a name="BKMK_examples"></a>Exemples
-  Les exemples suivants montrent comment vous pouvez utiliser la **/Debug bootcfg**commande :
+  ## <a name="BKMK_examples"></a>Illustre
+  Les exemples suivants illustrent la façon dont vous pouvez utiliser la commande **bootcfg/Debug**:
   ```
   bootcfg /debug on /port com1 /id 2 
   bootcfg /debug edit /port com2 /baud 19200 /id 2 

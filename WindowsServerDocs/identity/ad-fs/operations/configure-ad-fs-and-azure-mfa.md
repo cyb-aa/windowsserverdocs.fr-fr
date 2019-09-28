@@ -7,14 +7,14 @@ author: billmath
 manager: mtillman
 ms.date: 01/28/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a5ee03e649ae570849c4a17aabb5761774dd2c1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d00092ee2cd4e6cc74d48e08ad5c316c2b309ab4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865620"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357866"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Configurer Azure MFA en tant que fournisseur d’authentification avec AD FS
 
@@ -87,7 +87,7 @@ Pour terminer la configuration de l’authentification multifacteur Azure pour A
 >[!NOTE]
 >Assurez-vous que ces étapes sont effectuées sur **tous les** serveurs AD FS de la batterie. Si vous avez plusieurs serveurs AD FS dans votre batterie, vous pouvez effectuer la configuration nécessaire à distance à l’aide de Azure AD PowerShell.  
 
-### <a name="step-1-generate-a-certificate-for-azure-mfa-on-each-ad-fs-server-using-the-new-adfsazuremfatenantcertificate-cmdlet"></a>Étape 1 : Générer un certificat pour Azure MFA sur chaque serveur AD FS à l' `New-AdfsAzureMfaTenantCertificate` aide de l’applet de commande
+### <a name="step-1-generate-a-certificate-for-azure-mfa-on-each-ad-fs-server-using-the-new-adfsazuremfatenantcertificate-cmdlet"></a>Étape 1 : Générer un certificat pour Azure MFA sur chaque serveur AD FS à l' `New-AdfsAzureMfaTenantCertificate` aide de l’applet de commande
 
 La première chose à faire est de générer un certificat pour l’utilisation d’Azure MFA.  Cette opération peut être effectuée à l’aide de PowerShell.  Le certificat généré se trouve dans le magasin de certificats ordinateurs locaux et est marqué avec un nom d’objet contenant le TenantID pour votre répertoire Azure AD.
 
@@ -98,7 +98,7 @@ Notez que TenantID est le nom de votre répertoire dans Azure AD.  Utilisez l’
 
 ![AD FS et MFA](media/Configure-AD-FS-2016-and-Azure-MFA/ADFS_AzureMFA1.PNG)  
   
-### <a name="step-2-add-the-new-credentials-to-the-azure-multi-factor-auth-client-service-principal"></a>Étape 2 : Ajouter les nouvelles informations d’identification au principal du service Azure Multi-Factor auth client
+### <a name="step-2-add-the-new-credentials-to-the-azure-multi-factor-auth-client-service-principal"></a>Étape 2 : Ajouter les nouvelles informations d’identification au principal du service Azure Multi-Factor auth client
 
 Afin d’autoriser les serveurs AD FS à communiquer avec le client Azure Multi-Factor auth, vous devez ajouter les informations d’identification au principal du service pour le client Azure Multi-Factor auth. Les certificats générés à `New-AdfsAzureMFaTenantCertificate` l’aide de l’applet de commande serviront de ces informations d’identification. Effectuez les opérations suivantes à l’aide de PowerShell pour ajouter les nouvelles informations d’identification au principal du service Azure Multi-Factor auth.  
 

@@ -1,7 +1,7 @@
 ---
 title: Prise en main
 description: 'Principes de base pour Windows Server : configuration requise, notes de publication, options de mise à niveau'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: get-started
@@ -10,12 +10,12 @@ ms.topic: article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: e7ff669b1a1ca3bed5d7c827c40bc46e81ea3f02
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 70c3f3df4890717e2604e98e909ecacae956d3e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810596"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391600"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Prise en main de Windows Server2016
 

@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 00172e9d6770910019e1935ac6fe8afc944e83aa
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: dbce0a37fee7278386cf564365661b459dd35033
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192459"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408472"
 ---
 # <a name="azure-active-directory-connect"></a>Azure Active Directory Connect
 
 
-Azure AD Connect intègre vos répertoires locaux avec Azure Active Directory. Cela vous permet de fournir une identité commune pour vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. .  
+Azure AD Connect intégrera vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. .  
   
-Pour plus d’informations, consultez [l’intégration de vos identités locales avec Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/).  
+Pour plus d’informations, consultez [intégration de vos identités locales avec Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/).  
   
 

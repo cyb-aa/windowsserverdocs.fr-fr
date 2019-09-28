@@ -1,7 +1,7 @@
 ---
 title: Exporter et importer des machines virtuelles
-description: Vous montre comment exporter et importer des machines virtuelles à l’aide du Gestionnaire Hyper-V ou Windows PowerShell.
-ms.prod: windows-server-threshold
+description: Montre comment exporter et importer des ordinateurs virtuels à l’aide du Gestionnaire Hyper-V ou de Windows PowerShell.
+ms.prod: windows-server
 author: KBDAzure
 ms.author: kathydav
 manager: dongill
@@ -9,54 +9,54 @@ ms.technology: compute-hyper-v
 ms.date: 12/13/2016
 ms.topic: article
 ms.assetid: 7fd996f5-1ea9-4b16-9776-85fb39a3aa34
-ms.openlocfilehash: b326fe8d7ff05ba73fc94225fa38921b42eb3fc6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6e130ee8a040cd5b56908d77d91bf196a60de6f7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844320"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392976"
 ---
 >S'applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 # <a name="export-and-import-virtual-machines"></a>Exporter et importer des machines virtuelles
 
-Cet article vous montre comment exporter et importer un ordinateur virtuel, qui est un moyen rapide de déplacer ou de les copier. Cet article décrit également certains choix à effectuer lorsque vous effectuez une exportation ou d’importation.
+Cet article explique comment exporter et importer une machine virtuelle, ce qui est un moyen rapide de les déplacer ou de les copier. Cet article aborde également certains des choix à effectuer lors de l’exportation ou de l’importation.
 
 ## <a name="export-a-virtual-machine"></a>Exporter une machine virtuelle
 
-Une exportation rassemble tous les fichiers requis dans une unité--fichiers de disque dur virtuel, les fichiers de configuration de machine virtuelle et les fichiers de point de contrôle. Vous pouvez le faire sur un ordinateur virtuel qui se trouve dans un état démarré ou arrêté.
+Une exportation rassemble tous les fichiers requis dans une unité : les fichiers de disque dur virtuel, les fichiers de configuration d’ordinateur virtuel et les fichiers de point de contrôle. Vous pouvez le faire sur un ordinateur virtuel qui est dans un état Démarré ou arrêté.
 
 ### <a name="using-hyper-v-manager"></a>À l’aide du Gestionnaire Hyper-V
 
 Pour créer une exportation de machine virtuelle :
 
-1. Dans le Gestionnaire Hyper-V, cliquez sur la machine virtuelle et sélectionnez **exporter**.
+1. Dans le Gestionnaire Hyper-V, cliquez avec le bouton droit sur l’ordinateur virtuel, puis sélectionnez **Exporter**.
 
-2. Choisir l’emplacement où stocker les fichiers exportés, puis cliquez sur **exporter**.
+2. Choisissez l’emplacement de stockage des fichiers exportés, puis cliquez sur **Exporter**.
 
-Lorsque l’exportation est terminée, vous pouvez voir tous les fichiers exportés sous l’emplacement d’exportation.
+Une fois l’exportation terminée, vous pouvez voir tous les fichiers exportés sous l’emplacement d’exportation.
 
 ### <a name="using-powershell"></a>À l'aide de PowerShell
 
-Ouvrez une session en tant qu’administrateur et exécutez une commande semblable à ce qui suit, après remplacement \<nom de machine virtuelle\> et \<chemin d’accès\>:
+Ouvrez une session en tant qu’administrateur et exécutez une commande semblable à la suivante après avoir remplacé @no__t 0vm @ no__t-1 et \<path @ no__t-3 :
 
 ```powershell
 Export-VM -Name \<vm name\> -Path \<path\>
 ```
 
-Pour plus d’informations, consultez [Export-VM](https://docs.microsoft.com/powershell/module/hyper-v/export-vm).
+Pour plus d’informations, consultez [Exporter-VM](https://docs.microsoft.com/powershell/module/hyper-v/export-vm).
 
 ## <a name="import-a-virtual-machine"></a>Importer une machine virtuelle 
 
-Lors de l’importation d’une machine virtuelle, celle-ci est inscrite auprès de l’hôte Hyper-V. Vous pouvez importer dans l’hôte ou un nouvel hôte. Si vous importez vers le même hôte, vous n’avez pas besoin d’exporter la machine virtuelle tout d’abord, étant donné que Hyper-V tente de recréer la machine virtuelle à partir de fichiers disponibles. L’importation d’une machine virtuelle, il inscrit afin qu’il peut être utilisé sur l’ordinateur hôte Hyper-V.
+Lors de l’importation d’une machine virtuelle, celle-ci est inscrite auprès de l’hôte Hyper-V. Vous pouvez effectuer une réimportation dans l’hôte ou un nouvel hôte. Si vous effectuez l’importation sur le même hôte, vous n’avez pas besoin d’exporter l’ordinateur virtuel en premier, car Hyper-V tente de recréer l’ordinateur virtuel à partir des fichiers disponibles. L’importation d’un ordinateur virtuel l’enregistre afin qu’il puisse être utilisé sur l’hôte Hyper-V.
 
-L’Assistant Importation d’ordinateur virtuel vous permet également de résoudre les incompatibilités qui peuvent exister lors du déplacement d’un hôte vers un autre. Il s’agit généralement de différences de matériel physique, comme la mémoire, les commutateurs virtuels et les processeurs virtuels.
+L’Assistant importation d’ordinateur virtuel vous aide également à corriger les incompatibilités qui peuvent exister lors du passage d’un ordinateur hôte à un autre. Il s’agit généralement de différences de matériel physique, telles que la mémoire, les commutateurs virtuels et les processeurs virtuels.
 
-### <a name="import-using-hyper-v-manager"></a>Importation à l’aide du Gestionnaire Hyper-V
+### <a name="import-using-hyper-v-manager"></a>Importer à l’aide du Gestionnaire Hyper-V
 
-Pour importer un ordinateur virtuel :
+Pour importer une machine virtuelle :
 
-1. À partir de la **Actions** menu du Gestionnaire Hyper-V, cliquez sur **importer l’ordinateur virtuel**.
+1. Dans le menu **actions** du Gestionnaire Hyper-V, cliquez sur **Importer un ordinateur virtuel**.
 
 2. Cliquez sur **Suivant**.
 
@@ -64,17 +64,17 @@ Pour importer un ordinateur virtuel :
 
 4. Sélectionnez la machine virtuelle à importer.
 
-5. Choisissez le type d’importation, puis cliquez sur **suivant**. (Pour obtenir une description, consultez [importer des types](#import-types), ci-dessous.)
+5. Choisissez le type d’importation, puis cliquez sur **suivant**. (Pour obtenir des descriptions, consultez [types d’importation](#import-types), ci-dessous.)
 
 6. Cliquez sur **Terminer**.
 
 ### <a name="import-using-powershell"></a>Importer à l’aide de PowerShell
 
-Utilisez le **Import-VM** applet de commande, suivant l’exemple pour le type d’importation que vous souhaitez. Pour obtenir une description des types, consultez [importer des types](#import-types), ci-dessous. 
+Utilisez l’applet de commande **Import-VM** , en suivant l’exemple correspondant au type d’importation souhaité. Pour obtenir une description des types, consultez [types d’importation](#import-types), ci-dessous. 
 
-#### <a name="register-in-place"></a>Inscrire en place
+#### <a name="register-in-place"></a>Inscrire sur place
 
-Ce type d’importation utilise les fichiers où ils sont stockés au moment de l’importation et conserve l’ID de. l’ordinateur virtuel La commande suivante montre un exemple de fichier d’importation. Exécuter une commande similaire avec vos propres valeurs.
+Ce type d’importation utilise les fichiers dans lesquels ils sont stockés au moment de l’importation et conserve l’ID de la machine virtuelle. La commande suivante affiche un exemple de fichier d’importation. Exécutez une commande similaire avec vos propres valeurs.
 
 ```powershell
 Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' 
@@ -82,7 +82,7 @@ Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx'
 
 #### <a name="restore"></a>Restaurer
 
-Pour importer l’ordinateur virtuel en spécifiant votre propre chemin d’accès pour les fichiers de machine virtuelle, exécutez une commande similaire à celle-ci, en remplaçant les exemples par vos valeurs :
+Pour importer la machine virtuelle en spécifiant votre propre chemin d’accès pour les fichiers de l’ordinateur virtuel, exécutez une commande comme celle-ci, en remplaçant les exemples par vos valeurs :
 
 ```powershell
 Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' -Copy -VhdDestinationPath 'D:\Virtual Machines\WIN10DOC' -VirtualMachinePath 'D:\Virtual Machines\WIN10DOC'
@@ -90,7 +90,7 @@ Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' 
 
 #### <a name="import-as-a-copy"></a>Importer en tant que copie
 
-Pour effectuer une importation de copie et déplacer les fichiers de machine virtuelle à l’emplacement de Hyper-V par défaut, exécutez une commande similaire à celle-ci, en remplaçant les exemples par vos valeurs :
+Pour effectuer une importation de copie et déplacer les fichiers de l’ordinateur virtuel vers l’emplacement Hyper-V par défaut, exécutez une commande comme celle-ci, en remplaçant les exemples par vos valeurs :
 
 ``` PowerShell
 Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' -Copy -GenerateNewId
@@ -98,13 +98,13 @@ Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' 
 
 Pour plus d’informations, consultez [Import-VM](https://docs.microsoft.com/powershell/module/hyper-v/import-vm).
 
-### <a name="import-types"></a>Importer des types
+### <a name="import-types"></a>Types d’importation
 
 Hyper-V propose trois types d’importation :
 
-- **Inscrire sur place** – part du principe de ce type sont des fichiers d’exportation à l’emplacement où vous allez stocker et exécuter la machine virtuelle. L’ordinateur virtuel importé a le même ID qu’au moment de l’exportation. Pour cette raison, si la machine virtuelle est déjà inscrite avec Hyper-V, elle doit être supprimée avant l’importation fonctionne. Une fois l’importation terminée, les fichiers d’exportation deviennent l’exécution fichiers d’état et ne peut pas être supprimé.
+- **Inscrire sur place** : ce type suppose que les fichiers d’exportation se trouvent à l’emplacement où vous allez stocker et exécuter l’ordinateur virtuel. La machine virtuelle importée a le même ID qu’au moment de l’exportation. Pour cette raison, si la machine virtuelle est déjà inscrite auprès d’Hyper-V, elle doit être supprimée avant le fonctionnement de l’importation. Une fois l’importation terminée, les fichiers d’exportation deviennent les fichiers d’État en cours d’exécution et ne peuvent pas être supprimés.
 
-- **Restaurer l’ordinateur virtuel** : restaurer la machine virtuelle à un emplacement de votre choix, ou utiliser la valeur par défaut pour Hyper-V. Ce type d’importation crée une copie des fichiers exportés et les déplace vers l’emplacement sélectionné. Lors de l’importation, l’ID de la machine virtuelle est le même qu’au moment de l’exportation. Pour cette raison, si la machine virtuelle est déjà en cours d’exécution dans Hyper-V, elle doit être supprimée avant la fin de l’importation. Une fois l’importation terminée, les fichiers exportés restent intacts et peuvent être supprimés ou importés à nouveau.
+- **Restaurer l’ordinateur virtuel** : restaurez l’ordinateur virtuel à un emplacement de votre choix ou utilisez la valeur par défaut pour Hyper-V. Ce type d’importation crée une copie des fichiers exportés et les déplace vers l’emplacement sélectionné. Lors de l’importation, l’ID de la machine virtuelle est le même qu’au moment de l’exportation. Pour cette raison, si la machine virtuelle est déjà en cours d’exécution dans Hyper-V, elle doit être supprimée pour que l’importation puisse être effectuée. Une fois l’importation terminée, les fichiers exportés restent intacts et peuvent être supprimés ou réimportés.
 
-- **Copier l’ordinateur virtuel** : cela est similaire au type de restauration dans la mesure où vous sélectionnez un emplacement pour les fichiers. La différence est que l’ordinateur virtuel importé a un nouvel ID unique, ce qui signifie que vous pouvez importer l’ordinateur virtuel vers le même hôte plusieurs fois.
+- **Copier l’ordinateur virtuel** : ce type de restauration est similaire au type de restauration dans lequel vous sélectionnez un emplacement pour les fichiers. La différence réside dans le fait que la machine virtuelle importée possède un nouvel ID unique, ce qui signifie que vous pouvez importer l’ordinateur virtuel sur le même hôte plusieurs fois.
 

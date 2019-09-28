@@ -6,23 +6,23 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5c91cb97a1b8371d1e3f8e496f026727681e2304
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 921cf4b4b5629df735b20ba59f239abfd6b0d6d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865598"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407507"
 ---
 # <a name="set-up-an-ad-fs-lab-environment"></a>Configurer un environnement de laboratoire ADFS
 
 Cette rubrique indique les étapes de la configuration d'un environnement de test que vous pouvez utiliser pour effectuer les procédures des guides pas à pas suivants :  
   
--   [Démonstration : Joindre un espace de travail avec un appareil iOS](Walkthrough--Workplace-Join-with-an-iOS-Device.md)  
+-   [Procédure pas à pas : Joindre un espace de travail avec un appareil iOS](Walkthrough--Workplace-Join-with-an-iOS-Device.md)  
   
--   [Démonstration : Joindre un espace de travail avec un appareil Windows](Walkthrough--Workplace-Join-with-a-Windows-Device.md)  
+-   [Procédure pas à pas : Joindre un espace de travail avec un appareil Windows](Walkthrough--Workplace-Join-with-a-Windows-Device.md)  
   
 -   [Guide pas à pas : Gérer les risques avec le contrôle d’accès conditionnel](Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)  
   
@@ -51,9 +51,9 @@ Une fois que votre contrôleur de domaine est opérationnel, vous pouvez créer 
   
 Créez les comptes ci-après :  
   
-- Utilisateur : **Robert Hatley** avec les informations d'identification suivantes : Nom d'utilisateur : **RobertH** et mot de passe :<strong>P@ssword</strong>  
+- Utilisateur : **Robert Hatley** avec les informations d'identification suivantes : Nom d'utilisateur : **RobertH** et mot de passe :<strong>P@ssword</strong>  
   
-- Groupe : **Finances**  
+- Groupe : **Financer**  
   
 Pour plus d’informations sur la création de comptes d’utilisateurs et de groupes dans Active Directory ( [https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx)AD), consultez.  
   
@@ -72,7 +72,7 @@ Le compte du compte de service administré de groupe (GMSA) est requis lors de l
   
     ```  
   
-## <a name="BKMK_4"></a>Étape 2 : configurer le serveur de fédération (ADFS1) avec Device Registration Service  
+## <a name="BKMK_4"></a>Étape 2 : configurer le serveur de fédération (ADFS1) avec Device Registration Service  
 Pour configurer une autre machine virtuelle, installez Windows Server 2012 R2 et connectez-le au domaine **contoso.com**. Configurez l’ordinateur après l’avoir joint au domaine, puis procédez à l’installation et à la configuration du rôle AD FS.  
   
 Pour obtenir une vidéo, [consultez services ADFS série de vidéos de savoir-faire : Installation d’une batterie](https://technet.microsoft.com/video/dn469436)de serveurs AD FS.  
@@ -200,7 +200,7 @@ Vous devez au minimum être membre du groupe des administrateurs ou d'un groupe 
     > [!IMPORTANT]  
     > Dans un déploiement réel, si votre entreprise possède plusieurs suffixes de nom d'utilisateur principal (UPN), vous devez créer un enregistrement CNAME par suffixe UPN dans DNS.  
   
-## <a name="BKMK_5"></a> Étape 3 : configurer le serveur web (WebServ1) et un exemple d'application basée sur les revendications  
+## <a name="BKMK_5"></a>Étape 3 : configurer le serveur web (WebServ1) et un exemple d'application basée sur les revendications  
 Configurez un ordinateur virtuel (WebServ1) en installant le système d’exploitation Windows Server 2012 R2 et connectez-le au domaine **contoso.com**. Après l'avoir joint au domaine, vous pouvez passer à l'installation et à la configuration du rôle de serveur web.  
   
 Pour effectuer les procédures pas à pas mentionnées plus haut dans cette rubrique, vous devez posséder un exemple d'application sécurisé par votre serveur de fédération (ADFS1).  
@@ -255,7 +255,7 @@ Vous devez effectuer les étapes suivantes pour configurer un serveur web avec c
   
 2.  Copiez le contenu des fichiers C :Program Files (x86) Windows Identity Foundation SDKv 3.5 SamplesQuick StartWeb ApplicationPassiveRedirectBasedClaimsAwareWebApp sur C :InetpubClaimapp.  
   
-3.  Modifiez le fichier **Default.aspx.cs** de manière à éviter tout filtrage de revendications. Ainsi, l'exemple d'application affiche toutes les revendications émises par le serveur de fédération. Effectuez ce qui suit :  
+3.  Modifiez le fichier **Default.aspx.cs** de manière à éviter tout filtrage de revendications. Ainsi, l'exemple d'application affiche toutes les revendications émises par le serveur de fédération. Procédez comme suit :  
   
     1.  Ouvrez **Default.aspx.cs** dans un éditeur de texte.  
   
@@ -349,7 +349,7 @@ Vous devez maintenant sécuriser votre exemple d’application qui s’exécute 
   
 10. Cliquez sur **Terminer**, puis sur **OK**.  
   
-## <a name="BKMK_10"></a>Étape 4 : configurer l'ordinateur client (Client1)  
+## <a name="BKMK_10"></a>Étape 4 : configurer l'ordinateur client (Client1)  
 Configurez une autre machine virtuelle et installez Windows 8.1. Cette machine virtuelle doit se trouver sur le même réseau virtuel que les autres machines. Cette machine NE DOIT PAS être jointe au domaine Contoso.  
   
 Le client doit approuver le certificat SSL utilisé pour le serveur de Fédération (ADFS1), que vous avez configuré à [l’étape 2 : Configurez le serveur de Fédération (ADFS1) avec](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)Device Registration service. Il doit aussi pouvoir valider les informations sur la révocation du certificat.  

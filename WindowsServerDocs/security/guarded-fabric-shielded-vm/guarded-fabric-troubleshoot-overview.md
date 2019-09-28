@@ -1,29 +1,29 @@
 ---
-title: Résolution des problèmes d’une structure protégée
+title: Résolution des problèmes d’une infrastructure protégée
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 55e954ec-6a5f-4b42-b6a7-1006f3e24556
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 0f0a9605b1db6f9b972091a7f792806c96c4ca5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0da623cc0cd5de5a9b9f31a819a9ad3a4a08b9f8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869550"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403463"
 ---
-# <a name="troubleshooting-a-guarded-fabric"></a>Résolution des problèmes d’une structure protégée
+# <a name="troubleshooting-a-guarded-fabric"></a>Résolution des problèmes d’une infrastructure protégée
 
-Les rubriques suivantes expliquent comment résoudre les problèmes d’une structure protégée :
+Les rubriques suivantes expliquent comment dépanner une infrastructure protégée :
 
-- [Résolution des problèmes à l’aide de l’outil de Diagnostic de structure protégée](guarded-fabric-troubleshoot-diagnostics.md)
-- [Résolution des problèmes du Service Guardian hôte](guarded-fabric-troubleshoot-hgs.md)
-- [Résolution des problèmes d’hôtes service Guardian](guarded-fabric-troubleshoot-hosts.md)
-- [Résolution des problèmes de machines virtuelles protégées](guarded-fabric-troubleshoot-shielded-vms.md)
+- [Résolution des problèmes à l’aide de l’outil de diagnostic de l’infrastructure protégée](guarded-fabric-troubleshoot-diagnostics.md)
+- [Résolution des problèmes du service Guardian hôte](guarded-fabric-troubleshoot-hgs.md)
+- [Dépannage des hôtes service Guardian](guarded-fabric-troubleshoot-hosts.md)
+- [Dépannage des machines virtuelles protégées](guarded-fabric-troubleshoot-shielded-vms.md)
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Déploiement du Service Guardian hôte pour les hôtes service Guardian et des machines virtuelles protégées](guarded-fabric-deploying-hgs-overview.md)
-- [La gestion d’une structure protégée](guarded-fabric-manage-overview.md)
+- [Déploiement du service Guardian hôte pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-deploying-hgs-overview.md)
+- [Gestion d’une infrastructure protégée](guarded-fabric-manage-overview.md)

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin suspend
-description: Rubrique de commandes de Windows pour **bitsadmin suspendre** -suspend le travail spécifié.
+description: 'Rubrique relative aux commandes Windows pour **Bitsadmin suspend** : interrompt le travail spécifié.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87e1bbd1b068d68fb60655043735c6c1aeb07707
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a3a484df2b50cdc8893512020b835f913793d2c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825920"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380372"
 ---
 # <a name="bitsadmin-suspend"></a>bitsadmin suspend
 
-> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Suspend le travail spécifié.
+Interrompt le travail spécifié.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,15 +36,15 @@ bitsadmin /Suspend <Job>
 
 |Paramètre|Description|
 |-------|--------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
 ## <a name="remarks"></a>Notes
 
-Pour redémarrer le travail, utilisez le [bitsadmin resume](bitsadmin-resume.md) basculer.
+Pour redémarrer le travail, utilisez le commutateur de [reprise Bitsadmin](bitsadmin-resume.md) .
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant suspend le travail nommé *myDownloadJob*.
+L’exemple suivant interrompt la tâche nommée *myDownloadJob*.
 
 ```
 C:\>bitsadmin /Suspend myDownloadJob
@@ -52,4 +52,4 @@ C:\>bitsadmin /Suspend myDownloadJob
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

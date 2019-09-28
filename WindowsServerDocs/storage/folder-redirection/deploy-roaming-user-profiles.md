@@ -1,19 +1,19 @@
 ---
 title: Déploiement de profils utilisateur itinérants
 TOCTitle: Deploying Roaming User Profiles
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: 3442ad46590add695fb3fed607c6f728e2bc5ee1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b7a89ce8d72cf4f060e83b3653b3b2d93eed5cfd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867293"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402040"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Déploiement de profils utilisateur itinérants
 
@@ -67,7 +67,7 @@ Si vous décidez d'utiliser les profils utilisateur itinérants sur plusieurs ve
 - Informez vos utilisateurs que les modifications apportées à une version du système d’exploitation ne seront pas itinérantes vers une autre version du système d’exploitation.
 - Lorsque vous déplacez votre environnement vers une version de Windows qui utilise une autre version de profil (par exemple, de Windows 10 à Windows 10, version [1607), consultez l’annexe B : Informations de référence sur](#appendix-b-profile-version-reference-information) les versions de profil pour une liste), les utilisateurs reçoivent un nouveau profil utilisateur itinérant vide. Vous pouvez réduire l’impact de l’obtention d’un nouveau profil à l’aide de la redirection de dossiers pour rediriger les dossiers communs. Il n’existe aucune méthode prise en charge pour migrer des profils utilisateur itinérants d’une version de profil à une autre.
 
-## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>Étape 1 : Activer l'utilisation de versions de profil distinctes
+## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>Étape 1 : Activer l'utilisation de versions de profil distinctes
 
 Si vous déployez des profils utilisateur itinérants sur des ordinateurs exécutant Windows 8.1, Windows 8, Windows Server 2012 R2 ou Windows Server 2012, nous vous recommandons d’apporter quelques modifications à votre environnement Windows avant de procéder au déploiement. Ces modifications permettent de garantir que les futures mises à niveau du système d'exploitation s'effectueront sans problème, et facilitent l'exécution simultanée de plusieurs versions de Windows avec des profils utilisateur itinérants.
 
@@ -88,7 +88,7 @@ Pour apporter ces modifications, procédez comme suit.
     > Une modification incorrecte du Registre peut endommager gravement votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
 3. Redémarrez les ordinateurs.
 
-## <a name="step-2-create-a-roaming-user-profiles-security-group"></a>Étape 2 : Créer des groupes de sécurité de profils utilisateur itinérants
+## <a name="step-2-create-a-roaming-user-profiles-security-group"></a>Étape 2 : Créer des groupes de sécurité de profils utilisateur itinérants
 
 Si votre environnement n'est pas déjà configuré avec les profils utilisateur itinérants, la première étape consiste à créer un groupe de sécurité qui contient tous les utilisateurs et/ou ordinateurs auxquels vous voulez appliquer les paramètres de stratégie des profils utilisateur itinérants.
 
@@ -109,7 +109,7 @@ Voici comment créer un groupe de sécurité pour les profils utilisateur itiné
 6. Si vous souhaitez inclure des comptes d’ordinateur dans le groupe de sécurité, sélectionnez **types d’objets**, activez la case à cocher **ordinateurs** , puis sélectionnez **OK**.
 7. Tapez les noms des utilisateurs, groupes et/ou ordinateurs sur lesquels vous souhaitez déployer des profils utilisateur itinérants, sélectionnez **OK**, puis cliquez à nouveau sur **OK** .
 
-## <a name="step-3-create-a-file-share-for-roaming-user-profiles"></a>Étape 3 : Créer un partage de fichiers pour les profils utilisateur itinérants
+## <a name="step-3-create-a-file-share-for-roaming-user-profiles"></a>Étape 3 : Créer un partage de fichiers pour les profils utilisateur itinérants
 
 Si vous ne disposez pas déjà d’un partage de fichiers distinct pour les profils utilisateur itinérants (indépendamment des partages des dossiers redirigés pour empêcher la mise en cache involontaire du dossier des profils itinérants), utilisez la procédure suivante pour créer un partage de fichiers sur un serveur exécutant Windows. Serveurs.
 
@@ -141,7 +141,7 @@ Voici comment créer un partage de fichiers sur Windows Server :
 
 ### <a name="required-permissions-for-the-file-share-hosting-roaming-user-profiles"></a>Autorisations requises pour le partage de fichiers hébergeant les profils utilisateur itinérants
 
-| Compte d’utilisateur | Access | S'applique à |
+| Compte d’utilisateur | Accès | S'applique à |
 |   -   |   -   |   -   |
 |   System    |  Contrôle total     |  Ce dossier, ses sous-dossiers et ses fichiers     |
 |  Administrateurs     |  Contrôle total     |  Ce dossier uniquement     |
@@ -149,7 +149,7 @@ Voici comment créer un partage de fichiers sur Windows Server :
 | Groupe de sécurité des utilisateurs qui doivent placer des données sur le partage (Profils utilisateur itinérants et ordinateurs)      |  Répertorier le dossier/lire les données *(autorisations avancées)* <br />Créer des dossiers/ajouter des données *(autorisations avancées)* |  Ce dossier uniquement     |
 | Autres groupes et comptes   |  Aucun (supprimer)     |       |
 
-## <a name="step-4-optionally-create-a-gpo-for-roaming-user-profiles"></a>Étape 4 : Créer éventuellement un objet de stratégie de groupe pour les profils utilisateur itinérants
+## <a name="step-4-optionally-create-a-gpo-for-roaming-user-profiles"></a>Étape 4 : Créer éventuellement un objet de stratégie de groupe pour les profils utilisateur itinérants
 
 Si un objet de stratégie de groupe n'est pas déjà créé pour les paramètres des profils utilisateur itinérants, utilisez la procédure suivante pour en créer un vide avec les profils utilisateur itinérants. Cet objet de stratégie de groupe vous permet de configurer des paramètres des profils utilisateur itinérants (tels que la prise en charge des ordinateurs principaux, qui est traitée séparément), et peut également être utilisé pour activer les profils utilisateur itinérants sur des ordinateurs, comme c'est généralement le cas lors d'un déploiement dans des environnements de bureaux virtuels ou avec les services Bureau à distance.
 
@@ -170,7 +170,7 @@ Voici comment créer un objet de stratégie de groupe pour les profils utilisate
 >[!IMPORTANT]
 >En raison des modifications de sécurité apportées à [MS16-072A](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016), vous devez maintenant accorder au groupe utilisateurs authentifiés des autorisations de lecture déléguées sur l’objet de stratégie de groupe. sinon, l’objet de stratégie de groupe n’est pas appliqué aux utilisateurs, ou s’il est déjà appliqué, l’objet de stratégie de groupe est supprimé, redirection des profils utilisateur sur l’ordinateur local. Pour plus d’informations, consultez [déploiement d’stratégie de groupe mise à jour de sécurité MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/).
 
-## <a name="step-5-optionally-set-up-roaming-user-profiles-on-user-accounts"></a>Étape 5 : Configurer éventuellement les profils utilisateur itinérants sur des comptes d'utilisateur
+## <a name="step-5-optionally-set-up-roaming-user-profiles-on-user-accounts"></a>Étape 5 : Configurer éventuellement les profils utilisateur itinérants sur des comptes d'utilisateur
 
 Si vous déployez les profils utilisateur itinérants sur des comptes d'utilisateur, procédez comme suit pour spécifier les profils utilisateur itinérants pour des comptes d'utilisateur dans les services de domaine Active Directory. Si vous déployez des profils utilisateur itinérants sur des ordinateurs, comme c’est généralement le cas pour les déploiements de postes de travail services Bureau à distance ou virtualisés [, utilisez plutôt la procédure décrite à l’étape 6 : Éventuellement, configurez les profils utilisateur itinérants](#step-6-optionally-set-up-roaming-user-profiles-on-computers)sur les ordinateurs.
 
@@ -219,7 +219,7 @@ Voici comment configurer des profils utilisateur itinérants sur des ordinateurs
     Pour spécifier un profil utilisateur itinérant obligatoire, qui est un profil préconfiguré auquel les utilisateurs ne peuvent pas apporter de modifications permanentes (les modifications sont réinitialisées lorsque l’utilisateur se déconnecte), spécifiez le chemin d’accès au fichier NTuser. Man `\\fs1.corp.contoso.com\User Profiles$\default`que vous avez créé précédemment, par exemple,. Pour plus d’informations, voir [Création d’un profil utilisateur obligatoire](https://docs.microsoft.com/windows/client-management/mandatory-user-profile).
 8. Sélectionnez **OK**.
 
-## <a name="step-7-optionally-specify-a-start-layout-for-windows-10-pcs"></a>Étape 7 : Éventuellement, vous pouvez spécifier une disposition de démarrage pour les PC Windows 10
+## <a name="step-7-optionally-specify-a-start-layout-for-windows-10-pcs"></a>Étape 7 : Éventuellement, vous pouvez spécifier une disposition de démarrage pour les PC Windows 10
 
 Vous pouvez utiliser stratégie de groupe pour appliquer une disposition de menu Démarrer spécifique afin que les utilisateurs voient la même disposition de démarrage sur tous les PC. Si les utilisateurs se connectent à plusieurs PC et que vous souhaitez qu’ils aient une disposition de démarrage cohérente sur les PC, assurez-vous que l’objet de stratégie de groupe s’applique à tous les PC.
 
@@ -233,7 +233,7 @@ Pour spécifier une disposition de démarrage, procédez comme suit :
 
 | **Action**   | **Mise à jour**                  |
 | ------------ | ------------                |
-| Hive         | **HKEY_LOCAL_MACHINE**      |
+| Sign         | **HKEY_LOCAL_MACHINE**      |
 | Chemin de la clé     | **Software\Microsoft\Windows\CurrentVersion\Explorer** |
 | Nom de valeur   | **SpecialRoamingOverrideAllowed** |
 | Type de valeur   | **ENREGISTRÉE**               |

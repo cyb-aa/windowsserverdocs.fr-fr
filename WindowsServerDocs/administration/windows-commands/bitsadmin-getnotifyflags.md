@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getnotifyflags
-description: Rubrique de commandes de Windows pour **bitsadmin getnotifyflags** -récupère les indicateurs de notification pour le travail spécifié.
+description: La rubrique commandes Windows pour **Bitsadmin getnotifyflags** -récupère les indicateurs de notification pour le travail spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 690e94805c5e61d96603e4ade102fb3a4bda409e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56ee3a30050b6cc934b35bab24e9508911ea250e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889280"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381481"
 ---
 # <a name="bitsadmin-getnotifyflags"></a>bitsadmin getnotifyflags
 
@@ -36,21 +36,21 @@ bitsadmin /GetNotifyFlags <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
 ## <a name="remarks"></a>Notes
 
-Le travail peut contenir un ou plusieurs des indicateurs de notification suivants.
+La tâche peut contenir un ou plusieurs des indicateurs de notification suivants.
 
-|---|---| | 0 x 001 | Générer un événement lorsque tous les fichiers dans le travail ayant été transférés. | | 0 x 002 | Générer un événement lorsqu’une erreur se produit. | | 0 x 004 | Désactiver les notifications. | | 0 x 008 | Générer un événement lorsque le travail est modifié ou la progression du transfert est effectuée. |
+|-----|-----| | 0x001 | Générez un événement lorsque tous les fichiers du travail ont été transférés. | | 0x002 | Génère un événement lorsqu’une erreur se produit. | | 0x004 | Désactiver les notifications. | | 0x008 | Générez un événement lorsque le travail est modifié ou que la progression du transfert est effectuée. |
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant récupère les indicateurs de notification pour le travail nommé *myDownloadJob*.
+L’exemple suivant récupère les indicateurs Notify pour la tâche nommée *myDownloadJob*.
 ```
 C:\>bitsadmin /GetNotifyFlags myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

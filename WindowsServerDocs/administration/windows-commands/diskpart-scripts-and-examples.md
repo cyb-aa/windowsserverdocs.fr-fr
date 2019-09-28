@@ -1,8 +1,8 @@
 ---
-title: Exemples et Scripts de Diskpart
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Scripts et exemples DiskPart
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a8bd0dfab98ca705cf64766d66285c69bd3d3129
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9c40ce79664795297af4369e35cbda7422617e6e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862790"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377852"
 ---
-# <a name="diskpart-scripts-and-examples"></a>Exemples et Scripts de Diskpart
+# <a name="diskpart-scripts-and-examples"></a>Scripts et exemples DiskPart
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Utilisez Diskpart `/s` pour exécuter des scripts qui automatisent disque\-tâches liées, telles que la création de volumes ou convertir les disques en disques dynamiques. Ces tâches de script est utile si vous déployez Windows en utilisant le programme d’installation sans assistance ou l’outil Sysprep, qui ne prennent pas en charge la création de volumes autres que le volume de démarrage.  
+Utilisez DiskPart `/s` pour exécuter des scripts qui automatisent les tâches Disk @ no__t-1related, telles que la création de volumes ou la conversion de disques en disques dynamiques. L’écriture de scripts pour ces tâches est utile si vous déployez Windows à l’aide d’une installation sans assistance ou de l’outil Sysprep, qui ne prend pas en charge la création de volumes autres que le volume de démarrage.  
   
--   Pour créer un script Diskpart, créez un fichier texte qui contient les commandes Diskpart que vous souhaitez exécuter, avec une seule commande par ligne et aucune ligne vide. Vous pouvez démarrer une ligne avec `rem` afin que la ligne un commentaire.  
+-   Pour créer un script DiskPart, créez un fichier texte qui contient les commandes DiskPart que vous souhaitez exécuter, avec une commande par ligne et aucune ligne vide. Vous pouvez démarrer une ligne avec `rem` pour faire de la ligne un commentaire.  
   
-    par exemple, ici s un script qui permet d’effacer un disque, puis crée une partition de 300 Mo pour l’environnement de récupération Windows :  
+    par exemple, voici un script qui efface un disque, puis crée une partition de 300 Mo pour l’environnement de récupération Windows :  
   
     ```  
     select disk 0  
@@ -45,20 +45,20 @@ Utilisez Diskpart `/s` pour exécuter des scripts qui automatisent disque\-tâch
     diskpart /s scriptname.txt  
     ```  
   
--   Pour rediriger la sortie du script DiskPart dans un fichier, tapez la commande suivante, où *logfile* est le nom du fichier texte où DiskPart écrit sa sortie.  
+-   Pour rediriger la sortie de script de DiskPart vers un fichier, tapez la commande suivante, où *logfile* est le nom du fichier texte dans lequel DiskPart écrit sa sortie.  
   
     ```  
     diskpart /s scriptname.txt > logfile.txt  
     ```  
   
 > [!IMPORTANT]  
-> Lorsque vous utilisez le **DiskPart** commande dans le cadre d’un script, nous vous recommandons d’effectuer toutes les opérations DiskPart ensemble au sein d’un seul script DiskPart. Vous pouvez exécuter des scripts DiskPart consécutifs, mais vous devez autoriser au moins 15 secondes entre chaque script pour un arrêt complet de l’exécution précédente avant d’exécuter le **DiskPart** commande à nouveau dans les scripts suivants. Sinon, les scripts successifs peuvent échouer. Vous pouvez ajouter une pause entre des scripts DiskPart en ajoutant la `timeout /t 15` commande à votre fichier de commandes, ainsi que vos scripts DiskPart.  
+> Lorsque vous utilisez la commande **diskpart** dans le cadre d’un script, nous vous recommandons d’effectuer toutes les opérations DiskPart ensemble dans le cadre d’un script DiskPart unique. Vous pouvez exécuter des scripts DiskPart consécutifs, mais vous devez autoriser au moins 15 secondes entre chaque script pour un arrêt complet de l’exécution précédente avant d’exécuter à nouveau la commande **diskpart** dans des scripts successifs. Dans le cas contraire, les scripts successifs risquent d’échouer. Vous pouvez ajouter une pause entre des scripts DiskPart consécutifs en ajoutant la commande `timeout /t 15` à votre fichier de commandes avec vos scripts DiskPart.  
   
-Lorsque DiskPart démarre, l’affichage DiskPart version et ordinateur nom à l’invite de commandes. Par défaut, si DiskPart rencontre une erreur lorsque vous tentez d’effectuer une tâche du script, DiskPart arrête le traitement du script et affiche un code d’erreur \(, sauf si vous avez spécifié le **noerr** paramètre\). Toutefois, DiskPart renvoie toujours les erreurs lorsqu’il rencontre des erreurs de syntaxe, indépendamment de si vous avez utilisé le **noerr** paramètre. Le **noerr** paramètre vous permet d’effectuer des tâches utiles telles que l’utilisation d’un seul script pour supprimer toutes les partitions sur tous les disques, quel que soit le nombre total de disques.  
+Au démarrage de DiskPart, la version de DiskPart et le nom de l’ordinateur s’affichent à l’invite de commandes. Par défaut, si DiskPart rencontre une erreur lors de la tentative d’exécution d’une tâche de script, DiskPart arrête le traitement du script et affiche un code d’erreur \(unless vous avez spécifié le paramètre **noerr** @ no__t-2. Toutefois, DiskPart retourne toujours des erreurs lorsqu’il rencontre des erreurs de syntaxe, que vous ayez utilisé ou non le paramètre **noerr** . Le paramètre **noerr** vous permet d’effectuer des tâches utiles, telles que l’utilisation d’un seul script pour supprimer toutes les partitions sur tous les disques, quel que soit le nombre total de disques.  
   
 ## <a name="see-also"></a>Voir aussi  
-[Exemple : Configurer l’interface UEFI\/gpt\-en fonction des Partitions de disque dur par l’utilisation de Windows PE et de DiskPart](https://technet.microsoft.com/library/hh825686.aspx)  
-[Exemple : Configurer le BIOS\/MBR\-en fonction des Partitions de disque dur à l’aide de Windows PE et DiskPart](https://technet.microsoft.com/library/hh825677.aspx)  
+[Exemple Configurer UEFI @ no__t-0gpt @ no__t-1Based partitions de disque dur à l’aide de Windows PE et de DiskPart @ no__t-2  
+[Exemple Configurer le BIOS @ no__t-0MBR @ no__t-1Based partitions de disque dur à l’aide de Windows PE et de DiskPart @ no__t-2  
 [Applets de commande de stockage dans Windows PowerShell](https://technet.microsoft.com/library/hh848705.aspx)  
   
 

@@ -1,8 +1,8 @@
 ---
-title: état de FTP
-description: 'Rubrique de commandes de Windows pour ***- '
+title: État FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,28 +13,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 220f3a8f72b98b1249ce765297a68fb5a90b4455
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 98e122f115b20276c762fe1ae98130327f3c8895
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848620"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376011"
 ---
 # <a name="ftp-status"></a>FTP : état
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche l’état actuel de connexions ftp.   
+Affiche l’état actuel des connexions FTP.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 status  
 ```  
 ### <a name="parameters"></a>Paramètres  
 aucune  
-## <a name="BKMK_Examples"></a>Exemples  
-Afficher l’état actuel de connexions ftp.  
+## <a name="BKMK_Examples"></a>Illustre  
+Affichez l’état actuel des connexions FTP.  
 ```  
 status  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

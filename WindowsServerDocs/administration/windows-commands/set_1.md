@@ -1,8 +1,8 @@
 ---
 title: jeu
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 21661b30c5779907e8cac417439a0935a2126ad8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 12dce38bf8ad050c65a7a8c0fca4a71267cca93f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441271"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384104"
 ---
 # <a name="set"></a>jeu
 
 
 
-Affiche, définit ou supprime CMD. Variables d’environnement EXE. Si utilisée sans paramètres, **définir** affiche les paramètres de variable d’environnement actuel.
+Affiche, définit ou supprime CMD. Variables d’environnement EXE. En cas d’utilisation sans paramètre, **Set** affiche les paramètres actuels de la variable d’environnement.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -40,34 +40,34 @@ set /a <Variable>=<Expression>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Variable>|Spécifie la variable d’environnement pour définir ou modifier.|
-|\<chaîne >|Spécifie la chaîne à associer à la variable d’environnement spécifiée.|
-|/p|Définit la valeur de *Variable* à une ligne d’entrée entrée par l’utilisateur.|
-|\<PromptString>|Facultatif. Spécifie un message invite l’utilisateur pour l’entrée. Ce paramètre est utilisé avec le **/p** option de ligne de commande.|
-|/a|Jeux *chaîne* à une expression numérique qui est évaluée.|
-|\<Expression>|Spécifie une expression numérique. Consultez la section Notes pour les opérateurs valides qui peuvent être utilisés dans *Expression*.|
+|@no__t 0Variable >|Spécifie la variable d’environnement à définir ou modifier.|
+|@no__t 0String >|Spécifie la chaîne à associer à la variable d’environnement spécifiée.|
+|/p|Définit la valeur de la *variable* sur une ligne d’entrée entrée par l’utilisateur.|
+|@no__t 0PromptString >|Facultatif. Spécifie un message pour inviter l’utilisateur à entrer des données. Ce paramètre est utilisé avec l’option de ligne de commande **/p** .|
+|/a|Définit *String* sur une expression numérique évaluée.|
+|@no__t 0Expression >|Spécifie une expression numérique. Consultez la section Notes pour connaître les opérateurs valides qui peuvent être utilisés dans *expression*.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
-- À l’aide de **définir** avec des extensions de commande est activées
+- Utilisation de **Set** avec les extensions de commande activées
 
-  Lorsque les extensions de commande sont activées (valeur par défaut) et que vous exécutez **définir** avec une valeur, elle affiche toutes les variables qui commencent par cette valeur.
-- À l’aide de caractères spéciaux
+  Lorsque les extensions de commande sont activées (valeur par défaut) et que vous exécutez **Set** avec une valeur, elle affiche toutes les variables qui commencent par cette valeur.
+- Utilisation de caractères spéciaux
 
-  Les caractères **<** , **>** , **|** , **&** , **^** sont des caractères spéciaux de commandes shell, et il doivent être précédés par le caractère d’échappement ( **^** ) ou entre guillemets lorsqu’il est utilisé dans *chaîne* (par exemple, **« Symbole & EstContenuDansChaîne »** ). Si vous utilisez des guillemets pour délimiter une chaîne qui contient l’un des caractères spéciaux, les guillemets sont définies en tant que partie de la valeur de variable d’environnement.
-- À l’aide de variables d’environnement
+  Les caractères **<** , **>** , **|** , **&** , **^** sont des caractères de l’interpréteur de commandes spéciaux, et ils doivent être précédés du caractère d’échappement (**1**) ou placés entre guillemets. en cas d’utilisation dans une *chaîne* (par exemple, **« StringContaining & Symbol »** ). Si vous utilisez des guillemets pour encadrer une chaîne qui contient l’un des caractères spéciaux, les guillemets sont définis dans le cadre de la valeur de la variable d’environnement.
+- Utilisation de variables d’environnement
 
-  Utiliser des variables d’environnement pour contrôler le comportement de certains fichiers de commandes et les programmes et pour contrôler la façon dont Windows et le sous-système MS-DOS apparaît et fonctionne. Le **définir** commande est souvent utilisée dans le fichier Autoexec.nt pour définir les variables d’environnement.
-- Afficher les paramètres d’environnement actuel
+  Utilisez des variables d’environnement pour contrôler le comportement de certains fichiers et programmes de commandes et pour contrôler la façon dont Windows et le sous-système MS-DOS s’affichent et fonctionnent. La commande **Set** est souvent utilisée dans le fichier Autoexec. NT pour définir des variables d’environnement.
+- Affichage des paramètres actuels de l’environnement
 
-  Lorsque vous tapez le **définir** commande seul, les paramètres d’environnement en cours sont affichés. Ces paramètres incluent généralement les variables d’environnement COMSPEC et chemin d’accès, qui sont utilisés pour rechercher des programmes sur le disque. Deux autres variables d’environnement utilisées par Windows sont PROMPT et DIRCMD.
-- À l’aide de paramètres
+  Lorsque vous tapez la commande **Set** uniquement, les paramètres d’environnement actuels sont affichés. Ces paramètres incluent généralement les variables d’environnement COMSPEC et PATH, qui permettent de trouver des programmes sur disque. Les deux autres variables d’environnement utilisées par Windows sont PROMPT et DIRCMD.
+- Utilisation des paramètres
 
-  Lorsque vous spécifiez des valeurs pour *Variable* et *chaîne*, spécifié *variable* valeur est ajoutée à l’environnement et *chaîne* est associé à cette variable. Si la variable existe déjà dans l’environnement, la nouvelle valeur de chaîne remplace l’ancienne valeur de chaîne.
+  Lorsque vous spécifiez des valeurs pour la *variable* et la *chaîne*, la valeur de la *variable* spécifiée est ajoutée à l’environnement et la *chaîne* est associée à cette variable. Si la variable existe déjà dans l’environnement, la nouvelle valeur de chaîne remplace l’ancienne valeur de chaîne.
 
-  Si vous ne spécifiez qu’une variable et un signe égal (sans *chaîne*) pour le **définir** commande, le *chaîne* valeur associée à la variable est supprimée (comme si la variable Il y).
-- À l’aide de **/a**
+  Si vous spécifiez uniquement une variable et un signe égal (sans *chaîne*) pour la commande **Set** , la valeur de *chaîne* associée à la variable est désactivée (comme si la variable était absente).
+- Utilisation de **/a**
 
   Le tableau suivant répertorie les opérateurs pris en charge pour **/a** dans l’ordre de priorité décroissant.  
 
@@ -75,45 +75,45 @@ set /a <Variable>=<Expression>
   |-------------------------|----------------------|
   |           ( )           |       Regroupement       |
   |          ! ~ -          |        Unaire         |
-  |         \* / %          |      opérations arithmétiques      |
-  |           + -           |      opérations arithmétiques      |
-  |          << >>          |    Décalage logique     |
-  |            &            |     AND au niveau du bit      |
-  |            ^            | Au niveau du bit OR exclusif |
+  |         \*/%          |      Arithmétique      |
+  |           + -           |      Arithmétique      |
+  |          < < > >          |    Décalage logique     |
+  |            &            |     And au niveau du bit      |
+  |            ^            | Or exclusif au niveau du bit |
   |                         |                      |
-  | = \*= /= %= += -= &= ^= |      = <<= >>=       |
+  | =  @ no__t-1 =/=% = + =-= & = ^ = |      = < < = > > =       |
   |            ,            | Séparateur d’expressions |
 
-  Si vous utilisez logique ( **&&** ou **||** ) ou de modulo ( **%** ) opérateurs, placez la chaîne d’expression entre guillemets. Toutes les chaînes non numériques dans l’expression sont considérés comme des noms de variables d’environnement et leurs valeurs sont converties en nombres avant leur traitement. Si vous spécifiez un nom de variable d’environnement qui n’est pas défini dans l’environnement actuel, la valeur zéro est allouée, ce qui vous permet d’effectuer les opérations arithmétiques avec des valeurs de variables d’environnement sans utiliser le % pour récupérer une valeur.
+  Si vous utilisez des opérateurs logiques ( **&&** ou **||** ) ou modulo ( **%** ), mettez la chaîne d’expression entre guillemets. Toutes les chaînes non numériques de l’expression sont considérées comme des noms de variables d’environnement et leurs valeurs sont converties en nombres avant d’être traitées. Si vous spécifiez un nom de variable d’environnement qui n’est pas défini dans l’environnement actuel, la valeur zéro est allouée, ce qui vous permet d’effectuer des opérations arithmétiques avec des valeurs de variables d’environnement sans utiliser% pour récupérer une valeur.
 
-  Si vous exécutez **set /a** à partir de la ligne de commande en dehors d’un script de commande, il affiche la valeur finale de l’expression.
+  Si vous exécutez **set/a** à partir de la ligne de commande en dehors d’un script de commande, la valeur finale de l’expression est affichée.
 
-  Valeurs numériques sont des nombres décimaux, sauf si le préfixe par 0 × pour les nombres hexadécimaux ou 0 pour la notation octale. Par conséquent, 0 x 12 est le même que 18, qui est le même que 022.
-- Prise en charge d’expansion de variables d’environnement retardées
+  Les valeurs numériques sont des nombres décimaux, sauf si elles sont précédées de 0 × pour les nombres hexadécimaux ou 0 pour les nombres octaux. Par conséquent, 0 × 12 est le même que 18, ce qui est identique à 022.
+- Prise en charge du développement variable d’environnement retardé
 
-  Prise en charge de la variable d’extension environnement différée est désactivée par défaut, mais vous pouvez activer ou désactiver en utilisant **cmd /v**.
+  La prise en charge de l’expansion des variables d’environnement retardée est désactivée par défaut, mais vous pouvez l’activer ou la désactiver à l’aide de **cmd/v**.
 - Utilisation des extensions de commande
 
-  Lorsque les extensions de commande sont activées (valeur par défaut) et que vous exécutez **définir** seul, il affiche toutes les variables d’environnement actuel. Si vous exécutez **définir** avec une valeur, elle affiche les variables qui correspondent à cette valeur.
-- À l’aide de **définir** dans des fichiers batch
+  Lorsque les extensions de commande sont activées (valeur par défaut) et que vous exécutez **Set** seul, elle affiche toutes les variables d’environnement actuelles. Si vous exécutez **Set** avec une valeur, il affiche les variables qui correspondent à cette valeur.
+- Utilisation de **Set** dans des fichiers de commandes
 
-  Lorsque vous créez des fichiers de commandes, vous pouvez utiliser **définir** pour créer des variables, puis les utiliser dans la même façon que vous utiliseriez les variables numérotées **%0** via **%9**. Vous pouvez également utiliser les variables **%0** via **%9** comme entrée pour **définir**.
-- Appeler un **définir** variable à partir d’un fichier de commandes
+  Lorsque vous créez des fichiers de commandes, vous pouvez utiliser **Set** pour créer des variables, puis les utiliser de la même façon que vous utilisez les variables numérotées **% 0** à **% 9**. Vous pouvez également utiliser les variables **% 0** à **% 9** comme entrée pour **Set**.
+- Appel d’une variable **Set** à partir d’un fichier de commandes
 
-  Lorsque vous appelez une valeur de variable à partir d’un fichier de commandes, placez la valeur entre signes de pourcentage ( **%** ). Par exemple, si votre programme de traitement par lots crée une variable d’environnement nommée BAUD, vous pouvez utiliser la chaîne associée à BAUD comme un paramètre remplaçable, en tapant **(en bauds) %** à l’invite de commandes.
-- À l’aide de **définir** sur la Console de récupération
+  Lorsque vous appelez une valeur de variable à partir d’un fichier de commandes, placez la valeur entre les signes de pourcentage ( **%** ). Par exemple, si votre programme de traitement par lots crée une variable d’environnement nommée BAUD, vous pouvez utiliser la chaîne associée à BAUD comme paramètre remplaçable en tapant **% Baud%** à l’invite de commandes.
+- Utilisation de **Set** sur la console de récupération
 
-  Le **définir** commande, avec des paramètres différents, est disponible à partir de la Console de récupération.
+  La commande **Set** , avec des paramètres différents, est disponible à partir de la console de récupération.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour définir une variable d’environnement nommée TEST ^ 1, type :
+Pour définir une variable d’environnement nommée TEST ^ 1, tapez :
 ```
 set testVar=test^^1
 ```
 
 > [!NOTE]
-> Le **définir** commande affecte tout ce qui suit le signe égal (=) à la valeur de la variable. Si vous tapez :
+> La commande **Set** affecte tout ce qui suit le signe égal (=) à la valeur de la variable. Si vous tapez :
 > ```
 > set testVar="test^1"
 > ```
@@ -125,17 +125,17 @@ set testVar=test^^1
 > ```
 > set testVar=test^&1
 > ```
-> Pour définir une variable d’environnement INCLUDE afin que la chaîne C:\Inc (le répertoire \Inc sur le lecteur C) lui est associée, tapez :
+> Pour définir une variable d’environnement nommée INCLUDe afin qu’elle soit associée à la chaîne C:\Inc (le répertoire \Inc sur le lecteur C), tapez :
 > ```
 > set include=c:\inc
 > ```
-> Vous pouvez ensuite utiliser la chaîne C:\Inc dans des fichiers batch en plaçant le nom INCLUDE entre signes de pourcentage ( **%** ). Par exemple, vous pouvez inclure la commande suivante dans un fichier de commandes afin que vous pouvez afficher le contenu du répertoire qui est associé à la variable d’environnement INCLUDE :
+> Vous pouvez ensuite utiliser la chaîne C:\Inc dans les fichiers de commandes en plaçant le nom INCLUDe avec des signes de pourcentage ( **%** ). Par exemple, vous pouvez inclure la commande suivante dans un fichier de commandes afin d’afficher le contenu du répertoire associé à la variable d’environnement INCLUDe :
 > ```
 > dir %include%
 > ```
-> Lorsque cette commande est traitée, la chaîne C:\Inc remplace **% incluent %** .
+> Lorsque cette commande est traitée, la chaîne C:\Inc remplace **% include%** .
 
-Vous pouvez également utiliser **définir** dans un programme de traitement par lots qui ajoute un nouveau répertoire à la variable d’environnement PATH. Exemple :
+Vous pouvez également utiliser **Set** dans un programme de traitement par lots qui ajoute un nouveau répertoire à la variable d’environnement PATH. Exemple :
 ```
 @echo off
 rem ADDPATH.BAT adds a new directory
@@ -143,7 +143,7 @@ rem to the path environment variable.
 set path=%1;%path%
 set
 ```
-Pour afficher une liste de toutes les variables d’environnement qui commencent par la lettre P, tapez :
+Pour afficher la liste de toutes les variables d’environnement qui commencent par la lettre P, tapez :
 ```
 set p 
 ```

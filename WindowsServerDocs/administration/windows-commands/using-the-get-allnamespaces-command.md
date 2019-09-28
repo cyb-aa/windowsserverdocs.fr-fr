@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande get-AllNamespaces
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande AllNamespaces
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b77bb80238ee63cc0d71d88592d75850720e33b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0cd90fc650271c863459dd809e47ca6309132de5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440523"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363288"
 ---
-# <a name="using-the-get-allnamespaces-command"></a>À l’aide de la commande get-AllNamespaces
+# <a name="using-the-get-allnamespaces-command"></a>Utilisation de la commande AllNamespaces
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Affiche des informations sur tous les espaces de noms sur un serveur.
 ## <a name="syntax"></a>Syntaxe
@@ -38,13 +38,13 @@ wdsutil /Get-AllNamespaces [/Server:<Server name>] [/ContentProvider:<name>] [/d
 
 |         Paramètre         |                                                                               Windows Server 2008                                                                               | Windows Server 2008 R2 |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
-|  [/Server:<Server name>]  | Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local doit être utilisé. |                        |
-| [/ ContentProvider :<name>] |                                                        Affiche les espaces de noms pour le fournisseur de contenu spécifié uniquement.                                                         |                        |
-|      [/Show:Clients]      |                            Uniquement pris en charge pour Windows Server 2008. Affiche des informations sur les ordinateurs clients qui sont connectés à l’espace de noms.                             |                        |
-|    [/details:Clients]     |                           Uniquement pris en charge pour Windows Server 2008 R2. Affiche des informations sur les ordinateurs clients qui sont connectés à l’espace de noms.                           |                        |
-|  [/ExcludedeletePending]  |                                                              Exclut les transmissions désactivées dans la liste.                                                              |                        |
+|  [/Server:<Server name>]  | Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |                        |
+| [/ContentProvider : <name>] |                                                        Affiche les espaces de noms pour le fournisseur de contenu spécifié uniquement.                                                         |                        |
+|      [/Show : clients]      |                            Pris en charge uniquement pour Windows Server 2008. Affiche des informations sur les ordinateurs clients qui sont connectés à l’espace de noms.                             |                        |
+|    [/details : clients]     |                           Pris en charge uniquement pour Windows Server 2008 R2. Affiche des informations sur les ordinateurs clients qui sont connectés à l’espace de noms.                           |                        |
+|  [/ExcludedeletePending]  |                                                              Exclut toutes les transmissions désactivées de la liste.                                                              |                        |
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 Pour afficher tous les espaces de noms, tapez :
 ```
 wdsutil /Get-AllNamespaces
@@ -60,6 +60,6 @@ Pour afficher tous les espaces de noms, à l’exception de ceux qui sont désac
   ```
   #### <a name="additional-references"></a>Références supplémentaires
   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [à l’aide de la commande Nouveau Namespace](using-the-new-namespace-command.md)
-  [à l’aide de la commande remove-Namespace](using-the-remove-namespace-command.md) 
-   [ Sous-commande : start-Namespace](subcommand-start-namespace.md)
+  [à l’aide de la commande new-namespace](using-the-new-namespace-command.md)
+  [à l’aide de la commande Remove-Namespace](using-the-remove-namespace-command.md)
+   sous-[commande : Start-namespace](subcommand-start-namespace.md)

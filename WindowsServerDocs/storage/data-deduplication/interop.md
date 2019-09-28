@@ -2,18 +2,18 @@
 ms.assetid: 60fca6b2-f1c0-451f-858f-2f6ab350d220
 title: Interopérabilité de la déduplication des données
 ms.technology: storage-deduplication
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
-ms.openlocfilehash: b82e02b7896c3795ae7470ca03bb8d19a8d5e403
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: fb3c9842f1d698151bffebbe5f77618c8b19b366
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455424"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403200"
 ---
 # <a name="data-deduplication-interoperability"></a>Interopérabilité de la déduplication des données
 
@@ -22,7 +22,7 @@ ms.locfileid: "66455424"
 ## <a name="supported"></a>Prise en charge
 
 ### <a name="refs"></a>ReFS
-La déduplication des données sont prise en charge à compter de Windows Server 2019. 
+La déduplication des données est prise en charge à partir de Windows Server 2019. 
 
 ### <a name="failover-clustering"></a>Clustering de basculement
 
@@ -64,14 +64,14 @@ La Sauvegarde Windows Server peut sauvegarder un volume optimisé en l’état (
     wbadmin get versions
     ```
 
-    Cet ID de version de sortie sera une chaîne de date et heure, par exemple : 08/18/2016-06:22.
+    Cet ID de version de sortie est une chaîne de date et d’heure, par exemple : 08/18/2016-06:22.
 
 4. Restaurez l’intégralité du volume.
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:Volume  -items:E: -recoveryTarget:E:
     ```
 
-    **--OR--**  
+    **--OU--**  
 
     Restaurer un dossier particulier (dans ce cas, le dossier E:\Docs) :
     ```PowerShell

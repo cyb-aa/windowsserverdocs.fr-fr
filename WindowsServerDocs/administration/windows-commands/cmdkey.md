@@ -1,8 +1,8 @@
 ---
 title: cmdkey
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5c06a04fa6473bc30c3b354f049a55775d2308a0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: dc2b12cb53eef930d05c1e291de5574a8ba94306
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434312"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379306"
 ---
 # <a name="cmdkey"></a>cmdkey
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Crée, répertorie et supprime les noms d’utilisateurs et les mots de passe ou informations d’identification stockés.
 
@@ -34,28 +34,28 @@ cmdkey [{/add:<TargetName>|/generic:<TargetName>}] {/smartcard|/user:<UserName> 
 
 |             Paramètres             |                                                                                    Description                                                                                     |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         / ajouter :<TargetName>          | Ajoute un nom d’utilisateur et le mot de passe à la liste.<br /><br />Requiert que le paramètre de <TargetName> qui identifie le nom d’ordinateur ou le domaine auquel cette entrée sera associée. |
-|       / générique :<TargetName>        |   Ajoute des informations d’identification génériques à la liste.<br /><br />Requiert que le paramètre de <TargetName> qui identifie le nom d’ordinateur ou le domaine auquel cette entrée sera associée.    |
-|             /smartcard             |                                                                    Récupère les informations d’identification à partir d’une carte à puce.                                                                     |
-|          / User :<UserName>          |                                 Spécifie le nom d’utilisateur ou compte à stocker avec cette entrée. Si *nom d’utilisateur* est ne pas fourni, il vous sera demandé.                                  |
-|          /pass :<Password>          |                                       Spécifie le mot de passe à stocker avec cette entrée. Si *mot de passe* est ne pas fourni, il vous sera demandé.                                        |
-| /delete{:<TargetName> &#124; /ras} |  Supprime un nom d’utilisateur et le mot de passe dans la liste. Si *TargetName* est spécifié, que sera supprimé. Si /ras est spécifié, l’entrée d’accès à distance stockée est supprimée.   |
-|         /List :<TargetName>         |                  Affiche la liste des noms d’utilisateurs et les informations d’identification. Si *TargetName* n’est pas les noms d’utilisateur spécifié, tous stockés et informations d’identification sont répertoriées.                   |
+|         /Add : <TargetName>          | Ajoute un nom d’utilisateur et un mot de passe à la liste.<br /><br />Requiert le paramètre de <TargetName> qui identifie le nom de l’ordinateur ou du domaine auquel cette entrée sera associée. |
+|       /générique : <TargetName>        |   Ajoute des informations d’identification génériques à la liste.<br /><br />Requiert le paramètre de <TargetName> qui identifie le nom de l’ordinateur ou du domaine auquel cette entrée sera associée.    |
+|             /Smartcard             |                                                                    Récupère les informations d’identification d’une carte à puce.                                                                     |
+|          /User : <UserName>          |                                 Spécifie le nom d’utilisateur ou de compte à stocker avec cette entrée. Si le *nom d’utilisateur* n’est pas fourni, il est demandé.                                  |
+|          /Pass : <Password>          |                                       Spécifie le mot de passe à stocker avec cette entrée. Si le *mot de passe* n’est pas fourni, il est demandé.                                        |
+| /Delete{ : <TargetName> &#124; /RAS} |  supprime un nom d’utilisateur et un mot de passe de la liste. Si *TargetName* est spécifié, cette entrée sera supprimée. Si/RAS est spécifié, l’entrée d’accès à distance stockée est supprimée.   |
+|         /List : <TargetName>         |                  Affiche la liste des noms d’utilisateur et des informations d’identification stockés. Si *TargetName* n’est pas spécifié, tous les noms d’utilisateur et informations d’identification stockés seront listés.                   |
 |                 /?                 |                                                                        Affiche l'aide à l'invite de commandes.                                                                        |
 
 ## <a name="remarks"></a>Notes
-- Si plus d’une carte à puce se trouve sur le système lorsque l’option de ligne de commande /smartcard est utilisée, **cmdkey** affiche des informations sur toutes les cartes à puce disponibles et puis inviter l’utilisateur à spécifier l’application à utiliser.
-- Les mots de passe s’affichera pas une fois qu’ils sont stockés.
-  ## <a name="BKMK_examples"></a>Exemples
-  Pour afficher une liste de tous les noms d’utilisateur et les informations d’identification qui sont stockées, tapez :
+- Si plus d’une carte à puce est détectée sur le système lorsque l’option de ligne de commande/Smartcard est utilisée, **cmdkey** affiche des informations sur toutes les cartes à puce disponibles, puis invite l’utilisateur à spécifier celui à utiliser.
+- Les mots de passe ne sont pas affichés une fois qu’ils sont stockés.
+  ## <a name="BKMK_examples"></a>Illustre
+  Pour afficher la liste de tous les noms d’utilisateur et informations d’identification stockés, tapez :
   ```
   cmdkey /list
   ```
-  Pour ajouter un nom d’utilisateur et le mot de passe utilisateur MarcelRug à accès ordinateur serveur01 avec le mot de passe Kleo, tapez :
+  Pour ajouter un nom d’utilisateur et un mot de passe pour l’utilisateur Mikedan afin d’accéder à l’ordinateur SERVEUR01 avec le mot de passe Kleo, tapez :
   ```
   cmdkey /add:server01 /user:mikedan /pass:Kleo
   ```
-  Pour ajouter un nom d’utilisateur et le mot de passe utilisateur MarcelRug pour accéder à l’ordinateur Server01 et l’invite pour le mot de passe lors de chaque accès Server01, tapez :
+  Pour ajouter un nom d’utilisateur et un mot de passe pour l’utilisateur Mikedan pour accéder à l’ordinateur SERVEUR01 et demander le mot de passe à chaque accès à SERVEUR01, tapez :
   ```
   cmdkey /add:server01 /user:mikedan
   ```
@@ -63,7 +63,7 @@ cmdkey [{/add:<TargetName>|/generic:<TargetName>}] {/smartcard|/user:<UserName> 
   ```
   cmdkey /delete /ras
   ```
-  Pour supprimer les informations d’identification stockées pour Server01, tapez :
+  Pour supprimer les informations d’identification stockées pour Serveur01, tapez :
   ```
   cmdkey /delete:Server01
   ```

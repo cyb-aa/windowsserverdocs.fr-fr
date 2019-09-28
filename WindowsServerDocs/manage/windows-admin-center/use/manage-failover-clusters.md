@@ -1,48 +1,48 @@
 ---
-title: Gérer des Clusters de basculement avec Windows Admin Center
-description: Gérer des Clusters de basculement avec Windows Admin Center (projet Honolulu)
+title: Gérer les clusters de basculement avec le centre d’administration Windows
+description: Gérer les clusters de basculement avec le centre d’administration Windows (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: f7e14581f7f6b14b0cf39308de236b68a07e8c9f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.prod: windows-server
+ms.openlocfilehash: 16e758f0a8746d41adcdafb2bc1be2d91a3fc29c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406805"
 ---
-# <a name="manage-failover-clusters-with-windows-admin-center"></a>Gérer des Clusters de basculement avec Windows Admin Center
+# <a name="manage-failover-clusters-with-windows-admin-center"></a>Gérer les clusters de basculement avec le centre d’administration Windows
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+>S'applique à : Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
 > Vous débutez dans Windows Admin Center ?
 > [Découvrez-en davantage sur Windows Admin Center](../understand/windows-admin-center.md) ou [téléchargez maintenant](https://aka.ms/windowsadmincenter).
 
-## <a name="managing-failover-clusters"></a>La gestion des clusters de basculement
-[Le clustering de basculement](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) est une fonctionnalité de Windows Server qui vous permet de regrouper plusieurs serveurs dans un cluster à tolérance de pannes pour accroître la disponibilité et l’évolutivité des applications et services, tels que serveur de fichiers avec montée en puissance, Hyper-V et Microsoft SQL Server.
+## <a name="managing-failover-clusters"></a>Gestion des clusters de basculement
+Le [clustering de basculement](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) est une fonctionnalité de Windows Server qui vous permet de regrouper plusieurs serveurs dans un cluster à tolérance de pannes pour augmenter la disponibilité et l’extensibilité des applications et des services tels que serveur de fichiers avec montée en puissance parallèle, Hyper-V et Microsoft SQL Server.
 
-Bien que vous pouvez gérer les nœuds de cluster de basculement en tant que serveurs individuels en les ajoutant en tant que [connexions au serveur](manage-servers.md) dans Windows Admin Center, vous pouvez également les ajouter comme clusters de basculement pour afficher et gérer les ressources de cluster, stockage, réseau, nœuds, rôles, les machines virtuelles et les commutateurs virtuels.
+Bien que vous puissiez gérer des nœuds de cluster de basculement en tant que serveurs individuels en les ajoutant en tant que [connexions serveur](manage-servers.md) dans le centre d’administration Windows, vous pouvez également les ajouter en tant que clusters de basculement pour afficher et gérer les ressources de cluster, le stockage, le réseau, les nœuds, les rôles, la virtualisation machines et commutateurs virtuels.
 
-![Écran de vue d’ensemble de cluster de basculement](../media/manage-failover-clusters/fcm-overview.png)
+![Écran de présentation du cluster de basculement](../media/manage-failover-clusters/fcm-overview.png)
 
-## <a name="adding-a-failover-cluster-to-windows-admin-center"></a>Ajout d’un cluster de basculement à Windows Admin Center
-Pour ajouter un cluster Windows Admin Center :
+## <a name="adding-a-failover-cluster-to-windows-admin-center"></a>Ajout d’un cluster de basculement au centre d’administration Windows
+Pour ajouter un cluster au centre d’administration Windows :
 
-1. Cliquez sur **+ ajouter** sous toutes les connexions.
-2. Choisissez d’ajouter un **connexion de basculement**.
+1. Cliquez sur **+ Ajouter** sous toutes les connexions.
+2. Choisissez d’ajouter une **connexion de basculement**.
 3. Tapez le nom du cluster et, si vous y êtes invité, les informations d’identification à utiliser.
-4. Avoir la possibilité d’ajouter les nœuds de cluster en tant que connexions serveur individuel dans Windows Admin Center.
-5. Cliquez sur **envoyer** se termine.
+4. Vous aurez la possibilité d’ajouter les nœuds de cluster en tant que connexions de serveur individuelles dans le centre d’administration Windows.
+5. Cliquez sur **Envoyer** pour terminer.
 
-Le cluster sera ajouté à votre liste des connexions dans la page Vue d’ensemble. Cliquez dessus pour vous connecter au cluster.
+Le cluster est ajouté à votre liste de connexions dans la page vue d’ensemble. Cliquez dessus pour vous connecter au cluster.
 
 > [!NOTE]
-> Vous pouvez également gérer hyperconvergé en cluster en ajoutant le cluster comme un [connexion Hyper-Converged Cluster](manage-hyper-converged.md) dans Windows Admin Center.
+> Vous pouvez également gérer les clusters hyper-convergés en ajoutant le cluster en tant que [connexion de cluster hyper-convergé](manage-hyper-converged.md) dans le centre d’administration Windows.
 
 ## <a name="tools"></a>Outils
 
@@ -50,23 +50,23 @@ Les outils suivants sont disponibles pour les connexions de cluster de basculeme
 
 | Tool | Description |
 | ---- | ----------- |
-| Vue d'ensemble | Afficher les détails du cluster de basculement et de gérer les ressources de cluster |
-| Disques | Partagé de cluster de la vue disques et volumes |
-| Réseaux | Afficher les réseaux du cluster |
+| Vue d'ensemble | Afficher les détails du cluster de basculement et gérer les ressources de cluster |
+| Disques | Afficher les volumes et les disques partagés de cluster |
+| Réseaux | Afficher les réseaux dans le cluster |
 | Nœuds | Afficher et gérer les nœuds de cluster |
 | Rôles | Gérer les rôles de cluster ou créer un rôle vide |
-| Mises à jour | Gérer les mises à jour adaptée aux clusters |
+| Mises à jour | Gérer les mises à jour prenant en charge les clusters (nécessite [CredSSP](../understand/faq.md#does-windows-admin-center-use-credssp)) |
 | [Machines virtuelles](manage-virtual-machines.md) | Afficher et gérer des machines virtuelles |
-| Commutateurs virtuels | Afficher et gérer des commutateurs virtuels |
+| Commutateurs virtuels | Afficher et gérer les commutateurs virtuels |
 
-## <a name="more-coming"></a>Bientôt plus
+## <a name="more-coming"></a>Plus à venir
 
-Gestion du cluster de basculement dans Windows Admin Center est activement en cours de développement et de nouvelles fonctionnalités seront ajoutées dans un avenir proche. Vous pouvez afficher l’état et voter pour les fonctionnalités dans UserVoice :
+La gestion du cluster de basculement dans le centre d’administration Windows est activement en cours de développement et de nouvelles fonctionnalités seront ajoutées dans un avenir proche. Vous pouvez afficher l’État et voter pour les fonctionnalités de UserVoice :
 
 |Demande de fonctionnalité|
 |-------|
-| [Afficher plus d’Infos disque en cluster](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31740424--cluster-more-disk-info-in-failover-cluster-manag) |
-| [Prend en charge les actions de cluster supplémentaire](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/33558076--fcm-full-csv-management-cycle-in-one-place) |
-| [Prend en charge les clusters convergées exécutant Hyper-V et le serveur de fichiers avec montée en puissance sur des clusters différents](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31729741--cluster-support-for-converged-architecture) |
-| [Cache de bloc partagé de vue](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31669477--cluster-csv-block-cache) |
-| [Afficher tout ou proposer la nouvelle fonctionnalité](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5Bcluster%5D) |
+| [Afficher plus d’informations sur le disque en cluster](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31740424--cluster-more-disk-info-in-failover-cluster-manag) |
+| [Prendre en charge des actions de cluster supplémentaires](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/33558076--fcm-full-csv-management-cycle-in-one-place) |
+| [Prise en charge des clusters convergents exécutant Hyper-V et Serveur de fichiers avec montée en puissance parallèle sur des clusters différents](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31729741--cluster-support-for-converged-architecture) |
+| [Afficher le cache de blocs CSV](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31669477--cluster-csv-block-cache) |
+| [Afficher tout ou proposer une nouvelle fonctionnalité](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5Bcluster%5D) |

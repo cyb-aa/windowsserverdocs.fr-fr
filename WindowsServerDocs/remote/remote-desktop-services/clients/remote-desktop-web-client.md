@@ -1,19 +1,19 @@
 ---
 title: Bien démarrer avec le client web
 description: Décrit la procédure à suivre pour se connecter au client web Bureau à distance.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: remote-desktop-services
 ms.author: helohr
 ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 4185454c6351b752a6397109b3a333d3eab107cd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 69beba2c59617da5b501dc55e2509e41ce4ee3fd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871150"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404112"
 ---
 # <a name="get-started-with-the-web-client"></a>Bien démarrer avec le client web
 

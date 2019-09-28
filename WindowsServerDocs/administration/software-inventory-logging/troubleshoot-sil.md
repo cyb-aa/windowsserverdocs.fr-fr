@@ -2,7 +2,7 @@
 title: Résolution des problèmes de la journalisation de l’inventaire logiciel
 description: Décrit comment résoudre les problèmes courants de déploiement de la journalisation de l’inventaire logiciel.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -12,12 +12,12 @@ author: brentfor
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 1878347234affddcb7a7acb39c532712051ea223
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fb6e6fbba835e049748ca8578f24a1ff7fc750bf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866266"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382876"
 ---
 # <a name="troubleshoot-software-inventory-logging"></a>Résolution des problèmes de la journalisation de l’inventaire logiciel 
 
@@ -138,7 +138,7 @@ Une fois les hôtes correctement interrogés, vous pouvez voir les données de c
 #### <a name="too-many-physical-hosts-with-vms-listed-as-unknown-os"></a>Trop d’hôtes physiques avec des machines virtuelles répertoriées comme système d’exploitation inconnu
 
 1. Sélectionnez un nœud de terminaison Windows Server (machine virtuelle) que vous connaissez sur l’un de ces hôtes, connectez-vous en tant qu’administrateur.
-2. Ouvrez PowerShell ISE en tant qu’administrateur.
+2. Ouvrez PowerShell en tant qu’administrateur.
 3. Vérifiez que **SilLogging** est en cours d’exécution à l’aide de l’applet de commande **-SilLogging** .
    - Si vous exécutez, essayez d’envoyer manuellement des données SIL à l’aide de **Publish-SilData**.
 

@@ -7,31 +7,31 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1d975fa32f19facfdee7a31e58293006fc5859ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e542997295f8c0db9b660036c995daf0100b74d1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834480"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368879"
 ---
 # <a name="identity-component-updates"></a>Mises à jour des composants d’identité
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
-## <a name="lesson-1-identity-component-updates"></a>Leçon 1 : Mises à jour des composants d’identité  
-Cette leçon explique les mises à jour de composant identité dans Windows Server 2012 R2.  
+## <a name="lesson-1-identity-component-updates"></a>Leçon 1: Mises à jour des composants d’identité  
+Cette leçon explique les mises à jour des composants d’identité dans Windows Server 2012 R2.  
   
 ### <a name="what-you-will-learn"></a>Ce que vous allez apprendre  
-À l’issue de cette leçon, vous serez en mesure de :  
+À la fin de cette leçon, vous serez en mesure d’effectuer les opérations suivantes :  
   
--   Décrire les modifications suivantes :  
+-   Décrivez les modifications suivantes :  
   
     -   [Unicité des noms SPN et UPN](../../../ad-ds/manage/component-updates/SPN-and-UPN-uniqueness.md)  
   
-    -   [Redémarrage automatique Sign-On &#40;ARSO&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
+    -   [Connexion de l’authentification de &#40;redémarrage automatique Winlogon&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
   
     -   [Attestation de clé TPM](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md)  
   
@@ -41,7 +41,7 @@ Cette leçon explique les mises à jour de composant identité dans Windows Serv
   
     -   [Gestion et protection des informations d'identification](https://technet.microsoft.com/library/dn408190.aspx)  
   
-**Auteur**: Justin Turner, ingénieur Support résolution Senior auprès du groupe Windows  
+**Auteur**: Justin Turner, ingénieur du support technique senior avec le groupe Windows  
   
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  

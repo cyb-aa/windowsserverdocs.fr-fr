@@ -1,8 +1,8 @@
 ---
-title: La commande Update-ServerFiles
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Commande Update-ServerFiles
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ec96e2ba9aea14ed9a203dabbb697187736b33a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93eeb0deaa527921db35f4ab955d2ccc46b57d7a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385850"
 ---
-# <a name="the-update-serverfiles-command"></a>La commande Update-ServerFiles
+# <a name="the-update-serverfiles-command"></a>Commande Update-ServerFiles
 
 
 
-Met à jour les fichiers dans le dossier partagé REMINST avec les derniers fichiers qui sont stockés dans le dossier du serveur %Windir%\System32\RemInst. Pour garantir la validité de votre installation de Services de déploiement Windows, vous devez exécuter cette commande une seule fois après chaque mise à niveau du serveur, une installation du service pack ou une mise à jour aux fichiers des Services de déploiement Windows.
+Met à jour les fichiers dans le dossier partagé REMINST à l’aide des fichiers les plus récents stockés dans le dossier%Windir%\System32\RemInst du serveur. Pour garantir la validité de votre installation des services de déploiement Windows, vous devez exécuter cette commande une seule fois après chaque mise à niveau du serveur, Service Pack installation ou mise à jour des fichiers des services de déploiement Windows.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,11 +36,11 @@ WDSUTIL [Options] /Update-ServerFiles [/Server:<Server name>]
 
 |Paramètre|Description|
 |---------|-----------|
-|[/ Server :\<nom du serveur >]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local doit être utilisé.|
+|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour mettre à jour les fichiers, tapez une des opérations suivantes :
+Pour mettre à jour les fichiers, tapez l’un des éléments suivants :
 ```
 WDSUTIL /Update-ServerFiles
 WDSUTIL /Verbose /Progress /Update-ServerFiles /Server:MyWDSServer
@@ -48,4 +48,4 @@ WDSUTIL /Verbose /Progress /Update-ServerFiles /Server:MyWDSServer
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

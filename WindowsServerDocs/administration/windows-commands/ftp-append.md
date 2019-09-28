@@ -1,8 +1,8 @@
 ---
-title: Ajout de FTP
-description: 'Ajout de la rubrique de commandes de Windows pour ftp '
+title: Ajout FTP
+description: 'Rubrique relative aux commandes Windows pour l’ajout FTP '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9580d725120bb32a9b915d37cdbc173bfb17b859
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 52d16b878ff5fb165fd851b227dcc361c9da3a80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438841"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376639"
 ---
 # <a name="ftp-append"></a>FTP : ajouter
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Ajoute un fichier local à un fichier sur l’ordinateur distant avec le type de fichier actuel.   
+Ajoute un fichier local à un fichier sur l’ordinateur distant en utilisant le paramètre de type de fichier actuel.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 append <LocalFile> [remoteFile]  
@@ -37,13 +37,13 @@ append <LocalFile> [remoteFile]
 | [remoteFile] | Spécifie le fichier sur l’ordinateur distant auquel <LocalFile> est ajouté. |
 
 ## <a name="remarks"></a>Notes  
-Si *Fichier_distant* est omis, le *LocalFile* nom est utilisé à la place le nom de fichier distant.  
-## <a name="BKMK_Examples"></a>Exemples  
-Ajouter file1.txt à file2.txt sur l’ordinateur distant.  
+Si *remoteFile* est omis, le nom du *fichier_local* est utilisé à la place du nom du fichier distant.  
+## <a name="BKMK_Examples"></a>Illustre  
+Ajoutez fichier1. txt à fichier2. txt sur l’ordinateur distant.  
 ```  
 append file1.txt file2.txt  
 ```  
-ajouter le file1.txt local à un fichier nommé file1.txt sur l’ordinateur distant.  
+Ajoutez le fichier fichier1. txt local à un fichier nommé fichier1. txt sur l’ordinateur distant.  
 ```  
 append file1.txt  
 ```  

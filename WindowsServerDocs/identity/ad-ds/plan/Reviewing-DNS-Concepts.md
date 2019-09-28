@@ -7,78 +7,78 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d077ecc30caca9b8f3b382af624121fec729afae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a1ffe065991e76c91fa95a6ac080a8e8d54bcce
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890500"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408707"
 ---
 # <a name="reviewing-dns-concepts"></a>Examen des concepts DNS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Système DNS (Domain Name) est une base de données distribuée qui représente un espace de noms. L’espace de noms contient toutes les informations nécessaires pour n’importe quel client à rechercher n’importe quel nom. N’importe quel serveur DNS peut répondre aux requêtes sur n’importe quel nom au sein de son espace de noms. Un serveur DNS répond aux requêtes dans une des manières suivantes :  
+DNS (Domain Name System) est une base de données distribuée qui représente un espace de noms. L’espace de noms contient toutes les informations nécessaires à n’importe quel client pour rechercher n’importe quel nom. Tout serveur DNS peut répondre à des requêtes concernant n’importe quel nom dans son espace de noms. Un serveur DNS répond aux requêtes de l’une des manières suivantes :  
   
-- Si la réponse est dans son cache, il répond à la requête à partir du cache.  
-- Si la réponse est dans une zone hébergée par le serveur DNS, il répond à la requête à partir de sa zone. Une zone est une partie de l’arborescence DNS stocké sur un serveur DNS. Lorsqu’un serveur DNS héberge une zone, il fait autorité pour les noms dans cette zone (autrement dit, le serveur DNS peut répondre aux requêtes pour n’importe quel nom dans la zone). Par exemple, un serveur qui héberge la zone contoso.com peut répondre aux requêtes pour n’importe quel nom de contoso.com.  
-- Si le serveur ne peut pas répondre à la requête à partir de son cache ou des zones, il interroge les autres serveurs pour la réponse.  
+- Si la réponse se trouve dans son cache, elle répond à la requête à partir du cache.  
+- Si la réponse se trouve dans une zone hébergée par le serveur DNS, elle répond à la requête à partir de sa zone. Une zone est une partie de l’arborescence DNS stockée sur un serveur DNS. Lorsqu’un serveur DNS héberge une zone, il fait autorité pour les noms de cette zone (autrement dit, le serveur DNS peut répondre aux requêtes pour n’importe quel nom de la zone). Par exemple, un serveur hébergeant la zone contoso.com peut répondre à des requêtes pour n’importe quel nom dans contoso.com.  
+- Si le serveur ne peut pas répondre à la requête à partir de son cache ou de ses zones, il interroge d’autres serveurs pour la réponse.  
 
-Il est important de comprendre les principales fonctionnalités de DNS, telles que la délégation, résolution de noms récursive et zones DNS intégrées à Active Directory, car elles ont un impact direct sur votre conception de la structure logique Active Directory.  
+Il est important de comprendre les fonctionnalités de base de DNS, telles que la délégation, la résolution de noms récursive et les zones DNS intégrées à Active Directory, car elles ont un impact direct sur votre conception de structure logique Active Directory.  
   
-Pour plus d’informations sur DNS et des Services de domaine Active Directory (AD DS), consultez [DNS et AD DS](../../ad-ds/plan/DNS-and-AD-DS.md).  
+Pour plus d’informations sur DNS et Active Directory Domain Services (AD DS), consultez [DNS et AD DS](../../ad-ds/plan/DNS-and-AD-DS.md).  
   
 ## <a name="delegation"></a>Délégation
 
-Pour un serveur DNS pour répondre aux requêtes sur n’importe quel nom, il doit avoir un chemin d’accès direct ou indirect à chaque zone dans l’espace de noms. Ces chemins d’accès sont créés au moyen de délégation. Une délégation est un enregistrement dans une zone parente qui répertorie un serveur de noms faisant autorité pour la zone dans le niveau suivant de la hiérarchie. Délégations rendent possible pour les serveurs dans une zone pour faire référence les clients aux serveurs dans d’autres zones. L’illustration suivante montre un exemple de délégation.  
+Pour qu’un serveur DNS réponde aux requêtes relatives à n’importe quel nom, il doit disposer d’un chemin d’accès direct ou indirect à chaque zone de l’espace de noms. Ces chemins d’accès sont créés au moyen de la délégation. Une délégation est un enregistrement dans une zone parente qui répertorie un serveur de noms faisant autorité pour la zone au niveau suivant de la hiérarchie. Les délégations permettent aux serveurs dans une zone de faire référence aux serveurs dans d’autres zones. L’illustration suivante montre un exemple de délégation.  
   
 ![Concepts DNS](../../media/Reviewing-DNS-Concepts/0c24b576-d41a-4e5d-ad3d-6be81e095835.gif)  
   
-Le serveur DNS racine héberge la zone racine représentée sous la forme d’un point (. ). La zone racine contient une délégation à une zone dans le niveau de la hiérarchie, la zone com. La délégation dans la zone racine indique le serveur DNS racine que, pour trouver la zone com, il doit contacter le serveur Com. De même, la délégation dans la zone com indique le serveur Com qui, pour trouver la zone contoso.com, il doit contacter le serveur de Contoso.  
+Le serveur racine DNS héberge la zone racine représentée par un point (. ). La zone racine contient une délégation à une zone au niveau suivant de la hiérarchie, la zone com. La délégation dans la zone racine indique au serveur racine DNS que, pour trouver la zone com, il doit contacter le serveur com. De même, la délégation dans la zone com indique au serveur com que, pour trouver la zone contoso.com, il doit contacter le serveur contoso.  
   
 > [!NOTE]  
-> Une délégation utilise deux types d’enregistrements. L’enregistrement de ressource de nom du serveur de (noms NS) fournit le nom d’un serveur faisant autorité. Hôte (A) et les enregistrements de ressource hôte (AAAA) fournissent des IP version 4 (IPv4) et IP version 6 (IPv6) adresses d’un serveur faisant autorité.  
+> Une délégation utilise deux types d’enregistrements. L’enregistrement de ressource de serveur de noms (NS) fournit le nom d’un serveur faisant autorité. Les enregistrements de ressource d’hôte (A) et d’hôte (AAAA) fournissent des adresses IP version 4 (IPv4) et IP version 6 (IPv6) d’un serveur faisant autorité.  
   
-Ce système de zones et les délégations crée une arborescence hiérarchique qui représente l’espace de noms DNS. Chaque zone représente une couche dans la hiérarchie, et chaque délégation représente une branche de l’arborescence.  
+Ce système de zones et de délégations crée une arborescence hiérarchique qui représente l’espace de noms DNS. Chaque zone représente une couche dans la hiérarchie, et chaque délégation représente une branche de l’arborescence.  
   
-À l’aide de la hiérarchie des zones et des délégations, un serveur DNS racine peut trouver n’importe quel nom dans l’espace de noms DNS. La zone racine inclut des délégations qui mènent directement ou indirectement à toutes les autres zones dans la hiérarchie. N’importe quel serveur qui peut interroger le serveur DNS racine peut utiliser les informations dans les délégations pour rechercher n’importe quel nom dans l’espace de noms.  
+En utilisant la hiérarchie des zones et des délégations, un serveur racine DNS peut trouver n’importe quel nom dans l’espace de noms DNS. La zone racine comprend des délégations qui mènent directement ou indirectement à toutes les autres zones de la hiérarchie. Tout serveur pouvant interroger le serveur racine DNS peut utiliser les informations contenues dans les délégations pour rechercher n’importe quel nom dans l’espace de noms.  
   
 ## <a name="recursive-name-resolution"></a>Résolution de noms récursive
 
-Résolution de noms récursive est le processus par lequel un serveur DNS utilise la hiérarchie des zones et des délégations de répondre aux requêtes pour lesquelles il ne fait pas autorité.  
+La résolution de noms récursive est le processus par lequel un serveur DNS utilise la hiérarchie de zones et de délégations pour répondre aux requêtes pour lesquelles il ne fait pas autorité.  
   
-Dans certaines configurations, les serveurs DNS incluent des indications de racine (autrement dit, une liste de noms et adresses IP) leur permettant d’interroger des serveurs DNS racine. Dans d’autres configurations, les serveurs transférer toutes les requêtes qu’ils ne peut pas répondre à un autre serveur. Les indications de racine et de transfert sont les deux méthodes utilisables par les serveurs DNS pour résoudre les requêtes pour lesquelles ils ne font pas autorités.  
+Dans certaines configurations, les serveurs DNS incluent des indications de racine (autrement dit, une liste de noms et d’adresses IP) qui leur permettent d’interroger les serveurs racines DNS. Dans d’autres configurations, les serveurs transfèrent toutes les requêtes qu’ils ne peuvent pas répondre à un autre serveur. Le transfert et les indications de racine sont les deux méthodes que les serveurs DNS peuvent utiliser pour résoudre les requêtes pour lesquelles ils ne font pas autorité.  
   
-### <a name="resolving-names-by-using-root-hints"></a>Résolution de noms à l’aide des indications de racine
+### <a name="resolving-names-by-using-root-hints"></a>Résolution de noms à l’aide d’indications de racine
 
-Indications de racine permettent à un serveur DNS localiser les serveurs DNS racine. Une fois un serveur DNS localise le serveur DNS racine, il peut résoudre n’importe quelle requête pour cet espace de noms. L’illustration suivante décrit comment le DNS résout un nom à l’aide des indications de racine.  
+Les indications de racine permettent à n’importe quel serveur DNS de localiser les serveurs racines DNS. Une fois qu’un serveur DNS a localisé le serveur racine DNS, il peut résoudre n’importe quelle requête pour cet espace de noms. L’illustration suivante décrit comment DNS résout un nom à l’aide d’indications de racine.  
   
 ![Concepts DNS](../../media/Reviewing-DNS-Concepts/1c044845-b104-4262-a7af-474ba3558a85.gif)  
   
 Dans cet exemple, les événements suivants se produisent :  
   
-1. Un client envoie une requête récursive à un serveur DNS pour demander l’adresse IP qui correspond à la ftp.contoso.com de nom. Une requête récursive indique que le client veut une réponse définitive à sa requête. La réponse à la requête récursive doit être une adresse valide ou un message indiquant que l’adresse est introuvable.  
-2. Étant donné que le serveur DNS ne fait pas autorité pour le nom et n’a pas la réponse dans son cache, le serveur DNS utilise les indications de racine pour rechercher l’adresse IP du serveur DNS racine.  
-3. Le serveur DNS utilise une requête itérative pour demander au serveur de racine DNS pour résoudre le nom ftp.contoso.com. Une requête itérative indique que le serveur accepte une référence à un autre serveur à la place d’une réponse définitive à la requête. Étant donné que le ftp.contoso.com nom se termine par l’étiquette com, le serveur DNS racine renvoie une référence au serveur Com qui héberge la zone com.  
-4. Le serveur DNS utilise une requête itérative pour demander au serveur Com pour résoudre le nom ftp.contoso.com. Étant donné que le ftp.contoso.com nom se termine par le nom de contoso.com, le serveur Com retourne une référence au serveur de Contoso qui héberge la zone contoso.com.  
-5. Le serveur DNS utilise une requête itérative pour demander au serveur de Contoso pour résoudre le nom ftp.contoso.com. Le serveur Contoso recherche la réponse dans ses données de zone, puis renvoie la réponse au serveur.  
-6. Le serveur renvoie ensuite le résultat au client.  
+1. Un client envoie une requête récursive à un serveur DNS pour demander l’adresse IP qui correspond au nom ftp.contoso.com. Une requête récursive indique que le client souhaite une réponse définitive à sa requête. La réponse à la requête récursive doit être une adresse valide ou un message indiquant que l’adresse est introuvable.  
+2. Étant donné que le serveur DNS ne fait pas autorité pour le nom et qu’il n’a pas de réponse dans son cache, le serveur DNS utilise des indications de racine pour trouver l’adresse IP du serveur racine DNS.  
+3. Le serveur DNS utilise une requête itérative pour demander au serveur racine DNS de résoudre le nom ftp.contoso.com. Une requête itérative indique que le serveur va accepter une référence à un autre serveur à la place d’une réponse définitive à la requête. Étant donné que le nom ftp.contoso.com se termine par l’étiquette com, le serveur racine DNS retourne une référence au serveur com qui héberge la zone com.  
+4. Le serveur DNS utilise une requête itérative pour demander au serveur com de résoudre le nom ftp.contoso.com. Étant donné que le nom ftp.contoso.com se termine par le nom contoso.com, le serveur COM retourne une référence au serveur Contoso qui héberge la zone contoso.com.  
+5. Le serveur DNS utilise une requête itérative pour demander au serveur Contoso de résoudre le nom ftp.contoso.com. Le serveur Contoso recherche la réponse dans ses données de zone, puis renvoie la réponse au serveur.  
+6. Le serveur retourne ensuite le résultat au client.  
   
-### <a name="resolving-names-by-using-forwarding"></a>Résolution de noms à l’aide de transfert
+### <a name="resolving-names-by-using-forwarding"></a>Résolution de noms à l’aide du transfert
 
-Transfert vous permet de résolution de nom d’itinéraire via des serveurs spécifiques au lieu d’utiliser des indications de racine. L’illustration suivante décrit comment le DNS résout un nom à l’aide de transfert.  
+Le transfert vous permet d’acheminer la résolution de noms via des serveurs spécifiques au lieu d’utiliser des indications de racine. L’illustration suivante décrit comment DNS résout un nom à l’aide du transfert.  
   
 ![Concepts DNS](../../media/Reviewing-DNS-Concepts/05bc2eb0-1033-4e53-ae30-244fa247d000.gif)  
   
 Dans cet exemple, les événements suivants se produisent :  
   
 1. Un client interroge un serveur DNS pour le nom ftp.contoso.com.  
-2. Le serveur DNS transfère la requête vers un autre serveur DNS, appelé un redirecteur.  
-3. Étant donné que le redirecteur ne fait pas autorité pour le nom et n’a pas la réponse dans son cache, il utilise des indications de racine pour trouver l’adresse IP du serveur DNS racine.  
-4. Le redirecteur utilise une requête itérative pour demander au serveur de racine DNS pour résoudre le nom ftp.contoso.com. Étant donné que le ftp.contoso.com nom se termine par le nom com, le serveur DNS racine renvoie une référence au serveur Com qui héberge la zone com.  
-5. Le redirecteur utilise une requête itérative pour demander au serveur Com pour résoudre le nom ftp.contoso.com. Étant donné que le ftp.contoso.com nom se termine par le nom de contoso.com, le serveur Com retourne une référence au serveur de Contoso qui héberge la zone contoso.com.  
-6. Le redirecteur utilise une requête itérative pour demander au serveur de Contoso pour résoudre le nom ftp.contoso.com. Le serveur Contoso recherche la réponse dans ses fichiers de zone, puis renvoie la réponse au serveur.  
-7. Le redirecteur retourne ensuite le résultat vers le serveur DNS d’origine.  
-8. Le serveur DNS d’origine retourne ensuite le résultat au client.  
+2. Le serveur DNS transfère la requête à un autre serveur DNS, appelé redirecteur.  
+3. Étant donné que le redirecteur ne fait pas autorité pour le nom et qu’il n’a pas de réponse dans son cache, il utilise des indications de racine pour trouver l’adresse IP du serveur racine DNS.  
+4. Le redirecteur utilise une requête itérative pour demander au serveur racine DNS de résoudre le nom ftp.contoso.com. Étant donné que le nom ftp.contoso.com se termine par le nom com, le serveur racine DNS retourne une référence au serveur com qui héberge la zone com.  
+5. Le redirecteur utilise une requête itérative pour demander au serveur com de résoudre le nom ftp.contoso.com. Étant donné que le nom ftp.contoso.com se termine par le nom contoso.com, le serveur COM retourne une référence au serveur Contoso qui héberge la zone contoso.com.  
+6. Le redirecteur utilise une requête itérative pour demander au serveur Contoso de résoudre le nom ftp.contoso.com. Le serveur Contoso recherche la réponse dans ses fichiers de zone, puis renvoie la réponse au serveur.  
+7. Le redirecteur retourne ensuite le résultat au serveur DNS d’origine.  
+8. Le serveur DNS d’origine renvoie alors le résultat au client.  

@@ -1,7 +1,7 @@
 ---
 title: Déployer une infrastructure SDN (Software Defined Networking)
 description: Cette rubrique fournit des liens vers des rubriques expliquant comment déployer une infrastructure SDN (Software Defined Network) à l’aide de scripts dans Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: get-started-article
@@ -9,12 +9,12 @@ ms.assetid: 6c665c88-df28-4150-81d4-a47e9fa5255c
 ms.author: daveba
 ms.date: 08/23/2018
 author: daveba
-ms.openlocfilehash: 098b061acbb222d2038486f58081812a3ec67cfb
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 6450419e03b07c4350edbf58a8c3ab8e48cbac7a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980286"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406133"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure"></a>Déployer une infrastructure réseau définie par logiciel
 
@@ -41,7 +41,7 @@ Ces déploiements incluent toutes les technologies dont vous avez besoin pour un
 
 
 ## <a name="deploy-individual-sdn-technologies-instead-of-an-entire-infrastructure"></a>Déployer des technologies SDN individuelles au lieu d’une infrastructure entière  
- Si vous souhaitez déployer des technologies SDN individuelles au lieu d’une infrastructure entière, consultez:  
+ Si vous souhaitez déployer des technologies SDN individuelles au lieu d’une infrastructure entière, consultez :  
 [Déployez des technologies réseau définies par logiciel à l’aide de Windows PowerShell](Deploy-Software-Defined-Network-Technologies-using-Windows-PowerShell.md).    
   
 

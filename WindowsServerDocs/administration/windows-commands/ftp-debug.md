@@ -1,8 +1,8 @@
 ---
-title: ftp:debug
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'FTP : débogage'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3c6591819129fe1a3047982905a041eca974aa53
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e088c7989b2caa78efbb3240f806d6dc41b68b7a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438760"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376470"
 ---
-# <a name="ftpdebug"></a>ftp:debug
+# <a name="ftpdebug"></a>FTP : débogage
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Active ou désactive le mode débogage.   
+Active/désactive le mode de débogage.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 debug  
@@ -33,9 +33,9 @@ debug
 aucune  
 ## <a name="remarks"></a>Notes  
 - Par défaut, le débogage est désactivé.  
-- Lorsque le débogage est activé, chaque commande est envoyée à l’ordinateur distant s’affiche, précédé par le caractère supérieur à (>).  
-  ## <a name="BKMK_Examples"></a>Exemples  
-  Basculer vers le mode de débogage et désactiver.  
+- Quand le débogage est activé, chaque commande envoyée à l’ordinateur distant est affichée, précédée du caractère supérieur à (>).  
+  ## <a name="BKMK_Examples"></a>Illustre  
+  Activez ou désactivez le mode débogage.  
   ```  
   debug  
   ```  

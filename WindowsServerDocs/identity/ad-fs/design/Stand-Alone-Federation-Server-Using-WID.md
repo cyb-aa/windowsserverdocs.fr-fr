@@ -7,29 +7,29 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 31e2e1b04383adc8bec12e7290a7acec80e0402f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5fa89a4a57c618fd711234b8770a35750f3099bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190792"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358959"
 ---
 # <a name="stand-alone-federation-server-using-wid"></a>Serveur de fédération autonome utilisant la base de données interne Windows
 
-Un support\-serveur de fédération autonome dans Active Directory Federation Services \(AD FS\) se compose d’un seul serveur qui héberge un Service de fédération configurés pour utiliser la base de données interne Windows \(WID\). Cette topologie AD FS est pour les laboratoires de test. Nous déconseillons il pour les environnements de production, car il a une limite de serveur de fédération qu’une seule, et il ne peut pas être utilisé pour monter en puissance à d’autres serveurs.  
+Un serveur de Fédération stand @ no__t-0alone dans Services ADFS \(AD FS @ no__t-2 se compose d’un serveur unique qui héberge un service FS (Federation Service) configuré pour utiliser la base de données interne Windows \(WID @ no__t-4. Cette AD FS topologie est destinée aux laboratoires de test. Nous ne la recommandons pas pour les environnements de production, car elle n’a qu’une limite d’un seul serveur de Fédération et ne peut pas être utilisée pour augmenter la taille des serveurs.  
   
-Si vous souhaitez ajouter des serveurs de fédération supplémentaires à votre laboratoire de test, vous devez reconstruire le Service de fédération à partir de zéro en déployant un des autres topologies indiquées plus loin dans cette section. Par conséquent, nous vous recommandons d’utiliser cette topologie pour un laboratoire de test ou une preuve\-de\-environnement concept dans votre réseau de test privé dans lequel un serveur de fédération unique convient, comme indiqué dans l’illustration suivante.  
+Si vous souhaitez ajouter des serveurs de Fédération supplémentaires à votre laboratoire de test, vous devez recréer le service FS (Federation Service) à partir de zéro en déployant les autres topologies mentionnées plus loin dans cette section. Par conséquent, nous vous recommandons d’utiliser cette topologie pour un laboratoire de test ou une preuve de l’environnement @ no__t-0oF @ no__t-1concept dans votre réseau de test privé, dans lequel un seul serveur de Fédération est approprié, comme le montre l’illustration suivante.  
   
-![serveur à l’aide de WID](media/FedServerWID.gif)  
+![serveur utilisant WID](media/FedServerWID.gif)  
   
-## <a name="test-lab-considerations"></a>Considérations de laboratoire de test  
-Cette section décrit divers points de vue sur le public visé, les avantages et les limites qui sont associés à cette topologie pour les environnements de laboratoire de test.  
+## <a name="test-lab-considerations"></a>Considérations relatives au laboratoire de test  
+Cette section décrit les différentes considérations à prendre en compte concernant le public concerné, les avantages et les limitations associés à cette topologie pour les environnements de laboratoire de test.  
   
 ### <a name="who-should-use-this-topology"></a>Qui doit utiliser cette topologie ?  
   
--   Technologies de l’information \(informatique\) professionnels ou aux architectes informatiques qui souhaitent évaluer ou développer une preuve de concept pour cette technologie  
+-   Technologies de l’information \(IT @ no__t-1 professionnels ou architectes informatiques qui souhaitent évaluer ou développer une preuve de concept pour cette technologie  
   
 ### <a name="what-are-the-benefits-of-using-this-topology"></a>Quels sont les avantages de l’utilisation de cette topologie ?  
   
@@ -37,9 +37,9 @@ Cette section décrit divers points de vue sur le public visé, les avantages et
   
 ### <a name="what-are-the-limitations-of-using-this-topology"></a>Quelles sont les limitations de l’utilisation de cette topologie ?  
   
--   Uniquement un serveur de fédération par le Service de fédération \(n’arrive pas à monter en puissance à une batterie de serveurs\)  
+-   Un seul serveur de Fédération par service FS (Federation Service) capacité \(no à évoluer vers une batterie de serveurs @ no__t-1  
   
--   Non redondantes \(n'existe qu’une seule instance de la base de données de configuration AD FS\)  
+-   Non redondant \(only une seule instance du AD FS base de données de configuration existe @ no__t-1  
   
 
 ## <a name="see-also"></a>Voir aussi

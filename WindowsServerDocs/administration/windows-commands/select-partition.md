@@ -1,8 +1,8 @@
 ---
-title: Sélectionnez la partition
-description: 'Rubrique de commandes de Windows pour ***- '
+title: sélectionner une partition
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79449bc74dd09246b380b3f892acc1b338650d20
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9a186e2678fde64396a8b4b57a2d14e4b0b7bf26
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441501"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371069"
 ---
-# <a name="select-partition"></a>Sélectionnez la partition
+# <a name="select-partition"></a>sélectionner une partition
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Sélectionne la partition spécifiée et déplace le focus à ce dernier. Cette commande peut également être utilisée pour afficher la partition qui a actuellement le focus dans le disque sélectionné.  
+sélectionne la partition spécifiée et lui déplace le focus. Cette commande peut également être utilisée pour afficher la partition qui a actuellement le focus sur le disque sélectionné.  
   
   
   
@@ -38,26 +38,26 @@ select partition=<n>
   
 |   Paramètre    |                                                                                    Description                                                                                    |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| partition\=<n> | Le numéro de la partition à recevoir le focus. Vous pouvez afficher les nombres pour toutes les partitions sur le disque actuellement sélectionné à l’aide de la **liste partition** commande DiskPart. |
+| partition @ no__t-0 @ no__t-1 | Numéro de la partition qui doit recevoir le focus. Vous pouvez afficher les numéros de toutes les partitions sur le disque actuellement sélectionné à l’aide de la commande **List partition** dans DiskPart. |
   
 ## <a name="remarks"></a>Notes  
   
--   Avant de pouvoir sélectionner une partition vous devez d’abord sélectionner un disque à l’aide de la **sélectionnez disque** commande.  
+-   Avant de pouvoir sélectionner une partition, vous devez d’abord sélectionner un disque à l’aide de la commande **Sélectionner le disque** .  
   
--   Si aucun numéro de partition n’est spécifiée, cette commande affiche la partition qui a actuellement le focus dans le disque sélectionné.  
+-   Si aucun numéro de partition n’est spécifié, cette commande affiche la partition qui a actuellement le focus sur le disque sélectionné.  
   
 -   Si un volume est sélectionné avec une partition correspondante, la partition est automatiquement sélectionnée.  
   
--   Si une partition est sélectionnée par un volume correspondant, le volume est automatiquement sélectionné.  
+-   Si une partition est sélectionnée avec un volume correspondant, le volume est sélectionné automatiquement.  
   
-## <a name="BKMK_examples"></a>Exemples  
+## <a name="BKMK_examples"></a>Illustre  
 Pour déplacer le focus vers la partition 3, tapez :  
   
 ```  
 select partitition=3  
 ```  
   
-Pour afficher la partition qui a actuellement le focus dans le disque sélectionné, tapez :  
+Pour afficher la partition qui a actuellement le focus sur le disque sélectionné, tapez :  
   
 ```  
 select partition  

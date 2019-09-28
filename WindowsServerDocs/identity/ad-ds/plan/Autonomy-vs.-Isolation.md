@@ -1,79 +1,79 @@
 ---
 ms.assetid: ef63d40c-a262-4a18-938d-b95c10680c0b
-title: Autonomie et. Isolation
+title: Autonomie et Isolation
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 765a25d3d1ffdb4df473e1fb5bb65e532934aca9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3430ae9320ed2d39768d91f768adb3f9ab1c716
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402643"
 ---
-# <a name="autonomy-vs-isolation"></a>Autonomie et. Isolation
+# <a name="autonomy-vs-isolation"></a>Autonomie et Isolation
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vous pouvez concevoir votre structure Active Directory logique pour obtenir de le des manières suivantes :  
+Vous pouvez concevoir votre structure logique Active Directory pour obtenir l’un des éléments suivants :  
   
--   **Autonomie**. Implique le contrôle indépendant mais non exclusif d’une ressource. Lorsque vous obtenez l’autonomie, les administrateurs ont l’autorité nécessaire pour gérer des ressources de manière indépendante ; Toutefois, les administrateurs disposant d’une autorité supérieure existent qui également de contrôler ces ressources et de prendre le contrôle immédiatement si nécessaire. Vous pouvez concevoir votre structure Active Directory logique pour obtenir les types suivants d’autonomie :  
+-   **Autonomie**. Implique un contrôle indépendant mais non exclusif d’une ressource. Lorsque vous atteignez l’autonomie, les administrateurs ont l’autorité nécessaire pour gérer les ressources de manière indépendante. Toutefois, les administrateurs disposant d’une autorité plus importante existent qui ont également le contrôle sur ces ressources et peuvent prendre le contrôle si nécessaire. Vous pouvez concevoir votre structure logique Active Directory pour obtenir les types d’autonomie suivants :  
   
-    -   **Autonomie de service**. Ce type d’autonomie implique le contrôle tout ou partie de la gestion des services.  
+    -   **Autonomie du service**. Ce type d’autonomie implique le contrôle de tout ou partie de la gestion des services.  
   
-    -   **Autonomie des données**. Ce type d’autonomie implique le contrôle tout ou partie des données stockées dans le répertoire ou sur les ordinateurs membres rattachés à l’annuaire.  
+    -   **Autonomie des données**. Ce type d’autonomie implique le contrôle de tout ou partie des données stockées dans le répertoire ou sur les ordinateurs membres joints à l’annuaire.  
   
--   **Isolation**. Implique le contrôle indépendant et exclusif d’une ressource. Lorsque vous isoler, les administrateurs ont l’autorité nécessaire pour gérer une ressource de manière indépendante et aucun autre administrateur ne peut prendre le contrôle de la ressource de suite. Vous pouvez concevoir votre structure Active Directory logique pour obtenir les types d’isolation suivants :  
+-   **Isolation**. Implique le contrôle indépendant et exclusif d’une ressource. Lorsque vous atteignez l’isolation, les administrateurs ont l’autorité pour gérer une ressource indépendamment, et aucun autre administrateur ne peut retirer le contrôle de la ressource. Vous pouvez concevoir votre structure logique Active Directory pour obtenir les types d’isolation suivants :  
   
-    -   **Isolation de service**. Empêche les administrateurs (autres que les administrateurs qui sont spécifiquement désignés pour contrôler la gestion des services) de contrôler ou interférer avec la gestion des services.  
+    -   **Isolation du service**. Empêche les administrateurs (autres que ceux qui sont spécifiquement désignés pour le contrôle de la gestion des services) de contrôler ou d’interférer avec la gestion des services.  
   
-    -   **Isolation des données**. Empêche les administrateurs (autres que les administrateurs qui sont désignés spécifiquement pour les données de contrôle ou une vue) de contrôler ou de consulter un sous-ensemble de données dans le répertoire ou sur les ordinateurs membres rattachés à l’annuaire.  
+    -   **Isolation des données**. Empêche les administrateurs (autres que ceux qui sont spécifiquement désignés de contrôler ou d’afficher des données) de contrôler ou d’afficher un sous-ensemble de données dans le répertoire ou sur des ordinateurs membres joints à l’annuaire.  
   
-Les administrateurs qui ont besoin d’autonomie uniquement acceptent qu’autres administrateurs disposant d’autorité administrative supérieure ou égale contrôlent égale ou supérieure sur la gestion des services ou des données. Les administrateurs qui ont besoin d’isolation ont un contrôle exclusif sur la gestion de service ou les données. Création d’une conception pour obtenir l’autonomie est généralement moins onéreuse que la création d’une conception à isoler.  
+Les administrateurs qui nécessitent uniquement l’autonomie acceptent que les autres administrateurs ayant une autorité administrative égale ou supérieure disposent d’un contrôle égal ou supérieur sur le service ou la gestion des données. Les administrateurs qui ont besoin de l’isolation disposent d’un contrôle exclusif sur la gestion des services ou des données. La création d’une conception pour garantir l’autonomie est généralement moins coûteuse que la création d’une conception pour obtenir une isolation.  
   
-Dans les Services de domaine Active Directory (AD DS), les administrateurs peuvent déléguer à la fois service et l’administration des données pour atteindre l’autonomie ou isolation entre les organisations. La combinaison de gestion des services, des exigences de gestion, d’autonomie et d’isolation des données d’une organisation un impact sur les conteneurs Active Directory qui sont utilisés pour déléguer l’administration.  
+Dans Active Directory Domain Services (AD DS), les administrateurs peuvent déléguer l’administration des services et l’administration des données pour assurer l’autonomie ou l’isolation entre les organisations. La combinaison de la gestion des services, de la gestion des données, de l’autonomie et des exigences d’isolation d’une organisation a un impact sur les conteneurs Active Directory utilisés pour déléguer l’administration.  
   
-## <a name="isolation-and-autonomy-requirements"></a>Exigences d’isolation et d’autonomie  
-Le nombre de forêts dont vous avez besoin pour déployer est basé sur les exigences d’autonomie et d’isolation de chaque groupe au sein de votre organisation. Pour identifier vos besoins de conception de forêt, vous devez identifier les exigences d’autonomie et d’isolation pour tous les groupes dans votre organisation. Plus précisément, vous devez identifier la nécessité d’isolation des données, données autonomie, l’isolation de service et l’autonomie des services. Vous devez également identifier les zones d’une connectivité limitée dans votre organisation.  
+## <a name="isolation-and-autonomy-requirements"></a>Exigences en matière d’isolation et d’autonomie  
+Le nombre de forêts que vous devez déployer est basé sur les exigences d’autonomie et d’isolement de chaque groupe au sein de votre organisation. Pour identifier les exigences de conception de votre forêt, vous devez identifier l’autonomie et les exigences d’isolation pour tous les groupes de votre organisation. Plus précisément, vous devez identifier la nécessité de l’isolation des données, de l’autonomie des données, de l’isolation du service et de l’autonomie du service. Vous devez également identifier les zones de connectivité limitée de votre organisation.  
   
 ### <a name="data-isolation"></a>Isolation des données  
-Isolation des données implique le contrôle exclusif des données par le groupe ou organisation qui possède les données. Il est important de noter que les administrateurs de service ont la possibilité de prendre le contrôle d’une ressource en dehors des administrateurs de données. Et les administrateurs de données n’ont pas la possibilité d’empêcher les administrateurs de service à partir de l’accès aux ressources dont ils ont. Par conséquent, vous ne pouvez pas obtenir isolation des données lorsqu’un autre groupe au sein de l’organisation est responsable de l’administration des services. Si un groupe nécessite l’isolation des données, ce groupe doit également assumer la responsabilité pour l’administration de service.  
+L’isolation des données implique un contrôle exclusif sur les données par le groupe ou l’organisation qui détient les données. Il est important de noter que les administrateurs de service peuvent prendre le contrôle d’une ressource en dehors des administrateurs de données. En plus, les administrateurs de données n’ont pas la possibilité d’empêcher les administrateurs de service d’accéder aux ressources qu’ils contrôlent. Par conséquent, vous ne pouvez pas isoler les données lorsqu’un autre groupe au sein de l’organisation est responsable de l’administration des services. Si un groupe requiert l’isolation des données, ce groupe doit également assumer la responsabilité de l’administration des services.  
   
-Étant donné que les données stockées dans AD DS et sur les ordinateurs joints à AD DS ne peut pas être isolés des administrateurs de service, la seule façon pour un groupe au sein d’une organisation à isoler la totalité des données consiste à créer une forêt distincte pour ces données. Les organisations qui les conséquences d’une attaque par un logiciel malveillant ou par un administrateur de service forcée sont substantielles peuvent choisir de créer une forêt distincte pour isoler des données. Exigences légales créent généralement un besoin de ce type d’isolation des données. Exemple :  
+Étant donné que les données stockées dans AD DS et sur les ordinateurs joints à AD DS ne peuvent pas être isolées des administrateurs de service, le seul moyen pour un groupe au sein d’une organisation d’obtenir une isolation complète des données consiste à créer une forêt distincte pour ces données. Les organisations pour lesquelles les conséquences d’une attaque par un logiciel malveillant ou par un administrateur de services forcé sont importantes peuvent choisir de créer une forêt distincte pour assurer l’isolation des données. Les exigences légales créent généralement un besoin pour ce type d’isolation des données. Exemple :  
   
--   Une institution financière est requis par la loi pour limiter l’accès aux données qui appartiennent aux clients dans une juridiction donnée aux utilisateurs, ordinateurs et les administrateurs situés dans cette juridiction. Bien que l’établissement approuve les administrateurs de service qui fonctionnent en dehors de la zone protégée, si la limitation de l’accès est violée, il se peut que l’établissement ne seront plus en mesure d’effectuer des activités dans cette juridiction. Par conséquent, l’institution financière doit isoler des données auprès des administrateurs de service en dehors de cette compétence. Notez que le chiffrement n’est pas toujours une alternative à cette solution. Chiffrement ne peut pas protéger les données à partir des administrateurs de service.  
+-   Une institution financière est requise par la loi pour limiter l’accès aux données qui appartiennent à des clients appartenant à une juridiction donnée aux utilisateurs, aux ordinateurs et aux administrateurs situés dans cette juridiction. Bien que l’établissement approuve les administrateurs de service qui travaillent en dehors de la zone protégée, si la limitation d’accès n’est pas respectée, l’établissement n’est plus en mesure de faire de l’entreprise dans cette juridiction. Par conséquent, l’établissement financier doit isoler les données des administrateurs de service en dehors de cette juridiction. Notez que le chiffrement n’est pas toujours une alternative à cette solution. Le chiffrement peut ne pas protéger les données des administrateurs de service.  
   
--   Un sous-traitant pour la défense est requis par la loi pour limiter l’accès aux données de projet pour un ensemble spécifié d’utilisateurs. Bien que le fournisseur approuve les administrateurs de service qui contrôlent les systèmes informatiques liés à d’autres projets, une violation de cette limitation d’accès entraîne l’entrepreneur perdre d’entreprise.  
+-   Un entrepreneur de défense est requis par la loi pour limiter l’accès aux données de projet à un ensemble spécifique d’utilisateurs. Bien que le fournisseur approuve les administrateurs de service qui contrôlent les systèmes informatiques associés à d’autres projets, une violation de cette limitation d’accès entraînera la perte de l’activité du fournisseur.  
   
     > [!NOTE]  
-    > Si vous avez une exigence d’isolation de données, vous devez décider si vous devez isoler vos données à partir des administrateurs de service ou à partir des administrateurs de données et les utilisateurs ordinaires. Si vos besoins d’isolation est basé sur l’isolation des administrateurs de données et les utilisateurs ordinaires, vous pouvez utiliser des listes de contrôle d’accès (ACL) pour isoler les données. Dans le cadre de ce processus de conception, isolation des administrateurs de données et les utilisateurs ordinaires n'est pas considéré comme une exigence d’isolation de données.  
+    > Si vous avez besoin d’un isolement des données, vous devez décider si vous devez isoler vos données des administrateurs de service ou des administrateurs de données et des utilisateurs ordinaires. Si vos besoins d’isolation sont basés sur l’isolation des administrateurs de données et des utilisateurs ordinaires, vous pouvez utiliser des listes de contrôle d’accès (ACL) pour isoler les données. Dans le cadre de ce processus de conception, l’isolation des administrateurs de données et des utilisateurs ordinaires n’est pas considérée comme une exigence d’isolation des données.  
   
 ### <a name="data-autonomy"></a>Autonomie des données  
-Autonomie des données implique la possibilité d’un groupe ou d’organisation pour gérer ses propres données, y compris les décisions d’administration sur les données et effectuer les tâches d’administration requises sans la nécessité d’approbation à partir d’une autre autorité.  
+L’autonomie des données implique la capacité d’un groupe ou d’une organisation à gérer ses propres données, y compris à prendre des décisions administratives sur les données et à effectuer toutes les tâches administratives requises sans avoir besoin d’approuver d’une autre autorité.  
   
-Autonomie des données n’empêche pas les administrateurs de service dans la forêt à partir de l’accès aux données. Par exemple, un groupe de recherche d’une grande entreprise peut souhaitez être en mesure de gérer leurs données spécifiques au projet eux-mêmes, mais n’est pas nécessaire sécuriser les données à partir d’autres administrateurs dans la forêt.  
+L’autonomie des données n’empêche pas les administrateurs de service de la forêt d’accéder aux données. Par exemple, un groupe de recherche au sein d’une grande organisation peut être en mesure de gérer ses données propres au projet, mais pas de sécuriser les données d’autres administrateurs de la forêt.  
   
-### <a name="service-isolation"></a>Isolation de service  
-Isolation de service implique le contrôle exclusif de l’infrastructure Active Directory. Groupes qui requièrent l’isolation de service nécessitent qu’aucun administrateur en dehors du groupe ne peut interférer avec l’opération du service d’annuaire.  
+### <a name="service-isolation"></a>Isolation du service  
+L’isolation de service implique le contrôle exclusif de l’infrastructure Active Directory. Les groupes qui requièrent l’isolation du service requièrent qu’aucun administrateur en dehors du groupe ne puisse interférer avec le fonctionnement du service d’annuaire.  
   
-Les exigences opérationnelles ou légales créent généralement un besoin pour l’isolation de service. Exemple :  
+Les exigences opérationnelles ou légales créent généralement un besoin d’isolation du service. Exemple :  
   
--   Une société de fabrication dispose d’une application critique qui contrôle l’équipement en usine. Interruptions dans le service sur d’autres parties du réseau de l’organisation ne peut pas être autorisées à interférer avec le fonctionnement de l’usine.  
+-   Une société de fabrication a une application critique qui contrôle l’équipement en usine. Les interruptions du service sur d’autres parties du réseau de l’organisation ne peuvent pas être autorisées à interférer avec le fonctionnement de l’usine.  
   
--   Une société d’hébergement fournit un service à plusieurs clients. Chaque client nécessite l’isolation de service afin que toute interruption de service qui affecte un client n’affecte pas les autres clients.  
+-   Une société d’hébergement fournit un service à plusieurs clients. Chaque client requiert l’isolation du service afin que toute interruption de service affectant un client n’affecte pas les autres clients.  
   
 ### <a name="service-autonomy"></a>Autonomie des services  
-L’autonomie des services implique la possibilité de gérer l’infrastructure sans une condition requise pour le contrôle exclusif ; par exemple, lorsqu’un groupe souhaite apporter des modifications à l’infrastructure (par exemple, ajout ou suppression de domaines, modification de l’espace de noms du système DNS (Domain Name) ou la modification du schéma) sans l’approbation du propriétaire de la forêt.  
+L’autonomie de service implique la possibilité de gérer l’infrastructure sans nécessiter de contrôle exclusif ; par exemple, lorsqu’un groupe souhaite apporter des modifications à l’infrastructure (telles que l’ajout ou la suppression de domaines, la modification de l’espace de noms DNS (Domain Name System) ou la modification du schéma) sans l’approbation du propriétaire de la forêt.  
   
-L’autonomie des services pouvant être nécessaire au sein d’une organisation pour un groupe qui souhaite être en mesure de contrôler le niveau de service des services AD DS (en ajoutant et supprimant des contrôleurs de domaine, en fonction des besoins) ou pour un groupe qui doit être en mesure d’installer des applications d’annuaire qui exiger des extensions de schéma.  
+L’autonomie du service peut être nécessaire au sein d’une organisation pour un groupe qui souhaite pouvoir contrôler le niveau de service de AD DS (en ajoutant et en supprimant des contrôleurs de domaine, si nécessaire) ou pour un groupe qui doit être en mesure d’installer des applications compatibles avec l’annuaire. exiger des extensions de schéma.  
   
 ## <a name="limited-connectivity"></a>Connectivité limitée  
-Si un groupe au sein de votre organisation est propriétaire réseaux séparés par des appareils afin de restreindre ou limitent la connectivité entre réseaux (tels que les pare-feux et périphériques de traduction d’adresses réseau (NAT)), cela peut affecter votre conception de forêt. Lorsque vous identifiez vos besoins de conception de forêt, prenez soin de noter les emplacements où vous avez limité connectivité réseau. Ces informations sont nécessaires pour pouvoir prendre des décisions concernant la conception de forêt.  
+Si un groupe au sein de votre organisation possède des réseaux qui sont séparés par des périphériques qui limitent ou limitent la connectivité entre les réseaux (tels que les pare-feu et les périphériques de traduction d’adresses réseau (NAT)), cela peut avoir un impact sur la conception de votre forêt. Lorsque vous identifiez les exigences de conception de votre forêt, veillez à noter les emplacements où vous disposez d’une connectivité réseau limitée. Ces informations sont requises pour vous permettre de prendre des décisions concernant la conception de la forêt.  
   
 
 

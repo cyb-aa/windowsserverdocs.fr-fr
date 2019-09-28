@@ -2,29 +2,29 @@
 title: Installer la fonctionnalité BranchCache et configurer le serveur de cache hébergé par le point de connexion de service
 description: Ce guide fournit des instructions sur le déploiement de BranchCache en mode de cache hébergé sur les ordinateurs exécutant Windows Server 2016 et Windows 10
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 9adf420b-5a58-4e59-9906-71bd58f757fd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6619b09df0d4c161148d22091337a5039c7ea3af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe2120310c6c410b410649aff1372f93e0ea5db7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849650"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356348"
 ---
 # <a name="install-the-branchcache-feature-and-configure-the-hosted-cache-server-by-service-connection-point"></a>Installer la fonctionnalité BranchCache et configurer le serveur de cache hébergé par le point de connexion de service
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Vous pouvez utiliser cette procédure pour installer la fonctionnalité BranchCache sur votre serveur de cache hébergé, HCS1 et pour configurer le serveur pour inscrire un Point de connexion de Service \(SCP\) dans les Services de domaine Active Directory \(AD DS\).
+Vous pouvez utiliser cette procédure pour installer la fonctionnalité BranchCache sur votre serveur de cache hébergé, HCS1, et configurer le serveur pour inscrire un point de connexion de service \(SCP @ no__t-1 dans Active Directory Domain Services \(AD DS @ no__t-3.
 
-Lorsque vous inscrivez les serveurs de cache hébergé avec un SCP dans AD DS, le SCP permet aux ordinateurs clients qui sont configurés correctement pour découvrir automatiquement les serveurs de cache hébergé en interrogeant les services AD DS pour le SCP. Instructions sur la façon de configurer des ordinateurs clients pour effectuer cette action sont fournies plus loin dans ce guide.
+Lorsque vous inscrivez des serveurs de cache hébergé avec un SCP dans AD DS, le SCP permet aux ordinateurs clients configurés correctement de découvrir automatiquement les serveurs de cache hébergé en interrogeant AD DS pour le SCP. Des instructions sur la façon de configurer des ordinateurs clients pour effectuer cette action sont fournies plus loin dans ce guide.
 
 >[!IMPORTANT]
->Avant d’effectuer cette procédure, vous devez joindre l’ordinateur au domaine et configurez l’ordinateur avec une adresse IP statique.
+>Avant d’effectuer cette procédure, vous devez joindre l’ordinateur au domaine et configurer l’ordinateur avec une adresse IP statique.
 
 Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs.
 
@@ -36,19 +36,19 @@ Pour effectuer cette procédure, vous devez être membre du groupe Administrateu
     Install-WindowsFeature BranchCache
     ```
 
-2.  Pour configurer l’ordinateur en tant que serveur de cache hébergé une fois que la fonctionnalité BranchCache est installée et pour inscrire un Point de connexion de Service dans AD DS, tapez la commande suivante dans Windows PowerShell, puis appuyez sur ENTRÉE.
+2.  Pour configurer l’ordinateur en tant que serveur de cache hébergé après l’installation de la fonctionnalité BranchCache et pour inscrire un point de connexion de service dans AD DS, tapez la commande suivante dans Windows PowerShell, puis appuyez sur entrée.
 
     ```  
     Enable-BCHostedServer -RegisterSCP
     ```  
 
-3. Pour vérifier la configuration de serveur de cache hébergé, tapez la commande suivante et appuyez sur ENTRÉE.
+3. Pour vérifier la configuration du serveur de cache hébergé, tapez la commande suivante et appuyez sur entrée.
 
     ```  
     Get-BCStatus  
     ```  
   
-    Les résultats de la commande affichent l’état de tous les aspects de votre installation de BranchCache. Voici quelques-uns des paramètres BranchCache et la valeur correcte pour chaque élément :  
+    Les résultats de la commande affichent l’état de tous les aspects de votre installation BranchCache. Voici quelques-uns des paramètres BranchCache et la valeur correcte pour chaque élément :  
   
     -   BranchCacheIsEnabled: True
 
@@ -56,8 +56,8 @@ Pour effectuer cette procédure, vous devez être membre du groupe Administrateu
 
     -   HostedCacheScpRegistrationEnabled: True
 
-4. Pour préparer l’étape de copie de vos packages de données à partir de vos serveurs de contenu à vos serveurs de cache hébergé, identifier un partage existant sur le serveur de cache hébergé, ou créez un dossier et partagez le dossier afin qu’il soit accessible à partir de vos serveurs de contenu. Une fois que vous créez vos packages de données sur vos serveurs de contenu, vous allez copier les packages de données sur ce dossier partagé sur le serveur de cache hébergé.
+4. Pour préparer l’étape de copie de vos packages de données à partir de vos serveurs de contenu vers vos serveurs de cache hébergé, identifiez un partage existant sur le serveur de cache hébergé ou créez un nouveau dossier et partagez le dossier afin qu’il soit accessible à partir de vos serveurs de contenu. Après avoir créé vos packages de données sur vos serveurs de contenu, vous allez copier les packages de données dans ce dossier partagé sur le serveur de cache hébergé.
   
 5. Si vous déployez plusieurs serveurs de cache hébergé, répétez cette procédure sur chaque serveur.
 
-Pour continuer avec ce guide, consultez [déplacez et redimensionnez le Cache hébergé &#40;facultatif&#41;](6-Bc-Move-Resize-Cache.md).
+Pour continuer ce guide, consultez [déplacer et redimensionner le &#40;cache hébergé facultatif&#41;](6-Bc-Move-Resize-Cache.md).

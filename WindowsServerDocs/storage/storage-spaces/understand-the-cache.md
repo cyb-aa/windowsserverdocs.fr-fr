@@ -1,7 +1,7 @@
 ---
 title: Fonctionnement du cache dans les espaces de stockage direct
 ms.assetid: 69b1adc0-ee64-4eed-9732-0fb216777992
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: dongill
 ms.technology: storage-spaces
@@ -9,12 +9,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 07/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0050a8931162e37408895ef664293be2349d1bde
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: f2c2e0435d06c18dbacab4e85db770ba86e654b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314997"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366003"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>Fonctionnement du cache dans les espaces de stockage direct
 

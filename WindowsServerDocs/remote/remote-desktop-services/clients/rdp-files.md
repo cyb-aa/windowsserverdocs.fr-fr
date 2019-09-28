@@ -2,7 +2,7 @@
 title: Paramètres pris en charge du fichier RDP du Bureau à distance
 description: Découvrez les paramètres du fichier RDP pour Bureau à distance
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 546f992a21576795383497c0fac7fb98761d0da5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 43cffc007970245ab9bd96c7cae9bb5137a8030b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387800"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Paramètres pris en charge du fichier RDP du Bureau à distance
 

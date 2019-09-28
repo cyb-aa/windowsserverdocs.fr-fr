@@ -2,7 +2,7 @@
 title: Prise en main avec MultiPoint services
 description: Présente MultiPoint services et vous le fait commencer à l’utiliser.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 2ed2084038236dc8914eefe6bdafc133817b7b41
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: cf31e62345b006ef9572a2ea97a23e3e0bf41b64
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395370"
 ---
 # <a name="getting-started-with-multipoint-services"></a>Prise en main avec MultiPoint services
 Votre système MultiPoint services permet à de nombreux utilisateurs d’utiliser plusieurs stations connectées physiquement à l’aide d’un concentrateur de station à un seul ordinateur. Chaque station se compose généralement d’un concentrateur de station, d’une souris, d’un clavier et d’un moniteur vidéo. Chaque utilisateur d’une station MultiPoint services rencontre une session de calcul Windows unique que vous pouvez gérer à l’aide du gestionnaire MultiPoint.  
@@ -59,7 +59,7 @@ Les types d’actions que vous pouvez effectuer à l’aide du gestionnaire Mult
   
 -   **Passage en mode console :** Vous pouvez modifier le système MultiPoint services en mode console afin d’installer de nouveaux logiciels sur votre système MultiPoint services. Vous pouvez spécifier que tous les utilisateurs peuvent exécuter le logiciel ou que vous seul pouvez utiliser le logiciel, en fonction des options d’installation et de licence du logiciel.  
   
--   **Résolution des problèmes :** Si vous rencontrez des problèmes avec MultiPoint services, consultez la section [résolution des problèmes](Troubleshooting.md) pour trouver des rubriques qui peuvent vous aider à résoudre le problème.  
+-   **Dépannage** Si vous rencontrez des problèmes avec MultiPoint services, consultez la section [résolution des problèmes](Troubleshooting.md) pour trouver des rubriques qui peuvent vous aider à résoudre le problème.  
   
 ## <a name="overview-of-multipoint-dashboard"></a>Vue d’ensemble du tableau de bord MultiPoint  
 Le tableau de bord MultiPoint offre une expérience de ruban dans laquelle vous pouvez choisir entre deux onglets pour accéder aux tâches quotidiennes courantes.  
@@ -109,5 +109,5 @@ Pour plus d’informations sur l’enregistrement et la gestion de contenu priv�
 [Mettre à jour ou supprimer un compte d’utilisateur](Update-or-Delete-a-User-Account.md)  
 [Gérer les postes de travail des utilisateurs à l’aide du tableau de bord MultiPoint](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)  
 [Gérer les systèmes MultiPoint à l’aide du tableau de bord MultiPoint](Manage-MultiPoint-Systems-Using-MultiPoint-Dashboard.md)  
-[Dépannage](Troubleshooting.md)    
+[Résolution des problèmes](Troubleshooting.md)    
   

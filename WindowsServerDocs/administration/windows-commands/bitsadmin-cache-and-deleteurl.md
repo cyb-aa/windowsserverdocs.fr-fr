@@ -1,8 +1,8 @@
 ---
-title: DeleteUrl et bitsadmin cache
-description: Rubrique de commandes de Windows pour **bitsadmin cache et deleteurl** -supprime toutes les entrées de cache pour l’URL donnée.
+title: cache Bitsadmin et DeleteUrl
+description: La rubrique commandes Windows pour le **cache Bitsadmin et DeleteUrl** -supprime toutes les entrées de cache pour l’URL donnée.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a831c49e1461761cb7466b46e7a5ad8e037f4ec9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 869d3bc0f011cc82aaea9b7468667964051e1c00
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816650"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382059"
 ---
-# <a name="bitsadmin-cache-and-deleteurl"></a>DeleteUrl et bitsadmin cache
+# <a name="bitsadmin-cache-and-deleteurl"></a>cache Bitsadmin et DeleteUrl
 
 
 
@@ -36,9 +36,9 @@ bitsadmin /DeleteURL url
 
 |Paramètre|Description|
 |---------|-----------|
-|url|L’URL qui identifie un fichier distant.|
+|url|Uniform Resource Locator qui identifie un fichier distant.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 L’exemple suivant supprime toutes les entrées de cache pour https://www.microsoft.com/en/us/default.aspx
 ```
@@ -47,4 +47,4 @@ C:\>bitsadmin /DeleteURL https://www.microsoft.com/en/us/default.aspx
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

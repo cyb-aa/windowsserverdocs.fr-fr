@@ -1,161 +1,161 @@
 ---
 title: Planifier un serveur NPS en tant que proxy RADIUS
-description: Cette rubrique fournit des informations sur la planification dans Windows Server 2016 du déploiement de proxy RADIUS du serveur stratégie réseau.
+description: Cette rubrique fournit des informations sur la planification du déploiement du proxy RADIUS du serveur de stratégie réseau dans Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ca77d64a-065b-4bf2-8252-3e75f71b7734
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 83fbe57ee62480439190dcc53428e02a4f8e6897
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 29a48275dfd56cbf223e0fca0c9c276f35a675cc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829560"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396017"
 ---
 # <a name="plan-nps-as-a-radius-proxy"></a>Planifier un serveur NPS en tant que proxy RADIUS
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Lorsque vous déployez le serveur NPS (Network Policy) comme un Remote Authentication Dial-In User Service \(RADIUS\) proxy, NPS reçoit les demandes de connexion des clients RADIUS, tels que les serveurs d’accès réseau ou d’autres proxys RADIUS, puis transfère ces demandes de connexion aux serveurs exécutant NPS ou autres serveurs RADIUS. Vous pouvez utiliser ces instructions de planification pour simplifier votre déploiement de RADIUS.
+Lorsque vous déployez un serveur NPS (Network Policy Server) en tant que protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS @ no__t-1, NPS reçoit les demandes de connexion des clients RADIUS, tels que les serveurs d’accès réseau ou d’autres proxys RADIUS, puis les transfère. les demandes de connexion aux serveurs exécutant NPS ou d’autres serveurs RADIUS. Vous pouvez utiliser ces instructions de planification pour simplifier votre déploiement RADIUS.
 
-Ces instructions de planification n’incluent pas les circonstances dans lesquelles vous souhaitez déployer NPS comme serveur RADIUS. Lorsque vous déployez le serveur NPS comme serveur RADIUS, NPS effectue l’authentification, autorisation et comptabilité pour les demandes de connexion pour le domaine local et pour les domaines qui approuvent le domaine local.
+Ces instructions de planification n’incluent pas les circonstances dans lesquelles vous souhaitez déployer NPS en tant que serveur RADIUS. Lorsque vous déployez NPS en tant que serveur RADIUS, NPS effectue l’authentification, l’autorisation et la gestion des comptes pour les demandes de connexion pour le domaine local et pour les domaines qui approuvent le domaine local.
 
-Avant de déployer NPS en tant que proxy RADIUS sur votre réseau, utilisez les instructions suivantes pour planifier votre déploiement.
+Avant de déployer NPS en tant que proxy RADIUS sur votre réseau, suivez les instructions ci-dessous pour planifier votre déploiement.
 
-- Planifier la configuration de serveur NPS.
+- Planifier la configuration du serveur NPS.
 
-- Planifier des clients RADIUS.
+- Planifiez les clients RADIUS.
 
 - Planifier des groupes de serveurs RADIUS distants.
 
-- Planifier les règles de manipulation d’attribut pour le transfert des messages.
+- Planifiez les règles de manipulation des attributs pour le transfert des messages.
 
-- Planifier les stratégies de demande de connexion.
+- Planifiez les stratégies de demande de connexion.
 
 - Planifier la gestion des comptes NPS.
 
-## <a name="plan-nps-configuration"></a>Planifier la configuration du serveur NPS
+## <a name="plan-nps-configuration"></a>Planifier la configuration de NPS
 
-Lorsque vous utilisez NPS en tant que proxy RADIUS, NPS transfère les demandes de connexion à un serveur NPS ou d’autres serveurs RADIUS pour le traitement. Pour cette raison, l’appartenance au domaine du proxy NPS est sans importance. Le proxy ne doive pas être inscrits dans les Services de domaine Active Directory \(AD DS\) , car il n’a pas besoin d’accéder aux propriétés d’accès à distance des comptes d’utilisateur. En outre, vous n’avez pas besoin de configurer des stratégies de réseau sur un proxy de serveur NPS, car le proxy n’effectue pas d’autorisation des demandes de connexion. Le proxy de serveur NPS peut être un membre du domaine, ou il peut être un serveur autonome avec aucune appartenance au domaine.
+Lorsque vous utilisez NPS en tant que proxy RADIUS, NPS transfère les demandes de connexion à un serveur NPS ou à d’autres serveurs RADIUS à des fins de traitement. Pour cette raison, l’appartenance au domaine du proxy NPS n’est pas pertinente. Le proxy n’a pas besoin d’être inscrit dans Active Directory Domain Services \(AD DS @ no__t-1, car il n’a pas besoin d’accéder aux propriétés de numérotation des comptes d’utilisateur. En outre, vous n’avez pas besoin de configurer des stratégies réseau sur un proxy NPS, car le proxy n’effectue pas d’autorisation pour les demandes de connexion. Le proxy NPS peut être membre d’un domaine ou il peut être un serveur autonome sans appartenance à un domaine.
 
-NPS doit être configuré pour communiquer avec les clients RADIUS, également appelés serveurs d’accès réseau, en utilisant le protocole RADIUS. En outre, configurables les types d’événements qui enregistre NPS dans le journal et vous pouvez entrer une description pour le serveur des événements.
+NPS doit être configuré pour communiquer avec les clients RADIUS, également appelés serveurs d’accès réseau, à l’aide du protocole RADIUS. En outre, vous pouvez configurer les types d’événements que le serveur NPS enregistre dans le journal des événements et vous pouvez entrer une description pour le serveur.
 
 ### <a name="key-steps"></a>Étapes clés
 
-Lors de la planification de configuration du proxy NPS, vous pouvez utiliser les étapes suivantes.
+Pendant la planification de la configuration du proxy NPS, vous pouvez suivre les étapes ci-dessous.
 
-- Déterminer les ports RADIUS par proxy NPS pour recevoir des messages RADIUS à partir de clients RADIUS et envoyer des messages RADIUS aux membres des groupes de serveurs RADIUS distants. Les ports de protocole UDP (User Datagram) par défaut sont 1812 et 1645 pour les messages d’authentification RADIUS et les ports UDP 1813 et 1646 pour les messages de gestion des comptes RADIUS.
+- Déterminez les ports RADIUS que le proxy NPS utilise pour recevoir des messages RADIUS des clients RADIUS et pour envoyer des messages RADIUS aux membres des groupes de serveurs RADIUS distants. Les ports UDP (User Datagram Protocol) par défaut sont 1812 et 1645 pour les messages d’authentification RADIUS et les ports UDP 1813 et 1646 pour les messages de gestion des comptes RADIUS.
 
-- Si le proxy de serveur NPS est configuré avec plusieurs cartes réseau, déterminez les adaptateurs sur laquelle vous souhaitez le trafic RADIUS pour être autorisée.
+- Si le proxy NPS est configuré avec plusieurs cartes réseau, déterminez les adaptateurs sur lesquels vous souhaitez autoriser le trafic RADIUS.
 
-- Déterminer les types d’événements que NPS enregistre dans le journal des événements. Vous pouvez consigner les demandes de connexion rejetées, les demandes de connexion réussie ou les deux.
+- Déterminez les types d’événements que vous souhaitez que le serveur NPS enregistre dans le journal des événements. Vous pouvez consigner les demandes de connexion rejetées, les demandes de connexion réussies ou les deux.
 
-- Déterminer si vous déployez plusieurs proxy NPS. Pour fournir une tolérance de panne, utilisez au moins deux serveurs proxy de serveur NPS. Un proxy de serveur NPS est utilisé en tant que proxy RADIUS principal et l’autre est utilisée en tant que sauvegarde. Chaque client RADIUS est ensuite configuré sur les deux serveurs proxy de serveur NPS. Si le proxy NPS principal devient indisponible, les clients RADIUS envoient des messages de demande d’accès au proxy NPS autre.
+- Déterminez si vous déployez plusieurs proxys NPS. Pour fournir une tolérance de panne, utilisez au moins deux proxys NPS. Un proxy NPS est utilisé en tant que proxy RADIUS principal et l’autre en tant que sauvegarde. Chaque client RADIUS est ensuite configuré sur les deux proxys NPS. Si le proxy NPS principal devient indisponible, les clients RADIUS envoient des messages de demande d’accès à l’autre proxy NPS.
 
-- Planifier le script utilisé pour copier une configuration de proxy NPS auprès d’autres proxys de serveur NPS pour économiser sur les coûts d’administration et pour empêcher une configuration incorrecte d’un serveur. NPS fournit les commandes Netsh qui vous permettent de copier tout ou partie d’une configuration de proxy de serveur NPS pour les importer sur un autre proxy NPS. Vous pouvez exécuter les commandes manuellement à l’invite Netsh. Toutefois, si vous enregistrez votre séquence de commandes sous forme de script, vous pouvez exécuter le script à une date ultérieure si vous décidez de modifier vos configurations de proxy.
+- Planifiez le script utilisé pour copier une configuration de proxy NPS vers d’autres proxys NPS afin de réduire la charge administrative et empêcher la configuration incorrecte d’un serveur. NPS fournit les commandes netsh qui vous permettent de copier la totalité ou une partie d’une configuration de proxy NPS pour l’importer sur un autre proxy NPS. Vous pouvez exécuter les commandes manuellement à l’invite netsh. Toutefois, si vous enregistrez votre séquence de commandes en tant que script, vous pouvez exécuter le script à une date ultérieure si vous décidez de modifier vos configurations de proxy.
 
 ## <a name="plan-radius-clients"></a>Planifier des clients RADIUS
 
-Les clients RADIUS sont des serveurs d’accès réseau, tels que les points d’accès sans fil, réseau privé virtuel \(VPN\) serveurs, 802.1 commutateurs compatibles X et les serveurs d’accès à distance. Les proxys RADIUS, qui transfèrent les messages de demande pour les serveurs RADIUS de la connexion, sont également des clients RADIUS. NPS prend en charge tous les serveurs d’accès réseau et les proxys RADIUS qui sont conformes avec le protocole RADIUS, comme décrit dans la RFC 2865, « Remote Authentication Dial-in User Service \(RADIUS\), » et RFC 2866, « Gestion des comptes RADIUS ».
+Les clients RADIUS sont des serveurs d’accès réseau, tels que des points d’accès sans fil, des serveurs VPN @no__t 0VPN @ no__t-1, des commutateurs 802.1 X et des serveurs d’accès à distance. Les proxys RADIUS, qui transfèrent les messages de demande de connexion aux serveurs RADIUS, sont également des clients RADIUS. NPS prend en charge tous les serveurs d’accès réseau et proxys RADIUS conformes au protocole RADIUS, comme décrit dans le document RFC 2865, « Remote Authentication Dial-in User Service \(RADIUS @ no__t-1 » et RFC 2866, « RADIUS Accounting ».
 
-En outre, les points d’accès sans fil et commutateurs doivent être capables d’authentification de 802. 1 X. Si vous souhaitez déployer le protocole EAP (Extensible Authentication) ou Extensible Authentication Protocol PEAP (Protected), les commutateurs et les points d’accès doivent prendre en charge l’utilisation du protocole EAP.
+En outre, les commutateurs et les points d’accès sans fil doivent être en charge de l’authentification 802.1 X. Si vous souhaitez déployer le protocole EAP (Extensible Authentication Protocol) ou le protocole PEAP (Protected Extensible Authentication Protocol), les points d’accès et les commutateurs doivent prendre en charge l’utilisation d’EAP.
 
-Pour tester une interopérabilité de base pour les connexions PPP pour les points d’accès sans fil, configurez le point d’accès et le client d’accès à utiliser le protocole PAP (Password Authentication Protocol). Utiliser des protocoles d’authentification PPP supplémentaires, telles que PEAP, jusqu'à ce que vous avez testé ceux que vous souhaitez utiliser pour l’accès réseau.
+Pour tester l’interopérabilité de base pour les connexions PPP pour les points d’accès sans fil, configurez le point d’accès et le client d’accès pour utiliser le protocole PAP (Password Authentication Protocol). Utilisez des protocoles d’authentification PPP supplémentaires, tels que PEAP, jusqu’à ce que vous ayez testé ceux que vous envisagez d’utiliser pour l’accès au réseau.
 
 ### <a name="key-steps"></a>Étapes clés
 
-Lors de la planification pour les clients RADIUS, vous pouvez utiliser les étapes suivantes.
+Au cours de la planification des clients RADIUS, vous pouvez suivre les étapes ci-dessous.
 
-- Documentez les attributs spécifiques au fournisseur (VSA) vous devez configurer dans NPS. Si votre NAS requièrent VSA, consigner les informations de VSA pour une utilisation ultérieure lorsque vous configurez vos stratégies réseau dans NPS.
+- Documentez les attributs spécifiques au fournisseur (VSA) que vous devez configurer dans NPS. Si vos serveurs de fichiers requièrent VSA, consignez les informations VSA pour une utilisation ultérieure lorsque vous configurez vos stratégies réseau dans NPS.
 
-- Documentez les adresses IP de clients RADIUS et de votre proxy NPS pour simplifier la configuration de tous les périphériques. Lorsque vous déployez vos clients RADIUS, vous devez les configurer pour utiliser le protocole RADIUS, avec l’adresse IP de proxy NPS entré en tant que le serveur d’authentification. Et lorsque vous configurez le serveur NPS pour communiquer avec vos clients RADIUS, vous devez entrer les adresses IP du client RADIUS dans le composant logiciel enfichable NPS.
+- Documentez les adresses IP des clients RADIUS et votre proxy NPS pour simplifier la configuration de tous les appareils. Lorsque vous déployez vos clients RADIUS, vous devez les configurer pour qu’ils utilisent le protocole RADIUS, avec l’adresse IP du proxy NPS entrée en tant que serveur d’authentification. Et lorsque vous configurez NPS pour communiquer avec vos clients RADIUS, vous devez entrer les adresses IP du client RADIUS dans le composant logiciel enfichable NPS.
 
-- Créer des secrets partagés pour la configuration sur les clients RADIUS et dans le composant logiciel enfichable NPS. Vous devez configurer les clients RADIUS avec un secret partagé ou le mot de passe, que vous entrerez également dans le composant logiciel enfichable NPS lors de la configuration des clients RADIUS dans NPS.
+- Créer des secrets partagés pour la configuration sur les clients RADIUS et dans le composant logiciel enfichable NPS. Vous devez configurer les clients RADIUS avec un secret partagé, ou un mot de passe, que vous allez également entrer dans le composant logiciel enfichable NPS lors de la configuration des clients RADIUS dans NPS.
 
 ## <a name="plan-remote-radius-server-groups"></a>Planifier des groupes de serveurs RADIUS distants
 
-Lorsque vous configurez un groupe de serveurs RADIUS distants sur un proxy de serveur NPS, vous indiquez le proxy de serveur NPS où envoyer connexion certains ou tous les messages de demande qu’il reçoit à partir des serveurs d’accès réseau et proxys de serveur NPS ou autres proxys RADIUS.
+Quand vous configurez un groupe de serveurs RADIUS distants sur un proxy NPS, vous indiquez au proxy NPS où envoyer certains ou tous les messages de demande de connexion qu’il reçoit des serveurs d’accès réseau et des proxys NPS ou d’autres proxys RADIUS.
 
-Vous pouvez utiliser le serveur NPS comme proxy RADIUS pour transférer la connexion demande à un ou des groupes de serveurs RADIUS distants de plus et chaque groupe peuvent contenir un ou plusieurs serveurs RADIUS. Lorsque vous souhaitez que le proxy de serveur NPS pour transférer des messages à plusieurs groupes, configurer une stratégie de demande de connexion par groupe. La stratégie de demande de connexion contient des informations supplémentaires, telles que les règles de manipulation d’attribut, qui indiquent le proxy NPS les messages à envoyer au groupe de serveurs RADIUS distant spécifié dans la stratégie.
+Vous pouvez utiliser NPS en tant que proxy RADIUS pour transférer les demandes de connexion à un ou plusieurs groupes de serveurs RADIUS distants, et chaque groupe peut contenir un ou plusieurs serveurs RADIUS. Lorsque vous souhaitez que le proxy NPS transfère des messages à plusieurs groupes, configurez une stratégie de demande de connexion par groupe. La stratégie de demande de connexion contient des informations supplémentaires, telles que des règles de manipulation d’attribut, qui indiquent au proxy NPS les messages à envoyer au groupe de serveurs RADIUS distants spécifié dans la stratégie.
 
-Vous pouvez configurer des groupes de serveurs RADIUS distants en utilisant les commandes Netsh pour NPS, en configurant des groupes directement dans le composant logiciel enfichable NPS sous les groupes de serveurs RADIUS distants ou en exécutant l’Assistant Nouvelle stratégie de demande de connexion.
+Vous pouvez configurer des groupes de serveurs RADIUS distants à l’aide des commandes netsh pour NPS, en configurant des groupes directement dans le composant logiciel enfichable NPS sous groupes de serveurs RADIUS distants ou en exécutant l’Assistant Nouvelle stratégie de demande de connexion.
 
 ### <a name="key-steps"></a>Étapes clés
 
-Lors de la planification pour les groupes de serveurs RADIUS distants, vous pouvez utiliser les étapes suivantes.
+Lors de la planification des groupes de serveurs RADIUS distants, vous pouvez suivre les étapes ci-dessous.
 
-- Déterminer les domaines qui contiennent les serveurs RADIUS auquel vous souhaitez que le proxy de serveur NPS pour transférer les demandes de connexion. Ces domaines contiennent les comptes d’utilisateur pour les utilisateurs qui se connectent au réseau via les clients RADIUS que vous déployez.
+- Déterminez les domaines qui contiennent les serveurs RADIUS auxquels vous souhaitez que le proxy NPS transfère les demandes de connexion. Ces domaines contiennent les comptes d’utilisateur des utilisateurs qui se connectent au réseau via les clients RADIUS que vous déployez.
 
-- Déterminer s’il faut ajouter les nouveaux serveurs RADIUS dans des domaines où RADIUS n’est pas déjà déployé.
+- Déterminez si vous devez ajouter de nouveaux serveurs RADIUS dans des domaines où RADIUS n’est pas déjà déployé.
 
-- Documentez les adresses IP des serveurs RADIUS que vous souhaitez ajouter à des groupes de serveurs RADIUS distants.
+- Documentez les adresses IP des serveurs RADIUS que vous souhaitez ajouter aux groupes de serveurs RADIUS distants.
 
-- Déterminez combien groupes de serveurs RADIUS distants vous devez créer. Dans certains cas, il est préférable de créer un groupe de serveurs RADIUS distants par domaine, puis ajoutez les serveurs RADIUS pour le domaine au groupe. Toutefois, il peut arriver dans lequel vous avez une grande quantité de ressources dans un domaine, y compris un grand nombre d’utilisateurs avec des comptes d’utilisateur dans le domaine, un grand nombre de contrôleurs de domaine et un grand nombre de serveurs RADIUS. Ou votre domaine peut-être couvrir une large zone géographique, à l’origine que vous disposiez de serveurs d’accès réseau et les serveurs RADIUS dans les emplacements sont distants les uns des autres. Dans ces et éventuellement autres cas, vous pouvez créer plusieurs groupes de serveurs RADIUS distants par domaine.
+- Déterminez le nombre de groupes de serveurs RADIUS distants que vous devez créer. Dans certains cas, il est préférable de créer un groupe de serveurs RADIUS distants par domaine, puis d’ajouter les serveurs RADIUS pour le domaine au groupe. Toutefois, il peut arriver que vous disposiez d’une grande quantité de ressources dans un domaine, notamment un grand nombre d’utilisateurs avec des comptes d’utilisateur dans le domaine, un grand nombre de contrôleurs de domaine et un grand nombre de serveurs RADIUS. Ou votre domaine peut couvrir une vaste zone géographique, ce qui vous permet d’avoir des serveurs d’accès réseau et des serveurs RADIUS situés à des emplacements éloignés les uns des autres. Dans ces cas, et éventuellement dans d’autres, vous pouvez créer plusieurs groupes de serveurs RADIUS distants par domaine.
 
-- Créer des secrets partagés pour la configuration sur le proxy de serveur NPS et sur les serveurs RADIUS distants.
+- Créer des secrets partagés pour la configuration sur le proxy NPS et sur les serveurs RADIUS distants.
 
-## <a name="plan-attribute-manipulation-rules-for-message-forwarding"></a>Planifier les règles de manipulation d’attribut pour le transfert des messages
+## <a name="plan-attribute-manipulation-rules-for-message-forwarding"></a>Planifier les règles de manipulation des attributs pour le transfert de messages
 
-Les règles de manipulation d’attribut, qui sont configurés dans les stratégies de demande de connexion, permettent d’identifier les messages de demande d’accès que vous souhaitez transférer à un groupe de serveurs RADIUS distant spécifique.
+Les règles de manipulation d’attributs, qui sont configurées dans les stratégies de demande de connexion, vous permettent d’identifier les messages de demande d’accès que vous souhaitez transférer à un groupe de serveurs RADIUS distants spécifique.
 
-Vous pouvez configurer NPS pour transférer toutes les demandes de connexion à un groupe de serveurs RADIUS distants sans utiliser les règles de manipulation d’attribut.
+Vous pouvez configurer NPS pour transférer toutes les demandes de connexion à un groupe de serveurs RADIUS distants sans utiliser de règles de manipulation d’attribut.
 
-Si vous avez plus d’un emplacement vers lequel vous souhaitez transférer les demandes de connexion, toutefois, vous devez créer une stratégie de demande de connexion pour chaque emplacement, puis configurez la stratégie avec le groupe de serveurs RADIUS distant auquel vous souhaitez transférer les messages, ainsi que avec les règles de manipulation d’attribut qui indiquent à NPS les messages à transférer.
+Toutefois, si vous avez plusieurs emplacements vers lesquels vous souhaitez transférer les demandes de connexion, vous devez créer une stratégie de demande de connexion pour chaque emplacement, puis configurer la stratégie avec le groupe de serveurs RADIUS distants vers lequel vous souhaitez transférer les messages, ainsi que avec les règles de manipulation d’attribut qui indiquent à NPS les messages à transférer.
 
 Vous pouvez créer des règles pour les attributs suivants.
 
-- Called-Station-ID. Le numéro de téléphone du serveur d’accès réseau (NAS). La valeur de cet attribut est une chaîne de caractères. Vous pouvez utiliser la syntaxe des critères spéciaux pour spécifier les indicatifs.
+- Appelé-Station-ID. Numéro de téléphone du serveur d’accès réseau (NAS). La valeur de cet attribut est une chaîne de caractères. Vous pouvez utiliser la syntaxe de mise en correspondance de modèle pour spécifier des indicatifs de zone.
 
-- Appel-Station-ID. Le numéro de téléphone utilisé par l’appelant. La valeur de cet attribut est une chaîne de caractères. Vous pouvez utiliser la syntaxe des critères spéciaux pour spécifier les indicatifs.
+- Call-Station-ID. Numéro de téléphone utilisé par l’appelant. La valeur de cet attribut est une chaîne de caractères. Vous pouvez utiliser la syntaxe de mise en correspondance de modèle pour spécifier des indicatifs de zone.
 
-- Nom d’utilisateur. Le nom d’utilisateur qui est fourni par le client d’accès et qui est inclus par le serveur NAS dans le message de demande d’accès RADIUS. La valeur de cet attribut est une chaîne de caractères qui contient généralement un nom de domaine et un nom de compte d’utilisateur.
+- Nom d’utilisateur. Nom d’utilisateur fourni par le client d’accès et inclus par le NAS dans le message de demande d’accès RADIUS. La valeur de cet attribut est une chaîne de caractères qui contient généralement un nom de domaine et un nom de compte d’utilisateur.
 
-Pour remplacer ou convertir des noms de domaine dans le nom d’utilisateur d’une demande de connexion correctement, vous devez configurer des règles de manipulation d’attribut pour l’attribut de nom d’utilisateur sur la stratégie de demande de connexion appropriée.
+Pour remplacer ou convertir correctement les noms de domaine dans le nom d’utilisateur d’une demande de connexion, vous devez configurer des règles de manipulation d’attributs pour l’attribut User-Name sur la stratégie de demande de connexion appropriée.
 
 ### <a name="key-steps"></a>Étapes clés
 
-Lors de la planification pour les règles de manipulation d’attribut, vous pouvez utiliser les étapes suivantes.
+Pendant la planification des règles de manipulation d’attribut, vous pouvez utiliser les étapes suivantes.
 
-- Planifier le routage des messages à partir de l’accès réseau via le proxy pour les serveurs RADIUS distants pour vérifier que vous disposez d’un chemin d’accès logique auquel transférer les messages sur les serveurs RADIUS.
+- Planifiez le routage des messages à partir du NAS via le proxy vers les serveurs RADIUS distants pour vérifier que vous disposez d’un chemin logique avec lequel transférer les messages aux serveurs RADIUS.
 
-- Déterminer un ou plusieurs attributs que vous souhaitez utiliser pour chaque stratégie de demande de connexion.
+- Déterminez un ou plusieurs attributs que vous souhaitez utiliser pour chaque stratégie de demande de connexion.
 
-- Documentez les règles de manipulation d’attribut que vous projetez d’utiliser pour chaque stratégie de demande de connexion et correspond aux règles au groupe de serveurs RADIUS distant auquel les messages sont transférés.
+- Documentez les règles de manipulation d’attribut que vous prévoyez d’utiliser pour chaque stratégie de demande de connexion et associez-les aux règles du groupe de serveurs RADIUS distants vers lequel les messages sont transférés.
 
 ## <a name="plan-connection-request-policies"></a>Planifier les stratégies de demande de connexion
 
-La stratégie de demande de connexion par défaut est configurée pour NPS lorsqu’il est utilisé comme un serveur RADIUS. Stratégies de demande de connexion supplémentaires peuvent être utilisés pour définir des conditions plus spécifiques, de créer des règles de manipulation qui indiquent à NPS les messages à transférer vers les groupes de serveurs RADIUS distants et pour spécifier des attributs avancés d’attribut. Utilisez l’Assistant Nouvelle stratégie de demande de connexion pour créer des stratégies de demande de connexion courantes ou personnalisées.
+La stratégie de demande de connexion par défaut est configurée pour NPS lorsqu’elle est utilisée en tant que serveur RADIUS. Des stratégies de demande de connexion supplémentaires peuvent être utilisées pour définir des conditions plus spécifiques, créer des règles de manipulation d’attribut qui indiquent à NPS les messages à transférer aux groupes de serveurs RADIUS distants et pour spécifier des attributs avancés. Utilisez l’Assistant Nouvelle stratégie de demande de connexion pour créer des stratégies de demande de connexion communes ou personnalisées.
 
 ### <a name="key-steps"></a>Étapes clés
 
-Lors de la planification pour les stratégies de demande de connexion, vous pouvez utiliser les étapes suivantes.
+Lors de la planification des stratégies de demande de connexion, vous pouvez utiliser les étapes suivantes.
 
-- Supprimer la stratégie de demande de connexion par défaut sur chaque serveur exécutant NPS qui fonctionne uniquement en tant que proxy RADIUS.
+- Supprimez la stratégie de demande de connexion par défaut sur chaque serveur NPS qui fonctionne uniquement comme proxy RADIUS.
 
-- Planifiez des conditions supplémentaires et les paramètres requis pour chaque stratégie, combinaison de ces informations avec le groupe de serveurs RADIUS distants et les règles de manipulation d’attribut prévues pour la stratégie.
+- Planifiez les conditions et paramètres supplémentaires requis pour chaque stratégie, en combinant ces informations avec le groupe de serveurs RADIUS distants et les règles de manipulation d’attribut planifiées pour la stratégie.
 
-- Concevez le plan pour distribuer des stratégies de demande de connexion commune à tous les proxys de serveur NPS. Créer des stratégies communes à plusieurs serveurs proxy de serveur NPS sur un serveur NPS, puis utilisez les commandes Netsh pour NPS pour importer la connexion demande stratégies et le serveur de configuration sur tous les autres serveurs proxy.
+- Concevez le plan pour distribuer des stratégies de demande de connexion courantes à tous les proxys NPS. Créez des stratégies communes à plusieurs proxys NPS sur un serveur NPS, puis utilisez les commandes netsh pour NPS pour importer les stratégies de demande de connexion et la configuration du serveur sur tous les autres serveurs proxy.
 
 ## <a name="plan-nps-accounting"></a>Planifier la gestion des comptes NPS
 
-Lorsque vous configurez le serveur NPS en tant que proxy RADIUS, vous pouvez le configurer pour effectuer la gestion de comptes RADIUS à l’aide des fichiers journaux au format NPS, les fichiers journaux au format de base de données compatibles ou NPS SQL Server journalisation.
+Quand vous configurez NPS en tant que proxy RADIUS, vous pouvez le configurer pour effectuer la gestion de comptes RADIUS en utilisant les fichiers journaux au format NPS, les fichiers journaux au format compatible avec la base de données ou la journalisation des SQL Server NPS.
 
-Vous pouvez également transférer les messages de comptabilité à un groupe de serveurs RADIUS distant qui effectue la gestion des comptes en utilisant l’une de ces formats de journalisation.
+Vous pouvez également transférer des messages de gestion de comptes à un groupe de serveurs RADIUS distants qui effectue la gestion des comptes à l’aide de l’un de ces formats de journalisation.
 
 ### <a name="key-steps"></a>Étapes clés
 
-Lors de la planification pour la gestion des comptes NPS, vous pouvez utiliser les étapes suivantes.
+Pendant la planification de la gestion des comptes NPS, vous pouvez utiliser les étapes suivantes.
 
-- Déterminez si vous souhaitez que le proxy de serveur NPS pour effectuer des services de gestion des comptes ou pour transférer les messages de comptabilité à un groupe de serveurs RADIUS distant pour la comptabilité.
+- Déterminez si vous souhaitez que le proxy NPS effectue des services de gestion des comptes ou pour transférer des messages de gestion de comptes à un groupe de serveurs RADIUS distants pour la comptabilité.
 
-- Envisagez de désactiver le proxy de serveur NPS local comptabilité si vous envisagez de transférer les messages de comptabilité à d’autres serveurs.
+- Planifiez la désactivation de la gestion de comptes proxy NPS locale si vous envisagez de transférer des messages de gestion vers d’autres serveurs.
 
-- Planifier les étapes de configuration de stratégie de demande connexion si vous envisagez de transférer les messages de comptabilité à d’autres serveurs. Si vous désactivez la gestion des comptes locale pour le proxy de serveur NPS, chaque stratégie de demande de connexion que vous configurez sur ce proxy doit avoir le transfert de messages de comptabilité activée et configurée correctement.
+- Planifiez les étapes de configuration de la stratégie de demande de connexion si vous envisagez de transférer des messages de gestion vers d’autres serveurs. Si vous désactivez la gestion de comptes locale pour le proxy NPS, vous devez activer et configurer correctement chaque stratégie de demande de connexion que vous configurez sur ce proxy.
 
-- Déterminer le format de journalisation que vous souhaitez utiliser : Fichiers de journaux au format IAS, fichiers journaux au format de base de données compatibles ou journalisation NPS SQL Server.
+- Déterminez le format de journalisation que vous souhaitez utiliser : Les fichiers journaux au format IAS, les fichiers journaux au format compatible avec la base de données ou la journalisation des SQL Server NPS.
 
-Pour configurer l’équilibrage de charge pour le serveur NPS en tant que proxy RADIUS, consultez [NPS Proxy Server l’équilibrage de charge](nps-manage-proxy-lb.md).
+Pour configurer l’équilibrage de charge pour NPS en tant que proxy RADIUS, consultez [équilibrage de charge du serveur proxy NPS](nps-manage-proxy-lb.md).
 

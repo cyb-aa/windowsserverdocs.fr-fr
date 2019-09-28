@@ -2,7 +2,7 @@
 title: tsecimp
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85fea84ed9dcb0f85bfa80e56f0c2c04d2c8e85b
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: 1c596d6d24a611882c0ecf234c22c83a268ec53c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314310"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363929"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -37,7 +37,7 @@ tsecimp /d
 
 |Paramètre|Description|
 |---------|-----------|
-|/f \<nom de fichier >|Requis. Spécifie le nom du fichier XML qui contient les informations d’affectation que vous souhaitez importer.|
+|/f \<nom de fichier >|Obligatoire. Spécifie le nom du fichier XML qui contient les informations d’affectation que vous souhaitez importer.|
 |/v|Valide la structure du fichier XML sans importer les informations dans le fichier sect. ini.|
 |/u.|Vérifie si chaque utilisateur est membre du domaine spécifié dans le fichier XML. L’ordinateur sur lequel vous utilisez ce paramètre doit être connecté au réseau. Ce paramètre peut ralentir considérablement les performances si vous traitez une grande quantité d’informations d’attribution de l’utilisateur.|
 |/d|Affiche la liste des fournisseurs de téléphonie installés. Pour chaque fournisseur de téléphonie, les périphériques de ligne associés sont répertoriés, ainsi que les adresses et les utilisateurs associés à chaque périphérique de ligne.|

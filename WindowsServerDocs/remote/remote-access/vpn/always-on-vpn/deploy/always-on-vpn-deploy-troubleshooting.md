@@ -1,7 +1,7 @@
 ---
 title: Résoudre les problèmes liés au VPN Toujours actif (AlwaysOn)
 description: Cette rubrique fournit des instructions pour vérifier et résoudre les problèmes Always On le déploiement VPN dans Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 4d08164e-3cc8-44e5-a319-9671e1ac294a
@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 60873c8bbf71ad5afa58bd9e19b1a3fd650bc65f
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 649fbc16e3dfef2ed1061d0ba6a5c22a8712b186
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871346"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404378"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>Résoudre les problèmes liés au VPN Toujours actif (AlwaysOn) 
 
@@ -110,7 +110,7 @@ En règle générale, l’ordinateur client VPN est joint au domaine Active Dire
 
 ## <a name="logs"></a>Journaux d’activité
 
-### <a name="application-logs"></a>Journaux d’activité d’application
+### <a name="application-logs"></a>Journaux d’application
 
 Les journaux des applications sur les ordinateurs clients enregistrent la plupart des détails de niveau supérieur des événements de connexion VPN.
 
@@ -118,7 +118,7 @@ Recherchez les événements à partir de la source RasClient. Tous les messages 
 
 ## <a name="nps-logs"></a>Journaux NPS
 
-NPS crée et stocke les journaux de gestion des comptes NPS. Par défaut, ceux-ci sont stockés dans les\\fichiers\\\\ journaux% SystemRoot% system32 dans un fichier nommé*xxxx*. txt, où *xxxx* correspond à la date à laquelle le fichier a été créé.
+NPS crée et stocke les journaux de gestion des comptes NPS. Par défaut, ceux-ci sont stockés dans% SYSTEMROOT% \\System32 @ no__t-1Logfiles @ no__t-2 dans un fichier nommé*xxxx*. txt, où *xxxx* correspond à la date à laquelle le fichier a été créé.
 
 Par défaut, ces journaux sont au format de valeurs séparées par des virgules, mais ils n’incluent pas de ligne d’en-tête. La ligne d’en-tête est :
 

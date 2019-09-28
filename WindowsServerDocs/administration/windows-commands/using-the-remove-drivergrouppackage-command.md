@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande remove-DriverGroupPackage
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande Remove-DriverGroupPackage
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82a8fb8fbe9e713c3e22c08839bc4bc22fe900db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 122f82b22fd72dc09d4703552cb7b6ac5662aa07
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883990"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362901"
 ---
-# <a name="using-the-remove-drivergrouppackage-command"></a>À l’aide de la commande remove-DriverGroupPackage
+# <a name="using-the-remove-drivergrouppackage-command"></a>Utilisation de la commande Remove-DriverGroupPackage
 
 
 
-Supprime un package de pilotes à partir d’un groupe de pilotes sur un serveur.
+Supprime un package de pilotes d’un groupe de pilotes sur un serveur.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,11 +36,11 @@ WDSUTIL /Remove-DriverGroupPackage /DriverGroup:<Group Name> [/Server:<Server Na
 
 |Paramètre|Description|
 |---------|-----------|
-|[/ Server :\<nom du serveur >]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si un nom de serveur n’est pas spécifié, le serveur local est utilisé.|
-|[/ DriverPackage :\<nom >]|Spécifie le nom du package de pilotes à supprimer.|
-|[/PackageId:\<ID>]|Spécifie l’ID de Services de déploiement Windows du package de pilotes à supprimer. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom.|
+|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|[/DriverPackage : \<Name >]|Spécifie le nom du package de pilotes à supprimer.|
+|[/PackageId : \<ID >]|Spécifie l’ID des services de déploiement Windows du package de pilotes à supprimer. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 ```
 WDSUTIL /Remove-DriverGroupPackage /DriverGroup:PrinterDrivers /PackageId:{4D36E972-E325-11CE-BFC1-08002BE10318}
@@ -51,4 +51,4 @@ WDSUTIL /Remove-DriverGroupPackage /DriverGroup:PrinterDrivers /DriverPackage:XY
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

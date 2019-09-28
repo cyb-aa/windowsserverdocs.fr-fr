@@ -1,7 +1,7 @@
 ---
 ms.assetid: d2429185-9720-4a04-ad94-e89a9350cdba
 title: Déploiement de Dossiers de travail
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Comment déployer Dossiers de travail, y compris l’installation du rôle de serveur, la création des partages de synchronisation et la création d’enregistrements DNS.
-ms.openlocfilehash: 45b25befcde328e38f694b64fa7536a2b5c7f232
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7fe39ded6d262d9310bce30239345a9f42e43c04
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867028"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365858"
 ---
 # <a name="deploying-work-folders"></a>Déploiement de Dossiers de travail
 
@@ -26,14 +26,14 @@ Cette rubrique présente les étapes requises pour déployer Dossiers de travail
   
 > [!TIP]
 >  Le déploiement de Dossiers de travail le plus simple est un serveur de fichiers unique (souvent appelé serveur de synchronisation) sans prise en charge de la synchronisation via Internet. Ce déploiement peut s'avérer utile pour un laboratoire de test ou en tant que solution de synchronisation pour les ordinateurs clients appartenant à un domaine. Pour créer un déploiement simple, voici la procédure minimale à suivre : 
->  -   Étape 1 : obtenir des certificats SSL  
->  -   Étape 2 : créer des enregistrements DNS 
->  -   Étape 3 : installer Dossiers de travail sur des serveurs de fichiers  
->  -   Étape 4 : lier le certificat SSL aux serveurs de synchronisation
->  -   Étape 5 : créer des groupes de sécurité pour Dossiers de travail  
->  -   Étape 7 : créer des partages de synchronisation pour les données utilisateur  
+>  -   Étape 1 : obtenir des certificats SSL  
+>  -   Étape 2 : créer des enregistrements DNS 
+>  -   Étape 3 : installer Dossiers de travail sur des serveurs de fichiers  
+>  -   Étape 4 : lier le certificat SSL aux serveurs de synchronisation
+>  -   Étape 5 : créer des groupes de sécurité pour Dossiers de travail  
+>  -   Étape 7 : créer des partages de synchronisation pour les données utilisateur  
   
-## <a name="step-1-obtain-ssl-certificates"></a>Étape 1 : obtenir des certificats SSL  
+## <a name="step-1-obtain-ssl-certificates"></a>Étape 1 : obtenir des certificats SSL  
  Dossiers de travail utilise le protocole HTTPS pour synchroniser en toute sécurité des fichiers entre les clients Dossiers de travail et le serveur Dossiers de travail. Les critères requis pour les certificats SSL utilisés par Dossiers de travail sont les suivants :  
   
 - Le certificat doit être délivré par une autorité de certification approuvée. Pour la plupart des implémentations de Dossiers de travail, une autorité de certification publiquement approuvée est conseillée dans la mesure où les certificats seront utilisés par des appareils basés sur Internet et n’appartenant pas à un domaine.  
@@ -48,12 +48,12 @@ Cette rubrique présente les étapes requises pour déployer Dossiers de travail
 
   Le blog Gestion des certificats de Dossiers de travail [blog](https://blogs.technet.microsoft.com/filecab/2013/08/09/work-folders-certificate-management/) fournit des informations supplémentaires sur l’utilisation de certificats avec Dossiers de travail.
   
-## <a name="step-2-create-dns-records"></a>Étape 2 : créer des enregistrements DNS  
+## <a name="step-2-create-dns-records"></a>Étape 2 : créer des enregistrements DNS  
  Pour permettre aux utilisateurs d’effectuer la synchronisation sur Internet, vous devez créer un enregistrement d’hôte (A) dans le DNS public pour autoriser les clients Internet à résoudre votre URL de Dossiers de travail. Cet enregistrement DNS doit être résolu en interface externe du serveur proxy inverse.  
   
  Sur votre réseau interne, créez un enregistrement CNAME dans DNS nommé « dossiersTravail », qui résout les noms de domaines complets d’un serveur Dossiers de travail. Lorsque la fonctionnalité dossiers de travail clients utilise la détection automatique, l’URL utilisée pour découvrir le serveur dossiers de\/travail est https:/workfolders.domain.com. Si vous prévoyez d’utiliser la détection automatique, l’enregistrement CNAME dossiersTravail doit exister dans DNS.  
   
-## <a name="step-3-install-work-folders-on-file-servers"></a>Étape 3 : installer Dossiers de travail sur des serveurs de fichiers  
+## <a name="step-3-install-work-folders-on-file-servers"></a>Étape 3 : installer Dossiers de travail sur des serveurs de fichiers  
  Vous pouvez installer Dossiers de travail sur un serveur appartenant à un domaine en utilisant le Gestionnaire de serveur ou Windows PowerShell, en local ou à distance sur un réseau. Cela s’avère utile si vous configurez plusieurs serveurs de synchronisation sur votre réseau.  
   
 Pour déployer le rôle dans le Gestionnaire de serveur, procédez comme suit :  
@@ -76,7 +76,7 @@ Pour déployer le rôle à l’aide de Windows PowerShell, utilisez l’applet d
 Add-WindowsFeature FS-SyncShareService  
 ```
 
-## <a name="step-4-binding-the-ssl-certificate-on-the-sync-servers"></a>Étape 4 : lier le certificat SSL aux serveurs de synchronisation
+## <a name="step-4-binding-the-ssl-certificate-on-the-sync-servers"></a>Étape 4 : lier le certificat SSL aux serveurs de synchronisation
  La fonctionnalité Dossiers de travail installe IIS Hostable Web Core, qui est un composant IIS conçu pour activer les services Web sans nécessiter une installation complète des services Internet (IIS). Après l’installation d’IIS Hostable Web Core, vous devez lier le certificat SSL pour le serveur au site Web par défaut sur le serveur de fichiers. Toutefois, IIS Hostable Web Core n’installe pas la Console de gestion IIS.
 
  Il existe deux possibilités pour lier le certificat à l’interface Web par défaut. Vous devez dans les deux cas avoir installé la clé privée pour le certificat dans le magasin personnel de l’ordinateur.
@@ -89,7 +89,7 @@ Add-WindowsFeature FS-SyncShareService
     netsh http add sslcert ipport=<IP address>:443 certhash=<Cert thumbprint> appid={CE66697B-3AA0-49D1-BDBD-A25C8359FD5D} certstorename=MY
     ```
 
-## <a name="step-5-create-security-groups-for-work-folders"></a>Étape 5 : créer des groupes de sécurité pour Dossiers de travail
+## <a name="step-5-create-security-groups-for-work-folders"></a>Étape 5 : créer des groupes de sécurité pour Dossiers de travail
  Avant de créer des partages de synchronisation, un membre du groupe Admins du domaine ou Administrateurs de l’entreprise doit créer quelques groupes de sécurité dans les services de domaine Active Directory (AD DS) pour Dossiers de travail (il peut également déléguer une partie du contrôle comme décrit à l’étape 6). Voici les groupes dont vous avez besoin :
 
 - Un groupe par partage de synchronisation pour indiquer les utilisateurs qui sont autorisés à effectuer la synchronisation avec le partage de synchronisation
@@ -163,7 +163,7 @@ DsAcls $ADGroupPath /I:S /G ""$GroupName":RPWP;msDS-SyncServerUrl;user"
 > [!NOTE]
 >  L’exécution de l’opération de délégation peut prendre un peu de temps dans les domaines avec un grand nombre d’utilisateurs.  
   
-## <a name="step-7-create-sync-shares-for-user-data"></a>Étape 7 : créer des partages de synchronisation pour les données utilisateur  
+## <a name="step-7-create-sync-shares-for-user-data"></a>Étape 7 : créer des partages de synchronisation pour les données utilisateur  
  À ce stade, vous êtes prêt à désigner un dossier sur le serveur de synchronisation pour stocker les fichiers des utilisateurs. Ce dossier est appelé partage de synchronisation et vous pouvez procéder comme suit pour en créer un.  
   
 1. Si vous ne disposez pas déjà d’un volume NTFS avec de l’espace libre pour le partage de synchronisation et les fichiers utilisateur qu’il contiendra, créez un volume et formatez-le avec le système de fichiers NTFS.  

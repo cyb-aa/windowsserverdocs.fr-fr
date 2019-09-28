@@ -7,152 +7,152 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 35d6322f053c7a02dc1df5430b28f771f57a1ad7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d65b03dc255de5523c48c2bb9359530b8e7c3167
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442568"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408760"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Mappage des exigences de conception aux modèles de conception de forêt
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-La plupart des groupes de votre organisation peuvent partager une seule forêt d’organisation qui est géré par un seul groupe informatique (IT) et qui contient les comptes d’utilisateur et les ressources pour tous les groupes qui partagent la forêt. Cette forêt partagée, appelée la forêt d’organisation initiale, constitue la base du modèle de conception de forêt pour l’organisation.  
+La plupart des groupes de votre organisation peuvent partager une forêt d’organisation unique qui est gérée par un seul groupe informatique et qui contient les comptes d’utilisateurs et les ressources pour tous les groupes qui partagent la forêt. Cette forêt partagée, appelée forêt d’organisation initiale, est la base du modèle de conception de forêt pour l’organisation.  
 
-Étant donné que la forêt d’organisation initiale peut héberger plusieurs groupes de l’organisation, le propriétaire de la forêt doit établir des contrats de niveau de service avec chaque groupe afin que toutes les parties comprennent ce que l'on attend d’eux. Cela protège les groupes et le propriétaire de la forêt en établissant des attentes des services convenues au préalable.  
+Étant donné que la forêt d’organisation initiale peut héberger plusieurs groupes dans l’organisation, le propriétaire de la forêt doit établir des contrats de niveau de service avec chaque groupe afin que toutes les parties sachent ce qui est attendu. Cela protège à la fois les groupes individuels et le propriétaire de la forêt en établissant des attentes de service accordées.  
 
-Si ce n’est pas le cas, tous les groupes dans votre organisation peuvent partager une seule forêt d’organisation, vous devez développer votre conception de forêt pour répondre aux besoins des différents groupes. Cela implique l’identification des exigences de conception qui s’appliquent aux groupes en fonction des besoins d’autonomie et d’isolation et ou non, ils ont un réseau limité à la connectivité et identifier le modèle de forêt que vous pouvez utiliser pour prendre en compte celles configuration requise. Le tableau suivant répertorie les scénarios de modèle de conception de forêt basés sur l’autonomie, isolation et les facteurs de connectivité. Après avoir identifié le scénario de conception de forêt qui correspond le mieux à vos besoins, déterminez si vous devez prendre des décisions tout supplémentaires pour répondre à vos spécifications de conception.  
+Si tous les groupes de votre organisation ne peuvent pas partager une seule forêt d’organisation, vous devez développer votre conception de forêt pour répondre aux besoins des différents groupes. Cela implique d’identifier les exigences de conception qui s’appliquent aux groupes en fonction de leurs besoins en matière d’autonomie et d’isolation, et s’ils disposent ou non d’un réseau de connectivité limitée, puis d’identifier le modèle de forêt que vous pouvez utiliser pour les prendre en compte. exigences. Le tableau suivant répertorie les scénarios de modèle de conception de forêt basés sur les facteurs d’autonomie, d’isolation et de connectivité. Après avoir identifié le scénario de conception de forêt qui correspond le mieux à vos besoins, déterminez si vous devez prendre des décisions supplémentaires pour répondre à vos spécifications de conception.  
 
 > [!NOTE]  
-> Si un facteur est répertorié comme n/a, il n’est pas un facteur important, car les autres exigences prendre également en charge ce facteur.  
+> Si un facteur est listé comme N/A, il n’est pas important, car d’autres exigences prennent également en compte ce facteur.  
 
-|Scénario|Connectivité limitée|Isolation des données|Autonomie des données|Isolation de service|Autonomie des services|  
+|Scénario|Connectivité limitée|Isolation des données|Autonomie des données|Isolation du service|Autonomie des services|  
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|  
-|[Scénario 1 : Joindre une forêt existante pour l’autonomie des données](#BKMK_1)|Non|Non|Oui|Non|Non|  
-|[Scénario 2 : Utilisez une forêt d’organisation ou un domaine d’autonomie du service](#BKMK_2)|Non|Non|N/A|Non|Oui|  
-|[Scénario 3 : Utilisez une forêt d’organisation ou la forêt de ressources pour l’isolation de service](#BKMK_3)|Non|Non|N/A|Oui|N/A|  
-|[Scénario 4 : Utilisez une forêt d’organisation ou la forêt à accès restreint pour l’isolation des données](#BKMK_4)|N/A|Oui|N/A|N/A|N/A|  
-|[Scénario 5 : Utilisez une forêt d’organisation ou reconfigurer le pare-feu pour une connectivité limitée](#BKMK_5)|Oui|Non|N/A|Non|Non|  
-|[Scénario 6 : Utilisez une forêt d’organisation ou un domaine et reconfigurer le pare-feu pour l’autonomie des services avec une connectivité limitée](#BKMK_6)|Oui|Non|N/A|Non|Oui|  
-|[Scénario 7 : Utilisez une forêt de ressources et de reconfigurer le pare-feu pour l’isolation de service avec une connectivité limitée](#BKMK_7)|Oui|Non|N/A|Oui|N/A|  
+|[Scénario 1 : Joindre une forêt existante pour l’autonomie des données @ no__t-0|Non|Non|Oui|Non|Non|  
+|[Scénario 2: Utiliser une forêt ou un domaine d’organisation pour l’autonomie du service @ no__t-0|Non|Non|N/A|Non|Oui|  
+|@no__t 0Scenario 3 : Utiliser une forêt d’organisation ou une forêt de ressources pour l’isolation de service @ no__t-0|Non|Non|N/A|Oui|N/A|  
+|[Scenario 4 : Utiliser une forêt d’organisation ou une forêt à accès restreint pour l’isolation des données @ no__t-0|N/A|Oui|N/A|N/A|N/A|  
+|@no__t 0Scenario 5 : Utilisez une forêt d’organisation ou reconfigurez le pare-feu pour une connectivité limitée @ no__t-0|Oui|Non|N/A|Non|Non|  
+|@no__t 0Scenario 6 : Utilisez une forêt ou un domaine d’organisation et reconfigurez le pare-feu pour l’autonomie des services avec une connectivité limitée @ no__t-0|Oui|Non|N/A|Non|Oui|  
+|@no__t 0Scenario 7 : Utilisez une forêt de ressources et reconfigurez le pare-feu pour l’isolation des services avec une connectivité limitée @ no__t-0|Oui|Non|N/A|Oui|N/A|  
 
-## <a name="BKMK_1"></a>Scénario 1 : Joindre une forêt existante pour l’autonomie des données  
+## <a name="BKMK_1"></a>Scénario 1 : Rejoindre une forêt existante pour l’autonomie des données  
 
-Vous pouvez satisfaire une condition requise pour l’autonomie des données simplement en hébergeant le groupe dans les unités d’organisation (UO) dans une forêt d’organisation existante. Déléguer le contrôle sur les unités d’organisation pour les administrateurs de données à partir de ce groupe pour obtenir l’autonomie des données. Pour plus d’informations sur la délégation du contrôle à l’aide d’unités d’organisation, consultez [création d’une conception d’unité d’organisation](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
+Vous pouvez répondre à une exigence d’autonomie des données simplement en hébergeant le groupe dans des unités d’organisation (UO) dans une forêt d’organisation existante. Déléguez le contrôle des UO aux administrateurs de données à partir de ce groupe pour bénéficier de l’autonomie des données. Pour plus d’informations sur la délégation du contrôle à l’aide d’unités d’organisation, consultez [création d’une conception d’unité d’organisation](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
   
-## <a name="BKMK_2"></a>Scénario 2 : Utilisez une forêt d’organisation ou un domaine d’autonomie du service  
+## <a name="BKMK_2"></a>Scénario 2 : Utilisation d’une forêt ou d’un domaine d’organisation pour l’autonomie des services  
 
-Si un groupe dans votre organisation identifie l’autonomie des services comme une exigence, nous recommandons que vous jugez tout d’abord nécessaire cette exigence. Atteindre l’autonomie des services crée davantage de surcharge de gestion et des coûts supplémentaires pour l’organisation. Assurez-vous que la configuration requise pour l’autonomie des services n’est pas simplement pour des raisons pratiques et que vous pouvez justifier les coûts impliqués dans cette exigence de réunion.  
+Si un groupe de votre organisation identifie l’autonomie du service en tant qu’exigence, nous vous recommandons de reconsidérer cette exigence. L’autonomie du service crée davantage de charge de gestion et des coûts supplémentaires pour l’organisation. Assurez-vous que la configuration requise pour l’autonomie du service n’est pas simple pour des raisons pratiques et que vous pouvez justifier les coûts liés à la satisfaction de cette exigence.  
   
-Vous pouvez remplir une condition requise pour l’autonomie des services en effectuant l’une des opérations suivantes :  
+Vous pouvez répondre à une exigence d’autonomie de service en procédant de l’une des manières suivantes :  
 
-- Création d’une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requiert l’autonomie des services dans une forêt d’organisation distincte. Affecter un individu à partir de ce groupe soit le propriétaire de la forêt. Si le groupe a besoin pour l’accès ou partage des ressources avec d’autres forêts de l’organisation, ils peuvent établir une approbation entre la forêt de leur organisation et les autres forêts.  
+- Création d’une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requièrent l’autonomie du service dans une forêt d’organisation distincte. Attribuez un individu de ce groupe en tant que propriétaire de la forêt. Si le groupe a besoin d’accéder à des ressources ou de les partager avec d’autres forêts de l’organisation, il peut établir une relation d’approbation entre la forêt de l’organisation et les autres forêts.  
 
-- À l’aide de domaines d’organisation. Placez les utilisateurs, groupes et des ordinateurs dans un domaine distinct dans une forêt d’organisation existante. Ce modèle fournit d’autonomie de service au niveau domaine uniquement et pas pour l’autonomie des services complète, service d’isolation ou l’isolation des données.  
+- Utilisation des domaines organisationnels. Placez les utilisateurs, les groupes et les ordinateurs dans un domaine distinct dans une forêt d’organisation existante. Ce modèle fournit uniquement l’autonomie de service au niveau du domaine, et non l’autonomie complète du service, l’isolation du service ou l’isolation des données.  
 
-Pour plus d’informations sur l’utilisation des domaines d’organisation, consultez [à l’aide du modèle de forêt de domaine d’organisation](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
+Pour plus d’informations sur l’utilisation des domaines d’organisation, consultez [utilisation du modèle de forêt de domaines organisationnels](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
 
-## <a name="BKMK_3"></a>Scénario 3 : Utilisez une forêt d’organisation ou la forêt de ressources pour l’isolation de service  
+## <a name="BKMK_3"></a>Scénario 3 : Utiliser une forêt d’organisation ou une forêt de ressources pour l’isolation des services  
 
-Vous pouvez remplir une exigence pour l’isolation de service en effectuant l’une des opérations suivantes :  
+Vous pouvez répondre à une exigence d’isolation des services en procédant de l’une des façons suivantes :  
 
-- À l’aide d’une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requiert l’isolation de service dans une forêt d’organisation distincte. Affecter un individu à partir de ce groupe soit le propriétaire de la forêt. Si le groupe a besoin pour l’accès ou partage des ressources avec d’autres forêts de l’organisation, ils peuvent établir une approbation entre la forêt de leur organisation et les autres forêts. Toutefois, nous déconseillons cette approche, car l’accès aux ressources via les groupes universels est fortement limité dans les scénarios de confiance de forêt.  
+- À l’aide d’une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requièrent l’isolation de service dans une forêt d’organisation distincte. Attribuez un individu de ce groupe en tant que propriétaire de la forêt. Si le groupe a besoin d’accéder à des ressources ou de les partager avec d’autres forêts de l’organisation, il peut établir une relation d’approbation entre la forêt de l’organisation et les autres forêts. Toutefois, cette approche n’est pas recommandée, car l’accès aux ressources par le biais de groupes universels est fortement restreint dans les scénarios d’approbation de forêt.  
 
-- À l’aide d’une forêt de ressources. Placer les ressources et les comptes de service dans une forêt de ressources distinct, en conservant des comptes d’utilisateur dans une forêt d’organisation existante. Si nécessaire, autres comptes peuvent être créés dans la forêt de ressources pour accéder aux ressources dans la forêt de ressources si la forêt d’organisation n’est plus disponible. Les comptes de remplacement doivent avoir l’autorité nécessaire pour vous connecter à la forêt de ressources et de garder le contrôle des ressources jusqu'à ce que la forêt d’organisation est en ligne.  
+- Utilisation d’une forêt de ressources. Placez les ressources et les comptes de service dans une forêt de ressources distincte, en conservant les comptes d’utilisateur dans une forêt d’organisation existante. Si nécessaire, des comptes alternatifs peuvent être créés dans la forêt de ressources pour accéder aux ressources de la forêt de ressources si la forêt d’organisation n’est plus disponible. Les comptes secondaires doivent avoir l’autorité requise pour se connecter à la forêt de ressources et maintenir le contrôle des ressources jusqu’à ce que la forêt soit de nouveau en ligne.  
 
-   Établir une relation d’approbation entre les ressources et les forêts de l’organisation, afin que les utilisateurs peuvent accéder aux ressources de la forêt lors de l’utilisation de leurs comptes d’utilisateur standard. Cette configuration permet une gestion centralisée des comptes d’utilisateur tout en permettant aux utilisateurs de revenir à d’autres comptes dans la forêt de ressources si la forêt d’organisation n’est plus disponible.  
+   Établissez une relation d’approbation entre la ressource et les forêts de l’organisation, afin que les utilisateurs puissent accéder aux ressources de la forêt tout en utilisant leurs comptes d’utilisateur standard. Cette configuration permet une gestion centralisée des comptes d’utilisateur tout en permettant aux utilisateurs de revenir à d’autres comptes dans la forêt de ressources si la forêt d’organisation n’est plus disponible.  
 
-Considérations pour l’isolation de service sont les suivantes :
+Les éléments à prendre en compte pour l’isolation des services sont les suivants :
 
-- Forêts créés pour l’isolation de service peuvent approuver des domaines à partir d’autres forêts mais ne doivent pas inclure les utilisateurs d’autres forêts dans leurs groupes d’administrateurs de service. Si les utilisateurs d’autres forêts sont incluses dans les groupes d’administration dans la forêt isolée, la sécurité de la forêt isolée peut être compromise, car les administrateurs de service dans la forêt n’ont pas de contrôle exclusif.  
+- Les forêts créées pour l’isolation de service peuvent approuver les domaines d’autres forêts, mais ne doivent pas inclure les utilisateurs d’autres forêts dans leurs groupes d’administrateurs de service. Si les utilisateurs d’autres forêts sont inclus dans des groupes d’administration de la forêt isolée, la sécurité de la forêt isolée peut potentiellement être compromise, car les administrateurs de service dans la forêt n’ont pas de contrôle exclusif.  
 
-- Tant que contrôleurs de domaine sont accessibles sur un réseau, ils sont soumis à des attaques (par exemple, les attaques par déni de service) contre les logiciels malveillants sur ce réseau. Vous pouvez effectuer les opérations suivantes pour protéger contre le risque d’attaque :  
+- Tant que les contrôleurs de domaine sont accessibles sur un réseau, ils sont soumis à des attaques (telles que des attaques par déni de service) à partir de logiciels malveillants sur ce réseau. Vous pouvez effectuer les opérations suivantes pour vous protéger contre le risque d’une attaque :  
 
-   - Contrôleurs de domaine hôte uniquement sur les réseaux qui sont considérés comme sûrs.  
+   - N’hébergez les contrôleurs de domaine que sur les réseaux considérés comme sécurisés.  
 
-   - Limiter l’accès au réseau ou réseaux hébergeant les contrôleurs de domaine.  
+   - Limitez l’accès au réseau ou aux réseaux qui hébergent les contrôleurs de domaine.  
 
-- Isolation de service requiert la création d’une forêt supplémentaire. Déterminez si le coût de maintenance de l’infrastructure pour prendre en charge de la forêt supplémentaire est supérieur au coût associé à une perte d’accès aux ressources en raison d’une forêt d’organisation ne soit pas disponible.  
+- L’isolation de service requiert la création d’une forêt supplémentaire. Déterminez si le coût de maintenance de l’infrastructure pour prendre en charge la forêt supplémentaire compense les coûts associés à la perte d’accès aux ressources en raison de l’indisponibilité d’une forêt d’organisation.  
 
-## <a name="BKMK_4"></a>Scénario 4 : Utilisez une forêt d’organisation ou la forêt à accès restreint pour l’isolation des données  
+## <a name="BKMK_4"></a>Scénario 4 : Utiliser une forêt d’organisation ou une forêt à accès restreint pour l’isolation des données  
 
-Vous pouvez obtenir l’isolation des données en effectuant l’une des opérations suivantes :  
+Vous pouvez optimiser l’isolation des données en procédant de l’une des manières suivantes :  
 
-- À l’aide d’une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requiert l’isolation des données dans une forêt d’organisation distincte. Affecter un individu à partir de ce groupe soit le propriétaire de la forêt. Si le groupe a besoin pour l’accès ou partage des ressources avec d’autres forêts de l’organisation, établissez une approbation entre la forêt d’organisation et les autres forêts. Seuls les utilisateurs qui ont besoin d’accéder aux informations classifiées existent dans la forêt d’organisation. Les utilisateurs ont un seul compte qu’ils utilisent pour les données d’accès classés dans leur propre forêt et les données non classifiées dans d’autres forêts au moyen de relations d’approbation.  
+- À l’aide d’une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requièrent l’isolation des données dans une forêt d’organisation distincte. Attribuez un individu de ce groupe en tant que propriétaire de la forêt. Si le groupe a besoin d’accéder à des ressources ou de les partager avec d’autres forêts de l’organisation, établissez une relation d’approbation entre la forêt de l’organisation et les autres forêts. Seuls les utilisateurs qui ont besoin d’accéder aux informations classifiées existent dans la nouvelle forêt d’organisation. Les utilisateurs disposent d’un compte qu’ils utilisent pour accéder à des données classifiées dans leur propre forêt et à des données non classifiées dans d’autres forêts par le biais de relations d’approbation.  
 
-- À l’aide d’une forêt à accès restreint. Il s’agit d’une forêt distincte qui contient les données restreintes et les comptes d’utilisateur qui sont utilisés pour accéder à ces données. Comptes d’utilisateurs distincts sont conservées dans les forêts d’organisation existantes qui sont utilisés pour accéder aux ressources sur le réseau sans restriction. Aucune des approbations ne sont créées entre la forêt à accès restreint et les autres forêts de l’entreprise. Vous pouvez restreindre davantage la forêt en déployant la forêt sur un réseau physique distinct, afin qu’il ne peut pas se connecter à d’autres forêts. Si vous déployez la forêt sur un réseau séparé, les utilisateurs doivent disposer de deux stations de travail : une pour l’accès à la forêt à accès restreint et l’autre pour accéder à des zones nonrestricted du réseau.  
+- Utilisation d’une forêt avec accès restreint. Il s’agit d’une forêt distincte qui contient les données restreintes et les comptes d’utilisateur utilisés pour accéder à ces données. Les comptes d’utilisateurs distincts sont conservés dans les forêts organisationnelles existantes qui sont utilisées pour accéder aux ressources non restreintes sur le réseau. Aucune approbation n’est créée entre la forêt à accès restreint et les autres forêts de l’entreprise. Vous pouvez restreindre davantage la forêt en déployant la forêt sur un réseau physique distinct, afin qu’elle ne puisse pas se connecter à d’autres forêts. Si vous déployez la forêt sur un réseau distinct, les utilisateurs doivent disposer de deux stations de travail : l’une pour accéder à la forêt restreinte et l’autre pour accéder aux zones non restreintes du réseau.  
 
-Considérations pour la création de forêts d’isolation des données sont les suivantes :  
+Les éléments à prendre en compte pour la création de forêts pour l’isolation des données sont les suivants :  
 
-- Forêts d’organisation créées pour l’isolation des données peuvent approuver les domaines d’autres forêts, mais les utilisateurs d’autres forêts ne doivent pas être inclus dans les éléments suivants :  
+- Les forêts organisationnelles créées pour l’isolation des données peuvent approuver les domaines d’autres forêts, mais les utilisateurs d’autres forêts ne doivent pas être inclus dans l’un des éléments suivants :  
 
-  - Groupes responsables de la gestion des services ou des groupes qui peuvent gérer l’appartenance aux groupes d’administrateur de service  
+  - Groupes responsables de la gestion des services ou des groupes pouvant gérer l’appartenance des groupes d’administrateurs de service  
 
   - Groupes qui ont un contrôle administratif sur les ordinateurs qui stockent des données protégées  
 
-  - Les groupes qui ont accès aux données protégées ou les groupes qui sont responsables de la gestion des objets utilisateur ou des objets de groupe qui ont accès à des données protégées  
+  - Groupes ayant accès aux données ou groupes protégés qui sont responsables de la gestion des objets utilisateur ou des objets de groupe qui ont accès aux données protégées  
 
-    Si les utilisateurs à partir d’une autre forêt sont inclus dans un de ces groupes, une compromission de l’autre forêt peut entraîner une compromission de la forêt isolée et à la divulgation des données protégées.  
+    Si les utilisateurs d’une autre forêt sont inclus dans l’un de ces groupes, une compromission de l’autre forêt peut entraîner une compromission de la forêt isolée et la divulgation des données protégées.  
 
-- Autres forêts peuvent être configurés pour approuver la forêt d’organisation créée pour l’isolation des données afin que les utilisateurs dans la forêt isolée peuvent accéder aux ressources dans d’autres forêts. Toutefois, les utilisateurs à partir de la forêt isolée doivent jamais connecter de façon interactive les stations de travail dans la forêt d’approbation. L’ordinateur dans la forêt d’approbation peut être compromis par des logiciels malveillants et peut être utilisé pour capturer les informations d’identification d’ouverture de session de l’utilisateur.  
+- D’autres forêts peuvent être configurées pour approuver la forêt d’organisation créée pour l’isolation des données afin que les utilisateurs de la forêt isolée puissent accéder aux ressources d’autres forêts. Toutefois, les utilisateurs de la forêt isolée ne doivent jamais se connecter de manière interactive aux stations de travail de la forêt d’approbation. L’ordinateur de la forêt d’approbation peut potentiellement être compromis par des logiciels malveillants et peut être utilisé pour capturer les informations d’identification d’ouverture de session de l’utilisateur.  
 
    > [!NOTE]
-   > Pour empêcher les serveurs dans une forêt d’approbation d’emprunter l’identité des utilisateurs à partir de la forêt isolée et puis accèdent aux ressources de la forêt isolée, le propriétaire de la forêt peut désactiver l’authentification déléguée ou utiliser la fonctionnalité de délégation contrainte. Pour plus d’informations sur l’authentification déléguée et la délégation contrainte, consultez [Delegating authentication](https://go.microsoft.com/fwlink/?LinkId=106614).  
+   > Pour empêcher les serveurs d’une forêt approuvée d’emprunter l’identité des utilisateurs de la forêt isolée, puis d’accéder aux ressources de la forêt isolée, le propriétaire de la forêt peut désactiver l’authentification déléguée ou utiliser la fonctionnalité de délégation limitée. Pour plus d’informations sur l’authentification déléguée et la délégation avec restriction, consultez délégation de [l’authentification](https://go.microsoft.com/fwlink/?LinkId=106614).  
 
-- Vous devrez peut-être établir un pare-feu entre la forêt d’organisation et les autres forêts de l’organisation pour limiter l’accès utilisateur aux informations en dehors de leur forêt.  
+- Vous devrez peut-être établir un pare-feu entre la forêt de l’organisation et les autres forêts de l’Organisation pour limiter l’accès des utilisateurs aux informations situées en dehors de leur forêt.  
 
-- Bien que la création d’une forêt distincte permet d’isolation des données, tant que les contrôleurs de domaine dans la forêt isolée et ordinateurs ces informations hôte protégé sont accessibles sur un réseau, ils sont soumis à des attaques lancées à partir d’ordinateurs sur ce réseau. Les organisations qui décide que le risque d’attaque est trop élevé ou que la conséquence d’une violation de sécurité ou d’attaque est trop grande ont besoin limiter l’accès au réseau ou à des réseaux qui hébergent les contrôleurs de domaine et les ordinateurs qui hébergent les données protégées. . Limiter l’accès peut être effectuée à l’aide de technologies telles que les pare-feux et Internet Protocol security (IPsec). Dans les cas extrêmes, les organisations peuvent choisir de conserver des données protégées sur un réseau indépendant qui ne possède aucune connexion physique à un autre réseau de l’organisation.  
+- Bien que la création d’une forêt distincte permette l’isolation des données, tant que les contrôleurs de domaine dans la forêt isolée et les ordinateurs qui hébergent les informations protégées sont accessibles sur un réseau, ils sont soumis à des attaques lancées à partir d’ordinateurs sur ce réseau. Les organisations qui décident que le risque d’attaque est trop élevé ou que la conséquence d’une attaque ou d’une violation de la sécurité est trop importante pour limiter l’accès au réseau ou aux réseaux qui hébergent les contrôleurs de domaine et les ordinateurs qui hébergent des données protégées . La limitation de l’accès peut être effectuée à l’aide de technologies telles que les pare-feu et IPsec (Internet Protocol Security). Dans les cas extrêmes, les organisations peuvent choisir de conserver les données protégées sur un réseau indépendant qui n’a pas de connexion physique à un autre réseau de l’organisation.  
 
    > [!NOTE]  
-   > Si aucune connectivité réseau existe entre une forêt à accès restreint et un autre réseau, il est possible pour les données dans la zone restreinte doit être transmis à l’autre réseau.  
+   > S’il existe une connectivité réseau entre une forêt à accès restreint et un autre réseau, il est possible que les données de la zone restreinte soient transmises à l’autre réseau.  
 
-## <a name="BKMK_5"></a>Scénario 5 : Utilisez une forêt d’organisation ou reconfigurer le pare-feu pour une connectivité limitée  
+## <a name="BKMK_5"></a>Scénario 5 : Utilisez une forêt d’organisation ou reconfigurez le pare-feu pour une connectivité limitée  
 
-Pour répondre à une exigence d’une connectivité limitée, vous pouvez effectuer l’une des opérations suivantes :  
+Pour répondre à une exigence de connectivité limitée, vous pouvez effectuer l’une des opérations suivantes :  
 
-- Placez les utilisateurs dans une forêt d’organisation existante, puis ouvrez suffisamment le pare-feu pour autoriser le trafic Active Directory à traverser.  
+- Placez les utilisateurs dans une forêt d’organisation existante, puis ouvrez le pare-feu suffisamment pour autoriser le trafic de Active Directory.  
 
-- Utilisez une forêt d’organisation. Placez les utilisateurs, groupes et des ordinateurs pour le groupe pour lequel la connectivité est limitée dans une forêt d’organisation distincte. Affecter un individu à partir de ce groupe soit le propriétaire de la forêt. La forêt d’organisation fournit un environnement distinct de l’autre côté du pare-feu. La forêt inclut des comptes d’utilisateur et les ressources qui sont gérés au sein de la forêt, afin que les utilisateurs n’êtes pas obligé de traverser le pare-feu pour accomplir leurs tâches quotidiennes. Des utilisateurs spécifiques ou des applications peuvent avoir des besoins particuliers qui requièrent la fonctionnalité à franchir le pare-feu pour contacter les autres forêts. Vous pouvez répondre à ces besoins individuellement en ouvrant les interfaces appropriées dans le pare-feu, y compris celles nécessaires pour les approbations de fonctionner.  
+- Utilisez une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe pour lesquels la connectivité est limitée dans une forêt d’organisation distincte. Attribuez un individu de ce groupe en tant que propriétaire de la forêt. La forêt d’organisation fournit un environnement distinct de l’autre côté du pare-feu. La forêt comprend des comptes d’utilisateurs et des ressources qui sont gérés au sein de la forêt, de sorte que les utilisateurs n’ont pas besoin de traverser le pare-feu pour accomplir leurs tâches quotidiennes. Des utilisateurs ou des applications spécifiques peuvent avoir des besoins spéciaux qui nécessitent la possibilité de traverser le pare-feu pour contacter d’autres forêts. Vous pouvez répondre à ces besoins individuellement en ouvrant les interfaces appropriées dans le pare-feu, y compris celles nécessaires pour que les approbations fonctionnent.  
 
-Pour plus d’informations sur la configuration de pare-feu pour une utilisation avec les Services de domaine Active Directory (AD DS), consultez [Active Directory sur les réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=37928).  
+Pour plus d’informations sur la configuration de pare-feu pour une utilisation avec Active Directory Domain Services (AD DS), consultez [Active Directory dans les réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=37928).  
 
-## <a name="BKMK_6"></a>Scénario 6 : Utilisez une forêt d’organisation ou un domaine et reconfigurer le pare-feu pour l’autonomie des services avec une connectivité limitée  
+## <a name="BKMK_6"></a>Scénario 6 : Utiliser une forêt ou un domaine d’organisation et reconfigurer le pare-feu pour l’autonomie des services avec une connectivité limitée  
 
-Si un groupe dans votre organisation identifie l’autonomie des services comme une exigence, nous recommandons que vous jugez tout d’abord nécessaire cette exigence. Atteindre l’autonomie des services crée davantage de surcharge de gestion et des coûts supplémentaires pour l’organisation. Assurez-vous que la configuration requise pour l’autonomie des services n’est pas simplement pour des raisons pratiques et que vous pouvez justifier les coûts impliqués dans cette exigence de réunion.  
+Si un groupe de votre organisation identifie l’autonomie du service en tant qu’exigence, nous vous recommandons de reconsidérer cette exigence. L’autonomie du service crée davantage de charge de gestion et des coûts supplémentaires pour l’organisation. Assurez-vous que la configuration requise pour l’autonomie du service n’est pas simple pour des raisons pratiques et que vous pouvez justifier les coûts liés à la satisfaction de cette exigence.  
 
-Si une connectivité limitée est un problème et que vous avez besoin pour l’autonomie des services, vous pouvez effectuer l’une des opérations suivantes :  
+Si la connectivité limitée est un problème et que vous avez besoin d’une autonomie de service, vous pouvez effectuer l’une des opérations suivantes :  
 
-- Utilisez une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requiert l’autonomie des services dans une forêt d’organisation distincte. Affecter un individu à partir de ce groupe soit le propriétaire de la forêt. La forêt d’organisation fournit un environnement distinct de l’autre côté du pare-feu. La forêt inclut des comptes d’utilisateur et les ressources qui sont gérés au sein de la forêt, afin que les utilisateurs n’êtes pas obligé de traverser le pare-feu pour accomplir leurs tâches quotidiennes. Des utilisateurs spécifiques ou des applications peuvent avoir des besoins particuliers qui requièrent la fonctionnalité à franchir le pare-feu pour contacter les autres forêts. Vous pouvez répondre à ces besoins individuellement en ouvrant les interfaces appropriées dans le pare-feu, y compris celles nécessaires pour les approbations de fonctionner.  
+- Utilisez une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requièrent l’autonomie du service dans une forêt d’organisation distincte. Attribuez un individu de ce groupe en tant que propriétaire de la forêt. La forêt d’organisation fournit un environnement distinct de l’autre côté du pare-feu. La forêt comprend des comptes d’utilisateurs et des ressources qui sont gérés au sein de la forêt, de sorte que les utilisateurs n’ont pas besoin de traverser le pare-feu pour accomplir leurs tâches quotidiennes. Des utilisateurs ou des applications spécifiques peuvent avoir des besoins spéciaux qui nécessitent la possibilité de traverser le pare-feu pour contacter d’autres forêts. Vous pouvez répondre à ces besoins individuellement en ouvrant les interfaces appropriées dans le pare-feu, y compris celles nécessaires pour que les approbations fonctionnent.  
 
-- Placez les utilisateurs, groupes et des ordinateurs dans un domaine distinct dans une forêt d’organisation existante. Ce modèle fournit d’autonomie de service au niveau domaine uniquement et pas pour l’autonomie des services complète, service d’isolation ou l’isolation des données. Autres groupes dans la forêt doivent approuver les administrateurs de service du nouveau domaine dans la même mesure qu’ils approuvent le propriétaire de la forêt. Pour cette raison, nous déconseillons cette approche. Pour plus d’informations sur l’utilisation des domaines d’organisation, consultez [à l’aide du modèle de forêt de domaine d’organisation](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
+- Placez les utilisateurs, les groupes et les ordinateurs dans un domaine distinct dans une forêt d’organisation existante. Ce modèle fournit uniquement l’autonomie de service au niveau du domaine, et non l’autonomie complète du service, l’isolation du service ou l’isolation des données. Les autres groupes de la forêt doivent faire confiance aux administrateurs de service du nouveau domaine pour qu’ils approuvent le propriétaire de la forêt. Pour cette raison, nous ne recommandons pas cette approche. Pour plus d’informations sur l’utilisation des domaines d’organisation, consultez [utilisation du modèle de forêt de domaines organisationnels](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
 
-Vous devez également ouvrir le pare-feu suffisamment pour autoriser le trafic Active Directory à traverser. Pour plus d’informations sur la configuration de pare-feu pour une utilisation avec les services AD DS, consultez [Active Directory sur les réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=37928).  
+Vous devez également ouvrir le pare-feu suffisamment pour permettre le transfert de Active Directory. Pour plus d’informations sur la configuration de pare-feu pour une utilisation avec AD DS, consultez [Active Directory dans les réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=37928).  
 
-## <a name="BKMK_7"></a>Scénario 7 : Utilisez une forêt de ressources et de reconfigurer le pare-feu pour l’isolation de service avec une connectivité limitée  
+## <a name="BKMK_7"></a>Scénario 7 : Utilisez une forêt de ressources et reconfigurez le pare-feu pour l’isolation des services avec une connectivité limitée  
 
-Si une connectivité limitée est un problème et que vous avez besoin pour l’isolation de service, vous pouvez effectuer l’une des opérations suivantes :  
+Si la connectivité limitée est un problème et que vous avez besoin d’un isolement de service, vous pouvez effectuer l’une des opérations suivantes :  
 
-- Utilisez une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requiert l’isolation de service dans une forêt d’organisation distincte. Affecter un individu à partir de ce groupe soit le propriétaire de la forêt. La forêt d’organisation fournit un environnement distinct de l’autre côté du pare-feu. La forêt inclut des comptes d’utilisateur et les ressources qui sont gérés au sein de la forêt, afin que les utilisateurs n’êtes pas obligé de traverser le pare-feu pour accomplir leurs tâches quotidiennes. Des utilisateurs spécifiques ou des applications peuvent avoir des besoins particuliers qui requièrent la fonctionnalité à franchir le pare-feu pour contacter les autres forêts. Vous pouvez répondre à ces besoins individuellement en ouvrant les interfaces appropriées dans le pare-feu, y compris celles nécessaires pour les approbations de fonctionner.  
+- Utilisez une forêt d’organisation. Placez les utilisateurs, les groupes et les ordinateurs du groupe qui requièrent l’isolation de service dans une forêt d’organisation distincte. Attribuez un individu de ce groupe en tant que propriétaire de la forêt. La forêt d’organisation fournit un environnement distinct de l’autre côté du pare-feu. La forêt comprend des comptes d’utilisateurs et des ressources qui sont gérés au sein de la forêt, de sorte que les utilisateurs n’ont pas besoin de traverser le pare-feu pour accomplir leurs tâches quotidiennes. Des utilisateurs ou des applications spécifiques peuvent avoir des besoins spéciaux qui nécessitent la possibilité de traverser le pare-feu pour contacter d’autres forêts. Vous pouvez répondre à ces besoins individuellement en ouvrant les interfaces appropriées dans le pare-feu, y compris celles nécessaires pour que les approbations fonctionnent.  
 
-- Utilisez une forêt de ressources. Placer les ressources et les comptes de service dans une forêt de ressources distinct, en conservant des comptes d’utilisateur dans une forêt d’organisation existante. Il peut être nécessaire de créer des comptes d’utilisateur autre dans la forêt de ressources pour maintenir l’accès à la forêt de ressources si la forêt d’organisation n’est plus disponible. Les comptes de remplacement doivent avoir l’autorité nécessaire pour vous connecter à la forêt de ressources et de garder le contrôle des ressources jusqu'à ce que la forêt d’organisation est en ligne.  
+- Utilisez une forêt de ressources. Placez les ressources et les comptes de service dans une forêt de ressources distincte, en conservant les comptes d’utilisateur dans une forêt d’organisation existante. Il peut être nécessaire de créer des comptes d’utilisateur de substitution dans la forêt de ressources pour conserver l’accès à la forêt de ressources si celle-ci n’est plus disponible. Les comptes secondaires doivent avoir l’autorité requise pour se connecter à la forêt de ressources et maintenir le contrôle des ressources jusqu’à ce que la forêt soit de nouveau en ligne.  
 
-   Établir une relation d’approbation entre les ressources et les forêts de l’organisation, afin que les utilisateurs peuvent accéder aux ressources de la forêt lors de l’utilisation de leurs comptes d’utilisateur standard. Cette configuration permet une gestion centralisée des comptes d’utilisateur tout en permettant aux utilisateurs de revenir à d’autres comptes dans la forêt de ressources si la forêt d’organisation n’est plus disponible.  
+   Établissez une relation d’approbation entre la ressource et les forêts de l’organisation, afin que les utilisateurs puissent accéder aux ressources de la forêt tout en utilisant leurs comptes d’utilisateur standard. Cette configuration permet une gestion centralisée des comptes d’utilisateur tout en permettant aux utilisateurs de revenir à d’autres comptes dans la forêt de ressources si la forêt d’organisation n’est plus disponible.  
 
-Considérations pour l’isolation de service sont les suivantes :  
+Les éléments à prendre en compte pour l’isolation des services sont les suivants :  
 
-- Forêts créés pour l’isolation de service peuvent approuver des domaines à partir d’autres forêts mais ne doivent pas inclure les utilisateurs d’autres forêts dans leurs groupes d’administrateurs de service. Si les utilisateurs d’autres forêts sont incluses dans les groupes d’administration dans la forêt isolée, la sécurité de la forêt isolée peut être compromise, car les administrateurs de service dans la forêt n’ont pas de contrôle exclusif.  
+- Les forêts créées pour l’isolation de service peuvent approuver les domaines d’autres forêts, mais ne doivent pas inclure les utilisateurs d’autres forêts dans leurs groupes d’administrateurs de service. Si les utilisateurs d’autres forêts sont inclus dans des groupes d’administration de la forêt isolée, la sécurité de la forêt isolée peut potentiellement être compromise, car les administrateurs de service dans la forêt n’ont pas de contrôle exclusif.  
 
-- Tant que contrôleurs de domaine sont accessibles sur un réseau, ils sont soumis à des attaques (par exemple, les attaques par déni de service) à partir d’ordinateurs sur ce réseau. Vous pouvez effectuer les opérations suivantes pour protéger contre le risque d’attaque :  
+- Tant que les contrôleurs de domaine sont accessibles sur un réseau, ils sont soumis à des attaques (telles que des attaques par déni de service) à partir d’ordinateurs sur ce réseau. Vous pouvez effectuer les opérations suivantes pour vous protéger contre le risque d’une attaque :  
 
-   - Contrôleurs de domaine hôte uniquement sur les réseaux qui sont considérés comme sûrs.  
+   - N’hébergez les contrôleurs de domaine que sur les réseaux considérés comme sécurisés.  
 
-   - Limiter l’accès au réseau ou réseaux hébergeant les contrôleurs de domaine.  
+   - Limitez l’accès au réseau ou aux réseaux qui hébergent les contrôleurs de domaine.  
 
-- Isolation de service requiert la création d’une forêt supplémentaire. Déterminez si le coût de maintenance de l’infrastructure pour prendre en charge de la forêt supplémentaire est supérieur au coût associé à une perte d’accès aux ressources en raison d’une forêt d’organisation ne soit pas disponible.  
+- L’isolation de service requiert la création d’une forêt supplémentaire. Déterminez si le coût de maintenance de l’infrastructure pour prendre en charge la forêt supplémentaire compense les coûts associés à la perte d’accès aux ressources en raison de l’indisponibilité d’une forêt d’organisation.  
 
-   Des utilisateurs spécifiques ou des applications peuvent avoir des besoins particuliers qui requièrent la fonctionnalité à franchir le pare-feu pour contacter les autres forêts. Vous pouvez répondre à ces besoins individuellement en ouvrant les interfaces appropriées dans le pare-feu, y compris celles nécessaires pour les approbations de fonctionner.  
+   Des utilisateurs ou des applications spécifiques peuvent avoir des besoins spéciaux qui nécessitent la possibilité de traverser le pare-feu pour contacter d’autres forêts. Vous pouvez répondre à ces besoins individuellement en ouvrant les interfaces appropriées dans le pare-feu, y compris celles nécessaires pour que les approbations fonctionnent.  
 
-Pour plus d’informations sur la configuration de pare-feu pour une utilisation avec les services AD DS, consultez [Active Directory sur les réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=37928).  
+Pour plus d’informations sur la configuration de pare-feu pour une utilisation avec AD DS, consultez [Active Directory dans les réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=37928).  

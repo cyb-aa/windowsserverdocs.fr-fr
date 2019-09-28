@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/10/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d72217d9e8dc3b0f47382e08346dca977ac14b67
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9e947f1894516de232a0db50bcbb56c7452098cd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867933"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359422"
 ---
 # <a name="migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Migrer le serveur de fédération AD FS 2,0 vers AD FS sur Windows Server 2012 R2
 
@@ -103,14 +103,14 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
   
 ###  <a name="to-export-claims-provider-trusts-and-relying-party-trusts"></a>Pour exporter les approbations de fournisseur de revendications et approbations de partie de confiance  
   
-1.  Pour exporter AD FS approbations de fournisseur de revendications et des approbations de partie de confiance, vous devez ouvrir une session en tant qu’administrateur (Toutefois, pas en tant qu’administrateur de domaine) sur votre serveur de Fédération et exécuter le script Windows PowerShell suivant qui se trouve dans le **média/server_support dossier/ADFS** du CD d’installation de Windows Server 2012 R2 `export-federationconfiguration.ps1`:.  
+1.  Pour exporter AD FS approbations de fournisseur de revendications et des approbations de partie de confiance, vous devez ouvrir une session en tant qu’administrateur (Toutefois, pas en tant qu’administrateur de domaine) sur votre serveur de Fédération et exécuter le script Windows PowerShell suivant qui se trouve dans le **média/server_support dossier/ADFS** du CD d’installation de Windows Server 2012 R2 : `export-federationconfiguration.ps1`.  
   
 > [!IMPORTANT]
 >  Le script d’exportation accepte les paramètres suivants :  
 > 
-> - Export-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-CertificatePassword < SecureString\>]  
->   -   Export-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-CertificatePassword < SecureString\>] [- RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >]  
->   -   Export-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-CertificatePassword < SecureString\>] [- RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
+> - Export-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-CertificatePassword < SecureString @ no__t-3]  
+>   -   Export-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-CertificatePassword < SecureString @ no__t-3] [-RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >]  
+>   -   Export-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-CertificatePassword < SecureString @ no__t-3] [-RelyingPartyTrustName < String [] >] [- ClaimsProviderTrustName < String [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>**  : l’applet de commande exporte uniquement les approbations de partie de confiance dont les identificateurs sont spécifiés dans le tableau de chaînes. Par défaut, AUCUNE des approbations de partie de confiance n’est exportée. Si aucun des éléments RelyingPartyTrustIdentifier, ClaimsProviderTrustIdentifier, RelyingPartyTrustName et ClaimsProviderTrustName n’est spécifié, le script exporte toutes les approbations de partie de confiance et approbations de fournisseur de revendications.  
 > 
@@ -130,7 +130,7 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
 > 
 >   **-CertificatePassword < SecureString\>**  -spécifie un mot de passe pour l’exportation des clés privées des certificats AD FS. Si cette valeur n’est pas spécifiée, le script demande un mot de passe si un certificat AD FS avec une clé privée doit être exporté.  
 > 
->   **Entrées** : Aucun  
+>   **Entrées** : Aucune  
 > 
 >   **Sorties** : chaîne. Cette applet de commande retourne le chemin d’accès du dossier d’exportation. Vous pouvez diriger l’objet retourné vers Import-FederationConfiguration.  
   
@@ -193,9 +193,9 @@ import-federationconfiguration.ps1
 > [!IMPORTANT]
 >  Le script d’importation accepte les paramètres suivants :  
 > 
-> - Import-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-LogPath < chaîne\>] [-CertificatePassword < SecureString \>]  
->   -   Import-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-LogPath < chaîne\>] [-CertificatePassword < SecureString \>] [-RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >  
->   -   Import-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-LogPath < chaîne\>] [-CertificatePassword < SecureString \>] [-RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
+> - Import-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-LogPath < chaîne @ no__t-3] [-CertificatePassword < SecureString @ no__t-4]  
+>   -   Import-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-LogPath < chaîne @ no__t-3] [-CertificatePassword < SecureString @ no__t-4] [- RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >  
+>   -   Import-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-LogPath < chaîne @ no__t-3] [-CertificatePassword < SecureString @ no__t-4] [- RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>**  : l’applet de commande importe uniquement les approbations de partie de confiance dont les identificateurs sont spécifiés dans le tableau de chaînes. Par défaut, AUCUNE des approbations de partie de confiance n’est importée. Si aucun des éléments RelyingPartyTrustIdentifier, ClaimsProviderTrustIdentifier, RelyingPartyTrustName et ClaimsProviderTrustName n’est spécifié, le script importe toutes les approbations de partie de confiance et approbations de fournisseur de revendications.  
 > 
@@ -219,7 +219,7 @@ import-federationconfiguration.ps1
 > 
 >   **Entrées** : chaîne. Cette commande prend le chemin d’accès du dossier d’importation comme entrée. Vous pouvez diriger Export-FederationConfiguration vers cette commande.  
 > 
->   **Sorties :** Aucune.  
+>   **Sorties :** Aucun.  
   
 La présence d’espaces en fin de chaîne dans la propriété WSFedEndpoint d’une approbation de partie de confiance peut provoquer l’échec du script d’importation. Dans ce cas, supprimez manuellement les espaces du fichier avant l’importation. Par exemple, les entrées suivantes provoquent des erreurs :  
   

@@ -1,6 +1,6 @@
 ---
 title: Parité accélérée grâce à la mise en miroir
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: gawatu
 ms.manager: masriniv
 ms.technology: storage-file-systems
@@ -8,12 +8,12 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: ec1f04b20b0b743085bacd95ad95a52c15207f40
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0325a37e38845ea9482a6ed260e2bb3b493cc79a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394000"
 ---
 # <a name="mirror-accelerated-parity"></a>Parité accélérée grâce à la mise en miroir
 
@@ -86,7 +86,7 @@ Lors du déplacement des données de l’espace en miroir vers l’espace de par
 
 Dans cette version semi-annuelle de l’automne, ReFS introduit un compactage, ce qui améliore considérablement les performances des volumes de parité à accélération en miroir qui sont pleins de 90%. 
 
-**Contexte** : Auparavant, comme les volumes de parité à accélération miroir sont devenus pleins, les performances de ces volumes peuvent se dégrader. La dégradation des performances est due au fait que les données actives (« hot ») et les données passives (« cold ») se mélangent à l’intérieur du volume au fil du temps. Cela signifie que moins de données actives peuvent être stockées en miroir, car les données passives occupent l’espace en miroir qui pourrait servir au stockage de données actives. Stocker des données actives en miroir est essentiel pour maintenir de hautes performances, car les écritures effectuées directement dans l’espace en miroir sont beaucoup plus rapides que les écritures réallouées, lesquelles sont plus rapides que les écritures effectuées directement dans l’espace de parité. Par conséquent, le fait de stocker les données passives en miroir est mauvais pour les performances, car cela réduit la probabilité que ReFS puisse effectuer des écritures directement dans l’espace en miroir. 
+**Informations** Auparavant, comme les volumes de parité à accélération miroir sont devenus pleins, les performances de ces volumes peuvent se dégrader. La dégradation des performances est due au fait que les données actives (« hot ») et les données passives (« cold ») se mélangent à l’intérieur du volume au fil du temps. Cela signifie que moins de données actives peuvent être stockées en miroir, car les données passives occupent l’espace en miroir qui pourrait servir au stockage de données actives. Stocker des données actives en miroir est essentiel pour maintenir de hautes performances, car les écritures effectuées directement dans l’espace en miroir sont beaucoup plus rapides que les écritures réallouées, lesquelles sont plus rapides que les écritures effectuées directement dans l’espace de parité. Par conséquent, le fait de stocker les données passives en miroir est mauvais pour les performances, car cela réduit la probabilité que ReFS puisse effectuer des écritures directement dans l’espace en miroir. 
 
 La compression ReFS résout ces problèmes de performances en libérant de l’espace en miroir pour les données actives. La compression consolide dans un premier temps toutes les données (mises en miroir ou de parité) dans l’espace de parité. Cela réduit la fragmentation au sein du volume et augmente la quantité d’espace adressable en miroir. Plus important encore, ce processus permet à ReFS de consolider les données actives dans l’espace en miroir :
 -   Lorsque de nouvelles écritures arriveront, elles seront traitées dans l’espace en miroir. Par conséquent, les nouvelles données actives écrites résident en miroir. 
@@ -114,7 +114,7 @@ ReFS commence la rotation des données une fois que l’espace en miroir a attei
 -   Avec des valeurs plus faibles, ReFS peut retirer de manière proactive les données et mieux ingérer les E/S entrantes. Cela peut s’appliquer aux lourdes charges de travail à ingérer, comme le stockage de données d’archive. Des valeurs inférieures, cependant, peuvent dégrader les performances des charges de travail à usage général. Toute rotation de données inutile depuis le niveau en miroir impact de façon négative les performances. 
 
 ReFS introduit un paramètre réglable pour ajuster ce seuil, qui est configurable à l’aide d’une clé de registre. Cette clé de registre doit être configurée sur **chaque nœud dans un déploiement des espaces de stockage direct**, et un redémarrage est nécessaire pour que les modifications prennent effet. 
--   **Essentiel** HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
+-   **Clé :** HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
 -   **ValueName (DWORD) :** DataDestageSsdFillRatioThreshold
 -   **ValueType** Pourcentage
 

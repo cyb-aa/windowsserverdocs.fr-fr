@@ -1,7 +1,7 @@
 ---
-title: Mise à niveau de version de la machine virtuelle dans Hyper-V sur Windows 10 ou Windows Server
-description: Donne des instructions et des considérations relatives à la mise à niveau la version d’une machine virtuelle
-ms.prod: windows-server-threshold
+title: Mettre à niveau la version de la machine virtuelle dans Hyper-V sur Windows 10 ou Windows Server
+description: Fournit des instructions et des considérations relatives à la mise à niveau de la version d’une machine virtuelle
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,123 +11,123 @@ ms.assetid: 897f2454-5aee-445c-a63e-f386f514a0f6
 author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
-ms.openlocfilehash: 160adc0e838cb732ba792cbdd7fd9fa200c68794
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 96678dfab2a3d5b6f503d8ce9d00850a3c437b35
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810509"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392933"
 ---
-# <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Mise à niveau de version de la machine virtuelle dans Hyper-V sur Windows 10 ou Windows Server
+# <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Mettre à niveau la version de la machine virtuelle dans Hyper-V sur Windows 10 ou Windows Server
 
 >S'applique à : Windows 10, Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
-Proposer des dernières fonctionnalités Hyper-V sur vos machines virtuelles à la mise à niveau la version de configuration. Ne le faites pas jusqu'à ce que :
+Rendez les fonctionnalités Hyper-V les plus récentes disponibles sur vos machines virtuelles en effectuant une mise à niveau de la version de configuration. N’effectuez pas cette opération tant que :
 
-- Vous mettez à niveau vos hôtes Hyper-V vers la dernière version de Windows ou Windows Server.
+- Vous mettez à niveau vos ordinateurs hôtes Hyper-V vers la dernière version de Windows ou Windows Server.
 - Vous mettez à niveau le niveau fonctionnel du cluster.
-- Vous êtes sûr que vous n’aurez pas à ramener l’ordinateur virtuel à un hôte Hyper-V qui exécute une version antérieure de Windows ou Windows Server.
+- Vous êtes sûr de ne pas avoir à déplacer la machine virtuelle vers un ordinateur hôte Hyper-V qui exécute une version antérieure de Windows ou Windows Server.
 
-Pour plus d’informations, consultez [niveau propagée de Cluster système d’exploitation](../../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) et [effectuer une mise à niveau propagée d’un cluster hôte Hyper-V dans VMM](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade).
+Pour plus d’informations, consultez [mise à niveau propagée de système d’exploitation de cluster](../../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) et [effectuer une mise à niveau propagée d’un cluster hôte Hyper-V dans VMM](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade).
 
-## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Étape 1 : Vérifier les versions de configuration de machine virtuelle
+## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Étape 1 : Vérifier les versions de configuration des machines virtuelles
 
 1. Sur le Bureau Windows, cliquez sur le bouton Démarrer et tapez une partie du nom **Windows PowerShell**.
-2. Avec le bouton droit de Windows PowerShell et sélectionnez **exécuter en tant qu’administrateur**.
-3. Utilisez le [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm)applet de commande. Exécutez la commande suivante pour obtenir les versions de vos machines virtuelles.
+2. Cliquez avec le bouton droit sur Windows PowerShell, puis sélectionnez **exécuter en tant qu’administrateur**.
+3. Utilisez l’applet de commande [« obtient-VM »](https://docs.microsoft.com/powershell/module/hyper-v/get-vm). Exécutez la commande suivante pour récupérer les versions de vos machines virtuelles.
 
 ```PowerShell
 Get-VM * | Format-Table Name, Version
 ```
 
-Vous pouvez également voir la version de configuration dans le Gestionnaire Hyper-V en sélectionnant la machine virtuelle et en examinant le **Résumé** onglet.
+Vous pouvez également voir la version de configuration dans le Gestionnaire Hyper-V en sélectionnant la machine virtuelle et en examinant l’onglet **Résumé** .
 
-## <a name="step-2-upgrade-the-virtual-machine-configuration-version"></a>Étape 2 : Mise à niveau la version de configuration de machine virtuelle
+## <a name="step-2-upgrade-the-virtual-machine-configuration-version"></a>Étape 2 : Mettre à niveau la version de la configuration de la machine virtuelle
 
-1. Arrêter la machine virtuelle dans le Gestionnaire Hyper-V.
-2. Sélectionnez Action > mettre à niveau la Version de Configuration. Si cette option n’est pas disponible pour la machine virtuelle, puis il est déjà la version la plus récente de la configuration prise en charge par l’hôte Hyper-V.
+1. Arrêtez l’ordinateur virtuel dans le Gestionnaire Hyper-V.
+2. Sélectionnez action > mettre à niveau la version de configuration. Si cette option n’est pas disponible pour la machine virtuelle, il s’agit déjà de la version de configuration la plus élevée prise en charge par l’hôte Hyper-V.
 
-Pour mettre à niveau la version de configuration de machine virtuelle à l’aide de Windows PowerShell, utilisez le [mise à jour-VMVersion](https://docs.microsoft.com/powershell/module/hyper-v/update-vmversion) applet de commande. Exécutez la commande suivante où vmname est le nom de la machine virtuelle.
+Pour mettre à niveau la version de configuration de la machine virtuelle à l’aide de Windows PowerShell, utilisez l’applet de commande [Update-VMVersion](https://docs.microsoft.com/powershell/module/hyper-v/update-vmversion) . Exécutez la commande suivante, où vmname est le nom de l’ordinateur virtuel.
 
 ```PowerShell
 Update-VMVersion <vmname>
 ```
 
-## <a name="supported-virtual-machine-configuration-versions"></a>Versions de configuration de machine virtuelle prises en charge
+## <a name="supported-virtual-machine-configuration-versions"></a>Versions de configuration d’ordinateur virtuel prises en charge
 
-Exécutez l’applet de commande PowerShell [Get-VMHostSupportedVersion](https://docs.microsoft.com/powershell/module/hyper-v/get-vmhostsupportedversion) pour voir quelles versions de configuration de machine virtuelle prend en charge de votre hôte Hyper-V. Lorsque vous créez une machine virtuelle, il est créé avec la version de configuration par défaut. Pour découvrir les nouveautés de la valeur par défaut, exécutez la commande suivante.
+Exécutez l’applet de commande PowerShell [VMHostSupportedVersion](https://docs.microsoft.com/powershell/module/hyper-v/get-vmhostsupportedversion) pour voir quelles sont les versions de configuration d’ordinateur virtuel prises en charge par votre hôte Hyper-V. Lorsque vous créez un ordinateur virtuel, il est créé avec la version de configuration par défaut. Pour voir la valeur par défaut, exécutez la commande suivante.
 
 ```PowerShell
 Get-VMHostSupportedVersion -Default
 ```
 
-Si vous avez besoin créer une machine virtuelle que vous pouvez déplacer vers un ordinateur hôte Hyper-V qui exécute une version antérieure de Windows, utilisez le [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm) applet de commande avec le paramètre - version. Par exemple, pour créer une machine virtuelle que vous pouvez déplacer vers un ordinateur hôte Hyper-V qui exécute Windows Server 2012 R2, exécutez la commande suivante. Cette commande crée un ordinateur virtuel nommé « WindowsCV5 » avec une version de configuration 5.0.
+Si vous avez besoin de créer une machine virtuelle que vous pouvez déplacer vers un ordinateur hôte Hyper-V qui exécute une version antérieure de Windows, utilisez l’applet de commande [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm) avec le paramètre-version. Par exemple, pour créer un ordinateur virtuel que vous pouvez déplacer vers un hôte Hyper-V qui exécute Windows Server 2012 R2, exécutez la commande suivante. Cette commande crée un ordinateur virtuel nommé « WindowsCV5 » avec une version de configuration 5,0.
 
 ```PowerShell
 New-VM -Name "WindowsCV5" -Version 5.0
 ```
 
 >[!NOTE]
->Vous pouvez importer les ordinateurs virtuels qui ont été créés pour un hôte Hyper-V exécutant une version antérieure de Windows ou les restaurer à partir de la sauvegarde. Si la version de configuration de la machine virtuelle n’est pas répertoriée comme pris en charge pour votre système d’exploitation de l’hôte de Hyper-V dans le tableau ci-dessous, vous devez mettre à jour la version de configuration de machine virtuelle avant de commencer la machine virtuelle.
+>Vous pouvez importer des ordinateurs virtuels qui ont été créés pour un ordinateur hôte Hyper-V exécutant une version antérieure de Windows ou les restaurer à partir de la sauvegarde. Si la version de configuration de la machine virtuelle n’est pas indiquée comme prise en charge pour votre système d’exploitation hôte Hyper-V dans le tableau ci-dessous, vous devez mettre à jour la version de configuration de machine virtuelle avant de pouvoir démarrer la machine virtuelle.
 
-### <a name="supported-vm-configuration-versions-for-long-term-servicing-hosts"></a>Versions de configuration de machine virtuelle prises en charge pour les hôtes de maintenance à long terme
+### <a name="supported-vm-configuration-versions-for-long-term-servicing-hosts"></a>Versions de configuration d’ordinateur virtuel prises en charge pour les hôtes de maintenance à long terme
 
-Le tableau suivant répertorie les versions de configuration de machine virtuelle sont prises en charge sur les ordinateurs hôtes exécutant une version de maintenance à long terme de Windows.
+Le tableau suivant répertorie les versions de configuration de machine virtuelle qui sont prises en charge sur les ordinateurs hôtes exécutant une version de maintenance à long terme de Windows.
 
-| Version de Windows hôte Hyper-V | 9.1 | 9.0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
+| Version de Windows de l’hôte Hyper-V | 9,1 | 9,0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
 | --- |---|---|---|---|---|---|---|---|---|---|
 |Windows Server 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 entreprise LTSC 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Entreprise LTSC 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Entreprise 2016 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Enterprise 2015 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|
 |Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 |Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 
-### <a name="supported-vm-configuration-versions-for-semi-annual-channel-hosts"></a>Versions de configuration de machine virtuelle prises en charge pour les hôtes de canal semi-annuel
+### <a name="supported-vm-configuration-versions-for-semi-annual-channel-hosts"></a>Versions de configuration d’ordinateur virtuel prises en charge pour les hôtes de canal semi-annuel
 
-Le tableau suivant répertorie les versions de configuration de machine virtuelle pour les ordinateurs hôtes exécutant une version de canal semestriel actuellement prises en charge de Windows. Pour obtenir plus d’informations sur les versions de canal semestriel de Windows, visitez les pages suivantes pour [Windows Server](../../../get-started-19/servicing-channels-19.md) et [Windows 10](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels)
+Le tableau suivant répertorie les versions de configuration de machine virtuelle pour les hôtes qui exécutent une version de Windows Channel semi-annuelle actuellement prise en charge. Pour obtenir plus d’informations sur les versions de canal semi-annuelles de Windows, visitez les pages suivantes pour [Windows Server](../../../get-started-19/servicing-channels-19.md) et [Windows 10](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels)
 
-| Version de Windows hôte Hyper-V | 9.1 | 9.0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
+| Version de Windows de l’hôte Hyper-V | 9,1 | 9,0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
 | --- |---|---|---|---|---|---|---|---|---|---|
-| Windows 10 peut 2019 mettre à jour (version 1903) |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
-| Windows Server, version 1903 |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
+| Mise à jour de Windows 10 mai 2019 (version 1903) |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
+| Windows Server, version 1903 |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
 |Windows Server, version 1809|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 octobre 2018 Update (version 1809)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Mise à jour 2018 de Windows 10 octobre (version 1809)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server, version 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|10 avril 2018 de Windows Update (version 1803)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Fall Creators Update (version 1709)|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Mise à jour 2018 de Windows 10 avril (version 1803)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Mise à jour des créateurs de automne Windows 10 (version 1709)|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Creators Update (version 1703)|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|À jour anniversaire Windows 10 (version 1607)|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Mise à jour anniversaire Windows 10 (version 1607)|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 
-## <a name="why-should-i-upgrade-the-virtual-machine-configuration-version"></a>Pourquoi dois-je mettre à niveau la version de configuration de machine virtuelle ?
+## <a name="why-should-i-upgrade-the-virtual-machine-configuration-version"></a>Pourquoi dois-je mettre à niveau la version de la configuration de la machine virtuelle ?
 
-Quand vous déplacez ou importez un ordinateur virtuel sur un ordinateur qui exécute Hyper-V sur Windows Server 2019, Windows Server 2016 ou Windows 10, la machine virtuelle « configuration de s n’est pas automatiquement mis à jour. Cela signifie que vous pouvez revenir l’ordinateur virtuel à un hôte Hyper-V qui exécute une version antérieure de Windows ou Windows Server. Toutefois, cela signifie également que vous ne pouvez pas utiliser certaines des nouvelles fonctionnalités de machine virtuelle jusqu'à ce que vous mettez à jour la version de configuration manuellement. Vous ne pouvez pas rétrograder la version de configuration de machine virtuelle une fois que vous avez mis à niveau.
+Lorsque vous déplacez ou importez un ordinateur virtuel sur un ordinateur exécutant Hyper-V sur Windows Server 2019, Windows Server 2016 ou Windows 10, la configuration de l’ordinateur virtuel n’est pas automatiquement mise à jour. Cela signifie que vous pouvez déplacer la machine virtuelle vers un ordinateur hôte Hyper-V qui exécute une version précédente de Windows ou de Windows Server. Mais cela signifie également que vous ne pouvez pas utiliser les nouvelles fonctionnalités de la machine virtuelle tant que vous n’avez pas mis à jour manuellement la version de configuration. Vous ne pouvez pas rétrograder la version de la configuration de la machine virtuelle une fois que vous l’avez mise à niveau.
 
-La version de configuration de machine virtuelle représente la compatibilité de la configuration de la machine virtuelle, enregistré l’état et les fichiers de capture instantanée avec la version d’Hyper-V. Lorsque vous mettez à jour la version de configuration, vous modifiez la structure de fichier qui est utilisée pour stocker la configuration de machines virtuelles et les fichiers de point de contrôle. Vous mettez également à jour la version de configuration vers la dernière version prise en charge par cet hôte Hyper-V. Les machines virtuelles mises à niveau utilisent un nouveau format de fichier de configuration qui est conçu pour accroître les performances de lecture et d’écriture des données de configuration de machine virtuelle. La mise à niveau permet également de réduire le risque de corruption des données en cas de défaillance du stockage.
+La version de configuration de l’ordinateur virtuel représente la compatibilité de la configuration de l’ordinateur virtuel, de l’état enregistré et des fichiers d’instantanés avec la version d’Hyper-V. Lorsque vous mettez à jour la version de configuration, vous modifiez la structure de fichiers utilisée pour stocker la configuration des machines virtuelles et les fichiers de point de contrôle. Vous devez également mettre à jour la version de configuration vers la dernière version prise en charge par cet hôte Hyper-V. Les machines virtuelles mises à niveau utilisent un nouveau format de fichier de configuration qui est conçu pour accroître les performances de lecture et d’écriture des données de configuration de machine virtuelle. La mise à niveau permet également de réduire le risque de corruption des données en cas de défaillance du stockage.
 
-Le tableau suivant répertorie les descriptions, les extensions de nom de fichier et les emplacements par défaut pour chaque type de fichier qui est utilisé pour les ordinateurs virtuels nouveaux ou mis à niveau.
+Le tableau suivant répertorie les descriptions, les extensions de nom de fichier et les emplacements par défaut pour chaque type de fichier utilisé pour les machines virtuelles nouvelles ou mises à niveau.
 
  |Types de fichiers de machine virtuelle | Description|
  |---|---|
-|Configuration |Informations de configuration de machine virtuelle qui sont stockées dans un format de fichier binaire. <br /> Extension de nom de fichier : .vmcx <br /> Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
- |État d’exécution|Machine virtuelle informations d’état runtime qui sont stockées dans un format de fichier binaire. <br />Extension de nom de fichier : .vmrs et .vmgs <br />Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
-|Disque dur virtuel|Stocke les disques durs virtuels pour la machine virtuelle. <br /> Extension de nom de fichier : .vhd ou .vhdx <br />Emplacement par défaut : Disques durs C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
- |Disque dur virtuel automatiques |Fichiers disque de différenciation utilisés pour les points de contrôle de machine virtuelle. <br /> Extension de nom de fichier : .avhdx <br /> Emplacement par défaut : Disques durs C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
- |Point de contrôle|Les points de contrôle sont stockés dans plusieurs fichiers de point de contrôle. Chaque point de contrôle crée un fichier de configuration et un fichier d’état d’exécution. <br /> Extensions de nom de fichier : .vmrs et .vmcx <br />Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Snapshots|
+|Configuration |Informations de configuration de l’ordinateur virtuel stockées au format de fichier binaire. <br /> Extension de nom de fichier :. vmcx <br /> Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
+ |État d’exécution|Informations d’état d’exécution de machine virtuelle stockées au format de fichier binaire. <br />Extension de nom de fichier :. VMRS et. vmgs <br />Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
+|Disque dur virtuel|Stocke les disques durs virtuels de la machine virtuelle. <br /> Extension de nom de fichier :. vhd ou. vhdx <br />Emplacement par défaut : Disques durs C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
+ |Disque dur virtuel automatique |Fichiers de disque de différenciation utilisés pour les points de contrôle de la machine virtuelle. <br /> Extension de nom de fichier :. avhdx <br /> Emplacement par défaut : Disques durs C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
+ |Point de contrôle|Les points de contrôle sont stockés dans plusieurs fichiers de point de contrôle. Chaque point de contrôle crée un fichier de configuration et un fichier d’état d’exécution. <br /> Extensions de nom de fichier :. VMRS et. vmcx <br />Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Snapshots|
 
-## <a name="what-happens-if-i-dont-upgrade-the-virtual-machine-configuration-version"></a>Que se passe-t-il si je ne mettez à niveau la version de configuration de machine virtuelle ?
+## <a name="what-happens-if-i-dont-upgrade-the-virtual-machine-configuration-version"></a>Que se passe-t-il si je ne parvient pas à mettre à niveau la version de la configuration
 
-Si vous avez des machines virtuelles que vous avez créé avec une version antérieure d’Hyper-V, certaines fonctionnalités qui sont disponibles sur l’hôte plus récente du que système d’exploitation peut ne pas fonctionne avec ces ordinateurs virtuels jusqu'à ce que vous mettez à jour la version de configuration.
+Si vous avez créé des machines virtuelles avec une version antérieure d’Hyper-V, certaines fonctionnalités disponibles sur le système d’exploitation hôte plus récent peuvent ne pas fonctionner avec ces machines virtuelles tant que vous n’avez pas mis à jour la version de configuration.
 
-Comme une aide générale, nous vous recommandons la mise à jour de la version de configuration une fois que vous avez correctement mis à niveau vers une version plus récente de Windows, les hôtes de virtualisation et de grandes chances que vous n’avez pas besoin de restaurer. Lorsque vous utilisez le [système d’exploitation de la mise à niveau propagée de cluster](https://docs.microsoft.com/windows-server/failover-clustering/Cluster-Operating-System-Rolling-Upgrade) fonctionnalité, il s’agit en général, après la mise à jour le niveau fonctionnel du cluster. De cette façon, vous bénéficierez de nouvelles fonctionnalités et les changements internes et les optimisations également.
+En guise d’aide générale, nous vous recommandons de mettre à jour la version de configuration une fois que vous avez correctement mis à niveau les hôtes de virtualisation vers une version plus récente de Windows et que vous n’avez pas besoin de procéder à une restauration. Lorsque vous utilisez la fonctionnalité de [mise à niveau propagée du système d’exploitation du cluster](https://docs.microsoft.com/windows-server/failover-clustering/Cluster-Operating-System-Rolling-Upgrade) , cela se produit généralement après la mise à jour du niveau fonctionnel du cluster. De cette façon, vous bénéficiez également de nouvelles fonctionnalités, ainsi que d’optimisations et de modifications internes.
 
 >[!NOTE]
->Une fois que la version de configuration de machine virtuelle est mise à jour, la machine virtuelle ne pourrez pas démarrer sur des hôtes qui ne prennent pas en charge la version de configuration mis à jour.
+>Une fois la version de configuration de machine virtuelle mise à jour, la machine virtuelle ne peut pas démarrer sur les ordinateurs hôtes qui ne prennent pas en charge la version de configuration mise à jour.
 
-Le tableau suivant présente la version de configuration des machines virtuelles minimum requise pour utiliser certaines fonctionnalités Hyper-V.
+Le tableau suivant indique la version minimale de configuration de machine virtuelle requise pour l’utilisation de certaines fonctionnalités Hyper-V.
 
-|Fonctionnalité|Version de configuration de machine virtuelle minimale|
+|Fonctionnalité|Version minimale de configuration de machine virtuelle|
 |---|---|
 |Ajout/suppression de mémoire à chaud|6.2|
 |Démarrage sécurisé pour les machines virtuelles Linux|6.2|
@@ -135,17 +135,17 @@ Le tableau suivant présente la version de configuration des machines virtuelles
 |PowerShell Direct |6.2|
 |Regroupement de machines virtuelles|6.2|
 |Module de plateforme sécurisée virtuelle (vTPM)|7.0|
-|Files d’attente de plusieurs machines virtuelles (VMMQ)|7.1|
-|Prise en charge XSAVE|8.0|
+|Plusieurs files d’attente d’ordinateurs virtuels (VMMQ)|7.1|
+|Support XSAVE|8.0|
 |Lecteur de stockage de clés|8.0|
 |Prise en charge de la sécurité basée sur la virtualisation invité (VBS)|8.0|
 |Virtualisation imbriquée|8.0|
 |Nombre de processeurs virtuels|8.0|
-|Mémoire de grande taille des machines virtuelles|8.0|
-|Augmenter le nombre maximal par défaut pour les périphériques virtuels à 64 par appareil (par exemple, mise en réseau et attribués les appareils)|8.3|
-|Autoriser les fonctionnalités de processeur supplémentaires pour l’Analyseur de performances|9.0|
-|Exposer automatiquement [simultanées multithreading](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#background) configuration pour les machines virtuelles en cours d’exécution sur des ordinateurs hôtes à l’aide de la [Core planificateur](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler)|9.0|
-|Prise en charge de la mise en veille prolongée|9.0|
+|Machines virtuelles à mémoire élevée|8.0|
+|Augmenter le nombre maximal par défaut d’appareils virtuels sur 64 par appareil (par exemple, mise en réseau et appareils attribués)|8.3|
+|Autoriser des fonctionnalités de processeur supplémentaires pour Perfmon|9,0|
+|Exposer automatiquement la configuration [multithread simultanée](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#background) pour les machines virtuelles exécutées sur des ordinateurs hôtes à l’aide du [planificateur Core](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler)|9,0|
+|Prise en charge de la mise en veille prolongée|9,0|
 
-Pour plus d’informations sur ces fonctionnalités, consultez [quelles sont les nouveautés dans Hyper-V sur Windows Server](../What-s-new-in-Hyper-V-on-Windows.md).
+Pour plus d’informations sur ces fonctionnalités, consultez [Nouveautés d’Hyper-V sur Windows Server](../What-s-new-in-Hyper-V-on-Windows.md).
 

@@ -1,8 +1,8 @@
 ---
 title: pause
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e5805fcc14d6874d95ba90537d72b560229ba99b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6501859eacf30dd6c1e64f34eee29ff81bd78ec9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436310"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372369"
 ---
 # <a name="pause"></a>pause
 
@@ -44,20 +44,20 @@ pause
 
 ## <a name="remarks"></a>Notes
 
-- Lorsque vous exécutez le **suspendre** commande, le message suivant apparaît :  
+- Quand vous exécutez la commande **Pause** , le message suivant s’affiche :  
   ```
   Press any key to continue . . .
   ```  
-- Si vous appuyez sur CTRL + C pour arrêter un programme, le message suivant apparaît :  
+- Si vous appuyez sur CTRL + C pour arrêter un programme de traitement par lots, le message suivant s’affiche :  
   ```
   Terminate batch job (Y/N)?
   ```  
-  Si vous appuyez sur O (pour Oui) en réponse à ce message, le programme de traitement par lots prend fin et le contrôle retourne au système d’exploitation.
-- Vous pouvez insérer le **suspendre** commande avant une section du fichier de commandes que vous souhaiterez peut-être pas traiter. Lorsque **suspendre** interrompt le traitement du programme de traitement par lots, vous pouvez appuyer sur CTRL + C et appuyez sur Y pour arrêter le programme.
+  Si vous appuyez sur o (pour Oui) en réponse à ce message, le programme de traitement par lots se termine et le contrôle retourne au système d’exploitation.
+- Vous pouvez insérer la commande **Pause** avant une section du fichier de commandes que vous ne souhaitez peut-être pas traiter. Lorsque l' **interruption** interrompt le traitement du programme batch, vous pouvez appuyer sur Ctrl + C, puis sur Y pour arrêter le programme batch.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour créer un programme de traitement par lots qui invite l’utilisateur à modifier des disques dans un des lecteurs, tapez :
+Pour créer un programme batch qui invite l’utilisateur à modifier les disques de l’un des lecteurs, tapez :
 ```
 @echo off 
 :Begin 
@@ -66,7 +66,7 @@ echo Put a new disk into drive A
 pause 
 goto begin
 ```
-Dans cet exemple, tous les fichiers sur le disque dans le lecteur A sont copiés dans le répertoire actif. Une fois que le message vous invite à insérer un nouveau disque dans le lecteur A, le **suspendre** commande interrompt le traitement afin que vous pouvez modifier des disques et appuyez sur n’importe quelle touche pour reprendre le traitement. Ce programme de traitement par lots s’exécute dans une boucle sans fin, le **goto début** commande envoie l’interpréteur de commandes à l’étiquette de début du fichier de commandes. Pour arrêter ce programme de commandes, appuyez sur CTRL + C et appuyez sur Y.
+Dans cet exemple, tous les fichiers sur le disque du lecteur A sont copiés dans le répertoire actif. Une fois que le message vous invite à placer un nouveau disque dans le lecteur A, la commande **Pause** interrompt le traitement afin que vous puissiez modifier les disques, puis appuyer sur une touche pour reprendre le traitement. Ce programme batch s’exécute dans une boucle sans fin — la commande **goto Begin** envoie l’interpréteur de commandes à l’étiquette Begin du fichier de commandes. Pour arrêter ce programme batch, appuyez sur CTRL + C, puis sur o.
 
 #### <a name="additional-references"></a>Références supplémentaires
 

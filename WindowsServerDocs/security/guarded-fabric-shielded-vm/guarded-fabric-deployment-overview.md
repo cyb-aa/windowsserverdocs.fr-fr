@@ -1,7 +1,7 @@
 ---
 title: Démarrage rapide pour le déploiement d’une infrastructure protégée
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: e060e052-39a0-4154-90bb-b97cc6dde68e
 manager: dongill
@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 48ac73e79709f28816ea9eff35361bd54710c66e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8359532113e04e2247b4af34effc7f5b89d36f34
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870528"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402417"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Démarrage rapide pour le déploiement d’une infrastructure protégée
 
@@ -69,13 +69,13 @@ Imaginez ce scénario : vous disposez d’une infrastructure Hyper-V existante,
 
 ![Infrastructure Hyper-V existante](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-existing-hyper-v.png)
 
-## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Étape 1 : Déployer les ordinateurs hôtes Hyper-V exécutant Windows Server 2016 
+## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Étape 1 : Déployer les ordinateurs hôtes Hyper-V exécutant Windows Server 2016 
 
 Les hôtes Hyper-V doivent exécuter Windows Server 2016 Datacenter Edition ou une version ultérieure. Si vous mettez à niveau des ordinateurs hôtes, vous pouvez [effectuer la mise à niveau](https://technet.microsoft.com/windowsserver/dn527667.aspx) de l’édition standard vers Datacenter Edition.
 
 ![Mettre à niveau les ordinateurs hôtes Hyper-V](../../security/media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-one-upgrade-hyper-v.png)
 
-## <a name="step-2-deploy-the-host-guardian-service-hgs"></a>Étape 2 : Déployer le service Guardian hôte (SGH)
+## <a name="step-2-deploy-the-host-guardian-service-hgs"></a>Étape 2 : Déployer le service Guardian hôte (SGH)
 
 Installez ensuite le rôle serveur SGH et déployez-le en tant que cluster à trois nœuds, comme l’exemple relecloud.com dans l’image suivante. Cela requiert trois applets de commande PowerShell :
 
@@ -89,7 +89,7 @@ Dans notre exemple, supposons que contoso déploie initialement en mode AD pour 
 
 ![Installer SGH](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-two-deploy-hgs.png)
 
-## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>Étape 3 : Extraire les identités, les lignes de base matérielles et les stratégies d’intégrité du code
+## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>Étape 3 : Extraire les identités, les lignes de base matérielles et les stratégies d’intégrité du code
 
 Le processus d’extraction des identités à partir d’ordinateurs hôtes Hyper-V dépend du mode d’attestation utilisé.
 
@@ -114,7 +114,7 @@ Pour le mode TPM, trois éléments sont nécessaires :
 C’est tout : l’infrastructure protégée est créée, en termes d’infrastructure pour l’exécuter.  
 Vous pouvez maintenant créer un disque de modèle de machine virtuelle protégé et un fichier de données de protection afin que les machines virtuelles protégées puissent être approvisionnées simplement et en toute sécurité. 
 
-## <a name="step-4-create-a-template-for-shielded-vms"></a>Étape 4 : Créer un modèle pour les machines virtuelles protégées
+## <a name="step-4-create-a-template-for-shielded-vms"></a>Étape 4 : Créer un modèle pour les machines virtuelles protégées
 
 Un modèle de machine virtuelle protégée protège les disques de modèle en créant une signature du disque à un point de confiance connu dans le temps. 
 Si le disque de modèle est par la suite infecté par un programme malveillant, sa signature sera différente de celle du modèle d’origine, qui sera détectée par le processus d’approvisionnement de la machine virtuelle protégée. 
@@ -137,7 +137,7 @@ Cela permet aux utilisateurs d’identifier fortement les disques qu’ils appro
 
 Avant de commencer, passez en revue les [conditions requises en matière de disque de modèle](guarded-fabric-create-a-shielded-vm-template.md) . 
 
-## <a name="step-5-create-a-shielding-data-file"></a>Étape 5 : Créer un fichier de données de protection 
+## <a name="step-5-create-a-shielding-data-file"></a>Étape 5 : Créer un fichier de données de protection 
 
 Un fichier de données de protection, également connu sous le nom de fichier. PDK, capture des informations sensibles sur l’ordinateur virtuel, telles que le mot de passe de l’administrateur. 
 

@@ -7,24 +7,24 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bda071be6668710361205643125fc8ad44246012
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: d4e3a59ff9154a948143cef32103cae9f1f2d235
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453026"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407596"
 ---
-# <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Créer une règle pour envoyer une revendication Compatible de AD FS 1.x
+# <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Créer une règle pour envoyer une revendication compatible AD FS 1. x
 
-Dans les situations où vous utilisez Active Directory Federation Services \(AD FS\) à émettre des revendications qui seront reçues par les serveurs de fédération exécutant AD FS 1.0 \(Windows Server 2003 R2\) ou AD FS 1.1 \(Windows Server 2008 ou Windows Server 2008 R2\), vous devez procédez comme suit :  
+Dans les situations où vous utilisez Services ADFS \(AD FS @ no__t-1 pour émettre des revendications qui seront reçues par des serveurs de Fédération exécutant AD FS 1,0 \(Windows Server 2003 R2 @ no__t-3 ou AD FS 1,1 \(Windows Server 2008 ou Windows Server 2008 R2 @ no__t-5, vous devez effectuer les opérations suivantes :  
   
--   Créer une règle qui envoie un type de revendication d’ID de nom avec un format de nom UPN, E-mail ou nom commun.  
+-   Créez une règle qui enverra un type de revendication d’ID de nom avec un format UPN, E-mail ou nom commun.  
   
--   Tous les autres revendications qui sont envoyées doivent avoir un des types de revendication suivants :  
+-   Toutes les autres revendications envoyées doivent avoir l’un des types de revendications suivants :  
   
-    -   AD FS 1. *x* adresse de messagerie  
+    -   AD FS 1. *x* adresse e-mail  
   
     -   AD FS 1. *x* UPN  
   
@@ -32,185 +32,185 @@ Dans les situations où vous utilisez Active Directory Federation Services \(AD 
   
     -   Regrouper  
   
-    -   N’importe quel autre type de revendication qui commence par https://schemas.xmlsoap.org/claims/, tel que https://schemas.xmlsoap.org/claims/EmployeeID  
+    -   Tout autre type de revendication qui commence par https://schemas.xmlsoap.org/claims/, tel que https://schemas.xmlsoap.org/claims/EmployeeID  
   
-Selon les besoins de votre organisation, utilisez une des procédures suivantes pour créer un AD FS 1. *x* revendication NameID compatible avec :  
+Selon les besoins de votre organisation, utilisez l’une des procédures suivantes pour créer un AD FS 1. revendication NameID compatible *x* :  
   
--   Créer cette règle de revendication d’à l’aide des ID de nom problème an AD FS 1.x le **passer ou filtrer un modèle de règle de revendication entrante**  
+-   Créez cette règle pour émettre une revendication d’ID de nom AD FS 1. x à l’aide du **modèle de règle de transmission ou de filtrage d’une revendication entrante**  
   
--   Créer cette règle de revendication d’à l’aide des ID de nom problème an AD FS 1.x le **transformer un modèle de règle de revendication entrante**. Vous pouvez utiliser ce modèle de règle dans les situations dans lesquelles vous souhaitez modifier le type de revendication existant en un nouveau type de revendication qui fonctionne avec AD FS 1.  *x* revendications.  
+-   Créez cette règle pour émettre une revendication d’ID de nom AD FS 1. x à l’aide du **modèle de règle transformer une revendication entrante**. Vous pouvez utiliser ce modèle de règle dans les situations où vous souhaitez modifier le type de revendication existant en un nouveau type de revendication qui fonctionnera avec AD FS 1.  *x* revendications.  
   
 > [!NOTE]  
-> Pour cette règle de fonctionner comme prévu, assurez-vous que la partie de confiance ou approbation de fournisseur de revendications dans lequel vous créez cette règle a été configurée pour utiliser le **profil ADFS 1.0 et 1.1**. 
+> Pour que cette règle fonctionne comme prévu, assurez-vous que l’approbation de la partie de confiance ou du fournisseur de revendications dans laquelle vous créez cette règle a été configurée pour utiliser le **profil AD FS 1,0 et 1,1**. 
 
-## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>Pour créer une règle pour émettre un AD FS 1. *x* ID de nom de revendication à l’aide de la passer ou filtrer un modèle de règle de revendication entrante sur une confiance dans Windows Server 2016 
+## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>Pour créer une règle pour émettre un AD FS 1. *x* ID de la revendication à l’aide du modèle de règle de transmission ou de filtrage d’une revendication entrante sur une partie de confiance dans Windows Server 2016 
 
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **confiance**. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
+2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
+3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
-4.  Dans le **modifier la stratégie d’émission de revendication** boîte de dialogue **règles de transformation d’émission** cliquez sur **ajouter une règle** pour démarrer l’Assistant règle. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
+4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
 
-5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **passer ou filtrer une revendication entrante** dans la liste, puis cliquez sur **suivant** .  
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule4.PNG)    
+5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **transférer ou filtrer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule4.PNG)    
 
-6.  Sur le **configurer la règle** page, tapez un nom de règle de revendication.  
+6.  Dans la page **configurer la règle** , tapez un nom de règle de revendication.  
   
-7.  Dans **type de revendication entrante**, sélectionnez **nom ID** dans la liste.  
+7.  Dans **type de revendication entrante**, sélectionnez **ID de nom** dans la liste.  
   
-8.  Dans **format d’ID de nom entrantes**, sélectionnez une des suivante AD FS 1. *x*\-compatible avec les formats à partir de la liste de revendication :  
+8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
   
-    -   **UPN**  
+    -   **NOMENCLATURE**  
   
-    -   **E\-Mail**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nom commun**  
   
-9. Sélectionnez une des options suivantes, selon les besoins de votre organisation :  
+9. Sélectionnez l’une des options suivantes, selon les besoins de votre organisation :  
   
-    -   **Passer toutes les valeurs de revendication**  
+    -   **Transmettre toutes les valeurs de revendication**  
   
-    -   **Transmettre uniquement la valeur de revendication spécifique**  
+    -   **Passer uniquement une valeur de revendication spécifique**  
   
     -   **Transmettre uniquement les valeurs de revendication qui correspondent à une valeur de suffixe d’adresse de messagerie spécifique**  
   
     -   **Transmettre uniquement les valeurs de revendication qui commencent par une valeur spécifique**  
-![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)   
+![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)   
 
-10. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
+10. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
   
-## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-claims-provider-trust-in-windows-server-2016"></a>Pour créer une règle pour émettre un AD FS 1. *x* ID de nom de revendication à l’aide de la passer ou filtrer un modèle de règle de revendication entrante sur une approbation de fournisseur de revendications dans Windows Server 2016 
+## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-claims-provider-trust-in-windows-server-2016"></a>Pour créer une règle pour émettre un AD FS 1. *x* ID de la revendication à l’aide du modèle de règle de transmission ou de filtrage d’une revendication entrante sur une approbation de fournisseur de revendications dans Windows Server 2016 
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
+3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
-4.  Dans le **modifier les règles de revendication** boîte de dialogue **règles de transformation d’acceptation** cliquez sur **ajouter une règle** pour démarrer l’Assistant règle.
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule3.PNG)    
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule3.PNG)    
 
-5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **passer ou filtrer une revendication entrante** dans la liste, puis cliquez sur **suivant** .  
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule4.PNG)    
+5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **transférer ou filtrer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule4.PNG)    
 
-6.  Sur le **configurer la règle** page, tapez un nom de règle de revendication.  
+6.  Dans la page **configurer la règle** , tapez un nom de règle de revendication.  
   
-7.  Dans **type de revendication entrante**, sélectionnez **nom ID** dans la liste.  
+7.  Dans **type de revendication entrante**, sélectionnez **ID de nom** dans la liste.  
   
-8.  Dans **format d’ID de nom entrantes**, sélectionnez une des suivante AD FS 1. *x*\-compatible avec les formats à partir de la liste de revendication :  
+8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
   
-    -   **UPN**  
+    -   **NOMENCLATURE**  
   
-    -   **E\-Mail**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nom commun**  
   
-9. Sélectionnez une des options suivantes, selon les besoins de votre organisation :  
+9. Sélectionnez l’une des options suivantes, selon les besoins de votre organisation :  
   
-    -   **Passer toutes les valeurs de revendication**  
+    -   **Transmettre toutes les valeurs de revendication**  
   
-    -   **Transmettre uniquement la valeur de revendication spécifique**  
+    -   **Passer uniquement une valeur de revendication spécifique**  
   
     -   **Transmettre uniquement les valeurs de revendication qui correspondent à une valeur de suffixe d’adresse de messagerie spécifique**  
   
     -   **Transmettre uniquement les valeurs de revendication qui commencent par une valeur spécifique**  
-![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)
+![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)
 
-10. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
+10. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
 
-## <a name="to-create-a-rule-to-transform-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Pour créer une règle pour transformer une revendication entrante sur une confiance dans Windows Server 2016 
+## <a name="to-create-a-rule-to-transform-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Pour créer une règle de transformation d’une revendication entrante sur une approbation de partie de confiance dans Windows Server 2016 
 
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **confiance**. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
+2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)
+3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)
   
-4.  Dans le **modifier la stratégie d’émission de revendication** boîte de dialogue **règles de transformation d’émission** cliquez sur **ajouter une règle** pour démarrer l’Assistant règle. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)
+4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)
 
-5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **transformer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
-![Créer la règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)
+5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **transformer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
+![créer une règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)
 
-6.  Sur le **configurer la règle** page, tapez un nom de règle de revendication.  
+6.  Dans la page **configurer la règle** , tapez un nom de règle de revendication.  
   
 7.  Dans **type de revendication entrante**, sélectionnez le type de revendication entrante que vous souhaitez transformer dans la liste.  
   
-8.  Dans **type de revendication sortante**, sélectionnez **nom ID** dans la liste.  
+8.  Dans **type de revendication sortante**, sélectionnez **ID de nom** dans la liste.  
   
-9. Dans **format d’ID de nom sortant**, sélectionnez une des suivante AD FS 1. *x*\-compatible avec les formats à partir de la liste de revendication :  
+9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
   
-    -   **UPN**  
+    -   **NOMENCLATURE**  
   
-    -   **E\-Mail**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nom commun**  
   
-10. Sélectionnez une des options suivantes, selon les besoins de votre organisation :  
+10. Sélectionnez l’une des options suivantes, selon les besoins de votre organisation :  
   
-    -   **Passer toutes les valeurs de revendication**  
+    -   **Transmettre toutes les valeurs de revendication**  
   
-    -   **Remplacer une valeur de revendication entrante avec une valeur de revendication sortante**  
+    -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacez e entrant\-avec une nouvelle e des revendications de suffixe de messagerie\-suffixe de messagerie**  
-![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
+    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
-11. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
+11. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
   
 
 
-## <a name="to-create-a-rule-to-transform-an-incoming-claim-on-a-claims-provider-trust-in-windows-server-2016"></a>Pour créer une règle pour transformer une revendication entrante sur une approbation de fournisseur de revendications dans Windows Server 2016 
+## <a name="to-create-a-rule-to-transform-an-incoming-claim-on-a-claims-provider-trust-in-windows-server-2016"></a>Pour créer une règle de transformation d’une revendication entrante sur une approbation de fournisseur de revendications dans Windows Server 2016 
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
+3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
-4.  Dans le **modifier les règles de revendication** boîte de dialogue **règles de transformation d’acceptation** cliquez sur **ajouter une règle** pour démarrer l’Assistant règle.
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule3.PNG)    
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule3.PNG)    
 
-5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **transformer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
-![Créer la règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)      
+5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **transformer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
+![créer une règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)      
 
-6.  Sur le **configurer la règle** page, tapez un nom de règle de revendication.  
+6.  Dans la page **configurer la règle** , tapez un nom de règle de revendication.  
   
 7.  Dans **type de revendication entrante**, sélectionnez le type de revendication entrante que vous souhaitez transformer dans la liste.  
   
-8.  Dans **type de revendication sortante**, sélectionnez **nom ID** dans la liste.  
+8.  Dans **type de revendication sortante**, sélectionnez **ID de nom** dans la liste.  
   
-9. Dans **format d’ID de nom sortant**, sélectionnez une des suivante AD FS 1. *x*\-compatible avec les formats à partir de la liste de revendication :  
+9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
   
-    -   **UPN**  
+    -   **NOMENCLATURE**  
   
-    -   **E\-Mail**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nom commun**  
   
-10. Sélectionnez une des options suivantes, selon les besoins de votre organisation :  
+10. Sélectionnez l’une des options suivantes, selon les besoins de votre organisation :  
   
-    -   **Passer toutes les valeurs de revendication**  
+    -   **Transmettre toutes les valeurs de revendication**  
   
-    -   **Remplacer une valeur de revendication entrante avec une valeur de revendication sortante**  
+    -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacez e entrant\-avec une nouvelle e des revendications de suffixe de messagerie\-suffixe de messagerie**  
-![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
+    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
 
-11. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
+11. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
 
 
@@ -225,16 +225,16 @@ Selon les besoins de votre organisation, utilisez une des procédures suivantes 
 
 
   
-## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-windows-server-2012-r2"></a>Pour créer une règle pour émettre un AD FS 1. *x* ID de nom de revendication à l’aide de la passer ou filtrer un modèle de règle de revendication entrante sur Windows Server 2012 R2
+## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-windows-server-2012-r2"></a>Pour créer une règle pour émettre un AD FS 1. ID de la revendication de nom *x* à l’aide du modèle de règle de transmission ou de filtrage d’une revendication entrante sur Windows Server 2012 R2
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis cliquez sur **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation**, cliquez sur **approbations de fournisseur de revendications** ou **confiance**, puis cliquez sur un spécifique dans la liste où vous souhaitez créer cette règle d’approbation.  
+2.  Dans l’arborescence de la console, sous **\\AD FS relations d’approbation**, cliquez sur approbations de fournisseur de **revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
   
-3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
+3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  Dans le **modifier les règles de revendication** boîte de dialogue, sélectionnez une les onglets suivants, en fonction de l’approbation que vous modifiez et quelle règle vous voulez créer cette règle dans, puis cliquez sur **ajouter une règle** pour démarrer l’Assistant règle qui est associé à cet ensemble de règles :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
   
     -   **Règles de transformation d’acceptation**  
   
@@ -243,47 +243,47 @@ Selon les besoins de votre organisation, utilisez une des procédures suivantes 
     -   **Règles d’autorisation d’émission**  
   
     -   **Règles d’autorisation de délégation**  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)    
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)    
 
-5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **passer ou filtrer une revendication entrante** dans la liste, puis cliquez sur **suivant** .  
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule7.PNG)  
+5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **transférer ou filtrer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule7.PNG)  
   
-6.  Sur le **configurer la règle** page, tapez un nom de règle de revendication.  
+6.  Dans la page **configurer la règle** , tapez un nom de règle de revendication.  
   
-7.  Dans **type de revendication entrante**, sélectionnez **nom ID** dans la liste.  
+7.  Dans **type de revendication entrante**, sélectionnez **ID de nom** dans la liste.  
   
-8.  Dans **format d’ID de nom entrantes**, sélectionnez une des suivante AD FS 1. *x*\-compatible avec les formats à partir de la liste de revendication :  
+8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
   
-    -   **UPN**  
+    -   **NOMENCLATURE**  
   
-    -   **E\-Mail**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nom commun**  
   
-9. Sélectionnez une des options suivantes, selon les besoins de votre organisation :  
+9. Sélectionnez l’une des options suivantes, selon les besoins de votre organisation :  
   
-    -   **Passer toutes les valeurs de revendication**  
+    -   **Transmettre toutes les valeurs de revendication**  
   
-    -   **Transmettre uniquement la valeur de revendication spécifique**  
+    -   **Passer uniquement une valeur de revendication spécifique**  
   
     -   **Transmettre uniquement les valeurs de revendication qui correspondent à une valeur de suffixe d’adresse de messagerie spécifique**  
   
     -   **Transmettre uniquement les valeurs de revendication qui commencent par une valeur spécifique**  
-![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)
+![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)
 
-10. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
+10. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
   
-## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-transform-an-incoming-claim-rule-template-in-windows-server-2012-r2"></a>Pour créer une règle pour émettre un AD FS 1. *x* revendication d’ID de nom à l’aide de la transformation un modèle de règle de revendication entrante dans Windows Server 2012 R2  
+## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-transform-an-incoming-claim-rule-template-in-windows-server-2012-r2"></a>Pour créer une règle pour émettre un AD FS 1. ID de la revendication de nom *x* à l’aide du modèle de règle transformer une revendication entrante dans Windows Server 2012 R2  
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis cliquez sur **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation**, cliquez sur **approbations de fournisseur de revendications** ou **confiance**, puis cliquez sur un spécifique dans la liste où vous souhaitez créer cette règle d’approbation.  
+2.  Dans l’arborescence de la console, sous **\\AD FS relations d’approbation**, cliquez sur approbations de fournisseur de **revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
   
-3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
+3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  Dans le **modifier les règles de revendication** boîte de dialogue, sélectionnez une les onglets suivants, qui dépend de l’approbation que vous modifiez et dans la règle qui vous souhaitez créer cette règle, puis cliquez sur **ajouter une règle** pour démarrer la règle Assistant qui est associé à cet ensemble de règles :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, qui dépend de l’approbation que vous modifiez et de l’ensemble de règles pour lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
   
     -   **Règles de transformation d’acceptation**  
   
@@ -292,35 +292,35 @@ Selon les besoins de votre organisation, utilisez une des procédures suivantes 
     -   **Règles d’autorisation d’émission**  
   
     -   **Règles d’autorisation de délégation**  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
   
-5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **transformer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
-![Créer la règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform1.PNG)   
+5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **transformer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
+![créer une règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform1.PNG)   
   
-6.  Sur le **configurer la règle** page, tapez un nom de règle de revendication.  
+6.  Dans la page **configurer la règle** , tapez un nom de règle de revendication.  
   
 7.  Dans **type de revendication entrante**, sélectionnez le type de revendication entrante que vous souhaitez transformer dans la liste.  
   
-8.  Dans **type de revendication sortante**, sélectionnez **nom ID** dans la liste.  
+8.  Dans **type de revendication sortante**, sélectionnez **ID de nom** dans la liste.  
   
-9. Dans **format d’ID de nom sortant**, sélectionnez une des suivante AD FS 1. *x*\-compatible avec les formats à partir de la liste de revendication :  
+9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
   
-    -   **UPN**  
+    -   **NOMENCLATURE**  
   
-    -   **E\-Mail**  
+    -   **E @ no__t-1Mail**  
   
     -   **Nom commun**  
   
-10. Sélectionnez une des options suivantes, selon les besoins de votre organisation :  
+10. Sélectionnez l’une des options suivantes, selon les besoins de votre organisation :  
   
-    -   **Passer toutes les valeurs de revendication**  
+    -   **Transmettre toutes les valeurs de revendication**  
   
-    -   **Remplacer une valeur de revendication entrante avec une valeur de revendication sortante**  
+    -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacez e entrant\-avec une nouvelle e des revendications de suffixe de messagerie\-suffixe de messagerie**  
-![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs2.PNG)    
+    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs2.PNG)    
 
-11. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
+11. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
 ## <a name="additional-references"></a>Références supplémentaires 
 [Configurer les règles de revendication](Configure-Claim-Rules.md)  

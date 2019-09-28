@@ -1,8 +1,8 @@
 ---
 title: put FTP
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d602c685b7eac5d18c88bc0f6709b189cc61a77
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 15c1734322d3642ebc85891b71c6ad68100d514d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438464"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376069"
 ---
 # <a name="ftp-put"></a>FTP : put
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Copie un fichier local à l’ordinateur distant en utilisant le mode de transfert de fichiers en cours.   
+Copie un fichier local sur l’ordinateur distant à l’aide du type de transfert de fichier actuel.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 put <LocalFile> [<remoteFile>]  
@@ -37,18 +37,18 @@ put <LocalFile> [<remoteFile>]
 | [<remoteFile>] | Spécifie le nom à utiliser sur l’ordinateur distant. |
 
 ## <a name="remarks"></a>Notes  
-- Le **put** commande est identique à la **envoyer** commande.  
-- Si *Fichier_distant* n’est pas spécifié, le fichier porte le *LocalFile* nom.  
-  ## <a name="BKMK_Examples"></a>Exemples  
-  Copiez le fichier local **test.txt** et nommez-le **test1.txt** sur l’ordinateur distant.  
+- La commande **put** est identique à la commande **Send** .  
+- Si *remoteFile* n’est pas spécifié, le nom du *fichier_local* est attribué au fichier.  
+  ## <a name="BKMK_Examples"></a>Illustre  
+  Copiez le fichier local **test. txt** et nommez-le **Test1. txt** sur l’ordinateur distant.  
   ```  
   put test.txt test1.txt  
   ```  
-  Copiez le fichier local **program.exe** à l’ordinateur distant.  
+  Copiez le fichier **Program. exe** local sur l’ordinateur distant.  
   ```  
   put program.exe  
   ```  
   ## <a name="additional-references"></a>Références supplémentaires  
-- [ftp: ascii](ftp-ascii.md)  
-- [ftp: binary](ftp-binary.md)  
+- [FTP : ASCII](ftp-ascii.md)  
+- [FTP : binaire](ftp-binary.md)  
 - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

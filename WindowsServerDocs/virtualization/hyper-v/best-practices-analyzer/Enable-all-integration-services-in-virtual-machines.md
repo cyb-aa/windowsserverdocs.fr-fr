@@ -1,7 +1,7 @@
 ---
-title: Activer tous les services d’intégration dans les machines virtuelles
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Activer tous les services d’intégration sur les ordinateurs virtuels
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 16e202ad-3795-40c9-8176-7ca319e56d26
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 307e2d407a0defa14a6b57bda95a2f3ab018406d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1984c3d1d6261756bf83f899985b457681537046
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829430"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364891"
 ---
-# <a name="enable-all-integration-services-in-virtual-machines"></a>Activer tous les services d’intégration dans les machines virtuelles
+# <a name="enable-all-integration-services-in-virtual-machines"></a>Activer tous les services d’intégration sur les ordinateurs virtuels
 
 >S'applique à : Windows Server 2016
 
@@ -27,42 +27,42 @@ Pour plus d'informations sur les meilleures pratiques et les analyses, consultez
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
   
-*Un ou plusieurs services d’intégration sont désactivés ou ne fonctionne ne pas dans une machine virtuelle.*  
+*Un ou plusieurs services d’intégration sont désactivés ou ne fonctionnent pas sur un ordinateur virtuel.*  
   
 ## <a name="impact"></a>Impact  
   
-*La fonctionnalité de service ou l’intégration ne peut-être pas fonctionner correctement pour les ordinateurs virtuels suivants :*  
+*La fonctionnalité de service ou d’intégration peut ne pas fonctionner correctement pour les machines virtuelles suivantes :*  
   
-\<liste des noms de machine virtuelle >  
+@no__t 0list de noms de machines virtuelles >  
   
-## <a name="resolution"></a>Résolution  
+## <a name="resolution"></a>Résolution :  
   
-*Utilisez l’outil Services de composant logiciel enfichable ou sc config de ligne de commande pour vérifier que le service est configuré pour démarrer automatiquement et n’est pas arrêté.*  
+*Utilisez le composant logiciel enfichable Services ou l’outil de ligne de commande sc config pour vérifier que le service est configuré pour démarrer automatiquement et qu’il n’est pas arrêté.*  
   
-#### <a name="to-configure-how-a-service-is-started-using-the-services-snap-in"></a>Pour configurer un service est démarré à l’aide du composant logiciel enfichable Services  
+#### <a name="to-configure-how-a-service-is-started-using-the-services-snap-in"></a>Pour configurer le mode de démarrage d’un service à l’aide du composant logiciel enfichable Services  
   
-1.  Utiliser des Services Bureau à distance ou connexion de Machine virtuelle pour se connecter à la machine virtuelle et le journal sur le système d’exploitation invité.  
+1.  Utilisez Services Bureau à distance ou la connexion à un ordinateur virtuel pour vous connecter à la machine virtuelle et ouvrir une session sur le système d’exploitation invité.  
   
-2.  Ouvrez le dossier Services. (Cliquez sur **Démarrer**, cliquez dans le **rechercher** , tapez **services.msc**, puis appuyez sur ENTRÉE.)  
+2.  Ouvrez le dossier Services. (Cliquez sur **Démarrer**, cliquez dans la zone **Rechercher** , tapez **services. msc**, puis appuyez sur entrée.)  
   
 3.  Dans le volet d'informations, cliquez avec le bouton droit sur le service à configurer, puis cliquez sur **Propriétés**.  
   
-4.  Sur le **général** sous l’onglet **démarrage** tapez, cliquez sur **automatique**.  
+4.  Sous l’onglet **général** , dans type de **démarrage** , cliquez sur **automatique**.  
   
-#### <a name="to-configure-how-a-service-is-started-using-sc-config"></a>Pour configurer un service est démarré à l’aide de SC Config  
+#### <a name="to-configure-how-a-service-is-started-using-sc-config"></a>Pour configurer le démarrage d’un service à l’aide de SC config  
   
 1.  Ouvrez Windows PowerShell. (À partir du bureau, cliquez sur **Démarrer** et commencez à taper **Windows PowerShell**.)  
   
-2.  Avec le bouton droit **Windows PowerShell** et cliquez sur **exécuter en tant qu’administrateur**.  
+2.  Cliquez avec le bouton droit sur **Windows PowerShell** , puis cliquez sur **exécuter en tant qu’administrateur**.  
   
-3.  Remplacez < service-name > avec le nom du service, puis tapez :  
+3.  Remplacez < service-name > par le nom du service, puis tapez :  
   
     ```  
     sc config <service-name> start=auto  

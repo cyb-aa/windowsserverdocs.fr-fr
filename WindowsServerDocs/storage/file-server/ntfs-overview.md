@@ -1,19 +1,19 @@
 ---
 title: Vue d’ensemble de NTFS
 description: Explication du système de fichiers NTFS.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e43d0520f97f28af54f794daf7ad263bc9928fac
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b98877d0a94ff8033b65bf74d0118e2a5f1ea092
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867344"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402080"
 ---
 # <a name="ntfs-overview"></a>Vue d’ensemble de NTFS
 
@@ -42,7 +42,7 @@ Le système de fichiers NTFS surveille et corrige en permanence les problèmes d
   |Taille du cluster|Plus grand volume|Fichier le plus volumineux|
   |---|---|---|
   |4 Ko (taille par défaut)|16 TO|16 TO|
-  |8 Ko|32 TO|32 TO|
+  |8 KO|32 TO|32 TO|
   |16 Ko|64 To|64 To|
   |32 Ko|128 TO|128 TO|
   |64 Ko (taille maximale)|256 To|256 To|
@@ -91,7 +91,7 @@ Si l’espace sur un volume est limité, NTFS offre les moyens suivants d’util
 - Augmentez la taille d’un volume NTFS en ajoutant un espace non alloué à partir du même disque ou à partir d’un autre disque.
 - Montez un volume dans un dossier vide sur un volume NTFS local si vous n’avez plus de lettres de lecteur ou si vous avez besoin de créer de l’espace supplémentaire accessible à partir d’un dossier existant.
 
-## <a name="additional-information"></a>Informations supplémentaires
+## <a name="additional-information"></a>Informations complémentaires
 
 - [Recommandations en matière de taille de cluster pour ReFS et NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
 - [Vue d’ensemble du système de fichiers résilient (ReFS)](../refs/refs-overview.md)

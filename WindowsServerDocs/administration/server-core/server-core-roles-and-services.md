@@ -1,18 +1,18 @@
 ---
 title: Rôles, services de rôle et fonctionnalités inclus dans Windows Server-Server Core
-description: Quels rôles et fonctionnalités sont inclus dans l’option d’installation minimale de Windows Server?
-ms.prod: windows-server-threshold
+description: Quels rôles et fonctionnalités sont inclus dans l’option d’installation minimale de Windows Server ?
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: 2f6aed56083bd606ae2ec06b72152ef4a0461420
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 7b5d5d5ad38b1b03e409c26485860f43799f1322
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476509"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383333"
 ---
 # <a name="roles-role-services-and-features-included-in-windows-server---server-core"></a>Rôles, services de rôle et fonctionnalités inclus dans Windows Server-Server Core
 
@@ -20,14 +20,14 @@ ms.locfileid: "68476509"
 
 Nous parlons généralement de [ce qui *n’est pas* dans Server Core](server-core-removed-roles.md) : nous allons maintenant essayer une approche différente et vous indiquer ce qui est *inclus* et si un élément est *installé par défaut*. Les rôles, services de rôle et fonctionnalités suivants se trouvent *dans* l’option d’installation Server Core de Windows Server. Utilisez ces informations pour déterminer si l’option Server Core fonctionne pour votre environnement. Étant donné qu’il s’agit d’une grande liste, pensez à rechercher le rôle ou la fonctionnalité spécifique qui vous intéresse. Si cette recherche ne retourne pas ce que vous recherchez, elle n’est pas incluse dans Server Core.
 
-Par exemple, si vous recherchez «Bureau à distance hôte de session», vous ne le trouverez pas sur cette page. Cela est dû au fait que l’hôte de session Bureau à distance n’est pas inclus dans l’image Server Core.
+Par exemple, si vous recherchez « Bureau à distance hôte de session », vous ne le trouverez pas sur cette page. Cela est dû au fait que l’hôte de session Bureau à distance n’est pas inclus dans l’image Server Core.
 
 N’oubliez pas que vous pouvez [toujours regarder](server-core-removed-roles.md) ce qui *n’est pas* inclus. Il s’agit simplement d’une autre façon d’examiner les choses.
 
 ## <a name="roles-included-in-server-core"></a>Rôles inclus dans Server Core
 L’option d’installation Server Core comprend les rôles de serveur suivants.
 
-| Rôle                                            | Name                           | Installé par défaut? |
+| Rôle                                            | Nom                           | Installé par défaut ? |
 |-------------------------------------------------|--------------------------------|-----------------------|
 | Services de certificats Active Directory           | Certificat AD                 | N                     |
 | Services de domaine Active Directory                | Services de domaine Active Directory             | N                     |
@@ -51,7 +51,7 @@ L’option d’installation Server Core comprend les rôles de serveur suivants.
 ## <a name="role-services-included-in-server-core"></a>Services de rôle inclus dans Server Core
 L’option d’installation Server Core comprend les services de rôle suivants.
 
-| Rôle                                  | Service de rôle                                                   | Nom                    | Installé par défaut? |
+| Rôle                                  | Service de rôle                                                   | Nom                    | Installé par défaut ? |
 |---------------------------------------|----------------------------------------------------------------|-------------------------|-----------------------|
 | Services de certificats Active Directory | Autorité de certification                                        | ADCS-CERT-Authority     | N                     |
 |                                       | Service Web Stratégie d’inscription de certificats                      | ADCS-inscrire-Web-pol     | N                     |
@@ -96,7 +96,7 @@ L’option d’installation Server Core comprend les services de rôle suivants.
 |                                       | Outils de journalisation                                                  | Web-bibliothèques de journaux       | N                     |
 |                                       | Journalisation ODBC                                                   | Web-ODBC-Logging        | N                     |
 |                                       | Observateur de demandes                                              | Web-requête-moniteur     | N                     |
-|                                       | Traçage                                                        | Web-traçage http        | N                     |
+|                                       | Suivi                                                        | Web-traçage http        | N                     |
 |                                       | Performances                                                    | Web-performances         | N                     |
 |                                       | Compression de contenu statique                                     | Web-stat-compression    | N                     |
 |                                       | Compression de contenu dynamique                                    | Web-dyn-compression     | N                     |
@@ -139,14 +139,14 @@ L’option d’installation Server Core comprend les services de rôle suivants.
 ## <a name="features-included-in-server-core"></a>Fonctionnalités incluses dans Server Core
 L’option d’installation Server Core comprend les fonctionnalités suivantes.
 
-| Fonctionnalité                                                | Name                               | Installé par défaut? |
+| Fonctionnalité                                                | Nom                               | Installé par défaut ? |
 |--------------------------------------------------------|------------------------------------|-----------------------|
 | Fonctionnalités de .NET Framework 3,5                            | .NET-Framework-fonctionnalités             | N                     |
 | .NET Framework 3,5 (comprend .NET 2,0 et 3,0)       | NET-Framework-Core                 | supprimé             |
 | Activation HTTP                                        | NET-HTTP-activation                | N                     |
 | Activation non-HTTP                                    | NET-non-HTTP-activable                 | N                     |
 | Fonctionnalités de .NET Framework 4,6                            | NET-Framework-45-fonctionnalités          | Y                     |
-| .NET Framework 4.6                                     | NET-Framework-45-Core              | Y                     |
+| .NET Framework 4.6                                     | NET-Framework-45-Core              | Y                     |
 | ASP.NET 4,6                                            | NET-Framework-45-ASPNET            | N                     |
 | Services WCF                                           | NET-WCF-Services45                 | Y                     |
 | Activation HTTP                                        | NET-WCF-HTTP-Activation45          | N                     |
