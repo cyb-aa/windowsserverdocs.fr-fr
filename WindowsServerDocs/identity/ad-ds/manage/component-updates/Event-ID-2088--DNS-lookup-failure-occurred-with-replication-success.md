@@ -1,24 +1,24 @@
 ---
 ms.assetid: 0fd7b6aa-3e50-45a3-a3a6-56982844363e
-title: ID d’événement 2088 - Échec de la recherche DNS s’est produite avec la réplication
+title: ID d’événement 2088-échec de la recherche DNS avec succès de la réplication
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e0c5e838290a8ebf33f0f7891dc10f8b00e5bcba
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d51cbcc93a8decbcb72a1e91854a09345507511d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442654"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368908"
 ---
-# <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>ID d’événement 2088 : Échec de la recherche DNS s’est produite avec la réplication
+# <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>ID d’événement 2088 : Échec de la recherche DNS avec succès de la réplication
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
     
     <developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd">
@@ -42,43 +42,39 @@ ms.locfileid: "66442654"
     Active Directory Domain Services successfully replicated using the NetBIOS 
     or fully qualified computer name of the source domain controller. 
 
-Configuration DNS non valide peut-être affecter les autres opérations essentielles sur les ordinateurs membres, les contrôleurs de domaine ou les serveurs d’applications dans cette forêt Active Directory Domain Services, y compris l’authentification d’ouverture de session ou l’accès aux ressources réseau. 
+Une configuration DNS non valide peut affecter les autres opérations essentielles sur les ordinateurs membres, les contrôleurs de domaine ou les serveurs d’applications de cette forêt Active Directory Domain Services, y compris l’authentification d’ouverture de session ou l’accès aux ressources réseau. 
 
-Vous devez immédiatement résoudre cette erreur de configuration DNS pour que ce contrôleur de domaine peut résoudre l’adresse IP du contrôleur de domaine source à l’aide de DNS. 
+Vous devez immédiatement résoudre cette erreur de configuration DNS afin que ce contrôleur de domaine puisse résoudre l’adresse IP du contrôleur de domaine source à l’aide de DNS. 
 
-Nom de remplacement : Nom d’hôte DC1 échec DNS : 4a8717eb-8e58-456c-995a-c92e4add7e8e._msdcs.contoso.com 
+Nom du serveur de remplacement : Échec du nom d’hôte DNS du CD1 : 4a8717eb-8e58-456c-995a-c92e4add7e8e. _ msdcs. contoso. com 
 
-REMARQUE : Par défaut, jusqu'à 10 échecs DNS sont affichées pour une période donnée de 12 heures, même si plus de 10 échecs se produisent.  Pour consigner tous les événements d’échec individuels, affectez les tests de diagnostic suivants du Registre 1 : 
+REMARQUE : Par défaut, seuls 10 échecs au maximum sont affichés pour une période de 12 heures donnée, même si plus de 10 échecs se produisent.  Pour consigner tous les événements d’échec individuels, définissez la valeur de registre de diagnostics suivante sur 1 : 
 
-Chemin d’accès du Registre : HKLM\System\CurrentControlSet\Services\NTDS\Diagnostics\22 DS RPC Client 
+Chemin du Registre : Client RPC HKLM\System\CurrentControlSet\Services\NTDS\Diagnostics\22 DS 
 
 Action de l’utilisateur : 
 
-1) Si le contrôleur de domaine source n’est plu fonctionner ou son système d’exploitation a été réinstallé avec un autre nom d’ordinateur ou NTDSDSA GUID, de l’objet supprimer les métadonnées du contrôleur de domaine source avec ntdsutil.exe, à l’aide de la procédure décrite dans l’article correctif 216498. 
+1) Si le contrôleur de domaine source n’est plus opérationnel ou que son système d’exploitation a été réinstallé avec un autre nom d’ordinateur ou GUID d’objet NTDSDSA, supprimez les métadonnées du contrôleur de domaine source avec Ntdsutil. exe, en suivant les étapes décrites dans l’article MSKB 216498. 
 
-2) Vérifiez que le contrôleur de domaine source est en cours d’exécution Active Directory et est accessible sur le réseau en tapant « net view \\ &lt;nom de contrôleur de domaine source&gt;» ou « ping &lt;nom de contrôleur de domaine source&gt;». 
+2) Vérifiez que le contrôleur de domaine source exécute Active Directory et qu’il est accessible sur le réseau en tapant « net view \\ @ no__t-1Source DC Name @ no__t-2 » ou « ping &lt;Source DC Name @ no__t-4 ». 
 
-3) Vérifiez que le contrôleur de domaine source utilise un serveur DNS valide pour les services DNS et qu’enregistrement d’hôte et l’enregistrement CNAME du contrôleur de domaine source l'enregistrement sont correctement inscrit, à l’aide de la version améliorée du DNS de DCDIAG. EXE disponible sur <https://www.microsoft.com/dns> 
+3) Vérifiez que le contrôleur de domaine source utilise un serveur DNS valide pour les services DNS et que l’enregistrement d’hôte et l’enregistrement CNAMe du contrôleur de domaine source sont correctement enregistrés, à l’aide de la version améliorée DNS de DCDIAG. EXE disponible sur <https://www.microsoft.com/dns> 
 
-DCDiag/test : DNS 
+Dcdiag/test : DNS 
 
-4) Vérifiez que ce contrôleur de domaine de destination utilise un serveur DNS valide pour les services DNS, en exécutant la version améliorée du DNS de DCDIAG. Commande EXE sur la console du contrôleur de domaine de destination, comme suit : 
+4) Vérifiez que ce contrôleur de domaine de destination utilise un serveur DNS valide pour les services DNS en exécutant la version améliorée DNS de DCDIAG. EXE sur la console du contrôleur de domaine de destination, comme suit : 
 
-DCDiag/test : DNS 
+Dcdiag/test : DNS 
 
-5) Pour une analyse plus approfondie des échecs d’erreur DNS consultez 824449 de la base de connaissances : <https://support.microsoft.com/?kbid=824449> 
+5) Pour une analyse plus poussée des échecs d’erreurs DNS, consultez KB 824449 : <https://support.microsoft.com/?kbid=824449> 
 
-Données supplémentaires Valeur d'erreur : 11004 le nom demandé est valide, mais aucune donnée du type demandé a été trouvée.</code> </introduction>
+Données supplémentaires Valeur d'erreur : 11004 le nom demandé est valide, mais aucune donnée du type demandé n’a été trouvée @ no__t-0 </introduction>
   <section>
-    <title>Diagnostic</title>
-    <content>
-      <para>Échec de résolution du nom de contrôleur de domaine source à l’aide de l’enregistrement de ressource alias (CNAME) dans DNS peut être en raison d’erreurs de configuration DNS ou des retards dans la propagation des données DNS.</para>
+    <title>Diagnosis @ no__t-1 @ no__t-2 @ no__t-3<para>L’échec de la résolution du nom du contrôleur de domaine source à l’aide de l’enregistrement de ressource alias (CNAMe) dans DNS peut être dû à des problèmes de configuration DNS ou de retards dans la propagation des données DNS.</para>
     </content>
   </section>
   <section>
-    <title>Résolution</title>
-    <content>
-      <para>Procéder au test de DNS comme décrit dans &quot; <link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">ID d’événement 2087 : Échec de la recherche DNS a provoqué l’échec des réplications</link>.&quot;</para>
+    <title>Resolution @ no__t-1 @ no__t-2 @ no__t-3<para>Effectuez les tests DNS comme décrit dans &quot; @ no__t-1Event ID 2087 : Échec de la recherche DNS entraînant l’échec de la réplication @ no__t-0. &quot;</para>
     </content>
   </section>
   <relatedTopics />

@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la sous-commande add-AllDriverPackages
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la sous-commande Add-AllDriverPackages
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f934d8c65da939fb60c564b375699f411b7c9ac
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d8290a95dd53718b200d10b6804d312abe95e257
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440834"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363888"
 ---
-# <a name="using-the-add-alldriverpackages-subcommand"></a>À l’aide de la sous-commande add-AllDriverPackages
+# <a name="using-the-add-alldriverpackages-subcommand"></a>Utilisation de la sous-commande Add-AllDriverPackages
 
 
 
-Ajoute tous les packages de pilotes qui sont stockés dans un dossier sur un serveur.
+Ajoute tous les packages de pilotes stockés dans un dossier à un serveur.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,14 +36,14 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:<Folder Path> [/Server:<Server name>]
 
 |          Paramètre           |                                                              Description                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|  / FolderPath :\<chemin d’accès de dossier >  |                      Spécifie le chemin d’accès complet au dossier qui contient les fichiers .inf pour les packages de pilotes.                      |
-|   [/ Server :\<nom du serveur >]   | Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
-|     [/ Architecture : {x86      |                                                                 ia64                                                                  |
-| [/ DriverGroup :\<nom du groupe >] |                             Spécifie le nom du groupe pilote à laquelle les packages doivent être ajoutés.                             |
+|  /FolderPath : chemin d’accès \<Folder >  |                      Spécifie le chemin d’accès complet au dossier qui contient les fichiers. inf des packages de pilotes.                      |
+|   [/Server : @no__t-nom 0Server >]   | Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
+|     [/Architecture : {x86      |                                                                 ia64                                                                  |
+| [/DriverGroup : @no__t > 0Group] |                             Spécifie le nom du groupe de pilotes auquel les packages doivent être ajoutés.                             |
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour ajouter des packages de pilotes, tapez une des opérations suivantes :
+Pour ajouter des packages de pilotes, tapez l’un des éléments suivants :
 ```
 WDSUTIL /verbose /Add-AllDriverPackages /FolderPath:"C:\Temp\Drivers" /Architecture:x86
 ```

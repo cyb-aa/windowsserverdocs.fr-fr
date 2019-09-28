@@ -7,22 +7,22 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 863e5352253d53941e64b52d1ca58d565a3aa8b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890590"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369448"
 ---
 # <a name="ad-ds-simplified-administration"></a>Administration simplifiée AD DS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique explique les fonctionnalités et les avantages du déploiement du contrôleur de domaine Windows Server 2012 et administration et les différences entre le déploiement de système d’exploitation DC précédent et la nouvelle implémentation de Windows Server 2012.  
+Cette rubrique décrit les fonctionnalités et les avantages du déploiement et de l’administration d’un contrôleur de domaine Windows Server 2012, ainsi que les différences entre le déploiement de contrôleur de domaine du système d’exploitation précédent et la nouvelle implémentation de Windows Server 2012.  
   
-Windows Server 2012 a introduit la prochaine génération d’Active Directory domaine Administration simplifiée des Services et a été la plus radicale nouvelle conception de domaine depuis Windows 2000 Server. L'administration simplifiée AD DS tire ses enseignements de douze années d'Active Directory pour créer une expérience d'administration mieux prise en charge, plus souple et plus intuitive pour les architectes et administrateurs. Cela revient à créer des versions de technologies existantes ainsi qu'à étendre les fonctions des composants fournis dans Windows Server 2008 R2.  
+Windows Server 2012 a introduit la nouvelle génération d’Active Directory Domain Services Administration simplifiée, et était la réapprovisionnement du domaine le plus radical depuis le serveur Windows 2000. L'administration simplifiée AD DS tire ses enseignements de douze années d'Active Directory pour créer une expérience d'administration mieux prise en charge, plus souple et plus intuitive pour les architectes et administrateurs. Cela revient à créer des versions de technologies existantes ainsi qu'à étendre les fonctions des composants fournis dans Windows Server 2008 R2.  
   
 L'administration simplifiée AD DS réinvente le déploiement de domaine.  
   
@@ -33,7 +33,7 @@ L'administration simplifiée AD DS réinvente le déploiement de domaine.
 - Le module Active Directory pour Windows PowerShell comprend maintenant des applets de commande pour la gestion de la topologie et de la réplication, un contrôle d'accès dynamique et d'autres opérations.  
 - Le niveau fonctionnel de forêt Windows Server 2012 n'implémente pas de nouvelles fonctionnalités et le niveau fonctionnel de domaine est requis uniquement pour un sous-ensemble de nouvelles fonctionnalités Kerberos, ce qui décharge les administrateurs du besoin fréquent d'un environnement de contrôleur de domaine homogène.  
 - Ajout de la prise en charge complète des contrôleurs de domaine virtualisés pour inclure le déploiement automatisé et la protection des restaurations.  
-   - Pour plus d’informations sur les contrôleurs de domaine virtualisés, consultez [Introduction aux Services de domaine Active Directory &#40;AD DS&#41; virtualisation &#40;niveau 100&#41;](../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md).
+   - Pour plus d’informations sur les contrôleurs de domaine virtualisés, consultez [Introduction à Active Directory Domain Services &#40;AD DS&#41;&#41; &#40;niveau de virtualisation 100](../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md).
 
 En outre, de nombreuses améliorations ont été apportées au niveau de l'administration et de la maintenance :  
 
@@ -42,7 +42,7 @@ En outre, de nombreuses améliorations ont été apportées au niveau de l'admin
 - Les comptes de service administrés de groupe prennent en charge plusieurs ordinateurs avec les mêmes principaux de sécurité.  
 - Améliorations apportées à l'émission d'identificateurs relatifs (RID, Relative Identifier) et à l'analyse pour une plus grande facilité de gestion dans les domaines Active Directory développés.  
 
-Les services AD DS tirent parti des autres nouvelles fonctionnalités incluses dans Windows Server 2012, tels que :  
+AD DS bénéfices des autres nouvelles fonctionnalités incluses dans Windows Server 2012, telles que :  
 
 - Association de cartes réseau et DCB (Data Center Bridging)  
 - Sécurité DNS et disponibilité de zone intégrée à Active Directory plus rapide après le démarrage  
@@ -64,7 +64,7 @@ Pour plus d’informations sur Adprep et la préparation de la forêt sur des sy
   
 Le Gestionnaire de serveur joue le rôle de Hub pour les tâches de gestion de serveur. Son aspect de style tableau de bord actualise régulièrement les vues des groupes de serveurs distants et rôles installés. Le Gestionnaire de serveur offre une gestion centralisée des serveurs locaux et distants, sans besoin d'accéder à la console.  
   
-Les Services de domaine Active Directory est un de ces rôles de hub ; en exécutant le Gestionnaire de serveur sur un contrôleur de domaine ou les outils d’Administration de serveur distant sur un appareil Windows 8, vous voyez des problèmes récents et importants sur les contrôleurs de domaine dans votre forêt.  
+Active Directory Domain Services est l’un de ces rôles de Hub ; en exécutant Gestionnaire de serveur sur un contrôleur de domaine ou sur le Outils d’administration de serveur distant sur un Windows 8, vous constatez des problèmes récents importants sur les contrôleurs de domaine de votre forêt.  
   
 Ces vues sont notamment les suivantes :  
   
@@ -114,7 +114,7 @@ Pour plus d’informations sur la topologie et la réplication de site AD DS, vo
 
 Active Directory Windows 2000 a introduit le maître RID, qui émet des pools d'identificateurs relatifs vers les contrôleurs de domaine pour créer des identificateurs de sécurité (SID, Security Identifier) de clients approuvés de sécurité, tels que les utilisateurs, groupes et ordinateurs.  Par défaut, cet espace RID global est limité à 2<sup>30</sup> (ou 1 073 741 823) identificateurs SID au total créés dans un domaine. Les identificateurs SID ne peuvent pas retourner au pool ni être émis à nouveau. Au fil du temps, un domaine de grande taille peut commencer à manquer d'identificateurs RID, ou des accidents peuvent aboutir à une diminution et un épuisement final des identificateurs RID inutiles.  
   
-Windows Server 2012 traite un certain nombre des problèmes de gestion et d'émission RID non abordés par les clients ni par le support technique Microsoft, car les services de domaine Active Directory ont évolué depuis la création des premiers domaines Active Directory en 1999. Par exemple :  
+Windows Server 2012 traite un certain nombre des problèmes de gestion et d'émission RID non abordés par les clients ni par le support technique Microsoft, car les services de domaine Active Directory ont évolué depuis la création des premiers domaines Active Directory en 1999. Elles incluent notamment :  
 
 - Des avertissements liés à la consommation d'identificateurs RID périodiques sont écrits dans le journal des événements.  
 - Des événements sont consignés quand un administrateur invalide un pool RID.  
@@ -173,7 +173,7 @@ Le code de préparation Active Directory auparavant hébergé dans ADprep.exe es
 > [!IMPORTANT]  
 > Il n'existe pas d'outil Adprep32.exe 32 bits pour Windows Server 2012. Vous devez disposer d'au moins un ordinateur Windows Server 2008 x64, Windows Server 2008 R2 ou Windows Server 2012 qui fonctionne en tant que contrôleur de domaine, serveur membre ou dans un groupe de travail pour préparer la forêt et le domaine. Adprep.exe ne s'exécute pas sur Windows Server 2003 x64.  
   
-## <a name="BKMK_PrereuisiteChecking"></a>La vérification des prérequis
+## <a name="BKMK_PrereuisiteChecking"></a>Vérification de la configuration requise
 
 Le système de vérification de la configuration requise intégré au code managé Windows PowerShell ADDSDeployment fonctionne dans différents modes, selon l'opération. Les tableaux ci-dessous décrivent chaque test et son utilisation, et fournissent une description du mode de validation et des éléments validés. Ces tableaux peuvent être utiles si vous rencontrez des problèmes quand la validation échoue et que l'erreur ne suffit pas à résoudre le problème.  
   
@@ -191,7 +191,7 @@ Il existe des applets de commande Windows PowerShell ADDSDeployment pour toutes 
 
 D'ordinaire, il n'est pas nécessaire d'exécuter ces applets de commande ; elles s'exécutent déjà automatiquement avec les applets de commande de déploiement par défaut.  
 
-#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>Tests de configuration requise
+#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>Tests requis
 
 ||||  
 |-|-|-|  
@@ -205,7 +205,7 @@ D'ordinaire, il n'est pas nécessaire d'exécuter ces applets de commande ; elle
 |CheckRODCPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Administrateurs de l'entreprise et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
 |VerifyInitSync<br /><br />AfterReboot|LDAP|Valide que le contrôleur de schéma a été répliqué au moins une fois depuis son redémarrage en définissant une valeur factice sur l'attribut rootDSE becomeSchemaMaster|  
 |VerifySFUHotFix<br /><br />Applied|LDAP|Valide que le schéma de la forêt existant ne contient pas l'extension SFU2 de problème connu pour l'attribut UID avec l'OID 1.2.840.113556.1.4.7000.187.102<br /><br />([https://support.microsoft.com/kb/821732](https://support.microsoft.com/kb/821732))|  
-|VerifyExchange<br /><br />SchemaFixed|LDAP, WMI, DCOM, RPC|Valider la forêt existante n’est pas le cas du schéma contiennent toujours problème Exchange 2000 extensions ms-Exch-Assistant-Name, ms-Exch-LabeledURI et ms-Exch-House-Identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649))|  
+|VerifyExchange<br /><br />SchemaFixed|LDAP, WMI, DCOM, RPC|Valide que le schéma de la forêt existant ne contient pas encore les extensions Exchange 2000 extensions ms-Exch-Assistant-Name, ms-Exch-LabeledURI et ms-Exch-House-identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649))|  
 |VerifyWin2KSchema<br /><br />Consistency|LDAP|Valide que le schéma de la forêt existant a des attributs et classes de base cohérents (qui ne sont pas modifiés de façon incorrecte par un tiers).|  
 |DCPromo|DRSR sur RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC sur SMB (SAMR)|Valide la syntaxe de ligne de commande passée au code de promotion et à la promotion de test. Valide que la forêt ou le domaine n'existe pas déjà si vous en créez un.|  
 |VerifyOutbound<br /><br />ReplicationEnabled|LDAP, DRSR sur SMB, RPC sur SMB (LSARPC)|Valide que la réplication sortante du contrôleur de domaine existant spécifié comme partenaire de réplication est activée en vérifiant l'attribut des options de l'objet Paramètres NTDS pour NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004)|  

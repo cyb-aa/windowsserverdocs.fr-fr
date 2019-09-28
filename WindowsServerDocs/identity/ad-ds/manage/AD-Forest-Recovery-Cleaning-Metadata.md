@@ -1,51 +1,51 @@
 ---
-title: Récupération de forêt AD - nettoyage des métadonnées des contrôleurs de domaine supprimé
+title: Récupération de la forêt Active Directory-nettoyage des métadonnées des contrôleurs de domaine supprimés
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: e7543381-4081-407f-adad-a9de792c6616
 ms.technology: identity-adds
-ms.openlocfilehash: b71cab51a362a96ab6071e5eed3cf31c4421041c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cc41170051e55fbaeca048ac587ecd3351cd53ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843040"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369267"
 ---
-# <a name="ad-forest-recovery---cleaning-metadata-of-removed-writable-domain-controllers"></a>Récupération de forêt AD - nettoyage des métadonnées des contrôleurs de domaine accessible en écriture supprimés
+# <a name="ad-forest-recovery---cleaning-metadata-of-removed-writable-domain-controllers"></a>Récupération de la forêt Active Directory-nettoyage des métadonnées des contrôleurs de domaine accessibles en écriture supprimés
 
 >S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
-Nettoyage des métadonnées supprime les données Active Directory identifiant un contrôleur de domaine pour le système de réplication.  
+Le nettoyage des métadonnées supprime Active Directory données qui identifient un contrôleur de réseau dans le système de réplication.  
 
-Utilisez la procédure suivante pour supprimer les objets de contrôleur de domaine pour les contrôleurs de domaine que vous souhaitez ajouter au réseau en réinstallant les services AD DS.  
+Utilisez la procédure suivante pour supprimer les objets DC pour les contrôleurs de réseau que vous envisagez de rajouter au réseau en réinstallant AD DS.  
   
-Si vous utilisez la version d’Active Directory Users and Computers, ou les Sites Active Directory et les Services qui est inclus les outils d’Administration de serveur distant (RSAT), le nettoyage des métadonnées est effectué automatiquement lorsque vous supprimez un objet de contrôleur de domaine.  
+Si vous utilisez la version de Active Directory utilisateurs et ordinateurs ou Active Directory sites et services inclus Outils d’administration de serveur distant (RSAT), le nettoyage des métadonnées s’effectue automatiquement lorsque vous supprimez un objet DC.  
 
-## <a name="deleting-a-domain-controller-using-active-directory-users-and-computers"></a>Suppression d’un contrôleur de domaine à l’aide d’Active Directory Users and Computers
+## <a name="deleting-a-domain-controller-using-active-directory-users-and-computers"></a>Suppression d’un contrôleur de domaine à l’aide d’utilisateurs et d’ordinateurs Active Directory
 
-Lorsque vous utilisez la version d’Active Directory utilisateurs et ordinateurs ou centre d’administration Active Directory dans Server Administration outils distant (RSAT), le nettoyage des métadonnées est effectué automatiquement lorsque vous supprimez l’objet contrôleur de domaine. L’objet serveur et l’objet ordinateur sont également supprimés automatiquement.  
+Lorsque vous utilisez la version de Active Directory utilisateurs et ordinateurs ou Centre d’administration Active Directory dans Outils d’administration de serveur distant (RSAT), le nettoyage des métadonnées s’effectue automatiquement lorsque vous supprimez l’objet DC. L’objet serveur et l’objet ordinateur sont également supprimés automatiquement.  
 
-Comme alternative, vous pouvez également utiliser les Services et les Sites Active Directory dans RSAT pour supprimer un objet de contrôleur de domaine. Si vous utilisez des Services et Sites Active Directory, vous devez supprimer l’objet de serveur associé et d’un objet Paramètres NTDS avant de pouvoir supprimer l’objet contrôleur de domaine.  
+Vous pouvez également utiliser Active Directory sites et services dans les outils d’aide à la fois pour supprimer un objet DC. Si vous utilisez des sites et des services Active Directory, vous devez supprimer l’objet serveur et les paramètres NTDS associés avant de pouvoir supprimer l’objet DC.  
 
-Pour plus d’informations sur l’installation de serveur distant, consultez l’article [outils d’Administration de serveur distant](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
+Pour plus d’informations sur l’installation de RSAT, consultez l’article [Outils d’administration de serveur distant](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
   
-La procédure suivante est la même pour les contrôleurs de domaine qui exécutent soit Windows Server 2016, 2012, 2008 R2 ou 2008. La contrôleur de domaine cible de l’opération de nettoyage des métadonnées peut exécuter n’importe quelle version de Windows Server.  
+La procédure suivante est la même pour les contrôleurs de code qui exécutent Windows Server 2016, 2012, 2008 R2 ou 2008. Le contrôleur de service cible de l’opération de nettoyage des métadonnées peut exécuter n’importe quelle version de Windows Server.  
   
-### <a name="to-delete-a-domain-controller-object-using-active-directory-users-and-computers-in-rsat"></a>Pour supprimer un objet de contrôleur de domaine à l’aide d’Active Directory Users and Computers dans RSAT  
+### <a name="to-delete-a-domain-controller-object-using-active-directory-users-and-computers-in-rsat"></a>Pour supprimer un objet de contrôleur de domaine à l’aide d’Active Directory utilisateurs et ordinateurs dans RSAT  
   
 1. Cliquez sur **Démarrer**, **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**.  
-2. Dans l’arborescence de la console, double-cliquez sur le conteneur de domaine, puis double-cliquez sur le **contrôleurs de domaine** unité d’organisation (UO).  
-3. Dans le volet de détails, cliquez sur le contrôleur de domaine que vous souhaitez supprimer, puis cliquez sur **supprimer**.
+2. Dans l’arborescence de la console, double-cliquez sur le conteneur de domaine, puis double-cliquez sur l’unité d’organisation des **contrôleurs de domaine** .  
+3. Dans le volet d’informations, cliquez avec le bouton droit sur le contrôleur de périphérique que vous souhaitez supprimer, puis cliquez sur **supprimer**.
    ![Supprimer](media/AD-Forest-Recovery-Cleaning-Metadata/delete1.png) 
-4. Cliquez sur **Oui** pour confirmer la suppression. Sélectionnez le **ce contrôleur de domaine est définitivement hors connexion et ne peut plus être rétrogradé à l’aide de l’Assistant Installation Services Directory domaine (DCPROMO) Active** case à cocher et cliquez sur **supprimer**.  
-5. Si le contrôleur de domaine était un serveur de catalogue global, cliquez sur **Oui** Vérifiez que la suppression.  
+4. Cliquez sur **Oui** pour confirmer la suppression. Sélectionnez le **contrôleur de domaine est définitivement hors connexion et ne peut plus être rétrogradé à l’aide de la case à cocher Assistant Installation Active Directory Domain Services (dcpromo)** , puis cliquez sur **supprimer**.  
+5. Si le contrôleur de périphérique était un serveur de catalogue global, cliquez sur **Oui** pour confirmer la suppression.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide de la forêt Active Directory](AD-Forest-Recovery-Guide.md)
-- [Récupération de forêt AD - procédures](AD-Forest-Recovery-Procedures.md)
+- [Guide de récupération de la forêt Active Directory](AD-Forest-Recovery-Guide.md)
+- [Récupération de la forêt Active Directory : procédures](AD-Forest-Recovery-Procedures.md)

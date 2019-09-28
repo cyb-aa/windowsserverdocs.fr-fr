@@ -1,8 +1,8 @@
 ---
 title: tsdiscon
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1b5fca329864ebed9eab66671a17493f0fc3ca8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 577ff8ee672583b85c907642bd21256124aa8034
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369869"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Déconnecte une session à partir d’un serveur hôte de Session Bureau à distance (hôte de Session Bureau à distance).
-Pour obtenir des exemples montrant comment utiliser cette commande, consultez [exemples](#BKMK_examples).
+Déconnecte une session d’un serveur hôte de session Bureau à distance (hôte de session Bureau à distance).
+Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 
 > [!NOTE]
-> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour savoir quelles sont les nouveautés dans la version la plus récente, consultez [les nouveautés des Services Bureau à distance dans Windows Server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -39,20 +39,20 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 
 |Paramètre|Description|
 |-------|--------|
-|\<SessionId>|Spécifie l’ID de la session à déconnecter.|
-|\<SessionName>|Spécifie le nom de la session à déconnecter.|
-|/ Server :\<nom_serveur >|Spécifie le serveur terminal server qui contient la session que vous souhaitez déconnecter. Sinon, le serveur hôte de Session Bureau à distance en cours est utilisé.|
+|@no__t 0SessionId >|Spécifie l’ID de la session à déconnecter.|
+|@no__t 0SessionName >|Spécifie le nom de la session à déconnecter.|
+|/Server : \<ServerName >|Spécifie le serveur Terminal Server qui contient la session que vous souhaitez déconnecter. Dans le cas contraire, le serveur hôte de session Bureau à distance actuel est utilisé.|
 |/v|Affiche des informations sur les actions en cours d’exécution.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
--   Vous devez avoir l’autorisation contrôle total ou déconnecter l’autorisation d’accès spécial pour déconnecter un autre utilisateur d’une session.
--   Si aucun ID de session ou le nom de la session n’est spécifié, **tsdiscon** déconnecte la session en cours.
--   Toutes les applications qui étaient en cours d’exécution lorsque vous a déconnecté la session sont exécutent automatiquement lorsque vous vous reconnectez à la session sans perte de données. Utilisez **réinitialiser la session** pour mettre fin à l’exécution des applications de la session déconnectée, mais sachez que cela peut provoquer une perte de données lors de la session.
--   Le **/server** paramètre est obligatoire uniquement si vous utilisez **tsdiscon** à partir d’un serveur distant.
--   La session de console ne peut pas être déconnectée.
+-   Vous devez disposer de l’autorisation contrôle total ou déconnecter l’autorisation accès spécial pour déconnecter un autre utilisateur d’une session.
+-   Si aucun ID de session ou nom de session n’est spécifié, **tsdiscon** déconnecte la session active.
+-   Toutes les applications qui étaient en cours d’exécution lors de la déconnexion de la session sont exécutées automatiquement lorsque vous vous reconnectez à cette session sans perte de données. Utilisez la **session de réinitialisation** pour mettre fin aux applications en cours d’exécution de la session déconnectée, mais sachez que cela peut entraîner une perte de données au niveau de la session.
+-   Le paramètre **/Server** est requis uniquement si vous utilisez **tsdiscon** à partir d’un serveur distant.
+-   Impossible de déconnecter la session de la console.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 - Pour déconnecter la session active, tapez :
   ```
   tsdiscon
@@ -66,5 +66,5 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
   tsdiscon TERM04
   ```
   #### <a name="additional-references"></a>Références supplémentaires
-  [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
-  [des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)
+  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+  [ &#40;services Bureau à distance&#41; référence des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
