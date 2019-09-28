@@ -1,7 +1,7 @@
 ---
 title: Carte réseau convergée dans une configuration de carte réseau en collaboration (Datacenter)
 description: Dans cette rubrique, nous vous fournissons des instructions pour déployer une carte réseau convergée dans une configuration de carte réseau associée à l’aide de switch Embedded Teaming (SET).
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: f01546f8-c495-4055-8492-8806eee99862
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/17/2018
-ms.openlocfilehash: 8229b72d69968d3690ece87d5116b215bdf78a08
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e4c305a7c8c4c4618b0df1e1b2a646356d8f821f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869870"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356119"
 ---
 # <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>Carte réseau convergée dans une configuration de carte réseau en collaboration (Datacenter)
 
@@ -26,7 +26,7 @@ L’exemple de configuration de cette rubrique décrit deux hôtes Hyper-V, l' *
 
 ![Ordinateurs hôtes Hyper-V](../../media/Converged-NIC/1-datacenter-test-conn.jpg)
 
-## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Étape 1. Tester la connectivité entre la source et la destination
+## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Étape 1. Tester la connectivité entre la source et la destination
 
 Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôte de destination.  Ce test illustre la connectivité à l’aide \(de\) la couche 3 (L3) ou de la couche IP, \(ainsi que du réseau local virtuel\)(VLAN) de réseaux \(locaux L2\) de couche 2.
 
@@ -39,7 +39,7 @@ Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôt
    _**About**_
 
 
-   |    Nom    |           InterfaceDescription           | ifIndex | Statut |    macAddress     | LinkSpeed |
+   |    Nom    |           InterfaceDescription           | IfIndex | Statut |    macAddress     | LinkSpeed |
    |------------|------------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-1 | Adaptateur Ethernet Mellanox ConnectX-3 Pro |   11    |   Up (Haut)   | E4-1D-2D-07-43-D0 |  40 Gbits/s  |
 
@@ -57,10 +57,10 @@ Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôt
 
    |   Paramètre    |    Value    |
    |----------------|-------------|
-   |   IPAddress    | 192.168.1.3 |
+   |   AdresseIP    | 192.168.1.3 |
    | InterfaceIndex |     11      |
    | InterfaceAlias | Test-40G-1  |
-   | AddressFamily  |    IPv4     |
+   | AddressFamily  |    IPv4/IPv6     |
    |      Type      |   Monodiffusion   |
    |  PrefixLength  |     24      |
 
@@ -75,7 +75,7 @@ Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôt
    _**About**_
 
 
-   |    Nom    |          InterfaceDescription           | ifIndex | Statut |    macAddress     | LinkSpeed |
+   |    Nom    |          InterfaceDescription           | IfIndex | Statut |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | TEST-40G-2 | Mellanox ConnectX-3 Ethernet Pro A... #2 |   13    |   Up (Haut)   | E4-1D-2D-07-40-70 |  40 Gbits/s  |
 
@@ -93,10 +93,10 @@ Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôt
 
    |   Paramètre    |    Value    |
    |----------------|-------------|
-   |   IPAddress    | 192.168.2.3 |
+   |   AdresseIP    | 192.168.2.3 |
    | InterfaceIndex |     13      |
    | InterfaceAlias | TEST-40G-2  |
-   | AddressFamily  |    IPv4     |
+   | AddressFamily  |    IPv4/IPv6     |
    |      Type      |   Monodiffusion   |
    |  PrefixLength  |     24      |
 
@@ -105,7 +105,7 @@ Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôt
 5. Vérifiez que les autres associations de cartes réseau ou définir le membre pNICs ont une adresse IP valide.<p>Utilisez un sous-réseau \(distinct, xxx.xxx. **2**. xxx vs xxx.xxx. **1**. xxx\), pour faciliter l’envoi à partir de cet adaptateur vers la destination. Dans le cas contraire, si vous localisez les deux pNICs sur le même sous-réseau, la charge de la pile TCP/IP de Windows équilibre entre les interfaces et la validation simple devient plus complexe.
 
 
-## <a name="step-2-ensure-that-source-and-destination-can-communicate"></a>Étape 2. S’assurer que la source et la destination peuvent communiquer
+## <a name="step-2-ensure-that-source-and-destination-can-communicate"></a>Étape 2. S’assurer que la source et la destination peuvent communiquer
 
 Dans cette étape, nous utilisons la commande **test-NetConnection** Windows PowerShell, mais si vous le souhaitez, vous pouvez utiliser la commande **ping** . 
 
@@ -178,7 +178,7 @@ Dans cette étape, nous utilisons la commande **test-NetConnection** Windows Pow
 
    ---
 
-## <a name="step-3-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Étape 3. Configuration des ID de réseau local virtuel pour les cartes réseau installées dans vos ordinateurs hôtes Hyper-V
+## <a name="step-3-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Étape 3. Configuration des ID de réseau local virtuel pour les cartes réseau installées dans vos ordinateurs hôtes Hyper-V
 
 De nombreuses configurations réseau utilisent des réseaux locaux virtuels. Si vous envisagez d’utiliser des réseaux locaux virtuels dans votre réseau, vous devez répéter le test précédent avec des réseaux locaux virtuels configurés.
 
@@ -207,7 +207,7 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, c
    _**About**_   
 
 
-   |    Name    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |    Nom    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
    |------------|-------------|--------------|-----------------|---------------|
    | TEST-40G-1 |   ID du réseau local virtuel   |     101      |     VlanID      |     {101}     |
 
@@ -228,7 +228,7 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, c
    _**About**_
 
 
-   |    Nom    |          InterfaceDescription           | ifIndex | Statut |    macAddress     | LinkSpeed |
+   |    Nom    |          InterfaceDescription           | IfIndex | Statut |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-1 | Mellanox ConnectX-3 Pro Ethernet Ada... |   11    |   Up (Haut)   | E4-1D-2D-07-43-D0 |  40 Gbits/s  |
 
@@ -265,7 +265,7 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, c
    _**About**_
 
 
-   |    Name    |          InterfaceDescription           | ifIndex | Statut |    macAddress     | LinkSpeed |
+   |    Nom    |          InterfaceDescription           | IfIndex | Statut |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-2 | Mellanox ConnectX-3 Pro Ethernet Ada... |   11    |   Up (Haut)   | E4-1D-2D-07-43-D1 |  40 Gbits/s  |
 
@@ -325,7 +325,7 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, c
    ![Configurer la qualité de service](../../media/Converged-NIC/3-datacenter-configure-qos.jpg)
 
 
-## <a name="step-4-configure-quality-of-service-qos"></a>Étape 4. Configurer la qualité de \(service (QoS)\)
+## <a name="step-4-configure-quality-of-service-qos"></a>Étape 4. Configurer la qualité de \(service (QoS)\)
 
 >[!NOTE]
 >Vous devez effectuer toutes les étapes de configuration DCB et QoS suivantes sur tous les ordinateurs hôtes qui sont destinés à communiquer entre eux.
@@ -364,7 +364,7 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, c
 
    |   Paramètre    |          Value           |
    |----------------|--------------------------|
-   |      Name      |           SMB            |
+   |      Nom      |           SMB            |
    |     Propriétaire      | Ordinateur \(stratégie de groupe\) |
    | NetworkProfile |           Tous            |
    |   Priorité   |           127            |
@@ -412,7 +412,7 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, c
    |    2     |  False  |  Global   | &nbsp;  | &nbsp;  |
    |    3     |  True   |  Global   | &nbsp;  | &nbsp;  |
    |    4     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    5\.     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    5     |  False  |  Global   | &nbsp;  | &nbsp;  |
    |    6\.     |  False  |  Global   | &nbsp;  | &nbsp;  |
    |    7     |  False  |  Global   | &nbsp;  | &nbsp;  |
 
@@ -442,7 +442,7 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, c
    |      Paramètre      |   Matériel   |   Actuelle    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Aucun     |     Aucun     |
+   |     DcbxSupport     |     Aucune     |     Aucune     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -486,7 +486,7 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, c
    |      Paramètre      |   Matériel   |   Actuelle    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Aucun     |     Aucun     |
+   |     DcbxSupport     |     Aucune     |     Aucune     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -730,9 +730,9 @@ L’illustration suivante montre l’hôte 1 Hyper-V avec un vSwitch.
    _**Venir**_
 
 
-   |  Name   | SwitchType | Paramètre netadapterinterfacedescription |
+   |  Nom   | SwitchType | Paramètre netadapterinterfacedescription |
    |---------|------------|--------------------------------|
-   | VMSTEST |  Ressource externe  |        Association-interface        |
+   | VMSTEST |  Externe  |        Association-interface        |
 
    ---
 
@@ -776,7 +776,7 @@ L’illustration suivante montre l’hôte 1 Hyper-V avec un vSwitch.
    _**About**_
 
 
-   |  Name   | IsManagementOs | VMName  |  SwitchName  | macAddress | Statut | AdressesIP |
+   |  Nom   | IsManagementOs | VMName  |  SwitchName  | macAddress | Statut | AdressesIP |
    |---------|----------------|---------|--------------|------------|--------|-------------|
    | VMSTEST |      True      | VMSTEST | E41D2D074071 |    OK    | &nbsp; |             |
 
@@ -941,7 +941,7 @@ L’illustration suivante montre l’état actuel de vos ordinateurs hôtes Hype
    _**About**_ 
 
 
-   |         Name         | IsManagementOs |        VMName        |  SwitchName  | macAddress | Statut | AdressesIP |
+   |         Nom         | IsManagementOs |        VMName        |  SwitchName  | macAddress | Statut | AdressesIP |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
    | CORP-External-Switch |      True      | CORP-External-Switch | 001B785768AA |    OK    | &nbsp; |             |
    |         Magasin          |      True      |       VMSTEST        | E41D2D074071 |    OK    | &nbsp; |             |

@@ -2,44 +2,44 @@
 title: Vue d’ensemble des stratégies DNS
 description: Cette rubrique fait partie du Guide de scénario de stratégie DNS pour Windows Server 2016
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 566bc270-81c7-48c3-a904-3cba942ad463
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 687864619c981b3ab8d24ef540c759bc29314c90
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 613bb7f43b382389dc0db953a48668147cfaee88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544662"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356045"
 ---
 # <a name="dns-policies-overview"></a>Vue d’ensemble des stratégies DNS
 
 >S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour en savoir plus sur la stratégie DNS, qui est une nouveauté de Windows Server 2016. Vous pouvez utiliser la stratégie DNS pour la gestion du trafic basée sur la géolocalisation, les réponses DNS intelligentes en fonction de l’heure de la journée,\-pour gérer un serveur DNS unique configuré pour le déploiement split brain, l’application de filtres sur les requêtes DNS, etc. Les éléments suivants fournissent plus de détails sur ces fonctionnalités.
+Vous pouvez utiliser cette rubrique pour en savoir plus sur la stratégie DNS, qui est une nouveauté de Windows Server 2016. Vous pouvez utiliser la stratégie DNS pour la gestion du trafic basée sur la géolocalisation, les réponses DNS intelligentes en fonction de l’heure de la journée, pour gérer un serveur DNS unique configuré pour le déploiement Split @ no__t-0brain, l’application de filtres sur les requêtes DNS, etc. Les éléments suivants fournissent plus de détails sur ces fonctionnalités.
 
 -   **Équilibrage de charge de l’application.** Lorsque vous avez déployé plusieurs instances d’une application à différents emplacements, vous pouvez utiliser la stratégie DNS pour équilibrer la charge du trafic entre les différentes instances d’application, en allouant de manière dynamique la charge du trafic pour l’application.
 
--   **Gestion\-du trafic basée sur l’emplacement géographique.** Vous pouvez utiliser une stratégie DNS pour permettre aux serveurs DNS principaux et secondaires de répondre aux requêtes du client DNS en fonction de l’emplacement géographique du client et de la ressource à laquelle le client tente de se connecter, en fournissant au client l’adresse IP la plus proche. ressource. 
+-   **La gestion du trafic basée sur la géo-no__t-1Location.** Vous pouvez utiliser une stratégie DNS pour permettre aux serveurs DNS principaux et secondaires de répondre aux requêtes du client DNS en fonction de l’emplacement géographique du client et de la ressource à laquelle le client tente de se connecter, en fournissant au client l’adresse IP la plus proche. ressource. 
 
--   **Fractionnement du DNS Brain.** Avec le\-DNS split brain, les enregistrements DNS sont répartis en différentes étendues de zones sur le même serveur DNS, et les clients DNS reçoivent une réponse selon que les clients sont des clients internes ou externes. Vous pouvez configurer le\-DNS split brain pour Active Directory zones intégrées ou pour des zones sur des serveurs DNS autonomes.
+-   **Fractionnement du DNS Brain.** Avec le DNS split @ no__t-0brain, les enregistrements DNS sont répartis en différentes étendues de zones sur le même serveur DNS, et les clients DNS reçoivent une réponse selon que les clients sont des clients internes ou externes. Vous pouvez configurer le service DNS split @ no__t-0brain pour Active Directory zones intégrées ou pour les zones sur des serveurs DNS autonomes.
 
 -   **Filtration.** Vous pouvez configurer une stratégie DNS pour créer des filtres de requête basés sur des critères que vous fournissez. Les filtres de requête dans la stratégie DNS vous permettent de configurer le serveur DNS pour qu’il réponde de manière personnalisée en fonction de la requête DNS et du client DNS qui envoie la requête DNS. 
--   **Investigation.** Vous pouvez utiliser une stratégie DNS pour rediriger les clients DNS malveillants\-vers une adresse IP inexistante au lieu de les rediriger vers l’ordinateur auquel ils essaient d’accéder.
+-   **Investigation.** Vous pouvez utiliser une stratégie DNS pour rediriger les clients DNS malveillants vers une adresse IP non-no__t-0existent au lieu de les rediriger vers l’ordinateur auquel ils essaient d’accéder.
 
 -   **Redirection basée sur l’heure de la journée.** Vous pouvez utiliser une stratégie DNS pour distribuer le trafic d’application sur différentes instances géographiquement distribuées d’une application à l’aide de stratégies DNS basées sur l’heure de la journée.
 
 ## <a name="new-concepts"></a>Nouveaux concepts  
-Pour créer des stratégies pour prendre en charge les scénarios mentionnés ci-dessus, il est nécessaire de pouvoir identifier des groupes d’enregistrements dans une zone, des groupes de clients sur un réseau, entre autres éléments. Ces éléments sont représentés par les nouveaux objets DNS suivants:  
+Pour créer des stratégies pour prendre en charge les scénarios mentionnés ci-dessus, il est nécessaire de pouvoir identifier des groupes d’enregistrements dans une zone, des groupes de clients sur un réseau, entre autres éléments. Ces éléments sont représentés par les nouveaux objets DNS suivants :  
 
-- **Sous-réseau client:** un objet sous-réseau client représente un sous-réseau IPv4 ou IPv6 à partir duquel les requêtes sont envoyées à un serveur DNS. Vous pouvez créer des sous-réseaux pour définir ultérieurement les stratégies à appliquer en fonction du sous-réseau d’où proviennent les demandes. Par exemple, dans un scénario DNS split brain, la demande de résolution d’un nom tel que <em>www.Microsoft.com</em> peut recevoir une réponse avec une adresse IP interne aux clients à partir de sous-réseaux internes, et une adresse IP différente aux clients dans les sous-réseaux externes.
+- **Sous-réseau client :** un objet sous-réseau client représente un sous-réseau IPv4 ou IPv6 à partir duquel les requêtes sont envoyées à un serveur DNS. Vous pouvez créer des sous-réseaux pour définir ultérieurement les stratégies à appliquer en fonction du sous-réseau d’où proviennent les demandes. Par exemple, dans un scénario DNS split brain, la demande de résolution d’un nom tel que <em>www.Microsoft.com</em> peut recevoir une réponse avec une adresse IP interne aux clients à partir de sous-réseaux internes, et une adresse IP différente aux clients dans les sous-réseaux externes.
 
-- **Étendue de récursivité:** les étendues de récurrence sont des instances uniques d’un groupe de paramètres qui contrôlent la récursivité sur un serveur DNS. Une étendue de récurrence contient une liste de redirecteurs et spécifie si la récursivité est activée. Un serveur DNS peut avoir de nombreuses étendues de récursivité. Les stratégies de récurrence de serveur DNS vous permettent de choisir une étendue de récurrence pour un ensemble de requêtes. Si le serveur DNS ne fait pas autorité pour certaines requêtes, les stratégies de récurrence du serveur DNS vous permettent de contrôler la façon de résoudre ces requêtes. Vous pouvez spécifier les redirecteurs à utiliser et s’il faut utiliser la récursivité.
+- **Étendue de récursivité :** les étendues de récurrence sont des instances uniques d’un groupe de paramètres qui contrôlent la récursivité sur un serveur DNS. Une étendue de récurrence contient une liste de redirecteurs et spécifie si la récursivité est activée. Un serveur DNS peut avoir de nombreuses étendues de récursivité. Les stratégies de récurrence de serveur DNS vous permettent de choisir une étendue de récurrence pour un ensemble de requêtes. Si le serveur DNS ne fait pas autorité pour certaines requêtes, les stratégies de récurrence du serveur DNS vous permettent de contrôler la façon de résoudre ces requêtes. Vous pouvez spécifier les redirecteurs à utiliser et s’il faut utiliser la récursivité.
 
-- **Étendues de zone:** une zone DNS peut avoir plusieurs étendues de zone, chaque étendue contenant son propre ensemble d’enregistrements DNS. Le même enregistrement peut être présent dans plusieurs étendues, avec des adresses IP différentes. En outre, les transferts de zone sont effectués au niveau de l’étendue de la zone. Cela signifie que les enregistrements d’une étendue de zone dans une zone principale sont transférés vers la même étendue de zone dans une zone secondaire.
+- **Étendues de zone :** une zone DNS peut avoir plusieurs étendues de zone, chaque étendue contenant son propre ensemble d’enregistrements DNS. Le même enregistrement peut être présent dans plusieurs étendues, avec des adresses IP différentes. En outre, les transferts de zone sont effectués au niveau de l’étendue de la zone. Cela signifie que les enregistrements d’une étendue de zone dans une zone principale sont transférés vers la même étendue de zone dans une zone secondaire.
 
 ## <a name="types-of-policy"></a>Types de stratégie
 
@@ -47,7 +47,7 @@ Les stratégies DNS sont divisées par niveau et par type. Vous pouvez utiliser 
 
 ### <a name="query-resolution-policies"></a>Stratégies de résolution des requêtes
 
-Vous pouvez utiliser des stratégies de résolution de requêtes DNS pour spécifier la façon dont les requêtes de résolution entrantes sont gérées par un serveur DNS. Chaque stratégie de résolution de requête DNS contient les éléments suivants:  
+Vous pouvez utiliser des stratégies de résolution de requêtes DNS pour spécifier la façon dont les requêtes de résolution entrantes sont gérées par un serveur DNS. Chaque stratégie de résolution de requête DNS contient les éléments suivants :  
 
 |Champ|Description|Valeurs possibles|  
 |---------|---------------|-------------------|  
@@ -62,20 +62,20 @@ Vous pouvez utiliser des stratégies de résolution de requêtes DNS pour spéci
 > [!NOTE]
 > Les stratégies au niveau du serveur peuvent uniquement avoir les valeurs **Deny** ou **ignore** comme action.
 
-Le champ de critères de stratégie DNS est composé de deux éléments:
+Le champ de critères de stratégie DNS est composé de deux éléments :
 
 
 |              Nom               |                                         Description                                          |                                                                                                                               Exemples de valeurs                                                                                                                               |
 |---------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        **Sous-réseau client**        | Nom d’un sous-réseau client prédéfini. Utilisé pour vérifier le sous-réseau à partir duquel la requête a été envoyée. |                             -   **EQ, Espagne, France** : correspond à true si le sous-réseau est identifié comme Espagne ou France<br />-   N **, Canada, Mexique** -résout la valeur true si le sous-réseau client est un sous-réseau autre que le Canada et le Mexique                             |
+|        **Sous-réseau client**        | Nom d’un sous-réseau client prédéfini. Utilisé pour vérifier le sous-réseau à partir duquel la requête a été envoyée. |                             -   **EQ, Espagne, France** -correspond à true si le sous-réseau est identifié comme Espagne ou France<br />-    **, Canada, Mexique** -résout la valeur true si le sous-réseau client est un sous-réseau autre que le Canada et le Mexique                             |
 |     **Protocole de transport**      |        Protocole de transport utilisé dans la requête. Les entrées possibles sont **UDP** et **TCP**        |                                                                                                                    -   **EQ, TCP**<br />-   **EQ, UDP**                                                                                                                     |
 |      **Protocole Internet**      |        Protocole réseau utilisé dans la requête. Les entrées possibles sont **IPv4** et **IPv6**        |                                                                                                                   -   **EQ, IPv4**<br />-   **EQ, IPv6**                                                                                                                    |
 | **Adresse IP de l’interface serveur** |                   Adresse IP de l’interface réseau du serveur DNS entrant                   |                                                                                                              -   **EQ, 10.0.0.1**<br />-   **EQ, 192.168.1.1**                                                                                                              |
-|            **DOMAINE COMPLET**             |            Nom de domaine complet de l’enregistrement dans la requête, avec la possibilité d’utiliser un caractère générique            | -   **EQ, www. contoso. com** : prend la valeur true uniquement si la requête tente de résoudre le nom de domaine complet <em>www.contoso.com</em><br />-   **EQ,\*. contoso.com,\*. woodgrove.com** : prend la valeur true si la requête concerne un enregistrement se terminant par *contoso.com***ou***Woodgrove.com* |
-|         **Type de requête**          |                          Type d’enregistrement interrogé (A, SRV, TXT)                          |                                                  -   **EQ, txt, SRV** : renvoie la valeur true si la requête demande un enregistrement txt **ou** SRV<br />-   **EQ, MX** : prend la valeur true si la requête demande un enregistrement MX.                                                   |
+|            **DOMAINE COMPLET**             |            Nom de domaine complet de l’enregistrement dans la requête, avec la possibilité d’utiliser un caractère générique            | -   **EQ, www. contoso. com** : prend la valeur true uniquement si la requête tente de résoudre le nom de domaine complet <em>www.contoso.com</em><br />-   **EQ, \*.contoso.com, \*.woodgrove.com** -se résout en true si la requête concerne un enregistrement se terminant par *contoso.com***ou***Woodgrove.com* |
+|         **Type de requête**          |                          Type d’enregistrement interrogé (A, SRV, TXT)                          |                                                  -   **EQ, txt, SRV** -correspond à true si la requête demande un enregistrement txt **ou** SRV<br />-   **EQ, MX** -correspond à true si la requête demande un enregistrement MX                                                   |
 |         **Heure de la journée**         |                              Heure à laquelle la requête est reçue                               |                                                                    -   **EQ, 10:00-12:00, 22:00-23:00** -correspond à true si la requête est reçue entre 10 heures et midi, **ou** entre 22h00 et 23 h 00                                                                    |
 
-En utilisant le tableau ci-dessus comme point de départ, le tableau ci-dessous peut être utilisé pour définir un critère utilisé pour faire correspondre des requêtes pour tout type d’enregistrement, mais des enregistrements SRV dans le domaine contoso.com provenant d’un client dans le sous-réseau 10.0.0.0/24 via TCP entre 8 et 10 h 00. nterface 10.0.0.3:  
+En utilisant le tableau ci-dessus comme point de départ, le tableau ci-dessous peut être utilisé pour définir un critère utilisé pour faire correspondre des requêtes pour tout type d’enregistrement, mais des enregistrements SRV dans le domaine contoso.com provenant d’un client dans le sous-réseau 10.0.0.0/24 via TCP entre 8 et 10 h 00. nterface 10.0.0.3 :  
 
 |Nom|Value|  
 |--------|---------|  
@@ -86,7 +86,7 @@ En utilisant le tableau ci-dessus comme point de départ, le tableau ci-dessous 
 |Type de requête|NE, SRV|  
 |Heure de la journée|EQ, 20:00-22:00|  
 
-Vous pouvez créer plusieurs stratégies de résolution de requêtes du même niveau, à condition qu’elles aient une valeur différente pour l’ordre de traitement. Lorsque plusieurs stratégies sont disponibles, le serveur DNS traite les requêtes entrantes de la manière suivante:  
+Vous pouvez créer plusieurs stratégies de résolution de requêtes du même niveau, à condition qu’elles aient une valeur différente pour l’ordre de traitement. Lorsque plusieurs stratégies sont disponibles, le serveur DNS traite les requêtes entrantes de la manière suivante :  
 
 ![Traitement de la stratégie DNS](../../media/DNS-Policies-Overview/DNSQueryResolutionPolicyFlowchart.png)  
 
@@ -95,9 +95,9 @@ Les stratégies de récurrence sont un **type** spécial de stratégies au nivea
 
 Vous pouvez utiliser des stratégies de récurrence pour implémenter une configuration DNS split-brain. Dans cette configuration, le serveur DNS effectue une récursivité pour un ensemble de clients pour une requête, alors que le serveur DNS n’effectue pas de récursivité pour d’autres clients pour cette requête.  
 
-Les stratégies de récurrence contiennent les mêmes éléments que contient une stratégie de résolution de requêtes DNS standard, ainsi que les éléments du tableau ci-dessous:  
+Les stratégies de récurrence contiennent les mêmes éléments que contient une stratégie de résolution de requêtes DNS standard, ainsi que les éléments du tableau ci-dessous :  
 
-|Name|Description|  
+|Nom|Description|  
 |--------|---------------|  
 |**Appliquer à la récursivité**|Spécifie que cette stratégie ne doit être utilisée que pour la récursivité.|  
 |**Étendue de récurrence**|Nom de l’étendue de récursivité.|  
@@ -111,18 +111,18 @@ Les stratégies de transfert de zone contrôlent si un transfert de zone est aut
 > [!NOTE]  
 > Les stratégies de transfert de zone peuvent uniquement utiliser DENY ou IGNORe comme actions.  
 
-Vous pouvez utiliser la stratégie de transfert de zone au niveau du serveur ci-dessous pour refuser un transfert de zone pour le domaine contoso.com à partir d’un sous-réseau donné:  
+Vous pouvez utiliser la stratégie de transfert de zone au niveau du serveur ci-dessous pour refuser un transfert de zone pour le domaine contoso.com à partir d’un sous-réseau donné :  
 
 ```  
 Add-DnsServerZoneTransferPolicy -Name DenyTransferOfContosoToFabrikam -Zone contoso.com -Action DENY -ClientSubnet "EQ,192.168.1.0/24"  
 ```  
 
-Vous pouvez créer plusieurs stratégies de transfert de zone du même niveau, à condition qu’elles aient une valeur différente pour l’ordre de traitement. Lorsque plusieurs stratégies sont disponibles, le serveur DNS traite les requêtes entrantes de la manière suivante:  
+Vous pouvez créer plusieurs stratégies de transfert de zone du même niveau, à condition qu’elles aient une valeur différente pour l’ordre de traitement. Lorsque plusieurs stratégies sont disponibles, le serveur DNS traite les requêtes entrantes de la manière suivante :  
 
 ![Processus DNS pour plusieurs stratégies de transfert de zone](../../media/DNS-Policies-Overview/DNSPolicyZone.png)  
 
 ## <a name="managing-dns-policies"></a>Gestion des stratégies DNS  
-Vous pouvez créer et gérer des stratégies DNS à l’aide de PowerShell. Les exemples ci-dessous passent en revue différents exemples de scénarios que vous pouvez configurer par le biais de stratégies DNS:  
+Vous pouvez créer et gérer des stratégies DNS à l’aide de PowerShell. Les exemples ci-dessous passent en revue différents exemples de scénarios que vous pouvez configurer par le biais de stratégies DNS :  
 
 ### <a name="traffic-management"></a>Gestion du trafic  
 Vous pouvez diriger le trafic basé sur un nom de domaine complet vers différents serveurs en fonction de l’emplacement du client DNS. L’exemple ci-dessous montre comment créer des stratégies de gestion du trafic pour diriger les clients d’un sous-réseau donné vers un centre de donnés nord-américain et d’un autre sous-réseau vers un centre de donnée européen.  
@@ -141,14 +141,14 @@ Add-DnsServerQueryResolutionPolicy -Name "EuropePolicy" -Action ALLOW -ClientSub
 Les deux premières lignes du script créent des objets de sous-réseau client pour Amérique du Nord et Europe. Les deux lignes qui suivent créent une étendue de zone dans le domaine contoso.com, une pour chaque région. Les deux lignes qui suivent créent un enregistrement dans chaque zone qui associe ww.contoso.com à une adresse IP différente, l’un pour l’Europe, l’autre pour Amérique du Nord. Enfin, les dernières lignes du script créent deux stratégies de résolution de requêtes DNS, une à appliquer au sous-réseau Amérique du Nord, une autre au sous-réseau Europe.  
 
 ### <a name="block-queries-for-a-domain"></a>Bloquer les requêtes pour un domaine  
-Vous pouvez utiliser une stratégie de résolution de requêtes DNS pour bloquer des requêtes vers un domaine. L’exemple ci-dessous bloque toutes les requêtes à treyresearch.net:  
+Vous pouvez utiliser une stratégie de résolution de requêtes DNS pour bloquer des requêtes vers un domaine. L’exemple ci-dessous bloque toutes les requêtes à treyresearch.net :  
 
 ```  
 Add-DnsServerQueryResolutionPolicy -Name "BlackholePolicy" -Action IGNORE -FQDN "EQ,*.treyresearch.com"  
 ```  
 
 ### <a name="block-queries-from-a-subnet"></a>Bloquer les requêtes à partir d’un sous-réseau  
-Vous pouvez également bloquer les requêtes provenant d’un sous-réseau spécifique. Le script ci-dessous crée un sous-réseau pour 172.0.33.0/24, puis crée une stratégie pour ignorer toutes les requêtes provenant de ce sous-réseau:  
+Vous pouvez également bloquer les requêtes provenant d’un sous-réseau spécifique. Le script ci-dessous crée un sous-réseau pour 172.0.33.0/24, puis crée une stratégie pour ignorer toutes les requêtes provenant de ce sous-réseau :  
 
 ```  
 Add-DnsServerClientSubnet -Name "MaliciousSubnet06" -IPv4Subnet 172.0.33.0/24  
@@ -164,10 +164,10 @@ Add-DnsServerRecursionScope -Name "InternalClients" -EnableRecursion $True
 Add-DnsServerQueryResolutionPolicy -Name "SplitBrainPolicy" -Action ALLOW -ApplyOnRecursion -RecursionScope "InternalClients" -ServerInterfaceIP  "EQ,10.0.0.34"  
 ```  
 
-La première ligne du script modifie l’étendue de récurrence par défaut, simplement nommée «.» (point) pour désactiver la récursivité. La deuxième ligne crée une étendue de récursivité nommée *InternalClients* avec la récursivité activée. La troisième ligne crée une stratégie pour appliquer l’étendue de récursivité nouvellement créée à toutes les requêtes entrantes via une interface de serveur qui a 10.0.0.34 comme adresse IP.  
+La première ligne du script modifie l’étendue de récurrence par défaut, simplement nommée « . » (point) pour désactiver la récursivité. La deuxième ligne crée une étendue de récursivité nommée *InternalClients* avec la récursivité activée. La troisième ligne crée une stratégie pour appliquer l’étendue de récursivité nouvellement créée à toutes les requêtes entrantes via une interface de serveur qui a 10.0.0.34 comme adresse IP.  
 
 ### <a name="create-a-server-level-zone-transfer-policy"></a>Créer une stratégie de transfert de zone au niveau du serveur  
-Vous pouvez contrôler le transfert de zone dans une forme plus granulaire en utilisant des stratégies de transfert de zone DNS. L’exemple de script ci-dessous peut être utilisé pour autoriser les transferts de zone pour n’importe quel serveur sur un sous-réseau donné:  
+Vous pouvez contrôler le transfert de zone dans une forme plus granulaire en utilisant des stratégies de transfert de zone DNS. L’exemple de script ci-dessous peut être utilisé pour autoriser les transferts de zone pour n’importe quel serveur sur un sous-réseau donné :  
 
 ```  
 Add-DnsServerClientSubnet -Name "AllowedSubnet" -IPv4Subnet 172.21.33.0/24  
@@ -177,7 +177,7 @@ Add-DnsServerZoneTransferPolicy -Name "NorthAmericaPolicy" -Action IGNORE -Clien
 La première ligne du script crée un objet sous-réseau nommé *AllowedSubnet* avec le bloc IP 172.21.33.0/24. La deuxième ligne crée une stratégie de transfert de zone pour autoriser les transferts de zone vers n’importe quel serveur DNS sur le sous-réseau créé précédemment.  
 
 ### <a name="create-a-zone-level-zone-transfer-policy"></a>Créer une stratégie de transfert de zone au niveau de la zone  
-Vous pouvez également créer des stratégies de transfert de zone au niveau de la zone. L’exemple ci-dessous ignore toute demande de transfert de zone pour contoso.com provenant d’une interface de serveur qui a l’adresse IP 10.0.0.33:  
+Vous pouvez également créer des stratégies de transfert de zone au niveau de la zone. L’exemple ci-dessous ignore toute demande de transfert de zone pour contoso.com provenant d’une interface de serveur qui a l’adresse IP 10.0.0.33 :  
 
 ```  
 Add-DnsServerZoneTransferPolicy -Name "InternalTransfers" -Action IGNORE -ServerInterfaceIP "eq,10.0.0.33" -PassThru -ZoneName "contoso.com"  

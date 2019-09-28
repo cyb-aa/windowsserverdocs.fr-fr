@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: c30f8a9b856db8250a16210931e6f8dd73c07aa7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 6e99fc43d4acb7a70dfd3a8ba19dae6492c41b2b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869610"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357052"
 ---
 # <a name="using-powershell-in-your-extension"></a>Utilisation de PowerShell dans votre extension #
 
@@ -92,7 +92,7 @@ En fournissant le nom de nœud à la méthode createSession, une nouvelle sessio
 ### <a name="key-options"></a>Options de clé ###
 Certaines options sont disponibles lors de l’appel de l’API PowerShell. Chaque fois qu’une session est créée, elle peut être créée avec ou sans clé. 
 
-**Essentiel** Cela crée une session de clé qui peut être recherchée et réutilisée, même sur plusieurs composants (ce qui signifie que Composant1 peut créer une session avec la clé « SME-ROCKs » et COMPONENT2 peut utiliser cette même session). Si une clé est fournie, la session créée doit être supprimée en appelant dispose () comme indiqué dans l’exemple ci-dessus. Une session ne doit pas être conservée pendant plus de 5 minutes. 
+**Clé :** Cela crée une session de clé qui peut être recherchée et réutilisée, même sur plusieurs composants (ce qui signifie que Composant1 peut créer une session avec la clé « SME-ROCKs » et COMPONENT2 peut utiliser cette même session). Si une clé est fournie, la session créée doit être supprimée en appelant dispose () comme indiqué dans l’exemple ci-dessus. Une session ne doit pas être conservée pendant plus de 5 minutes. 
 ```ts
   const session = this.appContextService.powerShell.createSession('{!TargetNode}', '{!Key}');
 ```
@@ -102,7 +102,7 @@ Certaines options sont disponibles lors de l’appel de l’API PowerShell. Chaq
 ```ts
   const session = this.appContextService.powerShell.createSession('{!TargetNodeName}');
 ```
-ou Gestionnaire de configuration 
+ou 
 ``` ts 
 const session = this.appContextService.powerShell.createAutomaticSession('{!TargetNodeName}');
 ```

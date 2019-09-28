@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 09/07/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b67177c8bf0ce9869aa51c3012d57f3208ac02f5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 78db6f8b6961cecea55b8d371e9abf952cafdab3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866288"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358669"
 ---
 # <a name="compound-authentication-and-ad-ds-claims-in-ad-fs"></a>Authentification composée et revendications AD DS dans AD FS
 Windows Server 2012 améliore l’authentification Kerberos en introduisant l’authentification composée.  L’authentification composée permet à une demande du service d’accord de ticket (TGS) Kerberos d’inclure deux identités : 
@@ -40,7 +40,7 @@ Vous pouvez activer le contrôle d’accès plus riche pour les applications fé
 ## <a name="steps-for-configuring-ad-fs-in-windows-server-2012-r2"></a>Étapes de configuration de AD FS dans Windows Server 2012 R2
 Utilisez les étapes suivantes pour configurer l’authentification composée et les revendications 
 
-### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Étape 1 :  Activer la prise en charge du KDC pour les revendications, l’authentification composée et le blindage Kerberos sur la stratégie de contrôleur de domaine par défaut
+### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Étape 1 :  Activer la prise en charge du KDC pour les revendications, l’authentification composée et le blindage Kerberos sur la stratégie de contrôleur de domaine par défaut
 1.  Dans Gestionnaire de serveur, sélectionnez Outils, **gestion des stratégie de groupe**.
 2.  Accédez à la **stratégie de contrôleur de domaine par défaut**, cliquez avec le bouton droit et sélectionnez **modifier**.
 ![Gestion des stratégie de groupe](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc1.png)
@@ -51,7 +51,7 @@ Utilisez les étapes suivantes pour configurer l’authentification composée et
 6.  Sous options, sélectionnez **pris en charge** dans le menu déroulant, puis cliquez sur **appliquer** , puis sur **OK**.
 ![Gestion des stratégie de groupe](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc3.png)
 
-### <a name="step-2-enable-kerberos-client-support-for-claims-compound-authentication-and-kerberos-armoring-on-computers-accessing-federated-applications"></a>Étape 2 : Activer la prise en charge du client Kerberos pour les revendications, l’authentification composée et le blindage Kerberos sur les ordinateurs qui accèdent à des applications fédérées
+### <a name="step-2-enable-kerberos-client-support-for-claims-compound-authentication-and-kerberos-armoring-on-computers-accessing-federated-applications"></a>Étape 2 : Activer la prise en charge du client Kerberos pour les revendications, l’authentification composée et le blindage Kerberos sur les ordinateurs qui accèdent à des applications fédérées
 
 1.  Sur un stratégie de groupe appliqué aux ordinateurs qui accèdent à des applications fédérées, dans la **éditeur de gestion des stratégies de groupe**, sous **Configuration ordinateur**, développez **stratégies**, développez **modèles d’administration**, puis **système.** , puis sélectionnez **Kerberos**.
 2.  Dans le volet droit de la fenêtre Éditeur de gestion des stratégies de groupe, double-cliquez sur **prise en charge du client Kerberos pour les revendications, l’authentification composée et le blindage Kerberos.**
@@ -59,16 +59,16 @@ Utilisez les étapes suivantes pour configurer l’authentification composée et
 ![Gestion des stratégie de groupe](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc4.png)
 4.  Fermez l’éditeur de gestion des stratégies de groupe.
 
-### <a name="step-3-ensure-the-ad-fs-servers-have-been-updated"></a>Étape 3 : Assurez-vous que les serveurs AD FS ont été mis à jour.
+### <a name="step-3-ensure-the-ad-fs-servers-have-been-updated"></a>Étape 3 : Assurez-vous que les serveurs AD FS ont été mis à jour.
 Vous devez vous assurer que les mises à jour suivantes sont installées sur vos serveurs de AD FS.
 
-|Mettre à jour|Description|
+|Mettre à jour/Mise à jour|Description|
 |----- | ----- |
 |[KB2919355](https://www.microsoft.com/download/details.aspx?id=42335)|Mise à jour de sécurité cumulative (comprend KB2919355, KB2932046, KB2934018, KB2937592, KB2938439)|
 |[KB2959977](https://www.microsoft.com/download/details.aspx?id=42530)|Mise à jour pour le serveur 2012 R2|
 |[Correctif logiciel 3052122](https://support.microsoft.com/help/3052122/update-adds-support-for-compound-id-claims-in-ad-fs-tokens-in-windows)|Cette mise à jour ajoute la prise en charge des revendications d’ID composés dans Services ADFS.|
 
-### <a name="step-4-configure-the-primary-authentication-provider"></a>Étape 4 : Configurer le fournisseur d’authentification principal
+### <a name="step-4-configure-the-primary-authentication-provider"></a>Étape 4 : Configurer le fournisseur d’authentification principal
 
 1. Définissez le fournisseur d’authentification principal sur **authentification Windows** pour AD FS paramètres intranet.
 2. Dans AD FS gestion, sous **stratégies d’authentification**, sélectionnez **authentification principale** et sous **paramètres globaux** , cliquez sur **modifier**.
@@ -86,7 +86,7 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 >Dans une batterie de serveurs WID, la commande PowerShell doit être exécutée sur le serveur de AD FS principal.
 >Dans une batterie de serveurs SQL, la commande PowerShell peut être exécutée sur n’importe quel serveur de AD FS membre de la batterie de serveurs.
 
-### <a name="step-5--add-the-claim-description-to-ad-fs"></a>Étape 5 :  Ajoutez la description de la revendication à AD FS
+### <a name="step-5--add-the-claim-description-to-ad-fs"></a>Étape 5 :  Ajoutez la description de la revendication à AD FS
 1. Ajoutez la description de revendication suivante à la batterie de serveurs. Cette description de revendication n’est pas présente par défaut dans ADFS 2012 R2 et doit être ajoutée manuellement.
 2. Dans AD FS gestion, sous **service**, cliquez avec le bouton droit sur Description de la **revendication** et sélectionnez **Ajouter une description de revendication** .
 3. Entrez les informations suivantes dans la description de la revendication
@@ -121,12 +121,12 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 2. Redémarrez le service ADFS.
 
 >[!NOTE]
->Une fois que « CompoundIdentitySupported » a la valeur true, l’installation du même gMSA sur les nouveaux serveurs (2012 R2/2016) échoue avec l' **erreur suivante : Install-ADServiceAccount : Impossible d’installer le compte de service. Message d’erreur : 'Le contexte fourni ne correspond pas à la cible. '** .
+>Une fois que « CompoundIdentitySupported » a la valeur true, l’installation du même gMSA sur les nouveaux serveurs (2012 R2/2016) échoue avec l' **erreur suivante : Install-ADServiceAccount : Impossible d’installer le compte de service. Message d'erreur : 'Le contexte fourni ne correspond pas à la cible. '** .
 >
->**Solution**: Définissez temporairement CompoundIdentitySupported sur $false. Cette étape amène ADFS à arrêter l’émission de revendications WindowsDeviceGroup. Set-ADServiceAccount-Identity’ADFS service account'-CompoundIdentitySupported : $false installer gMSA sur le nouveau serveur, puis réactiver CompoundIdentitySupported sur $True.
+>**Solution** : Définissez temporairement CompoundIdentitySupported sur $false. Cette étape amène ADFS à arrêter l’émission de revendications WindowsDeviceGroup. Set-ADServiceAccount-Identity’ADFS service account'-CompoundIdentitySupported : $false installer gMSA sur le nouveau serveur, puis réactiver CompoundIdentitySupported sur $True.
 La désactivation de CompoundIdentitySupported, puis la réactivation de ne nécessite pas le redémarrage du service ADFS.
 
-### <a name="step-7-update-the-ad-fs-claims-provider-trust-for-active-directory"></a>Étape 7 : Mettez à jour l’approbation de fournisseur de revendications AD FS pour Active Directory
+### <a name="step-7-update-the-ad-fs-claims-provider-trust-for-active-directory"></a>Étape 7 : Mettez à jour l’approbation de fournisseur de revendications AD FS pour Active Directory
 
 1. Mettez à jour l’approbation de fournisseur de revendications AD FS pour Active Directory pour inclure la règle de revendication « directe » suivante pour la revendication « WindowsDeviceGroup ».
 2.  Dans **AD FS gestion**, cliquez sur **approbations de fournisseur de revendications** et, dans le volet droit, Copy sur **Active Directory** et sélectionnez Modifier les **règles de revendication**.
@@ -148,7 +148,7 @@ La désactivation de CompoundIdentitySupported, puis la réactivation de ne néc
 ## <a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>Étapes de configuration de AD FS dans Windows Server 2016
 Vous trouverez ci-dessous les étapes de la configuration de l’authentification composée sur AD FS pour Windows Server 2016.
 
-### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Étape 1 :  Activer la prise en charge du KDC pour les revendications, l’authentification composée et le blindage Kerberos sur la stratégie de contrôleur de domaine par défaut
+### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Étape 1 :  Activer la prise en charge du KDC pour les revendications, l’authentification composée et le blindage Kerberos sur la stratégie de contrôleur de domaine par défaut
 1.  Dans Gestionnaire de serveur, sélectionnez Outils, **gestion des stratégie de groupe**.
 2.  Accédez à la **stratégie de contrôleur de domaine par défaut**, cliquez avec le bouton droit et sélectionnez **modifier**.
 3.  Sur la **éditeur de gestion des stratégies de groupe**, sous **Configuration ordinateur**, développez **stratégies**, **modèles d’administration**, **système**, puis sélectionnez **KDC**.
@@ -157,14 +157,14 @@ Vous trouverez ci-dessous les étapes de la configuration de l’authentificatio
 6.  Sous options, sélectionnez **pris en charge** dans le menu déroulant, puis cliquez sur **appliquer** , puis sur **OK**.
 
 
-### <a name="step-2-enable-kerberos-client-support-for-claims-compound-authentication-and-kerberos-armoring-on-computers-accessing-federated-applications"></a>Étape 2 : Activer la prise en charge du client Kerberos pour les revendications, l’authentification composée et le blindage Kerberos sur les ordinateurs qui accèdent à des applications fédérées
+### <a name="step-2-enable-kerberos-client-support-for-claims-compound-authentication-and-kerberos-armoring-on-computers-accessing-federated-applications"></a>Étape 2 : Activer la prise en charge du client Kerberos pour les revendications, l’authentification composée et le blindage Kerberos sur les ordinateurs qui accèdent à des applications fédérées
 
 1.  Sur un stratégie de groupe appliqué aux ordinateurs qui accèdent à des applications fédérées, dans la **éditeur de gestion des stratégies de groupe**, sous **Configuration ordinateur**, développez **stratégies**, développez **modèles d’administration**, puis **système.** , puis sélectionnez **Kerberos**.
 2.  Dans le volet droit de la fenêtre Éditeur de gestion des stratégies de groupe, double-cliquez sur **prise en charge du client Kerberos pour les revendications, l’authentification composée et le blindage Kerberos.**
 3.  Dans la fenêtre nouvelle boîte de dialogue, attribuez à prise en charge du client Kerberos la valeur **activé** , puis cliquez sur **appliquer** , puis sur **OK**.
 4.  Fermez l’éditeur de gestion des stratégies de groupe.
 
-### <a name="step-3-configure-the-primary-authentication-provider"></a>Étape 3 : Configurer le fournisseur d’authentification principal
+### <a name="step-3-configure-the-primary-authentication-provider"></a>Étape 3 : Configurer le fournisseur d’authentification principal
 
 1. Définissez le fournisseur d’authentification principal sur **authentification Windows** pour AD FS paramètres intranet.
 2. Dans AD FS gestion, sous **stratégies d’authentification**, sélectionnez **authentification principale** et sous **paramètres globaux** , cliquez sur **modifier**.
@@ -179,7 +179,7 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 >Dans une batterie de serveurs WID, la commande PowerShell doit être exécutée sur le serveur de AD FS principal.
 >Dans une batterie de serveurs SQL, la commande PowerShell peut être exécutée sur n’importe quel serveur de AD FS membre de la batterie de serveurs.
 
-### <a name="step-4--enable-the-compound-authentication-bit-on-the-msds-supportedencryptiontypes-attribute"></a>Étape 4 :  Activer le bit d’authentification composée sur l’attribut msDS-SupportedEncryptionTypes
+### <a name="step-4--enable-the-compound-authentication-bit-on-the-msds-supportedencryptiontypes-attribute"></a>Étape 4 :  Activer le bit d’authentification composée sur l’attribut msDS-SupportedEncryptionTypes
 
 1.  Activez le bit d’authentification composée sur l’attribut msDS-SupportedEncryptionTypes sur le compte que vous avez désigné pour exécuter le service AD FS à l’aide de l’applet de commande PowerShell **Set-ADServiceAccount** .  
 
@@ -192,12 +192,12 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 2. Redémarrez le service ADFS.
 
 >[!NOTE]
->Une fois que « CompoundIdentitySupported » a la valeur true, l’installation du même gMSA sur les nouveaux serveurs (2012 R2/2016) échoue avec l' **erreur suivante : Install-ADServiceAccount : Impossible d’installer le compte de service. Message d’erreur : 'Le contexte fourni ne correspond pas à la cible. '** .
+>Une fois que « CompoundIdentitySupported » a la valeur true, l’installation du même gMSA sur les nouveaux serveurs (2012 R2/2016) échoue avec l' **erreur suivante : Install-ADServiceAccount : Impossible d’installer le compte de service. Message d'erreur : 'Le contexte fourni ne correspond pas à la cible. '** .
 >
->**Solution**: Définissez temporairement CompoundIdentitySupported sur $false. Cette étape amène ADFS à arrêter l’émission de revendications WindowsDeviceGroup. Set-ADServiceAccount-Identity’ADFS service account'-CompoundIdentitySupported : $false installer gMSA sur le nouveau serveur, puis réactiver CompoundIdentitySupported sur $True.
+>**Solution** : Définissez temporairement CompoundIdentitySupported sur $false. Cette étape amène ADFS à arrêter l’émission de revendications WindowsDeviceGroup. Set-ADServiceAccount-Identity’ADFS service account'-CompoundIdentitySupported : $false installer gMSA sur le nouveau serveur, puis réactiver CompoundIdentitySupported sur $True.
 La désactivation de CompoundIdentitySupported, puis la réactivation de ne nécessite pas le redémarrage du service ADFS.
 
-### <a name="step-5-update-the-ad-fs-claims-provider-trust-for-active-directory"></a>Étape 5 : Mettez à jour l’approbation de fournisseur de revendications AD FS pour Active Directory
+### <a name="step-5-update-the-ad-fs-claims-provider-trust-for-active-directory"></a>Étape 5 : Mettez à jour l’approbation de fournisseur de revendications AD FS pour Active Directory
 
 1. Mettez à jour l’approbation de fournisseur de revendications AD FS pour Active Directory pour inclure la règle de revendication « directe » suivante pour la revendication « WindowsDeviceGroup ».
 2.  Dans **AD FS gestion**, cliquez sur **approbations de fournisseur de revendications** et, dans le volet droit, Copy sur **Active Directory** et sélectionnez Modifier les **règles de revendication**.

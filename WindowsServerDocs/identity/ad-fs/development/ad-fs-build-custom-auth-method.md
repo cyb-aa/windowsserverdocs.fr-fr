@@ -6,14 +6,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 05/23/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fc71ca2b8d130ab00014f850ccae25e9138d501b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2ef16ddeb241d55b61b484805ff91cb247985d8d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867573"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358884"
 ---
 # <a name="build-a-custom-authentication-method-for-ad-fs-in-windows-server"></a>Créer une méthode d’authentification personnalisée pour AD FS dans Windows Server
 
@@ -62,7 +62,7 @@ Cette procédure pas à pas utilise Visual Studio 2012.  Le projet peut être g�
 
     ![créer le fournisseur](media/ad-fs-build-custom-auth-method/Dn783423.71a57ae1-d53d-462b-a846-5b3c02c7d3f2(MSDN.10).jpg "créer le fournisseur")
 
-3.  Effectuez une copie de **Microsoft. IdentityServer. Web. dll** à partir de%\\windir% ADFS sur le serveur Windows Server 2012 R2 sur lequel AD FS a été installé, puis collez-le dans votre dossier de projet sur votre ordinateur de développement.
+3.  Effectuez une copie de **Microsoft. IdentityServer. Web. dll** à partir de% windir% \\ADFS sur le serveur Windows Server 2012 R2 sur lequel AD FS a été installé, puis collez-le dans votre dossier de projet sur votre ordinateur de développement.
 
 4.  Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **références** et **Ajoutez une référence...**
 
@@ -325,9 +325,7 @@ Cette procédure pas à pas utilise Visual Studio 2012.  Le projet peut être g�
         <input id="context" type="hidden" name="Context" value="%Context%"/>
         <!-- End inputs are required by the presentation framework. -->
         <p id="pageIntroductionText">Ce contenu est fourni par l’exemple d’adaptateur MFA. Les entrées de stimulation doivent être présentées ci-dessous.</p>
-        <label for="challengeQuestionInput" class="block">Texte de la question</label>
-        <input id="challengeQuestionInput" name="ChallengeQuestionAnswer" type="text" value="" class="text" placeholder="Answer placeholder" />
-        <div id="submissionArea" class="submitMargin">
+        <label for="challengeQuestionInput" class="block">Question texte @ no__t-1 @ no__t-2 @ no__t-3<div id="submissionArea" class="submitMargin">
         <input id="submitButton" type="submit" name="Submit" value="Submit" onclick="return AuthPage.submitAnswer()"/>
         </div>
         </form>
@@ -381,7 +379,7 @@ Copiez les fichiers et ajoutez-les au GAC.
 
 3.  Copiez les outils Gacutil. exe sur le serveur.
 
-    Gacutil. exe se trouve dans **\\% HomeDrive% Program Files (x86)\\Microsoft SDK\\Windows\\v 8.0 a\\bin\\netfx 4,0 Tools\\**  sur un ordinateur Windows 8.  Vous aurez besoin du fichier **Gacutil. exe** proprement dit, ainsi que des **1033**, en **-US**et des autres dossiers de ressources localisés sous l’emplacement des **Outils netfx 4,0** .
+    Gacutil. exe se trouve dans **% HomeDrive% \\Program Files (x86) \\Microsoft SDK @ no__t-3Windows @ no__t-4V 8.0 a @ no__t-5bin @ no__t-6NETFX 4,0 Tools @ no__t-7** sur un ordinateur Windows 8.  Vous aurez besoin du fichier **Gacutil. exe** proprement dit, ainsi que des **1033**, en **-US**et des autres dossiers de ressources localisés sous l’emplacement des **Outils netfx 4,0** .
 
 4.  Copiez vos fichiers de fournisseur (un ou plusieurs fichiers. dll signés avec un nom fort) dans le même emplacement de dossier que **Gacutil. exe** (l’emplacement est juste pour des raisons pratiques)
 

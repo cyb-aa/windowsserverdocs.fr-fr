@@ -1,9 +1,9 @@
 ---
 title: Équilibrage de la charge logicielle pour SDN
-description: Vous pouvez utiliser cette rubrique pour en savoir plus sur l’équilibrage de charge logicielle pour Sdn dans Windows Server 2016.
+description: Vous pouvez utiliser cette rubrique pour en savoir plus sur l’équilibrage de charge logiciel pour la mise en réseau définie par logiciel dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,217 +12,217 @@ ms.topic: article
 ms.assetid: 97abf182-4725-4026-801c-122db96964ed
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 26fb4aa21e80618c4c63bd9edbf8731bf886db62
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 35743d9e1a25c71a35eed018a4a3882a3d094d76
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853760"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355565"
 ---
-# <a name="software-load-balancing-slb-for-sdn"></a>L’équilibrage de charge logiciel \(SLB\) pour SDN
+# <a name="software-load-balancing-slb-for-sdn"></a>Équilibrage de la charge logicielle \(SLB @ no__t-1 pour SDN
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour en savoir plus sur l’équilibrage de charge logicielle pour Sdn dans Windows Server 2016.  
+Vous pouvez utiliser cette rubrique pour en savoir plus sur l’équilibrage de charge logiciel pour la mise en réseau définie par logiciel dans Windows Server 2016.  
 
-Fournisseurs de services cloud (CSP) et les entreprises qui déploient la mise en réseau SDN (Software Defined) dans Windows Server 2016 peuvent utiliser l’équilibrage de charge logiciel (SLB) pour répartir uniformément le client et le trafic réseau de client client entre les ressources du réseau virtuel. La fonctionnalité d’équilibrage de charge de Windows Server vous permet d’activer plusieurs serveurs pour héberger la même charge de travail, ce qui garantit évolutivité et haute disponibilité.
+Les fournisseurs de services Cloud (CSP) et les entreprises qui déploient des réseaux à définition logicielle (SDN) dans Windows Server 2016 peuvent utiliser l’équilibrage de charge logiciel (SLB) pour distribuer uniformément le trafic réseau des clients et des locataires entre les ressources du réseau virtuel. La fonctionnalité d’équilibrage de charge de Windows Server vous permet d’activer plusieurs serveurs pour héberger la même charge de travail, ce qui garantit évolutivité et haute disponibilité.
   
-SLB Windows Server inclut les fonctionnalités suivantes.  
+Windows Server SLB comprend les fonctionnalités suivantes.  
   
--   Pour « Nord-sud » et le trafic TCP/UDP de « Est-ouest » les services d’équilibrage de charge de couche 4 (L4).  
+-   Les services d’équilibrage de charge de couche 4 (L4) pour le trafic TCP/UDP « Nord-Sud » et « est-ouest ».  
   
--   Publics et internes équilibrage de charge du trafic réseau.  
+-   Équilibrage de charge du trafic réseau public et interne.  
   
--   Prend en charge les adresses IP dynamiques (DIP) sur les réseaux locaux virtuels (VLAN) et sur les réseaux virtuels que vous créez à l’aide de la virtualisation de réseau Hyper-V.  
+-   Prend en charge les adresses IP dynamiques (DIP) sur les réseaux locaux virtuels (VLAN) et les réseaux virtuels que vous créez à l’aide de la virtualisation de réseau Hyper-V.  
   
--   Prise en charge de la sonde d’intégrité.  
+-   Prise en charge des sondes d’intégrité.  
   
--   Prêt pour l’échelle du cloud, y compris la capacité de montée en puissance et augmenter la capacité de multiplexeurs et des Agents de l’hôte.  
+-   Prêt pour la mise à l’échelle du Cloud, y compris la capacité de montée en puissance parallèle et la capacité de montée en puissance des multiplexeurs et des agents hôtes.  
   
 Pour plus d’informations, consultez [fonctionnalités d’équilibrage de charge logiciel](#bkmk_features) dans cette rubrique.  
   
 > [!NOTE]  
-> Architecture mutualisée pour réseaux locaux virtuels n’est pas pris en charge par le contrôleur de réseau, toutefois vous pouvez utiliser des réseaux locaux virtuels avec SLB pour fournisseur de services gérés des charges de travail, telles que l’infrastructure de centre de données et les serveurs Web de haute densité.  
+> L’architecture mutualisée pour les réseaux locaux virtuels n’est pas prise en charge par le contrôleur de réseau. Toutefois, vous pouvez utiliser des réseaux locaux virtuels avec SLB pour les charges de travail gérées par le fournisseur de services, telles que l’infrastructure de centre de centres et les serveurs Web à haute densité.  
   
-À l’aide de Windows Server SLB, vous pouvez faire évoluer vos capacités à l’aide de machines virtuelles SLB sur les mêmes serveurs de calcul Hyper-V que vous utilisez pour vos autres charges de travail de machine virtuelle d’équilibrage de charge. Pour cette raison, SLB prend en charge la création rapide et la suppression de points de terminaison d’équilibrage de charge qui est requise pour les opérations du fournisseur de services cryptographiques. En outre, SLB Windows Server prend en charge des dizaines de gigaoctets par cluster fournit un modèle d’approvisionnement simple et est facile de mise à l’échelle des instances.  
+À l’aide de Windows Server SLB, vous pouvez faire évoluer vos capacités d’équilibrage de charge à l’aide de machines virtuelles SLB sur les mêmes serveurs de calcul Hyper-V que ceux que vous utilisez pour vos autres charges de travail de machine virtuelle. Pour cette raison, SLB prend en charge la création et la suppression rapides des points de terminaison d’équilibrage de charge requis pour les opérations CSP. En outre, Windows Server SLB prend en charge des dizaines de gigaoctets par cluster, fournit un modèle de provisionnement simple et est facile à mettre à l’échelle et dans.  
   
-**Fonctionne de SLB**  
+**Fonctionnement de SLB**  
   
-SLB fonctionne en mappant les adresses IP virtuelles (VIP) pour les adresses IP dynamiques (adresses IP dynamiques) qui font partie d’un ensemble de service cloud de ressources dans le centre de données.  
+SLB fonctionne en mappant les adresses IP virtuelles (VIP) aux adresses IP dynamiques (DIP) qui font partie d’un ensemble de ressources de service Cloud dans le centre de ressources.  
   
-Adresses IP virtuelles sont des adresses IP uniques qui fournissent l’accès public à un pool de charge équilibrée des machines virtuelles. Par exemple, les adresses IP virtuelles sont des adresses IP qui sont exposés sur Internet afin que les clients et les clients locataires peuvent se connecter aux ressources du client dans le centre de données cloud.  
+Les adresses IP virtuelles sont des adresses IP uniques qui fournissent un accès public à un pool de machines virtuelles à charge équilibrée. Par exemple, les adresses IP virtuelles sont des adresses IP qui sont exposées sur Internet afin que les clients et les clients de locataire puissent se connecter aux ressources du client dans le centre de Cloud.  
   
-Adresses IP dynamiques sont les adresses IP du membre d’un pool d’équilibrage de charge derrière l’adresse IP virtuelle des machines virtuelles. Adresses IP dynamiques sont affectées au sein de l’infrastructure de cloud pour les ressources du client.  
+Les adresses IP virtuelles sont les adresses IP des machines virtuelles membres d’un pool à charge équilibrée derrière l’adresse IP virtuelle. Les adresses IP (DIP) sont affectées dans l’infrastructure cloud aux ressources du locataire.  
   
-Adresses IP virtuelles sont situés dans le SLB multiplexeur (MUX).  Le MUX se compose d’un ou plusieurs machines virtuelles (VM).  Contrôleur de réseau offre chaque MUX avec chaque adresse IP virtuelle et chaque MUX à son tour utilise protocole BGP (Border Gateway) pour publier chaque adresse IP virtuelle aux routeurs sur le réseau physique comme un /32 itinéraire.  BGP permet les routeurs du réseau physique pour :  
+Les adresses IP virtuelles sont situées dans le multiplexeur SLB (MUX).  Le MULTIPLEXeur est constitué d’une ou plusieurs machines virtuelles (VM).  Le contrôleur de réseau fournit chaque MULTIPLEXeur avec chaque adresse IP virtuelle, et chaque MULTIPLEXeur utilise à son tour le Border Gateway Protocol (BGP) pour publier chaque adresse IP virtuelle sur les routeurs sur le réseau physique en tant que route/32.  BGP permet aux routeurs de réseau physique d’effectuer les opérations suivantes :  
   
 -   Découvrez qu’une adresse IP virtuelle est disponible sur chaque MUX, même si les multiplexeurs se trouvent sur des sous-réseaux différents dans un réseau de couche 3.  
   
--   Répartir la charge pour chaque adresse IP virtuelle sur tous les multiplexeurs disponibles à l’aide du routage égal Cost Multi-Path ECMP ().  
+-   Répartissez la charge pour chaque adresse IP virtuelle sur l’ensemble des multiplexeurs disponibles à l’aide du routage à chemins d’accès multiples (ECMP) égal.  
   
--   Automatiquement détecter un dysfonctionnement MUX ou le retrait et arrêter l’envoi du trafic vers le MUX ayant échoué.  
+-   Détecte automatiquement un échec ou une suppression du MULTIPLEXeur et arrête l’envoi du trafic vers le MUX défaillant.  
   
--   Répartir la charge à partir de la MUX ayant échoué ou supprimé sur les multiplexeurs d’intégrité.  
+-   Répartissez la charge à partir du MULTIPLEXeur en échec ou supprimé sur le multiplexeurs sain.  
   
-Lorsque le trafic public arrive à partir d’Internet, le SLB MUX examine le trafic, qui contient l’adresse IP virtuelle en tant que destination, puis mappe et réécrit le trafic afin qu’il vous parviendra à une adresse DIP individuelle. Pour le trafic réseau entrant, cette transaction est exécutée dans un processus en deux étapes qui est partagé entre les machines virtuelles MUX (machines virtuelles) et l’hôte Hyper-V où se trouve la DIP de destination :  
+Lorsque le trafic public arrive à partir d’Internet, le MULTIPLEXeur SLB examine le trafic, qui contient l’adresse IP virtuelle en tant que destination, et mappe et réécrit le trafic pour qu’il arrive à un DIP individuel. Pour le trafic réseau entrant, cette transaction est exécutée dans un processus en deux étapes qui est réparti entre les machines virtuelles MUX et l’hôte Hyper-V dans lequel se trouve l’adresse DIP de destination :  
   
--   Équilibrage de charge - les utilisations MUX l’adresse IP virtuelle pour sélectionner une adresse DIP, encapsule le paquet et transfère le trafic à l’hôte Hyper-V sur lequel se trouve l’adresse IP dédiée.  
+-   Équilibrage de charge : le MULTIPLEXeur utilise l’adresse IP virtuelle pour sélectionner un DIP, encapsuler le paquet et transférer le trafic vers l’hôte Hyper-V où se trouve l’adresse DIP.  
   
--   Traduction d’adresses réseau (NAT) - l’hôte Hyper-V supprime l’encapsulation de paquet traduit l’adresse IP virtuelle vers une adresse DIP, remappe les ports et transfère le paquet à la machine virtuelle DIP.  
+-   Traduction d’adresses réseau (NAT) : l’hôte Hyper-V supprime l’encapsulation du paquet, convertit l’adresse IP virtuelle en adresse DIP, remappe les ports et transfère le paquet à la machine virtuelle DIP.  
   
-Le MUX sait comment mapper les adresses IP virtuelles pour les adresses IP dynamiques correctes en raison des stratégies que vous définissez à l’aide du contrôleur de réseau d’équilibrage de charge. Ces règles incluent le protocole, Port de front-end, port Back-end et l’algorithme de distribution (2, 3 ou 5 tuples).  
+Le MULTIPLEXeur sait comment mapper les adresses IP virtuelles aux adresses IP virtuelles correctes en raison des stratégies d’équilibrage de charge que vous définissez à l’aide du contrôleur de réseau. Ces règles incluent le protocole, le port frontal, le port principal et l’algorithme de distribution (5, 3 ou 2 tuples).  
   
-Lorsque locataire répondent de machines virtuelles et envoi sortant le trafic réseau à l’Internet ou les emplacements des clients distants, car la NAT est effectuée par l’hôte Hyper-V, le trafic contourne le MUX et va directement vers le routeur de périphérie de l’hôte Hyper-V. Ce processus de contournement MUX est appelé retour serveur Direct (DSR).  
+Lorsque les machines virtuelles clientes répondent et envoient le trafic réseau sortant vers Internet ou les emplacements distants, étant donné que le NAT est exécuté par l’hôte Hyper-V, le trafic contourne le MULTIPLEXeur et passe directement au routeur de périphérie de l’hôte Hyper-V. Ce processus de contournement du MULTIPLEXeur est appelé « retour direct du serveur » (DSR).  
   
-Et une fois le flux de trafic réseau initiale établi, le trafic réseau entrant contourne le SLB MUX complètement.  
+Après l’établissement du flux de trafic réseau initial, le trafic réseau entrant contourne complètement le MULTIPLEXeur SLB.  
   
-Dans l’illustration suivante, un ordinateur client effectue une requête DNS pour l’adresse IP d’un entreprise SharePoint site - dans ce cas, une société fictive nommée Contoso. Le processus suivant se produit.  
+Dans l’illustration suivante, un ordinateur client exécute une requête DNS pour l’adresse IP d’un site SharePoint d’entreprise. dans ce cas, il s’agit d’une société fictive nommée contoso. Le processus suivant se produit.  
   
 -   Le serveur DNS renvoie l’adresse IP virtuelle 107.105.47.60 au client.  
   
 -   Le client envoie une requête HTTP à l’adresse IP virtuelle.  
   
--   Le réseau physique a plusieurs chemins d’accès disponibles pour atteindre l’adresse IP virtuelle situé sur n’importe quel MUX.  Chaque routeur présent utilise ECMP pour choisir le segment du chemin d’accès suivant jusqu'à ce que la demande arrive à un MUX.  
+-   Le réseau physique dispose de plusieurs chemins d’accès disponibles pour atteindre l’adresse IP virtuelle située sur un MULTIPLEXeur.  Chaque routeur utilisé utilise ECMP pour choisir le segment suivant du chemin d’accès jusqu’à ce que la demande arrive sur un MULTIPLEXeur.  
   
--   Vérifie les stratégies configurées MUX qui reçoit la demande et voit qu’il n’y a deux adresses IP dynamiques disponibles, 10.10.10.5 et 10.10.20.5, sur un réseau virtuel pour traiter la demande de l’adresse IP virtuelle 107.105.47.60  
+-   Le MULTIPLEXeur qui reçoit la demande vérifie les stratégies configurées et constate qu’il y a deux DIP disponibles, 10.10.10.5 et 10.10.20.5, sur un réseau virtuel pour traiter la demande à l’adresse VIP 107.105.47.60  
   
--   Le MUX sélectionne l’adresse DIP 10.10.10.5 et encapsule les paquets à l’aide de VXLAN, et il peut l’envoyer à l’hôte contenant l’adresse IP dédiée à l’aide d’hôtes adresse physique du réseau.  
+-   Le MULTIPLEXeur sélectionne le 10.10.10.5 DIP et encapsule les paquets à l’aide de VXLAN pour qu’il puisse les envoyer à l’hôte contenant l’DIP à l’aide de l’adresse réseau physique des hôtes.  
   
--   L’hôte reçoit le paquet encapsulé et elle inspecte.  Il supprime l’encapsulation et réécrit le paquet afin que la destination est désormais l’adresse DIP 10.10.10.5 au lieu de l’adresse IP virtuelle et envoie le trafic vers la machine virtuelle DIP.  
+-   L’hôte reçoit le paquet encapsulé et l’inspecte.  Elle supprime l’encapsulation et réécrit le paquet afin que la destination soit maintenant le 10.10.10.5 DIP au lieu de l’adresse VIP et envoie le trafic à la machine virtuelle DIP.  
   
--   La demande a atteint maintenant le site SharePoint de Contoso dans Server 2 de batterie de serveurs. Le serveur génère une réponse et l’envoie au client, à l’aide de sa propre adresse IP comme source.  
+-   La demande a maintenant atteint le site contoso SharePoint dans la batterie de serveurs 2. Le serveur génère une réponse et l’envoie au client, en utilisant sa propre adresse IP comme source.  
   
--   L’hôte intercepte le paquet sortant dans le commutateur virtuel qui se souvient que le client, maintenant à la destination, qui a fait la demande d’origine à l’adresse IP virtuelle.  L’hôte réécrit la source du paquet à l’adresse IP virtuelle afin que le client ne voit pas l’adresse DIP.  
+-   L’hôte intercepte le paquet sortant dans le commutateur virtuel qui se souvient que le client, à présent la destination, a effectué la demande d’origine à l’adresse IP virtuelle.  L’hôte réécrit la source du paquet comme adresse IP virtuelle, de sorte que le client ne voit pas l’adresse DIP.  
   
--   L’hôte envoie le paquet directement à la passerelle par défaut pour le réseau physique qui utilise sa table de routage standard pour transférer le paquet d’une session sur le client qui finalement reçoit la réponse.  
+-   L’hôte transfère le paquet directement à la passerelle par défaut pour le réseau physique qui utilise sa table de routage standard pour transférer le paquet au client qui reçoit finalement la réponse.  
   
 ![Processus d’équilibrage de charge logiciel](../../../media/Software-Load-Balancing--SLB--for-SDN/slb_process.jpg)  
   
-**Équilibrage du trafic interne de centre de données**  
+**Équilibrage de charge du trafic interne du centre de charge**  
   
-Lorsque la charge du réseau trafic interne au centre de données, telles qu’entre les ressources de locataire qui sont exécutent sur des serveurs différents et sont membres du même réseau virtuel, le commutateur virtuel Hyper-V auquel les machines virtuelles sont connectées effectue NAT.  
+Lors de l’équilibrage de charge du trafic réseau interne au centre de ressources, par exemple entre les ressources de locataire qui s’exécutent sur des serveurs différents et qui sont membres du même réseau virtuel, le commutateur virtuel Hyper-V auquel les machines virtuelles sont connectées exécute NAT.  
   
-Avec l’équilibrage de charge du trafic interne, la première demande est envoyée à et traitée par le multiplexeur, qui sélectionne l’adresse DIP approprié et achemine le trafic vers l’adresse IP dédiée. À partir de là, le flux de trafic établies contourne le MUX et accède directement à partir de la machine virtuelle à la machine virtuelle.  
+Avec l’équilibrage de charge du trafic interne, la première demande est envoyée et traitée par le MULTIPLEXeur, qui sélectionne l’adresse DIP appropriée et achemine le trafic vers l’adresse DIP. À partir de là, le flux de trafic établi contourne le MULTIPLEXeur et passe directement de la machine virtuelle à la machine virtuelle.  
   
 **Sondes d’intégrité**  
   
-SLB inclut des sondes d’intégrité pour valider l’intégrité de l’infrastructure réseau, notamment les suivantes.  
+SLB inclut des sondes d’intégrité pour valider l’intégrité de l’infrastructure réseau, y compris les éléments suivants.  
   
--   Sonde TCP au port  
+-   Sonde TCP vers Port  
   
--   Sonde HTTP sur port et l’URL  
+-   Sonde HTTP sur le port et l’URL  
   
-Contrairement à une appliance à équilibrage de charge traditionnel où la sonde provenance de l’appliance et transite sur le câble à l’adresse IP dédiée, la sonde SLB provenance de l’hôte où l’adresse IP dédiée se trouve et accède directement à partir de l’agent hôte SLB à l’adresse DIP, distribution davantage le les données sur les ordinateurs hôtes.  
+Contrairement à une appliance d’équilibrage de charge classique dans laquelle la sonde provient de l’appareil et circule à travers le câble vers l’adresse DIP, la sonde SLB provient de l’hôte où se trouve l’adresse DIP et passe directement de l’agent hôte SLB à l’adresse DIP, en répartissant davantage la travaillez sur les hôtes.  
   
-## <a name="bkmk_infrastructure"></a>Infrastructure d’équilibrage de charge logicielle  
-Pour déployer le SLB Windows Server, vous devez tout d’abord déployer le contrôleur de réseau dans Windows Server 2016 et un ou plusieurs machines virtuelles SLB MUX.  
+## <a name="bkmk_infrastructure"></a>Infrastructure d’équilibrage de la charge logicielle  
+Pour déployer Windows Server SLB, vous devez d’abord déployer le contrôleur de réseau dans Windows Server 2016 et une ou plusieurs machines virtuelles MUX MUX.  
   
-En outre, vous devez configurer des hôtes Hyper-V avec le commutateur virtuel Hyper-V activé de SDN et vous assurer que l’Agent hôte SLB est en cours d’exécution.  Les routeurs qui desservent les hôtes doivent prendre en charge de routage de même coût Multipath i/o (ECMP) et le protocole BGP (Border Gateway) et doivent être configurés pour accepter les demandes d’homologation BGP à partir de la MUX SLB.  
+En outre, vous devez configurer les ordinateurs hôtes Hyper-V avec le commutateur virtuel Hyper-V compatible avec SDN et vérifier que l’agent hôte SLB est en cours d’exécution.  Les routeurs qui desservent les ordinateurs hôtes doivent prendre en charge le routage et le Border Gateway Protocol (BGP) égal à un ECMP et doivent être configurés pour accepter les demandes d’homologation BGP provenant du multiplexeurs SLB.  
   
-Voici une vue d’ensemble de l’infrastructure SLB.  
+Vous trouverez ci-dessous une vue d’ensemble de l’infrastructure SLB.  
 
-![Infrastructure d’équilibrage de charge logicielle](../../../media/Software-Load-Balancing--SLB--for-SDN/slb_overview1.png)  
+![Infrastructure d’équilibrage de la charge logicielle](../../../media/Software-Load-Balancing--SLB--for-SDN/slb_overview1.png)  
   
-Les sections suivantes fournissent plus d’informations sur ces éléments de l’infrastructure SLB.  
+Les sections suivantes fournissent des informations supplémentaires sur ces éléments de l’infrastructure SLB.  
   
 ### <a name="scvmm"></a>SCVMM  
-Avec System Center 2016, vous pouvez configurer le contrôleur de réseau sur Windows Server 2016, y compris le gestionnaire SLB et le moniteur d’intégrité. Vous pouvez également utiliser System Center pour déployer SLB MUXs et installer des Agents d’hôte SLB sur les ordinateurs qui exécutent Windows Server 2016 et Hyper-V.  
+Avec System Center 2016, vous pouvez configurer le contrôleur de réseau sur Windows Server 2016, y compris le gestionnaire SLB et le moniteur d’intégrité. Vous pouvez également utiliser System Center pour déployer SLB MUXs et installer des agents hôtes SLB sur des ordinateurs qui exécutent Windows Server 2016 et Hyper-V.  
   
-Pour plus d’informations sur System Center 2016, consultez [System Center 2016](https://www.microsoft.com/server-cloud/products/system-center-2016/).  
+Pour plus d’informations sur System Center 2016, voir [System center 2016](https://www.microsoft.com/server-cloud/products/system-center-2016/).  
   
 > [!NOTE]  
-> Si vous ne souhaitez pas utiliser System Center 2016, vous pouvez utiliser Windows PowerShell ou une autre application de gestion pour installer et configurer le contrôleur de réseau et d’autres infrastructures SLB. Pour plus d’informations, consultez [déployer de contrôleur de réseau à l’aide de Windows PowerShell](../../../sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
+> Si vous ne souhaitez pas utiliser System Center 2016, vous pouvez utiliser Windows PowerShell ou une autre application de gestion pour installer et configurer un contrôleur de réseau et une autre infrastructure SLB. Pour plus d’informations, consultez [déployer un contrôleur de réseau à l’aide de Windows PowerShell](../../../sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
 ### <a name="network-controller"></a>Contrôleur de réseau  
-Contrôleur de réseau héberge le gestionnaire SLB et effectue les actions suivantes pour SLB.  
+Le contrôleur de réseau héberge le gestionnaire SLB et effectue les actions suivantes pour SLB.  
   
--   Traite les commandes SLB qui proviennent via l’API Northbound de System Center, Windows PowerShell ou une autre application de gestion de réseau.  
+-   Traite les commandes SLB qui arrivent via l’API Northbound à partir de System Center, de Windows PowerShell ou d’une autre application de gestion de réseau.  
   
--   Calcule la stratégie pour la distribution aux hôtes Hyper-V et MUX SLB.  
+-   Calcule la stratégie de distribution pour les hôtes Hyper-V et SLB multiplexeurs.  
   
 -   Fournit l’état d’intégrité de l’infrastructure SLB.  
   
-### <a name="slb-mux"></a>SLB MUX  
-Le SLB MUX traite le trafic réseau entrant et mappe les adresses IP virtuelles aux adresses IP dynamiques, puis transfère le trafic vers l’adresse DIP approprié. Chaque MUX utilise également le protocole BGP pour publier des itinéraires de l’adresse IP virtuelle sur les routeurs de périphérie. BGP Keep Alive notifie les multiplexeurs d’un MUX échoue, ce qui permet les multiplexeurs d’active redistribuer la charge en cas de défaillance MUX - fournissant essentiellement l’équilibrage de charge pour les équilibreurs de charge.  
+### <a name="slb-mux"></a>MUX SLB  
+Le MULTIPLEXeur SLB traite le trafic réseau entrant et mappe les adresses IP virtuelles aux adresses IP virtuelles, puis transfère le trafic à l’adresse DIP appropriée. Chaque MULTIPLEXeur utilise également le protocole BGP pour publier les itinéraires VIP sur les routeurs de périphérie. Le protocole BGP Keep Alive notifie multiplexeurs lorsqu’un MULTIPLEXeur échoue, ce qui permet à Active multiplexeurs de redistribuer la charge en cas de défaillance d’un MULTIPLEXeur, ce qui fournit principalement un équilibrage de la charge pour les équilibrages de charge.  
   
-### <a name="hosts-that-are-running-hyper-v"></a>Ordinateurs hôtes qui exécutent Hyper-V  
+### <a name="hosts-that-are-running-hyper-v"></a>Ordinateurs hôtes exécutant Hyper-V  
 Vous pouvez utiliser SLB avec les ordinateurs qui exécutent Windows Server 2016 et Hyper-V. Les machines virtuelles sur l’hôte Hyper-V peuvent exécuter n’importe quel système d’exploitation pris en charge par Hyper-V.  
   
 ### <a name="slb-host-agent"></a>Agent hôte SLB  
-Lorsque vous déployez SLB, vous devez utiliser System Center, Windows PowerShell ou une autre application de gestion pour déployer l’Agent hôte de SLB sur chaque ordinateur hôte de Hyper-V. Vous pouvez installer l’Agent hôte SLB sur toutes les versions de Windows Server 2016 qui prennent en charge Hyper-V, y compris Nano Server.  
+Lorsque vous déployez SLB, vous devez utiliser System Center, Windows PowerShell ou une autre application de gestion pour déployer l’agent hôte SLB sur chaque ordinateur hôte Hyper-V. Vous pouvez installer l’agent hôte SLB sur toutes les versions de Windows Server 2016 qui fournissent la prise en charge d’Hyper-V, y compris nano Server.  
   
-L’Agent hôte SLB écoute les mises à jour de la stratégie SLB à partir du contrôleur de réseau. En outre, l’agent hôte programmes des règles pour SLB dans les commutateurs virtuels Hyper-V activé de SDN qui sont configurés sur l’ordinateur local.  
+L’agent hôte SLB écoute les mises à jour de la stratégie SLB à partir du contrôleur de réseau. En outre, l’agent hôte règle les règles de SLB dans les commutateurs virtuels Hyper-V compatibles SDN configurés sur l’ordinateur local.  
   
-### <a name="sdn-enabled-hyper-v-virtual-switch"></a>SDN activé le commutateur virtuel Hyper-V  
-Pour un commutateur virtuel être compatible avec SLB, vous devez utiliser des commandes de gestionnaire de commutateur virtuel Hyper-V ou Windows PowerShell pour créer le commutateur, et vous devez ensuite activer la plateforme de filtrage virtuel (VFP) pour le commutateur virtuel.  
+### <a name="sdn-enabled-hyper-v-virtual-switch"></a>Commutateur virtuel Hyper-V activé par SDN  
+Pour qu’un commutateur virtuel soit compatible avec SLB, vous devez utiliser le gestionnaire de commutateur virtuel Hyper-V ou les commandes Windows PowerShell pour créer le commutateur, puis activer la plateforme de filtrage virtuel (VFP) pour le commutateur virtuel.  
   
-Pour plus d’informations sur l’activation de VFP sur les commutateurs virtuels, consultez les commandes Windows PowerShell [Get-VMSystemSwitchExtension](https://technet.microsoft.com/library/hh848603.aspx) et [Enable-VMSwitchExtension](https://technet.microsoft.com/library/hh848541.aspx?f=255&MSPPError=-2147217396).  
+Pour plus d’informations sur l’activation de VFP sur des commutateurs virtuels, consultez les commandes Windows PowerShell [VMSystemSwitchExtension](https://technet.microsoft.com/library/hh848603.aspx) et [Enable-VMSwitchExtension](https://technet.microsoft.com/library/hh848541.aspx?f=255&MSPPError=-2147217396).  
   
-Le SDN activé le commutateur virtuel Hyper-V effectue les actions suivantes pour SLB.  
+Le commutateur virtuel Hyper-V activé par SDN effectue les actions suivantes pour SLB.  
   
--   Traite le chemin d’accès de données pour SLB.  
+-   Traite le chemin de données pour SLB.  
   
--   Reçoit le trafic réseau entrant à partir de la MUX.  
+-   Reçoit le trafic réseau entrant à partir du MULTIPLEXeur.  
   
--   Ignore le multiplexeur pour le trafic réseau sortant, envoyer vers le routeur à l’aide de DSR.  
+-   Contourne le MULTIPLEXeur pour le trafic réseau sortant, en l’envoyant au routeur à l’aide de DSR.  
   
--   S’exécute sur des instances de Nano Server d’Hyper-V.  
+-   S’exécute sur les instances nano Server d’Hyper-V.  
   
-### <a name="bgp-enabled-router"></a>Le protocole BGP activé routeur  
+### <a name="bgp-enabled-router"></a>Routeur BGP activé  
 Le routeur BGP effectue les actions suivantes pour SLB.  
   
--   Itinéraires du trafic entrant pour le multiplexeur à l’aide du routage ECMP.  
+-   Achemine le trafic entrant vers le MULTIPLEXeur à l’aide de ECMP.  
   
 -   Pour le trafic réseau sortant, utilise l’itinéraire fourni par l’hôte.  
   
--   Écoute des mises à jour de l’itinéraire pour les adresses IP virtuelles à partir de SLB MUX.  
+-   Écoute les mises à jour d’itinéraires pour les adresses IP virtuelles à partir de SLB MUX.  
   
--   Supprime MUX SLB à partir de la rotation de SLB si Keep Alive échoue.  
+-   Supprime les multiplexeurs SLB de la rotation SLB si Keep Alive échoue.  
   
-## <a name="bkmk_features"></a>Fonctionnalités d’équilibrage de charge logiciel  
-Voici quelques-unes des fonctionnalités et capacités de SLB.  
+## <a name="bkmk_features"></a>Fonctionnalités d’équilibrage de la charge logicielle  
+Voici quelques-unes des fonctions et des fonctionnalités de SLB.  
   
 **Fonctionnalités principales**  
   
--   SLB fournit des services pour « Nord-sud » et le trafic TCP/UDP de « Est-ouest » d’équilibrage de charge de couche 4  
+-   SLB fournit des services d’équilibrage de charge de couche 4 pour le trafic TCP/UDP « Nord-Sud » et « est-ouest ».  
   
 -   Vous pouvez utiliser SLB sur un réseau basé sur la virtualisation de réseau Hyper-V  
   
--   Vous pouvez utiliser SLB avec un réseau basé sur le réseau local virtuel pour les machines virtuelles DIP connectée à un SDN activé Hyper-V commutateur virtuel.  
+-   Vous pouvez utiliser SLB avec un réseau basé sur un réseau local virtuel pour les machines virtuelles DIP connectées à un commutateur virtuel Hyper-V compatible avec SDN.  
   
--   Une seule instance SLB peut gérer plusieurs locataires  
+-   Une instance SLB peut gérer plusieurs locataires  
   
--   SLB et DIP prennent en charge un chemin de retour évolutif et à faible latence, tel qu’implémenté retourner par serveur Direct (DSR)  
+-   SLB et DIP prennent en charge un chemin de retour évolutif et à faible latence, tel qu’implémenté par le retour direct du serveur (DSR)  
   
--   Fonctions SLB lorsque vous utilisez également l’association de cartes SET (Switch Embedded) ou la virtualisation d’entrée/sortie une racine unique (SR-IOV)  
+-   Fonctions SLB quand vous utilisez également Switch Embedded Teaming (SET) ou une virtualisation d’entrée/sortie à racine unique (SR-IOV)  
   
--   SLB inclut Internet Protocol version 4 (IPv4) prennent en charge  
+-   SLB comprend la prise en charge IPv4 (Internet Protocol version 4).  
   
--   Pour les scénarios de passerelle de site à site, SLB propose une fonctionnalité NAT pour activer toutes les connexions de site à site à utiliser une adresse IP publique unique  
+-   Pour les scénarios de passerelle de site à site, SLB fournit des fonctionnalités NAT pour permettre à toutes les connexions de site à site d’utiliser une seule adresse IP publique.  
   
--   Vous pouvez installer SLB, y compris l’Agent hôte et le multiplexeur, sur Windows Server 2016, complète, Core et Nano Install.  
+-   Vous pouvez installer SLB, y compris l’agent hôte et le MULTIPLEXeur, sur Windows Server 2016, Full, Core et nano install.  
   
 **Mise à l’échelle et performances**  
   
--   Prêt pour l’échelle du cloud, y compris la capacité de montée en puissance et augmenter la capacité pour les multiplexeurs d’et les Agents de l’hôte.  
+-   Prêt pour la mise à l’échelle du Cloud, y compris la capacité de montée en puissance parallèle et la capacité de montée en puissance pour les agents multiplexeurs et hôtes.  
   
--   Un module de contrôleur de réseau de gestionnaire SLB actif peut prendre en charge les 8 instances MUX  
+-   Un module de contrôleur de réseau SLB Manager actif peut prendre en charge 8 instances MUX  
   
 **Haute disponibilité**  
   
--   Vous pouvez déployer SLB à plus de 2 nœuds dans une configuration actif/actif  
+-   Vous pouvez déployer SLB sur plus de 2 nœuds dans une configuration active/active  
   
--   Les multiplexeurs de peuvent être ajoutées et supprimées à partir du pool MUX sans affecter le service SLB. Cela maintient la disponibilité SLB lorsque   
-    multiplexeurs individuels sont en cours corrigées.  
+-   Vous pouvez ajouter et supprimer des multiplexeurs dans le pool de MULTIPLEXeurs sans affecter le service SLB. Cela garantit la disponibilité de SLB lorsque   
+    les multiplexeurs individuels sont corrigés.  
   
--   Les instances individuelles MUX ont une durée de fonctionnement de 99 %  
+-   Les instances de MULTIPLEXeur individuelles ont une durée de fonctionnement de 99%  
   
--   Analyse des données d’intégrité est disponible pour les entités de gestion  
+-   Les données de contrôle d’intégrité sont disponibles pour les entités de gestion  
   
-**Alignement**  
+**Repère**  
   
 -   Vous pouvez déployer et configurer SLB avec SCVMM  
   
--   SLB fournit un bord unifié mutualisé en étroite collaboration avec les appliances de Microsoft telles que la passerelle mutualisée de RAS, le pare-feu de centre de données et le réflecteur d’itinéraire.  
+-   SLB fournit une périphérie unifiée mutualisée en s’intégrant de manière transparente aux appliances Microsoft, telles que la passerelle mutualisée RAS, le pare-feu de centre de connaissances et le réflecteur d’itinéraire.  
   
 

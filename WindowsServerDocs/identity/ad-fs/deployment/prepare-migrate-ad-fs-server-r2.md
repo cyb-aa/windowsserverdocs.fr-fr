@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/10/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 73ac72abbf6f69beb202531c15257d75d08cce1b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 149e3d3fc4d4eee22fa9330475f0eed9d945f8b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867916"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359308"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Préparer la migration du serveur de fédération AD FS 2,0 vers AD FS sur Windows Server 2012 R2
 
@@ -109,13 +109,13 @@ Si vous avez une personnalisation de page Web dans votre batterie de AD FS exist
   
  Pour que AD FS s’exécutant sur Windows Server 2012 R2 fonctionne, votre domaine Active Directory doit exécuter l’un des éléments suivants :  
   
-- Windows Server 2012 R2  
+- Windows Server 2012 R2  
   
 - Windows Server 2012  
   
-- Windows Server 2008 R2  
+- Windows Server 2008 R2  
   
-- Windows Server 2008  
+- Windows Server 2008  
   
   Si vous envisagez d’utiliser un compte de service administré de groupe (gMSA) comme compte de service pour AD FS, vous devez disposer d’au moins un contrôleur de domaine dans votre environnement qui s’exécute sur le système d’exploitation Windows Server 2012 ou Windows Server 2012 R2.  
   

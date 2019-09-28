@@ -1,39 +1,39 @@
 ---
 title: Réglage des performances pour les serveurs de fichiers NFS
 description: Réglage des performances pour les serveurs de fichiers NFS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
 ms.author: RoopeshB, NedPyle
 ms.date: 10/16/2017
-ms.openlocfilehash: 06a2a7206d3673046bd5a926a657bac91b02bf5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 07e5005c1bc38e791e847c8965cbc9a6c0ac96f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879010"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355184"
 ---
-# <a name="performance-tuning-nfs-file-servers"></a>Serveurs de fichiers NFS de réglage des performances
+# <a name="performance-tuning-nfs-file-servers"></a>Réglage des performances pour les serveurs de fichiers NFS
 
-## <a href="" id="servicesnfs"></a>Services pour le modèle NFS
+## <a href="" id="servicesnfs"></a>Modèle des services pour NFS
 
 
-Les sections suivantes fournissent des informations sur les Services Microsoft pour le modèle de système de fichiers réseau (NFS) pour la communication client-serveur. Étant donné que NFS v2 et v3 NFS sont toujours le plus largement déployé des versions du protocole, toutes les clés de Registre à l’exception MaxConcurrentConnectionsPerIp s’appliquent à NFS v2 et v3 NFS uniquement.
+Les sections suivantes fournissent des informations sur le modèle NFS (Microsoft Services for Network File System) pour la communication client-serveur. Étant donné que NFS v2 et NFS v3 sont toujours les versions les plus largement déployées du protocole, toutes les clés de Registre, à l’exception de MaxConcurrentConnectionsPerIp, s’appliquent uniquement à NFS v2 et NFS v3.
 
-Aucun réglage de Registre n’est requis pour le protocole NFS version 4.1.
+Aucun réglage du Registre n’est nécessaire pour le protocole NFS v 4.1.
 
-### <a name="service-for-nfs-model-overview"></a>Service pour une vue d’ensemble du modèle NFS
+### <a name="service-for-nfs-model-overview"></a>Vue d’ensemble du modèle service for NFS
 
-Microsoft Services pour NFS fournit une solution de partage de fichiers pour les entreprises qui disposent d’un environnement mixte Windows et UNIX. Ce modèle de communication se compose d’ordinateurs clients et un serveur. Applications sur les fichiers de demande du client qui sont trouvent sur le serveur via le redirecteur (Rdbss.sys) et le mini-redirecteur de NFS (Nfsrdr.sys). Le mini-redirecteur utilise le protocole NFS pour envoyer sa demande via TCP/IP. Le serveur reçoit plusieurs demandes des clients via TCP/IP et achemine les demandes vers le système de fichiers local (Ntfs.sys), qui accède à la pile de stockage.
+Microsoft Services for NFS fournit une solution de partage de fichiers pour les entreprises disposant d’un environnement mixte Windows et UNIX. Ce modèle de communication se compose d’ordinateurs clients et d’un serveur. Les applications sur le client demandent des fichiers qui se trouvent sur le serveur via le redirecteur (Rdbss. sys) et le mini-redirecteur NFS (Nfsrdr. sys). Le mini-redirecteur utilise le protocole NFS pour envoyer sa demande via TCP/IP. Le serveur reçoit plusieurs demandes des clients via TCP/IP et achemine les demandes vers le système de fichiers local (NTFS. sys), qui accède à la pile de stockage.
 
-La figure suivante montre le modèle de communication pour NFS.
+L’illustration suivante montre le modèle de communication pour NFS.
 
 ![modèle de communication NFS](../../media/perftune-guide-nfs-model.png)
 
-### <a name="tuning-parameters-for-nfs-file-servers"></a>Réglage des paramètres pour les serveurs de fichiers NFS
+### <a name="tuning-parameters-for-nfs-file-servers"></a>Paramétrage des paramètres pour les serveurs de fichiers NFS
 
-Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performances des serveurs de fichiers NFS :
+Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les performances des serveurs de fichiers NFS :
 
 -   **OptimalReads**
 
@@ -41,10 +41,10 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\OptimalReads
     ```
 
-    La valeur par défaut est 0. Ce paramètre détermine si les fichiers sont ouverts pour le fichier\_RANDOM\_accès ou fichier\_séquentiel\_uniquement, en fonction des caractéristiques de charge de travail d’e/s. Définissez cette valeur sur 1 pour forcer les fichiers à ouvrir pour le fichier\_RANDOM\_accès. FICHIER\_RANDOM\_accès empêche le Gestionnaire de fichiers système et le cache de lecture anticipée.
+    La valeur par défaut est 0. Ce paramètre détermine si les fichiers sont ouverts pour le fichier @ no__t-0RANDOM @ no__t-1ACCESS ou pour le fichier @ no__t-2SEQUENTIAL @ no__t-3ONLY, en fonction des caractéristiques d’e/s de la charge de travail. Définissez cette valeur sur 1 pour forcer l’ouverture des fichiers pour le fichier @ no__t-0RANDOM @ no__t-1ACCESS. Le fichier @ no__t-0RANDOM @ no__t-1ACCESS empêche le système de fichiers et le gestionnaire de cache de prérécupérer.
 
     >[!NOTE]
-    > Ce paramètre doit être évalué avec précaution, car elle peut avoir un impact potentiel sur le cache du système de fichier croître.
+    > Ce paramètre doit être évalué avec soin, car il peut avoir un impact potentiel sur la croissance du cache des fichiers système.
 
 
 -   **RdWrHandleLifeTime**
@@ -53,7 +53,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrHandleLifeTime
     ```
 
-    La valeur par défaut est 5. Ce paramètre contrôle la durée de vie d’une entrée de cache NFS dans le cache de handle de fichier. Le paramètre fait référence aux entrées du cache qui ont un fichier NTFS ouvert associé à gérer. Durée de vie réelle est approximativement égale à RdWrHandleLifeTime multipliée par RdWrThreadSleepTime. La valeur minimale est 1 et la valeur maximale est de 60.
+    La valeur par défaut est 5. Ce paramètre contrôle la durée de vie d’une entrée de cache NFS dans le cache de handles de fichiers. Le paramètre fait référence aux entrées de cache qui ont un handle de fichier NTFS ouvert associé. La durée de vie réelle est approximativement égale à RdWrHandleLifeTime multipliée par RdWrThreadSleepTime. La valeur minimale est 1 et la valeur maximale est 60.
 
 -   **RdWrNfsHandleLifeTime**
 
@@ -61,7 +61,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrNfsHandleLifeTime
     ```
 
-    La valeur par défaut est 5. Ce paramètre contrôle la durée de vie d’une entrée de cache NFS dans le cache de handle de fichier. Le paramètre fait référence aux entrées du cache qui n’ont pas de gérer un fichier NTFS ouvert associé. Services pour NFS utilise ces entrées de cache pour stocker des attributs de fichier pour un fichier sans conserver un handle ouvert avec le système de fichiers. Durée de vie réelle est approximativement égale à RdWrNfsHandleLifeTime multipliée par RdWrThreadSleepTime. La valeur minimale est 1 et la valeur maximale est de 60.
+    La valeur par défaut est 5. Ce paramètre contrôle la durée de vie d’une entrée de cache NFS dans le cache de handles de fichiers. Le paramètre fait référence aux entrées de cache qui n’ont pas de descripteur de fichier NTFS ouvert associé. Les services pour NFS utilisent ces entrées de cache pour stocker les attributs de fichier d’un fichier sans conserver un handle ouvert avec le système de fichiers. La durée de vie réelle est approximativement égale à RdWrNfsHandleLifeTime multipliée par RdWrThreadSleepTime. La valeur minimale est 1 et la valeur maximale est 60.
 
 -   **RdWrNfsReadHandlesLifeTime**
 
@@ -69,7 +69,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrNfsReadHandlesLifeTime
     ```
 
-    La valeur par défaut est 5. Ce paramètre contrôle la durée de vie d’une lecture de l’entrée de cache dans le cache de handle de fichier NFS. Durée de vie réelle est approximativement égale à RdWrNfsReadHandlesLifeTime multipliée par RdWrThreadSleepTime. La valeur minimale est 1 et la valeur maximale est de 60.
+    La valeur par défaut est 5. Ce paramètre contrôle la durée de vie d’une entrée de cache de lecture NFS dans le cache de handles de fichiers. La durée de vie réelle est approximativement égale à RdWrNfsReadHandlesLifeTime multipliée par RdWrThreadSleepTime. La valeur minimale est 1 et la valeur maximale est 60.
 
 -   **RdWrThreadSleepTime**
 
@@ -77,7 +77,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrThreadSleepTime
     ```
 
-    La valeur par défaut est 5. Ce paramètre contrôle le délai d’attente avant d’exécuter le thread de nettoyage sur le cache de handle de fichier. La valeur est en cycles, et il n’est pas déterministe. Une graduation est équivalente à environ 100 nanosecondes. La valeur minimale est 1 et la valeur maximale est de 60.
+    La valeur par défaut est 5. Ce paramètre contrôle l’intervalle d’attente avant d’exécuter le thread de nettoyage sur le cache de handles de fichiers. La valeur est en graduations et n’est pas déterministe. Un battement est équivalent à environ 100 nanosecondes. La valeur minimale est 1 et la valeur maximale est 60.
 
 -   **FileHandleCacheSizeinMB**
 
@@ -85,7 +85,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\FileHandleCacheSizeinMB
     ```
 
-    La valeur par défaut est 4. Ce paramètre spécifie la mémoire maximale à être consommés par les entrées de cache de handle de fichier. La valeur minimale est 1 et la valeur maximale est 1\*1024\*1024\*1024 (1073741824).
+    La valeur par défaut est 4. Ce paramètre spécifie la mémoire maximale à consommer par les entrées du cache des handles de fichiers. La valeur minimale est 1 et la valeur maximale est 1 @ no__t-01024 @ no__t-11024 @ no__t-21024 (1073741824).
 
 -   **LockFileHandleCacheInMemory**
 
@@ -93,7 +93,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\LockFileHandleCacheInMemory
     ```
 
-    La valeur par défaut est 0. Ce paramètre spécifie si les pages physiques qui sont allouées pour la taille de cache spécifiée par FileHandleCacheSizeInMB sont verrouillées en mémoire. Cette activité permet de définir cette valeur sur 1. Les pages sont verrouillées en mémoire (non paginée sur le disque), ce qui améliore les performances de la résolution des descripteurs de fichiers, mais réduit la mémoire est disponible pour les applications.
+    La valeur par défaut est 0. Ce paramètre spécifie si les pages physiques allouées pour la taille de cache spécifiée par FileHandleCacheSizeInMB sont verrouillées en mémoire. Si cette valeur est définie sur 1, cette activité est active. Les pages sont verrouillées en mémoire (non paginées sur le disque), ce qui améliore les performances de résolution des handles de fichiers, mais réduit la mémoire disponible pour les applications.
 
 -   **MaxIcbNfsReadHandlesCacheSize**
 
@@ -101,7 +101,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\MaxIcbNfsReadHandlesCacheSize
     ```
 
-    La valeur par défaut est 64. Ce paramètre spécifie le nombre maximal de handles par volume pour le cache de lecture de données. Les entrées de cache de lecture sont créées uniquement sur les systèmes qui ont plus de 1 Go de mémoire. La valeur minimale est 0 et la valeur maximale est 0xFFFFFFFF.
+    La valeur par défaut est 64. Ce paramètre spécifie le nombre maximal de descripteurs par volume pour le cache de données en lecture. Les entrées de cache de lecture sont créées uniquement sur les systèmes qui ont plus de 1 Go de mémoire. La valeur minimale est 0 et la valeur maximale est 0xFFFFFFFF.
 
 -   **HandleSigningEnabled**
 
@@ -109,7 +109,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\HandleSigningEnabled
     ```
 
-    La valeur par défaut est 1. Ce paramètre contrôle si les poignées sont octroyées par le serveur de fichiers NFS sont signées par chiffrement. La valeur 0 désactive handle de signature.
+    La valeur par défaut est 1. Ce paramètre contrôle si les descripteurs fournis par le serveur de fichiers NFS sont signés par chiffrement. Si la valeur 0 est désactivée, la signature de handle est désactivée.
 
 -   **RdWrNfsDeferredWritesFlushDelay**
 
@@ -117,7 +117,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrNfsDeferredWritesFlushDelay
     ```
 
-    La valeur par défaut est 60. Ce paramètre est un délai d’attente de manière réversible qui contrôle la durée de l’écriture de NFS V3 instable de la mise en cache des données. La valeur minimale est 1, et la valeur maximale est égale à 600. Durée de vie réelle est approximativement égale à RdWrNfsDeferredWritesFlushDelay multipliée par RdWrThreadSleepTime.
+    La valeur par défaut est 60. Ce paramètre est un délai d’attente logiciel qui contrôle la durée de la mise en cache des données d’écriture instables NFS v3. La valeur minimale est 1 et la valeur maximale est 600. La durée de vie réelle est approximativement égale à RdWrNfsDeferredWritesFlushDelay multipliée par RdWrThreadSleepTime.
 
 -   **CacheAddFromCreateAndMkDir**
 
@@ -125,7 +125,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\CacheAddFromCreateAndMkDir
     ```
 
-    La valeur par défaut est 1 (activé). Ce paramètre contrôle si les descripteurs sont ouverts pendant NFS V2 et V3 créer et MKDIR RPC procédure gestionnaires sont conservés dans le fichier gèrent le cache. Définissez cette valeur sur 0 pour désactiver l’ajout d’entrées dans le cache dans les chemins de code CREATE and MKDIR.
+    La valeur par défaut est 1 (activé). Ce paramètre contrôle si les descripteurs qui sont ouverts pendant les gestionnaires de procédures RPC et de création et MKDIR de NFS v2 sont conservés dans le cache de handles de fichiers. Définissez cette valeur sur 0 pour désactiver l’ajout d’entrées au cache dans les chemins de code CREATe et MKDIR.
 
 -   **AdditionalDelayedWorkerThreads**
 
@@ -133,7 +133,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\SYSTEM\CurrentControlSet\Control\SessionManager\Executive\AdditionalDelayedWorkerThreads
     ```
 
-    Augmente le nombre de threads de travail retardé qui sont créés pour la file d’attente de travail spécifié. Retardée des éléments de travail de processus worker threads qui ne sont pas considérées comme critiques et qui peut avoir leur pile mémoire paginée en attendant que les éléments de travail. Un nombre insuffisant de threads réduit la vitesse à laquelle le travail des éléments sont pris en charge ; une valeur qui est trop élevée consomme des ressources système inutilement.
+    Augmente le nombre de threads de travail retardés qui sont créés pour la file d’attente de travail spécifiée. Les threads de travail retardés traitent les éléments de travail qui ne sont pas considérés comme critiques et qui peuvent avoir leur pile de mémoire paginée pendant l’attente d’éléments de travail. Un nombre insuffisant de threads réduit la vitesse à laquelle les éléments de travail sont desservis ; une valeur trop élevée consomme inutilement des ressources système.
 
 -   **NtfsDisable8dot3NameCreation**
 
@@ -141,10 +141,10 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation
     ```
 
-    La valeur par défaut dans Windows Server 2012 et Windows Server 2012 R2 est 2. Dans les versions antérieures à Windows Server 2012, la valeur par défaut est 0. Ce paramètre détermine si NTFS génère un nom court dans le 8dot3 convention de nommage (MS-DOS) pour la durée pendant laquelle les noms de fichiers et noms de fichiers qui contiennent des caractères du jeu de caractères étendus. Si la valeur de cette entrée est 0, les fichiers peuvent avoir deux noms : le nom qui spécifie l’utilisateur et le nom court qui génère de NTFS. Si le nom spécifié par l’utilisateur suit la convention d’affectation de noms 8dot3, NTFS ne génère pas un nom court. Valeur 2 signifie que ce paramètre peut être configuré par volume.
+    La valeur par défaut dans Windows Server 2012 et Windows Server 2012 R2 est 2. Dans les versions antérieures à Windows Server 2012, la valeur par défaut est 0. Ce paramètre détermine si NTFS génère un nom abrégé dans la Convention de nommage 8dot3 (MSDOS) pour les noms de fichiers longs et pour les noms de fichiers qui contiennent des caractères du jeu de caractères étendus. Si la valeur de cette entrée est 0, les fichiers peuvent avoir deux noms : le nom que l’utilisateur spécifie et le nom abrégé généré par NTFS. Si le nom spécifié par l’utilisateur respecte la Convention d’affectation de noms 8dot3, NTFS ne génère pas de nom abrégé. La valeur 2 signifie que ce paramètre peut être configuré par volume.
 
     >[!NOTE]
-    > Le volume système a 8dot3 activé par défaut. Tous les autres volumes dans Windows Server 2012 et Windows Server 2012 R2 ont 8dot3 désactivée par défaut. Modification de cette valeur ne change pas le contenu d’un fichier, mais il évite la création de l’attribut de nom court pour le fichier, ce qui modifie également la façon dont NTFS affiche et gère le fichier. Pour la plupart des serveurs de fichiers, le paramètre recommandé est de 1 (désactivée).
+    > Par défaut, 8dot3 est activé sur le volume système. Par défaut, 8dot3 est désactivé pour tous les autres volumes de Windows Server 2012 et Windows Server 2012 R2. La modification de cette valeur ne modifie pas le contenu d’un fichier, mais elle évite la création de l’attribut de nom abrégé pour le fichier, ce qui modifie également le mode d’affichage et de gestion du fichier par NTFS. Pour la plupart des serveurs de fichiers, le paramètre recommandé est 1 (désactivé).
 
 
 -   **NtfsDisableLastAccessUpdate**
@@ -153,7 +153,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableLastAccessUpdate
     ```
 
-    La valeur par défaut est 1. Ce commutateur système globaux réduit la charge d’e/s disque et des latences en désactivant la mise à jour de l’horodatage pour le dernier accès de fichier ou répertoire.
+    La valeur par défaut est 1. Ce commutateur système réduit la charge et les latences d’e/s du disque en désactivant la mise à jour de la date et de l’heure du dernier accès au fichier ou au répertoire.
 
 -   **MaxConcurrentConnectionsPerIp**
 
@@ -161,4 +161,4 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Rpcxdr\Parameters\MaxConcurrentConnectionsPerIp
     ```
 
-    La valeur par défaut du paramètre MaxConcurrentConnectionsPerIp est 16. Vous pouvez augmenter cette valeur jusqu'à un maximum de 8 192 pour augmenter le nombre de connexions par adresse IP.
+    La valeur par défaut du paramètre MaxConcurrentConnectionsPerIp est 16. Vous pouvez augmenter cette valeur jusqu’à un maximum de 8192 pour augmenter le nombre de connexions par adresse IP.

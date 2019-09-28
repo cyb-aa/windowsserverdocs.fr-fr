@@ -1,9 +1,9 @@
 ---
-title: Utilisez le contrôle d’accès répertorie (ACL) pour gérer les flux de trafic réseau de centre de données
-description: Dans cette rubrique, vous allez apprendre à configurer des listes de contrôle d’accès (ACL) pour gérer les flux de trafic de données à l’aide de pare-feu de centre de données et les listes ACL sur les sous-réseaux virtuels. Vous activez et configurez les pare-feu de centre de données en créant des ACL soient appliqués à un sous-réseau virtuel ou d’une interface réseau.
+title: Utiliser des listes de contrôle d’accès (ACL) pour gérer le flux de trafic réseau du centre de distribution
+description: Dans cette rubrique, vous allez apprendre à configurer des listes de contrôle d’accès (ACL) pour gérer le flux de trafic de données à l’aide du pare-feu et des ACL de centre de données sur des sous-réseaux virtuels. Vous activez et configurez le pare-feu de centre de centres en créant des listes de contrôle d’accès appliquées à un sous-réseau virtuel ou à une interface réseau.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,26 +13,26 @@ ms.assetid: 6a7ac5af-85e9-4440-a631-6a3a38e9015d
 ms.author: pashort
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 7bfb74e0964735d357226ab1e5af826796c48d81
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6a1d210d25309be322359add20da4eb8d0eee091
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446303"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355805"
 ---
-# <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Utilisez le contrôle d’accès répertorie (ACL) pour gérer les flux de trafic réseau de centre de données
+# <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Utiliser des listes de contrôle d’accès (ACL) pour gérer le flux de trafic réseau du centre de distribution
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, vous allez apprendre à configurer des listes de contrôle d’accès (ACL) pour gérer les flux de trafic de données à l’aide de pare-feu de centre de données et les listes ACL sur les sous-réseaux virtuels. Vous activez et configurez les pare-feu de centre de données en créant des ACL soient appliqués à un sous-réseau virtuel ou d’une interface réseau.   
+Dans cette rubrique, vous allez apprendre à configurer des listes de contrôle d’accès (ACL) pour gérer le flux de trafic de données à l’aide du pare-feu et des ACL de centre de données sur des sous-réseaux virtuels. Vous activez et configurez le pare-feu de centre de centres en créant des listes de contrôle d’accès appliquées à un sous-réseau virtuel ou à une interface réseau.   
 
-Les exemples suivants dans cette rubrique montrent comment utiliser Windows PowerShell pour créer ces ACL.  
+Les exemples suivants de cette rubrique montrent comment utiliser Windows PowerShell pour créer ces listes de contrôle d’accès.  
 
-## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>Configurer le pare-feu de centre de données pour autoriser tout le trafic  
+## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>Configurer le pare-feu de centre de centres pour autoriser tout le trafic  
 
-Une fois que vous déployez SDN, vous devez tester pour la connectivité de réseau de base dans votre nouvel environnement.  Pour ce faire, créez une règle pour le pare-feu de centre de données qui autorise tout le trafic réseau, sans aucune restriction.   
+Une fois que vous avez déployé SDN, vous devez tester la connectivité réseau de base dans votre nouvel environnement.  Pour ce faire, créez une règle pour le pare-feu de centre de connaissances qui autorise tout le trafic réseau, sans restriction.   
 
-Utilisez les entrées dans le tableau suivant pour créer un ensemble de règles qui autorisent tout le trafic réseau entrant et sortant.
+Utilisez les entrées du tableau suivant pour créer un ensemble de règles qui autorisent tout le trafic réseau entrant et sortant.
 
 
 | Adresse IP source | Adresse IP de destination | Protocol | Port source | Port de destination | Direction | Action | Priority |
@@ -42,13 +42,13 @@ Utilisez les entrées dans le tableau suivant pour créer un ensemble de règles
 
 ---       
 
-### <a name="example-create-an-acl"></a>Exemple : Créer une liste ACL 
-Dans cet exemple, vous créez une liste ACL avec deux règles :
+### <a name="example-create-an-acl"></a>Exemple : Créer une liste de contrôle d’accès 
+Dans cet exemple, vous créez une liste de contrôle d’accès avec deux règles :
 
-1. **AllowAll_Inbound** -permet à tout le trafic réseau à passer à l’interface réseau dans lequel cette liste ACL est configurée.    
-2. **AllowAllOutbound** -autorise tout le trafic à passer en dehors de l’interface réseau. Cette liste ACL, identifiée par l’id de ressource « AutoriserTout-1 » est maintenant prête à être utilisé dans les interfaces réseau et sous-réseaux virtuels.  
+1. **AllowAll_Inbound** : permet à tout le trafic réseau de passer dans l’interface réseau où cette liste de contrôle d’accès est configurée.    
+2. **AllowAllOutbound** : autorise le transfert de tout le trafic hors de l’interface réseau. Cette liste de contrôle d’accès, identifiée par l’ID de ressource « AutoriserTout-1 », est maintenant prête à être utilisée dans les sous-réseaux virtuels et les interfaces réseau.  
 
-L’exemple de script suivant utilise les commandes Windows PowerShell exportées à partir de la **NetworkController** module permettant de créer cette liste ACL.  
+L’exemple de script suivant utilise des commandes Windows PowerShell exportées à partir du module **NetworkController** pour créer cette liste de contrôle d’accès.  
 
 
 ```PowerShell
@@ -84,10 +84,10 @@ New-NetworkControllerAccessControlList -ResourceId "AllowAll" -Properties $aclli
 ```  
 
 >[!NOTE]  
->La référence des commandes Windows PowerShell pour le contrôleur de réseau se trouve dans la rubrique [applets de commande de contrôleur de réseau](https://technet.microsoft.com/library/mt576401.aspx).  
+>Les informations de référence sur les commandes Windows PowerShell pour le contrôleur de réseau se trouvent dans la rubrique [applets](https://technet.microsoft.com/library/mt576401.aspx)de commande du contrôleur de réseau.  
 
-## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>Utilisez des listes ACL pour limiter le trafic sur un sous-réseau  
-Dans cet exemple, vous créez une liste ACL qui empêche les machines virtuelles au sein du sous-réseau 192.168.0.0/24 de communiquer entre eux. Ce type d’ACL est utile pour limiter la capacité d’une personne malveillante à répartir latéralement au sein du sous-réseau, tout en autorisant les machines virtuelles pour recevoir les demandes à partir en dehors du sous-réseau, ainsi que pour communiquer avec d’autres services sur d’autres sous-réseaux.   
+## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>Utiliser des listes de contrôle d’accès pour limiter le trafic sur un sous-réseau  
+Dans cet exemple, vous créez une liste de contrôle d’accès qui empêche les machines virtuelles au sein du sous-réseau 192.168.0.0/24 de communiquer entre elles. Ce type d’ACL est utile pour limiter la capacité d’une personne malveillante à se répandre plus tard dans le sous-réseau, tout en permettant aux machines virtuelles de recevoir des demandes en provenance de l’extérieur du sous-réseau, ainsi que de communiquer avec d’autres services sur d’autres sous-réseaux.   
 
 
 |   Adresse IP source    | Adresse IP de destination | Protocol | Port source | Port de destination | Direction | Action | Priority |
@@ -101,9 +101,9 @@ Dans cet exemple, vous créez une liste ACL qui empêche les machines virtuelles
 
 --- 
 
-L’ACL créée par l’exemple de script ci-dessous, identifié par l’id de ressource **sous-réseau-192-168-0-0**, peut désormais être appliqué à un sous-réseau de réseau virtuel qui utilise l’adresse de sous-réseau « 192.168.0.0/24 ».  N’importe quelle interface réseau qui est automatiquement connecté à ce sous-réseau de réseau virtuel Obtient les règles ACL ci-dessus appliquées.  
+La liste de contrôle d’accès créée par l’exemple de script ci-dessous, identifiée par le sous-réseau d’ID **de ressource-192-168-0-0**, peut désormais être appliquée à un sous-réseau de réseau virtuel qui utilise l’adresse de sous-réseau « 192.168.0.0/24 ».  Toute interface réseau attachée à ce sous-réseau de réseau virtuel reçoit automatiquement les règles de liste de contrôle d’accès (ACL) ci-dessus appliquées.  
 
-Voici un exemple de script à l’aide des commandes Windows Powershell pour créer cette liste ACL à l’aide de l’API REST du contrôleur de réseau :  
+Voici un exemple de script utilisant des commandes Windows PowerShell pour créer cette liste de contrôle d’accès à l’aide de l’API REST du contrôleur de réseau :  
 
 ```PowerShell  
 import-module networkcontroller  

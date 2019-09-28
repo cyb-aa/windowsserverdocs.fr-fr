@@ -1,8 +1,8 @@
 ---
-title: WinSAT mfmedia
+title: mfmedia WinSAT
 description: Commandes Windows
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c63682e474311a49b01dc8078b023547e1fb170
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3684d4b23ba6d34febe226f54b8b2ab2204f610c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361898"
 ---
-# <a name="winsat-mfmedia"></a>WinSAT mfmedia
+# <a name="winsat-mfmedia"></a>mfmedia WinSAT
 
 
 
-Mesure les performances de la vidéo de décodage (lecture) à l’aide de l’infrastructure de Media Foundation.
+Mesure les performances du décodage vidéo (lecture) à l’aide de l’infrastructure Media Foundation.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,31 +38,31 @@ winsat mfmedia <parameters>
 
 |Paramètres|Description|
 |----------|-----------|
-|-d’entrée \<nom de fichier >|Obligatoire : Spécifiez le fichier contenant le clip vidéo pour être lu ou codé. Le fichier peut être dans n’importe quel format qui peut être affiché par Media Foundation.|
-|-dumpgraph|Spécifiez que le graphique de filtre doit être enregistré dans un fichier GraphEdit-compatible avant le démarrage de l’évaluation.|
-|-ns|Spécifier que le graphique de filtre doit s’exécuter à la vitesse de lecture normale du fichier d’entrée. Par défaut, le graphique de filtre s’exécute aussi rapidement que possible, en ignorant les durées de présentation.|
-|-lire|Exécution de l’évaluation de décoder mode- and -play les fourni le contenu audio dans le fichier spécifié dans **-d’entrée** à l’aide de l’appareil de DirectSound par défaut. Par défaut, la lecture audio est désactivée.|
-|-nopmp|Ne faites pas utiliser du Media Foundation Protected Media Pipeline (MFPMP) processus pendant l’évaluation.|
-|-pmp|Toujours exploiter la MFPMP processus pendant l’évaluation.</br>Remarque: Si **- pmp** ou **- nopmp** n’est pas spécifié, MFPMP sera utilisé uniquement lorsque cela est nécessaire.|
-|-v|Envoyer la sortie détaillée dans STDOUT, y compris les informations d’état et la progression. Des erreurs seront également être écrites dans la fenêtre de commande.|
-|xml - \<nom de fichier >|Enregistrez la sortie de l’évaluation en tant que le fichier XML spécifié. Si le fichier spécifié existe, il sera remplacé.|
-|-idiskinfo|Enregistrer les informations sur les volumes physiques et les disques logiques dans le cadre de la  **\<SystemConfig >** section dans la sortie XML.|
-|-iguid|Créer un identificateur global unique (GUID) dans le fichier de sortie XML.|
-|-Notez « Remarque text »|Ajoutez le texte de note dans le  **\<Remarque >** section dans le fichier de sortie XML.|
-|-icn|Inclure le nom de l’ordinateur local dans le fichier de sortie XML.|
-|-eef|Énumérer les informations système supplémentaires dans le fichier de sortie XML.|
+|-@no__t d’entrée-nom 0file >|Obligatoire : Spécifiez le fichier contenant le clip vidéo à lire ou à encoder. Le fichier peut être dans n’importe quel format qui peut être rendu par Media Foundation.|
+|-dumpgraph|Spécifiez que le graphique de filtre doit être enregistré dans un fichier compatible GraphEdit avant le démarrage de l’évaluation.|
+|-NS|Spécifiez que le graphique de filtre doit s’exécuter à la vitesse de lecture normale du fichier d’entrée. Par défaut, le graphique de filtre s’exécute aussi rapidement que possible, en ignorant les durées de présentation.|
+|-Play|Exécutez l’évaluation en mode décode et lisez tout contenu audio fourni dans le fichier spécifié en **entrée** à l’aide de l’appareil DirectSound par défaut. Par défaut, la lecture audio est désactivée.|
+|-nopmp|N’utilisez pas Media Foundation le processus MFPMP (Protected Media Pipeline) pendant l’évaluation.|
+|-PMP|Utilisez toujours le processus MFPMP pendant l’évaluation.</br>Remarque : Si **-PMP** ou **-nopmp** n’est pas spécifié, MFPMP est utilisé uniquement lorsque cela est nécessaire.|
+|-v|Envoie la sortie détaillée à STDOUT, y compris les informations d’État et de progression. Toutes les erreurs sont également écrites dans la fenêtre de commande.|
+|-nom \<du fichier XML >|Enregistre la sortie de l’évaluation en tant que fichier XML spécifié. Si le fichier spécifié existe, il est remplacé.|
+|-idiskinfo|Enregistrer les informations sur les volumes physiques et les disques logiques dans le cadre de la  **\<section SystemConfig >** de la sortie XML.|
+|-iguid|Créez un identificateur global unique (GUID) dans le fichier de sortie XML.|
+|-Remarque : « texte de la note »|Ajoutez le texte de la note à la  **\<section note >** du fichier de sortie XML.|
+|-icn|Incluez le nom de l’ordinateur local dans le fichier de sortie XML.|
+|-EEF|Énumérer les informations système supplémentaires dans le fichier de sortie XML.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-- L’exemple suivant exécute l’évaluation avec le fichier d’entrée qui est utilisé pendant un **winsat formel** évaluation, sans employant le Media Foundation Protected Media Pipeline (MFPMP), sur un ordinateur où c:\windows est l’emplacement de le dossier Windows.  
+- L’exemple suivant exécute l’évaluation avec le fichier d’entrée utilisé pendant une évaluation **formelle WinSAT** , sans utiliser Media Foundation le pipeline MFPMP protégé, sur un ordinateur où c:\Windows est l’emplacement du dossier Windows.  
   ```
   winsat mfmedia -input c:\windows\performance\winsat\winsat.wmv -nopmp
   ```
 
 ## <a name="remarks"></a>Notes
 
--   L’appartenance au groupe Administrateurs local, ou équivalent, est la condition minimale requise pour utiliser **winsat**. La commande doit être exécutée à partir d’une fenêtre d’invite de commandes avec élévation de privilèges.
--   Pour ouvrir une fenêtre d’invite de commandes avec élévation de privilèges, cliquez sur **Démarrer**, cliquez sur **Accessoires**, avec le bouton droit **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.
+-   L’appartenance au groupe Administrateurs local, ou équivalent, est la condition minimale requise pour utiliser **WinSAT**. La commande doit être exécutée à partir d’une fenêtre d’invite de commandes avec élévation de privilèges.
+-   Pour ouvrir une fenêtre d’invite de commandes avec élévation de privilèges, cliquez sur **Démarrer**, sur **accessoires**, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.
 
 #### <a name="additional-references"></a>Références supplémentaires
 

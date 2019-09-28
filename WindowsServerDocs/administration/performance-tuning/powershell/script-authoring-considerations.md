@@ -1,27 +1,27 @@
 ---
-title: Considérations sur les performances script PowerShell
-description: Écriture de scripts pour des performances dans PowerShell
-ms.prod: windows-server-threshold
+title: Considérations sur les performances des scripts PowerShell
+description: Écriture de scripts pour les performances dans PowerShell
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: JasonSh
 author: lzybkr
 ms.date: 10/16/2017
-ms.openlocfilehash: df406c7e382907ca32006ec4dae6537a140a91cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2898cf5ee965da77c9f6a3473e55c1cee6b53f2b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830370"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71354979"
 ---
-# <a name="powershell-scripting-performance-considerations"></a>Considérations sur les performances script PowerShell
+# <a name="powershell-scripting-performance-considerations"></a>Considérations sur les performances des scripts PowerShell
 
-Les scripts PowerShell qui exploitent des .NET directement et éviter le pipeline ont tendance à être plus rapide que PowerShell idiomatique. PowerShell IDIOMATIQUE utilise généralement des applets de commande et PowerShell fonctionne très souvent en exploitant le pipeline et en descendant dans .NET uniquement lorsque cela est nécessaire.
+Les scripts PowerShell qui exploitent directement .NET et évitent le pipeline ont tendance à être plus rapides que idiomatique PowerShell. Idiomatique PowerShell utilise généralement des applets de commande et des fonctions PowerShell de manière intensive, en tirant souvent parti du pipeline et en le déplaçant dans .NET uniquement lorsque cela est nécessaire.
 
 >[!Note] 
-> La plupart des techniques décrites ici ne sont pas PowerShell IDIOMATIQUE et peuvent réduire la lisibilité d’un script PowerShell. Les auteurs de script sont recommandés d’utiliser PowerShell IDIOMATIQUE, sauf si les performances en décide autrement.
+> La plupart des techniques décrites ici ne sont pas idiomatique PowerShell et peuvent réduire la lisibilité d’un script PowerShell. Les auteurs de scripts sont invités à utiliser idiomatique PowerShell à moins que les performances ne le définissent autrement.
 
-## <a name="suppressing-output"></a>Suppression de sortie
+## <a name="suppressing-output"></a>Suppression de la sortie
 
 Il existe de nombreuses façons d’éviter d’écrire des objets dans le pipeline :
 
@@ -30,21 +30,21 @@ $null = $arrayList.Add($item)
 [void]$arrayList.Add($item)
 ```
 
-Assignation à `$null` ou effectuer un cast à `[void]` sont à peu près équivalente et doivent généralement être préféré où les performances est importante.
+L’assignation à `$null` ou à la conversion en `[void]` est à peu près équivalente et doit généralement être préférable là où les performances sont importantes.
 
 ```PowerShell
 $arrayList.Add($item) > $null
 ```
 
-Fichier de la redirection vers `$null` est presque aussi bien que les alternatives précédents, plus les scripts ne seraient jamais Notez la différence.
-Selon le scénario, la redirection de fichiers présente cependant un peu de surcharge.
+La redirection de fichiers vers `$null` est presque aussi efficace que les alternatives précédentes, la plupart des scripts ne remarqueront jamais la différence.
+En fonction du scénario, la redirection de fichiers introduit un peu de surcharge.
 
 ```PowerShell
 $arrayList.Add($item) | Out-Null
 ```
 
-Dirige vers `Out-Null` entraîne une surcharge importante par rapport aux solutions concurrentes.
-Elle doit éviter de code sensible des performances.
+La canalisation vers `Out-Null` présente une surcharge importante par rapport aux alternatives.
+Elle doit être évitée dans le code sensible aux performances.
 
 ```PowerShell
 $null = . {
@@ -53,14 +53,14 @@ $null = . {
 }
 ```
 
-Présentation d’un bloc de script et l’appeler (à l’aide du point d’approvisionnement ou autre), puis assigne le résultat à `$null` est une technique pratique permettant de supprimer la sortie d’un grand bloc de script.
-Cette technique s’exécute à peu près ainsi que des pipelines à `Out-Null` et doivent être évitées dans le script sensible des performances.
-La surcharge supplémentaire dans cet exemple provient de la création d’et en appelant un bloc de script qui a été précédemment script inline.
+L’introduction d’un bloc de script et son appel (à l’aide de la source de points ou autrement) l’assignation du résultat à `$null` est une technique pratique pour supprimer la sortie d’un grand bloc de script.
+Cette technique s’exécute approximativement, ainsi que le canalisation vers `Out-Null`, et doit être évitée dans le script sensible aux performances.
+La surcharge supplémentaire de cet exemple provient de la création et de l’appel d’un bloc de script qui était auparavant un script inline.
 
 
 ## <a name="array-addition"></a>Ajout de tableau
 
-Génération d’une liste d’éléments est souvent effectuée à l’aide d’un tableau avec l’opérateur d’addition :
+La génération d’une liste d’éléments est souvent effectuée à l’aide d’un tableau avec l’opérateur d’addition :
 
 ```PowerShell
 $results = @()
@@ -69,13 +69,13 @@ $results += Do-SomethingElse
 $results
 ```
 
-Cela peut être très inefficent car les tableaux sont immuables.
-Chaque ajout au tableau réellement crée un tableau assez grand pour contenir tous les éléments des deux opérandes gauche et droit, puis copie les éléments des deux opérandes dans le nouveau tableau.
-Pour les petites collections, cette surcharge n’est pas important.
-Pour les grandes collections, il peut s’agir sans aucun doute un problème.
+Cela peut être très inefficent, car les tableaux sont immuables.
+Chaque ajout au tableau crée en fait un nouveau tableau suffisamment grand pour contenir tous les éléments des opérandes de gauche et de droite, puis copie les éléments des deux opérandes dans le nouveau tableau.
+Pour les petits regroupements, cette surcharge peut ne pas être importante.
+Pour les collections volumineuses, cela peut être un problème.
 
 Il existe deux alternatives.
-Si vous ne nécessitent en fait un tableau, pensez à la place à l’aide d’une liste de tableaux :
+Si vous n’avez pas besoin d’un tableau, envisagez plutôt d’utiliser une ArrayList :
 
 ```PowerShell
 $results = [System.Collections.ArrayList]::new()
@@ -84,8 +84,8 @@ $results.AddRange((Do-SomethingElse))
 $results
 ```
 
-Si vous avez besoin d’un tableau, vous pouvez utiliser votre propre `ArrayList` et simplement appeler `ArrayList.ToArray` lorsque vous souhaitez que le tableau.
-Vous pouvez également laisser PowerShell créer le `ArrayList` et `Array` pour vous :
+Si vous avez besoin d’un tableau, vous pouvez utiliser votre propre `ArrayList` et appeler simplement `ArrayList.ToArray` lorsque vous souhaitez le tableau.
+Vous pouvez également laisser PowerShell créer les `ArrayList` et `Array` pour vous :
 
 ```PowerShell
 $results = @(
@@ -94,18 +94,18 @@ $results = @(
 )
 ```
 
-Dans cet exemple, le script PowerShell crée un `ArrayList` pour stocker les résultats écrits dans le pipeline à l’intérieur de l’expression de tableau.
-Avant d’affecter à `$results`, PowerShell convertit le `ArrayList` à un `object[]`.
+Dans cet exemple, PowerShell crée un `ArrayList` pour stocker les résultats écrits dans le pipeline à l’intérieur de l’expression de tableau.
+Juste avant d’assigner à `$results`, PowerShell convertit le `ArrayList` en un `object[]`.
 
-## <a name="processing-large-files"></a>Traitement des fichiers volumineux
+## <a name="processing-large-files"></a>Traitement des rapport sur les fichiers volumineux
 
-La méthode IDIOMATIQUE pour traiter un fichier dans PowerShell peut ressembler à :
+Le idiomatique moyen de traiter un fichier dans PowerShell peut ressembler à ceci :
 
 ```PowerShell
 Get-Content $path | Where-Object { $_.Length -gt 10 }
 ```
 
-Cela peut être presque un ordre de grandeur plus lente que l’utilisation des API .NET directement :
+Cela peut être presque un ordre de grandeur plus lent que l’utilisation directe des API .NET :
 
 ```PowerShell
 try
@@ -125,11 +125,11 @@ finally
 }
 ```
 
-## <a name="avoid-write-host"></a>Éviter de Write-Host
+## <a name="avoid-write-host"></a>Éviter l’écriture-hôte
 
-Il est généralement considéré comme une mauvaise pratique pour écrire la sortie directement dans la console, mais lorsqu’il est judicieux, nombreux scripts utilisent `Write-Host`.
+Il est généralement considéré comme une mauvaise pratique d’écrire la sortie directement dans la console, mais dans la mesure du logique, de nombreux scripts utilisent `Write-Host`.
 
-Si vous devez écrire plusieurs messages dans la console, `Write-Host` peut être un ordre de grandeur plus lent que `[Console]::WriteLine()`. Toutefois, n’oubliez pas que `[Console]::WriteLine()` est uniquement une alternative appropriée pour des hôtes spécifiques tels que powershell.exe ou powershell_ise.exe : il n’est pas garanti fonctionne dans tous les ordinateurs hôtes.
+Si vous devez écrire de nombreux messages dans la console, `Write-Host` peut être un ordre de grandeur plus lent que `[Console]::WriteLine()`. Toutefois, sachez que `[Console]::WriteLine()` n’est qu’une alternative appropriée pour des hôtes spécifiques comme PowerShell. exe ou Powershell_ise. exe. il n’est pas garanti qu’il fonctionne sur tous les ordinateurs hôtes.
 
 Au lieu d’utiliser `Write-Host`, envisagez d’utiliser [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output?view=powershell-5.1).
 

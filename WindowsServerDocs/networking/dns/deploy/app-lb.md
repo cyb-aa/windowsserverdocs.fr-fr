@@ -1,73 +1,73 @@
 ---
 title: Utiliser une stratégie DNS pour l’équilibrage de charge des applications
-description: Cette rubrique fait partie de DNS stratégie scénario Guide pour Windows Server 2016
+description: Cette rubrique fait partie du Guide de scénario de stratégie DNS pour Windows Server 2016
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: f9c313ac-bb86-4e48-b9b9-de5004393e06
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dca60fc0e216b1b873bd4f94dd1b01174d80fc14
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 356c61c2cc5b60f43a69f17966c97f3c69d05cda
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446443"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356040"
 ---
 # <a name="use-dns-policy-for-application-load-balancing"></a>Utiliser une stratégie DNS pour l’équilibrage de charge des applications
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour savoir comment configurer une stratégie DNS pour effectuer l’équilibrage de charge d’application.
+Vous pouvez utiliser cette rubrique pour apprendre à configurer une stratégie DNS pour effectuer l’équilibrage de charge de l’application.
 
-Les versions précédentes de Windows Server DNS fournissaient uniquement à l’aide des réponses de tourniquet (Round Robin) ; d’équilibrage de charge mais avec DNS dans Windows Server 2016, vous pouvez configurer une stratégie DNS pour l’équilibrage de charge d’application.
+Les versions précédentes du DNS Windows Server offraient uniquement l’équilibrage de charge à l’aide de réponses de tourniquet (Round Robin). Toutefois, avec DNS dans Windows Server 2016, vous pouvez configurer une stratégie DNS pour l’équilibrage de charge d’application.
 
-Lorsque vous avez déployé plusieurs instances d’une application, vous pouvez utiliser une stratégie DNS pour équilibrer la charge du trafic entre les différentes instances d’application, attribution ainsi dynamique de la charge du trafic de l’application.
+Lorsque vous avez déployé plusieurs instances d’une application, vous pouvez utiliser la stratégie DNS pour équilibrer la charge du trafic entre les différentes instances d’application, ce qui permet d’allouer dynamiquement la charge du trafic pour l’application.
 
-## <a name="example-of-application-load-balancing"></a>Exemple d’Application d’équilibrage de charge
+## <a name="example-of-application-load-balancing"></a>Exemple d’équilibrage de charge d’application
 
-Voici un exemple de comment vous pouvez utiliser une stratégie DNS pour l’équilibrage de charge d’application.
+Vous trouverez ci-dessous un exemple de la façon dont vous pouvez utiliser la stratégie DNS pour l’équilibrage de charge d’application.
 
-Cet exemple utilise la société fictive une - Services cadeau de Contoso - qui fournit des services en ligne gifing, et qui a un site Web nommé **contosogiftservices.com**.
+Cet exemple utilise un service de cadeaux société-contoso fictif, qui fournit des services gifing en ligne et un site Web nommé **contosogiftservices.com**.
 
-Le site Web contosogiftservices.com est hébergé dans plusieurs centres de données qui ont chacune des adresses IP différentes.
+Le site Web contosogiftservices.com est hébergé dans plusieurs centres de centres ayant chacun des adresses IP différentes.
 
-Amérique du Nord, qui est le principal marché pour les Services de cadeau de Contoso, le site Web est hébergé dans trois centres de données : Chicago, IL, Dallas, Texas et Seattle, WA.
+Dans Amérique du Nord, qui est le marché principal des services de cadeaux contoso, le site Web est hébergé dans trois centres de connaissances : Chicago, IL, Dallas, Texas et Seattle, WA.
 
-Le serveur Web de Seattle a la meilleure configuration matérielle et peut gérer deux fois plus de charge en tant que les deux sites. Services cadeau de Contoso souhaite que le trafic d’application indiqué dans la manière suivante.
+Le serveur Web de Seattle dispose de la meilleure configuration matérielle et peut gérer deux fois plus de charge que les deux autres sites. Les services de cadeaux contoso veulent que le trafic d’application soit dirigé de la manière suivante.
 
-- Étant donné que le serveur Web de Seattle inclut plus de ressources, la moitié des clients de l’application sont dirigée vers ce serveur
-- Un quart de clients de l’application sont dirigées vers le centre de données de Dallas, Texas
-- Un quart de clients de l’application sont dirigées vers le centre de données de Chicago, IL
+- Étant donné que le serveur Web de Seattle comprend davantage de ressources, la moitié des clients de l’application sont dirigées vers ce serveur.
+- Un quart des clients de l’application sont dirigés vers le centre de donnée Dallas, Texas.
+- Un quart des clients de l’application sont dirigés vers Chicago, IL, centre de donnée
 
 L’illustration suivante représente ce scénario.
 
-![DNS Application équilibrage de charge avec une stratégie DNS](../../media/Dns-App-Lb/dns-app-lb.jpg)
+![Équilibrage de charge d’application DNS avec stratégie DNS](../../media/Dns-App-Lb/dns-app-lb.jpg)
 
 
-### <a name="how-application-load-balancing-works"></a>Comment Application charge équilibrage Works
+### <a name="how-application-load-balancing-works"></a>Fonctionnement de l’équilibrage de charge d’application
 
-Après avoir configuré le serveur DNS avec une stratégie DNS pour l’application charge équilibrage à l’aide de cet exemple de scénario, le serveur DNS répond à 50 % du temps avec l’adresse du serveur Web de Seattle, 25 % du temps avec l’adresse du serveur Web de Dallas et 25 % du temps avec l’adresse du serveur Web de Chicago.
+Une fois que vous avez configuré le serveur DNS avec la stratégie DNS pour l’équilibrage de la charge des applications à l’aide de cet exemple de scénario, le serveur DNS répond à 50% du temps avec l’adresse du serveur Web de Seattle, 25% du temps avec l’adresse du serveur Web Dallas et 25% du temps avec adresse du serveur Web de Chicago.
 
-Par conséquent, pour chaque quatre requêtes que reçoit le serveur DNS, il répond avec deux réponses pour Seattle et un pour chacun des Dallas et Chicago.
+Ainsi, pour les quatre requêtes que le serveur DNS reçoit, il répond avec deux réponses pour Seattle et une pour Dallas et Chicago.
 
-Un problème potentiel avec équilibrage de charge avec une stratégie DNS est la mise en cache des enregistrements DNS par le client DNS et le programme de résolution/LDNS, qui peuvent interférer avec, car le client ou le programme de résolution ne pas envoyer une requête au serveur DNS d’équilibrage de charge.
+Un problème possible avec l’équilibrage de charge avec la stratégie DNS est la mise en cache des enregistrements DNS par le client DNS et le programme de résolution/LDNS, qui peuvent interférer avec l’équilibrage de charge, car le client ou le programme de résolution n’envoient pas de requête au serveur DNS.
 
-Vous pouvez atténuer l’effet de ce comportement à l’aide d’un temps\-à\-Live \(TTL\) valeur pour les enregistrements DNS qui doit être équilibrée.
+Vous pouvez atténuer l’effet de ce comportement en utilisant une valeur @ no__t-0to @ no__t-1Live \(TTL @ no__t-3 à faible temps pour les enregistrements DNS dont la charge doit être équilibrée.
 
-### <a name="how-to-configure-application-load-balancing"></a>Comment configurer l’équilibrage de charge de l’Application
+### <a name="how-to-configure-application-load-balancing"></a>Comment configurer l’équilibrage de charge d’application
 
-Les sections suivantes vous montrent comment configurer une stratégie DNS pour l’équilibrage de charge d’application.
+Les sections suivantes vous montrent comment configurer la stratégie DNS pour l’équilibrage de charge de l’application.
 
-#### <a name="create-the-zone-scopes"></a>Créer des étendues de la Zone
+#### <a name="create-the-zone-scopes"></a>Créer les étendues de zone
 
-Vous devez d’abord créer les étendues de la zone contosogiftservices.com pour les centres de données où elles sont hébergées.
+Vous devez d’abord créer les étendues de la zone contosogiftservices.com pour les centres de centres où ils sont hébergés.
 
-Une étendue de la zone est une instance unique de la zone. Une zone DNS peut avoir plusieurs étendues de zone, avec chaque étendue de la zone contenant son propre ensemble d’enregistrements DNS. Le même enregistrement peut être présent dans plusieurs étendues, avec différentes adresses IP ou les mêmes adresses IP.
+Une étendue de zone est une instance unique de la zone. Une zone DNS peut avoir plusieurs étendues de zone, chaque étendue contenant son propre ensemble d’enregistrements DNS. Le même enregistrement peut être présent dans plusieurs étendues, avec des adresses IP différentes ou les mêmes adresses IP.
 
 >[!NOTE]
->Par défaut, une étendue de la zone existe sur les zones DNS. Cette étendue de la zone a le même nom que la zone, et des opérations DNS héritées travailler sur cette étendue.
+>Par défaut, il existe une étendue de zone sur les zones DNS. Cette étendue de zone porte le même nom que la zone, et les opérations DNS héritées fonctionnent sur cette étendue.
 
 Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des étendues de zone.
     
@@ -77,19 +77,19 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
     
     Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "ChicagoZoneScope"
 
-Pour plus d’informations, consultez [DnsServerZoneScope-ajouter](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
+Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-#### <a name="bkmk_records"></a>Ajoutez des enregistrements dans les étendues de Zone
+#### <a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone
 
-Maintenant, vous devez ajouter les enregistrements représentant l’hôte du serveur web dans les étendues de zone.
+À présent, vous devez ajouter les enregistrements qui représentent l’hôte du serveur Web dans les étendues de la zone.
 
-Dans **SeattleZoneScope**, vous pouvez ajouter les enregistrements www.contosogiftservices.com avec l’adresse IP 192.0.0.1, qui se trouve dans le centre de données de Seattle.
+Dans **SeattleZoneScope**, vous pouvez ajouter l’enregistrement www.contosogiftservices.com avec l’adresse IP 192.0.0.1, qui se trouve dans le centre de contenu Seattle.
 
-Dans **ChicagoZoneScope**, vous pouvez ajouter le même enregistrement \(www.contosogiftservices.com\) avec adresse IP 182.0.0.1 dans le centre de données de Chicago.
+Dans **ChicagoZoneScope**, vous pouvez ajouter le même enregistrement @no__t -1www. contosogiftservices. com @ no__t-2 avec l’adresse IP 182.0.0.1 dans le centre de centres Chicago.
 
-De même dans **DallasZoneScope**, vous pouvez ajouter un enregistrement \(www.contosogiftservices.com\) avec adresse IP 162.0.0.1 dans le centre de données de Chicago.
+De même, dans **DallasZoneScope**, vous pouvez ajouter un enregistrement @no__t -1www. contosogiftservices. com @ no__t-2 avec l’adresse IP 162.0.0.1 dans le centre de centres Chicago.
 
-Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des enregistrements pour les étendues de zone.
+Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des enregistrements aux étendues de zone.
     
     Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "192.0.0.1" -ZoneScope "SeattleZoneScope
     
@@ -102,18 +102,18 @@ Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs
 
 #### <a name="bkmk_policies"></a>Créer les stratégies DNS
 
-Une fois que vous avez créé les partitions (étendues de zone) et que vous avez ajouté des enregistrements, vous devez créer des stratégies DNS qui distribuent les requêtes entrantes entre ces étendues afin que 50 % des requêtes pour contosogiftservices.com sont a répondu à avec l’adresse IP pour le Web serveur dans le centre de données de Seattle et le reste sont distribuées équitablement entre les centres de données de Chicago et Dallas.
+Une fois que vous avez créé les partitions (étendues de zone) et que vous avez ajouté des enregistrements, vous devez créer des stratégies DNS qui distribuent les requêtes entrantes sur ces étendues afin que 50% des requêtes pour contosogiftservices.com soient réparties avec l’adresse IP du Web. le serveur du centre de la Seattle et le reste sont répartis uniformément entre les centres de distribution de Chicago et de Dallas.
 
-Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer une stratégie DNS qui équilibre le trafic des applications sur ces trois centres de données.
+Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer une stratégie DNS qui équilibre le trafic d’application sur ces trois centres de informations.
 
 >[!NOTE]
->Dans l’exemple de commande ci-dessous, l’expression – ZonePortée « SeattleZoneScope, 2 ; ChicagoZoneScope, 1 ; DallasZoneScope, 1 » configure le serveur DNS avec un tableau qui inclut la combinaison de paramètres \<ZonePortée\>,\<poids\>.
+>Dans l’exemple de commande ci-dessous, l’expression – ZoneScope "SeattleZoneScope, 2 ; ChicagoZoneScope, 1 ; DallasZoneScope, 1 "configure le serveur DNS avec un tableau qui comprend la combinaison de paramètres \<ZoneScope @ no__t-1, \<weight @ no__t-3.
     
     Add-DnsServerQueryResolutionPolicy -Name "AmericaPolicy" -Action ALLOW -ZoneScope "SeattleZoneScope,2;ChicagoZoneScope,1;DallasZoneScope,1" -ZoneName "contosogiftservices.com"
     
 
 Pour plus d’informations, consultez [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
 
-Vous avez maintenant créé une stratégie DNS qui fournit l’application équilibrage de charge sur les serveurs Web dans trois centres de données différents.
+Vous venez de créer avec succès une stratégie DNS qui permet d’équilibrer la charge des applications entre les serveurs Web dans trois centres de donnes différents.
 
-Vous pouvez créer des milliers de stratégies DNS, en fonction de votre trafic en matière de gestion, et toutes les nouvelles stratégies sont appliquées dynamiquement, sans avoir à redémarrer le serveur DNS : sur les requêtes entrantes.
+Vous pouvez créer des milliers de stratégies DNS en fonction de vos besoins en matière de gestion du trafic, et toutes les nouvelles stratégies sont appliquées de manière dynamique, sans redémarrer le serveur DNS-sur les requêtes entrantes.

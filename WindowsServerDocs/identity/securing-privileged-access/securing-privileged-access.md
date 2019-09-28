@@ -1,7 +1,7 @@
 ---
 title: Sécurisation de l’accès privilégié
 description: Approche progressive de la sécurisation de l’accès privilégié
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: conceptual
 ms.assetid: f5dec0c2-06fe-4c91-9bdc-67cc6a3ede60
 ms.date: 02/25/2019
@@ -9,16 +9,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 9080f7209660b225d795219127a71ece479855d1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e6ff22d0563fa11aa633004966b2cd2648ba5877
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869234"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357703"
 ---
 # <a name="securing-privileged-access"></a>Sécurisation de l’accès privilégié
 
->S'applique à : Windows Server
+>S'applique à : Windows Server
 
 La sécurisation de l’accès privilégié est une première étape essentielle pour établir des garanties de sécurité pour les ressources d’entreprise dans une organisation moderne. La sécurité de la plupart ou de la totalité des actifs de l’entreprise dans une organisation informatique dépend de l’intégrité des comptes privilégiés utilisés pour administrer, gérer et développer. Les cyber-attaquants ciblent souvent ces comptes et d’autres éléments d’accès privilégié pour accéder aux données et aux systèmes à l’aide d’attaques de vol d’informations d’identification telles que [Pass-The-hash et Pass-the-ticket](https://www.microsoft.com/pth).
 

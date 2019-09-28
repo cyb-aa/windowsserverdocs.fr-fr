@@ -1,7 +1,7 @@
 ---
-title: Configuration de commutateur physique pour la carte d’interface réseau convergé
-description: Dans cette rubrique, nous fournissons contenant des instructions pour configurer vos commutateurs physiques.
-ms.prod: windows-server-threshold
+title: Configuration du commutateur physique pour la carte réseau convergée
+description: Dans cette rubrique, nous vous fournissons des instructions pour la configuration de vos commutateurs physiques.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 6d53c797-fb67-4b9e-9066-1c9a8b76d2aa
@@ -9,52 +9,52 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/14/2018
-ms.openlocfilehash: e31d7b83fee84d9055d938f77b49389205786244
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d10e8ca6e4689b89a8b9532f77613f17280282b1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829400"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355477"
 ---
-# <a name="physical-switch-configuration-for-converged-nic"></a>Configuration de commutateur physique pour la carte d’interface réseau convergé
+# <a name="physical-switch-configuration-for-converged-nic"></a>Configuration du commutateur physique pour la carte réseau convergée
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, nous fournissons contenant des instructions pour configurer vos commutateurs physiques. 
+Dans cette rubrique, nous vous fournissons des instructions pour la configuration de vos commutateurs physiques. 
 
 
-Il s’agit uniquement les commandes et leurs utilisations ; Vous devez déterminer les ports auxquels les cartes réseau sont connectées dans votre environnement. 
+Il s’agit uniquement de commandes et de leurs utilisations ; vous devez déterminer les ports auxquels les cartes réseau sont connectées dans votre environnement. 
 
 >[!IMPORTANT]
->Assurez-vous que le réseaux locaux virtuels et la stratégie non-drop est définie pour la priorité sur lequel SMB est configuré.
+>Assurez-vous que la stratégie de réseau local virtuel et de non-déplacement est définie pour la priorité sur laquelle SMB est configuré.
 
-## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Commutateur de arista \(contrôleurs de domaine\-7050s\-EOS 64,\-4.13.7M\)
+## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Commutateur Arista \(dcs @ no__t-17050s @ no__t-264, EOS @ no__t-34.13.7 M @ no__t-4
 
-1.  fr \(accédez au mode d’administration, généralement vous demande un mot de passe\)
-2.  config \(pour entrer en mode de configuration\)
-3.  Afficher exécution \(montre la configuration en cours d’exécution actuelle\)
-4.  Découvrez auquel vos cartes réseau est connectées à des ports de commutateur. Dans cet exemple, ils sont 14/1,15/1,16/1,17/1.
-5.  int eth 14/1,15/1,16/1,17/1 \(entrer en mode de configuration pour ces ports\)
-6.  mode de dcbx ieee
-7.  mode de contrôle de flux prioritaire sur
-8.  switchport trunk vlan natif 225
-9.  switchport trunk autorisé vlan 100-225
-10. en mode trunk du mode switchport
-11. priorité de contrôle de flux de priorité 3 non-déplacer
-12. qualité de service de confiance cos
-13. Afficher exécution \(vérifier que la configuration est configurée correctement sur les ports\)
-14. wR \(pour rendre les paramètres sont conservées dans le commutateur de redémarrage\)
+1.  en \(Go en mode administrateur, demande généralement un mot de passe @ no__t-1
+2.  @no__t de configuration-0to entrée en mode de configuration @ no__t-1
+3.  afficher la configuration d’exécution actuelle \(shows-no__t-1
+4.  Identifiez les ports de commutateur auxquels vos cartes réseau sont connectées. Dans cet exemple, il s’agit de 14/1, 15/1, 16/1, 17/1.
+5.  int ETH 14/1, 15/1, 16/1, 17/1 \(enter en mode de configuration pour ces ports @ no__t-1
+6.  IEEE en mode dcbx
+7.  priorité : mode de contrôle de flow sur
+8.  VLAN natif switchport trunk 225
+9.  réseau local virtuel switchport trunk autorisé 100-225
+10. Trunk en mode switchport
+11. priorité de priorité-Flow-Control Priority 3 non-Drop
+12. Co-approbation QoS
+13. afficher le @no__t d’exécution-0verify cette configuration est correctement configurée sur les ports @ no__t-1
+14. WR \(to rendre les paramètres persistants au redémarrage du commutateur @ no__t-1
 
-### <a name="tips"></a>Astuces :
-1.  Aucune commande # # annule une commande
-2.  Comment ajouter un nouveau réseau local virtuel : int vlan 100 \(si le réseau de stockage se trouve sur un réseau local virtuel 100\)
-3.  Comment vérifier les réseaux locaux virtuels existants : afficher les vlan
-4.  Pour plus d’informations sur la configuration de commutateur Arista, recherchez en ligne : Arista EOS manuel
-5.  Utilisez cette commande pour vérifier les paramètres PFC : afficher les détails des compteurs de contrôle de flux de priorité
+### <a name="tips"></a>Conseil
+1.  No #command # nie une commande
+2.  Ajout d’un nouveau réseau local virtuel : int VLAN 100 \(If Storage Network se trouve sur VLAN 100 @ no__t-1
+3.  Comment vérifier les réseaux locaux virtuels existants : afficher le réseau local virtuel
+4.  Pour plus d’informations sur la configuration du commutateur Arista, recherchez en ligne : Manuel Arista EOS
+5.  Utilisez cette commande pour vérifier les paramètres PFC : afficher les détails des compteurs de priorité-Flow-Control
 
 --- 
 
-## <a name="dell-switch-s4810-ftos-99-00"></a>Commutateur Dell \(S4810, FTOS 9.9 \(0.0\)\)
+## <a name="dell-switch-s4810-ftos-99-00"></a>Commutateur Dell \(S4810, FTOS 9,9 \(0.0 @ no__t-2 @ no__t-3
 
     
     !
@@ -74,9 +74,9 @@ Il s’agit uniquement les commandes et leurs utilisations ; Vous devez déterm
     
 --- 
 
-## <a name="cisco-switch-nexus-3132-version-602u61"></a>Commutateur Cisco \(Nexus 3132, version 6.0\(2\)U6\(1\)\)
+## <a name="cisco-switch-nexus-3132-version-602u61"></a>Commutateur Cisco \(Nexus 3132, version 6.0 @ no__t-12 @ no__t-2U6 @ no__t-31 @ no__t-4 @ no__t-5
 
-### <a name="global"></a>Globale
+### <a name="global"></a>Global
     
     class-map type qos match-all RDMA
     match cos 3
@@ -105,7 +105,7 @@ Il s’agit uniquement les commandes et leurs utilisations ; Vous devez déterm
     service-policy type network-qos QOS_NETWORK
     
 
-### <a name="port-specific"></a>Port spécifique
+### <a name="port-specific"></a>Spécifique au port
 
     
     switchport mode trunk
@@ -121,8 +121,8 @@ Il s’agit uniquement les commandes et leurs utilisations ; Vous devez déterm
 
 ## <a name="related-topics"></a>Rubriques connexes
 
-- [Configuration de carte réseau convergé avec une seule carte réseau](cnic-single.md)
-- [Configuration des cartes réseau de carte réseau convergé](cnic-datacenter.md)
-- [Résolution des problèmes convergé des Configurations de carte réseau](cnic-app-troubleshoot.md)
+- [Configuration de carte réseau convergée avec une seule carte réseau](cnic-single.md)
+- [Configuration de carte réseau associée à une carte réseau convergée](cnic-datacenter.md)
+- [Résolution des problèmes de configuration de cartes réseau convergées](cnic-app-troubleshoot.md)
 
 --- 

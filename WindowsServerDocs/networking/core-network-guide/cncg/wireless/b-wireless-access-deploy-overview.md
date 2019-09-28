@@ -1,104 +1,104 @@
 ---
 title: Vue d’ensemble du déploiement de l’accès sans fil
-description: Cette rubrique fait partie de la « Accès sans fil authentifié 802. 1 mot de passe de déployer X » du guide de mise en réseau de Windows Server 2016
+description: Cette rubrique fait partie du Guide de mise en réseau de Windows Server 2016 « déployer l’accès sans fil authentifié 802.1 X basé sur un mot de passe »
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 29ae0f54-f045-465a-a08e-5867979345f2
 author: shortpatti
 ms.author: pashort
-ms.openlocfilehash: 6658c4750ba2f71b24acd4f7da02029da63179bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93fb80c550771e4e7d8bc400d647b520b0c67fdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818920"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356089"
 ---
 # <a name="wireless-access-deployment-overview"></a>Vue d’ensemble du déploiement de l’accès sans fil
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-L’illustration suivante montre les composants qui sont nécessaires pour déployer 802. 1 X authentifiés l’accès sans fil avec PEAP\-MS\-CHAP v2.  
+L’illustration suivante montre les composants requis pour déployer l’accès sans fil authentifié 802.1 X avec PEAP @ no__t-0 ms @ no__t-1CHAP v2.  
 
-![802. 1 x présentation d’Infrastructure de déploiement](../../../media/8021X-Deploy-Overview/8021X-Deploy-Overview.jpg)
+![Présentation de l’infrastructure de déploiement 802.1 x](../../../media/8021X-Deploy-Overview/8021X-Deploy-Overview.jpg)
 
-## <a name="wireless-access-deployment-components"></a>Composants de déploiement d’accès sans fil
-L’infrastructure suivante est nécessaire pour ce déploiement de l’accès sans fil :
+## <a name="wireless-access-deployment-components"></a>Composants de déploiement de l’accès sans fil
+L’infrastructure suivante est requise pour ce déploiement de l’accès sans fil :
 
-### <a name="8021x-capable-wireless-access-points"></a>802. 1 X\-points d’accès sans fil
-Une fois que les services d’infrastructure réseau requise prise en charge de votre réseau local sans fil sont en place, vous pouvez commencer le processus de conception pour l’emplacement des points d’accès sans fil. Le processus de conception de déploiement AP sans fil implique ces étapes :
+### <a name="8021x-capable-wireless-access-points"></a>points d’accès sans fil 802.1 x @ no__t-0capable
+Une fois que les services d’infrastructure réseau requis prenant en charge votre réseau local sans fil sont en place, vous pouvez commencer le processus de conception pour l’emplacement des points d’accès sans fil. Le processus de conception du déploiement du point d’accès sans fil implique les étapes suivantes :
 
-- Identifier les zones de couverture des utilisateurs sans fil. Tandis que l’identification des zones de couverture, veillez à déterminer si vous souhaitez fournir des services sans fil en dehors de la création et si tel est le cas, déterminer plus précisément où ces zones externes sont.
+- Identifiez les domaines de couverture pour les utilisateurs sans fil. Tout en identifiant les zones de couverture, veillez à indiquer si vous souhaitez fournir un service sans fil en dehors du bâtiment et, si tel est le cas, déterminer spécifiquement l’emplacement des zones externes.
 
-- Déterminez combien de points d’accès sans fil à déployer pour garantir une couverture adéquate.
+- Déterminez le nombre de points d’accès sans fil à déployer pour garantir une couverture adéquate.
 
-- Déterminer où placer les points d’accès sans fil.
+- Déterminez où placer les points d’accès sans fil.
 
-- Sélectionnez les fréquences de canaux pour les points d’accès sans fil.
+- Sélectionnez les fréquences de canal pour les points d’accès sans fil.
 
 ### <a name="active-directory-domain-services"></a>Services de domaine Active Directory
-Les éléments suivants des services AD DS sont requis pour le déploiement de l’accès sans fil.
+Les éléments suivants de AD DS sont requis pour le déploiement de l’accès sans fil.
 
 #### <a name="users-and-computers"></a>Utilisateurs et ordinateurs
 
-Utilisez les utilisateurs Active Directory et alignement des ordinateurs\-in pour créer et gérer des comptes d’utilisateur et pour créer un groupe de sécurité sans fil qui inclut chaque membre du domaine auquel vous souhaitez accorder l’accès sans fil.
+Utilisez le composant logiciel enfichable utilisateurs et ordinateurs Active Directory no__t-0in pour créer et gérer des comptes d’utilisateur, et pour créer un groupe de sécurité sans fil incluant chaque membre de domaine auquel vous souhaitez accorder un accès sans fil.
 
-#### <a name="wireless-network-ieee-80211-policies"></a>Réseau sans fil \(IEEE 802.11\) stratégies
+#### <a name="wireless-network-ieee-80211-policies"></a>@No__t de réseau sans fil-stratégies 802.11 @ no__t-1 0IEEE
 
-Vous pouvez utiliser le réseau sans fil \(IEEE 802.11\) l’extension des stratégies de gestion des stratégies de groupe pour configurer des stratégies qui sont appliqués aux ordinateurs sans fil lorsqu’ils tentent d’accéder au réseau.
+Vous pouvez utiliser l’extension de stratégies de @no__t de réseau sans fil 0IEEE 802.11 @ no__t-1 de la gestion des stratégie de groupe pour configurer les stratégies appliquées aux ordinateurs sans fil lorsqu’ils tentent d’accéder au réseau.
 
-Dans groupe de stratégie d’éditeur de gestion, lorsque vous avec le bouton droit\-cliquez sur **réseau sans fil \(IEEE 802.11\) stratégies**, vous avez deux options suivantes pour le type de stratégie sans fil que vous créez.
+Dans Éditeur de gestion des stratégies de groupe, quand vous cliquez avec le bouton droit sur le **réseau sans fil no__t-0click \(IEEE 802.11 @ no__t-3 stratégies**, vous disposez des deux options suivantes pour le type de stratégie sans fil que vous créez.
 
-- **Créer une nouvelle stratégie de réseau sans fil pour Windows Vista et versions ultérieures**
+- **Créer une nouvelle stratégie de réseau sans fil pour Windows Vista et les versions ultérieures**
 
-- **Créer une stratégie Windows XP**
+- **Créer une nouvelle stratégie Windows XP**
 
 >[!TIP]
->Lorsque vous configurez une nouvelle stratégie de réseau sans fil, vous avez la possibilité de modifier le nom et la description de la stratégie. Si vous modifiez le nom de la stratégie, la modification est répercutée dans le **détails** volet de l’éditeur de la gestion de stratégie de groupe et sur la barre de titre de la boîte de dialogue de stratégie de réseau sans fil. Quelle que soit la façon dont vous renommez vos stratégies, la nouvelle stratégie sans fil XP sont toujours répertoriée dans l’éditeur d’administration de stratégie de groupe avec le **Type** affichage **XP**. Autres stratégies sont répertoriés avec le **Type** montrant **Vista et versions ultérieures**.  
+>Lorsque vous configurez une nouvelle stratégie de réseau sans fil, vous avez la possibilité de modifier le nom et la description de la stratégie. Si vous modifiez le nom de la stratégie, la modification est répercutée dans le volet d' **informations** de éditeur de gestion des stratégies de groupe et dans la barre de titre de la boîte de dialogue stratégie de réseau sans fil. Quelle que soit la façon dont vous renommez vos stratégies, la nouvelle stratégie sans fil XP sera toujours listée dans Éditeur de gestion des stratégies de groupe avec le **type** affichant **XP**. D’autres stratégies sont répertoriées avec le **type** contenant **Vista et les versions ultérieures**.  
 
-La stratégie de réseau sans fil pour Windows Vista et versions ultérieures vous permet de configurer, hiérarchiser et gérer plusieurs profils sans fil. Un profil sans fil est une collection de paramètres de sécurité qui sont utilisés pour se connecter à un réseau sans fil spécifique et de connectivité. Lors de la stratégie de groupe est mise à jour sur vos ordinateurs clients sans fil, les profils que vous créez dans la stratégie de réseau sans fil sont automatiquement ajoutés à la configuration sur vos ordinateurs client sans fil à laquelle s’applique la stratégie de réseau sans fil.
+La stratégie de réseau sans fil pour Windows Vista et les versions ultérieures vous permet de configurer, classer par ordre de priorité et gérer plusieurs profils sans fil. Un profil sans fil est un ensemble de paramètres de connectivité et de sécurité utilisés pour se connecter à un réseau sans fil spécifique. Lorsque stratégie de groupe est mis à jour sur vos ordinateurs clients sans fil, les profils que vous créez dans la stratégie de réseau sans fil sont automatiquement ajoutés à la configuration sur les ordinateurs clients sans fil auxquels s’applique la stratégie de réseau sans fil.
 
-##### <a name="allowing-connections-to-multiple-wireless-networks"></a>Autoriser les connexions à plusieurs réseaux sans fil
+##### <a name="allowing-connections-to-multiple-wireless-networks"></a>Autorisation des connexions à plusieurs réseaux sans fil
 
-Si vous avez des clients sans fil qui sont déplacées entre les emplacements physiques de votre organisation, comme entre un siège social et une filiale, vous souhaiterez ordinateurs pour se connecter à plusieurs réseaux sans fil. Dans ce cas, vous pouvez configurer un profil sans fil contenant les paramètres de connectivité et de sécurité spécifiques pour chaque réseau.
+Si vous avez des clients sans fil qui sont déplacés entre des emplacements physiques de votre organisation, par exemple entre un siège social et une filiale, vous souhaiterez peut-être que les ordinateurs se connectent à plusieurs réseaux sans fil. Dans ce cas, vous pouvez configurer un profil sans fil qui contient les paramètres de sécurité et de connectivité spécifiques pour chaque réseau.
 
-Par exemple, supposons que votre entreprise possède un réseau sans fil pour le siège social d’entreprise, avec un identificateur de jeu de service \(SSID\) WlanCorp.
+Par exemple, supposons que votre entreprise dispose d’un réseau sans fil pour le siège social, avec un identificateur de jeu de service \(SSID @ no__t-1 WlanCorp.
 
-Votre succursale a également un réseau sans fil auquel vous souhaitez également vous connecter. La succursale a l’identificateur SSID comme WlanBranch.
+Votre succursale dispose également d’un réseau sans fil auquel vous souhaitez également vous connecter. Le SSID de la succursale est configuré en tant que WlanBranch.
 
-Dans ce scénario, vous pouvez configurer un profil pour chaque réseau et les ordinateurs ou les autres périphériques qui sont utilisés à la fois du siège et succursale peut se connecter à un des réseaux sans fil quand ils se trouvent physiquement dans la plage de la zone de couverture d’un réseau.
+Dans ce scénario, vous pouvez configurer un profil pour chaque réseau, et les ordinateurs ou autres périphériques qui sont utilisés au siège social et dans les succursales peuvent se connecter à l’un ou l’autre des réseaux sans fil lorsqu’ils sont physiquement à portée de la couverture d’un réseau.
 
-##### <a name="mixed-mode-wireless-networks"></a>Mixte\-réseaux sans fil de mode
+##### <a name="mixed-mode-wireless-networks"></a>Réseaux sans fil no__t-0Mode mixtes
 
-Ou bien, supposons que votre réseau comporte un mélange d’ordinateurs sans fil et les périphériques qui prennent en charge des normes de sécurité différentes. Certains ordinateurs plus anciens ou peut-être des cartes sans fil qui peuvent uniquement utiliser WPA\-entreprise, tandis que les appareils plus récente peuvent utiliser le plus fort WPA2\-Enterprise standard.
+Vous pouvez également supposer que votre réseau a un mélange d’ordinateurs et d’appareils sans fil qui prennent en charge différentes normes de sécurité. Certains ordinateurs plus anciens disposent peut-être d’adaptateurs sans fil qui peuvent uniquement utiliser WPA @ no__t-0Enterprise, tandis que les appareils plus récents peuvent utiliser la norme WPA2 @ no__t-1Enterprise plus puissante.
 
-Vous pouvez créer deux profils différents qui utilisent le même SSID et les paramètres de connectivité et de sécurité presque identiques.
+Vous pouvez créer deux profils différents qui utilisent le même SSID et des paramètres de sécurité et de connectivité quasiment identiques.
 
-Dans un profil, vous pouvez définir l’authentification sans fil WPA2\-Enterprise avec AES et l’autre profil, vous pouvez spécifier WPA\-Enterprise avec TKIP.
+Dans un profil, vous pouvez définir l’authentification sans fil sur WPA2 @ no__t-0Enterprise avec AES, et dans l’autre profil, vous pouvez spécifier WPA @ no__t-1Enterprise avec TKIP.
 
-Cela est connu comme un mixte\-déploiement en mode, qui permet aux ordinateurs de différents types et des fonctionnalités sans fil pour partager le même réseau sans fil.
+Il s’agit généralement d’un déploiement mixte @ no__t-0Mode, qui permet à des ordinateurs de types et de fonctionnalités sans fil différents de partager le même réseau sans fil.
 
-### <a name="network-policy-server-nps"></a>Network Policy Server \(NPS\)
-NPS vous permet de créer et appliquer des stratégies d’accès réseau pour l’authentification de demande de connexion et l’autorisation.
+### <a name="network-policy-server-nps"></a>@No__t de serveur de stratégie réseau-0NPS @ no__t-1
+NPS vous permet de créer et d’appliquer des stratégies d’accès réseau pour l’authentification et l’autorisation des demandes de connexion.
 
-Lorsque vous utilisez NPS comme serveur RADIUS, vous configurez les serveurs d’accès réseau, tels que les points d’accès sans fil, en tant que clients RADIUS dans NPS. Vous configurez également les stratégies réseau que NPS utilise pour authentifier des clients d’accès et autoriser leurs demandes de connexion.  
+Lorsque vous utilisez NPS en tant que serveur RADIUS, vous configurez les serveurs d’accès réseau, tels que les points d’accès sans fil, en tant que clients RADIUS dans NPS. Vous configurez également les stratégies réseau que NPS utilise pour authentifier les clients d’accès et autoriser leurs demandes de connexion.  
 
 ### <a name="wireless-client-computers"></a>Ordinateurs clients sans fil
-Pour les besoins de ce guide, les ordinateurs clients sans fil sont des ordinateurs et autres périphériques qui sont équipés de cartes réseau sans fil IEEE 802.11 et qui exécutent le client de Windows ou des systèmes d’exploitation Windows Server.
+Dans le cadre de ce guide, les ordinateurs clients sans fil sont des ordinateurs et d’autres périphériques équipés de cartes réseau sans fil IEEE 802,11 et qui exécutent des systèmes d’exploitation clients Windows ou Windows Server.
 
-#### <a name="server-computers-as-wireless-clients"></a>Ordinateurs de serveur en tant que clients sans fil
+#### <a name="server-computers-as-wireless-clients"></a>Ordinateurs serveurs en tant que clients sans fil
 
-Par défaut, la fonctionnalité pour 802.11 sans fil est désactivée sur les ordinateurs qui exécutent Windows Server.
+Par défaut, les fonctionnalités de la connexion sans fil 802,11 sont désactivées sur les ordinateurs qui exécutent Windows Server.
 
-Pour activer la connectivité sans fil sur les ordinateurs exécutant des systèmes d’exploitation serveur, vous devez installer et activer le réseau local sans fil \(WLAN\) fonctionnalité de Service à l’aide de Windows PowerShell ou l’ajout de rôles et fonctionnalités Assistant dans le serveur Gestionnaire.
+Pour activer la connectivité sans fil sur les ordinateurs exécutant des systèmes d’exploitation serveur, vous devez installer et activer la fonctionnalité de service \(WLAN @ no__t-1 de réseau local sans fil à l’aide de Windows PowerShell ou de l’Assistant Ajout de rôles et de fonctionnalités dans Gestionnaire de serveur.
 
-Lorsque vous installez le **Service de réseau local sans fil** fonctionnalité, le nouveau service **configuration automatique WLAN** est installé dans **Services**. Lors de l’installation est terminée, vous devez redémarrer le serveur.
+Lorsque vous installez la fonctionnalité de **service de réseau local sans fil** , le nouveau service de **configuration automatique WLAN** est installé dans les **services**. Une fois l’installation terminée, vous devez redémarrer le serveur.
 
-Une fois que le serveur est redémarré, vous pouvez accéder à configuration automatique WLAN lorsque vous cliquez sur **Démarrer**, **les outils d’administration Windows**, et **Services**.
+Une fois le serveur redémarré, vous pouvez accéder à la configuration automatique WLAN lorsque vous cliquez sur **Démarrer**, sur **Outils d’administration Windows**et sur **services**.
 
-Après installation et le serveur redémarré, le service est arrêté avec un type de démarrage de configuration automatique WLAN **automatique**. Pour démarrer le service, double-cliquez sur **configuration automatique WLAN**. Sur le **général** , cliquez sur **Démarrer**, puis cliquez sur **OK**.
+Après l’installation et le redémarrage du serveur, le service de configuration automatique WLAN est dans un état arrêté avec le type de démarrage **automatique**. Pour démarrer le service, double-cliquez sur **configuration automatique WLAN**. Sous l’onglet **général** , cliquez sur **Démarrer**, puis sur **OK**.
 
-Le service de configuration automatique WLAN énumère les adaptateurs sans fil et gère les connexions sans fil et les profils sans fil qui contiennent des paramètres qui sont requis pour configurer le serveur pour vous connecter à un réseau sans fil.
+Le service de configuration automatique WLAN énumère les adaptateurs sans fil et gère à la fois les connexions sans fil et les profils sans fil qui contiennent les paramètres requis pour configurer le serveur afin qu’il se connecte à un réseau sans fil.
 
 Pour une vue d’ensemble du déploiement de l’accès sans fil, consultez [processus de déploiement de l’accès sans fil](c-wireless-access-deploy-process.md).
