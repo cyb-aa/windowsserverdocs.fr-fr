@@ -6,15 +6,15 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/22/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: anandy
 ms.technology: identity-adfs
-ms.openlocfilehash: d2577be364d7bb2e74ab7e06490b7bc3f150441a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 88ae6837872c5a6cf6bb1d8533a0aa14b82ca573
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867697"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358908"
 ---
 # <a name="customize-claims-to-be-emitted-in-id_token-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>Personnaliser les revendications à émettre dans id_token lors de l’utilisation de OpenID Connect ou OAuth avec AD FS 2016 ou version ultérieure
 
@@ -34,7 +34,7 @@ Dans certains scénarios, il est possible que l’application cliente ne dispose
 2.  Seuls les clients publics peuvent recevoir des revendications personnalisées dans le jeton d’ID
 3.  L’identificateur de la partie de confiance (identificateur de l’API Web) doit être identique à l’identificateur du client
 
-### <a name="scenario-2"></a>Scénario 2
+### <a name="scenario-2"></a>Scénario 2
 
 ![identifier](media/Custom-Id-Tokens-in-AD-FS/restrict2.png)
 

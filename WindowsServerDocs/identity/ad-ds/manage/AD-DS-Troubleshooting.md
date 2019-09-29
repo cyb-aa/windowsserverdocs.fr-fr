@@ -7,25 +7,25 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 88513a889bc361f5733fc6b18f3d261dbcb2f1b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 995ba44a64ae022b52213b9c912f94144d4c2543
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876470"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369327"
 ---
 # <a name="ad-ds-troubleshooting"></a>Résolution des problèmes liés aux services AD DS
 
 >S'applique à : Windows Server 2016, Windows Server 2012 R2
 
-Cette section contient des recommandations et des procédures de diagnostic et résolution des problèmes qui peut-être se produire avec la réplication Active Directory.
+Cette section comprend des recommandations et des procédures de dépannage pour le diagnostic et la résolution des problèmes qui peuvent se produire avec la réplication Active Directory.
 
-Ce contenu est axé principalement sur les réponses aux messages de journal des événements de Service d’annuaire et les messages d’erreur basée sur un outil qui peuvent être signalés par les outils Repadmin.exe et Dcdiag.exe. Ces outils sont disponibles sur tous les contrôleurs de domaine qui exécutent Windows Server 2016 ou 2012 R2. Vous pouvez également installer les outils d’Administration de serveur distant (RSAT) sur un serveur membre exécutant Windows 10.
+Ce contenu se concentre principalement sur les réponses aux messages du journal des événements du service d’annuaire et les messages d’erreur basés sur des outils qui peuvent être signalés par les outils repadmin. exe et Dcdiag. exe. Ces outils sont disponibles sur tous les contrôleurs de domaine qui exécutent Windows Server 2016 ou 2012 R2. Vous pouvez également installer des Outils d’administration de serveur distant (RSAT) sur un serveur membre qui exécute Windows 10.
 
-Pour plus d’informations sur l’installation de serveur distant, consultez l’article [outils d’Administration de serveur distant](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
+Pour plus d’informations sur l’installation de RSAT, consultez l’article [Outils d’administration de serveur distant](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
 
-[Configuration d’un ordinateur pour la résolution des problèmes d’Active Directory](../manage/troubleshoot/Configuring-a-Computer-for-Troubleshooting.md)
+[Configuration d’un ordinateur pour la résolution des problèmes Active Directory](../manage/troubleshoot/Configuring-a-Computer-for-Troubleshooting.md)
 
 [Résolution des problèmes de réplication Active Directory](../manage/troubleshoot/Troubleshooting-Active-Directory-Replication-Problems.md)
