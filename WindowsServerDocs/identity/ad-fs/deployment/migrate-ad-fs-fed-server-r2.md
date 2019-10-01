@@ -43,7 +43,7 @@ Pour rechercher le certificat SSL, ouvrez la console de gestion des services Int
 Vous devez exporter le certificat SSL utilisé par le service de fédération et sa clé privée vers un fichier .pfx. Pour plus d’informations, voir [Exporter la partie clé privée d’un certificat d’authentification serveur](export-the-private-key-portion-of-a-server-authentication-certificate.md).  
   
 > [!NOTE]
->  Si vous envisagez de déployer le service Device Registration dans le cadre de l’exécution de votre AD FS dans Windows Server 2012 R2, vous devez obtenir un nouveau certificat SSL. Pour plus d'informations, consultez [Enroll an SSL Certificate for AD FS](enroll-an-ssl-certificate-for-ad-fs.md) et [Configure a federation server with Device Registration Service](configure-a-federation-server-with-device-registration-service.md).  
+>  Si vous envisagez de déployer le service Device Registration dans le cadre de l’exécution de votre AD FS dans Windows Server 2012 R2, vous devez obtenir un nouveau certificat SSL. Pour plus d'informations, consultez [Enroll an SSL Certificate for AD FS](enroll-an-ssl-certificate-for-ad-fs.md) et [Configurer un serveur de fédération avec Device Registration Service](configure-a-federation-server-with-device-registration-service.md).  
   
 Pour afficher les certificats de signature de jetons, de déchiffrement de jeton et de communications de service qui sont utilisés, exécutez la commande Windows PowerShell suivante pour créer une liste de tous les certificats utilisés dans un fichier :  
   
