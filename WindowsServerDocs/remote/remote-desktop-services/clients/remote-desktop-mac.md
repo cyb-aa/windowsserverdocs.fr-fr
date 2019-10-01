@@ -2,7 +2,7 @@
 title: Bien démarrer avec le client macOS
 description: Découvrez comment configurer le client Bureau à distance pour Mac
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8836ab500e97b68efbcdd0cd1ca5bcbe39d79334
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 1512589315489f5bc351ff105a56694e0947463b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150925"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404138"
 ---
 # <a name="get-started-with-the-macos-client"></a>Bien démarrer avec le client macOS
 
@@ -159,7 +159,7 @@ Les dispositions du clavier Windows diffèrent des dispositions du clavier Mac.
 - Les touches de fonction peuvent être activés dans la session en pressant également la touche Fn (par exemple : Fn + F1).
 - La touche Alt située à droite de la barre d’espace sur le clavier Mac correspond à la touche Alt Gr/Alt droite dans Windows.
 
-Par défaut, la session à distance utilisera les mêmes paramètres régionaux de clavier que le système d’exploitation sur lequel vous exécutez le client. Si votre Mac est en cours d’exécution sur un système d’exploitation EN-US (Anglais des États-Unis), cette langue sera aussi utilisée pour les sessions à distance. Si les paramètres régionaux du clavier du système d’exploitation ne sont pas utilisés, vérifiez le paramètre du clavier sur le PC distant et modifiez ce paramètre manuellement. Si vous souhaitez obtenir davantage d’informations sur les claviers et les paramètres régionaux, veuillez consulter le [Forum aux questions du client Bureau à distance](remote-desktop-client-faq.md).
+Par défaut, la session à distance utilisera les mêmes paramètres régionaux de clavier que le système d’exploitation sur lequel vous exécutez le client. Si votre Mac est en cours d’exécution sur un système d’exploitation EN-US (Anglais des États-Unis), cette langue est aussi utilisée pour les sessions à distance. Si les paramètres régionaux du clavier du système d’exploitation ne sont pas utilisés, vérifiez le paramètre du clavier sur le PC distant et modifiez-le manuellement. Si vous souhaitez obtenir davantage d’informations sur les claviers et les paramètres régionaux, veuillez consulter le [Forum aux questions du client Bureau à distance](remote-desktop-client-faq.md).
 
 
 ## <a name="support-for-remote-desktop-gateway-pluggable-authentication-and-authorization"></a>Prise en charge de l’autorisation et de l’authentification enfichables de la passerelle des services Bureau à distance

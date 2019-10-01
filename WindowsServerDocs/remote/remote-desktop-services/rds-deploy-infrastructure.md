@@ -1,7 +1,7 @@
 ---
 title: Déployer un environnement des services Bureau à distance
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 description: Étapes de base pour déployer un environnement des services Bureau à distance.
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e00be471b2607ad4bc8cc8e11652d428419b4fd6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805133"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404014"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>Déployer un environnement des services Bureau à distance
 
@@ -46,7 +46,7 @@ Si vous utilisez des machines virtuelles pour certains des serveurs des Services
 4.  Activez le serveur de licences des services Bureau à distance et ajoutez-le au groupe de serveurs de licences :  
     1.  Dans le Gestionnaire de serveur, cliquez sur **Outils > Services Terminal Server > Gestionnaire de licences des services Bureau à distance**.  
     2.  Dans le Gestionnaire de licences des services Bureau à distance, sélectionnez le serveur, puis cliquez sur **Action > Activer le serveur**.  
-    3.  Acceptez les valeurs par défaut dans l’Assistant Activation du serveur jusqu’à ce que vous atteigniez la page **Informations sur la société**. Ensuite, entrez les informations sur votre société.  
+    3.  Acceptez les valeurs par défaut dans l’Assistant Activation du serveur. Continuez à accepter les valeurs par défaut jusqu’à ce que vous arriviez à la page **Informations sur la société**. Ensuite, entrez les informations sur votre société.  
     4.  Acceptez les valeurs par défaut pour toutes les autres pages jusqu’à la dernière. Effacez **Démarrer l’Assistant Installation de licences**, puis cliquez sur **Terminer**.  
     5.  Cliquez sur **Action > Examen de la configuration > Ajouter au groupe > OK**. Entrez les informations d’identification d’un utilisateur appartenant au groupe Administrateurs AAD DC et inscrivez-vous en tant que point de connexion de service (SCP). Cette étape peut ne pas fonctionner si vous utilisez Azure AD Domain Services, mais vous pouvez ignorer les avertissements ou erreurs.  
 5.  Ajoutez le nom du certificat et du serveur de passerelle Bureau à distance :  
