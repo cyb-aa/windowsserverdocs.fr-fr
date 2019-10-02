@@ -48,7 +48,7 @@
 #### [Gérer les services d’intégration](hyper-v/manage/Manage-Hyper-V-integration-services.md)
 #### [Gérer les machines virtuelles Windows avec PowerShell Direct](hyper-v/manage/Manage-Windows-virtual-machines-with-powershell-direct.md)
 #### [Configurer le réplica Hyper-V](hyper-v/manage/Set-up-Hyper-V-Replica.md)
-#### [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+#### [Activer le matériel de supervision des performances Intel](hyper-v/manage/Performance-Monitoring-Hardware.md)
 #### [Déplacer les ordinateurs virtuels à l'aide d'une migration dynamique](hyper-v/manage/Live-migration-overview.md)
 ##### [Vue d’ensemble de la migration dynamique](hyper-v/manage/Live-migration-overview.md)
 ##### [Configurer des hôtes pour la migration dynamique](hyper-v/deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md) 
