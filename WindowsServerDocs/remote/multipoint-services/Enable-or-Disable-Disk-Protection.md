@@ -24,7 +24,7 @@ La fonctionnalité Protection des disques vous permet de réinitialiser votre sy
   
 ## <a name="enable-disk-protection"></a>Activer la protection des disques  
   
-1.  Dans le gestionnaire MultiPoint, cliquez sur l’onglet dossier de **démarrage** , puis, sous **tâches** *nom de l’ordinateur , cliquez sur **activer la protection des disques**.  
+1.  Dans le gestionnaire MultiPoint, cliquez sur l’onglet dossier de **démarrage** , puis, sous **tâches** *nom de l’ordinateur *, cliquez sur **activer la protection des disques**.  
   
 2.  Vérifiez les informations, puis cliquez sur **OK**.  
   
