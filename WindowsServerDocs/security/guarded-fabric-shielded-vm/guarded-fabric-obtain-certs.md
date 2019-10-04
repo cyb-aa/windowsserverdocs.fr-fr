@@ -7,13 +7,13 @@ ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 08/29/2018
-ms.openlocfilehash: b3e6aadbcbf2f2b826ca97d4ebb58c3736528b59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: e8f4a3696ec5096281ba1ffd130aa97004530cc1
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386522"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940736"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Obtenir des certificats pour SGH
 
@@ -81,7 +81,7 @@ Les hôtes Hyper-V et les nœuds SGH doivent approuver le certificat SSL que vou
 
 Propriété du certificat SSL | Valeur requise
 -------------------------|---------------
-Nom d'objet             | Nom de votre cluster SGH (nom de réseau distribué). Il s’agit de la concaténation de votre nom de service SGH fourni à `Initialize-HgsServer` et votre nom de domaine SGH.
+Nom d'objet             | Nom de votre cluster SGH (nom de domaine complet du nom de réseau distribué ou objet ordinateur virtuel). Il s’agit de la concaténation de votre nom de service SGH fourni à `Initialize-HgsServer` et votre nom de domaine SGH.
 Autre nom de l’objet | Si vous comptez utiliser un autre nom DNS pour atteindre votre cluster SGH (par exemple, s’il se trouve derrière un équilibreur de charge), veillez à inclure ces noms DNS dans le champ SAN de votre demande de certificat.
 
 Les options permettant de spécifier ce certificat lors de l’initialisation du serveur SGH sont décrites dans [configurer le premier nœud SGH](guarded-fabric-initialize-hgs.md).

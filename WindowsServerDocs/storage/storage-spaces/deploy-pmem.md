@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 3/26/2019
 ms.localizationpriority: ''
-ms.openlocfilehash: 497fa201c500919fc857d25166d37ce87613d0f0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 549cc6dbeec3d414e886f6ebf32315ae13627812
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872006"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940808"
 ---
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>Comprendre et déployer la mémoire persistante
@@ -26,8 +26,7 @@ La mémoire persistante (ou PMem) est un nouveau type de technologie de mémoire
 
 ## <a name="background"></a>Présentation
 
-PMem est un type de mémoire DRAM non volatile (NVDIMM) qui présente la vitesse de la DRAM, mais conserve son contenu de mémoire par le biais de cycles de gestion de l’alimentation (le contenu de la mémoire reste même en cas de panne d’alimentation inattendue, arrêt initié par l’utilisateur, panne du système, etc.). Pour cette raison, la reprise à partir de l’endroit où vous vous étiez arrêté est beaucoup plus rapide, car le contenu de votre RAM n’a pas besoin d’être rechargé. Une autre caractéristique unique est que le PMem est adressable en octets, ce qui signifie que vous pouvez également l’utiliser comme stockage (ce qui explique pourquoi vous pouvez entendre le mode de stockage d’un PMem appelé mémoire de classe de stockage).
-
+PMem est un type de RAM non volatile (NVDIMM) qui conserve son contenu par le biais de cycles de gestion de l’alimentation. Le contenu de la mémoire reste même en cas de panne de courant, en cas de perte d’alimentation inattendue, d’arrêt de l’utilisateur, de panne du système, etc. Cette caractéristique unique signifie que vous pouvez également utiliser PMem comme stockage. c’est pour cette raison que vous pouvez entendre le « mémoire de classe de stockage » appelée PMem.
 
 Pour voir certains de ces avantages, examinons la démonstration de Microsoft en2018 :
 
@@ -57,13 +56,13 @@ Le tableau ci-dessous contient les numéros de performances complets :
 
 ### <a name="supported-hardware"></a>Matériel pris en charge
 
-Le tableau ci-dessous montre le matériel de mémoire persistante pris en charge pour Windows Server 2019 et Windows Server 2016. Notez qu’Intel Optane prend spécifiquement en charge le mode mémoire et le mode application-direct. Windows Server 2019 prend en charge les opérations en mode mixte.
+Le tableau ci-dessous montre le matériel de mémoire persistante pris en charge pour Windows Server 2019 et Windows Server 2016. Notez qu’Intel Optane prend en charge à la fois la mémoire (volatile) et l’application directe (c.-à-d. persistant).
 
 | Technologie de mémoire persistante                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
-| **NVDIMM-N** en mode d’application directe                                       | Pris en charge                | Pris en charge                |
-| **Mémoire persistante Intel Optane™ DC** en mode application-direct             | Non pris en charge            | Pris en charge                |
-| **Intel Optane™ DC persistent Memory** en mode de mémoire à deux niveaux (2LM) | Non pris en charge            | Pris en charge                |
+| **NVDIMM-N** en mode persistant                                  | Prise en charge                | Prise en charge                |
+| **Mémoire persistante Intel Optane™ DC** en mode direct de l’application             | Non prise en charge            | Prise en charge                |
+| **Mémoire persistante Intel Optane™ DC** en mode mémoire | Prise en charge            | Prise en charge                |
 
 Voyons maintenant comment configurer la mémoire persistante.
 
@@ -71,7 +70,7 @@ Voyons maintenant comment configurer la mémoire persistante.
 
 ### <a name="understanding-interleave-sets"></a>Fonctionnement des ensembles entrelacés
 
-Souvenez-vous que le NVDIMM-N réside dans un emplacement DIMM standard (mémoire), en plaçant les données plus près du processeur (ce qui réduit la latence et l’extraction de meilleures performances). Pour ce faire, un ensemble entrelacé est quand deux ou plusieurs NVDIMMs créent un entrelacement N-Way défini pour fournir des opérations de lecture/écriture de répartition pour un débit accru. Les configurations les plus courantes sont l’entrelacement à 2 ou 4 voies.
+Souvenez-vous qu’un NVDIMM réside dans un emplacement DIMM standard (mémoire), en plaçant les données plus près du processeur (ce qui réduit ainsi la latence et l’extraction de meilleures performances). Pour ce faire, un ensemble entrelacé est quand deux ou plusieurs NVDIMMs créent un entrelacement N-Way défini pour fournir des opérations de lecture/écriture de répartition pour un débit accru. Les configurations les plus courantes sont l’entrelacement à 2 ou 4 voies.
 
 Les jeux entrelacés peuvent souvent être créés dans le BIOS d’une plateforme pour que plusieurs périphériques de mémoire persistants apparaissent comme un seul disque logique sur Windows Server. Chaque disque logique de mémoire persistante contient un ensemble entrelacé d’appareils physiques en exécutant :
 

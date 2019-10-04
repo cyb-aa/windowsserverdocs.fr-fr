@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e1042ad4dae0b023c9816dff798c25b05b60eccf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0685e0935a031b2f73474d59b025b70fc735902d
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407440"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935045"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personnaliser les en-têtes de réponse de sécurité HTTP avec AD FS 2019 
  
@@ -53,7 +53,7 @@ Set-AdfsResponseHeaders -EnableResponseHeaders $false
 ### <a name="http-strict-transport-security-hsts"></a>HTTP strict-transport-Security (HSTS) 
 HSTS est un mécanisme de stratégie de sécurité Web qui permet d’atténuer les attaques par rétrogradation de protocole et le piratage de cookies pour les services qui ont à la fois des points de terminaison HTTP et HTTPs. Il permet aux serveurs Web de déclarer que les navigateurs Web (ou d’autres agents utilisateur conformes) doivent uniquement interagir avec lui à l’aide de HTTPs et jamais via le protocole HTTP.  
  
-Tous les points de terminaison de AD FS pour le trafic d’authentification Web sont ouverts exclusivement via HTTPs. Par conséquent, AD FS atténue efficacement les menaces fournies par le mécanisme de stratégie de sécurité de transport strict (par défaut, il n’y a pas de passage à HTTP, car il n’y a aucun écouteur dans HTTP). L’en-tête peut être personnalisé en définissant les paramètres suivants 
+Tous les points de terminaison de AD FS pour le trafic d’authentification Web sont ouverts exclusivement via HTTPs. Par conséquent, AD FS atténue efficacement les menaces fournies par le mécanisme de stratégie de sécurité de transport strict (par défaut, il n’y a pas de passage à HTTP, car il n’y a aucun écouteur dans HTTP). L’en-tête peut être personnalisé en définissant les paramètres suivants :
  
 - **max-age =&lt;expiration-Time&gt;**  – le délai d’expiration (en secondes) spécifie la durée pendant laquelle le site ne doit être accessible qu’à l’aide du protocole HTTPS. La valeur par défaut et la valeur recommandée est de 31536000 secondes (1 an).  
 - **includeSubDomains** : il s’agit d’un paramètre facultatif. S’il est spécifié, la règle HSTS s’applique également à tous les sous-domaines.  
@@ -107,7 +107,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options"
 ```
 
 ### <a name="x-xss-protection"></a>X-XSS-protection 
-Cet en-tête de réponse de sécurité HTTP est utilisé pour empêcher le chargement des pages Web lorsque des attaques de script entre sites (XSS) sont détectées par les navigateurs. C’est ce que l’on appelle le filtrage XSS. L’en-tête peut être défini sur l’une des valeurs suivantes. 
+Cet en-tête de réponse de sécurité HTTP est utilisé pour empêcher le chargement des pages Web lorsque des attaques de script entre sites (XSS) sont détectées par les navigateurs. C’est ce que l’on appelle le filtrage XSS. L’en-tête peut être défini sur l’une des valeurs suivantes :
  
 - **0** – désactive le filtrage XSS. Non recommandé.  
 - **1** – active le filtrage XSS. Si une attaque XSS est détectée, le navigateur nettoie la page.   
@@ -138,7 +138,7 @@ La sécurité du navigateur Web empêche une page Web de créer des requêtes Cr
 Pour mieux comprendre la demande CORS, voyons un scénario dans lequel une application à page unique (SPA) doit appeler une API Web avec un domaine différent. En outre, considérons que SPA et l’API sont configurés sur ADFS 2019 AD FS et que CORS est activé, c.-à-d. AD FS pouvez identifier les en-têtes CORS dans la requête HTTP, valider les valeurs d’en-tête et inclure les en-têtes CORS appropriés dans la réponse (détails sur l’activation et la configurer CORS sur AD FS 2019 dans la section de personnalisation CORS ci-dessous). Exemple de flow : 
 
 1. L’utilisateur accède au SPA par le biais du navigateur client et est redirigé vers AD FS point de terminaison d’authentification pour l’authentification. Étant donné que SPA est configuré pour le workflow d’octroi implicite, la requête retourne un jeton d’accès + ID au navigateur après une authentification réussie.  
-2. Après l’authentification de l’utilisateur, le code JavaScript frontal inclus dans le SPA fait une demande d’accès à l’API Web. La demande est redirigée vers AD FS avec les en-têtes suivants
+2. Après l’authentification de l’utilisateur, le code JavaScript frontal inclus dans le SPA fait une demande d’accès à l’API Web. La demande est redirigée vers AD FS avec les en-têtes suivants :
     - Options : décrit les options de communication pour la ressource cible. 
     - Origin : comprend l’origine de l’API Web.
     - Access-Control-Request-Method : identifie la méthode HTTP (par exemple, DELETE) à utiliser lorsque la demande réelle est effectuée. 
@@ -146,11 +146,11 @@ Pour mieux comprendre la demande CORS, voyons un scénario dans lequel une appli
     
    >[!NOTE]
    >La demande CORS ressemble à une requête HTTP standard. Toutefois, la présence d’un en-tête Origin indique que la demande entrante est liée à CORS. 
-3. AD FS vérifie que l’origine de l’API Web incluse dans l’en-tête est répertoriée dans les origines approuvées configurées dans AD FS (détails sur la modification des origines approuvées dans la section de personnalisation CORS ci-dessous). AD FS répond ensuite avec les en-têtes suivants.  
+3. AD FS vérifie que l’origine de l’API Web incluse dans l’en-tête est répertoriée dans les origines approuvées configurées dans AD FS (détails sur la modification des origines approuvées dans la section de personnalisation CORS ci-dessous). AD FS répond ensuite avec les en-têtes suivants :  
     - Access-Control-allow-Origin – valeur identique à celle de l’en-tête Origin 
     - Access-Control-allow-Method – valeur identique à celle de l’en-tête Access-Control-Request-Method 
     - Access-Control-allow-en-têtes-valeur identique à celle de l’en-tête Access-Control-request-headers 
-4. Le navigateur envoie la demande réelle, y compris les en-têtes suivants 
+4. Le navigateur envoie la demande réelle, y compris les en-têtes suivants :
     - Méthode HTTP (par exemple, DELETE) 
     - Origin : comprend l’origine de l’API Web. 
     - Tous les en-têtes inclus dans l’en-tête de réponse Access-Control-allow-headers 
@@ -199,7 +199,7 @@ Si une directive est explicitement listée, la valeur spécifiée remplace la va
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src ‘self'; img-src *" 
 ```
-Les sources suivantes peuvent être définies pour la stratégie par défaut de SRC 
+Les sources suivantes peuvent être définies pour la stratégie de SRC par défaut :
  
 - 'Self' : spécifier cela restreint l’origine du contenu à charger à l’origine de la page Web 
 - 'unsafe-inline' – la spécification de ce paramètre dans la stratégie permet l’utilisation de JavaScript inline et de CSS 
@@ -223,7 +223,7 @@ Une fois défini, le nouvel en-tête est envoyé dans la réponse AD FS (extrait
  
 ![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
-## <a name="web-browswer-compatibility"></a>Compatibilité Web navigateur attribuant alors
+## <a name="web-browser-compatibility"></a>Compatibilité du navigateur Web
 Utilisez le tableau et les liens suivants pour déterminer les navigateurs Web compatibles avec chacun des en-têtes de réponse de sécurité.
 
 |En-têtes de réponse de sécurité HTTP|Compatibilité du navigateur|
@@ -236,5 +236,5 @@ Utilisez le tableau et les liens suivants pour déterminer les navigateurs Web c
 
 ## <a name="next"></a>Suivant
 
-- [Utiliser AD FS guides troublehshooting Help](https://aka.ms/adfshelp/troubleshooting )
+- [Utiliser AD FS guides de dépannage de l’aide](https://aka.ms/adfshelp/troubleshooting )
 - [Résolution des problèmes AD FS](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)

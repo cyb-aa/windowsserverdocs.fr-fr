@@ -2,14 +2,14 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: 073851440302a84396582baf2c4e41bcf26af812
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba2723e4387620154187fe20c3bd80c5ce3fc929
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820040"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935068"
 ---
-Avec des charges dynamiques sortantes sont distribuées en fonction du hachage des ports TCP et des adresses IP. Mode dynamique rééquilibre également charges en temps réel afin qu’un flux sortant donné peuvent se déplacer dans les deux sens entre les membres de l’équipe. Les charges de trafic entrants, sont quant à eux, distribués de la même façon que le Port Hyper-V. En bref, le mode dynamique utilise les meilleurs aspects de hachage d’adresse et Port Hyper-V et est le mode d’équilibrage de charge performant la plus élevé. 
+Avec les charges dynamiques, les charges sortantes sont distribuées en fonction d’un hachage des ports TCP et des adresses IP. Le mode dynamique rééquilibre également les charges en temps réel afin qu’un workflow sortant donné puisse se déplacer entre les membres de l’équipe. Les charges entrantes, en revanche, sont distribuées de la même façon que le port Hyper-V. En résumé, le mode dynamique utilise les meilleurs aspects de hachage d’adresse et de port Hyper-V. il s’agit du mode d’équilibrage de charge le plus performant. 
 

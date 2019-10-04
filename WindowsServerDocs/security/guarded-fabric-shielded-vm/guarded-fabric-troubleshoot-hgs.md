@@ -7,16 +7,17 @@ ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: be817a2c06b13af254b80090b9a7488209d4df0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: d34bbeee1a980aba76b5bed994be8db7fc8c8acf
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403528"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940821"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>Résolution des problèmes du service Guardian hôte
 
-> S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit les solutions aux problèmes courants rencontrés lors du déploiement ou de l’utilisation d’un serveur de service Guardian hôte (SGH) dans une infrastructure protégée.
 Si vous n’êtes pas sûr de la nature de votre problème, essayez d’abord d’exécuter les [Diagnostics de l’infrastructure protégée](guarded-fabric-troubleshoot-diagnostics.md) sur vos serveurs SGH et les hôtes Hyper-V pour réduire les causes potentielles.
@@ -80,6 +81,7 @@ $cert.Acl = $cert.Acl | Add-AccessRule $gMSA Read Allow
 
 Si les clés privées de votre certificat sont sauvegardées par un module de sécurité matériel (HSM) ou un fournisseur de stockage de clés (KSP) personnalisé, le modèle d’autorisation dépend de votre fournisseur de logiciels spécifique.
 Pour obtenir des résultats optimaux, consultez la documentation de votre fournisseur ou le support technique pour plus d’informations sur la façon dont les autorisations de clé privée sont gérées pour votre périphérique/logiciel spécifique.
+Dans tous les cas, le gMSA utilisé par SGH requiert des autorisations de *lecture* sur les clés privées du certificat de chiffrement, de signature et de communication afin qu’il puisse effectuer des opérations de signature et de chiffrement.
 
 Certains modules de sécurité matériels ne prennent pas en charge l’octroi d’un accès à une clé privée à des comptes d’utilisateurs spécifiques. au lieu de cela, ils permettent au compte d’ordinateur d’accéder à toutes les clés d’un jeu de clés spécifique.
 Pour ces appareils, il est généralement suffisant pour accorder à l’ordinateur l’accès à vos clés et SGH pourra tirer parti de cette connexion.
@@ -93,7 +95,7 @@ Si vous avez d’autres questions, contactez le fabricant de votre module HSM po
 Gamme/série HSM      | Suggestion
 ----------------------|-------------
 Gemalto SafeNet       | Vérifiez que la propriété utilisation de la clé dans le fichier de demande de certificat est définie sur 0xa0, ce qui permet d’utiliser le certificat pour la signature et le chiffrement. En outre, vous devez accorder au compte gMSA l’accès *en lecture* à la clé privée à l’aide de l’outil Gestionnaire de certificats local (voir les étapes ci-dessus).
-nCipher nShield        | Vérifiez que chaque nœud SGH a accès au monde de sécurité contenant les clés de signature et de chiffrement. Vous n’avez pas besoin de configurer des autorisations spécifiques à gMSA.
+nCipher nShield        | Vérifiez que chaque nœud SGH a accès au monde de sécurité contenant les clés de signature et de chiffrement. Vous devrez peut-être également accorder à l’gMSA l’accès *en lecture* à la clé privée à l’aide du gestionnaire de certificats local (voir les étapes ci-dessus).
 Utimaco CryptoServers | Vérifiez que la propriété utilisation de la clé dans le fichier de demande de certificat est définie sur 0x13, ce qui permet d’utiliser le certificat pour le chiffrement, le déchiffrement et la signature.
 
 ### <a name="certificate-requests"></a>Demandes de certificat

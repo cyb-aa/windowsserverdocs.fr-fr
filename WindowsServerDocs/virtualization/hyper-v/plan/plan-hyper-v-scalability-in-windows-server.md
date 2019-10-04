@@ -1,5 +1,5 @@
 ---
-title: Planifier l’extensibilité d’Hyper-V dans Windows Server 2016
+title: Planifier l’extensibilité d’Hyper-V dans Windows Server 2016 et Windows Server 2019
 description: Répertorie le nombre maximal pris en charge pour les composants que vous pouvez ajouter ou supprimer dans Hyper-V et les machines virtuelles, comme la quantité de mémoire et le nombre de processeurs virtuels.
 ms.prod: windows-server
 ms.service: na
@@ -10,14 +10,14 @@ ms.topic: article
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/28/2016
-ms.openlocfilehash: 3d94d8475f5de8d6b3d1d3f0bc549a8791e1d0c8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 493f7926a6ef686e6d47c1a3120a65ed0799b0db
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364061"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71934952"
 ---
-# <a name="plan-for-hyper-v-scalability-in-windows-server-2016"></a>Planifier l’extensibilité d’Hyper-V dans Windows Server 2016
+# <a name="plan-for-hyper-v-scalability-in-windows-server-2016-and-windows-server-2019"></a>Planifier l’extensibilité d’Hyper-V dans Windows Server 2016 et Windows Server 2019
 
 > S'applique à : Windows Server 2016, Windows Server 2019
   

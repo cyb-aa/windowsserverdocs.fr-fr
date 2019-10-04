@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 29e3785d1c004d669e0060854acb6af1d2953644
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb91ca583fd71a7fbe38369606d2dcc4a816d8aa
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357916"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935015"
 ---
 # <a name="privileged-access-workstations"></a>Stations de travail à accès privilégié
 
@@ -511,66 +511,136 @@ Dans cette section, vous allez créer un nouvel objet de stratégie de groupe «
 Dans cette section, nous allons configurer des stratégies de groupe pour empêcher les comptes administratifs privilégiés d’accéder à des hôtes de niveau inférieur.
 
 1. Créez le nouvel objet de stratégie de groupe **Restriction de connexion à la station de travail** - Ce paramètre empêchera les comptes administratifs de niveau 0 et 1 de se connecter à des stations de travail standard.  Cet objet de stratégie de groupe doit être lié à l’unité d’organisation de niveau supérieur « stations de travail » et disposer des paramètres suivants :
-   * Dans Configuration ordinateur \ stratégies \ paramètres Windows \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session en tant que tâche, sélectionnez **définir ces paramètres de stratégie** , puis ajoutez les groupes de niveaux 0 et 1 :     Administrateurs de l’entreprise domaine Admins du schéma administrateurs de compte Domaine\administrateurs opérateurs de sauvegarde opérateurs d’impression opérateurs de serveur contrôleurs de domaine en lecture seule stratégie de groupe les créateurs propriétaires chiffrement ators
+   * Dans Configuration ordinateur \ stratégies \ paramètres Windows \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session en tant que tâche, sélectionnez **définir ces paramètres de stratégie** , puis ajoutez les groupes de niveaux 0 et 1 :
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Les groupes de niveau 0 intégrés, consultez équivalence de niveau 0 pour plus de détails.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Tous les groupes créés personnalisés avec un accès de niveau 0 effectif, consultez équivalence de niveau 0 pour plus de détails.
 
          Tier 1 Admins
 
-         > [!NOTE]
-         > This Group was created earlier in Phase 1.
+     > [!NOTE]
+     > Ce groupe a été créé plus tôt dans la phase 1.
 
-   * Dans Configuration de l’ordinateur \ paramètres de stratégie \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session en tant que service, sélectionnez **définir ces paramètres de stratégie** et ajouter les groupes de niveaux 0 et 1 :     Administrateurs de l’entreprise domaine Admins du schéma administrateurs de compte Domaine\administrateurs opérateurs de sauvegarde opérateurs d’impression opérateurs de serveur contrôleurs de domaine en lecture seule stratégie de groupe les créateurs propriétaires chiffrement ators
+   * Dans Configuration de l’ordinateur \ paramètres de stratégie \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session en tant que service, sélectionnez **définir ces paramètres de stratégie** et ajouter les groupes de niveaux 0 et 1 :
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Note: Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Remarque : Les groupes de niveau 0 intégrés, consultez équivalence de niveau 0 pour plus de détails.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Note: Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Remarque : Tous les groupes créés personnalisés avec un accès de niveau 0 effectif, consultez équivalence de niveau 0 pour plus de détails.
 
          Tier 1 Admins
 
-         > [!NOTE]
-         > Note: This Group was created earlier in Phase 1
+     > [!NOTE]
+     > Remarque : Ce groupe a été créé plus tôt dans la phase 1
 
 2. Créer le nouvel objet de stratégie de groupe **restreindre l’ouverture de session serveur** : ce paramètre limite les comptes administrateur de niveau 0 de la journalisation sur les serveurs de niveau 1.  Cet objet de stratégie de groupe doit être lié à l’unité d’organisation de niveau supérieur « serveurs de niveau 1 » et disposer des paramètres suivants :
-   * Dans Configuration ordinateur \ stratégies \ paramètres Windows \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session en tant que tâche, sélectionnez **définir ces paramètres de stratégie** et ajouter les groupes de niveau 0 :     Administrateurs de l’entreprise domaine Admins du schéma administrateurs de compte Domaine\administrateurs opérateurs de sauvegarde opérateurs d’impression opérateurs de serveur contrôleurs de domaine en lecture seule stratégie de groupe les créateurs propriétaires chiffrement ators
+   * Dans Configuration ordinateur \ stratégies \ paramètres Windows \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session en tant que tâche, sélectionnez **définir ces paramètres de stratégie** et ajouter les groupes de niveau 0 :
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
-
-         Other Delegated Groups
-
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
-
-   * Dans Configuration de l’ordinateur \ paramètres de stratégie \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session en tant que service, sélectionnez **définir ces paramètres de stratégie** et ajouter les groupes de niveau 0 :     Administrateurs de l’entreprise domaine Admins du schéma administrateurs de compte Domaine\administrateurs opérateurs de sauvegarde opérateurs d’impression opérateurs de serveur contrôleurs de domaine en lecture seule stratégie de groupe les créateurs propriétaires chiffrement ators
-
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
-
-         Other Delegated Groups
-
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
-
-   * Dans Configuration ordinateur \ stratégies \ paramètres Windows \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session locale, sélectionnez **définir ces paramètres de stratégie** et ajouter les groupes de niveau 0 :     Administrateurs de l’entreprise domaine Admins du schéma administrateurs de compte opérateurs de sauvegarde opérateurs de sauvegarde opérateurs de serveur opérateurs de domaine contrôleurs de domaine en lecture seule stratégie de groupe créateurs propriétaires opérateurs de chiffrement
-
-         > [!NOTE]
-         > Note: Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Les groupes de niveau 0 intégrés, consultez équivalence de niveau 0 pour plus de détails.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Note: Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Tous les groupes créés personnalisés avec un accès de niveau 0 effectif, consultez équivalence de niveau 0 pour plus de détails.
+
+   * Dans Configuration de l’ordinateur \ paramètres de stratégie \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session en tant que service, sélectionnez **définir ces paramètres de stratégie** et ajouter les groupes de niveau 0 :
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
+
+     > [!NOTE]
+     > Les groupes de niveau 0 intégrés, consultez équivalence de niveau 0 pour plus de détails.
+
+         Other Delegated Groups
+
+     > [!NOTE]
+     > Tous les groupes créés personnalisés avec un accès de niveau 0 effectif, consultez équivalence de niveau 0 pour plus de détails.
+
+   * Dans Configuration ordinateur \ stratégies \ paramètres Windows \ stratégies d’autorisation Utilisateur\refuser connexion ouvrir une session locale, sélectionnez **définir ces paramètres de stratégie** et ajouter les groupes de niveau 0 :
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
+
+     > [!NOTE]
+     > Remarque : Les groupes de niveau 0 intégrés, consultez équivalence de niveau 0 pour plus de détails.
+
+         Other Delegated Groups
+
+     > [!NOTE]
+     > Remarque : Tous les groupes créés personnalisés avec un accès de niveau 0 effectif, consultez équivalence de niveau 0 pour plus de détails.
 
 #### <a name="deploy-your-paws"></a>Déploiement de vos PAW
 

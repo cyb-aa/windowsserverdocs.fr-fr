@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 391430b75670f207520a7d972b54ba293616d0e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 150c9f1e70df4f634886ea65efd9c61ef075f26a
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393905"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940706"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -257,6 +257,13 @@ Lorsque vous tentez d’exécuter un inventaire avec l’installation de Storage
 
 Pour contourner ce problème, installez les outils d’administration de cluster de basculement (RSAT-clustering-Mgmt) sur le serveur qui exécute le service de migration de stockage Orchestrator. 
 
+## <a name="error-there-are-no-more-endpoints-available-from-the-endpoint-mapper-when-running-inventory-against-a-windows-server-2003-source-computer"></a>Erreur « aucun point de terminaison n’est disponible à partir du mappeur de point de terminaison » lors de l’inventaire sur un ordinateur source Windows Server 2003
+
+Lorsque vous tentez d’exécuter un inventaire avec le serveur Orchestrator de migration de stockage corrigé avec la mise à jour cumulative [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ou une version ultérieure, vous recevez l’erreur suivante :
+
+    There are no more endpoints available from the endpoint mapper  
+
+Pour contourner ce problème, désinstallez temporairement la mise à jour cumulative KB4512534 (et toute autre priorité) à partir de l’ordinateur d’Orchestrator du service de migration du stockage. Une fois la migration terminée, réinstallez la dernière mise à jour cumulative.  
 
 ## <a name="see-also"></a>Voir aussi
 

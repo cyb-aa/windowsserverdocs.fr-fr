@@ -7,13 +7,13 @@ ms.assetid: 49f4e84d-c1f7-45e5-9143-e7ebbb2ef052
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 01/30/2019
-ms.openlocfilehash: 86047420cb4b1095d5715739d76daa3dba3ff5d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: 1ae6f881e1bd4b9b317e5622f18958f25f692eec
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403453"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940802"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Machines virtuelles protégées pour les locataires-création de données de protection pour définir une machine virtuelle protégée
 
@@ -24,11 +24,11 @@ Un fichier de données de protection (également appelé « fichier de données
 Pour obtenir une liste et un diagramme du contenu d’un fichier de données de protection, consultez [qu’est-ce que les données de protection et pourquoi est-il nécessaire ?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
 > [!IMPORTANT]
-> Les étapes de cette section doivent être effectuées sur un ordinateur client exécutant Windows Server 2016. Cet ordinateur ne doit pas faire partie d’une infrastructure protégée (autrement dit, il ne doit pas être configuré pour utiliser un cluster SGH).
+> Les étapes de cette section doivent être effectuées sur un ordinateur distinct et approuvé en dehors de l’infrastructure protégée. En règle générale, le propriétaire de la machine virtuelle (locataire) crée les données de protection de leurs machines virtuelles, et non les administrateurs de l’infrastructure.
 
 Pour préparer la création d’un fichier de données de protection, procédez comme suit :
 
-- [Obtenir un certificat pour Connexion Bureau à distance](#obtain-a-certificate-for-remote-desktop-connection)
+- [Obtenir un certificat pour Connexion Bureau à distance](#optional-obtain-a-certificate-for-remote-desktop-connection)
 - [Créer un fichier de réponses](#create-an-answer-file)
 - [Récupération du fichier catalogue des signatures de volume](#get-the-volume-signature-catalog-file)
 - [Sélectionner des infrastructures de confiance](#select-trusted-fabrics)
@@ -37,23 +37,20 @@ Vous pouvez ensuite créer le fichier de données de protection :
 
 - [Créer un fichier de données de protection et ajouter des gardiens](#create-a-shielding-data-file-and-add-guardians-using-the-shielding-data-file-wizard)
 
-
-## <a name="obtain-a-certificate-for-remote-desktop-connection"></a>Obtenir un certificat pour Connexion Bureau à distance
+## <a name="optional-obtain-a-certificate-for-remote-desktop-connection"></a>Facultatif Obtenir un certificat pour Connexion Bureau à distance
 
 Étant donné que les locataires sont uniquement en mesure de se connecter à leurs machines virtuelles protégées à l’aide d’Connexion Bureau à distance ou d’autres outils de gestion à distance, il est important de s’assurer que les locataires peuvent vérifier qu’ils se connectent au point de terminaison approprié (autrement dit, il n’y a pas de « Man au milieu ») interception de la connexion).
 
 Une façon de vérifier que vous vous connectez au serveur souhaité consiste à installer et à configurer un certificat pour que Services Bureau à distance présente lorsque vous établissez une connexion. L’ordinateur client qui se connecte au serveur vérifie s’il approuve le certificat et affiche un avertissement dans le cas contraire. En règle générale, pour garantir que le client qui se connecte approuve le certificat, les certificats RDP sont émis à partir de l’infrastructure à clé publique du locataire. Vous trouverez plus d’informations sur [l’utilisation des certificats dans services Bureau à distance](https://technet.microsoft.com/library/dn781533.aspx) sur TechNet.
 
-> [!NOTE]
+ Pour vous aider à déterminer si vous devez obtenir un certificat RDP personnalisé, prenez en compte les éléments suivants :
+
+- Si vous testez simplement des machines virtuelles protégées dans un environnement Lab, vous **n’avez pas** besoin d’un certificat RDP personnalisé.
+- Si votre machine virtuelle est configurée pour joindre un domaine Active Directory, un certificat d’ordinateur est généralement émis automatiquement par l’autorité de certification de votre organisation et utilisé pour identifier l’ordinateur lors des connexions RDP. Vous **n’avez pas** besoin d’un certificat RDP personnalisé.
+- Si votre machine virtuelle n’est pas jointe à un domaine, mais que vous souhaitez disposer d’un moyen de vérifier que vous vous connectez à l’ordinateur approprié lorsque vous utilisez Bureau à distance, vous **devez envisager** d’utiliser des certificats RDP personnalisés.
+
+> [!TIP]
 > Lorsque vous sélectionnez un certificat RDP à inclure dans votre fichier de données de protection, veillez à utiliser un certificat générique. Un fichier de données de protection peut être utilisé pour créer un nombre illimité de machines virtuelles. Étant donné que chaque machine virtuelle partagera le même certificat, un certificat générique garantit que le certificat sera valide quel que soit le nom d’hôte de la machine virtuelle.
-
-Si vous évaluez des machines virtuelles protégées et que vous n’êtes pas encore prêt à demander un certificat auprès de votre autorité de certification, vous pouvez créer un certificat auto-signé sur l’ordinateur du locataire en exécutant la commande Windows PowerShell suivante (où *contoso.com* est le domaine du locataire) :
-
-``` powershell
-$rdpCertificate = New-SelfSignedCertificate -DnsName '\*.contoso.com'
-$password = ConvertTo-SecureString -AsPlainText 'Password1' -Force
-Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $password
-```
 
 ## <a name="create-an-answer-file"></a>Créer un fichier de réponses
 
@@ -64,40 +61,50 @@ Pour plus d’informations sur l’obtention et l’utilisation de la fonction *
 - La machine virtuelle est-elle destinée à être jointe à un domaine à la fin du processus d’initialisation ?
 - Utiliserez-vous une licence en volume ou une clé de produit spécifique par machine virtuelle ?
 - Utilisez-vous DHCP ou une adresse IP statique ?
-- Allez-vous utiliser un certificat protocole RDP (Remote Desktop Protocol) (RDP) qui sera utilisé pour prouver que la machine virtuelle appartient à votre organisation ?
+- Allez-vous utiliser un certificat de protocole RDP (Remote Desktop Protocol) personnalisé (RDP) qui sera utilisé pour prouver que la machine virtuelle appartient à votre organisation ?
 - Voulez-vous exécuter un script à la fin de l’initialisation ?
-- Utilisez-vous un serveur de configuration d’état souhaité (DSC) pour une configuration supplémentaire ?
 
 Les fichiers de réponses utilisés dans les fichiers de données de protection seront utilisés sur chaque machine virtuelle créée à l’aide de ce fichier de données de protection. Par conséquent, vous devez veiller à ne pas coder en dur les informations spécifiques à la machine virtuelle dans le fichier de réponses. VMM prend en charge certaines chaînes de substitution (voir le tableau ci-dessous) dans le fichier d’installation sans assistance pour gérer les valeurs de spécialisation qui peuvent changer d’une machine virtuelle à une machine virtuelle. Vous n’êtes pas obligé d’utiliser ces ; Toutefois, s’ils sont présents, VMM en tire parti.
 
 Lorsque vous créez un fichier Unattend. xml pour les machines virtuelles protégées, gardez à l’esprit les restrictions suivantes :
 
--   Le fichier d’installation sans assistance doit entraîner la désactivation de la machine virtuelle une fois qu’elle a été configurée. Cela permet à VMM de savoir quand il doit signaler au locataire que la machine virtuelle a été configurée et qu’elle est prête à être utilisée. VMM rétablit automatiquement la machine virtuelle une fois qu’elle a détecté qu’elle a été désactivée lors de la configuration.
+- Si vous utilisez VMM pour gérer votre centre de fichiers, le fichier d’installation sans assistance doit entraîner la désactivation de la machine virtuelle une fois qu’elle a été configurée. Cela permet à VMM de savoir quand il doit signaler au locataire que la machine virtuelle a été configurée et qu’elle est prête à être utilisée. VMM rétablit automatiquement la machine virtuelle une fois qu’elle a détecté qu’elle a été désactivée lors de la configuration.
 
--   Il est fortement recommandé de configurer un certificat RDP pour vous assurer que vous vous connectez à la machine virtuelle appropriée et non à un autre ordinateur configuré pour une attaque de l’intercepteur.
+- Veillez à activer le protocole RDP et la règle de pare-feu correspondante pour pouvoir accéder à la machine virtuelle une fois qu’elle a été configurée. Vous ne pouvez pas utiliser la console VMM pour accéder aux machines virtuelles protégées. vous aurez donc besoin du protocole RDP pour vous connecter à votre machine virtuelle. Si vous préférez gérer vos systèmes avec la communication à distance Windows PowerShell, assurez-vous également que WinRM est activé.
 
--   Veillez à activer le protocole RDP et la règle de pare-feu correspondante pour pouvoir accéder à la machine virtuelle une fois qu’elle a été configurée. Vous ne pouvez pas utiliser la console VMM pour accéder aux machines virtuelles protégées. vous aurez donc besoin du protocole RDP pour vous connecter à votre machine virtuelle. Si vous préférez gérer vos systèmes avec la communication à distance Windows PowerShell, assurez-vous également que WinRM est activé.
+- Les seules chaînes de substitution prises en charge dans les fichiers d’installation sans assistance de la machine virtuelle protégée sont les suivantes :
 
--   Les seules chaînes de substitution prises en charge dans les fichiers d’installation sans assistance de la machine virtuelle protégée sont les suivantes :
+    | Élément remplaçable | Chaîne de substitution |
+    |-----------|-----------|
+    | ComputerName        | @ComputerName @      |
+    | Horaires            | @TimeZone @          |
+    | ProductKey          | @ProductKey @        |
+    | IPAddr4-1           | @IP4Addr-1 @         |
+    | IPAddr6-1           | @IP6Addr-1 @         |
+    | MACAddr-1           | @MACAddr-1 @         |
+    | Préfixe-1-1          | @Prefix-1-1 @        |
+    | NextHop-1-1         | @NextHop-1-1 @       |
+    | Préfixe-1-2          | @Prefix-1-2 @        |
+    | NextHop-1-2         | @NextHop-1-2 @       |
 
-| Élément remplaçable | Chaîne de substitution |
-|-----------|-----------|
-| ComputerName        | @ComputerName @      |
-| Horaires            | @TimeZone @          |
-| ProductKey          | @ProductKey @        |
-| IPAddr4-1           | @IP4Addr-1 @         |
-| IPAddr6-1           | @IP6Addr-1 @         |
-| MACAddr-1           | @MACAddr-1 @         |
-| Préfixe-1-1          | @Prefix-1-1 @        |
-| NextHop-1-1         | @NextHop-1-1 @       |
-| Préfixe-1-2          | @Prefix-1-2 @        |
-| NextHop-1-2         | @NextHop-1-2 @       |
+    Si vous avez plusieurs cartes réseau, vous pouvez ajouter plusieurs chaînes de substitution pour la configuration IP en incrémentant le premier chiffre. Par exemple, pour définir l’adresse IPv4, le sous-réseau et la passerelle pour 2 cartes réseau, vous devez utiliser les chaînes de substitution suivantes :
+
+    | Chaîne de substitution | Exemple de substitution |
+    |---------------------|----------------------|
+    | @IP4Addr-1 @         | 192.168.1.10         |
+    | @MACAddr-1 @         | Ethernet             |
+    | @Prefix-1-1 @        | 192.168.1.0/24       |
+    | @NextHop-1-1 @       | 192.168.1.254        |
+    | @IP4Addr-2 @         | 10.0.20.30           |
+    | @MACAddr-2 @         | Ethernet 2           |
+    | @Prefix-2-1 @        | 10.0.20.0/24         |
+    | @NextHop-2-1 @       | 10.0.20.1            |
 
 Lors de l’utilisation de chaînes de substitution, il est important de s’assurer que les chaînes seront remplies pendant le processus d’approvisionnement de la machine virtuelle. Si une chaîne telle que @ProductKey @ n’est pas fournie au moment du déploiement, le fait de laisser le nœud &lt;ProductKey @ no__t-2 dans le fichier d’installation sans assistance n’est pas renseigné, le processus de spécialisation échoue et vous ne pouvez pas vous connecter à votre machine virtuelle.
 
 Notez également que les chaînes de substitution associées à la mise en réseau vers la fin de la table sont utilisées uniquement si vous tirez parti des pools d’adresses IP statiques VMM. Votre fournisseur de services d’hébergement doit être en mesure de vous indiquer si ces chaînes de substitution sont requises. Pour plus d’informations sur les adresses IP statiques dans les modèles VMM, consultez les rubriques suivantes dans la documentation de VMM :
 
-- [Instructions pour les pools d’adresses IP](https://technet.microsoft.com/system-center-docs/vmm/plan/plan-network#guidelines-for-ip-address-pools) 
+- [Instructions pour les pools d’adresses IP](https://technet.microsoft.com/system-center-docs/vmm/plan/plan-network#guidelines-for-ip-address-pools)
 - [Configurer des pools d’adresses IP statiques dans l’infrastructure VMM](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-network-static-address-pools)
 
 Enfin, il est important de noter que le processus de déploiement de la machine virtuelle protégée chiffrera uniquement le lecteur du système d’exploitation. Si vous déployez une machine virtuelle protégée avec un ou plusieurs lecteurs de données, il est fortement recommandé d’ajouter une commande sans assistance ou stratégie de groupe paramètre dans le domaine du locataire pour chiffrer automatiquement les lecteurs de données.
@@ -111,17 +118,21 @@ Les fichiers de données de protection contiennent également des informations s
 
 Il existe deux façons d’obtenir le VSC d’un disque de modèle :
 
--  L’hébergeur (ou le locataire, si le locataire a accès à VMM) utilise les applets de commande PowerShell de VMM pour enregistrer le VSC et le transmet au locataire. Cela peut être effectué sur n’importe quel ordinateur sur lequel la console VMM est installée et configurée pour gérer l’environnement VMM de l’infrastructure d’hébergement. Les applets de commande PowerShell pour enregistrer le VSC sont les suivantes :
+1. L’hébergeur (ou le locataire, si le locataire a accès à VMM) utilise les applets de commande PowerShell de VMM pour enregistrer le VSC et le transmet au locataire. Cela peut être effectué sur n’importe quel ordinateur sur lequel la console VMM est installée et configurée pour gérer l’environnement VMM de l’infrastructure d’hébergement. Les applets de commande PowerShell pour enregistrer le VSC sont les suivantes :
 
-        $disk = Get-SCVirtualHardDisk -Name "templateDisk.vhdx"
-    
-        $vsc = Get-SCVolumeSignatureCatalog -VirtualHardDisk $disk
-    
-        $vsc.WriteToFile(".\templateDisk.vsc")
+    ```powershell
+    $disk = Get-SCVirtualHardDisk -Name "templateDisk.vhdx"
 
--  Le locataire a accès au fichier de modèle de disque. Cela peut être le cas si le locataire crée un disque de modèle à charger vers un fournisseur de services d’hébergement ou si le locataire peut télécharger le disque de modèle de l’hébergeur. Dans ce cas, sans VMM dans l’image, le locataire exécuterait l’applet de commande suivante (installée avec la fonctionnalité outils de machine virtuelle protégée, qui fait partie de Outils d’administration de serveur distant) :
+    $vsc = Get-SCVolumeSignatureCatalog -VirtualHardDisk $disk
 
-        Save-VolumeSignatureCatalog -TemplateDiskPath templateDisk.vhdx -VolumeSignatureCatalogPath templateDisk.vsc
+    $vsc.WriteToFile(".\templateDisk.vsc")
+    ```
+
+2. Le locataire a accès au fichier de modèle de disque. Cela peut être le cas si le locataire crée un disque de modèle à charger vers un fournisseur de services d’hébergement ou si le locataire peut télécharger le disque de modèle de l’hébergeur. Dans ce cas, sans VMM dans l’image, le locataire exécuterait l’applet de commande suivante (installée avec la fonctionnalité outils de machine virtuelle protégée, qui fait partie de Outils d’administration de serveur distant) :
+
+    ```powershell
+    Save-VolumeSignatureCatalog -TemplateDiskPath templateDisk.vhdx -VolumeSignatureCatalogPath templateDisk.vsc
+    ```
 
 ## <a name="select-trusted-fabrics"></a>Sélectionner des infrastructures de confiance
 
@@ -131,15 +142,18 @@ Pour autoriser une infrastructure d’hébergement à exécuter une machine virt
 
 Vous ou votre fournisseur de services d’hébergement pouvez obtenir les métadonnées Guardian à partir de SGH en effectuant l’une des actions suivantes :
 
--  Obtenez les métadonnées Guardian directement à partir de SGH en exécutant la commande Windows PowerShell suivante, ou en accédant au site Web et en enregistrant le fichier XML qui s’affiche :
+- Obtenez les métadonnées Guardian directement à partir de SGH en exécutant la commande Windows PowerShell suivante, ou en accédant au site Web et en enregistrant le fichier XML qui s’affiche :
 
-        Invoke-WebRequest 'http://hgs.bastion.local/KeyProtection/service/metadata/2014-07/metadata.xml' -OutFile .\RelecloudGuardian.xml
+    ```powershell
+    Invoke-WebRequest 'http://hgs.bastion.local/KeyProtection/service/metadata/2014-07/metadata.xml' -OutFile .\RelecloudGuardian.xml
+    ```
 
--  Obtenez les métadonnées Guardian à partir de VMM à l’aide des applets de commande PowerShell de VMM :
+- Obtenez les métadonnées Guardian à partir de VMM à l’aide des applets de commande PowerShell de VMM :
 
-        $relecloudmetadata = Get-SCGuardianConfiguration
-
-        $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
+    ```powershell
+    $relecloudmetadata = Get-SCGuardianConfiguration
+    $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
+    ```
 
 Procurez-vous les fichiers de métadonnées Guardian pour chaque infrastructure protégée sur laquelle vous souhaitez autoriser l’exécution de vos machines virtuelles protégées avant de continuer.
 
@@ -147,13 +161,15 @@ Procurez-vous les fichiers de métadonnées Guardian pour chaque infrastructure 
 
 Exécutez l’Assistant fichier de données de protection pour créer un fichier de données de protection (PDK). Ici, vous allez ajouter le certificat RDP, le fichier d’installation sans assistance, les catalogues de signatures de volume, le gardien propriétaire et les métadonnées du gardien téléchargées obtenues à l’étape précédente.
 
-1.  Installez **Outils d’administration de serveur distant outils d’administration de fonctionnalités &gt; &gt; outils de machine virtuelle protégée** sur votre ordinateur à l’aide de gestionnaire de serveur ou de la commande Windows PowerShell suivante :
+1. Installez **Outils d’administration de serveur distant outils d’administration de fonctionnalités &gt; &gt; outils de machine virtuelle protégée** sur votre ordinateur à l’aide de gestionnaire de serveur ou de la commande Windows PowerShell suivante :
 
-        Install-WindowsFeature RSAT-Shielded-VM-Tools
+    ```powershell
+    Install-WindowsFeature RSAT-Shielded-VM-Tools
+    ```
 
-2.  Ouvrez l’Assistant fichier de données de protection à partir de la section outils d’administration de votre menu Démarrer ou en exécutant l’exécutable suivant **C : \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**.
+2. Ouvrez l’Assistant fichier de données de protection à partir de la section outils d’administration de votre menu Démarrer ou en exécutant l’exécutable suivant **C : \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**.
 
-3.  Sur la première page, utilisez la deuxième zone de sélection de fichier pour choisir un emplacement et un nom de fichier pour votre fichier de données de protection. Normalement, vous nommez un fichier de données de protection après l’entité qui possède les machines virtuelles créées avec ces données de protection (par exemple, HR, IT, finance) et le rôle de charge de travail qu’il exécute (par exemple, serveur de fichiers, serveur Web ou tout autre fichier configuré par le fichier d’installation sans assistance). Laissez la case d’option définie sur **protection des données pour les modèles protégés**.
+3. Sur la première page, utilisez la deuxième zone de sélection de fichier pour choisir un emplacement et un nom de fichier pour votre fichier de données de protection. Normalement, vous nommez un fichier de données de protection après l’entité qui possède les machines virtuelles créées avec ces données de protection (par exemple, HR, IT, finance) et le rôle de charge de travail qu’il exécute (par exemple, serveur de fichiers, serveur Web ou tout autre fichier configuré par le fichier d’installation sans assistance). Laissez la case d’option définie sur **protection des données pour les modèles protégés**.
 
     > [!NOTE]
     > Dans l’Assistant fichier de données de protection, vous remarquerez les deux options ci-dessous :
@@ -163,12 +179,12 @@ Exécutez l’Assistant fichier de données de protection pour créer un fichier
 
     ![Assistant fichier de données de protection, sélection de fichier](../media/Guarded-Fabric-Shielded-VM/guarded-host-shielding-data-wizard-01.png)
 
-       En outre, vous devez choisir si les machines virtuelles créées à l’aide de ce fichier de données de protection seront véritablement protégées ou configurées en mode « chiffrement pris en charge ». Pour plus d’informations sur ces deux options, consultez [Quels sont les types de machines virtuelles qu’une infrastructure protégée peut exécuter ?](guarded-fabric-and-shielded-vms.md#what-are-the-types-of-virtual-machines-that-a-guarded-fabric-can-run).
+    En outre, vous devez choisir si les machines virtuelles créées à l’aide de ce fichier de données de protection seront véritablement protégées ou configurées en mode « chiffrement pris en charge ». Pour plus d’informations sur ces deux options, consultez [Quels sont les types de machines virtuelles qu’une infrastructure protégée peut exécuter ?](guarded-fabric-and-shielded-vms.md#what-are-the-types-of-virtual-machines-that-a-guarded-fabric-can-run).
 
     > [!IMPORTANT]
     > Portez une attention particulière à l’étape suivante, car elle définit le propriétaire de vos machines virtuelles protégées et les structures sur lesquelles vos machines virtuelles protégées seront autorisées à s’exécuter.<br>La possession d’un **gardien propriétaire** est nécessaire pour modifier ultérieurement une machine virtuelle dotée d' **une** protection contre le **chiffrement pris en charge** , ou vice versa.
-    
-4.  L’objectif de cette étape est deux fois plus :
+
+4. L’objectif de cette étape est deux fois plus :
 
     - Créer ou sélectionner un gardien propriétaire qui vous représente en tant que propriétaire de la machine virtuelle
 
@@ -180,15 +196,15 @@ Exécutez l’Assistant fichier de données de protection pour créer un fichier
 
     ![Assistant fichier de données de protection, propriétaire et gardiens](../media/Guarded-Fabric-Shielded-VM/guarded-host-shielding-data-wizard-02.png)
 
-5.  Dans la page qualificateurs de l’ID de volume, cliquez sur **Ajouter** pour autoriser un disque de modèle signé dans votre fichier de données de protection. Lorsque vous sélectionnez un VSC dans la boîte de dialogue, il affiche des informations sur le nom, la version et le certificat de ce disque qui a été utilisé pour le signer. Répétez ce processus pour chaque disque de modèle que vous souhaitez autoriser.
+5. Dans la page qualificateurs de l’ID de volume, cliquez sur **Ajouter** pour autoriser un disque de modèle signé dans votre fichier de données de protection. Lorsque vous sélectionnez un VSC dans la boîte de dialogue, il affiche des informations sur le nom, la version et le certificat de ce disque qui a été utilisé pour le signer. Répétez ce processus pour chaque disque de modèle que vous souhaitez autoriser.
 
-6.  Sur la page **valeurs de spécialisation** , cliquez sur **Parcourir** pour sélectionner votre fichier Unattend. XML qui sera utilisé pour spécialiser vos machines virtuelles.
+6. Sur la page **valeurs de spécialisation** , cliquez sur **Parcourir** pour sélectionner votre fichier Unattend. XML qui sera utilisé pour spécialiser vos machines virtuelles.
 
-    Utilisez le bouton **Ajouter** en bas pour ajouter tout fichier supplémentaire au PDK qui est nécessaire pendant le processus de spécialisation. Par exemple, si votre fichier d’installation sans assistance installe un certificat RDP sur la machine virtuelle (comme décrit dans [générer un fichier de réponses à l’aide de la fonction New-ShieldingDataAnswerFile](guarded-fabric-sample-unattend-xml-file.md)), vous devez ajouter le fichier RDPCert. pfx référencé dans le fichier d’installation sans assistance ici. Notez que tous les fichiers que vous spécifiez ici seront automatiquement copiés dans C : \\temp @ no__t-1 sur la machine virtuelle créée. Votre fichier d’installation sans assistance doit s’attendre à ce que les fichiers se trouvent dans ce dossier lors de leur référencement par chemin d’accès.
+    Utilisez le bouton **Ajouter** en bas pour ajouter tout fichier supplémentaire au PDK qui est nécessaire pendant le processus de spécialisation. Par exemple, si votre fichier d’installation sans assistance installe un certificat RDP sur la machine virtuelle (comme décrit dans [générer un fichier de réponses à l’aide de la fonction New-ShieldingDataAnswerFile](guarded-fabric-sample-unattend-xml-file.md)), vous devez ajouter le fichier PFX du certificat RDP et RDPCertificateConfig. ps1 script ici. Notez que tous les fichiers que vous spécifiez ici seront automatiquement copiés dans C : \\temp @ no__t-1 sur la machine virtuelle créée. Votre fichier d’installation sans assistance doit s’attendre à ce que les fichiers se trouvent dans ce dossier lors de leur référencement par chemin d’accès.
 
-7.  Passez en revue vos sélections sur la page suivante, puis cliquez sur **générer**.
+7. Passez en revue vos sélections sur la page suivante, puis cliquez sur **générer**.
 
-8.  Fermez l’Assistant une fois qu’il est terminé.
+8. Fermez l’Assistant une fois qu’il est terminé.
 
 ## <a name="create-a-shielding-data-file-and-add-guardians-using-powershell"></a>Créer un fichier de données de protection et ajouter des gardiens à l’aide de PowerShell
 
@@ -226,6 +242,9 @@ Une fois que tout est prêt, exécutez la commande suivante pour créer votre fi
 $viq = New-VolumeIDQualifier -VolumeSignatureCatalogFilePath 'C:\temp\marketing-ws2016.vsc' -VersionRule Equals
 New-ShieldingDataFile -ShieldingDataFilePath "C:\temp\Marketing-LBI.pdk" -Policy EncryptionSupported -Owner 'Owner' -Guardian 'EAST-US Datacenter' -VolumeIDQualifier $viq -AnswerFile 'C:\temp\marketing-ws2016-answerfile.xml'
 ```
+
+> [!TIP]
+> Si vous utilisez un certificat RDP personnalisé, des clés SSH ou d’autres fichiers qui doivent être inclus dans votre fichier de données de protection, utilisez le paramètre `-OtherFile` pour les inclure. Vous pouvez fournir une liste séparée par des virgules de chemins d’accès aux fichiers, comme `-OtherFile "C:\source\myRDPCert.pfx", "C:\source\RDPCertificateConfig.ps1"`
 
 Dans la commande ci-dessus, le gardien nommé « Owner » (obtenu à partir de la commande HgsGuardian) sera en mesure de modifier la configuration de sécurité de la machine virtuelle à l’avenir, tandis que « EAST-US datacenter » peut exécuter la machine virtuelle sans modifier ses paramètres.
 Si vous avez plusieurs gardiens, séparez les noms des gardiens par des virgules comme `'EAST-US Datacenter', 'EMEA Datacenter'`.

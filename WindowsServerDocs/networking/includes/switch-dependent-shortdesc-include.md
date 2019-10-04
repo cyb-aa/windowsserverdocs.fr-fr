@@ -2,13 +2,13 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: cdd92fcb1e4caab18d12f276f8090ffe449d3623
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 616f61fbb82cdda6351e5f717d93d3a31a4e340f
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823940"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935058"
 ---
-Avec les modes basculer dépendantes, le basculement vers les membres de l’association de cartes réseau sont connectées déterminant comment distribuer le trafic réseau entrant parmi les membres de l’association de cartes réseau. Le commutateur a une indépendance complète pour déterminer comment répartir le trafic réseau entre les membres de l’association de cartes réseau.
+Avec les modes dépendant du commutateur, le commutateur auquel les membres de l’équipe de cartes réseau sont connectés détermine comment distribuer le trafic réseau entrant entre les membres de l’équipe de cartes réseau. Le commutateur a une indépendance totale pour déterminer comment distribuer le trafic réseau entre les membres de l’équipe de cartes réseau.

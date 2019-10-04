@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 12410d619245153f759b54e7a8aff257888f04dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 92fe505c3ae7d76f7a8d5bd9d2ed0ce845159fde
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386074"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940756"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Réplication DFS : Forum Aux Questions (FAQ)
 
@@ -217,7 +217,7 @@ Non. Les groupes de réplication peuvent s’étendre sur plusieurs domaines au 
 
 ### <a name="what-are-the-supported-limits-of-dfs-replication"></a>Quelles sont les limites de réplication DFS prises en charge ?
 
-La liste suivante fournit un ensemble d’instructions d’évolutivité qui ont été testées par Microsoft sur Windows Server 2012 R2 :
+La liste suivante fournit un ensemble d’instructions d’évolutivité qui ont été testées par Microsoft et s’appliquent à Windows Server 2012 R2, Windows Server 2016 et Windows Server 2019
 
   - Taille de tous les fichiers répliqués sur un serveur : 100 téraoctets.  
       
@@ -228,7 +228,7 @@ La liste suivante fournit un ensemble d’instructions d’évolutivité qui ont
 
 
 > [!IMPORTANT]
-> Lors de la création de groupes de réplication avec un nombre ou une taille de fichiers volumineux, nous vous recommandons d’exporter un clone de base de données et d’utiliser des techniques de pré-amorçage pour réduire la durée de la réplication initiale. Pour plus d’informations, <A href="http://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx">voir réplication DFS la synchronisation initiale dans Windows Server 2012 R2 : Attaque des clones</A>. 
+> Lors de la création de groupes de réplication avec un nombre ou une taille de fichiers volumineux, nous vous recommandons d’exporter un clone de base de données et d’utiliser des techniques de pré-amorçage pour réduire la durée de la réplication initiale. Pour plus d’informations, [voir réplication DFS la synchronisation initiale dans Windows Server 2012 R2 : Attaque des clones](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877). 
 <br>
 
 

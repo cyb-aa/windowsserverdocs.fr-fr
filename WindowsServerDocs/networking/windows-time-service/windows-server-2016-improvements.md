@@ -6,14 +6,14 @@ ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2b8c6148af21e94e4a56661402f36dcb2e636461
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 73922a07d8d5396aa9ced377bfc3c9be97a9950d
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871835"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935101"
 ---
 ## <a name="windows-server-2016-improvements"></a>Améliorations de Windows Server 2016
 
@@ -31,7 +31,7 @@ En outre, le niveau de couche que l’hôte signale à l’invité est plus tran
 ### <a name="monitoring"></a>Surveillance
 Des compteurs de l’analyseur de performances ont été ajoutés.  Elles vous permettent d’effectuer une ligne de base, de surveiller et de résoudre les problèmes de temps.  Ces compteurs sont les suivants :
 
-Compteur|Description|
+)|Description|
 ----- | ----- |
 Décalage de temps calculé|   Décalage de temps absolu entre l’horloge système et la source de temps choisie, comme calculé par le service W32Time en microsecondes. Lorsqu’un nouvel exemple valide est disponible, le temps calculé est mis à jour avec le décalage horaire indiqué par l’exemple. Il s’agit du décalage de temps réel de l’horloge locale. W32time lance la correction de l’horloge à l’aide de ce décalage et met à jour le temps calculé entre les échantillons avec le décalage de temps restant qui doit être appliqué à l’horloge locale. La précision de l’horloge peut être suivie à l’aide de ce compteur de performances avec un intervalle d’interrogation faible (par exemple, 256 secondes ou moins) et en recherchant que la valeur du compteur est inférieure à la limite de précision de l’horloge souhaitée.|
 Réglage de la fréquence d’horloge| Réglage de fréquence d’horloge absolu effectué sur l’horloge système locale de W32Time en parties par milliard. Ce compteur permet de visualiser les actions effectuées par w32time.|
@@ -46,28 +46,28 @@ Les 3 derniers compteurs couvrent les scénarios de serveur NTP et sont utiles l
 ### <a name="configuration-updates-per-environment"></a>Mises à jour de la configuration par environnement
 Les éléments suivants décrivent les modifications apportées à la configuration par défaut entre Windows 2016 et les versions précédentes pour chaque rôle.  Les paramètres de la mise à jour anniversaire de Windows Server 2016 et Windows 10 (Build 14393) sont désormais uniques, ce qui explique pourquoi il s’agit de colonnes distinctes. 
 
-|Rôle|Paramètre|Windows Server 2016|Windows 10|Windows Server 2012 R2</br>Windows Server 2008 R2</br>Windows 10|
+|Rôle|Paramètre|Windows Server 2016|Windows 10|Windows Server 2012 R2</br>Windows Server 2008 R2</br>Windows 10|
 |---|---|---|---|---|
 |**Autonome/nano Server**||||
-| |*Serveur de temps*|time.windows.com|N/D|time.windows.com|
-| |*Fréquence d’interrogation*|64-1024 secondes|N/D|Une fois par semaine|
-| |*Fréquence de mise à jour de l’horloge*|Une fois par seconde|N/D|Une fois par heure|
+| |*Serveur de temps*|time.windows.com|N/A|time.windows.com|
+| |*Fréquence d’interrogation*|64-1024 secondes|N/A|Une fois par semaine|
+| |*Fréquence de mise à jour de l’horloge*|Une fois par seconde|N/A|Une fois par heure|
 |**Client autonome**||||
-| |*Serveur de temps*|N/D|time.windows.com|time.windows.com|
-| |*Fréquence d’interrogation*|N/D|Une fois par jour|Une fois par semaine|
-| |*Fréquence de mise à jour de l’horloge*|N/D|Une fois par jour|Une fois par semaine|
+| |*Serveur de temps*|N/A|time.windows.com|time.windows.com|
+| |*Fréquence d’interrogation*|N/A|Une fois par jour|Une fois par semaine|
+| |*Fréquence de mise à jour de l’horloge*|N/A|Une fois par jour|Une fois par semaine|
 |**Contrôleur de domaine**||||
-| |*Serveur de temps*|CONTRÔLEUR DE DOMAINE PRINCIPAL/GTIMESERV|N/D|CONTRÔLEUR DE DOMAINE PRINCIPAL/GTIMESERV|
-| |*Fréquence d’interrogation*|64-1024 secondes|N/D|1024-32768 secondes|
-| |*Fréquence de mise à jour de l’horloge*|Une fois par jour|N/D|Une fois par semaine|
+| |*Serveur de temps*|CONTRÔLEUR DE DOMAINE PRINCIPAL/GTIMESERV|N/A|CONTRÔLEUR DE DOMAINE PRINCIPAL/GTIMESERV|
+| |*Fréquence d’interrogation*|64-1024 secondes|N/A|1024-32768 secondes|
+| |*Fréquence de mise à jour de l’horloge*|Une fois par jour|N/A|Une fois par semaine|
 |**Serveur membre du domaine**||||
-| |*Serveur de temps*|DC|N/D|DC|
-| |*Fréquence d’interrogation*|64-1024 secondes|N/D|1024-32768 secondes|
-| |*Fréquence de mise à jour de l’horloge*|Une fois par seconde|N/D|Une fois toutes les 5 minutes|
+| |*Serveur de temps*|DC|N/A|DC|
+| |*Fréquence d’interrogation*|64-1024 secondes|N/A|1024-32768 secondes|
+| |*Fréquence de mise à jour de l’horloge*|Une fois par seconde|N/A|Une fois toutes les 5 minutes|
 |**Client membre du domaine**||||
-| |*Serveur de temps*|N/D|DC|DC|
-| |*Fréquence d’interrogation*|N/D|1204-32768 secondes|1024-32768 secondes|
-| |*Fréquence de mise à jour de l’horloge*|N/D|Une fois toutes les 5 minutes|Une fois toutes les 5 minutes|
+| |*Serveur de temps*|N/A|DC|DC|
+| |*Fréquence d’interrogation*|N/A|1204-32768 secondes|1024-32768 secondes|
+| |*Fréquence de mise à jour de l’horloge*|N/A|Une fois toutes les 5 minutes|Une fois toutes les 5 minutes|
 |**Invité Hyper-V**||||
 | |*Serveur de temps*|Choisit la meilleure option en fonction de la couche d’hôte et du serveur de temps|Choisit la meilleure option en fonction de la couche d’hôte et du serveur de temps|Par défaut, hôte|
 | |*Fréquence d’interrogation*|En fonction du rôle ci-dessus|En fonction du rôle ci-dessus|En fonction du rôle ci-dessus|
@@ -191,7 +191,7 @@ TIMESERV est un autre indicateur des services de domaine associé qui indique si
 
 Si vous souhaitez configurer un contrôleur de périphérique en tant que GTIMESERV, vous pouvez le configurer manuellement à l’aide de la commande suivante.  Dans ce cas, le contrôleur de bus utilise un autre ordinateur comme horloge maître.  Il peut s’agir d’un appareil ou d’un ordinateur dédié.
 
-    w32tm /config /manualpeerlist:”master_clock1,0x8 master_clock2,0x8” /syncfromflags:manual /reliable:yes /update
+    w32tm /config /manualpeerlist:"master_clock1,0x8 master_clock2,0x8" /syncfromflags:manual /reliable:yes /update
 
 > [!NOTE]
 > Pour plus d’informations, consultez [configurer le service de temps Windows](https://technet.microsoft.com/library/cc731191.aspx) .
