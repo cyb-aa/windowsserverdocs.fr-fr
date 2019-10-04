@@ -6,15 +6,15 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 08724d45-9be4-4c56-a5f1-2cf40864e136
 ms.technology: identity-adfs
-ms.openlocfilehash: 23ec5acbe442527b4eb44c4b857e183b5e0c37ea
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8271e65e05a8da1d397f087242308f04a51a6249
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865721"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357935"
 ---
 # <a name="multi-factor-authentication-and-external-authentication-providers-customization"></a>Personnalisation de Multi-Factor Authentication et des fournisseurs d’authentification externes 
 
@@ -40,7 +40,7 @@ Avant d’écrire une nouvelle méthode d’authentification personnalisée, nou
   
 -   N’oubliez pas que AD FS administrateurs peuvent personnaliser les styles de AD FS. . Nous vous déconseillons de coder en dur vos propres styles. Au lieu de cela, nous vous recommandons d’utiliser AD FS styles chaque fois que cela est possible.  
   
--   \-\- \(\-\-\- \(AD FS styles prêts àl’emploi\) sont créés avec un style de gauche à droite et un style de droite à gauche (RTL)\-\). Les administrateurs peuvent personnaliser les deux et peuvent fournir\-des styles spécifiques à la langue par le biais de la définition du thème Web. Chaque feuille de style possède trois sections avec des commentaires respectifs :  
+-   \-\- \(\-\-\- \(AD FS styles prêts àl’emploi\) sont créés avec un style de gauche à droite et un style de droite à gauche (RTL).\-\). Les administrateurs peuvent personnaliser les deux et peuvent fournir\-des styles spécifiques à la langue par le biais de la définition du thème Web. Chaque feuille de style possède trois sections avec des commentaires respectifs :  
   
     -   **styles de thème** \- Ces styles ne doivent pas et ne peuvent pas être utilisés. Ils servent à définir un thème appliqué dans toutes les pages. Ils sont délibérément définis par un ID d'élément qui empêche leur réutilisation.  
   
