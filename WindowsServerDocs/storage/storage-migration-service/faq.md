@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a776920caa85c3ee133070d52b020c8ad3c799e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6895c4b5f74beb237378060f82135d6f578986b7
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402996"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973861"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur le service de migration de stockage
 
@@ -34,15 +34,15 @@ Le service de migration du stockage n’autorise pas la migration entre des doma
 
 ## <a name="are-clusters-supported-as-sources-or-destinations"></a>Les clusters sont-ils pris en charge en tant que sources ou destinations ?
 
-Le service de migration de stockage ne migre pas actuellement entre les clusters dans Windows Server 2019. Nous prévoyons d’ajouter la prise en charge des clusters dans une version ultérieure du service de migration de stockage.
+Le service de migration de stockage prend en charge la migration depuis et vers les clusters après l’installation de mises à jour cumulatives [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ou de mises à jour ultérieures. Cela comprend la migration d’un cluster source vers un cluster de destination, ainsi que la migration d’un serveur source autonome vers un cluster de destination à des fins de consolidation des appareils. 
 
 ## <a name="do-local-groups-and-local-users-migrate"></a>Les groupes locaux et les utilisateurs locaux migrent-ils ?
 
-Le service de migration de stockage ne migre pas actuellement les utilisateurs locaux ou les groupes locaux dans Windows Server 2019. Nous prévoyons d’ajouter la prise en charge de la migration des utilisateurs locaux et des groupes locaux dans une version ultérieure du service de migration de stockage.
+Le service de migration de stockage prend en charge la migration des utilisateurs et groupes locaux après l’installation de mises à jour cumulatives [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ou de mises à jour ultérieures. 
 
 ## <a name="is-domain-controller-migration-supported"></a>La migration du contrôleur de domaine est-elle prise en charge ?
 
-Le service de migration de stockage ne migre pas actuellement les contrôleurs de domaine dans Windows Server 2019. En guise de solution de contournement, à condition que vous disposiez de plusieurs contrôleurs de domaine dans le domaine Active Directory, rétrogradez le contrôleur de domaine avant de le migrer, puis promouvez la destination une fois la coupure terminée. Nous prévoyons d’ajouter la prise en charge de la migration du contrôleur de domaine dans une version ultérieure du service de migration de stockage.
+Le service de migration de stockage ne migre pas actuellement les contrôleurs de domaine dans Windows Server 2019. En guise de solution de contournement, à condition que vous disposiez de plusieurs contrôleurs de domaine dans le domaine Active Directory, rétrogradez le contrôleur de domaine avant de le migrer, puis promouvez la destination une fois la coupure terminée.
 
 ## <a name="what-attributes-are-migrated-by-the-storage-migration-service"></a>Quels attributs sont migrés par le service de migration de stockage ?
 
@@ -73,11 +73,11 @@ Storage migration service migre tous les indicateurs, paramètres et sécurité 
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Puis-je consolider plusieurs serveurs en un seul serveur ?
 
-La version du service de migration du stockage fournie dans Windows Server 2019 ne prend pas en charge la consolidation de plusieurs serveurs en un seul serveur. Un exemple de consolidation consiste à migrer trois serveurs sources distincts, qui peuvent avoir les mêmes noms de partage et chemins d’accès de fichiers locaux, sur un nouveau serveur qui a virtualisé ces chemins d’accès et partages pour empêcher tout chevauchement ou collision, puis de répondre aux trois noms et adresses IP des serveurs précédents. Nous pouvons ajouter cette fonctionnalité dans une version future du service de migration de stockage. 
+La version du service de migration du stockage fournie dans Windows Server 2019 ne prend pas en charge la consolidation de plusieurs serveurs en un seul serveur. Un exemple de consolidation consiste à migrer trois serveurs sources distincts, qui peuvent avoir les mêmes noms de partage et chemins d’accès de fichiers locaux, sur un nouveau serveur qui a virtualisé ces chemins d’accès et partages pour empêcher tout chevauchement ou collision, puis de répondre aux trois noms et adresses IP des serveurs précédents. Toutefois, vous pouvez migrer des serveurs autonomes sur plusieurs ressources de serveur de fichiers sur un seul cluster. 
 
 ## <a name="can-i-migrate-from-sources-other-than-windows-server"></a>Puis-je effectuer une migration à partir de sources autres que Windows Server ?
 
-La version du service de migration du stockage fournie dans Windows Server 2019 prend en charge la migration à partir de Windows Server 2003 et des systèmes d’exploitation ultérieurs. Vous pouvez également migrer le stockage à partir d’un serveur ou d’un périphérique Linux qui utilise Samba. pour ce faire, exécutez le service de migration de stockage sur un serveur exécutant Windows Server, version 1903 ou ultérieure.
+Le service de migration de stockage prend en charge la migration à partir de serveurs samba Linux après l’installation de mises à jour cumulatives [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ou de mises à jour ultérieures. Consultez la configuration requise pour obtenir la liste des versions de samba prises en charge et des distributions Linux.
 
 ## <a name="can-i-migrate-previous-file-versions"></a>Puis-je migrer des versions de fichier précédentes ?
 
@@ -129,7 +129,7 @@ La version du service de migration du stockage fournie dans Windows Server 2019 
 Le service de migration de stockage utilise une base de données ESE (Extensible Storage Engine) qui est installée par défaut dans le dossier c:\programdata\microsoft\storagemigrationservice masqué. Cette base de données croît au fur et à mesure que des tâches sont ajoutées et que les transferts sont effectués, et peut consommer un espace disque important après la migration de millions de fichiers si vous ne supprimez pas les travaux. Si la base de données doit être déplacée, procédez comme suit :
 
 1. Arrêtez le service de migration de stockage sur l’ordinateur Orchestrator.
-2. Prendre possession du `%programdata%/Microsoft/StorageMigrationService` dossier
+2. Appropriation du dossier `%programdata%/Microsoft/StorageMigrationService`
 3. Ajoutez votre compte d’utilisateur pour avoir un contrôle total sur ce partage et tous ses fichiers et sous-dossiers.
 4. Déplacez le dossier vers un autre lecteur sur l’ordinateur Orchestrator.
 5. Définissez la valeur de Registre REG_SZ suivante :
@@ -145,7 +145,7 @@ Pour envoyer des commentaires sur le service de migration de stockage :
 
 - Utilisez l’outil Hub de commentaires inclus dans Windows 10, en cliquant sur « suggérer une fonctionnalité » et en spécifiant la catégorie « Windows Server » et la sous-catégorie « migration du stockage ».
 - Utiliser le site [Windows Server UserVoice](https://windowsserver.uservoice.com)
-- Messageriesmsfeed@microsoft.com
+- @No__t de messagerie-0
 
 Pour signaler les bogues :
 
