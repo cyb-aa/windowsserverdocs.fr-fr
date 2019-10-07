@@ -20,10 +20,20 @@
 ## [Fonctionnalités supprimées ou déconseillées dans Windows Server 2016](Deprecated-Features.md)
 ## [Comparatif des éditions de Windows Server 2016](2016-Edition-Comparison.md)
 ## [Azure Hybrid Benefit pour Windows Server](azure-hybrid-benefit.md)
-## [Guide d’activation de Windows Server 2016](Server-2016-activation.md)
+## Guide d’activation de Windows Server 2016
+### [Guide d’activation de Windows Server 2016](Server-2016-activation.md)
 ### [Clés d’installation du client KMS](KMSclientkeys.md)
-### [Dépannage des codes d’erreur d’activation](activation-error-codes.md)
-####[Procédures de dépannage courantes pour les problèmes KMS et DNS](common-troubleshooting-procedures-kms-dns.md)
+## Résolution des problèmes d’activation en volume Windows
+### [Résolution des problèmes d’activation en volume Windows](activation-troubleshooting-guide.md)
+### [Instructions pour la résolution des problèmes KMS](activation-troubleshoot-kms-general.md)
+### [Options Slmgr.vbs](activation-slmgr-vbs-options.md)
+### Solutions aux problèmes courants d’activation
+#### [Résoudre les codes d’erreur d’activation de Windows](activation-error-codes.md)
+#### [Activation KMS : problèmes connus](activation-troubleshoot-KMS-issues.md)
+#### [Activation MAK : problèmes connus](activation-troubleshoot-MAK-issues.md)
+#### [Instructions pour la résolution des problèmes d’activation liés à DNS](common-troubleshooting-procedures-kms-dns.md)
+#### [Regénérer le fichier Tokens.dat](activation-rebuild-tokens-dat-file.md)
+### [Exemple : Résolution des problèmes des clients ADBA qui ne s’activent pas](activation-troubleshoot-adba-clients.md)
 ## [Installer Nano Server](Getting-started-with-Nano-Server.md)
 ### [Modifications apportées à Nano Server dans la prochaine version de Windows Server](nano-in-semi-annual-channel.md)
 ### [Démarrage rapide de Nano Server](Nano-Server-Quick-start.md)
