@@ -65,6 +65,7 @@
 #### [Utiliser un plug-in de passerelle personnalisé dans votre extension d’outil](extend/guides/use-custom-gateway-plugin.md)
 #### [Créer un fournisseur de connexion](extend/guides/create-connection-provider.md)
 #### [Modifier le comportement de navigation racine](extend/guides/modify-root-navigation.md)
+#### [Modifications du type de connexion au cluster dans Windows Admin Center v1909](extend/guides/cluster-connection-change-wac-1909.md)
 #### [Contrôler la visibilité de votre outil](extend/guides/dynamic-tool-display.md)
 #### [Chaînes et localisation](extend/guides/strings-localization.md)
 #### [Guide de style de pour la conception et le texte de l’interface utilisateur](extend/guides/ui-text-style-guide.md)
