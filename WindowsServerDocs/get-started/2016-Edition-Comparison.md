@@ -1,84 +1,82 @@
 ---
 title: Produits et éditions Windows Server 2016
-description: Différences entre les éditions Standard et Datacenter
-ms.custom: na
+description: Explique les différences entre les éditions Windows Server Standard et Windows Server Datacenter
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.date: 01/03/2017
+ms.date: 10/04/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c5ca3bfe-7ced-49f6-a932-80cab33f419e
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: e3d32d596746d2ff137fe2517a6430976f9e77ce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f2940e5ad75fab90f717284eabafd555573cab35
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391877"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973848"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Comparatif des éditions Standard et Datacenter de Windows Server 2016
 
 > S'applique à : Windows Server 2016
   
 ## <a name="locks-and-limits"></a>Verrous et limites
-|Verrous et limites|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
-|-------------------|----------|---------------------------|  
-|Nombre maximal d'utilisateurs|Basé sur les licences d'accès client|Basé sur les licences d'accès client|
-|Nombre maximal de connexions SMB|16777216|16777216|
-|Nombre maximal de connexions RRAS|illimité|illimité|
-|Nombre maximal de connexions IAS|2147483647|2147483647|
-|Nombre maximal de connexions RDS|65535|65535|
-|Nombre maximal de sockets 64 bits|64|64|
-|Nombre maximal de cœurs|illimité|illimité|
-|Mémoire vive maximale|24 To|24 To|
-|Peut être utilisé comme invité de virtualisation|Oui, deux machines virtuelles plus un hôte Hyper-V par licence|Oui, nombre illimité de machines virtuelles plus un hôte Hyper-V par licence|
-|Serveur joignable à un domaine|oui|oui|
-|Protection/pare-feu du réseau de périmètre|non|non|
-|DirectAccess|oui|oui|
-|DLNA – codecs et diffusion multimédia en continu sur le Web|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
+
+| Verrous et limites | Windows Server 2016 Standard | Windows Server 2016 Datacenter |
+| ------------------- |---------- | --------------------------- |  
+| Nombre maximal d'utilisateurs | Basé sur les licences d'accès client   | Basé sur les licences d'accès client     |
+| Nombre maximal de connexions SMB | 16 777 216      | 16 777 216          |
+| Nombre maximal de connexions RRAS| illimité       | illimité         |
+| Nombre maximal de connexions IAS | 2 147 483 647   | 2 147 483 647        |
+| Nombre maximal de connexions RDS | 65535           | 65535             |
+| Nombre maximal de sockets 64 bits | 64     | 64                |
+| Nombre maximal de cœurs | illimité       | illimité      |
+| Mémoire vive maximale             | 24 To           | 24 To             |
+| Peut être utilisé comme invité de virtualisation | Oui, deux machines virtuelles plus un hôte Hyper-V par licence | Oui, <strong>nombre illimité de machines virtuelles</strong>, plus un hôte Hyper-V par licence |
+| Serveur joignable à un domaine | oui            | oui                |
+| Protection/pare-feu du réseau de périmètre | non     | non                 |
+| DirectAccess            | oui             | oui                |
+| DLNA – codecs et diffusion multimédia en continu sur le Web | Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur | Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur |
 
 ## <a name="server-roles"></a>Rôles serveur
-|Rôles Windows Server disponibles|Services de rôle|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
-|-------------------|----------|----------|---------------------------|  
-|Services de certificats Active Directory| |Oui|Oui|
-|Services de domaine Active Directory| |Oui|Oui|
-|Services de fédération Active Directory (AD FS)| |Oui|Oui|
-|Services AD LDS (Active Directory Lightweight Directory Services)| |Oui|Oui|
-|Services AD RMS (Active Directory Rights Management Services)| |Oui|Oui|
-|Attestation d’intégrité de l’appareil| |Oui|Oui|
-|Serveur DHCP| |Oui|Oui|
-|Serveur DNS| |Oui|Oui|
-|Serveur de télécopie| |Oui|Oui|
-|Services de fichiers et de stockage|Serveur de fichiers|Oui|Oui|
-|Services de fichiers et de stockage|BranchCache pour fichiers réseau|Oui|Oui|
-|Services de fichiers et de stockage|Déduplication des données|Oui|Oui|
-|Services de fichiers et de stockage|Espaces de noms DFS|Oui|Oui|
-|Services de fichiers et de stockage|Réplication DFS|Oui|Oui|
-|Services de fichiers et de stockage|Outils de gestion de ressources pour serveur de fichiers|Oui|Oui|
-|Services de fichiers et de stockage|Service Agent VSS du serveur de fichiers|Oui|Oui|
-|Services de fichiers et de stockage|iSCSI Target Server|Oui|Oui|
-|Services de fichiers et de stockage|Fournisseur de stockage cible iSCSI|Oui|Oui|
-|Services de fichiers et de stockage|Serveur pour NFS|Oui|Oui|
-|Services de fichiers et de stockage|Dossiers de travail|Oui|Oui|
-|Services de fichiers et de stockage|Services de stockage|Oui|Oui|
-|Service Guardian hôte| |Oui|Oui|
-|Hyper-V| |Oui|Oui, y compris des machines virtuelles dotées d'une protection maximale|
-|MultiPoint Services| |Oui|Oui|
-|Contrôleur de réseau| |Non|Oui|
-|Services de stratégie et d'accès réseau| |Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
-|Services d'impression et de numérisation de document| |Oui|Oui|
-|Accès à distance| |Oui|Oui|
-|Services Bureau à distance| |Oui|Oui|
-|Services d'activation en volume| |Oui|Oui|
-|Services Web (IIS)| |Oui|Oui|
-|Services de déploiement Windows| |Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
-|Expérience Windows Server Essentials| |Oui|Oui|
-|Windows Server Update Services| |Oui|Oui|
+
+| Rôles Windows Server disponibles     | Services de rôle | Windows Server 2016 Standard | Windows Server 2016 Datacenter |  
+| -------------------                | ----------    | ----------                   | ---------------------------    |  
+| Services de certificats Active Directory|              | Oui                          | Oui                            |
+| Services de domaine Active Directory    |               | Oui                          | Oui                            |
+| Services de fédération Active Directory (AD FS)|               | Oui                          | Oui                            |
+| Services AD LDS (Active Directory Lightweight Directory Services)| |Oui|Oui|
+| Services AD RMS (Active Directory Rights Management Services)| |Oui|Oui|
+| Attestation d’intégrité de l’appareil| |Oui|Oui|
+| Serveur DHCP| |Oui|Oui|
+| Serveur DNS| |Oui|Oui|
+| Serveur de télécopie| |Oui|Oui|
+| Services de fichiers et de stockage|Serveur de fichiers|Oui|Oui|
+| Services de fichiers et de stockage|BranchCache pour fichiers réseau|Oui|Oui|
+| Services de fichiers et de stockage|Déduplication des données|Oui|Oui|
+| Services de fichiers et de stockage|Espaces de noms DFS|Oui|Oui|
+| Services de fichiers et de stockage|Réplication DFS|Oui|Oui|
+| Services de fichiers et de stockage|Outils de gestion de ressources pour serveur de fichiers|Oui|Oui|
+| Services de fichiers et de stockage|Service Agent VSS du serveur de fichiers|Oui|Oui|
+| Services de fichiers et de stockage|iSCSI Target Server|Oui|Oui|
+| Services de fichiers et de stockage|Fournisseur de stockage cible iSCSI|Oui|Oui|
+| Services de fichiers et de stockage|Serveur pour NFS|Oui|Oui|
+| Services de fichiers et de stockage|Dossiers de travail|Oui|Oui|
+| Services de fichiers et de stockage|Services de stockage|Oui|Oui|
+| Service Guardian hôte| |Oui|Oui|
+| Hyper-V| |Oui|Oui, <strong>y compris des machines virtuelles dotées d’une protection maximale</strong>|
+| MultiPoint Services| |Oui|Oui|
+| Contrôleur de réseau| |Non| <strong>Oui</strong> |
+| Services de stratégie et d'accès réseau| |Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
+| Services d'impression et de numérisation de document| |Oui|Oui|
+| Accès à distance| |Oui|Oui|
+| Services Bureau à distance| |Oui|Oui|
+| Services d'activation en volume| |Oui|Oui|
+| Services Web (IIS)| |Oui|Oui|
+| Services de déploiement Windows| |Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
+| Expérience Windows Server Essentials| |Oui|Oui|
+| Windows Server Update Services| |Oui|Oui|
 
 ## <a name="features"></a>Fonctionnalités
 
@@ -97,7 +95,7 @@ ms.locfileid: "71391877"
 |Stockage étendu|Oui|Oui|
 |Clustering de basculement|Oui|Oui|
 |Gestion des stratégies de groupe|Oui|Oui|
-|Support Hyper-V pour Guardian hôte|Non|Oui|
+|Support Hyper-V pour Guardian hôte|Non|<strong>Oui</strong> |
 |Qualité de service E/S|Oui|Oui|
 |IIS Hostable Web Core|Oui|Oui|
 |Client d'impression Internet|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
@@ -123,7 +121,7 @@ ms.locfileid: "71391877"
 |Limite de bande passante SMB|Oui|Oui|
 |Serveur SMTP|Oui|Oui|
 |Service SNMP|Oui|Oui|
-|Équilibrage de la charge logicielle|Non|Oui|
+|Équilibrage de la charge logicielle|Non| <strong>Oui</strong> |
 |Réplica de stockage|Non|Oui|
 |Client Telnet|Oui|Oui|
 |Client TFTP|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
@@ -160,15 +158,15 @@ ms.locfileid: "71391877"
 |Option d'installation de Nano Server|Oui|Oui|
 |Gestionnaire de serveur|Oui|Oui|
 |SMB Direct et SMB sur RDMA|Oui|Oui|
-|SDN (Software-Defined Networking)|Non|Oui|
-|Service de gestion du stockage|Oui|Oui|
+| SDN (Software-Defined Networking) | Non | <strong>Oui</strong> |
+|Réplica de stockage | Non | <strong>Oui</strong> |
 |Espaces de stockage|Oui|Oui|
-|Espaces de stockage directs|Non|Oui|
+|Espaces de stockage directs|Non| <strong>Oui</strong> |
 |Services d'activation en volume|Oui|Oui|
 |Intégration du service VSS (Volume Shadow Copy Service)|Oui|Oui|
 |Windows Server Update Services|Oui|Oui|
 |Gestionnaire de ressources système Windows|Oui|Oui|
 |Journalisation de licence serveur|Oui|Oui|
-|Activation héritée|En tant qu'invité si hébergement sur Datacenter|Hôte ou invité|
+|Activation héritée|En tant qu'invité si hébergement sur Datacenter| <strong>Peut être hôte ou invité</strong> |
 |Dossiers de travail|Oui|Oui|
 

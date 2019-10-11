@@ -4,16 +4,16 @@ description: Problèmes connus et prise en charge de la résolution des problèm
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 07/09/2019
+ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 150c9f1e70df4f634886ea65efd9c61ef075f26a
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: e3ec7ee787fb6fd2e8e9f59249a6c4013a76b377
+ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940706"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252360"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -48,7 +48,7 @@ Pour résoudre, utiliser ou effectuer une mise à niveau vers Windows Server 201
 
 Lorsque vous utilisez la version 0,57 de l’extension Storage migration service dans le centre d’administration Windows et que vous atteignez la phase de basculement, vous ne pouvez pas sélectionner une adresse IP statique pour une adresse. Vous êtes contraint d’utiliser DHCP.
 
-Pour résoudre ce problème, dans le centre d’administration Windows, sous **paramètres** > **Extensions** , recherchez une alerte indiquant que la version mise à jour de Storage migration service 0.57.2 est disponible pour l’installation. Vous devrez peut-être redémarrer l’onglet de votre navigateur pour le centre d’administration Windows.
+Pour résoudre ce problème, dans le centre d’administration Windows, Regardez sous **paramètres** > **Extensions** pour une alerte indiquant que la version mise à jour de Storage migration service 0.57.2 est disponible pour l’installation. Vous devrez peut-être redémarrer l’onglet de votre navigateur pour le centre d’administration Windows.
 
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>La validation du basculement du service de migration du stockage échoue avec l’erreur « Accès refusé pour la stratégie de filtre de jeton sur l’ordinateur de destination »
 
@@ -225,7 +225,7 @@ Tâche : ID foo2 : État de 20ac3f75-4945-41d1-9a79-d11dbb57798b : Échec de 
   Utilisateur :          Ordinateur de SERVICE réseau :      FS02. Description de TailwindTraders.net : Impossible d’inventorier un ordinateur.
 Travail : ordinateur foo2 : FS01. État de TailwindTraders.net : Échec de l’erreur :-2147463168 message d’erreur : Instructions : Vérifiez l’erreur détaillée et assurez-vous que les conditions d’inventaire sont remplies. L’inventaire n’a pas pu déterminer les aspects de l’ordinateur source spécifié. Cela peut être dû à des autorisations ou des privilèges manquants sur la source ou sur un port de pare-feu bloqué.
   
-Cette erreur est due à un défaut de code dans le service de migration de stockage lorsque vous fournissez des informations d’identification de migration sous la forme d’un nom d'meghan@contoso.comutilisateur principal (UPN), tel que «». Le service d’analyse du service de migration du stockage ne parvient pas à analyser ce format correctement, ce qui provoque un échec dans une recherche de domaine qui a été ajoutée pour la prise en charge de la migration de cluster dans KB4512534 et 19H1.
+Cette erreur est due à un défaut de code dans le service de migration de stockage lorsque vous fournissez des informations d’identification de migration sous la forme d’un nom d’utilisateur principal (UPN), tel que « meghan@contoso.com ». Le service d’analyse du service de migration du stockage ne parvient pas à analyser ce format correctement, ce qui provoque un échec dans une recherche de domaine qui a été ajoutée pour la prise en charge de la migration de cluster dans KB4512534 et 19H1.
 
 Pour contourner ce problème, fournissez les informations d’identification au format domaine\utilisateur, par exemple « Contoso\Meghan ».
 
@@ -264,6 +264,28 @@ Lorsque vous tentez d’exécuter un inventaire avec le serveur Orchestrator de 
     There are no more endpoints available from the endpoint mapper  
 
 Pour contourner ce problème, désinstallez temporairement la mise à jour cumulative KB4512534 (et toute autre priorité) à partir de l’ordinateur d’Orchestrator du service de migration du stockage. Une fois la migration terminée, réinstallez la dernière mise à jour cumulative.  
+
+Notez que, dans certaines circonstances, la désinstallation de KB4512534 ou de ses mises à jour de remplacement peut empêcher le démarrage du service de migration de stockage. Pour résoudre ce problème, vous pouvez sauvegarder et supprimer la base de données du service de migration de stockage :
+
+1.  Ouvrez une invite de commandes avec élévation de privilèges, dans laquelle vous êtes membre des administrateurs sur le serveur du service de migration de stockage, puis exécutez la commande suivante :
+
+     ```
+     MD c:\ProgramData\Microsoft\StorageMigrationService\backup
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService\* /grant Administrators:(GA)
+
+     XCOPY c:\ProgramData\Microsoft\StorageMigrationService\* .\backup\*
+
+     DEL c:\ProgramData\Microsoft\StorageMigrationService\* /q
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService  /GRANT networkservice:F /T /C
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA)F /T /C
+     ```
+   
+2.  Démarrez le service de migration du stockage, qui créera une nouvelle base de données.
+
+
 
 ## <a name="see-also"></a>Voir aussi
 

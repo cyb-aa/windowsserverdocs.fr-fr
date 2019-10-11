@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b1dd3b728f941d9c3732abccf19363cf631284e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54ed455955053ebb234864f827759385ecf3d3c5
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387747"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935037"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Forum aux questions sur les clients Bureau à distance
 
@@ -166,7 +166,7 @@ Pour utiliser plus de deux écrans, procédez comme suit :
 2. Activez **Utiliser tous les moniteurs** et **Plein écran**.
 
 ### <a name="is-bi-directional-sound-supported"></a>Le signal sonore bidirectionnel est-il pris en charge ?
-Le traitement du son dans le sens ascendant (de client à serveur, pour des microphones) n’est pas pris en charge par le client Bureau à distance.
+Le son bidirectionnel peut être configuré dans le client Windows en fonction de la connexion. Vous pouvez accéder aux paramètres appropriés dans la section **Sortie audio de l’ordinateur distant** de l’onglet des options **Ressources locales**.
 
 ### <a name="what-can-i-do-if-the-sound-wont-play"></a>Que puis-je faire si le son n’est pas lu ?
 Déconnectez-vous de votre session (procédez à une déconnexion complète), puis reconnectez-vous.

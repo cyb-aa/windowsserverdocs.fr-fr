@@ -14,12 +14,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/16/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d11e8ad0cac1f9cf024097450e90d9be95d950b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 829608ae1a4c6b78b3b191f248ed4a4195500669
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387760"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940717"
 ---
 # <a name="get-started-with-the-android-client"></a>Bien démarrer avec le client Android
 
@@ -221,7 +221,7 @@ Le client utilise les mouvements d’interaction tactile standard. Vous pouvez �
 |---------------|----------------------|-------------------------------------------------------------------------|
 | Interaction tactile directe  | Clic gauche           | Appuyer avec un doigt                                                     |
 | Interaction tactile directe  | Clic droit          | Appuyer longuement avec un doigt, puis relâcher                              |
-| Pointeur de souris | Zoom                 | Resserrer les deux doigts pour faire un zoom ou écarter les doigts pour effectuer un zoom arrière |
+| Pointeur de souris | Zoom                 | Utilisez deux doigts et resserrez-les pour faire un zoom arrière, ou écartez-les pour faire un zoom avant. |
 | Pointeur de souris | Clic gauche           | Appuyer avec un doigt                                                     |
 | Pointeur de souris | Clic gauche et glissement  | Appuyer deux fois longuement avec un doigt, puis faire glisser                          |
 | Pointeur de souris | Clic droit          | Appuyer avec deux doigts                                                    |

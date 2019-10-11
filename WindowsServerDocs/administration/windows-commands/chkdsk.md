@@ -1,24 +1,20 @@
 ---
 title: CHKDSK
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour CHKDSK, qui vérifie les métadonnées du système de fichiers et du système de fichiers d’un volume pour les erreurs logiques et physiques.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 62912a3c-d2cc-4ef6-9679-43709a286035
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: lizapo
-ms.date: 10/16/2017
-ms.openlocfilehash: fac941a0ad5638fafa86d31a9af1cce1cc475823
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 10/09/2019
+ms.openlocfilehash: 130b51e472ebf3d900186d6d63e318c88a340579
+ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379438"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252351"
 ---
 # <a name="chkdsk"></a>CHKDSK
 
@@ -43,19 +39,27 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 
 ## <a name="parameters"></a>Paramètres
 
-|      Paramètre      |                                                                                                                      Description                                                                                                                       |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      @no__t 0Volume >      |                                                                                     Spécifie la lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume.                                                                                     |
+|      Paramètre       |                  Description                                    |
+| -------------------- | ------------------------------------------------------------------------ |
+|      @no__t 0Volume >      | Spécifie la lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume.  |
 | [@no__t 0Path >] <FileName> | À utiliser avec la table d’allocation des fichiers (FAT) et FAT32 uniquement. Spécifie l’emplacement et le nom d’un fichier ou d’un ensemble de fichiers dont vous souhaitez que **chkdsk** vérifie la fragmentation. Vous pouvez utiliser l' **?** et **&#42;** des caractères génériques pour spécifier plusieurs fichiers. |
-|         /f          |                             Corrige les erreurs sur le disque. Le disque doit être verrouillé. Si **chkdsk** ne peut pas verrouiller le lecteur, un message s’affiche vous demandant si vous souhaitez vérifier le lecteur la prochaine fois que vous redémarrez l’ordinateur.                             |
-|         /v          |                                                                                       Affiche le nom de chaque fichier dans chaque répertoire lors de la vérification du disque.                                                                                        |
-|         /r          |                                   Localise les secteurs défectueux et récupère des informations lisibles. Le disque doit être verrouillé. **/r** comprend les fonctionnalités de l' **/f**, avec l’analyse supplémentaire des erreurs de disque physique.                                   |
-|         /x          |                                                  Force le démontage du volume en premier, si nécessaire. Tous les descripteurs ouverts sur le lecteur sont invalidés. **/x** comprend également les fonctionnalités de l' **/f**.                                                   |
-|         /i          |                                                           À utiliser avec NTFS uniquement. Effectue une vérification moins énergique des entrées d’index, ce qui réduit le temps nécessaire à l’exécution de **chkdsk**.                                                            |
-|         /c          |                                                          À utiliser avec NTFS uniquement. Ne vérifie pas les cycles au sein de la structure de dossiers, ce qui réduit le temps nécessaire à l’exécution de **chkdsk**.                                                           |
-|    /l [ : \<Size >]     |                                                         À utiliser avec NTFS uniquement. Remplace la taille du fichier journal par la taille que vous avez tapée. Si vous omettez le paramètre de taille, **/l** affiche la taille actuelle.                                                          |
-|         /b          |           NTFS uniquement : Efface la liste des clusters défectueux sur le volume et rerecherche les erreurs dans tous les clusters alloués et libres. **/b** comprend les fonctionnalités de **/r**. Utilisez ce paramètre après avoir Imaging un volume sur un nouveau disque dur.            |
-|         /?          |                                                                                                          Affiche l'aide à l'invite de commandes.                                                                                                          |
+|         /f          | Corrige les erreurs sur le disque. Le disque doit être verrouillé. Si **chkdsk** ne peut pas verrouiller le lecteur, un message s’affiche vous demandant si vous souhaitez vérifier le lecteur la prochaine fois que vous redémarrez l’ordinateur. |
+|         /v          | Affiche le nom de chaque fichier dans chaque répertoire lors de la vérification du disque.     |
+|         /r          | Localise les secteurs défectueux et récupère des informations lisibles. Le disque doit être verrouillé. **/r** comprend les fonctionnalités de l' **/f**, avec l’analyse supplémentaire des erreurs de disque physique.                                   |
+|         /x          | Force le démontage du volume en premier, si nécessaire. Tous les descripteurs ouverts sur le lecteur sont invalidés. **/x** comprend également les fonctionnalités de l' **/f**.  |
+|         /i          | À utiliser avec NTFS uniquement. Effectue une vérification moins énergique des entrées d’index, ce qui réduit le temps nécessaire à l’exécution de **chkdsk**.  |
+|         /c          | À utiliser avec NTFS uniquement. Ne vérifie pas les cycles au sein de la structure de dossiers, ce qui réduit le temps nécessaire à l’exécution de **chkdsk**.  |
+|    /l [ : \<Size >]     | À utiliser avec NTFS uniquement. Remplace la taille du fichier journal par la taille que vous avez tapée. Si vous omettez le paramètre de taille, **/l** affiche la taille actuelle. |
+|         /b          | NTFS uniquement : Efface la liste des clusters défectueux sur le volume et rerecherche les erreurs dans tous les clusters alloués et libres. **/b** comprend les fonctionnalités de **/r**. Utilisez ce paramètre après avoir Imaging un volume sur un nouveau disque dur.            |
+| /Scan               | NTFS uniquement : Exécute une analyse en ligne sur le volume. |
+| /forceofflinefix    | NTFS uniquement : (Doit être utilisé avec « /Scan »). Ignorer toute réparation en ligne ; tous les défauts détectés sont mis en file d’attente pour une réparation hors connexion (c.-à-d. « CHKDSK/spotfix »). |
+| /perf               | NTFS uniquement : (Doit être utilisé avec « /Scan »). Utilise davantage de ressources système pour effectuer une analyse en tant que aspossible rapide. Cela peut avoir un impact négatif sur les performances sur les autres tâches qui s’exécutent sur le système.|
+| /spotfix            | NTFS uniquement : Exécute la résolution des points sur le volume. |
+| /sdcleanup          | NTFS uniquement : Récupérez les données inutiles du descripteur de sécurité (implique/F). |
+| /offlinescanandfix  | Exécute une analyse hors connexion et un correctif sur le volume. |
+| /freeorphanedchains | FAT/FAT32/exFAT uniquement : Libère toutes les chaînes de cluster orphelines au lieu de récupérer leur contenu. |
+| /markclean          | FAT/FAT32/exFAT uniquement : Marque le nettoyage du volume si aucune altération n’a été détectée, même si/F n’a pas été spécifié. |
+|         /?          | Affiche l'aide à l'invite de commandes.                       |
 
 ## <a name="remarks"></a>Notes
 
@@ -137,6 +141,7 @@ chkdsk *.*
 ```
 
 **Chkdsk** affiche un rapport d’État, puis répertorie les fichiers qui correspondent aux spécifications de fichier qui ont des blocs non contigus.
-#### <a name="additional-references"></a>Références supplémentaires
+
+## <a name="additional-references"></a>Références supplémentaires
 
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

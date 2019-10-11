@@ -1,46 +1,44 @@
 ---
 title: Comparatif des éditions Standard et Datacenter de Windows Server 2019
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c5ca3bfe-7ced-49f6-2932-80cab33fe914
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: af9334159b4b2aef6c2880e44bbc4ee46d7821b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 24ae0e11a3e8ca2b50bd6722f7bd7d18b8c1c532
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360875"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973876"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Comparatif des éditions Standard et Datacenter de Windows Server 2019
 
 > S'applique à : Windows Server 2019
   
 ## <a name="locks-and-limits"></a>Verrous et limites
-|Verrous et limites|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
-|-------------------|----------|---------------------------|  
-|Nombre maximal d'utilisateurs|Basé sur les licences d'accès client|Basé sur les licences d'accès client|
-|Nombre maximal de connexions SMB|16777216|16777216|
-|Nombre maximal de connexions RRAS|illimité|illimité|
-|Nombre maximal de connexions IAS|2147483647|2147483647|
-|Nombre maximal de connexions RDS|65535|65535|
-|Nombre maximal de sockets 64 bits|64|64|
-|Nombre maximal de cœurs|illimité|illimité|
-|Mémoire vive maximale|24 To|24 To|
-|Peut être utilisé comme invité de virtualisation|Oui, deux machines virtuelles plus un hôte Hyper-V par licence|Oui, nombre illimité de machines virtuelles plus un hôte Hyper-V par licence|
-|Serveur joignable à un domaine|oui|oui|
-|Protection/pare-feu du réseau de périmètre|non|non|
-|DirectAccess|oui|oui|
-|DLNA – codecs et diffusion multimédia en continu sur le Web|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
+
+| Verrous et limites                 | Windows Server 2019 Standard | Windows Server 2019 Datacenter |  
+| -------------------              | ---------------------------  | --------------------------- |  
+| Nombre maximal d'utilisateurs          | Basé sur les licences d'accès client                | Basé sur les licences d'accès client |
+| Nombre maximal de connexions SMB          | 16 777 216                   | 16 777 216 |
+| Nombre maximal de connexions RRAS         | illimité                    | illimité |
+| Nombre maximal de connexions IAS          | 2 147 483 647                | 2 147 483 647 |
+| Nombre maximal de connexions RDS          | 65 535                       | 65 535 |
+| Nombre maximal de sockets 64 bits | 64                           | 64 |
+| Nombre maximal de cœurs          | illimité                    | illimité |
+| Mémoire vive maximale                      | 24 To                        | 24 To |
+| Peut être utilisé comme invité de virtualisation | Oui, deux machines virtuelles plus un hôte Hyper-V par licence|Oui, <strong>nombre illimité de machines virtuelles</strong>, plus un hôte Hyper-V par licence |
+| Serveur joignable à un domaine        | oui                           | oui |
+| Protection/pare-feu du réseau de périmètre| non                            | non    |
+| DirectAccess                    | oui                           | oui |
+| DLNA – codecs et diffusion multimédia en continu sur le Web | Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur | Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur |
 
 ## <a name="server-roles"></a>Rôles serveur
+
 |Rôles Windows Server disponibles|Services de rôle|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
 |Services de certificats Active Directory| |Oui|Oui|
@@ -66,7 +64,7 @@ ms.locfileid: "71360875"
 |Services de fichiers et de stockage|Services de stockage|Oui|Oui|
 |Service Guardian hôte| |Oui|Oui|
 |Hyper-V| |Oui|Oui, y compris des machines virtuelles dotées d'une protection maximale|
-|Contrôleur de réseau| |Non|Oui|
+|Contrôleur de réseau| |Non| <strong>Oui</strong> |
 |Services de stratégie et d'accès réseau| |Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |Services d'impression et de numérisation de document| |Oui|Oui|
 |Accès à distance| |Oui|Oui|
@@ -74,7 +72,7 @@ ms.locfileid: "71360875"
 |Services d'activation en volume| |Oui|Oui|
 |Services Web (IIS)| |Oui|Oui|
 |Services de déploiement Windows| |Oui*|Oui*|
-|Expérience Windows Server Essentials| |Oui|Oui|
+|Expérience Windows Server Essentials| |Non | Non |
 |Windows Server Update Services| |Oui|Oui|
 
 \* Le serveur de transport des services de déploiement Windows est une nouveauté pour les installations minimales dans Windows Server 2019 (également dans le canal semi-annuel à partir de Windows Server, version 1803)
@@ -84,20 +82,20 @@ ms.locfileid: "71360875"
 
 |Fonctionnalités Windows Server pouvant être installées avec le Gestionnaire de serveur (ou PowerShell)|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
-|.NET Framework 3.5|Oui|Oui|
-|.NET Framework 4.6|Oui|Oui|
+|.NET Framework 3.5 |Oui|Oui|
+|.NET Framework 4.7 |Oui|Oui|
 |Service de transfert intelligent en arrière-plan (BITS)|Oui|Oui|
 |Chiffrement de lecteur BitLocker|Oui|Oui|
 |Déverrouillage réseau BitLocker|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |BranchCache|Oui|Oui|
 |Client pour NFS|Oui|Oui|
-|Conteneurs|Oui (conteneurs Windows en nombre illimité ; conteneurs Hyper-V, jusqu’à 2)|Oui (tous les types de conteneurs, en nombre illimité)|
+|Conteneurs|Oui (conteneurs Windows en nombre illimité ; jusqu’à deux conteneurs Hyper-V)|Oui (<strong>conteneurs Windows et Hyper-V en nombre illimité</strong>) |
 |Data Center Bridging|Oui|Oui|
 |DirectPlay|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |Stockage étendu|Oui|Oui|
 |Clustering de basculement|Oui|Oui|
 |Gestion des stratégies de groupe|Oui|Oui|
-|Support Hyper-V pour Guardian hôte|Non|Oui|
+|Support Hyper-V pour Guardian hôte|Non| <strong>Oui</strong> |
 |Qualité de service E/S|Oui|Oui|
 |IIS Hostable Web Core|Oui|Oui|
 |Client d'impression Internet|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
@@ -149,7 +147,6 @@ ms.locfileid: "71360875"
 |Fonctionnalités généralement disponibles|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Best Practices Analyzer|Oui|Oui|
-|Réplica de stockage limité|Oui, (1 partenariat et 1 groupe de ressources avec un volume unique de 2 To)|Oui, illimité|
 |DirectAccess|Oui|Oui|
 |Mémoire dynamique (virtualisation)|Oui|Oui|
 |Ajout/remplacement de RAM à chaud|Oui|Oui|
@@ -161,15 +158,15 @@ ms.locfileid: "71360875"
 |Option d'installation de Nano Server|Oui|Oui|
 |Gestionnaire de serveur|Oui|Oui|
 |SMB Direct et SMB sur RDMA|Oui|Oui|
-|SDN (Software-Defined Networking)|Non|Oui|
-|Service de gestion du stockage|Oui|Oui|
+|SDN (Software-Defined Networking)|Non| <strong>Oui</strong> |
+|Service de migration du stockage|Oui|Oui|
+| Réplica de stockage         | Oui, (1 partenariat et 1 groupe de ressources avec un seul volume de 2 To)    | Oui, <strong>illimité</strong> |
 |Espaces de stockage|Oui|Oui|
-|Espaces de stockage directs|Non|Oui|
+|Espaces de stockage directs|Non| <strong>Oui</strong> |
 |Services d'activation en volume|Oui|Oui|
 |Intégration du service VSS (Volume Shadow Copy Service)|Oui|Oui|
 |Windows Server Update Services|Oui|Oui|
 |Gestionnaire de ressources système Windows|Oui|Oui|
 |Journalisation de licence serveur|Oui|Oui|
-|Activation héritée|En tant qu'invité si hébergement sur Datacenter|Hôte ou invité|
+|Activation héritée|En tant qu'invité si hébergement sur Datacenter| <strong>Peut être un hôte ou un invité</strong> |
 |Dossiers de travail|Oui|Oui|
-

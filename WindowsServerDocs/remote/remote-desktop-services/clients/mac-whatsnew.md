@@ -13,12 +13,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 092804ea84ba2d0e68eede3a597cb354c53bb8bd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cc09a60882c481cea974508b0ef967aad0ed82fa
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404199"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940645"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Nouveautés du client macOS
 
@@ -189,7 +189,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 - Ajout de la prise en charge de certificats de point de terminaison Bureau à distance qui contiennent des clés asymétriques à courbe elliptique.
 - Correction d’un bogue qui empêchait le téléchargement de ressources managées dans certains scénarios.
 - Traitement d’un problème de détourage avec le centre de connexion épinglé.
-- Correction des cases à cocher dans la feuille de propriétés d’affichage pour mieux collaborer.
+- Correction des cases à cocher sous l’onglet Affichage de la fenêtre Ajouter un bureau pour mieux collaborer.
 - Le verrouillage des proportions est maintenant désactivé lorsque la modification d’affichage dynamique est appliquée.
 - Traitement des problèmes de compatibilité avec l’infrastructure F5.
 - Mise à jour de la gestion des mots de passe vides pour vérifier que les messages appropriés sont affichés au moment de la connexion.
