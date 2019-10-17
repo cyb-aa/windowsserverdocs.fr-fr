@@ -1432,7 +1432,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Installation**    |   Toujours installé
 |   **Type de démarrage**   |   Automatique
 |   **Recommandation**  |   Possibilité de désactivation s'il ne s'agit pas d'un serveur d'impression ou d'un contrôleur de domaine
-|   **Commentaires**    |   Sur un contrôleur de domaine, l’installation du rôle de contrôleur de domaine ajoute un thread au service de spouleur chargé d’effectuer le nettoyage de l’impression – suppression des objets obsolètes de la file d'attente à l'impression dans Active Directory.  Si le service de spouleur n’est pas en cours d’exécution sur au moins un contrôleur de domaine dans chaque site, Active Directory n'est pas en mesure de supprimer les files d’attente qui n’existent plus. https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/
+|   **Commentaires**    |   Sur un contrôleur de domaine, l’installation du rôle de contrôleur de domaine ajoute un thread au service de spouleur chargé d’effectuer le nettoyage de l’impression – suppression des objets obsolètes de la file d'attente à l'impression dans Active Directory.  Si le service de spouleur n’est pas en cours d’exécution sur au moins un contrôleur de domaine dans chaque site, Active Directory n'est pas en mesure de supprimer les files d’attente qui n’existent plus. [https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/ )
 |||         
 
 <br />          
