@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: eacb80d89e7bcc95d6b5c12269d7587dc7d6870c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d670add6e4b4fc7369c48905bb297642ae07ff20
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383318"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588067"
 ---
 # <a name="patch-a-server-core-installation"></a>Corriger une installation Server Core
 
@@ -39,14 +39,14 @@ Procédez comme suit pour corriger automatiquement le serveur avec Windows Updat
 
 1. Vérifiez le paramètre de Windows Update actuel :
    ```
-   %systemroot%\system32\Cscript scregedit.wsf /AU /v 
+   %systemroot%\system32\Cscript %systemroot%\system32\scregedit.wsf /AU /v 
    ```
 
 2. Pour activer les mises à jour automatiques :
 
    ```
    Net stop wuauserv 
-   %systemroot%\system32\Cscript scregedit.wsf /AU 4 
+   %systemroot%\system32\Cscript %systemroot%\system32\scregedit.wsf /AU 4 
    Net start wuauserv
    ```  
 
@@ -54,11 +54,11 @@ Procédez comme suit pour corriger automatiquement le serveur avec Windows Updat
 
    ```
    Net stop wuauserv 
-   %systemroot%\system32\Cscript scregedit.wsf /AU 1 
+   %systemroot%\system32\Cscript %systemroot%\system32\scregedit.wsf /AU 1 
    Net start wuauserv 
    ```
 
-Si le serveur est membre d’un domaine, vous pouvez également configurer Windows Update avec une stratégie de groupe. Pour plus d'informations, consultez https://go.microsoft.com/fwlink/?LinkId=192470. Toutefois, lorsque vous utilisez cette méthode, seule l’option 4 (« téléchargement automatique et planification de l’installation ») s’applique aux installations Server Core en raison de l’absence d’interface graphique. Pour mieux contrôler quelles mises à jour doivent être installées, et à quel moment, vous pouvez utiliser un script qui fournit des équivalences de ligne de commande pour la plupart des commandes de l’interface graphique de Windows Update. Pour plus d’informations sur le script, consultez https://go.microsoft.com/fwlink/?LinkId=192471.
+Si le serveur est membre d’un domaine, vous pouvez également configurer Windows Update avec une stratégie de groupe. Pour plus d'informations, voir https://go.microsoft.com/fwlink/?LinkId=192470. Toutefois, lorsque vous utilisez cette méthode, seule l’option 4 (« téléchargement automatique et planification de l’installation ») s’applique aux installations Server Core en raison de l’absence d’interface graphique. Pour mieux contrôler quelles mises à jour doivent être installées, et à quel moment, vous pouvez utiliser un script qui fournit des équivalences de ligne de commande pour la plupart des commandes de l’interface graphique de Windows Update. Pour plus d’informations sur le script, consultez https://go.microsoft.com/fwlink/?LinkId=192471.
 
 Pour forcer Windows Update à détecter et installer immédiatement les mises à jour disponibles, exécutez la commande suivante :
 

@@ -8,15 +8,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 810f6f8ba9e33f1f26f49f542ad6d23819deb463
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2af3a621991627addb94238e84cceb357fb47731
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406290"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588089"
 ---
 # <a name="capolicyinf-syntax"></a>Syntaxe CAPolicy. inf
->   S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>   S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Le fichier CAPolicy. inf est un fichier de configuration qui définit les extensions, les contraintes et d’autres paramètres de configuration appliqués à un certificat d’autorité de certification racine et à tous les certificats émis par l’autorité de certification racine. Le fichier CAPolicy. inf doit être installé sur un serveur hôte avant le début de la routine d’installation de l’autorité de certification racine. Lorsque les restrictions de sécurité sur une autorité de certification racine doivent être modifiées, le certificat racine doit être renouvelé et un fichier CAPolicy. inf mis à jour doit être installé sur le serveur avant le début du processus de renouvellement.
 
@@ -42,7 +42,7 @@ Les termes suivants sont utilisés pour décrire la structure du fichier. inf :
 
 -   _Valeur_ : est le paramètre et apparaît à droite du signe égal.
 
-Dans l’exemple ci-dessous, **[version]** est la section, **signature** est la clé, et **« \$Windows NT @ no__t-4 »** est la valeur.
+Dans l’exemple ci-dessous, **[version]** est la section, **signature** est la clé, et **« \$Windows NT \$ »** est la valeur.
 
 Exemple :
 
@@ -116,7 +116,7 @@ Pour plus d’informations sur cette section, procédez comme suit :
 
 -   Les guillemets doivent entourer les URL avec des espaces.
 
--   Si aucune URL n’est spécifiée (autrement dit, si la section **[CRLDistributionPoint]** existe dans le fichier mais est vide), l’extension d’accès aux informations de l’autorité est omise du certificat d’autorité de certification racine. Cela est généralement préférable lors de la configuration d’une autorité de certification racine. Windows n’effectue pas de vérification de la révocation sur un certificat d’autorité de certification racine, de sorte que l’extension CDP est superflue dans un certificat d’autorité de certification racine.
+-   Si aucune URL n’est spécifiée (autrement dit, si la section **[CRLDistributionPoint]** existe dans le fichier mais est vide), l’extension du point de distribution de la liste de révocation de certificats est omise du certificat d’autorité de certification racine. Cela est généralement préférable lors de la configuration d’une autorité de certification racine. Windows n’effectue pas de vérification de la révocation sur un certificat d’autorité de certification racine, de sorte que l’extension CDP est superflue dans un certificat d’autorité de certification racine.
 
 -    L’autorité de certification peut publier dans un fichier UNC, par exemple, sur un partage qui représente le dossier d’un site Web où un client récupère via HTTP.
 
@@ -142,7 +142,7 @@ Quelques remarques supplémentaires sur la section accès aux informations de l�
 
 -   Les URL avec des espaces doivent être entourées de guillemets.
 
--   Si aucune URL n’est spécifiée (autrement dit, si la section **[AuthorityInformationAccess]** existe dans le fichier mais est vide), l’extension du point de distribution de la liste de révocation de certificats est omise du certificat d’autorité de certification racine. Là encore, il s’agit du paramètre préféré dans le cas d’un certificat d’autorité de certification racine, car il n’existe aucune autorité supérieure à une autorité de certification racine qui doit être référencée par un lien vers son certificat.
+-   Si aucune URL n’est spécifiée (autrement dit, si la section **[AuthorityInformationAccess]** existe dans le fichier mais est vide), l’extension d’accès aux informations de l’autorité est omise du certificat d’autorité de certification racine. Là encore, il s’agit du paramètre préféré dans le cas d’un certificat d’autorité de certification racine, car il n’existe aucune autorité supérieure à une autorité de certification racine qui doit être référencée par un lien vers son certificat.
 
 ### <a name="certsrv_server"></a>certsrv_Server
 
@@ -170,11 +170,11 @@ EnableKeyCounting=0
 
 Lors du renouvellement d’un certificat d’autorité de certification avec une nouvelle paire de clés, la longueur de la clé peut être augmentée ou diminuée. Par exemple, si vous avez défini une clé d’autorité de certification racine de 4096 octets ou plus, puis découvrez que vous disposez d’applications ou de périphériques réseau Java qui ne peuvent prendre en charge que des tailles de clé de 2048 octets. Que vous augmentiez ou diminuiez la taille, vous devez réémettre tous les certificats émis par cette autorité de certification.
 
-**RenewalValidityPeriod** et **RenewalValidityPeriodUnits** établissent la durée de vie du nouveau certificat d’autorité de certification racine lors du renouvellement de l’ancien certificat d’autorité de certification racine. Elle s’applique uniquement à une autorité de certification racine. La durée de vie du certificat d’une autorité de certification secondaire est déterminée par son supérieur. RenewalValidityPeriod peut avoir les valeurs suivantes : Heures, jours, semaines, mois et années.
+**RenewalValidityPeriod** et **RenewalValidityPeriodUnits** établissent la durée de vie du nouveau certificat d’autorité de certification racine lors du renouvellement de l’ancien certificat d’autorité de certification racine. Elle s’applique uniquement à une autorité de certification racine. La durée de vie du certificat d’une autorité de certification secondaire est déterminée par son supérieur. RenewalValidityPeriod peut avoir les valeurs suivantes : heures, jours, semaines, mois et années.
 
-**CRLPeriod** et **CRLPeriodUnits** établissent la période de validité de la liste de révocation de certificats de base. **CRLPeriod** peut avoir les valeurs suivantes : Heures, jours, semaines, mois et années.
+**CRLPeriod** et **CRLPeriodUnits** établissent la période de validité de la liste de révocation de certificats de base. **CRLPeriod** peut avoir les valeurs suivantes : heures, jours, semaines, mois et années.
 
-**CRLDeltaPeriod** et **CRLDeltaPeriodUnits** établissent la période de validité de la liste de révocation de certificats delta. **CRLDeltaPeriod** peut avoir les valeurs suivantes : Heures, jours, semaines, mois et années.
+**CRLDeltaPeriod** et **CRLDeltaPeriodUnits** établissent la période de validité de la liste de révocation de certificats delta. **CRLDeltaPeriod** peut avoir les valeurs suivantes : heures, jours, semaines, mois et années.
 
 Chacun de ces paramètres peut être configuré après l’installation de l’autorité de certification :
 
@@ -193,18 +193,17 @@ Dans une installation par défaut de l’autorité de certification, un sous-ens
 
 Il se peut que vous ne souhaitiez pas émettre de certificats immédiatement après l’installation d’une autorité de certification. vous pouvez donc utiliser le paramètre LoadDefaultTemplates pour empêcher l’ajout des modèles par défaut à l’autorité de certification d’entreprise. Si aucun modèle n’est configuré sur l’autorité de certification, il ne peut émettre aucun certificat.
 
-**AlternateSignatureAlgorithm** configure l’autorité de certification pour prendre en\#charge le format de signature PKCS 1 v 2.1 pour le certificat d’autorité de certification et les demandes de certificat. Lorsque la valeur 1 est affectée à une autorité de certification racine, le certificat\#de l’autorité de certification inclut le format de signature PKCS 1 v 2.1. Lorsqu’elle est définie sur une autorité de certification secondaire, elle crée une demande de certificat qui comprend\#le format de signature PKCS 1 v 2.1.
+**AlternateSignatureAlgorithm** configure l’autorité de certification pour prendre en charge le format de signature PKCS \#1 v 2.1 pour le certificat d’autorité de certification et les demandes de certificat. Lorsque la valeur 1 est affectée à une autorité de certification racine, le certificat de l’autorité de certification inclut le format de signature PKCS \#1 V 2.1. Lorsqu’elle est définie sur une autorité de certification secondaire, elle crée une demande de certificat qui comprend le format de signature PKCS \#1 V 2.1.
 
 **ForceUTF8** remplace l’encodage par défaut des noms uniques relatifs (RDN) dans les noms distinctifs de l’objet et de l’émetteur par UTF-8. Seuls les RDN qui prennent en charge UTF-8, tels que ceux qui sont définis en tant que types de chaîne d’annuaire par une RFC, sont affectés. Par exemple, le RDN du composant de domaine (DC) prend en charge l’encodage en IA5 ou UTF-8, tandis que le pays RDN (C) prend uniquement en charge l’encodage comme chaîne imprimable. La directive ForceUTF8 affecte donc un RDN DC, mais n’affecte pas un RDN C.
 
 **EnableKeyCounting** configure l’autorité de certification pour incrémenter un compteur chaque fois que la clé de signature de l’autorité de certification est utilisée. N’activez pas ce paramètre, sauf si vous disposez d’un module de sécurité matériel (HSM) et du fournisseur de services de chiffrement (CSP) associé qui prend en charge le décompte de clés. Ni le CSP fort Microsoft ni le fournisseur de stockage de clés (KSP) Microsoft ne prennent en charge le comptage de clés.
 
-
 ## <a name="create-the-capolicyinf-file"></a>Créer le fichier CAPolicy. inf
 
 Avant d’installer les services AD CS, vous configurez le fichier CAPolicy. inf avec des paramètres spécifiques pour votre déploiement.
 
-**Requis** Vous devez être membre du groupe administrateurs.
+**Condition préalable :** Vous devez être membre du groupe administrateurs.
 
 1. Sur l’ordinateur sur lequel vous prévoyez d’installer les services AD CS, ouvrez Windows PowerShell, tapez **notepad c:\CAPolicy.inf** et appuyez sur entrée.
 
@@ -255,4 +254,4 @@ Avant d’installer les services AD CS, vous configurez le fichier CAPolicy. inf
 9. Fermez le Bloc-notes.
 
 > [!IMPORTANT]
->   Dans le fichier CAPolicy. inf, vous pouvez voir qu’une ligne spécifie l' https://pki.corp.contoso.com/pki/cps.txt URL. La section de stratégie interne du fichier CAPolicy.inf est juste affichée en tant qu’exemple de spécification de l’emplacement d’une déclaration de mise en œuvre des certificats. Dans ce guide, vous n’êtes pas invité à créer la déclaration CPS (Certificate Practice Statement).
+>   Dans le fichier CAPolicy. inf, vous pouvez voir qu’une ligne spécifie l’URL https://pki.corp.contoso.com/pki/cps.txt. La section de stratégie interne du fichier CAPolicy.inf est juste affichée en tant qu’exemple de spécification de l’emplacement d’une déclaration de mise en œuvre des certificats. Dans ce guide, vous n’êtes pas invité à créer la déclaration CPS (Certificate Practice Statement).

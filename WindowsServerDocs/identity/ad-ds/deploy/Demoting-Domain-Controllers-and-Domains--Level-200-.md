@@ -9,16 +9,16 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 00f3851ce74a496bd530c8ea682ea312f8b06a0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3f320b67196a2400ebedbaeaf0a5b59969400e8
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390932"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588091"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>Rétrogradation de contrôleurs de domaine et de domaines
 
->S'applique à : Windows Server
+>S’applique à : Windows Server
 
 Cette rubrique explique comment supprimer les services AD DS à l'aide du Gestionnaire de serveur ou de Windows PowerShell.
   
@@ -36,7 +36,7 @@ Cette rubrique explique comment supprimer les services AD DS à l'aide du Gestio
 |||  
 |-|-|  
 |**Applets de commande ADDSDeployment et ServerManager**|Arguments (les arguments en **gras** sont obligatoires. Les arguments en *italique* peuvent être spécifiés à l'aide de Windows PowerShell ou de l'Assistant Configuration des services de domaine Active Directory.)|  
-|Uninstall-AddsDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
+|Uninstall-ADDSDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
 |Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<br /><br />***-IncludeManagementTools***<br /><br />*-Redémarrer*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
   
 > [!NOTE]  
@@ -104,7 +104,7 @@ La page **Informations d’identification** vous permet de configurer des option
    > [!WARNING]  
    > Sélectionnez cette option uniquement si le contrôleur de domaine ne parvient pas à contacter d’autres contrôleurs de domaine et qu’*aucun moyen raisonnable* ne permet de résoudre ce problème réseau. La rétrogradation forcée laisse des métadonnées orphelines dans Active Directory sur les contrôleurs de domaine restants dans la forêt. Par ailleurs, toutes les modifications non répliquées sur ce contrôleur de domaine, notamment les mots de passe ou les nouveaux comptes d’utilisateur, sont définitivement perdues. Les métadonnées orphelines sont la cause première d’un grand nombre de problèmes soumis au support technique Microsoft pour AD DS, Exchange, SQL et d’autres logiciels.  
    >
-   > Si vous rétrogradez de force un contrôleur de domaine, vous *devez* immédiatement effectuer un nettoyage manuel des métadonnées. Pour la procédure à suivre, voir [Nettoyage des métadonnées du serveur](https://technet.microsoft.com/library/cc816907(WS.10).aspx).  
+   > Si vous rétrogradez de force un contrôleur de domaine, vous *devez* immédiatement effectuer un nettoyage manuel des métadonnées. Pour la procédure à suivre, voir [Nettoyage des métadonnées du serveur](ad-ds-metadata-cleanup.md).  
 
    ![Assistant Configuration de Active Directory Domain Services-suppression forcée des informations d’identification](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ForceDemote.png)  
   
@@ -170,7 +170,7 @@ Par exemple, vous pouvez demander manuellement un mot de passe à l’aide de l�
 > [!WARNING]
 > Comme les deux options précédentes ne confirment pas le mot de passe, utilisez une extrême prudence : le mot de passe n’est pas visible.
 
-Vous pouvez également fournir une chaîne sécurisée sous forme d'une variable en texte clair convertie, bien que ceci soit fortement déconseillé. Exemple :
+Vous pouvez également fournir une chaîne sécurisée sous forme d'une variable en texte clair convertie, bien que ceci soit fortement déconseillé. Exemple :
 
 ```
 -localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
@@ -188,12 +188,12 @@ La page **Confirmation** indique la rétrogradation planifiée ; elle ne réper
 Cliquez sur **Rétrograder** pour exécuter l'applet de commande de déploiement des services AD DS suivante :
 
 ```
-Uninstall-DomainController
+Uninstall-ADDSDomainController
 ```
 
 Utilisez l'argument **Whatif** facultatif avec **Uninstall-ADDSDomainController** et l'applet de commande pour passer en revue les informations de configuration. Cela vous permet de voir les valeurs explicites et implicites des arguments d'une applet de commande.
 
-Exemple :
+Exemple :
 
 ![Exemple de désinstallation de PowerShell-ADDSDomainController](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)
 
@@ -208,7 +208,7 @@ Quand la page **Rétrogradation** s'affiche, la configuration du contrôleur de 
 * %systemroot%\debug\dcpromo.log
 * %systemroot%\debug\dcpromoui.log
 
-Comme **Uninstall-AddsDomainController** et **Uninstall-WindowsFeature** n'ont qu'une action chacune, elles sont indiquées ici dans la phase de confirmation avec les arguments requis minimaux. En appuyant sur Entrée, vous démarrez le processus de rétrogradation irrévocable et redémarrez l'ordinateur.
+Étant donné que **Uninstall-ADDSDomainController** et **Uninstall-WindowsFeature** n’ont qu’une seule action, elles sont indiquées ici dans la phase de confirmation avec les arguments requis minimaux. En appuyant sur Entrée, vous démarrez le processus de rétrogradation irrévocable et redémarrez l'ordinateur.
 
 ![Exemple de désinstallation de PowerShell-ADDSDomainController](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallConfirm.png)
 

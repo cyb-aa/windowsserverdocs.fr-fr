@@ -7,12 +7,12 @@ ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/16/2019
-ms.openlocfilehash: 99133f2c582b180f240740fc2f39e99527bc0cf8
-ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
+ms.openlocfilehash: 62fe4f00cef121e6241a403ee339047cda9488b5
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124819"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591088"
 ---
 # <a name="upgrade-windows-server-2016-to-windows-server-2019"></a>Mise à niveau de Windows Server 2016 vers Windows Server 2019
 
@@ -24,13 +24,13 @@ Avant de commencer la mise à niveau de Windows Server, nous vous recommandons d
 
 ### <a name="to-collect-your-info"></a>Pour collecter vos informations
 
-1. Ouvrez une invite de commandes, accédez `c:\Windows\system32`à, puis tapez **systeminfo. exe**.
+1. Ouvrez une invite de commandes, accédez à `c:\Windows\system32`, puis tapez **systeminfo. exe**.
 
 2. Copiez, collez et stockez les informations système résultantes à partir de votre appareil.
 
 3. Tapez **ipconfig/all** dans l’invite de commandes, puis copiez et collez les informations de configuration obtenues dans le même emplacement que ci-dessus.
 
-4. Ouvrez l’éditeur du Registre, accédez à la ruche HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion, puis copiez et collez les **BuildLabEx** Windows Server (version) et **EditionID** (édition) dans le même emplacement que ci-dessus.
+4. Ouvrez l’éditeur du Registre, accédez à la clé `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion`, puis copiez et collez les **BuildLabEx** Windows Server (version) et **EditionID** (édition) dans le même emplacement que ci-dessus.
 
 Une fois que vous avez collecté toutes les informations relatives à Windows Server, nous vous recommandons vivement de sauvegarder le système d’exploitation, les applications et les machines virtuelles. Vous devez également **arrêter**, **migrer rapidement**ou **migrer dynamiquement** les machines virtuelles en cours d’exécution sur le serveur. Vous ne pouvez pas avoir de machines virtuelles en cours d’exécution pendant la mise à niveau sur place.
 
@@ -80,12 +80,12 @@ Une fois la mise à niveau terminée, vous devez vous assurer que la mise à niv
 
 ### <a name="to-make-sure-your-upgrade-was-successful"></a>Pour vous assurer que la mise à niveau a réussi
 
-1. Ouvrez l’éditeur du Registre, accédez à la ruche HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion et affichez le **ProductName**. Vous devez voir votre édition de Windows Server 2019, par exemple **Windows server 2019 Datacenter**.
+1. Ouvrez l’éditeur du Registre, accédez à la clé de `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion` et affichez le **ProductName**. Vous devez voir votre édition de Windows Server 2019, par exemple **Windows server 2019 Datacenter**.
 
 2. Vérifiez que toutes vos applications sont en cours d’exécution et que vos connexions client aux applications sont réussies.
 
-Si vous pensez qu’une erreur s’est produite lors de la mise à niveau, `%SystemRoot%\Panther` Copiez `C:\Windows\Panther`et compressez le répertoire (généralement) et contactez le support Microsoft.
+Si vous pensez qu’une erreur s’est produite lors de la mise à niveau, copiez et compressez le répertoire `%SystemRoot%\Panther` (généralement `C:\Windows\Panther`) et contactez le support Microsoft.
 
-## <a name="related-articles"></a>Articles connexes
+## <a name="related-articles"></a>Articles associés
 
 - Pour plus de détails et d’informations sur Windows Server 2019, consultez [prise en main de Windows server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19).
