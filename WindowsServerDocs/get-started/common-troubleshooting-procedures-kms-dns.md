@@ -8,12 +8,12 @@ ms.assetid: ''
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: e2bd9c766f07591e0c643a6cea644b2db7a95364
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.openlocfilehash: 3165c926c50c2f91544895e0d328f1dae7424b4a
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960953"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588040"
 ---
 # <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>Instructions pour la résolution des problèmes d’activation liés à DNS
 
@@ -66,7 +66,7 @@ Pour remplacer la clé de produit par une clé MAK, procédez comme suit :
 
 L’activation KMS nécessite la configuration d’un hôte KMS sur lequel activer les clients. Si aucun hôte KMS n’est configuré dans votre environnement, installez et activez-en un en utilisant une clé d’hôte KMS appropriée. Après avoir configuré un ordinateur du réseau pour héberger le logiciel KMS, publiez les paramètres DNS (Domain Name System).
 
-Pour plus d’informations sur le processus de configuration d’un hôte KMS, consultez les sections [Activer à l’aide du service Gestion des clés](https://docs.microsoft.com/windows/deployment/volume-activation/activate-using-key-management-service-vamt) et [Installer et configurer VMAT](https://docs.microsoft.com/windows/deployment/volume-activation/install-configure-vamt).
+Pour plus d’informations sur le processus de configuration d’un hôte KMS, consultez les sections [Activer à l’aide du service Gestion des clés](https://docs.microsoft.com/windows/deployment/volume-activation/activate-using-key-management-service-vamt) et [Installer et configurer VAMT](https://docs.microsoft.com/windows/deployment/volume-activation/install-configure-vamt).
 
 [Revenez à la liste des procédures.](#list)
 

@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 10/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d233708c6d206569f42f2a883bd342e90813f6a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcbd3292bcd4653a4568492a996d53c17f465aa8
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404098"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591042"
 ---
 # <a name="whats-new-in-the-web-client"></a>Nouveautés du client web
 
@@ -27,12 +27,22 @@ Nous mettons régulièrement à jour le [client web Bureau à distance](remote-d
 > [!NOTE]
 > Nous avons modifié le système de contrôle de version du client web. À partir de la version 1.0.18.0, toutes les versions du client web contiendront des numéros (au format « W.X.Y.Z »). Les numéros de version du client web Bureau à distance se termineront toujours par un 0 (par exemple, W.X.Y.0). À chaque version du client web Windows Virtual Desktop, le dernier chiffre changera jusqu'à la publication de la version suivante du client web Bureau à distance (par exemple, 1.0.18.1).
 
+## <a name="updates-for-version-10200"></a>Mises à jour relatives à la version 1.0.20.0
+*Date de publication : 18/10/2019*
+
+- Ajout de la prise en charge des connexions aux hôtes Windows 7 et Windows Server 2008 R2.
+- Correction d’un problème où certaines icônes d’application s’affichaient sous forme de vignettes transparentes.
+- Correction des problèmes de connexion du navigateur Internet Explorer sur Windows 7.
+- Correction de déconnexions inattendues qui se produisaient quand le navigateur était redimensionné.
+- Améliorations de l’accessibilité.
+- Mise à jour de bibliothèques tierces.
+
 ## <a name="updates-for-version-10180"></a>Mises à jour relatives à la version 1.0.18.0
 *Date de publication : 14/05/2019*
 
 - Ajout de la configuration Méthode de lancement des ressources dans l'onglet Paramètres pour permettre aux utilisateurs d'ouvrir les ressources à partir du navigateur ou de télécharger un fichier .rdp à gérer avec un autre client. Ce paramètre peut être configuré par votre administrateur. Des informations détaillées sur les configurations administrateur de cette fonctionnalité sont disponibles dans la [documentation consacrée à la configuration du client web](remote-desktop-web-client-admin.md).
 - Correction de problèmes de rendu des couleurs pour vous permettre de bénéficier de couleurs plus vives dans votre session à distance.
-- Révision des messages liés aux erreurs de flux de ressources distantes. 
+- Révision des messages liés aux erreurs de flux de ressources distantes.
 - Ajout de la prise en charge de raccourcis supplémentaires, comme le collage spécial (Ctrl + Alt + V).
 - Ajout d'un raccourci clavier permettant aux utilisateurs d'appeler la touche Windows dans le cadre de la session à distance (Alt + F3)
 - Mise à jour du message d'erreur présenté aux utilisateurs qui tentent de s'authentifier à l'aide d'un mot de passe qui a expiré.
@@ -105,4 +115,3 @@ Nous mettons régulièrement à jour le [client web Bureau à distance](remote-d
 - Copier/coller du texte dans le presse-papiers à l'aide de **CTRL + C** et **CTRL + V**.
 - Impression dans un fichier PDF.
 - Localisation en 18 langues.
- 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d930cbf7acbfceab16f2fa619aaaac6e789c131
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b7a5f9b819f16d058feb1dee74a8408ed174e04c
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373640"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588043"
 ---
 # <a name="mklink"></a>mklink
 Crée un lien symbolique.
@@ -38,13 +38,13 @@ mklink [[/d] | [/h] | [/j]] <Link> <Target>
 |/d|Crée un lien symbolique de répertoire. Par défaut, **MKLINK** crée un lien symbolique de fichier.|
 |/h|Crée un lien physique au lieu d’un lien symbolique.|
 |/j|Crée une jonction de répertoire.|
-|@no__t 0Link >|Spécifie le nom du lien symbolique en cours de création.|
-|@no__t 0Target >|Spécifie le chemin d’accès (relatif ou absolu) auquel le nouveau lien symbolique fait référence.|
+|\<Link >|Spécifie le nom du lien symbolique en cours de création.|
+|\<Target >|Spécifie le chemin d’accès (relatif ou absolu) auquel le nouveau lien symbolique fait référence.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivantes illustre la création et la suppression d’un lien symbolique nommé mondossier et MyFile. file du répertoire racine vers le répertoire \Users\User1\Documents et d’un exemple de fichier situé dans le répertoire suivant :
+L’exemple suivant illustre la création et la suppression d’un lien symbolique nommé mondossier et MyFile. file du répertoire racine vers le répertoire \Users\User1\Documents et d’un exemple de fichier situé dans le répertoire suivant :
 ```
 mklink /d \MyFolder \Users\User1\Documents
 mklink /h \MyFile.file \User1\Documents\example.file
