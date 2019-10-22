@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: e3ec7ee787fb6fd2e8e9f59249a6c4013a76b377
-ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
+ms.openlocfilehash: 830a2d99443938c25625211f590984819a20d566
+ms.sourcegitcommit: 40e4ba214954d198936341c4d6ce1916dc891169
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252360"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690443"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -48,11 +48,11 @@ Pour résoudre, utiliser ou effectuer une mise à niveau vers Windows Server 201
 
 Lorsque vous utilisez la version 0,57 de l’extension Storage migration service dans le centre d’administration Windows et que vous atteignez la phase de basculement, vous ne pouvez pas sélectionner une adresse IP statique pour une adresse. Vous êtes contraint d’utiliser DHCP.
 
-Pour résoudre ce problème, dans le centre d’administration Windows, Regardez sous **paramètres** > **Extensions** pour une alerte indiquant que la version mise à jour de Storage migration service 0.57.2 est disponible pour l’installation. Vous devrez peut-être redémarrer l’onglet de votre navigateur pour le centre d’administration Windows.
+Pour résoudre ce problème, dans le centre d’administration Windows, accédez à **paramètres**  > **Extensions** pour une alerte indiquant que la version mise à jour du service de migration de stockage 0.57.2 est disponible pour l’installation. Vous devrez peut-être redémarrer l’onglet de votre navigateur pour le centre d’administration Windows.
 
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>La validation du basculement du service de migration du stockage échoue avec l’erreur « Accès refusé pour la stratégie de filtre de jeton sur l’ordinateur de destination »
 
-Lors de l’exécution de la validation du basculement, vous recevez l’erreur «échec : L’accès est refusé pour la stratégie de filtre de jeton sur l’ordinateur de destination.» Cela se produit même si vous avez fourni des informations d’identification d’administrateur local correctes pour les ordinateurs source et de destination.
+Lors de l’exécution de la validation du basculement, vous recevez l’erreur « échec : l’accès est refusé pour la stratégie de filtre de jeton sur l’ordinateur de destination ». Cela se produit même si vous avez fourni des informations d’identification d’administrateur local correctes pour les ordinateurs source et de destination.
 
 Ce problème est causé par une erreur de code dans Windows Server 2019. Le problème se produit lorsque vous utilisez l’ordinateur de destination en tant qu’orchestrateur du service de migration du stockage.
 
@@ -120,9 +120,9 @@ Nous avons résolu ce problème dans une version ultérieure du centre d’admin
 Lors de la validation d’une tâche de transfert, les avertissements suivants s’affichent :
 
  > **Les informations d’identification ont des privilèges d’administrateur.**
- > Avertissement : L’action n’est pas disponible à distance.
+ > AVERTISSEMENT : l’action n’est pas disponible à distance.
  > **Le proxy de destination est inscrit.**
- > Avertissement : Le proxy de destination est introuvable.
+ > AVERTISSEMENT : le proxy de destination est introuvable.
 
 Si vous n’avez pas installé le service proxy de service de migration de stockage sur l’ordinateur de destination Windows Server 2019, ou si l’ordinateur de destination est Windows Server 2016 ou Windows Server 2012 R2, ce comportement est normal. Nous vous recommandons de migrer vers un ordinateur Windows Server 2019 avec le proxy installé pour améliorer considérablement les performances de transfert.  
 
@@ -130,8 +130,8 @@ Si vous n’avez pas installé le service proxy de service de migration de stock
 
 Lors de l’inventaire ou du transfert de fichiers d’un ordinateur source vers un ordinateur de destination, la migration des fichiers à partir desquels un utilisateur a supprimé les autorisations du groupe administrateurs échoue. Examen du service de migration de stockage-débogage du proxy :
 
-  Nom du journal :      Source Microsoft-Windows-StorageMigrationService-proxy/débogage :        Microsoft-Windows-StorageMigrationService-date du proxy :          ID d’événement 2/26/2019 9:00:04 AM :      10000 catégorie de tâche : Aucun niveau :         Mots clés d’erreur :      
-  Utilisateur :          Ordinateur de SERVICE réseau : description de srv1.contoso.com :
+  Nom du journal : Microsoft-Windows-StorageMigrationService-proxy/débogage source : Microsoft-Windows-StorageMigrationService-proxy Date : 2/26/2019 9:00:04 AM ID d’événement : 10000 tâche catégorie : aucun niveau : Mots clés d’erreur :      
+  Utilisateur : ordinateur de SERVICE réseau : srv1.contoso.com Description :
 
   02/26/2019-09:00:04.860 [erreur] erreur de transfert pour \\srv1. contoso. com\public\indy.png : (5) l’accès est refusé.
 Trace de la pile : au niveau de Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode shareMode, CreationDisposition creationDisposition, FlagsAndAttributes flagsAndAttributes) à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. GetTargetFile (chemin d’accès de chaîne) au niveau de Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. GetTargetFile (fichier FileInfo) à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. InitializeSourceFileInfo () à Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. Transfer () à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. TryTransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs :: TryTransfer :: 55]
@@ -199,14 +199,14 @@ L’examen du journal des événements StorageMigrationService/admin affiche :
 
    Impossible de transférer le stockage.
 
-   Attente ID Job1 :  
-   Département Échec de l’erreur : Message d’erreur 36931 : 
+   Tâche : ID Job1 :  
+   État : échec de l’erreur : 36931 message d’erreur : 
 
-   Instructions : Vérifiez l’erreur détaillée et assurez-vous que les conditions de transfert sont remplies. La tâche de transfert n’a pas pu transférer les ordinateurs source et de destination. Cela peut être dû au fait que l’ordinateur Orchestrator n’a pu atteindre aucun ordinateur source ou de destination, peut-être en raison d’une règle de pare-feu ou d’autorisations manquantes.
+   Guide : Vérifiez l’erreur détaillée et assurez-vous que les conditions de transfert sont remplies. La tâche de transfert n’a pas pu transférer les ordinateurs source et de destination. Cela peut être dû au fait que l’ordinateur Orchestrator n’a pu atteindre aucun ordinateur source ou de destination, peut-être en raison d’une règle de pare-feu ou d’autorisations manquantes.
 
 L’examen du journal StorageMigrationService-proxy/Debug affiche :
 
-   07/02/2019-13:35:57.231 [erreur] échec de la validation du transfert. ErrorCode 40961, le point de terminaison source n’est pas accessible ou n’existe pas, les informations d’identification source ne sont pas valides, ou l’utilisateur authentifié ne dispose pas des autorisations suffisantes pour y accéder.
+   07/02/2019-13:35:57.231 [erreur] échec de la validation du transfert. ErrorCode : 40961, le point de terminaison source n’est pas accessible ou n’existe pas, les informations d’identification source ne sont pas valides, ou l’utilisateur authentifié ne dispose pas des autorisations suffisantes pour y accéder.
 à Microsoft. StorageMigration. proxy. service. Transfer. TransferOperation. Validate () à Microsoft. StorageMigration. proxy. service. Transfer. TransferRequestHandler. ProcessRequest (FileTransferRequest fileTransferRequest, Guid operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
 
 Cette erreur est attendue si votre compte de migration ne dispose pas au minimum d’autorisations d’accès en lecture aux partages SMB. Pour contourner cette erreur, ajoutez un groupe de sécurité contenant le compte de migration source aux partages SMB sur l’ordinateur source et accordez-lui l’autorisation lecture, modification ou contrôle total. Une fois la migration terminée, vous pouvez supprimer ce groupe.
@@ -215,15 +215,15 @@ Cette erreur est attendue si votre compte de migration ne dispose pas au minimum
 
 Après l’installation de [KB4512534](https://support.microsoft.com/en-us/help/4512534/windows-10-update-kb4512534) et la tentative d’exécution de l’inventaire, l’inventaire échoue avec des erreurs :
 
-  EXCEPTION DE HRESULT : 0x80005000
+  EXCEPTION de HRESULT : 0x80005000
   
-  Nom du journal :      Source Microsoft-Windows-StorageMigrationService/admin :        Microsoft-Windows-StorageMigrationService Date :          ID d’événement 9/9/2019 5:21:42 PM :      2503 catégorie de tâche : Aucun niveau :         Mots clés d’erreur :      
-  Utilisateur :          Ordinateur de SERVICE réseau :      FS02. Description de TailwindTraders.net : Impossible d’inventorier les ordinateurs.
-Tâche : ID foo2 : État de 20ac3f75-4945-41d1-9a79-d11dbb57798b : Échec de l’erreur : Message d’erreur 36934 : Échec de l’inventaire pour tous les appareils : Vérifiez l’erreur détaillée et assurez-vous que les conditions d’inventaire sont remplies. Le travail n’a pas pu inventorier les ordinateurs source spécifiés. Cela peut être dû au fait que l’ordinateur Orchestrator n’a pas pu l’atteindre sur le réseau, peut-être en raison d’une règle de pare-feu ou d’autorisations manquantes.
+  Nom du journal : Microsoft-Windows-StorageMigrationService/admin source : Microsoft-Windows-StorageMigrationService Date : 9/9/2019 5:21:42 PM ID d’événement : 2503 tâche catégorie : aucun niveau : Mots clés d’erreur :      
+  Utilisateur : ordinateur de SERVICE réseau : FS02. Description de TailwindTraders.net : impossible d’inventorier les ordinateurs.
+Tâche : ID de foo2 : état 20ac3f75-4945-41d1-9a79-d11dbb57798b : erreur échec : 36934 message d’erreur : échec de l’inventaire pour tous les appareils : Vérifiez l’erreur détaillée et assurez-vous que les conditions d’inventaire sont remplies. Le travail n’a pas pu inventorier les ordinateurs source spécifiés. Cela peut être dû au fait que l’ordinateur Orchestrator n’a pas pu l’atteindre sur le réseau, peut-être en raison d’une règle de pare-feu ou d’autorisations manquantes.
   
-  Nom du journal :      Source Microsoft-Windows-StorageMigrationService/admin :        Microsoft-Windows-StorageMigrationService Date :          ID d’événement 9/9/2019 5:21:42 PM :      2509 catégorie de tâche : Aucun niveau :         Mots clés d’erreur :      
-  Utilisateur :          Ordinateur de SERVICE réseau :      FS02. Description de TailwindTraders.net : Impossible d’inventorier un ordinateur.
-Travail : ordinateur foo2 : FS01. État de TailwindTraders.net : Échec de l’erreur :-2147463168 message d’erreur : Instructions : Vérifiez l’erreur détaillée et assurez-vous que les conditions d’inventaire sont remplies. L’inventaire n’a pas pu déterminer les aspects de l’ordinateur source spécifié. Cela peut être dû à des autorisations ou des privilèges manquants sur la source ou sur un port de pare-feu bloqué.
+  Nom du journal : Microsoft-Windows-StorageMigrationService/admin source : Microsoft-Windows-StorageMigrationService Date : 9/9/2019 5:21:42 PM ID d’événement : 2509 tâche catégorie : aucun niveau : Mots clés d’erreur :      
+  Utilisateur : ordinateur de SERVICE réseau : FS02. Description de TailwindTraders.net : impossible d’inventorier un ordinateur.
+Travail : ordinateur foo2 : FS01. État de TailwindTraders.net : erreur d’échec :-2147463168 message d’erreur : aide : Vérifiez l’erreur détaillée et assurez-vous que les conditions d’inventaire sont remplies. L’inventaire n’a pas pu déterminer les aspects de l’ordinateur source spécifié. Cela peut être dû à des autorisations ou des privilèges manquants sur la source ou sur un port de pare-feu bloqué.
   
 Cette erreur est due à un défaut de code dans le service de migration de stockage lorsque vous fournissez des informations d’identification de migration sous la forme d’un nom d’utilisateur principal (UPN), tel que « meghan@contoso.com ». Le service d’analyse du service de migration du stockage ne parvient pas à analyser ce format correctement, ce qui provoque un échec dans une recherche de domaine qui a été ajoutée pour la prise en charge de la migration de cluster dans KB4512534 et 19H1.
 
@@ -270,6 +270,8 @@ Notez que, dans certaines circonstances, la désinstallation de KB4512534 ou de 
 1.  Ouvrez une invite de commandes avec élévation de privilèges, dans laquelle vous êtes membre des administrateurs sur le serveur du service de migration de stockage, puis exécutez la commande suivante :
 
      ```
+     TAKEOWN /d /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
+     
      MD c:\ProgramData\Microsoft\StorageMigrationService\backup
 
      ICACLS c:\ProgramData\Microsoft\StorageMigrationService\* /grant Administrators:(GA)
@@ -280,13 +282,13 @@ Notez que, dans certaines circonstances, la désinstallation de KB4512534 ou de 
 
      ICACLS c:\ProgramData\Microsoft\StorageMigrationService  /GRANT networkservice:F /T /C
 
-     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA)F /T /C
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA) /T /C
      ```
    
 2.  Démarrez le service de migration du stockage, qui créera une nouvelle base de données.
 
 
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 
 - [Vue d’ensemble de Storage migration service](overview.md)
