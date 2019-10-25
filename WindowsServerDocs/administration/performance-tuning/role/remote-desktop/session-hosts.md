@@ -4,15 +4,15 @@ description: Instructions de réglage des performances pour les hôtes de sessio
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS
+ms.author: HammadBu; VladmiS; DenisGun
 author: phstee
-ms.date: 10/16/2017
-ms.openlocfilehash: c50c0c981362bd96ed3bf1c603cde6bfeec289f4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 10/22/2019
+ms.openlocfilehash: b439b0cbab66f98a1f74faeb7bff996b30a188d5
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385018"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812330"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Réglage des performances Bureau à distance hôtes de session
 
@@ -130,9 +130,9 @@ Planificateur de tâches vous permet d’examiner la liste des tâches qui sont 
 
 Les icônes de notification sur le bureau peuvent avoir des mécanismes d’actualisation relativement coûteux. Vous devez désactiver les notifications en supprimant le composant qui les enregistre dans la liste de démarrage ou en modifiant la configuration des applications et des composants système pour les désactiver. Vous pouvez utiliser les **icônes de personnalisation des notifications** pour examiner la liste des notifications disponibles sur le serveur.
 
-### <a name="remotefx-data-compression"></a>Compression de données RemoteFX
+### <a name="remote-desktop-protocol-data-compression"></a>Compression des données de protocole RDP (Remote Desktop Protocol)
 
-La compression Microsoft RemoteFX peut être configurée à l’aide d’stratégie de groupe sous **Configuration ordinateur &gt; modèles d’administration composants Windows &gt; &gt; services Bureau à distance &gt; Bureau à distance hôte de session &gt; à distance Environnement de session &gt; configurer la compression pour les données RemoteFX**. Trois valeurs sont possibles :
+La compression de protocole RDP (Remote Desktop Protocol) peut être configurée à l’aide de stratégie de groupe sous **Configuration ordinateur** &gt; **modèles d’administration** &gt; **composants Windows** **&gt; services Bureau à distance** &gt; **Bureau à distance hôte de session** &gt; **environnement de session à distance** &gt; **configurer la compression pour les données RemoteFX**. Trois valeurs sont possibles :
 
 -   **Optimisé pour utiliser moins de mémoire** Consomme la quantité de mémoire minimale par session, mais a le taux de compression le plus faible et, par conséquent, la consommation de bande passante la plus élevée.
 
@@ -140,11 +140,11 @@ La compression Microsoft RemoteFX peut être configurée à l’aide d’straté
 
 -   **Optimisé pour utiliser moins de bande passante réseau** Réduit davantage l’utilisation de la bande passante réseau à un coût d’environ 2 Mo par session. Si vous souhaitez utiliser ce paramètre, évaluez le nombre maximal de sessions et testez ce niveau avec ce paramètre avant de placer le serveur en production.
 
-Vous pouvez également choisir de ne pas utiliser un algorithme de compression RemoteFX. Choisir de ne pas utiliser un algorithme de compression RemoteFX utilise davantage de bande passante réseau et il est recommandé uniquement si vous utilisez un périphérique matériel conçu pour optimiser le trafic réseau. Même si vous choisissez de ne pas utiliser un algorithme de compression RemoteFX, certaines données graphiques sont compressées.
+Vous pouvez également choisir de ne pas utiliser un algorithme de compression protocole RDP (Remote Desktop Protocol), donc nous vous recommandons de l’utiliser uniquement avec un périphérique matériel conçu pour optimiser le trafic réseau. Même si vous choisissez de ne pas utiliser un algorithme de compression, certaines données graphiques sont compressées.
 
 ### <a name="device-redirection"></a>Redirection de périphérique
 
-La redirection de périphérique peut être configurée à l’aide de stratégie de groupe sous **Configuration ordinateur &gt; modèles d’administration composants Windows &gt; &gt; services Bureau à distance &gt; Bureau à distance hôte de Session &gt; appareil et ressource Redirection** ou à l’aide de la zone de propriétés de la **collection de sessions** dans Gestionnaire de serveur.
+La redirection de périphérique peut être configurée à l’aide de stratégie de groupe sous **Configuration ordinateur** &gt; **Modèles d’administration** **composants Windows** **&gt; &gt; services Bureau à distance &gt;** **à distance Hôte de session Bureau** &gt; la **redirection de l’appareil et des ressources** ou à l’aide de la zone de propriétés de la **Collection de sessions** dans Gestionnaire de serveur.
 
 En règle générale, la redirection de périphérique augmente la quantité de connexions au serveur hôte de session Bureau à distance réseau utilisée, car les données sont échangées entre les appareils sur les ordinateurs clients et les processus qui s’exécutent dans la session serveur. L’étendue de l’augmentation est une fonction de la fréquence des opérations exécutées par les applications qui s’exécutent sur le serveur sur les appareils redirigés.
 
@@ -172,7 +172,7 @@ Les paramètres suivants s’appliquent lors de la connexion à un ordinateur :
 
 -   **Afficher le contenu des fenêtres pendant le glissement** (désactiver le glissement de fenêtre entière : i : 1) quand ce paramètre est désactivé, il réduit la bande passante en affichant uniquement le cadre de la fenêtre au lieu de tout le contenu quand la fenêtre est glissée.
 
--   **Animation de menu et de fenêtre** (désactiver le menu des paramètres : i : 1 et désactiver le paramètre de curseur : i : 1) : Lorsque ces paramètres sont désactivés, cela réduit la bande passante en désactivant l’animation sur les menus (tels que le fondu) et les curseurs.
+-   **Animation de menu et de fenêtre** (désactiver le menu des paramètres de curseur : i : 1 et désactiver le paramètre de curseur : i : 1) : quand ces paramètres sont désactivés, cela réduit la bande passante en désactivant l’animation dans les menus (tels que le fondu) et les curseurs.
 
 -   **Lissage des polices** (autoriser le lissage des polices : i : 0) contrôle la prise en charge de la conversion des polices ClearType. Lorsque vous vous connectez à des ordinateurs exécutant Windows 8 ou Windows Server 2012 et versions ultérieures, l’activation ou la désactivation de ce paramètre n’a pas d’impact significatif sur l’utilisation de la bande passante. Toutefois, pour les ordinateurs exécutant des versions antérieures à Windows 7 et Windows 2008 R2, l’activation de ce paramètre a une incidence significative sur la consommation de bande passante réseau.
 
