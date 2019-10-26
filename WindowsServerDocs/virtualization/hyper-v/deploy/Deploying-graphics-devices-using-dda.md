@@ -9,16 +9,17 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 3b37abaf5a2341aff66ff0064ecc4f52faf47f06
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 08/21/2019
+ms.openlocfilehash: 5466cecf9f11a53dc6e205f36d50d7b27b310ea1
+ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392996"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72923879"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Déployer des appareils graphiques à l’aide de l’affectation discrète des appareils
 
->S'applique à : Microsoft Hyper-V Server 2016, Windows Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019  
+> S’applique à : Microsoft Hyper-V Server 2016, Windows Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019  
 
 À compter de Windows Server 2016, vous pouvez utiliser l’affectation discrète des appareils, ou DDA, pour transmettre un appareil PCIe entier à une machine virtuelle.  Cela permet un accès très performant aux appareils tels que le [stockage NVMe](./Deploying-storage-devices-using-dda.md) ou les cartes graphiques à partir d’une machine virtuelle tout en étant en mesure de tirer parti des pilotes natifs des appareils.  Pour plus d’informations sur les appareils qui fonctionnent, sur les implications sur la sécurité, consultez le [plan de déploiement d’appareils à l’aide de l’affectation discrète](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) d’appareils, etc.
 
@@ -60,10 +61,10 @@ Le matériel fonctionne mieux si la machine virtuelle est configurée d’une ce
 ## <a name="dismount-the-device-from-the-host-partition"></a>Démonter l’appareil de la partition hôte
 ### <a name="optional---install-the-partitioning-driver"></a>Facultatif-installer le pilote de partitionnement
 L’affectation discrète des appareils offre aux fournisseurs de matériel la possibilité de fournir un pilote d’atténuation de la sécurité avec leurs appareils.  Notez que ce pilote n’est pas le même que le pilote de périphérique qui sera installé dans la machine virtuelle invitée.  C’est à la discrétion du fournisseur de matériel de fournir ce pilote. Toutefois, s’il le fournit, installez-le avant de démonter l’appareil de la partition hôte.  Contactez le fournisseur du matériel pour plus d’informations sur s’il dispose d’un pilote d’atténuation
-> Si aucun pilote de partitionnement n’est fourni, pendant le démontage, `-force` vous devez utiliser l’option pour ignorer l’avertissement de sécurité. Pour plus d’informations sur les implications en matière de sécurité, consultez [planifier le déploiement d’appareils à l’aide de l’attribution discrète des](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md)appareils.
+> Si aucun pilote de partitionnement n’est fourni, pendant le démontage, vous devez utiliser l’option `-force` pour ignorer l’avertissement de sécurité. Pour plus d’informations sur les implications en matière de sécurité, consultez [planifier le déploiement d’appareils à l’aide de l’attribution discrète des](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md)appareils.
 
 ### <a name="locating-the-devices-location-path"></a>Recherche du chemin d’accès à l’emplacement de l’appareil
-Le chemin d’accès à l’emplacement PCI est requis pour démonter et monter l’appareil à partir de l’ordinateur hôte.  Un exemple de chemin d’accès à l’emplacement `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`ressemble à ce qui suit :.  Pour plus d’informations sur le chemin d’accès de l’emplacement, consultez : [Planifiez le déploiement d’appareils à l’aide de l’attribution discrète des appareils](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+Le chemin d’accès à l’emplacement PCI est requis pour démonter et monter l’appareil à partir de l’ordinateur hôte.  Un exemple de chemin d’accès à l’emplacement ressemble à ce qui suit : `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.  Pour plus d’informations sur le chemin d’accès de l’emplacement, cliquez ici : [planifier le déploiement des appareils à l’aide de l’attribution discrète des appareils](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
 
 ### <a name="disable-the-device"></a>Désactiver l’appareil
 À l’aide de Device Manager ou de PowerShell, assurez-vous que l’appareil est « désactivé ».  
@@ -99,7 +100,7 @@ Mount-VMHostAssignableDevice -LocationPath $locationPath
 ```
 Vous pouvez ensuite réactiver l’appareil dans le gestionnaire de périphériques et le système d’exploitation hôte pourra à nouveau interagir avec l’appareil.
 
-## <a name="examples"></a>Exemples
+## <a name="example"></a>Exemple
 
 ### <a name="mounting-a-gpu-to-a-vm"></a>Montage d’un GPU sur une machine virtuelle
 Dans cet exemple, nous utilisons PowerShell pour configurer une machine virtuelle nommée « ddatest1 » afin de prendre le premier GPU disponible par le fabricant NVIDIA et de l’affecter à la machine virtuelle.  
@@ -131,3 +132,13 @@ Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
 #Assign the device to the guest VM.
 Add-VMAssignableDevice -LocationPath $locationPath -VMName $vm
 ```
+
+## <a name="troubleshooting"></a>Dépannage
+
+Si vous avez passé un GPU à une machine virtuelle mais que Bureau à distance ou une application ne reconnaît pas le GPU, vérifiez les problèmes courants suivants :
+
+- Vérifiez que vous avez installé la version la plus récente du pilote pris en charge par le fournisseur de GPU et que le pilote ne signale pas d’erreurs en vérifiant l’état de l’appareil dans Device Manager.
+- Assurez-vous que votre appareil a suffisamment d’espace MMIO alloué au sein de la machine virtuelle. Pour plus d’informations, consultez la section [MMIO Space](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md#mmio-space).
+- Assurez-vous que vous utilisez un GPU que le fournisseur prend en charge dans cette configuration. Par exemple, certains fournisseurs empêchent les cartes de leurs consommateurs de fonctionner lorsqu’ils sont passés à une machine virtuelle.
+- Assurez-vous que l’application en cours d’exécution prend en charge l’exécution à l’intérieur d’une machine virtuelle, et que le GPU et ses pilotes associés sont pris en charge par l’application. Certaines applications ont des listes verte d’unités GPU et d’environnements.
+- Si vous utilisez le rôle d’hôte de session Bureau à distance ou Windows multipoint services sur l’invité, vous devez vous assurer qu’une entrée de stratégie de groupe spécifique est définie pour autoriser l’utilisation du GPU par défaut. À l’aide d’un objet stratégie de groupe appliqué à l’invité (ou à l’éditeur de stratégie de groupe local sur l’invité), accédez à l’élément de stratégie de groupe suivant : **Configuration ordinateur** > **modèles d’administrateur** > **composants Windows** > **Services Bureau à distance** > **Bureau à distance hôte de session** > l' **environnement de session à distance** > **utiliser la carte graphique par défaut matérielle pour toutes les sessions de services Bureau à distance**. Définissez cette valeur sur activé, puis redémarrez la machine virtuelle une fois que la stratégie a été appliquée.

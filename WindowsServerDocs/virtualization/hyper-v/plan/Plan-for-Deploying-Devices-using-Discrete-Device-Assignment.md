@@ -8,22 +8,22 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
-ms.date: 02/06/2018
-ms.openlocfilehash: 7084f4951ebe1d1203f4c9e45bc5f73cc6487a84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 08/21/2019
+ms.openlocfilehash: 114dd87b86bfffd1070229af57ae65deea2c2db0
+ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364192"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72923862"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Planifier le déploiement d’appareils à l’aide de l’affectation discrète des appareils
->S'applique à : Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
+>S’applique à : Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
 
 L’affectation discrète des appareils permet d’accéder directement au matériel PCIe physique à partir d’un ordinateur virtuel.  Ce guide aborde le type d’appareils qui peuvent utiliser l’affectation discrète des appareils, la configuration requise pour l’ordinateur hôte, les limitations imposées aux machines virtuelles et les implications en termes de sécurité de l’affectation discrète des appareils.
 
-Pour la version initiale de l’attribution d’appareils discret, nous nous sommes concentrés sur deux classes d’appareils qui doivent être formellement prises en charge par Microsoft : Les adaptateurs graphiques et les périphériques de stockage NVMe.  D’autres périphériques sont susceptibles de fonctionner et les fournisseurs de matériel peuvent offrir des déclarations de prise en charge pour ces appareils.  Pour ces autres appareils, contactez les fournisseurs de matériel pour obtenir de l’aide.
+Pour la version initiale de l’attribution d’appareils discret, nous nous sommes concentrés sur deux classes d’appareils qui doivent être formellement prises en charge par Microsoft : les cartes graphiques et les périphériques de stockage NVMe.  D’autres périphériques sont susceptibles de fonctionner et les fournisseurs de matériel peuvent offrir des déclarations de prise en charge pour ces appareils.  Pour ces autres appareils, contactez les fournisseurs de matériel pour obtenir de l’aide.
 
-Si vous êtes prêt à essayer l’attribution discrète des appareils, vous pouvez passer au [déploiement de périphériques graphiques à l’aide d’une attribution d’appareil discrète](../deploy/Deploying-graphics-devices-using-dda.md) ou du déploiement de périphériques de [stockage à l’aide de l’attribution d’appareil discrète](../deploy/Deploying-storage-devices-using-dda.md) pour commencer.
+Pour en savoir plus sur les autres méthodes de virtualisation de GPU, consultez [planifier l’accélération GPU dans Windows Server](plan-for-gpu-acceleration-in-windows-server.md). Si vous êtes prêt à essayer l’attribution discrète des appareils, vous pouvez passer au [déploiement de périphériques graphiques à l’aide de l’attribution discrète](../deploy/Deploying-graphics-devices-using-dda.md) des appareils ou [en déployant des dispositifs de stockage à l’aide de l’attribution de périphérique discrète](../deploy/Deploying-storage-devices-using-dda.md) pour commencer.
 
 ## <a name="supported-virtual-machines-and-guest-operating-systems"></a>Machines virtuelles et systèmes d’exploitation invités pris en charge
 L’affectation discrète d’appareils est prise en charge pour les machines virtuelles de génération 1 ou 2.  En outre, les invités pris en charge incluent Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 avec [KB 3133690](https://support.microsoft.com/kb/3133690) appliqué et diverses distributions du [système d’exploitation Linux.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
@@ -57,10 +57,10 @@ L’attribution d’appareil discrète transmet l’intégralité de l’apparei
 
 Si l’administrateur souhaite utiliser un appareil avec un locataire non approuvé, nous fournissons des fabriques de périphériques avec la possibilité de créer un pilote d’atténuation des appareils qui peut être installé sur l’ordinateur hôte.  Veuillez contacter le fabricant de l’appareil pour savoir s’il fournit un pilote d’atténuation des appareils.
 
-Si vous souhaitez contourner les vérifications de sécurité pour un appareil qui n’a pas de pilote d’atténuation des appareils, vous devez passer le paramètre `-Force` à l’applet de commande `Dismount-VMHostAssignableDevice`.  Sachez qu’en procédant ainsi, vous avez modifié le profil de sécurité de ce système et cela est recommandé uniquement durant le prototypage ou les environnements de confiance.
+Si vous souhaitez contourner les vérifications de sécurité pour un appareil qui n’a pas de pilote d’atténuation des appareils, vous devez transmettre le paramètre `-Force` à l’applet de commande `Dismount-VMHostAssignableDevice`.  Sachez qu’en procédant ainsi, vous avez modifié le profil de sécurité de ce système et cela est recommandé uniquement durant le prototypage ou les environnements de confiance.
 
 ## <a name="pcie-location-path"></a>Chemin de l’emplacement PCIe
-Le chemin d’accès à l’emplacement PCIe est requis pour démonter et monter l’appareil à partir de l’hôte.  Un exemple de chemin d’accès à l’emplacement `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`ressemble à ce qui suit :.   Le [script de profil d’ordinateur](#machine-profile-script) retourne également le chemin d’accès de l’emplacement du périphérique PCIe.
+Le chemin d’accès à l’emplacement PCIe est requis pour démonter et monter l’appareil à partir de l’hôte.  Un exemple de chemin d’accès à l’emplacement ressemble à ce qui suit : `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Le [script de profil d’ordinateur](#machine-profile-script) retourne également le chemin d’accès de l’emplacement du périphérique PCIe.
 
 ### <a name="getting-the-location-path-by-using-device-manager"></a>Obtention du chemin d’accès à l’emplacement à l’aide de Device Manager
 ![Gestionnaire de périphériques](../deploy/media/dda-devicemanager.png)
@@ -113,42 +113,3 @@ Si le système n’est pas correctement configuré pour prendre en charge l’af
 Pour chaque périphérique trouvé, l’outil indique s’il peut être utilisé avec l’affectation discrète des appareils. Si un appareil est identifié comme étant compatible avec l’affectation discrète des appareils, le script vous fournira une raison.  Quand un appareil est correctement identifié comme étant compatible, le chemin d’accès à l’emplacement de l’appareil s’affiche.  En outre, si cet appareil requiert un [espace MMIO](#mmio-space), il s’affichera également.
 
 ![SurveyDDA. ps1](./images/hyper-v-surveydda-ps1.png)
-
-## <a name="frequently-asked-questions"></a>Questions fréquemment posées
-
-### <a name="how-does-remote-desktops-remotefx-vgpu-technology-relate-to-discrete-device-assignment"></a>Comment la technologie de processeur graphique virtuel RemoteFX de Bureau à distance est-elle liée à l’affectation discrète des appareils ?
-Il s’agit de technologies entièrement distinctes. Le processeur graphique virtuel RemoteFX n’a pas besoin d’être installé pour que l’attribution de périphérique discrète fonctionne. En outre, aucun rôle supplémentaire ne doit être installé. Le processeur graphique virtuel RemoteFX requiert l’installation du rôle RDVH afin que le pilote de processeur graphique virtuel RemoteFX soit présent dans la machine virtuelle. Pour l’affectation discrète des appareils, étant donné que vous allez installer le pilote du fournisseur de matériel dans la machine virtuelle, aucun autre rôle ne doit être présent.  
-
-### <a name="ive-passed-a-gpu-into-a-vm-but-remote-desktop-or-an-application-isnt-recognizing-the-gpu"></a>J’ai passé un GPU à une machine virtuelle, mais Bureau à distance ou une application ne reconnaît pas le GPU
-Cela peut se produire pour plusieurs raisons, mais plusieurs problèmes courants sont répertoriés ci-dessous.
-- Assurez-vous que le dernier pilote du fournisseur de GPU est installé et qu’il ne signale pas d’erreur en vérifiant l’état de l’appareil dans la Device Manager.
-- Vérifiez que l' [espace MMIO](#mmio-space) alloué à l’appareil est suffisant dans la machine virtuelle.
-- Vérifiez que vous utilisez un GPU que le fournisseur prend en charge dans cette configuration. Par exemple, certains fournisseurs empêchent les cartes de leurs consommateurs de fonctionner lorsqu’ils sont passés à une machine virtuelle.
-- Assurez-vous que l’application en cours d’exécution prend en charge l’exécution dans une machine virtuelle, et que le GPU et ses pilotes associés sont pris en charge par l’application. Certaines applications ont des listes d’autorisation des GPU et des environnements.
-- Si vous utilisez le rôle d’hôte de session Bureau à distance ou Windows multipoint services sur l’invité, vous devez vous assurer qu’une entrée de stratégie de groupe spécifique est définie pour autoriser l’utilisation du GPU par défaut. À l’aide d’un objet stratégie de groupe appliqué à l’invité (ou à l’éditeur de stratégie de groupe local sur l’invité), accédez à l’élément de stratégie de groupe suivant :
-   - Configuration ordinateur
-   - Modèles d’administrateur
-   - Composants Windows
-   - Services Bureau à distance
-   - Hôte de session Bureau à distance
-   - Environnement de session à distance
-   - Utiliser la carte graphique par défaut matérielle pour toutes les sessions Services Bureau à distance
-
-    Définissez cette valeur sur activé, puis redémarrez la machine virtuelle une fois que la stratégie a été appliquée.
-
-### <a name="can-discrete-device-assignment-take-advantage-of-remote-desktops-avc444-codec"></a>L’attribution d’appareil discrète peut-elle tirer parti du codec AVC444 de Bureau à distance ?
-Oui, consultez ce billet de blog pour plus d’informations : [Améliorations de l’protocole RDP (Remote Desktop Protocol) (RDP) 10 AVC/H. 264 dans Windows 10 et Windows Server 2016 Technical Preview.](https://blogs.technet.microsoft.com/enterprisemobility/2016/01/11/remote-desktop-protocol-rdp-10-avch-264-improvements-in-windows-10-and-windows-server-2016-technical-preview/)
-
-### <a name="can-i-use-powershell-to-get-the-location-path"></a>Puis-je utiliser PowerShell pour récupérer le chemin d’accès à l’emplacement ?
-Oui, il existe différentes façons de procéder. Voici un exemple :
-```
-#Enumerate all PNP Devices on the system
-$pnpdevs = Get-PnpDevice -presentOnly
-#Select only those devices that are Display devices manufactured by NVIDIA
-$gpudevs = $pnpdevs |where-object {$_.Class -like "Display" -and $_.Manufacturer -like "NVIDIA"}
-#Select the location path of the first device that's available to be dismounted by the host.
-$locationPath = ($gpudevs | Get-PnpDeviceProperty DEVPKEY_Device_LocationPaths).data[0]
-```
-
-### <a name="can-discrete-device-assignment-be-used-to-pass-a-usb-device-into-a-vm"></a>Est-il possible d’utiliser l’attribution d’appareil discrète pour passer un périphérique USB à une machine virtuelle ?
-Bien qu’ils ne soient pas officiellement pris en charge, nos clients ont utilisé l’affectation discrète des appareils pour effectuer cette opération en transmettant l’ensemble du contrôleur USB3 dans une machine virtuelle.  Lorsque l’ensemble du contrôleur est passé, chaque périphérique USB relié à ce contrôleur est également accessible dans la machine virtuelle.  Notez que seuls certains contrôleurs USB3 peuvent fonctionner et que les contrôleurs USB2 ne peuvent pas être utilisés avec l’affectation discrète des appareils.
