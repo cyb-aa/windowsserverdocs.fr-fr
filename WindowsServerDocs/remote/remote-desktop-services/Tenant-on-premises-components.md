@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: b3eebb38-a835-4fa6-9e41-1966014bf2cb
 author: lizap
 manager: dongill
-ms.openlocfilehash: a9ff1382d2a2e7e2acf0247fa2ba4ae8e9642162
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ae0a711d146de5b7eff272916cc7f06568848e6
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387842"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812262"
 ---
 # <a name="tenant-on-premises-components"></a>Composants locaux de locataire
 
@@ -30,7 +30,6 @@ Les informations suivantes décrivent les composants locaux faisant partie d’u
 Pour accéder aux postes de travail et aux applications hébergés, les utilisateurs doivent utiliser les clients Bureau à distance prenant en charge le protocole RDP (Remote Desktop) 7.1 ou une version ultérieure. En particulier, le client doit prendre en charge la passerelle des services Bureau à distance et le service Broker pour les connexions Bureau à distance. Pour fournir des applications sur le poste de travail local, le client doit également en charge la fonctionnalité RemoteApp. Pour obtenir une mise à l’échelle de passerelle la plus élevée, le client doit prendre en charge les connexions de transport HTTP pures pour la passerelle des services Bureau à distance.  
   
 Informations complémentaires :  
-[Appareils compatibles avec RemoteFX](https://social.technet.microsoft.com/wiki/contents/articles/14534.remotefx-enabled-devices.aspx)  
 [Nouveautés de la passerelle Bureau à distance Windows Server 2012 R2](https://blogs.technet.microsoft.com/enterprisemobility/2013/03/14/whats-new-in-windows-server-2012-remote-desktop-gateway/#transport)  
 [Clients Bureau à distance Microsoft](https://technet.microsoft.com/library/dn473009.aspx)  
 [Application Bureau à distance pour Windows dans Microsoft Store](https://apps.microsoft.com/windows/app/remote-desktop/051f560e-5e9b-4dad-8b2e-fa5e0b05a480)  

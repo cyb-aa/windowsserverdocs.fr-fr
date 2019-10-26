@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
-ms.date: 09/16/2016
+ms.date: 10/22/2019
 manager: dongill
-ms.openlocfilehash: 7429cd9cb87db310a716136c171de47cfe0892f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9386733911ca81ad60d038854bd68e5603aae4cf
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387360"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812285"
 ---
 # <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Utiliser des bureaux de session personnels avec les services Bureau à distance
 
@@ -100,6 +100,3 @@ L'applet de commande **Export-RDPersonalPersonalDesktopAssignment** exporte les 
 
 
 Les nouvelles applets de commande prennent toutes en charge les paramètres courants : -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer et -OutVariable. Pour plus d'informations, consultez [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
-
-## <a name="hardware-accelerated-graphics"></a>Graphiques à accélération matérielle
-Windows Server 2016 étend la technologie de la carte graphique RemoteFX vGPU 3D pour prendre en charge OpenGL, et prend en charge les machines virtuelles mono-utilisateur Windows Server 2016 invitées. Vous pouvez combiner des bureaux de session personnels avec les nouvelles fonctionnalités vGPU pour prendre en charge les applications hébergées nécessitant un affichage graphique accéléré. Sinon, vous pouvez combiner des bureaux de session personnels avec la nouvelle fonctionnalité DDA (Discrete Device Assignment) pour prendre en charge les applications hébergées nécessitant un affichage graphique accéléré.
