@@ -1,25 +1,25 @@
 ---
 title: Vue d’ensemble de Storage migration service
-description: Le Service de migration du stockage facilite la migration des serveurs vers une version plus récente de Windows Server. Il fournit un outil graphique qui inventorie les données sur les serveurs, puis transfère les données et la configuration vers de nouveaux serveurs, le tout sans que les applications ou les utilisateurs aient à changer quoi que ce soit.
+description: Storage migration service facilite la migration du stockage vers Windows Server ou vers Azure. Il fournit un outil graphique qui inventorit les données sur les serveurs Windows et Linux, puis transfère les données vers des serveurs plus récents ou vers des machines virtuelles Azure. Le service de migration de stockage offre également la possibilité de transférer l’identité d’un serveur vers le serveur de destination afin que les applications et les utilisateurs puissent accéder à leurs données sans modifier les liens ou les chemins d’accès.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 08/16/2019
+ms.date: 10/25/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 022b0c3445c007960c490159f6580a702233ee41
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 712befacaf1d5bddd4f9bd993ce0d423b15cba36
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402974"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986452"
 ---
 # <a name="storage-migration-service-overview"></a>Vue d’ensemble de Storage migration service
 
 >S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server (canal semi-annuel)
 
-Le Service de migration du stockage facilite la migration des serveurs vers une version plus récente de Windows Server. Il fournit un outil graphique qui inventorie les données sur les serveurs, puis transfère les données et la configuration vers de nouveaux serveurs, le tout sans que les applications ou les utilisateurs aient à changer quoi que ce soit.
+Storage migration service facilite la migration du stockage vers Windows Server ou vers Azure. Il fournit un outil graphique qui inventorit les données sur les serveurs Windows et Linux, puis transfère les données vers des serveurs plus récents ou vers des machines virtuelles Azure. Le service de migration de stockage offre également la possibilité de transférer l’identité d’un serveur vers le serveur de destination afin que les applications et les utilisateurs puissent accéder à leurs données sans modifier les liens ou les chemins d’accès.
 
 Cette rubrique explique pourquoi vous pouvez utiliser le service de migration de stockage, comment fonctionne le processus de migration et quelles sont les exigences pour les serveurs source et de destination.
 
@@ -34,7 +34,7 @@ Utilisez le service de migration de stockage, car vous disposez d’un serveur (
 
 ![Diagramme montrant le service de migration de stockage migration des fichiers & Configuration des serveurs source vers les serveurs de destination, les machines virtuelles Azure ou les Azure File Sync.](media/overview/storage-migration-service-diagram.png)
 
-**Figure 1 : Sources et destinations du service de migration du stockage**
+**Figure 1 : sources et destinations du service de migration du stockage**
 
 ## <a name="how-the-migration-process-works"></a>Fonctionnement du processus de migration
 
@@ -42,12 +42,12 @@ La migration est un processus en trois étapes :
 
 1. Les **serveurs d’inventaire** pour collecter des informations sur leurs fichiers et leur configuration (voir figure 2).
 2. **Transférer (copier) les données** des serveurs source vers les serveurs de destination.
-3. Passer **aux nouveaux serveurs** (facultatif).<br>Les serveurs de destination supposent les anciennes identités des serveurs sources, de sorte que les applications et les utilisateurs n’ont pas à modifier quoi que ce soit. <br>Les serveurs sources entrent dans un état de maintenance où ils contiennent toujours les mêmes fichiers qu’ils ont toujours (nous ne supprimons jamais les fichiers des serveurs source), mais ils ne sont pas disponibles pour les utilisateurs et les applications. Vous pouvez ensuite désactiver les serveurs à votre convenance.
+3. **Basculez vers les nouveaux serveurs** (facultatif).<br>Les serveurs de destination supposent les anciennes identités des serveurs sources, de sorte que les applications et les utilisateurs n’ont pas à modifier quoi que ce soit. <br>Les serveurs sources entrent dans un état de maintenance où ils contiennent toujours les mêmes fichiers qu’ils ont toujours (nous ne supprimons jamais les fichiers des serveurs source), mais ils ne sont pas disponibles pour les utilisateurs et les applications. Vous pouvez ensuite désactiver les serveurs à votre convenance.
 
-![Capture d’écran montrant un serveur prêt à être](media/migrate/inventory.png)
-analysé**figure 2 : Serveurs d’inventaire du service de migration du stockage**
+Capture d’écran ![montrant un serveur prêt à être analysé](media/migrate/inventory.png)
+**figure 2 : serveurs d’inventaire du service de migration du stockage**
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Conditions préalables
 
 Pour utiliser le service de migration de stockage, vous avez besoin des éléments suivants :
 
@@ -81,18 +81,18 @@ Le serveur source doit exécuter l’un des systèmes d’exploitation suivants�
 
 - Windows Server, canal semi-annuel
 - Windows Server 2019
-- Windows Server 2016
+- Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2
-- Windows Server 2008
-- Windows Server 2003 R2
-- Windows Server 2003
+- Windows Server 2008
+- Windows Server 2003 R2
+- Windows Server 2003
 - Windows Small Business Server 2003 R2
 - Windows Small Business Server 2008
 - Windows Small Business Server 2011
 - Windows Server 2012 Essentials
-- Windows Server 2012 R2 Essentials
+- Windows Server2012R2 Essentials
 - WindowsServer2016 Essentials
 - Windows Server 2019 Essentials
 
@@ -115,7 +115,7 @@ Le serveur de destination doit exécuter l’un des systèmes d’exploitation s
 
 - Windows Server, canal semi-annuel
 - Windows Server 2019
-- Windows Server 2016
+- Windows Server 2016
 - Windows Server 2012 R2
 
 > [!TIP]
@@ -131,7 +131,7 @@ Les nouvelles fonctionnalités suivantes sont disponibles lors de l’exécution
 - Synchroniser plus facilement des partages migrés dans Azure à l’aide d’Azure File Sync
 - Migrer vers de nouveaux réseaux comme Azure
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 
 - [Migrer un serveur de fichiers à l’aide du service de migration de stockage](migrate-data.md)
 - [Forum aux questions sur Storage migration services (FAQ)](faq.md)

@@ -11,14 +11,14 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 manager: jasgro
-ms.date: 08/22/2019
+ms.date: 10/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 261023223b56e235320b7ad414fa91206420b1ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2d3a871165812ac3a27e65b5f52cc56a05c9efe
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360838"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812294"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server 2019
 
@@ -41,6 +41,7 @@ Nous supprimons les fonctions et fonctionnalités suivantes de l’image de prod
 | Business Scanning, également appelée Gestion de la numérisation distribuée (DSM)|Nous supprimons cette fonctionnalité d’analyse sécurisée et de gestion de scanneur : aucun appareil ne prend en charge cette fonctionnalité. |
 | Composants d’impression : composant devenu facultatif pour les installations Server Core|Dans les versions précédentes de Windows Server, les composants d’impression étaient *désactivés* par défaut dans l’option d’installation Server Core. Nous avons changé cela dans Windows Server 2016, en les activant par défaut. Dans Windows Server 2019, ces composants d’impression sont à nouveau désactivés par défaut pour Server Core. Si vous devez les activer, vous pouvez le faire en exécutant l’applet de commande **Install-WindowsFeature Print-Server**. |
 | [Service Broker pour les connexions Bureau à distance et Serveur hôte de virtualisation des services Bureau à distance](../remote/remote-desktop-services/desktop-hosting-service.md) sur une installation Server Core|La plupart des déploiements des Services Bureau à distance ont ces rôles colocalisés avec l’Hôte de session Bureau à distance, ce qui nécessite un serveur avec Expérience utilisateur. Par souci de cohérence avec la fonctionnalité Serveur hôte de virtualisation des services Bureau à distance, nous changeons ces rôles pour qu’ils exigent également un serveur avec Expérience utilisateur. Ces rôles des services Bureau à distance ne peuvent plus être utilisés dans une [installation Server Core](../administration/server-core/what-is-server-core.md). Si vous avez besoin de [déployer ces rôles dans le cadre de votre infrastructure de Bureau à distance](../remote/remote-desktop-services/rds-deploy-infrastructure.md), vous pouvez [les installer sur Windows Server avec Expérience utilisateur](../get-started/getting-started-with-server-with-desktop-experience.md). <br/><br/>Ces rôles sont également inclus dans l’option d’installation Expérience utilisateur de Windows Server 2019. |
+| [Carte vidéo 3D RemoteFX (vGPU)](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|Nous mettons au point de nouvelles options d’accélération graphique pour les environnements virtualisés. Vous pouvez également utiliser [Discrete Device Assignment (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) en guise d’alternative. |
 
 ## <a name="features-were-no-longer-developing"></a>Fonctionnalités que nous ne développons plus
 

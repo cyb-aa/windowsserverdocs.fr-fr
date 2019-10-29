@@ -8,16 +8,17 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 686fd2ed5969d191240bbd726f1d759e9974f08a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 70014c04bbb4425fe3c3fd0379f10cf00abe00ee
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386680"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986443"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Créer un disque de modèle d’ordinateur virtuel protégé Windows
 
->S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2019
+
 
 Comme pour les machines virtuelles standard, vous pouvez créer un modèle d’ordinateur virtuel (par exemple, un [modèle d’ordinateur virtuel dans Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-library-add-vm-templates)) pour permettre aux locataires et aux administrateurs de déployer facilement de nouvelles machines virtuelles sur l’infrastructure à l’aide d’un disque de modèle. Étant donné que les machines virtuelles protégées sont des ressources sensibles à la sécurité, il existe des étapes supplémentaires pour créer un modèle d’ordinateur virtuel qui prend en charge la protection. Cette rubrique décrit les étapes de création d’un disque de modèle protégé et d’un modèle d’ordinateur virtuel dans VMM.
 
@@ -27,13 +28,13 @@ Pour comprendre le fonctionnement de cette rubrique dans le processus global de 
 
 Préparez tout d’abord un disque de système d’exploitation que vous exécuterez ensuite via l’Assistant de création de disque de modèle protégé. Ce disque sera utilisé comme disque de système d’exploitation dans les machines virtuelles de votre locataire. Vous pouvez utiliser n’importe quel outil existant pour créer ce disque, tel que Microsoft Desktop image Service Manager (DISM), ou configurer manuellement une machine virtuelle avec un VHDX vide et installer le système d’exploitation sur ce disque. Quand vous configurez le disque, celui-ci doit respecter les conditions suivantes qui sont spécifiques aux machines virtuelles de génération 2 et/ou protégées : 
 
-| Exigence pour VHDX | Reason |
+| Exigence pour VHDX | Raison |
 |-----------|----|
 |Doit être un disque de table de partition GUID (GPT) | Nécessaire pour que les ordinateurs virtuels de génération 2 prennent en charge UEFI|
-|Le type de disque doit être de **base** et non **dynamique**. <br>Remarque : Cela fait référence au type de disque logique, et non à la fonctionnalité VHDX « extensible dynamiquement » prise en charge par Hyper-V. | BitLocker ne prend pas en charge les disques dynamiques.|
+|Le type de disque doit être de **base** et non **dynamique**. <br>Remarque : cela fait référence au type de disque logique, et non à la fonctionnalité VHDX « extensible dynamiquement » prise en charge par Hyper-V. | BitLocker ne prend pas en charge les disques dynamiques.|
 |Le disque comporte au moins deux partitions. Une partition doit inclure le lecteur sur lequel Windows est installé. Il s’agit du lecteur que BitLocker chiffrera. L’autre partition est la partition active, qui contient le chargeur de démarrage et reste non chiffrée afin que l’ordinateur puisse être démarré.|Requis pour BitLocker|
 |Le système de fichiers est NTFS | Requis pour BitLocker|
-|Le système d’exploitation installé sur le VHDX est l’un des éléments suivants :<br>-Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Nécessaire pour prendre en charge les ordinateurs virtuels de 2e génération et le modèle de démarrage sécurisé Microsoft|
+|Le système d’exploitation installé sur le VHDX est l’un des éléments suivants :<br>-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Nécessaire pour prendre en charge les ordinateurs virtuels de 2e génération et le modèle de démarrage sécurisé Microsoft|
 |Le système d’exploitation doit être généralisé (exécuter Sysprep. exe) | L’approvisionnement de modèles implique la spécialisation des machines virtuelles pour la charge de travail d’un locataire spécifique| 
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Pour utiliser un disque de modèle avec des machines virtuelles dotées d’une 
 > [!NOTE]
 > L’Assistant disque de modèle va modifier le disque de modèle que vous spécifiez sur place. Vous pouvez effectuer une copie du VHDX non protégé avant d’exécuter l’Assistant pour effectuer ultérieurement des mises à jour sur le disque. Vous ne pourrez pas modifier un disque qui a été protégé à l’aide de l’Assistant Création d’un disque de modèle.
 
-Effectuez les étapes suivantes sur un ordinateur exécutant Windows Server 2016 (il n’est pas nécessaire qu’il s’agit d’un hôte service Guardian ou d’un serveur VMM) :
+Effectuez les étapes suivantes sur un ordinateur exécutant Windows Server 2016, Windows 10 (avec les outils d’administration de serveur distant, RSAT installés) ou version ultérieure (il n’est pas nécessaire qu’il s’agit d’un hôte service Guardian ou d’un serveur VMM) :
 
 1. Copiez le VHDX généralisé créé dans [préparer un système d’exploitation vhdx](#prepare-an-operating-system-vhdx) au serveur, s’il n’est pas déjà présent.
 
@@ -92,7 +93,7 @@ Si vous utilisez VMM, suivez les étapes décrites dans les autres sections de c
 
 Si vous utilisez VMM, après avoir créé un disque de modèle, vous devez le copier dans un partage de bibliothèque VMM afin que les hôtes puissent télécharger et utiliser le disque lors de la configuration de nouvelles machines virtuelles. Utilisez la procédure suivante pour copier le disque de modèle dans la bibliothèque VMM, puis actualisez la bibliothèque.
 
-1. Copiez le fichier VHDX dans le dossier de partage de bibliothèque VMM. Si vous avez utilisé la configuration VMM par défaut, copiez le disque de modèle sur _\\ @ no__t-2\MSSCVMMLibrary\VHDs_.
+1. Copiez le fichier VHDX dans le dossier de partage de bibliothèque VMM. Si vous avez utilisé la configuration VMM par défaut, copiez le disque de modèle sur _\\<vmmserver>\MSSCVMMLibrary\VHDs_.
 
 2. Actualisez le serveur de bibliothèque. Ouvrez l’espace de travail **bibliothèque** , développez **serveurs de bibliothèque**, cliquez avec le bouton droit sur le serveur de bibliothèque que vous souhaitez actualiser, puis cliquez sur **Actualiser**.
 
@@ -135,7 +136,8 @@ Une fois le modèle créé, les locataires peuvent l’utiliser pour créer des 
 
 ## <a name="prepare-and-protect-the-vhdx-using-powershell"></a>Préparer et protéger le VHDX à l’aide de PowerShell
 
-Comme alternative à l’exécution de l’Assistant disque de modèle, vous pouvez copier votre disque de modèle et votre certificat sur un ordinateur exécutant RSAT et exécuter [Protect-TemplateDisk @ no__t-1 pour initier le processus de signature.
+Comme alternative à l’exécution de l’Assistant disque de modèle, vous pouvez copier votre disque de modèle et votre certificat sur un ordinateur exécutant RSAT et exécuter [Protect-TemplateDisk](https://docs.microsoft.com/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps
+) pour initier le processus de signature.
 L’exemple suivant utilise les informations de nom et de version spécifiées par les paramètres _TemplateName_ et _version_ .
 Le VHDX que vous fournissez au paramètre `-Path` sera remplacé par le disque de modèle mis à jour. Assurez-vous de faire une copie avant d’exécuter la commande.
 
@@ -165,7 +167,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [Créer un fichier de données de protection](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 
 - [Étapes de configuration du fournisseur de services d’hébergement pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

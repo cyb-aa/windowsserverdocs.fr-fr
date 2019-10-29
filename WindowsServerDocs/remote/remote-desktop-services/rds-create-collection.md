@@ -7,18 +7,18 @@ ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 11/08/2016
+ms.date: 10/22/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae9767e3-864a-4eb2-96c0-626759ce6d60
 author: lizap
 manager: dongill
-ms.openlocfilehash: cec1ae43b51b17da5617f95e13b839d4ecfbb40c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 92af2b4e9fb174f1aa815256148ee8d5c7c7181a
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404010"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812256"
 ---
 # <a name="create-a-remote-desktop-services-collection-for-desktops-and-apps-to-run"></a>Créer une collection de services Bureau à distance pour les bureaux et les applications à exécuter
 
@@ -33,7 +33,7 @@ Avant de créer une collection, vous devez choisir le type de collection dont vo
  
 Avec une session regroupée, plusieurs utilisateurs accèdent à un pool partagé de ressources, alors qu’une session de bureaux personnelle affecte les utilisateurs à leur propre bureau au sein du pool. La session regroupée dispose d’un coût inférieur, tandis que les sessions personnelles permettent aux utilisateurs de personnaliser leur expérience.
 
-Si vous avez besoin de partager des applications hébergées et utilisant beaucoup de ressources graphiques, vous pouvez combiner des bureaux en session personnelle avec le processeur graphique RemoteFX configuré pour des accélérations de graphiques. Sinon, vous pouvez combiner des bureaux en session personnelle avec la nouvelle fonctionnalité d’affectation de périphérique en mode discret (DDA) pour prendre en charge les applications hébergées nécessitant des accélérations graphiques. Consultez l’article [Quelle technologie de virtualisation graphique vous convient](rds-graphics-virtualization.md) pour plus d’informations.
+Si vous avez besoin de partager des applications hébergées gourmandes en affichage graphique, vous pouvez combiner des bureaux de session personnels avec la nouvelle fonctionnalité DDA (Discrete Device Assignment) pour prendre en charge les applications hébergées nécessitant un affichage graphique accéléré. Consultez l’article [Quelle technologie de virtualisation graphique vous convient](rds-graphics-virtualization.md) pour plus d’informations.
 
 
 Quel que soit le type de collection que vous choisissez, vous devez remplir ces collections avec RemoteApps (les programmes et les ressources auxquels les utilisateurs peuvent accéder depuis n’importe quel appareil pris en charge et avec lesquels ils peuvent travailler, comme si le programme était exécuté localement).

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 047b08be-7f91-4194-a641-5b6941b92515
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 99930f1b4448bdadad3023558696d77294bd1a91
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3a70f420d841311481962040f9d9ee78c08dd6a
+ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387341"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72923794"
 ---
 # <a name="plan-and-design-your-remote-desktop-services-environment"></a>Planifier et concevoir votre environnement des services Bureau à distance
 
@@ -33,7 +33,7 @@ Utilisez les informations suivantes pour planifier et concevoir votre déploieme
 - [Haute disponibilité](rds-plan-high-availability.md)
 - [Authentification multifacteur](rds-plan-mfa.md)
 - [Stockage sécurisé des données](rds-plan-secure-data-storage.md)
-- [Activer le rendu graphique haute qualité](rds-graphics-virtualization.md)
+- [Accélération GPU](rds-graphics-virtualization.md)
 - [Se connecter sur n’importe quel appareil](rds-plan-connect-from-any-device.md)
 - [Choisir le mode de paiement](rds-plan-choose-how-you-pay.md)
 
