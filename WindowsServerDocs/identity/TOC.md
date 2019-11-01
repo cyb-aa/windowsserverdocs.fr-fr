@@ -20,7 +20,7 @@
 ##### [Langage de règles de transformation de revendications](solution-guides/Claims-Transformation-Rules-Language.md)
 #### [Annexe A : Glossaire du contrôle d’accès dynamique](solution-guides/appendix-A--Dynamic-Access-Control-Glossary.md)
 #### [Annexe B : configuration de l’environnement de test](solution-guides/appendix-B--Setting-Up-the-Test-Environment.md)
-
+### [Configuration d’un service web d’inscription de certificats pour le renouvellement basé sur les clés de certificat sur un port personnalisé](solution-guides/certificate-enrollment-certificate-key-based-renewal.md)
 
 ## [Active Directory Domain Services](ad-ds/active-directory-Domain-Services.md)
 
