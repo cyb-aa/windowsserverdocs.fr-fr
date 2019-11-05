@@ -8,21 +8,21 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: f4e772550aaba6fe9a4f78a6032eaabde4aeb0bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0b4e02e6759bdb91ea51b5dcf5e1d0ae307d13b4
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406865"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567098"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Résolution des problèmes de Windows Admin Center
 
-> S’applique à : Windows Admin Center, Windows Admin Center Preview
+> S’applique à : Centre d’administration Windows, version préliminaire du centre d’administration Windows
 
 > [!Important]
-> Ce guide vous aidera à diagnostiquer et à résoudre les problèmes qui vous empêchent d’utiliser Windows Admin Center. Si vous rencontrez un problème avec un outil spécifique, vérifiez s'il s'agit d'un [problème connu.](http://aka.ms/wacknownissues)
+> Ce guide vous aidera à diagnostiquer et à résoudre les problèmes qui vous empêchent d’utiliser Windows Admin Center. Si vous rencontrez un problème avec un outil spécifique, vérifiez s'il s'agit d'un [problème connu.](https://aka.ms/wacknownissues)
 
-## <a name="installer-fails-with-message-_the-module-microsoftpowershelllocalaccounts-could-not-be-loaded_"></a>Le programme d’installation échoue avec le message : **_Impossible de charger le module « Microsoft. PowerShell. LocalAccounts »._**
+## <a name="installer-fails-with-message-_the-module-microsoftpowershelllocalaccounts-could-not-be-loaded_"></a>Le programme d’installation échoue avec le message :  **_le module « Microsoft. PowerShell. LocalAccounts » n’a pas pu être chargé._**
 
 Cela peut se produire si le chemin d’accès de votre module PowerShell par défaut a été modifié ou supprimé. Pour résoudre le problème, assurez-vous que ```%SystemRoot%\system32\WindowsPowerShell\v1.0\Modules``` est le **premier** élément de votre variable d’environnement PSModulePath. Pour ce faire, vous pouvez utiliser la ligne de commande PowerShell suivante :
 
@@ -53,12 +53,6 @@ Cela peut se produire si le chemin d’accès de votre module PowerShell par dé
 
 ### <a name="if-youve-installed-windows-admin-center-as-a-gateway-on-windows-server"></a>Si vous avez installé Windows Admin Center sous la forme d'une **passerelle sur Windows Server**
 
-* Avez-vous effectué une mise à niveau à partir d’une version précédente du centre d’administration Windows ? Vérifiez que la règle de pare-feu n’a pas été supprimée en raison de [ce problème connu](known-issues.md#upgrade). Utilisez la commande PowerShell ci-dessous pour déterminer si la règle existe. Si ce n’est pas le cas, suivez [ces instructions](known-issues.md#upgrade) pour le recréer.
-    
-    ```powershell
-    Get-NetFirewallRule -DisplayName "SmeInboundOpenException"
-    ```
-
 * [Vérifiez la version Windows](#check-the-windows-version) du client et du serveur.
 
 * Assurez-vous que vous utilisez Microsoft Edge ou Google Chrome comme navigateur web.
@@ -66,7 +60,7 @@ Cela peut se produire si le chemin d’accès de votre module PowerShell par dé
 * Sur le serveur, ouvrez le gestionnaire des tâches > Services et assurez-vous que le **Centre d’administration ServerManagementGateway/Windows** est en cours d’exécution.
 ![](../media/Service-TaskMan.PNG)
 
-* Testez la connexion réseau à la passerelle (remplacez \<values > par les informations de votre déploiement)
+* Tester la connexion réseau à la passerelle (remplacez \<valeurs > par les informations de votre déploiement)
 
     ```powershell
     Test-NetConnection -Port <port> -ComputerName <gateway> -InformationLevel Detailed
@@ -89,16 +83,16 @@ Cela peut se produire si le chemin d’accès de votre module PowerShell par dé
 ### <a name="make-sure-the-windows-remote-management-winrm-service-is-running-on-both-the-gateway-machine-and-managed-node"></a>Assurez-vous que le service Windows Remote Management (WinRM) est en cours d’exécution sur l’ordinateur de passerelle et le nœud géré.
 
 * Ouvrir la boîte de dialogue exécuter avec WindowsKey + R
-* Tapez ```services.msc```, puis appuyez sur entrée.
+* Tapez ```services.msc``` et appuyez sur entrée.
 * Dans la fenêtre qui s’ouvre, recherchez Windows Remote Management (WinRM), assurez-vous qu’il est en cours d’exécution et qu’il est configuré pour démarrer automatiquement
 
 ### <a name="did-you-upgrade-your-server-from-2016-to-2019"></a>Avez-vous mis à niveau votre serveur de 2016 à 2019 ?
 
 * Cela peut avoir effacé les paramètres des hôtes approuvés. [Suivez ces instructions pour mettre à jour vos paramètres d’hôtes approuvés.](#configure-trustedhosts) 
 
-## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>J’obtiens le message suivant : «Impossible de se connecter en toute sécurité à cette page. Cela peut être dû au fait que le site utilise des paramètres de sécurité TLS obsolètes ou non sécurisés.
+## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>J’obtiens le message suivant : «impossible de se connecter en toute sécurité à cette page. Cela peut être dû au fait que le site utilise des paramètres de sécurité TLS obsolètes ou non sécurisés.
 
-Votre ordinateur est limité aux connexions HTTP/2. Le centre d’administration Windows utilise l’authentification Windows intégrée, qui n’est pas prise en charge dans HTTP/2. Ajoutez les deux valeurs de Registre suivantes sous la clé ```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters``` sur **la machine qui exécute le navigateur** pour supprimer la restriction http/2 :
+Votre ordinateur est limité aux connexions HTTP/2. Le centre d’administration Windows utilise l’authentification Windows intégrée, qui n’est pas prise en charge dans HTTP/2. Ajoutez les deux valeurs de Registre suivantes sous la clé ```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters``` sur **l’ordinateur exécutant le navigateur** pour supprimer la restriction http/2 :
 
 ```
 EnableHttp2Cleartext=dword:00000000
@@ -111,11 +105,11 @@ Ces trois outils nécessitent le protocole WebSocket, qui est généralement blo
 
 ## <a name="i-can-connect-to-some-servers-but-not-others"></a>Je peux me connecter à certains serveurs, mais pas à d’autres
 
-* Connectez-vous à la machine de passerelle localement et essayez de ```Enter-PSSession <machine name>``` dans PowerShell, en remplaçant \<machine name > par le nom de l’ordinateur que vous essayez de gérer dans le centre d’administration Windows. 
+* Connectez-vous à la machine de passerelle localement et essayez d' ```Enter-PSSession <machine name>``` dans PowerShell, en remplaçant \<nom de l’ordinateur > par le nom de l’ordinateur que vous essayez de gérer dans le centre d’administration Windows. 
 
 * Si votre environnement utilise un groupe de travail au lieu d’un domaine, voir [utilisation de Windows Admin Center dans un groupe de travail](#using-windows-admin-center-in-a-workgroup).
 
-* **Utilisation de comptes d’administrateur local :** Si vous utilisez un compte d’utilisateur local qui n’est pas le compte administrateur intégré, vous devez activer la stratégie sur l’ordinateur cible en exécutant la commande suivante dans PowerShell ou à partir d’une invite de commandes en tant qu’administrateur sur l’ordinateur cible :
+* **Utilisation de comptes d’administrateur local :** si vous utilisez un compte d’utilisateur local différent du compte d'administrateur intégré, vous devez activer la stratégie sur l’ordinateur cible en exécutant la commande suivante dans PowerShell ou sur une invite de commandes en tant qu’administrateur sur l’ordinateur cible :
 
     ```
     REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1
@@ -197,9 +191,9 @@ netsh http delete urlacl url=https://+:443/
 
 ## <a name="azure-features-dont-work-properly-in-edge"></a>Les fonctionnalités Azure ne fonctionnent pas correctement dans Edge
 
-Edge présente des [problèmes connus](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) liés aux zones de sécurité qui affectent la connexion à Azure dans le centre d’administration Windows. Si vous rencontrez des problèmes lors de l’utilisation des fonctionnalités Azure lors de l’utilisation de Edge, essayez d’ajouter https://login.microsoftonline.com, https://login.live.com et l’URL de votre passerelle en tant que sites de confiance et aux sites autorisés pour les paramètres du bloqueur de fenêtres publicitaires Edge sur le navigateur côté client. 
+Edge présente des [problèmes connus](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) liés aux zones de sécurité qui affectent la connexion à Azure dans le centre d’administration Windows. Si vous rencontrez des problèmes lors de l’utilisation des fonctionnalités Azure lors de l’utilisation de Edge, essayez d’ajouter https://login.microsoftonline.com, https://login.live.com et l’URL de votre passerelle en tant que sites approuvés et aux sites autorisés pour les paramètres du bloqueur de fenêtres publicitaires Edge sur votre navigateur côté client. 
 
-Pour ce faire :
+Pour cela, procédez comme suit :
 1. Rechercher des **Options Internet** dans le menu Démarrer de Windows
 2. Accédez à l’onglet **sécurité** .
 3. Sous l’option **sites de confiance** , cliquez sur le bouton **sites** et ajoutez les URL dans la boîte de dialogue qui s’ouvre. Vous devez ajouter votre URL de passerelle, ainsi que https://login.microsoftonline.com et https://login.live.com.
@@ -208,12 +202,12 @@ Pour ce faire :
 
 ## <a name="having-an-issue-with-an-azure-related-feature"></a>Vous rencontrez un problème avec une fonctionnalité Azure ?
 
-Envoyez-nous un e-mail à l’adresse wacFeedbackAzure@microsoft.com, avec les informations suivantes :
+Envoyez-nous un e-mail à wacFeedbackAzure@microsoft.com avec les informations suivantes :
 * Informations générales sur les problèmes des [questions ci-dessous](#providing-feedback-on-issues).
 * Décrivez votre problème et les étapes que vous avez suivies pour reproduire le problème. 
 * Avez-vous déjà inscrit votre passerelle auprès d’Azure à l’aide du script téléchargeable New-AadApp. ps1, puis vous avez effectué une mise à niveau vers la version 1807 ? Ou avez-vous inscrit votre passerelle sur Azure à l’aide de l’interface utilisateur à partir des paramètres de la passerelle > Azure ?
 * Votre compte Azure est-il associé à plusieurs annuaires/locataires ?
-    * Si oui : Lors de l’inscription de l’application Azure AD au centre d’administration Windows, le répertoire utilisé par défaut dans Azure est-il utilisé ? 
+    * Si oui : lors de l’inscription de l’application Azure AD au centre d’administration Windows, le répertoire utilisé par défaut dans Azure est-il utilisé ? 
 * Votre compte Azure peut-il accéder à plusieurs abonnements ?
 * L’abonnement que vous utilisez a-t-il été lié à la facturation ?
 * Vous êtes-vous connecté à plusieurs comptes Azure lorsque vous rencontrez le problème ?

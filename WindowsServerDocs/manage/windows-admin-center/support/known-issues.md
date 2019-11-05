@@ -8,25 +8,18 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: a579d0274ff4b53a72c17760a6d53ef796625d3a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 23943c9567f371f7598c7dcda6db434760cabeab
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356911"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567084"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problèmes connus de Windows Admin Center
 
-> S’applique à : Windows Admin Center, Windows Admin Center Preview
+> S’applique à : Centre d’administration Windows, version préliminaire du centre d’administration Windows
 
-Si vous rencontrez un problème non décrit dans cette page, veuillez [nous en faire part](http://aka.ms/WACfeedback).
-
-## <a name="lenovo-xclarity-integrator"></a>Intégrateur XClarity Lenovo
-
-Le problème d’incompatibilité précédemment divulgué de l’extension de l’intégrateur XClarity Lenovo et du centre d’administration Windows version 1904 est désormais résolu avec le centre d’administration Windows version 1904,1. Nous vous recommandons vivement de mettre à jour vers la dernière version prise en charge du centre d’administration Windows.
-
-- La version 1,1 de l’extension d’intégrateur Lenovo XClarity est entièrement compatible avec le centre d’administration Windows 1904,1. Nous vous recommandons vivement d’effectuer la mise à jour vers la dernière version du centre d’administration Windows et de l’extension Lenovo.
-- Pour une raison quelconque, si vous devez continuer à utiliser le centre d’administration Windows 1809,5 pour le moment, vous pouvez utiliser XClarity Integrator 1.0.4 qui sera également disponible dans le flux d’extension du centre d’administration Windows jusqu’à ce que le centre d’administration Windows 1809,5 ne soit plus pris en charge en fonction de notre [stratégie de support](../support/index.md).
+Si vous rencontrez un problème non décrit dans cette page, veuillez [nous en faire part](https://aka.ms/WACfeedback).
 
 ## <a name="installer"></a>Programme d’installation
 
@@ -34,20 +27,9 @@ Le problème d’incompatibilité précédemment divulgué de l’extension de l
 
 - L’utilisation du port inférieur à 1024 n’est pas prise en charge. En mode de service, vous pouvez éventuellement configurer le port 80 pour rediriger vers le port spécifié.
 
-- Si le service Windows Update (wuauserv) est arrêté et désactivé, le programme d’installation échoue. [19100629]
-
-### <a name="upgrade"></a>Mise à niveau
-
-- Lors de la mise à niveau du centre d’administration Windows en mode de service à partir d’une version antérieure, si vous utilisez msiexec en mode silencieux, vous risquez de rencontrer un problème où la règle de pare-feu entrante pour le port du centre d’administration Windows est supprimée.
-  - Pour recréer la règle, exécutez la commande suivante à partir d’une console PowerShell avec élévation \<de privilèges, en remplaçant le port > par le port configuré pour le centre d’administration Windows (par défaut 443).
-
-    ```powershell
-    New-NetFirewallRule -DisplayName "SmeInboundOpenException" -Description "Windows Admin Center inbound port exception" -LocalPort <port> -RemoteAddress Any -Protocol TCP
-    ```
-
 ## <a name="general"></a>Général
 
-- Si le centre d’administration Windows est installé en tant que passerelle sur **Windows Server 2016** en cas d’utilisation intensive, le service peut se bloquer avec une erreur dans ```Faulting application name: sme.exe``` le ```Faulting module name: WsmSvc.dll```journal des événements qui contient et. Cela est dû à un bogue qui a été corrigé dans Windows Server 2019. Le correctif pour Windows Server 2016 a été inclus dans la mise à jour cumulative du 2019 du 1er février, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
+- Si le centre d’administration Windows est installé en tant que passerelle sur **Windows Server 2016** en cas d’utilisation intensive, le service peut se bloquer avec une erreur dans le journal des événements qui contient ```Faulting application name: sme.exe``` et ```Faulting module name: WsmSvc.dll```. Cela est dû à un bogue qui a été corrigé dans Windows Server 2019. Le correctif pour Windows Server 2016 a été inclus dans la mise à jour cumulative du 2019 du 1er février, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
 
 - Si vous avez installé le centre d’administration Windows en tant que passerelle et que votre liste de connexions semble endommagée, procédez comme suit :
 
@@ -58,15 +40,7 @@ Le problème d’incompatibilité précédemment divulgué de l’extension de l
   2. Supprimez le dossier **Server Management Experience** sous **C:\Windows\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft**
   3. Réinstaller Windows Admin Center
 
-- Si vous laissez l’outil ouvert et inactif pendant une longue période de temps, vous risquez **de recevoir plusieurs erreurs : L’état de l’instance d’exécution n’est** pas valide pour cette opération. Si cela se produit, actualisez votre navigateur. Si vous rencontrez ce problème, [envoyez-nous vos commentaires](http://aka.ms/WACfeedback).
-
-- Vous pouvez rencontrer une **Erreur 500** lors de l’actualisation des pages avec des URL très longues. [12443710]
-
-- Dans certains outils, le vérificateur d’orthographe de votre navigateur peut marquer certaines valeurs de champ comme mal orthographiées. [12425477]
-
-- Dans certains outils, les boutons de commande peuvent ne pas refléter les modifications d'état immédiatement après un clic de l’utilisateur et l’interface utilisateur de l’outil ne reflète pas automatiquement les modifications apportées à certaines propriétés. Vous pouvez cliquer sur **Actualiser** pour récupérer l’état le plus récent à partir du serveur cible. [11445790]
-
-- Filtrage des balises sur la liste des connexions : Si vous sélectionnez connexions à l’aide des cases à cocher multisélections, puis filtrez votre liste de connexions par balises, la sélection d’origine est conservée, de sorte que toute action sélectionnée s’appliquera à tous les ordinateurs sélectionnés précédemment. [18099259]
+- Si vous laissez l’outil ouvert et inactif pendant une longue période, vous pouvez obtenir plusieurs erreurs **Error: The runspace state is not valid for this operation**. Si cela se produit, actualisez votre navigateur. Si vous rencontrez ce problème, [envoyez-nous vos commentaires](https://aka.ms/WACfeedback).
 
 - Il peut y avoir une variance mineure entre les numéros de version des systèmes d’exploitation en cours d’exécution dans les modules du centre d’administration Windows et ce qui est indiqué dans l’avis du logiciel tiers.
 
@@ -77,29 +51,23 @@ Le problème d’incompatibilité précédemment divulgué de l’extension de l
 
 ## <a name="browser-specific-issues"></a>Problèmes spécifiques du navigateur
 
-### <a name="microsoft-edge"></a>Microsoft Edge
+### <a name="microsoft-edge"></a>Microsoft Edge
 
-- Dans certains cas, vous pouvez constater des temps de chargement longs lorsque vous utilisez Microsoft Edge pour accéder à une passerelle Windows Admin Center via Internet. Cela peut se produire sur les machines virtuelles Azure où la passerelle Windows Admin Center utilise un certificat auto-signé. [13819912]
-
-- Si vous utilisez Azure Active Directory comme fournisseur d’identité et si Windows Admin Center est configuré avec un certificat auto-signé ou autrement non approuvé, vous ne pouvez pas effectuer l’authentification AAD dans Microsoft Edge.  [15968377]
-
-- Si vous avez déployé le centre d’administration Windows en tant que service et que vous utilisez Microsoft Edge comme navigateur, la connexion de votre passerelle à Azure peut échouer après la génération d’une nouvelle fenêtre de navigateur. Essayez de contourner ce problème en ajoutant https://login.microsoftonline.com , https://login.live.com et l’URL de votre passerelle en tant que sites de confiance et sites autorisés pour les paramètres du bloqueur de fenêtres publicitaires sur votre navigateur côté client. Pour plus d’informations sur la résolution de ce problème, dans le [Guide de résolution des problèmes](troubleshooting.md#azure-features-dont-work-properly-in-edge). [17990376]
-
-- Si le centre d’administration Windows est installé en mode Bureau, l’onglet navigateur de Microsoft Edge n’affiche pas le favicon. [17665801]
+- Si vous avez déployé le centre d’administration Windows en tant que service et que vous utilisez Microsoft Edge comme navigateur, la connexion de votre passerelle à Azure peut échouer après la génération d’une nouvelle fenêtre de navigateur. Essayez de contourner ce problème en ajoutant https://login.microsoftonline.com , https://login.live.com et l’URL de votre passerelle en tant que sites approuvés et sites autorisés pour les paramètres du bloqueur de fenêtres publicitaires dans le navigateur côté client. Pour plus d’informations sur la résolution de ce problème, dans le [Guide de résolution des problèmes](troubleshooting.md#azure-features-dont-work-properly-in-edge). [17990376]
 
 ### <a name="google-chrome"></a>Google Chrome
 
-- Avant la version 70 (publiée fin octobre, 2018) chrome présentait un [bogue](https://bugs.chromium.org/p/chromium/issues/detail?id=423609) concernant le protocole WebSocket et l’authentification NTLM. Cela affecte les outils suivants : Événements, PowerShell Bureau à distance.
+- Avant la version 70 (publiée fin octobre, 2018) chrome présentait un [bogue](https://bugs.chromium.org/p/chromium/issues/detail?id=423609) concernant le protocole WebSocket et l’authentification NTLM. Cela affecte les outils suivants : Événements, PowerShell, Bureau à distance.
 
 - Chrome peut afficher plusieurs demandes d'informations d'identification, en particulier pendant l’expérience d'ajout de connexion dans un environnement de **groupe de travail** (hors domaine).
 
-- Si vous avez déployé le centre d’administration Windows en tant que service, les fenêtres contextuelles de l’URL de la passerelle doivent être activées pour que toutes les fonctionnalités d’intégration Azure fonctionnent. Ces services incluent la carte réseau Azure, Azure Update Management et Azure Site Recovery.
+- Si vous avez déployé le centre d’administration Windows en tant que service, les fenêtres contextuelles de l’URL de la passerelle doivent être activées pour que toutes les fonctionnalités d’intégration Azure fonctionnent.
 
-### <a name="mozilla-firefox"></a>Mozilla Firefox
+### <a name="mozilla-firefox"></a>Mozilla Firefox
 
 Windows Admin Center n’est pas testé avec Mozilla Firefox, mais la plupart des fonctionnalités doivent être opérationnelles.
 
-- Installation de Windows 10 : Mozilla Firefox possède son propre magasin de certificats. vous devez donc importer le ```Windows Admin Center Client``` certificat dans Firefox pour utiliser le centre d’administration Windows sur Windows 10.
+- Installation de Windows 10 : Mozilla Firefox possède son propre magasin de certificats. vous devez donc importer le certificat de ```Windows Admin Center Client``` dans Firefox pour utiliser le centre d’administration Windows sur Windows 10.
 
 ## <a name="websocket-compatibility-when-using-a-proxy-service"></a>Compatibilité WebSocket lors de l’utilisation d’un service proxy
 
@@ -124,29 +92,21 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
 
 ## <a name="server-manager-solution"></a>Solution du Gestionnaire de serveur
 
-### <a name="server-settings"></a>Paramètres du serveur
-
-- Si vous modifiez un paramètre, puis essayez de quitter sans l’enregistrer, la page vous avertit des modifications non enregistrées, mais continue à quitter. Vous pouvez vous retrouver dans un État où l’onglet Paramètres sélectionné ne correspond pas au contenu de la page. [19905798] [19905787]
-
 ### <a name="certificates"></a>Certificats
 
 - Impossible d’importer un certificat .PFX chiffré dans le magasin de l’utilisateur actuel. [11818622]
 
-### <a name="devices"></a>Appareils
-
-- Lorsque vous parcourez la table à l’aide de votre clavier, la sélection peut accéder au haut du groupe de tables. [16646059]
-
-### <a name="events"></a>Events
+### <a name="events"></a>Événements
 
 - Les événements sont affectés par la [compatibilité de websocket lors de l’utilisation d’un service de proxy.](#websocket-compatibility-when-using-a-proxy-service)
 
-- Vous pouvez recevoir une erreur qui fait référence à la « taille de paquet » lors de l’exportation de fichiers journaux volumineux. [16630279]
+- Vous pouvez recevoir une erreur qui fait référence à la « taille de paquet » lors de l’exportation de fichiers journaux volumineux.
 
-  - Pour résoudre ce cas, utilisez la commande suivante dans une invite de commandes avec élévation de privilèges sur l’ordinateur passerelle :```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
+  - Pour résoudre ce cas, utilisez la commande suivante dans une invite de commandes avec élévation de privilèges sur l’ordinateur de la passerelle : ```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
 
 ### <a name="files"></a>Fichiers
 
-- Le chargement ou téléchargement de fichiers volumineux n’est pas encore pris en charge. (@no__t-limite 0100mb) [12524234]
+- Le chargement ou téléchargement de fichiers volumineux n’est pas encore pris en charge. (\~limite de 100 Mo) [12524234]
 
 ### <a name="powershell"></a>PowerShell
 
@@ -164,11 +124,13 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
 
 ### <a name="remote-desktop"></a>Bureau à distance
 
+- Lorsque le centre d’administration Windows est déployé en tant que service, le chargement de l’outil Bureau à distance peut échouer après la mise à jour du service Centre d’administration Windows vers une nouvelle version. Pour contourner ce problème, effacez le cache de votre navigateur.   [23824194]
+
 - L’outil Bureau à distance peut ne pas réussir à se connecter lors de la gestion de Windows Server 2012. [20258278]
 
-- Lorsque vous utilisez la Bureau à distance pour vous connecter à un ordinateur qui n’est pas joint à un domaine, vous devez ```MACHINENAME\USERNAME``` entrer votre compte au format.
+- Lorsque vous utilisez la Bureau à distance pour vous connecter à un ordinateur qui n’est pas joint à un domaine, vous devez entrer votre compte au format ```MACHINENAME\USERNAME```.
 
-- Certaines configurations peuvent bloquer le client Bureau à distance du centre d’administration Windows avec la stratégie de groupe. Si vous rencontrez ce problème, ```Allow users to connect remotely by using Remote Desktop Services``` activez sous```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
+- Certaines configurations peuvent bloquer le client Bureau à distance du centre d’administration Windows avec la stratégie de groupe. Si vous rencontrez ce problème, activez ```Allow users to connect remotely by using Remote Desktop Services``` sous ```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
 
 - La Bureau à distance est appliquée par la [compatibilité WebSocket.](#websocket-compatibility-when-using-a-proxy-service)
 
@@ -182,8 +144,6 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
   - Touche Windows
   - Imp. écr.
 
-- Application distante : après avoir activé l’outil Remote App à partir de Bureau à distance paramètres, l’outil peut ne pas apparaître dans la liste des outils lors de la gestion d’un serveur avec expérience utilisateur. [18906904]
-
 ### <a name="roles-and-features"></a>Rôles et fonctionnalités
 
 - Lorsque vous sélectionnez des rôles ou des fonctionnalités avec des sources non disponibles pour l’installation, ils sont ignorés. [12946914]
@@ -194,26 +154,24 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
 
 ### <a name="storage"></a>Stockage
 
-- La récupération des informations de quota peut échouer sans notification d’erreur (il y aura toujours une erreur dans la console du navigateur) [18962274]
+- Bas niveau : les lecteurs de CD-ROM/DVD/disquette n’apparaissent pas en tant que volumes au bas niveau.
 
-- De niveau supérieur : Les lecteurs de DVD/CD/disquettes n’apparaissent pas en tant que volumes sur le niveau de défaillance.
+- Bas niveau : certaines propriétés de Volumes et disques ne sont pas disponibles au bas niveau, donc elles apparaissent comme inconnues ou vides dans le volet d’informations.
 
-- De niveau supérieur : Certaines propriétés des volumes et des disques ne sont pas disponibles de niveau inférieure, de sorte qu’elles apparaissent inconnues ou vides dans le panneau détails.
-
-- De niveau supérieur : Lors de la création d’un nouveau volume, ReFS ne prend en charge qu’une taille d’unité d’allocation de 64 Ko sur les ordinateurs Windows 2012 et 2012 R2. Si un volume ReFS est créé avec une plus petite taille d’unité d’allocation sur les cibles de bas niveau, le formatage du système de fichiers échoue. Le nouveau volume ne sera pas utilisable. La solution consiste à supprimer le volume et à utiliser la taille d’unité d’allocation de 64 Ko.
+- Bas niveau : lorsque vous créez un nouveau volume, ReFS prend uniquement en charge une taille d’unité d’allocation de 64 Ko sur les ordinateurs Windows 2012 et 2012 R2. Si un volume ReFS est créé avec une plus petite taille d’unité d’allocation sur les cibles de bas niveau, le formatage du système de fichiers échoue. Le nouveau volume ne sera pas utilisable. La solution consiste à supprimer le volume et à utiliser la taille d’unité d’allocation de 64 Ko.
 
 ### <a name="updates"></a>Mises à jour
 
 - Après l’installation des mises à jour, l’état de l’installation peut être mis en cache et nécessiter une actualisation du navigateur.
 
-- Vous pouvez rencontrer l’erreur suivante : « Le jeu de clés n’existe pas » lors de la tentative de configuration de la gestion des mises à jour Azure. Dans ce cas, essayez les étapes de mise à jour suivantes sur le nœud géré-
+- Vous pouvez rencontrer l’erreur : « le jeu de clés n’existe pas » lors de la tentative de configuration de la gestion des mises à jour Azure. Dans ce cas, essayez les étapes de mise à jour suivantes sur le nœud géré-
     1. Arrêtez le service « services de chiffrement ».
     2. Modifiez les options des dossiers pour afficher les fichiers masqués (si nécessaire).
     3. A obtenu le dossier « %allusersprofile%\Microsoft\Crypto\RSA\S-1-5-18 » et a supprimé tout son contenu.
     4. Redémarrez le service « services de chiffrement ».
     5. Répéter la configuration de Update Management à l’aide du centre d’administration Windows
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Ordinateurs virtuels
 
 - Lors de la gestion des ordinateurs virtuels sur un ordinateur hôte Windows Server 2012, l’outil connexion à un ordinateur virtuel dans le navigateur ne parvient pas à se connecter à la machine virtuelle. Le téléchargement du fichier. RDP pour se connecter à la machine virtuelle doit continuer à fonctionner. [20258278]
 
@@ -223,13 +181,13 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
 
 ### <a name="virtual-switches"></a>Commutateurs virtuels
 
-- Switch Embedded Teaming (SET) : Lorsque vous ajoutez des cartes réseau à une équipe, celles-ci doivent se trouver sur le même sous-réseau.
+- Switch Embedded Teaming (SET) : lorsque vous ajoutez des cartes réseau à une équipe, elles doivent être sur le même sous-réseau.
 
 ## <a name="computer-management-solution"></a>Solution de gestion de l'ordinateur
 
 La solution de gestion de l’ordinateur contient un sous-ensemble d'outils de la solution du Gestionnaire de serveur, donc les mêmes problèmes connus s’appliquent, ainsi que des problèmes spécifiques de la solution de gestion de l’ordinateur suivants :
 
-- Si vous utilisez un compte Microsoft ([MSA](https://account.microsoft.com/account/)) ou si vous utilisez Azure Active Directory (AAD) pour vous connecter à votre ordinateur Windows 10, vous devez spécifier les informations d’identification « gérer en tant que » pour gérer votre ordinateur local [16568455]
+- Si vous utilisez un compte Microsoft ([MSA](https://account.microsoft.com/account/)) ou si vous utilisez Azure Active Directory (AAD) pour vous connecter à votre ordinateur Windows 10, vous devez utiliser « gérer en tant que » pour fournir les informations d’identification d’un compte d’administrateur local [16568455]
 
 - Lorsque vous essayez de gérer l’hôte local, vous êtes invité à élever le processus de passerelle. Si vous cliquez sur **non** dans la fenêtre contextuelle du Contrôle de compte d’utilisateur qui suit, Windows Admin Center ne pourra pas s’afficher de nouveau. Dans ce cas, quittez le processus de passerelle en cliquant avec le bouton droit sur l’icône Windows Admin Center dans la barre d’état système et en choisissant Quitter, puis redémarrez Windows Admin Center à partir du Menu Démarrer.
 
@@ -252,3 +210,20 @@ La solution de gestion de l’ordinateur contient un sous-ensemble d'outils de l
 ## <a name="hyper-converged-cluster-manager-solution"></a>Solution de gestion de cluster hyperconvergé
 
 - Certaines commandes telles que **Drives - Update firmware**, **Servers - Remove** et **Volumes - Open** sont désactivées et actuellement non prises en charge.
+
+## <a name="azure-services"></a>Services Azure
+
+### <a name="azure-file-sync-permissions"></a>Autorisations de Azure File Sync
+
+Azure File Sync nécessite des autorisations dans Azure que le centre d’administration Windows n’a pas fournies avant la version 1910. Si vous avez enregistré votre passerelle du centre d’administration Windows avec Azure à l’aide d’une version antérieure à la version 1910 du centre d’administration Windows, vous devrez mettre à jour votre application Azure Active Directory pour obtenir les autorisations appropriées pour utiliser Azure File Sync dans la dernière version de Centre d’administration Windows. L’autorisation supplémentaire permet Azure File Sync d’effectuer la configuration automatique de l’accès au compte de stockage, comme décrit dans cet article : [Assurez-vous Azure file Sync a accès au compte de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tabpanel_CeZOj-G++Q-5_azure-portal).
+
+Pour mettre à jour votre application Azure Active Directory, vous pouvez effectuer l’une des deux opérations suivantes :
+1. Accédez à **paramètres** > **Azure** > **désinscrire**, puis inscrivez à nouveau le centre d’administration Windows avec Azure, en veillant à créer une application de Azure Active Directory. 
+2. Accédez à votre application Azure Active Directory et ajoutez manuellement l’autorisation nécessaire à votre application Azure Active Directory existante inscrite auprès du centre d’administration Windows. Pour ce faire, accédez à **paramètres** > vue de > **Azure** **dans Azure**. Dans le panneau inscription de l' **application** dans Azure, accédez à **autorisations d’API**, puis sélectionnez **Ajouter une autorisation**. Faites défiler la liste pour sélectionner **Azure Active Directory graphique**, sélectionnez **autorisations déléguées**, développez **répertoire**, puis sélectionnez **Directory. AccessAsUser. All**. Cliquez sur **Ajouter des autorisations** pour enregistrer les mises à jour apportées à l’application.
+
+### <a name="options-for-setting-up-azure-management-services"></a>Options de configuration des services de gestion Azure
+
+Les services de gestion Azure, y compris Azure Monitor, Azure Update Management et Azure Security Center, utilisent le même agent pour un serveur local : le Microsoft Monitoring Agent. Azure Update Management dispose d’un ensemble plus limité de régions prises en charge et requiert la liaison de l’espace de travail Log Analytics à un compte Azure Automation. En raison de cette limitation, si vous souhaitez configurer plusieurs services dans le centre d’administration Windows, vous devez d’abord configurer Azure Update Management, puis Azure Security Center ou Azure Monitor. Si vous avez configuré des services de gestion Azure qui utilisent la Microsoft Monitoring Agent, puis que vous essayez de configurer Azure Update Management à l’aide du centre d’administration Windows, le centre d’administration Windows vous permet de configurer Azure Update Management uniquement si l’existant les ressources liées aux Microsoft Monitoring Agent prennent en charge Azure Update Management. Si ce n’est pas le cas, vous avez deux options :
+
+1. Accédez au panneau de configuration > Microsoft Monitoring Agent pour [déconnecter votre serveur des solutions de gestion Azure existantes](https://docs.microsoft.com/azure/azure-monitor/platform/log-faq#q-how-do-i-stop-an-agent-from-communicating-with-log-analytics) (comme Azure Monitor ou Azure Security Center). Configurez ensuite Azure Update Management dans le centre d’administration Windows. Après cela, vous pouvez revenir à la configuration de vos autres solutions de gestion Azure via le centre d’administration Windows sans problèmes.
+2. Vous pouvez [configurer manuellement les ressources Azure nécessaires pour azure Update Management](https://docs.microsoft.com/azure/automation/automation-update-management) , puis [mettre à jour manuellement les Microsoft Monitoring agent](https://docs.microsoft.com/azure/azure-monitor/platform/agent-manage#adding-or-removing-a-workspace) (en dehors du centre d’administration Windows) pour ajouter le nouvel espace de travail correspondant à la solution Update Management vous souhaitez utiliser.

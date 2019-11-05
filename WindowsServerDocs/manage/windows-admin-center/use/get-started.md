@@ -8,16 +8,16 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 02/15/2019
-ms.openlocfilehash: 68b5c7b2c5bc8e93d653514b2664d96b97b07a9e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fac17cd5975eeb699f205888edbe3f1c30b43394
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406847"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567151"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Prise en main du centre d’administration Windows
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
 > Vous débutez dans Windows Admin Center ?
@@ -30,9 +30,9 @@ ms.locfileid: "71406847"
 
 ### <a name="selecting-a-client-certificate"></a>Sélection d’un certificat client
 
-La première fois que vous ouvrez le centre d’administration Windows sur Windows 10, veillez à sélectionner le certificat du *client du centre d’administration Windows* (sinon, vous obtiendrez une erreur http 403 indiquant «impossible d’accéder à cette page»).
+La première fois que vous ouvrez le centre d’administration Windows sur Windows 10, veillez à sélectionner le certificat du *client du centre d’administration Windows* (sinon, vous obtiendrez une erreur http 403 indiquant « impossible d’accéder à cette page »).
 
-Dans Microsoft Edge, lorsque vous êtes invité à utiliser cette boîte de dialogue:
+Dans Microsoft Edge, lorsque vous êtes invité à utiliser cette boîte de dialogue :
  
 1. Cliquez sur **plus de choix**
 
@@ -56,9 +56,9 @@ Une fois que vous avez terminé l’installation du centre d’administration Wi
 
    ![](../media/launch/addserver0.png)
 
-2. Choisissez d’ajouter un serveur, un cluster de basculement ou une connexion de cluster hyper-convergé:
+2. Choisissez d’ajouter un serveur, un cluster, un PC Windows ou une machine virtuelle Azure :
     
-   ![](../media/launch/addserver1.png)
+   ![](../media/launch/ChooseConnectionType.png)
 
 3. Tapez le nom du serveur ou du cluster à gérer, puis cliquez sur **Envoyer**. Le serveur ou le cluster sera ajouté à votre liste de connexions sur la page vue d’ensemble.
 
@@ -105,11 +105,11 @@ Si vous avez installé le centre d’administration Windows sur Windows Server, 
 
 **Utiliser *gérer en tant que* pour spécifier les informations d’identification**
 
-Sous **toutes les connexions**, sélectionnez un serveur dans la liste et choisissez **gérer en tant que** pour spécifier les informations d’identification que vous allez utiliser pour vous authentifier auprès du nœud géré:
+Sous **toutes les connexions**, sélectionnez un serveur dans la liste et choisissez **gérer en tant que** pour spécifier les informations d’identification que vous allez utiliser pour vous authentifier auprès du nœud géré :
 
 ![](../media/launch-use-6.png)
 
-Si le centre d’administration Windows s’exécute en mode de service sur Windows Server, mais que la délégation Kerberos n’est pas configurée, vous devez entrer à nouveau vos informations d’identification Windows:
+Si le centre d’administration Windows s’exécute en mode de service sur Windows Server, mais que la délégation Kerberos n’est pas configurée, vous devez entrer à nouveau vos informations d’identification Windows :
 
 ![](../media/launch-use-7.png)
 
@@ -117,7 +117,7 @@ Vous pouvez appliquer les informations d’identification à toutes les connexio
 
 **Solution de mot de passe d’administrateur local (LAPS)**
 
-Si votre environnement utilise des [chevauchements](https://technet.microsoft.com/mt227395.aspx)et que vous avez installé le centre d’administration Windows sur votre PC Windows 10, vous pouvez utiliser des informations d’identification pour vous authentifier auprès du nœud géré. **Si vous utilisez ce scénario, veuillez** [fournir des commentaires](http://aka.ms/WACFeedback).
+Si votre environnement utilise des [chevauchements](https://technet.microsoft.com/mt227395.aspx)et que vous avez installé le centre d’administration Windows sur votre PC Windows 10, vous pouvez utiliser des informations d’identification pour vous authentifier auprès du nœud géré. **Si vous utilisez ce scénario, veuillez** [fournir vos commentaires](https://aka.ms/WACFeedback).
 
 ## <a name="using-tags-to-organize-your-connections"></a>Utilisation de balises pour organiser vos connexions
 
@@ -126,11 +126,11 @@ Vous pouvez utiliser des balises pour identifier et filtrer les serveurs associ�
 ### <a name="edit-tags"></a>Modifier les balises
 
 * Sélectionner un ou plusieurs serveurs dans la liste toutes les connexions
-* Sous **toutes les connexions**, cliquez sur **modifier** les balises
+* Sous **toutes les connexions**, cliquez sur **modifier les balises**
 
 ![](../media/launch/tags-5.png)
 
-Le volet modifier les balises de **connexion** vous permet de modifier, d’ajouter ou de supprimer des balises de vos connexions sélectionnées:
+Le volet **modifier les balises de connexion** vous permet de modifier, d’ajouter ou de supprimer des balises de vos connexions sélectionnées :
 
 * Pour ajouter une nouvelle balise à vos connexions sélectionnées, sélectionnez Ajouter une **étiquette** , puis entrez le nom de la balise que vous souhaitez utiliser.
 
@@ -148,7 +148,7 @@ Une fois que des balises ont été ajoutées à une ou plusieurs connexions au s
 
 * Pour filtrer par une balise, sélectionnez l’icône de filtre en regard de la zone de recherche.
 ![](../media/launch/tags-7.png)
-* Vous pouvez sélectionner «ou», «et» ou «non» pour modifier le comportement de filtre des balises sélectionnées.
+* Vous pouvez sélectionner « ou », « et » ou « non » pour modifier le comportement de filtre des balises sélectionnées.
 ![](../media/launch/tags-8.png)
 
 ## <a name="use-powershell-to-import-or-export-your-connections-with-tags"></a>Utiliser PowerShell pour importer ou exporter vos connexions (avec étiquettes)
@@ -166,11 +166,11 @@ Import-Connection "https://wac.contoso.com" -fileName "WAC-connections.csv"
 
 ### <a name="csv-file-format-for-importing-connections"></a>Format de fichier CSV pour l’importation de connexions
 
-Le format du fichier CSV commence par les quatre en-têtes ```"name","type","tags","groupId"```, suivis de chaque connexion sur une nouvelle ligne.
+Le format du fichier CSV commence par les quatre en-têtes ```"name","type","tags","groupId"```, suivis par chaque connexion sur une nouvelle ligne.
 
 **Name** est le nom de domaine complet de la connexion
 
-le **type est le** type de connexion. Pour les connexions par défaut incluses dans le centre d’administration Windows, vous devez utiliser l’une des options suivantes:
+le **type est le type de** connexion. Pour les connexions par défaut incluses dans le centre d’administration Windows, vous devez utiliser l’une des options suivantes :
 
 | Type de connexion | Chaîne de connexion |
 |------|-------------------------------|
@@ -179,9 +179,9 @@ le **type est le** type de connexion. Pour les connexions par défaut incluses d
 | Cluster de basculement | msft. SME. Connection-type. cluster |
 | Cluster hyper-convergé | msft. SME. Connection-type. hyper-convergé-cluster |
 
-les balises sont séparées par des barres verticales.
+les **balises** sont séparées par des barres verticales.
 
-**GroupID** est utilisé pour les connexions partagées. Utilisez la valeur ```global``` de cette colonne pour en faire une connexion partagée.
+**GroupID** est utilisé pour les connexions partagées. Utilisez la valeur ```global``` dans cette colonne pour en faire une connexion partagée.
 
 ### <a name="example-csv-file-for-importing-connections"></a>Exemple de fichier CSV pour l’importation de connexions
 
@@ -197,9 +197,9 @@ les balises sont séparées par des barres verticales.
 
 ## <a name="import-rdcman-connections"></a>Importer des connexions RDCman
 
-Utilisez le script ci-dessous pour exporter des connexions enregistrées dans [RDCman](https://blogs.technet.microsoft.com/rmilne/2014/11/19/remote-desktop-connection-manager-download-rdcman-2-7/) dans un fichier. Vous pouvez ensuite importer le fichier dans le centre d’administration Windows, en conservant votre hiérarchie de regroupement RDCMan à l’aide de balises. Essayez!
+Utilisez le script ci-dessous pour exporter des connexions enregistrées dans [RDCman](https://blogs.technet.microsoft.com/rmilne/2014/11/19/remote-desktop-connection-manager-download-rdcman-2-7/) dans un fichier. Vous pouvez ensuite importer le fichier dans le centre d’administration Windows, en conservant votre hiérarchie de regroupement RDCMan à l’aide de balises. Essayez !
 
-1. Copiez et collez le code ci-dessous dans votre session PowerShell:
+1. Copiez et collez le code ci-dessous dans votre session PowerShell :
 
    ```powershell
    #Helper function for RdgToWacCsv
@@ -274,7 +274,7 @@ Utilisez le script ci-dessous pour exporter des connexions enregistrées dans [R
    }
    ```
 
-2. Pour créer un. Fichier CSV, exécutez la commande suivante:
+2. Pour créer un. Fichier CSV, exécutez la commande suivante :
 
    ```powershell
    RdgToWacCsv -RDGfilepath "path\to\myRDCManfile.rdg"
