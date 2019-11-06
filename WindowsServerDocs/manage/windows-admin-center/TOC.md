@@ -27,6 +27,7 @@
 ## Utilisez
 ### [Prise en main](use/get-started.md)
 ### [Gérer les serveurs](use/manage-servers.md)
+### [Déployer une infrastructure hyperconvergée](use/deploy-hyperconverged-infrastructure.md)
 ### [Gérer l’infrastructure hyperconvergée](use/manage-hyper-converged.md)
 ### [Gérer les clusters de basculement](use/manage-failover-clusters.md)
 ### [Gérer les ordinateurs virtuels Hyper-V](use/manage-virtual-machines.md)
