@@ -100,7 +100,7 @@ Procédez comme suit pour analyser un ou plusieurs rôles dans l’interface gra
 Utilisez les procédures suivantes pour analyser un ou plusieurs rôles à l’aide des applets de commande Windows PowerShell.
 
 > [!NOTE]
-> Les procédures de cette section ne montrent pas toutes les applets de commande ni tous les paramètres. Pour plus d’informations sur les opérations BPA dans Windows PowerShell, dans votre session Windows PowerShell, entrez « *****BPACmdlet***-Help »** , où *BPACmdlet* peut prendre l’une des valeurs suivantes. Vous pouvez également trouver des rubriques d’aide sur les applets de commande BPA sur le [TechCenter Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=240177).
+> Les procédures de cette section ne montrent pas toutes les applets de commande ni tous les paramètres. Pour plus d'informations sur les opérations BPA dans **wps_2 ***, dans votre session*** wps_2**, entrez *Get-Help*applet_BPA-full, où applet_BPA peut avoir l'une des valeurs suivantes. Vous pouvez également trouver des rubriques d’aide sur les applets de commande BPA sur le [TechCenter Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=240177).
 
 -   **BPAmodel**
 
