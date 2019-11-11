@@ -37,7 +37,7 @@ Il existe trois types de fichiers de connexion que vous pouvez créer :
   
 2.  Dans la colonne **Ordinateur**, cliquez sur le nom de l’ordinateur pour lequel vous souhaitez enregistrer les paramètres de connexion dans un fichier.  
   
-3.  Sous ***tâches**nom de l’ordinateur *, cliquez sur **enregistrer les connexions dans le fichier**. La page **Enregistrer les paramètres de connexion dans un fichier** s’affiche.  
+3.  Sous ***tâches**nom de l’ordinateur*, cliquez sur **enregistrer les connexions dans le fichier**. La page **Enregistrer les paramètres de connexion dans un fichier** s’affiche.  
   
 4.  Choisissez le type de fichier de connexion que vous souhaitez créer, puis cliquez sur **OK**.  
   

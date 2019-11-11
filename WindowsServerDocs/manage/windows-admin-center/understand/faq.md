@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 06/07/2019
 ms.prod: windows-server
-ms.openlocfilehash: 74d886246eb9d27264c0b8653f90f2eed86b891c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e443616b4fcae3e84cfd00b3c20a4ebbf72749ea
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406826"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567115"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur Windows Admin Center
 
@@ -143,7 +143,7 @@ Deux versions de Windows Admin Center sont disponibles en téléchargement :
 
 ### <a name="windows-admin-center"></a>Windows Admin Center
 
-* Cette version convient aux administrateurs informatiques qui ne sont pas en mesure de faire des mises à jour fréquemment ou qui souhaitent davantage de temps de validation pour les versions qu’ils utilisent en production. Notre mise en production en disponibilité générale actuelle est Windows Admin Center 1904.
+* Cette version convient aux administrateurs informatiques qui ne sont pas en mesure de faire des mises à jour fréquemment ou qui souhaitent davantage de temps de validation pour les versions qu’ils utilisent en production. Notre mise en production en disponibilité générale actuelle est Windows Admin Center 1910.
 * [!INCLUDE [support-policy](../includes/support-policy.md)]
 * Pour obtenir la dernière version, [téléchargez-la ici](https://aka.ms/WACDownload).
 

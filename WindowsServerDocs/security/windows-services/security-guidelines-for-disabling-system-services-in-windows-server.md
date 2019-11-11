@@ -10,14 +10,14 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 175c4dbd23bac1822365ce80f05d69509d27321c
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 54352f47a31826b91b5696eb90104ca166a4299d
+ms.sourcegitcommit: 18f6b104e73e0397009283d55bee7984ac7ef0d1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935023"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73632651"
 ---
-## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Conseils sur la désactivation des services système sous Windows Server 2016 avec Expérience utilisateur
+# <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Conseils sur la désactivation des services système sous Windows Server 2016 avec Expérience utilisateur
 
 S’applique à : Windows Server 2016
 
@@ -47,7 +47,7 @@ Tâches planifiées :
 
 (Vous pouvez également accéder aux informations relatives à tous les services décrits dans cet article en consultant la feuille de calcul Microsoft Excel jointe : [Conseils sur la désactivation des services système sous Windows Server 2016 avec Expérience utilisateur](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx))
 
-<br />
+
 
 ### <a name="disabling-services-not-installed-by-default"></a>Désactivation de services non installés par défaut
 
@@ -57,10 +57,10 @@ Microsoft recommande de ne pas appliquer de stratégies pour désactiver les ser
 -  Une ligne de base ou un point de référence désactivant un service Windows autre que par défaut (W3SVC, par exemple) donnera à certains auditeurs la fausse impression que la technologie (par exemple, IIS) est intrinsèquement non sécurisée et ne doit jamais être utilisée.
 -  Si la fonctionnalité (et le service) n'est jamais installée, cela ne fait qu'ajouter un encombrement inutile à la ligne de base et au travail de vérification.
 
-<br />
+
 Pour tous les services système répertoriés dans ce document, les deux tableaux suivants fournissent une explication des colonnes et les recommandations de Microsoft pour activer et désactiver des services système dans Windows Server 2016 avec Expérience utilisateur : 
 
-<br />
+
 
 ### <a name="explanation-of-columns"></a>Explication des colonnes
 
@@ -68,12 +68,12 @@ Pour tous les services système répertoriés dans ce document, les deux tableau
 |---|---|
 |**Description du service**|   Description du service, à partir de sc.exe qdescription.|
 |**Nom** |Nom de la clé (interne) du service|
-|**Installation** |Toujours installé : le service se trouve sur Server Core et Serveur avec Expérience utilisateur  <br /> Avec Expérience utilisateur uniquement : Le service se trouve sur Windows Server 2016 avec Expérience utilisateur, mais ***pas*** sur Server Core |
+|**Installation** |Toujours installé : Le service se trouve sur Server Core et Serveur avec Expérience utilisateur. Avec Expérience utilisateur uniquement : Le service se trouve sur Windows Server 2016 avec Expérience utilisateur, mais ***pas*** sur Server Core |
 |**Type de démarrage**  |Type de démarrage du service sur Windows Server 2016|
 |**Recommandation** |Recommandation/Conseil de Microsoft concernant la désactivation de ce service sous Windows Server 2016 dans un déploiement d'entreprise classique bien géré et lorsque le serveur n'est pas utilisé en tant que remplacement de bureau de l'utilisateur final.|
 |**Commentaires** |Explication supplémentaire|
 
-<br />
+
 
 ### <a name="explanation-of-microsoft-recommendations"></a>Explication des recommandations de Microsoft
 
@@ -84,11 +84,11 @@ Pour tous les services système répertoriés dans ce document, les deux tableau
 |**Déjà désactivé**|  Ce service est désactivé par défaut et il n'est pas nécessaire d’appliquer la stratégie|
 |**Doit être désactivé** |Ce service ne doit jamais être activé sur un système d’entreprise bien géré.|
 
-<br />
+
 
 Les tableaux suivants présentent des conseils Microsoft en matière de désactivation des services système sous Windows Server 2016 avec Expérience utilisateur :
 
-<br />
+
 
 ##  <a name="activex-installer-axinstsv"></a>Programme d'installation ActiveX (AxInstSV)
 
@@ -102,7 +102,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Possibilité de désactiver la fonctionnalité, si inutile |
 
 
-<br />
+
 
 ## <a name="alljoyn-router-service"></a>Service de routeur AllJoyn   
 
@@ -116,7 +116,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |       |
 | | |
 
-<br />
+
 
 ## <a name="app-readiness"></a>Préparation des applications
 
@@ -130,7 +130,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 **Commentaires**    |   
 | | |
 
-<br />
+
 
 ##  <a name="application-identity"></a>Identité de l'application
 
@@ -144,7 +144,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 **Commentaires**    |   
 |||     
 
-<br />
+
 
 ##  <a name="application-information"></a>Informations sur l'application 
 
@@ -158,7 +158,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Prend en charge une élévation de même bureau UAC
 |||     
 
-<br />
+
 
 ##  <a name="application-layer-gateway-service"></a>Service de passerelle de la couche Application       
 
@@ -172,7 +172,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||     
 
-<br />
+
 
 ##  <a name="application-management"></a>Gestion des applications      
 
@@ -186,7 +186,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="appx-deployment-service-appxsvc"></a>Service de déploiement AppX (AppXSVC)       
 
@@ -200,7 +200,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="auto-time-zone-updater"></a>Programme de mise à jour automatique du fuseau horaire           
 
@@ -214,7 +214,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="background-intelligent-transfer-service"></a>Service de transfert intelligent en arrière-plan (BITS)          
 
@@ -228,7 +228,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 
 ## <a name="background-tasks-infrastructure-service"></a>Service d’infrastructure des tâches en arrière-plan      
@@ -243,7 +243,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="base-filtering-engine"></a>Moteur de filtrage de base            
 
@@ -257,7 +257,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="bluetooth-support-service"></a>Service de prise en charge Bluetooth            
 
@@ -271,7 +271,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Possibilité de désactivation, s'il n'est pas utilisé. Autre mécanisme de désactivation : https://technet.microsoft.com/library/dd252791.aspx
 |||         
 
-<br />          
+
 
 
 ## <a name="cdpusersvc"></a>CDPUserSvc           
@@ -286,7 +286,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Modèle de service utilisateur
 |||         
 
-<br />          
+
 
 
 ##  <a name="certificate-propagation"></a>Propagation du certificat     
@@ -301,7 +301,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="client-license-service-clipsvc"></a>Service de licences de client (ClipSVC)        
 
@@ -315,7 +315,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="cng-key-isolation"></a>Isolation de clé CNG
 
@@ -329,7 +329,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="com-event-system"></a>Système d’événement COM+       
 
@@ -343,7 +343,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="com-system-application"></a>Application système COM+     
 
@@ -357,7 +357,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="computer-browser"></a>Explorateur d’ordinateurs        
 
@@ -371,7 +371,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="connected-devices-platform-service"></a>Service de plateforme des appareils connectés       
 
@@ -385,7 +385,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="connected-user-experiences-and-telemetry"></a>Expériences des utilisateurs connectés et télémétrie     
 
@@ -399,7 +399,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="contact-data"></a>Données de contact        
 
@@ -413,7 +413,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Modèle de service utilisateur
 |||         
 
-<br />          
+
 
 ## <a name="coremessaging"></a>CoreMessaging            
 
@@ -427,7 +427,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="credential-manager"></a>Gestionnaire d’informations d’identification           
 
@@ -441,7 +441,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="cryptographic-services"></a>Services de chiffrement           
 
@@ -455,7 +455,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="data-sharing-service"></a>Service de partage des données         
 
@@ -469,7 +469,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="datacollectionpublishingservice"></a>DataCollectionPublishingService          
 
@@ -483,7 +483,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="dcom-server-process-launcher"></a>Lanceur de processus serveur DCOM         
 
@@ -497,7 +497,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />
+
 
 ##  <a name="device-association-service"></a>Service d’association d'appareil      
 
@@ -511,7 +511,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />
+
 
 ##  <a name="device-install-service"></a>Service d’installation d'appareil
 
@@ -525,7 +525,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |
 |||
 
-<br />          
+
 
 ##  <a name="device-management-enrollment-service"></a>Service d'inscription de la gestion des appareils        
 
@@ -539,7 +539,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="device-setup-manager"></a>Gestionnaire d’installation d'appareil         
 
@@ -553,7 +553,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="devquery-background-discovery-broker"></a>Service Broker de découverte en arrière-plan DevQuery         
 
@@ -567,7 +567,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="dhcp-client"></a>Client DHCP          
 
@@ -581,7 +581,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="diagnostic-policy-service"></a>Service de stratégie de diagnostic            
 
@@ -595,7 +595,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="diagnostic-service-host"></a>Service hôte WDIServiceHost     
 
@@ -609,7 +609,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="diagnostic-system-host"></a>Hôte système de diagnostics           
 
@@ -623,7 +623,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="distributed-link-tracking-client"></a>Client de suivi de liaisons distribuées            
 
@@ -637,7 +637,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="distributed-transaction-coordinator"></a>Distributed Transaction Coordinator     
 
@@ -651,7 +651,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />  
+
 
 ##  <a name="dmwappushsvc"></a>dmwappushsvc        
 
@@ -665,7 +665,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Service requis sur les appareils clients pour Intune, GPM et les technologies de gestion similaires, ainsi que pour le Filtre d'écriture unifié. Non requis pour le serveur.
 |||         
 
-<br />      
+
 
 ##  <a name="dns-client"></a>Client DNS      
 
@@ -679,7 +679,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="downloaded-maps-manager"></a>Gestionnaire des cartes téléchargées     
 
@@ -693,7 +693,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   La désactivation compromet les applications qui utilisent le service ; possibilité de désactivation si les applications ne l'utilisent pas
 |||         
 
-<br />          
+
 
 ## <a name="embedded-mode"></a>Mode incorporé            
 
@@ -707,7 +707,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="encrypting-file-system-efs"></a>Système de fichiers EFS (Encrypting File System)
 
@@ -721,7 +721,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**   |
 |||                 
 
-<br />  
+
 
 ## <a name="enterprise-app-management-service"></a>Service de gestion des applications d'entreprise            
 
@@ -735,7 +735,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="extensible-authentication-protocol"></a>Protocole EAP (Extensible Authentication Protocol)           
 
@@ -749,7 +749,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="function-discovery-provider-host"></a>Hôte du fournisseur de découverte de fonctions         
 
@@ -763,7 +763,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="function-discovery-resource-publication"></a>Publication des ressources de découverte de fonctions      
 
@@ -777,7 +777,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="geolocation-service"></a>Service de géolocalisation          
 
@@ -791,7 +791,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   La désactivation compromet les applications qui utilisent le service ; possibilité de désactivation si les applications ne l'utilisent pas
 |||         
 
-<br />          
+
 
 ##  <a name="group-policy-client"></a>Client de stratégie de groupe     
 
@@ -805,7 +805,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 
 ## <a name="human-interface-device-service"></a>Service du périphérique d’interface utilisateur           
@@ -820,7 +820,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="hv-host-service"></a>Service d'hôte HV     
 
@@ -834,7 +834,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Optimiseurs de niveau de performance pour les machines virtuelles invitées. Non utilisé aujourd'hui, sauf pour les machines virtuelles explicitement remplies, mais utilisé dans Application Guard
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-data-exchange-service"></a>Service Échange de données Microsoft Hyper-V        
 
@@ -848,7 +848,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Voir HvHost
 |||         
 
-<br />      
+
 
 ## <a name="hyper-v-guest-service-interface"></a>Interface de services d’invité Hyper-V          
 
@@ -862,7 +862,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Voir HvHost
 |||         
 
-<br />  
+
 
 ## <a name="hyper-v-guest-shutdown-service"></a>Service Arrêt de l’invité Microsoft Hyper-V           
 
@@ -876,7 +876,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Voir HvHost
 |||         
 
-<br />
+
 
 ## <a name="hyper-v-heartbeat-service"></a>Service Pulsation Microsoft Hyper-V
 | | |
@@ -889,7 +889,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Voir HvHost
 |||
 
-<br />          
+
 
 ## <a name="hyper-v-powershell-direct-service"></a>Service PowerShell Direct Hyper-V            
 
@@ -903,7 +903,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Voir HvHost
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-remote-desktop-virtualization-service"></a>Service de virtualisation Bureau à distance Hyper-V            
 
@@ -917,7 +917,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Voir HvHost
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-time-synchronization-service"></a>Service Synchronisation date/heure Microsoft Hyper-V         
 
@@ -931,7 +931,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Voir HvHost
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-volume-shadow-copy-requestor"></a>Requête du service VSS Microsoft Hyper-V         
 
@@ -945,7 +945,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Voir HvHost
 |||         
 
-<br />          
+
 
 ## <a name="ike-and-authip-ipsec-keying-modules"></a>Modules de génération de clés IKE et AuthIP          
 
@@ -959,7 +959,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |    
 |||         
 
-<br />          
+
 
 ## <a name="interactive-services-detection"></a>Détection de services interactifs           
 
@@ -973,7 +973,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />  
+
 
 ## <a name="internet-connection-sharing-ics"></a>Partage de connexion Internet (ICS)            
 
@@ -987,7 +987,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Requis pour les clients utilisés comme points d’accès WiFi, de même qu'aux deux extrémités de la projection Miracast. Le partage de connexion Internet peut être bloqué avec le paramètre de stratégie de groupe, « Interdire l’utilisation du partage de connexion Internet sur votre réseau de domaine DNS »
 |||         
 
-<br />          
+
 
 ## <a name="ip-helper"></a>Assistance IP            
 
@@ -1001,7 +1001,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 
 ##  <a name="ipsec-policy-agent"></a>Agent de stratégie IPSec      
@@ -1016,7 +1016,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />
+
 
 ##  <a name="kdc-proxy-server-service-kps"></a>Service Serveur proxy KDC      
 
@@ -1030,7 +1030,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="ktmrm-for-distributed-transaction-coordinator"></a>Service KtmRm pour Distributed Transaction Coordinator            
 
@@ -1044,7 +1044,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />
+
 
 ##  <a name="link-layer-topology-discovery-mapper"></a>Mappage de découverte de topologie de la couche de liaison        
 
@@ -1058,7 +1058,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Possibilité de désactivation en l'absence de dépendance sur le mappage réseau
 |||         
 
-<br />
+
 
 ## <a name="local-session-manager"></a>Gestionnaire de session locale                    
 
@@ -1072,7 +1072,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||                 
 
-<br />                  
+
 
 ## <a name="microsoft-r-diagnostics-hub-standard-collector"></a>Service Collecteur standard du concentrateur de diagnostic Microsoft (R)         
 
@@ -1086,7 +1086,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />
+
 
 ## <a name="microsoft-account-sign-in-assistant"></a>Assistant Connexion avec un compte Microsoft
 | | |
@@ -1099,7 +1099,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Les comptes Microsoft sont sans objet sur Windows Server
 |||
 
-<br />          
+
 
 ##  <a name="microsoft-app-v-client"></a>Client Microsoft App-V      
 
@@ -1113,7 +1113,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-iscsi-initiator-service"></a>Service Initiateur iSCSI de Microsoft            
 
@@ -1127,7 +1127,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Nos données de diagnostic indiquent une utilisation sur le client, ainsi que sur le serveur. Il n'est pas utile de désactiver ce service.
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-passport"></a>Microsoft Passport           
 
@@ -1141,7 +1141,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Requis pour les ouvertures de session PIN/Hello non prises en charge sur le serveur
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-passport-container"></a>Conteneur Microsoft Passport         
 
@@ -1155,7 +1155,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-software-shadow-copy-provider"></a>Fournisseur de cliché instantané de logiciel Microsoft          
 
@@ -1169,7 +1169,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-storage-spaces-smp"></a>SMP de l’Espace de stockages Microsoft         
 
@@ -1183,7 +1183,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Sans ce service, les API de gestion du stockage échouent. Exemple : « Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage ».
 |||         
 
-<br />          
+
 
 ## <a name="nettcp-port-sharing-service"></a>Service Partage de port Net.Tcp         
 
@@ -1197,7 +1197,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="netlogon"></a>Netlogon         
 
@@ -1211,7 +1211,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-connection-broker"></a>Service Broker pour les connexions réseau            
 
@@ -1225,7 +1225,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-connections"></a>Connexions réseau         
 
@@ -1239,7 +1239,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-connectivity-assistant"></a>Assistant Connectivité réseau      
 
@@ -1253,7 +1253,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />  
+
 
 ##  <a name="network-list-service"></a>Service Liste des réseaux        
 
@@ -1267,7 +1267,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-location-awareness"></a>Connaissance des emplacements réseau           
 
@@ -1281,7 +1281,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-setup-service"></a>Service Configuration du réseau       
 
@@ -1295,7 +1295,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-store-interface-service"></a>Service Interface du magasin réseau      
 
@@ -1309,7 +1309,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="offline-files"></a>Fichiers hors connexion            
 
@@ -1323,7 +1323,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="optimize-drives"></a>Optimiser les lecteurs          
 
@@ -1337,7 +1337,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />
+
 
 ## <a name="performance-counter-dll-host"></a>Hôte de DLL de compteur de performance         
 
@@ -1351,7 +1351,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="performance-logs--alerts"></a>Journaux et alertes de performance            
 
@@ -1365,7 +1365,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="phone-service"></a>Service téléphonique       
 
@@ -1379,7 +1379,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Utilisé par les applications VoIP modernes
 |||         
 
-<br />          
+
 
 ##      <a name="plug-and-play"></a>Plug-and-play       
 
@@ -1393,7 +1393,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="portable-device-enumerator-service"></a>Service Énumérateur d’appareil mobile           
 
@@ -1407,7 +1407,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="power"></a>Alimentation            
 
@@ -1421,7 +1421,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="print-spooler"></a>Spouleur d’impression            
 
@@ -1435,7 +1435,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Sur un contrôleur de domaine, l’installation du rôle de contrôleur de domaine ajoute un thread au service de spouleur chargé d’effectuer le nettoyage de l’impression – suppression des objets obsolètes de la file d'attente à l'impression dans Active Directory.  Si le service de spouleur n’est pas en cours d’exécution sur au moins un contrôleur de domaine dans chaque site, Active Directory n'est pas en mesure de supprimer les files d’attente qui n’existent plus. [https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/ )
 |||         
 
-<br />          
+
 
 ##  <a name="printer-extensions-and-notifications"></a>Extensions et notifications des imprimantes        
 
@@ -1449,7 +1449,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="problem-reports-and-solutions-control-panel-support"></a>Prise en charge de l’application Rapports et solutions aux problèmes du Panneau de configuration     
 
@@ -1463,7 +1463,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="program-compatibility-assistant-service"></a>Service de l’Assistant Compatibilité des programmes     
 
@@ -1477,7 +1477,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="quality-windows-audio-video-experience"></a>Expérience audio-vidéo haute qualité Windows      
 
@@ -1491,7 +1491,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Service QoS côté client
 |||         
 
-<br />          
+
 
 ##      <a name="radio-management-service"></a>Service de gestion radio        
 
@@ -1505,7 +1505,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-access-auto-connection-manager"></a>Gestionnaire des connexions automatiques d’accès à distance            
 
@@ -1519,7 +1519,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-access-connection-manager"></a>Gestionnaire des connexions d’accès à distance         
 
@@ -1533,7 +1533,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-desktop-configuration"></a>Configuration du Bureau à distance         
 
@@ -1547,7 +1547,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-desktop-services"></a>Services Bureau à distance          
 
@@ -1561,7 +1561,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="remote-desktop-services-usermode-port-redirector"></a>Redirecteur de port du mode utilisateur des services Bureau à distance        
 
@@ -1575,7 +1575,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Prend en charge les redirections côté serveur de la connexion.
 |||         
 
-<br />          
+
 
 ## <a name="remote-procedure-call-rpc"></a>Appel de procédure distante (RPC)          
 
@@ -1589,7 +1589,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="remote-procedure-call-rpc-locator"></a>Localisateur d’appels de procédure distante (RPC)             
 
@@ -1603,7 +1603,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |       |
 |||             
 
-<br />              
+
 
 ## <a name="remote-registry"></a>Accès à distance au Registre          
 
@@ -1617,7 +1617,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="resultant-set-of-policy-provider"></a>Fournisseur d’un jeu de stratégie résultant            
 
@@ -1631,7 +1631,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="routing-and-remote-access"></a>Routage et accès à distance            
 
@@ -1645,7 +1645,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Déjà désactivé
 |||         
 
-<br />          
+
 
 ## <a name="rpc-endpoint-mapper"></a>Mappeur de point de terminaison RPC          
 
@@ -1659,7 +1659,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="secondary-logon"></a>Ouverture de session secondaire     
 
@@ -1673,7 +1673,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="secure-socket-tunneling-protocol-service"></a>Service SSTP (Secure Socket Tunneling Protocol)            
 
@@ -1687,7 +1687,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   La désactivation compromet le RRAS   |
 |||             
 
-<br />              
+
 
 ## <a name="security-accounts-manager"></a>Gestionnaire de comptes de sécurité            
 
@@ -1701,7 +1701,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="sensor-data-service"></a>Service Données de capteur  
 
@@ -1715,7 +1715,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />  
+
 
 ## <a name="sensor-monitoring-service"></a>Service de surveillance des capteurs            
 
@@ -1729,21 +1729,17 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />
-
 ## <a name="sensor-service"></a>Service de capteur
 
 | | |
 |---|---|
-|   **Description du service** |   Service pour les capteurs qui gère leurs différentes fonctionnalités. Gère l’Orientation de périphérique simple (SDO) et l’historique pour les capteurs. Charge le capteur d'orientation de périphérique simple rapportant les changements d'orientation du périphérique.  Si le service est arrêté ou désactivé, le capteur d'orientation de périphérique simple ne sera pas chargé et la rotation automatique n'aura pas lieu. La collecte d'historiques des capteurs sera également arrêtée.
+|   **Description du service** |   Service pour les capteurs qui gère les fonctionnalités des différents capteurs. Gère l’Orientation de périphérique simple (SDO) et l’historique pour les capteurs. Charge le capteur d'orientation de périphérique simple rapportant les changements d'orientation du périphérique.  Si le service est arrêté ou désactivé, le capteur d'orientation de périphérique simple ne sera pas chargé et la rotation automatique n'aura pas lieu. La collecte d'historiques des capteurs sera également arrêtée.
 |   **Nom du service**    |   SensorService
 |   **Installation**    |   Avec Expérience utilisateur uniquement
 |   **Type de démarrage**   |   Manuelle
 |   **Recommandation**  |   Possibilité de désactivation
 |   **Commentaires**    |
 |||
-  
-<br />          
 
 ## <a name="server"></a>Server           
 
@@ -1757,7 +1753,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Requis pour la gestion à distance, IPC$, le partage de fichiers SMB
 |||         
 
-<br />          
+
 
 ## <a name="shell-hardware-detection"></a>Détection matériel noyau             
 
@@ -1771,7 +1767,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="smart-card"></a>Carte à puce           
 
@@ -1785,7 +1781,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="smart-card-device-enumeration-service"></a>Service d’énumération de périphériques de carte à puce                    
 
@@ -1799,7 +1795,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Requis presque exclusivement pour les applications WinRT    |
 |||             
 
-<br />              
+
 
 ## <a name="smart-card-removal-policy"></a>Stratégie de retrait de la carte à puce        
 
@@ -1813,7 +1809,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="snmp-trap"></a>Interruption SNMP            
 
@@ -1827,7 +1823,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="software-protection"></a>Protection logicielle             
 
@@ -1841,7 +1837,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="special-administration-console-helper"></a>Application d’assistance de la Console d’administration spéciale        
 
@@ -1855,7 +1851,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="spot-verifier"></a>Vérificateur de points            
 
@@ -1869,7 +1865,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="ssdp-discovery"></a>Découverte SSDP           
 
@@ -1883,7 +1879,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="state-repository-service"></a>Service State Repository         
 
@@ -1897,7 +1893,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="still-image-acquisition-events"></a>Événements d’acquisition d’images fixes
 
@@ -1911,7 +1907,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />  
+
 
 ## <a name="storage-service"></a>Service de stockage          
 
@@ -1925,7 +1921,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="storage-tiers-management"></a>Gestion des niveaux de stockage        
 
@@ -1939,7 +1935,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="superfetch"></a>Superfetch          
 
@@ -1953,7 +1949,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="sync-host"></a>Hôte de synchronisation            
 
@@ -1967,7 +1963,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Modèle de service utilisateur
 |||         
 
-<br />          
+
 
 ## <a name="system-event-notification-service"></a>Service de notification d’événements système            
 
@@ -1981,7 +1977,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="system-events-broker"></a>Service Broker pour les événements système             
 
@@ -1995,7 +1991,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Bien que sa description implique uniquement les applications WinRT, il est requis pour le planificateur de tâches, service Broker d’infrastructure et d’autres composants internes.
 |||         
 
-<br />          
+
 
 ## <a name="task-scheduler"></a>Planificateur de tâches           
 
@@ -2009,7 +2005,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="tcpip-netbios-helper"></a>Assistance NetBIOS sur TCP/IP            
 
@@ -2023,7 +2019,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="telephony"></a>Telephony           
 
@@ -2037,7 +2033,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   La désactivation compromet le RRAS
 |||         
 
-<br />          
+
 
 ## <a name="themes"></a>Thèmes           
 
@@ -2051,7 +2047,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Il est impossible de définir des thèmes d’accessibilité si ce service est désactivé
 |||         
 
-<br />  
+
 
 ## <a name="tile-data-model-server"></a>Serveur de modèles de données de vignette           
 
@@ -2065,7 +2061,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Le menu Démarrer est compromis si ce service est désactivé
 |||         
 
-<br />          
+
 
 ##  <a name="time-broker"></a>Service Broker pour les événements horaires     
 
@@ -2079,7 +2075,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Bien que sa description implique uniquement les applications WinRT, il est requis pour le planificateur de tâches, service Broker d’infrastructure et d’autres composants internes.
 |||         
 
-<br />          
+
 
 ## <a name="touch-keyboard-and-handwriting-panel-service"></a>Service du clavier tactile et du volet d’écriture manuscrite         
 
@@ -2093,7 +2089,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="update-orchestrator-service-for-windows-update"></a>Service Update Orchestrator pour Windows Update           
 
@@ -2107,7 +2103,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   La description du service était absente dans v1607 ; Windows Update (y compris WSUS) dépend de ce service.
 |||         
 
-<br />          
+
 
 ## <a name="upnp-device-host"></a>Hôte de périphérique UPnP         
 
@@ -2121,7 +2117,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="user-access-logging-service"></a>Service de journalisation des accès utilisateur          
 
@@ -2135,7 +2131,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="user-data-access"></a>Accès aux données utilisateur        
 
@@ -2149,7 +2145,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Modèle de service utilisateur
 |||         
 
-<br />          
+
 
 ## <a name="user-data-storage"></a>Stockage des données utilisateur            
 
@@ -2163,7 +2159,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Modèle de service utilisateur
 |||         
 
-<br />          
+
 
 ## <a name="user-experience-virtualization-service"></a>Service User Experience Virtualization           
 
@@ -2177,7 +2173,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="user-manager"></a>Gestionnaire des utilisateurs        
 
@@ -2191,7 +2187,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="user-profile-service"></a>Service de profil utilisateur         
 
@@ -2205,7 +2201,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="virtual-disk"></a>Disque virtuel             
 
@@ -2219,7 +2215,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="volume-shadow-copy"></a>Cliché instantané des volumes           
 
@@ -2233,7 +2229,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="walletservice"></a>WalletService           
 
@@ -2247,7 +2243,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-audio"></a>Audio Windows            
 
@@ -2261,7 +2257,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-audio-endpoint-builder"></a>Générateur de points de terminaison du service Audio Windows           
 
@@ -2275,7 +2271,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-biometric-service"></a>Service de biométrie Windows            
 
@@ -2289,7 +2285,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-camera-frame-server"></a>Serveur de trame de la Caméra Windows         
 
@@ -2303,7 +2299,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-connection-manager"></a>Gestionnaire de connexions Windows           
 
@@ -2317,7 +2313,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-defender-network-inspection-service"></a>Service Inspection du réseau Windows Defender          
 
@@ -2331,7 +2327,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-defender-service"></a>Service Windows Defender         
 
@@ -2345,7 +2341,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-driver-foundation---user-mode-driver-framework"></a>Windows Driver Foundation - Infrastructure de pilote mode-utilisateur           
 
@@ -2359,7 +2355,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-encryption-provider-host-service"></a>Service hôte du fournisseur de chiffrement Windows     
 
@@ -2373,7 +2369,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-error-reporting-service"></a>Service de rapport d'erreurs Windows          
 
@@ -2387,7 +2383,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Collecte et envoie les données d’incident et de blocage utilisées par les éditeurs de logiciels indépendants et fabricants de matériel MS et tiers. Les données sont utilisées pour diagnostiquer les bogues à l'origine des incidents, ce qui peut inclure des bogues de sécurité. Également requis pour les rapports d’erreurs d’entreprise
 |||         
 
-<br />          
+
 
 ## <a name="windows-event-collector"></a>Collecteur d'événements de Windows          
 
@@ -2401,7 +2397,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Collecte les événements ETW (y compris les événements de sécurité) pour faciliter la gestion, les diagnostics.  Un grand nombre de fonctionnalités et d'outils tiers s’appuient sur ce service, y compris des outils d’audit de sécurité
 |||         
 
-<br />          
+
 
 ## <a name="windows-event-log"></a>Journal des événements Windows            
 
@@ -2415,7 +2411,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-firewall"></a>Pare-feu Windows         
 
@@ -2429,7 +2425,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-font-cache-service"></a>Service de cache de polices Windows      
 
@@ -2443,7 +2439,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-image-acquisition-wia"></a>Acquisition d’image Windows (WIA)          
 
@@ -2457,7 +2453,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-insider-service"></a>Service Windows Insider     
 
@@ -2471,7 +2467,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Server ne prend pas en charge la distribution de version d'évaluation et dès lors, il n'est pas opérationnel sur Server. Ce service peut aussi être désactivé via la stratégie de groupe.
 |||         
 
-<br />          
+
 
 ##  <a name="windows-installer"></a>Windows Installer       
 
@@ -2485,7 +2481,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-license-manager-service"></a>Serveur Gestionnaire de licences Windows          
 
@@ -2499,7 +2495,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-management-instrumentation"></a>WMI (Windows Management Instrumentation)       
 
@@ -2513,7 +2509,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-mobile-hotspot-service"></a>Service Point d'accès sans fil mobile Windows          
 
@@ -2527,7 +2523,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-modules-installer"></a>Programme d’installation pour les modules Windows        
 
@@ -2541,7 +2537,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-push-notifications-system-service"></a>Service du système de notifications Push Windows            
 
@@ -2555,7 +2551,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Requis pour les vignettes dynamiques et autres fonctionnalités
 |||         
 
-<br />      
+
 
 ## <a name="windows-push-notifications-user-service"></a>Service utilisateur de notifications Push Windows          
 
@@ -2569,7 +2565,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Modèle de service utilisateur
 |||         
 
-<br />
+
 
 ## <a name="windows-remote-management-ws-management"></a>Windows Remote Management (WS-Management)
 | | |
@@ -2582,7 +2578,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Requis pour la gestion à distance
 |||
 
-<br />          
+
 
 ##  <a name="windows-search"></a>Windows Search      
 
@@ -2596,7 +2592,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-time"></a>Horloge Windows        
 
@@ -2610,7 +2606,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-update"></a>Windows Update           
 
@@ -2624,7 +2620,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="winhttp-web-proxy-auto-discovery-service"></a>Service de découverte automatique de Proxy Web pour les services HTTP Windows         
 
@@ -2638,7 +2634,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Tous les éléments utilisant la pile réseau peut dépendre de ce service. De nombreuses organisations l'utilisent pour configurer le routage de proxy HTTP de leurs réseaux internes.  Sans ce service, les connexions HTTP internes vers Internet échouent.
 |||         
 
-<br />          
+
 
 ## <a name="wired-autoconfig"></a>Service de configuration automatique de réseau câblé         
 
@@ -2652,7 +2648,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="wmi-performance-adapter"></a>Carte adaptateur de performance WMI          
 
@@ -2666,7 +2662,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="workstation"></a>Station de travail          
 
@@ -2680,7 +2676,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />
+
 
 ## <a name="xbox-live-auth-manager"></a>Gestionnaire d'authentification Xbox Live           
 
@@ -2694,7 +2690,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   
 |||         
 
-<br />          
+
 
 ## <a name="xbox-live-game-save"></a>Jeu sauvegardé sur Xbox Live          
 
@@ -2708,6 +2704,6 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 |   **Commentaires**    |   Ce service synchronise les données enregistrées pour les jeux dont la sauvegarde sur Xbox Live est activée.  Si ce service est arrêté, les données enregistrées des jeux ne seront téléchargées ni vers, ni depuis Xbox Live.
 |||         
 
-<br /> 
-<br /> 
+
+
 

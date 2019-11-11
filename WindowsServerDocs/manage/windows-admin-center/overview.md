@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2019
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: e235c8013afa573712feaec75bbd1ca195c0e307
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c914a472869f9887c83733d6aab614b5676d17d7
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357001"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567136"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -25,9 +25,9 @@ ms.locfileid: "71357001"
 
 >[!VIDEO https://www.youtube.com/embed/PcQj6ZklmK0]
 
-![Image de Windows Admin Center](media/WAC1809Poster_thumb.PNG)
+![Image de Windows Admin Center](media/WAC1910Poster_thumb.PNG)
 
-[Télécharger le PDF](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf)
+[Télécharger le PDF](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1910Poster.pdf)
 
 ## <a name="quick-start"></a>Démarrage rapide
 
@@ -86,6 +86,7 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
             <ul>
             <li><a href="use/get-started.md">Démarrer et ajouter des connexions</a>
             <li><a href="use/manage-servers.md">Gérer les serveurs</a>
+            <li><a href="use/deploy-hyperconverged-infrastructure.md">Déployer une infrastructure hyperconvergée</a>
             <li><a href="use/manage-hyper-converged.md">Gérer l’infrastructure hyperconvergée</a>
             <li><a href="use/manage-failover-clusters.md">Gérer les clusters de basculement</a>
             <li><a href="use/manage-virtual-machines.md">Gérer les machines virtuelles</a>
@@ -129,11 +130,12 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
 
 Découvrez nos toutes dernières fonctionnalités publiées :
 
+- La version [1910](https://aka.ms/wac1910) est la version GA la plus récente - elle introduit plusieurs nouveaux services hybrides Azure et comprend des fonctionnalités jusqu’ici en préversion dans le canal GA (disponibilité générale).
 - La version [1909](https://aka.ms/wac1909) introduit un type de connexion propre à la machine virtuelle Azure, et unifie les types de connexion pour les clusters de basculement traditionnels et les clusters HCI.
 - La version [1908](https://aka.ms/wac1908) comprend des mises à jour visuelles, Packetmon, FlowLog Audit, l’intégration d’Azure Monitor pour les clusters et la prise en charge de WinRM sur HTTPS (port 5986).
 - La version [1907](https://aka.ms/wac1907) comprend des liens d’estimation de coûts Azure, et des améliorations de l’importation/exportation et de l’étiquetage de machines virtuelles.
 - La version [1906](https://aka.ms/wac1906) comprend l’importation/exportation de machines virtuelles, le changement de comptes Azure, l’ajout de connexions à partir d’Azure, l’expérience des paramètres de connectivité, l’amélioration des performances et un outil de profilage des performances.
-- La version 1904.1 est la toute dernière version GA - mise à jour de maintenance pour améliorer la stabilité des plug-ins de la passerelle.
+- La version 1904.1 était une mise à jour de maintenance pour améliorer la stabilité des plug-ins de la passerelle.
 - La version [1904](https://aka.ms/wac1904) est la version GA qui a introduit l’outil Azure Hybrid Services et mis les fonctionnalités jusqu’ici en préversion dans le canal de la disponibilité générale.
 - La version [1903](https://aka.ms/wac1903) a ajouté les e-mails de notification depuis Azure Monitor, la possibilité d’ajouter des connexions au serveur ou PC depuis Active Directory et de nouveaux outils pour gérer Active Directory, DHCP et DNS.
 - La version [1902](https://aka.ms/wac1902) a ajouté une liste de connexions partagées et des améliorations de la gestion du réseau SDN (software defined network), notamment de nouveaux outils SDN pour gérer les listes ACL, les connexions de passerelle et les réseaux logiques.

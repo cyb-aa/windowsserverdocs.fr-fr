@@ -76,12 +76,12 @@ Pour déterminer si une charge de travail fonctionne correctement avec la dédup
 
 1. **Mon jeu de données de charge de travail a-t-il suffisamment de duplication pour tirer parti de l’activation de la déduplication ?**  
     Avant d’activer la déduplication des données d’une charge de travail, déterminez le niveau de duplication du jeu de données de votre charge de travail à l’aide de l’outil d’évaluation des gains de la déduplication des données, appelé DDPEval. Après avoir installé la déduplication des données, cet outil est disponible à l’emplacement suivant : `C:\Windows\System32\DDPEval.exe`. DDPEval peut évaluer le potentiel d’optimisation par rapport aux volumes connectés directement (notamment les lecteurs locaux ou les volumes partagés du cluster) et aux partages réseau mappés ou non mappés.  
-    [https://doi.org/10.13012/J8PN93H8](&nbsp;)   
+    &nbsp;   
     L’exécution de DDPEval.exe retourne une sortie semblable à ce qui suit :  
     &nbsp;  
     `Data Deduplication Savings Evaluation Tool`  
     `Copyright 2011-2012 Microsoft Corporation.  All Rights Reserved.`    
-    [https://doi.org/10.13012/J8PN93H8](&nbsp;)   
+    &nbsp;   
     `Evaluated folder: E:\Test`     
     `Processed files: 34`  
     `Processed files size: 12.03MB`  
@@ -95,7 +95,7 @@ Pour déterminer si une charge de travail fonctionne correctement avec la dédup
     `Files excluded by policy: 20`  
     `Files excluded by error: 0`  
 
-2. **What voulez-vous que les modèles d’e/s de ma charge de travail sur son jeu de données ressemblent ? De quelles performances ai-je besoin pour ma charge de travail ?**  
+2. **Comment se présentent les modèles d’E/S de ma charge de travail sur son jeu de données ? Quelles sont les performances disponibles pour ma charge de travail ?**  
      La déduplication des données optimise les fichiers sous forme de tâche périodique, plutôt que lors de l’écriture du fichier sur le disque. Par conséquent, il est important d’examiner les modèles de lecture attendus d’une charge de travail pour le volume dédupliqué. Étant donné que la déduplication des données déplace le contenu des fichiers vers le magasin de blocs et tente, dans la mesure du possible, d’organiser ce magasin par fichier, les opérations de lecture donnent des résultats optimaux quand elles sont effectuées sur des plages séquentielles d’un fichier.  
 
     Les charges de travail de type base de données ont généralement plus de modèles de lecture aléatoire que de modèles de lecture séquentielle, car les bases de données ne garantissent généralement pas une disposition optimale pour toutes les requêtes qui peuvent éventuellement être exécutées. Étant donné que les sections du magasin de blocs peuvent être sur tout le volume, l’accès à des plages de données dans le magasin de blocs pour les requêtes de base de données peut entraîner une latence supplémentaire. Les charges de travail hautes performances sont particulièrement sensibles à cette latence supplémentaire. Toutefois, les autres charges de travail de type base de données ne le sont pas nécessairement.

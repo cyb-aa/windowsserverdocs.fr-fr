@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/24/2019
+ms.date: 10/31/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4325bd7b33c16d972cac980e17c10bacbfeffd8c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a8e66398bc61a69250b84101a3cb66f2c8f3548
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387588"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567072"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -31,7 +31,25 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 |Groupe d'utilisateurs |Version  |
 |-----------|---------|
 |Public     |1.2.247  |
-|Insider    |1.2.247  |
+|Insider    |1.2.428  |
+
+## <a name="updates-for-version-12428"></a>Mises à jour pour la version 1.2.428
+
+*Date de publication : 31/10/2019*
+
+- Une préversion des versions 32 bits et ARM64 du client est maintenant disponible !
+- Le client enregistre désormais les changements que vous apportez à la barre de connexion (par exemple, sa position, sa taille et son état épinglé) et les applique aux différentes sessions.
+- Mise à jour des informations de passerelle et des boîtes de dialogue d’état de connexion.
+- Résolution d’un problème qui entraînait l’invite de deux jeux d’informations d’identification en même temps lors de la tentative de connexion après l’expiration du jeton Azure Active Directory.
+- Sur Windows 7, les utilisateurs sont maintenant invités correctement à fournir des informations d’identification s’ils en avaient enregistrées quand le serveur les interdit.
+- L’invite Azure Active Directory s’affiche à présent devant la fenêtre de connexion lors de la reconnexion.
+- Les éléments épinglés à la barre des tâches sont maintenant mis à jour pendant une actualisation de flux.
+- Amélioration du défilement dans le centre de connexion sur écran tactile.
+- Suppression de la ligne vide dans le menu déroulant de résolution.
+- Suppression des entrées inutiles dans le Gestionnaire d’informations d’identification Windows.
+- Les sessions de bureau sont maintenant à la bonne taille quand vous quittez le mode plein écran.
+- La boîte de dialogue de déconnexion de RemoteApp apparaît désormais au premier plan quand vous reprenez votre session après être entré en mode veille.
+- Résolution de problèmes d’accessibilité comme la navigation au clavier.
 
 ## <a name="updates-for-version-12247"></a>Mises à jour relatives à la version 1.2.247
 
