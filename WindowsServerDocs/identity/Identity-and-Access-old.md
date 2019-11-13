@@ -19,7 +19,7 @@ ms.locfileid: "71391121"
 ---
 # <a name="identity-and-access-in-windows-server-2016"></a>Identité et accès dans Windows Server 2016
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 >[!TIP]
 > Vous recherchez des informations sur des versions plus anciennes de Windows Server ? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
@@ -36,8 +36,8 @@ Une liste de toutes les nouvelles fonctionnalités disponibles pour AD DS dans 
 ## <a name="privileged-access-management-for-active-directory-domain-services-40ad-ds41httpstechnetmicrosoftcomlibrarydn903243aspx"></a>[Privileged Access Management pour Active Directory Domain Services &#40;AD DS&#41;](https://technet.microsoft.com/library/dn903243.aspx)
 Privileged Access Management (PAM) pour Active Directory Domain Services (AD DS) est une solution basée sur Microsoft Identity Manager (MIM) et Windows Server 2012 R2 et Windows Server 2016.
 
-## <a name="windows-10-for-the-enterprise-ways-to-use-devices-for-workhttpsazuremicrosoftcomdocumentationarticlesactive-directory-azureadjoin-windows10-devices-overviewrnd1"></a>@no__t 0Windows 10 pour l’entreprise : Méthodes d’utilisation des appareils pour le travail @ no__t-0
-Windows 10 vous offre la possibilité de tirer parti d’Azure Active Directory. Les appareils Windows 10 peuvent être connectés à Azure AD. Leurs utilisateurs peuvent se connecter à Windows avec des comptes Azure AD ou ajouter leur ID Azure pour accéder aux applications métier et aux ressources.
+## <a name="windows-10-for-the-enterprise-ways-to-use-devices-for-workhttpsazuremicrosoftcomdocumentationarticlesactive-directory-azureadjoin-windows10-devices-overviewrnd1"></a>[Windows 10 pour l’entreprise : manières d’utiliser des appareils pour le travail](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1)
+Windows 10 vous offre la possibilité de tirer parti d’Azure Active Directory. Les appareils Windows 10 peuvent être connectés à Azure AD. Leurs utilisateurs peuvent se connecter à Windows avec des comptes Azure AD ou ajouter leur ID Azure pour accéder aux applications métier et aux ressources.
 
 ## <a name="active-directory-domain-servicesidentityad-dsactive-directory-domain-servicesmd"></a>[Active Directory Domain Services](../identity/ad-ds/Active-Directory-Domain-Services.md)
 Une documentation détaillée de toutes les nouvelles fonctionnalités disponibles pour AD DS dans Windows Server 2016.

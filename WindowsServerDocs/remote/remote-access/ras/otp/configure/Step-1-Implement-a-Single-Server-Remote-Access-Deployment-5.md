@@ -21,7 +21,7 @@ ms.locfileid: "71404406"
 ---
 # <a name="step-1-implement-a-single-server-remote-access-deployment"></a>Étape 1 implémenter un déploiement de l’accès à distance à un serveur unique
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 La première étape de configuration pour déployer l’accès à distance avec le mot de passe à usage unique consiste à implémenter un déploiement de serveur unique avancé et à planifier l’ajout du serveur RADIUS.  
   
@@ -30,7 +30,7 @@ Avant de pouvoir configurer l’accès à distance avec un mot de passe à usage
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 2 : Configurer le serveur RADIUS @ no__t-0  
+-   [Étape 2 : configurer le serveur RADIUS](Step-2-Configure-the-RADIUS-Server.md)  
   
 
 

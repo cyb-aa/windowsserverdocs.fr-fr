@@ -18,7 +18,7 @@ ms.locfileid: "71357511"
 ---
 # <a name="dynamic-access-control-overview"></a>Vue d’ensemble du contrôle d’accès dynamique
 
->S'applique à : Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique de présentation à destination des professionnels de l’informatique décrit la fonctionnalité de contrôle d’accès dynamique et les éléments associés, qui ont été inaugurés dans Windows Server 2012 et Windows 8.  
   
@@ -92,7 +92,7 @@ Chaque contrôleur de domaine doit avoir le même paramètre de stratégie de mo
 ### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Prise en charge dans Active Directory du stockage des revendications d’utilisateur et d’appareil, des propriétés de ressources ainsi que des objets de stratégie d’accès centralisée.  
   
 ### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Prise en charge de l’utilisation d’une stratégie de groupe pour déployer les objets de stratégie d’accès centralisée.  
-Le paramètre de stratégie de groupe suivant vous permet de déployer des objets de stratégie d’accès centralisée sur les serveurs de fichiers de votre organisation : **Computer \ stratégies Windows \ \ stratégie d’accès centralisée**.  
+Le paramètre de stratégie de groupe suivant vous permet de déployer des objets de stratégie d’accès centralisée sur les serveurs de fichiers de votre organisation : **Configuration ordinateur\Stratégies\Paramètres Windows\Paramètres de sécurité\Système de fichiers\Stratégie d’accès centralisée**.  
   
 ### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Prise en charge de l’autorisation de fichiers basée sur les revendications et de l’audit des systèmes de fichiers avec la stratégie de groupe et l’audit de l’accès global aux objets  
 Vous devez activer l’audit des stratégies d’accès centralisées intermédiaires pour pouvoir évaluer l’accès effectif d’une stratégie d’accès centralisée à l’aide des autorisations proposées. Vous pouvez configurer ce paramètre de l’ordinateur sous **Configuration avancée de la stratégie d’audit** dans les **Paramètres de sécurité** d’un objet de stratégie de groupe (GPO). Une fois que vous avez configuré le paramètre de sécurité dans le GPO, vous pouvez déployer ce dernier sur les ordinateurs de votre réseau.  
@@ -128,7 +128,7 @@ Si les revendications sont transformées lors de la sortie d’une forêt, tous 
 Un serveur de fichiers exécutant Windows Server 2012 ou Windows Server 2012 R2 doit avoir un paramètre de stratégie de groupe qui spécifie s’il doit obtenir des revendications d’utilisateur pour les jetons d’utilisateur qui ne transmettent pas de revendications. La valeur par défaut de ce paramètre de stratégie étant **Automatique**, il prend la valeur **Activé** si une stratégie centralisée contenant des revendications d’utilisateur ou de périphérique a été définie pour ce serveur de fichiers. Si le serveur de fichiers comporte des listes de contrôle d’accès discrétionnaire (DACL) avec des revendications d’utilisateur, vous devez attribuer à ce paramètre de stratégie la valeur **Activé** pour indiquer au serveur qu’il doit demander des revendications pour les utilisateurs qui n’en fournissent au moment d’accéder au serveur.  
   
 ## <a name="additional-resource"></a>Ressource supplémentaire  
-Pour plus d’informations sur l’implémentation de solutions basées sur cette technologie, consultez [Dynamic Access Control : Vue d’ensemble du scénario @ no__t-0.  
+Pour plus d’informations sur l’implémentation de solutions basées sur cette technologie, consultez [Access Control dynamique : vue d’ensemble des scénarios](Dynamic-Access-Control--Scenario-Overview.md).  
   
 
 

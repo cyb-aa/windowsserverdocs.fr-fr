@@ -19,7 +19,7 @@ ms.locfileid: "71393493"
 ---
 # <a name="storage-controllers-should-be-enabled-in-virtual-machines-to-provide-access-to-attached-storage"></a>Les contrôleurs de stockage doivent être activés sur les machines virtuelles pour fournir l’accès au stockage attaché
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d'informations sur les meilleures pratiques et les analyses, consultez [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
@@ -38,13 +38,13 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 ## <a name="impact"></a>Impact  
   
-les ordinateurs @no__t 0Virtual ne peuvent pas utiliser le stockage connecté à un contrôleur de stockage désactivé. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Les machines virtuelles ne peuvent pas utiliser le stockage connecté à un contrôleur de stockage désactivé. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de noms de machines virtuelles >  
+\<liste des noms de machine virtuelle >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
-*Use Device Manager dans le système d’exploitation invité pour activer tous les contrôleurs de stockage. Si le contrôleur de stockage n’est pas requis, utilisez le Gestionnaire Hyper-V pour le supprimer de la machine virtuelle.*  
+*Utilisez Device Manager dans le système d’exploitation invité pour activer tous les contrôleurs de stockage. Si le contrôleur de stockage n’est pas requis, utilisez le Gestionnaire Hyper-V pour le supprimer de la machine virtuelle.*  
   
 Pour obtenir des instructions sur l’utilisation de Device Manager, consultez l’aide du système d’exploitation invité. Pour obtenir des instructions sur la façon de supprimer le contrôleur de stockage, consultez la procédure suivante.  
   

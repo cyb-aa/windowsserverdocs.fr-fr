@@ -18,13 +18,13 @@ ms.locfileid: "71408125"
 ---
 # <a name="deploying-ad-fs-in-the-account-partner-organization"></a>Déploiement des services AD FS dans l’organisation du partenaire de compte
 
-Un partenaire de compte dans Services ADFS \(AD FS @ no__t-1 représente l’organisation dans la relation d’approbation de Fédération qui stocke physiquement les comptes d’utilisateur dans un magasin d’attributs pris en charge. Pour plus d’informations sur les magasins d’attributs pris en charge, consultez [rôle des magasins d’attributs](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md).  
+Un partenaire de compte dans Services ADFS \(AD FS\) représente l’organisation dans la relation d’approbation de Fédération qui stocke physiquement les comptes d’utilisateur dans un magasin d’attributs pris en charge. Pour plus d’informations sur les magasins d’attributs pris en charge, consultez [rôle des magasins d’attributs](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md).  
   
 Le serveur de Fédération dans l’organisation partenaire de compte authentifie les utilisateurs locaux et crée des jetons de sécurité qui sont utilisés par le partenaire de ressource pour prendre des décisions d’autorisation. Les parties de confiance, telles que les sites Web et les services Web, sont ensuite en mesure de s’inscrire facilement auprès du serveur de Fédération et de consommer des jetons émis pour l’authentification et le contrôle d’accès.  
   
 Dans les scénarios dans lesquels vous devez fournir à vos utilisateurs l’accès à plusieurs applications ou services fédérés, lorsque chaque application ou service est hébergé par une autre organisation, vous pouvez configurer le serveur de Fédération du partenaire de compte afin de pouvoir déployer plusieurs parties de confiance.  
   
-Pour plus d’informations sur la configuration et la configuration d’une organisation partenaire de compte, voir [Checklist : Configuration de l’organisation partenaire de compte @ no__t-0.  
+Pour plus d’informations sur l’installation et la configuration d’une organisation partenaire de compte, voir [Checklist: Configuring the Account Partner Organization](../../ad-fs/deployment/Checklist--Configuring-the-Account-Partner-Organization.md).  
   
 ## <a name="in-this-section"></a>Dans cette section  
   

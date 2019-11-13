@@ -23,7 +23,7 @@ ms.locfileid: "71407522"
 
 -   [Configurer l’environnement lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
--   [Guide pas à pas : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+-   [Guide pas à pas : gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 
 -   [Configurer des méthodes d’authentification supplémentaires pour AD FS](../../ad-fs/operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)
 
@@ -37,7 +37,7 @@ Ce guide fournit les informations suivantes :
     > [!NOTE]
     > Dans AD FS de Windows Server 2012 R2, vous pouvez activer l’authentification multifacteur en fonction de l’emplacement réseau, de l’identité de l’appareil et de l’identité de l’utilisateur ou de l’appartenance au groupe.
 
-    Pour obtenir des instructions pas à pas détaillées pour la configuration et la vérification de ce scénario, consultez [Walkthrough Guide : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)les applications sensibles.
+    Pour obtenir des instructions pas à pas détaillées pour la configuration et la vérification de ce scénario, consultez [Guide pas à pas : gérer les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).
 
 ## <a name="BKMK_1"></a>Concepts clés : mécanismes d’authentification dans AD FS
 
@@ -51,7 +51,7 @@ Services ADFS (AD FS) dans Windows Server 2012 R2 offre aux administrateurs info
     -   Activer l’authentification de l’appareil pour l’authentification à deux facteurs transparente. Cela lie l’identité de l’utilisateur à l’appareil inscrit qui est utilisé pour accéder à la ressource, offrant ainsi une vérification de l’identité composée plus sécurisée avant l’accès aux ressources protégées.
 
         > [!NOTE]
-        > Pour plus d’informations sur l’objet appareil, le service d’inscription d’appareils, le Workplace Join et l’appareil comme authentification à deux facteurs transparente et authentification unique, consultez [joindre à l’espace de travail à partir de n’importe quel appareil pour l’authentification unique et l’authentification de second facteur transparente dans l’entreprise Applications](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+        > Pour plus d’informations sur l’objet appareil, le service d’inscription d’appareils, Workplace Join et l’appareil comme authentification à deux facteurs transparente et authentification unique, consultez [joindre à l’espace de travail à partir de n’importe quel appareil pour l’authentification unique et l’authentification de second facteur transparente sur les applications de l’entreprise](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
     -   Définissez les conditions d’authentification multifacteur pour tous les accès extranet ou conditionnelles en fonction de l’identité de l’utilisateur, de l’emplacement réseau ou d’un appareil utilisé pour accéder aux ressources protégées.
 
@@ -72,7 +72,7 @@ Une stratégie d’authentification globale s’applique à toutes les parties d
 
 -   Paramètres et méthodes pour l’authentification multifacteur
 
--   Activation ou non de l’authentification de l’appareil. Pour plus d’informations, consultez [rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente deuxième facteur Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Activation ou non de l’authentification de l’appareil. Pour plus d'informations, voir [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Les stratégies d’authentification par approbation de partie de confiance s’appliquent en particulier aux tentatives d’accès à cette approbation de partie de confiance (application ou service). Vous pouvez configurer les paramètres suivants dans le cadre de la stratégie d’authentification par approbation de partie de confiance :
 
@@ -94,7 +94,7 @@ En sélectionnant plusieurs méthodes d’authentification, vous permettez aux u
 Vous pouvez également activer l’authentification de l’appareil pour l’authentification à deux facteurs transparente. Cela lie l’identité de l’utilisateur à l’appareil inscrit qui est utilisé pour accéder à la ressource, offrant ainsi une vérification de l’identité composée plus sécurisée avant l’accès aux ressources protégées.
 
 > [!NOTE]
-> Pour plus d’informations sur l’objet appareil, le service d’inscription d’appareils, le Workplace Join et l’appareil comme authentification à deux facteurs transparente et authentification unique, consultez [joindre à l’espace de travail à partir de n’importe quel appareil pour l’authentification unique et l’authentification de second facteur transparente dans l’entreprise Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+> Pour plus d’informations sur l’objet appareil, le service d’inscription d’appareils, Workplace Join et l’appareil comme authentification à deux facteurs transparente et authentification unique, consultez [joindre à l’espace de travail à partir de n’importe quel appareil pour l’authentification unique et l’authentification de second facteur transparente sur les applications de l’entreprise](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Si vous spécifiez la méthode d’authentification Windows (option par défaut) pour vos ressources intranet, les demandes d’authentification subissent cette méthode en toute transparence sur des navigateurs qui prennent en charge l’authentification Windows.
 
@@ -112,7 +112,7 @@ Les options suivantes sont disponibles pour les paramètres d’authentification
 
 -   Vous pouvez exiger l’authentification multifacteur pour des appareils inscrits (rattachés à un espace de travail) ou désinscrits (non rattachés à un espace de travail).
 
-    Windows Server 2012 R2 adopte une approche centrée sur l’utilisateur sur les appareils modernes, où les objets appareils représentent une relation entre user@device et une société. Les objets d’appareil sont une nouvelle classe dans Active Directory dans Windows Server 2012 R2 qui peut être utilisée pour offrir une identité composée lors de l’accès aux applications et services. Un nouveau composant d’AD FS, DRS (Device Registration Service), configure une identité d’appareil dans Active Directory et définit un certificat sur l’appareil du consommateur qui sera utilisé pour représenter l’identité de l’appareil. Vous pouvez ensuite utiliser cette identité d’appareil pour rattacher votre appareil à l’espace de travail, autrement dit pour connecter votre appareil personnel à Active Directory sur votre espace de travail. Lorsque vous rattachez votre appareil personnel à votre espace de travail, il devient un appareil connu et fournit une authentification multifacteur transparente aux applications et ressources protégées. En d’autres termes, une fois qu’un appareil est joint à un espace de travail, l’identité de l’utilisateur est liée à cet appareil et peut être utilisée pour une vérification d’identité composée transparente avant l’accès à une ressource protégée.
+    Windows Server 2012 R2 adopte une approche centrée sur l’utilisateur pour les appareils modernes, où les objets appareils représentent une relation entre user@device et une société. Les objets d’appareil sont une nouvelle classe dans Active Directory dans Windows Server 2012 R2 qui peut être utilisée pour offrir une identité composée lors de l’accès aux applications et services. Un nouveau composant d’AD FS, DRS (Device Registration Service), configure une identité d’appareil dans Active Directory et définit un certificat sur l’appareil du consommateur qui sera utilisé pour représenter l’identité de l’appareil. Vous pouvez ensuite utiliser cette identité d’appareil pour rattacher votre appareil à l’espace de travail, autrement dit pour connecter votre appareil personnel à Active Directory sur votre espace de travail. Lorsque vous rattachez votre appareil personnel à votre espace de travail, il devient un appareil connu et fournit une authentification multifacteur transparente aux applications et ressources protégées. En d’autres termes, une fois qu’un appareil est joint à un espace de travail, l’identité de l’utilisateur est liée à cet appareil et peut être utilisée pour une vérification d’identité composée transparente avant l’accès à une ressource protégée.
 
     Pour plus d’informations sur la jonction d’espace de travail et la sortie, consultez [joindre à l’espace de travail à partir de n’importe quel appareil pour l’authentification unique et l’authentification de second facteur transparente entre les applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 
@@ -123,24 +123,24 @@ Dans ce scénario, vous activez l’authentification multifacteur en fonction de
 
 Plus spécifiquement, dans ce scénario, vous activez une stratégie d’authentification pour une application de test basée sur des revendications appelée **claimapp**, où l’utilisateur Active Directory **Robert Hatley** devra subir une authentification multifacteur, car il appartient à un groupe Active Directory nommé **Finance**.
 
-Les instructions pas à pas permettant de configurer et de vérifier ce scénario sont fournies dans @no__t Guide de 0Walkthrough : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)les applications sensibles. Pour effectuer les étapes de cette procédure pas à pas, vous devez configurer un environnement Lab et suivre les étapes décrites dans [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
+Les instructions pas à pas permettant de configurer et de vérifier ce scénario sont fournies dans [Guide pas à pas : gérer les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md). Pour effectuer les étapes de cette procédure pas à pas, vous devez configurer un environnement Lab et suivre les étapes décrites dans [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 Parmi les autres scénarios d’activation de l’authentification MFA dans AD FS figurent les suivants :
 
--   Activer l’authentification multifacteur si la demande d’accès provient de l’extranet. Vous pouvez modifier le code présenté dans la section « configurer la stratégie MFA » du Guide de [Walkthrough : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles @ no__t-0 avec les éléments suivants :
+-   Activer l’authentification multifacteur si la demande d’accès provient de l’extranet. Vous pouvez modifier le code présenté dans la section « configurer la stratégie d’authentification multifacteur » du [Guide de procédure pas à pas : gérer les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) avec les éléments suivants :
 
     ```
     'c:[type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn" );'
     ```
 
--   Activer l’authentification multifacteur si la demande d’accès provient d’un appareil non rattaché à un espace de travail.  Vous pouvez modifier le code présenté dans la section « configurer la stratégie MFA » du Guide de [Walkthrough : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles @ no__t-0 avec les éléments suivants :
+-   Activer l’authentification multifacteur si la demande d’accès provient d’un appareil non rattaché à un espace de travail.  Vous pouvez modifier le code présenté dans la section « configurer la stratégie d’authentification multifacteur » du [Guide de procédure pas à pas : gérer les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) avec les éléments suivants :
 
     ```
     'NOT EXISTS([type=="https://schemas.microsoft.com/2012/01/devicecontext/claims/registrationid"]) => issue (type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn");'
 
     ```
 
--   Activer l’authentification multifacteur si la demande d’accès provient d’un utilisateur avec un appareil qui est rattaché à un espace de travail, mais non inscrit auprès de cet utilisateur. Vous pouvez modifier le code présenté dans la section « configurer la stratégie MFA » du Guide de [Walkthrough : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles @ no__t-0 avec les éléments suivants :
+-   Activer l’authentification multifacteur si la demande d’accès provient d’un utilisateur avec un appareil qui est rattaché à un espace de travail, mais non inscrit auprès de cet utilisateur. Vous pouvez modifier le code présenté dans la section « configurer la stratégie d’authentification multifacteur » du [Guide de procédure pas à pas : gérer les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) avec les éléments suivants :
 
     ```
     'c:[type=="https://schemas.microsoft.com/2012/01/devicecontext/claims/isregistereduser", value == "false"] => issue (type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn");'
@@ -148,7 +148,8 @@ Parmi les autres scénarios d’activation de l’authentification MFA dans AD F
     ```
 
 ## <a name="see-also"></a>Voir aussi
-[Guide pas à pas : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles @ no__t-0 @ no__t-1[configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
+[Guide pas à pas : gérer les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+[configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 
 

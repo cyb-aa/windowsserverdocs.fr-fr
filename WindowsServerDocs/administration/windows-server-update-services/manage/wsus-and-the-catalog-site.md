@@ -21,7 +21,7 @@ ms.locfileid: "71361451"
 ---
 # <a name="wsus-and-the-catalog-site"></a>WSUS et le Site du catalogue
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Le site de catalogue est l’emplacement Microsoft à partir duquel vous pouvez importer des correctifs logiciels et des pilotes matériels.
 
@@ -64,7 +64,7 @@ Les administrateurs WSUS peuvent envisager de restreindre l’accès aux correct
 
     -   Sélectionnez **authentification Windows** , puis cliquez sur **activer** dans le volet **actions** à droite.
 
-2.  Créez un groupe cible WSUS pour les ordinateurs qui ont besoin du correctif, puis ajoutez-les au groupe. Pour plus d’informations sur les ordinateurs et les groupes, voir [gestion des ordinateurs clients WSUS et des groupes d’ordinateurs WSUS](managing-wsus-client-computers-and-wsus-computer-groups.md) dans ce guide, ainsi que la section [3,3. Configurer les groupes d’ordinateurs WSUS @ no__t-0 de l’étape 3 : Configurez WSUS dans le Guide de déploiement de WSUS.
+2.  Créez un groupe cible WSUS pour les ordinateurs qui ont besoin du correctif, puis ajoutez-les au groupe. Pour plus d’informations sur les ordinateurs et les groupes, voir [gestion des ordinateurs clients WSUS et des groupes d’ordinateurs WSUS](managing-wsus-client-computers-and-wsus-computer-groups.md) dans ce guide, ainsi que la section [3,3. Configurez les groupes d’ordinateurs WSUS](../deploy/2-configure-wsus.md#23-configure-wsus-computer-groups) de l’étape 3 : configurer WSUS dans le Guide de déploiement de WSUS.
 
 3.  Téléchargez les fichiers du correctif logiciel.
 

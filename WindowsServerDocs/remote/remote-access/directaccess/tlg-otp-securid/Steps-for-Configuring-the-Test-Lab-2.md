@@ -21,27 +21,27 @@ ms.locfileid: "71404724"
 ---
 # <a name="steps-for-configuring-the-test-lab"></a>Étapes de configuration du laboratoire de test
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Les étapes suivantes décrivent comment configurer l’infrastructure d’accès à distance, configurer le client et le serveur d’accès à distance, et tester la connectivité DirectAccess à partir des sous-réseaux HomeNet et Internet.  
   
 Dans ce guide de laboratoire de test, vous allez créer un accès à distance avec un environnement OTP en procédant comme suit :  
   
--   [ÉTAPE 1 : Effectuez la configuration DirectAccess @ no__t-0. Effectuez toutes les étapes décrites dans le Guide de laboratoire [Test : Démonstration de la configuration d’un seul serveur DirectAccess avec mixte IPv4 et IPv6 @ no__t-0.  
+-   [Étape 1 : terminez la configuration de DirectAccess](assetId:///4dbf877f-02fb-439b-907a-f5b3f1d8afa6). Effectuez toutes les étapes décrites dans le [Guide de laboratoire de test : démonstration de la configuration d’un seul serveur DirectAccess avec mixte IPv4 et IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004).  
   
--   [ÉTAPE 2 : Configurez APP1 @ no__t-0. Configurez APP1 avec des modèles de certificat OTP pour une utilisation par EDGE1.  
+-   [Étape 2 : configurer App1](assetId:///c1bb590f-91d4-4ed5-bceb-b0e36eabd4ff). Configurez APP1 avec des modèles de certificat OTP pour une utilisation par EDGE1.  
   
--   [ÉTAPE 3 : Configurez DC1 @ no__t-0. Vérifiez le nom d’utilisateur principal défini sur DC1.  
+-   [Étape 3 : configurer DC1](assetId:///904a6edc-a771-45ed-9630-a34a680bb522). Vérifiez le nom d’utilisateur principal défini sur DC1.  
   
--   [ÉTAPE 7 : Installez et configurez RSA @ no__t-0. Installez et configurez RSA, un serveur RADIUS et un serveur de mot de passe à usage unique et configurez EDGE1 pour OTP.  
+-   [Étape 7 : installer et configurer RSA](assetId:///baa4c28c-add7-42e2-8afd-ccc7a559406a). Installez et configurez RSA, un serveur RADIUS et un serveur de mot de passe à usage unique et configurez EDGE1 pour OTP.  
   
--   [ÉTAPE 11 : Vérifiez l’intégrité du mot de passe à usage unique sur EDGE1 @ no__t-0. Assurez-vous que l’état du mot de passe à usage unique est sain sur le serveur d’accès à distance.  
+-   [Étape 11 : vérifier l’intégrité du mot de passe à usage unique sur Edge1](assetId:///3b397a4a-8478-47f2-a932-9e8e048c14ba). Assurez-vous que l’état du mot de passe à usage unique est sain sur le serveur d’accès à distance.  
   
--   [ÉTAPE 8 : Testez la connectivité DirectAccess à partir du sous-réseau HomeNet @ no__t-0. Testez la fonctionnalité de mot de passe à usage unique DirectAccess derrière un périphérique NAT.  
+-   [Étape 8 : tester la connectivité DirectAccess à partir du sous-réseau HomeNet](assetId:///ba1652a6-0692-4add-91ca-34a84956ba14). Testez la fonctionnalité de mot de passe à usage unique DirectAccess derrière un périphérique NAT.  
   
--   [ÉTAPE 10 : Tester la connectivité DirectAccess à partir d’Internet @ no__t-0. Tester la connectivité du client DirectAccess à partir d’Internet.  
+-   [Étape 10 : tester la connectivité DirectAccess à partir d’Internet](assetId:///321149eb-5f23-4a0b-b8fb-1244540126e9). Tester la connectivité du client DirectAccess à partir d’Internet.  
   
--   [ÉTAPE 12 : Capture instantanée de la configuration @ no__t-0. À l’issue du laboratoire de test, prenez un instantané de la configuration DirectAccess en cours d’utilisation avec un mot de passe à usage unique pour pouvoir y revenir ultérieurement et tester des scénarios supplémentaires.  
+-   [Étape 12 : instantané de la configuration](assetId:///8a51ed3c-9c32-402f-85d1-617ce46845b4). À l’issue du laboratoire de test, prenez un instantané de la configuration DirectAccess en cours d’utilisation avec un mot de passe à usage unique pour pouvoir y revenir ultérieurement et tester des scénarios supplémentaires.  
   
 
 

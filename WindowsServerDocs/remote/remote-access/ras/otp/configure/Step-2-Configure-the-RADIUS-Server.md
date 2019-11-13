@@ -21,14 +21,14 @@ ms.locfileid: "71367021"
 ---
 # <a name="step-2-configure-the-radius-server"></a>Étape 2 configurer le serveur RADIUS
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Avant de configurer le serveur d’accès à distance pour prendre en charge DirectAccess avec prise en charge du mot de passe à usage unique, vous configurez le serveur RADIUS.  
   
 |Tâche|Description|  
 |----|--------|  
-|[2,1. Configurer les jetons de distribution de logiciels RADIUS @ no__t-0|Sur le serveur RADIUS, configurez les jetons de distribution de logiciels.|  
-|[2,2. Configurer les informations de sécurité RADIUS @ no__t-0|Sur le serveur RADIUS, configurez les ports et le secret partagé à utiliser.|  
+|[2,1. Configuration des jetons de distribution de logiciels RADIUS](#BKMK_1.1)|Sur le serveur RADIUS, configurez les jetons de distribution de logiciels.|  
+|[2,2. Configuration des informations de sécurité RADIUS](#BKMK_1.2)|Sur le serveur RADIUS, configurez les ports et le secret partagé à utiliser.|  
 |[2,3 Ajout d’un compte d’utilisateur pour la détection de mot de passe à usage unique](#BKMK_Probe)|Sur le serveur RADIUS, créez un nouveau compte d’utilisateur pour la détection de mot de passe à usage unique.|  
 |[2,4 synchroniser avec Active Directory](#BKMK_Active)|Sur le serveur RADIUS, créez des comptes d’utilisateur synchronisés avec les comptes de Active Directory.|  
 |[2,5 Configuration de l’agent d’authentification RADIUS](#BKMK_AuthAgent)|Configurez le serveur d’accès à distance en tant qu’agent d’authentification RADIUS.|  

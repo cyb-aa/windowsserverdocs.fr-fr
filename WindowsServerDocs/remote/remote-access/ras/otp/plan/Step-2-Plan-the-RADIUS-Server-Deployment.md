@@ -21,7 +21,7 @@ ms.locfileid: "71404394"
 ---
 # <a name="step-2-plan-the-radius-server-deployment"></a>Étape 2 planifier le déploiement du serveur RADIUS
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Après le déploiement d’un serveur d’accès à distance unique, planifiez le serveur d’authentification par mot de passe à usage unique.  
   
@@ -40,7 +40,7 @@ Notez les points suivants lors de la planification d’un serveur RADIUS pour l�
   
 -   Lorsque vous déployez le serveur RADIUS, vous configurez un secret partagé et le numéro de port pour le trafic RADIUS. Prenez note de ces détails. ils sont requis lorsque vous configurez le serveur d’accès à distance.  
   
-Vous pouvez consulter un exemple de guide de laboratoire de test qui configure l’authentification par mot de passe à usage unique avec un serveur RSA SecurID dans @no__t Guide de laboratoire 0Test : Montrez DirectAccess avec l’authentification par mot de passe à usage unique et RSA SecurID @ no__t-0.  
+Vous pouvez consulter un exemple de guide de laboratoire de test qui définit l’authentification par mot de passe à usage unique avec un serveur RSA SecurID dans le [Guide de laboratoire de test : démonstration de DirectAccess avec l’authentification par mot de passe à usage unique et RSA SecurID](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/tlg-otp-securid/test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid)  
   
   
   

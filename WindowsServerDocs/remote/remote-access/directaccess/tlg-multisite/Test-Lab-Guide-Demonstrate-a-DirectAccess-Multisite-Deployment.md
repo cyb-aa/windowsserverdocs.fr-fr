@@ -19,11 +19,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71388219"
 ---
-# <a name="test-lab-guide-demonstrate-a-directaccess-multisite-deployment"></a>Guide du laboratoire de test : Illustrer un déploiement multisite DirectAccess
+# <a name="test-lab-guide-demonstrate-a-directaccess-multisite-deployment"></a>Guide de laboratoire de test : Illustrer un déploiement multisite DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-L’accès à distance est un rôle serveur dans les systèmes d’exploitation Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité aux ressources réseau internes à l’aide de DirectAccess ou du VPN RRAS. Ce guide contient des instructions pas à pas pour l’extension du Guide de laboratoire [Test : Démonstration de la configuration d’un seul serveur DirectAccess avec Mixed IPv4 et IPv6 @ no__t-0 pour illustrer l’accès à distance dans un scénario multisite.  
+L’accès à distance est un rôle serveur dans les systèmes d’exploitation Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité aux ressources réseau internes à l’aide de DirectAccess ou du VPN RRAS. Ce guide contient des instructions pas à pas pour l’extension du [Guide de laboratoire de test : démonstration de la configuration d’un seul serveur DirectAccess avec mixte IPv4 et IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004) pour illustrer l’accès à distance dans un scénario multisite.  
   
 Le déploiement de l’accès à distance dans un scénario multisite vous permet de configurer des serveurs d’accès à distance dans des emplacements géographiquement différents. Auparavant, les utilisateurs distants devaient toujours se connecter au réseau d’entreprise via un serveur DirectAccess particulier. Avec Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 et Windows 10 ou Windows 8, vous pouvez configurer des points d’entrée pour chaque emplacement géographique de votre déploiement. Chaque point d’entrée peut être un serveur d’accès à distance unique ou un cluster de serveurs d’accès à distance. Les utilisateurs distants ont la possibilité de se connecter à n’importe quel point d’entrée d’accès à distance de l’organisation. Par exemple, si un utilisateur distant se connecte généralement au point d’entrée d’accès à distance situé en Asie, mais qu’il passe ensuite à l’Europe, l’ordinateur client se connecte automatiquement au point d’entrée d’accès distant le plus proche.  
   

@@ -19,7 +19,7 @@ ms.locfileid: "71364502"
 ---
 # <a name="windows-8-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows 8 doit être configuré avec la quantité de mémoire recommandée.
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
   
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,7 +36,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Une machine virtuelle exécutant Windows 8 est configurée avec une quantité inférieure à la quantité recommandée de RAM, qui est de 1 Go.*  
   
 ## <a name="impact"></a>**Impact**  
-les applications et le système d’exploitation invité @no__t 0The peuvent ne pas fonctionner correctement. Il se peut que la mémoire soit insuffisante pour exécuter plusieurs applications à la fois. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Le système d’exploitation invité et les applications peuvent ne pas fonctionner correctement. Il se peut que la mémoire soit insuffisante pour exécuter plusieurs applications à la fois. Cela a un impact sur les machines virtuelles suivantes :*  
 ```  
 <list of virtual machines>  
 ```  

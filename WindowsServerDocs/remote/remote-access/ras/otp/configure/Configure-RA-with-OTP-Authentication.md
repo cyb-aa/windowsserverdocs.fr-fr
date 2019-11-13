@@ -21,18 +21,18 @@ ms.locfileid: "71404414"
 ---
 # <a name="configure-remote-access-with-otp-authentication"></a>Configurer l’accès à distance avec l’authentification par mot de passe à usage unique
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
  Windows Server 2016 et Windows Server 2012 combinent DirectAccess et le réseau privé virtuel (RRAS) du service de routage et d’accès à distance (RRAS) en un seul rôle d’accès à distance. Cette vue d’ensemble fournit une introduction aux étapes de configuration requises pour déployer un déploiement multisite de l’accès à distance Windows Server 2016 ou Windows Server 2012 unique.  
 
 
-- [Étape 1 : Implémenter un déploiement de l’accès à distance à un seul serveur @ no__t-0. Installez et configurez un serveur d’accès à distance unique. Pour obtenir des instructions, consultez [déployer un serveur DirectAccess unique avec des paramètres avancés](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings).
+- [Étape 1 : implémenter un déploiement de l’accès à distance à un seul serveur](../../multisite/configure/Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md). Installez et configurez un serveur d’accès à distance unique. Pour obtenir des instructions, consultez [déployer un serveur DirectAccess unique avec des paramètres avancés](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings).
 
-- [Étape 2 : Configurez le serveur RADIUS @ no__t-0.
+- [Étape 2 : configurer le serveur RADIUS](Step-2-Configure-the-RADIUS-Server.md).
 
-- [Étape 3 : Configurez le serveur d’accès à distance pour le mot de passe à usage unique @ no__t-0.
+- [Étape 3 : configurer le serveur d’accès à distance pour le mot de passe à usage unique](Step-3-Configure-the-Remote-Access-Server-for-OTP.md).
 
-- [Étape 4 : Vérifiez DirectAccess avec le mot de passe à usage unique @ no__t-0.
+- [Étape 4 : vérifier DirectAccess avec un mot de passe à usage unique](Step-4-Verify-DirectAccess-with-OTP.md).
   
 
 

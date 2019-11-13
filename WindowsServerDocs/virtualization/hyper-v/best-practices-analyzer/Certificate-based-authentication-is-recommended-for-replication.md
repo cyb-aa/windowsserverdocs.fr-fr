@@ -19,7 +19,7 @@ ms.locfileid: "71365178"
 ---
 # <a name="certificate-based-authentication-is-recommended-for-replication"></a>L’authentification basée sur les certificats est recommandée pour la réplication
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,12 +36,12 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Une ou plusieurs machines virtuelles sélectionnées pour la réplication sont configurées pour l’authentification Kerberos.*  
   
 ## <a name="impact"></a>**Impact**  
-le trafic réseau de réplication @no__t 0The à partir du serveur principal vers le serveur de réplication n’est pas chiffré. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Le trafic réseau de réplication entre le serveur principal et le serveur de réplication n’est pas chiffré. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
-*If une autre méthode est utilisée pour effectuer le chiffrement, vous pouvez ignorer cette option. Sinon, modifiez les paramètres de l’ordinateur virtuel pour choisir l’authentification basée sur les certificats.*  
+*Si une autre méthode est utilisée pour effectuer le chiffrement, vous pouvez ignorer cette option. Dans le cas contraire, modifiez les paramètres de l’ordinateur virtuel pour choisir l’authentification basée sur les certificats.*  
   
 
 

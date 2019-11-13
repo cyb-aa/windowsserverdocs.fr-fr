@@ -19,7 +19,7 @@ ms.locfileid: "71364738"
 ---
 # <a name="replica-servers-should-be-configured-to-identify-specific-primary-servers-authorized-to-send-replication-traffic"></a>Les serveurs de réplication doivent être configurés pour identifier les serveurs principaux autorisés à envoyer le trafic de réplication
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -38,8 +38,8 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ### <a name="impact"></a>Impact  
 *Toutes les réplications à partir de tous les serveurs principaux sont stockées à un seul emplacement, ce qui peut entraîner des problèmes de confidentialité ou de sécurité.*  
   
-## <a name="resolution"></a>Résolution :  
-le Gestionnaire Hyper-V @no__t 0Use pour créer de nouvelles entrées d’autorisation pour les serveurs principaux spécifiques et pour spécifier des emplacements de stockage distincts pour chacun d’entre eux. Vous pouvez utiliser des caractères génériques pour regrouper les serveurs principaux en jeux pour chaque entrée d’autorisation. *  
+## <a name="resolution"></a>Résolution  
+*Utilisez le Gestionnaire Hyper-V pour créer de nouvelles entrées d’autorisation pour les serveurs principaux spécifiques et spécifiez des emplacements de stockage distincts pour chacun d’entre eux. Vous pouvez utiliser des caractères génériques pour regrouper les serveurs principaux dans des ensembles pour chaque entrée d’autorisation.*  
   
 #### <a name="create-authorization-entries-using-hyper-v-manager"></a>Créer des entrées d’autorisation à l’aide du Gestionnaire Hyper-V  
   
@@ -59,7 +59,7 @@ le Gestionnaire Hyper-V @no__t 0Use pour créer de nouvelles entrées d’autori
   
     -   Spécifiez un emplacement dédié pour stocker uniquement les fichiers de ce serveur.  
   
-7.  Cliquez sur **OK**.  
+7.  Cliquez sur **OK**.  
   
 8.  Répétez cette opération pour chaque serveur principal.  
   

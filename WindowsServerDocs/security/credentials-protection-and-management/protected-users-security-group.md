@@ -22,7 +22,7 @@ ms.locfileid: "71403773"
 ---
 # <a name="protected-users-security-group"></a>Groupe de sécurité Utilisateurs protégés
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique destinée aux professionnels de l'informatique décrit le groupe de sécurité Active Directory nommé Utilisateurs protégés et explique son fonctionnement. Ce groupe a été introduit dans les contrôleurs de domaine Windows Server 2012 R2.
 
@@ -31,7 +31,7 @@ Cette rubrique destinée aux professionnels de l'informatique décrit le groupe 
 Ce groupe de sécurité est conçu dans le cadre d’une stratégie de gestion de l’exposition des informations d’identification au sein de l’entreprise. Les membres de ce groupe disposent automatiquement de protections non configurables qui sont appliquées à leurs comptes. L'appartenance au groupe Utilisateurs protégés est censée être restrictive et sécurisée de manière proactive par défaut. La seule méthode permettant de modifier ces protections pour un compte consiste à supprimer le compte du groupe de sécurité.
 
 > [!WARNING]
-> Les comptes de services et d’ordinateurs ne doivent jamais être membres du groupe utilisateurs protégés. Malgré tout, ce groupe fournit une protection incomplète, car le mot de passe ou le certificat est toujours disponible sur l’ordinateur hôte. L’authentification échoue avec l’erreur @no__t le nom d’utilisateur ou le mot de passe 0the est incorrect @ no__t-1 pour tout service ou ordinateur ajouté au groupe utilisateurs protégés.
+> Les comptes de services et d’ordinateurs ne doivent jamais être membres du groupe utilisateurs protégés. Malgré tout, ce groupe fournit une protection incomplète, car le mot de passe ou le certificat est toujours disponible sur l’ordinateur hôte. L’authentification échoue avec l’erreur \"le nom d’utilisateur ou le mot de passe est incorrect\" pour tout service ou ordinateur ajouté au groupe utilisateurs protégés.
 
 Ce groupe global lié au domaine déclenche une protection non configurable sur les appareils et ordinateurs hôtes exécutant Windows Server 2012 R2 et Windows 8.1 ou version ultérieure pour les utilisateurs des domaines avec un contrôleur de domaine principal exécutant Windows Server 2012 R2. Cela réduit considérablement l’encombrement de mémoire par défaut des informations d’identification quand les utilisateurs se connectent aux ordinateurs avec ces protections.
 
@@ -63,7 +63,7 @@ Le groupe utilisateurs protégés peut être créé en [transférant le rôle d�
 
 Le tableau suivant spécifie les propriétés du groupe Utilisateurs protégés.
 
-|Attribut|Value|
+|Attribut|Valeur|
 |-------|-----|
 |SID/RID connu|S-1-5-21-<domain>-525|
 |Type|Global du domaine|
@@ -90,7 +90,7 @@ Lorsque l’utilisateur connecté est membre du groupe utilisateurs protégés, 
 -   À partir de Windows 8.1 et de Windows Server 2012 R2, Windows Digest ne met pas en cache les informations d’identification en texte brut de l’utilisateur, même quand Windows Digest est activé.
 
 > [!Note]
-> Après l’installation de l' [avis de sécurité Microsoft 2871997](https://technet.microsoft.com/library/security/2871997) , Windows Digest continue de mettre en cache les informations d’identification jusqu’à ce que la clé de registre soit configurée. Consultez l’avis de sécurité de @no__t 0Microsoft : Mise à jour pour améliorer la protection et la gestion des informations d’identification : 13 mai 2014 @ no__t-0 pour obtenir des instructions.
+> Après l’installation de l' [avis de sécurité Microsoft 2871997](https://technet.microsoft.com/library/security/2871997) , Windows Digest continue de mettre en cache les informations d’identification jusqu’à ce que la clé de registre soit configurée. Consultez l' [avis de sécurité Microsoft : mise à jour pour améliorer la protection et la gestion des informations d’identification : 13 mai, 2014](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) pour obtenir des instructions.
 
 -   NTLM ne met pas en cache les informations d’identification en texte brut de l’utilisateur ou la fonction unidirectionnelle NT (NTOWF).
 
@@ -120,11 +120,11 @@ Deux journaux d'administration opérationnels sont disponibles pour résoudre le
 
 |ID d'événement et journal|Description|
 |----------|--------|
-|104<br /><br />**ProtectedUser-Client**|Cause : Le package de sécurité sur le client ne contient pas les informations d'identification.<br /><br />L'erreur est consignée sur l'ordinateur client quand le compte est membre du groupe de sécurité Utilisateurs protégés. Cet événement indique que le package de sécurité ne met pas en cache les informations d'identification nécessaires pour une authentification auprès du serveur.<br /><br />Affiche le nom du package, le nom d'utilisateur, le nom du domaine et le nom du serveur.|
-|304<br /><br />**ProtectedUser-Client**|Cause : Le package de sécurité ne stocke pas les informations d’identification de l’utilisateur protégé.<br /><br />Un événement d’information est consigné dans le client pour indiquer que le package de sécurité ne met pas en cache les informations d’identification de connexion de l’utilisateur. Normalement, Digest (WDigest), la délégation des informations d'identification (CredSSP) et NTLM ne devraient pas pouvoir obtenir les informations d'identification de connexion pour les utilisateurs protégés. Les applications peuvent quand même réussir si elles demandent des informations d'identification.<br /><br />Affiche le nom du package, le nom d'utilisateur et le nom du domaine.|
-|100<br /><br />**ProtectedUserFailures-DomainController**|Cause : Un échec de connexion NTLM se produit pour un compte qui figure dans le groupe de sécurité Utilisateurs protégés.<br /><br />Une erreur est consignée dans le contrôleur de domaine pour indiquer l'échec de l'authentification NTLM en raison de l'appartenance du compte au groupe de sécurité Utilisateurs protégés.<br /><br />Affiche le nom du compte et le nom de l'appareil.|
-|104<br /><br />**ProtectedUserFailures-DomainController**|Cause : Les types de chiffrement DES ou RC4 sont utilisés pour l'authentification Kerberos et un échec de connexion se produit pour un utilisateur dans le groupe de sécurité Utilisateurs protégés.<br /><br />La pré-authentification Kerberos a échoué, car les types de chiffrement DES et RC4 ne peuvent pas être utilisés quand le compte est membre du groupe de sécurité Utilisateurs protégés.<br /><br />(AES est acceptable.)|
-|303<br /><br />**ProtectedUserSuccesses-DomainController**|Cause : Un ticket TGT Kerberos a été correctement émis pour un membre du groupe Utilisateurs protégés.|
+|104<br /><br />**ProtectedUser-Client**|Cause : Le package de sécurité sur le client ne contient pas les informations d'identification.<br /><br />L'erreur est consignée sur l'ordinateur client quand le compte est membre du groupe de sécurité Utilisateurs protégés. Cet événement indique que le package de sécurité ne met pas en cache les informations d'identification nécessaires pour une authentification auprès du serveur.<br /><br />Affiche le nom du package, le nom d'utilisateur, le nom du domaine et le nom du serveur.|
+|304<br /><br />**ProtectedUser-Client**|Raison : le package de sécurité ne stocke pas les informations d’identification de l’utilisateur protégé.<br /><br />Un événement d’information est consigné dans le client pour indiquer que le package de sécurité ne met pas en cache les informations d’identification de connexion de l’utilisateur. Normalement, Digest (WDigest), la délégation des informations d'identification (CredSSP) et NTLM ne devraient pas pouvoir obtenir les informations d'identification de connexion pour les utilisateurs protégés. Les applications peuvent quand même réussir si elles demandent des informations d'identification.<br /><br />Affiche le nom du package, le nom d'utilisateur et le nom du domaine.|
+|100<br /><br />**ProtectedUserFailures-DomainController**|Cause : Un échec de connexion NTLM se produit pour un compte qui figure dans le groupe de sécurité Utilisateurs protégés.<br /><br />Une erreur est consignée dans le contrôleur de domaine pour indiquer l'échec de l'authentification NTLM en raison de l'appartenance du compte au groupe de sécurité Utilisateurs protégés.<br /><br />Affiche le nom du compte et le nom de l'appareil.|
+|104<br /><br />**ProtectedUserFailures-DomainController**|Cause : Les types de chiffrement DES ou RC4 sont utilisés pour l'authentification Kerberos et un échec de connexion se produit pour un utilisateur dans le groupe de sécurité Utilisateurs protégés.<br /><br />La pré-authentification Kerberos a échoué, car les types de chiffrement DES et RC4 ne peuvent pas être utilisés quand le compte est membre du groupe de sécurité Utilisateurs protégés.<br /><br />(AES est acceptable.)|
+|303<br /><br />**ProtectedUserSuccesses-DomainController**|Cause : Un ticket TGT Kerberos a été correctement émis pour un membre du groupe Utilisateurs protégés.|
 
 
 

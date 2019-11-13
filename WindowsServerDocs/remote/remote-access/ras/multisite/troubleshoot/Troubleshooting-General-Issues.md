@@ -21,7 +21,7 @@ ms.locfileid: "71404450"
 ---
 # <a name="troubleshooting-general-issues"></a>Résolution de problèmes généraux
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique contient des informations de dépannage pour les problèmes généraux liés à l’accès à distance.  
   
@@ -43,7 +43,7 @@ Pour contourner ce problème, utilisez les applets de commande de configuration 
 > [!NOTE]  
 > Ce scénario ne se produit pas lorsque l’objet de stratégie de groupe de serveur du point d’entrée actuel n’est pas disponible.  
   
-Vous pouvez utiliser l’applet de commande `Get-DAEntryPointDC` pour répertorier tous les contrôleurs de domaine qui stockent les objets de stratégie de groupe de serveur et `Get-DAMultiSite` conjointement avec `Get-RemoteAccess` pour récupérer une liste complète des objets de stratégie de groupe du serveur dans le déploiement. Exemple :  
+Vous pouvez utiliser l’applet de commande `Get-DAEntryPointDC` pour répertorier tous les contrôleurs de domaine qui stockent des objets de stratégie de groupe de serveur et `Get-DAMultiSite` conjointement avec `Get-RemoteAccess` pour récupérer une liste complète des objets de stratégie de groupe de serveur dans le déploiement. Par exemple :  
   
 ```  
 $ServerGpos = Get-DAEntryPointDC | ForEach-Object {   
@@ -78,7 +78,7 @@ Si un client a déjà été mis à niveau ou si le DCA n’est pas configuré, d
   
 -   **Problème 1**  
   
-    **Erreur reçue**. Impossible d’accéder au contrôleur de domaine < > domain_controller pour < nom_serveur ou entry_point_name >.  
+    **Erreur reçue**. Impossible d’accéder au contrôleur de domaine < domain_controller > pour < SERVER_NAME ou entry_point_name >.  
   
     **Cause**  
   
@@ -86,11 +86,11 @@ Si un client a déjà été mis à niveau ou si le DCA n’est pas configuré, d
   
     **Solution**  
   
-    Suivez la procédure « pour modifier le contrôleur de domaine qui gère les objets de stratégie de groupe de serveur » décrite dans [2,4. Configurez les objets de stratégie de groupe @ no__t-0.  
+    Suivez la procédure « pour modifier le contrôleur de domaine qui gère les objets de stratégie de groupe de serveur » décrit dans [2,4. Configurer des objets de stratégie de groupe](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
   
 -   **Problème 2**  
   
-    **Erreur reçue**. Impossible d’atteindre le contrôleur de domaine principal dans le domaine < nom_domaine >.  
+    **Erreur reçue**. Impossible d’accéder au contrôleur de domaine principal dans le domaine < domain_name >.  
   
     **Cause**  
   
@@ -98,7 +98,7 @@ Si un client a déjà été mis à niveau ou si le DCA n’est pas configuré, d
   
     **Solution**  
   
-    Suivez la procédure « pour transférer le rôle d’émulateur de contrôleur de domaine principal » décrite dans [2,4. Configurez les objets de stratégie de groupe @ no__t-0.  
+    Suivez la procédure « pour transférer le rôle d’émulateur de contrôleur de domaine principal » décrite dans [2,4. Configurer des objets de stratégie de groupe](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
   
 
 

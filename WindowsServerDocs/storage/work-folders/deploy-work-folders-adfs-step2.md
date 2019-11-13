@@ -15,21 +15,21 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365782"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Déployer des dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail après configuration
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Déployer Dossiers de travail avec AD FS et le proxy d’application Web : étape 2, tâches post-configuration AD FS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la deuxième étape de déploiement de Dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Vue d’ensemble @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : vue d’ensemble](deploy-work-folders-adfs-overview.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 1 : configurer AD FS @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 1, configurer AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
+-   [Déployer des dossiers de travail avec des AD FS et un proxy d’application Web : étape 3, configuration de dossiers de travail](deploy-work-folders-adfs-step3.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 4, configurer le proxy d’application Web](deploy-work-folders-adfs-step4.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer les clients @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 5, configurer des clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
 > Les instructions décrites dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
@@ -75,7 +75,7 @@ Pour créer des enregistrements A et CNAME pour AD FS, procédez comme suit :
   
 6.  Dans la fenêtre **Nouvel enregistrement de ressource**, ajoutez le nom d’alias **enterpriseregistration** et entrez le nom de domaine complet (FQDN) du serveur AD FS. Cet alias est utilisé pour la jonction d’appareils et doit être appelé **enterpriseregistration**.
   
-7.  Cliquez sur **OK**.  
+7.  Cliquez sur **OK**.  
   
 Pour effectuer les mêmes étapes via Windows PowerShell, utilisez la commande suivante. La commande doit être exécutée sur le contrôleur de domaine.  
   
@@ -104,7 +104,7 @@ Pour configurer l’approbation de partie de confiance :
   
 7.  Dans la page **Configurer l’URL**, cliquez sur **Suivant**.  
   
-8. Dans la page **configurer les identificateurs** , ajoutez l’identificateur suivant : `https://windows-server-work-folders/V1`. Cet identificateur est une valeur codée en dur utilisée par Dossiers de travail, et il est envoyé par le service Dossiers de travail lorsqu’il communique avec AD FS. Cliquez sur **Suivant**.  
+8. Dans la page **configurer les identificateurs** , ajoutez l’identificateur suivant : `https://windows-server-work-folders/V1`. Cet identificateur est une valeur codée en dur utilisée par Dossiers de travail, et il est envoyé par le service Dossiers de travail lorsqu’il communique avec AD FS. Cliquer sur **Suivant**.  
   
 9. Dans la page Sélectionner une stratégie de contrôle d’accès, sélectionnez **Autoriser tout le monde**, puis cliquez sur **Suivant**.  
   
@@ -124,13 +124,13 @@ Pour configurer l’approbation de partie de confiance :
   
 17. Dans la table de mappage, entrez ces valeurs :  
   
-    -   Nom d’utilisateur principal : UPN  
+    -   User-Principal-Name : UPN  
   
-    -   Nom complet : Nom  
+    -   Display Name : Nom  
   
-    -   Famille Nom  
+    -   Surname : Nom  
   
-    -   Nom donné : Prénom  
+    -   Given-Name : Prénom  
   
 18. Cliquez sur **Terminer**. La règle WorkFolders sera répertoriée sous l’onglet Règles de transformation d’émission. Cliquez ensuite sur **OK**.  
   
@@ -196,7 +196,7 @@ Pour exporter le certificat, procédez comme suit :
   
 6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)** , puis cliquez sur **Terminer**.  
   
-7.  Cliquez sur **OK**.  
+7.  Cliquez sur **OK**.  
   
 8.  Développez le dossier **Racine de la console\Certificats\(Ordinateur local)\Personnel\Certificats**.  
   
@@ -206,7 +206,7 @@ Pour exporter le certificat, procédez comme suit :
   
 11. Dans la page **Format de fichier d’exportation**, conservez les sélections par défaut, puis cliquez sur **Suivant**.  
   
-12. Créez un mot de passe pour le certificat. Il s’agit du mot de passe que vous utiliserez ultérieurement lorsque vous importerez le certificat vers d’autres appareils. Cliquez sur **Suivant**.  
+12. Créez un mot de passe pour le certificat. Il s’agit du mot de passe que vous utiliserez ultérieurement lorsque vous importerez le certificat vers d’autres appareils. Cliquer sur **Suivant**.  
   
 13. Indiquez un emplacement et un nom pour le certificat, puis cliquez sur **Terminer**.  
   
@@ -228,7 +228,7 @@ Vous devez accorder au compte de service AD FS l’autorisation d’accéder à
   
 6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)** , puis cliquez sur **Terminer**.  
   
-7.  Cliquez sur **OK**.  
+7.  Cliquez sur **OK**.  
   
 8.  Développez le dossier **Racine de la console\Certificats\(Ordinateur local)\Personnel\Certificats**.  
   
@@ -238,7 +238,7 @@ Vous devez accorder au compte de service AD FS l’autorisation d’accéder à
   
 11. Dans la fenêtre **Types d’objets**, sélectionnez **Comptes de service** , puis cliquez sur **OK**.  
   
-12. Tapez le nom du compte qui exécute les services AD FS. Dans l’exemple de test, ce nom est ADFSService. Cliquez sur **OK**.  
+12. Tapez le nom du compte qui exécute les services AD FS. Dans l’exemple de test, ce nom est ADFSService. Cliquez sur **OK**.  
   
 13. Dans la fenêtre **Autorisations**, accordez au moins les autorisations de lecture au compte, puis cliquez sur **OK**.  
   
@@ -250,7 +250,7 @@ Pour vérifier que AD FS est opérationnel, ouvrez une fenêtre de navigateur et
   
 La fenêtre du navigateur affiche les métadonnées du serveur de fédération sans mise en forme. Si les données s’affichent sans avertissements ou erreurs SSL, votre serveur de fédération est opérationnel.  
   
-Étape suivante : [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
+Étape suivante : [Déployer Dossiers de travail avec AD FS et le proxy d’application Web : Étape 3, Configurer Dossiers de travail](deploy-work-folders-adfs-step3.md)  
   
 ## <a name="see-also"></a>Voir aussi  
 [Vue d’ensemble des dossiers de travail](Work-Folders-Overview.md)

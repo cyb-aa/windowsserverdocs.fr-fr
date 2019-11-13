@@ -18,9 +18,9 @@ ms.locfileid: "71367682"
 ---
 # <a name="maintaining-a-more-secure-environment"></a>Maintenance d’un environnement plus sécurisé
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-@no__t 0Law numéro 10 : La technologie n’est pas une panacée. * - [10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
+*Numéro de loi dix : la technologie n’est pas une panacée.* - [10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
   
 Lorsque vous avez créé un environnement gérable et sécurisé pour vos ressources d’entreprise critiques, vous devez vous concentrer sur la maintenance sécurisée. Bien que vous ayez reçu des contrôles techniques spécifiques pour renforcer la sécurité de vos installations AD DS, la technologie seule ne protège pas un environnement dans lequel elle ne travaille pas en partenariat avec l’entreprise pour maintenir une infrastructure sécurisée et utilisable. Les recommandations de haut niveau de cette section sont destinées à être utilisées en tant que directives que vous pouvez utiliser pour développer une sécurité efficace, mais une gestion du cycle de vie efficace.  
   
@@ -73,7 +73,7 @@ Vous pouvez également commencer à créer une base de données de « comportem
   
 En intégrant les informations professionnelles à votre infrastructure, vous pouvez utiliser ces informations pour vous aider à identifier les faux positifs. Par exemple, si la direction est enregistrée dans un calendrier accessible au personnel informatique responsable de la surveillance de l’environnement, vous pouvez mettre en corrélation les tentatives de connexion avec les emplacements connus des dirigeants.  
   
-Supposons que la direction A se trouve normalement à Chicago et utilise une station de travail sécurisée pour accéder aux données critiques de l’entreprise à partir de son bureau, et qu’un événement est déclenché par une tentative d’accès aux données à partir d’une station de travail non sécurisée située à Atlanta. Si vous êtes en mesure de vérifier que le cadre est actuellement à Atlanta, vous pouvez résoudre l’événement en contactant le cadre ou l’Assistant du dirigeant pour déterminer si l’échec de l’accès a été le résultat de l’oubli de la direction de l’utilisation de la station de travail sécurisée pour Accédez aux données. En créant un programme qui utilise les approches décrites dans la section [planification de la compromission](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md), vous pouvez commencer à créer une base de données des comportements attendus pour les comptes les plus « importants » dans votre installation Active Directory qui peuvent éventuellement vous aider Détectez et répondez rapidement aux attaques.  
+Supposons que la direction A se trouve normalement à Chicago et utilise une station de travail sécurisée pour accéder aux données critiques de l’entreprise à partir de son bureau, et qu’un événement est déclenché par une tentative d’accès aux données à partir d’une station de travail non sécurisée située à Atlanta. Si vous êtes en mesure de vérifier que le cadre est actuellement à Atlanta, vous pouvez résoudre l’événement en contactant le cadre ou l’Assistant du dirigeant pour déterminer si l’échec de l’accès a été le résultat de l’oubli de la direction de l’utilisation de la station de travail sécurisée pour Accédez aux données. En créant un programme qui utilise les approches décrites dans la section [planification de la compromission](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md), vous pouvez commencer à créer une base de données de comportements attendus pour les comptes les plus « importants » dans votre installation Active Directory, qui peuvent potentiellement vous aider à détecter et à répondre plus rapidement aux attaques.  
   
 
 

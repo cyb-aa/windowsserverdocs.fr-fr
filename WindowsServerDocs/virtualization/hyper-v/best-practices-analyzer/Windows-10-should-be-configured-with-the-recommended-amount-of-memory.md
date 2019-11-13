@@ -19,7 +19,7 @@ ms.locfileid: "71364567"
 ---
 # <a name="windows-10-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows 10 doit être configuré avec la quantité de mémoire recommandée.
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,7 +36,7 @@ Les sections suivantes fournissent des détails sur le problème spécifique. L�
 *Une machine virtuelle exécutant Windows 10 est configurée avec une quantité inférieure à la quantité recommandée de RAM, qui est de 1 Go.*  
   
 ## <a name="impact"></a>**Impact**  
-les applications et le système d’exploitation invité @no__t 0The peuvent ne pas fonctionner correctement. Il se peut que la mémoire soit insuffisante pour exécuter plusieurs applications à la fois. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Le système d’exploitation invité et les applications peuvent ne pas fonctionner correctement. Il se peut que la mémoire soit insuffisante pour exécuter plusieurs applications à la fois. Cela a un impact sur les machines virtuelles suivantes :*  
 ```  
 <list of virtual machines>  
 ```  

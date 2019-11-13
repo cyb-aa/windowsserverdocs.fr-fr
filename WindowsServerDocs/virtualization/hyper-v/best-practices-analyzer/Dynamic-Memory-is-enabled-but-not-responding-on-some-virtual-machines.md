@@ -19,7 +19,7 @@ ms.locfileid: "71393675"
 ---
 # <a name="dynamic-memory-is-enabled-but-not-responding-on-some-virtual-machines"></a>Mémoire dynamique est activé, mais ne répond pas sur certaines machines virtuelles
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,12 +36,12 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Une ou plusieurs machines virtuelles rencontrent des problèmes avec le pilote requis pour Mémoire dynamique dans le système d’exploitation invité.*  
   
 ## <a name="impact"></a>Impact  
-le système d’exploitation invité @no__t 0The dans les ordinateurs virtuels suivants peut ne pas s’exécuter ou s’exécuter de manière non fiable, car Hyper-V ne peut pas ajuster la mémoire dynamiquement pour répondre aux modifications de la demande de mémoire. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Le système d’exploitation invité sur les ordinateurs virtuels suivants peut ne pas s’exécuter ou s’exécuter de manière non fiable, car Hyper-V ne peut pas ajuster la mémoire dynamiquement pour répondre aux modifications de la demande de mémoire. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
-*This est le comportement attendu si l’ordinateur virtuel est en cours de démarrage. Si la machine virtuelle ne démarre pas, assurez-vous que les services d’intégration sont mis à niveau vers la dernière version et que le système d’exploitation invité prend en charge Mémoire dynamique.*  
+## <a name="resolution"></a>Résolution  
+*Ce comportement est normal si l’ordinateur virtuel est en cours de démarrage. Si la machine virtuelle ne démarre pas, assurez-vous que les services d’intégration sont mis à niveau vers la dernière version et que le système d’exploitation invité prend en charge Mémoire dynamique.*  
   
 À compter de Windows Server 2016, les services d’intégration sont fournis par le biais de Windows Update. Assurez-vous que les machines virtuelles sont configurées pour recevoir des mises à jour afin d’obtenir la dernière version d’Integration Services.  
   

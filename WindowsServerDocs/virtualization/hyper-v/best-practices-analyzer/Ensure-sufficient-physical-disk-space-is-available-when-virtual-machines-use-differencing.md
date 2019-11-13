@@ -19,7 +19,7 @@ ms.locfileid: "71364869"
 ---
 # <a name="ensure-sufficient-physical-disk-space-is-available-when-virtual-machines-use-differencing-virtual-hard-disks"></a>Assurez-vous que l’espace disque physique est suffisant lorsque les machines virtuelles utilisent des disques durs virtuels de différenciation
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,12 +36,12 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Une ou plusieurs machines virtuelles utilisent des disques durs virtuels de différenciation.*  
   
 ## <a name="impact"></a>Impact  
-les disques durs virtuels @no__t 0Differencing nécessitent de l’espace disponible sur le volume d’hébergement pour allouer de l’espace lors de l’écriture sur les disques durs virtuels. Si l’espace disponible est épuisé, toute machine virtuelle qui s’appuie sur le stockage physique peut être affectée. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Les disques durs virtuels de différenciation requièrent de l’espace disponible sur le volume hôte afin que de l’espace puisse être alloué lors de l’écriture sur les disques durs virtuels. Si l’espace disponible est épuisé, toute machine virtuelle qui s’appuie sur le stockage physique peut être affectée. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
-*Monitor d’espace disque disponible pour garantir que l’espace disque disponible est suffisant pour l’extension du disque dur virtuel. Envisagez de fusionner les disques durs virtuels de différenciation dans leur parent. Dans le Gestionnaire Hyper-V, inspectez le disque de différenciation pour déterminer le disque dur virtuel parent. Si vous fusionnez un disque de différenciation sur un disque parent qui est partagé par d’autres disques de différenciation, cette action endommage la relation entre les autres disques de différenciation et le disque parent, ce qui les rend inutilisables. Après avoir vérifié que le disque dur virtuel parent n’est pas partagé, vous pouvez utiliser l’Assistant modification de disque pour fusionner le disque de différenciation avec le disque dur virtuel parent.*  
+## <a name="resolution"></a>Résolution  
+*Surveillez l’espace disque disponible pour vous assurer que l’espace disponible est suffisant pour l’extension du disque dur virtuel. Envisagez de fusionner les disques durs virtuels de différenciation dans leur parent. Dans le Gestionnaire Hyper-V, inspectez le disque de différenciation pour déterminer le disque dur virtuel parent. Si vous fusionnez un disque de différenciation sur un disque parent qui est partagé par d’autres disques de différenciation, cette action endommage la relation entre les autres disques de différenciation et le disque parent, ce qui les rend inutilisables. Après avoir vérifié que le disque dur virtuel parent n’est pas partagé, vous pouvez utiliser l’Assistant modification de disque pour fusionner le disque de différenciation avec le disque dur virtuel parent.*  
   
 
 

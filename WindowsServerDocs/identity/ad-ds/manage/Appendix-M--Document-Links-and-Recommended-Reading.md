@@ -16,12 +16,12 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71368937"
 ---
-# <a name="appendix-m-document-links-and-recommended-reading"></a>Annexe M : Liens de documents et lecture recommandée
+# <a name="appendix-m-document-links-and-recommended-reading"></a>Annexe M : Liens vers des documents et lecture recommandée
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
-## <a name="appendix-m-document-links-and-recommended-reading"></a>Annexe M : Liens de documents et lecture recommandée  
+## <a name="appendix-m-document-links-and-recommended-reading"></a>Annexe M : Liens vers des documents et lecture recommandée  
   
 ### <a name="document-links"></a>Liens de document  
 Le tableau suivant contient une liste de liens vers des documents externes et leurs URL afin que les lecteurs des copies papier de ce document puissent accéder à ces informations. Les liens sont répertoriés dans l’ordre dans lequel ils apparaissent dans le document.  
@@ -40,7 +40,7 @@ Le tableau suivant contient une liste de liens vers des documents externes et le
 |[Support Microsoft l’article 814777](https://support.microsoft.com/kb/814777)|[https://support.microsoft.com/kb/814777](https://support.microsoft.com/kb/814777)|  
 |[Ouvrir le projet de sécurité des applications Web (OWASP)](https://www.owasp.org/index.php/Main_Page)|[https://www.owasp.org/index.php/Main_Page](https://www.owasp.org/index.php/Main_Page)|  
 |[Cycle de vie de développement de sécurité Microsoft](https://www.microsoft.com/security/sdl/default.aspx)|[https://www.microsoft.com/security/sdl/default.aspx](https://www.microsoft.com/security/sdl/default.aspx)|  
-|[Atténuation des attaques Pass-The-hash (PtH) et autres techniques de vol d’informations d’identification](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|[https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating attaques Pass-The-hash (PtH) et autres vols d’informations d’identification Techniques_English. pdf](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|  
+|[Atténuation des attaques Pass-The-hash (PtH) et autres techniques de vol d’informations d’identification](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|[https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating les attaques PtH (Pass-The-hash) et autres vols d’informations d’identification Techniques_English. pdf](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|  
 |[Identifiez les adversaires et les attaques ciblées](https://www.microsoft.com/download/details.aspx?id=34793)|[https://www.microsoft.com/download/details.aspx?id=34793](https://www.microsoft.com/download/details.aspx?id=34793)|  
 |[Solution pour la gestion du mot de passe du compte administrateur intégré via l’objet de stratégie de groupe](https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789)|[https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789](https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789)|  
 |[Support Microsoft l’article 817433](https://support.microsoft.com/?id=817433)|[https://support.microsoft.com/?id=817433](https://support.microsoft.com/?id=817433)|  
@@ -90,7 +90,7 @@ Le tableau suivant contient une liste de liens vers des documents externes et le
 |[Gestion de la retine CS](http://www.wideeyesecurity.com/products.asp)|[http://www.wideeyesecurity.com/products.asp](http://www.wideeyesecurity.com/products.asp)|  
 |[Lumension](http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA)|[http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA](http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA)|  
 |[Gestion des vulnérabilités Lumension](http://www.lumension.com/Solutions/Vulnerability-Management.aspx)|[http://www.lumension.com/Solutions/Vulnerability-Management.aspx](http://www.lumension.com/Solutions/Vulnerability-Management.aspx)|  
-|[Guide des menaces et des contre-mesures : Droits d’utilisateur @ no__t-0|[https://technet.microsoft.com/library/hh125917(v=ws.10).aspx](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|  
+|[Guide des menaces et des contre-mesures : droits d’utilisateur](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|[https://technet.microsoft.com/library/hh125917(v=ws.10).aspx](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|  
 |[Atténuation des menaces et des vulnérabilités](https://technet.microsoft.com/library/cc755181(v=ws.10).aspx)|[https://technet.microsoft.com/library/cc755181(v=ws.10).aspx](https://technet.microsoft.com/library/cc755181(v=ws.10).aspx)|  
 |[Droits d’utilisateur](https://technet.microsoft.com/library/dd349804(v=WS.10).aspx)|[https://technet.microsoft.com/library/dd349804(v=WS.10).aspx](https://technet.microsoft.com/library/dd349804(v=WS.10).aspx)|  
 |[Accéder au gestionnaire d’informations d’identification en tant qu’appelant approuvé](https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2)|[https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2](https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2)|  
@@ -166,7 +166,7 @@ Le tableau suivant contient une liste de liens vers des documents externes et le
 |[Meilleures pratiques pour la délégation](https://www.microsoft.com/download/details.aspx?id=21678) de l’Administration des Active Directory pour Windows Server 2003|[https://www.microsoft.com/en-us/download/details.aspx?id=21678](https://www.microsoft.com/download/details.aspx?id=21678)|  
 |[Cycle de vie Support Microsoft](https://support.microsoft.com/lifecycle/)|[https://support.microsoft.com/common/international.aspx?RDPATH=%2flifecycle%2fdefault.aspx](https://support.microsoft.com/common/international.aspx?RDPATH=%2flifecycle%2fdefault.aspx)|  
 |[Active Directory spécification technique](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx)|[https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx)|  
-|@no__t message 0Error lorsque des utilisateurs non administrateurs qui ont été délégués contrôle essaient de joindre des ordinateurs à un contrôleur de domaine Windows Server 2003 ou Windows Server 2008 : « Accès refusé » ](https://support.microsoft.com/kb/932455)|[https://support.microsoft.com/kb/932455](https://support.microsoft.com/kb/932455)| 
+|[Message d’erreur lorsque des utilisateurs non administrateurs qui ont été délégués contrôle essaient de joindre des ordinateurs à un contrôleur de domaine Windows Server 2003 ou Windows Server 2008 : « accès refusé »](https://support.microsoft.com/kb/932455)|[https://support.microsoft.com/kb/932455](https://support.microsoft.com/kb/932455)| 
 |[Guide pas à pas de l’assurance du mécanisme d’authentification pour AD DS dans Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(WS.10).aspx)|[https://technet.microsoft.com/library/dd378897(WS.10).aspx](https://technet.microsoft.com/library/dd378897(WS.10).aspx)|  
 |[Validation KDC stricte](https://www.microsoft.com/download/details.aspx?id=6382)|[https://www.microsoft.com/download/details.aspx?id=6382](https://www.microsoft.com/download/details.aspx?id=6382)|  
   
@@ -189,7 +189,7 @@ Le tableau suivant contient une liste de lectures recommandées qui vous aideron
 |[Meilleures pratiques pour la délégation](https://www.microsoft.com/download/details.aspx?id=21678) de l’Administration des Active Directory pour Windows Server 2003|  
 |[Cycle de vie Support Microsoft](https://support.microsoft.com/lifecycle/)|  
 |[Spécification technique Active Directory](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx) -informations dsHeuristics|  
-|@no__t message 0Error lorsque des utilisateurs non administrateurs qui ont été délégués contrôle essaient de joindre des ordinateurs à un contrôleur de domaine Windows Server 2003 ou Windows Server 2008 : « Accès refusé » ](https://support.microsoft.com/kb/932455)|  
+|[Message d’erreur lorsque des utilisateurs non administrateurs qui ont été délégués contrôle essaient de joindre des ordinateurs à un contrôleur de domaine Windows Server 2003 ou Windows Server 2008 : « accès refusé »](https://support.microsoft.com/kb/932455)|  
 |[Guide des meilleures pratiques pour la sécurisation des installations Active Directory. doc](https://go.microsoft.com/fwlink/?LinkId=140862)|  
 |[Guide de sécurité Hyper-V](https://www.microsoft.com/download/details.aspx?id=16650)|  
 |[Guide pas à pas de l’assurance du mécanisme d’authentification pour AD DS dans Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(WS.10).aspx).|  

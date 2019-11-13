@@ -52,8 +52,8 @@ Le script ci-dessous peut être exécuté directement à partir du Portail Azure
 | :---: | :--- |
 | AdminUsername | Nom d’utilisateur à configurer sur chaque machine virtuelle en tant qu’administrateur local. |
 | AdminPassword | Mot de passe en texte clair à configurer sur chaque machine virtuelle en tant que mot de passe de l’administrateur local. |
-| resourceGroupName | Nom à utiliser pour le groupe de ressources. Ne doit pas dupliquer un nom existant. |
-| Location | Nom de l’emplacement Azure sur lequel vous souhaitez effectuer le déploiement. Répertorier les régions prises en charge pour l’abonnement actuel à l’aide de `az account list-locations`. |
+| ResourceGroupName | Nom à utiliser pour le groupe de ressources. Ne doit pas dupliquer un nom existant. |
+| Emplacement | Nom de l’emplacement Azure sur lequel vous souhaitez effectuer le déploiement. Répertorie les régions prises en charge pour l’abonnement actuel à l’aide de `az account list-locations`. |
 | VNetName | Le nom à attribuer au réseau virtuel Azure ne doit pas dupliquer un nom existant. |
 | VNetAddress | Étendue IP à utiliser pour la mise en réseau Azure. Ne doit pas dupliquer une plage existante. |
 | SubnetName | Nom à attribuer au sous-réseau IP. Ne doit pas dupliquer un nom existant. |
@@ -159,7 +159,8 @@ Si les machines virtuelles Azure créées dans le cadre de ce processus seront u
 
 Une fois les nouveaux contrôleurs de domaine promus dans Azure, ils doivent être définis sur les serveurs DNS principal et secondaire pour le réseau virtuel, et tous les serveurs DNS locaux sont rétrogradés au tertiaire et au-delà. Pour plus d’informations sur la modification des serveurs DNS, consultez l’article [créer, modifier ou supprimer un réseau virtuel](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
-Pour plus d’informations sur l’extension d’un réseau local à Azure, consultez l’article @no__t 0Creating a site-to-site VPN Connection @ no__t-1.
+Pour plus d’informations sur l’extension d’un réseau local à Azure, consultez l’article [création d’une connexion VPN de site à site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+).
 
 ## <a name="configure-the-vms-and-install-active-directory-domain-services"></a>Configurer les machines virtuelles et installer Active Directory Domain Services
 

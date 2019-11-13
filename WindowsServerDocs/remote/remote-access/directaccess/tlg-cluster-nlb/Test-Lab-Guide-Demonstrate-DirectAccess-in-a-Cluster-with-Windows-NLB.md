@@ -19,11 +19,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71388430"
 ---
-# <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guide du laboratoire de test : Démonstration de DirectAccess dans un cluster avec Windows NLB
+# <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guide de laboratoire de test : démonstration de DirectAccess dans un cluster avec équilibrage de charge réseau Windows
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-L’accès à distance est un rôle serveur dans les systèmes d’exploitation Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité aux ressources réseau internes à l’aide de DirectAccess ou du VPN RRAS. Ce guide contient des instructions pas à pas pour l’extension du Guide de laboratoire [Test : Démonstration de la configuration d’un seul serveur DirectAccess avec Mixed IPv4 et IPv6 @ no__t-0 pour illustrer l’équilibrage de la charge réseau DirectAccess et la configuration du cluster.  
+L’accès à distance est un rôle serveur dans les systèmes d’exploitation Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité aux ressources réseau internes à l’aide de DirectAccess ou du VPN RRAS. Ce guide contient des instructions pas à pas permettant d’élargir l’utilisation du [Guide de laboratoire de test : Démonstration de configuration d’un serveur DirectAccess unique dans un environnement mixte IPv4 et IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004) dans le but de démontrer l’équilibrage de la charge réseau et la configuration de cluster DirectAccess.  
   
 ## <a name="about-this-guide"></a>À propos de ce guide  
 Ce guide contient des instructions permettant de configurer le rôle serveur Accès à distance et d’en faire la démonstration à l’aide de six serveurs et deux ordinateurs clients. Le laboratoire de test Accès à distance réalisé avec équilibrage de la charge réseau simule un intranet, Internet, ainsi qu’un réseau domestique. Il fait la démonstration de la fonctionnalité Accès à distance dans différents scénarios de connexion Internet.  
@@ -34,7 +34,7 @@ Ce guide contient des instructions permettant de configurer le rôle serveur Acc
 ## <a name="KnownIssues"></a>Problèmes connus  
 Les problèmes décrits ci-après sont connus et surviennent souvent lors de la configuration d’un scénario de cluster :  
   
--   Après avoir configuré DirectAccess dans un déploiement IPv4 uniquement avec une seule carte réseau et après avoir configuré automatiquement le DNS64 par défaut (l’adresse IPv6 qui contient « : 3333:: ») sur la carte réseau, la tentative d’activation de l’équilibrage de charge via la console Gestion de l’accès à distance entraîne l’affichage d’une invite demandant à l’utilisateur de fournir une adresse IPv6 DIP. Si une adresse IPv6 DIP est fournie, la configuration échoue après avoir cliqué sur **Valider** avec l’erreur : Le paramètre est incorrect  
+-   Après avoir configuré DirectAccess dans un déploiement IPv4 uniquement avec une seule carte réseau et après avoir configuré automatiquement le DNS64 par défaut (l’adresse IPv6 qui contient « : 3333:: ») sur la carte réseau, la tentative d’activation de l’équilibrage de charge via la console Gestion de l’accès à distance entraîne l’affichage d’une invite demandant à l’utilisateur de fournir une adresse IPv6 DIP. Si une adresse IPv6 DIP est fournie, la configuration échoue après avoir cliqué sur **Valider** avec l’erreur : Le paramètre est incorrect.  
   
     Pour résoudre ce problème :  
   
@@ -44,7 +44,7 @@ Les problèmes décrits ci-après sont connus et surviennent souvent lors de la 
   
     3.  Essayez d’activer l’équilibrage de charge jusqu’à l’étape ayant provoqué l’échec. Dans la boîte de dialogue Activer l’équilibrage de charge, développez la zone des détails, cliquez avec le bouton droit dans cette dernière et cliquez sur **Copier le script**.  
   
-    4.  Ouvrez le bloc-notes et collez le contenu du Presse-papiers. Exemple :  
+    4.  Ouvrez le bloc-notes et collez le contenu du Presse-papiers. Par exemple :  
   
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19/255.255.255.0','fdc4:29bd:abde:3333::2/128') -InternetVirtualIPAddress @('fdc4:29bd:abde:3333::1/128', '10.244.4.21/255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  
@@ -52,7 +52,7 @@ Les problèmes décrits ci-après sont connus et surviennent souvent lors de la 
   
     5.  Fermez les boîtes de dialogue Accès à distance ouvertes et fermez la console de gestion de l’accès à distance.  
   
-    6.  Modifiez le texte collé et supprimez les adresses IPv6. Exemple :  
+    6.  Modifiez le texte collé et supprimez les adresses IPv6. Par exemple :  
   
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19/255.255.255.0') -InternetVirtualIPAddress @('10.244.4.21/255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  

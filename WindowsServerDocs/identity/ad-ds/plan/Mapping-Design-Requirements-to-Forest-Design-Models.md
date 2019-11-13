@@ -18,7 +18,7 @@ ms.locfileid: "71408760"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Mappage des exigences de conception aux modèles de conception de forêt
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La plupart des groupes de votre organisation peuvent partager une forêt d’organisation unique qui est gérée par un seul groupe informatique et qui contient les comptes d’utilisateurs et les ressources pour tous les groupes qui partagent la forêt. Cette forêt partagée, appelée forêt d’organisation initiale, est la base du modèle de conception de forêt pour l’organisation.  
 
@@ -31,19 +31,19 @@ Si tous les groupes de votre organisation ne peuvent pas partager une seule for�
 
 |Scénario|Connectivité limitée|Isolation des données|Autonomie des données|Isolation du service|Autonomie des services|  
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|  
-|[Scénario 1 : Joindre une forêt existante pour l’autonomie des données @ no__t-0|Non|Non|Oui|Non|Non|  
-|[Scénario 2: Utiliser une forêt ou un domaine d’organisation pour l’autonomie du service @ no__t-0|Non|Non|N/A|Non|Oui|  
-|@no__t 0Scenario 3 : Utiliser une forêt d’organisation ou une forêt de ressources pour l’isolation de service @ no__t-0|Non|Non|N/A|Oui|N/A|  
-|[Scenario 4 : Utiliser une forêt d’organisation ou une forêt à accès restreint pour l’isolation des données @ no__t-0|N/A|Oui|N/A|N/A|N/A|  
-|@no__t 0Scenario 5 : Utilisez une forêt d’organisation ou reconfigurez le pare-feu pour une connectivité limitée @ no__t-0|Oui|Non|N/A|Non|Non|  
-|@no__t 0Scenario 6 : Utilisez une forêt ou un domaine d’organisation et reconfigurez le pare-feu pour l’autonomie des services avec une connectivité limitée @ no__t-0|Oui|Non|N/A|Non|Oui|  
-|@no__t 0Scenario 7 : Utilisez une forêt de ressources et reconfigurez le pare-feu pour l’isolation des services avec une connectivité limitée @ no__t-0|Oui|Non|N/A|Oui|N/A|  
+|[Scénario 1 : rejoindre une forêt existante pour l’autonomie des données](#BKMK_1)|Non|Non|Oui|Non|Non|  
+|[Scénario 2 : utiliser une forêt ou un domaine d’organisation pour l’autonomie des services](#BKMK_2)|Non|Non|N/A|Non|Oui|  
+|[Scénario 3 : utiliser une forêt d’organisation ou une forêt de ressources pour l’isolation de service](#BKMK_3)|Non|Non|N/A|Oui|N/A|  
+|[Scénario 4 : utiliser une forêt d’organisation ou une forêt à accès restreint pour l’isolation des données](#BKMK_4)|N/A|Oui|N/A|N/A|N/A|  
+|[Scénario 5 : utiliser une forêt d’organisation ou reconfigurer le pare-feu pour une connectivité limitée](#BKMK_5)|Oui|Non|N/A|Non|Non|  
+|[Scénario 6 : utiliser une forêt ou un domaine d’organisation et reconfigurer le pare-feu pour l’autonomie des services avec une connectivité limitée](#BKMK_6)|Oui|Non|N/A|Non|Oui|  
+|[Scénario 7 : utiliser une forêt de ressources et reconfigurer le pare-feu pour l’isolation des services avec une connectivité limitée](#BKMK_7)|Oui|Non|N/A|Oui|N/A|  
 
-## <a name="BKMK_1"></a>Scénario 1 : Rejoindre une forêt existante pour l’autonomie des données  
+## <a name="BKMK_1"></a>Scénario 1 : rejoindre une forêt existante pour l’autonomie des données  
 
 Vous pouvez répondre à une exigence d’autonomie des données simplement en hébergeant le groupe dans des unités d’organisation (UO) dans une forêt d’organisation existante. Déléguez le contrôle des UO aux administrateurs de données à partir de ce groupe pour bénéficier de l’autonomie des données. Pour plus d’informations sur la délégation du contrôle à l’aide d’unités d’organisation, consultez [création d’une conception d’unité d’organisation](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
   
-## <a name="BKMK_2"></a>Scénario 2 : Utilisation d’une forêt ou d’un domaine d’organisation pour l’autonomie des services  
+## <a name="BKMK_2"></a>Scénario 2 : utiliser une forêt ou un domaine d’organisation pour l’autonomie des services  
 
 Si un groupe de votre organisation identifie l’autonomie du service en tant qu’exigence, nous vous recommandons de reconsidérer cette exigence. L’autonomie du service crée davantage de charge de gestion et des coûts supplémentaires pour l’organisation. Assurez-vous que la configuration requise pour l’autonomie du service n’est pas simple pour des raisons pratiques et que vous pouvez justifier les coûts liés à la satisfaction de cette exigence.  
   
@@ -55,7 +55,7 @@ Vous pouvez répondre à une exigence d’autonomie de service en procédant de 
 
 Pour plus d’informations sur l’utilisation des domaines d’organisation, consultez [utilisation du modèle de forêt de domaines organisationnels](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
 
-## <a name="BKMK_3"></a>Scénario 3 : Utiliser une forêt d’organisation ou une forêt de ressources pour l’isolation des services  
+## <a name="BKMK_3"></a>Scénario 3 : utiliser une forêt d’organisation ou une forêt de ressources pour l’isolation de service  
 
 Vous pouvez répondre à une exigence d’isolation des services en procédant de l’une des façons suivantes :  
 
@@ -77,7 +77,7 @@ Les éléments à prendre en compte pour l’isolation des services sont les sui
 
 - L’isolation de service requiert la création d’une forêt supplémentaire. Déterminez si le coût de maintenance de l’infrastructure pour prendre en charge la forêt supplémentaire compense les coûts associés à la perte d’accès aux ressources en raison de l’indisponibilité d’une forêt d’organisation.  
 
-## <a name="BKMK_4"></a>Scénario 4 : Utiliser une forêt d’organisation ou une forêt à accès restreint pour l’isolation des données  
+## <a name="BKMK_4"></a>Scénario 4 : utiliser une forêt d’organisation ou une forêt à accès restreint pour l’isolation des données  
 
 Vous pouvez optimiser l’isolation des données en procédant de l’une des manières suivantes :  
 
@@ -109,7 +109,7 @@ Les éléments à prendre en compte pour la création de forêts pour l’isolat
    > [!NOTE]  
    > S’il existe une connectivité réseau entre une forêt à accès restreint et un autre réseau, il est possible que les données de la zone restreinte soient transmises à l’autre réseau.  
 
-## <a name="BKMK_5"></a>Scénario 5 : Utilisez une forêt d’organisation ou reconfigurez le pare-feu pour une connectivité limitée  
+## <a name="BKMK_5"></a>Scénario 5 : utiliser une forêt d’organisation ou reconfigurer le pare-feu pour une connectivité limitée  
 
 Pour répondre à une exigence de connectivité limitée, vous pouvez effectuer l’une des opérations suivantes :  
 
@@ -119,7 +119,7 @@ Pour répondre à une exigence de connectivité limitée, vous pouvez effectuer 
 
 Pour plus d’informations sur la configuration de pare-feu pour une utilisation avec Active Directory Domain Services (AD DS), consultez [Active Directory dans les réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=37928).  
 
-## <a name="BKMK_6"></a>Scénario 6 : Utiliser une forêt ou un domaine d’organisation et reconfigurer le pare-feu pour l’autonomie des services avec une connectivité limitée  
+## <a name="BKMK_6"></a>Scénario 6 : utiliser une forêt ou un domaine d’organisation et reconfigurer le pare-feu pour l’autonomie des services avec une connectivité limitée  
 
 Si un groupe de votre organisation identifie l’autonomie du service en tant qu’exigence, nous vous recommandons de reconsidérer cette exigence. L’autonomie du service crée davantage de charge de gestion et des coûts supplémentaires pour l’organisation. Assurez-vous que la configuration requise pour l’autonomie du service n’est pas simple pour des raisons pratiques et que vous pouvez justifier les coûts liés à la satisfaction de cette exigence.  
 
@@ -131,7 +131,7 @@ Si la connectivité limitée est un problème et que vous avez besoin d’une au
 
 Vous devez également ouvrir le pare-feu suffisamment pour permettre le transfert de Active Directory. Pour plus d’informations sur la configuration de pare-feu pour une utilisation avec AD DS, consultez [Active Directory dans les réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=37928).  
 
-## <a name="BKMK_7"></a>Scénario 7 : Utilisez une forêt de ressources et reconfigurez le pare-feu pour l’isolation des services avec une connectivité limitée  
+## <a name="BKMK_7"></a>Scénario 7 : utiliser une forêt de ressources et reconfigurer le pare-feu pour l’isolation des services avec une connectivité limitée  
 
 Si la connectivité limitée est un problème et que vous avez besoin d’un isolement de service, vous pouvez effectuer l’une des opérations suivantes :  
 

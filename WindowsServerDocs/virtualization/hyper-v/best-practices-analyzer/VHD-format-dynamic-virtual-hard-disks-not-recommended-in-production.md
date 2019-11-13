@@ -19,7 +19,7 @@ ms.locfileid: "71364591"
 ---
 # <a name="vhd-format-dynamic-virtual-hard-disks-are-not-recommended-for-virtual-machines-that-run-server-workloads-in-a-production-environment"></a>Les disques durs virtuels dynamiques au format VHD ne sont pas recommandés pour les machines virtuelles qui exécutent des charges de travail serveur dans un environnement de production
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,12 +36,12 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Une ou plusieurs machines virtuelles utilisent des disques durs virtuels de taille dynamique au format VHD.*  
   
 ## <a name="impact"></a>**Impact**  
-les disques durs virtuels dynamiques au format @no__t 0VHD peuvent rencontrer des problèmes de cohérence en cas de panne de courant. Des problèmes de cohérence peuvent se produire si le disque physique effectue une mise à jour incomplète ou incorrecte d’un secteur dans un fichier. vhd en cours de modification en cas de panne de courant. Cela affecte les ordinateurs virtuels suivants : *  
+*Les disques durs virtuels dynamiques au format VHD peuvent rencontrer des problèmes de cohérence en cas de panne de courant. Des problèmes de cohérence peuvent se produire si le disque physique effectue une mise à jour incomplète ou incorrecte d’un secteur dans un fichier. vhd en cours de modification en cas de panne de courant. Cela affecte les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
-*Shut sur la machine virtuelle et convertir le disque dur virtuel dynamique au format VHD en disque dur virtuel au format VHDX ou en disque dur virtuel fixe. (Le format VHDX a des mécanismes de fiabilité qui permettent de protéger le disque des altérations dues à des défaillances de l’alimentation du système.) Toutefois, ne convertissez pas le disque dur virtuel s’il est susceptible d’être attaché à une version antérieure de Windows à un moment donné. Les versions de Windows antérieures à Windows Server 2012 ne prennent pas en charge le format VHDX.*  
+*Arrêtez l’ordinateur virtuel et convertissez le disque dur virtuel dynamique au format VHD en disque dur virtuel au format VHDX ou en disque dur virtuel fixe. (Le format VHDX a des mécanismes de fiabilité qui permettent de protéger le disque des altérations dues à des défaillances de l’alimentation du système.) Toutefois, ne convertissez pas le disque dur virtuel s’il est susceptible d’être attaché à une version antérieure de Windows à un moment donné. Les versions de Windows antérieures à Windows Server 2012 ne prennent pas en charge le format VHDX.*  
   
 
 

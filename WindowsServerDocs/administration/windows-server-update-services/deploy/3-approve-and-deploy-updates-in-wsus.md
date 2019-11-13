@@ -19,15 +19,15 @@ ms.locfileid: "71361692"
 ---
 # <a name="step-3-approve-and-deploy-updates-in-wsus"></a>Étape 3 : Approuver et déployer des mises à jour dans WSUS
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les ordinateurs d’un groupe d’ordinateurs contactent automatiquement le serveur WSUS dans les 24 heures suivantes pour obtenir des mises à jour. Vous pouvez utiliser la fonctionnalité de création de rapports WSUS pour déterminer si ces mises à jour ont été déployées sur les ordinateurs de test. Lorsque les tests sont correctement effectués, vous pouvez approuver les mises à jour pour les groupes d’ordinateurs applicables dans votre organisation. La liste de contrôle suivante décrit les étapes de l’approbation et du déploiement des mises à jour à l’aide de la console de gestion des services WSUS.
 
 |Tâche|Description|
 |----|--------|
-|[3,1. Approuver et déployer les mises à jour WSUS @ no__t-0|Approuvez et déployez des mises à jour WSUS à l’aide de la console de gestion des services WSUS.|
-|[3,2. Configurer des règles d’approbation automatique @ no__t-0|Configurez WSUS pour approuver automatiquement l'installation des mises à jour pour les groupes sélectionnés et pour déterminer comment approuver les révisions des mises à jour existantes.|
-|[3,3. Examiner les mises à jour installées avec les rapports WSUS @ no__t-0|Passez en revue les mises à jour qui ont été installées, les ordinateurs qui ont reçu ces mises à jour et d’autres informations à l’aide de la fonctionnalité de création de rapports WSUS.|
+|[3,1. approuvez et déployez les mises à jour WSUS](3-approve-and-deploy-updates-in-wsus.md#BKM_3.1.)|Approuvez et déployez des mises à jour WSUS à l’aide de la console de gestion des services WSUS.|
+|[3,2. configurer les règles d’approbation automatique](3-approve-and-deploy-updates-in-wsus.md#BKM_3.2.a.)|Configurez WSUS pour approuver automatiquement l'installation des mises à jour pour les groupes sélectionnés et pour déterminer comment approuver les révisions des mises à jour existantes.|
+|[3,3. examen des mises à jour installées avec les rapports WSUS](3-approve-and-deploy-updates-in-wsus.md#BKM_3.3.)|Passez en revue les mises à jour qui ont été installées, les ordinateurs qui ont reçu ces mises à jour et d’autres informations à l’aide de la fonctionnalité de création de rapports WSUS.|
 
 ## <a name="BKM_3.1."></a>3,1. Approuver et déployer des mises à jour WSUS
 Utilisez la procédure suivante pour approuver et déployer des mises à jour.
@@ -69,7 +69,7 @@ Approbations automatiques vous permet de déterminer comment approuver automatiq
 
 5.  Dans **étape 2 : modifiez les propriétés**, cliquez sur chacune des options de la liste, puis sélectionnez les options appropriées pour chacune d’elles.
 
-6.  Dans @no__t 0Step 3 : Spécifiez un nom @ no__t-0, tapez un nom pour votre règle, puis cliquez sur **OK**.
+6.  À l’  **Étape 3 : Spécifiez un nom**, tapez le nom de votre règle, puis cliquez sur **OK**.
 
 7.  Cliquez sur **OK** pour fermer la boîte de dialogue Approbations automatiques.
 

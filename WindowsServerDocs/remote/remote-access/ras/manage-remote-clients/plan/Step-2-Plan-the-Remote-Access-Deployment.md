@@ -21,12 +21,12 @@ ms.locfileid: "71404574"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Étape 2 planifier le déploiement de l’accès à distance
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Après avoir planifié l’infrastructure que vous prévoyez d’utiliser pour configurer votre serveur d’accès à distance unique pour la gestion à distance des clients DirectAccess, vous êtes prêt à planifier les paramètres que l’Assistant Configuration de l’accès à distance utilisera.  
   
 > [!NOTE]  
-> Avant de poursuivre ces tâches, voir [Step 1 : Planifier l’infrastructure d’accès à distance @ no__t-0.  
+> Avant de poursuivre ces tâches, consultez [étape 1 : planifier l’infrastructure d’accès à distance](Step-1-Plan-the-Remote-Access-Infrastructure.md).  
   
 |Tâche|Description|  
 |----|--------|  
@@ -55,7 +55,7 @@ Vous devez prendre trois décisions lors de la planification du déploiement de 
   
     -   **Vérificateurs de connectivité**  
   
-        Une sonde web par défaut est créée et elle est utilisée par les clients pour valider la connectivité au réseau interne. Le nom par défaut `https://directaccess-WebProbeHost.<domain_name>`est. Ce nom doit être enregistré manuellement dans DNS. Vous pouvez créer d’autres vérificateurs de connectivité utilisant d’autres adresses Web via HTTP ou PING. Pour chaque vérificateur de connectivité, une entrée DNS doit exister.  
+        Une sonde web par défaut est créée et elle est utilisée par les clients pour valider la connectivité au réseau interne. Le nom par défaut est `https://directaccess-WebProbeHost.<domain_name>`. Ce nom doit être enregistré manuellement dans DNS. Vous pouvez créer d’autres vérificateurs de connectivité utilisant d’autres adresses Web via HTTP ou PING. Pour chaque vérificateur de connectivité, une entrée DNS doit exister.  
   
     -   **Adresse de messagerie du support technique**  
   
@@ -76,9 +76,9 @@ Les décisions que vous devez prendre lorsque vous envisagez de déployer votre 
   
     Deux topologies sont disponibles lors du déploiement d’un serveur d’accès à distance :  
   
-    -   **Deux adaptateurs**: Avec deux cartes réseau, l’accès à distance peut être configuré avec une seule carte réseau connectée directement à Internet et l’autre connectée au réseau interne. Ou bien, le serveur est installé derrière un périphérique de périmètre, tel qu’un pare-feu ou un routeur. Dans cette configuration, une carte réseau est connectée au réseau de périmètre et l’autre est connectée au réseau interne.  
+    -   **Deux cartes**: avec deux cartes réseau, l’accès à distance peut être configuré avec une carte réseau connectée directement à Internet et l’autre connectée au réseau interne. Ou bien, le serveur est installé derrière un périphérique de périmètre, tel qu’un pare-feu ou un routeur. Dans cette configuration, une carte réseau est connectée au réseau de périmètre et l’autre est connectée au réseau interne.  
   
-    -   **Carte réseau unique**: Dans cette configuration, le serveur d’accès à distance est installé derrière un périphérique de périmètre, tel qu’un pare-feu ou un routeur. La carte réseau est connectée au réseau interne.  
+    -   **Carte réseau unique**: dans cette configuration, le serveur d’accès à distance est installé derrière un périphérique de périmètre, tel qu’un pare-feu ou un routeur. La carte réseau est connectée au réseau interne.  
 
 -   **Cartes réseau**  
   
@@ -96,9 +96,9 @@ Les décisions que vous devez prendre lorsque vous envisagez de déployer votre 
   
     Vous pouvez choisir l’une des méthodes suivantes pour authentifier les clients DirectAccess sur le serveur d’accès à distance :  
   
-    -   **Authentification de l’utilisateur**: Vous pouvez permettre aux utilisateurs de s'authentifier à l'aide des informations d'identification Active Directory ou d'une authentification à deux facteurs.  
+    -   **Authentification utilisateur**: vous pouvez permettre aux utilisateurs de s’authentifier avec des informations d’identification de Active Directory ou à l’aide de l’authentification à deux facteurs.  
   
-    -   **Authentification de l’ordinateur**: Vous pouvez configurer l’authentification de l’ordinateur pour utiliser des certificats. Ou le serveur d’accès à distance peut agir en tant que proxy pour l’authentification Kerberos sans nécessiter de certificats. 
+    -   **Authentification de l’ordinateur**: vous pouvez configurer l’authentification de l’ordinateur pour utiliser des certificats. Ou le serveur d’accès à distance peut agir en tant que proxy pour l’authentification Kerberos sans nécessiter de certificats. 
   
     -   **Clients Windows 7** Par défaut, les ordinateurs clients qui exécutent Windows 7 ne peuvent pas se connecter à un déploiement de l’accès à distance exécutant Windows Server 2012. Si vous avez des clients exécutant Windows 7 dans votre organisation qui requièrent un accès à distance aux ressources internes, vous pouvez les autoriser à se connecter. Tout ordinateur client que vous voulez autoriser à accéder aux ressources internes doit être membre d'un groupe de sécurité que vous spécifiez dans l'Assistant Installation des clients DirectAccess.  
   
@@ -118,9 +118,9 @@ L’accès à distance requiert trois types de serveurs d’infrastructure :
   
 -   **Serveurs d’administration** 
   
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Voir également  
   
--   [Étape 1 : Planifier l’infrastructure d’accès à distance](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
+-   [Étape 1 : planifier l’infrastructure d’accès à distance](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   
 
 

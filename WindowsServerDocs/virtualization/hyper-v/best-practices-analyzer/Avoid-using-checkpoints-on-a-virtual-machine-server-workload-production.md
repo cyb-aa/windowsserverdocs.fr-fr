@@ -19,7 +19,7 @@ ms.locfileid: "71365219"
 ---
 # <a name="avoid-using-checkpoints-on-a-virtual-machine-that-runs-a-server-workload-in-a-production-environment"></a>Évitez d’utiliser des points de contrôle sur un ordinateur virtuel qui exécute une charge de travail serveur dans un environnement de production
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 
   
@@ -43,13 +43,13 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 ## <a name="impact"></a>Impact  
   
-l’espace @no__t 0Available peut s’exécuter sur le disque physique qui stocke les fichiers de points de contrôle. Si cela se produit, aucune opération de disque supplémentaire ne peut être effectuée sur le stockage physique. Tout ordinateur virtuel qui s’appuie sur le stockage physique peut être affecté. *  
+*L’espace disponible est peut-être insuffisant sur le disque physique qui stocke les fichiers de points de contrôle. Si cela se produit, aucune opération de disque supplémentaire ne peut être effectuée sur le stockage physique. Tout ordinateur virtuel qui s’appuie sur le stockage physique peut être affecté.*  
   
 En cas d’insuffisance de l’espace disque physique, toute machine virtuelle en cours d’exécution qui possède des points de contrôle ou des disques durs virtuels stockés sur ce disque peut être suspendue automatiquement. Le Gestionnaire Hyper-V affiche l’état de ces machines virtuelles en tant que « en pause critique ».  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
-*If la machine virtuelle exécute une charge de travail de serveur dans un environnement de production, puis mettre l’ordinateur virtuel hors connexion, puis utiliser le Gestionnaire Hyper-V pour appliquer ou supprimer les points de contrôle. Pour supprimer des points de contrôle, vous devez arrêter l’ordinateur virtuel pour terminer le processus.*  
+*Si la machine virtuelle exécute une charge de travail de serveur dans un environnement de production, déconnecter l’ordinateur virtuel, puis utiliser le Gestionnaire Hyper-V pour appliquer ou supprimer les points de contrôle. Pour supprimer des points de contrôle, vous devez arrêter l’ordinateur virtuel pour terminer le processus.*  
   
 > [!NOTE]  
 > Les points de contrôle de production sont désormais disponibles à la place des points de contrôle standard. Pour plus d’informations, consultez [choisir entre des points de contrôle standard ou de production](../manage/Choose-between-standard-or-production-checkpoints-in-Hyper-V.md).  

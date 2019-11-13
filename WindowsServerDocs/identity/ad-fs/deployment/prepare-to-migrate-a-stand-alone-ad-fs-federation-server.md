@@ -21,17 +21,17 @@ Pour préparer la migration (même migration de serveur) d’un serveur de Féd�
   
 Pour exporter les données de configuration AD FS, effectuez les tâches suivantes :  
   
--   [Étape 1 :  Exporter les paramètres de service @ no__t-0  
+-   [Étape 1 : exporter les paramètres de service](#step-1-export-service-settings)  
   
--   [Étape 2 :  Exporter les approbations de fournisseur de revendications @ no__t-0  
+-   [Étape 2 : exporter des approbations de fournisseur de revendications](#step-2-export-claims-provider-trusts)  
   
--   [Étape 3 :  Exporter les approbations de partie de confiance @ no__t-0  
+-   [Étape 3 : exporter des approbations de partie de confiance](#step-3-export-relying-party-trusts)  
   
--   [Étape 4 :  Sauvegarder les magasins d’attributs personnalisés @ no__t-0  
+-   [Étape 4 : sauvegarder les magasins d’attributs personnalisés](#step-4-back-up-custom-attribute-stores)  
   
--   [Étape 5 :  Sauvegarder les personnalisations de pages Web @ no__t-0  
+-   [Étape 5 : sauvegarder les personnalisations de page Web](#step-5-back-up-webpage-customizations)  
   
-## <a name="step-1-export-service-settings"></a>Étape 1 : exporter les paramètres de service  
+## <a name="step-1-export-service-settings"></a>Étape 1 : exporter les paramètres de service  
  Pour exporter les paramètres de service, effectuez la procédure suivante :  
   
 ### <a name="to-export-service-settings"></a>Pour exporter les paramètres de service  
@@ -87,24 +87,24 @@ Pour ce faire, ouvrez Windows PowerShell et exécutez la commande suivante pour 
   
 Pour ce faire, ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Exécutez ensuite la commande suivante pour exporter les descriptions de revendication personnalisées dans un fichier : `Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.  
   
-##  <a name="step-2-export-claims-provider-trusts"></a>Étape 2 : exporter les approbations de fournisseur de revendications  
+##  <a name="step-2-export-claims-provider-trusts"></a>Étape 2 : exporter des approbations de fournisseur de revendications  
  Pour exporter les approbations de fournisseur de revendications, effectuez la procédure suivante :  
   
 ### <a name="to-export-claims-provider-trusts"></a>Pour exporter les approbations de fournisseur de revendications  
   
 1.  Vous pouvez utiliser Windows PowerShell pour exporter toutes les approbations de fournisseur de revendications. Ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Exécutez ensuite la commande suivante pour exporter toutes les approbations de fournisseur de revendications : `PSH:>Get-ADFSClaimsProviderTrust | Out-File “.\cptrusts.txt”`.  
   
-## <a name="step-3-export-relying-party-trusts"></a>Étape 3 : exporter les approbations de partie de confiance  
+## <a name="step-3-export-relying-party-trusts"></a>Étape 3 : exporter des approbations de partie de confiance  
  Pour exporter les approbations de partie de confiance, effectuez la procédure suivante :  
   
 ### <a name="to-export-relying-party-trusts"></a>Pour exporter les approbations de partie de confiance  
   
-1.  Pour exporter toutes les approbations de partie de confiance, ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Exécutez ensuite la commande suivante pour exporter toutes les approbations de partie de confiance : `PSH:>Get-ADFSRelyingPartyTrust | Out-File “.\rptrusts.txt”`.  
+1.  Pour exporter toutes les approbations de partie de confiance, ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Exécutez ensuite la commande suivante pour exporter toutes les approbations de partie de confiance :`PSH:>Get-ADFSRelyingPartyTrust | Out-File “.\rptrusts.txt”`.  
   
-## <a name="step-4-back-up-custom-attribute-stores"></a>Étape 4 : sauvegarder les magasins d'attributs personnalisés  
+## <a name="step-4-back-up-custom-attribute-stores"></a>Étape 4 : sauvegarder les magasins d’attributs personnalisés  
  Windows PowerShell vous permet d'obtenir des informations sur les magasins d'attributs personnalisés utilisés par AD FS. Ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Exécutez ensuite la commande suivante pour rechercher des informations sur les magasins d’attributs personnalisés : `PSH:>Get-ADFSAttributeStore`. Les étapes de la mise à niveau ou de la migration des magasins d’attributs personnalisés varient.  
   
-## <a name="step-5-back-up-webpage-customizations"></a>Étape 5 : sauvegarder les personnalisations de page web  
+## <a name="step-5-back-up-webpage-customizations"></a>Étape 5 : sauvegarder les personnalisations de page Web  
  Pour sauvegarder les personnalisations de page Web, copiez les AD FS pages Web et le fichier **Web. config** à partir du répertoire mappé au chemin d’accès virtuel **« /ADFS/LS »** dans IIS. L'emplacement par défaut est le répertoire **%systemdrive%\inetpub\adfs\ls** .  
 
 ## <a name="next-steps"></a>Étapes suivantes

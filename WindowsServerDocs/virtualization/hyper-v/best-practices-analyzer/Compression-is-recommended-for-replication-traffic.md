@@ -19,7 +19,7 @@ ms.locfileid: "71365099"
 ---
 # <a name="compression-is-recommended-for-replication-traffic"></a>La compression est recommandée pour le trafic de réplication
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,12 +36,12 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Le trafic de réplication envoyé sur le réseau à partir du serveur principal vers le serveur de réplication n’est pas compressé.*  
   
 ## <a name="impact"></a>Impact  
-le trafic *Replication utilise plus de bande passante qu’il n’en faut. Cela a un impact sur les ordinateurs virtuels suivants :*  
+*Le trafic de réplication utilise plus de bande passante qu’il n’est nécessaire. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
-Réplica Hyper-V @no__t 0Configure pour compresser les données transmises sur le réseau dans les paramètres de la machine virtuelle dans le Gestionnaire Hyper-V. Vous pouvez également utiliser des outils en dehors d’Hyper-V pour effectuer la compression. *  
+## <a name="resolution"></a>Résolution  
+*Configurez la réplication Hyper-V pour compresser les données transmises sur le réseau dans les paramètres de la machine virtuelle dans le Gestionnaire Hyper-V. Vous pouvez également utiliser des outils en dehors d’Hyper-V pour effectuer la compression.*  
   
 
 

@@ -20,12 +20,12 @@ ms.locfileid: "71388143"
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Premier** Accès à distance @ no__t-0<br>
-- [**Situé** En savoir plus sur les fonctionnalités et fonctionnalités VPN de Always On @ no__t-0
+- [**Précédent :** Accès à distance](../../../Remote-Access.md)<br>
+- [**Ensuite :** En savoir plus sur les fonctionnalités et fonctionnalités de VPN Always On](../../vpn-map-da.md)
 
 Always On VPN offre une solution unique et cohésive pour l’accès à distance et prend en charge les appareils joints à un domaine, non joints à un domaine (groupe de travail) ou Azure AD, même les appareils personnels. Avec VPN Toujours actif (AlwaysOn), le type de connexion ne doit pas nécessairement être exclusivement utilisateur ou appareil, mais peut être une combinaison des deux. Par exemple, vous pouvez activer l'authentification de l’appareil pour la gestion d’appareils à distance, puis activer l'authentification utilisateur pour la connectivité aux sites et services internes de la société.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous disposez probablement des technologies déployées que vous pouvez utiliser pour déployer Always On VPN. À l’exception de vos serveurs DC/DNS, le déploiement VPN Always On nécessite un serveur NPS (RADIUS), un serveur d’autorité de certification (CA) et un serveur d’accès à distance (routage/VPN). Une fois l’infrastructure configurée, vous devez inscrire les clients, puis connecter les clients à votre site local en toute sécurité par le biais de plusieurs modifications du réseau.
 

@@ -19,7 +19,7 @@ ms.locfileid: "71366409"
 ---
 # <a name="avoid-using-virtual-hard-disks-with-a-sector-size-less-than-the-sector-size-of-the-physical-storage-that-stores-the-virtual-hard-disk-file"></a>Évitez d’utiliser des disques durs virtuels avec une taille de secteur inférieure à la taille de secteur du stockage physique qui stocke le fichier de disque dur virtuel.
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,9 +36,9 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Un ou plusieurs disques durs virtuels ont une taille de secteur physique inférieure à la taille de secteur physique du stockage sur lequel se trouve le fichier de disque dur virtuel.*  
   
 ## <a name="impact"></a>**Impact**  
-des problèmes de @no__t 0Performance peuvent se produire sur l’ordinateur virtuel ou l’application qui utilise le disque dur virtuel. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Des problèmes de performances peuvent se produire sur l’ordinateur virtuel ou l’application qui utilise le disque dur virtuel. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
 *Effectuez l’une des opérations suivantes :*  

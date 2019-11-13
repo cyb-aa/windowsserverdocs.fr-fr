@@ -18,7 +18,7 @@ ms.locfileid: "71408590"
 ---
 # <a name="audit-policy-recommendations"></a>Recommandations en matière de stratégie d’audit
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
 Cette section traite des paramètres de stratégie d’audit par défaut de Windows, des paramètres de stratégie d’audit recommandés pour la ligne de base et des recommandations plus agressives de Microsoft, pour les produits de station de travail et de serveur.  
 
@@ -93,7 +93,7 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |Auditer le verrouillage du compte|Oui non||Oui non|  
 |Auditer les revendications utilisateur/de périphérique||||  
 |Auditer le mode étendu IPsec||||  
-|Auditer le mode principal IPsec|||SI|  
+|Auditer le mode principal IPsec|||Si|  
 |Auditer le mode rapide IPsec||||  
 |Auditer la fermeture de session|Oui non|Oui non|Oui non|  
 |Auditer la connexion <sup>1</sup>|Oui, oui|Oui, oui|Oui, oui|  
@@ -171,7 +171,7 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |Auditer le verrouillage du compte|Oui non||Oui non|  
 |Auditer les revendications utilisateur/de périphérique||||  
 |Auditer le mode étendu IPsec||||  
-|Auditer le mode principal IPsec|||SI|  
+|Auditer le mode principal IPsec|||Si|  
 |Auditer le mode rapide IPsec||||  
 |Auditer la fermeture de session|Oui non|Oui non|Oui non|  
 |Auditer l’ouverture de session|Oui, oui|Oui, oui|Oui, oui|  
@@ -257,7 +257,7 @@ Voici un exemple de deuxième événement :
 
 Un nombre d’échecs d’ouverture de session anormal peut indiquer une attaque par le biais d’un mot de passe. Pour qu’une entreprise fournisse une alerte pour un nombre anormalement élevé d’échecs de connexion, ceux-ci doivent d’abord comprendre les niveaux normaux des échecs de connexion dans leur environnement avant un événement de sécurité malveillant.  
 
-Pour obtenir une liste complète des événements que vous devez inclure lorsque vous surveillez les signes de compromission, consultez [Appendix L : Événements à surveiller @ no__t-0.  
+Pour obtenir une liste complète des événements que vous devez inclure lorsque vous surveillez les signes de compromission, consultez [L’annexe L : événements à surveiller](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md).  
 
 ## <a name="active-directory-objects-and-attributes-to-monitor"></a>Active Directory les objets et les attributs à analyser  
 Voici les comptes, les groupes et les attributs que vous devez surveiller pour vous aider à détecter les tentatives de compromission de votre installation Active Directory Domain Services.  
@@ -270,11 +270,11 @@ Voici les comptes, les groupes et les attributs que vous devez surveiller pour v
 
 -   Comptes privilégiés et VIP dans AD DS. Surveiller les modifications, en particulier les modifications apportées aux attributs de l’onglet compte (par exemple, CN, nom, sAMAccountName, userPrincipalName ou userAccountControl). En plus de surveiller les comptes, limitez les personnes autorisées à modifier les comptes pour un ensemble d’utilisateurs administratifs aussi petit que possible.  
 
-Reportez-vous à [Appendix L : Événements à surveiller @ no__t-0 pour obtenir une liste des événements recommandés à surveiller, leurs évaluations de gravité et un résumé des messages d’événement.  
+Reportez-vous à [L’annexe L : événements pour surveiller](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) la liste des événements recommandés à surveiller, leurs évaluations de gravité et un résumé des messages d’événement.  
 
 -   Regroupez les serveurs en fonction de la classification de leurs charges de travail, ce qui vous permet d’identifier rapidement les serveurs qui doivent être les plus étroitement surveillés et les plus rigoureusement configurés.  
 
--   Modifications apportées aux propriétés et à l’appartenance des groupes de AD DS suivants : Administrateurs de l’entreprise (EA), admins du domaine (DA), administrateurs (BA) et administrateurs du schéma (SA)  
+-   Modifications apportées aux propriétés et à l’appartenance aux groupes de AD DS suivants : administrateurs de l’entreprise (EA), admins du domaine (DA), administrateurs (BA) et administrateurs du schéma (SA)  
 
 -   Comptes privilégiés désactivés (tels que les comptes d’administrateur intégrés dans Active Directory et sur les systèmes membres) pour l’activation des comptes  
 
@@ -298,12 +298,12 @@ Pour plus d’informations sur la surveillance AD DS, consultez les liens suivan
 ## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Liste générale des impératifs de recommandation relatives aux ID d’événement de sécurité  
 Toutes les recommandations relatives aux ID d’événement sont accompagnées d’une évaluation de la criticité, comme suit :  
 
-**Rapide** Les ID d’événement dont le degré de gravité est élevé doivent toujours et immédiatement être alertés et examinés.  
+**Haute :** Les ID d’événement dont le degré de gravité est élevé doivent toujours et immédiatement être alertés et examinés.  
 
-**Médias** Un ID d’événement avec une évaluation de la gravité moyenne peut indiquer une activité malveillante, mais il doit être accompagné d’une autre anomalie (par exemple, un nombre inhabituel qui se produit sur un laps de temps donné, des occurrences inattendues ou des occurrences sur un ordinateur qui normalement, il n’est pas prévu d’enregistrer l’événement.). Un événement de gravité moyenne peut également être collecté comme mesure et comparé au fil du temps.  
+**Moyenne :** Un ID d’événement avec une évaluation de la gravité moyenne peut indiquer une activité malveillante, mais il doit être accompagné d’une autre anomalie (par exemple, un nombre inhabituel dans un laps de temps donné, des occurrences inattendues ou des occurrences sur un ordinateur qui ne seraient normalement pas censés consigner l’événement). Un événement de gravité moyenne peut également être collecté comme mesure et comparé au fil du temps.  
 
-**Entrée** Et l’ID d’événement avec des événements de faible importance ne doivent pas donner leur attention ou provoquer des alertes, sauf s’ils sont corrélés à des événements de gravité moyenne ou élevée.  
+**Faible :** Et l’ID d’événement avec des événements de faible importance ne doivent pas donner leur attention ou provoquer des alertes, sauf s’ils sont corrélés à des événements de gravité moyenne ou élevée.  
 
 Ces recommandations sont destinées à fournir un guide de référence pour l’administrateur. Toutes les recommandations doivent être examinées minutieusement avant l’implémentation dans un environnement de production.  
 
-Reportez-vous à [Appendix L : Événements à surveiller @ no__t-0 pour obtenir une liste des événements recommandés à surveiller, leurs évaluations de gravité et un résumé des messages d’événement.  
+Reportez-vous à [L’annexe L : événements pour surveiller](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) la liste des événements recommandés à surveiller, leurs évaluations de gravité et un résumé des messages d’événement.  

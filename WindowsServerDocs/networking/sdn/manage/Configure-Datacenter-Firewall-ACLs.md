@@ -22,7 +22,7 @@ ms.locfileid: "71406107"
 ---
 # <a name="configure-datacenter-firewall-access-control-lists-acls"></a>Configurer des listes de Access Control de pare-feu de centre de donnes
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Une fois que vous avez créé une liste de contrôle d’accès et que vous l’avez affectée à un sous-réseau virtuel, vous pouvez remplacer cette liste de contrôle d’accès par défaut sur le sous-réseau virtuel par une liste de contrôle d’accès spécifique pour une interface réseau individuelle.  Dans ce cas, vous appliquez directement des listes de contrôle d’accès spécifiques aux interfaces réseau attachées aux réseaux locaux virtuels, et non au réseau virtuel. Si des listes de contrôle d’accès sont définies sur le sous-réseau virtuel connecté à l’interface réseau, les deux listes de contrôle d’accès sont appliquées et hiérarchisent les ACL de l’interface réseau au-dessus des ACL du sous-réseau virtuel.
 
@@ -31,11 +31,11 @@ Une fois que vous avez créé une liste de contrôle d’accès et que vous l’
 
 Dans cette rubrique, nous vous montrons comment ajouter une liste de contrôle d’accès à une interface réseau. Nous vous montrons également comment supprimer une liste de contrôle d’accès d’une interface réseau à l’aide de Windows PowerShell et de l’API REST du contrôleur de réseau.
 
-- [Tels Ajouter une liste de contrôle d’accès à une interface réseau @ no__t-0
-- [Tels Supprimer une liste de contrôle d’accès d’une interface réseau à l’aide de Windows PowerShell et de l’API REST du contrôleur de réseau @ no__t-0
+- [Exemple : ajouter une liste de contrôle d’accès à une interface réseau](#example-add-an-acl-to-a-network-interface)
+- [Exemple : supprimer une liste de contrôle d’accès d’une interface réseau à l’aide de Windows PowerShell et de l’API REST du contrôleur de réseau](#example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api)
 
 
-## <a name="example-add-an-acl-to-a-network-interface"></a>Exemple : Ajouter une liste de contrôle d’accès à une interface réseau
+## <a name="example-add-an-acl-to-a-network-interface"></a>Exemple : ajouter une liste de contrôle d’accès à une interface réseau
 Dans cet exemple, nous expliquons comment ajouter une liste de contrôle d’accès à un réseau virtuel. 
 
 >[!TIP]
@@ -65,7 +65,7 @@ Dans cet exemple, nous expliquons comment ajouter une liste de contrôle d’acc
    new-networkcontrollernetworkinterface -ConnectionUri $uri -Properties $nic.properties -ResourceId $nic.resourceid
    ```
  
-## <a name="example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api"></a>Exemple : Supprimer une liste de contrôle d’accès d’une interface réseau à l’aide de Windows PowerShell et de l’API REST du contrôleur de réseau
+## <a name="example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api"></a>Exemple : supprimer une liste de contrôle d’accès d’une interface réseau à l’aide de Windows PowerShell et de l’API REST du contrôleur de réseau
 Dans cet exemple, nous vous montrons comment supprimer une liste de contrôle d’accès. La suppression d’une liste de contrôle d’accès applique l’ensemble de règles par défaut à l’interface réseau. L’ensemble de règles par défaut autorise tout le trafic sortant, mais bloque tout le trafic entrant.
 
 >[!NOTE]

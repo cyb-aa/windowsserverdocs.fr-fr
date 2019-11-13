@@ -26,8 +26,8 @@ ms.locfileid: "71388070"
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Premier** Étape 7. Facultatif Accès conditionnel pour la connectivité VPN à l’aide de Azure AD](ad-ca-vpn-connectivity-windows10.md)
-- [**Situé** Étape 7.2. Créer des certificats racine pour l’authentification VPN avec Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Précédent :** Étape 7. Facultatif Accès conditionnel pour la connectivité VPN à l’aide de Azure AD](ad-ca-vpn-connectivity-windows10.md)
+- [**Ensuite :** Étape 7,2. Créer des certificats racines pour l’authentification VPN avec Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
 >[!IMPORTANT]
 >Si vous n’implémentez pas cette modification du Registre, les connexions IKEv2 utilisant des certificats Cloud avec PEAP échouent, mais les connexions IKEv2 utilisant les certificats d’authentification client émis par l’autorité de certification locale continuent de fonctionner.
@@ -45,7 +45,7 @@ Un client EAP-TLS ne peut se connecter que si le serveur NPS termine une vérifi
 
 1. Ouvrez **regedit. exe** sur le serveur NPS.
 
-2. Accédez à **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13**.
+2. Accédez à **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\rasman\ppp\eap\13**.
 
 3. Sélectionnez **modifier > nouveau** , puis sélectionnez **valeur DWORD (32 bits)** et entrez **IgnoreNoRevocationCheck**.
 
@@ -64,4 +64,4 @@ Pour plus d’informations, consultez [Comment activer ou désactiver la vérifi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Étape 7.2. Créer des certificats racines pour l’authentification VPN avec Azure AD @ no__t-0 : Dans cette étape, vous configurez des certificats racines d’accès conditionnel pour l’authentification VPN avec Azure AD, ce qui crée automatiquement une application Cloud de serveur VPN dans le locataire.
+[Étape 7,2. Créer des certificats racines pour l’authentification VPN avec Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md): dans cette étape, vous configurez des certificats racines d’accès conditionnel pour l’authentification VPN avec Azure ad, ce qui crée automatiquement une application Cloud de serveur VPN dans le locataire.

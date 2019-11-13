@@ -21,9 +21,9 @@ ms.locfileid: "71404738"
 ---
 # <a name="overview-of-the-test-lab-scenario"></a>Vue d’ensemble du scénario de laboratoire de test
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-L’accès à distance est un rôle serveur dans les systèmes d’exploitation Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité aux ressources réseau internes à l’aide de DirectAccess ou des réseaux privés virtuels (VPN) avec le Service de routage et d’accès à distance (RRAS). Ce guide contient des instructions pas à pas pour l’extension du Guide de laboratoire [Test : Démonstration de la configuration d’un seul serveur DirectAccess avec Mixed IPv4 et IPv6 @ no__t-0 pour illustrer une configuration de mot de passe à usage unique à accès à distance.  
+L’accès à distance est un rôle serveur dans les systèmes d’exploitation Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité aux ressources réseau internes à l’aide de DirectAccess ou des réseaux privés virtuels (VPN) avec le Service de routage et d’accès à distance (RRAS). Ce guide contient des instructions pas à pas pour l’extension du [Guide de laboratoire de test : démonstration de la configuration d’un seul serveur DirectAccess avec mixte IPv4 et IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004) pour illustrer la configuration d’un mot de passe à usage unique pour l’accès à distance.  
   
 > [!WARNING]  
 > La conception de ce guide de laboratoire de test comprend des serveurs d’infrastructure, tels qu’un contrôleur de domaine et une autorité de certification (CA) qui exécutent Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012. L’utilisation de ce guide de laboratoire de test pour configurer des serveurs d’infrastructure qui exécutent d’autres systèmes d’exploitation n’a pas été testée et les instructions de configuration d’autres systèmes d’exploitation ne sont pas incluses dans ce guide.  

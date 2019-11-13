@@ -21,7 +21,7 @@ ms.locfileid: "71404536"
 ---
 # <a name="configure-a-multi-forest-deployment"></a>Configure a Multi-Forest Deployment
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment configurer un déploiement à forêts multiples de l’accès à distance dans plusieurs scénarios possibles. Tous les scénarios partent du principe que DirectAccess est actuellement déployé sur une seule forêt nommée Forest1 et que vous êtes en train de configurer DirectAccess à des fins d’utilisation d’une nouvelle forêt nommée Forest2.  
   
@@ -73,7 +73,7 @@ Notez les termes suivants lors de la configuration du mot de passe à usage uniq
   
 -   Forêt de comptes : toutes les autres forêts dans la topologie.  
   
-Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Voir [AD CS : Script script pkisync. ps1 pour l’inscription de certificats inter-forêts @ no__t-0.  
+Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Voir [AD CS :  script PKISync.ps1 pour l’inscription de certificats inter-forêts](https://technet.microsoft.com/library/ff961506.aspx).  
   
 > [!NOTE]  
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -100,7 +100,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Voir [AD CS
     certutil -config <Computer-Name>\<Root-CA-Name> -ca.cert <root-ca-cert-filename.cer>  
     ```  
   
-    (Si vous exécutez la commande sur l’autorité de certification racine, vous pouvez omettre les informations de connexion,-config < Computer-Name > \\ < Root-CA-name >)  
+    (Si vous exécutez la commande sur l’autorité de certification racine, vous pouvez omettre les informations de connexion,-config < Computer-Name >\\< Root-CA-name >)  
   
     1.  Importez le certificat de l’autorité de certification racine de l’étape précédente dans l’autorité de certification de la forêt de comptes en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :  
   
@@ -108,7 +108,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Voir [AD CS
         certutil -dspublish -f <root-ca-cert-filename.cer> RootCA  
         ```  
   
-    2.  Accordez des autorisations de lecture/écriture de modèles de certificat de forêt de ressources à la forêt \<Account @ no__t-1 @ no__t-2 < compte administrateur @ no__t-3.  
+    2.  Accordez des autorisations de lecture/écriture de modèles de certificat de forêt de ressources à la forêt de comptes \<\>\\< compte administrateur\>.  
   
     3.  Extrayez tous les certificats d’autorité de certification d’entreprise de la forêt de ressources en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :  
   
@@ -116,7 +116,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Voir [AD CS
         certutil -config <Computer-Name>\<Enterprise-CA-Name> -ca.cert <enterprise-ca-cert-filename.cer>  
         ```  
   
-        (Si vous exécutez la commande sur l’autorité de certification racine, vous pouvez omettre les informations de connexion,-config < Computer-Name > \\ < Root-CA-name >)  
+        (Si vous exécutez la commande sur l’autorité de certification racine, vous pouvez omettre les informations de connexion,-config < Computer-Name >\\< Root-CA-name >)  
   
     4.  Importez les certificats de l’autorité de certification d’entreprise de l’étape précédente dans l’autorité de certification de la forêt de comptes en exécutant les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :  
   
@@ -179,7 +179,7 @@ La liste de recherche de suffixes DNS permet aux clients d’utiliser des noms d
   
 3.  Dans la page **DNS**, dans la table, entrez tous les suffixes de noms supplémentaires qui font partie du réseau d’entreprise dans Forest2. Dans **Adresse du serveur DNS**, entrez l’adresse du serveur DNS manuellement ou en cliquant sur **Détecter**. Si vous n’entrez pas l’adresse, les nouvelles entrées sont appliquées en tant qu’exemptions NRPT. Ensuite, cliquez sur **Suivant**.  
   
-4.  Facultatif : Sur la page **Liste de recherche de suffixes DNS**, ajoutez un suffixe DNS en l’entrant dans la zone **Nouveau suffixe**, puis en cliquant sur **Ajouter**. Ensuite, cliquez sur **Suivant**.  
+4.  Facultatif : Sur la page **Liste de recherche de suffixes DNS** , ajoutez un suffixe DNS en l’entrant dans la zone **Nouveau suffixe** , puis en cliquant sur **Ajouter**. Ensuite, cliquez sur **Suivant**.  
   
 5.  Dans la page **Gestion** , cliquez sur **Terminer**.  
   

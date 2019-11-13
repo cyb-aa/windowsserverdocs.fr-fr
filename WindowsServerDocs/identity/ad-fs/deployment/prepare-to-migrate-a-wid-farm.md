@@ -22,11 +22,11 @@ ms.locfileid: "71359260"
   
 -   [Étape 1 :-exporter les paramètres du service](#step-1-export-service-settings)  
   
--   [Étape 2 : Sauvegarder les magasins d’attributs personnalisés @ no__t-0  
+-   [Étape 2 : sauvegarder les magasins d’attributs personnalisés](#step-2-back-up-custom-attribute-stores)  
   
--   [Étape 3 : Sauvegarder les personnalisations de pages Web @ no__t-0  
+-   [Étape 3 : sauvegarder les personnalisations de page Web](#step-3-back-up-webpage-customizations)  
   
-## <a name="step-1-export-service-settings"></a>Étape 1 : exporter les paramètres de service  
+## <a name="step-1-export-service-settings"></a>Étape 1 : exporter les paramètres de service  
  Pour exporter les paramètres de service, effectuez la procédure suivante :  
   
 ### <a name="to-export-service-settings"></a>Pour exporter les paramètres de service  
@@ -49,10 +49,10 @@ Vous pouvez afficher tous les certificats en cours d'utilisation sur votre serve
   
 Pour rechercher la valeur d’identité, examinez la colonne **ouvrir une session en tant que** de **AD FS service Windows 2,0** dans la console **services** et enregistrez manuellement la valeur.  
   
-## <a name="step-2-back-up-custom-attribute-stores"></a>Étape 2 : sauvegarder les magasins d'attributs personnalisés  
+## <a name="step-2-back-up-custom-attribute-stores"></a>Étape 2 : sauvegarder les magasins d’attributs personnalisés  
  Windows PowerShell vous permet d'obtenir des informations sur les magasins d'attributs personnalisés utilisés par AD FS. Ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Exécutez ensuite la commande suivante pour rechercher des informations sur les magasins d’attributs personnalisés : `PSH:>Get-ADFSAttributeStore`. Les étapes de la mise à niveau ou de la migration des magasins d’attributs personnalisés varient.  
   
-## <a name="step-3-back-up-webpage-customizations"></a>Étape 3 : sauvegarder les personnalisations de page web  
+## <a name="step-3-back-up-webpage-customizations"></a>Étape 3 : sauvegarder les personnalisations de page Web  
  Pour sauvegarder les personnalisations de page Web, copiez les AD FS pages Web et le fichier **Web. config** à partir du répertoire mappé au chemin d’accès virtuel **« /ADFS/LS »** dans IIS. L'emplacement par défaut est le répertoire **%systemdrive%\inetpub\adfs\ls** .  
 
 ## <a name="next-steps"></a>Étapes suivantes

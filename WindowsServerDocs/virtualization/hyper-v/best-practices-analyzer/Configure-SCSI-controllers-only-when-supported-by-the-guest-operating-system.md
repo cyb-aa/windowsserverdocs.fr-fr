@@ -19,7 +19,7 @@ ms.locfileid: "71366420"
 ---
 # <a name="configure-scsi-controllers-only-when-supported-by-the-guest-operating-system"></a>Configurer des contrôleurs SCSI uniquement lorsqu’ils sont pris en charge par le système d’exploitation invité
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 
   
@@ -38,13 +38,13 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 ## <a name="impact"></a>Impact  
   
-les ordinateurs @no__t 0Virtual ne peuvent pas utiliser le stockage attaché au contrôleur SCSI. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Les machines virtuelles ne peuvent pas utiliser le stockage attaché au contrôleur SCSI. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
-*Shut sur la machine virtuelle et utilisez le Gestionnaire Hyper-V pour supprimer le contrôleur SCSI de l’ordinateur virtuel. Ensuite, redémarrez la machine virtuelle.*  
+*Arrêtez l’ordinateur virtuel et utilisez le Gestionnaire Hyper-V pour supprimer le contrôleur SCSI de l’ordinateur virtuel. Ensuite, redémarrez la machine virtuelle.*  
   
 
 

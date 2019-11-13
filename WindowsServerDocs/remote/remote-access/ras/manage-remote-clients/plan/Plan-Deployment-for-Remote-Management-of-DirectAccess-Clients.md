@@ -21,13 +21,13 @@ ms.locfileid: "71404589"
 ---
 # <a name="plan-deployment-for-remote-management-of-directaccess-clients"></a>Planifier le déploiement de la gestion à distance des clients DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Les rubriques suivantes fournissent des étapes de planification pour le déploiement d’un seul serveur d’accès à distance exécutant qui peut être utilisé pour la gestion à distance des clients DirectAccess.  
   
-[Étape 1 : Planifier l’infrastructure d’accès à distance @ no__t-0 : Cette rubrique vous aide à planifier la topologie du réseau et les paramètres du serveur, le pare-feu, les exigences de certificat, la configuration requise pour le nom de domaine, la configuration du serveur emplacement réseau DirectAccess et des serveurs d’administration, Active Directory la configuration requise et la création d’objets stratégie de groupe.  
+[Étape 1 : planifier l’infrastructure d’accès à distance](Step-1-Plan-the-Remote-Access-Infrastructure.md): cette rubrique vous aide à planifier la topologie réseau et les paramètres de serveur, les conditions requises pour le pare-feu, les exigences de certificat, la configuration requise pour le nom de domaine, la configuration du serveur emplacement réseau DirectAccess et des serveurs d’administration, les exigences de Active Directory et la création d’objets stratégie de groupe.  
   
-[Étape 2 : Planifier le déploiement de l’accès à distance @ no__t-0 : Planifiez les configurations des serveurs et des stratégies de déploiement des clients et des serveurs d’infrastructure.  
+[Étape 2 : planifier le déploiement de l’accès à distance](Step-2-Plan-the-Remote-Access-Deployment.md): planifier les stratégies de déploiement des clients et des serveurs et les configurations des serveurs d’infrastructure.  
 
   
 

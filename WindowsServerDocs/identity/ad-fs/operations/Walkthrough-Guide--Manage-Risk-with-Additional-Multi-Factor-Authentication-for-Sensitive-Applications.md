@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71357788"
 ---
-# <a name="walkthrough-guide-manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications"></a>Guide pas à pas : gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles
+# <a name="walkthrough-guide-manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications"></a>Guide pas à pas : gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles
 
 
 
@@ -28,15 +28,15 @@ Pour plus d’informations sur l’authentification multifacteur et les mécanis
 
 Cette procédure pas à pas comporte les sections suivantes :
 
--   [Étape 1 : Configuration de l’environnement Lab @ no__t-0
+-   [Étape 1 : configuration de l’environnement Lab](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
 
--   [Étape 2 : Vérifier le mécanisme d’authentification par défaut AD FS @ no__t-0
+-   [Étape 2 : vérifier le mécanisme d’authentification par défaut AD FS](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_2)
 
--   [Étape 3 : Configurer l’authentification multifacteur sur votre serveur de Fédération @ no__t-0
+-   [Étape 3 : configurer l’authentification multifacteur sur votre serveur de Fédération](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_3)
 
--   [Étape 4 : Vérifier le mécanisme MFA @ no__t-0
+-   [Étape 4 : vérifier le mécanisme MFA](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_4)
 
-## <a name="BKMK_1"></a>Étape 1 : Configuration de l’environnement lab
+## <a name="BKMK_1"></a>Étape 1 : configuration de l’environnement Lab
 Afin de mener à bien cette procédure pas à pas, vous avez besoin d’un environnement constitué des composants suivants :
 
 -   Un domaine Active Directory avec un compte d’utilisateur et de groupe de test, exécuté sur Windows Server 2012 R2 ou un domaine Active Directory s’exécutant sur Windows Server 2008, Windows Server 2008 R2 ou Windows Server 2012, avec son schéma mis à niveau vers Windows Server 2012 R2
@@ -54,7 +54,7 @@ Dans cet environnement, le serveur de fédération émet les revendications requ
 
 Pour obtenir des instructions sur la façon de configurer cet environnement, consultez [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
-## <a name="BKMK_2"></a>Étape 2 : vérifier le mécanisme d'authentification AD FS par défaut
+## <a name="BKMK_2"></a>Étape 2 : vérifier le mécanisme d’authentification par défaut AD FS
 Au cours de cette étape, vous allez vérifier le mécanisme de contrôle d’accès AD FS par défaut (**Authentification par formulaires** pour l’extranet et **Authentification Windows** pour l’intranet), où l’utilisateur est redirigé vers la page de connexion AD FS, fournit des informations d’identification valides et est autorisé à accéder à l’application. Vous pouvez utiliser le compte **Robert Hatley** ad et l’exemple d’application **ClaimApp** que vous avez configurés dans Configuration de [l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 1.  Sur votre ordinateur client, ouvrez une fenêtre de navigateur et accédez à votre exemple d’application : **https://webserv1.contoso.com/claimapp** .
@@ -65,7 +65,7 @@ Au cours de cette étape, vous allez vérifier le mécanisme de contrôle d’ac
 
     Vous êtes autorisé à accéder à l’application.
 
-## <a name="BKMK_3"></a>Étape 3 : configurer l'authentification multifacteur sur votre serveur de fédération
+## <a name="BKMK_3"></a>Étape 3 : configurer l’authentification multifacteur sur votre serveur de Fédération
 Il existe deux parties à la configuration de l’authentification multifacteur dans AD FS dans Windows Server 2012 R2 :
 
 -   [Sélectionner une méthode d’authentification supplémentaire](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_5)
@@ -137,7 +137,7 @@ Effectuez les procédures suivantes pour télécharger, configurer et sélection
 
     3.  **Directory** : locataire Windows Azure Active Directory auquel le fournisseur de Multi-Factor Authentication est associé. Ce champ est facultatif, car le fournisseur ne doit pas nécessairement être lié à Windows Azure Active Directory lors de la sécurisation des applications sur site.
 
-7.  Lorsque vous cliquez sur Créer, le fournisseur d’authentification multifacteur est créé et un message qui indique  « Le fournisseur d’authentification multifacteur a été créé correctement » doit s’afficher.  Cliquez sur **OK**.
+7.  Lorsque vous cliquez sur Créer, le fournisseur d’authentification multifacteur est créé et un message qui indique  « Le fournisseur d’authentification multifacteur a été créé correctement » doit s’afficher.  Cliquez sur **OK**.
 
 Vous devez ensuite télécharger le serveur Windows Azure Multi-Factor Authentication. Pour ce faire, vous pouvez lancer le portail Windows Azure Multi-Factor Authentication via le portail Windows Azure.
 
@@ -232,7 +232,7 @@ Vous pouvez configurer la stratégie d’authentification multifacteur via la co
     > [!NOTE]
     > Veillez à remplacer <group_SID> par la valeur du SID de votre groupe Active Directory **Finance**.
 
-## <a name="BKMK_4"></a>Étape 4 : vérifier le mécanisme d’authentification multifacteur
+## <a name="BKMK_4"></a>Étape 4 : vérifier le mécanisme MFA
 Au cours de cette étape, vous allez vérifier la fonctionnalité d’authentification multifacteur que vous avez configurée à l’étape précédente. Vous pouvez utiliser la procédure suivante pour vérifier que l’utilisateur Active Directory **Robert Hatley** peut accéder à votre exemple d’application et qu’il doit cette fois subir une authentification multifacteur car il appartient au groupe **Finance**.
 
 1.  Sur votre ordinateur client, ouvrez une fenêtre de navigateur et accédez à votre exemple d’application : **https://webserv1.contoso.com/claimapp** .
@@ -243,7 +243,7 @@ Au cours de cette étape, vous allez vérifier la fonctionnalité d’authentifi
 
     À ce stade, en raison de la stratégie MFA que vous avez configurée, l’utilisateur devra s’authentifier de nouveau. Le texte du message par défaut est **Pour des raisons de sécurité, nous avons besoin d’informations supplémentaires pour vérifier votre compte.** Toutefois, ce texte est entièrement personnalisable. Pour plus d’informations sur la façon de personnaliser l’expérience de connexion, voir [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
 
-    Si vous avez configuré l’authentification par certificat comme méthode d’authentification supplémentaire, le texte du message par défaut est **Select un certificat que vous souhaitez utiliser pour l’authentification. Si vous annulez l’opération, fermez votre navigateur et réessayez.**
+    Si vous avez configuré l’authentification par certificat comme méthode d’authentification supplémentaire, le texte du message par défaut est **Sélectionnez un certificat à utiliser pour l’authentification. Si vous annulez l’opération, fermez votre navigateur et réessayez.**
 
     Si vous avez configuré Windows Azure Multi-Factor Authentication comme méthode d’authentification supplémentaire, le texte du message par défaut est **Vous recevrez un appel sur votre téléphone pour finaliser votre authentification.** Pour plus d’informations sur la connexion avec Windows Azure Multi-Factor Authentication et l’utilisation de différentes options pour la méthode préférée de vérification, voir [Vue d’ensemble de Windows Azure Multi-Factor Authentication](https://technet.microsoft.com/library/dn249479.aspx).
 

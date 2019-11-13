@@ -21,19 +21,19 @@ ms.locfileid: "71388643"
 ---
 # <a name="install-and-configure-advanced-directaccess"></a>Installer et configurer une infrastructure DirectAccess avancée
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette vue d’ensemble répertorie les étapes de configuration requises pour déployer un serveur DirectAccess unique exécutant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 avec IPv4 et IPv6.  
   
--   [Étape 1 : Configurer l’infrastructure DirectAccess avancée @ no__t-0.  
+-   [Étape 1 : configurer l’infrastructure DirectAccess avancée](da-adv-configure-s1-infrastructure.md).  
   
     Dans cette phase, vous configurez les paramètres réseau et de serveur, les certificats requis, les paramètres DNS (Domain Name System), le déploiement du serveur Emplacement réseau, les serveurs d'administration DirectAccess, les paramètres Active Directory et les objets de stratégie de groupe (GPO).  
   
--   [Étape 2 : Configurer des serveurs DirectAccess avancés @ no__t-0.  
+-   [Étape 2 : configurer des serveurs DirectAccess avancés](da-adv-configure-s2-servers.md).  
   
     Au cours de cette phase, vous configurez les ordinateurs clients DirectAccess, les paramètres de serveur, les serveurs d'infrastructure et les serveurs d'applications.  
   
--   [Étape 3 : Vérifiez le déploiement avancé de DirectAccess @ no__t-0.  
+-   [Étape 3 : vérifier le déploiement avancé de DirectAccess](da-adv-configure-s3-verify.md).  
   
     Cette étape inclut les tâches de vérification du déploiement.  
   

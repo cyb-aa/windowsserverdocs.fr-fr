@@ -15,21 +15,21 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71402773"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Déployer des dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer des clients
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Déployer Dossiers de travail avec AD FS et le proxy d’application Web : étape 5, configurer les clients
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la cinquième étape de déploiement de dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Vue d’ensemble @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : vue d’ensemble](deploy-work-folders-adfs-overview.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 1 : configurer AD FS @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 1, configurer AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0  
+-   [Déployer des dossiers de travail avec des AD FS et un proxy d’application Web : étape 2, AD FS le travail après configuration](deploy-work-folders-adfs-step2.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
+-   [Déployer des dossiers de travail avec des AD FS et un proxy d’application Web : étape 3, configuration de dossiers de travail](deploy-work-folders-adfs-step3.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 4, configurer le proxy d’application Web](deploy-work-folders-adfs-step4.md)  
   
 Utilisez les procédures suivantes pour configurer les clients Windows joints au domaine et ceux qui ne sont pas joints au domaine. Vous pouvez utiliser ces clients pour tester si les fichiers se synchronisent correctement avec les dossiers de travail des clients.  
   
@@ -54,7 +54,7 @@ Pour installer les certificats, procédez comme suit :
   
 6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)** , puis cliquez sur **Terminer**.  
   
-7.  Cliquez sur **OK**.  
+7.  Cliquez sur **OK**.  
   
 8.  Développez le dossier Racine de la console\Certificats\(Ordinateur local)\Personnel\Certificats.  
   
@@ -79,13 +79,13 @@ Pour configurer les dossiers de travail sur l’ordinateur client, procédez com
   
 2. Cliquez sur **Configurer Dossiers de travail**.  
   
-3. Dans la page **Entrez votre adresse de messagerie professionnelle** , entrez l’adresse de messagerie de l’utilisateur (par exemple, user@contoso.com) ou l’URL des dossiers de travail (dans l’exemple de test, https : \//workfolders. contoso. com), puis cliquez sur **suivant**.  
+3. Dans la page **Entrez votre adresse de messagerie professionnelle** , entrez l’adresse de messagerie de l’utilisateur (par exemple, user@contoso.com) ou l’URL des dossiers de travail (dans l’exemple de test, https :\//workfolders.contoso.com), puis cliquez sur **suivant**.  
   
 4. Si l’utilisateur est connecté au réseau d’entreprise, l’authentification est effectuée par l’authentification intégrée de Windows. Si l’utilisateur n’est pas connecté au réseau d’entreprise, l’authentification est effectuée par AD FS (OAuth) et on invitera l’utilisateur à fournir des informations d’identification. Entrez vos informations d’utilisation, puis cliquez sur **OK**.  
   
-5. Une fois que vous êtes authentifié, la page **Présentation des dossiers de travail** s’affiche, où vous pouvez éventuellement modifier l’emplacement du répertoire des dossiers de travail. Cliquez sur **Suivant**.  
+5. Une fois que vous êtes authentifié, la page **Présentation des dossiers de travail** s’affiche, où vous pouvez éventuellement modifier l’emplacement du répertoire des dossiers de travail. Cliquer sur **Suivant**.  
   
-6. La page **Stratégies de sécurité** répertorie les stratégies de sécurité que vous avez configurées pour les dossiers de travail. Cliquez sur **Suivant**.  
+6. La page **Stratégies de sécurité** répertorie les stratégies de sécurité que vous avez configurées pour les dossiers de travail. Cliquer sur **Suivant**.  
   
 7. Un message s’affiche indiquant que les dossiers de travail ont démarré leur synchronisation avec votre PC. Cliquez sur **Fermer**.  
   

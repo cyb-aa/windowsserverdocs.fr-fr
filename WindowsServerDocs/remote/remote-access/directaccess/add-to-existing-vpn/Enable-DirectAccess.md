@@ -21,15 +21,15 @@ ms.locfileid: "71404987"
 ---
 # <a name="enable-directaccess"></a>Activer DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
  Windows Server 2016 et Windows Server 2012 associent DirectAccess et le VPN RAS (Remote Access Service) à un rôle d’accès à distance unique. Cette vue d’ensemble fournit une introduction aux étapes de configuration requises pour déployer un serveur d’accès à distance Windows Server 2016 ou Windows Server 2012 unique avec les paramètres de base.
   
--   [Étape 1 : Configurez l’infrastructure DirectAccess @ no__t-0. Cette étape inclut la configuration des paramètres réseau et serveur, des paramètres DNS et des paramètres Active Directory.  
+-   [Étape 1 : configurer l’infrastructure DirectAccess](step-1-configure-da-inf-davpn.md). Cette étape inclut la configuration des paramètres réseau et serveur, des paramètres DNS et des paramètres Active Directory.  
   
--   [Étape 2 : Configurez le serveur DirectAccess-VPN @ no__t-0. Cette étape comprend la configuration des ordinateurs clients DirectAccess, les paramètres du serveur.  
+-   [Étape 2 : configurer le serveur DirectAccess-VPN](step-2-configure-server-davpn.md). Cette étape comprend la configuration des ordinateurs clients DirectAccess, les paramètres du serveur.  
   
--   [Étape 3 : Vérifiez le déploiement @ no__t-0. cette étape inclut les étapes de vérification du déploiement.  
+-   [Étape 3 : vérifier le déploiement](step-3-verify-davpn.md). cette étape inclut les étapes de vérification du déploiement.  
   
 Avant de commencer le déploiement, vérifiez les étapes de planification décrites dans [planifier l’activation de DirectAccess](Plan-to-Enable-DirectAccess.md).  
   

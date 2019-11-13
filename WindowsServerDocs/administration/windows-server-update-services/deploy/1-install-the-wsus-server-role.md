@@ -19,7 +19,7 @@ ms.locfileid: "71361698"
 ---
 # <a name="step-1-install-the-wsus-server-role"></a>Étape 1 : Installer le rôle serveur WSUS
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’étape suivante du déploiement de votre serveur WSUS consiste à installer le rôle serveur WSUS. La procédure suivante explique comment installer le rôle serveur WSUS à l’aide du Gestionnaire de serveur.
 
@@ -54,14 +54,14 @@ L’étape suivante du déploiement de votre serveur WSUS consiste à installer 
 
 10. Dans la page **Sélection de l’emplacement du contenu** , tapez un emplacement valide pour stocker les mises à jour. Par exemple, vous pouvez créer un dossier nommé WSUS_database à la racine du lecteur K spécifiquement à cette fin, et tapez **k:\WSUS_database** comme emplacement valide.
 
-11. Cliquez sur **Suivant**. La page **Rôle de serveur web (IIS)** s’affiche. Vérifiez les informations, puis cliquez sur **Suivant**. Dans **Sélectionner les services de rôle à installer pour le serveur Web (IIS)** , conservez les valeurs par défaut, puis cliquez sur **suivant**.
+11. Cliquer sur **Suivant**. La page **Rôle de serveur web (IIS)** s’affiche. Vérifiez les informations, puis cliquez sur **Suivant**. Dans **Sélectionner les services de rôle à installer pour le serveur Web (IIS)** , conservez les valeurs par défaut, puis cliquez sur **suivant**.
 
 12. Dans la page **Confirmer les sélections d’installation**, passez en revue les options sélectionnées, puis cliquez sur **Installer**. L’Assistant d’installation de WSUS s’exécute. Le processus peut durer plusieurs minutes.
 
-13. Une fois l’installation de WSUS terminée, dans la fenêtre de résumé de la page **Progression de l’installation** , cliquez sur **Lancer les tâches de post-installation**. Le message suivant s’affiche : **Veuillez patienter pendant la configuration de votre serveur**. Une fois la tâche terminée, le message suivant s’affiche : **Configuration terminée**. Cliquez sur **Fermer**.
+13. Une fois l’installation de WSUS terminée, dans la fenêtre de résumé de la page **Progression de l’installation** , cliquez sur **Lancer les tâches de post-installation**. Le message suivant s’affiche : **Veuillez patienter pendant la configuration de votre serveur**. Une fois la tâche terminée, le message suivant s’affiche : **Configuration terminée**. Cliquez sur **Fermer**.
 
 14. Dans **Gestionnaire de serveur**, vérifiez si une notification s’affiche pour vous informer qu’un redémarrage est requis. Cela peut varier en fonction du rôle serveur installé. Si un redémarrage est requis, veillez à redémarrer le serveur pour terminer l’installation.
 
 > [!IMPORTANT]
-> À ce stade, le processus d’installation est terminé. Toutefois, pour que WSUS soit fonctionnel, vous devez passer à [Step 2 : Configurez WSUS @ no__t-0.
+> À ce stade, le processus d’installation est terminé. Toutefois, pour que WSUS soit fonctionnel, vous devez passer à l' [étape 2 : configurer WSUS](2-configure-wsus.md).
 

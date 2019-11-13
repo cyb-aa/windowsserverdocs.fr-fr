@@ -18,7 +18,7 @@ ms.locfileid: "71408409"
 ---
 # <a name="deploying-federation-server-proxies"></a>Déploiement de serveurs proxy de fédération
 
-Pour déployer des serveurs proxys de Fédération dans Services ADFS \(AD FS @ no__t-1, effectuez chacune des tâches dans [Checklist : Configuration d’un serveur proxy de Fédération @ no__t-0.  
+Pour déployer des serveurs proxys de Fédération dans Services ADFS \(AD FS\), effectuez chacune des tâches de la [liste de vérification : configuration d’un serveur proxy de Fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   
 > [!NOTE]  
 > Lorsque vous utilisez cette liste de vérification, nous vous recommandons de lire d’abord les références à l’aide de la planification du serveur proxy de Fédération dans le [Guide de conception AD FS de Windows server 2012](https://technet.microsoft.com/library/dd807036.aspx) avant de commencer les procédures de configuration des serveurs. La liste de vérification fournit une meilleure compréhension du processus de conception et de déploiement pour les serveurs proxys de Fédération.  

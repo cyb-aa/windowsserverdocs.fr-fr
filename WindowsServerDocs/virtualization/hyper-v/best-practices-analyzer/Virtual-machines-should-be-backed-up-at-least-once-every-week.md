@@ -19,7 +19,7 @@ ms.locfileid: "71393236"
 ---
 # <a name="virtual-machines-should-be-backed-up-at-least-once-every-week"></a>Les machines virtuelles doivent être sauvegardées au moins une fois par semaine
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -36,12 +36,12 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Une ou plusieurs machines virtuelles n’ont pas été sauvegardées au cours de la semaine dernière.*  
   
 ## <a name="impact"></a>Impact  
-la perte de données de @no__t 0Significant peut se produire si la machine virtuelle rencontre un problème et qu’une sauvegarde récente n’existe pas. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Une perte de données importante peut se produire si la machine virtuelle rencontre un problème et qu’une sauvegarde récente n’existe pas. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
-*Schedule une sauvegarde des machines virtuelles à exécuter au moins une fois par semaine. Vous pouvez ignorer cette règle si cet ordinateur virtuel est un réplica et que son ordinateur virtuel principal est en cours de sauvegarde, ou s’il s’agit de l’ordinateur virtuel principal et que son réplica est en cours de sauvegarde.*  
+## <a name="resolution"></a>Résolution  
+*Planifiez une sauvegarde des machines virtuelles à exécuter au moins une fois par semaine. Vous pouvez ignorer cette règle si cet ordinateur virtuel est un réplica et que son ordinateur virtuel principal est en cours de sauvegarde, ou s’il s’agit de l’ordinateur virtuel principal et que son réplica est en cours de sauvegarde.*  
   
 
 

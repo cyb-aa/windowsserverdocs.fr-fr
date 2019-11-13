@@ -58,7 +58,7 @@ Pour plus d’informations sur la montée en charge SMB, consultez [serveur de f
 
 ### <a name="performance-counters-for-smb-30"></a>Compteurs de performances pour SMB 3,0
 
-Les compteurs de performances SMB suivants ont été introduits dans Windows Server 2012 et sont considérés comme un ensemble de base de compteurs lorsque vous surveillez l’utilisation des ressources de SMB 2 et versions ultérieures. Consignez les compteurs de performances dans un journal de compteur de performances local (. BLG). Il est moins coûteux de collecter toutes les instances à l’aide du caractère générique (\*), puis d’extraire des instances particulières lors du traitement après le traitement à l’aide de relog. exe.
+Les compteurs de performances SMB suivants ont été introduits dans Windows Server 2012 et sont considérés comme un ensemble de base de compteurs lorsque vous surveillez l’utilisation des ressources de SMB 2 et versions ultérieures. Consignez les compteurs de performances dans un journal de compteur de performances local (. BLG). Il est moins coûteux de collecter toutes les instances à l’aide du caractère générique (\*), puis d’extraire des instances particulières pendant le traitement après le traitement à l’aide de relog. exe.
 
 -   **Partages clients SMB**
 
@@ -86,12 +86,12 @@ Les compteurs de performances SMB suivants ont été introduits dans Windows Ser
 
 -   **Relations des compteurs de performance des disques physiques, SMB et CSV FS**
 
-    Pour plus d’informations sur la façon dont les compteurs de disque physique, de SMB et de système de fichiers CSV sont liés, consultez le billet de blog suivant : [Volume partagé de cluster des compteurs de performances](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
+    Pour plus d’informations sur la façon dont les compteurs de disque physique, de SMB et de système de fichiers CSV sont liés, consultez le billet de blog suivant : [volume partagé de cluster des compteurs de performances](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
 
 ## <a name="tuning-parameters-for-smb-file-servers"></a>Paramétrage des paramètres pour les serveurs de fichiers SMB
 
 
-Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les performances des serveurs de fichiers SMB :
+Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performances des serveurs de fichiers SMB :
 
 - **Smb2CreditsMin** et **Smb2CreditsMax**
 
@@ -108,7 +108,7 @@ Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les per
   > [!TIP]
   > Avant Windows 10 et Windows Server 2016, le nombre de crédits accordés au client variait de façon dynamique entre Smb2CreditsMin et Smb2CreditsMax en fonction d’un algorithme qui tentait de déterminer le nombre optimal de crédits à accorder en fonction de la latence du réseau. et l’utilisation de crédit. Dans Windows 10 et Windows Server 2016, le serveur SMB a été remplacé par le fait d’accorder sans condition des crédits à la demande jusqu’au nombre maximal de crédits configuré. Dans le cadre de cette modification, le mécanisme de limitation des crédits, qui réduit la taille de la fenêtre de crédit de chaque connexion lorsque le serveur est soumis à une sollicitation de la mémoire, a été supprimé. L’événement de mémoire insuffisante du noyau qui a déclenché la limitation est signalé uniquement lorsque la mémoire du serveur est trop faible (< quelques Mo) comme étant inutile. Étant donné que le serveur ne réduit plus les fenêtres de crédit, le paramètre Smb2CreditsMin n’est plus nécessaire et est maintenant ignoré.
   > 
-  > Vous pouvez surveiller les partages de client SMB @ no__t-0Credit Stalls/S pour voir s’il existe des problèmes avec les crédits.
+  > Vous pouvez surveiller les partages de client SMB\\les blocages de crédit pour voir s’il existe des problèmes avec les crédits.
 
 - **AdditionalCriticalWorkerThreads**
 
@@ -119,7 +119,7 @@ Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les per
     La valeur par défaut est 0, ce qui signifie qu’aucun thread de travail noyau critique supplémentaire n’est ajouté. Cette valeur affecte le nombre de threads utilisés par le cache du système de fichiers pour les demandes d’écriture anticipée et de lecture anticipée. L’augmentation de cette valeur peut permettre d’obtenir plus d’e/s en file d’attente dans le sous-système de stockage, et elle peut améliorer les performances d’e/s, en particulier sur les systèmes avec de nombreux processeurs logiques et un matériel de stockage puissant.
 
     >[!TIP]
-    > La valeur doit peut-être être augmentée si la quantité de données modifiées du gestionnaire de cache (pages de cache de compteur de performances @ no__t-0Dirty) augmente pour consommer une grande partie (plus de ~ 25%). de mémoire ou si le système exécute un grand nombre d’e/s de lecture synchrones.
+    > La valeur doit peut-être être augmentée si la quantité de données modifiées du gestionnaire de cache (cache de compteur de performance\\pages de modifications) augmente pour consommer une grande partie (plus de ~ 25%). de mémoire ou si le système exécute un grand nombre d’e/s de lecture synchrones.
 
 - **MaxThreadsPerQueue**
 
@@ -130,7 +130,7 @@ Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les per
   La valeur par défaut est 20. L’augmentation de cette valeur augmente le nombre de threads que le serveur de fichiers peut utiliser pour traiter les demandes simultanées. Lorsqu’un grand nombre de connexions actives doivent être desservies et que les ressources matérielles, telles que la bande passante de stockage, sont suffisantes, l’augmentation de la valeur peut améliorer l’évolutivité, les performances et les temps de réponse du serveur.
 
   >[!TIP]
-  > Une indication que la valeur devra peut-être être augmentée est si les files d’attente de travail SMB2 deviennent très volumineuses (les files d’attente de travail du serveur du compteur de performance @ no__t-0Queue length @ no__t-1SMB2 sans blocage \*» se trouvent toujours au-dessus de ~ 100).
+  > Une indication que la valeur devra peut-être être augmentée est si les files d’attente de travail SMB2 deviennent de plus en plus volumineuses (les files d’attente de travail du serveur du compteur de performances\\longueur de la file d’attente\\SMB2 \*non bloquant» se trouvent toujours au-dessus de ~ 100).
 
   >[!Note]
   >Dans Windows 10 et Windows Server 2016, MaxThreadsPerQueue n’est pas disponible. Le nombre de threads pour un pool de threads sera « 20 * le nombre de processeurs dans un nœud NUMA ».
@@ -148,7 +148,7 @@ Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les per
 
 Les paramètres suivants peuvent optimiser un ordinateur pour les performances des serveurs de fichiers dans de nombreux cas. Les paramètres ne sont pas optimaux ni appropriés sur tous les ordinateurs. Vous devez évaluer l’impact de ces paramètres spécifiques avant de les appliquer.
 
-| Paramètre                       | Value | Par défaut |
+| Paramètre                       | Valeur | Default |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |
@@ -156,4 +156,4 @@ Les paramètres suivants peuvent optimiser un ordinateur pour les performances d
 
 ### <a name="smb-client-performance-monitor-counters"></a>Compteurs de l’analyseur de performances des clients SMB
 
-Pour plus d’informations sur les compteurs du client SMB, voir [Windows Server 2012 Server Tip : Les nouveaux compteurs de performances de client SMB par partage fournissent un excellent aperçu de @ no__t-0.
+Pour plus d’informations sur les compteurs du client SMB, consultez [Astuce du serveur de fichiers Windows server 2012 : les nouveaux compteurs de performances de client SMB par partage fournissent](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx)des informations intéressantes.

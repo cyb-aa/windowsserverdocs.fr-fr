@@ -16,19 +16,19 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71407498"
 ---
-# <a name="walkthrough-workplace-join-with-an-ios-device"></a>Procédure pas à pas : joindre un espace de travail avec un appareil iOS
+# <a name="walkthrough-workplace-join-with-an-ios-device"></a>Démonstration : joindre un espace de travail avec un appareil iOS
 
 
 > [!IMPORTANT] 
 > Cette méthode s’applique uniquement aux clients entièrement local. Les clients hybrides ou Cloud uniquement ne doivent pas utiliser cette méthode pour inscrire leurs appareils iOS. Cette méthode n’est pas compatible lorsque les clients local décident de passer au Cloud. L’inscription de l’appareil doit être annulée et inscrite auprès du Cloud. 
 
-Cette rubrique explique comment joindre un espace de travail avec un appareil iOS. Vous devez effectuer les étapes décrites dans la section [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2 avant de](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) pouvoir essayer cette procédure pas à pas. Vous pouvez utiliser l’appareil pour accéder à la même application Web d’entreprise que vous avez consultée dans [Walkthrough : Workplace Join avec un appareil Windows @ no__t-0.
+Cette rubrique explique comment joindre un espace de travail avec un appareil iOS. Vous devez effectuer les étapes décrites dans la section [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2 avant de](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) pouvoir essayer cette procédure pas à pas. Vous pouvez utiliser l’appareil pour accéder à la même application Web d’entreprise que vous avez consultée dans la [procédure pas à pas : Workplace Join avec un appareil Windows](Walkthrough--Workplace-Join-with-a-Windows-Device.md).
 
 
 ## <a name="join-an-ios-device-with-workplace-join"></a>Joindre un espace de travail avec un appareil iOS
 
 > [!IMPORTANT]
-> Lorsque la configuration DRS locale est configurée, l’appareil iOS doit approuver le certificat SSL (Secure Socket Layer) utilisé pour configurer Services ADFS (AD FS) dans [Step 2 : Configurez le serveur de Fédération (ADFS1) avec Device Registration service @ no__t-0, pour que Workplace Join aboutisse.
+> Lorsqu’un service DRS sur site est configuré, l’appareil iOS doit approuver le certificat SSL (Secure Socket Layer) utilisé pour configurer les services AD FS (Active Directory Federation Services) à l’ [Step 2: Configure the federation server (ADFS1) with Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4), pour que la jonction d’espace de travail réussisse.
 > 
 > -   Si le certificat SSL AD FS a été émis depuis une autorité de certification de test, vous devez installer le certificat de l'autorité de certification sur votre appareil iOS.
 > -   Si votre certificat d'autorité de certification est publié sur un site web, vous pouvez accéder à ce dernier depuis votre appareil iOS et installer le certificat.
@@ -37,13 +37,13 @@ Cette démonstration indique comment joindre l'appareil à l'espace de travail.
 
 #### <a name="to-join-an-ios-device-to-a-workplace"></a>Pour joindre un appareil iOS à un espace de travail
 
-1. -   **Lorsque le service d’inscription de périphérique Azure Active Directory est le service DRS configuré :** Ouvrez Apple Safari et accédez à Azure Active Directory Device Registration point de terminaison de profil sur air pour les appareils iOS, < `https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/<yourdomainname` > où < `yourdomainname` > est le nom de domaine que vous avez configuré avec Azure Active Directory. Par exemple, si votre nom de domaine est contoso.com, l’URL serait : `https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com`
+1. -   **Quand Azure Active Directory Device Registration service est le service DRS configuré :** Ouvrez Apple Safari et accédez à Azure Active Directory Device Registration point de terminaison de profil sur air pour les appareils iOS, <`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/<yourdomainname` > où <`yourdomainname`> est le nom de domaine que vous avez configuré avec Azure Active Directory. Par exemple, si votre nom de domaine est contoso.com, l’URL serait : `https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com`
 
-   -   **Lorsque DRS local est le service DRS configuré**: Ouvrez Apple Safari et accédez au point de terminaison du profil par le biais du service DRS (Device Registration service) pour les appareils iOS, `https://adf1s.contoso.com/enrollmentserver/otaprofile`
+   -   **Lorsque Drs local est la configuration Drs**: Open Apple Safari et accédez au point de terminaison de profil par le biais du service d’inscription d’appareils (DRS) pour les appareils iOS, `https://adf1s.contoso.com/enrollmentserver/otaprofile`
 
-   Il existe de nombreuses façons de communiquer cette URL à vos utilisateurs. Une méthode recommandée est de publier cette URL dans un message personnalisé de refus d’accès à une application dans AD FS. Celle-ci est décrite dans la section à venir : [Créer une stratégie d’accès à une application et un message de refus d’accès personnalisé](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup#create-an-application-access-policy-and-custom-access-denied-message)
+   Il existe de nombreuses façons de communiquer cette URL à vos utilisateurs. Une méthode recommandée est de publier cette URL dans un message personnalisé de refus d’accès à une application dans AD FS. Celle-ci est décrite dans la section à venir : [Créer une stratégie d’accès à une application et un message de refus d’accès personnalisé](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup#create-an-application-access-policy-and-custom-access-denied-message)
 
-2. Connectez-vous à la page Web à l’aide d’un compte de domaine d’entreprise : <strong>roberth@contoso.com</strong> et le mot de passe : <strong>P@ssword</strong>.
+2. Connectez-vous à la page Web à l’aide d’un compte de domaine d’entreprise : <strong>roberth@contoso.com</strong> et mot de passe : <strong>P@ssword</strong>.
 
 3. Vous êtes invité à installer un profil. Dans l'écran **Installer un profil** , cliquez sur **Installer**.
 
@@ -63,7 +63,7 @@ Cette démonstration indique comment joindre l'appareil à l'espace de travail.
 
 - [Joindre un espace de travail à partir de n’importe quel appareil en utilisant l’authentification unique et l’authentification de second facteur transparente](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 - [Configurer l’environnement lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
-- [Procédure pas à pas : Joindre un espace de travail avec un appareil Windows](Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+- [Procédure pas à pas : Workplace Join avec un appareil Windows](Walkthrough--Workplace-Join-with-a-Windows-Device.md)
 
 
 

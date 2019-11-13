@@ -15,13 +15,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71394333"
 ---
-# <a name="checklist-apply-a-quota-to-a-volume-or-folder"></a>Liste de vérification : Appliquer un quota à un volume ou à un dossier
+# <a name="checklist-apply-a-quota-to-a-volume-or-folder"></a>Liste de vérification : appliquer un quota à un volume ou un dossier
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server (canal semi-annuel)
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server (canal semi-annuel)
 
 1. Configurez les paramètres de messagerie si vous prévoyez d’envoyer des notifications de seuil ou des rapports de stockage par courrier électronique. [Configurer les notifications par courrier électronique](configure-email-notifications.md)
 
-2. Évaluez les besoins de stockage sur le volume ou le dossier. Vous pouvez utiliser des rapports sur le nœud **Gestion des rapports de stockage** pour fournir des données. (Par exemple, exécutez une rapport sur les fichiers par propriétaire rapport à la demande pour identifier les utilisateurs qui utilisent de grandes quantités d’espace disque.) [Générer des rapports à la demande](generate-reports-on-demand.md)
+2. Évaluez les besoins de stockage sur le volume ou le dossier. Vous pouvez utiliser des rapports sur le nœud **Gestion des rapports de stockage** pour fournir des données. (Par exemple, exécutez un rapport Fichiers par propriétaire à la demande pour identifier les utilisateurs qui utilisent un espace disque important.) [Générez des rapports à la demande](generate-reports-on-demand.md)
 
 3. Passez en revue les modèles de quotas préconfigurés disponibles. (Dans **gestion de quota**, cliquez sur le nœud **modèles de quota** .) [Modifier les propriétés du modèle de Quota](edit-quota-template-properties.md) 
 <br />\- Ou - <br /> Créez un nouveau modèle de quota pour appliquer une stratégie de stockage dans votre organisation. [Créer un modèle de quota](create-quota-template.md)
@@ -32,7 +32,7 @@ ms.locfileid: "71394333"
 6. Planifiez une tâche de rapport contenant un rapport d’utilisation du quota pour surveiller l’utilisation du quota régulièrement. [Planifier un ensemble de rapports](schedule-set-of-reports.md)
 
 > [!Note]
-> Si vous souhaitez filtrer des fichiers sur un volume ou un dossier, voir [Checklist : Appliquez un écran de fichier à un volume ou à un dossier @ no__t-0.
+> Si vous souhaitez filtrer les fichiers sur un volume ou un dossier, consultez [Liste de vérification : appliquer un filtre de fichiers à un volume ou un dossier](checklist-apply-file-screen-to-volume-or-folder.md).
 
 
 

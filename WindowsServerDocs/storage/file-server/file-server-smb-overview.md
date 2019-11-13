@@ -49,7 +49,7 @@ SMB dans Windows Server 2012 et Windows Server 2016 intègre le nouveau protocol
 <tr class="header">
 <th><p>Fonctionnalité/fonction</p></th>
 <th><p>Nouveauté ou mise à jour</p></th>
-<th><p>Récapitulatif</p></th>
+<th><p>Résumé</p></th>
 </tr>
 </thead>
 <tbody>
@@ -133,4 +133,4 @@ La liste suivante fournit des ressources supplémentaires sur le Web sur SMB et 
 * [Déployer Hyper-V sur SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)
 * [Déployer SMB Multichannel](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3dws.11)>)
 * [Déploiement de serveurs de fichiers rapides et efficaces pour les applications serveur](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831723(v%3dws.11)>)
-* [SMB : Guide de résolution des problèmes @ no__t-0
+* [SMB : Guide de dépannage](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn659439(v%3dws.11)>)

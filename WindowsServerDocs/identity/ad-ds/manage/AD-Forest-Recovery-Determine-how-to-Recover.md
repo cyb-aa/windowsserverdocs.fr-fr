@@ -18,7 +18,7 @@ ms.locfileid: "71369169"
 ---
 # <a name="determine-how-to-recover-the-forest"></a>Déterminer comment récupérer la forêt
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 La récupération d’une forêt Active Directory entière implique de la restaurer à partir de la sauvegarde ou de la réinstallation de Active Directory Domain Services (AD DS) sur chaque contrôleur de domaine (DC) de la forêt. La récupération de la forêt restaure chaque domaine de la forêt à son état au moment de la dernière sauvegarde approuvée. Par conséquent, l’opération de restauration entraînera la perte d’au moins les données de Active Directory suivantes :
 
@@ -76,13 +76,13 @@ Choisissez un contrôleur de périphérique qui répond le mieux aux critères s
 - Un contrôleur de domaine qui était un serveur DNS (Domain Name System) avant la défaillance. Cela vous permet de gagner du temps pour réinstaller DNS.
 - Si vous utilisez également les services de déploiement Windows, choisissez un contrôleur de réseau qui n’est pas configuré pour utiliser le déverrouillage réseau BitLocker. Dans ce cas, le déverrouillage réseau BitLocker n’est pas pris en charge pour le premier contrôleur de réseau que vous restaurez à partir d’une sauvegarde pendant une récupération de forêt.
 
-   Le déverrouillage réseau BitLocker étant donné que le *seul* protecteur de clé *ne peut pas* être utilisé sur les contrôleurs de réseau où vous avez déployé les services de déploiement Windows (WDS), car cela entraîne un scénario dans lequel le premier contrôleur de réseau exige que Active Directory et WDS fonctionnent pour bloquer. Mais avant de restaurer le premier contrôleur de service, Active Directory n’est pas encore disponible pour WDS, il ne peut donc pas être déverrouillé.
+   Le déverrouillage réseau BitLocker, car le *seul* protecteur de clé *ne peut pas* être utilisé sur les contrôleurs de réseau où vous avez déployé les services de déploiement Windows (WDS), car cela entraîne un scénario dans lequel le premier contrôleur de réseau exige que Active Directory et WDS fonctionnent pour le déverrouillage. Mais avant de restaurer le premier contrôleur de service, Active Directory n’est pas encore disponible pour WDS, il ne peut donc pas être déverrouillé.
 
    Pour déterminer si un contrôleur de réseau est configuré pour utiliser le déverrouillage réseau BitLocker, vérifiez qu’un certificat de déverrouillage réseau est identifié dans la clé de Registre suivante :
 
    HKEY_LOCAL_MACHINESoftwarePoliciesMicrosoftSystemCertificatesFVE_NKP
 
-Tenez à jour les procédures de sécurité lors du traitement ou de la restauration des fichiers de sauvegarde incluant des Active Directory. L’urgence qui accompagne la récupération de la forêt peut déboucher sur les meilleures pratiques de sécurité. Pour plus d’informations, consultez la section intitulée « établissement des stratégies de sauvegarde et de restauration des contrôleurs de domaine » dans @no__t Guide pratique 0Best pour la sécurisation des installations Active Directory et des opérations quotidiennes : Partie II @ no__t-0.
+Tenez à jour les procédures de sécurité lors du traitement ou de la restauration des fichiers de sauvegarde incluant des Active Directory. L’urgence qui accompagne la récupération de la forêt peut déboucher sur les meilleures pratiques de sécurité. Pour plus d’informations, consultez la section intitulée « établissement des stratégies de sauvegarde et de restauration des contrôleurs de domaine » dans [Best Practice Guide (en anglais) pour sécuriser les Installations Active Directory et les opérations quotidiennes : partie 2](https://technet.microsoft.com/library/bb727066.aspx).
 
 ## <a name="identify-the-current-forest-structure-and-dc-functions"></a>Identifier la structure actuelle de la forêt et les fonctions DC
 
@@ -90,7 +90,7 @@ Déterminez la structure actuelle de la forêt en identifiant tous les domaines 
 
 Préparez une table qui affiche les fonctions de chaque contrôleur de domaine dans le domaine, comme illustré dans l’exemple suivant. Cela vous permettra de revenir à la configuration de la forêt après l’échec après la récupération.
 
-|Nom du contrôleur de périphérique|Système d'exploitation|FSMO|GC|RODC|Sauvegarde|DNS|Server Core|VM|Machine virtuelle-GenID|  
+|Nom du contrôleur de périphérique|Système d’exploitation|FSMO|GC|RODC|Secours|DNS|Server Core|VM|Machine virtuelle-GenID|  
 |-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|  
 |DC_1|Windows Server 2012|Contrôleur de schéma, maître d’attribution de noms de domaine|Oui|Non|Oui|Non|Non|Oui|Oui|  
 |DC_2|Windows Server 2012|Aucune|Oui|Non|Oui|Oui|Non|Oui|Oui|  

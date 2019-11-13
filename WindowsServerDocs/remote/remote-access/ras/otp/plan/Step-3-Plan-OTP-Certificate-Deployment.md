@@ -21,7 +21,7 @@ ms.locfileid: "71366947"
 ---
 # <a name="step-3-plan-otp-certificate-deployment"></a>Étape 3 planifier le déploiement de certificats avec mot de passe à usage unique
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Une fois le serveur RADIUS planifié, vous devez planifier les exigences en matière d’autorité de certification, y compris l’autorité de certification qui émet les certificats de mot de passe à usage unique, le modèle de certificat OTP et le certificat d’autorité d’inscription utilisé par l’instance distante. Accédez au serveur pour signer toutes les demandes de certificat à mot de passe à usage unique DirectAccess. Ces certificats sont utilisés comme suit :  
   
@@ -75,7 +75,7 @@ Lorsque les clients DirectAccess demandent un certificat à mot de passe à usag
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 4 : Planifier le mot de passe à usage unique pour le serveur d’accès à distance @ no__t-0  
+-   [Étape 4 : planifier le mot de passe à usage unique pour le serveur d’accès à distance](Step-4-Plan-for-OTP-on-the-Remote-Access-Server.md)  
   
 
 

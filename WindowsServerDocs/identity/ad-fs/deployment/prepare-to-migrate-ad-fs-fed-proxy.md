@@ -21,11 +21,11 @@ Pour préparer la migration d’un proxy de serveur de fédération AD FS 2,0 ve
   
  Pour exporter les données de configuration AD FS, effectuez les tâches suivantes :  
   
--   [Étape 1 : Exporter les paramètres du service proxy @ no__t-0  
+-   [Étape 1 : exporter les paramètres du service proxy](#step-1-export-proxy-service-settings)  
   
--   [Étape 2 : Sauvegarder les personnalisations de pages Web @ no__t-0  
+-   [Étape 2 : sauvegarder les personnalisations de page Web](#step-2-back-up-webpage-customizations)  
   
-##  <a name="step-1-export-proxy-service-settings"></a>Étape 1 : exporter les paramètres de service proxy  
+##  <a name="step-1-export-proxy-service-settings"></a>Étape 1 : exporter les paramètres de service proxy  
  Pour exporter les paramètres de service proxy de serveur de fédération, effectuez la procédure suivante :  
   
 ### <a name="to-export-proxy-service-settings"></a>Pour exporter les paramètres de service proxy  
@@ -49,7 +49,7 @@ Ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les app
   
 -   Adresse et port du proxy HTTP (s’il existe un proxy HTTP entre le serveur proxy de fédération AD FS et les serveurs de fédération AD FS)  
   
-##  <a name="step-2-back-up-webpage-customizations"></a>Étape 2 : sauvegarder les personnalisations de page web  
+##  <a name="step-2-back-up-webpage-customizations"></a>Étape 2 : sauvegarder les personnalisations de page web  
  Pour sauvegarder les personnalisations de page web, copiez les pages web proxy AD FS et le fichier **web.config** depuis le répertoire qui est mappé sur le chemin d’accès virtuel **“/adfs/ls”** dans IIS.  L'emplacement par défaut est le répertoire **%systemdrive%\inetpub\adfs\ls** .  
   
 ## <a name="next-steps"></a>Étapes suivantes

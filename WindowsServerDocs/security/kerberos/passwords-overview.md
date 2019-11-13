@@ -22,7 +22,7 @@ ms.locfileid: "71403510"
 ---
 # <a name="passwords-overview"></a>Vue d’ensemble sur les mots de passe
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique destinée aux professionnels de l’informatique décrit les mots de passe utilisés dans les systèmes d’exploitation Windows, ainsi que des liens vers la documentation et les discussions relatives à l’utilisation de mots de passe dans une stratégie de gestion des informations d’identification.
 
@@ -35,9 +35,9 @@ Pour plus d’informations sur les mots de passe Windows, consultez [vue d’ens
 Dans Windows et de nombreux autres systèmes d’exploitation, la méthode la plus courante pour authentifier l’identité d’un utilisateur consiste à utiliser une phrase secrète secrète ou un mot de passe. La sécurisation de votre environnement réseau exige que tous les utilisateurs utilisent des mots de passe forts. Cela permet d’éviter la menace qu’un utilisateur malveillant devine un mot de passe faible, que ce soit via des méthodes manuelles ou à l’aide d’outils, pour obtenir les informations d’identification d’un compte d’utilisateur compromis. Cela est particulièrement vrai pour les comptes d’administration. Lorsque vous modifiez un mot de passe complexe régulièrement, cela réduit le risque qu’une attaque de mot de passe compromette ce compte.
 
 ## <a name="BKMK_NEW"></a>Fonctionnalités nouvelles et modifiées
-Dans Windows Server 2012 et Windows 8, les mots de passe image sont nouveaux. Les mots de passe image sont une combinaison d’une image sélectionnée par l’utilisateur et associée à une série de gestes. La fonctionnalité de mot de passe image est désactivée sur les ordinateurs Domain @ no__t-0joined. Des liens vers des informations supplémentaires sur les mots de passe d’image sont répertoriés dans la [section Voir aussi](#BKMK_LINKS) ci-dessous.
+Dans Windows Server 2012 et Windows 8, les mots de passe image sont nouveaux. Les mots de passe image sont une combinaison d’une image sélectionnée par l’utilisateur et associée à une série de gestes. La fonctionnalité de mot de passe image est désactivée sur les ordinateurs appartenant au domaine\-. Des liens vers des informations supplémentaires sur les mots de passe d’image sont répertoriés dans la [section Voir aussi](#BKMK_LINKS) ci-dessous.
 
-Les fonctionnalités de mot de passe de Windows Server 2012 et Windows 8 n’ont pas été modifiées. Aucun nouveau paramètre de stratégie de groupe n’a été ajouté. Toutefois, des améliorations et des améliorations ont été apportées à la gestion des informations d’identification \(and @ no__t-1, comme avec les mots de passe image, le verrouillage des informations d’identification et la connexion à Windows 8 avec un compte Microsoft, anciennement appelé Windows Live ID.
+Les fonctionnalités de mot de passe de Windows Server 2012 et Windows 8 n’ont pas été modifiées. Aucun nouveau paramètre de stratégie de groupe n’a été ajouté. Toutefois, des améliorations et des améliorations ont été apportées aux informations d’identification \(et à la gestion des\) de mot de passe, comme avec les mots de passe image, le stockage des informations d’identification et la connexion à Windows 8 avec un compte Microsoft, anciennement appelé Windows Live ID.
 
 ## <a name="BKMK_DEP"></a>Fonctionnalités déconseillées
 Aucune fonctionnalité de mot de passe n’a été dépréciée dans Windows Server 2012 et Windows 8.
@@ -53,7 +53,7 @@ Ce tableau répertorie des ressources supplémentaires pour les fonctionnalités
 |**Documentation du scénario**|[Protection de votre identité numérique](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)|
 |**Opérations**|[Active Directory les utilisateurs et les ordinateurs](https://technet.microsoft.com/library/cc754217.aspx)|
 |**Résolution des problèmes**|[Déterminer à quel moment votre mot de passe expire \- Active Directory blog PowerShell](http://blogs.msdn.com/b/adpowershell/archive/2010/08/09/9970198.aspx)|
-|**Sécurité**| Guide de 0Threats et de contre-mesures Windows Server 2008 R2 et Windows @no__t 7 : Stratégies de compte @ no__t-0<br /><br />Conseils pour [modifier et créer des mots de passe forts](https://www.microsoft.com/security/online-privacy/passwords-create.aspx)|
+|**Sécurité**| [Guide des menaces et des contre-mesures](https://technet.microsoft.com/library/hh125920(v=ws.10).aspx) windows Server 2008 R2 et Windows 7 : stratégies de compte<br /><br />Conseils pour [modifier et créer des mots de passe forts](https://www.microsoft.com/security/online-privacy/passwords-create.aspx)|
 |**Outils et paramètres**|[Informations de référence sur les paramètres de stratégie de groupe pour Windows et Windows Server dans le centre de téléchargement Microsoft](https://www.microsoft.com/download/en/details.aspx?amp;displaylang=en&displaylang=en&id=25250)|
 |**Ressources de la communauté**|[Protection de votre identité numérique](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<br /><br />[Connexion à Windows 8 avec un identifiant Windows Live ID](http://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<br /><br />[Connexion avec un mot de passe image](http://blogs.msdn.com/b/b8/archive/2011/12/16/signing-in-with-a-picture-password.aspx)<br /><br />[Optimisation de la sécurité des mots de passe image](http://blogs.msdn.com/b/b8/archive/2011/12/19/optimizing-picture-password-security.aspx)|
 

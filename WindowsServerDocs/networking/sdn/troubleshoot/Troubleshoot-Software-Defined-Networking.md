@@ -17,7 +17,7 @@ ms.locfileid: "71405824"
 ---
 # <a name="troubleshoot-sdn"></a>Résoudre les problèmes de SDN
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Les rubriques de cette section fournissent des informations sur le dépannage des technologies SDN (Software Defined Networking) incluses dans Windows Server 2016.
 
@@ -32,8 +32,8 @@ Les rubriques de cette section fournissent des informations sur le dépannage de
 
 Cette section contient les rubriques suivantes :
 
-- [Résolution des problèmes de la pile de mise en réseau SDN (Software Defined Networking) dans Windows Server](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)
-- Billet de blog @no__t-Troubleshooting 0SDN : Échecs de communication UDP et modification du certificat de contrôleur de réseau @ no__t-0
+- [Résoudre les problèmes de la pile de mise en réseau SDN (Software Defined Networking) dans Windows Server](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)
+- Billet [de blog SDN Troubleshooting : UDP communication Failures and change the Network Controller Certificate](https://techcommunity.microsoft.com/t5/Networking-Blog/SDN-Troubleshooting-UDP-Communication-failures-and-changing-the/ba-p/339694)
 - Billet [de blog Troubleshooting Certificate Problems in Software Defined Networking (SDN) (en anglais)](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshooting-certificate-issues-in-Software-Defined/ba-p/339671)
 - Billet de blog [Comment trouver l’adresse locale de la passerelle SDN pour l’homologation BGP dans Windows Server 2016](https://techcommunity.microsoft.com/t5/Networking-Blog/How-to-find-the-SDN-gateway-local-address-for-BGP-peering-in/ba-p/339663)
 - Billet [de blog résolution des problèmes de configuration des paramètres de bande passante VPN de la passerelle RAS SDN dans Virtual Machine Manager](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshoot-Configuring-SDN-RAS-Gateway-VPN-Bandwidth-Settings/ba-p/339661)

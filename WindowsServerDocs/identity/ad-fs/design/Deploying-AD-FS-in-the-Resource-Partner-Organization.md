@@ -18,11 +18,11 @@ ms.locfileid: "71359172"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>Déploiement des services de fédération Active Directory (AD FS) dans l’organisation partenaire de ressource
 
-L’organisation partenaire de ressource dans Services ADFS \(AD FS @ no__t-1 représente l’organisation dont les serveurs Web peuvent être protégés par un serveur de Fédération @ no__t-2side de ressource. Le serveur de Fédération du partenaire de ressource utilise les jetons de sécurité produits par le partenaire de compte pour fournir des revendications aux serveurs Web qui se trouvent dans le partenaire de ressource.  
+L’organisation partenaire de ressource dans Services ADFS \(AD FS\) représente l’organisation dont les serveurs Web peuvent être protégés par un serveur de Fédération côté\-des ressources. Le serveur de Fédération du partenaire de ressource utilise les jetons de sécurité produits par le partenaire de compte pour fournir des revendications aux serveurs Web qui se trouvent dans le partenaire de ressource.  
   
 Dans les scénarios où vous devez fournir un accès à des services ou des applications fédérés à de nombreux utilisateurs différents, lorsque certains utilisateurs résident dans des organisations différentes, vous pouvez configurer le serveur de Fédération de ressources afin de pouvoir déployer plusieurs partenaires de compte.  
   
-Pour plus d’informations sur la configuration et la configuration d’une organisation partenaire de ressource, voir [Checklist : Configuration de l’organisation du partenaire de ressource @ no__t-0.  
+Pour plus d’informations sur l’installation et la configuration d’une organisation partenaire de ressource, voir [Checklist: Configuring the Resource Partner Organization](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md).  
   
 ## <a name="in-this-section"></a>Dans cette section  
   

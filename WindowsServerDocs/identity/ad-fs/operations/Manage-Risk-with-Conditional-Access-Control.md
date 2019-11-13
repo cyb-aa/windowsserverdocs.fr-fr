@@ -38,7 +38,7 @@ Le contrôle d’accès dans AD FS est implémenté avec des règles de revendic
 
 Pour plus d’informations sur ces options de règles et la logique, voir [When to Use an Authorization Claim Rule](https://technet.microsoft.com/library/ee913560.aspx).
 
-Dans AD FS dans Windows Server 2012 R2, le contrôle d’accès est amélioré avec plusieurs facteurs, notamment les données d’utilisateur, de périphérique, d’emplacement et d’authentification. Cela est possible grâce à une plus grande diversité de types de revendication disponibles pour les règles de revendication d’autorisation.  En d’autres termes, dans AD FS dans Windows Server 2012 R2, vous pouvez appliquer le contrôle d’accès conditionnel en fonction de l’identité de l’utilisateur ou de l’appartenance à un groupe, de l’emplacement réseau, de l’appareil (qu’il s’agisse d’un espace de travail joint). pour plus d’informations, consultez [joindre à l’espace de travail depuis n’importe quel appareil et l’authentification de second facteur transparente entre les applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)de l’entreprise) et l’état d’authentification (si l’authentification multifacteur (MFA) a été effectuée).
+Dans AD FS dans Windows Server 2012 R2, le contrôle d’accès est amélioré avec plusieurs facteurs, notamment les données d’utilisateur, de périphérique, d’emplacement et d’authentification. Cela est possible grâce à une plus grande diversité de types de revendication disponibles pour les règles de revendication d’autorisation.  En d’autres termes, dans AD FS dans Windows Server 2012 R2, vous pouvez appliquer le contrôle d’accès conditionnel en fonction de l’identité de l’utilisateur ou de l’appartenance à un groupe, de l’emplacement réseau, de l’appareil (qu’il s’agisse d' [un](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)espace de travail joint) et de l’état d’authentification (si l’authentification multifacteur (MFA) a été effectuée).
 
 Le contrôle d’accès conditionnel dans AD FS dans Windows Server 2012 R2 offre les avantages suivants :
 
@@ -50,7 +50,7 @@ Le contrôle d’accès conditionnel dans AD FS dans Windows Server 2012 R2 offr
 
 -   Langage des revendications riche et prise en charge de Windows PowerShell pour les scénarios de contrôle d’accès conditionnel avancés
 
--   Messages « accès refusé » personnalisés (par application de partie de confiance). Pour plus d'informations, voir [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). En étant en mesure de personnaliser ces messages, vous pouvez expliquer pourquoi l’accès est refusé à un utilisateur et également faciliter la mise à jour libre-service lorsque cela est possible, par exemple demander aux utilisateurs de rattacher leurs appareils à l’espace de travail. Pour plus d’informations, consultez [rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente deuxième facteur Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Messages « accès refusé » personnalisés (par application de partie de confiance). Pour plus d'informations, voir [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). En étant en mesure de personnaliser ces messages, vous pouvez expliquer pourquoi l’accès est refusé à un utilisateur et également faciliter la mise à jour libre-service lorsque cela est possible, par exemple demander aux utilisateurs de rattacher leurs appareils à l’espace de travail. Pour plus d'informations, voir [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Le tableau suivant répertorie tous les types de revendications disponibles dans AD FS dans Windows Server 2012 R2 à utiliser pour l’implémentation du contrôle d’accès conditionnel.
 
@@ -62,7 +62,7 @@ Le tableau suivant répertorie tous les types de revendications disponibles dans
 |UPN|Nom d’utilisateur principal (UPN) de l’utilisateur.|
 |Nom commun|Nom commun de l’utilisateur.|
 |Adresse de messagerie AD FS 1.x|Adresse de messagerie de l’utilisateur lorsqu’il interagit avec AD FS 1.1 ou AD FS 1.0.|
-|Regrouper|Groupe auquel appartient l’utilisateur.|
+|Group|Groupe auquel appartient l’utilisateur.|
 |UPN AD FS 1.x|UPN de l’utilisateur lorsqu’il interagit avec AD FS 1.1 ou AD FS 1.0.|
 |Rôle|Un rôle de l’utilisateur.|
 |Nom|Nom de l’utilisateur.|
@@ -106,7 +106,7 @@ Le tableau suivant répertorie tous les types de revendications disponibles dans
 |Autre nom de l’objet|L’un des autres noms du certificat.|
 |Numéro de série|Numéro de série du certificat.|
 |Algorithme de signature|Algorithme utilisé pour créer la signature d’un certificat.|
-|Subject|Sujet du certificat.|
+|Objet|Sujet du certificat.|
 |Identificateur de la clé du sujet|Identificateur de la clé du sujet du certificat.|
 |Nom de sujet|Nom unique du sujet d’un certificat.|
 |Nom du modèle V2|Nom du modèle de certificat version 2 utilisé lors de l’émission ou du renouvellement d’un certificat. Il s’agit d’une valeur spécifique à Microsoft.|
@@ -123,7 +123,7 @@ Le tableau suivant répertorie tous les types de revendications disponibles dans
 À l’aide des paramètres disponibles, il existe de nombreuses façons de gérer les risques en implémentant le contrôle d’accès conditionnel.
 
 ### <a name="common-scenarios"></a>Scénarios courants
-Par exemple, imaginez un scénario simple d’implémentation du contrôle d’accès conditionnel basé sur les données d’appartenance au groupe de l’utilisateur pour une application particulière (approbation de partie de confiance). En d’autres termes, vous pouvez configurer une règle d’autorisation d’émission sur votre serveur de Fédération pour permettre aux utilisateurs qui appartiennent à un certain groupe de votre domaine Active Directory d’accéder à une application particulière sécurisée par AD FS.  Les instructions pas à pas détaillées (à l’aide de l’interface utilisateur et de Windows PowerShell) pour l’implémentation de ce scénario sont décrites dans @no__t Guide de 0Walkthrough : Gérer les risques avec des Access Control conditionnelles @ no__t-0. Pour effectuer les étapes de cette procédure pas à pas, vous devez configurer un environnement Lab et suivre les étapes décrites dans [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
+Par exemple, imaginez un scénario simple d’implémentation du contrôle d’accès conditionnel basé sur les données d’appartenance au groupe de l’utilisateur pour une application particulière (approbation de partie de confiance). En d’autres termes, vous pouvez configurer une règle d’autorisation d’émission sur votre serveur de Fédération pour permettre aux utilisateurs qui appartiennent à un certain groupe de votre domaine Active Directory d’accéder à une application particulière sécurisée par AD FS.  Les instructions pas à pas détaillées (avec l’interface utilisateur et Windows PowerShell) pour l’implémentation de ce scénario sont abordées dans [Walkthrough Guide: Manage Risk with Conditional Access Control](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md). Pour effectuer les étapes de cette procédure pas à pas, vous devez configurer un environnement Lab et suivre les étapes décrites dans [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 ### <a name="advanced-scenarios"></a>Scénarios avancés
 Les autres exemples de l’implémentation du contrôle d’accès conditionnel dans AD FS dans Windows Server 2012 R2 sont les suivants :
@@ -175,7 +175,8 @@ Les autres exemples de l’implémentation du contrôle d’accès conditionnel 
     ```
 
 ## <a name="see-also"></a>Voir aussi
-[Guide pas à pas : Gérer les risques avec un Access Control conditionnel @ no__t-0 @ no__t-1[configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
+[Guide pas à pas : gérer les risques avec des Access Control conditionnelles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+[configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 
 

@@ -62,7 +62,7 @@ Pour obtenir une précision de 1 pour un ordinateur cible spécifique par rappor
 
 ### <a name="target-accuracy-50-milliseconds"></a>Précision de la cible : 50 millisecondes
 
-Toutes les exigences décrites dans la section @no__t-précision 0Target : 1 seconde @ no__t-0 Apply, sauf lorsque des contrôles plus stricts sont décrits dans cette section.
+Toutes les exigences décrites dans la section précision de la **cible : 1 seconde** s’appliquent, sauf lorsque des contrôles plus stricts sont décrits dans cette section.
 
 Les exigences supplémentaires pour obtenir une précision 50 ms pour un système cible spécifique sont les suivantes :
 
@@ -81,7 +81,7 @@ Les exigences supplémentaires pour obtenir une précision 50 ms pour un systèm
 
 ### <a name="target-accuracy-1-millisecond"></a>Précision de la cible : 1 milliseconde
 
-Toutes les exigences décrites dans les sections @no__t-précision 0Target : 1 seconde @ no__t-0 et **Target précision : 50 millisecondes @ no__t-0 Apply, sauf lorsque des contrôles plus stricts sont décrits dans cette section.
+Toutes les exigences décrites dans les sections **précision cible : 1 seconde** et **précision cible : 50 millisecondes** s’appliquent, sauf lorsque des contrôles plus stricts sont décrits dans cette section.
 
 Les exigences supplémentaires pour atteindre 1 ms de précision pour un système cible spécifique sont les suivantes :
 

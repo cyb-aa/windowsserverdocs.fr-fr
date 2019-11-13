@@ -21,7 +21,7 @@ ms.locfileid: "71401905"
 ---
 # <a name="ip-address-management-ipam"></a>Gestion des adresses IP (IPAM)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 La gestion des adresses IP (IPAM) est une suite d’outils intégrés permettant d’activer la planification, le déploiement, la gestion et la surveillance de bout en bout de votre infrastructure d’adresses IP, avec une expérience utilisateur enrichie. La fonction IPAM découvre automatiquement les serveurs d’infrastructure d’adresses IP et DNS sur votre réseau et vous permet de les gérer depuis une interface centrale.  
   
@@ -31,4 +31,4 @@ La gestion des adresses IP (IPAM) est une suite d’outils intégrés permettant
 > -   [Nouveautés d’IPAM](../../technologies/ipam/What-s-New-in-IPAM.md)  
 > -   [Gérer IPAM](../../technologies/ipam/Manage-IPAM.md)  
 > -   [Applets de commande du serveur de gestion des adresses IP (IPAM) dans Windows PowerShell](https://technet.microsoft.com/library/jj553807.aspx)  
-> -   Vidéo : @no__t 0Windows Server 2016 : Gestion du service DNS dans IPAM @ no__t-0  
+> -   Vidéo : [Windows Server 2016 : gestion DNS dans IPAM](https://channel9.msdn.com/Blogs/windowsserver/Windows-Server-2016-DNS-management-in-IPAM)  

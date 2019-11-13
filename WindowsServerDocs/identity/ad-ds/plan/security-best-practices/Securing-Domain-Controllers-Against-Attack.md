@@ -18,9 +18,9 @@ ms.locfileid: "71367620"
 ---
 # <a name="securing-domain-controllers-against-attack"></a>Sécurisation des contrôleurs de domaine contre les attaques
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-@no__t 0Law n ° 3 : Si une personne mal intentionnée dispose d’un accès physique illimité à votre ordinateur, ce n’est plus votre ordinateur. * - [dix lois immuables de sécurité (Version 2,0)](https://technet.microsoft.com/security/hh278941.aspx)  
+*Loi n ° 3 : si une personne malintentionnée dispose d’un accès physique illimité à votre ordinateur, ce n’est plus votre ordinateur.* - [dix lois immuables de sécurité (Version 2,0)](https://technet.microsoft.com/security/hh278941.aspx)  
   
 Les contrôleurs de domaine fournissent le stockage physique pour la base de données AD DS, en plus de fournir les services et les données qui permettent aux entreprises de gérer efficacement leurs serveurs, stations de travail, utilisateurs et applications. Si un accès privilégié à un contrôleur de domaine est obtenu par un utilisateur malveillant, cet utilisateur peut modifier, corrompre ou détruire la base de données AD DS et, par extension, tous les systèmes et comptes gérés par Active Directory.  
   
@@ -36,7 +36,7 @@ Cette section fournit des informations sur la sécurisation physique des contrô
   
 #### <a name="physical-domain-controllers"></a>Contrôleurs de domaine physiques
 
-Dans les centres de centres, les contrôleurs de domaine physiques doivent être installés dans des racks sécurisés dédiés ou des cages distinctes de la population générale du serveur. Lorsque cela est possible, les contrôleurs de domaine doivent être configurés avec des puces de Module de plateforme sécurisée (TPM) (TPM) et tous les volumes des serveurs de contrôleur de domaine doivent être protégés via Chiffrement de lecteur BitLocker. BitLocker ajoute généralement une surcharge de performance dans les pourcentages à un seul chiffre, mais protège le répertoire contre toute compromission, même si les disques sont supprimés du serveur. BitLocker peut également aider à protéger les systèmes contre les attaques telles que les rootkits, car la modification des fichiers de démarrage entraîne le démarrage du serveur en mode de récupération afin que les binaires d’origine puissent être chargés. Si un contrôleur de domaine est configuré pour utiliser un RAID logiciel, un SCSI attaché en série, un stockage SAN/NAS ou des volumes dynamiques, BitLocker ne peut pas être implémenté, de sorte que le stockage attaché localement (avec ou sans RAID matériel) doit être utilisé dans les contrôleurs de domaine chaque fois que possibilité.  
+Dans les centres de centres, les contrôleurs de domaine physiques doivent être installés dans des racks sécurisés dédiés ou des cages distinctes de la population générale du serveur. Lorsque cela est possible, les contrôleurs de domaine doivent être configurés avec des puces de Module de plateforme sécurisée (TPM) (TPM) et tous les volumes des serveurs de contrôleur de domaine doivent être protégés via Chiffrement de lecteur BitLocker. BitLocker ajoute généralement une surcharge de performance dans les pourcentages à un seul chiffre, mais protège le répertoire contre toute compromission, même si les disques sont supprimés du serveur. BitLocker peut également aider à protéger les systèmes contre les attaques telles que les rootkits, car la modification des fichiers de démarrage entraîne le démarrage du serveur en mode de récupération afin que les binaires d’origine puissent être chargés. Si un contrôleur de domaine est configuré pour utiliser un RAID logiciel, un SCSI attaché en série, un stockage SAN/NAS ou des volumes dynamiques, BitLocker ne peut pas être implémenté, de sorte que le stockage attaché localement (avec ou sans RAID matériel) doit être utilisé dans les contrôleurs de domaine dans la mesure du possible.  
   
 #### <a name="virtual-domain-controllers"></a>Contrôleurs de domaine virtuels 
 
@@ -70,7 +70,7 @@ Tous les contrôleurs de domaine doivent être verrouillés lors de la générat
   
 ### <a name="microsoft-security-compliance-toolkit"></a>Microsoft Security Compliance Toolkit
 
-Les paramètres du contrôleur de domaine [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319) peuvent être combinés avec les paramètres de l’Assistant Configuration de la sécurité pour produire des lignes de base de configuration complètes pour les contrôleurs de domaine déployés et appliqués par les objets de stratégie de groupe déployés sur l’unité d’organisation des contrôleurs de domaine dans Active Directory.  
+Les paramètres du contrôleur de domaine [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319) peuvent être combinés avec les paramètres de l’Assistant Configuration de la sécurité pour produire des lignes de base de configuration complètes pour les contrôleurs de domaine déployés et appliqués par les objets de stratégie de groupe déployés dans l’unité d’organisation des contrôleurs de domaine dans Active Directory.  
   
 ### <a name="rdp-restrictions"></a>Restrictions RDP
 
@@ -84,7 +84,7 @@ Bien qu’il puisse paraître non intuitifs, vous devez envisager de mettre à j
 
 L’une des vérifications effectuées dans le cadre d’une évaluation de la sécurité de Active Directory est l’utilisation et la configuration d’Internet Explorer sur les contrôleurs de domaine. Internet Explorer (ou tout autre navigateur Web) ne doit pas être utilisé sur les contrôleurs de domaine, mais l’analyse de milliers de contrôleurs de domaine a révélé de nombreux cas dans lesquels les utilisateurs privilégiés utilisaient Internet Explorer pour parcourir l’intranet de l’organisation ou le Internet.  
   
-Comme décrit précédemment dans la section « Configuration inutilisable » de [avenues pour compromettre](../../../ad-ds/plan/security-best-practices/Avenues-to-Compromise.md), naviguez sur Internet (ou sur un intranet infecté) à partir de l’un des ordinateurs les plus puissants dans une infrastructure Windows à l’aide d’un compte doté de privilèges élevés (qui est le seul les comptes autorisés à ouvrir une session localement sur les contrôleurs de domaine par défaut) présentent un risque extraordinaire pour la sécurité d’une organisation. Que ce soit via un lecteur par téléchargement ou par téléchargement d’utilitaires malveillants, les attaquants peuvent accéder à tout ce dont ils ont besoin pour compromettre ou détruire complètement l’environnement Active Directory.  
+Comme décrit précédemment dans la section « Configuration inutilisable » de [avenues pour compromettre](../../../ad-ds/plan/security-best-practices/Avenues-to-Compromise.md), parcourir Internet (ou un intranet infecté) à partir de l’un des ordinateurs les plus puissants dans une infrastructure Windows à l’aide d’un compte doté de privilèges élevés (qui sont les seuls comptes autorisés à ouvrir une session localement sur les contrôleurs de domaine par défaut) présente un risque exceptionnel pour la sécurité d' Que ce soit via un lecteur par téléchargement ou par téléchargement d’utilitaires malveillants, les attaquants peuvent accéder à tout ce dont ils ont besoin pour compromettre ou détruire complètement l’environnement Active Directory.  
   
 Bien que Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 et les versions actuelles d’Internet Explorer offrent un certain nombre de protections contre les téléchargements malveillants, dans la plupart des cas, les contrôleurs de domaine et les comptes privilégiés ont été utilisés pour Parcourez Internet, les contrôleurs de domaine exécutant Windows Server 2003 ou les protections offertes par les systèmes d’exploitation et les navigateurs plus récents ont été désactivés intentionnellement.  
   
@@ -92,7 +92,7 @@ Le lancement de navigateurs Web sur des contrôleurs de domaine doit être inter
   
 ### <a name="perimeter-firewall-restrictions"></a>Restrictions de pare-feu de périmètre
 
-Les pare-feu de périmètre doivent être configurés pour bloquer les connexions sortantes entre les contrôleurs de domaine et Internet. Bien que les contrôleurs de domaine aient besoin de communiquer au-delà des limites du site, les pare-feu de périmètre peuvent être configurés pour autoriser la communication intersite en suivant les instructions fournies dans [Comment configurer un pare-feu pour les domaines et les approbations](https://support.microsoft.com/kb/179442) sur le Support Microsoft site Web.  
+Les pare-feu de périmètre doivent être configurés pour bloquer les connexions sortantes entre les contrôleurs de domaine et Internet. Bien que les contrôleurs de domaine aient besoin de communiquer au-delà des limites du site, les pare-feu de périmètre peuvent être configurés pour autoriser la communication intersite en suivant les instructions fournies dans [Comment configurer un pare-feu pour les domaines et les approbations](https://support.microsoft.com/kb/179442) sur le site Web Support Microsoft.  
   
 ### <a name="dc-firewall-configurations"></a>Configurations de pare-feu DC  
 

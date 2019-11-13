@@ -26,15 +26,15 @@ Cette procédure pas à pas fournit des instructions pour la gestion des risques
 
 Cette procédure pas à pas comporte les sections suivantes :
 
--   [Étape 1 : Configuration de l’environnement Lab @ no__t-0
+-   [Étape 1 : configuration de l’environnement Lab](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
 
--   [Étape 2 : Vérifier le mécanisme de contrôle d’accès AD FS par défaut @ no__t-0
+-   [Étape 2 : vérifier le mécanisme de contrôle d’accès AD FS par défaut](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
 
--   [Étape 3 : Configurer la stratégie de contrôle d’accès conditionnel en fonction des données utilisateur @ no__t-0
+-   [Étape 3 : configurer la stratégie de contrôle d’accès conditionnel en fonction des données utilisateur](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_3)
 
--   [Étape 4 : Vérifier le mécanisme de contrôle d’accès conditionnel @ no__t-0
+-   [Étape 4 : vérifier le mécanisme de contrôle d’accès conditionnel](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_4)
 
-## <a name="BKMK_1"></a>Étape 1 : Configuration de l’environnement lab
+## <a name="BKMK_1"></a>Étape 1 : configuration de l’environnement Lab
 Afin de mener à bien cette procédure pas à pas, vous avez besoin d’un environnement constitué des composants suivants :
 
 -   Un domaine Active Directory avec un compte d’utilisateur et de groupe de test, exécuté sur Windows Server 2008, Windows Server 2008 R2 ou Windows Server 2012 avec son schéma mis à niveau vers Windows Server 2012 R2 ou un domaine Active Directory s’exécutant sur Windows Server 2012 R2
@@ -52,7 +52,7 @@ Dans cet environnement, le serveur de fédération émet les revendications requ
 
 Pour obtenir des instructions sur la façon de configurer cet environnement, consultez [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
-## <a name="BKMK_2"></a>Étape 2 : Vérifier le mécanisme de contrôle d’accès AD FS par défaut
+## <a name="BKMK_2"></a>Étape 2 : vérifier le mécanisme de contrôle d’accès AD FS par défaut
 Au cours de cette étape, vous allez vérifier le mécanisme de contrôle d’accès AD FS par défaut, où l’utilisateur est redirigé vers la page de connexion AD FS, fournit des informations d’identification valides et est autorisé à accéder à l’application. Vous pouvez utiliser le compte **Robert Hatley** ad et l’exemple d’application **ClaimApp** que vous avez configurés dans Configuration de [l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 #### <a name="to-verify-the-default-ad-fs-access-control-mechanism"></a>Pour vérifier le mécanisme de contrôle d’accès AD FS par défaut
@@ -65,7 +65,7 @@ Au cours de cette étape, vous allez vérifier le mécanisme de contrôle d’ac
 
     Vous êtes autorisé à accéder à l’application.
 
-## <a name="BKMK_3"></a>Étape 3 : Configurer la stratégie de contrôle d’accès conditionnel en fonction des données utilisateur
+## <a name="BKMK_3"></a>Étape 3 : configurer la stratégie de contrôle d’accès conditionnel en fonction des données utilisateur
 Au cours de cette étape, vous allez configurer une stratégie de contrôle d’accès en fonction des données d’appartenance au groupe de l’utilisateur. Autrement dit, vous allez configurer une **règle d'autorisation d'émission** sur votre serveur de fédération pour une approbation de partie de confiance qui représente votre exemple d'application : **claimapp**. En raison de la logique de cette règle, l’utilisateur **Robert Hatley** ad recevra les revendications requises pour accéder à cette application, car il appartient à un groupe **finance** . Vous avez ajouté le compte **Robert Hatley** au groupe **finance** dans [configurer l’environnement Lab pour AD FS dans Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 Vous pouvez effectuer cette tâche à l’aide de la console de gestion AD FS ou via Windows PowerShell.
@@ -113,7 +113,7 @@ Set-AdfsRelyingPartyTrust -TargetRelyingParty $rp -IssuanceAuthorizationRules $G
 > [!NOTE]
 > Veillez à remplacer <group_SID> par la valeur du SID de votre groupe **Finance** Active Directory.
 
-## <a name="BKMK_4"></a>Étape 4 : Vérifier le mécanisme de contrôle d’accès conditionnel
+## <a name="BKMK_4"></a>Étape 4 : vérifier le mécanisme de contrôle d’accès conditionnel
 Au cours de cette étape, vous allez vérifier la stratégie de contrôle d’accès conditionnel que vous avez configurée à l’étape précédente. Vous pouvez utiliser la procédure suivante pour vérifier que l’utilisateur Active Directory **Robert Hatley** peut accéder à votre exemple d’application car il appartient au groupe **Finance** et les utilisateurs Active Directory qui n’appartiennent pas au groupe **Finance** ne peuvent pas accéder à l’exemple d’application.
 
 1.  Sur votre ordinateur client, ouvrez une fenêtre de navigateur et accédez à votre exemple d’application : **https://webserv1.contoso.com/claimapp**
@@ -126,7 +126,7 @@ Au cours de cette étape, vous allez vérifier la stratégie de contrôle d’ac
 
 3.  Tapez les informations d’identification d’un autre utilisateur Active Directory qui n’appartient PAS au groupe **Finance** . (Pour plus d’informations sur la création de comptes d’utilisateur dans Active Directory, consultez [https://technet.microsoft.com/library/cc7833232.aspx](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx).
 
-    À ce stade, en raison de la stratégie de contrôle d’accès que vous avez configurée à l’étape précédente, un message « accès refusé » s’affiche pour cet utilisateur Active Directory qui n’appartient pas au groupe **finance** . Le texte du message par défaut est **You n’est pas autorisé à accéder à ce site. Cliquez ici pour vous déconnecter et vous reconnecter ou contactez votre administrateur pour obtenir des autorisations.** Toutefois, ce texte est entièrement personnalisable. Pour plus d’informations sur la façon de personnaliser l’expérience de connexion, voir [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
+    À ce stade, en raison de la stratégie de contrôle d’accès que vous avez configurée à l’étape précédente, un message « accès refusé » s’affiche pour cet utilisateur Active Directory qui n’appartient pas au groupe **finance** . Le texte du message par défaut est **vous n’êtes pas autorisé à accéder à ce site. Cliquez ici pour vous déconnecter et vous reconnecter ou contactez votre administrateur pour obtenir des autorisations.** Toutefois, ce texte est entièrement personnalisable. Pour plus d’informations sur la façon de personnaliser l’expérience de connexion, voir [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
 
 ## <a name="see-also"></a>Voir aussi
 [Gérer les risques avec des Access Control conditionnelles](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)

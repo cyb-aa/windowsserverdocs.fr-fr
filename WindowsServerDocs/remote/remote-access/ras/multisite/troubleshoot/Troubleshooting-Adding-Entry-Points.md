@@ -21,7 +21,7 @@ ms.locfileid: "71404466"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>Résolution des problèmes d’ajout de points d’entrée
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique contient des informations de résolution des problèmes liés à la commande `Add-DAEntryPoint`. Pour confirmer que l’erreur que vous avez reçue est liée à l’ajout d’un point d’entrée, recherchez l’ID d’événement 10067 dans le journal des événements Windows.  
   
@@ -37,7 +37,7 @@ Lorsque vous ajoutez un nouveau point d’entrée à un déploiement multisite, 
 Exécutez la commande et assurez-vous de spécifier le paramètre *RemoteAccessServer* à l’aide du nom du serveur à ajouter en tant que point d’entrée.  
   
 ## <a name="remote-access-is-not-configured"></a>Accès à distance non configuré  
-**Erreur reçue**. L’accès à distance n’est pas configuré sur < nom_serveur >. Spécifiez le nom d’un serveur qui appartient à un déploiement multisite.  
+**Erreur reçue**. L’accès à distance n’est pas configuré sur < server_name >. Spécifiez le nom d’un serveur qui appartient à un déploiement multisite.  
   
 **Cause**  
   
@@ -102,11 +102,11 @@ L’adresse ConnectTo et celle du serveur Emplacement réseau sont les mêmes.
 L’adresse ConnectTo doit pouvoir être résolue sur Internet afin de permettre aux ordinateurs clients de se connecter via le protocole IP-HTTPS. L’adresse du serveur Emplacement réseau doit pouvoir être résolue sur le réseau d’entreprise, mais pas sur Internet. Assurez-vous que l’adresse du serveur Emplacement réseau et l’adresse ConnectTo ne sont pas identiques. Sélectionnez des adresses différentes et réessayez.  
   
 ## <a name="directaccess-or-vpn-already-installed"></a>DirectAccess ou réseau privé virtuel déjà installé  
-**Erreur reçue**. Une installation VPN a été détectée sur le serveur < nom_serveur >. Spécifiez un autre serveur sur lequel Remote Access n’est pas installé ou supprimez la configuration VPN du serveur.  
+**Erreur reçue**. Une installation VPN a été détectée sur le serveur < server_name >. Spécifiez un autre serveur sur lequel Remote Access n’est pas installé ou supprimez la configuration VPN du serveur.  
   
 Ou  
   
-L’accès à distance est déjà installé sur le serveur < nom_serveur >. Spécifiez un autre serveur qui n’exécute pas DirectAccess, ou supprimez la configuration DirectAccess existante du serveur.  
+L’accès à distance est déjà installé sur le serveur < server_name >. Spécifiez un autre serveur qui n’exécute pas DirectAccess, ou supprimez la configuration DirectAccess existante du serveur.  
   
 **Cause**  
   
@@ -119,7 +119,7 @@ Pour ajouter un serveur à un déploiement multisite, vous devez installer le r�
 Exécutez la commande et assurez-vous que sur le serveur que vous spécifiez dans le paramètre *RemoteAccessServer*, DirectAccess ou un réseau privé virtuel ne sont pas configurés.  
   
 ## <a name="ipsec-root-certificate"></a>Certificat racine IPsec  
-**Erreur reçue**. Le certificat racine IPsec configuré ne peut pas se trouver sur le serveur < nom_serveur >.  
+**Erreur reçue**. Le certificat racine IPsec configuré ne peut pas se trouver sur le serveur < server_name >.  
   
 **Cause**  
   
@@ -147,7 +147,7 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
   
     **Solution**  
   
-    Si le réseau interne entier est configuré avec des adresses IPv6 et IPv4, envisagez de passer à un déploiement IPv6+IPv4 pour tirer parti des technologies IPv6. Consultez la section « transition d’un réseau IPv4 pur à un réseau d’entreprise IPv6 + IPv4 » dans [Step 3 : Planifier le déploiement multisite @ no__t-0.  
+    Si le réseau interne entier est configuré avec des adresses IPv6 et IPv4, envisagez de passer à un déploiement IPv6+IPv4 pour tirer parti des technologies IPv6. Consultez la section « transition d’un réseau IPv4 pur à un réseau d’entreprise IPv6 + IPv4 » dans [étape 3 : planifier le déploiement multisite](assetId:///19d49dbf-1786-47bb-ab97-f0458c53d91d).  
   
 -   **Problème 2**  
   
@@ -191,7 +191,7 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
   
 -   **Problème 1**  
   
-    **Erreur reçue**. Le domaine spécifié dans le paramètre ServerGpoName < server_GPO > n’existe pas. Spécifiez le domaine < nom_domaine > à la place.  
+    **Erreur reçue**. Le domaine spécifié dans le paramètre ServerGpoName < server_GPO > n’existe pas. Spécifiez le domaine < domain_name > à la place.  
   
     **Cause**  
   
@@ -203,7 +203,7 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
   
 -   **Problème 2**  
   
-    **Erreur reçue**. L’objet de stratégie de groupe du serveur doit se trouver dans le domaine du serveur d’accès à distance. Spécifiez le domaine < nom_domaine > dans le paramètre ServerGpoName.  
+    **Erreur reçue**. L’objet de stratégie de groupe du serveur doit se trouver dans le domaine du serveur d’accès à distance. Spécifiez le domaine < domain_name > dans le paramètre ServerGpoName.  
   
     **Cause**  
   
@@ -240,7 +240,7 @@ Lorsque vous ajoutez des suffixes de noms sans spécifier d’adresse de serveur
 Pour résoudre cette erreur, consultez enregistrement des paramètres d’objet de stratégie de groupe du serveur dans [Dépannage activation de multisite](https://technet.microsoft.com/library/jj591658.aspx).  
   
 ## <a name="gpo-updates-cannot-be-applied"></a>Impossible d’appliquer les mises à jour d’objet de stratégie de groupe  
-**Avertissement reçu**. Les mises à jour des objets de stratégie de groupe ne peuvent pas être appliquées sur < nom_serveur >. Les modifications apportées ne prendront effet qu’après la prochaine actualisation de la stratégie.  
+**Avertissement reçu**. Les mises à jour d’objets de stratégie de groupe ne peuvent pas être appliquées sur < server_name >. Les modifications apportées ne prendront effet qu’après la prochaine actualisation de la stratégie.  
   
 **Cause**  
   

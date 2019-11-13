@@ -15,21 +15,21 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365787"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Déployer des dossiers de travail avec AD FS et le proxy d’application Web : Étape 1, configurer AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Déployer Dossiers de travail avec AD FS et le proxy d’application Web : étape 1, configurer AD FS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la première étape du déploiement de Dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Vue d’ensemble @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : vue d’ensemble](deploy-work-folders-adfs-overview.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0  
+-   [Déployer des dossiers de travail avec des AD FS et un proxy d’application Web : étape 2, AD FS le travail après configuration](deploy-work-folders-adfs-step2.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
+-   [Déployer des dossiers de travail avec des AD FS et un proxy d’application Web : étape 3, configuration de dossiers de travail](deploy-work-folders-adfs-step3.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 4, configurer le proxy d’application Web](deploy-work-folders-adfs-step4.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer les clients @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 5, configurer des clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
 >   Les instructions décrites dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
@@ -104,7 +104,7 @@ Dans l’exemple de test, les valeurs sont :
 Le SAN enterpriseregistration est nécessaire pour Workplace Join.  
   
 ### <a name="set-the-server-ip-address"></a>Configurer l’adresse IP du serveur  
-Changez l’adresse IP de votre serveur en adresse IP statique. Pour l’exemple de test, utilisez la classe IP A, qui est 192.168.0.160/masque de sous-réseau : 255.255.0.0/passerelle par défaut : 192.168.0.1/DNS préféré : 192.168.0.150 (adresse IP de votre contrôleur de domaine @ no__t-0.  
+Changez l’adresse IP de votre serveur en adresse IP statique. Dans l’exemple de test, utilisez la classe IP A, qui est 192.168.0.160 / Masque de sous-réseau : 255.255.0.0 / Passerelle par défaut : 192.168.0.1 / DNS préféré : 192.168.0.150 (l’adresse IP de votre contrôleur de domaine\).  
   
 ## <a name="install-the-ad-fs-role-service"></a>Installer le service de rôle AD FS  
 Pour installer les services AD FS, procédez comme suit :  
@@ -113,7 +113,7 @@ Pour installer les services AD FS, procédez comme suit :
   
 2.  Dans la page **Rôles de serveur**, sélectionnez le rôle **Services de fédération Active Directory (AD FS)** , puis cliquez sur **Suivant**.  
   
-3.  Dans la page **Services de fédération Active Directory (AD FS)** , vous verrez un message indiquant que le rôle Proxy d’application Web ne peut pas être installé sur le même ordinateur que les services AD FS. Cliquez sur **Suivant**.  
+3.  Dans la page **Services de fédération Active Directory (AD FS)** , vous verrez un message indiquant que le rôle Proxy d’application Web ne peut pas être installé sur le même ordinateur que les services AD FS. Cliquer sur **Suivant**.  
   
 4.  Cliquez sur **Installer** dans la page de confirmation.  
   
@@ -138,16 +138,16 @@ Pour configurer AD FS à l’aide du Gestionnaire de serveur, procédez comme s
   
 4.  Dans la page **Spécifier les propriétés de service**, entrez le nom de l’objet du certificat SSL (Secure Sockets Layer) à utiliser pour la communication AD FS. Dans l’exemple de test, il s’agit de **blueadfs.contoso.com**.  
   
-5.  Entrez le nom du Service de fédération. Dans l’exemple de test, il s’agit de **blueadfs.contoso.com**. Cliquez sur **Suivant**.  
+5.  Entrez le nom du Service de fédération. Dans l’exemple de test, il s’agit de **blueadfs.contoso.com**. Cliquer sur **Suivant**.  
   
     > [!NOTE]  
     > Le nom du Service de fédération ne doit pas utiliser le nom d’un serveur existant dans l’environnement. Si vous utilisez le nom d’un serveur existant, l’installation d’AD FS échoue et vous devrez la relancer.  
   
-6.  Dans la page **Spécifier un compte de service**, entrez le nom que vous souhaitez utiliser pour le compte de service géré. Dans l’exemple de test, sélectionnez **Créer un compte de service géré de groupe** et dans **Nom du compte**, entrez **ADFSService**. Cliquez sur **Suivant**.  
+6.  Dans la page **Spécifier un compte de service**, entrez le nom que vous souhaitez utiliser pour le compte de service géré. Dans l’exemple de test, sélectionnez **Créer un compte de service géré de groupe** et dans **Nom du compte**, entrez **ADFSService**. Cliquer sur **Suivant**.  
   
 7.  Dans la page **Spécifier une base de données de configuration**, sélectionnez **Créez une base de données sur ce serveur à l’aide de la base de données interne Windows** et cliquez sur **Suivant**.  
   
-8.  La page **Examiner les options** vous donne une vue d’ensemble des options que vous avez sélectionnées. Cliquez sur **Suivant**.  
+8.  La page **Examiner les options** vous donne une vue d’ensemble des options que vous avez sélectionnées. Cliquer sur **Suivant**.  
   
 9. La page **Vérifications des conditions préalables** indique si toutes les vérifications de la configuration requise ont donné satisfaction. S’il n’existe aucun problème, cliquez sur **Configurer**.  
   
@@ -182,7 +182,7 @@ $thumbprint = $cert.Thumbprint
 Install-ADFSFarm -CertificateThumbprint $thumbprint -FederationServiceDisplayName "Contoso Corporation" –FederationServiceName blueadfs.contoso.com -GroupServiceAccountIdentifier contoso\ADFSService$ -OverwriteConfiguration -ErrorAction Stop  
 ```  
   
-Étape suivante : [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0  
+Étape suivante : [Déployer Dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, Tâches post-configuration AD FS](deploy-work-folders-adfs-step2.md)  
   
 ## <a name="see-also"></a>Voir aussi  
 [Vue d’ensemble des dossiers de travail](Work-Folders-Overview.md)  

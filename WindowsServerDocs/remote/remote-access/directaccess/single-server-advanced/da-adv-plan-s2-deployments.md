@@ -21,7 +21,7 @@ ms.locfileid: "71404922"
 ---
 # <a name="step-2-plan-advanced-directaccess-deployments"></a>Étape 2 planifier les déploiements avancés de DirectAccess
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Une fois que vous avez planifié l'infrastructure DirectAccess, l'étape suivante du déploiement des fonctionnalités avancées de DirectAccess sur un serveur individuel avec IPv4 et IPv6 consiste à planifier les paramètres pour l'Assistant Configuration de l'accès à distance.  
   
@@ -138,7 +138,7 @@ Par défaut, quand vous étendez l'authentification aux serveurs d'applications,
 ## <a name="25-plan-directaccess-and-third-party-vpn-clients"></a>2.5 Planifier DirectAccess et les clients VPN tiers  
 Certains clients VPN tiers ne créent pas de connexions dans le dossier de connexions réseau. Cela peut amener DirectAccess à déterminer qu'il n'a aucune connectivité intranet lorsque la connexion VPN est établie et que la connectivité à l'intranet existe. Cela se produit lorsque des clients VPN tiers inscrivent leurs interfaces en les définissant comme types de point de terminaison NDIS. Vous pouvez permettre la coexistence avec ces types de clients VPN en définissant la valeur de Registre suivante sur 1 sur les clients DirectAccess :  
   
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\ShowDomainEndpointInterfaces (REG_DWORD)**  
+**HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\ShowDomainEndpointInterfaces (REG_DWORD)**  
   
 Certains clients VPN tiers utilisent une configuration de tunneling fractionné, qui permet à l'ordinateur client VPN d'accéder directement à Internet sans avoir à envoyer le trafic via la connexion VPN à l'intranet.  
   
@@ -146,11 +146,11 @@ Les configurations de tunneling fractionné laissent en général le paramètre 
   
 Si la connexion VPN répertorie sa passerelle par défaut comme vide ou remplie de zéros (0.0.0.0), votre client VPN est configuré de cette manière. Par défaut, le client DirectAccess n'identifie pas les configurations de tunneling fractionné. Pour configurer des clients DirectAccess afin de détecter ces types de configurations de client VPN et coexister avec eux, définissez la valeur de Registre suivante sur 1.  
   
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet\ EnableNoGatewayLocationDetection (REG_DWORD)**  
+**HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet\ EnableNoGatewayLocationDetection (REG_DWORD)**  
   
 ## <a name="previous-step"></a>Étape précédente  
   
--   [Étape 1 : Planifier l’infrastructure DirectAccess @ no__t-0  
+-   [Étape 1 : planifier l’infrastructure DirectAccess](da-adv-plan-s1-infrastructure.md)  
   
 
 

@@ -21,7 +21,7 @@ ms.locfileid: "71404483"
 ---
 # <a name="step-1-implement-a-single-server-remote-access-deployment"></a>Étape 1 implémenter un déploiement de l’accès à distance à un serveur unique
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 La première étape de configuration pour déployer l’accès à distance dans une topologie multisite consiste à implémenter un déploiement de serveur unique avancé et à planifier l’ajout de serveurs à chaque point d’entrée multisite.  
   
@@ -30,7 +30,7 @@ Avant de pouvoir configurer un déploiement multisite, vous devez configurer un 
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 2 : Configurer l’infrastructure multisite @ no__t-0  
+-   [Étape 2 : configurer l’infrastructure multisite](Step-2-Configure-the-Multisite-Infrastructure.md)  
 
 
 

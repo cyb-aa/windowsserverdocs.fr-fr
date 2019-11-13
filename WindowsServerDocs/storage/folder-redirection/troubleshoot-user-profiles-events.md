@@ -21,7 +21,7 @@ ms.locfileid: "71394377"
 
 Cette rubrique explique comment résoudre les problèmes de chargement et de déchargement des profils utilisateur à l’aide d’événements et de journaux de suivi. Les sections suivantes décrivent comment utiliser les trois journaux des événements qui enregistrent les informations de profil utilisateur.
 
-## <a name="step-1-checking-events-in-the-application-log"></a>Étape 1 : Vérification des événements dans le journal des applications
+## <a name="step-1-checking-events-in-the-application-log"></a>Étape 1 : vérification des événements dans le journal des applications
 
 La première étape de la résolution des problèmes de chargement et de déchargement des profils utilisateur (y compris les profils utilisateur itinérants) consiste à utiliser observateur d’événements pour examiner les événements d’avertissement et d’erreur que le service de profil utilisateur enregistre dans le journal des applications.
 
@@ -38,7 +38,7 @@ Voici comment afficher les événements des services de profil utilisateur dans 
 >[!NOTE]
 >Vous pouvez ignorer en toute sécurité l’événement de service de profil utilisateur 1530 « Windows a détecté que votre fichier de Registre est toujours utilisé par d’autres applications ou services ».
 
-## <a name="step-2-view-the-operational-log-for-the-user-profile-service"></a>Étape 2 : Afficher le journal des opérations du service de profil utilisateur
+## <a name="step-2-view-the-operational-log-for-the-user-profile-service"></a>Étape 2 : afficher le journal des opérations du service de profil utilisateur
 
 Si vous ne parvenez pas à résoudre le problème à l’aide du journal des applications seul, utilisez la procédure suivante pour afficher les événements du service de profil utilisateur dans le journal des opérations. Ce journal montre certains des fonctionnement internes du service et peut vous aider à identifier où se produit le problème dans le processus de chargement ou de déchargement de profil.
 
@@ -49,7 +49,7 @@ Voici comment afficher le journal des opérations du service de profil utilisate
 1. Dans l’arborescence de la console observateur d’événements, accédez à **journaux des applications et des services**, puis **Microsoft**, **Windows**, **service de profil utilisateur**, puis **opérationnel**.
 2. Examinez les événements qui se sont produits au cours de l’heure des événements d’erreur ou d’avertissement que vous avez notés dans le journal des applications.
 
-## <a name="step-3-enable-and-view-analytic-and-debug-logs"></a>Étape 3 : Activer et afficher les journaux d’analyse et de débogage
+## <a name="step-3-enable-and-view-analytic-and-debug-logs"></a>Étape 3 : activer et afficher les journaux d’analyse et de débogage
 
 Si vous avez besoin de plus de détails que le journal des opérations, vous pouvez activer les journaux d’analyse et de débogage sur l’ordinateur concerné. Ce niveau de journalisation est bien plus détaillé et doit être désactivé sauf en cas de dépannage d’un problème.
 
@@ -58,10 +58,10 @@ Voici comment activer et afficher les journaux d’analyse et de débogage :
 1. Dans le volet **actions** de observateur d’événements, sélectionnez **affichage**, puis sélectionnez **afficher les journaux d’analyse et de débogage**.
 2. Accédez à **journaux des applications et des services**, puis à **Microsoft**, puis à **Windows**, puis au **service de profil utilisateur**et enfin **diagnostic**.
 3. Sélectionnez **activer le journal** , puis cliquez sur **Oui**. Cela active le journal de diagnostic, qui démarre la journalisation.
-4. Si vous avez besoin d’informations encore plus détaillées, voir [Step 4 : Création et décodage d’une trace @ no__t-0 pour plus d’informations sur la création d’un journal des traces.
+4. Si vous avez besoin d’informations encore plus détaillées, consultez [étape 4 : création et décodage d’une trace](#step-4-creating-and-decoding-a-trace) pour plus d’informations sur la création d’un journal des traces.
 5. Lorsque vous avez terminé de résoudre le problème, accédez au Journal de **diagnostic** , sélectionnez **désactiver le journal**, sélectionnez **Afficher** , puis désactivez la case à cocher Afficher les **journaux d’analyse et de débogage** pour masquer l’enregistrement d’analyse et de débogage.
 
-## <a name="step-4-creating-and-decoding-a-trace"></a>Étape 4 : Création et décodage d’une trace
+## <a name="step-4-creating-and-decoding-a-trace"></a>Étape 4 : création et décodage d’une trace
 
 Si vous ne parvenez pas à résoudre le problème à l’aide d’événements, vous pouvez créer un journal des traces (fichier ETL) tout en reproduisant le problème, puis le décoder à l’aide de symboles publics à partir du serveur de symboles Microsoft. Les journaux de suivi fournissent des informations très spécifiques sur le fonctionnement du service de profil utilisateur et peuvent aider à identifier l’endroit où la défaillance s’est produite.
 
@@ -70,7 +70,7 @@ La meilleure stratégie lors de l’utilisation du suivi ETL consiste à capture
 Voici comment créer et décoder une trace pour le service de profil utilisateur :
 
 1. Connectez-vous à l’ordinateur sur lequel l’utilisateur rencontre des problèmes, à l’aide d’un compte membre du groupe Administrateurs local.
-2. À partir d’une invite de commandes avec élévation de privilèges, entrez les commandes suivantes, où *\<Path @ no__t-2* est le chemin d’accès à un dossier local que vous avez créé précédemment, par exemple C : \\logs :
+2. À partir d’une invite de commandes avec élévation de privilèges, entrez les commandes suivantes, où *\<chemin d’accès\>* correspond au chemin d’accès à un dossier local que vous avez créé précédemment, par exemple C :\\journaux :
         
     ```PowerShell
     logman create trace -n RUP -o <Path>\RUP.etl -ets
@@ -84,7 +84,7 @@ Voici comment créer et décoder une trace pour le service de profil utilisateur
     ```PowerShell
     logman stop -n RUP -ets
     ```
-7. Tapez la commande suivante pour exporter le fichier ETL dans un fichier lisible dans le répertoire actif (probablement votre dossier de racine ou le dossier% WINDIR% \\System32) :
+7. Tapez la commande suivante pour exporter le fichier ETL dans un fichier lisible dans le répertoire actif (probablement votre dossier de démarrage ou le dossier% WINDIR%\\system32) :
     
     ```PowerShell
     Tracerpt <path>\RUP.etl

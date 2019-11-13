@@ -21,7 +21,7 @@ ms.locfileid: "71404903"
 ---
 # <a name="step-3-verify-the-advanced-directaccess-deployment"></a>Étape 3 vérifier le déploiement avancé de DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment vérifier que vous avez correctement configuré votre déploiement de DirectAccess.  
   
@@ -39,7 +39,7 @@ Cette rubrique décrit comment vérifier que vous avez correctement configuré v
   
 ## <a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 2 : Configuration des serveurs DirectAccess @ no__t-0  
+-   [Étape 2 : configuration des serveurs DirectAccess](Step-2-Configuring-DirectAccess-Servers.md)  
   
 
 

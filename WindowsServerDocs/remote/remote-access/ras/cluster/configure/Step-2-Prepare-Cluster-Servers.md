@@ -21,7 +21,7 @@ ms.locfileid: "71367411"
 ---
 # <a name="step-2-prepare-cluster-servers"></a>Étape 2 Préparez les serveurs de cluster
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Avant de pouvoir configurer un déploiement de cluster, vous devez préparer des serveurs supplémentaires à ajouter au cluster.  
   
@@ -85,7 +85,7 @@ Pour configurer un cluster d’accès à distance, vous devez installer la fonct
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 3 : Configurer un cluster à charge équilibrée @ no__t-0  
+-   [Étape 3 : configurer un cluster à charge équilibrée](Step-3-Configure-a-Load-Balanced-Cluster.md)  
   
 
 

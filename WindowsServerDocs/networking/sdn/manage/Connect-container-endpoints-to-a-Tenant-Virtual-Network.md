@@ -22,7 +22,7 @@ ms.locfileid: "71355820"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Connecter les points de terminaison de conteneur à un réseau virtuel locataire
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, nous vous montrons comment connecter des points de terminaison de conteneur à un réseau virtuel client existant créé par le biais de SDN. Vous utilisez le pilote réseau *l2bridge* (et éventuellement *l2tunnel*) disponible avec le plug-in Windows libnetwork pour l’ordinateur de veille pour créer un réseau de conteneurs sur la machine virtuelle du locataire.
 
@@ -45,7 +45,7 @@ La différence entre les pilotes *l2bridge* et *l2tunnel* est la suivante :
 >Ces modes de mise en réseau ne fonctionnent pas pour connecter des points de terminaison de conteneur Windows à un réseau virtuel de locataire dans le cloud public Azure.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 -  Une infrastructure SDN déployée avec le contrôleur de réseau.
 -  Un réseau virtuel client a été créé.
 -  Une machine virtuelle cliente déployée avec la fonctionnalité de conteneur Windows activée, Dockr installé et la fonctionnalité Hyper-V activée. La fonctionnalité Hyper-V est requise pour installer plusieurs fichiers binaires pour les réseaux l2bridge et l2tunnel.
@@ -61,12 +61,15 @@ La différence entre les pilotes *l2bridge* et *l2tunnel* est la suivante :
 
 ## <a name="workflow"></a>Flux de travail
 
-[1. Ajouter plusieurs configurations IP à une ressource de carte réseau de machine virtuelle existante via le contrôleur de réseau (hôte Hyper-V) ](#1-add-multiple-ip-configurations) @ no__t-1 @ no__t-22. Activez le proxy réseau sur l’ordinateur hôte pour allouer des adresses IP d’autorité de certification pour les points de terminaison de conteneur (hôte Hyper-V) ](#2-enable-the-network-proxy) @ no__t-1 @ no__t-23. Installez le plug-in de cloud privé pour affecter des adresses IP d’autorité de certification aux points de terminaison de conteneur (machine virtuelle hôte de conteneur) ](#3-install-the-private-cloud-plug-in) @ no__t-1 @ no__t-24. Créer un réseau *l2bridge* ou *l2tunnel* à l’aide de l’amarrage (ordinateur hôte de conteneur) ](#4-create-an-l2bridge-container-network)
+[1. ajoutez plusieurs configurations IP à une ressource de carte réseau de machine virtuelle existante via le contrôleur de réseau (hôte Hyper-V)](#1-add-multiple-ip-configurations)
+[2. Activez le proxy réseau sur l’ordinateur hôte pour allouer des adresses IP d’autorité de certification pour les points de terminaison de conteneur (hôte Hyper-V)](#2-enable-the-network-proxy)
+[3. Installez le plug-in de cloud privé pour affecter des adresses IP d’autorité de certification aux points de terminaison de conteneur (machine virtuelle hôte de conteneur)](#3-install-the-private-cloud-plug-in)
+[4. Créer un réseau *l2bridge* ou *l2tunnel* à l’aide de dockr (ordinateur hôte de conteneur)](#4-create-an-l2bridge-container-network)
 
 >[!NOTE]
 >Plusieurs configurations IP ne sont pas prises en charge sur les ressources de carte réseau de machine virtuelle créées via System Center Virtual Machine Manager. Pour ces types de déploiement, il est recommandé de créer la ressource de carte réseau de machine virtuelle hors bande à l’aide de PowerShell de contrôleur de réseau.
 
-### <a name="1-add-multiple-ip-configurations"></a>1. Ajouter plusieurs configurations IP
+### <a name="1-add-multiple-ip-configurations"></a>1. ajouter plusieurs configurations IP
 Dans cette étape, nous supposons que la carte réseau de machine virtuelle de la machine virtuelle cliente a une configuration IP avec l’adresse IP 192.168.1.9 et qu’elle est associée à l’ID de ressource de réseau virtuel « VNet1 » et à la ressource de sous-réseau de machine virtuelle « Subnet1 » dans le sous-réseau IP 192.168.1.0/24. Nous ajoutons 10 adresses IP pour les conteneurs à partir de 192.168.1.101-192.168.1.110.
 
 ```powershell
@@ -117,7 +120,7 @@ foreach ($i in 1..10)
 New-NetworkControllerNetworkInterface -ResourceId $vmnic.ResourceId -Properties $vmnic.Properties -ConnectionUri $uri
 ```
 
-### <a name="2-enable-the-network-proxy"></a>2. Activer le proxy réseau
+### <a name="2-enable-the-network-proxy"></a>2. activer le proxy réseau
 Au cours de cette étape, vous allez autoriser le proxy réseau à allouer plusieurs adresses IP pour la machine virtuelle de l’hôte de conteneur. 
 
 Pour activer le proxy réseau, exécutez le script [ConfigureMCNP. ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1) sur l' **hôte Hyper-V** hébergeant l’ordinateur virtuel de l’hôte de conteneur (locataire).
@@ -126,7 +129,7 @@ Pour activer le proxy réseau, exécutez le script [ConfigureMCNP. ps1](https://
 PS C:\> ConfigureMCNP.ps1
 ```
 
-### <a name="3-install-the-private-cloud-plug-in"></a>3. Installer le plug-in de cloud privé
+### <a name="3-install-the-private-cloud-plug-in"></a>3. installer le plug-in de cloud privé
 Dans cette étape, vous installez un plug-in pour permettre à HNS de communiquer avec le proxy réseau sur l’hôte Hyper-V.
 
 Pour installer le plug-in, exécutez le script [InstallPrivateCloudPlugin. ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) à l’intérieur de la **machine virtuelle de l’hôte de conteneur (locataire)** .
@@ -136,8 +139,8 @@ Pour installer le plug-in, exécutez le script [InstallPrivateCloudPlugin. ps1](
 PS C:\> InstallPrivateCloudPlugin.ps1
 ```
 
-### <a name="4-create-an-l2bridge-container-network"></a>4. Créer un réseau de conteneurs *l2bridge*
-Au cours de cette étape, vous allez utiliser la commande `docker network create` sur la **machine virtuelle de l’hôte de conteneur (locataire)** pour créer un réseau l2bridge. 
+### <a name="4-create-an-l2bridge-container-network"></a>4. créer un réseau de conteneurs *l2bridge*
+Dans cette étape, vous utilisez la commande `docker network create` sur la **machine virtuelle de l’hôte de conteneur (locataire)** pour créer un réseau l2bridge. 
 
 ```powershell
 # Create the container network

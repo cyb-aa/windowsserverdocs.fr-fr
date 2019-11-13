@@ -15,21 +15,21 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365749"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>Déployer des dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>Déployer Dossiers de travail avec AD FS et le proxy d’application Web : étape 4, configurer le proxy d’application Web
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la quatrième étape du déploiement de Dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Vue d’ensemble @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : vue d’ensemble](deploy-work-folders-adfs-overview.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 1 : configurer AD FS @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 1, configurer AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0  
+-   [Déployer des dossiers de travail avec des AD FS et un proxy d’application Web : étape 2, AD FS le travail après configuration](deploy-work-folders-adfs-step2.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
+-   [Déployer des dossiers de travail avec des AD FS et un proxy d’application Web : étape 3, configuration de dossiers de travail](deploy-work-folders-adfs-step3.md)  
   
--   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer les clients @ no__t-0  
+-   [Déployer des dossiers de travail avec AD FS et le proxy d’application Web : étape 5, configurer des clients](deploy-work-folders-adfs-step5.md)  
 
 > [!NOTE]
 >   Les instructions décrites dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
@@ -55,7 +55,7 @@ Pour installer les certificats, procédez comme suit :
   
 6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)** , puis cliquez sur **Terminer**.  
   
-7.  Cliquez sur **OK**.  
+7.  Cliquez sur **OK**.  
   
 8.  Développez le dossier **Racine de la console\Certificats\(Ordinateur local)\Personnel\Certificats**.  
   
@@ -101,7 +101,7 @@ Pour configurer le proxy d’application Web, procédez comme suit :
   
 4.  Entrez les informations d’identification d’un compte d’administrateur local sur les serveurs de fédération. N’entrez pas les informations d’identification de domaine (par exemple, contoso\administrateur), mais les informations d’identification locales (par exemple, administrateur).  
   
-5.  Dans la page **Certificats de proxy AD FS**, sélectionnez le certificat AD FS que vous avez importé précédemment. Dans l’exemple de test, il s’agit de **blueadfs.contoso.com**. Cliquez sur **Suivant**.  
+5.  Dans la page **Certificats de proxy AD FS**, sélectionnez le certificat AD FS que vous avez importé précédemment. Dans l’exemple de test, il s’agit de **blueadfs.contoso.com**. Cliquer sur **Suivant**.  
   
 6.  La page de confirmation affiche la commande Windows PowerShell qui s’exécutera pour configurer le service. Cliquez sur **configurer**.  
   
@@ -140,7 +140,7 @@ L’étape suivante consiste à publier une application web qui rendra Dossiers 
   
    URL externe : **https://workfolders.contoso.com**  
   
-   Certificat externe : **Le certificat de dossiers de travail que vous avez installé précédemment**  
+   Certificat externe : **Le certificat Dossiers de travail que vous avez installé précédemment**  
   
    URL du serveur principal : **https://workfolders.contoso.com**  
   
@@ -150,7 +150,7 @@ L’étape suivante consiste à publier une application web qui rendra Dossiers 
     >[!NOTE]
     > Si vous avez plusieurs serveurs Dossiers de travail, vous devez publier une application web Dossiers de travail pour chaque serveur Dossiers de travail (Répétez les étapes 1 à 10).  
   
-Étape suivante : [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer les clients @ no__t-0  
+Étape suivante : [Déployer Dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, Configurer les clients](deploy-work-folders-adfs-step5.md)  
   
 ## <a name="see-also"></a>Voir aussi  
 [Vue d’ensemble des dossiers de travail](Work-Folders-Overview.md)  

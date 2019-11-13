@@ -19,7 +19,7 @@ ms.locfileid: "71364522"
 ---
 # <a name="windows-7-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows 7 doit être configuré avec la quantité de mémoire recommandée.
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d'informations sur les meilleures pratiques et les analyses, consultez [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
@@ -38,11 +38,11 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 ## <a name="impact"></a>Impact  
   
-les applications et le système d’exploitation invité @no__t 0The peuvent ne pas fonctionner correctement. Il se peut que la mémoire soit insuffisante pour exécuter plusieurs applications à la fois. Cela a un impact sur les ordinateurs virtuels suivants : *  
+*Le système d’exploitation invité et les applications peuvent ne pas fonctionner correctement. Il se peut que la mémoire soit insuffisante pour exécuter plusieurs applications à la fois. Cela a un impact sur les machines virtuelles suivantes :*  
 ```  
 <list of virtual machine names>  
 ```  
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Utilisez le Gestionnaire Hyper-V pour augmenter la mémoire allouée à cette machine virtuelle à au moins 1 Go.*  
   

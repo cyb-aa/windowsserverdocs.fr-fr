@@ -38,16 +38,16 @@ shift [/n <N>]
 
 |Paramètre|Description|
 |---------|-----------|
-|/n @no__t 0N >|Spécifie de commencer le décalage au *N*ième argument, où *N* est une valeur comprise entre 0 et 8. Requiert des extensions de commande, qui sont activées par défaut.|
+|/n \<N >|Spécifie de commencer le décalage au *N*ième argument, où *N* est une valeur comprise entre 0 et 8. Requiert des extensions de commande, qui sont activées par défaut.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
-- La commande **Shift** modifie les valeurs des paramètres de lot **% 0** à **% 9** en copiant chaque paramètre dans le précédent : la valeur **% 1** est copiée dans **% 0**, la valeur **% 2** est copiée dans **% 1**, et ainsi de suite. Cela est utile pour écrire un fichier de commandes qui effectue la même opération sur un nombre quelconque de paramètres.
-- Si les extensions de commande sont activées, la commande **Shift** prend en charge l’option de ligne de commande **/n** . L’option **/n** spécifie de commencer le décalage au nième argument, où **n** est une valeur comprise entre 0 et 8. Par exemple, **Shift/2** déplace **% 3** vers **% 2**, **% 4** vers **% 3**, et ainsi de suite, et laisse **% 0** et **% 1** non affectés. Les extensions de commande sont activées par défaut.
-- Vous pouvez utiliser la commande **Shift** pour créer un fichier de commandes qui peut accepter plus de 10 paramètres batch. Si vous spécifiez plus de 10 paramètres sur la ligne de commande, ceux qui apparaissent après le dixième ( **% 9**) sont décalés un à la fois dans **% 9**.
-- La commande **Shift** n’a aucun effet sur le paramètre batch **% @ no__t-3***.
-- Il n’y a pas de commande de **décalage vers** l’arrière. Après avoir implémenté la commande **Shift** , vous ne pouvez pas récupérer le paramètre batch ( **% 0**) qui existait avant le décalage.
+- La commande **Shift** modifie les valeurs des paramètres de lot **%0** à **%9** en copiant chaque paramètre dans le précédent : la valeur **%1** est copiée dans **%0**, la valeur **%2** est copiée dans **%1**, et ainsi de suite. Cela est utile pour écrire un fichier de commandes qui effectue la même opération sur un nombre quelconque de paramètres.
+- Si les extensions de commande sont activées, la commande **Shift** prend en charge l’option de ligne de commande **/n** . L’option **/n** spécifie de commencer le décalage au nième argument, où **n** est une valeur comprise entre 0 et 8. Par exemple, **Shift/2** déplace **%3** vers **%2**, **%4** vers **%3**, et ainsi de suite, et laisse **%0** et **%1** non affectés. Les extensions de commande sont activées par défaut.
+- Vous pouvez utiliser la commande **Shift** pour créer un fichier de commandes qui peut accepter plus de 10 paramètres batch. Si vous spécifiez plus de 10 paramètres sur la ligne de commande, ceux qui apparaissent après le dixième ( **%9**) sont décalés un à la fois dans **%9**.
+- La commande **Shift** n’a aucun effet sur le paramètre batch **%\\** *.
+- Il n’y a pas de commande de **décalage vers** l’arrière. Après avoir implémenté la commande **Shift** , vous ne pouvez pas récupérer le paramètre batch ( **%0**) qui existait avant le décalage.
 
 ## <a name="BKMK_examples"></a>Illustre
 

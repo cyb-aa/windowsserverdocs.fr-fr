@@ -25,10 +25,10 @@ La meilleure façon d’implémenter des comptes d’utilisateur dans MultiPoint
   
 -   **Comptes d’utilisateurs locaux** : pour un petit déploiement avec seulement quelques ordinateurs exécutant les services MultiPoind et quelques utilisateurs, il peut s’avérer plus pratique d’utiliser des *comptes d’utilisateur locaux* créés sur multipoint services. Vous pouvez créer un compte individuel pour chaque personne qui utilisera le système ou créer un compte générique pour chaque station, que tout le monde peut utiliser pour se connecter. Les administrateurs MultiPoint services créent et gèrent les comptes d’utilisateurs locaux à l’aide du gestionnaire MultiPoint. Les comptes locaux peuvent être des administrateurs, disposer de droits d’administration limités ou être des utilisateurs standard sans accès au bureau MultiPoint services ou au gestionnaire MultiPoint.  
   
--   **Comptes de domaine** : Si votre environnement comporte de nombreux ordinateurs exécutant multipoint services et de nombreux utilisateurs, il est probablement plus utile de configurer un domaine Active Directory Domain Services \(AD DS @ no__t-2 et d’utiliser des *comptes d’utilisateur de domaine*. qui permettent à un utilisateur d’accéder à son propre profil utilisateur et à ses paramètres à partir de n’importe quelle station du domaine. Les comptes d’utilisateur de domaine doivent être créés sur le contrôleur de domaine par un administrateur de domaine.  
+-   **Comptes de domaine** : Si votre environnement comporte de nombreux ordinateurs exécutant multipoint services et de nombreux utilisateurs, il peut s’avérer plus utile de configurer un Active Directory Domain Services \(AD DS\) domaine et d’utiliser des *comptes d’utilisateur de domaine*, qui permettent à un utilisateur d’accéder à son propre profil utilisateur et à ses paramètres à partir de n’importe quelle station du domaine. Les comptes d’utilisateur de domaine doivent être créés sur le contrôleur de domaine par un administrateur de domaine.  
   
 > [!NOTE]  
-> Les sections suivantes abordent les scénarios que vous pouvez implémenter pour les comptes d’utilisateurs locaux dans MultiPoint services. Si vous utilisez des comptes d’utilisateur de domaine, consultez le scénario « un ou plusieurs serveurs MultiPoint dans un environnement réseau de domaine » dans scénarios [Example : Comptes d’utilisateur MultiPoint services @ no__t-0.  
+> Les sections suivantes abordent les scénarios que vous pouvez implémenter pour les comptes d’utilisateurs locaux dans MultiPoint services. Si vous utilisez des comptes d’utilisateur de domaine, consultez le scénario « un ou plusieurs serveurs MultiPoint dans un environnement réseau de domaine » dans [exemples de scénarios : comptes d’utilisateur multipoint services](Example-scenarios--MultiPoint-Services-user-accounts.md).  
   
 ## <a name="planning-local-user-accounts"></a>Planification de comptes d’utilisateurs locaux  
 Les sections suivantes étudient les avantages, les inconvénients et les exigences de plusieurs façons d’implémenter des comptes d’utilisateur locaux ou partagés dans votre environnement Windows MultiPoint services.  
@@ -38,7 +38,7 @@ Lors de la création de comptes d’utilisateurs locaux, vous avez le choix entr
   
 Du point de vue de la gestion du système, l’attribution d’utilisateurs à un ordinateur MultiPoint services spécifique peut être plus pratique. Par exemple, si vous avez deux serveurs MultiPoint avec cinq stations chacune, vous pouvez créer des comptes d’utilisateur locaux, comme illustré dans le tableau suivant.  
   
-@no__t 0Table 1 : Attribution de comptes d’utilisateurs locaux à des ordinateurs spécifiques exécutant MultiPoint services @ no__t-0  
+**Tableau 1 : attribution de comptes d’utilisateurs locaux à des ordinateurs spécifiques exécutant MultiPoint services**  
   
 |Ordinateur A|Ordinateur B|  
 |--------------|--------------|  
@@ -52,7 +52,7 @@ Dans ce scénario, chaque utilisateur a un compte unique sur un ordinateur parti
   
 En revanche, il est également possible de répliquer des comptes d’utilisateur individuels sur tous les ordinateurs exécutant MultiPoint services, comme illustré dans le tableau suivant.  
   
-@no__t 0Table 2 : Réplication de comptes d’utilisateur sur tous les ordinateurs exécutant MultiPoint services @ no__t-0  
+**Tableau 2 : réplication des comptes d’utilisateur sur tous les ordinateurs exécutant MultiPoint services**  
   
 |Ordinateur A|Ordinateur B|  
 |--------------|--------------|  
@@ -67,7 +67,7 @@ L’un des avantages de cette approche est que les utilisateurs disposent d’un
 ### <a name="use-generic-local-user-accounts"></a>Utiliser des comptes d’utilisateurs locaux génériques  
 Si votre système MultiPoint services n’est pas connecté à un domaine et que vous ne souhaitez pas créer de compte individuel pour chaque utilisateur, vous pouvez créer des comptes génériques pour chaque station. Par exemple, si vous avez deux ordinateurs exécutant MultiPoint services et que cinq stations sont associées à chaque ordinateur, vous pouvez décider de créer des comptes d’utilisateur similaires à ceux répertoriés dans le tableau suivant.  
   
-@no__t 0Table 3 : Création de comptes d’utilisateurs génériques, un compte par station @ no__t-0  
+**Tableau 3 : création de comptes d’utilisateurs génériques, un compte par station**  
   
 |Ordinateur A|Ordinateur B|  
 |--------------|--------------|  

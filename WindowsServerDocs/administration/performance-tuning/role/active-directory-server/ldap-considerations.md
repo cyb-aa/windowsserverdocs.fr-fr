@@ -47,12 +47,12 @@ Les attributs d’indexation sont utiles lors de la recherche d’objets qui ont
 
 - Des volumes importants de requêtes avec des durées élevées sont à l’origine de la consommation et de l’épuisement des threads LDAP ATQ. Surveillez les compteurs de performances suivants :
 
-    - **Latence NTDS @ no__t-1Request** : il s’agit du temps nécessaire au traitement de la demande. Active Directory les requêtes Expires après 120 secondes (par défaut). Toutefois, la majorité doit exécuter des requêtes beaucoup plus rapides et extrêmement longues doivent être masquées dans les nombres globaux. Recherchez les modifications dans cette ligne de base, plutôt que les seuils absolus.
+    - **Latence des demandes NTDS\\** : cette durée est fonction du temps nécessaire au traitement de la demande. Active Directory les requêtes Expires après 120 secondes (par défaut). Toutefois, la majorité doit exécuter des requêtes beaucoup plus rapides et extrêmement longues doivent être masquées dans les nombres globaux. Recherchez les modifications dans cette ligne de base, plutôt que les seuils absolus.
 
         > [!NOTE]
         > Les valeurs élevées ici peuvent également être des indicateurs de retards dans les demandes de « proxy » à d’autres domaines et vérifications de liste de révocation de certificats.
 
-    - **NTDS @ no__t-1Estimated délai de file d’attente** : cette valeur doit idéalement être proche de 0 pour des performances optimales, car cela signifie que les demandes ne passent pas de temps à attendre la maintenance.
+    - **Délai de la file d’attente estimé de NTDS\\** . cette valeur doit idéalement être proche de 0 pour des performances optimales, car cela signifie que les demandes ne passent pas de temps à attendre la maintenance.
 
 Ces scénarios peuvent être détectés à l’aide d’une ou plusieurs des approches suivantes :
 
@@ -60,11 +60,11 @@ Ces scénarios peuvent être détectés à l’aide d’une ou plusieurs des app
 
 -   [Suivi des recherches coûteuses et inefficaces](https://msdn.microsoft.com/library/ms808539.aspx)
 
--   Active Directory ensemble de collecteurs de données de diagnostics dans l’analyseur de performances ([Son de SPA : Ensembles de collecteurs de données AD dans Win2008 et au-delà de @ no__t-0)
+-   Active Directory ensemble de collecteurs de données de diagnostics dans l’analyseur de performances ([fils de Spa : ensembles de collecteurs de données AD dans Win2008 et au-delà](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx))
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Active Directory Advisor Pack
 
--   Recherche à l’aide de n’importe quel filtre en dehors de « (objectClass = \*) » qui utilise l’index d’ancêtres.
+-   Recherche à l’aide de n’importe quel filtre en dehors de « (objectClass =\*) » qui utilise l’index d’ancêtres.
 
 ### <a name="other-index-considerations"></a>Autres considérations relatives aux index
 
@@ -80,11 +80,11 @@ Ces scénarios peuvent être détectés à l’aide d’une ou plusieurs des app
 
 -   Les index de tuple sont nécessaires pour prendre en charge les chaînes de recherche médiane et les chaînes de recherche finales. Les index de tuple ne sont pas nécessaires pour les chaînes de recherche initiales.
 
-    -   Chaîne de recherche initiale – (samAccountName = MYPC @ no__t-0)
+    -   Chaîne de recherche initiale – (samAccountName = MYPC\*)
 
-    -   Chaîne de recherche médial-(samAccountName = \*MYPC @ no__t-1)
+    -   Chaîne de recherche médial-(samAccountName =\*MYPC\*)
 
-    -   Chaîne de recherche finale – (samAccountName = \*MYPC $)
+    -   Chaîne de recherche finale – (samAccountName =\*MYPC $)
 
 -   La création d’un index génère des e/s de disque pendant la génération de l’index. Cette opération s’effectue sur un thread d’arrière-plan avec une priorité plus faible et les demandes entrantes sont prioritaires par rapport à la création de l’index. Si la planification de la capacité pour l’environnement a été correctement effectuée, cela doit être transparent. Toutefois, les scénarios à écriture intensive ou un environnement dans lequel la charge sur le stockage du contrôleur de domaine est inconnue peuvent dégrader l’expérience du client et doivent être effectuées hors des heures.
 
@@ -98,7 +98,7 @@ Pour plus d’informations, consultez les rubriques suivantes :
 
 -   [Attributs indexés](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Réglage des performances Active Directory serveurs](index.md)
 - [Considérations matérielles](hardware-considerations.md)

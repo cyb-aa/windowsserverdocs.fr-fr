@@ -18,7 +18,7 @@ ms.locfileid: "71402735"
 ---
 # <a name="creating-a-site-design"></a>Création d’une conception de site
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La création d’une conception de site implique de déterminer les emplacements qui deviendront des sites, de créer des objets de site, de créer des objets de sous-réseau et d’associer les sous-réseaux avec les sites.  
   
@@ -46,7 +46,7 @@ Pour plus d’informations sur la création d’objets de site, consultez l’ar
 
 Pour chaque sous-réseau IP et masque de sous-réseau associé à chaque emplacement, envisagez de créer des objets de sous-réseau dans AD DS représentant toutes les adresses IP au sein du site.  
   
-Lorsque vous créez un objet de sous-réseau Active Directory, les informations relatives au sous-réseau IP et au masque de sous-réseau sont automatiquement converties dans le format de notation de la longueur du préfixe réseau <IP address> @ no__t-1 @ no__t-2. Par exemple, l’adresse IP de la version 4 (IPv4) du réseau 172.16.4.0 avec un masque de sous-réseau 255.255.252.0 apparaît comme 172.16.4.0/22. Outre les adresses IPv4, Windows Server 2008 prend également en charge les préfixes de sous-réseau IP version 6 (IPv6), par exemple 3FFE : FFFF : 0 : C000 ::/64. Pour plus d’informations sur les sous-réseaux IP dans chaque emplacement, reportez-vous à la feuille de calcul « emplacements et sous-réseaux » (DSSTOPO_2. doc) dans [collecte d’informations réseau](../../ad-ds/plan/Collecting-Network-Information.md) et [Appendix A : Emplacements et préfixes de sous-réseau @ no__t-0.  
+Lorsque vous créez un objet de sous-réseau Active Directory, les informations relatives au sous-réseau IP et au masque de sous-réseau sont automatiquement converties dans le format de notation de la longueur du préfixe réseau <IP address>/<prefix length>. Par exemple, l’adresse IP de la version 4 (IPv4) du réseau 172.16.4.0 avec un masque de sous-réseau 255.255.252.0 apparaît comme 172.16.4.0/22. Outre les adresses IPv4, Windows Server 2008 prend également en charge les préfixes de sous-réseau IP version 6 (IPv6), par exemple 3FFE : FFFF : 0 : C000 ::/64. Pour plus d’informations sur les sous-réseaux IP dans chaque emplacement, reportez-vous à la feuille de calcul « emplacements et sous-réseaux » (DSSTOPO_2. doc) dans [collecte des informations réseau](../../ad-ds/plan/Collecting-Network-Information.md) et [annexe A : emplacements et préfixes de sous-réseau](Appendix-A--Locations-and-Subnet-Prefixes.md).  
   
 Associez chaque objet de sous-réseau à un objet de site en faisant référence à la feuille de calcul « Association de sous-réseaux avec des sites » (DSSTOPO_6. doc) dans la section « choix des emplacements qui deviendront des sites » pour déterminer le sous-réseau à associer au site. Documentez l’objet sous-réseau Active Directory associé à chaque emplacement dans la feuille de calcul « Association de sous-réseaux avec des sites » (DSSTOPO_6. doc).  
   
