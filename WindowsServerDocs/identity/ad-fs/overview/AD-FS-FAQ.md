@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a52676ffc89c9fc5ce0eba4f44407e76520fef0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0a2bbeeb459fd364db728579dc20015a2474fd25
+ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407431"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74163094"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS Forum aux questions (FAQ)
 
@@ -71,6 +71,8 @@ AD FS prend en charge plusieurs configurations à plusieurs forêts et s’appui
 - Dans le cas d’une approbation de forêt unidirectionnelle telle qu’une forêt DMZ contenant des identités de partenaires, nous vous recommandons de déployer ADFS dans la forêt Corp et de traiter la forêt DMZ comme une autre approbation de fournisseur de revendications locale connectée via LDAP. Dans ce cas, l’authentification intégrée de Windows ne fonctionne pas pour les utilisateurs de la forêt DMZ et il est nécessaire d’effectuer l’authentification par mot de passe, car il s’agit du seul mécanisme pris en charge pour LDAP. Si vous ne pouvez pas poursuivre cette option, vous devez configurer un autre AD FS dans la forêt DMZ et l’ajouter en tant qu’approbation de fournisseur de revendications dans ADFS dans la forêt Corp. Les utilisateurs devront effectuer une découverte de domaine d’hébergement, mais l’authentification intégrée de Windows et l’authentification par mot de passe fonctionnent. Apportez les modifications appropriées dans les règles d’émission dans ADFS dans la forêt DMZ, car ADFS dans la forêt Corp ne pourra pas obtenir d’informations utilisateur supplémentaires sur l’utilisateur à partir de la forêt DMZ.
 - Bien que les approbations de niveau domaine soient prises en charge et puissent fonctionner, nous vous recommandons vivement de passer à un modèle d’approbation de niveau forêt. En outre, vous devez vous assurer que le routage UPN et la résolution de noms NETBIOS des noms doivent fonctionner correctement.
 
+>[!NOTE]  
+>Si l’authentification par élection est utilisée avec une configuration d’approbation bidirectionnelle, assurez-vous que l’utilisateur de l’appelant dispose de l’autorisation « autoriser l’authentification » sur le compte de service cible. 
 
 
 ## <a name="design"></a>Concevoir
@@ -113,7 +115,7 @@ La durée de vie du jeton d’actualisation correspond à la durée de vie du je
 Vous pouvez utiliser des id_token personnalisés pour ajouter des informations pertinentes dans le id_token lui-même. Pour plus d’informations, consultez l’article [personnaliser les revendications à émettre dans id_token](../development/Custom-Id-Tokens-in-AD-FS.md).
 
 ### <a name="how-to-issue-json-blobs-inside-jwt-tokens"></a>Comment émettre des objets BLOB JSON dans des jetons JWT ?
-Un ValueType spécial ("<http://www.w3.org/2001/XMLSchema#json>") et un caractère d’échappement (\x22) pour cela a été ajouté dans AD FS 2016. Veuillez l’exemple ci-dessous pour la règle d’émission et la sortie finale du jeton d’accès.
+Un ValueType spécial («<http://www.w3.org/2001/XMLSchema#json>») et un caractère d’échappement (\x22) pour cela ont été ajoutés à AD FS 2016. Veuillez l’exemple ci-dessous pour la règle d’émission et la sortie finale du jeton d’accès.
 
 Exemple de règle d’émission :
 
@@ -124,18 +126,18 @@ Revendication émise dans le jeton d’accès :
     "array_in_json":{"Items":[{"Name":"Apple","Price":12.3},{"Name":"Grape","Price":3.21}],"Date":"21/11/2010"}
 
 ### <a name="can-i-pass-resource-value-as-part-of-the-scope-value-like-how-requests-are-done-against-azure-ad"></a>Puis-je passer une valeur de ressource dans le cadre de la valeur d’étendue comme la façon dont les requêtes sont effectuées sur Azure AD ?
-Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
+Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Par exemple,  
 **< créer un exemple de demande valide >**
 
 ### <a name="does-ad-fs-support-pkce-extension"></a>AD FS prend-il en charge l’extension PKCE ?
 AD FS du serveur 2019 prend en charge la clé de vérification pour l’échange de code (PKCE) pour le workflow d’octroi de code d’autorisation OAuth
 
 ### <a name="what-permitted-scopes-are-supported-by-ad-fs"></a>Quelles sont les étendues autorisées prises en charge par AD FS ?
-- aza-si vous utilisez des [extensions de protocole OAuth 2,0 pour les clients de service Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) et si le paramètre scope contient l’étendue « aza », le serveur émet un nouveau jeton d’actualisation principal et le définit dans le champ refresh_token de la réponse, ainsi que la définition de refresh_token_ champ expires_in à la durée de vie du nouveau jeton d’actualisation principal s’il est appliqué.
+- aza-si vous utilisez des [extensions de protocole OAuth 2,0 pour les clients de service Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) et si le paramètre scope contient l’étendue « aza », le serveur émet un nouveau jeton d’actualisation principal et le définit dans le champ refresh_token de la réponse, ainsi que la définition du champ refresh_token_expires_in sur la durée de vie du nouveau jeton d’actualisation principal, le cas échéant.
 - OpenID : permet à l’application de demander l’utilisation du protocole d’autorisation OpenID Connect.
-- logon_cert : l’étendue logon_cert permet à une application de demander des certificats d’ouverture de session, qui peuvent être utilisés pour ouvrir une session de manière interactive sur des utilisateurs authentifiés. Le serveur AD FS omet le paramètre access_token de la réponse et fournit à la place une chaîne de certificats CMS encodée en base64 ou une réponse PKI complète CMC. Plus de détails disponibles [ici](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
-- user_impersonation : l’étendue user_impersonation est nécessaire pour demander un jeton d’accès au nom de AD FS. Pour plus d’informations sur l’utilisation de cette étendue, consultez [créer une application à plusieurs niveaux à l’aide de OBO (au nom de) à l’aide d’OAuth avec AD FS 2016](../../ad-fs/development/ad-fs-on-behalf-of-authentication-in-windows-server.md).
-- vpn_cert : l’étendue vpn_cert permet à une application de demander des certificats VPN, qui peuvent être utilisés pour établir des connexions VPN à l’aide de l’authentification EAP-TLS. Cela n’est plus pris en charge.
+- logon_cert : l’étendue des logon_cert permet à une application de demander des certificats d’ouverture de session, qui peuvent être utilisés pour ouvrir une session de manière interactive sur des utilisateurs authentifiés. Le serveur AD FS omet le paramètre access_token de la réponse et fournit à la place une chaîne de certificats CMS encodée en base64 ou une réponse PKI complète CMC. Plus de détails disponibles [ici](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
+- user_impersonation : l’étendue de la user_impersonation est nécessaire pour demander un jeton d’accès au nom de AD FS. Pour plus d’informations sur l’utilisation de cette étendue, consultez [créer une application à plusieurs niveaux à l’aide de OBO (au nom de) à l’aide d’OAuth avec AD FS 2016](../../ad-fs/development/ad-fs-on-behalf-of-authentication-in-windows-server.md).
+- vpn_cert : l’étendue des vpn_cert permet à une application de demander des certificats VPN, qui peuvent être utilisés pour établir des connexions VPN à l’aide de l’authentification EAP-TLS. Cela n’est plus pris en charge.
 - e-mail : permet à l’application de demander une revendication de courrier électronique pour l’utilisateur connecté. Cela n’est plus pris en charge. 
 - Profil : permet à l’application de demander des revendications liées au profil pour l’utilisateur de connexion. Cela n’est plus pris en charge. 
 
@@ -185,11 +187,11 @@ Les durées de vie par défaut des différents cookies et jetons sont répertori
 
 **Appareils inscrits**
 
-- Les cookies PRT et SSO : 90 jours maximum, régis par PSSOLifeTimeMins. (L’appareil fourni est utilisé au moins tous les 14 jours, contrôlés par DeviceUsageWindow)
+- PRT et cookies SSO : 90 jours maximum, régis par PSSOLifeTimeMins. (L’appareil fourni est utilisé au moins tous les 14 jours, contrôlés par DeviceUsageWindow)
 
 - Jeton d’actualisation : calculé en fonction de la valeur ci-dessus pour fournir un comportement cohérent
 
-- access_token: 1 heure par défaut, en fonction de la partie de confiance
+- access_token : 1 heure par défaut, en fonction de la partie de confiance
 
 - id_token : identique au jeton d’accès
 
@@ -200,7 +202,7 @@ Les durées de vie par défaut des différents cookies et jetons sont répertori
 
 - Jeton d’actualisation : 8 heures par défaut. 24 heures avec KMSI activé
 
-- access_token: 1 heure par défaut, en fonction de la partie de confiance
+- access_token : 1 heure par défaut, en fonction de la partie de confiance
 
 - id_token : identique au jeton d’accès
 
@@ -216,9 +218,9 @@ En outre, AD FS 2016 (avec les correctifs les plus récents) et AD FS 2019 prend
 
 ### <a name="x-ms-forwarded-client-ip-does-not-contain-the-ip-of-the-client-but-contains-ip-of-the-firewall-in-front-of-the-proxy-where-can-i-get-the-right-ip-of-the-client"></a>X-MS-forwarded-client-IP ne contient pas l’adresse IP du client, mais contient l’adresse IP du pare-feu devant le proxy. Où puis-je trouver l’adresse IP appropriée du client ?
 Il n’est pas recommandé d’effectuer une terminaison SSL avant le WAP. Si la terminaison SSL est effectuée devant le WAP, X-MS-forwarded-client-IP contient l’adresse IP du périphérique réseau devant le WAP. Vous trouverez ci-dessous une brève description des différentes revendications IP prises en charge par AD FS :
- - x-ms-client-IP : Adresse IP réseau de l’appareil qui se connecte au STS.  Dans le cas d’une demande extranet, contient toujours l’adresse IP du WAP.
- - x-ms-forwarded-client-IP : Revendication à valeurs multiples qui contient toutes les valeurs transmises à ADFS par Exchange Online, ainsi que l’adresse IP de l’appareil qui s’est connecté au WAP.
- - Userip: Pour les demandes extranet, cette revendication contient la valeur x-ms-forwarded-client-IP.  Pour les demandes intranet, cette revendication contient la même valeur que x-ms-client-IP.
+ - x-ms-client-IP : adresse IP réseau de l’appareil qui se connecte au STS.  Dans le cas d’une demande extranet, contient toujours l’adresse IP du WAP.
+ - x-ms-forwarded-client-IP : revendication à valeurs multiples qui contient toutes les valeurs transmises à ADFS par Exchange Online, ainsi que l’adresse IP de l’appareil qui s’est connecté au WAP.
+ - Userip : pour les demandes extranet, cette revendication contient la valeur x-ms-forwarded-client-IP.  Pour les demandes intranet, cette revendication contient la même valeur que x-ms-client-IP.
 
  En outre, dans AD FS 2016 (avec les correctifs les plus récents) et les versions ultérieures prennent également en charge la capture de l’en-tête x-forwarded-for. N’importe quel équilibrage de charge ou périphérique réseau qui n’est pas transféré au niveau de la couche 3 (l’adresse IP est conservée) doit ajouter l’adresse IP cliente entrante à l’en-tête x-forwarded-for standard du secteur. 
 
@@ -299,7 +301,7 @@ Effectuez la mise à jour sur le reste des AD FS et des serveurs WAP de la même
 ### <a name="is-adfs-supported-when-web-application-proxy-wap-servers-are-behind-azure-web-application-firewallwaf"></a>ADFS est-il pris en charge lorsque les serveurs proxy d’application Web (WAP) se trouvent derrière le pare-feu d’applications Web Azure (WAF) ?
 Les serveurs d’applications Web et ADFS prennent en charge tous les pare-feu qui n’effectuent pas d’arrêt SSL sur le point de terminaison. En outre, les serveurs ADFS/WAP disposent de mécanismes intégrés pour empêcher les attaques Web courantes, telles que les scripts inter-sites, le proxy ADFS et satisfont à toutes les exigences définies par le [protocole MS-ADFSPIP](https://msdn.microsoft.com/library/dn392811.aspx).
 
-### <a name="i-am-seeing-an-event-441-a-token-with-a-bad-token-binding-key-was-found-what-should-i-do-to-resolve-this"></a>Je vois un «événement 441 : Un jeton avec une clé de liaison de jeton incorrecte a été trouvé.» Que dois-je faire pour résoudre ce cas ?
+### <a name="i-am-seeing-an-event-441-a-token-with-a-bad-token-binding-key-was-found-what-should-i-do-to-resolve-this"></a>Je vois un « événement 441 : un jeton avec une clé de liaison de jeton incorrecte a été trouvé ». Que dois-je faire pour résoudre ce cas ?
 Dans AD FS 2016, la liaison de jeton est automatiquement activée et provoque plusieurs problèmes connus avec les scénarios de proxy et de Fédération qui génèrent cette erreur. Pour résoudre ce code, exécutez la commande PowerShell suivante et supprimez la prise en charge de la liaison de jeton.
 
 `Set-AdfsProperties -IgnoreTokenBinding $true`

@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 5889ae43c4b572ae75c8df10d0c47fc21337d558
-ms.sourcegitcommit: 9e123d475f3755218793a130dda88455eac9d4ab
+ms.openlocfilehash: e20913b1245ce7e453b87e9b88a7a418a5c71de2
+ms.sourcegitcommit: b60fdd2efa57ff23834a324b75de8fe245a7631f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73413257"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166171"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -44,21 +44,11 @@ L’extension du service de migration de stockage du centre d’administration W
 
 Pour résoudre, utiliser ou effectuer une mise à niveau vers Windows Server 2019 Build 1809 ou version ultérieure.
 
-## <a name="storage-migration-service-doesnt-let-you-choose-static-ip-on-cutover"></a>Storage migration service ne vous permet pas de choisir une adresse IP statique sur le basculement
-
-Lorsque vous utilisez la version 0,57 de l’extension Storage migration service dans le centre d’administration Windows et que vous atteignez la phase de basculement, vous ne pouvez pas sélectionner une adresse IP statique pour une adresse. Vous êtes contraint d’utiliser DHCP.
-
-Pour résoudre ce problème, dans le centre d’administration Windows, accédez à **paramètres**  > **Extensions** pour une alerte indiquant que la version mise à jour du service de migration de stockage 0.57.2 est disponible pour l’installation. Vous devrez peut-être redémarrer l’onglet de votre navigateur pour le centre d’administration Windows.
-
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>La validation du basculement du service de migration du stockage échoue avec l’erreur « Accès refusé pour la stratégie de filtre de jeton sur l’ordinateur de destination »
 
 Lors de l’exécution de la validation du basculement, vous recevez l’erreur « échec : l’accès est refusé pour la stratégie de filtre de jeton sur l’ordinateur de destination ». Cela se produit même si vous avez fourni des informations d’identification d’administrateur local correctes pour les ordinateurs source et de destination.
 
-Ce problème est causé par une erreur de code dans Windows Server 2019. Le problème se produit lorsque vous utilisez l’ordinateur de destination en tant qu’orchestrateur du service de migration du stockage.
-
-Pour contourner ce problème, installez le service de migration de stockage sur un ordinateur Windows Server 2019 qui n’est pas la destination de migration prévue, puis connectez-vous à ce serveur à l’aide du centre d’administration Windows et effectuez la migration.
-
-Nous l’avons résolu dans une version ultérieure de Windows Server. Veuillez ouvrir un dossier de support via [support Microsoft](https://support.microsoft.com) pour demander la création d’un rétroporter de ce correctif.
+Ce problème a été résolu dans la mise à jour [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) . 
 
 ## <a name="storage-migration-service-isnt-included-in-windows-server-2019-evaluation-or-windows-server-2019-essentials-edition"></a>Storage migration service n’est pas inclus dans Windows Server 2019 Evaluation ou Windows Server 2019 Essentials Edition
 
@@ -105,16 +95,6 @@ Pour contourner ce problème :
 
 Nous avons l’intention de modifier ce comportement dans une version ultérieure de Windows Server 2019.  
 
-## <a name="cutover-fails-when-migrating-between-networks"></a>Échec du basculement lors de la migration entre des réseaux
-
-Lors de la migration vers un ordinateur de destination s’exécutant sur un réseau différent de celui de la source, par exemple une instance Azure IaaS, le basculement échoue lorsque la source utilise une adresse IP statique. 
-
-Ce comportement est lié à la conception, afin d’éviter les problèmes de connectivité après la migration à partir d’utilisateurs, d’applications et de scripts se connectant via une adresse IP. Lorsque l’adresse IP est déplacée de l’ancien ordinateur source vers la nouvelle cible de destination, elle ne correspond pas aux nouvelles informations de sous-réseau du réseau, et peut-être à DNS et WINS.
-
-Pour contourner ce problème, effectuez une migration vers un ordinateur sur le même réseau. Ensuite, déplacez cet ordinateur vers un nouveau réseau et réaffectez ses informations IP. Par exemple, si vous migrez vers Azure IaaS, migrez d’abord vers une machine virtuelle locale, puis utilisez Azure Migrate pour déplacer la machine virtuelle vers Azure.  
-
-Nous avons résolu ce problème dans une version ultérieure du centre d’administration Windows. Nous vous autorisons maintenant à spécifier des migrations qui ne modifient pas les paramètres réseau du serveur de destination. L’extension mise à jour sera répertoriée ici lors de la publication. 
-
 ## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Avertissements de validation pour le proxy de destination et les privilèges d’administration des informations d’identification
 
 Lors de la validation d’une tâche de transfert, les avertissements suivants s’affichent :
@@ -153,7 +133,7 @@ Fichier source :
 
 Fichier de destination :
 
-  icacls d:\test\thatcher.png/Save out. txt/t Thatcher. png D :AI (A ;; FA ;;; BA) (A ;; 0 x1301bf ;;;D U) (A ;; 0 x1200a9 ;;;D D) (A ; ID ; FA ;;; BA) (A ; ID ; FA ;;; SY) (A ; ID ; ACE 0x1200a9 ;;; BU)**S :PAINO_ACCESS_CONTROL**
+  icacls d:\test\thatcher.png/Save out. txt/t Thatcher. png D :AI (A ;; FA ;;; BA) (A ;; 0 x1301bf ;;;D U) (A ;; 0 x1200a9 ;;;D D) (A ; ID ; FA ;;; BA) (A ; ID ; FA ;;; SY) (A ; ID ; ACE 0x1200a9 ;;; BU)**S : PAINO_ACCESS_CONTROL**
 
 Journal de débogage DFSR :
 
@@ -163,17 +143,7 @@ Journal de débogage DFSR :
 
   Clone ACL Hash :**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B** LastWriteTime : 20190308 18:09:44.876 FileSizeLow : 1131654 FileSizeHigh : 0 Attributs : 32 
 
-Ce problème est dû à un défaut de code dans une bibliothèque utilisée par le service de migration de stockage pour définir des ACL d’audit de sécurité (SACL). Une liste SACL non null est définie de manière involontaire lorsque la liste SACL était vide, ce qui a pour but d’identifier correctement une incompatibilité de hachage. 
-
-Pour contourner ce problème, continuez à utiliser Robocopy pour les [opérations de clonage de base de données DFSR et DFSR](../dfs-replication/preseed-dfsr-with-robocopy.md) au lieu du service de migration de stockage. Nous étudions ce problème et nous envisageons de le résoudre dans une version ultérieure de Windows Server et éventuellement un Windows Update en sortie. 
-
-## <a name="error-404-when-downloading-csv-logs"></a>Erreur 404 lors du téléchargement des journaux CSV
-
-Lorsque vous tentez de télécharger les journaux de transfert ou d’erreurs à la fin d’une opération de transfert, vous recevez l’erreur suivante :
-
-  $jobname : Journal de transfert : erreur Ajax 404
-
-Cette erreur est attendue si vous n’avez pas activé la règle de pare-feu « partage de fichiers et d’imprimantes (SMB-in) » sur le serveur Orchestrator. Les téléchargements de fichiers du centre d’administration Windows nécessitent le port TCP/445 (SMB) sur les ordinateurs connectés.  
+Ce problème est résolu par la mise à jour [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)
 
 ## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transferring-from-windows-server-2008-r2"></a>Erreur « Impossible de transférer le stockage sur l’un des points de terminaison » lors du transfert à partir de Windows Server 2008 R2
 
@@ -213,7 +183,7 @@ Cette erreur est attendue si votre compte de migration ne dispose pas au minimum
 
 ## <a name="error-0x80005000-when-running-inventory"></a>Erreur 0x80005000 lors de l’exécution de l’inventaire
 
-Après l’installation de [KB4512534](https://support.microsoft.com/en-us/help/4512534/windows-10-update-kb4512534) et la tentative d’exécution de l’inventaire, l’inventaire échoue avec des erreurs :
+Après l’installation de [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) et la tentative d’exécution de l’inventaire, l’inventaire échoue avec des erreurs :
 
   EXCEPTION de HRESULT : 0x80005000
   
@@ -287,7 +257,7 @@ Notez que, dans certaines circonstances, la désinstallation de KB4512534 ou de 
    
 2.  Démarrez le service de migration du stockage, qui créera une nouvelle base de données.
 
-## <a name="error-clusctl_resource_netname_repair_vco-failed-against-netname-resource-and-windows-server-2008-r2-cluster-cutover-fails"></a>L’erreur « CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO a échoué sur la ressource de nom de serveur » et le basculement de cluster Windows Server 2008 R2 échoue
+## <a name="error-clusctl_resource_netname_repair_vco-failed-against-netname-resource-and-windows-server-2008-r2-cluster-cutover-fails"></a>Erreur « CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO échec sur la ressource de nom de serveur » et le basculement de cluster Windows Server 2008 R2 échoue
 
 Lorsque vous tentez d’exécuter la fenêtre couper sur une source de cluster Windows Server 2008 R2, la coupure est bloquée lors de la phase « modification du nom de l’ordinateur source... » et vous recevez l’erreur suivante :
 
@@ -306,6 +276,43 @@ Lorsque vous tentez d’exécuter la fenêtre couper sur une source de cluster W
        at Microsoft.StorageMigration.Proxy.Cutover.CutoverUtils.RenameFSNetName(NetworkCredential networkCredential, Boolean isLocal, String clusterName, String fsResourceId, String nnResourceId, String newDnsName, CancellationToken ct)    [d:\os\src\base\dms\proxy\cutover\cutoverproxy\CutoverUtils.cs::RenameFSNetName::1510]
 
 Ce problème est dû à l’absence d’API dans les versions antérieures de Windows Server. Actuellement, il n’existe aucun moyen de migrer les clusters Windows Server 2008 et Windows Server 2003. Vous pouvez effectuer un inventaire et un transfert sans problème sur les clusters Windows Server 2008 R2, puis effectuer manuellement le basculement en modifiant manuellement l’adresse IP et le nom d’accès de la ressource du serveur de fichiers source du cluster, puis en modifiant le nom et l’adresse IP du cluster de destination. adresse qui correspond à la source d’origine. 
+
+## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-comnputer"></a>Le basculement se bloque sur « 38% mappage des interfaces réseau sur le comnputer source... » 
+
+Lorsque vous tentez d’exécuter la fonction couper au-dessus d’un ordinateur source, si vous avez défini l’ordinateur source pour qu’il utilise une nouvelle adresse IP statique (non DHCP) sur une ou plusieurs interfaces réseau, la coupure est bloquée à la phase « 38% mappage des interfaces réseau sur le comnputer source... » et vous recevez l’erreur suivante dans le journal des événements SMS :
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          11/13/2019 3:47:06 PM
+    Event ID:      20494
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      orc2019-rtm.corp.contoso.com
+    Description:
+    Couldn't set the IP address on the network adapter.
+
+    Computer: fs12.corp.contoso.com
+    Adapter: microsoft hyper-v network adapter
+    IP address: 10.0.0.99
+    Network mask: 16
+    Error: 40970
+    Error Message: Unknown error (0xa00a)
+
+    Guidance: Confirm that the Netlogon service on the computer is reachable through RPC and that the credentials provided are correct.
+
+Examinining l’ordinateur source indique que l’adresse IP d’origine ne peut pas changer. 
+
+Ce problème ne se produit pas si vous avez sélectionné l’option « utiliser DHCP » dans l’écran du centre d’administration Windows « configurer le basculement », uniquement si vous spécifiez une nouvelle adresse IP statique, un sous-réseau et une passerelle. 
+
+Ce problème est dû à une régression dans la mise à jour [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) . Il existe actuellement deux solutions de contournement pour ce problème :
+
+  - Avant le basculement : au lieu de définir une nouvelle adresse IP statique lors du basculement, sélectionnez « utiliser DHCP » et assurez-vous qu’une étendue DHCP couvre ce sous-réseau. SMS configure l’ordinateur source pour qu’il utilise DHCP sur les interfaces de l’ordinateur source et le découpage se poursuivra normalement. 
+  
+  - Si le basculement est déjà bloqué : Connectez-vous à l’ordinateur source et activez DHCP sur ses interfaces réseau, après avoir vérifié qu’une étendue DHCP couvre ce sous-réseau. Lorsque l’ordinateur source acquiert une adresse IP fournie par DHCP, SMS poursuit la découpe normalement.
+  
+Dans les deux solutions de contournement, une fois la coupure terminée, vous pouvez définir une adresse IP statique sur l’ancien ordinateur source comme vous le voyez et l’arrêter à l’aide de DHCP.   
 
 ## <a name="see-also"></a>Articles associés
 
