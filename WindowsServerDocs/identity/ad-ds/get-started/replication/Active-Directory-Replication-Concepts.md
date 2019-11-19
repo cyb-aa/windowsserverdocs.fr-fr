@@ -18,7 +18,7 @@ ms.locfileid: "72591070"
 ---
 # <a name="active-directory-replication-concepts"></a>Concepts de réplication Active Directory
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Avant de concevoir la topologie de site, familiarisez-vous avec certains concepts de réplication Active Directory.  
   
@@ -52,7 +52,7 @@ Le vérificateur de cohérence des connaissances (KCC) crée automatiquement des
 ## <a name="BKMK_2"></a>KCC  
 Le KCC est un processus intégré qui s’exécute sur tous les contrôleurs de domaine et génère une topologie de réplication pour la forêt Active Directory. Le KCC crée des topologies de réplication distinctes selon que la réplication se produit au sein d’un site (intrasite) ou entre sites (intersite). Le KCC ajuste également dynamiquement la topologie pour s’adapter à l’ajout de nouveaux contrôleurs de domaine, à la suppression des contrôleurs de domaine existants, au déplacement de contrôleurs de domaine vers et à partir de sites, à la modification des coûts et des planifications et aux contrôleurs de domaine temporairement indisponible ou dans un état d’erreur.  
   
-Au sein d’un site, les connexions entre les contrôleurs de domaine accessibles en écriture sont toujours organisées en anneau bidirectionnel, avec des connexions de raccourcis supplémentaires pour réduire la latence dans les sites de grande taille. En revanche, la topologie intersite est une superposition d’arborescences, ce qui signifie qu’une connexion intersite existe entre deux sites quelconques pour chaque partition d’annuaire et ne contient généralement pas de connexions de raccourci. Pour plus d’informations sur la répartition des arborescences et la topologie de réplication Active Directory, consultez Active Directory référence technique de la topologie de réplication ([ https://go.microsoft.com/fwlink/?LinkID=93578](https://go.microsoft.com/fwlink/?LinkID=93578)).  
+Au sein d’un site, les connexions entre les contrôleurs de domaine accessibles en écriture sont toujours organisées en anneau bidirectionnel, avec des connexions de raccourcis supplémentaires pour réduire la latence dans les sites de grande taille. En revanche, la topologie intersite est une superposition d’arborescences, ce qui signifie qu’une connexion intersite existe entre deux sites quelconques pour chaque partition d’annuaire et ne contient généralement pas de connexions de raccourci. Pour plus d’informations sur la répartition des arborescences et la topologie de réplication Active Directory, consultez Active Directory référence technique de la topologie de réplication ([https://go.microsoft.com/fwlink/?LinkID=93578](https://go.microsoft.com/fwlink/?LinkID=93578)).  
   
 Sur chaque contrôleur de domaine, le KCC crée des itinéraires de réplication en créant des objets de connexion entrante unidirectionnels qui définissent les connexions à partir d’autres contrôleurs de domaine. Pour les contrôleurs de domaine du même site, le KCC crée automatiquement des objets de connexion sans intervention de l’administrateur. Lorsque vous avez plusieurs sites, vous configurez des liaisons de sites entre les sites, et un seul KCC dans chaque site crée automatiquement des connexions entre les sites.  
   
@@ -64,16 +64,16 @@ L’un des avantages du déploiement de RODC dans ce scénario est la réplicati
   
 Toutefois, l’un des défis administratifs mis en évidence par la topologie Hub-and-spoke sur les versions précédentes du système d’exploitation Windows Server est qu’après l’ajout d’un nouveau contrôleur de domaine tête de pont dans le Hub, il n’existe aucun mécanisme automatique pour redistribuer le connexions de réplication entre les contrôleurs de domaine de la succursale et les contrôleurs de domaine du concentrateur pour tirer parti du nouveau contrôleur de domaine Hub.  
   
-Pour les contrôleurs de domaine Windows Server 2003, vous pouvez rééquilibrer la charge de travail à l’aide d’un outil tel que adlb. exe du Guide de déploiement de la succursale Windows Server 2003 ([ https://go.microsoft.com/fwlink/?LinkID=28523](https://go.microsoft.com/fwlink/?LinkID=28523)).  
+Pour les contrôleurs de domaine Windows Server 2003, vous pouvez rééquilibrer la charge de travail à l’aide d’un outil tel que adlb. exe du Guide de déploiement de la succursale Windows Server 2003 ([https://go.microsoft.com/fwlink/?LinkID=28523](https://go.microsoft.com/fwlink/?LinkID=28523)).  
   
 Pour Windows Server 2008 RODC, le fonctionnement normal du KCC fournit un certain rééquilibrage, ce qui élimine la nécessité d’utiliser un outil supplémentaire tel que adlb. exe. La nouvelle fonctionnalité est activée par défaut. Vous pouvez la désactiver en ajoutant la clé de Registre suivante définie sur le contrôleur de domaine en lecture seule :  
   
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters**  
+**HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\NTDS\Parameters**  
   
 **« LoadBalancing BH Random allowed »**  
 **1 = activé (valeur par défaut), 0 = désactivé**  
   
-Pour plus d’informations sur le fonctionnement de ces améliorations du KCC, consultez Planification et déploiement d’Active Directory Domain Services pour les filiales ([ https://go.microsoft.com/fwlink/?LinkId=107114](https://go.microsoft.com/fwlink/?LinkId=107114)).  
+Pour plus d’informations sur le fonctionnement de ces améliorations du KCC, consultez Planification et déploiement d’Active Directory Domain Services pour les filiales ([https://go.microsoft.com/fwlink/?LinkId=107114](https://go.microsoft.com/fwlink/?LinkId=107114)).  
   
 ## <a name="BKMK_3"></a>Fonctionnalité de basculement  
 Les sites garantissent que la réplication est acheminée autour des pannes réseau et des contrôleurs de domaine hors connexion. Le KCC s’exécute à des intervalles spécifiés pour ajuster la topologie de réplication pour les modifications apportées dans AD DS, par exemple quand de nouveaux contrôleurs de domaine sont ajoutés et que de nouveaux sites sont créés. Le KCC examine l’état de réplication des connexions existantes pour déterminer si des connexions ne fonctionnent pas. Si une connexion ne fonctionne pas en raison d’un contrôleur de domaine défaillant, le KCC crée automatiquement des connexions temporaires à d’autres partenaires de réplication (si disponibles) pour s’assurer que la réplication a lieu. Si tous les contrôleurs de domaine d’un site ne sont pas disponibles, le KCC crée automatiquement des connexions de réplication entre les contrôleurs de domaine d’un autre site.  

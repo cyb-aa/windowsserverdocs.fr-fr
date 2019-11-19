@@ -59,7 +59,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
     -   Spécifiez un emplacement dédié pour stocker uniquement les fichiers de ce serveur.  
   
-7.  Cliquez sur **OK**.  
+7.  Cliquez sur **OK**.  
   
 8.  Répétez cette opération pour chaque serveur principal.  
   

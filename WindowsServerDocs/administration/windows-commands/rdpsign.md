@@ -39,15 +39,15 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 
 |Paramètre|Description|
 |-------|--------|
-|/SHA1 \<hash >|Spécifie l’empreinte, qui est le hachage Secure Hash Algorithm 1 (SHA1) du certificat de signature inclus dans le magasin de certificats. Utilisé dans Windows Server 2012 R2 et versions antérieures.|
-|/SHA256 \<hash >|Spécifie l’empreinte numérique, qui est le hachage de l’algorithme de hachage sécurisé 256 (SHA256) du certificat de signature inclus dans le magasin de certificats. Remplace/SHA1 dans Windows Server 2016 et versions ultérieures.|
+|/SHA1 \<> de hachage|Spécifie l’empreinte, qui est le hachage Secure Hash Algorithm 1 (SHA1) du certificat de signature inclus dans le magasin de certificats. Utilisé dans Windows Server 2012 R2 et versions antérieures.|
+|/SHA256 \<> de hachage|Spécifie l’empreinte numérique, qui est le hachage de l’algorithme de hachage sécurisé 256 (SHA256) du certificat de signature inclus dans le magasin de certificats. Remplace/SHA1 dans Windows Server 2016 et versions ultérieures.|
 |/q|Mode silencieux. Aucune sortie lorsque la commande réussit et une sortie minimale si la commande échoue.|
 |/v|mode détaillé. Affiche tous les avertissements, messages et États.|
 |/l|Teste les résultats de la signature et de la sortie sans remplacer les fichiers d’entrée.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
--   L’empreinte numérique du certificat SHA1 ou SHA256 doit représenter un éditeur de fichiers. RDP approuvé. Pour obtenir l’empreinte numérique du certificat, ouvrez le composant logiciel enfichable Certificats, double-cliquez sur le certificat que vous souhaitez utiliser (dans le magasin de certificats de l’ordinateur local ou dans votre magasin de certificats personnel), cliquez sur l’onglet **Détails** , puis dans laListe de champs, cliquez sur **empreinte numérique**.
+-   L’empreinte numérique du certificat SHA1 ou SHA256 doit représenter un éditeur de fichiers. RDP approuvé. Pour obtenir l’empreinte numérique du certificat, ouvrez le composant logiciel enfichable Certificats, double-cliquez sur le certificat que vous souhaitez utiliser (dans le magasin de certificats de l’ordinateur local ou dans votre magasin de certificats personnel), cliquez sur l’onglet **Détails** , puis dans la liste **champ** , cliquez sur **empreinte numérique**.
 
     > [!NOTE]
     > Lorsque vous copiez l’empreinte numérique à utiliser avec l’outil rdpsign. exe, vous devez supprimer tous les espaces.
@@ -71,6 +71,6 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
   ```
   rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
   ```
-  ## <a name="see-also"></a>Articles associés
-  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md) 
+  ## <a name="see-also"></a>Voir aussi
+  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
   [ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

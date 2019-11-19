@@ -66,7 +66,7 @@ Vous pouvez créer un serveur de Fédération à l’aide de l’Assistant Confi
   
 -   Créer le premier serveur de fédération dans une batterie de serveurs de fédération  
   
-    Pour plus d’informations sur la façon de configurer le premier serveur de fédération ou ajouter un serveur de fédération à une batterie de serveurs, consultez [créer le premier serveur de fédération dans une batterie de serveurs de fédération](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
+    Pour plus d’informations sur la façon de configurer le premier serveur de fédération ou d’ajouter un serveur de fédération à une batterie de serveurs, consultez [Create the First Federation Server in a Federation Server Farm](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
   
 -   Ajouter un serveur de fédération à une batterie de serveurs de fédération  
   

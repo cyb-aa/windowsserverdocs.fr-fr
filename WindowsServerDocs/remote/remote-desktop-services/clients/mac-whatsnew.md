@@ -11,38 +11,100 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 11/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: cc09a60882c481cea974508b0ef967aad0ed82fa
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: b44f7c14dce8a8c319f9240c24ebcd8e2d4f7202
+ms.sourcegitcommit: b60fdd2efa57ff23834a324b75de8fe245a7631f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940645"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166168"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Nouveautés du client macOS
 
 Nous mettons régulièrement à jour le [client Bureau à distance pour macOS](remote-desktop-mac.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
 
-Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aide > Signaler un problème**.
+Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aide** > **Signaler un problème**.
+
+## <a name="updates-for-version-1034"></a>Mises à jour relatives à la version 10.3.4
+
+*Date de publication : 18/11/19*
+
+Toujours à l’écoute de vos commentaires, nous avons travaillé dur et constitué un ensemble de correctifs de bogues et de mises à jour de fonctionnalités.
+
+- Quand vous vous connectez via une passerelle Bureau à distance avec l’authentification multifacteur, la connexion de la passerelle reste ouverte pour éviter plusieurs invites MFA.
+- L’interface utilisateur du client est maintenant entièrement accessible via le clavier avec prise en charge de VoiceOver.
+- Maintenant, les fichiers copiés dans le Presse-papiers de la session à distance sont transférés seulement s’ils sont collés dans l’ordinateur local.
+- Maintenant, les URL copiées dans le Presse-papiers de la session à distance sont collées correctement dans l’ordinateur local.
+- L’accès à distance aux facteurs d’échelle pour prendre en charge les affichages Retina est désormais disponible pour les scénarios multiécrans.
+- Résolution d’un problème de compatibilité avec les serveurs Bureau à distance basés sur FreeRDP qui entraînaient des problèmes de connectivité dans les scénarios de redirection.
+- Résolution d’un problème de compatibilité de redirection de carte à puce avec les futures versions de Windows 10.
+- Résolution d’un problème spécifique à macOS 10.15 où l’espace disponible incorrect était signalé pour les dossiers redirigés.
+- Les connexions de PC publiées sont représentées avec une nouvelle icône sous l’onglet Espaces de travail.
+- Les « flux » s’appellent maintenant des « espaces de travail » et les « postes de travail » des « PC ».
+- Correction d’incohérences et de bogues dans la gestion des comptes d’utilisateur dans l’interface utilisateur des préférences.
+- Nombreux correctifs de bogues pour une expérience plus fluide et plus fiable.
+
+## <a name="updates-for-version-1033"></a>Mises à jour relatives à la version 10.3.3
+
+*Date de publication : 18/11/19*
+
+Nous avons regroupé une mise à jour de fonctionnalités et des correctifs de bogues pour la version 10.3.3.
+
+Tout d’abord, nous avons ajouté des valeurs utilisateur par défaut pour désactiver la carte à puce, le Presse-papiers, le microphone, l’appareil photo et la redirection de dossiers :
+
+- ClientSettings.DisableSmartcardRedirection
+- ClientSettings.DisableClipboardRedirection
+- ClientSettings.DisableMicrophoneRedirection
+- ClientSettings.DisableCameraRedirection
+- ClientSettings.DisableFolderRedirection
+
+Ensuite, les correctifs de bogues sont les suivants :
+
+- Résolution d’un problème qui provoquait l’absence de détection des redimensionnements de la fenêtre de session programmatique.
+- Correction d’un problème où le contenu de la fenêtre de session apparaissait petit lors d’une connexion en mode fenêtre (avec l’affichage dynamique activé).
+- Correction du scintillement initial qui se produisait lors d’une connexion à une session en mode fenêtre avec l’affichage dynamique activé.
+- Correction de défauts graphiques qui se produisaient lors d’une connexion à Windows 7 après le passage à l’ajustement à la fenêtre avec l’affichage dynamique activé.
+- Correction d’un bogue qui entraînait l’envoi d’un nom d’appareil incorrect à la session à distance (avec violation de licence dans certaines applications tierces).
+- Résolution d’un problème où les fenêtres d’application distantes occupaient tout l’écran quand elles étaient agrandies.
+- Résolution d’un problème où l’interface utilisateur des autorisations d’accès apparaissait sous les fenêtres locales.
+- Nettoyage d’un code d’arrêt pour garantir une fermeture plus fiable du client.
+
+## <a name="updates-for-version-1032"></a>Mises à jour relatives à la version 10.3.2
+
+*Date de publication : 18/11/19*
+
+Dans cette version, nous avons résolu un bogue qui faisait passer l’affichage en basse résolution lors d’une connexion à une session.
+
+## <a name="updates-for-version-1031"></a>Mises à jour relatives à la version 10.3.1
+
+*Date de publication : 18/11/19*
+
+Nous avons regroupé des correctifs pour corriger des régressions qui avaient réussi à se glisser dans la version 10.3.0.
+
+- Résolution des problèmes de connectivité avec les serveurs de passerelle Bureau à distance qui utilisaient des clés asymétriques de 4 096 bits.
+- Correction d’un bogue qui entraînait le blocage aléatoire du client lors du téléchargement de ressources de flux.
+- Correction d’un bogue qui provoquait le plantage du client à l’ouverture.
+- Correction d’un bogue qui provoquait le plantage du client lors de l’importation de connexions à partir de Bureau à distance, version 8.
 
 ## <a name="updates-for-version-1030"></a>Mises à jour pour la version 10.3.0
+
 *Date de publication : 27/08/19*
 
 Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais nous avons beaucoup travaillé pendant ce temps-là. La version 10.3.0 apporte quelques nouvelles fonctionnalités et de nombreuses corrections de problèmes non visibles.
 
- - La redirection de l’appareil photo est désormais possible lors de la connexion à Windows 10 1809, et à Windows Server 2019 et ultérieur.
- - Sur Mojave et Catalina, nous avons ajouté une nouvelle boîte de dialogue qui vous demande l’autorisation d’utiliser le microphone et l’appareil photo pour la redirection de périphérique.
- - La procédure d’abonnement à des flux a été réécrite pour la rendre plus simple et plus rapide.
- - La redirection du Presse-papiers inclut désormais le format RTF (Rich Text Format).
- - Quand vous entrez votre mot de passe, vous avez la possibilité de l’afficher avec la case à cocher « Afficher le mot de passe ».
- - Résolution pour les scénarios où la fenêtre de session passait d’un écran à l’autre.
- - Le Centre de connexion affiche les icônes de l’application distante en haute résolution (quand elles sont disponibles).
- - Cmd+A est mappé à Ctrl+A quand les raccourcis du Presse-papiers Mac sont utilisés.
- - Cmd+R actualise désormais tous les flux auxquels vous vous êtes abonné.
- - Ajout de nouvelles options de clic secondaire pour développer ou réduire tous les groupes ou flux dans le Centre de connexion.
- - Ajout d’une nouvelle option de clic secondaire pour changer la taille des icônes dans l’onglet Flux du Centre de connexion.
- - Nouvelle icône d’application simplifiée et épurée.
+- La redirection de l’appareil photo est désormais possible lors de la connexion à Windows 10 1809, et à Windows Server 2019 et ultérieur.
+- Sur Mojave et Catalina, nous avons ajouté une nouvelle boîte de dialogue qui vous demande l’autorisation d’utiliser le microphone et l’appareil photo pour la redirection de périphérique.
+- La procédure d’abonnement à des flux a été réécrite pour la rendre plus simple et plus rapide.
+- La redirection du Presse-papiers inclut désormais le format RTF (Rich Text Format).
+- Quand vous entrez votre mot de passe, vous avez la possibilité de l’afficher avec la case à cocher « Afficher le mot de passe ».
+- Résolution pour les scénarios où la fenêtre de session passait d’un écran à l’autre.
+- Le Centre de connexion affiche les icônes de l’application distante en haute résolution (quand elles sont disponibles).
+- Cmd+A est mappé à Ctrl+A quand les raccourcis du Presse-papiers Mac sont utilisés.
+- Cmd+R actualise désormais tous les flux auxquels vous vous êtes abonné.
+- Ajout de nouvelles options de clic secondaire pour développer ou réduire tous les groupes ou flux dans le Centre de connexion.
+- Ajout d’une nouvelle option de clic secondaire pour changer la taille des icônes dans l’onglet Flux du Centre de connexion.
+- Nouvelle icône d’application simplifiée et claire.
 
 ## <a name="updates-for-version-10213"></a>Mises à jour pour la version 10.2.13
 

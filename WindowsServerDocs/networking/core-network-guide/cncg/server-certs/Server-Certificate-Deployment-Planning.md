@@ -17,7 +17,7 @@ ms.locfileid: "71356106"
 ---
 # <a name="server-certificate-deployment-planning"></a>Planification du déploiement de certificats de serveur
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Avant de déployer des certificats de serveur, vous devez planifier les éléments suivants :  
   
