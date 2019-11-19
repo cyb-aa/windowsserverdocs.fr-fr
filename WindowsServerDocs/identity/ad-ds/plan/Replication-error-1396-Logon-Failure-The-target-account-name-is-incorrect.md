@@ -18,32 +18,30 @@ ms.locfileid: "71402486"
 ---
 # <a name="replication-error-1396-logon-failure-the-target-account-name-is-incorrect"></a>Erreur de réplication1396 Échec d’ouverture de session: le nom du compte cible est incorrect
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 <developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd"> <introduction>
-    <para>Cet article décrit les symptômes, la cause et la résolution de l’échec de la réplication Active Directory avec l’erreur Win32 1396 : &quot;échec de l’ouverture de session : le nom du compte cible est incorrect.&quot; </para>
+    <para>Cet article décrit les symptômes, la cause et la résolution de l’échec de la réplication Active Directory avec l’erreur Win32 1396 : &quot;Échec d'ouverture de session : Le nom du compte cible est incorrect. &quot; </para>
     <list class="bullet"> <listItem>
         <para>
           <link xlink:href="d3a01966-74c9-4c49-ba11-354b9acf7519#BKMK_Symptoms">Symptômes</link>
-        </para>
+ @ no__t-2</para>
       </listItem> <listItem>
         <para>
           <link xlink:href="d3a01966-74c9-4c49-ba11-354b9acf7519#BKMK_Causes">Provoque</link>
-        </para>
+ @ no__t-2</para>
       </listItem> <listItem>
         <para>
           <link xlink:href="d3a01966-74c9-4c49-ba11-354b9acf7519#BKMK_Resolutions">Résolutions</link>
-        </para>
+ @ no__t-2</para>
       </listItem>
     </list>
   </introduction>
   <section address="BKMK_Symptoms">
-    <title>Symptômes</title>
-    <content>
-      <para />
+    <title>Symptoms @ no__t-1 @ no__t-2 @ no__t-3<para />
       <list class="ordered">
-<listItem><para>DCDIAG signale que le test Active Directory les réplications a échoué avec l’erreur 1396 : échec d’ouverture de session : le nom du compte cible est incorrect.&quot;</para><code>Testing server: &lt;Site name&gt;&lt;DC Name&gt;
+<listItem><para>DCDIAG signale que le test de réplication Active Directory a échoué avec l’erreur 1396 : Échec de l’ouverture de session : Le nom du compte cible est incorrect. &quot;</para><code>Testing server: &lt;Site name&gt;&lt;DC Name&gt;
 Starting test: Replications
 [Replications Check,&lt;DC Name&gt;] A recent replication attempt failed:
 From &lt;source DC&gt; to &lt;destination DC&gt;
@@ -52,7 +50,7 @@ Naming Context: CN=&lt;DN path of naming context&gt;
 Logon Failure: The target account name is incorrect.</codeFeaturedElement>
 The failure occurred at &lt;date&gt; &lt;time&gt;.
 The last success occurred at &lt;date&gt; &lt;time&gt;.
-XX failures have occurred since the last success</code></listItem><listItem><para>REPADMIN. EXE signale que la dernière tentative de réplication a échoué avec l’État 1396.</para><para>Les commandes REPADMIN qui citent communément l’État 1396 incluent, sans s’y limiter :</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN/ADD</para></listItem><listItem><para>REPADMIN/REPLSUM.</para></listItem><listItem><para>REPADMIN/REHOST</para></listItem><listItem><para>REPADMIN/SHOWVECTOR/LATENCY</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN/SHOWREPS</para></listItem><listItem><para>REPADMIN/SHOWREPL</para></listItem><listItem><para>REPADMIN/SYNCALL</para></listItem></list></TD></tr></tbody></table><para>L’exemple de sortie de &quot;REPADMIN/SHOWREPS&quot; illustrant la réplication entrante de CONTOSO-DC2 vers CONTOSO-DC1 échoue avec la &quot;échec de l’ouverture de session : le nom du compte cible est incorrect.&quot; erreur est indiquée ci-dessous :</para><code>Default-First-Site-NameCONTOSO-DC1
+XX failures have occurred since the last success</code></listItem><listItem><para>REPADMIN. EXE signale que la dernière tentative de réplication a échoué avec l’État 1396.</para><para>Les commandes REPADMIN qui citent communément l’État 1396 incluent, sans s’y limiter :</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN/ADD</para></listItem><listItem><para>REPADMIN/REPLSUM.</para></listItem><listItem><para>REPADMIN/REHOST</para></listItem><listItem><para>REPADMIN/SHOWVECTOR/LATENCY</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN/SHOWREPS</para></listItem><listItem><para>REPADMIN/SHOWREPL</para></listItem><listItem><para>REPADMIN/SYNCALL</para></listItem></list></TD></tr></tbody></table><para>L’exemple de sortie de &quot;REPADMIN/SHOWREPS @ no__t-1, qui décrit la réplication entrante de CONTOSO-DC2 vers CONTOSO-DC1, échoue avec l’échec de la @no__t 2Logon : Le nom du compte cible est incorrect. l’erreur &quot; est indiquée ci-dessous :</para><code>Default-First-Site-NameCONTOSO-DC1
 DSA Options: IS_GC 
 Site Options: (none)
 DSA object GUID: b6dc8589-7e00-4a5d-b688-045aef63ec01
@@ -65,8 +63,8 @@ Last attempt @ &lt;date&gt; &lt;time&gt; failed, <codeFeaturedElement>result 139
 Logon Failure: The target account name is incorrect.</codeFeaturedElement>
 &lt;#&gt; consecutive failure(s).
 Last success @ &lt;date&gt; &lt;time&gt;.
-</code></listItem><listItem><para>La commande <ui>répliquer maintenant</ui> dans Active Directory sites et Services retourne &quot;échec de l’ouverture de session : le nom du compte cible est incorrect.&quot;</para><para>Le fait de cliquer avec le bouton droit sur l’objet de connexion à partir d’un contrôleur de source et de choisir <ui>répliquer maintenant</ui> échoue avec &quot;échec d’ouverture de session : le nom du compte cible est incorrect.&quot; le message d’erreur à l’écran est illustré ci-dessous :</para><para>Texte du titre de la boîte de dialogue :</para><para>Répliquer maintenant</para><para>Texte du message de la boîte de dialogue : </para><para>L’erreur suivante s’est produite lors de la tentative de synchronisation du contexte d’appellation &lt;chemin d’accès DNS de la partition&gt; du contrôleur de domaine &lt;contrôleur de domaine source&gt; au contrôleur de domaine &lt;contrôleur de domaine de destination&gt;: échec d’ouverture de session : le nom du compte cible est incorrect. Cette opération ne se poursuivra pas. </para></listItem><listItem><para>Les événements KCC NTDS, NTDS général ou Microsoft-Windows-ActiveDirectory_DomainService avec l’État 1396 sont consignés dans le journal des services d’annuaire dans observateur d’événements.</para><para>Active Directory événements qui citent communément l’État 1396 incluent, mais ne sont pas limités à :</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>ID d’événement</para></TD><TD><para>Source de l'événement</para></TD><TD><para>Chaîne d’événement</para></TD></tr></thead><tbody><tr><TD><para>1125</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Le Assistant Installation Active Directory Domain Services (dcpromo) n’a pas pu établir la connexion avec le contrôleur de domaine suivant.</para></TD></tr><tr><TD><para>1645</para><para>Cet événement répertorie le nom de principal du service en trois parties.</para></TD><TD><para>Réplication NTDS</para></TD><TD><para>Active Directory n'a pas effectué un appel de procédure distante vers un autre contrôleur de domaine car le nom principal de service désiré pour le contrôleur de domaine cible n'est pas inscrit sur le contrôleur de domaine Centre de distribution de clés qui résout les noms principaux de service.</para></TD></tr><tr><TD><para>1655</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Active Directory Domain Services a tenté de communiquer avec le catalogue global suivant et les tentatives ont échoué.</para></TD></tr><tr><TD><para>2847</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Le vérificateur de cohérence des connaissances a trouvé une connexion de réplication pour le service d’annuaire en lecture seule local et a tenté de le mettre à jour à distance sur l’instance de service d’annuaire suivante. L’opération a échoué. Une nouvelle tentative sera effectuée.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Échec de la tentative d’établissement d’un lien de réplication pour la partition d’annuaire accessible en écriture suivante.</para></TD></tr><tr><TD><para>1926</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Échec de la tentative d’établissement d’un lien de réplication vers une partition d’annuaire en lecture seule avec les paramètres suivants.</para></TD></tr><tr><TD><para>5781</para></TD><TD><para>NETLOGON</para></TD><TD><para> Le serveur ne peut pas enregistrer son nom dans DNS.</para></TD></tr></tbody></table></listItem><listItem><para>DCPROMO échoue avec une erreur à l’écran</para><para>Texte du titre de la boîte de dialogue :</para><para>Échec de l’installation de Active Directory</para><para>Texte du message de la boîte de dialogue :</para><para>L’opération a échoué car : le service d’annuaire n’a pas pu créer l’objet serveur pour CN = NTDS Settings, CN = ServerBeingPromoted, CN = Servers, CN = site, CN = sites, CN = Configuration, DC = contoso, DC = com sur le serveur ReplicationSourceDC.contoso.com. </para><para>Vérifiez que les informations d’identification réseau fournies disposent des droits d’accès suffisants pour ajouter un réplica. </para><para>
-Échec de l’ouverture de session &quot;: le nom du compte cible est incorrect. &quot;</para><para>Dans ce cas, les ID d’événement 1645, 1168 et 1125 sont consignés sur le serveur en cours de promotion.</para></listItem><listItem><para>Mapper un lecteur à l’aide de <embeddedLabel>net use</embeddedLabel>:</para><code>C:&gt;net use z: &lt;server_name&gt;c$
+</code></listItem><listItem><para>La commande <ui>Replica Now</ui> dans Active Directory sites et services retourne une erreur &quot;Logon : Le nom du compte cible est incorrect. &quot;</para><para>Le fait de cliquer avec le bouton droit sur l’objet de connexion à partir d’un contrôleur de source et de choisir <ui>réplication échoue maintenant</ui> en cas d’échec de @no__t 1Logon : Le nom du compte cible est incorrect. &quot; Le message d’erreur à l’écran est illustré ci-dessous :</para><para>Texte du titre de la boîte de dialogue :</para><para>Répliquer maintenant</para><para>Texte du message de la boîte de dialogue : </para><para>L’erreur suivante s’est produite lors de la tentative de synchronisation du contexte d’appellation @no__t 0partition-no__t-1 à partir du contrôleur de domaine &lt;Source DC @ no__t-3 au contrôleur de domaine &lt;destination DC @ no__t-5 : Échec de l’ouverture de session : Le nom du compte cible est incorrect. Cette opération ne se poursuivra pas. </para></listItem><listItem><para>Les événements KCC NTDS, NTDS général ou Microsoft-Windows-ActiveDirectory_DomainService avec l’État 1396 sont consignés dans le journal des services d’annuaire dans observateur d’événements.</para><para>Active Directory événements qui citent communément l’État 1396 incluent, mais ne sont pas limités à :</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>ID d’événement</para></TD><TD><para>Source de l'événement</para></TD><TD><para>Chaîne d’événement</para></TD></tr></thead><tbody><tr><TD><para>1125</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Le Assistant Installation Active Directory Domain Services (dcpromo) n’a pas pu établir la connexion avec le contrôleur de domaine suivant.</para></TD></tr><tr><TD><para>1645</para><para>Cet événement répertorie le nom de principal du service en trois parties.</para></TD><TD><para>Réplication NTDS</para></TD><TD><para>Active Directory n'a pas effectué un appel de procédure distante vers un autre contrôleur de domaine car le nom principal de service désiré pour le contrôleur de domaine cible n'est pas inscrit sur le contrôleur de domaine Centre de distribution de clés qui résout les noms principaux de service.</para></TD></tr><tr><TD><para>1655</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Active Directory Domain Services a tenté de communiquer avec le catalogue global suivant et les tentatives ont échoué.</para></TD></tr><tr><TD><para>2847</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Le vérificateur de cohérence des connaissances a trouvé une connexion de réplication pour le service d’annuaire en lecture seule local et a tenté de le mettre à jour à distance sur l’instance de service d’annuaire suivante. L’opération a échoué. Une nouvelle tentative sera effectuée.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Échec de la tentative d’établissement d’un lien de réplication pour la partition d’annuaire accessible en écriture suivante.</para></TD></tr><tr><TD><para>1926</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Échec de la tentative d’établissement d’un lien de réplication vers une partition d’annuaire en lecture seule avec les paramètres suivants.</para></TD></tr><tr><TD><para>5781</para></TD><TD><para>NETLOGON</para></TD><TD><para> Le serveur ne peut pas enregistrer son nom dans DNS.</para></TD></tr></tbody></table></listItem><listItem><para>DCPROMO échoue avec une erreur à l’écran</para><para>Texte du titre de la boîte de dialogue :</para><para>Échec de l’installation de Active Directory</para><para>Texte du message de la boîte de dialogue :</para><para>Échec de l'opération. Le service d’annuaire n’a pas pu créer l’objet serveur pour CN = NTDS Settings, CN = ServerBeingPromoted, CN = Servers, CN = site, CN = sites, CN = Configuration, DC = contoso, DC = com sur le serveur ReplicationSourceDC.contoso.com. </para><para>Vérifiez que les informations d’identification réseau fournies disposent des droits d’accès suffisants pour ajouter un réplica. </para><para>
+Échec de la @no__t 0Logon : Le nom du compte cible est incorrect. [https://doi.org/10.13012/J8PN93H8](&quot;)</para><para>Dans ce cas, les ID d’événement 1645, 1168 et 1125 sont consignés sur le serveur en cours de promotion.</para></listItem><listItem><para>Mapper un lecteur à l’aide de <embeddedLabel>net use</embeddedLabel>:</para><code>C:&gt;net use z: &lt;server_name&gt;c$
 System error 1396 has occurred.
 Logon Failure: The target account name is incorrect.</code><para>Dans ce cas, le serveur peut également enregistrer l’ID d’événement 333 dans le journal des événements système et utiliser une grande quantité de mémoire virtuelle pour une application telle que SQL Server.</para></listItem><listItem><para>L’heure du contrôleur de l’heure est incorrecte.</para></listItem><listItem><para>Le KDC ne démarre pas sur un RODC après une restauration du compte krbtgt pour le RODC, qui avait été supprimé. Par exemple, après une restauration, l’erreur 1396 s’affiche. </para><para>
 L’ID d’événement 1645 est enregistré dans le RODC. </para><para>
@@ -75,9 +73,7 @@ Dcdiag signale également une erreur indiquant qu’il ne peut pas mettre à jou
     </content>
   </section>
   <section address="BKMK_Causes">
-    <title>Provoque</title>
-    <content>
-      <para />
+    <title>Causes @ no__t-1 @ no__t-2 @ no__t-3<para />
       <list class="ordered">
         <listItem>
           <para>Le nom principal de service n’existe pas dans le catalogue global recherché par le KDC pour le compte du client qui tente de s’authentifier à l’aide de Kerberos.</para>
@@ -97,13 +93,9 @@ Dcdiag signale également une erreur indiquant qu’il ne peut pas mettre à jou
     </content>
   </section>
   <section address="BKMK_Resolutions">
-    <title>Résolutions</title>
-    <content>
-      <list class="ordered">
-        <listItem>
-          <para>Vérifiez le journal des événements du service d’annuaire sur le contrôleur de destination pour l’événement de réplication NTDS 1645 et notez les points suivants :</para>
+    <title>Resolutions @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<para>Vérifiez le journal des événements du service d’annuaire sur le contrôleur de destination pour l’événement de réplication NTDS 1645 et notez les points suivants :</para>
           <para>Nom du contrôleur de l’emplacement de destination</para>
-          <para>Nom de principal du service (SPN) recherché (E3514235-4B06-11D1-AB04-00C04FC2DCD2/&lt;le GUID de l’objet pour les paramètres NTDS du contrôleur de domaine source&gt;/&lt;domaine cible&amp;amp ; gt ;.&amp;amp ; lt ; TLD&amp;amp ; gt ; @&lt;domaine cible&gt;.&lt;TLD&gt;</para>
+          <para>Nom de principal du service (SPN) recherché (E3514235-4B06-11D1-AB04-00C04FC2DCD2/&lt;object GUID pour l’objet des paramètres NTDS du contrôleur de domaine source @ no__t-1 @ no__t-2 @ no__t-3target domaine @ no__t-4amp ; gt ;. &amp;Amp ; lt ; TLD @ no__t-6Amp ; gt ; @ &lt;target domaine @ no__t-8. &lt;tld @ no__t-10</para>
           <para>KDC utilisé par le contrôleur de domaine de destination</para>
         </listItem>
         <listItem>
@@ -129,12 +121,9 @@ Dcdiag signale également une erreur indiquant qu’il ne peut pas mettre à jou
       </list>
     </content>
   </section>
-  <relatedTopics>
-    <externalLink> 
-      <linkText>Dépannage des opérations de Active Directory qui échouent avec l’erreur 1396 : échec d’ouverture de session : le nom du compte cible est incorrect.</linkText> 
-      <linkUri><a href="https://support.microsoft.com/kb/2183411/en-gb" data-raw-source="https://support.microsoft.com/kb/2183411/en-gb">https://support.microsoft.com/kb/2183411/en-gb</a></linkUri> 
+  <relatedTopics> @ no__t-1 @ no__t-2Troubleshooting Active Directory opérations qui échouent avec l’erreur 1396 : Échec de l’ouverture de session : Le nom du compte cible est incorrect. </linkText>
+      <linkUri><a href="https://support.microsoft.com/kb/2183411/en-gb" data-raw-source="https://support.microsoft.com/kb/2183411/en-gb">https://support.microsoft.com/kb/2183411/en-gb</a></linkUri>
     </externalLink>
-  </relatedTopics>
-</developerConceptualDocument>
+  </relatedTopics> @ no__t-6
 
 

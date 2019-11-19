@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 10/31/2019
+ms.date: 11/12/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: aff7e6e1f37cad66530679ade024c089a4ba034e
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: 2f786a1db0854ae89c1ceb23942793deb7f608e1
+ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567166"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74019600"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Bien démarrer avec le client Windows Desktop
 
@@ -36,8 +36,8 @@ Vous pouvez utiliser le client Bureau à distance pour Windows Desktop afin d’
 Choisissez le client qui correspond à votre version de Windows :
 
 - [Windows 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
-- [Windows 32 bits Preview](https://go.microsoft.com/fwlink/?linkid=2098960)
-- [Windows ARM64 Preview](https://go.microsoft.com/fwlink/?linkid=2098961)
+- [Windows 32 bits](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 Vous pouvez installer le client pour l’utilisateur actuel, ce qui ne nécessite pas de droits d’administrateur, ou votre administrateur peut installer et configurer le client afin que tous les utilisateurs de l’appareil puissent y accéder.
 

@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 54352f47a31826b91b5696eb90104ca166a4299d
-ms.sourcegitcommit: 18f6b104e73e0397009283d55bee7984ac7ef0d1
+ms.openlocfilehash: 1711eb94b622775feaf02f6bada596fe03b08ea9
+ms.sourcegitcommit: b8e120fc574450e9eee13e7315424137a43e6a6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73632651"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74044805"
 ---
 # <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Conseils sur la désactivation des services système sous Windows Server 2016 avec Expérience utilisateur
 
@@ -68,7 +68,7 @@ Pour tous les services système répertoriés dans ce document, les deux tableau
 |---|---|
 |**Description du service**|   Description du service, à partir de sc.exe qdescription.|
 |**Nom** |Nom de la clé (interne) du service|
-|**Installation** |Toujours installé : Le service se trouve sur Server Core et Serveur avec Expérience utilisateur. Avec Expérience utilisateur uniquement : Le service se trouve sur Windows Server 2016 avec Expérience utilisateur, mais ***pas*** sur Server Core |
+|**Installation** | *Toujours installé* : Le service est installé sur Windows Server 2016 Core et Windows Server 2016 avec Expérience utilisateur. *Avec Expérience utilisateur uniquement* : Le service est installé sur Windows Server 2016 avec Expérience utilisateur, mais ***pas*** sur Server Core. |
 |**Type de démarrage**  |Type de démarrage du service sur Windows Server 2016|
 |**Recommandation** |Recommandation/Conseil de Microsoft concernant la désactivation de ce service sous Windows Server 2016 dans un déploiement d'entreprise classique bien géré et lorsque le serveur n'est pas utilisé en tant que remplacement de bureau de l'utilisateur final.|
 |**Commentaires** |Explication supplémentaire|

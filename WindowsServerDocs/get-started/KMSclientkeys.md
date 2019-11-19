@@ -7,14 +7,14 @@ ms.sitesec: library
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.date: 05/21/2019
+ms.date: 11/12/2019
 ms.topic: get-started-article
-ms.openlocfilehash: e981343e0a811ada6a1634b193d6e1af3531f9ae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e2879c56b1dd41b8d357959cca473dd69da77d10
+ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391767"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73956080"
 ---
 # <a name="kms-client-setup-keys"></a>Clés d’installation du client KMS
 
@@ -45,26 +45,12 @@ Si vous convertissez un ordinateur depuis un hôte KMS, une clé d’activation 
 
 ## <a name="windows-server-semi-annual-channel-versions"></a>Versions du canal semi-annuel de Windows Server
 
-### <a name="windows-server-version-1903-and-windows-server-version-1809"></a>Windows Server, version 1903 et Windows Server, version 1809
+### <a name="windows-server-version-1909-version-1903-and-version-1809"></a>Windows Server, version 1909, version 1903 et version 1809
 
 | Édition du système d’exploitation  | Clé d’installation du client KMS          |
 |---------------------------|-------------------------------|
 | Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D |
 | Windows Server Standard   | N2KJX-J94YW-TQVFB-DG9YT-724CC |
-
-### <a name="windows-server-version-1803"></a>Windows Server, version 1803
-
-| Édition du système d’exploitation       | Clé d’installation du client KMS          |
-|--------------------------------|-------------------------------|
-| Windows Server Datacenter | 2HXDN-KRXHB-GPYC7-YCKFJ-7FVDG  | 
-| Windows Server Standard   | PTXN8-JFHJM-4WC78-MPCBR-9W4KR  |
-
-### <a name="windows-server-version-1709"></a>Windows Server version 1709
-
-| Édition du système d’exploitation       | Clé d’installation du client KMS          |
-|--------------------------------|-------------------------------|
-| Windows Server Datacenter | 6Y6KB-N82V8-D8CQV-23MJW-BWTG6  | 
-| Windows Server Standard   | DPCNP-XQFKJ-BJF7R-FRC8D-GF6G4  |
 
 ## <a name="windows-server-ltscltsb-versions"></a>Versions de Windows Server LTSC/LTSB
 
@@ -126,6 +112,21 @@ Consultez la [fiche d’information du cycle de vie Windows](https://support.mic
 | Windows 10 Enterprise 2015 LTSB N | 2F77B-TNFGY-69QQF-B8YKP-D69TJ |
 
 ## <a name="earlier-versions-of-windows-server"></a>Versions antérieures de Windows Server
+
+### <a name="windows-server-version-1803"></a>Windows Server, version 1803
+
+| Édition du système d’exploitation       | Clé d’installation du client KMS          |
+|--------------------------------|-------------------------------|
+| Windows Server Datacenter | 2HXDN-KRXHB-GPYC7-YCKFJ-7FVDG  | 
+| Windows Server Standard   | PTXN8-JFHJM-4WC78-MPCBR-9W4KR  |
+
+### <a name="windows-server-version-1709"></a>Windows Server version 1709
+
+| Édition du système d’exploitation       | Clé d’installation du client KMS          |
+|--------------------------------|-------------------------------|
+| Windows Server Datacenter | 6Y6KB-N82V8-D8CQV-23MJW-BWTG6  | 
+| Windows Server Standard   | DPCNP-XQFKJ-BJF7R-FRC8D-GF6G4  |
+
 ### <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
 
 | Édition du système d’exploitation               | Clé d’installation du client KMS          |

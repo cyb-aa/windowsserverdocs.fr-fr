@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 10/31/2019
+ms.date: 11/12/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a8e66398bc61a69250b84101a3cb66f2c8f3548
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: db9c2b64e018b41b053974b5459bd320098a6d2d
+ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567072"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74019596"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -30,14 +30,14 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 
 |Groupe d'utilisateurs |Version  |
 |-----------|---------|
-|Public     |1.2.247  |
-|Insider    |1.2.428  |
+|Public     |1.2.431  |
+|Insider    |1.2.431  |
 
-## <a name="updates-for-version-12428"></a>Mises à jour pour la version 1.2.428
+## <a name="updates-for-version-12431"></a>Mises à jour relatives à la version 1.2.431
 
-*Date de publication : 31/10/2019*
+*Date de publication : 12/11/2019*
 
-- Une préversion des versions 32 bits et ARM64 du client est maintenant disponible !
+- Les versions 32 bits et ARM64 du client sont disponibles !
 - Le client enregistre désormais les changements que vous apportez à la barre de connexion (par exemple, sa position, sa taille et son état épinglé) et les applique aux différentes sessions.
 - Mise à jour des informations de passerelle et des boîtes de dialogue d’état de connexion.
 - Résolution d’un problème qui entraînait l’invite de deux jeux d’informations d’identification en même temps lors de la tentative de connexion après l’expiration du jeton Azure Active Directory.
