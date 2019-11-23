@@ -22,7 +22,7 @@ ms.locfileid: "71392320"
 ---
 # <a name="tsprof"></a>tsprof
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Copie les informations de configuration d’utilisateur Services Bureau à distance d’un utilisateur vers un autre.
 Les informations de configuration de l’utilisateur Services Bureau à distance s’affichent dans la Services Bureau à distance extensions pour utilisateurs et groupes locaux et utilisateurs et ordinateurs Active Directory.
@@ -45,13 +45,13 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
 |Paramètre|Description|
 |-------|--------|
 |/Update|Met à jour les informations de chemin de profil pour <*nom d’utilisateur*> dans le domaine <*nom_domaine*> à <*profilePath*>.|
-|/Domain : \<DomainName >|Spécifie le nom du domaine dans lequel l’opération est appliquée.|
+|/Domain :\<DomainName >|Spécifie le nom du domaine dans lequel l’opération est appliquée.|
 |/local|Applique l’opération uniquement aux comptes d’utilisateurs locaux.|
-|/Profile : \<path >|Spécifie le chemin d’accès au profil tel qu’il s’affiche dans les Services Bureau à distance extensions dans utilisateurs et groupes locaux et utilisateurs et ordinateurs Active Directory.|
-|@no__t 0UserName >|Spécifie le nom de l’utilisateur pour lequel vous souhaitez mettre à jour ou interroger le chemin d’accès du profil de serveur.|
-|/Copy|Copie les informations de configuration de l’utilisateur de \<*SourceUser*> vers \<*DestinationUser*> et met à jour les informations de chemin d’accès du profil pour \<*DestinationUser*> à \<*profilePath*>. Les \<*SourceUser*> et \<*DestinationUser*> doivent être locaux ou se trouver dans le domaine \<*nom_domaine*>.|
-|@no__t 0Src_usr >|Spécifie le nom de l’utilisateur à partir duquel vous souhaitez copier les informations de configuration de l’utilisateur.|
-|@no__t 0Dest_usr >|Spécifie le nom de l’utilisateur pour lequel vous souhaitez copier les informations de configuration de l’utilisateur.|
+|/Profile :\<chemin d’accès >|Spécifie le chemin d’accès au profil tel qu’il s’affiche dans les Services Bureau à distance extensions dans utilisateurs et groupes locaux et utilisateurs et ordinateurs Active Directory.|
+|Nom d’utilisateur \<>|Spécifie le nom de l’utilisateur pour lequel vous souhaitez mettre à jour ou interroger le chemin d’accès du profil de serveur.|
+|/Copy|Copie les informations de configuration de l’utilisateur de \<*SourceUser*> vers \<*DestinationUser*> et met à jour les informations de chemin d’accès du profil pour \<*DestinationUser*> sur \<*profilePath*>. Les \<*SourceUser*> et \<*DestinationUser*> doivent être locaux ou se trouver dans le domaine \<*nom_domaine*>.|
+|\<Src_usr >|Spécifie le nom de l’utilisateur à partir duquel vous souhaitez copier les informations de configuration de l’utilisateur.|
+|\<Dest_usr >|Spécifie le nom de l’utilisateur pour lequel vous souhaitez copier les informations de configuration de l’utilisateur.|
 |/q|Affiche le chemin d’accès du profil actuel de l’utilisateur pour lequel vous souhaitez interroger le chemin d’accès du profil de serveur.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
@@ -70,4 +70,4 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
 
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[ &#40;services Bureau à distance&#41; référence des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+[ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

@@ -46,17 +46,17 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 |/p|Désactive l’ordinateur local uniquement (pas un ordinateur distant), sans délai d’attente ni avertissement. Vous pouvez utiliser **/p** uniquement avec **/d** ou **/f**. Si votre ordinateur ne prend pas en charge la fonctionnalité de mise hors tension, il s’arrête lorsque vous utilisez **/p**, mais la puissance de l’ordinateur reste active.|
 |/h|Met l’ordinateur local en veille prolongée, si la mise en veille prolongée est activée. Vous pouvez utiliser **/h** uniquement avec **/f**.|
 |/e|Vous permet de documenter la raison de l’arrêt inattendu sur l’ordinateur cible.|
-|/f|Force la fermeture des applications en cours d’exécution sans prévenir les utilisateurs.</br>Avertissement : L’utilisation de l’option **/f** peut entraîner la perte de données non enregistrées.|
-|/m \\ @ no__t-1 @ no__t-2ComputerName >|Spécifie l’ordinateur cible. Ne peut pas être utilisé avec l’option **/l** .|
+|/f|Force la fermeture des applications en cours d’exécution sans prévenir les utilisateurs.</br>ATTENTION : l’utilisation de l’option **/f** peut entraîner la perte de données non enregistrées.|
+|/m \\\\\<ComputerName >|Spécifie l’ordinateur cible. Ne peut pas être utilisé avec l’option **/l** .|
 |/t \<XXX >|Définit le délai d’attente ou le délai sur *xxx* secondes avant un redémarrage ou un arrêt. Cela provoque l’affichage d’un avertissement sur la console locale. Vous pouvez spécifier 0-600 secondes. Si vous n’utilisez pas **/t**, le délai d’attente est de 30 secondes par défaut.|
-|/d [p @ no__t-0U :] \<XX >: \<YY >|Indique la raison du redémarrage ou de l’arrêt du système. Les valeurs de paramètre sont les suivantes :</br>**p** indique que le redémarrage ou l’arrêt est planifié.</br>**u** indique que la raison est définie par l’utilisateur.</br>Remarque : Si **p** ou **u** ne sont pas spécifiés, le redémarrage ou l’arrêt n’est pas planifié.</br>*XX* spécifie le numéro de raison principale (entier positif inférieur à 256).</br>*YY* Spécifie le numéro de raison secondaire (entier positif inférieur à 65536).|
-|/c « \<Comment > »|Vous permet de commenter en détail la raison de l’arrêt. Vous devez d’abord fournir une raison à l’aide de l’option **/d** . Vous devez placer les commentaires entre guillemets. Vous disposez de 511 caractères au maximum.|
+|/d [p\|u :]\<XX >:\<YY >|Indique la raison du redémarrage ou de l’arrêt du système. Les valeurs de paramètre sont les suivantes :</br>**p** indique que le redémarrage ou l’arrêt est planifié.</br>**u** indique que la raison est définie par l’utilisateur.</br>Remarque : si **p** ou **u** ne sont pas spécifiés, le redémarrage ou l’arrêt n’est pas planifié.</br>*XX* spécifie le numéro de raison principale (entier positif inférieur à 256).</br>*YY* Spécifie le numéro de raison secondaire (entier positif inférieur à 65536).|
+|/c «\<le commentaire > »|Vous permet de commenter en détail la raison de l’arrêt. Vous devez d’abord fournir une raison à l’aide de l’option **/d** . Vous devez placer les commentaires entre guillemets. Vous disposez de 511 caractères au maximum.|
 |/?|Affiche l’aide à l’invite de commandes, y compris une liste des raisons majeures et mineures définies sur votre ordinateur local.|
 
 ## <a name="remarks"></a>Notes
 
 -   Le droit d’utilisateur **arrêter le système** doit être affecté aux utilisateurs pour arrêter un ordinateur local ou administré à distance qui utilise la commande **Shutdown** .
--   Les utilisateurs doivent être membres du groupe administrateurs pour annoter un arrêt inattendu d’un ordinateur local ou administré à distance. Si l’ordinateur cible est joint à un domaine, les membres du groupe Admins du domaine peuvent être en mesure d’effectuer cette procédure. Pour plus d'informations, voir :  
+-   Les utilisateurs doivent être membres du groupe administrateurs pour annoter un arrêt inattendu d’un ordinateur local ou administré à distance. Si l’ordinateur cible est joint à un domaine, les membres du groupe Admins du domaine peuvent être en mesure d’effectuer cette procédure. Pour plus d’informations, consultez :  
     -   [Groupes locaux par défaut](https://technet.microsoft.com/library/cc785098(v=ws.10).aspx)
     -   [Groupes par défaut](https://technet.microsoft.com/library/cc756898(v=ws.10).aspx)
 -   Si vous souhaitez arrêter plusieurs ordinateurs à la fois, vous pouvez appeler **Shutdown** pour chaque ordinateur à l’aide d’un script, ou vous pouvez utiliser **Shutdown** **/i** pour afficher la boîte de dialogue arrêt à distance.
@@ -65,11 +65,11 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 
 ## <a name="BKMK_examples"></a>Illustre
 
-Pour forcer les applications à fermer et redémarrer l’ordinateur local après un délai d’une minute avec la raison «application : Maintenance (planifiée)» et le commentaire « reconfiguration de MyApp. exe » :
+Pour forcer les applications à fermer et redémarrer l’ordinateur local après un délai d’une minute avec la raison « application : maintenance (planifiée) » et le commentaire « reconfiguration de MyApp. exe », tapez :
 ```
 shutdown /r /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
 ```
-Pour redémarrer l’ordinateur distant \\ @ no__t-1ServerName avec les mêmes paramètres, tapez :
+Pour redémarrer l’ordinateur distant \\\\ServerName avec les mêmes paramètres, tapez :
 ```
 shutdown /r /m \\servername /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
 ```

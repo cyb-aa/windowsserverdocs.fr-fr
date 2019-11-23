@@ -18,7 +18,7 @@ ms.locfileid: "71355477"
 ---
 # <a name="physical-switch-configuration-for-converged-nic"></a>Configuration du commutateur physique pour la carte réseau convergée
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, nous vous fournissons des instructions pour la configuration de vos commutateurs physiques. 
 
@@ -28,13 +28,13 @@ Il s’agit uniquement de commandes et de leurs utilisations ; vous devez déte
 >[!IMPORTANT]
 >Assurez-vous que la stratégie de réseau local virtuel et de non-déplacement est définie pour la priorité sur laquelle SMB est configuré.
 
-## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Commutateur Arista \(dcs @ no__t-17050s @ no__t-264, EOS @ no__t-34.13.7 M @ no__t-4
+## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Commutateur Arista \(DC\-7050s\-64, EOS\-4.13.7 M\)
 
-1.  en \(Go en mode administrateur, demande généralement un mot de passe @ no__t-1
-2.  @no__t de configuration-0to entrée en mode de configuration @ no__t-1
-3.  afficher la configuration d’exécution actuelle \(shows-no__t-1
+1.  en \(accéder au mode administrateur, demande généralement un mot de passe\)
+2.  configuration \(pour passer en mode de configuration\)
+3.  afficher l' \(d’exécution affiche la configuration en cours d’exécution\)
 4.  Identifiez les ports de commutateur auxquels vos cartes réseau sont connectées. Dans cet exemple, il s’agit de 14/1, 15/1, 16/1, 17/1.
-5.  int ETH 14/1, 15/1, 16/1, 17/1 \(enter en mode de configuration pour ces ports @ no__t-1
+5.  int ETH 14/1, 15/1, 16/1, 17/1 \(entrent en mode de configuration pour ces ports\)
 6.  IEEE en mode dcbx
 7.  priorité : mode de contrôle de flow sur
 8.  VLAN natif switchport trunk 225
@@ -42,19 +42,19 @@ Il s’agit uniquement de commandes et de leurs utilisations ; vous devez déte
 10. Trunk en mode switchport
 11. priorité de priorité-Flow-Control Priority 3 non-Drop
 12. Co-approbation QoS
-13. afficher le @no__t d’exécution-0verify cette configuration est correctement configurée sur les ports @ no__t-1
-14. WR \(to rendre les paramètres persistants au redémarrage du commutateur @ no__t-1
+13. afficher l’exécution \(vérifier que la configuration est correctement configurée sur les ports\)
+14. WR \(pour que les paramètres persistent au redémarrage du commutateur\)
 
 ### <a name="tips"></a>Conseil
 1.  No #command # nie une commande
-2.  Ajout d’un nouveau réseau local virtuel : int VLAN 100 \(If Storage Network se trouve sur VLAN 100 @ no__t-1
+2.  Ajout d’un nouveau réseau local virtuel : int VLAN 100 \(si le réseau de stockage se trouve sur VLAN 100\)
 3.  Comment vérifier les réseaux locaux virtuels existants : afficher le réseau local virtuel
-4.  Pour plus d’informations sur la configuration du commutateur Arista, recherchez en ligne : Manuel Arista EOS
+4.  Pour plus d’informations sur la configuration du commutateur Arista, recherchez en ligne : Arista EOS Manual
 5.  Utilisez cette commande pour vérifier les paramètres PFC : afficher les détails des compteurs de priorité-Flow-Control
 
 --- 
 
-## <a name="dell-switch-s4810-ftos-99-00"></a>Commutateur Dell \(S4810, FTOS 9,9 \(0.0 @ no__t-2 @ no__t-3
+## <a name="dell-switch-s4810-ftos-99-00"></a>Commutateur Dell \(S4810, FTOS 9,9 \(0,0\)\)
 
     
     !
@@ -74,9 +74,9 @@ Il s’agit uniquement de commandes et de leurs utilisations ; vous devez déte
     
 --- 
 
-## <a name="cisco-switch-nexus-3132-version-602u61"></a>Commutateur Cisco \(Nexus 3132, version 6.0 @ no__t-12 @ no__t-2U6 @ no__t-31 @ no__t-4 @ no__t-5
+## <a name="cisco-switch-nexus-3132-version-602u61"></a>Commutateur Cisco \(la version 3132, version 6,0\(2\)U6\(1\)\)
 
-### <a name="global"></a>Global
+### <a name="global"></a>Globale
     
     class-map type qos match-all RDMA
     match cos 3

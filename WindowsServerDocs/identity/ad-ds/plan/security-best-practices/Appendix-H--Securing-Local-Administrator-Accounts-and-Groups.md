@@ -16,12 +16,12 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408630"
 ---
-# <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>Annexe H : Sécurisation des comptes et des groupes d’administrateurs locaux
+# <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>AnnexeH: Sécurisation des groupes et des comptes des administrateurs locaux
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>Annexe H : Sécurisation des comptes et des groupes d’administrateurs locaux  
+## <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>AnnexeH: Sécurisation des groupes et des comptes des administrateurs locaux  
 Sur toutes les versions de Windows actuellement en support standard, le compte d’administrateur local est désactivé par défaut, ce qui rend le compte inutilisable pour les attaques Pass-The-hash et autres vols d’informations d’identification. Toutefois, dans les environnements qui contiennent des systèmes d’exploitation hérités ou dans lesquels les comptes d’administrateurs locaux ont été activés, ces comptes peuvent être utilisés comme décrit précédemment pour propager la compromission entre les serveurs membres et les stations de travail. Chaque compte et groupe d’administrateur local doit être sécurisé, comme décrit dans les instructions pas à pas qui suivent.  
 
 Pour plus d’informations sur les considérations relatives à la sécurisation des groupes d’administration intégrés, consultez [implémentation de modèles d’administration à privilèges faibles](../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md).  
@@ -30,7 +30,7 @@ Pour plus d’informations sur les considérations relatives à la sécurisation
 Pour le compte d’administrateur local dans chaque domaine de votre forêt, vous devez configurer les paramètres suivants :  
 
 -   Configurer des objets de stratégie de groupe pour limiter l’utilisation du compte administrateur du domaine sur les systèmes joints à un domaine  
-    -   Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à des unités d’organisation de station de travail et de serveur membre dans chaque domaine, ajoutez le compte d’administrateur aux droits d’utilisateur suivants dans la stratégie d’autorisation \ paramètres d’utilisateur \ **stratégies d’autorisation Attributions**:  
+    -   Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à des unités d’organisation de station de travail et de serveur membre dans chaque domaine, ajoutez le compte d’administrateur aux droits d’utilisateur suivants dans la stratégie d' **autorisation \ paramètres système**\ stratégies d’autorisation :  
 
         -   Interdire l’accès à cet ordinateur à partir du réseau  
 
@@ -46,7 +46,7 @@ Pour le compte d’administrateur local dans chaque domaine de votre forêt, vou
 
 1.  Dans **Gestionnaire de serveur**, cliquez sur **Outils**, puis sur **gestion des stratégie de groupe**.  
 
-2.  Dans l’arborescence de la console, développez <Forest> \ Domains @ no__t-1 @ no__t-2, puis **stratégie de groupe objets** (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
+2.  Dans l’arborescence de la console, développez <Forest>\Domains\\<Domain>, puis **stratégie de groupe objets** (où <Forest> est le nom de la forêt et <Domain> le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
 3.  Dans l’arborescence de la console, cliquez avec le bouton droit sur **stratégie de groupe objets**, puis cliquez sur **nouveau**.  
 
@@ -118,7 +118,7 @@ Pour le compte d’administrateur local dans chaque domaine de votre forêt, vou
 
 12. Dans **stratégie de groupe gestion**, liez l’objet de stratégie de groupe aux unités d’organisation serveur et station de travail membres en procédant comme suit :  
 
-    1.  Accédez au <Forest> \ Domains @ no__t-1 @ no__t-2 (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir le stratégie de groupe).  
+    1.  Accédez au <Forest>\Domains\\<Domain> (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
     2.  Cliquez avec le bouton droit sur l’unité d’organisation à laquelle l’objet de stratégie de groupe sera appliqué, puis cliquez sur **lier un objet de stratégie de groupe existant**.  
 
@@ -148,7 +148,7 @@ Pour le compte d’administrateur local dans chaque domaine de votre forêt, vou
 
     ![sécuriser les comptes et les groupes d’administrateurs locaux](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_110.png)  
 
-5.  Dans la fenêtre d' **invite de commandes** , tapez **net use \\ @ no__t-3 @ no__t-4\c $/user : <Server Name> \ Administrator**, où <Server Name> est le nom du serveur membre ou de la station de travail auquel vous essayez d’accéder sur le réseau.  
+5.  Dans la fenêtre d' **invite de commandes** , tapez **net use \\\\<Server Name>\c $/User :<Server Name>\administrateur**, où <Server Name> est le nom du serveur membre ou de la station de travail à laquelle vous tentez d’accéder sur le réseau.  
 
     > [!NOTE]  
     > Les informations d’identification de l’administrateur local doivent provenir du même système que celui auquel vous essayez d’accéder sur le réseau.  
@@ -170,7 +170,7 @@ Pour le compte d’administrateur local dans chaque domaine de votre forêt, vou
 
 4.  Cliquez sur **fichier**, puis sur **Enregistrer sous**.  
 
-5.  Dans la zone **nom de fichier** , tapez @no__t- **2. bat** (où <Filename> est le nom du nouveau fichier de commandes).  
+5.  Dans la zone **nom de fichier** , tapez **<Filename>. bat** (où <Filename> est le nom du nouveau fichier de commandes).  
 
 ###### <a name="schedule-a-task"></a>Planifier une tâche  
 

@@ -19,7 +19,7 @@ ms.locfileid: "71358386"
 # <a name="add-an-attribute-store"></a>Ajouter un magasin d'attributs
 
 
-Les comptes d’utilisateur et les comptes d’ordinateur qui requièrent l’accès à une ressource protégée par Services ADFS \(AD FS @ no__t-1 sont stockés dans un magasin d’attributs, par exemple Active Directory Domain Services \(AD DS @ no__t-3. Le moteur d’émission de revendications utilise des magasins d’attributs pour collecter les données nécessaires à l’émission de revendications. Les données des magasins d’attributs sont ensuite projetées en tant que revendications.  
+Les comptes d’utilisateur et les comptes d’ordinateur qui requièrent l’accès à une ressource protégée par Services ADFS \(AD FS\) sont stockés dans un magasin d’attributs, par exemple Active Directory Domain Services \(AD DS\). Le moteur d’émission de revendications utilise des magasins d’attributs pour collecter les données nécessaires à l’émission de revendications. Les données des magasins d’attributs sont ensuite projetées en tant que revendications.  
   
 Vous pouvez utiliser la procédure suivante pour ajouter un magasin d’attributs au service FS (Federation Service).  
   
@@ -39,7 +39,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
   
    -   Dans **type de magasin d’attributs**, sélectionnez un type de magasin d’attributs pris en charge, **Active Directory**, **LDAP**ou **SQL**.  
   
-   -   Dans **chaîne de connexion**, si vous avez sélectionné un @no__t de protocole Lightweight Directory Access Protocol-1LDAP @ no__t-2 ou un magasin langage SQL \(SQL @ no__t-4, entrez la chaîne que vous avez utilisée pour établir une connexion à l’attribut. magasin. Pour les magasins d’attributs Active Directory, aucune chaîne de connexion n’est nécessaire ; par conséquent, ce champ est désactivé.  
+   -   Dans **chaîne de connexion**, si vous avez sélectionné un protocole LDAP (Lightweight Directory Access Protocol) \(le magasin LDAP\) ou un magasin langage SQL \(SQL\), entrez la chaîne que vous avez utilisée pour établir une connexion au magasin d’attributs. Pour les magasins d’attributs Active Directory, aucune chaîne de connexion n’est nécessaire ; par conséquent, ce champ est désactivé.  
   
        > [!NOTE]  
        > Par défaut, AD FS crée automatiquement un magasin d'attributs Active Directory.  

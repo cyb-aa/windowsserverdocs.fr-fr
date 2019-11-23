@@ -22,11 +22,11 @@ ms.locfileid: "71380099"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
-> **S’applique à**: Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
+> **S’applique à**: Windows Server (canal semi-annuel), windows server 2016, windows server 2012 R2, windows server 2012, Windows 10
 
 Bitsadmin est un outil de ligne de commande que vous pouvez utiliser pour créer des travaux de téléchargement ou de téléchargement et pour surveiller leur progression. L’outil Bitsadmin utilise des commutateurs pour identifier le travail à effectuer.  Vous pouvez appeler `bitsadmin /?` ou `bitsadmin /HELP` pour obtenir une liste de commutateurs.
 
-La plupart des commutateurs requièrent un paramètre \<Job @ no__t-1 que vous définissez sur le nom d’affichage ou le GUID du travail. Notez que le nom d’affichage d’un travail n’est peut-être pas unique. Les commutateurs **/Create** et **/List** retournent le GUID d’un travail.
+La plupart des commutateurs requièrent un paramètre de\> de tâche de \<que vous définissez sur le nom d’affichage du travail ou le GUID. Notez que le nom d’affichage d’un travail n’est peut-être pas unique. Les commutateurs **/Create** et **/List** retournent le GUID d’un travail.
 
 Par défaut, vous pouvez accéder à des informations sur vos propres travaux. Pour accéder aux informations des travaux d’un autre utilisateur, vous devez disposer de privilèges d’administrateur. Si le travail a été créé dans un état élevé, vous devez exécuter bitsadmin à partir d’une fenêtre avec élévation de privilèges. dans le cas contraire, vous aurez un accès en lecture seule au travail.
 
@@ -84,8 +84,8 @@ Utilisez les commutateurs suivants pour créer un travail, définir et récupér
 [bitsadmin info](bitsadmin-info.md)  
 [bitsadmin list](bitsadmin-list.md)  
 [bitsadmin listfiles](bitsadmin-listfiles.md)  
-moniteur [Bitsadmin makecustomheaderswriteonly](bitsadmin-makecustomheaderswriteonly.md)
-[Bitsadmin](bitsadmin-monitor.md)  
+[Bitsadmin makecustomheaderswriteonly](bitsadmin-makecustomheaderswriteonly.md)
+[Bitsadmin Monitor](bitsadmin-monitor.md)  
 [bitsadmin nowrap](bitsadmin-nowrap.md)  
 [bitsadmin peercaching](bitsadmin-peercaching.md)  
 [bitsadmin peers](bitsadmin-peers.md)  

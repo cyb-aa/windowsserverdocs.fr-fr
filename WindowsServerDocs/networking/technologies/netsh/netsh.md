@@ -16,17 +16,17 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71405551"
 ---
-# <a name="network-shell-netsh"></a>@No__t de l’interpréteur de commandes réseau-0Netsh @ no__t-1
+# <a name="network-shell-netsh"></a>Network Shell \(netsh\)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Network Shell (Netsh) est un utilitaire de ligne de commande qui vous permet de configurer et d’afficher l’état de différents rôles et composants de serveur de communications réseau après leur installation sur des ordinateurs exécutant Windows Server 2016.
 
-Certaines technologies clientes, telles que Dynamic Host Configuration Protocol \(DHCP @ no__t-1 client et BranchCache, fournissent également des commandes netsh qui vous permettent de configurer des ordinateurs clients qui exécutent Windows 10.
+Certaines technologies clientes, telles que le protocole de configuration d’hôte dynamique \(DHCP\) client et BranchCache, fournissent également des commandes netsh qui vous permettent de configurer des ordinateurs clients qui exécutent Windows 10.
 
-Dans la plupart des cas, les commandes netsh fournissent la même fonctionnalité que celle disponible lorsque vous utilisez la console MMC (Microsoft Management Console) \(MMC @ no__t-1 Snap @ no__t-2in pour chaque rôle de serveur réseau ou fonctionnalité de mise en réseau. Par exemple, vous pouvez configurer le serveur de stratégie réseau \(NPS @ no__t-1 en utilisant le composant logiciel enfichable MMC NPS ou les commandes netsh dans le contexte **netsh nps** .
+Dans la plupart des cas, les commandes netsh fournissent la même fonctionnalité que celle disponible lorsque vous utilisez la console MMC (Microsoft Management Console) \(MMC\) composant logiciel enfichable\-dans pour chaque rôle de serveur réseau ou fonctionnalité de mise en réseau. Par exemple, vous pouvez configurer le serveur de stratégie réseau \(\) NPS en utilisant le composant logiciel enfichable MMC NPS ou les commandes netsh dans le contexte **netsh nps** .
 
-En outre, il existe des commandes netsh pour les technologies réseau, telles que pour IPv6, le pont réseau et l’appel de procédure distante \(RPC @ no__t-1, qui ne sont pas disponibles dans Windows Server en tant que composant logiciel enfichable MMC.
+En outre, il existe des commandes netsh pour les technologies réseau, telles que pour IPv6, le pont réseau et l’appel de procédure distante \(RPC\), qui ne sont pas disponibles dans Windows Server en tant que composant logiciel enfichable MMC.
 
 >[!IMPORTANT]
 >Il est recommandé d’utiliser Windows PowerShell pour gérer les technologies de mise en réseau dans [Windows Server 2016 et Windows 10](https://technet.microsoft.com/library/mt156917.aspx) plutôt que Network Shell. Network Shell est toutefois inclus pour la compatibilité avec vos scripts, et son utilisation est prise en charge.
@@ -37,6 +37,6 @@ La référence technique netsh fournit une référence de commande netsh complè
   
 ### <a name="content-availability"></a>Disponibilité du contenu  
   
-La référence technique de l’interpréteur de commandes réseau est disponible au téléchargement dans l’aide de Windows \( *. chm @ no__t-1 format de la Galerie TechNet : [Référence technique netsh](https://gallery.technet.microsoft.com/Netsh-Technical-Reference-c46523dc)  
+La référence technique de l’interpréteur de commandes réseau est disponible au téléchargement dans l’aide Windows \(*. chm\) format de la Galerie TechNet : [référence technique netsh](https://gallery.technet.microsoft.com/Netsh-Technical-Reference-c46523dc)  
   
 ---

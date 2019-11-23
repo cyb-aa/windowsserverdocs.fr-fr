@@ -34,13 +34,13 @@ manage-bde -unlock {-recoverypassword <Password>|-recoverykey <PathToExternalKey
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Value|Description|
+|Paramètre|Valeur|Description|
 |---------|-----|-----------|
 |-RecoveryPassword||Spécifie qu’un mot de passe de récupération sera utilisé pour déverrouiller le lecteur. Abréviation :-RP|
-||@no__t 0Password >|Représente le mot de passe de récupération qui peut être utilisé pour déverrouiller le lecteur.|
+||Mot de passe \<>|Représente le mot de passe de récupération qui peut être utilisé pour déverrouiller le lecteur.|
 |-recoverykey||Spécifie qu’un fichier de clé de récupération externe sera utilisé pour déverrouiller le lecteur. Abréviation :-RK|
-||@no__t 0PathToExternalKeyFile >|Représente le fichier de clé de récupération externe qui peut être utilisé pour déverrouiller le lecteur.|
-||@no__t 0Drive >|Représente une lettre de lecteur suivie par un signe deux-points.|
+||\<PathToExternalKeyFile >|Représente le fichier de clé de récupération externe qui peut être utilisé pour déverrouiller le lecteur.|
+||Lecteur \<>|Représente une lettre de lecteur suivie par un signe deux-points.|
 |-certificat||Le certificat de l’utilisateur local pour un certificat BitLocker pour désallouer le volume se trouve dans le magasin de certificats de l’utilisateur. Abréviation :-CERT|
 ||<-CF PathToCertificateFile >|Chemin d’accès au fichier cerficate|
 ||<-CT CertificateThumbprint >|Empreinte numérique de certificat qui peut éventuellement inclure le code confidentiel (-pin).|

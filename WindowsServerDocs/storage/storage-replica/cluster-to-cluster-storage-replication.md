@@ -18,7 +18,7 @@ ms.locfileid: "71393791"
 ---
 # <a name="cluster-to-cluster-storage-replication"></a>Réplication du stockage de cluster à cluster
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Le réplica de stockage peut répliquer des volumes entre les clusters, y compris la réplication de clusters à l’aide de espaces de stockage direct. La gestion et la configuration sont similaires à la réplication de serveur à serveur.  
 
@@ -27,7 +27,7 @@ Vous allez configurer ces ordinateurs et ce stockage dans une configuration de c
 > [!IMPORTANT]
 > Dans ce test, quatre serveurs sont pris comme exemple. Vous pouvez utiliser un nombre quelconque de serveurs pris en charge par Microsoft dans chaque cluster, qui est actuellement 8 pour un cluster espaces de stockage direct et 64 pour un cluster de stockage partagé.  
 >   
-> Ce guide ne couvre pas la configuration de Storage Spaces Direct. Pour plus d’informations sur la configuration de espaces de stockage direct, consultez [espaces de stockage direct vue d’ensemble](../storage-spaces/storage-spaces-direct-overview.md).  
+> Ce guide ne couvre pas la configuration des espaces de stockage direct. Pour plus d’informations sur la configuration de espaces de stockage direct, consultez [espaces de stockage direct vue d’ensemble](../storage-spaces/storage-spaces-direct-overview.md).  
 
 Cette procédure pas à pas utilise l’environnement suivant comme exemple :  
 
@@ -39,11 +39,11 @@ Cette procédure pas à pas utilise l’environnement suivant comme exemple :
 
 ![Diagramme montrant un exemple d’environnement avec un cluster du site de Redmond qui se réplique sur un cluster du site de Bellevue](./media/Cluster-to-Cluster-Storage-Replication/SR_ClustertoCluster.png)  
 
-@NO__T 0FIGURE 1 : Réplication de cluster à cluster @ no__t-0  
+**FIGURE 1 : réplication de cluster à cluster**  
 
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 
-* Forêt de services de domaine Active Directory (exécution de Windows Server 2016 non nécessaire).  
+* Forêt de services de domaine Active Directory (exécution de Windows Server 2016 non nécessaire).  
 * 4-128 serveurs (deux clusters de 2-64 serveurs) exécutant Windows Server 2019 ou Windows Server 2016, Datacenter Edition. Si vous exécutez Windows Server 2019, vous pouvez à la place utiliser l’édition standard si vous ne répliquez qu’un seul volume, avec une taille maximale de 2 to.  
 * Deux ensembles de stockage avec JBOD SAS, SAN Fibre Channel, VHDX partagé, espaces de stockage direct ou cible iSCSI. Le stockage doit contenir un mélange de disques durs HDD et SSD. Nous allons rendre chaque ensemble de stockage disponible uniquement pour chacun des clusters, sans aucun accès partagé entre les clusters.  
 * Chaque ensemble de stockage doit autoriser la création d’au moins deux disques virtuels, un pour les données répliquées et un autre pour les journaux. Le stockage physique doit avoir la même taille de secteur sur tous les disques de données. Le stockage physique doit avoir la même taille de secteur sur tous les disques de journal.  
@@ -55,7 +55,7 @@ Cette procédure pas à pas utilise l’environnement suivant comme exemple :
 
 La plupart de ces exigences peuvent être déterminées à l’aide de l’applet de commande `Test-SRTopology`. Vous pouvez accéder à cet outil si vous installez un réplica de stockage ou les fonctionnalités des outils de gestion des réplicas de stockage sur au moins un serveur. Il n’est pas nécessaire de configurer de réplica de stockage pour utiliser cet outil, mais vous devez installer l’applet de commande. Vous trouverez plus d’informations dans la procédure ci-dessous.  
 
-## <a name="step-1-provision-operating-system-features-roles-storage-and-network"></a>Étape 1 : Configurer le système d’exploitation, les fonctionnalités, les rôles, le stockage et le réseau
+## <a name="step-1-provision-operating-system-features-roles-storage-and-network"></a>Étape 1 : configurer le système d’exploitation, les fonctionnalités, les rôles, le stockage et le réseau
 
 1.  Installez Windows Server sur les quatre nœuds de serveur avec le type d’installation Windows Server **(expérience utilisateur)** . 
 
@@ -109,7 +109,7 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
     > -   Le volume du journal doit être au moins de 8 Go par défaut et peut être plus grand ou plus petit en fonction des exigences du journal.
     > -   Lors de l’utilisation de espaces de stockage direct (espaces de stockage direct) avec un cache NVME ou SSD, vous constatez une augmentation de la latence plus élevée que prévu lors de la configuration de la réplication du réplica de stockage entre les clusters espaces de stockage direct. La modification de la latence est proportionnellement plus élevée que lorsque vous utilisez NVME et SSD dans une configuration des performances et des capacités, et pas de niveau de disque dur ni de niveau de capacité.
 
-    Ce problème se produit en raison de limitations architecturales dans le mécanisme de journalisation de SR, combinées à la latence extrêmement faible de NVME par rapport aux supports plus lents. Lorsque vous utilisez espaces de stockage direct cache espaces de stockage direct, toutes les e/s des journaux SR, ainsi que toutes les e/s de lecture/écriture récentes des applications, sont exécutées dans le cache et jamais sur les niveaux de performance ou de capacité. Cela signifie que toutes les activités SR se produisent sur le même support de vitesse : cette configuration n’est pas prise en charge non recommandée (voir https://aka.ms/srfaq pour les recommandations du journal). 
+    Ce problème se produit en raison de limitations architecturales dans le mécanisme de journalisation de SR, combinées à la latence extrêmement faible de NVME par rapport aux supports plus lents. Lorsque vous utilisez espaces de stockage direct cache espaces de stockage direct, toutes les e/s des journaux SR, ainsi que toutes les e/s de lecture/écriture récentes des applications, sont exécutées dans le cache et jamais sur les niveaux de performance ou de capacité. Cela signifie que toutes les activités SR se produisent sur le même support de vitesse : cette configuration n’est pas prise en charge non recommandée (voir https://aka.ms/srfaq pour obtenir des recommandations pour les journaux). 
 
     Lorsque vous utilisez espaces de stockage direct avec des disques durs, vous ne pouvez pas désactiver ou éviter le cache. En guise de solution de contournement, si vous utilisez uniquement SSD et NVME, vous pouvez configurer uniquement les niveaux de performances et de capacité. Si vous utilisez cette configuration et que vous placez les journaux SR sur le niveau de performance uniquement avec les volumes de données qu’ils utilisent uniquement sur le niveau de capacité, vous évitez le problème de latence élevée décrit ci-dessus. La même opération peut être effectuée avec une combinaison de SSD plus rapide et plus lente et aucun NVME.
 
@@ -119,7 +119,7 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
 
 1. Assurez-vous que chaque cluster peut voir uniquement les boîtiers de stockage de ce site et que les connexions SAS sont correctement configurées.  
 
-2. Configurez le stockage à l’aide d’espaces de stockage en suivant les **étapes1 à3** indiquées dans [Déployer des espaces de stockage sur un serveur autonome](../storage-spaces/deploy-standalone-storage-spaces.md) à l’aide de Windows PowerShell ou du Gestionnaire de serveur.  
+2. Approvisionnez le stockage à l’aide d’espaces de stockage en suivant les **étapes 1 à 3** indiquées dans [Déployer des espaces de stockage sur un serveur autonome](../storage-spaces/deploy-standalone-storage-spaces.md) à l’aide de Windows PowerShell ou du Gestionnaire de serveur.  
 
 -   **Pour le stockage cible iSCSI :**  
 
@@ -156,7 +156,7 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
 
    ![Capture d’écran montrant les résultats du rapport de topologie de réplication](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
 
-## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>Étape 2 : Configurer deux clusters de basculement de serveur de fichiers avec montée en charge  
+## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>Étape 2 : configurer deux clusters de basculement de serveur de fichiers avec montée en charge  
 Vous allez maintenant créer deux clusters de basculement normaux. Après la configuration, la validation et le test, vous allez les répliquer à l’aide d’un réplica de stockage. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion à distance qui contient le Outils d’administration de serveur distant de Windows Server.  
 
 ### <a name="graphical-method"></a>Méthode graphique  
@@ -173,7 +173,7 @@ Vous allez maintenant créer deux clusters de basculement normaux. Après la con
     > WIndows Server comprend désormais une option pour le témoin Cloud (Azure). Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.  
 
     > [!WARNING]  
-    > Pour plus d’informations sur la configuration du quorum, consultez la section **configuration du témoin** dans [configurer et gérer le quorum](../../failover-clustering/manage-cluster-quorum.md). Pour plus d’informations sur l’applet de commande `Set-ClusterQuorum`, consultez la page [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
+    > Pour plus d’informations sur la configuration du quorum, consultez la section **configuration du témoin** dans [configurer et gérer le quorum](../../failover-clustering/manage-cluster-quorum.md). Pour plus d’informations sur l’applet de commande `Set-ClusterQuorum`, voir [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
 5.  Ajoutez un disque dans le site **Redmond** sur le cluster CSV. Pour ce faire, cliquez avec le bouton droit sur un disque source dans le nœud **Disques** de la section **Stockage**, puis cliquez sur **Ajouter aux volumes partagés de cluster**.  
 
@@ -195,7 +195,7 @@ Vous allez maintenant créer deux clusters de basculement normaux. Après la con
     New-Cluster -Name SR-SRVCLUSB -Node SR-SRV03,SR-SRV04 -StaticAddress <your IP here>  
     ```  
 
-3.  Configurez un témoin de partage de fichiers ou un témoin cloud (Azure) dans chaque cluster qui pointe vers un partage hébergé sur le contrôleur de domaine ou un autre serveur indépendant. Exemple :  
+3.  Configurez un témoin de partage de fichiers ou un témoin cloud (Azure) dans chaque cluster qui pointe vers un partage hébergé sur le contrôleur de domaine ou un autre serveur indépendant. Par exemple :  
 
     ```PowerShell  
     Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
@@ -205,11 +205,11 @@ Vous allez maintenant créer deux clusters de basculement normaux. Après la con
     > WIndows Server comprend désormais une option pour le témoin Cloud (Azure). Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.  
 
     > [!WARNING]  
-    > Pour plus d’informations sur la configuration du quorum, consultez la section **configuration du témoin** dans [configurer et gérer le quorum](../../failover-clustering/manage-cluster-quorum.md). Pour plus d’informations sur l’applet de commande `Set-ClusterQuorum`, consultez la page [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
+    > Pour plus d’informations sur la configuration du quorum, consultez la section **configuration du témoin** dans [configurer et gérer le quorum](../../failover-clustering/manage-cluster-quorum.md). Pour plus d’informations sur l’applet de commande `Set-ClusterQuorum`, voir [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
 4.  Créez les serveurs de fichiers avec montée en charge sur les deux clusters en suivant les instructions de [Configurer un serveur de fichiers avec montée en charge](https://technet.microsoft.com/library/hh831718.aspx)  
 
-## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Étape 3 : Configurer la réplication de cluster à l’aide de Windows PowerShell  
+## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Étape 3 : configurer la réplication de cluster à cluster à l’aide de Windows PowerShell  
 Vous allez maintenant configurer la réplication de cluster à cluster à l’aide de Windows PowerShell. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds directement ou à partir d’un ordinateur de gestion à distance qui contient Windows Server Outils d’administration de serveur distant  
 
 1. Accordez au premier cluster un accès complet à l’autre cluster en exécutant l’applet de commande **Grant-SRAccess** sur n’importe quel nœud du premier cluster, ou à distance.  Outils d’administration de serveur distant Windows Server
@@ -272,7 +272,7 @@ Vous allez maintenant configurer la réplication de cluster à cluster à l’ai
            Number of Bytes Recovered: 68583161856  
            Elapsed Time (seconds): 117  
        ```
-   3. Le groupe de serveurs de destination pour le réplica peut aussi indiquer le nombre d’octets restants à copier à tout moment, et peut être interrogé via PowerShell. Exemple :
+   3. Le groupe de serveurs de destination pour le réplica peut aussi indiquer le nombre d’octets restants à copier à tout moment, et peut être interrogé via PowerShell. Par exemple :
 
       ```PowerShell
       (Get-SRGroup).Replicas | Select-Object numofbytesremaining
@@ -296,7 +296,7 @@ Vous allez maintenant configurer la réplication de cluster à cluster à l’ai
    > [!NOTE]
    > Le disque de cluster de destination s’affiche toujours comme étant **En ligne (aucun accès)** lors de la réplication.  
 
-## <a name="step-4-manage-replication"></a>Étape 4 : Gérer la réplication
+## <a name="step-4-manage-replication"></a>Étape 4 : gérer la réplication
 
 Vous gérez et opérez maintenant votre réplication cluster à cluster. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion à distance qui contient le Outils d’administration de serveur distant de Windows Server.  
 
@@ -310,23 +310,23 @@ Vous gérez et opérez maintenant votre réplication cluster à cluster. Vous po
 
     -   \Statistiques d’E/S du réplica du système de stockage(*)\Nombre de demandes associées à la dernière écriture de journal  
 
-    -   \Statistiques d’E/S du réplica du système de stockage(*)\Moy. Longueur de file d’attente de vidage  
+    -   \Statistiques d’E/S du réplica du système de stockage(*)\Longueur moyenne de file d’attente de vidage  
 
     -   \Statistiques d’E/S du réplica du système de stockage(*)\Longueur de file d’attente de vidage actuelle  
 
     -   \Statistiques d’E/S du réplica du système de stockage(*)\Nombre de demandes d’écriture d’application  
 
-    -   \Statistiques d’E/S du réplica du système de stockage(*)\Moy. Nombre de demandes par écriture de journal  
+    -   \Statistiques d’E/S du réplica du système de stockage(*)\Nombre moy. de demandes par écriture de journal  
 
-    -   \Statistiques d’E/S du réplica du système de stockage(*)\Moy. Latence d’écriture d’application  
+    -   \Statistiques d’E/S du réplica du système de stockage(*)\Latence moyenne d’écriture d’application  
 
-    -   \Statistiques d’E/S du réplica du système de stockage(*)\Moy. Latence de lecture d’application  
+    -   \Statistiques d’E/S du réplica du système de stockage(*)\Latence moyenne de lecture d’application  
 
     -   \Statistiques du réplica du système de stockage(*)\RPO cible  
 
     -   \Statistiques du réplica du système de stockage(*)\RPO actuel  
 
-    -   \Statistiques du réplica du système de stockage(*)\Moy. Longueur de la file d’attente du journal  
+    -   \Statistiques du réplica du système de stockage(*)\Longueur moyenne de file d’attente de journal  
 
     -   \Statistiques du réplica du système de stockage(*)\Longueur de file d’attente de journal actuelle  
 
@@ -334,11 +334,11 @@ Vous gérez et opérez maintenant votre réplication cluster à cluster. Vous po
 
     -   \Statistiques du réplica du système de stockage(*)\Total des octets envoyés  
 
-    -   \Statistiques du réplica du système de stockage(*)\Moy. Latence d’envoi du réseau  
+    -   \Statistiques du réplica du système de stockage(*)\Latence moyenne d’envoi réseau  
 
     -   \Statistiques du réplica du système de stockage(*)\État de réplication  
 
-    -   \Statistiques du réplica du système de stockage(*)\Moy. Latence de boucle de message  
+    -   \Statistiques du réplica du système de stockage(*)\Latence moy. de boucle de message  
 
     -   \Statistiques du réplica du système de stockage(*)\Temps écoulé pour la dernière récupération  
 
@@ -387,11 +387,11 @@ Vous gérez et opérez maintenant votre réplication cluster à cluster. Vous po
     > [!NOTE]  
     > Le réplica de stockage démonte les volumes de destination. Cela est normal.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 -   [Vue d’ensemble du réplica de stockage](storage-replica-overview.md) 
 -   [Réplication de cluster étendu à l’aide d’un stockage partagé](stretch-cluster-replication-using-shared-storage.md)  
 -   [Réplication de stockage de serveur à serveur](server-to-server-storage-replication.md)  
--   [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md)  
--   [Réplica de stockage : Forum Aux Questions](storage-replica-frequently-asked-questions.md)  
+-   [Réplica de stockage : problèmes connus](storage-replica-known-issues.md)  
+-   [Réplica de stockage : Forum aux questions](storage-replica-frequently-asked-questions.md)  
 -   [espaces de stockage direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

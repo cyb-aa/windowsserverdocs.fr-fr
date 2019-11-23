@@ -1,6 +1,6 @@
 ---
 ms.assetid: 7530cafe-98d7-46c9-95d9-e49d39caa021
-title: Déploiement des services AD DS dans une organisation Windows 2000
+title: Déploiement des services ADDS dans une organisation Windows2000
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -16,9 +16,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408911"
 ---
-# <a name="deploying-ad-ds-in-a-windows-2000-organization"></a>Déploiement des services AD DS dans une organisation Windows 2000
+# <a name="deploying-ad-ds-in-a-windows-2000-organization"></a>Déploiement des services ADDS dans une organisation Windows2000
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Si votre organisation exécute actuellement Windows 2000 Active Directory, vous pouvez déployer Windows Server 2008 Active Directory Domain Services (AD DS) en effectuant une mise à niveau sur place de tout ou partie des systèmes d’exploitation des contrôleurs de domaine vers Windows Server 2008 ou en introduisant des contrôleurs de domaine exécutant Windows Server 2008 dans votre environnement.  
   
@@ -34,9 +34,9 @@ L’illustration suivante montre les étapes de déploiement de Windows Server 2
 > [!NOTE]  
 > Si vous souhaitez définir le niveau fonctionnel du domaine ou de la forêt sur Windows Server 2008, tous les contrôleurs de domaine de votre environnement doivent exécuter le système d’exploitation Windows Server 2008.  
   
-La consolidation des domaines de ressources et de comptes qui sont mis à niveau à partir d’un environnement Windows 2000 dans le cadre de votre déploiement de Windows Server 2008 AD DS peut nécessiter une restructuration de domaines interforêt ou à l’origine. La restructuration AD DS domaines entre les forêts vous permet de réduire la complexité de votre organisation et les coûts administratifs associés. La restructuration AD DS domaines au sein d’une forêt vous aide à réduire la charge administrative de votre organisation en réduisant le trafic de réplication, en réduisant la quantité d’administration des utilisateurs et des groupes requise et en simplifiant l’administration de Stratégie de groupe. Pour plus d’informations, consultez le Guide de migration d’ADMT v 3.1 ([https://go.microsoft.com/fwlink/?LinkId=93678](https://go.microsoft.com/fwlink/?LinkId=93678)).  
+La consolidation des domaines de ressources et de comptes qui sont mis à niveau à partir d’un environnement Windows 2000 dans le cadre de votre déploiement de Windows Server 2008 AD DS peut nécessiter une restructuration de domaines interforêt ou à l’origine. La restructuration AD DS domaines entre les forêts vous permet de réduire la complexité de votre organisation et les coûts administratifs associés. La restructuration AD DS domaines au sein d’une forêt vous aide à réduire la charge administrative de votre organisation en réduisant le trafic de réplication, en réduisant la quantité d’administration des utilisateurs et des groupes requise et en simplifiant l’administration de stratégie de groupe. Pour plus d’informations, consultez le Guide de migration d’ADMT v 3.1 ([https://go.microsoft.com/fwlink/?LinkId=93678](https://go.microsoft.com/fwlink/?LinkId=93678)).  
   
-Pour obtenir la liste des tâches détaillées que vous pouvez utiliser pour planifier et déployer des AD DS dans une organisation qui exécute actuellement Windows 2000 Active Directory, consultez [Checklist : Déploiement de AD DS dans une organisation Windows 2000 @ no__t-0.  
+Pour obtenir la liste des tâches détaillées que vous pouvez utiliser pour planifier et déployer des AD DS dans une organisation qui exécute actuellement Windows 2000 Active Directory, consultez [liste de vérification : déploiement de AD DS dans une organisation 2000 Windows](https://technet.microsoft.com/library/cc732737.aspx).  
   
 
 

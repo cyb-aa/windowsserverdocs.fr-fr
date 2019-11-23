@@ -25,7 +25,7 @@ Vous pouvez également déployer un cluster détaché Active Directory. Cette m�
 
 #### <a name="checklist-create-a-failover-cluster"></a>Liste de vérification : créer un cluster de basculement
 
-| Statut | Tâche | Référence |
+| État | Tâche | Référence |
 | ---    | ---  | ---       |
 | ☐    | Vérifier les conditions préalables | [Vérifier les conditions préalables](#verify-the-prerequisites) |
 | ☐    | Installer la fonctionnalité de clustering de basculement sur chaque serveur à ajouter comme nœud de cluster | [Installer la fonctionnalité de clustering de basculement](#install-the-failover-clustering-feature) |
@@ -48,7 +48,7 @@ Par ailleurs, vérifiez les conditions requises en matière de comptes :
 - Assurez-vous que le compte que vous envisagez d'utiliser pour créer le cluster est un utilisateur de domaine qui dispose de droits d'administrateur sur tous les serveurs que vous voulez ajouter en tant que nœuds de cluster.
 - Assurez-vous que l'une ou l'autre des conditions suivantes est vraie :
     - L'utilisateur qui crée le cluster dispose de l'autorisation de **création d'objets ordinateur** sur l'UO ou le conteneur où résident les serveurs qui constitueront le cluster.
-    - Si l'utilisateur ne dispose pas de l'autorisation de **création d'objets ordinateur** , demandez à un administrateur de domaine de prédéfinir un objet ordinateur de cluster pour le cluster. Pour plus d’informations, consultez [Prédéfinir des objets ordinateur pour le cluster dans Active Directory Domain Services](prestage-cluster-adds.md).
+    - Si l'utilisateur ne dispose pas de l'autorisation de **création d'objets ordinateur** , demandez à un administrateur de domaine de prédéfinir un objet ordinateur de cluster pour le cluster. Pour plus d'informations, voir [Prestage Cluster Computer Objects in Active Directory Domain Services](prestage-cluster-adds.md).
 
 > [!NOTE]
 > Cette condition ne s’applique pas si vous souhaitez créer un cluster Active Directory détaché dans Windows Server 2012 R2. Pour plus d’informations, voir [Déployer un cluster détaché d’Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
@@ -95,7 +95,7 @@ Avant de créer le cluster de basculement, nous vous recommandons vivement de va
     La page de validation affiche l'état des tests en cours d'exécution.
 7. Dans la page **Résumé**, procédez de l'une ou l'autre des façons suivantes :
     
-      - Si les résultats indiquent que les tests se sont terminés correctement et que la configuration est adaptée au clustering, et que vous souhaitez créer le cluster immédiatement, assurez-vous que la case à cocher **créer le cluster maintenant en utilisant les nœuds validés** est activée, puis Sélectionnez **Terminer**. Ensuite, passez à l'étape 4 de la procédure [Créer le cluster de basculement](#create-the-failover-cluster).
+      - Si les résultats indiquent que les tests se sont terminés correctement et que la configuration est adaptée au clustering, et que vous souhaitez créer le cluster immédiatement, assurez-vous que la case à cocher **créer le cluster maintenant en utilisant les nœuds validés** est activée, puis sélectionnez **Terminer**. Ensuite, passez à l'étape 4 de la procédure [Créer le cluster de basculement](#create-the-failover-cluster).
       - Si les résultats indiquent que des avertissements ou des échecs se sont produits, sélectionnez **afficher le rapport** pour afficher les détails et déterminer les problèmes qui doivent être corrigés. Notez qu'un avertissement dans le cadre d'un test de validation indique que l'aspect en question du cluster de basculement peut être pris en charge, mais qu'il n'est peut-être pas conforme aux meilleures pratiques.
         
         > [!NOTE]
@@ -123,7 +123,7 @@ Pour effectuer cette étape, assurez-vous que le compte d'utilisateur avec leque
     1. Dans la zone **Nom du cluster** , entrez le nom que vous voulez utiliser pour administrer le cluster. Avant cela, prenez connaissance des informations suivantes :
         
           - Pendant la création du cluster, ce nom est inscrit en tant qu'objet ordinateur de cluster (aussi appelé *objet nom de cluster* ou *CNO*) dans AD DS. Si vous spécifiez un nom NetBIOS pour le cluster, le CNO est créé à l'emplacement où résident les objets ordinateur des nœuds du cluster. Il peut s'agir soit du conteneur Ordinateurs par défaut, soit d'une UO.
-          - Pour spécifier un autre emplacement pour le CNO, vous pouvez entrer le nom unique d'une UO dans la zone **Nom du cluster** . Exemple : *CN=ClusterName, OU=Clusters, DC=Contoso, DC=com*.
+          - Pour spécifier un autre emplacement pour le CNO, vous pouvez entrer le nom unique d'une UO dans la zone **Nom du cluster** . Par exemple : *CN=ClusterName, OU=Clusters, DC=Contoso, DC=com*.
           - Si un administrateur du domaine a prédéfini le CNO dans une UO différente de celle où résident les nœuds du cluster, spécifiez le nom unique fourni par l'administrateur du domaine.
     2. Si la carte réseau du serveur n'a pas été configurée pour utiliser DHCP, vous devez configurer une ou plusieurs adresses IP statiques pour le cluster de basculement. Cochez la case correspondant à chaque réseau que vous voulez utiliser pour la gestion du cluster. Sélectionnez le champ **adresse** en regard d’un réseau sélectionné, puis entrez l’adresse IP que vous souhaitez affecter au cluster. Cette adresse IP (et les autres éventuelles) est associée au nom de cluster dans le système DNS (Domain Name System).
     3. Lorsque vous avez terminé, sélectionnez **suivant**.
@@ -156,7 +156,7 @@ Voici comment créer un rôle en cluster :
    | ---------       | ---------                    |
    | Serveur d’espaces de noms     |   Espaces de noms (composant du rôle de serveur de fichiers)       |
    | Serveur d'espace de noms DFS     |  Rôle de serveur DHCP       |
-   | Coordinateur de transactions distribuées (DTC)     | Aucune        |
+   | Coordinateur de transactions distribuées (DTC)     | Aucun(e)        |
    | Serveur de fichiers     |  Rôle de serveur de fichiers       |
    | Application générique     |  Non applicable       |
    | Script générique     |   Non applicable      |
@@ -165,7 +165,7 @@ Voici comment créer un rôle en cluster :
    | iSCSI Target Server     |    Serveur cible iSCSI (partie du rôle de serveur de fichiers)     |
    | Serveur iSNS     |  Fonctionnalité Service serveur iSNS       |
    | Message Queuing     |  Fonctionnalité Services Message Queuing       |
-   | Autre serveur     |  Aucune       |
+   | Autre serveur     |  Aucun(e)       |
    | Ordinateur virtuel     |  Rôle Hyper-V       |
    | Serveur WINS     |   Fonctionnalité Serveur WINS      |
 
@@ -193,7 +193,7 @@ Test-Cluster –Node Server1, Server2
 ```
 
 > [!NOTE]
-> L’applet de commande **test-cluster** génère les résultats dans un fichier journal dans le répertoire de travail actuel. Exemple : C:\Users @ no__t-0username > \AppData\Local\Temp.
+> L’applet de commande **test-cluster** génère les résultats dans un fichier journal dans le répertoire de travail actuel. Par exemple : C:\Users\<nom d’utilisateur > \AppData\Local\Temp.
 
 L'exemple suivant crée un cluster de basculement nommé *MyCluster* avec les nœuds *Server1* et *Server2*, attribue l'adresse IP statique *192.168.1.12*, puis ajoute la totalité du stockage disponible au cluster de basculement.
 
@@ -215,9 +215,9 @@ New-Cluster -Name CN=MyCluster,OU=Cluster,DC=Contoso,DC=com -Node Server1, Serve
 
 Pour obtenir des exemples d’ajout de rôles en cluster, voir les rubriques [Add-ClusterFileServerRole](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusterfileserverrole?view=win10-ps) et [Add-ClusterGenericApplicationRole](https://docs.microsoft.com/powershell/module/failoverclusters/add-clustergenericapplicationrole?view=win10-ps).
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations supplémentaires
 
-  - [Clustering de basculement](failover-clustering.md)
+  - [Clustering avec basculement](failover-clustering.md)
   - [Déployer un cluster Hyper-V](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj863389(v%3dws.11)>)
   - [Serveur de fichiers avec montée en puissance parallèle pour les données d’application](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831349(v%3dws.11)>)
   - [Déployer un cluster détaché Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11))

@@ -1,5 +1,5 @@
 ---
-title: ELLE Les ports de partage de fichiers et d’imprimantes doivent être ouverts
+title: 'SMB : le fichier et les ports de partage de l’imprimante doivent être ouverts'
 TOCTitle: 'SMB: File and printer sharing ports should be open'
 ms.date: 07/02/2012
 ms.prod: windows-server
@@ -14,14 +14,14 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71385833"
 ---
-# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>ELLE Les ports de partage de fichiers et d’imprimantes doivent être ouverts
+# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB : le fichier et les ports de partage de l’imprimante doivent être ouverts
 
 
 Mise à jour : 2 février 2011
 
-S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012, Windows Server 2008 R2
+S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012, Windows Server 2008 R2
 
-@no__t rubrique 0This a pour but de résoudre un problème spécifique identifié par une analyse de Best Practices Analyzer. Vous devez appliquer les informations contenues dans cette rubrique uniquement aux ordinateurs sur lesquels les services de fichiers Best Practices Analyzer exécutés et qui rencontrent le problème traité dans cette rubrique. Pour plus d’informations sur les meilleures pratiques et les analyses, consultez @ no__t-0 [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
+*Cette rubrique vise à résoudre un problème spécifique identifié par une analyse Best Practices Analyzer. Vous devez appliquer les informations contenues dans cette rubrique uniquement aux ordinateurs sur lesquels les services de fichiers Best Practices Analyzer exécutés et qui rencontrent le problème traité dans cette rubrique. Pour plus d’informations sur les meilleures pratiques et les analyses, consultez* [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
 
 
 <table>
@@ -40,7 +40,7 @@ S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R
 </tr>
 <tr class="odd">
 <td><p><strong>Va</strong></p></td>
-<td><p>Error</p></td>
+<td><p>Erreur</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Catégorie</strong></p></td>
@@ -57,7 +57,7 @@ S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R
 
 > *Les ordinateurs ne seront pas en mesure d’accéder aux dossiers partagés et à d’autres services réseau SMB (Server Message Block) sur ce serveur.*
 
-## <a name="resolution"></a>Résolution :
+## <a name="resolution"></a>Résolution
 
 > *Activez le partage de fichiers et d’imprimantes pour communiquer via le pare-feu de l’ordinateur.*
 

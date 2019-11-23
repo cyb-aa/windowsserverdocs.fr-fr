@@ -18,9 +18,9 @@ ms.locfileid: "71408340"
 ---
 # <a name="join-a-computer-to-a-domain"></a>Joindre un ordinateur à un domaine
 
-Pour que Services ADFS \(AD FS @ no__t-1 fonctionne, chaque ordinateur qui fonctionne en tant que serveur de Fédération doit être joint à un domaine. les serveurs proxys de Fédération peuvent être joints à un domaine, mais ce n’est pas obligatoire.  
+Par Services ADFS \(AD FS\) pour fonctionner, chaque ordinateur qui fonctionne en tant que serveur de Fédération doit être joint à un domaine. les serveurs proxys de Fédération peuvent être joints à un domaine, mais ce n’est pas obligatoire.  
   
-Vous n’avez pas besoin de joindre un serveur Web à un domaine si le serveur Web héberge uniquement des applications de revendications @ no__t-0aware.  
+Vous n’avez pas besoin de joindre un serveur Web à un domaine si le serveur Web héberge uniquement des revendications\-des applications prenant en charge les revendications.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -39,8 +39,8 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 6.  Cliquez sur **OK**, puis redémarrez l’ordinateur.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Liste de vérification : Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
+[Liste de vérification : configuration d’un serveur de Fédération](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : configuration d’un serveur proxy de Fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

@@ -21,7 +21,7 @@ ms.locfileid: "70865202"
 ---
 # <a name="preconfiguring-a-router"></a>Préconfiguration d’un routeur
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 En général, une nouvelle installation du système d’exploitation nécessite un routeur et un pare-feu compatibles avec Internet pour connecter le réseau interne de l’utilisateur à Internet. Si vous prévoyez un routeur en supplément d’un serveur préconfiguré, vous pouvez effectuer des étapes supplémentaires pour préconfigurer le routeur, afin de fournir une meilleure expérience utilisateur.  
   
@@ -33,7 +33,7 @@ En général, une nouvelle installation du système d’exploitation nécessite 
 |---------------------------|-------------|  
 |DHCP|Activé|  
 |Réacheminement de port|Vous devez réacheminer les ports suivants vers l’adresse du serveur :<br /><br /> -80 (pour la configuration hébergée, utilisez uniquement 443)<br />-443|  
-|Prise en charge UPnP|Vous devez activer la prise en charge d’UPnP pour fournir la configuration de routeur la plus simple au client et la meilleure expérience client au cours de l’installation.<br /><br /> **Avertissement :** L’architecture UPnP peut présenter un risque en matière de sécurité si elle reste activée.|  
+|Prise en charge UPnP|Vous devez activer la prise en charge d’UPnP pour fournir la configuration de routeur la plus simple au client et la meilleure expérience client au cours de l’installation.<br /><br /> **Avertissement :** L’architecture UPnP peut poser un risque de sécurité si elle est laissée activée.|  
   
  Outre les paramètres de préconfiguration de base du routeur, voici les différentes tâches qu’il est possible d’effectuer pour gérer le routeur dans un environnement intégré :  
   
@@ -49,8 +49,8 @@ En général, une nouvelle installation du système d’exploitation nécessite 
 >  Pour plus d'informations sur la configuration des connexions réseau sans fil, voir [Configuration de la prise en charge d'un réseau sans fil](Configure-Support-for-a-Wireless-Network.md).  
   
 ## <a name="see-also"></a>Voir aussi  
- [Prise en main avec le kit de réévaluation Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
- [Création et personnalisation de l’image](Creating-and-Customizing-the-Image.md)   
+ [Prise en main avec Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

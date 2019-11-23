@@ -42,8 +42,8 @@ mkdir [<Drive>:]<Path>
 
 |Paramètre|Description|
 |---------|-----------|
-|> @no__t 0Drive :|Spécifie le lecteur sur lequel vous souhaitez créer le nouveau répertoire.|
-|@no__t 0Path >|Obligatoire. Spécifie le nom et l’emplacement du nouveau répertoire. La longueur maximale d’un chemin d’accès unique est déterminée par le système de fichiers.|
+|> du lecteur de \<:|Spécifie le lecteur sur lequel vous souhaitez créer le nouveau répertoire.|
+|Chemin de \<>|Obligatoire. Spécifie le nom et l’emplacement du nouveau répertoire. La longueur maximale d’un chemin d’accès unique est déterminée par le système de fichiers.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

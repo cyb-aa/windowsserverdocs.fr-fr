@@ -39,5 +39,5 @@ set root=<RootServer>
 ## <a name="remarks"></a>Notes
 - La sous-commande **Set root** affecte la sous-commande **racine** .
   ## <a name="additional-references"></a>Références supplémentaires
-  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md) 
+  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
   [racine nslookup](nslookup-root.md)

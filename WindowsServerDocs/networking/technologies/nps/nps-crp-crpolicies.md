@@ -17,7 +17,7 @@ ms.locfileid: "71396368"
 ---
 # <a name="connection-request-policies"></a>Stratégies de requête de connexion
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à utiliser des stratégies de demande de connexion NPS pour configurer le serveur NPS en tant que serveur RADIUS, proxy RADIUS, ou les deux.
 
@@ -121,7 +121,7 @@ Le groupe d’attributs nom d’utilisateur contient l’attribut nom d’utilis
 
 Les paramètres de stratégie de demande de connexion sont un ensemble de propriétés qui sont appliquées à un message RADIUS entrant. Les paramètres sont constitués des groupes de propriétés suivants.
 
-- Authentication
+- Authentification
 - Gestion des comptes
 - Manipulation d’attributs
 - Transfert de la requête
@@ -129,12 +129,12 @@ Les paramètres de stratégie de demande de connexion sont un ensemble de propri
 
 Les sections suivantes fournissent des détails supplémentaires sur ces paramètres.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 En utilisant ce paramètre, vous pouvez remplacer les paramètres d’authentification qui sont configurés dans toutes les stratégies réseau. vous pouvez ainsi désigner les méthodes et les types d’authentification requis pour se connecter à votre réseau.
 
 >[!IMPORTANT]
->Si vous configurez une méthode d’authentification dans la stratégie de demande de connexion qui est moins sécurisée que la méthode d’authentification que vous configurez dans la stratégie réseau, la méthode d’authentification la plus sécurisée que vous configurez dans la stratégie réseau est remplacée. Par exemple, si vous avez une stratégie réseau qui requiert l’utilisation du protocole EAP (Protected Extensible Authentication Protocol)-Microsoft Challenge Handshake Authentication Protocol version 2 \(PEAP-MS-CHAP v2 @ no__t-1, qui est une authentification par mot de passe méthode pour une connexion sans fil sécurisée et vous configurez également une stratégie de demande de connexion pour autoriser l’accès non authentifié, le résultat est qu’aucun client ne doit s’authentifier à l’aide de PEAP-MS-CHAP v2. Dans cet exemple, tous les clients qui se connectent à votre réseau bénéficient d’un accès non authentifié.
+>Si vous configurez une méthode d’authentification dans la stratégie de demande de connexion qui est moins sécurisée que la méthode d’authentification que vous configurez dans la stratégie réseau, la méthode d’authentification la plus sécurisée que vous configurez dans la stratégie réseau est remplacée. Par exemple, si vous avez une stratégie réseau qui requiert l’utilisation du protocole EAP (Protected Extensible Authentication Protocol)-Microsoft Challenge Handshake Authentication Protocol version 2 \(PEAP-MS-CHAP v2\), qui est une méthode d’authentification par mot de passe pour une connexion sans fil sécurisée et vous configurez également une stratégie de demande de connexion pour autoriser l’accès non authentifié, le résultat est qu’aucun client ne doit s’authentifier à l’aide de PEAP-MS-CHAP v2. Dans cet exemple, tous les clients qui se connectent à votre réseau bénéficient d’un accès non authentifié.
 
 ### <a name="accounting"></a>Gestion des comptes
 
@@ -158,7 +158,7 @@ Vous pouvez configurer un ensemble de règles de recherche et de remplacement qu
 Le traitement des règles de recherche et de remplacement se produit pour l’un des attributs précédents avant que le message RADIUS ne soit soumis à des paramètres d’authentification et de gestion des comptes. Les règles de manipulation d’attribut s’appliquent uniquement à un seul attribut. Vous ne pouvez pas configurer des règles de manipulation d’attributs pour chaque attribut. En outre, la liste des attributs que vous pouvez manipuler est une liste statique. vous ne pouvez pas ajouter à la liste d’attributs disponibles pour la manipulation.
 
 >[!NOTE]
->Si vous utilisez le protocole d’authentification MS-CHAP v2, vous ne pouvez pas manipuler l’attribut de nom d’utilisateur si la stratégie de demande de connexion est utilisée pour transférer le message RADIUS. La seule exception se produit lorsqu’une barre oblique inverse (caractère \) est utilisée et que la manipulation affecte uniquement les informations à gauche de celle-ci. Une barre oblique inverse est généralement utilisée pour indiquer un nom de domaine (les informations à gauche de la barre oblique inverse) et un nom de compte d’utilisateur dans le domaine (les informations à droite de la barre oblique inverse). Dans ce cas, seules les règles de manipulation d’attribut qui modifient ou remplacent le nom de domaine sont autorisées.
+>Si vous utilisez le protocole d’authentification MS-CHAP v2, vous ne pouvez pas manipuler l’attribut de nom d’utilisateur si la stratégie de demande de connexion est utilisée pour transférer le message RADIUS. La seule exception se produit lorsqu’une barre oblique inverse (caractère\) est utilisée et que la manipulation affecte uniquement les informations à gauche de celle-ci. Une barre oblique inverse est généralement utilisée pour indiquer un nom de domaine (les informations à gauche de la barre oblique inverse) et un nom de compte d’utilisateur dans le domaine (les informations à droite de la barre oblique inverse). Dans ce cas, seules les règles de manipulation d’attribut qui modifient ou remplacent le nom de domaine sont autorisées.
 
 Pour obtenir des exemples de manipulation du nom de domaine dans l’attribut de nom d’utilisateur, consultez la section « Exemples de manipulation du nom de domaine dans l’attribut de nom d’utilisateur » dans la rubrique [utiliser des expressions régulières dans NPS](nps-crp-reg-expressions.md).
 
@@ -175,7 +175,7 @@ Vous pouvez définir les options de demande de transfert suivantes qui sont util
 >[!NOTE]
 >Cette option d’authentification ne peut pas être utilisée lorsque le protocole d’authentification du client d’accès est MS-CHAP v2 ou EAP-TLS (Extensible Authentication Protocol-Transport Layer Security), tous deux fournissant une authentification mutuelle. Dans l’authentification mutuelle, le client d’accès prouve qu’il s’agit d’un client d’accès valide au serveur d’authentification (le serveur NPS), et le serveur d’authentification prouve qu’il s’agit d’un serveur d’authentification valide pour le client d’accès. Lorsque cette option d’authentification est utilisée, le message d’acceptation d’accès est retourné. Toutefois, le serveur d’authentification ne fournit pas de validation au client d’accès et l’authentification mutuelle échoue.
 
-Pour obtenir des exemples d’utilisation d’expressions régulières pour créer des règles de routage qui transfèrent les messages RADIUS avec un nom de domaine spécifié vers un groupe de serveurs RADIUS distants, consultez la section « exemple de transfert de messages RADIUS par un serveur proxy » dans la rubrique [utiliser normal Expressions dans NPS](nps-crp-reg-expressions.md).
+Pour obtenir des exemples d’utilisation d’expressions régulières pour créer des règles de routage qui transfèrent les messages RADIUS avec un nom de domaine spécifié vers un groupe de serveurs RADIUS distants, consultez la section « exemple de transfert de messages RADIUS par un serveur proxy » dans la rubrique [utiliser des expressions régulières dans NPS](nps-crp-reg-expressions.md).
 
 ### <a name="advanced"></a>Avancé
 

@@ -19,7 +19,7 @@ ms.locfileid: "71364891"
 ---
 # <a name="enable-all-integration-services-in-virtual-machines"></a>Activer tous les services d’intégration sur les ordinateurs virtuels
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d'informations sur les meilleures pratiques et les analyses, consultez [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
@@ -27,7 +27,7 @@ Pour plus d'informations sur les meilleures pratiques et les analyses, consultez
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -40,9 +40,9 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 *La fonctionnalité de service ou d’intégration peut ne pas fonctionner correctement pour les machines virtuelles suivantes :*  
   
-@no__t 0list de noms de machines virtuelles >  
+\<liste des noms de machine virtuelle >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Utilisez le composant logiciel enfichable Services ou l’outil de ligne de commande sc config pour vérifier que le service est configuré pour démarrer automatiquement et qu’il n’est pas arrêté.*  
   

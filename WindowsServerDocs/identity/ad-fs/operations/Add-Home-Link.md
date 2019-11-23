@@ -18,7 +18,7 @@ ms.locfileid: "71407775"
 ---
 # <a name="add-home-link"></a>Ajouter le lien de la page d'accueil 
 
-Pour ajouter le lien d’hébergement affiché sur la page Sign @ no__t-0in, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes. 
+Pour ajouter le lien d’hébergement affiché sur la page Sign\-in, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes. 
 
 
 ![Ajouter un lien d’hébergement](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png) 
@@ -28,7 +28,7 @@ Pour ajouter le lien d’hébergement affiché sur la page Sign @ no__t-0in, uti
  
   
 > [!IMPORTANT]  
-> Le paramètre `linkText` de cette applet de commande n'est nécessaire que si vous utilisez une valeur autre que la valeur par défaut (*Home*). L'avantage de l'utilisation de la valeur par défaut est que les pages sont localisées d'après tous les paramètres régionaux du client. Une fois la page Sign @ no__t-0in personnalisée, la personnalisation est prioritaire. par conséquent, vous devez personnaliser pour toutes les langues que vous souhaitez prendre en charge.
+> Le paramètre `linkText` de cette applet de commande n'est nécessaire que si vous utilisez une valeur autre que la valeur par défaut (*Home*). L'avantage de l'utilisation de la valeur par défaut est que les pages sont localisées d'après tous les paramètres régionaux du client. une fois que le\-de signature de la page est personnalisé, la personnalisation est prioritaire. par conséquent, vous devez personnaliser pour toutes les langues que vous souhaitez prendre en charge.
 
 ## <a name="additional-references"></a>Références supplémentaires 
 [Personnalisation de la connexion de l’utilisateur AD FS](AD-FS-user-sign-in-customization.md)  

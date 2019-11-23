@@ -17,9 +17,9 @@ ms.locfileid: "71405319"
 ---
 # <a name="nps-templates"></a>Modèles NPS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Le serveur de stratégie réseau \(NPS @ no__t-1 vous permet de créer des éléments de configuration, tels que des protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS @ no__t-3 ou des secrets partagés, que vous pouvez réutiliser sur le serveur NPS local et exporter pour une utilisation sur d’autres NPSs.
+Le serveur de stratégie réseau \(les modèles de\) NPS vous permettent de créer des éléments de configuration, tels que protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS\) des clients ou des secrets partagés, que vous pouvez réutiliser sur le serveur NPS local et exporter pour une utilisation sur d’autres NPSs.
 
 Les modèles NPS sont conçus pour réduire la durée et le coût nécessaires à la configuration de NPS sur un ou plusieurs serveurs. Les types de modèles NPS suivants sont disponibles pour la configuration dans la gestion des modèles :
 
@@ -31,7 +31,7 @@ Les modèles NPS sont conçus pour réduire la durée et le coût nécessaires �
 
 La configuration d’un modèle est différente de la configuration du serveur NPS directement. La création d’un modèle n’affecte pas la fonctionnalité du serveur NPS. C’est uniquement lorsque vous sélectionnez le modèle à l’emplacement approprié dans la console NPS, que le modèle affecte les fonctionnalités du serveur NPS. 
 
-Par exemple, si vous configurez un client RADIUS dans la console NPS sous clients et serveurs RADIUS, vous avez modifié la configuration du serveur NPS et effectué une étape dans la configuration de NPS pour communiquer avec l’un de vos serveurs d’accès réseau \(NAS’s @ no__t-1. \(The étape suivante consiste à configurer le NAS pour communiquer avec NPS. \) Toutefois, si vous configurez un nouveau modèle clients RADIUS dans la console NPS sous **gestion des modèles** au lieu de créer un client RADIUS sous **clients et serveurs RADIUS**, vous avez créé un modèle, mais vous n’avez pas modifié le serveur NPS. fonctionnalité encore. Pour modifier la fonctionnalité de serveur NPS, vous devez sélectionner le modèle à partir de l’emplacement approprié dans la console NPS.
+Par exemple, si vous configurez un client RADIUS dans la console NPS sous clients et serveurs RADIUS, vous avez modifié la configuration du serveur NPS et effectué une étape dans la configuration de NPS pour communiquer avec l’un de vos serveurs d’accès réseau \(\)NAS. \(l’étape suivante consiste à configurer le NAS pour communiquer avec le serveur NPS.\) Toutefois, si vous configurez un nouveau modèle clients RADIUS dans la console NPS sous **gestion des modèles** au lieu de créer un client RADIUS sous **clients et serveurs RADIUS**, vous avez créé un modèle, mais vous n’avez pas encore modifié la fonctionnalité du serveur NPS. Pour modifier la fonctionnalité de serveur NPS, vous devez sélectionner le modèle à partir de l’emplacement approprié dans la console NPS.
 
 ## <a name="creating-templates"></a>Création de modèles
 

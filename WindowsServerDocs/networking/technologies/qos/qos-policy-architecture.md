@@ -17,7 +17,7 @@ ms.locfileid: "71395980"
 ---
 # <a name="qos-policy-architecture"></a>Architecture de la stratégie QoS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour en savoir plus sur l’architecture de la stratégie QoS.
 
@@ -29,19 +29,19 @@ L’architecture de la QoS basée sur la stratégie est constituée des composan
 
 - **Service Client stratégie de groupe**. Service Windows qui gère les paramètres de configuration des utilisateurs et des ordinateurs stratégie de groupe.
 
-- **Moteur de stratégie de groupe**. Composant du service client stratégie de groupe qui récupère les paramètres de stratégie de groupe de configuration utilisateur et ordinateur à partir d’Active Directory au démarrage et vérifie périodiquement les modifications \(BY par défaut, toutes les 90 minutes @ no__t-1. Si des modifications sont détectées, le moteur de stratégie de groupe récupère les nouveaux paramètres de stratégie de groupe. Le moteur de stratégie de groupe traite les objets de stratégie de groupe entrants et indique l’extension côté client QoS lorsque les stratégies de QoS sont mises à jour.
+- **Moteur de stratégie de groupe**. Composant du service client stratégie de groupe qui récupère les paramètres de stratégie de groupe de configuration utilisateur et ordinateur à partir d’Active Directory au démarrage et vérifie périodiquement les modifications \(par défaut, toutes les 90 minutes\). Si des modifications sont détectées, le moteur de stratégie de groupe récupère les nouveaux paramètres de stratégie de groupe. Le moteur de stratégie de groupe traite les objets de stratégie de groupe entrants et indique l’extension côté client QoS lorsque les stratégies de QoS sont mises à jour.
 
 - **Extension côté client QoS**. Composant du service client stratégie de groupe qui attend une indication du moteur de stratégie de groupe que les stratégies de QoS ont changé et qui informe le module d’inspection QoS.
 
 - **Pile TCP/IP**. Pile TCP/IP qui comprend la prise en charge intégrée de IPv4 et IPv6 et prend en charge la plateforme de filtrage Windows. 
 
-- **Inspection QoS**. Module un composant dans la pile TCP/IP qui attend les indications des modifications de la stratégie QoS de l’extension côté client QoS, récupère les paramètres de stratégie QoS et interagit avec la couche de transport et Pacer. sys pour marquer en interne le trafic qui correspond à la qualité de service (QoS) directives.
+- **Inspection QoS**. Module un composant dans la pile TCP/IP qui attend les indications des modifications de la stratégie QoS de l’extension côté client QoS, récupère les paramètres de stratégie QoS et interagit avec la couche de transport et Pacer. sys pour marquer en interne le trafic qui correspond aux stratégies de QoS.
 
 - **NDIS 6. x**. Interface standard entre les pilotes réseau en mode noyau et le système d’exploitation dans Windows Server et les systèmes d’exploitation clients. NDIS 6. x prend en charge les filtres légers, qui est un modèle de pilote simplifié pour les pilotes intermédiaires NDIS et les pilotes de miniport qui offrent de meilleures performances.
 
-- **Interface du fournisseur réseau QoS \(NPI @ no__t-2**. Interface pour que les pilotes en mode noyau interagissent avec Pacer. sys.
+- **Interface du fournisseur de réseau QoS \(\)NPI** . Interface pour que les pilotes en mode noyau interagissent avec Pacer. sys.
 
-- **Pacer. sys**. Un pilote de filtre léger NDIS 6. x qui contrôle la planification des paquets pour la QoS basée sur la stratégie et pour le trafic d’applications qui utilisent les API QoS générique \(GQoS @ no__t-1 et contrôle du trafic \(TC @ no__t-3. Pacer. sys a remplacé Psched. sys dans Windows Server 2003 et Windows XP. Pacer. sys est installé avec le composant planificateur de paquets QoS à partir des propriétés d’une connexion réseau ou d’un adaptateur.
+- **Pacer. sys**. Un pilote de filtre léger NDIS 6. x qui contrôle la planification des paquets pour la QoS basée sur la stratégie et pour le trafic des applications qui utilisent la QoS générique \(les\) GQoS et le contrôle du trafic \(les API TC\). Pacer. sys a remplacé Psched. sys dans Windows Server 2003 et Windows XP. Pacer. sys est installé avec le composant planificateur de paquets QoS à partir des propriétés d’une connexion réseau ou d’un adaptateur.
 
 Pour la rubrique suivante de ce guide, consultez [scénarios de stratégie de QoS](qos-policy-scenarios.md).
 

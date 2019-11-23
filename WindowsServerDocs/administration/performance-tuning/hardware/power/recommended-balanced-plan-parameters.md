@@ -45,7 +45,7 @@ Cette modification est basée sur les performances et l’analyse de la consomma
 
 ## <a name="specpower--java-workload"></a>SPECpower – charge de travail JAVA
 
-[SPECpower @ no__t-1ssj2008](http://spec.org/power_ssj2008/), le test de référence des spécifications standard le plus populaire pour les caractéristiques de performances et de puissance des serveurs, est utilisé pour vérifier l’impact de l’alimentation. Étant donné qu’elle utilise uniquement le **débit** comme mesure de performance, le mode de gestion de l’alimentation **équilibré** par défaut offre la meilleure efficacité énergétique.
+[SPECpower\_ssj2008](http://spec.org/power_ssj2008/), le niveau de référence des spécifications standard le plus populaire pour les caractéristiques de performances et de puissance des serveurs, est utilisé pour vérifier l’impact de l’alimentation. Étant donné qu’elle utilise uniquement le **débit** comme mesure de performance, le mode de gestion de l’alimentation **équilibré** par défaut offre la meilleure efficacité énergétique.
 
 La modification de paramètre proposée consomme une puissance légèrement supérieure à la lumière (c’est-à-dire < = 20%). niveaux de charge. Mais avec le niveau de charge plus élevé, la différence augmente, et elle commence à utiliser la même puissance que le mode de gestion de l’alimentation **hautes performances** après le niveau de charge de 60%. Pour utiliser les paramètres de modification proposés, les utilisateurs doivent être conscients du coût d’alimentation à des niveaux de charge moyen à élevé pendant la planification de la capacité du rack.
 

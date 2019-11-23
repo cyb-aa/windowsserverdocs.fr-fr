@@ -21,7 +21,7 @@ ms.locfileid: "71367129"
 ---
 # <a name="step-4-verify-the-multisite-deployment"></a>Étape 4 vérifier le déploiement multisite
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique explique comment vérifier que vous avez correctement configuré votre déploiement multisite de l’accès à distance.  
   
@@ -37,7 +37,7 @@ Cette rubrique explique comment vérifier que vous avez correctement configuré 
   
     Vous devez être en mesure d’accéder à toutes les ressources d’entreprise par le biais de chaque serveur multisite.  
   
-4.  Connectez un ordinateur client Windows 7 @ no__t-0 au réseau d’entreprise et obtenez la stratégie de groupe.  
+4.  Connectez un ordinateur client Windows 7&reg; au réseau d’entreprise et obtenez la stratégie de groupe.  
   
 5.  Connectez l’ordinateur client Windows 7 au réseau externe et tentez d’accéder aux ressources internes.  
   

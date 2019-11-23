@@ -22,7 +22,7 @@ ms.locfileid: "71382449"
 ---
 # <a name="auditpol-backup"></a>sauvegarde Auditpol
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sauvegarde les paramètres de stratégie d’audit système, les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs et toutes les options d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).
 
@@ -48,4 +48,4 @@ auditpol /backup /file:C:\auditpolicy.csv
 > Si aucun lecteur n’est spécifié, le répertoire actif est utilisé.
 > #### <a name="additional-references"></a>Références supplémentaires
 > [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-> [auditpol restore](auditpol-restore.md)
+> [restauration Auditpol](auditpol-restore.md)

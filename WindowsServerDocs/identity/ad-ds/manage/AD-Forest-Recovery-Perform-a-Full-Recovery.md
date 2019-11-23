@@ -18,7 +18,7 @@ ms.locfileid: "71390539"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>Récupération de la forêt Active Directory-exécution d’une récupération complète du serveur 
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Utilisez la procédure suivante pour effectuer une récupération complète du serveur pour Windows Server 2016, 2012 R2 ou 2012. 
 
@@ -37,23 +37,23 @@ Selon votre scénario, utilisez l’une des procédures suivantes pour effectuer
   
 1. Démarrez installation de Windows, spécifiez la langue, le format d’heure et de devise, ainsi que les options de clavier, puis cliquez sur **suivant**. 
 2. Cliquez sur **Réparer votre ordinateur**.
-   ![Server Restore @ no__t-1
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore1.png)
 3. Cliquez sur **Dépanner**.</br>
-   ![Server Restore @ no__t-1
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore2.png)
 4. Cliquez sur récupération de l' **image système**.</br>
-   ![Server Restore @ no__t-1
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore3.png)
 5. Cliquez sur **Windows Server 2016**. 
-   ![Server Restore @ no__t-1
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore4.png)
 6. Si vous restaurez la sauvegarde locale la plus récente, cliquez sur **utiliser la dernière image système disponible (recommandé)** , puis cliquez sur **suivant**.
-   ![Server Restore @ no__t-1
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore5.png)
 7. Vous pouvez désormais effectuer les opérations suivantes :
    -  Formater et repartitionner les disques
    -  Installer les pilotes
    -  Désélection des fonctionnalités **avancées** de redémarrage et de vérification automatiques des erreurs de disque. Celles-ci sont activées par défaut.
-   ![Server Restore @ no__t-1
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore6.png)
 8. Cliquez sur **Suivant**.
-9. Cliquez sur **Terminer**. Vous serez invité à confirmer que vous souhaitez continuer. Cliquez sur **Oui**. 
-   ![Server Restore @ no__t-1 
+9. Cliquez sur **Terminer**. Vous serez invité à confirmer que vous souhaitez continuer. cliquez sur **Oui**. 
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore11.png) 
 10. Une fois cette opération terminée, effectuez une restauration faisant autorité de SYSVOL, comme décrit dans la rubrique [récupération de forêt Active Directory, effectuant une synchronisation faisant autorité d’un SYSVOL répliqué par DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="perform-a-full-server-restore-with-any-image-local-or-remote"></a>Effectuer une restauration complète du serveur avec une image locale ou distante
@@ -64,11 +64,11 @@ Selon votre scénario, utilisez l’une des procédures suivantes pour effectuer
 4. Si vous restaurez la sauvegarde locale la plus récente, cliquez sur **Sélectionner une image système** , puis sur **suivant**.
 5. Vous pouvez maintenant sélectionner l’emplacement de la sauvegarde que vous souhaitez restaurer. Si l’image est locale, vous pouvez la sélectionner dans la liste. 
 6. Si l’image se trouve sur un partage réseau, sélectionnez **avancé**. Vous pouvez également sélectionner **avancé** si vous devez installer un pilote.
-   ![Server Restore @ no__t-1
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore7.png)
 7. Si vous effectuez une restauration à partir du réseau après avoir cliqué sur **avancé** , sélectionnez **Rechercher une image système sur le réseau**. Vous pouvez être invité à restaurer la connectivité réseau. Sélectionnez OK. </br>
-   ![Server Restore @ no__t-1
-8. Tapez le chemin d’accès UNC à l’emplacement du partage de sauvegarde (par exemple, \\ \ server1\backups), puis cliquez sur **OK**. Vous pouvez également taper l’adresse IP du serveur cible, par exemple \\ \ 192.168.1.3 \ sauvegardes. 
-   ![Server Restore @ no__t-1
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore8.png)
+8. Tapez le chemin d’accès UNC à l’emplacement du partage de sauvegarde (par exemple, \\\server1\backups), puis cliquez sur **OK**. Vous pouvez également taper l’adresse IP du serveur cible, par exemple \\\192.168.1.3\backups. 
+   Restauration de ![Server](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore9.png)
 9. Tapez les informations d’identification nécessaires pour accéder au partage, puis cliquez sur OK. 
 10. À présent, **Sélectionnez la date et l’heure de l’image système à restaurer** , puis cliquez sur **suivant**.
 11. Vous pouvez désormais effectuer les opérations suivantes :
@@ -76,7 +76,7 @@ Selon votre scénario, utilisez l’une des procédures suivantes pour effectuer
     - Installer les pilotes
     - Désélection des fonctionnalités **avancées** de redémarrage et de vérification automatiques des erreurs de disque. Celles-ci sont activées par défaut.
 12. Cliquez sur **Suivant**.
-13. Cliquez sur **Terminer**. Vous serez invité à confirmer que vous souhaitez continuer. Cliquez sur **Oui**.  
+13. Cliquez sur **Terminer**. Vous serez invité à confirmer que vous souhaitez continuer. cliquez sur **Oui**.  
 14. Une fois cette opération terminée, effectuez une restauration faisant autorité de SYSVOL, comme décrit dans la rubrique [récupération de forêt Active Directory, effectuant une synchronisation faisant autorité d’un SYSVOL répliqué par DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>Activation de la carte réseau pour une sauvegarde réseau
@@ -84,7 +84,7 @@ Selon votre scénario, utilisez l’une des procédures suivantes pour effectuer
 Si vous devez activer une carte réseau à partir de l’invite de commandes pour effectuer une restauration à partir d’un partage réseau, procédez comme suit.
 
 1. Démarrez installation de Windows, spécifiez la langue, le format d’heure et de devise, ainsi que les options de clavier, puis cliquez sur **suivant**. 
-2. Cliquez sur **Réparer votre ordinateur**. CLIQU
+2. Cliquez sur **Réparer votre ordinateur**. Cliqu
 3. Cliquez sur **dépanner**, puis sur **invite de commandes**. 
 4. Tapez la commande suivante et appuyez sur ENTRÉE :  
 
@@ -120,7 +120,7 @@ Si vous devez activer une carte réseau à partir de l’invite de commandes pou
    set address "Name of Network Adapter" static IPv4 Address SubnetMask IPv4 Gateway Address 1  
    ```  
 
-   Exemple :  
+   Par exemple :  
   
    ```  
    set address "Local Area Connection" static 192.168.1.2 255.0.0.0 192.168.1.1 1  

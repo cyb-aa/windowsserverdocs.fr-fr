@@ -18,7 +18,7 @@ ms.locfileid: "71407116"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>Déployer l’audit de sécurité avec les stratégies d’audit centralisées (étapes de démonstration)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans ce scénario, vous allez auditer l’accès aux fichiers dans le dossier Finance documents à l’aide de la stratégie financière que vous avez créée dans les [ &#40;étapes&#41;de la démonstration déployer une stratégie d’accès centralisée](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md). Si un utilisateur non autorisé tente d’accéder au dossier, l’activité est capturée dans l’Observateur d’événements.   
  Les étapes suivantes sont requises pour tester ce scénario.  
@@ -84,7 +84,7 @@ Une fois les paramètres Stratégie de groupe appliqués, vérifiez que les para
   
 #### <a name="to-verify-that-the-global-object-access-policy-has-been-applied"></a>Pour vérifier que la stratégie d’accès global aux objets a été appliquée  
   
-1.  Connectez-vous à l’ordinateur client, CLIENT1 en tant que Contoso\MReid. Accédez au dossier HYPERLINK « file:///\\ @ no__t-1 @ no__t-2\ID_AD_FILE1 @ no__t-3\Finance » \\ \ FILE1\Finance documents, puis modifiez le document Word 2.  
+1.  Connectez-vous à l’ordinateur client, CLIENT1 en tant que Contoso\MReid. Accédez au dossier HYPERLINK « file:///\\\\\\\ ID_AD_FILE1\\\finance » \\\ FILE1\Finance documents, puis modifiez le document Word 2.  
   
 2.  Connectez-vous au serveur de fichiers FICHIER1 en tant que contoso\Administrateur. Ouvrez l’Observateur d’événements, accédez à **Journaux Windows**, sélectionnez **Sécurité**, puis confirmez que vos activités ont généré les événements d’audit **4656** et **4663** (même si vous n’avez pas défini explicitement des listes SACL d’audit sur les fichiers ou les dossiers que vous avez créés, modifiés et supprimés).  
   
@@ -97,6 +97,6 @@ Une fois les paramètres Stratégie de groupe appliqués, vérifiez que les para
   
 -   [Planifier l’audit d’accès aux fichiers](Plan-for-File-Access-Auditing.md)  
   
--   [Contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Access Control dynamique : vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

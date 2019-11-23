@@ -143,7 +143,7 @@ Start-ScheduledTask -TaskPath \Microsoft\Windows\HGSServer -TaskName
 AttestationSignerCertRenewalTask
 ```
 
-Vous pouvez également exécuter manuellement la tâche planifiée en ouvrant **Planificateur de tâches** (taskschd. msc), en accédant à **Planificateur de tâches bibliothèque > Microsoft > Windows > HGSServer** et en exécutant la tâche nommée  **AttestationSignerCertRenewalTask**.
+Vous pouvez également exécuter manuellement la tâche planifiée en ouvrant **Planificateur de tâches** (taskschd. msc), en accédant à **Planificateur de tâches bibliothèque > Microsoft > Windows > HGSServer** et en exécutant la tâche nommée **AttestationSignerCertRenewalTask**.
 
 ## <a name="switching-attestation-modes"></a>Basculement des modes d’attestation
 
@@ -161,7 +161,7 @@ Vous pouvez vérifier le mode d’attestation de votre serveur SGH en exécutant
 
 ## <a name="memory-dump-encryption-policies"></a>Stratégies de chiffrement de l’image mémoire
 
-Si vous essayez de configurer des stratégies de chiffrement de l’image mémoire et que vous ne voyez pas les stratégies de vidage SGH par défaut (SGH @ no__t-0NoDumps, SGH @ no__t-1DumpEncryption et SGH @ no__t-2DumpEncryptionKey) ou l’applet de commande de stratégie de vidage (Add-HgsAttestationDumpPolicy), il s’agit de vous n’avez probablement pas installé la dernière mise à jour cumulative.
+Si vous essayez de configurer des stratégies de chiffrement de l’image mémoire et que vous ne voyez pas les stratégies de vidage SGH par défaut (SGH\_nodumps, SGH\_DumpEncryption et SGH\_DumpEncryptionKey) ou l’applet de commande de la stratégie dump (Add-HgsAttestationDumpPolicy), il est probable que vous n’avez pas installé la dernière mise à jour cumulative.
 Pour résoudre ce problème, [Mettez à jour votre serveur SGH](guarded-fabric-manage-hgs.md#patching-hgs) vers la dernière version cumulative de Windows Update et [activez les nouvelles stratégies d’attestation](guarded-fabric-manage-hgs.md#updates-requiring-policy-activation).
 Veillez à mettre à jour vos ordinateurs hôtes Hyper-V vers la même mise à jour cumulative avant d’activer les nouvelles stratégies d’attestation, car les ordinateurs hôtes qui n’ont pas les nouvelles fonctionnalités de chiffrement de vidage installés risquent d’échouer à l’attestation une fois la stratégie SGH activée.
 
@@ -179,5 +179,5 @@ Certains fabricants de module de plateforme sécurisée n’incluent pas EKcerts
 Si vous pensez que c’est le cas avec votre TPM, vérifiez auprès de votre fabricant d’ordinateurs OEM que votre plateforme sécurisée ne doit pas avoir de EKcert et utilisez l’indicateur `-Force` pour inscrire manuellement l’ordinateur hôte auprès de SGH.
 Si votre module de plateforme sécurisée doit avoir un EKcert mais qu’aucun n’a été trouvé dans le fichier d’identificateur de plateforme, vérifiez que vous utilisez une console PowerShell administrateur (avec élévation de privilèges) lors de l’exécution de la fonction [obtenir-PlatformIdentifier](https://docs.microsoft.com/powershell/module/platformidentifier/get-platformidentifier) sur l’ordinateur hôte.
 
-Si vous avez reçu l’erreur indiquant que votre EKcert n’est pas approuvé, vérifiez que vous avez [installé le package de certificats racines TPM approuvés](guarded-fabric-install-trusted-tpm-root-certificates.md) sur chaque serveur SGH et que le certificat racine de votre fournisseur de module de plateforme sécurisée est présent dans le **TrustedTPM @ no__ de l’ordinateur local stockage t-2RootCA** . Tous les certificats intermédiaires applicables doivent également être installés dans le magasin **TrustedTPM @ no__t-1IntermediateCA** sur l’ordinateur local.
-Après avoir installé les certificats racine et intermédiaires, vous devez être en mesure d’exécuter `Add-HgsAttestationTpmHost` avec succès.
+Si vous avez reçu l’erreur indiquant que votre EKcert n’est pas approuvé, vérifiez que vous avez [installé le package de certificats racines TPM approuvés](guarded-fabric-install-trusted-tpm-root-certificates.md) sur chaque serveur SGH et que le certificat racine de votre fournisseur de module de plateforme sécurisée est présent dans le magasin **TrustedTPM\_RootCA** de l’ordinateur local. Tous les certificats intermédiaires applicables doivent également être installés dans le magasin **TrustedTPM\_IntermediateCA** sur l’ordinateur local.
+Après avoir installé les certificats racine et intermédiaires, vous devez être en mesure d’exécuter `Add-HgsAttestationTpmHost`.

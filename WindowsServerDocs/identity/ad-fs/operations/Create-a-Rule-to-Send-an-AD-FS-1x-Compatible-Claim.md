@@ -18,7 +18,7 @@ ms.locfileid: "71407596"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Créer une règle pour envoyer une revendication compatible AD FS 1. x
 
-Dans les situations où vous utilisez Services ADFS \(AD FS @ no__t-1 pour émettre des revendications qui seront reçues par des serveurs de Fédération exécutant AD FS 1,0 \(Windows Server 2003 R2 @ no__t-3 ou AD FS 1,1 \(Windows Server 2008 ou Windows Server 2008 R2 @ no__t-5, vous devez effectuer les opérations suivantes :  
+Dans les situations où vous utilisez Services ADFS \(AD FS\) pour émettre des revendications qui seront reçues par des serveurs de Fédération exécutant AD FS 1,0 \(Windows Server 2003 R2\) ou AD FS 1,1 \(Windows Server 2008 ou Windows Server 2008 R2\), vous devez effectuer les opérations suivantes :  
   
 -   Créez une règle qui enverra un type de revendication d’ID de nom avec un format UPN, E-mail ou nom commun.  
   
@@ -30,7 +30,7 @@ Dans les situations où vous utilisez Services ADFS \(AD FS @ no__t-1 pour émet
   
     -   Nom commun  
   
-    -   Regrouper  
+    -   Group  
   
     -   Tout autre type de revendication qui commence par https://schemas.xmlsoap.org/claims/, tel que https://schemas.xmlsoap.org/claims/EmployeeID  
   
@@ -50,7 +50,7 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
 4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
@@ -63,11 +63,11 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
 7.  Dans **type de revendication entrante**, sélectionnez **ID de nom** dans la liste.  
   
-8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
+8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-formats de revendication compatibles de la liste :  
   
     -   **NOMENCLATURE**  
   
-    -   **E @ no__t-1Mail**  
+    -   **E\-courrier électronique**  
   
     -   **Nom commun**  
   
@@ -92,7 +92,7 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
@@ -105,11 +105,11 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
 7.  Dans **type de revendication entrante**, sélectionnez **ID de nom** dans la liste.  
   
-8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
+8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-formats de revendication compatibles de la liste :  
   
     -   **NOMENCLATURE**  
   
-    -   **E @ no__t-1Mail**  
+    -   **E\-courrier électronique**  
   
     -   **Nom commun**  
   
@@ -134,7 +134,7 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)
   
 4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
@@ -149,11 +149,11 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
 8.  Dans **type de revendication sortante**, sélectionnez **ID de nom** dans la liste.  
   
-9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
+9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-formats de revendication compatibles de la liste :  
   
     -   **NOMENCLATURE**  
   
-    -   **E @ no__t-1Mail**  
+    -   **E\-courrier électronique**  
   
     -   **Nom commun**  
   
@@ -163,7 +163,7 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
     -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+    -   **Remplacer les revendications e\-de messagerie entrantes par un nouveau suffixe de courrier électronique\-**  
 ![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
 11. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
@@ -178,7 +178,7 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
@@ -193,11 +193,11 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
 8.  Dans **type de revendication sortante**, sélectionnez **ID de nom** dans la liste.  
   
-9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
+9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-formats de revendication compatibles de la liste :  
   
     -   **NOMENCLATURE**  
   
-    -   **E @ no__t-1Mail**  
+    -   **E\-courrier électronique**  
   
     -   **Nom commun**  
   
@@ -207,7 +207,7 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
     -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+    -   **Remplacer les revendications e\-de messagerie entrantes par un nouveau suffixe de courrier électronique\-**  
 ![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
 
 11. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
@@ -229,12 +229,12 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **\\AD FS relations d’approbation**, cliquez sur approbations de fournisseur de **revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation**, cliquez sur approbations de **fournisseur de revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles :  
   
     -   **Règles de transformation d’acceptation**  
   
@@ -252,11 +252,11 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
 7.  Dans **type de revendication entrante**, sélectionnez **ID de nom** dans la liste.  
   
-8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
+8.  Dans **format d’ID de nom entrant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-formats de revendication compatibles de la liste :  
   
     -   **NOMENCLATURE**  
   
-    -   **E @ no__t-1Mail**  
+    -   **E\-courrier électronique**  
   
     -   **Nom commun**  
   
@@ -278,12 +278,12 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **\\AD FS relations d’approbation**, cliquez sur approbations de fournisseur de **revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation**, cliquez sur approbations de **fournisseur de revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, qui dépend de l’approbation que vous modifiez et de l’ensemble de règles pour lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, qui dépend de l’approbation que vous modifiez et de l’ensemble de règles pour lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles :  
   
     -   **Règles de transformation d’acceptation**  
   
@@ -303,11 +303,11 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
 8.  Dans **type de revendication sortante**, sélectionnez **ID de nom** dans la liste.  
   
-9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-Compatible-formats de revendication de la liste :  
+9. Dans le **format d’ID de nom sortant**, sélectionnez l’une des AD FS 1 ci-dessous. *x*\-formats de revendication compatibles de la liste :  
   
     -   **NOMENCLATURE**  
   
-    -   **E @ no__t-1Mail**  
+    -   **E\-courrier électronique**  
   
     -   **Nom commun**  
   
@@ -317,7 +317,7 @@ Selon les besoins de votre organisation, utilisez l’une des procédures suivan
   
     -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+    -   **Remplacer les revendications e\-de messagerie entrantes par un nouveau suffixe de courrier électronique\-**  
 ![créer une règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs2.PNG)    
 
 11. Cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  

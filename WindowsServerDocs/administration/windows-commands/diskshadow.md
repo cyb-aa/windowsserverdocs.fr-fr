@@ -22,9 +22,9 @@ ms.locfileid: "71377769"
 ---
 # <a name="diskshadow"></a>diskshadow
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-DiskShadow. exe est un outil qui expose les fonctionnalités offertes par le service de cliché instantané des volumes @no__t 0VSS @ no__t-1. Par défaut, DiskShadow utilise un interpréteur de commandes interactif semblable à celui de DiskRAID ou DiskPart. DiskShadow comprend également un mode scriptable.  
+DiskShadow. exe est un outil qui expose les fonctionnalités offertes par le service de cliché instantané des volumes \(VSS\). Par défaut, DiskShadow utilise un interpréteur de commandes interactif semblable à celui de DiskRAID ou DiskPart. DiskShadow comprend également un mode scriptable.  
   
 > [!NOTE]  
 > L’appartenance au groupe Administrateurs local, ou équivalent, est la condition minimale requise pour exécuter DiskShadow.  
@@ -56,16 +56,16 @@ Vous pouvez exécuter les commandes suivantes dans l’interpréteur de commande
 |[add_1](add_1.md)|Ajoute des volumes à l’ensemble des volumes qui doivent être des clichés instantanés ou ajoute des alias à l’environnement d’alias.|  
 |[create_1](create_1.md)|démarre le processus de création de clichés instantanés à l’aide du contexte et des paramètres d’option actuels.|  
 |[exécutable](exec.md)|exécute un fichier sur l’ordinateur local.|  
-|[Commencer la sauvegarde](begin-backup.md)|Démarre une session de sauvegarde complète.|  
+|[Commencer la sauvegarde](begin-backup.md)|démarre une session de sauvegarde complète.|  
 |[Terminer la sauvegarde](end-backup.md)|Met fin à une session de sauvegarde complète et émet un événement **BackupComplete** avec l’état du writer approprié, si nécessaire.|  
 |[Commencer la restauration](begin-restore.md)|démarre une session de restauration et émet un événement de **prérestauration** pour les Writers impliqués.|  
 |[Terminer la restauration](end-restore.md)|Met fin à une session de restauration et émet un événement **postRestore** pour les Writers impliqués.|  
 |[initialisation](reset.md)|rétablit l’État par défaut de DiskShadow.|  
 |[tarifs](list.md)|répertorie les writers, les clichés instantanés ou les fournisseurs de clichés instantanés actuellement enregistrés qui se trouvent sur le système.|  
 |[supprimer les ombres](delete-shadows.md)|supprime les clichés instantanés.|  
-|[import](import.md)|Importe un cliché instantané transportable à partir d’un fichier de métadonnées chargé dans le système.|  
+|[import](import.md)|importe un cliché instantané transportable à partir d’un fichier de métadonnées chargé dans le système.|  
 |[mask](mask.md)|supprime les clichés instantanés matériels importés à l’aide de la commande **Importer** .|  
-|[poser](expose.md)|expose un cliché instantané persistant sous la forme d’une lettre de lecteur, d’un partage ou d’un point de montage.|  
+|[poser](expose.md)|Expose un cliché instantané persistant sous la forme d’une lettre de lecteur, d’un partage ou d’un point de montage.|  
 |[cessez](unexpose.md)|N’expose pas de cliché instantané qui a été exposé à l’aide de la commande **exposer** .|  
 |[break_2](break_2.md)|Dissocie un volume de clichés instantanés de VSS.|  
 |[rétablir](revert.md)|ramène un volume à un cliché instantané spécifié.|  
@@ -76,15 +76,15 @@ Vous pouvez exécuter les commandes suivantes dans l’interpréteur de commande
 -   au minimum, il vous suffit d' **Ajouter** et de **créer** pour créer un cliché instantané. Toutefois, cela perdra les paramètres de contexte et d’option, sera une sauvegarde de copie et créera uniquement un cliché instantané sans script d’exécution de sauvegarde.  
   
 ## <a name="BKMK_examples"></a>Illustre  
-Il s’agit d’un exemple de séquence de commandes qui créera un cliché instantané pour la sauvegarde. Il peut être enregistré dans le fichier en tant que script. DSH, et exécuté avec DiskShadow \/ script. DSH  
+Il s’agit d’un exemple de séquence de commandes qui créera un cliché instantané pour la sauvegarde. Il peut être enregistré dans le fichier en tant que script. DSH, et exécuté avec DiskShadow \/s script. DSH  
   
 Supposons les éléments suivants :  
   
--   Vous avez un répertoire existant appelé c : \\diskshadowdata.  
+-   Vous avez un répertoire existant appelé c :\\diskshadowdata.  
   
 -   Votre volume système est C : et votre volume de données est D :.  
   
--   Vous avez un fichier backupscript. cmd en c : \\diskshadowdata.  
+-   Vous avez un fichier backupscript. cmd en c :\\diskshadowdata.  
   
 -   Votre fichier backupscript. cmd effectuera la copie des données Shadow p : et q : sur votre lecteur de sauvegarde.  
   

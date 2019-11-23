@@ -37,8 +37,8 @@ rename [<Drive>:][<Path>]<FileName1> <FileName2>
 
 |Paramètre|Description|
 |---------|-----------|
-|[@no__t 0Drive >:] [\<Path >] \<FileName1 >|Spécifie l’emplacement et le nom du fichier ou de l’ensemble de fichiers que vous souhaitez renommer. *NomFichier1* peut inclure des caractères génériques **&#42;** (et **?** ).|
-|@no__t 0FileName2 >|Spécifie le nouveau nom du fichier. Vous pouvez utiliser des caractères génériques pour spécifier de nouveaux noms pour plusieurs fichiers.|
+|[\<> de lecteur :] [\<Path >]\<Nomfichier1 >|Spécifie l’emplacement et le nom du fichier ou de l’ensemble de fichiers que vous souhaitez renommer. *NomFichier1* peut inclure des caractères génériques **&#42;** (et **?** ).|
+|\<Nom_de_fichier2 >|Spécifie le nouveau nom du fichier. Vous pouvez utiliser des caractères génériques pour spécifier de nouveaux noms pour plusieurs fichiers.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

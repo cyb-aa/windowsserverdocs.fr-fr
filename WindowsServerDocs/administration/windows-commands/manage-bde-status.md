@@ -47,7 +47,7 @@ manage-bde -status [<Drive>] [-protectionaserrorlevel] [-computername <Name>] [{
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Drive >|Représente une lettre de lecteur suivie par un signe deux-points.|
+|Lecteur \<>|Représente une lettre de lecteur suivie par un signe deux-points.|
 |-protectionaserrorlevel|Force l’outil en ligne de commande Manage-bde à envoyer le code de retour 0 lorsque le volume est protégé et 1 lorsque le volume n’est pas protégé. le plus souvent utilisé pour les scripts batch pour déterminer si un lecteur est protégé par BitLocker. Vous pouvez également utiliser **-p** comme version abrégée de cette commande.|
 |-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
 |\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|

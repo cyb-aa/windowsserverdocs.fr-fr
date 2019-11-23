@@ -15,32 +15,32 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71406297"
 ---
-# <a name="create-an-alias-cname-record-in-dns-for-web1"></a>Créer un alias \(CNAME @ no__t-1 dans DNS pour WEB1
+# <a name="create-an-alias-cname-record-in-dns-for-web1"></a>Créer un alias \(CNAMe\) enregistrement dans DNS pour WEB1
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette procédure pour ajouter un alias nom canonique \(CNAME @ no__t-1 à un enregistrement de ressource pour votre serveur Web dans une zone DNS de votre contrôleur de domaine. Avec les enregistrements CNAMe, vous pouvez utiliser plusieurs noms pour pointer vers un seul hôte, ce qui simplifie l’hébergement d’un serveur protocole FTP \(FTP @ no__t-1 et d’un serveur Web sur le même ordinateur.   
+Vous pouvez utiliser cette procédure pour ajouter un nom canonique d’alias \(CNAMe\) enregistrement de ressource de votre serveur Web à une zone dans DNS sur votre contrôleur de domaine. Avec les enregistrements CNAMe, vous pouvez utiliser plusieurs noms pour pointer vers un seul hôte, ce qui simplifie l’hébergement d’un protocole FTP \(serveur FTP\) et d’un serveur Web sur le même ordinateur.   
   
-Pour cette raison, vous êtes libre d’utiliser votre serveur Web pour héberger la liste de révocation des certificats \(CRL @ no__t-1 pour votre autorité de certification \(CA @ no__t-3, ainsi que pour effectuer des services supplémentaires, tels que FTP ou un serveur Web.  
+Pour cette raison, vous êtes libre d’utiliser votre serveur Web pour héberger la liste de révocation de certificats \(\) de liste de révocation de certificats pour votre autorité de certification \(\) de l’autorité de certification, ainsi que pour effectuer des services supplémentaires, tels que FTP ou un serveur Web.  
   
 Lorsque vous effectuez cette procédure, remplacez le **nom d’alias** et d’autres variables par des valeurs appropriées pour votre déploiement.  
   
 Pour effectuer cette procédure, vous devez être membre du **groupe Admins du domaine**.  
   
-## <a name="to-add-an-alias-cname-resource-record-to-a-zone"></a>Pour ajouter un enregistrement de ressource alias \(CNAME @ no__t-1 à une zone  
+## <a name="to-add-an-alias-cname-resource-record-to-a-zone"></a>Pour ajouter un alias \(CNAMe\) enregistrement de ressource à une zone  
   
 >[!NOTE]  
 >Pour effectuer cette procédure à l’aide de Windows PowerShell, consultez [Add-DnsServerResourceRecordCName](https://technet.microsoft.com/library/jj649894(v=wps.630).aspx).  
   
 1.  Sur DC1, dans Gestionnaire de serveur, cliquez sur **Outils** , puis sur **DNS**. La console MMC (Microsoft Management Console) du Gestionnaire DNS s’ouvre.  
   
-2.  Dans l’arborescence de la console, double-cliquez sur **zones de recherche directes**, cliquez avec le bouton droit sur la zone de recherche directe dans laquelle vous souhaitez ajouter l’enregistrement de ressource alias, puis cliquez sur **Nouvel alias \(CNAME @ no__t-3**. La boîte **de dialogue nouvel enregistrement de ressource** s’ouvre.  
+2.  Dans l’arborescence de la console, double-cliquez sur **zones de recherche directes**, cliquez avec le bouton droit sur la zone de recherche directe dans laquelle vous souhaitez ajouter l’enregistrement de ressource alias, puis cliquez sur **Nouvel alias \(CNAME\)** . La boîte **de dialogue nouvel enregistrement de ressource** s’ouvre.  
   
 3.  Dans **nom**de l’alias, tapez le nom d’alias **PKI**.  
   
-4.  Lorsque vous tapez une valeur pour **nom d’alias**, le **nom de domaine complet \(FQDN @ no__t-3** se remplit automatiquement dans la boîte de dialogue. Par exemple, si votre nom d’alias est « PKI » et que votre domaine est corp.contoso.com, la valeur **PKI.Corp.contoso.com** est remplie automatiquement pour vous.  
+4.  Lorsque vous tapez une valeur pour **nom d’alias**, le **nom de domaine complet \(FQDN\)** des remplissages automatiques dans la boîte de dialogue. Par exemple, si votre nom d’alias est « PKI » et que votre domaine est corp.contoso.com, la valeur **PKI.Corp.contoso.com** est remplie automatiquement pour vous.  
   
-5.  Dans **nom de domaine complet \(FQDN @ no__t-2 pour hôte cible**, tapez le nom de domaine complet de votre serveur Web. Par exemple, si votre serveur Web est nommé WEB1 et que votre domaine est corp.contoso.com, tapez **web1.Corp.contoso.com**.  
+5.  Dans **nom de domaine complet \(\) de noms de domaine complet pour l’ordinateur hôte cible**, tapez le nom de domaine complet de votre serveur Web. Par exemple, si votre serveur Web est nommé WEB1 et que votre domaine est corp.contoso.com, tapez **web1.Corp.contoso.com**.  
   
 6.  Cliquez sur **OK** pour ajouter le nouvel enregistrement à la zone.  
   

@@ -151,7 +151,7 @@ Pendant l’installation du contrôleur de domaine, il est possible que vous dev
 -   Si vous voulez migrer une batterie AD FS SQL Server, notez que le processus de migration implique la création d’une instance de base de données SQL dans laquelle vous devez importer les données de configuration d’origine.  
   
 ## <a name="next-steps"></a>Étapes suivantes
- [Migrer Services ADFS services de rôle vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
+ [Migrer services ADFS services de rôle vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
  [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)   
  [Migration du serveur proxy de fédération AD FS](migrate-fed-server-proxy-r2.md)   
  [Vérification de la migration de AD FS vers Windows Server 2012 R2](verify-ad-fs-migration.md)

@@ -18,7 +18,7 @@ ms.locfileid: "71408012"
 ---
 # <a name="planning-federation-server-proxy-placement"></a>Planification de la sélection élective du serveur proxy de fédération
 
-Une fois que vous avez collecté toutes les informations que vous allez utiliser pour concevoir votre Services ADFS l’infrastructure \(AD FS @ no__t-1 et que vous planifiez votre serveur de Fédération et votre stratégie de serveur Web, vous pouvez planifier le moment et l’emplacement de stockage du serveur de Fédération. les proxies dans votre nouvelle conception. Les informations contenues dans les rubriques suivantes peuvent vous aider à déterminer quand et où placer un serveur proxy de Fédération et s’il faut le configurer pour le rôle de partenaire de compte ou de partenaire de ressource :  
+Une fois que vous avez collecté toutes les informations que vous allez utiliser pour concevoir votre Services ADFS \(AD FS\) infrastructure et que vous planifiez votre serveur de Fédération et votre stratégie de serveur Web, vous pouvez planifier quand et où placer les serveurs proxys de Fédération dans votre nouvelle conception. Les informations contenues dans les rubriques suivantes peuvent vous aider à déterminer quand et où placer un serveur proxy de Fédération et s’il faut le configurer pour le rôle de partenaire de compte ou de partenaire de ressource :  
   
 -   [Passer en revue le rôle du serveur de fédération du partenaire de compte](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   

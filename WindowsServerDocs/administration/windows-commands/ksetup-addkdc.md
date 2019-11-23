@@ -36,12 +36,12 @@ ksetup /addkdc <RealmName> [<KDCName>]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté. C’est à ce domaine que vous essayez d’ajouter l’autre KDC.|
-|@no__t 0KDCName >|Le nom KDC est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.microsoft.com. Si le nom du KDC est omis, DNS localise les KDC.|
+|\<RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté. C’est à ce domaine que vous essayez d’ajouter l’autre KDC.|
+|\<KDCName >|Le nom KDC est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.microsoft.com. Si le nom du KDC est omis, DNS localise les KDC.|
 
 ## <a name="remarks"></a>Notes
 
-Ces mappages sont stockés dans le Registre sous **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains**. Pour déployer des données de configuration de domaine Kerberos sur plusieurs ordinateurs, utilisez le composant logiciel enfichable modèle de configuration de sécurité et la distribution de stratégie au lieu d’utiliser **Ksetup** explicitement sur des ordinateurs individuels.
+Ces mappages sont stockés dans le Registre sous **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\lsa\kerberos\domains**. Pour déployer des données de configuration de domaine Kerberos sur plusieurs ordinateurs, utilisez le composant logiciel enfichable modèle de configuration de sécurité et la distribution de stratégie au lieu d’utiliser **Ksetup** explicitement sur des ordinateurs individuels.
 
 L’ordinateur doit être redémarré pour que le nouveau paramètre de domaine soit utilisé.
 
@@ -53,7 +53,7 @@ Configurez un serveur KDC non-Windows et le domaine que la station de travail do
 ```
 ksetup /addkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-Exécutez l’outil Ksetup sur la ligne de commande du même ordinateur que dans la commande précédente pour définir le mot de passe du compte d’ordinateur local sur « p@sswrd1% ». Ensuite, redémarrez l’ordinateur.
+Exécutez l’outil Ksetup sur la ligne de commande du même ordinateur que dans la commande précédente pour définir le mot de passe du compte d’ordinateur local sur «p@sswrd1% ». Ensuite, redémarrez l’ordinateur.
 ```
 Ksetup /setcomputerpassword p@sswrd1%
 ```

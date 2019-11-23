@@ -24,7 +24,7 @@ ms.locfileid: "71362930"
 
 
 
-supprime un groupe de pilotes d’un serveur.
+Supprime un groupe de pilotes d’un serveur.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,8 +36,8 @@ WDSUTIL /Remove-DriverGroup /DriverGroup:<Group Name> [/Server:<Server name>]
 
 |Paramètre|Description|
 |---------|-----------|
-|/DriverGroup : nom de \<Group >|Spécifie le nom du groupe de pilotes à supprimer.|
-|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|/DriverGroup : nom du groupe de\<>|Spécifie le nom du groupe de pilotes à supprimer.|
+|[/Server :\<nom du serveur >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
 
 ## <a name="BKMK_examples"></a>Illustre
 

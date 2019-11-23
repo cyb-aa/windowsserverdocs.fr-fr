@@ -38,8 +38,8 @@ Si le domaine Kerberos sur lequel la station de travail doit s’authentifier pr
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM et est indiqué comme domaine par défaut ou domaine = lorsque **Ksetup** est exécuté.|
-|@no__t 0KpasswdName >|Le nom du KDC qui doit être utilisé en tant que serveur de mot de passe Kerberos est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.microsoft.com. Si le nom du KDC est omis, DNS peut être utilisé pour localiser les KDC.|
+|\<RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM et est indiqué comme domaine par défaut ou domaine = lorsque **Ksetup** est exécuté.|
+|\<KpasswdName >|Le nom du KDC qui doit être utilisé en tant que serveur de mot de passe Kerberos est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.microsoft.com. Si le nom du KDC est omis, DNS peut être utilisé pour localiser les KDC.|
 
 ## <a name="remarks"></a>Notes
 

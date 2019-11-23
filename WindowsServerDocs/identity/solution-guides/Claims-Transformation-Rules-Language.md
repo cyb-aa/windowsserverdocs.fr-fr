@@ -1,6 +1,6 @@
 ---
 ms.assetid: e831f781-3c45-4d44-b411-160d121d1324
-title: Langage de règles de Transformation de revendications
+title: Langage des règles de transformation des revendications
 description: ''
 author: billmath
 ms.author: billmath
@@ -16,9 +16,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71357580"
 ---
-# <a name="claims-transformation-rules-language"></a>Langage de règles de Transformation de revendications
+# <a name="claims-transformation-rules-language"></a>Langage des règles de transformation des revendications
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La fonctionnalité de transformation des revendications sur plusieurs forêts vous permet de relier des revendications pour des Access Control dynamiques entre les limites de la forêt en définissant des stratégies de transformation des revendications sur les approbations sur plusieurs forêts. Le composant principal de toutes les stratégies est celui qui est écrit dans le langage des règles de transformation des revendications. Cette rubrique fournit des informations détaillées sur ce langage et fournit des conseils sur la création de règles de transformation de revendications.  
   
@@ -29,9 +29,9 @@ Selon la configuration des revendications et les exigences placées sur l’appr
 Cette rubrique explique brièvement la syntaxe et la sémantique du langage de règles de transformation des revendications dans Active Directory et les éléments à prendre en considération lors de la création de stratégies. Il fournit plusieurs ensembles d’exemples de règles pour vous aider à démarrer, ainsi que des exemples de syntaxe incorrecte et les messages qu’ils génèrent, pour vous aider à déchiffrer les messages d’erreur lorsque vous créez les règles.  
   
 ## <a name="tools-for-authoring-claims-transformation-policies"></a>Outils de création de stratégies de transformation des revendications  
-**Applets de commande Windows PowerShell pour Active Directory**: Il s’agit de la méthode recommandée et recommandée pour créer et définir des stratégies de transformation des revendications. Ces applets de commande fournissent des commutateurs pour les stratégies simples et vérifient les règles qui sont définies pour les stratégies plus complexes.  
+**Applets de commande Windows PowerShell pour Active Directory**: il s’agit de la méthode recommandée et recommandée pour créer et définir des stratégies de transformation des revendications. Ces applets de commande fournissent des commutateurs pour les stratégies simples et vérifient les règles qui sont définies pour les stratégies plus complexes.  
   
-**LDAP**: Les stratégies de transformation des revendications peuvent être modifiées dans Active Directory par le biais du protocole LDAP (Lightweight Directory Access Protocol). Toutefois, cela n’est pas recommandé, car les stratégies comportent plusieurs composants complexes, et les outils que vous utilisez peuvent ne pas valider la stratégie avant de l’écrire dans Active Directory. Cela peut nécessiter un temps considérable pour diagnostiquer les problèmes.  
+**LDAP**: les stratégies de transformation des revendications peuvent être modifiées dans Active Directory par le biais du protocole LDAP (Lightweight Directory Access Protocol). Toutefois, cela n’est pas recommandé, car les stratégies comportent plusieurs composants complexes, et les outils que vous utilisez peuvent ne pas valider la stratégie avant de l’écrire dans Active Directory. Cela peut nécessiter un temps considérable pour diagnostiquer les problèmes.  
   
 ## <a name="active-directory-claims-transformation-rules-language"></a>Langage de règles de transformation des revendications Active Directory  
   
@@ -67,11 +67,11 @@ ISSUE (TYPE= "EmpType", VALUE = C1.VALUE, VALUETYPE = C1.VALUETYPE) == Rule Acti
 ### <a name="runtime-operation"></a>Opération d’exécution  
 Il est important de comprendre l’opération d’exécution des transformations de revendications pour créer efficacement les règles. L’opération d’exécution utilise trois ensembles de revendications :  
   
-1.  **Jeu de revendications d’entrée**: Jeu d’entrée des revendications accordées à l’opération de transformation des revendications.  
+1.  **Jeu de revendications d’entrée**: ensemble d’entrée des revendications fournies à l’opération de transformation des revendications.  
   
-2.  **Ensemble de revendications de travail**: Revendications intermédiaires lues et écrites dans pendant la transformation des revendications.  
+2.  **Ensemble de revendications de travail**: revendications intermédiaires lues et écrites dans pendant la transformation des revendications.  
   
-3.  **Jeu de revendications de sortie**: Résultat de l’opération de transformation des revendications.  
+3.  **Jeu de revendications de sortie**: sortie de l’opération de transformation des revendications.  
   
 Voici une brève vue d’ensemble de l’opération de transformation des revendications du Runtime :  
   
@@ -91,7 +91,7 @@ Voici une brève vue d’ensemble de l’opération de transformation des revend
   
 Il est possible d’écrire des transformations de revendications complexes basées sur le comportement d’exécution précédent.  
   
-**Tels Opération d’exécution @ no__t-0  
+**Exemple : opération Runtime**  
   
 Cet exemple montre l’opération d’exécution d’une transformation de revendications qui utilise deux règles.  
   
@@ -135,7 +135,7 @@ Voici une syntaxe spéciale pour les règles :
   
 2.  Liste de conditions Select vide = = chaque revendication correspond à la liste de conditions Select  
   
-    **Tels Liste de conditions Select vide @ no__t-0  
+    **Exemple : liste de conditions Select vide**  
   
     La règle suivante correspond à chaque revendication de la plage de travail.  
   
@@ -145,7 +145,7 @@ Voici une syntaxe spéciale pour les règles :
   
 3.  Empty Select Matching List = = chaque revendication correspond à la liste de conditions Select  
   
-    **Tels Conditions de correspondance vides @ no__t-0  
+    **Exemple : conditions de correspondance vides**  
   
     La règle suivante correspond à chaque revendication de la plage de travail. Il s’agit de la règle de base « autoriser tout » si elle est utilisée seule.  
   
@@ -153,7 +153,7 @@ Voici une syntaxe spéciale pour les règles :
     C1:[] => Issule (claim = C1);  
     ```  
   
-## <a name="security-considerations"></a>Considérations relatives à la sécurité  
+## <a name="security-considerations"></a>Éléments à prendre en compte en matière de sécurité  
 **Revendications qui entrent dans une forêt**  
   
 Les revendications présentées par les principaux qui sont entrants dans une forêt doivent être soigneusement inspectées pour garantir que nous autorisons ou émettent uniquement les revendications appropriées. Des revendications incorrectes peuvent compromettre la sécurité de la forêt, ce qui doit être une préoccupation principale lors de la création de stratégies de transformation pour les revendications qui entrent dans une forêt.  
@@ -184,7 +184,7 @@ Active Directory ne parvient pas à déterminer l’intention dans ce cas et pas
   
 4.  Si une action de règle fait référence à un identificateur qui n’a pas été utilisé dans la partie sélectionner la liste de conditions de la règle, il s’agit d’une utilisation non valide. Cela entraînerait une erreur de syntaxe.  
   
-    **Tels Référence d’identificateur incorrecte @ no__t-0  
+    **Exemple : référence d’identificateur incorrecte**  
     La règle suivante illustre un identificateur incorrect utilisé dans l’action de la règle.  
   
     ```  
@@ -233,9 +233,9 @@ Cette section illustre quelques exemples de règles écrites avec une syntaxe in
   
    Cet exemple présente un point-virgule incorrectement utilisé à la place d’un signe deux-points.   
    **Message d’erreur :**  
-   @NO__T 0POLICY0002 : Impossible d’analyser les données de stratégie. *  
-   Numéro de @no__t 0Line : 1, numéro de colonne : 2, jeton d’erreur :;. Ligne : 'C1 ; [] = > problème (revendication = C1); '. *  
-   erreur @no__t 0Parser : 'POLICY0030: Erreur de syntaxe, '; 'inattendu, qui attendait l’un des éléments suivants : ' : '. ' *  
+   *POLICY0002 : impossible d’analyser les données de stratégie.*  
+   *Numéro de ligne : 1, numéro de colonne : 2, jeton d’erreur :;. Ligne : 'C1 ; [] = > problème (revendication = C1); '.*  
+   *Erreur de l’analyseur : 'POLICY0030 : erreur de syntaxe, '; 'inattendu, l’un des éléments suivants est attendu : ' : '. '*  
   
 2. Exemple :  
   
@@ -245,7 +245,7 @@ Cette section illustre quelques exemples de règles écrites avec une syntaxe in
   
    Dans cet exemple, la balise d’identificateur dans l’instruction de copie d’émission n’est pas définie.   
    **Message d’erreur**:   
-   @NO__T 0POLICY0011 : Aucune condition de la règle de revendication ne correspond à la balise de condition spécifiée dans CopyIssuanceStatement : 'C2 '. *  
+   *POLICY0011 : aucune condition de la règle de revendication ne correspond à la balise de condition spécifiée dans le CopyIssuanceStatement : 'C2 '.*  
   
 3. Exemple :  
   
@@ -255,9 +255,9 @@ Cette section illustre quelques exemples de règles écrites avec une syntaxe in
   
    « bool » n’est pas un terminal dans la langue et il ne s’agit pas d’un ValueType valide. Les terminaux valides sont répertoriés dans le message d’erreur suivant.   
    **Message d’erreur :**  
-   @NO__T 0POLICY0002 : Impossible d’analyser les données de stratégie. *  
-   Numéro de ligne : 1, numéro de colonne : 39, jeton d’erreur : "bool". Ligne : 'C1 : [type = = "X1", valeur = = "1", ValueType = = "bool"] = > problème (revendication = C1); '.   
-   erreur @no__t 0Parser : 'POLICY0030: Erreur de syntaxe, 'STRING’inattendu, qui attendait l’un des éléments suivants : 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFICATEUR' *  
+   *POLICY0002 : impossible d’analyser les données de stratégie.*  
+   Numéro de ligne : 1, numéro de colonne : 39, jeton d’erreur : « bool ». Ligne : 'C1 : [type = = "X1", valeur = = "1", ValueType = = "bool"] = > problème (revendication = C1); '.   
+   *Erreur de l’analyseur : 'POLICY0030 : erreur de syntaxe, 'chaîne’inattendu, qui attendait l’un des éléments suivants : 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'identificateur'*  
   
 4. Exemple :  
   
@@ -267,8 +267,8 @@ Cette section illustre quelques exemples de règles écrites avec une syntaxe in
   
    Le chiffre **1** de cet exemple n’est pas un jeton valide dans le langage, et ce type d’utilisation n’est pas autorisé dans une condition de correspondance. Elle doit être placée entre guillemets doubles pour en faire une chaîne.   
    **Message d’erreur :**  
-   @NO__T 0POLICY0002 : Impossible d’analyser les données de stratégie. *  
-   Numéro de @no__t 0Line : 1, numéro de colonne : 23, jeton d’erreur : 1. Ligne : 'C1 : [type = = "X1", valeur = = 1, ValueType = = "bool"] = > problème (revendication = C1); '. * @ no__t-1Parser erreur : 'POLICY0029: Entrée inattendue. </em>  
+   *POLICY0002 : impossible d’analyser les données de stratégie.*  
+   *Numéro de ligne : 1, numéro de colonne : 23, jeton d’erreur : 1. ligne : 'C1 : [type = = "X1", valeur = = 1, ValueType = = "bool"] = > problème (revendication = C1); '.* <em>Erreur de l’analyseur : 'POLICY0029 : entrée inattendue.</em>  
   
 5. Exemple :  
   
@@ -280,10 +280,10 @@ Cette section illustre quelques exemples de règles écrites avec une syntaxe in
   
    Cet exemple utilise un double signe égal (= =) au lieu d’un seul signe égal (=).   
    **Message d’erreur :**  
-   @NO__T 0POLICY0002 : Impossible d’analyser les données de stratégie. *  
-   Numéro de @no__t 0Line : 1, numéro de colonne : 91, jeton d’erreur : = =. Ligne : 'C1 : [type = = "X1", valeur = = "1", *  
+   *POLICY0002 : impossible d’analyser les données de stratégie.*  
+   *Numéro de ligne : 1, numéro de colonne : 91, jeton d’erreur : = =. Ligne : 'C1 : [type = = "X1", valeur = = "1",*  
    *ValueType = = "Boolean"] = > problème (type = C1. type, valeur = "0", ValueType = = "Boolean"); '.*  
-   erreur @no__t 0Parser : 'POLICY0030: Erreur de syntaxe, ' = 'inattendu, qui attendait l’un des éléments suivants : ' = ' *  
+   *Erreur de l’analyseur : 'POLICY0030 : erreur de syntaxe, ' = = 'inattendu, qui attendait l’un des éléments suivants : ' = '*  
   
 6. Exemple :  
   
@@ -320,8 +320,8 @@ Le tableau suivant répertorie l’ensemble complet des chaînes de terminal et 
 |ajoutée|AJOUTÉE|  
 |ValueType|VALUE_TYPE|  
 |revendiqu|REVENDIQU|  
-|« [A-za-z] [a-zA-z0-9] * »|IDENTIFICATEUR|  
-|« \\ » [^ \\» \n] * \\ «»|CHAÎNE|  
+|"[_A-za-z] [_A-Za-z0-9] *"|IDENTIFICATEUR|  
+|«\\» [^\\« \n] *\\« »|CHAÎNE|  
 |UInt64|UINT64_TYPE|  
 |Int64|INT64_TYPE|  
 |chaîne|STRING_TYPE|  

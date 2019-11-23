@@ -53,7 +53,7 @@ Pour répertorier les éléments de la sauvegarde qui ont été exécutés le 31
 ```
 wbadmin get items -version:03/31/2013-09:00
 ```
-Pour répertorier les éléments de la sauvegarde de SERVEUR01 qui a été exécutée le 30 avril 2013 à 9:00 h 00 et stockés sur \\ @ no__t-1servername\share, tapez :
+Pour répertorier les éléments de la sauvegarde de SERVEUR01 qui a été exécutée le 30 avril 2013 à 9:00 h 00 et stockés sur \\\\servername\share, tapez :
 ```
 wbadmin get items -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```

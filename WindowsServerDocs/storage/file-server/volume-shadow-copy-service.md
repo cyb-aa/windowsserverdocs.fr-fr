@@ -52,19 +52,19 @@ Les fonctionnalités Windows et les applications qui utilisent VSS sont les suiv
 
 Une solution VSS complète requiert tous les éléments de base suivants :
 
-   Composant du service VSS du système d’exploitation Windows qui garantit que les autres composants peuvent communiquer entre eux correctement et fonctionner ensemble.
+Le **service VSS**   une partie du système d’exploitation Windows qui garantit que les autres composants peuvent communiquer entre eux correctement et fonctionner ensemble.
 
-**Demandeur VSS logiciel**qui demande la création réelle de clichés instantanés (ou d’autres opérations de haut niveau telles que l’importation ou la suppression).    En règle générale, il s’agit de l’application de sauvegarde. L’utilitaire Sauvegarde Windows Server et l’application System Center Data Protection Manager sont des demandeurs VSS. Les demandeurs VSS non-Microsoft® incluent presque tous les logiciels de sauvegarde qui s’exécutent sur Windows.
+Le **demandeur VSS**   le logiciel qui demande la création réelle de clichés instantanés (ou d’autres opérations de haut niveau telles que l’importation ou la suppression). En règle générale, il s’agit de l’application de sauvegarde. L’utilitaire Sauvegarde Windows Server et l’application System Center Data Protection Manager sont des demandeurs VSS. Les demandeurs VSS non-Microsoft® incluent presque tous les logiciels de sauvegarde qui s’exécutent sur Windows.
 
-**Enregistreur VSS composant**qui garantit que nous disposons d’un jeu de données cohérent à sauvegarder.    Il est généralement fourni dans le cadre d’une application métier, par exemple SQL Server® ou Exchange Server. Les enregistreurs VSS des différents composants Windows, tels que le registre, sont fournis avec le système d’exploitation Windows. Les enregistreurs VSS non-Microsoft sont inclus avec de nombreuses applications pour Windows qui doivent garantir la cohérence des données lors de la sauvegarde.
+L' **enregistreur VSS**   le composant qui garantit que nous disposons d’un jeu de données cohérent à sauvegarder. Il est généralement fourni dans le cadre d’une application métier, par exemple SQL Server® ou Exchange Server. Les enregistreurs VSS des différents composants Windows, tels que le registre, sont fournis avec le système d’exploitation Windows. Les enregistreurs VSS non-Microsoft sont inclus avec de nombreuses applications pour Windows qui doivent garantir la cohérence des données lors de la sauvegarde.
 
-**Fournisseur VSS composant**quicréeetgèrelesclichésinstantanés   . Cela peut se produire dans le logiciel ou dans le matériel. Le système d’exploitation Windows comprend un fournisseur VSS qui utilise la copie en écriture. Si vous utilisez un réseau de zone de stockage (SAN), il est important d’installer le fournisseur de matériel VSS pour le réseau SAN, si celui-ci est fourni. Un fournisseur de matériel décharge la tâche de création et de maintenance d’un cliché instantané du système d’exploitation hôte.
+**Fournisseur VSS**   le composant qui crée et gère les clichés instantanés. Cela peut se produire dans le logiciel ou dans le matériel. Le système d’exploitation Windows comprend un fournisseur VSS qui utilise la copie en écriture. Si vous utilisez un réseau de zone de stockage (SAN), il est important d’installer le fournisseur de matériel VSS pour le réseau SAN, si celui-ci est fourni. Un fournisseur de matériel décharge la tâche de création et de maintenance d’un cliché instantané du système d’exploitation hôte.
 
 Le diagramme suivant illustre la façon dont le service VSS coordonne avec les demandeurs, les rédacteurs et les fournisseurs de créer un cliché instantané d’un volume.
 
 ![](media/volume-shadow-copy-service/Ee923636.94dfb91e-8fc9-47c6-abc6-b96077196741(WS.10).jpg)
 
-**Figure 1**   diagramme architectural de service VSS
+**Figure 1**   diagramme Architectural de service VSS
 
 ### <a name="how-a-shadow-copy-is-created"></a>Création d’un cliché instantané
 
@@ -106,11 +106,11 @@ Pour créer un cliché instantané, le demandeur, le rédacteur et le fournisseu
 
 Un fournisseur de clichés instantanés matériel ou logiciel utilise l’une des méthodes suivantes pour créer un cliché instantané :
 
-**Copie complète cette**méthode effectue une copie complète (appelée « copie complète » ou « clone ») du volume d’origine à un moment donné.    Cette copie est en lecture seule.
+**Terminer la copie**   cette méthode effectue une copie complète (appelée « copie complète » ou « clone ») du volume d’origine à un moment donné. Cette copie est en lecture seule.
 
 **Copie sur écriture**   cette méthode ne copie pas le volume d’origine. Au lieu de cela, il effectue une copie différentielle en copiant toutes les modifications (demandes d’e/s d’écriture terminées) effectuées sur le volume après un point donné dans le temps.
 
-**Redirection-on-Write**   cette méthode ne copie pas le volume d’origine et n’apporte aucune modification au volume d’origine après un point donné dans le temps. Au lieu de cela, il effectue une copie différentielle en redirigeant toutes les modifications vers un volume différent.
+**Redirection en écriture**   cette méthode ne copie pas le volume d’origine et n’apporte aucune modification au volume d’origine après un point donné dans le temps. Au lieu de cela, il effectue une copie différentielle en redirigeant toutes les modifications vers un volume différent.
 
 ## <a name="complete-copy"></a>Copie complète
 
@@ -136,7 +136,7 @@ Dans la méthode de copie sur écriture, lorsqu’une modification apportée au 
 </colgroup>
 <thead>
 <tr class="header">
-<th>Time</th>
+<th>Durée</th>
 <th>Données sources (État et données)</th>
 <th>Cliché instantané (État et données)</th>
 </tr>
@@ -160,7 +160,7 @@ Dans la méthode de copie sur écriture, lorsqu’une modification apportée au 
 </tbody>
 </table>
 
-**Tableau 1**   méthode de copie sur écriture pour la création de clichés instantanés
+Le **tableau 1**   la méthode de copie sur écriture pour la création de clichés instantanés
 
 La méthode de copie sur écriture est une méthode rapide pour créer un cliché instantané, car elle copie uniquement les données modifiées. Les blocs copiés dans la zone diff peuvent être combinés avec les données modifiées sur le volume d’origine pour restaurer le volume à son état avant l’exécution de l’une des modifications. Si de nombreuses modifications sont apportées, la méthode de copie sur écriture peut devenir coûteuse.
 
@@ -177,7 +177,7 @@ Dans la méthode de redirection en écriture, chaque fois que le volume d’orig
 </colgroup>
 <thead>
 <tr class="header">
-<th>Time</th>
+<th>Durée</th>
 <th>Données sources (État et données)</th>
 <th>Cliché instantané (État et données)</th>
 </tr>
@@ -191,17 +191,17 @@ Dans la méthode de redirection en écriture, chaque fois que le volume d’orig
 <tr class="even">
 <td><p>T1</p></td>
 <td><p>Données modifiées dans le cache : 3 à 3 '</p></td>
-<td><p>Cliché instantané créé (différences uniquement) : 1,3</p></td>
+<td><p>Cliché instantané créé (différences uniquement) : 3 '</p></td>
 </tr>
 <tr class="odd">
 <td><p>T2</p></td>
 <td><p>Données d’origine inchangées : 1 2 3 4 5</p></td>
-<td><p>Différences et index stockés sur le cliché instantané : 1,3</p></td>
+<td><p>Différences et index stockés sur le cliché instantané : 3 '</p></td>
 </tr>
 </tbody>
 </table>
 
-**Tableau 2**   méthode de redirection en écriture pour la création de clichés instantanés
+**Tableau 2**   la méthode de redirection en écriture pour la création de clichés instantanés
 
 À l’instar de la méthode de copie sur écriture, la méthode de redirection en écriture est une méthode rapide pour créer un cliché instantané, car elle copie uniquement les modifications apportées aux données. Les blocs copiés dans la zone diff peuvent être combinés avec les données non modifiées sur le volume d’origine pour créer une copie complète et à jour des données. S’il existe de nombreuses demandes d’e/s en lecture, la méthode de redirection en écriture peut devenir coûteuse.
 
@@ -247,7 +247,7 @@ Le système d’exploitation Windows comprend un ensemble de Writers VSS chargé
 
 Pour plus d’informations sur ces Writers, consultez les sites Web Microsoft suivants :
 
-  - [Enregistreurs VSS intégrés](http://go.microsoft.com/fwlink/?linkid=180895) (http://go.microsoft.com/fwlink/?LinkId=180895)  
+  - [Enregistreurs VSS en boîte](http://go.microsoft.com/fwlink/?linkid=180895) (http://go.microsoft.com/fwlink/?LinkId=180895)  
       
   - [Nouveaux enregistreurs VSS en boîte pour Windows Server 2008 et Windows Vista SP1](http://go.microsoft.com/fwlink/?linkid=180896) (http://go.microsoft.com/fwlink/?LinkId=180896)  
       
@@ -298,7 +298,7 @@ La resynchronisation des numéros d’unités logiques diffère de l’échange 
 
 Clichés instantanés pour dossiers partagés utilise la Service VSS pour fournir des copies ponctuelles des fichiers situés sur une ressource réseau partagée, par exemple un serveur de fichiers. Avec clichés instantanés pour dossiers partagés, les utilisateurs peuvent récupérer rapidement des fichiers supprimés ou modifiés qui sont stockés sur le réseau. Dans la mesure où ils peuvent le faire sans l’aide de l’administrateur, clichés instantanés pour dossiers partagés peut augmenter la productivité et réduire les coûts d’administration.
 
-Pour plus d’informations sur clichés instantanés pour dossiers partagés, consultez [clichés instantanés pour dossiers partagés](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) sur TechNet.
+Pour plus d’informations sur clichés instantanés pour dossiers partagés, consultez [clichés instantanés pour dossiers partagés](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898)sur TechNet.
 
 ### <a name="data-mining-by-using-transportable-shadow-copies"></a>Exploration de données à l’aide des clichés instantanés transportables
 
@@ -328,7 +328,7 @@ Les clichés instantanés sont en lecture seule. Si vous souhaitez convertir un 
 
 Service VSS transport est une solution avancée sur les ordinateurs exécutant Windows Server 2003 Enterprise Edition, Windows Server 2003 Datacenter Edition, Windows Server 2008 ou Windows Server 2008 R2. Il fonctionne uniquement s’il existe un fournisseur de matériel sur le groupe de stockage. Le transport de clichés instantanés peut être utilisé à plusieurs fins, y compris les sauvegardes sur bande, l’exploration de données et le test.
 
-## <a name="frequently-asked-questions"></a>Questions fréquemment posées
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
 
 Ce FAQ répond à des questions sur Service VSS (VSS) pour les administrateurs système. Pour plus d’informations sur les interfaces de programmation d’applications VSS, consultez [service VSS](http://go.microsoft.com/fwlink/?linkid=180899) (http://go.microsoft.com/fwlink/?LinkId=180899) dans la bibliothèque du centre de développement Windows.
 
@@ -384,7 +384,7 @@ Pour exclure des fichiers spécifiques des clichés instantanés, utilisez la cl
 > <LI>Les fichiers sont supprimés d’un cliché instantané de manière optimale. Cela signifie qu’il n’est pas garanti qu’elles soient supprimées.<BR><BR></LI></UL>
 
 
-Pour plus d’informations, consultez [exclusion de fichiers des clichés instantanés](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) sur MSDN).
+Pour plus d’informations, consultez [exclusion de fichiers des clichés instantanés](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) sur MSDN.
 
 ### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>Mon programme de sauvegarde non-Microsoft a échoué avec une erreur VSS. Que puis-je faire ?
 
@@ -450,15 +450,15 @@ Le système d’exploitation Windows fournit les outils suivants pour l’utilis
 
 DiskShadow est un demandeur VSS que vous pouvez utiliser pour gérer l’ensemble des captures instantanées matérielles et logicielles que vous pouvez avoir sur un système. DiskShadow comprend des commandes telles que les suivantes :
 
-  - **liste**: Répertorie les enregistreurs VSS, les fournisseurs VSS et les clichés instantanés  
+  - **List**: répertorie les enregistreurs VSS, les fournisseurs VSS et les clichés instantanés  
       
-  - **créer**: Crée un nouveau cliché instantané  
+  - **créer**: crée un nouveau cliché instantané  
       
-  - **importation**: Importe un cliché instantané transportable  
+  - **importation**: importe un cliché instantané transportable  
       
-  - **exposer**: Expose un cliché instantané persistant (sous la forme d’une lettre de lecteur, par exemple)  
+  - **exposer**: expose un cliché instantané persistant (sous la forme d’une lettre de lecteur, par exemple)  
       
-  - **rétablir**: Ramène un volume à un cliché instantané spécifié  
+  - **rétablir**: ramène un volume à un cliché instantané spécifié  
       
 
 Cet outil est destiné aux professionnels de l’informatique, mais les développeurs peuvent également le trouver utile lors du test d’un enregistreur VSS ou d’un fournisseur VSS.
@@ -471,15 +471,15 @@ VssAdmin est utilisé pour créer, supprimer et répertorier des informations su
 
 VssAdmin comprend les commandes suivantes :
 
-  - **créer une ombre**: Crée un nouveau cliché instantané  
+  - **créer une ombre**: crée un nouveau cliché instantané  
       
-  - **Supprimer les ombres**: Supprime les clichés instantanés  
+  - **Supprimer les ombres**: supprime les clichés instantanés  
       
-  - **répertorier les fournisseurs**: Répertorie tous les fournisseurs VSS inscrits  
+  - **liste des fournisseurs**: répertorie tous les fournisseurs VSS inscrits  
       
-  - **enregistreurs de liste**: Répertorie tous les enregistreurs VSS abonnés  
+  - **liste des enregistreurs**: répertorie tous les enregistreurs VSS abonnés  
       
-  - **Redimensionner ShadowStorage**: Modifie la taille maximale de la zone de stockage des clichés instantanés  
+  - **Redimensionner ShadowStorage**: modifie la taille maximale de la zone de stockage des clichés instantanés  
       
 
 VssAdmin ne peut être utilisé que pour administrer des clichés instantanés créés par le fournisseur de logiciels système.
@@ -503,9 +503,9 @@ Cette clé est utilisée pour spécifier les utilisateurs qui ont accès aux cli
 
 Pour plus d’informations, consultez les rubriques suivantes sur le site Web MSDN :
 
-  - [Considérations relatives à la sécurité pour les Writers](http://go.microsoft.com/fwlink/?linkid=157739) (http://go.microsoft.com/fwlink/?LinkId=157739)  
+  - [Considérations sur la sécurité pour les rédacteurs](http://go.microsoft.com/fwlink/?linkid=157739) (http://go.microsoft.com/fwlink/?LinkId=157739)  
       
-  - [Considérations relatives à la sécurité pour les demandeurs](http://go.microsoft.com/fwlink/?linkid=180908) (http://go.microsoft.com/fwlink/?LinkId=180908)  
+  - [Considérations sur la sécurité pour les demandeurs](http://go.microsoft.com/fwlink/?linkid=180908) (http://go.microsoft.com/fwlink/?LinkId=180908)  
       
 
 ### <a name="maxshadowcopies"></a>MaxShadowCopies
@@ -514,7 +514,7 @@ Cette clé spécifie le nombre maximal de clichés instantanés accessibles par 
 
 Pour plus d’informations, consultez l’entrée suivante sur le site Web MSDN :
 
-**MaxShadowCopies** sous [clés de Registre pour la sauvegarde et la restauration](http://go.microsoft.com/fwlink/?linkid=180909) (http://go.microsoft.com/fwlink/?LinkId=180909)
+**MaxShadowCopies** sous [les clés de Registre pour la sauvegarde et la restauration](http://go.microsoft.com/fwlink/?linkid=180909) (http://go.microsoft.com/fwlink/?LinkId=180909)
 
 ### <a name="mindiffareafilesize"></a>MinDiffAreaFileSize
 
@@ -522,9 +522,9 @@ Cette clé spécifie la taille initiale minimale, en Mo, de la zone de stockage 
 
 Pour plus d’informations, consultez l’entrée suivante sur le site Web MSDN :
 
-**MinDiffAreaFileSize** sous [clés de Registre pour la sauvegarde et la restauration](http://go.microsoft.com/fwlink/?linkid=180910) (http://go.microsoft.com/fwlink/?LinkId=180910)
+**MinDiffAreaFileSize** sous [les clés de Registre pour la sauvegarde et la restauration](http://go.microsoft.com/fwlink/?linkid=180910) (http://go.microsoft.com/fwlink/?LinkId=180910)
 
-`##`# 'Versions de système d’exploitation prises en charge
+Versions de système d’exploitation prises en charge par `##`# '
 
 Le tableau suivant répertorie les versions de système d’exploitation minimales prises en charge pour les fonctionnalités VSS.
 
@@ -625,6 +625,6 @@ Le tableau suivant répertorie les versions de système d’exploitation minimal
 </tbody>
 </table>
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 [Service VSS dans le centre de développement Windows](https://docs.microsoft.com/windows/desktop/vss/volume-shadow-copy-service-overview)

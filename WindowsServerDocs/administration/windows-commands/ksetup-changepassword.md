@@ -36,8 +36,8 @@ ksetup /changepassword <OldPasswd> <NewPasswd>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0OldPasswd >|Indique le mot de passe existant de l’utilisateur connecté.|
-|@no__t 0NewPasswd >|Indique le nouveau mot de passe de l’utilisateur connecté.|
+|\<OldPasswd >|Indique le mot de passe existant de l’utilisateur connecté.|
+|\<NewPasswd >|Indique le nouveau mot de passe de l’utilisateur connecté.|
 
 ## <a name="remarks"></a>Notes
 

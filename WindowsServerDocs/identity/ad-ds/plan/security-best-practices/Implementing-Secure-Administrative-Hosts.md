@@ -1,6 +1,6 @@
 ---
 ms.assetid: eafdddc3-40d7-4a75-8f4f-a45294aabfc8
-title: Implémentation des hôtes d'administration sécurisées
+title: Implémentation des hôtes d’administration sécurisée
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -16,9 +16,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408618"
 ---
-# <a name="implementing-secure-administrative-hosts"></a>Implémentation des hôtes d'administration sécurisées
+# <a name="implementing-secure-administrative-hosts"></a>Implémentation des hôtes d’administration sécurisée
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les hôtes d’administration sécurisés sont des stations de travail ou des serveurs qui ont été configurés spécifiquement pour la création de plateformes sécurisées à partir desquelles les comptes privilégiés peuvent effectuer des tâches d’administration dans Active Directory ou sur les contrôleurs de domaine. systèmes joints à un domaine et applications s’exécutant sur des systèmes joints à un domaine. Dans ce cas, « comptes privilégiés » fait référence non seulement aux comptes membres des groupes les plus privilégiés dans Active Directory, mais aussi à tous les comptes qui ont reçu des droits et des autorisations qui permettent d’effectuer des tâches d’administration.  
   
@@ -42,7 +42,7 @@ Pour sécuriser efficacement les systèmes contre les attaques, vous devez garde
 ### <a name="account-configuration"></a>Configuration du compte  
 Même si votre organisation n’utilise pas de cartes à puce pour l’instant, vous devez envisager de les implémenter pour les comptes privilégiés et les hôtes d’administration sécurisés. Les hôtes d’administration doivent être configurés pour exiger l’ouverture de session par carte à puce pour tous les comptes en modifiant le paramètre suivant dans un objet de stratégie de groupe lié aux unités d’organisation contenant des hôtes d’administration :  
   
-**Computer \ stratégies \ stratégies \ stratégies \ stratégies de connexion Options\Interactive : Exiger une carte à puce @ no__t-0  
+**Ordinateur \ stratégies \ stratégies \ stratégies d’ouverture de session Options\Interactive de connexion : exiger une carte à puce**  
   
 Ce paramètre nécessite que toutes les ouvertures de session interactives utilisent une carte à puce, quelle que soit la configuration d’un compte individuel dans Active Directory.  
   
@@ -70,7 +70,7 @@ Tous les ordinateurs hôtes d’administration, qu’il s’agisse de serveurs o
 Si vous implémentez des serveurs de saut dans le cadre de votre stratégie d’hôte administratif, vous devez utiliser l’Assistant Configuration de la sécurité intégrée pour configurer les paramètres du service, du Registre, de l’audit et du pare-feu afin de réduire la surface d’attaque du serveur. Lorsque les paramètres de configuration de l’Assistant Configuration de la sécurité ont été collectés et configurés, les paramètres peuvent être convertis en un objet de stratégie de groupe qui est utilisé pour appliquer une configuration de ligne de base cohérente sur tous les serveurs de basculement. Vous pouvez modifier davantage l’objet de stratégie de groupe pour implémenter des paramètres de sécurité spécifiques aux serveurs de saut, et vous pouvez combiner tous les paramètres avec des paramètres de ligne de base supplémentaires extraits de Microsoft Security Compliance Manager.  
   
 ### <a name="microsoft-security-compliance-manager"></a>Microsoft Security Compliance Manager  
-[Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx) est un outil disponible gratuitement qui intègre les configurations de sécurité recommandées par Microsoft, en fonction de la version du système d’exploitation et de la configuration du rôle, et qui les collecte dans un outil unique et une interface utilisateur qui peut être utilisé pour créer et configurer des paramètres de sécurité de base pour les contrôleurs de domaine. Les modèles Microsoft Security Compliance Manager peuvent être combinés avec les paramètres de l’Assistant Configuration de la sécurité pour produire des lignes de base de configuration complètes pour les serveurs de saut qui sont déployés et appliqués par les objets de stratégie de groupe déployés dans les unités d’organisation dans lesquelles les serveurs de saut sont situé dans Active Directory.  
+[Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx) est un outil disponible gratuitement qui intègre les configurations de sécurité recommandées par Microsoft, en fonction de la version du système d’exploitation et de la configuration du rôle, et qui les collecte dans un outil unique et une interface utilisateur qui peut être utilisée pour créer et configurer des paramètres de sécurité de base pour les contrôleurs de domaine. Les modèles Microsoft Security Compliance Manager peuvent être combinés avec les paramètres de l’Assistant Configuration de la sécurité pour produire des lignes de base de configuration complètes pour les serveurs de saut qui sont déployés et appliqués par les objets de stratégie de groupe déployés dans les unités d’organisation dans lesquelles les serveurs de saut sont situé dans Active Directory.  
   
 > [!NOTE]  
 > À la rédaction de cet article, Microsoft Security Compliance Manager n’inclut pas de paramètres spécifiques aux serveurs de sauts ou à d’autres hôtes d’administration sécurisés, mais Security Compliance Manager (SCM) peut toujours être utilisé pour créer des lignes de base initiales pour votre administration répertorié. Toutefois, pour sécuriser correctement les ordinateurs hôtes, vous devez appliquer des paramètres de sécurité supplémentaires adaptés aux stations de travail et serveurs hautement sécurisés.  
@@ -84,7 +84,7 @@ Bien que la configuration spécifique varie en fonction de l’architecture de v
 Vous devez autoriser les ouvertures de session interactives par les utilisateurs autorisés et supprimer ou même bloquer d’autres types d’ouverture de session qui ne sont pas nécessaires pour l’accès au serveur.  
   
 ### <a name="patch-and-configuration-management"></a>Gestion des correctifs et des configurations  
-Les organisations plus petites peuvent s’appuyer sur des offres telles que Windows Update ou [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) pour gérer le déploiement des mises à jour sur les systèmes Windows, tandis que les grandes entreprises peuvent implémenter la gestion des correctifs et des configurations de l’entreprise logiciel comme System Center Configuration Manager. Quels que soient les mécanismes que vous utilisez pour déployer des mises à jour sur votre serveur général et votre alimentation de station de travail, vous devez envisager des déploiements distincts pour les systèmes hautement sécurisés, tels que les contrôleurs de domaine, les autorités de certification et les hôtes d’administration. En séparant ces systèmes de l’infrastructure de gestion générale, si votre logiciel de gestion ou vos comptes de service sont compromis, la compromission ne peut pas être facilement étendue aux systèmes les plus sécurisés de votre infrastructure.  
+Les organisations plus petites peuvent s’appuyer sur des offres telles que Windows Update ou [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) pour gérer le déploiement des mises à jour sur les systèmes Windows, tandis que les grandes entreprises peuvent implémenter des logiciels de gestion des configurations et des correctifs d’entreprise tels que des System Center Configuration Manager. Quels que soient les mécanismes que vous utilisez pour déployer des mises à jour sur votre serveur général et votre alimentation de station de travail, vous devez envisager des déploiements distincts pour les systèmes hautement sécurisés, tels que les contrôleurs de domaine, les autorités de certification et les hôtes d’administration. En séparant ces systèmes de l’infrastructure de gestion générale, si votre logiciel de gestion ou vos comptes de service sont compromis, la compromission ne peut pas être facilement étendue aux systèmes les plus sécurisés de votre infrastructure.  
   
 Même si vous ne devez pas implémenter les processus de mise à jour manuelle pour les systèmes sécurisés, vous devez configurer une infrastructure distincte pour la mise à jour des systèmes sécurisés. Même dans les grandes organisations, cette infrastructure peut généralement être implémentée via des serveurs WSUS dédiés et des objets de stratégie de groupe pour les systèmes sécurisés.  
   

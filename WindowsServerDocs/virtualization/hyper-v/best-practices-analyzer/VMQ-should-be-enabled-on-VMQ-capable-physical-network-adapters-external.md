@@ -19,7 +19,7 @@ ms.locfileid: "71393289"
 ---
 # <a name="vmq-should-be-enabled-on-vmq-capable-physical-network-adapters-bound-to-an-external-virtual-switch"></a>Les ordinateurs virtuels doivent être activés sur les cartes réseau physiques compatibles avec les ordinateurs virtuels et liées à un commutateur virtuel externe
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -38,7 +38,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>**Impact**  
 *Windows ne peut pas tirer pleinement parti des déchargements de matériel disponibles sur les cartes réseau suivantes :*  
   
-@no__t 0list des cartes réseau >  
+\<liste des cartes réseau >  
   
 ## <a name="resolution"></a>**Résolution**  
 *Activez les ordinateurs virtuels à l’aide de l’applet de commande Windows PowerShell Enable-NetAdapterVmq ou en utilisant l’interface utilisateur des propriétés avancées pour la carte réseau.*  

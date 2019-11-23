@@ -22,10 +22,10 @@ ms.locfileid: "71384529"
 ---
 # <a name="reset-session"></a>reset session
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous permet de réinitialiser (supprimer) une session sur un serveur hôte de session Bureau à distance (hôte de session Bureau à distance).  
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).  
+pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).  
 
 > [!NOTE]  
 > Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.  
@@ -39,9 +39,9 @@ reset session {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 
 |Paramètre|Description|  
 |-------|--------|  
-|@no__t 0SessionName >|Spécifie le nom de la session que vous souhaitez réinitialiser. Pour déterminer le nom de la session, utilisez la commande de **session de requête** .|  
-|@no__t 0SessionID >|Spécifie l’ID de la session à réinitialiser.|  
-|/Server : \<ServerName >|Spécifie le serveur Terminal Server qui contient la session que vous souhaitez réinitialiser. Dans le cas contraire, le serveur hôte de session Bureau à distance actuel est utilisé.|  
+|\<NomSession >|Spécifie le nom de la session que vous souhaitez réinitialiser. Pour déterminer le nom de la session, utilisez la commande de **session de requête** .|  
+|\<SessionID >|Spécifie l’ID de la session à réinitialiser.|  
+|/Server :\<ServerName >|Spécifie le serveur Terminal Server qui contient la session que vous souhaitez réinitialiser. Dans le cas contraire, le serveur hôte de session Bureau à distance actuel est utilisé.|  
 |/v|Affiche des informations sur les actions en cours d’exécution.|  
 |/?|Affiche l'aide à l'invite de commandes.|  
 

@@ -18,24 +18,24 @@ ms.locfileid: "71390031"
 ---
 # <a name="spn-and-upn-uniqueness"></a>Unicité des noms SPN et UPN
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 **Auteur**: Justin Turner, ingénieur du support technique senior avec le groupe Windows  
   
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
-## <a name="overview"></a>Vue d'ensemble  
+## <a name="overview"></a>Vue d’ensemble  
 Les contrôleurs de domaine exécutant Windows Server 2012 R2 bloquent la création de noms de principal du service (SPN) et de noms principaux d’utilisateur (UPN) dupliqués. Cela implique si la restauration ou la réanimation d’un objet supprimé ou le changement de nom d’un objet entraînerait un doublon.  
   
-### <a name="background"></a>Présentation  
+### <a name="background"></a>Arrière-plan  
 Les noms de principal du service (SPN) dupliqués se produisent généralement et entraînent des échecs d’authentification et peuvent entraîner une utilisation excessive du processeur LSASS. Il n’existe aucune méthode intégrée pour bloquer l’ajout d’un SPN ou d’un UPN en double. *  
   
 Les valeurs UPN dupliquées rompent la synchronisation entre les services AD locaux et Office 365.  
   
 \* Setspn. exe est couramment utilisé pour créer de nouveaux noms de principal du service (SPN). il a été conçu de façon fonctionnelle dans la version publiée avec Windows Server 2008 qui ajoute une vérification des doublons.  
   
-**Table SEQ Table \\ @ no__t-2 arabe 1 : Unicité UPN et SPN @ no__t-0  
+**Table SEQ Table \\\* arabe 1 : UPN et unicité du nom de principal du service**  
   
 |Fonctionnalité|Commentaire|  
 |-----------|-----------|  
@@ -49,7 +49,7 @@ Les codes d’erreur 8467 ou 8468 ou leurs équivalents Hex, symboliques ou de c
   
 -   L’écriture est traitée par un contrôleur de périphérique Windows Server 2012 R2  
   
-**Table SEQ Table \\ @ no__t-2 ARABIC 2 : Codes d’erreur d’unicité UPN et SPN @ no__t-0  
+**Table SEQ Table \\\* arabe 2 : codes d’erreur d’unicité UPN et SPN**  
   
 |Decimal|Hexadécimal|Symbol|Chaîne|  
 |-----------|-------|------------|----------|  
@@ -74,18 +74,18 @@ Une tentative de création d’un nouvel utilisateur dans Centre d’administrat
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig03_DupUPNADAC.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 erreur arabe 1 s’affiche dans le centre d’administration Active Directory lorsque la création d’un nouvel utilisateur échoue en raison d’un UPN en double**  
+**Figure SEQ figure \\\* erreur de l’arabe 1 affichée dans le centre d’administration Active Directory en cas d’échec de la création d’un nouvel utilisateur en raison d’un UPN dupliqué**  
   
 ### <a name="event-2974-source-activedirectory_domainservice"></a>Source de l’événement 2974 : ActiveDirectory_DomainService  
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig04_Event2974.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 ARABIC 2 ID d’événement 2974 avec l’erreur 8648**  
+**Figure SEQ figure \\\* l’ID d’événement 2974 arabe 2 avec l’erreur 8648**  
   
-L’événement 2974 répertorie la valeur qui a été bloquée, ainsi qu’une liste d’un ou plusieurs objets (jusqu’à 10) qui contiennent déjà cette valeur.  Dans l’illustration suivante, vous pouvez voir que la valeur d’attribut UPN **<em>dhunt@blue.contoso.com</em>** existe déjà sur quatre autres objets.  Étant donné qu’il s’agit d’une nouvelle fonctionnalité de Windows Server 2012 R2, la création accidentelle d’un UPN et de SPN en double dans un environnement mixte se produit quand les contrôleurs de service de niveau supérieur traitent la tentative d’écriture.  
+L’événement 2974 répertorie la valeur qui a été bloquée, ainsi qu’une liste d’un ou plusieurs objets (jusqu’à 10) qui contiennent déjà cette valeur.  Dans l’illustration suivante, vous pouvez voir que la valeur de l’attribut UPN **<em>dhunt@blue.contoso.com</em>** existe déjà sur quatre autres objets.  Étant donné qu’il s’agit d’une nouvelle fonctionnalité de Windows Server 2012 R2, la création accidentelle d’un UPN et de SPN en double dans un environnement mixte se produit quand les contrôleurs de service de niveau supérieur traitent la tentative d’écriture.  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 ARABIC 3 Event 2974 qui montre tous les objets contenant l’UPN dupliqué**  
+**Figure SEQ figure \\\* l’événement arabe 3 2974 indiquant tous les objets contenant l’UPN en double**  
   
 > [!TIP]  
 > Examinez régulièrement l’ID d’événement 2974s pour :  
@@ -96,7 +96,7 @@ L’événement 2974 répertorie la valeur qui a été bloquée, ainsi qu’une 
 8648 = « échec de l’opération, car la valeur UPN fournie pour l’ajout/la modification n’est pas unique à l’ensemble de la forêt ».  
   
 ### <a name="setspn"></a>Setspn  
-Setspn. exe dispose d’une détection de SPN en double intégrée depuis la sortie de Windows Server 2008 lors de l’utilisation de l’option **« -S »** .  Toutefois, vous pouvez ignorer la détection de SPN en double en utilisant l’option **« -A »** .  La création d’un SPN en double est bloquée lors du ciblage d’un contrôleur de service Windows Server 2012 R2 à l’aide de SetSPN avec l’option-A.  Le message d’erreur affiché est le même que celui affiché lors de l’utilisation de l’option-S : « SPN dupliqué trouvé, abandon de l’opération ! »  
+Setspn. exe dispose d’une détection de SPN en double intégrée depuis la sortie de Windows Server 2008 lors de l’utilisation de l’option **« -S »** .  Toutefois, vous pouvez ignorer la détection de SPN en double en utilisant l’option **« -A »** .  La création d’un SPN en double est bloquée lors du ciblage d’un contrôleur de service Windows Server 2012 R2 à l’aide de SetSPN avec l’option-A.  Le message d’erreur affiché est le même que celui affiché lors de l’utilisation de l’option-S : « SPN en double trouvé, abandon de l’opération ! »  
   
 ### <a name="adsiedit"></a>UTILITAIRE  
   
@@ -108,7 +108,7 @@ The operation failed because UPN value provided for addition/modification is not
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig06_ADSI21c8.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 message d’erreur arabe 4 affiché dans ADSIEdit lorsque l’ajout d’un UPN dupliqué est bloqué**  
+**Figure SEQ figure \\\* message d’erreur arabe 4 affiché dans ADSIEdit quand l’ajout d’un UPN dupliqué est bloqué**  
   
 ### <a name="windows-powershell"></a>Windows PowerShell  
 Windows Server 2012 R2 :  
@@ -123,11 +123,11 @@ DSAC. exe s’exécutant sur Windows Server 2012 ciblant un contrôleur de servi
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig09_UserCreateError.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 arabe 5 DSAC erreur de création de l’utilisateur sur un serveur autre que Windows Server 2012 R2 en ciblant Windows Server 2012 R2 DC**  
+**Figure SEQ figure \\\* erreur de création de l’utilisateur DSAC arabe 5 sur un autre serveur que Windows Server 2012 R2 en ciblant Windows Server 2012 R2 DC**  
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig10_UserModError.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 arabe 6 DSAC erreur de modification de l’utilisateur sur un serveur non-Windows Server 2012 R2 en ciblant Windows Server 2012 R2 DC**  
+**Figure SEQ figure \\\* erreur de modification de l’utilisateur en arabe 6 DSAC sur un serveur autre que Windows Server 2012 R2 en ciblant Windows Server 2012 R2 DC**  
   
 ### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>La restauration d’un objet qui entraînerait l’échec d’un UPN en double :  
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig11_RestoreDupUPN.gif)  
@@ -210,9 +210,9 @@ Pour utiliser la valeur null pour l’attribut UserPrincipalName à l’aide de 
 ### <a name="duplicate-spn"></a>SPN en double  
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig16_DupSPN.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 message d’erreur en arabe 8 affiché dans ADSIEdit quand l’ajout d’un SPN en double est bloqué**  
+**Figure SEQ figure \\\* message d’erreur en arabe 8 affiché dans ADSIEdit quand l’ajout d’un SPN en double est bloqué**  
   
-Consigné dans le journal des événements des services d’annuaire est un ID d’événement **ActiveDirectory_DomainService** **2974**.  
+Consigné dans le journal des événements des services d’annuaire est un **ActiveDirectory_DomainService** l’ID d’événement **2974**.  
   
 ```  
 Operation failed. Error code: 0x21c7  
@@ -224,7 +224,7 @@ servicePrincipalName Value=<SPN>
   
 ![Unicité des noms SPN et UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig17_DupSPN2974.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 erreur arabe 9 journalisée lors de la création d’un SPN en double**  
+**Figure SEQ figure \\\* erreur arabe 9 consignée lors du blocage de la création d’un SPN en double**  
   
 ### <a name="workflow"></a>Flux de travail  
   
@@ -322,7 +322,7 @@ Lorsque les objets supprimés sont réanimés, l’unicité des valeurs SPN ou U
   
 Si une nouvelle valeur SPN est un doublon, la modification échoue. Dans la liste ci-dessus, les attributs importants sont ATT_DNS_HOST_NAME (nom de l’ordinateur) et ATT_SAM_ACCOUNT_NAME (nom du compte SAM).  
   
-### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Essayez ceci : Exploration de l’unicité SPN et UPN  
+### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Essayez ceci : exploration du SPN et de l’unicité UPN  
 Il s’agit de la première des nombreuses activités «**essayer**» dans le module.  Il n’existe pas de guide de laboratoire distinct pour ce module.  Les activités **try this** sont essentiellement des activités de forme libre qui vous permettent d’explorer le matériel de la leçon dans l’environnement Lab.  Vous avez la possibilité de suivre l’invite ou de passer le script et d’afficher votre propre activité.  
   
 > [!NOTE]  

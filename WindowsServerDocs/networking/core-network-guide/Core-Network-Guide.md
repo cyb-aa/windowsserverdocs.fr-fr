@@ -17,7 +17,7 @@ ms.locfileid: "71356415"
 ---
 # <a name="core-network-components"></a>Composants du réseau principal
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Ce guide fournit des instructions sur la planification et le déploiement des composants principaux requis pour un réseau pleinement fonctionnel et un nouveau domaine de Active Directory dans une nouvelle forêt.
 
@@ -285,10 +285,10 @@ Les exemples d’éléments de configuration pour AD DS sont fournis dans le tab
 |------------------------|-------------------|
 |Nom DNS complet|Exemples :<br /><br />-corp.contoso.com<br />-example.com|
 |Niveau fonctionnel de forêt|-Windows Server 2008 <br />-Windows Server 2008 R2 <br />-Windows Server 2012 <br />-Windows Server 2012 R2 <br />-Windows Server 2016|
-|Emplacement du dossier de la base de données des services de domaine Active Directory|E:\Configuration @ no__t-0<br /><br />Ou acceptez la valeur par défaut.|
-|Emplacement du dossier des fichiers journaux des services de domaine Active Directory|E:\Configuration @ no__t-0<br /><br />Ou acceptez la valeur par défaut.|
-|Emplacement du dossier SYSVOL des services de domaine Active Directory|E:\Configuration @ no__t-0<br /><br />Ou acceptez la valeur par défaut.|
-|Mot de passe administrateur de restauration des services d’annuaire|**J @ no__t-1p2leO4 $ F**|
+|Emplacement du dossier de la base de données des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.|
+|Emplacement du dossier des fichiers journaux des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.|
+|Emplacement du dossier SYSVOL des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.|
+|Mot de passe administrateur de restauration des services d’annuaire|**J\*p2leO4 $ F**|
 |Nom du fichier de réponses (facultatif)|**DS_AnswerFile AD**|
 
 #### <a name="planning-dns-zones"></a>Planification des zones DNS
@@ -412,7 +412,7 @@ Des exemples d’éléments de configuration supplémentaires pour AD DS et DNS 
 |Liaisons de connexion réseau|Ethernet|
 |Paramètres du serveur DNS|DC1.corp.contoso.com|
 |Adresse IP du serveur DNS préféré|10.0.0.2|
-|Valeurs de la boîte de dialogue Ajouter un étendue<br /><br />1.  Nom de l'étendue<br />2.  Adresse IP de début<br />3.  Adresse IP de fin<br />4.  Masque de sous-réseau<br />5.  Passerelle par défaut (facultatif)<br />6.  Durée du bail|1.  Sous-réseau principal<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 jours|
+|Valeurs de la boîte de dialogue Ajouter un étendue<br /><br />1. nom de l’étendue<br />2. adresse IP de début<br />3. adresse IP de fin<br />4. masque de sous-réseau<br />5. passerelle par défaut (facultatif)<br />6. durée du bail|1. sous-réseau principal<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 jours|
 |Mode d’opération du serveur DHCP IPv6|Non activé|
 
 ## <a name="BKMK_deployment"></a>Déploiement de réseau de base
@@ -671,7 +671,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
     **Cela?**
 
-    -   Active Directory le*dossier* utilisateurs et ordinateurs/*nœud de domaine*/
+    -   Active Directory le *dossier* utilisateurs et ordinateurs/*nœud de domaine*/
 
 3.  Pointez sur **Nouveau**, puis cliquez sur **Utilisateur**. La boîte de dialogue **nouvel objet-utilisateur** s’ouvre.
 
@@ -702,7 +702,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
     Où ?
 
-    -   **Active Directory utilisateurs et ordinateurs**/*nœud de domaine*/*qui contient le groupe*
+    -   **Active Directory utilisateurs et ordinateurs**/*nœud de domaine*/*le dossier qui contient le groupe*
 
 3.  Dans le volet d’informations, cliquez avec le bouton droit sur l’utilisateur, l’ordinateur ou tout autre objet à ajouter au groupe, puis cliquez sur **Propriétés**. La boîte de dialogue **Propriétés** de l’objet s’ouvre. Cliquez sur l’onglet **Membre de**.
 
@@ -1009,7 +1009,7 @@ Les sections suivantes fournissent des informations sur l’ajout de serveurs NP
 #### <a name="BKMK_deployNPS1"></a>Déploiement de le serveur NPS1
 Le serveur NPS (Network Policy Server) est installé lors d’une étape préparatoire au déploiement d’autres technologies d’accès au réseau, comme les serveurs VPN (Virtual Private Network), les points d’accès sans fil et les commutateurs d’authentification 802.1X.
 
-Le serveur NPS (Network Policy Server) vous permet de configurer et de gérer de manière centralisée les stratégies réseau avec les fonctionnalités suivantes : Serveur protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS) et proxy RADIUS.
+Le serveur NPS (Network Policy Server) vous permet de configurer et de gérer de manière centralisée les stratégies réseau avec les fonctionnalités suivantes : serveur protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS) et proxy RADIUS.
 
 Le serveur NPS est un composant facultatif d’un réseau de base, mais vous devez l’installer si l’une des conditions suivantes est vraie :
 
@@ -1050,7 +1050,7 @@ Cette section décrit les principales étapes de planification qui doivent être
 Vous pouvez utiliser cette procédure pour installer le serveur NPS (Network Policy Server) à l’aide de l’Assistant Ajout de rôles et de fonctionnalités. NPS est un service de rôle du rôle serveur Services de stratégie et d’accès réseau.
 
 > [!NOTE]
-> Par défaut, le serveur NPS écoute le trafic RADIUS sur les ports 1812, 1813, 1645 et 1646 sur toutes les cartes réseau installées. Si le pare-feu Windows avec fonctions avancées de sécurité est activé lors de l’installation du serveur NPS, des exceptions de pare-feu pour ces ports sont automatiquement créées au cours du processus d’installation pour le trafic Internet version 6 \(IPv6 @ no__t-1 et IPv4. Si vos serveurs d’accès réseau sont configurés pour envoyer le trafic RADIUS sur des ports autres que ces paramètres par défaut, supprimez les exceptions créées dans le pare-feu Windows avec fonctions avancées de sécurité lors de l’installation du serveur NPS, et créez des exceptions pour les ports que vous utilisez pour Trafic RADIUS.
+> Par défaut, le serveur NPS écoute le trafic RADIUS sur les ports 1812, 1813, 1645 et 1646 sur toutes les cartes réseau installées. Si le pare-feu Windows avec fonctions avancées de sécurité est activé lors de l’installation du serveur NPS, des exceptions de pare-feu pour ces ports sont automatiquement créées au cours du processus d’installation pour le\) protocole Internet version 6 \(IPv6 et le trafic IPv4. Si vos serveurs d’accès réseau sont configurés pour envoyer le trafic RADIUS sur des ports autres que ces paramètres par défaut, supprimez les exceptions créées dans le pare-feu Windows avec fonctions avancées de sécurité lors de l’installation du serveur NPS, et créez des exceptions pour les ports que vous utilisez pour Trafic RADIUS.
 
 **Informations d’identification d’administration**
 
@@ -1164,11 +1164,11 @@ Pour plus d’informations sur les technologies présentées dans ce guide, cons
 
 -   [Active Directory Domain Services vue d’ensemble](https://technet.microsoft.com/library/hh831484.aspx) sur https://technet.microsoft.com/library/hh831484.aspx.
 
--   [Vue d’ensemble du système DNS (Domain Name System)](https://technet.microsoft.com/library/hh831667.aspx) à l' https://technet.microsoft.com/library/hh831667.aspx.
+-   [Vue d’ensemble du système DNS (Domain Name System)](https://technet.microsoft.com/library/hh831667.aspx) sur https://technet.microsoft.com/library/hh831667.aspx.
 
 -   [Implémentation du rôle administrateurs DNS](https://technet.microsoft.com/library/cc756152(WS.10).aspx)
 
--   [Vue d’ensemble du protocole DHCP (Dynamic Host Configuration Protocol)](https://technet.microsoft.com/library/hh831825.aspx) au https://technet.microsoft.com/library/hh831825.aspx.
+-   [Vue d’ensemble du protocole DHCP (Dynamic Host Configuration Protocol)](https://technet.microsoft.com/library/hh831825.aspx) à l' https://technet.microsoft.com/library/hh831825.aspx.
 
 -   [Vue d’ensemble des services de stratégie et d’accès réseau](https://technet.microsoft.com/library/hh831683.aspx) sur https://technet.microsoft.com/library/hh831683.aspx.
 
@@ -1426,9 +1426,9 @@ Les tableaux suivants répertorient les éléments de configuration pour la pré
 
 -   [Renommer l’ordinateur](#BKMK_rename)
 
-|Élément de configuration|Exemple de valeur|Value|
+|Élément de configuration|Exemple de valeur|Valeur|
 |----------------------|-----------------|---------|
-|Nom de l'ordinateur|DC1||
+|Nom de l’ordinateur|DC1||
 
 ##### <a name="ad-ds-and-dns-installation-configuration-items"></a>Éléments de configuration de l’installation AD DS et DNS
 Éléments de configuration pour le déploiement d’un réseau de base Windows Server comme décrit dans la procédure [Installer les services de domaine Active Directory et DNS dans une nouvelle forêt](#BKMK_installAD-DNS) :
@@ -1437,9 +1437,9 @@ Les tableaux suivants répertorient les éléments de configuration pour la pré
 |-----------------------|------------------|----------|
 |Nom DNS complet|corp.contoso.com||
 |Niveau fonctionnel de forêt|Windows Server 2003||
-|Emplacement du dossier de la base de données des services de domaine Active Directory|E:\Configuration @ no__t-0<br /><br />Ou acceptez la valeur par défaut.||
-|Emplacement du dossier des fichiers journaux des services de domaine Active Directory|E:\Configuration @ no__t-0<br /><br />Ou acceptez la valeur par défaut.||
-|Emplacement du dossier SYSVOL des services de domaine Active Directory|E:\Configuration @ no__t-0<br /><br />Ou acceptez la valeur par défaut.||
+|Emplacement du dossier de la base de données des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.||
+|Emplacement du dossier des fichiers journaux des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.||
+|Emplacement du dossier SYSVOL des services de domaine Active Directory|E:\Configuration\\<br /><br />Ou acceptez la valeur par défaut.||
 |Mot de passe administrateur de restauration des services d’annuaire|J*p2leO4$F||
 |Nom du fichier de réponses (facultatif)|DS_AnswerFile AD||
 
@@ -1471,9 +1471,9 @@ Les tableaux suivants répertorient les éléments de configuration pour la pré
 
 -   [Renommer l’ordinateur](#BKMK_rename)
 
-|Élément de configuration|Exemple de valeur|Value|
+|Élément de configuration|Exemple de valeur|Valeur|
 |----------------------|-----------------|---------|
-|Nom de l'ordinateur|DHCP1||
+|Nom de l’ordinateur|DHCP1||
 
 ##### <a name="dhcp-installation-configuration-items"></a>Éléments de configuration pour l’installation de DHCP
 Éléments de configuration pour le déploiement d’un réseau de base Windows Server comme décrit dans la procédure [Installer DHCP (Dynamic Host Configuration Protocol)](#BKMK_installDHCP) :
@@ -1538,9 +1538,9 @@ Les trois tableaux suivants répertorient les éléments de configuration pour l
 
 -   [Renommer l’ordinateur](#BKMK_rename)
 
-|Élément de configuration|Exemple de valeur|Value|
+|Élément de configuration|Exemple de valeur|Valeur|
 |----------------------|-----------------|---------|
-|Nom de l'ordinateur|NPS1||
+|Nom de l’ordinateur|NPS1||
 
 ##### <a name="network-policy-server-installation-configuration-items"></a>Éléments de configuration pour l’installation d’un serveur NPS
 Les éléments de configuration pour les procédures de déploiement du réseau NPS de Windows Server Core [installent le serveur NPS (Network Policy Server)](#BKMK_installNPS) et [inscrivent le serveur NPS dans le domaine par défaut](#BKMK_registerNPS).

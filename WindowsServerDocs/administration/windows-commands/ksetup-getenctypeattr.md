@@ -36,7 +36,7 @@ ksetup /getenctypeattr <DomainName>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0DomainName >|Nom du domaine auquel vous souhaitez établir une connexion. Utilisez le nom de domaine complet ou une forme simple du nom, par exemple corp.contoso.com ou contoso.|
+|\<DomainName >|Nom du domaine auquel vous souhaitez établir une connexion. Utilisez le nom de domaine complet ou une forme simple du nom, par exemple corp.contoso.com ou contoso.|
 
 ## <a name="remarks"></a>Notes
 

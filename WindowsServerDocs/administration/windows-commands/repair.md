@@ -22,9 +22,9 @@ ms.locfileid: "71371528"
 ---
 # <a name="repair"></a>résolution
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-répare le volume RAID @ no__t-05 avec le focus en remplaçant la région de disque défaillant par le disque dynamique spécifié.  
+répare le volume RAID\-5 actif en remplaçant la région du disque défaillant par le disque dynamique spécifié.  
   
   
   
@@ -38,15 +38,15 @@ repair disk=<n> [align=<n>] [noerr]
   
 | Paramètre  |                                                                                             Description                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| disque @ no__t-0 @ no__t-1  |                                                                 Spécifie le disque dynamique qui remplacera la région du disque défaillant.                                                                 |
-| aligner @ no__t-0 @ no__t-1 |          Aligne toutes les étendues de volume ou de partition sur la limite d’alignement la plus proche. *n* est le nombre de kilo-octets \( Ko @ no__t-2 à partir du début du disque jusqu’à la limite d’alignement la plus proche.           |
-|   noerr    | À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
+| disque\=<n>  |                                                                 Spécifie le disque dynamique qui remplacera la région du disque défaillant.                                                                 |
+| aligner\=<n> |          Aligne toutes les étendues de volume ou de partition sur la limite d’alignement la plus proche. *n* est le nombre de kilo-octets \(Ko\) à partir du début du disque jusqu’à la limite d’alignement la plus proche.           |
+|   noerr    | à des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
   
 ## <a name="remarks"></a>Notes  
   
--   Le disque dynamique spécifié doit avoir un espace libre supérieur ou égal à la taille totale de la région du disque défaillant dans le volume RAID @ no__t-05.  
+-   Le disque dynamique spécifié doit avoir un espace libre supérieur ou égal à la taille totale de la région du disque défaillant dans le volume RAID\-5.  
   
--   Vous devez sélectionner un volume dans un groupe RAID @ no__t-05 pour que cette opération aboutisse. Utilisez la commande **Sélectionner un volume** pour sélectionner un volume et lui déplacer le focus.  
+-   Vous devez sélectionner un volume dans un groupe RAID\-5 pour que cette opération aboutisse. Utilisez la commande **Sélectionner un volume** pour sélectionner un volume et lui déplacer le focus.  
   
 ## <a name="BKMK_examples"></a>Illustre  
 Pour remplacer le volume par le focus en le remplaçant par le disque dynamique 4, tapez :  

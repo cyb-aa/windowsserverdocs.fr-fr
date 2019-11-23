@@ -45,8 +45,8 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0InputVolume >|Identifie la lettre de lecteur du lecteur chiffré par BitLocker que vous souhaitez réparer. La lettre de lecteur doit inclure un signe deux-points ; par exemple : **C :** .|
-|@no__t 0OutputVolumeorImage >|Identifie le lecteur sur lequel stocker le contenu du lecteur réparé. Toutes les informations sur le lecteur de sortie seront remplacées.|
+|\<InputVolume >|Identifie la lettre de lecteur du lecteur chiffré par BitLocker que vous souhaitez réparer. La lettre de lecteur doit inclure un signe deux-points ; par exemple : **C :** .|
+|\<OutputVolumeorImage >|Identifie le lecteur sur lequel stocker le contenu du lecteur réparé. Toutes les informations sur le lecteur de sortie seront remplacées.|
 |-RK|Identifie l’emplacement de la clé de récupération à utiliser pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-RecoveryKey**.|
 |-RP|Identifie le mot de passe de récupération numérique qui doit être utilisé pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-RecoveryPassword**.|
 |-PW|Identifie le mot de passe qui doit être utilisé pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-Password**|

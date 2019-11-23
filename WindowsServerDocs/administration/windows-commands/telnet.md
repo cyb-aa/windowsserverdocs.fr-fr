@@ -22,7 +22,7 @@ ms.locfileid: "71385152"
 ---
 # <a name="telnet"></a>telnet
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Communique avec un ordinateur exécutant le service du serveur Telnet. 
 ## <a name="syntax"></a>Syntaxe
@@ -34,10 +34,10 @@ telnet [/a] [/e <EscapeChar>] [/f <FileName>] [/l <UserName>] [/t {vt100 | vt52 
 |-------|--------|
 |/a|tentez une ouverture de session automatique. Identique à l’option/l, sauf que utilise le nom de l’utilisateur actuellement connecté.|
 |/e \<EscapeChar >|Caractère d’échappement utilisé pour accéder à l’invite du client Telnet.|
-|/f \<FileName >|Nom de fichier utilisé pour la journalisation côté client.|
-|/l @no__t 0UserName >|Spécifie le nom d’utilisateur à utiliser pour ouvrir une session sur l’ordinateur distant.|
+|/f \<nom du fichier >|Nom de fichier utilisé pour la journalisation côté client.|
+|/l \<nom d’utilisateur >|Spécifie le nom d’utilisateur à utiliser pour ouvrir une session sur l’ordinateur distant.|
 |/t {VT100 &#124; VT52 &#124; ANSI &#124; VTNT}|Spécifie le type de terminal. Les types de terminaux pris en charge sont VT100, VT52, ANSI et VTNT.|
-|\<Host > [\<Port >]|Spécifie le nom d’hôte ou l’adresse IP de l’ordinateur distant auquel se connecter, et éventuellement le port TCP à utiliser (le port par défaut est le port TCP 23).|
+|\<> hôte [\<port >]|Spécifie le nom d’hôte ou l’adresse IP de l’ordinateur distant auquel se connecter, et éventuellement le port TCP à utiliser (le port par défaut est le port TCP 23).|
 |/?|Affiche l'aide à l'invite de commandes. Vous pouvez également taper/h.|
 
 ## <a name="remarks"></a>Notes

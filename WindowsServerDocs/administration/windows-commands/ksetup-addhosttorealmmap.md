@@ -36,14 +36,14 @@ ksetup /addhosttorealmmap <HostName> <RealmName>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0HostName >|Le nom d’hôte est le nom de l’ordinateur et il peut être indiqué comme nom de domaine complet de l’ordinateur.|
-|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM.|
+|Nom d’hôte \<>|Le nom d’hôte est le nom de l’ordinateur et il peut être indiqué comme nom de domaine complet de l’ordinateur.|
+|\<RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM.|
 
 ## <a name="remarks"></a>Notes
 
 Cette commande vous permet de mapper un hôte ou plusieurs hôtes qui partagent le même suffixe DNS au domaine.
 
-Le mappage est enregistré dans le registre dans **HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm**.
+Le mappage est enregistré dans le registre dans **HKEY_LOCAL_MACHINE \system\currentcontolset\lsa\kerberos\hosttorealm**.
 
 ## <a name="BKMK_Examples"></a>Illustre
 

@@ -38,7 +38,7 @@ load metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Paramètre|Description|
 |---------|-----------|
-|[@no__t 0Drive >:] [<Path>]|Spécifie l’emplacement du fichier de métadonnées.|
+|[\<> de lecteur :] [<Path>]|Spécifie l’emplacement du fichier de métadonnées.|
 |MetaData. cab|Spécifie le fichier. cab de métadonnées à charger.|
 
 ## <a name="remarks"></a>Notes

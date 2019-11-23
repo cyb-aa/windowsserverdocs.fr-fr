@@ -36,8 +36,8 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Source >|Obligatoire. Spécifie l’emplacement et les noms des fichiers que vous souhaitez copier. Ce paramètre doit inclure un lecteur ou un chemin d’accès.|
-|[@no__t 0Destination >]|Spécifie la destination des fichiers que vous souhaitez copier. Ce paramètre peut inclure une lettre de lecteur et un signe deux-points, un nom de répertoire, un nom de fichier ou une combinaison de ceux-ci.|
+|\<> source|Obligatoire. Spécifie l’emplacement et les noms des fichiers que vous souhaitez copier. Ce paramètre doit inclure un lecteur ou un chemin d’accès.|
+|[\<> de destination]|Spécifie la destination des fichiers que vous souhaitez copier. Ce paramètre peut inclure une lettre de lecteur et un signe deux-points, un nom de répertoire, un nom de fichier ou une combinaison de ceux-ci.|
 |/w|Affiche le message suivant et attend votre réponse avant de commencer à copier les fichiers :</br>**Appuyez sur n’importe quelle touche pour commencer à copier le ou les fichiers**|
 |/p|Vous invite à confirmer si vous souhaitez créer chaque fichier de destination.|
 |/c|Ignore les erreurs.|
@@ -123,31 +123,31 @@ Appuyez sur F Si vous souhaitez copier le ou les fichiers dans un fichier. Appuy
 
 ## <a name="examples"></a>Exemples
 
-**1.** Pour copier tous les fichiers et sous-répertoires (y compris les sous-répertoires vides) du lecteur A vers le lecteur B, tapez :
+**1.** pour copier tous les fichiers et sous-répertoires (y compris les sous-répertoires vides) du lecteur A vers le lecteur B, tapez :
 
 ```
 xcopy a: b: /s /e 
 ```
 
-**2.** Pour inclure tous les fichiers système ou masqués dans l’exemple précédent, ajoutez l’option de ligne de commande<strong>/h</strong> comme suit :
+**2.** pour inclure tous les fichiers système ou masqués dans l’exemple précédent, ajoutez l’option de ligne de commande<strong>/h</strong> comme suit :
 
 ```
 xcopy a: b: /s /e /h
 ```
 
-**1,3.** Pour mettre à jour les fichiers du répertoire \Rapports avec les fichiers du répertoire \Rawdata qui ont été modifiés depuis le 29 décembre 1993, tapez :
+**3.** pour mettre à jour les fichiers du répertoire \Rapports avec les fichiers du répertoire \Rawdata qui ont été modifiés depuis le 29 décembre 1993, tapez :
 
 ```
 xcopy \rawdata \reports /d:12-29-1993
 ```
 
-**4.** Pour mettre à jour tous les fichiers qui existent dans le fichier \Rapports dans l’exemple précédent, quelle que soit la date, tapez :
+**4.** pour mettre à jour tous les fichiers qui existent dans le fichier \Rapports dans l’exemple précédent, quelle que soit la date, tapez :
 
 ```
 xcopy \rawdata \reports /u
 ```
 
-**5,5.** Pour obtenir une liste des fichiers à copier par la commande précédente (autrement dit, sans copier les fichiers), tapez :
+**5.** pour obtenir la liste des fichiers à copier par la commande précédente (autrement dit, sans copier réellement les fichiers), tapez :
 
 ```
 xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
@@ -155,19 +155,19 @@ xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 
 Le fichier xcopy. out répertorie tous les fichiers qui doivent être copiés.
 
-**6,3.** Pour copier le répertoire \Customer et tous les sous-répertoires dans le répertoire \\ @ no__t-1Public\Address sur le lecteur réseau H :, conservez l’attribut lecture seule et soyez invité à confirmer la création d’un nouveau fichier sur H :, tapez :
+**6.** pour copier le répertoire \Customer et tous les sous-répertoires dans le répertoire \\\\Public\Address sur le lecteur réseau h :, conservez l’attribut lecture seule et soyez invité à entrer un nouveau fichier sur h :, tapez :
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
 ```
 
-**Commission(7.** Pour émettre la commande précédente, vérifiez que **xcopy** crée le répertoire \Address s’il n’existe pas et supprimez le message qui s’affiche lorsque vous créez un nouveau répertoire, ajoutez l’option de ligne de commande **/i** comme suit :
+**7.** pour émettre la commande précédente, vérifiez que **xcopy** crée le répertoire \Address s’il n’existe pas et supprimez le message qui s’affiche lorsque vous créez un nouveau répertoire, ajoutez l’option de ligne de commande **/i** comme suit :
 
 ```
 xcopy \customer h:\public\address /s /e /k /p /i
 ```
 
-**version8.** Vous pouvez créer un programme batch pour effectuer des opérations **xcopy** et utiliser la commande Batch **If** pour traiter le code de sortie si une erreur se produit. Par exemple, le programme de traitement par lots suivant utilise des paramètres remplaçables pour les paramètres source et destination de **xcopy** :
+**8.** vous pouvez créer un programme batch pour effectuer des opérations **xcopy** et utiliser la commande Batch **If** pour traiter le code de sortie si une erreur se produit. Par exemple, le programme de traitement par lots suivant utilise des paramètres remplaçables pour les paramètres source et destination de **xcopy** :
 
 ```
 @echo off
@@ -194,9 +194,9 @@ Pour utiliser le programme batch précédent pour copier tous les fichiers dans 
 copyit c:\prgmcode b:
 ```
 
-L’interpréteur de commandes substitue **C:\Prgmcode** pour *% 1* et **B :** pour *% 2*, **utilise xcopy** avec les options de ligne de commande **/e** et **/s** . Si **xcopy** rencontre une erreur, le programme de traitement par lots lit le code de sortie et accède à l’étiquette indiquée dans l’instruction **if errorlevel** appropriée, puis affiche le message approprié et quitte le programme de traitement par lots.
+L’interpréteur de commandes substitue **C:\Prgmcode** pour *%1* et **B :** pour *%2*, **utilise xcopy** avec les options de ligne de commande **/e** et **/s** . Si **xcopy** rencontre une erreur, le programme de traitement par lots lit le code de sortie et accède à l’étiquette indiquée dans l’instruction **if errorlevel** appropriée, puis affiche le message approprié et quitte le programme de traitement par lots.
 
-**0,9.** Cet exemple tous les répertoires non vides, ainsi que les fichiers dont le nom correspond au modèle donné avec le symbole astérisque.
+**9.** cet exemple tous les répertoires non vides, ainsi que les fichiers dont le nom correspond au modèle donné avec le symbole de l’astérisque.
 
 ```
 xcopy .\toc*.yml ..\..\Copy-To\ /S /Y
@@ -208,7 +208,7 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Dans l’exemple précédent, cette valeur de paramètre source particulière **. @no__t -1TOC\*.yml** copier les mêmes 3 fichiers, même si ses deux caractères de chemin d’accès **. \\** ont été supprimés. Toutefois, aucun fichier n’est copié si le caractère générique astérisque a été supprimé du paramètre source, ce qui le rend juste **. @no__t -1TOC. yml**.
+Dans l’exemple précédent, cette valeur de paramètre source particulière **.\\toc\*. yml** copiez les mêmes 3 fichiers, même si ses deux caractères de chemin d’accès **.\\** ont été supprimés. Toutefois, aucun fichier n’est copié si le caractère générique astérisque a été supprimé du paramètre source, ce qui le rend juste **.\\toc. yml**.
 
 #### <a name="additional-references"></a>Références supplémentaires
 

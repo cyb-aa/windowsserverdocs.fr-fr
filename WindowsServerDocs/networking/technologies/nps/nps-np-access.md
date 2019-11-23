@@ -17,7 +17,7 @@ ms.locfileid: "71405363"
 ---
 # <a name="access-permission"></a>Autorisation d’accès
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 L’autorisation d’accès est configurée sous l’onglet **vue d’ensemble** de chaque stratégie réseau dans le serveur NPS (Network Policy Server). 
 
@@ -31,7 +31,7 @@ Les paramètres d’autorisation d’accès ont les effets suivants :
 L’autorisation d’accès est également accordée ou refusée en fonction de la configuration des propriétés de numérotation de chaque compte d’utilisateur.
 
 >[!NOTE]
->Les comptes d’utilisateur et leurs propriétés, tels que les propriétés des appels entrants, sont configurés dans le composant logiciel enfichable utilisateurs et ordinateurs Active Directory ou le composant logiciel enfichable utilisateurs et groupes locaux \(MMC @ no__t-1, selon que vous avez activé ou non Répertoire @ no__t-2 Domain Services (AD DS) installé.
+>Les comptes d’utilisateur et leurs propriétés, tels que les propriétés de connexion d’accès à distance, sont configurés dans le Active Directory utilisateurs et ordinateurs ou dans le composant logiciel enfichable utilisateurs et groupes locaux de Microsoft Management Console \(MMC\), selon que vous avez installé Active Directory&reg; services de domaine (AD DS).
 
 Le paramètre compte d’utilisateur **autorisation d’accès réseau**, qui est configuré dans les propriétés de numérotation des comptes d’utilisateur, remplace le paramètre d’autorisation accès à la stratégie réseau. Lorsque l’autorisation d’accès réseau sur un compte d’utilisateur est définie sur l’option **contrôler l’accès via la stratégie de réseau NPS** , le paramètre d’autorisation accès à la stratégie réseau détermine si l’accès est accordé ou refusé à l’utilisateur.
 
@@ -61,11 +61,11 @@ Les propriétés de numérotation des comptes d’utilisateur contiennent les é
 
 Pour prendre en charge plusieurs types de connexions pour lesquelles NPS fournit une authentification et une autorisation, il peut être nécessaire de désactiver le traitement des propriétés de numérotation des comptes d’utilisateur. Cela peut être effectué pour prendre en charge des scénarios dans lesquels des propriétés de numérotation spécifiques ne sont pas requises.
 
-Par exemple, les propriétés de l’ID d’appelant, du rappel, de l’adresse IP statique et des itinéraires statiques sont conçues pour un client qui se connecte à un serveur d’accès réseau \(NAS @ no__t-1, et non pour les clients qui se connectent aux points d’accès sans fil. Un point d’accès sans fil qui reçoit ces paramètres dans un message RADIUS du serveur NPS peut ne pas être en mesure de les traiter, ce qui peut entraîner la déconnexion du client sans fil.
+Par exemple, les propriétés de l’ID de l’appelant, du rappel, de l’adresse IP statique et des itinéraires statiques sont conçues pour un client qui se connecte à un serveur d’accès réseau \(\)NAS, pas pour les clients qui se connectent aux points d’accès sans fil. Un point d’accès sans fil qui reçoit ces paramètres dans un message RADIUS du serveur NPS peut ne pas être en mesure de les traiter, ce qui peut entraîner la déconnexion du client sans fil.
 
-Lorsque NPS fournit une authentification et une autorisation pour les utilisateurs qui se connectent et accèdent au réseau de votre organisation par le biais de points d’accès sans fil, vous devez configurer les propriétés d’accès à distance pour prendre en charge les connexions d’accès à distance @no__t paramètre-0BY Propriétés des appels entrants @ no__t-1 ou connexions sans fil \(by ne pas définir les propriétés d’accès à distance @ no__t-3.
+Lorsque NPS fournit une authentification et une autorisation pour les utilisateurs qui se connectent et accèdent au réseau de votre organisation par le biais de points d’accès sans fil, vous devez configurer les propriétés d’accès à distance pour prendre en charge les connexions d’accès à distance \(en définissant les propriétés de connexion\) ou les connexions sans fil \(en ne définissant pas les propriétés de connexion\).
 
-Vous pouvez utiliser NPS pour activer le traitement des propriétés de numérotation pour le compte d’utilisateur dans certains scénarios \(such comme accès à distance @ no__t-1 et pour désactiver le traitement des propriétés de connexion dans d’autres scénarios \(such en tant que 802.1 X sans fil et en utilisant le commutateur d’authentification @ no__t-3.
+Vous pouvez utiliser NPS pour activer le traitement des propriétés de l’accès à distance pour le compte d’utilisateur dans certains scénarios \(tels que les\) d’accès à distance et pour désactiver le traitement des propriétés de connexion dans d’autres scénarios \(tels que 802.1 X sans fil et\)d’authentification.
 
 Vous pouvez également utiliser l’option **Ignorer les propriétés du compte d’utilisateur** pour gérer le contrôle d’accès réseau via les groupes et les autorisations d’accès sur la stratégie réseau. Lorsque vous activez la case à cocher **Ignorer les propriétés du compte d’utilisateur** , l’autorisation d’accès réseau sur le compte d’utilisateur est ignorée.
 

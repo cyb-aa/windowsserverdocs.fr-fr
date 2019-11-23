@@ -42,15 +42,15 @@ Les sous-commandes suivantes sont disponibles en permanence :
 |-----------|-----------|
 |classe|Échappe du mode d’alias par défaut de WMIC pour accéder directement aux classes dans le schéma WMI.|
 |path|Échappe du mode d’alias par défaut de WMIC pour accéder directement aux instances dans le schéma WMI.|
-|Contexte|Affiche les valeurs actuelles de tous les commutateurs globaux.|
+|contexte|Affiche les valeurs actuelles de tous les commutateurs globaux.|
 |[quitter \| quitter]|Quitte l’interface de commande WMIC.|
 
 ## <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|</parameter>|@no__t-Description 0Concise, commence par un verbe. >|
-|</param2>|la description concise de @no__t 0Another, commence par un verbe. >|
+|</parameter>|\<Description concise, commence par un verbe. >|
+|</param2>|\<une autre description concise, commence par un verbe. >|
 
 
 ## <a name="BKMK_examples"></a>Illustre

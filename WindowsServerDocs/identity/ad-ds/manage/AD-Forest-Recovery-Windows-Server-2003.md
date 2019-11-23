@@ -18,7 +18,7 @@ ms.locfileid: "71390062"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Récupération de la forêt Active Directory-récupération de Windows Server 2003
 
->S'applique à : Windows Server 2003
+>S’applique à : Windows Server 2003
 
 Cette rubrique comprend des procédures de récupération de forêt pour les contrôleurs de domaine qui exécutent Windows Server 2003. Le processus général de récupération de forêt n’est pas différent avec les contrôleurs de Windows Server 2003, mais des procédures spécifiques peuvent différer en raison de différents outils. Par exemple, Ntdsutil. exe peut être utilisé pour sauvegarder et restaurer des contrôleurs de contrôle qui exécutent des contrôleurs de Windows Server 2003, alors que Sauvegarde Windows Server ou Wbadmin. exe est utilisé pour les contrôleurs de contrôle qui exécutent Windows Server 2008 ou version ultérieure.  
   
@@ -61,7 +61,7 @@ Pour gagner du temps pour réinstaller le logiciel, déterminez si les applicati
 3. Sélectionnez le système d’exploitation que vous souhaitez démarrer en mode de restauration.  
 4. Ouvrir une session en tant qu’administrateur (vous ne pouvez utiliser qu’un compte d’ordinateur local, aucune option d’ouverture de session de domaine n’est disponible).  
 5. À l’invite de commandes, tapez **ntbackup**, puis appuyez sur entrée.  
-6. Dans la page **Bienvenue** , cliquez sur **mode avancé**, puis sélectionnez l’onglet **restaurer et gérer le média** . (Ne sélectionnez pas **Assistant Restauration**.)  
+6. Dans la page **Bienvenue** , cliquez sur **mode avancé**, puis sélectionnez l’onglet **restaurer et gérer le média** . (ne sélectionnez pas **Assistant Restauration**).  
 7. Sélectionnez le fichier de sauvegarde approprié à partir duquel effectuer la restauration et assurez-vous que les cases à cocher **disque système** et **État du système** sont activées.  
 8. Cliquez sur **Démarrer la restauration**.  
 9. Une fois l’opération de restauration terminée, redémarrez l’ordinateur.  
@@ -77,7 +77,7 @@ Utilisez la procédure suivante pour effectuer une restauration faisant autorit�
    > [!NOTE]
    > Le marquage des données restaurées comme données primaires dans la sauvegarde revient à définir l’entrée **BurFlags** sur D4 sous la sous-clé de Registre suivante :  
    >   
-   > **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NtFrs\Parameters\Cumulative jeux de réplicas @ no__t-1** *GUID*  
+   > **HKEY_LOCAL_MACHINE les jeux de réplicas \system\currentcontrolset\services\ntfrs\parameters\cumulative\\** *GUID*  
 
 4. Une fois l’opération de restauration terminée, redémarrez l’ordinateur.  
   
@@ -100,7 +100,7 @@ Si le contrôleur de domaine que vous avez restauré à partir d’une sauvegard
 
 5. Cliquez sur **Démarrer**, pointez sur **tous les programmes**, sur **Outils d’administration**, puis cliquez sur **DNS**.  
 6. Créez des zones DNS pour les mêmes noms de domaine DNS hébergés sur les serveurs DNS avant le dysfonctionnement critique. Pour plus d’informations, consultez Ajouter une zone de recherche directe ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).  
-7. Configurez les données DNS telles qu’elles existaient avant le dysfonctionnement critique. Exemple :  
+7. Configurez les données DNS telles qu’elles existaient avant le dysfonctionnement critique. Par exemple :  
 
    - Configurez les zones DNS à stocker dans AD DS. Pour plus d’informations, consultez modifier le type de zone ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).  
    - Configurez la zone DNS faisant autorité pour les enregistrements de ressource localisateur de contrôleur de domaine pour autoriser la mise à jour dynamique sécurisée. Pour plus d’informations, consultez autoriser uniquement les mises à jour dynamiques sécurisées ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).  

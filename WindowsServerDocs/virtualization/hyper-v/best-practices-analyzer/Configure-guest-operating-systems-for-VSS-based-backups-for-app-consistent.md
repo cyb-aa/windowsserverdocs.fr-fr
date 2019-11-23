@@ -19,7 +19,7 @@ ms.locfileid: "71364958"
 ---
 # <a name="configure-guest-operating-systems-for-vss-based-backups-to-enable-application-consistent-snapshots-for-hyper-v-replica"></a>Configurer des systèmes d’exploitation invités pour les sauvegardes basées sur VSS afin d’activer des captures instantanées cohérentes avec les applications pour le réplica Hyper-V
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Error|  
+|**Va**|Erreur|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -36,11 +36,11 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Les captures instantanées cohérentes avec les applications requièrent que le service VSS (Volume Shadow Copy Services) soit activé et configuré dans les systèmes d’exploitation invités des ordinateurs virtuels participant à la réplication.*  
   
 ## <a name="impact"></a>Impact  
-*Even si des captures instantanées de cohérence des applications sont spécifiées dans la configuration de la réplication, Hyper-V ne les utilise pas, sauf si VSS est configuré. Cela a un impact sur les ordinateurs virtuels suivants :*  
+*Même si des captures instantanées de cohérence des applications sont spécifiées dans la configuration de réplication, Hyper-V ne les utilise pas, sauf si VSS est configuré. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
 *Utilisez connexion à un ordinateur virtuel pour installer les services d’intégration sur l’ordinateur virtuel.*  
   
 

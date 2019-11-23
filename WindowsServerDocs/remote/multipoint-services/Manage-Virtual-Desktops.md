@@ -76,18 +76,18 @@ Le modèle s’ouvre dans une fenêtre distincte et des instructions supplément
     > [!NOTE]  
     > Si le système MultiPoint Services n’est pas exécuté en mode station, redémarrez-le avant d’exécuter les étapes suivantes.  
   
-2.  Sélectionnez le modèle de bureau virtuel dans le volet gauche @ no__t-0hand. Son nom est <préfixe – t>.  
+2.  Sélectionnez le modèle de bureau virtuel dans le volet de gauche\-. Son nom est <préfixe – t>.  
   
 3.  Sous les tâches de modèle, cliquez sur **Créer des stations de bureaux virtuels**, puis sur **OK**.  
   
     Le processus de création de la station de bureau virtuel prend quelques minutes.  
   
     > [!NOTE]  
-    > Si l’une des stations locales est actuellement connectée à un bureau virtuel @ no__t-0based, vous devez vous déconnecter de ces stations afin qu’elles se connectent à l’une des stations de bureaux virtuels nouvellement créées.  
+    > Si l’une des stations locales est actuellement connectée à un bureau virtuel basé sur\-session, vous devez vous déconnecter de ces stations pour qu’elles se connectent à l’une des stations de bureaux virtuels nouvellement créées.  
   
 ### <a name="validate-the-newly-created-customized-virtual-station-desktops"></a>Valider les bureaux de station virtuels personnalisés nouvellement créés  
   
-Vous pouvez valider vos bureaux de stations virtuelles personnalisés en vous connectant à une ou plusieurs stations de bureaux virtuels à l’aide d’un compte d’administrateur local ou d’un compte de domaine, puis vérifiez que les nouveaux bureaux virtuels @ no__t-0based fonctionnent correctement.  
+Vous pouvez valider vos bureaux de stations virtuelles personnalisés en vous connectant à une ou plusieurs stations de bureaux virtuels à l’aide d’un compte d’administrateur local ou d’un compte de domaine, puis vérifiez que les nouveaux bureaux virtuels\-basés sur les machines virtuelles fonctionnent correctement.  
   
 ## <a name="disable-virtual-desktops"></a>Désactiver les bureaux virtuels  
   

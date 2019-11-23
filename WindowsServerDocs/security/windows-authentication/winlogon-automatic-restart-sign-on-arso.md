@@ -22,14 +22,14 @@ ms.locfileid: "71402320"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Connexion de redémarrage automatique Winlogon
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 **Auteur**: Justin Turner, ingénieur du support technique senior avec le groupe Windows  
   
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
-## <a name="overview"></a>Vue d'ensemble  
+## <a name="overview"></a>Vue d’ensemble  
 Windows 8 a introduit les applications de l’écran de verrouillage.  Il s’agit des applications qui exécutent et affichent des notifications lorsque la session de l’utilisateur est verrouillée (rendez-vous, courrier électronique et messages, etc.).  Les appareils qui sont redémarrés en raison du processus de Windows Update ne parviennent pas à afficher ces notifications d’écran de verrouillage lors du redémarrage.  Certains utilisateurs dépendent de ces applications d’écran de verrouillage.  
   
 ## <a name="whats-changed"></a>Nouveautés  
@@ -74,7 +74,7 @@ Lors du redémarrage, l’utilisateur est automatiquement connecté via le méca
   
     -   Ne peut être activé que si BitLocker est activé  
   
-## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Stratégie de groupe: Connectez le dernier utilisateur interactif automatiquement après un redémarrage initié par le système  
+## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Stratégie de groupe : connexion automatique du dernier utilisateur interactif après un redémarrage initié par le système  
 Dans Windows 8.1/Windows Server 2012 R2, l’ouverture de la ligne automatique de l’utilisateur de l’écran de verrouillage après un redémarrage de la Windows Update s’abonne aux références SKU du serveur et s’abonne aux références clientes.  
   
 **Emplacement de la stratégie :** Configuration de l’ordinateur > des stratégies > Modèles d’administration > composants Windows > option d’ouverture de session Windows  
@@ -95,11 +95,11 @@ Si vous désactivez ce paramètre de stratégie, l’appareil ne stocke pas les 
   
 |Nom de valeur|Type|Données|  
 |-------|----|----|  
-|DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Tels**<br /><br />0 (activé)<br /><br />1 (désactivé)|  
+|DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Exemple :**<br /><br />0 (activé)<br /><br />1 (désactivé)|  
   
 **Emplacement du registre de la stratégie :** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System  
   
-**Type :** DWORD  
+**Tapez :** GRANDE  
   
 **Nom du Registre :** DisableAutomaticRestartSignOn  
   
@@ -143,7 +143,7 @@ Une session utilisateur existante peut être conservée même si elle est désac
 Les heures d’ouverture de session et le contrôle parental peuvent empêcher la création d’une nouvelle session utilisateur.  Si un redémarrage se produit au cours de cette fenêtre, l’utilisateur n’est pas autorisé à se connecter.  Une stratégie supplémentaire empêche le verrouillage ou la déconnexion en tant qu’action de conformité.  Cela peut être problématique dans de nombreux cas enfants où le verrouillage de compte peut se produire entre le temps de sortie et la mise en éveil, en particulier si la fenêtre de maintenance est courante pendant cette période.  
   
 ## <a name="additional-resources"></a>Ressources complémentaires  
-**Table SEQ Table \\ @ no__t-2 arabe 3 : Glossaire connexion @ no__t-0  
+**Table SEQ Table \\\* arabe 3 : Glossaire connexion**  
   
 |Terme|Définition|  
 |----|-------|  

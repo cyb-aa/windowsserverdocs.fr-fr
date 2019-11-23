@@ -19,7 +19,7 @@ ms.locfileid: "71364698"
 ---
 # <a name="test-failover-should-be-attempted-after-initial-replication-is-complete"></a>Un test de basculement doit être tenté une fois la réplication initiale terminée
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Opérations|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -36,11 +36,11 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Aucun test de basculement n’a été fait dans au moins un mois.*  
   
 ## <a name="impact"></a>Impact  
-*There ne confirme pas qu’un basculement planifié ou non planifié échoue ou que les opérations de charge de travail se poursuivent correctement après un basculement. Cela a un impact sur les ordinateurs virtuels suivants :*  
+*Il n’y a aucune confirmation qu’un basculement planifié ou non planifié échoue ou que les opérations de charge de travail se poursuivent correctement après un basculement. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
 *Utilisez le Gestionnaire Hyper-V pour effectuer un test de basculement.*  
   
 

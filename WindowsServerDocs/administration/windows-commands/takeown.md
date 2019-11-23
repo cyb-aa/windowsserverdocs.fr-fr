@@ -36,13 +36,13 @@ takeown [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <File n
 
 |Paramètre|Description|
 |---------|-----------|
-|/s \<Computer >|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande.|
-|/u [\<Domain > \] @ no__t-2|Exécute le script avec les autorisations du compte d’utilisateur spécifié. La valeur par défaut est autorisations système.|
-|/p [@no__t 0Password >]|Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .|
-|/f @no__t-nom 0File >|Spécifie le nom de fichier ou le modèle de nom de répertoire. Vous pouvez utiliser le caractère générique * lorsque vous spécifiez le modèle. Vous pouvez également utiliser la syntaxe *nom_partage*\*FileName *.|
+|/s \<> de l’ordinateur|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande.|
+|/u [\<> de domaine\]<User name>|Exécute le script avec les autorisations du compte d’utilisateur spécifié. La valeur par défaut est autorisations système.|
+|/p [\<> de mot de passe]|Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .|
+|/f \<nom du fichier >|Spécifie le nom de fichier ou le modèle de nom de répertoire. Vous pouvez utiliser le caractère générique * lorsque vous spécifiez le modèle. Vous pouvez également utiliser la syntaxe *nom_partage*\*filename *.|
 |/a|Donne la propriété au groupe administrateurs au lieu de l’utilisateur actuel.|
 |/r|Effectue une opération récursive sur tous les fichiers dans le répertoire et les sous-répertoires spécifiés.|
-|/d {o \| N}|Supprime l’invite de confirmation qui s’affiche lorsque l’utilisateur actuel ne dispose pas de l’autorisation « List Folder » sur un répertoire spécifié, et utilise à la place la valeur par défaut spécifiée. Les valeurs valides pour l’option **/d** sont les suivantes :</br>Y Prendre possession de l’annuaire.</br>N Ignorez le répertoire.</br>Notez que vous devez utiliser cette option conjointement avec l’option **/r** .|
+|/d {o \| N}|Supprime l’invite de confirmation qui s’affiche lorsque l’utilisateur actuel ne dispose pas de l’autorisation « List Folder » sur un répertoire spécifié, et utilise à la place la valeur par défaut spécifiée. Les valeurs valides pour l’option **/d** sont les suivantes :</br>-Y : appropriation de l’annuaire.</br>-N : ignore le répertoire.</br>Notez que vous devez utiliser cette option conjointement avec l’option **/r** .|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

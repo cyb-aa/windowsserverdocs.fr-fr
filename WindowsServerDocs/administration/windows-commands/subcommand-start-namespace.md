@@ -22,7 +22,7 @@ ms.locfileid: "71370748"
 ---
 # <a name="subcommand-start-namespace"></a>Sous-commande : Start-namespace
 
-> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 démarre un espace de noms de diffusion planifiée.
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 démarre un espace de noms de diffusion planifiée.
 > ## <a name="syntax"></a>Syntaxe
 > ```
 > wdsutil /start-Namespace /Namespace:<Namespace name> [/Server:<Server name>]
@@ -31,7 +31,7 @@ ms.locfileid: "71370748"
 > 
 > |          Paramètre          |                                                                                                                                                                                             Description                                                                                                                                                                                             |
 > |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | /Namespace : <Namespace name> | Spécifie le nom de l’espace de noms. Notez qu’il ne s’agit pas du nom convivial et qu’il doit être unique.<br /><br />**serveur de déploiement**-    : La syntaxe du nom de l’espace de noms est/Namspace : WDS : <Image group> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Exemple : **WDS : ImageGroup1/install. wim/1**<br />**serveur de Transport**-    : Ce nom doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur. |
+> | /Namespace :<Namespace name> | Spécifie le nom de l’espace de noms. Notez qu’il ne s’agit pas du nom convivial et qu’il doit être unique.<br /><br />-   **serveur de déploiement**: la syntaxe du nom de l’espace de noms est/NAMSPACE : WDS :<Image group>/<Image name>/<Index>. Par exemple : **WDS : ImageGroup1/install. wim/1**<br />-   **serveur de transport**: ce nom doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur. |
 > |   [/Server:<Server name>]   |                                                                                                           Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                           |
 > 
 > ## <a name="BKMK_examples"></a>Illustre

@@ -17,9 +17,9 @@ ms.locfileid: "71356348"
 ---
 # <a name="install-the-branchcache-feature-and-configure-the-hosted-cache-server-by-service-connection-point"></a>Installer la fonctionnalité BranchCache et configurer le serveur de cache hébergé par le point de connexion de service
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vous pouvez utiliser cette procédure pour installer la fonctionnalité BranchCache sur votre serveur de cache hébergé, HCS1, et configurer le serveur pour inscrire un point de connexion de service \(SCP @ no__t-1 dans Active Directory Domain Services \(AD DS @ no__t-3.
+Vous pouvez utiliser cette procédure pour installer la fonctionnalité BranchCache sur votre serveur de cache hébergé, HCS1 et configurer le serveur pour inscrire un point de connexion de service \(SCP\) dans Active Directory Domain Services AD DS \(\).
 
 Lorsque vous inscrivez des serveurs de cache hébergé avec un SCP dans AD DS, le SCP permet aux ordinateurs clients configurés correctement de découvrir automatiquement les serveurs de cache hébergé en interrogeant AD DS pour le SCP. Des instructions sur la façon de configurer des ordinateurs clients pour effectuer cette action sont fournies plus loin dans ce guide.
 
@@ -50,11 +50,11 @@ Pour effectuer cette procédure, vous devez être membre du groupe Administrateu
   
     Les résultats de la commande affichent l’état de tous les aspects de votre installation BranchCache. Voici quelques-uns des paramètres BranchCache et la valeur correcte pour chaque élément :  
   
-    -   BranchCacheIsEnabled: True
+    -   BranchCacheIsEnabled : true
 
-    -   HostedCacheServerIsEnabled: True
+    -   HostedCacheServerIsEnabled : true
 
-    -   HostedCacheScpRegistrationEnabled: True
+    -   HostedCacheScpRegistrationEnabled : true
 
 4. Pour préparer l’étape de copie de vos packages de données à partir de vos serveurs de contenu vers vos serveurs de cache hébergé, identifiez un partage existant sur le serveur de cache hébergé ou créez un nouveau dossier et partagez le dossier afin qu’il soit accessible à partir de vos serveurs de contenu. Après avoir créé vos packages de données sur vos serveurs de contenu, vous allez copier les packages de données dans ce dossier partagé sur le serveur de cache hébergé.
   

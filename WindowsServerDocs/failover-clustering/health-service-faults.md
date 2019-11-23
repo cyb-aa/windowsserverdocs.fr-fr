@@ -24,7 +24,7 @@ Le Service de contrôle d’intégrité surveille en permanence votre cluster es
 
 Chaque erreur contient cinq champs importants :  
 
--   Sévérité
+-   Gravité
 -   Description du problème
 -   Étapes suivantes recommandées pour traiter le problème
 -   Informations d’identification de l’entité défaillante
@@ -72,9 +72,9 @@ Cela renvoie toutes les erreurs qui affectent uniquement le volume ou le partage
 
 ## <a name="usage-in-net-and-c"></a>Utilisation dans .NET etC#
 
-### <a name="connect"></a>Connection
+### <a name="connect"></a>Se connecter
 
-Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utilisent C @ no__t-0, le choix le plus simple pour cette couche d’accès aux données.
+Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utilisent C\#, le choix le plus simple pour cette couche d’accès aux données.
 
 ``` 
 ...
@@ -106,7 +106,7 @@ Il est recommandé de construire la **SecureString** de mot de passe directement
 
 Une fois le **CimSession** établi, vous pouvez interroger Windows Management Instrumentation (WMI) sur le cluster.
 
-Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, **msft @ no__t-1StorageSubSystem** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **msft @ no__t-1StorageNode** dans le cluster, et chaque **msft @ no__t-3Volume**, les volumes de données. Enfin, vous aurez besoin de **msft @ no__t-1StorageHealth**, le service de contrôle d’intégrité lui-même.
+Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, **MSFT\_StorageSubSystem** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **\_msft StorageNode** dans le cluster, et chaque **msft\_volume**, les volumes de données. Enfin, vous aurez besoin du **\_msft**, le service de contrôle d’intégrité lui-même.
 
 ```
 CimInstance Cluster;
@@ -174,7 +174,7 @@ public void GetFaults(CimSession Session, CimInstance Target)
 }
 ```
 
-### <a name="optional-myfault-class"></a>Facultatif : MyFault, classe
+### <a name="optional-myfault-class"></a>Facultatif : classe MyFault
 
 Il peut être judicieux de construire et de conserver votre propre représentation des erreurs. Par exemple, cette classe **MyFault** stocke plusieurs propriétés clés des erreurs, y compris le **FaultId**, qui peut être utilisé ultérieurement pour associer des notifications de mise à jour ou de suppression, ou pour dédupliquer dans le cas où la même erreur est détectée plusieurs fois, pour une raison quelconque.
 
@@ -214,7 +214,7 @@ La liste complète des propriétés de chaque erreur (**DiagnoseResult**) est d�
 
 Lorsque des erreurs sont créées, supprimées ou mises à jour, le Service de contrôle d’intégrité génère des événements WMI. Celles-ci sont essentielles pour assurer la synchronisation de l’état de votre application sans interrogation fréquente. elles peuvent vous aider à déterminer quand envoyer des alertes par courrier électronique, par exemple. Pour s’abonner à ces événements, cet exemple de code utilise à nouveau le modèle de conception observateur.
 
-Tout d’abord, abonnez-vous aux événements **msft @ no__t-1StorageFaultEvent** .
+Tout d’abord, abonnez-vous à **MSFT\_événements StorageFaultEvent** .
 
 ```      
 public void ListenForFaultEvents()
@@ -285,13 +285,13 @@ Toutefois, dans certains cas, les erreurs peuvent être redécouvertes par le Se
 
 ### <a name="properties-of-faults"></a>Propriétés des erreurs
 
-Ce tableau présente plusieurs propriétés clés de l’objet d’erreur. Pour le schéma complet, inspectez la classe **msft @ no__t-1StorageDiagnoseResult** dans *storagewmi. mof*.
+Ce tableau présente plusieurs propriétés clés de l’objet d’erreur. Pour le schéma complet, inspectez la classe **MSFT\_StorageDiagnoseResult** dans *storagewmi. mof*.
 
 | **Propriété**              | **Exemple**                                                     |
 |---------------------------|-----------------------------------------------------------------|
 | FaultId                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft. Health. FaultType. volume. Capacity                      |
-| Reason                    | « Espace disponible insuffisant sur le volume. »                 |
+| Raison                    | « Espace disponible insuffisant sur le volume. »                 |
 | PerceivedSeverity         | 5                                                               |
 | FaultingObjectDescription | Contoso XYZ9000 S.N. 123456789                                  |
 | FaultingObjectLocation    | Rack A06, RU 25, emplacement 11                                        |
@@ -309,7 +309,7 @@ Ce tableau présente plusieurs propriétés clés de l’objet d’erreur. Pour 
 
 ## <a name="properties-of-fault-events"></a>Propriétés des événements d’erreur
 
-Ce tableau présente plusieurs propriétés clés de l’événement d’erreur. Pour le schéma complet, inspectez la classe **msft @ no__t-1StorageFaultEvent** dans *storagewmi. mof*.
+Ce tableau présente plusieurs propriétés clés de l’événement d’erreur. Pour le schéma complet, inspectez la classe **MSFT\_StorageFaultEvent** dans *storagewmi. mof*.
 
 Notez le **ChangeType**, qui indique si une erreur est créée, supprimée ou mise à jour, et le **FaultId**. Un événement contient également toutes les propriétés de l’erreur affectée.
 
@@ -318,7 +318,7 @@ Notez le **ChangeType**, qui indique si une erreur est créée, supprimée ou mi
 | ChangeType                | 0                                                               |
 | FaultId                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft. Health. FaultType. volume. Capacity                      |
-| Reason                    | « Espace disponible insuffisant sur le volume. »                 |
+| Raison                    | « Espace disponible insuffisant sur le volume. »                 |
 | PerceivedSeverity         | 5                                                               |
 | FaultingObjectDescription | Contoso XYZ9000 S.N. 123456789                                  |
 | FaultingObjectLocation    | Rack A06, RU 25, emplacement 11                                        |
@@ -332,188 +332,188 @@ Dans Windows Server 2016, le Service de contrôle d’intégrité fournit la cou
 
 ### <a name="physicaldisk-8"></a>**Disque physique (8)**
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedmedia"></a>FaultType Microsoft. Health. FaultType. PhysicalDisk. FailedMedia
-* Gravité : Warning
-* Cause : *« Le disque physique a échoué. »*
-* RecommendedAction: *« Remplacer le disque physique ».*
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedmedia"></a>FaultType : Microsoft. Health. FaultType. PhysicalDisk. FailedMedia
+* Gravité : AVERTISSEMENT
+* Raison : *« le disque physique a échoué. »*
+* RecommendedAction : *« remplacer le disque physique ».*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldisklostcommunication"></a>FaultType Microsoft. Health. FaultType. PhysicalDisk. LostCommunication
-* Gravité : Warning
-* Cause : *« La connectivité a été perdue sur le disque physique ».*
-* RecommendedAction: *Vérifiez que le disque physique fonctionne correctement et qu’il est correctement connecté.*
+#### <a name="faulttype-microsofthealthfaulttypephysicaldisklostcommunication"></a>FaultType : Microsoft. Health. FaultType. PhysicalDisk. LostCommunication
+* Gravité : AVERTISSEMENT
+* Raison : *« la connectivité a été perdue sur le disque physique ».*
+* RecommendedAction : *"Vérifiez que le disque physique fonctionne et est correctement connecté."*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunresponsive"></a>FaultType Microsoft. Health. FaultType. PhysicalDisk. ne répond pas
-* Gravité : Warning
-* Cause : *« Le disque physique présente une inactivité récurrente. »*
-* RecommendedAction: *« Remplacer le disque physique ».*
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunresponsive"></a>FaultType : Microsoft. Health. FaultType. PhysicalDisk. ne répond pas
+* Gravité : AVERTISSEMENT
+* Raison : *« le disque physique présente une inactivité récurrente ».*
+* RecommendedAction : *« remplacer le disque physique ».*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskpredictivefailure"></a>FaultType Microsoft. Health. FaultType. PhysicalDisk. PredictiveFailure
-* Gravité : Warning
-* Cause : *« Une défaillance du disque physique est prévue pour s’exécuter bientôt ».*
-* RecommendedAction: *« Remplacer le disque physique ».*
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskpredictivefailure"></a>FaultType : Microsoft. Health. FaultType. PhysicalDisk. PredictiveFailure
+* Gravité : AVERTISSEMENT
+* Raison : *« une défaillance du disque physique est prévue pour s’exécuter bientôt ».*
+* RecommendedAction : *« remplacer le disque physique ».*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedhardware"></a>FaultType Microsoft. Health. FaultType. PhysicalDisk. UnsupportedHardware
-* Gravité : Warning
-* Cause : *« Le disque physique est mis en quarantaine parce qu’il n’est pas pris en charge par le fournisseur de votre solution. »*
-* RecommendedAction: *« Remplacez le disque physique par le matériel pris en charge. »*
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedhardware"></a>FaultType : Microsoft. Health. FaultType. PhysicalDisk. UnsupportedHardware
+* Gravité : AVERTISSEMENT
+* Raison : *« le disque physique est mis en quarantaine parce qu’il n’est pas pris en charge par le fournisseur de votre solution. »*
+* RecommendedAction : *"remplacer le disque physique par un matériel pris en charge."*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedfirmware"></a>FaultType Microsoft. Health. FaultType. PhysicalDisk. UnsupportedFirmware
-* Gravité : Warning
-* Cause : *« Le disque physique est en quarantaine, car sa version du microprogramme n’est pas prise en charge par le fournisseur de votre solution. »*
-* RecommendedAction: *« Mettre à jour le microprogramme sur le disque physique avec la version cible ».*
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedfirmware"></a>FaultType : Microsoft. Health. FaultType. PhysicalDisk. UnsupportedFirmware
+* Gravité : AVERTISSEMENT
+* Raison : *« le disque physique est en quarantaine, car sa version du microprogramme n’est pas prise en charge par le fournisseur de votre solution. »*
+* RecommendedAction : *« mettre à jour le microprogramme sur le disque physique avec la version cible ».*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunrecognizedmetadata"></a>FaultType Microsoft. Health. FaultType. PhysicalDisk. UnrecognizedMetadata
-* Gravité : Warning
-* Cause : *« Le disque physique contient des métadonnées non reconnues ».*
-* RecommendedAction: *» ce disque peut contenir des données d’un pool de stockage inconnu. Tout d’abord, assurez-vous qu’il n’existe aucune donnée utile sur ce disque, puis réinitialisez le disque.»*
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunrecognizedmetadata"></a>FaultType : Microsoft. Health. FaultType. PhysicalDisk. UnrecognizedMetadata
+* Gravité : AVERTISSEMENT
+* Raison : *« le disque physique contient des métadonnées non reconnues ».*
+* RecommendedAction : *«ce disque peut contenir des données d’un pool de stockage inconnu. Tout d’abord, assurez-vous qu’il n’existe aucune donnée utile sur ce disque, puis réinitialisez le disque.»*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedfirmwareupdate"></a>FaultType Microsoft. Health. FaultType. PhysicalDisk. FailedFirmwareUpdate
-* Gravité : Warning
-* Cause : *« Échec de la tentative de mise à jour du microprogramme sur le disque physique ».*
-* RecommendedAction: *« Essayez d’utiliser un autre binaire de microprogramme ».*
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedfirmwareupdate"></a>FaultType : Microsoft. Health. FaultType. PhysicalDisk. FailedFirmwareUpdate
+* Gravité : AVERTISSEMENT
+* Raison : *« échec de la tentative de mise à jour du microprogramme sur le disque physique ».*
+* RecommendedAction : *« essayez d’utiliser un autre binaire de microprogramme ».*
 
 ### <a name="virtual-disk-2"></a>**Disque virtuel (2)**
 
-#### <a name="faulttype-microsofthealthfaulttypevirtualdisksneedsrepair"></a>FaultType Microsoft. Health. FaultType. Virtualdisks et. NeedsRepair
-* Gravité : Informationnel
-* Cause : *» certaines données de ce volume ne sont pas entièrement résilientes. Il reste accessible.»*
-* RecommendedAction: *« Restauration de la résilience des données ».*
+#### <a name="faulttype-microsofthealthfaulttypevirtualdisksneedsrepair"></a>FaultType : Microsoft. Health. FaultType. Virtualdisks et. NeedsRepair
+* Gravité : informatif
+* Raison : *«certaines données sur ce volume ne sont pas entièrement résilientes. Il reste accessible.»*
+* RecommendedAction : *« restauration de la résilience des données ».*
 
-#### <a name="faulttype-microsofthealthfaulttypevirtualdisksdetached"></a>FaultType Microsoft. Health. FaultType. Virtualdisks et. détaché
-* Gravité : Critique
-* Cause : *» le volume n’est pas accessible. Certaines données peuvent être perdues.»*
-* RecommendedAction: *» Vérifiez la connectivité physique et/ou réseau de tous les périphériques de stockage. Vous devrez peut-être effectuer une restauration à partir d’une sauvegarde.»*
+#### <a name="faulttype-microsofthealthfaulttypevirtualdisksdetached"></a>FaultType : Microsoft. Health. FaultType. Virtualdisks et. détaché
+* Gravité : critique
+* Raison : *«le volume est inaccessible. Certaines données peuvent être perdues.»*
+* RecommendedAction : *Vérifiez la connectivité physique et/ou réseau de tous les périphériques de stockage. Vous devrez peut-être effectuer une restauration à partir d’une sauvegarde.»*
 
 ### <a name="pool-capacity-1"></a>**Capacité du pool (1)**
 
-#### <a name="faulttype-microsofthealthfaulttypestoragepoolinsufficientreservecapacityfault"></a>FaultType Microsoft. Health. FaultType. StoragePool. InsufficientReserveCapacityFault
-* Gravité : Warning
-* Cause : *» le pool de stockage n’a pas la capacité de réserve minimale recommandée. Cela peut limiter votre capacité à restaurer la résilience des données en cas de défaillances du disque.*
-* RecommendedAction: *» ajoutez de la capacité supplémentaire au pool de stockage ou libérez de la capacité. La réserve minimale recommandée varie en fonction du déploiement, mais elle est d’environ 2 unités de capacité.*
+#### <a name="faulttype-microsofthealthfaulttypestoragepoolinsufficientreservecapacityfault"></a>FaultType : Microsoft. Health. FaultType. StoragePool. InsufficientReserveCapacityFault
+* Gravité : AVERTISSEMENT
+* Raison : *«le pool de stockage n’a pas la capacité de réserve minimale recommandée. Cela peut limiter votre capacité à restaurer la résilience des données en cas de défaillances du disque.*
+* RecommendedAction : *"Ajoutez de la capacité supplémentaire au pool de stockage ou libérez de la capacité. La réserve minimale recommandée varie en fonction du déploiement, mais elle est d’environ 2 unités de capacité.*
 
 ### <a name="volume-capacity-2sup1sup"></a>**Capacité du volume (2)** <sup>1</sup>
 
-#### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType Microsoft. Health. FaultType. volume. Capacity
-* Gravité : Warning
-* Cause : *« Espace disponible insuffisant sur le volume. »*
-* RecommendedAction: *« Étendre le volume ou migrer les charges de travail vers d’autres volumes. »*
+#### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType : Microsoft. Health. FaultType. volume. Capacity
+* Gravité : AVERTISSEMENT
+* Raison : *« espace disponible insuffisant pour le volume. »*
+* RecommendedAction : *développez le volume ou migrez les charges de travail vers d’autres volumes.*
 
-#### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType Microsoft. Health. FaultType. volume. Capacity
-* Gravité : Critique
-* Cause : *« Espace disponible insuffisant sur le volume. »*
-* RecommendedAction: *« Étendre le volume ou migrer les charges de travail vers d’autres volumes. »*
+#### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType : Microsoft. Health. FaultType. volume. Capacity
+* Gravité : critique
+* Raison : *« espace disponible insuffisant pour le volume. »*
+* RecommendedAction : *développez le volume ou migrez les charges de travail vers d’autres volumes.*
 
 ### <a name="server-3"></a>**Serveur (3)**
 
-#### <a name="faulttype-microsofthealthfaulttypeserverdown"></a>FaultType Microsoft. Health. FaultType. Server. UpDown
-* Gravité : Critique
-* Cause : *« Le serveur est inaccessible. »*
-* RecommendedAction: *« Démarrer ou remplacer le serveur ».*
+#### <a name="faulttype-microsofthealthfaulttypeserverdown"></a>FaultType : Microsoft. Health. FaultType. Server. UpDown
+* Gravité : critique
+* Raison : *« Impossible d’accéder au serveur ».*
+* RecommendedAction : *« Démarrer ou remplacer le serveur ».*
 
-#### <a name="faulttype-microsofthealthfaulttypeserverisolated"></a>FaultType Microsoft. Health. FaultType. Server. isolated
-* Gravité : Critique
-* Cause : *« Le serveur est isolé du cluster en raison de problèmes de connectivité ».*
-* RecommendedAction: *« Si l’isolation persiste, vérifiez le ou les réseaux ou migrez les charges de travail vers d’autres nœuds. »*
+#### <a name="faulttype-microsofthealthfaulttypeserverisolated"></a>FaultType : Microsoft. Health. FaultType. Server. isolated
+* Gravité : critique
+* Raison : *« le serveur est isolé du cluster en raison de problèmes de connectivité ».*
+* RecommendedAction : *« si l’isolation persiste, vérifiez le ou les réseaux ou migrez les charges de travail vers d’autres nœuds ».*
 
-#### <a name="faulttype-microsofthealthfaulttypeserverquarantined"></a>FaultType Microsoft. Health. FaultType. Server. quarantined
-* Gravité : Critique
-* Cause : *« Le serveur est mis en quarantaine par le cluster en raison d’échecs récurrents ».*
-* RecommendedAction: *« Remplacer le serveur ou réparer le réseau. »*
+#### <a name="faulttype-microsofthealthfaulttypeserverquarantined"></a>FaultType : Microsoft. Health. FaultType. Server. quarantined
+* Gravité : critique
+* Raison : *« le serveur est mis en quarantaine par le cluster en raison d’échecs récurrents ».*
+* RecommendedAction : *« remplacer le serveur ou corriger le réseau ».*
 
 ### <a name="cluster-1"></a>**Cluster (1)**
 
-#### <a name="faulttype-microsofthealthfaulttypeclusterquorumwitnesserror"></a>FaultType Microsoft. Health. FaultType. ClusterQuorumWitness. erreur
-* Gravité : Critique
-* Cause : *« Le cluster n’est plus en panne. »*
-* RecommendedAction: *» Vérifiez la ressource témoin, puis redémarrez si nécessaire. Démarrez ou remplacez les serveurs défaillants.»*
+#### <a name="faulttype-microsofthealthfaulttypeclusterquorumwitnesserror"></a>FaultType : Microsoft. Health. FaultType. ClusterQuorumWitness. erreur
+* Gravité : critique
+* Raison : *« le cluster n’est plus en panne. »*
+* RecommendedAction : *«Vérifiez la ressource témoin, puis redémarrez si nécessaire. Démarrez ou remplacez les serveurs défaillants.»*
 
 ### <a name="network-adapterinterface-4"></a>**Carte réseau/interface (4)**
 
-#### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisconnected"></a>FaultType Microsoft. Health. FaultType. NetworkAdapter. disconnected
-* Gravité : Warning
-* Cause : *« L’interface réseau a été déconnectée ».*
-* RecommendedAction: *« Reconnectez le câble réseau. »*
+#### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisconnected"></a>FaultType : Microsoft. Health. FaultType. NetworkAdapter. disconnected
+* Gravité : AVERTISSEMENT
+* Raison : *« l’interface réseau a été déconnectée ».*
+* RecommendedAction : *« reconnectez le câble réseau. »*
 
-#### <a name="faulttype-microsofthealthfaulttypenetworkinterfacemissing"></a>FaultType Microsoft. Health. FaultType. l’interface réseau. Missing
-* Gravité : Warning
-* Cause : *« Le serveur {Server} n’a pas de carte réseau connectée au réseau de cluster {cluster Network} ».*
-* RecommendedAction: *« Connectez le serveur au réseau du cluster manquant ».*
+#### <a name="faulttype-microsofthealthfaulttypenetworkinterfacemissing"></a>FaultType : Microsoft. Health. FaultType. l’interface réseau. Missing
+* Gravité : AVERTISSEMENT
+* Raison : *« le serveur {Server} n’a pas de carte réseau connectée au réseau de cluster {cluster Network} ».*
+* RecommendedAction : *« Connectez le serveur au réseau du cluster manquant ».*
 
-#### <a name="faulttype-microsofthealthfaulttypenetworkadapterhardware"></a>FaultType Microsoft. Health. FaultType. NetworkAdapter. Hardware
-* Gravité : Warning
-* Cause : *« L’interface réseau a rencontré une défaillance matérielle ».*
-* RecommendedAction: *« Remplacer la carte d’interface réseau ».*
+#### <a name="faulttype-microsofthealthfaulttypenetworkadapterhardware"></a>FaultType : Microsoft. Health. FaultType. NetworkAdapter. Hardware
+* Gravité : AVERTISSEMENT
+* Raison : *« l’interface réseau a rencontré une défaillance matérielle ».*
+* RecommendedAction : *« remplacer la carte d’interface réseau ».*
 
-#### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisabled"></a>FaultType Microsoft. Health. FaultType. NetworkAdapter. Disabled
-* Gravité : Warning
-* Cause : *« L’interface réseau {interface réseau} n’est pas activée et n’est pas utilisée. »*
-* RecommendedAction: *« Activer l’interface réseau ».*
+#### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisabled"></a>FaultType : Microsoft. Health. FaultType. NetworkAdapter. Disabled
+* Gravité : AVERTISSEMENT
+* Raison : *« l’interface réseau {Network Interface} n’est pas activée et n’est pas utilisée. »*
+* RecommendedAction : *« activer l’interface réseau ».*
 
 ### <a name="enclosure-6"></a>**Boîtier (6)**
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosurelostcommunication"></a>FaultType Microsoft. Health. FaultType. StorageEnclosure. LostCommunication
-* Gravité : Warning
-* Cause : *« La communication a été perdue dans le boîtier de stockage. »*
-* RecommendedAction: *« Démarrer ou remplacer le boîtier de stockage ».*
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosurelostcommunication"></a>FaultType : Microsoft. Health. FaultType. StorageEnclosure. LostCommunication
+* Gravité : AVERTISSEMENT
+* Raison : *« la communication a été perdue dans le boîtier de stockage. »*
+* RecommendedAction : *« Démarrer ou remplacer le boîtier de stockage ».*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosurefanerror"></a>FaultType Microsoft. Health. FaultType. StorageEnclosure. FanError
-* Gravité : Warning
-* Cause : *« Le ventilateur à la position {position} du boîtier de stockage a échoué. »*
-* RecommendedAction: *« Remplacez le ventilateur dans le boîtier de stockage ».*
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosurefanerror"></a>FaultType : Microsoft. Health. FaultType. StorageEnclosure. FanError
+* Gravité : AVERTISSEMENT
+* Raison : *« le ventilateur à la position {position} du boîtier de stockage a échoué ».*
+* RecommendedAction : *« remplacer le ventilateur dans le boîtier de stockage ».*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosurecurrentsensorerror"></a>FaultType Microsoft. Health. FaultType. StorageEnclosure. CurrentSensorError
-* Gravité : Warning
-* Cause : *« Le capteur actuel à la position {position} du boîtier de stockage a échoué ».*
-* RecommendedAction: *« Remplacer un capteur actuel dans le boîtier de stockage. »*
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosurecurrentsensorerror"></a>FaultType : Microsoft. Health. FaultType. StorageEnclosure. CurrentSensorError
+* Gravité : AVERTISSEMENT
+* Raison : *« le capteur actuel à la position {position} du boîtier de stockage a échoué ».*
+* RecommendedAction : *« remplacer un capteur actuel dans le boîtier de stockage ».*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosurevoltagesensorerror"></a>FaultType Microsoft. Health. FaultType. StorageEnclosure. VoltageSensorError
-* Gravité : Warning
-* Cause : *« Le capteur de voltage à la position {position} du boîtier de stockage a échoué ».*
-* RecommendedAction: *« Remplacer un capteur de voltage dans le boîtier de stockage. »*
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosurevoltagesensorerror"></a>FaultType : Microsoft. Health. FaultType. StorageEnclosure. VoltageSensorError
+* Gravité : AVERTISSEMENT
+* Raison : *« le capteur de voltage à la position {position} du boîtier de stockage a échoué ».*
+* RecommendedAction : *« remplacer un capteur de voltage dans le boîtier de stockage. »*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosureiocontrollererror"></a>FaultType Microsoft. Health. FaultType. StorageEnclosure. IoControllerError
-* Gravité : Warning
-* Cause : *« Le contrôleur d’e/s à la position {position} du boîtier de stockage a échoué ».*
-* RecommendedAction: *« Remplacer un contrôleur d’e/s dans le boîtier de stockage ».*
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosureiocontrollererror"></a>FaultType : Microsoft. Health. FaultType. StorageEnclosure. IoControllerError
+* Gravité : AVERTISSEMENT
+* Raison : *« le contrôleur d’e/s à la position {position} du boîtier de stockage a échoué ».*
+* RecommendedAction : *« remplacer un contrôleur d’e/s dans le boîtier de stockage ».*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosuretemperaturesensorerror"></a>FaultType Microsoft. Health. FaultType. StorageEnclosure. TemperatureSensorError
-* Gravité : Warning
-* Cause : *« Le capteur de température à la position {position} du boîtier de stockage a échoué ».*
-* RecommendedAction: *« Remplacer un capteur de température dans le boîtier de stockage ».*
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosuretemperaturesensorerror"></a>FaultType : Microsoft. Health. FaultType. StorageEnclosure. TemperatureSensorError
+* Gravité : AVERTISSEMENT
+* Raison : *« le capteur de température à la position {position} du boîtier de stockage a échoué ».*
+* RecommendedAction : *« remplacer un capteur de température dans le boîtier de stockage ».*
 
 ### <a name="firmware-rollout-3"></a>**Déploiement du microprogramme (3)**
 
-#### <a name="faulttype-microsofthealthfaulttypefaultdomainfailedmaintenancemode"></a>FaultType Microsoft. Health. FaultType. FaultDomain. FailedMaintenanceMode
-* Gravité : Warning
-* Cause : *« Impossible d’effectuer l’opération en cours lors du déploiement du microprogramme ».*
-* RecommendedAction: *« Vérifier que tous les espaces de stockage sont intègres et qu’aucun domaine d’erreur n’est actuellement en mode de maintenance ».*
+#### <a name="faulttype-microsofthealthfaulttypefaultdomainfailedmaintenancemode"></a>FaultType : Microsoft. Health. FaultType. FaultDomain. FailedMaintenanceMode
+* Gravité : AVERTISSEMENT
+* Raison : *« Impossible d’effectuer l’opération en cours lors du déploiement du microprogramme ».*
+* RecommendedAction : *« vérifier que tous les espaces de stockage sont intègres et qu’aucun domaine d’erreur n’est actuellement en mode de maintenance ».*
 
-#### <a name="faulttype-microsofthealthfaulttypefaultdomainfirmwareverifyversionfaile"></a>FaultType Microsoft. Health. FaultType. FaultDomain. FirmwareVerifyVersionFaile
-* Gravité : Warning
-* Cause : *« Le déploiement du microprogramme a été annulé en raison d’informations de version de microprogramme inaccessibles ou illisibles après l’application d’une mise à jour du microprogramme. »*
-* RecommendedAction: *« Redémarrez le déploiement du microprogramme une fois que le problème du microprogramme a été résolu ».*
+#### <a name="faulttype-microsofthealthfaulttypefaultdomainfirmwareverifyversionfaile"></a>FaultType : Microsoft. Health. FaultType. FaultDomain. FirmwareVerifyVersionFaile
+* Gravité : AVERTISSEMENT
+* Raison : *« le déploiement du microprogramme a été annulé en raison d’informations de version du microprogramme illisibles ou inaccessibles après l’application d’une mise à jour du microprogramme ».*
+* RecommendedAction : *« Redémarrez le déploiement du microprogramme une fois que le problème du microprogramme a été résolu ».*
 
-#### <a name="faulttype-microsofthealthfaulttypefaultdomaintoomanyfailedupdates"></a>FaultType Microsoft. Health. FaultType. FaultDomain. TooManyFailedUpdates
-* Gravité : Warning
-* Cause : *« Le déploiement du microprogramme a été annulé en raison de l’échec d’une tentative de mise à jour du microprogramme par un nombre excessif de disques physiques. »*
-* RecommendedAction: *« Redémarrez le déploiement du microprogramme une fois que le problème du microprogramme a été résolu ».*
+#### <a name="faulttype-microsofthealthfaulttypefaultdomaintoomanyfailedupdates"></a>FaultType : Microsoft. Health. FaultType. FaultDomain. TooManyFailedUpdates
+* Gravité : AVERTISSEMENT
+* Raison : *« le déploiement du microprogramme a été annulé en raison d’un trop grand nombre de disques physiques qui n’ont pas pu être mis à jour. »*
+* RecommendedAction : *« Redémarrez le déploiement du microprogramme une fois que le problème du microprogramme a été résolu ».*
 
 ### <a name="storage-qos-3sup2sup"></a>**Qualité de service de stockage (3)** <sup>2</sup>
 
-#### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType Microsoft. Health. FaultType. StorQos. InsufficientThroughput
-* Gravité : Warning
-* Cause : *« Le débit de stockage est insuffisant pour satisfaire les réserves ».*
-* RecommendedAction: *« Reconfigurez les stratégies QoS de stockage ».*
+#### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType : Microsoft. Health. FaultType. StorQos. InsufficientThroughput
+* Gravité : AVERTISSEMENT
+* Raison : *« le débit de stockage est insuffisant pour satisfaire les réserves ».*
+* RecommendedAction : *« Reconfigurez les stratégies de qualité de service de stockage ».*
 
-#### <a name="faulttype-microsofthealthfaulttypestorqoslostcommunication"></a>FaultType Microsoft. Health. FaultType. StorQos. LostCommunication
-* Gravité : Warning
-* Cause : *« Le gestionnaire de stratégie QoS de stockage a perdu la communication avec le volume ».*
-* RecommendedAction: *« Redémarrez les nœuds {Nodes} »*
+#### <a name="faulttype-microsofthealthfaulttypestorqoslostcommunication"></a>FaultType : Microsoft. Health. FaultType. StorQos. LostCommunication
+* Gravité : AVERTISSEMENT
+* Raison : *« le gestionnaire de stratégie QoS de stockage a perdu la communication avec le volume ».*
+* RecommendedAction : *"Veuillez redémarrer les nœuds {Nodes}"*
 
-#### <a name="faulttype-microsofthealthfaulttypestorqosmisconfiguredflow"></a>FaultType Microsoft. Health. FaultType. StorQos. MisconfiguredFlow
-* Gravité : Warning
-* Cause : *« Un ou plusieurs consommateurs de stockage (généralement des machines virtuelles) utilisent une stratégie inexistante avec l’ID {id} ».*
-* RecommendedAction: *« Recréer les stratégies QoS de stockage manquantes ».*
+#### <a name="faulttype-microsofthealthfaulttypestorqosmisconfiguredflow"></a>FaultType : Microsoft. Health. FaultType. StorQos. MisconfiguredFlow
+* Gravité : AVERTISSEMENT
+* Raison : *« un ou plusieurs consommateurs de stockage (généralement des machines virtuelles) utilisent une stratégie inexistante avec l’ID {id} ».*
+* RecommendedAction : *"recréer toutes les stratégies QoS de stockage manquantes."*
 
 <sup>1</sup> indique que le volume a atteint 80% de l’intégralité (gravité mineure) ou 90% complet (gravité majeure).  
 <sup>2</sup> indique qu’un ou plusieurs disques durs virtuels sur le volume n’ont pas atteint leur nombre d’e/s par seconde minimum pendant plus de 10% (mineur), 30% (majeur) ou 50% (critique) de la fenêtre roulante de 24 heures.  
@@ -521,6 +521,6 @@ Dans Windows Server 2016, le Service de contrôle d’intégrité fournit la cou
 >[!NOTE]
 > L’intégrité des composants du boîtier de stockage tels que les ventilateurs, blocs d’alimentations et capteurs est dérivée des services de boîtier SCSI. Si votre fournisseur ne fournit pas ces informations, le service de contrôle d’intégrité ne peut pas les afficher.  
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)

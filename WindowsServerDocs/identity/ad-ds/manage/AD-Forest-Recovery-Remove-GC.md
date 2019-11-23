@@ -18,7 +18,7 @@ ms.locfileid: "71409099"
 ---
 # <a name="ad-forest-recovery---removing-the-global-catalog"></a>Récupération de la forêt Active Directory-suppression du catalogue global  
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
  Utilisez la procédure suivante pour supprimer le catalogue global d’un contrôleur de périphérique. 
   
@@ -31,7 +31,7 @@ ms.locfileid: "71409099"
 3. Développez le conteneur **serveurs** , puis développez l’objet *serveur* pour le contrôleur de périphérique dont vous souhaitez supprimer le catalogue global. 
 4. Cliquez avec le bouton droit sur **Paramètres NTDS**, puis cliquez sur **Propriétés**. 
 5. Désactivez la case à cocher **catalogue global** . 
-   ![Remove GC @ no__t-1
+   ![supprimer le](media/AD-Forest-Recovery-Remove-GC/removegc1.png) GC
 6. Cliquez sur **Appliquer**.
   
 ## <a name="to-remove-the-global-catalog-using-repadmin"></a>Pour supprimer le catalogue global à l’aide de repadmin  

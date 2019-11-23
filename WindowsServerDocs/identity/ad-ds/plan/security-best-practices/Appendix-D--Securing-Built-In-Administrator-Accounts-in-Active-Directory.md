@@ -16,12 +16,12 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71367836"
 ---
-# <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Annexe D : Sécurisation des comptes administrateur intégrés dans Active Directory
+# <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Annexe D : Sécurisation des comptes d’administrateur intégrés dans Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Annexe D : Sécurisation des comptes administrateur intégrés dans Active Directory  
+## <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Annexe D : Sécurisation des comptes d’administrateur intégrés dans Active Directory  
 Dans chaque domaine de Active Directory, un compte d’administrateur est créé dans le cadre de la création du domaine. Ce compte est par défaut membre du groupe administrateurs du domaine et administrateurs du domaine, et si le domaine est le domaine racine de la forêt, le compte est également membre du groupe administrateurs de l’entreprise.
 
 L’utilisation du compte administrateur d’un domaine doit être réservée pour les activités de génération initiales, et éventuellement les scénarios de récupération d’urgence. Pour vous assurer qu’un compte d’administrateur peut être utilisé pour effectuer des réparations dans le cas où aucun autre compte ne peut être utilisé, vous ne devez pas modifier l’appartenance par défaut du compte administrateur dans n’importe quel domaine de la forêt. Au lieu de cela, vous devez sécuriser le compte administrateur dans chaque domaine de la forêt, comme décrit dans la section suivante et détaillé dans les instructions pas à pas qui suivent. 
@@ -39,7 +39,7 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
 -   Configurez les objets de stratégie de groupe pour limiter l’utilisation du compte administrateur sur les systèmes joints à un domaine :  
 
-    -   Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à des unités d’organisation de station de travail et de serveur membre dans chaque domaine, ajoutez le compte d’administrateur de chaque domaine aux droits d’utilisateur suivants dans la **stratégie \ stratégies \ stratégies \ stratégies \ Attributions des droits utilisateur**:  
+    -   Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à des UO de station de travail et de serveur membre dans chaque domaine, ajoutez le compte d’administrateur de chaque domaine aux droits d’utilisateur suivants dans la stratégie d’autorisation \ paramètres d’utilisateur \ **stratégies d’autorisation \ stratégies d’autorisation**:  
 
         -   Interdire l’accès à cet ordinateur à partir du réseau  
 
@@ -58,7 +58,7 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 ![sécurisation des comptes administrateur intégrés](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_23.gif)  
 
 -   Configurer des objets de stratégie de groupe pour restreindre les comptes administrateur sur les contrôleurs de domaine  
-    -   Dans chaque domaine de la forêt, l’objet de stratégie de groupe des contrôleurs de domaine par défaut ou une stratégie liée à l’UO des contrôleurs de domaine doit être modifié de façon à ajouter le compte d’administrateur de chaque domaine aux droits d’utilisateur suivants dans la **configuration \ paramètres ordinateur \ Sécurité \ stratégies d’autorisation Locales\attribution des droits**:   
+    -   Dans chaque domaine de la forêt, l’objet de stratégie de groupe des contrôleurs de domaine par défaut ou une stratégie liée à l’unité d’organisation des contrôleurs de domaine doit être modifié de façon à ajouter le compte d’administrateur de chaque domaine aux droits d’utilisateur suivants dans la stratégie d' **autorisation \ paramètres**d’utilisateur \ stratégies d’autorisation :   
         -   Interdire l’accès à cet ordinateur à partir du réseau  
 
         -   Interdire l’ouverture de session en tant que tâche  
@@ -105,7 +105,7 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
 1.  Dans **Gestionnaire de serveur**, cliquez sur **Outils**, puis sur **gestion des stratégie de groupe**.  
 
-2.  Dans l’arborescence de la console, développez <Forest> \ Domains @ no__t-1 @ no__t-2, puis **stratégie de groupe objets** (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez créer le stratégie de groupe).  
+2.  Dans l’arborescence de la console, développez <Forest>\Domains\\<Domain>, puis **stratégie de groupe objets** (où <Forest> est le nom de la forêt et <Domain> le nom du domaine dans lequel vous souhaitez créer le stratégie de groupe).  
 
 3.  Dans l’arborescence de la console, cliquez avec le bouton droit sur **stratégie de groupe objets**, puis cliquez sur **nouveau**.  
 
@@ -127,7 +127,7 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
     2.  Cliquez sur **Ajouter un utilisateur ou un groupe** , puis sur **Parcourir**.  
 
-    3.  Tapez **administrateur**, cliquez sur **vérifier les noms**, puis cliquez sur **OK**. Vérifiez que le compte est affiché au format <DomainName> \ nom d’utilisateur, comme indiqué dans la capture d’écran suivante.  
+    3.  Tapez **administrateur**, cliquez sur **vérifier les noms**, puis cliquez sur **OK**. Vérifiez que le compte est affiché au format <DomainName>\Username comme indiqué dans la capture d’écran suivante.  
 
         ![sécurisation des comptes administrateur intégrés](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_30.gif)  
 
@@ -139,7 +139,7 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
     2.  Cliquez sur **Ajouter un utilisateur ou un groupe** , puis sur **Parcourir**.  
 
-    3.  Tapez **administrateur**, cliquez sur **vérifier les noms**, puis cliquez sur **OK**. Vérifiez que le compte est affiché au format <DomainName> \ nom d’utilisateur, comme indiqué dans la capture d’écran suivante.  
+    3.  Tapez **administrateur**, cliquez sur **vérifier les noms**, puis cliquez sur **OK**. Vérifiez que le compte est affiché au format <DomainName>\Username comme indiqué dans la capture d’écran suivante.  
 
         ![sécurisation des comptes administrateur intégrés](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_31.gif)  
 
@@ -151,7 +151,7 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
     2.  Cliquez sur **Ajouter un utilisateur ou un groupe** , puis sur **Parcourir**.  
 
-    3.  Tapez **administrateur**, cliquez sur **vérifier les noms**, puis cliquez sur **OK**. Vérifiez que le compte est affiché au format <DomainName> \ nom d’utilisateur, comme indiqué dans la capture d’écran suivante.  
+    3.  Tapez **administrateur**, cliquez sur **vérifier les noms**, puis cliquez sur **OK**. Vérifiez que le compte est affiché au format <DomainName>\Username comme indiqué dans la capture d’écran suivante.  
 
         ![sécurisation des comptes administrateur intégrés](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_32.gif)  
 
@@ -163,7 +163,7 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
     2.  Cliquez sur **Ajouter un utilisateur ou un groupe** , puis sur **Parcourir**.  
 
-    3.  Tapez **administrateur**, cliquez sur **vérifier les noms**, puis cliquez sur **OK**. Vérifiez que le compte est affiché au format <DomainName> \ nom d’utilisateur, comme indiqué dans la capture d’écran suivante.  
+    3.  Tapez **administrateur**, cliquez sur **vérifier les noms**, puis cliquez sur **OK**. Vérifiez que le compte est affiché au format <DomainName>\Username comme indiqué dans la capture d’écran suivante.  
 
         ![sécurisation des comptes administrateur intégrés](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_33.gif)  
 
@@ -173,7 +173,7 @@ Pour le compte administrateur intégré dans chaque domaine de votre forêt, vou
 
 12. Dans **stratégie de groupe gestion**, liez l’objet de stratégie de groupe aux unités d’organisation serveur et station de travail membres en procédant comme suit :  
 
-    1.  Accédez au <Forest> \ Domains @ no__t-1 @ no__t-2 (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir le stratégie de groupe).  
+    1.  Accédez au <Forest>\Domains\\<Domain> (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
     2.  Cliquez avec le bouton droit sur l’unité d’organisation à laquelle l’objet de stratégie de groupe sera appliqué, puis cliquez sur **lier un objet de stratégie de groupe existant**.  
 
@@ -218,7 +218,7 @@ Les étapes de vérification décrites ici sont spécifiques à Windows 8 et Win
 
     ![sécurisation des comptes administrateur intégrés](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_38.gif)  
 
-5.  Dans la fenêtre d' **invite de commandes** , tapez **net use \\ @ no__t-3 @ No__t-4Server Name @ no__t-5\c $** , où \<Server Name @ no__t-7 est le nom du serveur membre ou de la station de travail auquel vous essayez d’accéder sur le réseau.  
+5.  Dans la fenêtre d' **invite de commandes** , tapez **net use \\\\\<nom du serveur\>\c $** , où \<nom du serveur\> est le nom du serveur membre ou de la station de travail à laquelle vous tentez d’accéder sur le réseau.  
 
 6.  La capture d’écran suivante montre le message d’erreur qui doit s’afficher.  
 

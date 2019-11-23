@@ -21,7 +21,7 @@ ms.locfileid: "71361492"
 ---
 # <a name="viewing-and-managing-updates"></a>Affichage et gestion des mises à jour
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser la console WSUS pour afficher et gérer les mises à jour.
 
@@ -74,7 +74,7 @@ Sur la page **mises à jour** , vous pouvez effectuer les opérations suivantes�
 
 4.  Sous **étape 2 : modifiez les propriétés**, cliquez sur les mots soulignés pour sélectionner les valeurs souhaitées.
 
-5.  Sous **Step 3 : Spécifiez un nom @ no__t-0, donnez un nom à votre nouvelle vue.
+5.  Sous **étape 3 : spécifiez un nom**, donnez un nom à votre nouvelle vue.
 
 6.  Cliquez sur **OK**.
 
@@ -123,11 +123,11 @@ Notez que vous ne pouvez effectuer cette procédure que sur une seule mise à jo
 ## <a name="managing-updates-with-wsus"></a>Gestion des mises à jour avec WSUS
 Les mises à jour sont utilisées pour la mise à jour ou la fourniture d’un remplacement de fichier complet pour les logiciels installés sur un ordinateur. Chaque mise à jour disponible sur Microsoft Update est constituée de deux composants :
 
--   Metadata Fournit des informations sur la mise à jour. Par exemple, les métadonnées fournissent des informations sur les propriétés d’une mise à jour, ce qui vous permet de savoir ce que la mise à jour est utile. Les métadonnées incluent également les termes du contrat de licence logiciel Microsoft. Le package de métadonnées téléchargé pour une mise à jour est généralement plus petit que le package de fichiers de mise à jour réel.
+-   Métadonnées : fournit des informations sur la mise à jour. Par exemple, les métadonnées fournissent des informations sur les propriétés d’une mise à jour, ce qui vous permet de savoir ce que la mise à jour est utile. Les métadonnées incluent également les termes du contrat de licence logiciel Microsoft. Le package de métadonnées téléchargé pour une mise à jour est généralement plus petit que le package de fichiers de mise à jour réel.
 
--   Fichiers de mise à jour : Fichiers réels requis pour installer une mise à jour sur un ordinateur.
+-   Fichiers de mise à jour : fichiers réels requis pour installer une mise à jour sur un ordinateur.
 
-Lorsque les mises à jour sont synchronisées sur votre serveur WSUS, les fichiers de mise à jour et les métadonnées sont stockés à deux endroits différents. Les métadonnées sont stockées dans la base de données WSUS. Les fichiers de mise à jour peuvent être stockés sur votre serveur WSUS ou sur des serveurs de Microsoft Update, en fonction de la façon dont vous avez configuré vos options de synchronisation. Si vous choisissez de stocker les fichiers de mise à jour sur les serveurs Microsoft Update, seules les métadonnées sont téléchargées au moment de la synchronisation ; vous approuvez les mises à jour via la console WSUS, puis les ordinateurs clients obtiennent les fichiers de mise à jour directement à partir de Microsoft Update au moment de l’installation. Pour plus d’informations sur les options de stockage des mises à jour, consultez la section [1,3. Choisissez une stratégie de stockage WSUS @ no__t-0 de l’étape 1 : Préparez votre déploiement de WSUS dans le Guide de déploiement de WSUS.
+Lorsque les mises à jour sont synchronisées sur votre serveur WSUS, les fichiers de mise à jour et les métadonnées sont stockés à deux endroits différents. Les métadonnées sont stockées dans la base de données WSUS. Les fichiers de mise à jour peuvent être stockés sur votre serveur WSUS ou sur des serveurs de Microsoft Update, en fonction de la façon dont vous avez configuré vos options de synchronisation. Si vous choisissez de stocker les fichiers de mise à jour sur les serveurs Microsoft Update, seules les métadonnées sont téléchargées au moment de la synchronisation ; vous approuvez les mises à jour via la console WSUS, puis les ordinateurs clients obtiennent les fichiers de mise à jour directement à partir de Microsoft Update au moment de l’installation. Pour plus d’informations sur les options de stockage des mises à jour, consultez la section [1,3. Choisissez une stratégie de stockage WSUS](../plan/plan-your-wsus-deployment.md#13-choose-a-wsus-storage-strategy) de l’étape 1 : préparer votre déploiement de WSUS dans le Guide de déploiement de WSUS.
 
 Vous allez configurer et exécuter des synchronisations, ajouter des ordinateurs et des groupes d’ordinateurs, et déployer des mises à jour sur une base régulière. La liste suivante fournit des exemples de tâches générales que vous pouvez entreprendre pour mettre à jour des ordinateurs avec WSUS.
 

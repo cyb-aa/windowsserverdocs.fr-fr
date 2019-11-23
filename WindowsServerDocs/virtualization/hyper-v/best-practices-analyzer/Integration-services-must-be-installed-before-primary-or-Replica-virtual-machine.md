@@ -19,7 +19,7 @@ ms.locfileid: "71393589"
 ---
 # <a name="integration-services-must-be-installed-before-primary-or-replica-virtual-machines-can-use-an-alternate-ip-address-after-a-failover"></a>Les services d’intégration doivent être installés avant que les machines virtuelles principales ou de réplication puissent utiliser une autre adresse IP après un basculement
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Error|  
+|**Va**|Erreur|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -36,11 +36,11 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Les machines virtuelles participant à la réplication peuvent être configurées pour utiliser une adresse IP spécifique en cas de basculement, mais uniquement si les services d’intégration sont installés dans le système d’exploitation invité de la machine virtuelle.*  
   
 ## <a name="impact"></a>Impact  
-*In l’événement d’un basculement (planifié, non planifié ou de test), l’ordinateur virtuel de réplication est mis en ligne à l’aide de la même adresse IP que l’ordinateur virtuel principal. Cette configuration peut entraîner des problèmes de connectivité. Cela a un impact sur les ordinateurs virtuels suivants :*  
+*En cas de basculement (planifié, non planifié ou de test), la machine virtuelle de réplication est mise en ligne à l’aide de la même adresse IP que la machine virtuelle principale. Cette configuration peut entraîner des problèmes de connectivité. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
 *Utilisez connexion à un ordinateur virtuel pour installer les services d’intégration sur l’ordinateur virtuel.*  
   
 À compter de Windows Server 2016, les services d’intégration pour les machines virtuelles Windows sont fournis par le biais de Windows Update. Assurez-vous que ces machines virtuelles sont configurées pour recevoir des mises à jour Windows afin d’obtenir la dernière version d’Integration Services. Le noyau Linux comprend désormais les services d’intégration Linux (LIS) et est mis à jour pour les nouvelles versions, mais les distributions Linux basées sur des noyaux plus anciens peuvent ne pas avoir les améliorations ou les correctifs les plus récents. Pour plus d’informations, consultez [machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md).

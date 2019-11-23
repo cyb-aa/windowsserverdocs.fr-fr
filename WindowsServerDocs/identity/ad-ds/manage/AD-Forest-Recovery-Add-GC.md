@@ -18,7 +18,7 @@ ms.locfileid: "71369341"
 ---
 # <a name="ad-forest-recovery---adding-the-gc"></a>Récupération de la forêt Active Directory-ajout du GC
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Utilisez la procédure suivante pour ajouter le catalogue global à un contrôleur de périphérique.  
   
@@ -29,7 +29,7 @@ Utilisez la procédure suivante pour ajouter le catalogue global à un contrôle
 3. Développez le conteneur **serveurs** , puis développez l’objet serveur du contrôleur de périphérique auquel vous souhaitez ajouter le catalogue global.  
 4. Cliquez avec le bouton droit sur **Paramètres NTDS**, puis cliquez sur **Propriétés**.  
 5. Activez la case à cocher **catalogue global** .  
-![Add GC @ no__t-1
+![ajouter un](media/AD-Forest-Recovery-Add-GC/addgc1.png) GC
 
 ## <a name="to-add-the-global-catalog-using-repadmin"></a>Pour ajouter le catalogue global à l’aide de repadmin  
 

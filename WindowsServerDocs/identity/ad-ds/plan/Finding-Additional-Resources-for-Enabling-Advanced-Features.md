@@ -18,13 +18,13 @@ ms.locfileid: "71408818"
 ---
 # <a name="finding-additional-resources-for-enabling-advanced-features"></a>Recherche de ressources supplémentaires pour l’activation des fonctionnalités avancées
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous trouverez la documentation suivante sur Active Directory Domain Services (AD DS) dans la bibliothèque technique de Windows Server 2008 :  
   
--   Pour plus d’informations sur le déploiement d’un domaine racine de forêt Windows Server 2008, voir [déploiement d’un domaine racine de forêt Windows server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+-   Pour plus d’informations sur le déploiement d’un domaine racine de forêt Windows Server 2008, voir [déploiement d’un domaine racine de forêt Windows server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
--   Pour plus d’informations sur la mise à niveau d’un domaine Active Directory vers Windows Server 2008, voir [mise à niveau de domaines Active Directory vers des domaines Windows server 2008 AD DS \[LH @ no__t-2](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
+-   Pour plus d’informations sur la mise à niveau d’un domaine Active Directory vers Windows Server 2008, consultez [mise à niveau de domaines Active Directory vers des domaines Windows server 2008 AD DS \[LH\]](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
   
 -   Pour plus d’informations sur le déploiement de AD DS, consultez le guide pas à pas pour l’installation et la suppression de Windows Server 2008 Active Directory Domain Services ([https://go.microsoft.com/fwlink/?LinkId=100492](https://go.microsoft.com/fwlink/?LinkId=100492)).  
   

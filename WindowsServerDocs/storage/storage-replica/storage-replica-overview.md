@@ -17,7 +17,7 @@ ms.locfileid: "71393819"
 ---
 # <a name="storage-replica-overview"></a>Vue d’ensemble du réplica de stockage
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+>S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Le réplica de stockage est la technologie de Windows Server qui permet une réplication de volumes entre des serveurs ou des clusters en cas de récupération d’urgence. Il vous permet également de créer des clusters de basculement étendus qui englobent deux sites, tout en maintenant l’ensemble des nœuds synchronisés.
 
@@ -44,19 +44,19 @@ Un **cluster étendu** permet la configuration des ordinateurs et du stockage da
 
 ![Diagramme montrant deux nœuds de cluster à New York, utilisant le réplica de stockage pour répliquer le stockage avec deux nœuds dans le New Jersey](./media/Storage-Replica-Overview/Storage_SR_StretchCluster.png)  
 
-@NO__T 0FIGURE 1 : Réplication du stockage dans un cluster étendu à l’aide du réplica de stockage @ no__t-0  
+**FIGURE 1 : réplication du stockage dans un cluster étendu à l’aide du réplica de stockage**  
 
 La configuration de **cluster à cluster** autorise la réplication entre deux clusters distincts, où un cluster se réplique de façon synchrone ou asynchrone avec un autre cluster. Ce scénario peut utiliser des espaces de stockage direct, des espaces de stockage avec un stockage SAS partagé, un réseau SAN et des numéros d’unité logique connectés par iSCSI. Il est géré avec le centre d’administration Windows et PowerShell, et nécessite une intervention manuelle pour le basculement. 
 
 ![Diagramme montrant un cluster à Los Angeles utilisant le réplica de stockage pour répliquer son stockage avec un autre cluster à Las Vegas](./media/Storage-Replica-Overview/Storage_SR_ClustertoCluster.png)  
 
-@NO__T 0FIGURE 2 : Réplication de stockage de cluster à cluster à l’aide du réplica de stockage @ no__t-0  
+**FIGURE 2 : réplication du stockage de cluster à cluster à l’aide du réplica de stockage**  
 
 La configuration de **serveur à serveur** autorise la réplication synchrone et asynchrone entre deux serveurs autonomes, en utilisant des espaces de stockage avec un stockage SAS partagé, un réseau SAN, des numéros d’unité logique connectés par iSCSI et des lecteurs locaux. Il est géré avec le centre d’administration Windows et PowerShell, et nécessite une intervention manuelle pour le basculement.  
 
 ![Diagramme montrant un serveur du bâtiment 5 en cours de réplication avec un serveur du bâtiment 9](./media/Storage-Replica-Overview/Storage_SR_ServertoServer.png)  
 
-@NO__T 0FIGURE 3 : Réplication de stockage de serveur à serveur à l’aide du réplica de stockage @ no__t-0  
+**FIGURE 3 : réplication du stockage de serveur à serveur à l’aide du réplica de stockage**  
 
 > [!NOTE]
 > Vous pouvez également configurer la réplication d’un serveur, en utilisant quatre volumes distincts sur un seul ordinateur. Toutefois, ce guide ne couvre pas ce scénario.  
@@ -96,7 +96,7 @@ Le réplica de stockage comprend les fonctionnalités suivantes :
 | Réplication de serveur à serveur | Oui |
 | Réplication de cluster à cluster | Oui |
 | Transport | SMB3 |
-| Réseau | TCP/IP ou RDMA |
+| Network (Réseau) | TCP/IP ou RDMA |
 | Prise en charge de la contrainte de réseau | Oui |
 | RDMA* | iWARP, InfiniBand, RoCE v2 |
 | Configuration requise du pare-feu du port réseau de réplication | Port IANA unique (TCP 445 ou 5445) |
@@ -140,7 +140,7 @@ Quand les écritures d’application se produisent sur la copie des données sou
 
 | Mode | Diagramme | Étapes |
 | -------- | ----------- | --------- |
-| **Synchronise**<br /><br />Aucune perte de données<br /><br />Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication synchrone](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L’application écrit des données<br />2.  Les données du journal sont écrites et les données sont répliquées sur le site distant<br />3.  Les données du journal sont écrites sur le site distant<br />4.  Accusé de réception du site distant<br />5.  Réception de l’écriture d’application confirmée<br /><br />t & T1 : Données vidées sur le volume, les journaux sont toujours écrits |
+| **Synchronise**<br /><br />Aucune perte de données<br /><br />Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication synchrone](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L’application écrit des données<br />2.  Les données du journal sont écrites et les données sont répliquées sur le site distant<br />3.  Les données du journal sont écrites sur le site distant<br />4.  Accusé de réception du site distant<br />5.  Réception de l’écriture d’application confirmée<br /><br />t & t1 : données vidées sur le volume, journaux toujours écrits en continu |
 
 ### <a name="asynchronous-replication"></a>Réplication asynchrone
 
@@ -152,7 +152,7 @@ Avec son objectif de point de récupération supérieur à zéro, la réplicatio
 
 | Mode | Diagramme | Étapes |
 | -------- | ----------- | --------- |
-| **Synchrone**<br /><br />Pratiquement aucune perte de données<br /><br />(dépend de plusieurs facteurs)<br /><br />Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication asynchrone](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L’application écrit des données<br />2.  Données du journal écrites<br />3.  Réception de l’écriture d’application confirmée<br />4.  Données répliquées sur le site distant<br />5.  Données du journal écrites sur le site distant<br />6.  Accusé de réception du site distant<br /><br />t & T1 : Données vidées sur le volume, les journaux sont toujours écrits |
+| **Synchrone**<br /><br />Pratiquement aucune perte de données<br /><br />(dépend de plusieurs facteurs)<br /><br />Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication asynchrone](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L’application écrit des données<br />2.  Données du journal écrites<br />3.  Réception de l’écriture d’application confirmée<br />4.  Données répliquées sur le site distant<br />5.  Données du journal écrites sur le site distant<br />6.  Accusé de réception du site distant<br /><br />t & t1 : données vidées sur le volume, journaux toujours écrits en continu |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>Principaux points d’évaluation et comportements  
 
@@ -188,12 +188,12 @@ Ce guide utilise souvent les termes suivants :
 
 Pour obtenir la liste des nouvelles fonctionnalités du réplica de stockage dans Windows Server 2019, voir [Nouveautés du stockage](../whats-new-in-storage.md#storage-replica2019)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Réplication de cluster étendu à l’aide d’un stockage partagé](stretch-cluster-replication-using-shared-storage.md)  
 - [Réplication de stockage de serveur à serveur](server-to-server-storage-replication.md)  
 - [Réplication de stockage de cluster à cluster](cluster-to-cluster-storage-replication.md)  
-- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md)  
-- [Réplica de stockage : Forum Aux Questions](storage-replica-frequently-asked-questions.md)  
+- [Réplica de stockage : problèmes connus](storage-replica-known-issues.md)  
+- [Réplica de stockage : Forum aux questions](storage-replica-frequently-asked-questions.md)  
 - [espaces de stockage direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)
 - [Support technique pour les professionnels de l’informatique Windows](https://www.microsoft.com/itpro/windows/support)

@@ -22,7 +22,7 @@ ms.locfileid: "71380118"
 ---
 # <a name="bootcfg-copy"></a>bootcfg copy
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Effectue une copie d’une entrée de démarrage existante, à laquelle vous pouvez ajouter des options de ligne de commande.
 
@@ -35,14 +35,14 @@ bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Descriptio
 |      Paramètre       |                                                                                             Description                                                                                             |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                         Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                          |
-| /u <Domain> @ no__t-1 @ no__t-2  | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User>or <Domain> @ no__t-2 @ no__t-3. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande. |
+| /u <Domain>\\<User>  | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User>ou <Domain>\\<User>. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande. |
 |    /p <Password>     |                                                        Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                        |
 |   /d <Description>   |                                                                    Spécifie la description de la nouvelle entrée du système d’exploitation.                                                                    |
 | /ID <OSEntryLineNum> |         Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini à copier. La première ligne après l’en-tête de la section [Operating Systems] est 1.         |
 |          /?          |                                                                                Affiche l'aide à l'invite de commandes.                                                                                 |
 
 ## <a name="BKMK_examples"></a>Illustre
-Les exemples suivants montrent comment vous pouvez utiliser la commande **bootcfg/Copy** pour copier l’entrée de démarrage 1 et entrer « \abc Server @ no__t-1 » comme Description :
+Les exemples suivants montrent comment vous pouvez utiliser la commande **bootcfg/Copy** pour copier l’entrée de démarrage 1 et entrer « \ABC Server\\» comme Description :
 ```
 bootcfg /copy /d "\ABC Server\" /id 1
 ```

@@ -100,7 +100,7 @@ Le CNO représente le nom du cluster et est principalement utilisé en interne p
 Le VCO représente le service SGH qui réside au-dessus du cluster et qui correspond au nom inscrit auprès du serveur DNS.
 
 > [!IMPORTANT]
-> L’utilisateur qui exécutera `Initialize-HgsServer` requiert un **contrôle total** sur les objets CNO et VCO dans Active Directory.
+> L’utilisateur qui exécutera `Initialize-HgsServer` a besoin d’un **contrôle total** sur les objets CNO et VCO dans Active Directory.
 
 Pour préparer rapidement votre CNO et votre VCO, vous devez disposer d’un administrateur Active Directory exécuter les commandes PowerShell suivantes :
 
@@ -130,19 +130,19 @@ Vérifiez les paramètres suivants dans vos objets stratégie de groupe et suive
 
 **Chemin de la stratégie :** Ordinateur \ paramètres de configuration \ stratégies Locales\attribution des droits d’ordinateur
 
-**Nom de la stratégie :** Interdire l’accès à cet ordinateur à partir du réseau
+**Nom de la stratégie :** Refuser l’accès à cet ordinateur à partir du réseau
 
 **Valeur requise :** Vérifiez que la valeur ne bloque pas les ouvertures de session réseau pour tous les comptes locaux. Vous pouvez toutefois bloquer en toute sécurité les comptes d’administrateur local.
 
-**Donc** Le clustering de basculement s’appuie sur un compte local non-administrateur appelé CLIUSR pour gérer les nœuds de cluster. Le blocage de l’ouverture de session réseau pour cet utilisateur empêche le cluster de fonctionner correctement.
+**Raison :** Le clustering de basculement s’appuie sur un compte local non-administrateur appelé CLIUSR pour gérer les nœuds de cluster. Le blocage de l’ouverture de session réseau pour cet utilisateur empêche le cluster de fonctionner correctement.
 
 ### <a name="kerberos-encryption"></a>Chiffrement Kerberos
 
-**Chemin de la stratégie :** Configuration ordinateur\Paramètres Windows\Paramètres de sécurité\Stratégies locales\Options de sécurité
+**Chemin de la stratégie :** Paramètres ordinateur \ paramètres de configuration \ stratégies
 
-**Nom de la stratégie :** Sécurité réseau : Configurer les types de chiffrement autorisés pour Kerberos
+**Nom de la stratégie :** Sécurité réseau : configurer les types de chiffrement autorisés pour Kerberos
 
-**Action** : Si cette stratégie est configurée, vous devez mettre à jour le compte gMSA avec [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) pour utiliser uniquement les types de chiffrement pris en charge dans cette stratégie. Par exemple, si votre stratégie autorise uniquement AES128 @ no__t-0HMAC @ no__t-1SHA1 et AES256 @ no__t-2HMAC @ no__t-3SHA1, vous devez exécuter `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256`.
+**Action**: si cette stratégie est configurée, vous devez mettre à jour le compte GMSA avec [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) pour utiliser uniquement les types de chiffrement pris en charge dans cette stratégie. Par exemple, si votre stratégie autorise uniquement AES128\_HMAC\_SHA1 et AES256\_HMAC\_SHA1, vous devez exécuter `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256`.
 
 
 

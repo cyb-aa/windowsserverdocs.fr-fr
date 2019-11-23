@@ -55,7 +55,7 @@ Pour afficher la liste des sauvegardes disponibles stockées sur le volume h, ta
 ```
 wbadmin get versions -backupTarget:h:
 ```
-Pour afficher la liste des sauvegardes disponibles stockées dans le dossier partagé distant \\ @ no__t-1servername\share pour l’ordinateur Serveur01, tapez :
+Pour afficher la liste des sauvegardes disponibles stockées dans le dossier partagé distant \\\\servername\share pour l’ordinateur Serveur01, tapez :
 ```
 wbadmin get versions -backupTarget:\\servername\share -machine:server01
 ```

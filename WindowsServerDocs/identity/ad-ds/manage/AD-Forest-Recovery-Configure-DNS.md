@@ -17,7 +17,7 @@ ms.locfileid: "71369247"
 ---
 # <a name="ad-forest-recovery---configuring-the-dns-server-service"></a>Récupération de la forêt Active Directory-Configuration du service serveur DNS
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Si le rôle de serveur DNS n’est pas installé sur le contrôleur de domaine que vous restaurez à partir d’une sauvegarde, vous devez installer et configurer le serveur DNS. 
 
@@ -39,15 +39,15 @@ Effectuez les étapes d’installation et de configuration ci-dessous.
 5. Dans l' **écran rôles du serveur** , sélectionnez **serveur DNS**, si vous y êtes invité, cliquez sur **Ajouter des fonctionnalités** , puis sur **suivant**.
 6. Dans l’écran **fonctionnalités** , cliquez sur **suivant**.
 7. Lisez les informations de la page **serveur DNS** , puis cliquez sur **suivant**.
-   @no__t-serveur 0DNS @ no__t-1  
+   ![serveur DNS](media/AD-Forest-Recovery-Configure-DNS/dns1.png)  
 8. Dans la page **confirmation** , vérifiez que le rôle serveur DNS sera installé, puis cliquez sur **installer**. 
 
 ### <a name="to-configure-the-dns-server-service"></a>Pour configurer le service serveur DNS
 
 1. Ouvrez Gestionnaire de serveur, cliquez sur **Outils** , puis sur **DNS**.
-   @no__t-serveur 0DNS @ no__t-1
+   ![serveur DNS](media/AD-Forest-Recovery-Configure-DNS/dns2.png)
 2. Créez des zones DNS pour les mêmes noms de domaine DNS hébergés sur les serveurs DNS avant le dysfonctionnement critique. Pour plus d’informations, consultez Ajouter une zone de recherche directe ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).
-3. Configurez les données DNS telles qu’elles existaient avant le dysfonctionnement critique. Exemple :  
+3. Configurez les données DNS telles qu’elles existaient avant le dysfonctionnement critique. Par exemple :  
 
    - Configurez les zones DNS à stocker dans AD DS. Pour plus d’informations, consultez modifier le type de zone ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).
    - Configurez la zone DNS faisant autorité pour les enregistrements de ressource localisateur de contrôleur de domaine pour autoriser la mise à jour dynamique sécurisée. Pour plus d’informations, consultez autoriser uniquement les mises à jour dynamiques sécurisées ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).

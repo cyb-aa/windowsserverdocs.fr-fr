@@ -19,7 +19,7 @@ ms.locfileid: "71402201"
 
 > S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
-Quand vous créez un espace de noms, vous devez choisir l’un des deux types d’espaces de noms : un espace de noms autonome ou un espace de noms basé sur un domaine. En outre, si vous choisissez un espace de noms basé sur un domaine, vous devez choisir un mode d’espace de noms : Mode serveur Windows 2000 ou mode Windows Server 2008.
+Quand vous créez un espace de noms, vous devez choisir l’un des deux types d’espaces de noms : un espace de noms autonome ou un espace de noms basé sur un domaine. En outre, si vous choisissez un espace de noms basé sur un domaine, vous devez choisir un mode d’espace de noms : mode serveur Windows 2000 ou mode Windows Server 2008.
 
 ## <a name="choosing-a-namespace-type"></a>Choix d’un type d’espace de noms
 
@@ -59,7 +59,7 @@ Les caractéristiques de chaque type ou mode d’espace de noms sont décrites d
 
 |Caractéristique|Espace de noms autonome|Espace de noms basé sur un domaine (mode Windows 2000 Server) |Espace de noms basé sur un domaine (mode Windows Server 2008) | 
 |---|---|---|---|
-|Chemin de l’espace de noms|\\ @ no__t-1*ServerName\RootName* |\\ @ no__t-1*NetBIOSDomainName\RootName* <br />\\ @ no__t-1*DNSDomainName\RootName*|\\ @ no__t-1*NetBIOSDomainName\RootName* <br /> \\ @ no__t-1*DNSDomainName\RootName*|
+|Chemin de l’espace de noms|\\\ *ServerName\RootName* |\\\ *NetBIOSDomainName\RootName* <br />\\\ *DNSDomainName\RootName*|\\\ *NetBIOSDomainName\RootName* <br /> \\\ *DNSDomainName\RootName*|
 |Emplacement de stockage des informations d’espace de noms|Dans le Registre et dans un cache mémoire sur le serveur d’espaces de noms|Dans AD DS et dans un cache mémoire sur chaque serveur d’espaces de noms|Dans AD DS et dans un cache mémoire sur chaque serveur d’espaces de noms|
 |Recommandations relatives à la taille de l’espace de noms|L’espace de noms peut contenir plus de 5 000 dossiers avec cibles. La limite recommandée est de 50 000 dossiers avec cibles|La taille de l’objet espace de noms dans AD DS doit être inférieure à 5 mégaoctets (Mo) pour maintenir la compatibilité avec les contrôleurs de domaine qui n’exécutent pas Windows Server 2008. Cela correspond à un maximum d’environ 5 000 dossiers avec cibles.|L’espace de noms peut contenir plus de 5 000 dossiers avec cibles. La limite recommandée est de 50 000 dossiers avec cibles |
 |Niveau fonctionnel de forêt AD DS minimal|AD DS n’est pas requis|Windows 2000|Windows Server 2003|
@@ -69,7 +69,7 @@ Les caractéristiques de chaque type ou mode d’espace de noms sont décrites d
 |Méthodes prises en charge pour garantir la disponibilité de l’espace de noms|Créer un espace de noms autonome sur un cluster de basculement|Utiliser plusieurs serveurs d’espaces de noms pour héberger l’espace de noms. (Les serveurs d’espaces de noms doivent se trouver dans le même domaine.)|Utiliser plusieurs serveurs d’espaces de noms pour héberger l’espace de noms. (Les serveurs d’espaces de noms doivent se trouver dans le même domaine.)|
 |Prise en charge permettant d’utiliser la réplication DFS pour répliquer des cibles de dossier|Existante en cas de jonction à un domaine AD DS|Prise en charge|Prise en charge|
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 -   [Déploiement d’espaces de noms DFS](deploying-dfs-namespaces.md)
 -   [Migrer un espace de noms basé sur un domaine vers le mode Windows Server 2008](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md)

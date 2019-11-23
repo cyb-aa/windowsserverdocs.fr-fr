@@ -21,11 +21,11 @@ ms.locfileid: "71367323"
 ---
 # <a name="step-1-configure-the-remote-access-infrastructure"></a>Étape 1 configurer l’infrastructure d’accès à distance
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 **Remarque :** Windows Server 2012 associe DirectAccess et le service Routage et accès distant (RRAS) dans un rôle Accès à distance unique.  
   
-Cette rubrique décrit comment configurer l’infrastructure requise pour un déploiement de l’accès à distance avancé à l’aide d’un serveur d’accès à distance unique dans un environnement mixte IPv4 et IPv6. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [Step 1 : Planifier l’infrastructure d’accès à distance @ no__t-0.  
+Cette rubrique décrit comment configurer l’infrastructure requise pour un déploiement de l’accès à distance avancé à l’aide d’un serveur d’accès à distance unique dans un environnement mixte IPv4 et IPv6. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [étape 1 : planifier l’infrastructure d’accès à distance](../plan/Step-1-Plan-the-Remote-Access-Infrastructure.md).  
   
 |Tâche|Description|  
 |----|--------|  
@@ -118,7 +118,7 @@ Appliquez les exceptions de pare-feu accessibles sur Internet suivantes pour le 
 ### <a name="remote-access-traffic"></a>Trafic d’accès à distance  
 Appliquez les exceptions de pare-feu de réseau interne suivantes pour le trafic d’accès à distance :  
   
--   ISATAP Protocole 41 entrant et sortant  
+-   ISATAP : Protocole 41 entrant et sortant  
   
 -   TCP/UDP pour tout le trafic IPv4 ou IPv6  
   
@@ -198,7 +198,7 @@ Assurez-vous que le certificat de site web pour l'authentification IP-HTTPS est 
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>Pour installer le certificat IP-HTTPS à partir d'une autorité de certification interne  
   
-1.  Sur le serveur d'accès à distance : Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
+1.  Sur le serveur d’accès à distance : dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
@@ -231,7 +231,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 ### <a name="NLS_DNS"></a>Pour ajouter le serveur emplacement réseau et la sonde Web  
   
-1.  Sur le serveur DNS du réseau interne : Dans l’écran d' **Accueil** , tapez**dnsmgmt. msc**, puis appuyez sur entrée.  
+1.  Sur le serveur DNS du réseau interne : dans l’écran d' **Accueil** , tapez**dnsmgmt. msc**, puis appuyez sur entrée.  
   
 2.  Dans le volet gauche de la console **Gestionnaire DNS**, développez la zone de recherche directe de votre domaine. Cliquez avec le bouton droit sur le domaine, puis cliquez sur **nouvel hôte (A ou AAAA)** .  
   
@@ -243,7 +243,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 6.  Cliquez sur **Terminé**.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -315,7 +315,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 10. Lorsque vous y êtes invité, cliquez sur **Redémarrer maintenant**.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -370,7 +370,7 @@ Les paramètres DirectAccess contenus dans l’objet stratégie de groupe de l�
   
 7.  Dans la boîte de dialogue **Sélectionner Utilisateurs, contacts, ordinateurs ou comptes de service**, sélectionnez les ordinateurs clients que vous voulez activer pour DirectAccess, puis cliquez sur **OK**.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)**commandes Windows PowerShell équivalentes** @no__t 0Windows PowerShell  
+![les commandes Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -405,7 +405,7 @@ Que vous utilisiez un certificat privé ou un certificat auto-signé, les condit
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>Pour installer le certificat du serveur Emplacement réseau à partir d'une autorité de certification interne  
   
-1.  Sur le serveur qui hébergera le site web du serveur Emplacement réseau : Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
+1.  Sur le serveur qui hébergera le site Web du serveur emplacement réseau : dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
@@ -447,7 +447,7 @@ Que vous utilisiez un certificat privé ou un certificat auto-signé, les condit
   
     -   Les serveurs Web qui utilisent une URL HTTP, par exemple : https://crl.corp.contoso.com/crld/corp-APP1-CA.crl  
   
-    -   Serveurs de fichiers accessibles par le biais d’un chemin d’accès UNC (Universal Naming Convention), tel que \\ \ CRL. Corp. contoso. com\crld\corp-APP1-CA.crl  
+    -   Serveurs de fichiers accessibles par le biais d’un chemin d’accès UNC (Universal Naming Convention), tel que \\\crl.corp.contoso.com\crld\corp-APP1-CA.crl  
   
     Si le point de distribution de liste de révocation de certificats interne est accessible uniquement via IPv6, vous devez configurer une règle de sécurité de connexion du pare-feu Windows avec fonctions avancées de sécurité. Cela dispense la protection IPsec de l’espace d’adressage IPv6 de votre intranet aux adresses IPv6 de vos points de distribution de liste de révocation de certificats.  
   
@@ -455,5 +455,5 @@ Que vous utilisiez un certificat privé ou un certificat auto-signé, les condit
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 2 : Configurer le serveur d’accès à distance](Step-2-Configure-the-Remote-Access-Server.md)
+-   [Étape 2 : configurer le serveur d’accès à distance](Step-2-Configure-the-Remote-Access-Server.md)
 

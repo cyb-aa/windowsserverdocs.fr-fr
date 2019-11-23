@@ -18,7 +18,7 @@ ms.locfileid: "71402417"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Démarrage rapide pour le déploiement d’une infrastructure protégée
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique explique ce qu’est une structure protégée, ses spécifications et un résumé du processus de déploiement. Pour connaître les étapes de déploiement détaillées, consultez [déploiement du service Guardian hôte pour les hôtes service Guardian et les machines virtuelles](https://technet.microsoft.com/windows-server-docs/security/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview)protégées.
 
@@ -69,19 +69,19 @@ Imaginez ce scénario : vous disposez d’une infrastructure Hyper-V existante,
 
 ![Infrastructure Hyper-V existante](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-existing-hyper-v.png)
 
-## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Étape 1 : Déployer les ordinateurs hôtes Hyper-V exécutant Windows Server 2016 
+## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Étape 1 : déployer les ordinateurs hôtes Hyper-V exécutant Windows Server 2016 
 
 Les hôtes Hyper-V doivent exécuter Windows Server 2016 Datacenter Edition ou une version ultérieure. Si vous mettez à niveau des ordinateurs hôtes, vous pouvez [effectuer la mise à niveau](https://technet.microsoft.com/windowsserver/dn527667.aspx) de l’édition standard vers Datacenter Edition.
 
 ![Mettre à niveau les ordinateurs hôtes Hyper-V](../../security/media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-one-upgrade-hyper-v.png)
 
-## <a name="step-2-deploy-the-host-guardian-service-hgs"></a>Étape 2 : Déployer le service Guardian hôte (SGH)
+## <a name="step-2-deploy-the-host-guardian-service-hgs"></a>Étape 2 : déployer le service Guardian hôte (SGH)
 
 Installez ensuite le rôle serveur SGH et déployez-le en tant que cluster à trois nœuds, comme l’exemple relecloud.com dans l’image suivante. Cela requiert trois applets de commande PowerShell :
 
-- Pour ajouter le rôle SGH, utilisez`Install-WindowsFeature` 
-- Pour installer le SGH, utilisez`Install-HgsServer` 
-- Pour initialiser le SGH avec le mode d’attestation choisi, utilisez`Initialize-HgsServer` 
+- Pour ajouter le rôle SGH, utilisez `Install-WindowsFeature` 
+- Pour installer le SGH, utilisez `Install-HgsServer` 
+- Pour initialiser le SGH avec le mode d’attestation choisi, utilisez `Initialize-HgsServer` 
 
 Si vos serveurs Hyper-V existants ne remplissent pas les conditions préalables pour le mode TPM (par exemple, ils ne disposent pas de TPM 2,0), vous pouvez initialiser SGH à l’aide d’une attestation basée sur l’administrateur (mode AD), qui nécessite une approbation Active Directory avec le domaine de l’infrastructure. 
 
@@ -89,7 +89,7 @@ Dans notre exemple, supposons que contoso déploie initialement en mode AD pour 
 
 ![Installer SGH](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-two-deploy-hgs.png)
 
-## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>Étape 3 : Extraire les identités, les lignes de base matérielles et les stratégies d’intégrité du code
+## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>Étape 3 : extraire les identités, les bases de référence du matériel et les stratégies d’intégrité du code
 
 Le processus d’extraction des identités à partir d’ordinateurs hôtes Hyper-V dépend du mode d’attestation utilisé.
 
@@ -106,19 +106,19 @@ Autrement dit, les étapes de validation rigoureuses utilisées pour le mode TPM
 Pour le mode TPM, trois éléments sont nécessaires : 
 
 1.  Une _clé de type EK public_ (ou _EKpub_) du module de plateforme sécurisée 2,0 sur chaque hôte Hyper-V. Pour capturer le EKpub, utilisez `Get-PlatformIdentifier`. 
-2.  Une _ligne de base matérielle_. Si chacun de vos ordinateurs hôtes Hyper-V est identique, une seule ligne de base suffit. Si ce n’est pas le cas, vous en aurez besoin pour chaque classe de matériel. La ligne de base se présente sous la forme d’un fichier journal de groupe Trustworthy Computing ou TCGlog. Le TCGlog contient tout ce que l’hôte a fait à partir du microprogramme UEFI, via le noyau, jusqu’à l’endroit où l’hôte est entièrement amorcé. Pour capturer la ligne de base matérielle, installez le rôle Hyper-V et la fonctionnalité de prise en charge d’hyper `Get-HgsAttestationBaselinePolicy`-v Guardian hôte et utilisez. 
-3.  _Stratégie d’intégrité du code_. Si chacun de vos ordinateurs hôtes Hyper-V est identique, il vous suffit d’une seule stratégie CI. Si ce n’est pas le cas, vous en aurez besoin pour chaque classe de matériel. Windows Server 2016 et Windows 10 disposent tous les deux d’une nouvelle forme de mise en application pour les stratégies d’élément de configuration, appelées _intégrité du code stratégie hvci (hyperviseur)_ . STRATÉGIE HVCI fournit une mise en œuvre forte et garantit qu’un hôte est autorisé uniquement à exécuter des fichiers binaires qu’un administrateur approuvé lui a autorisé à exécuter. Ces instructions sont encapsulées dans une stratégie CI qui est ajoutée à SGH. SGH mesure chaque stratégie CI de l’hôte avant qu’il ne soit autorisé à exécuter des machines virtuelles protégées. Pour capturer une stratégie CI, utilisez `New-CIPolicy`. La stratégie doit ensuite être convertie au format binaire `ConvertFrom-CIPolicy`à l’aide de.
+2.  Une _ligne de base matérielle_. Si chacun de vos ordinateurs hôtes Hyper-V est identique, une seule ligne de base suffit. Si ce n’est pas le cas, vous en aurez besoin pour chaque classe de matériel. La ligne de base se présente sous la forme d’un fichier journal de groupe Trustworthy Computing ou TCGlog. Le TCGlog contient tout ce que l’hôte a fait à partir du microprogramme UEFI, via le noyau, jusqu’à l’endroit où l’hôte est entièrement amorcé. Pour capturer la ligne de base matérielle, installez le rôle Hyper-V et la fonctionnalité de prise en charge d’Hyper-V Guardian hôte et utilisez `Get-HgsAttestationBaselinePolicy`. 
+3.  _Stratégie d’intégrité du code_. Si chacun de vos ordinateurs hôtes Hyper-V est identique, il vous suffit d’une seule stratégie CI. Si ce n’est pas le cas, vous en aurez besoin pour chaque classe de matériel. Windows Server 2016 et Windows 10 disposent tous les deux d’une nouvelle forme de mise en application pour les stratégies d’élément de configuration, appelées _intégrité du code stratégie hvci (hyperviseur)_ . STRATÉGIE HVCI fournit une mise en œuvre forte et garantit qu’un hôte est autorisé uniquement à exécuter des fichiers binaires qu’un administrateur approuvé lui a autorisé à exécuter. Ces instructions sont encapsulées dans une stratégie CI qui est ajoutée à SGH. SGH mesure chaque stratégie CI de l’hôte avant qu’il ne soit autorisé à exécuter des machines virtuelles protégées. Pour capturer une stratégie CI, utilisez `New-CIPolicy`. La stratégie doit ensuite être convertie au format binaire à l’aide de `ConvertFrom-CIPolicy`.
 
 ![Extraire les identités, la ligne de base et la stratégie CI](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 
 C’est tout : l’infrastructure protégée est créée, en termes d’infrastructure pour l’exécuter.  
 Vous pouvez maintenant créer un disque de modèle de machine virtuelle protégé et un fichier de données de protection afin que les machines virtuelles protégées puissent être approvisionnées simplement et en toute sécurité. 
 
-## <a name="step-4-create-a-template-for-shielded-vms"></a>Étape 4 : Créer un modèle pour les machines virtuelles protégées
+## <a name="step-4-create-a-template-for-shielded-vms"></a>Étape 4 : créer un modèle pour les machines virtuelles protégées
 
 Un modèle de machine virtuelle protégée protège les disques de modèle en créant une signature du disque à un point de confiance connu dans le temps. 
 Si le disque de modèle est par la suite infecté par un programme malveillant, sa signature sera différente de celle du modèle d’origine, qui sera détectée par le processus d’approvisionnement de la machine virtuelle protégée. 
-Les disques de modèle protégés sont créés en exécutant l’Assistant de création de disque de `Protect-TemplateDisk` **modèle protégé** ou sur un disque de modèle normal. 
+Pour créer des disques de modèle protégés, exécutez l' **Assistant de création de disque de modèle protégé** ou `Protect-TemplateDisk` sur un disque de modèle normal. 
 
 Chaque est inclus avec la fonctionnalité **outils de machine virtuelle protégée** dans le [Outils d’administration de serveur distant pour Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
 Une fois que vous avez téléchargé les outils d’installation de la machine virtuelle, exécutez la commande suivante pour installer la fonctionnalité **outils de machines virtuelles protégées** :
@@ -137,7 +137,7 @@ Cela permet aux utilisateurs d’identifier fortement les disques qu’ils appro
 
 Avant de commencer, passez en revue les [conditions requises en matière de disque de modèle](guarded-fabric-create-a-shielded-vm-template.md) . 
 
-## <a name="step-5-create-a-shielding-data-file"></a>Étape 5 : Créer un fichier de données de protection 
+## <a name="step-5-create-a-shielding-data-file"></a>Étape 5 : créer un fichier de données de protection 
 
 Un fichier de données de protection, également connu sous le nom de fichier. PDK, capture des informations sensibles sur l’ordinateur virtuel, telles que le mot de passe de l’administrateur. 
 
@@ -157,7 +157,7 @@ Le fichier de données de protection comprend également le paramètre de strat�
 
 Vous pouvez ajouter des éléments de gestion facultatifs tels que VMM ou Windows Azure Pack. Si vous souhaitez créer une machine virtuelle sans installer ces éléments, consultez [étape par étape : création de machines virtuelles protégées sans VMM](https://blogs.technet.microsoft.com/datacentersecurity/2016/06/06/step-by-step-creating-shielded-vms-without-vmm/).
 
-## <a name="step-6-create-a-shielded-vm"></a>Étape 6 : Créer une machine virtuelle dotée d’une protection maximale
+## <a name="step-6-create-a-shielded-vm"></a>Étape 6 : créer une machine virtuelle dotée d’une protection maximale
 
 La création d’ordinateurs virtuels protégés diffère très peu des machines virtuelles standard. Dans Windows Azure Pack, l’expérience est encore plus simple que la création d’une machine virtuelle normale, car il vous suffit de fournir un nom, un fichier de données de protection (contenant le reste des informations de spécialisation) et le réseau d’ordinateurs virtuels. 
 

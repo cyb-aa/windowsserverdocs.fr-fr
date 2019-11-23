@@ -36,17 +36,17 @@ ksetup /removerealm <RealmName>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté.|
+|\<RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté.|
 
 ## <a name="remarks"></a>Notes
 
-Le nom de domaine est stocké à deux emplacements dans le registre : **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001** et **\CurrentControlSet\Control\Lsa\Kerberos**.
+Le nom de domaine est stocké à deux emplacements dans le registre : **HKEY_LOCAL_MACHINE \system\controlset001** et **\CurrentControlSet\Control\Lsa\Kerberos**.
 
 Vous ne pouvez pas supprimer le nom de domaine par défaut du contrôleur de domaine, car cela réinitialisera ses informations DNS et risquerait de rendre le contrôleur de domaine inutilisable.
 
 ## <a name="BKMK_Examples"></a>Illustre
 
-Par erreur, définissez le nom de domaine en orthographiant mal l’orthographe de « . COM » sur l’ordinateur local sur CORP. CONTOSO. &AMP;
+Par erreur, définissez le nom de domaine en orthographiant mal l’orthographe de « . COM » sur l’ordinateur local sur CORP. CONTOSO. &
 ```
 ksetup /setrealm CORP.CONTOSO.CON
 ```

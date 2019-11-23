@@ -1,6 +1,6 @@
 ---
 title: restauration Auditpol
-description: La rubrique commandes Windows pour la **restauration Auditpol-restaure** les paramètres de stratégie d’audit système, les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs et toutes les options d’audit à partir d’un fichier dont la syntaxe est conforme au format de fichier de valeurs séparées par des virgules (CSV). utilisé par l’option/backup.
+description: La rubrique commandes Windows pour la **restauration Auditpol-restaure** les paramètres de stratégie d’audit système, les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs et toutes les options d’audit à partir d’un fichier qui est syntaxiquement cohérent avec le format de fichier de valeurs séparées par des virgules (CSV) utilisé par l’option/backup.
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -22,7 +22,7 @@ ms.locfileid: "71382409"
 ---
 # <a name="auditpol-restore"></a>restauration Auditpol
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Restaure les paramètres de stratégie d’audit du système, les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs et toutes les options d’audit à partir d’un fichier dont la syntaxe est conforme au format de fichier CSV (Comma-Separated Value) utilisé par l’option/backup.
 
@@ -43,4 +43,5 @@ Pour restaurer les paramètres de stratégie d’audit système, les paramètres
 auditpol /restore /file:c:\auditpolicy.csv
 ```
 #### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)@no__t[sauvegarde Auditpol](auditpol-backup.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+[sauvegarde Auditpol](auditpol-backup.md)

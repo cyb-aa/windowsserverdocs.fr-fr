@@ -50,9 +50,9 @@ Installez et configurez Windows Azure Pack (WAP) sur l’ordinateur où vous sou
 
 2.  Téléchargez et installez le [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx). Si l’ordinateur n’est pas connecté à Internet, suivez les [instructions d’installation hors connexion](http://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
 
-3.  Ouvrez la Web Platform Installer et recherchez **Windows Azure Pack : Portail et API Express @ no__t-0 sous l’onglet **produits** . Cliquez sur **Ajouter**, puis sur **installer** en bas de la fenêtre.
+3.  Ouvrez la Web Platform Installer et recherchez **Windows Azure Pack : portail et API Express** sous l’onglet **produits** . cliquez sur **Ajouter**, puis sur **installer** en bas de la fenêtre.
 
-4.  Procédez à l’installation. Une fois l’installation terminée, le site de configuration (*https://&lt;wapserver @ no__t-2:30101/* ) s’ouvre dans votre navigateur Web. Sur ce site Web, fournissez des informations sur votre serveur SQL Server et terminez la configuration du WAP.
+4.  Procédez à l’installation. Une fois l’installation terminée, le site de configuration (*https://&lt;wapserver&gt;: 30101/* ) s’ouvre dans votre navigateur Web. Sur ce site Web, fournissez des informations sur votre serveur SQL Server et terminez la configuration du WAP.
 
 Pour obtenir de l’aide sur la configuration des Windows Azure Pack, consultez [installer un déploiement Express de Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
 
@@ -63,7 +63,7 @@ Pour obtenir de l’aide sur la configuration des Windows Azure Pack, consultez 
 
 Avant d’utiliser Windows Azure Pack, vous devez avoir déjà installé et configuré pour votre infrastructure.
 
-1.  Accédez au portail d’administration Windows Azure Pack à l’adresse *https://&lt;wapserver @ no__t-2:30091*, puis connectez-vous à l’aide de vos informations d’identification d’administrateur.
+1.  Accédez au portail d’administration Windows Azure Pack à l’adresse *https://&lt;wapserver&gt;: 30091*, puis connectez-vous à l’aide de vos informations d’identification d’administrateur.
 
 2.  Dans le volet gauche, cliquez sur **Clouds d’ordinateurs virtuels**.
 
@@ -113,7 +113,7 @@ Pour permettre aux locataires de créer des machines virtuelles dans WAP, vous d
 
     À ce stade, Windows Azure Pack est configurée et les locataires peuvent s’abonner au plan que vous venez de créer et déployer des machines virtuelles protégées. Pour connaître les étapes supplémentaires que les locataires doivent effectuer, consultez [machines virtuelles protégées pour les locataires-déploiement d’une machine virtuelle protégée à l’aide de Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Étapes de configuration du fournisseur de services d’hébergement pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

@@ -19,7 +19,7 @@ ms.locfileid: "71365399"
 ---
 # <a name="a-team-bound-to-a-virtual-switch-should-only-have-one-exposed-team-interface"></a>Une équipe liée à un commutateur virtuel ne doit avoir qu’une seule interface d’équipe exposée
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -38,7 +38,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>**Impact**  
 *Les commutateurs virtuels suivants n’ont peut-être pas accès aux réseaux locaux virtuels et à la bande passante utilisés par d’autres interfaces d’équipe :*  
   
-@no__t 0list de commutateurs virtuels >  
+\<liste des commutateurs virtuels >  
   
 ## <a name="resolution"></a>**Résolution**  
 *Utilisez l’applet de commande Windows PowerShell Remove-NetLbfoTeamNic pour supprimer toutes les interfaces d’équipe de l’équipe, à l’exception de l’interface d’équipe par défaut.*  

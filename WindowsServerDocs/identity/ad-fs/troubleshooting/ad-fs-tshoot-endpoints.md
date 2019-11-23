@@ -24,7 +24,7 @@ La Fédération passive fait référence à des scénarios dans lesquels votre n
 
 1.  À l’aide d’un navigateur Web, accédez à votre point de terminaison de métadonnées de fédération AD FS.  Par exemple : https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 2. Le fichier XML doit être téléchargé localement sur votre ordinateur.
-3. Ouvrez-le et vérifiez qu’il contient des informations similaires à celles du sert ci-dessous : ![Passive @ no__t-1
+3. Ouvrez-le et vérifiez qu’il contient des informations similaires à celles du sert ci-dessous : ![passive](media/ad-fs-tshoot-endpoints/meta2.png)
 
 ## <a name="ws-mex-test-active-test"></a>Test WS-MEX (test actif)
 WS-MetaDataExchange est un protocole de services Web qui fait partie de la feuille de route WS-Federation.  Elle utilise un message SOAP pour demander des métadonnées.  En testant le point de terminaison, nous pouvons déterminer si le serveur de AD FS répond aux demandes Web pour WS-MetaDataExchange.  Utilisez la procédure suivante pour tester le point de terminaison.

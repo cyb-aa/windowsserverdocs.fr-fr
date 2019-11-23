@@ -22,7 +22,7 @@ ms.locfileid: "71382969"
 ---
 # <a name="manage-software-inventory-logging"></a>Gérer la journalisation de l'inventaire logiciel
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Ce document explique comment gérer la journalisation de l’inventaire logiciel, une fonctionnalité qui permet aux administrateurs de centre de données de consigner facilement les données de gestion des ressources logicielles Microsoft pour leurs déploiements dans le temps. Ce document explique comment gérer la journalisation de l’inventaire logiciel. Avant d’utiliser la journalisation de l’inventaire logiciel avec Windows Server 2012 R2, assurez-vous que Windows Update [kb 3000850](https://support.microsoft.com/kb/3000850) et [KB 3060681](https://support.microsoft.com/kb/3060681) sont installés sur chaque système devant être inventorié. Aucune mise à jour service n’est requise pour Windows Server 2016. Cette fonctionnalité s’exécute localement sur chaque serveur à inventorier. Elle ne collecte pas de données depuis des serveurs distants.  
 
@@ -33,7 +33,7 @@ La fonctionnalité de journalisation de l’inventaire logiciel peut également 
 > [!NOTE] 
 > Assurez-vous d’avoir installé [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) avant d’appliquer le package de mise à jour ci-dessous.
 
--  Package de mise à jour WMF 4,0 pour Windows Server 2012 : [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
+-  Package de mise à jour de WMF 4.0 pour Windows Server 2012 : [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
 
 - **Windows Server 2008 R2 SP1**
 
@@ -44,7 +44,7 @@ La fonctionnalité de journalisation de l’inventaire logiciel peut également 
 - Nécessite [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
 
 
-- Package de mise à jour WMF 4,0 pour Windows Server 2008 R2 : [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
+- Package de mise à jour de WMF 4.0 pour Windows Server 2008 R2 : [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
 
 
 Il existe deux méthodes principales pour l’inventaire à l’aide de cette fonctionnalité :  
@@ -140,17 +140,17 @@ Si un administrateur a démarré la journalisation de l’inventaire logiciel, l
 ## <a name="BKMK_Step3"></a>Affichage des données de journalisation de l’inventaire logiciel  
 Outres les applets de commande PowerShell décrites dans la section précédente, six autres applets de commande peuvent être utilisées pour collecter des données de journalisation de l’inventaire logiciel :  
   
--   **[SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** : affiche les valeurs à un moment donné pour des données relatives à un serveur et un système d’exploitation spécifiques, ainsi que le nom de domaine complet ou le nom de l’hôte physique, si disponible.  
+-   **[Obtenir-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** : affiche les valeurs à un moment donné pour des données spécifiques relatives au serveur et au système d’exploitation, ainsi que le nom de domaine complet ou le nom d’hôte de l’hôte physique, s’il est disponible.  
   
--   **[Obtient-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : affiche les identificateurs utilisés par SIL pour des serveurs individuels.  
+-   **[Obtenir-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : affiche les identificateurs utilisés par sil pour des serveurs individuels.  
   
--   **[SilData](https://technet.microsoft.com/library/dn283388.aspx)** : affiche une collection à un moment donné de toutes les données de journalisation de l’inventaire logiciel.  
+-   **[Obtenir-SilData](https://technet.microsoft.com/library/dn283388.aspx)** : affiche une collection à un moment donné de toutes les données de journalisation de l’inventaire logiciel.  
   
--   **[SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)** : affiche l’identité à un moment donné de tous les logiciels installés sur l’ordinateur.  
+-   **[Obtient-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)** : affiche l’identité à un moment donné de tous les logiciels installés sur l’ordinateur.  
   
--   **[SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)** : affiche le nombre total de demandes de périphérique client et de demandes d’utilisateur client uniques au serveur à partir de deux jours antérieurs.  
+-   **[SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)** : affiche le nombre total de demandes d’appareils client uniques et de demandes d’utilisateur client du serveur de deux jours avant.  
   
--   **[SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)** : affiche la liste à un moment donné de toutes les mises à jour de Windows installées sur l’ordinateur.  
+-   **[Obtient-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)** : affiche la liste à un moment donné de toutes les mises à jour de Windows installées sur l’ordinateur.  
   
 Un scénario typique d’utilisation d’applets de commande de la journalisation de l’inventaire logiciel consisterait en un administrateur qui interrogerait la journalisation de l’inventaire logiciel à un moment donné de la collection de toutes les données de journalisation de l’inventaire logiciel à l’aide de [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx).  
   
@@ -218,10 +218,10 @@ La journalisation de l’inventaire logiciel n’est pas destinée à être un c
 La journalisation de l’inventaire logiciel stocke temporairement les collections de données effectuées toutes les heures si le transfert sur le réseau échoue. Les fichiers journaux sont stockés dans le répertoire \Windows\System32\LogFiles\SIL\. Les sauvegardes des données de journalisation de l’inventaire logiciel peuvent être effectuées avec vos sauvegardes planifiées du serveur.  
   
 > [!IMPORTANT]  
-> Si, pour une raison quelconque, une réparation de l’installation ou une mise à niveau du système d’exploitation est nécessaire, tous les fichiers journaux stockés localement seront perdus.  Si ces données sont importantes pour les opérations, il est recommandé de les sauvegarder avant l’installation du nouveau système d’exploitation. Après la réparation ou la mise à niveau, restaurez simplement les données au même emplacement.  
+> Si, pour une raison quelconque, une réparation de l’installation ou une mise à niveau du système d’exploitation est nécessaire, tous les fichiers journaux stockés localement seront perdus.  Si ces données sont essentielles pour les opérations, il est recommandé de les sauvegarder avant l’installation du nouveau système d’exploitation. Après la réparation ou la mise à niveau, restaurez simplement les données au même emplacement.  
   
 > [!NOTE]  
-> Si, pour une raison quelconque, la gestion de la durée de rétention des données enregistrées localement par SIL devient importante, vous pouvez configurer cette valeur en modifiant la valeur de Registre ici : \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. La valeur par défaut est « 30 » pendant 30 jours.  
+> Si, pour une raison quelconque, la gestion de la durée de rétention des données enregistrées localement par SIL devient importante, vous pouvez configurer cette valeur en modifiant la valeur de Registre ici : \ HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. La valeur par défaut est « 30 » pendant 30 jours.  
   
 ## <a name="BKMK_Step6"></a>Lecture des données consignées et publiées par la journalisation de l’inventaire logiciel  
 Les données enregistrées par SIL, mais stockées localement (si le transfert vers l’URI cible échoue) ou les données qui sont transférées avec succès au serveur d’agrégation cible, sont stockées dans un fichier binaire (pour les données de chaque jour). Pour afficher ces données dans PowerShell, utilisez l’applet de commande [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) .  
@@ -229,13 +229,13 @@ Les données enregistrées par SIL, mais stockées localement (si le transfert v
 ## <a name="BKMK_Step7"></a>Sécurité de la journalisation de l’inventaire logiciel  
 Des privilèges d’administrateur sur le serveur local sont requis pour récupérer les données à partir des API WMI et PowerShell de la journalisation de l’inventaire logiciel.  
   
-Pour exploiter correctement la fonctionnalité complète de journalisation de l’inventaire logiciel afin de transférer des données vers un point d’agrégation en permanence au fil du temps (à des intervalles d’une heure), un administrateur doit utiliser des certificats clients pour garantir des sessions SSL sécurisées pour le transfert de données via le protocole HTTPS. Vous trouverez ci-dessous une vue d’ensemble de l’authentification HTTPS : [Authentification HTTPS](https://technet.microsoft.com/library/cc736680(v=WS.10).aspx).  
+Pour exploiter correctement la fonctionnalité complète de journalisation de l’inventaire logiciel afin de transférer des données vers un point d’agrégation en permanence au fil du temps (à des intervalles d’une heure), un administrateur doit utiliser des certificats clients pour garantir des sessions SSL sécurisées pour le transfert de données via le protocole HTTPS. Vous trouverez ici une vue d’ensemble de l’authentification HTTPS : [Authentification HTTPS](https://technet.microsoft.com/library/cc736680(v=WS.10).aspx).  
   
 Toutes les données stockées localement sur un serveur Windows (se produit uniquement si la fonctionnalité est démarrée mais la cible est inaccessible pour une raison quelconque) ne sont accessibles qu’avec des privilèges d’administrateur sur le serveur local.  
   
 ## <a name="BKMK_Step8"></a>Utilisation des paramètres de date et d’heure dans la journalisation de l’inventaire logiciel de Windows Server 2012 R2  
   
--   Lorsque vous utilisez [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TimeOfDay pour définir le moment auquel la journalisation SIL s’exécute, vous devez spécifier une date et une heure. La date du calendrier est définie et la journalisation n’a pas lieu tant que la date n’est pas atteinte, en heure locale du système.  
+-   Lorsque vous utilisez [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TimeOfDay pour définir le moment auquel la journalisation SIL s’exécute, vous devez spécifier une date et une heure. La date du calendrier est définie et la journalisation n’a pas lieu tant que la date n’est pas atteinte, en heure système locale.  
   
 -   Lorsque vous utilisez la [SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)ou la [SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx), « InstallDate » affiche toujours 12:00:00, une valeur sans signification.  
   
@@ -244,7 +244,7 @@ Toutes les données stockées localement sur un serveur Windows (se produit uniq
 ## <a name="BKMK_Step10"></a>Activation et configuration de la journalisation de l’inventaire logiciel dans un disque dur virtuel monté  
 La journalisation de l’inventaire logiciel prend également en charge la configuration et l’activation sur des ordinateurs virtuels hors connexion. Ces utilisations pratiques sont destinées à couvrir la configuration de l’image Gold pour un déploiement à grande échelle entre les centres de données, ainsi que la configuration des images des utilisateurs finaux allant d’un site local vers un déploiement Cloud.  
   
-Pour prendre en charge ces utilisations, la journalisation de l’inventaire logiciel comporte des entrées de Registre associées à chaque option configurable.  Ces valeurs de Registre se trouvent sous \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
+Pour prendre en charge ces utilisations, la journalisation de l’inventaire logiciel comporte des entrées de Registre associées à chaque option configurable.  Ces valeurs de Registre se trouvent sous \ HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
   
 |||||  
 |-|-|-|-|  
@@ -252,7 +252,7 @@ Pour prendre en charge ces utilisations, la journalisation de l’inventaire log
 |Fonctionnalité de démarrage/d’arrêt|CollectionState|1 ou 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
 |Spécifie le point d’agrégation cible sur le réseau|TargetUri|chaîne|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TargetURI|  
 |Spécifie l’empreinte du certificat ou le hachage du certificat utilisé pour l’authentification SSL pour le serveur web cible|CertificateThumbprint|chaîne|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
-|Spécifie la date et l’heure auxquelles la fonctionnalité débute (si la valeur définie est dans le futur selon l’heure système locale)|CollectionTime|Default :  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
+|Spécifie la date et l’heure auxquelles la fonctionnalité débute (si la valeur définie est dans le futur selon l’heure système locale)|CollectionTime|Par défaut :  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
 Pour modifier ces valeurs sur un disque dur virtuel hors connexion (système d’exploitation de l’ordinateur inactif), un disque dur virtuel doit tout d’abord être monté, et ensuite les commandes suivantes peuvent être utilisées pour apporter des modifications :  
   
@@ -280,18 +280,18 @@ Les modifications suivantes des paramètres par défaut et de la fonctionnalité
 > [!NOTE]  
 > Cette fonctionnalité est supprimée avec l’installation de la mise à jour [KB 3000850](https://support.microsoft.com/kb/3000850).  
   
-Lors de l’utilisation de la journalisation de l’inventaire logiciel sur un ordinateur hôte Windows Server 2012 R2 Hyper-V, il est possible d’extraire des données SIL des invités Windows Server 2012 R2 qui s’exécutent localement, si la journalisation SIL a été démarrée dans le ou les invités. Toutefois, cela n’est possible que si vous utilisez les applets de commande PowerShell SilData et Publish-SilData, et uniquement avec WIndows Server 2012 R2 dans l’hôte et l’invité.  Cette fonctionnalité vise à permettre aux administrateurs de centre de données qui fournissent des ordinateurs virtuels invités aux locataires ou autres entités d’une grande entreprise, de capturer des données d’inventaire logiciel sur l’hôte hyperviseur et, par la suite, de transférer toutes ces données à un agrégateur (ou un URI cible).  
+Lors de l’utilisation de la journalisation de l’inventaire logiciel sur un ordinateur hôte Windows Server 2012 R2 Hyper-V, il est possible d’extraire des données SIL des invités Windows Server 2012 R2 qui s’exécutent localement, si la journalisation SIL a été démarrée dans le ou les invités. Toutefois, cela n’est possible que si vous utilisez les applets de commande PowerShell SilData et Publish-SilData, et uniquement avec WIndows Server 2012 R2 dans l’hôte et l’invité.  L’objectif de cette fonctionnalité est de permettre aux administrateurs de centre de données qui fournissent des machines virtuelles invitées à des locataires, ou à d’autres entités d’une grande entreprise, de capturer les données d’inventaire logiciel sur l’hôte hyperviseur, puis de transférer toutes ces données à un agrégateur (ou URI cible).  
   
-Voici deux exemples de l’aspect de la sortie sur la console PowerShell (très abrégé) sur un hôte Hyper-V Windows Server 2012 R2 exécutant une machine virtuelle invitée Windows Server 2012 R2 avec la journalisation SIL démarrée.  Vous remarquerez que le premier exemple, qui utilise Get-SilData seul, affiche toutes les données de l’hôte comme prévu.  Toutes les données SIL de l’invité sont également incluses, mais dans un format réduit.  Pour développer et afficher ces données à partir de l’invité, coupez et collez simplement l’extrait de code utilisé dans le deuxième exemple ci-dessous.  Les objets de données SIL de l’invité auront toujours le GUID de l’ordinateur virtuel associé au sein de l’objet.  
+Voici deux exemples de l’aspect de la sortie sur la console PowerShell (très abrégé) sur un hôte Hyper-V Windows Server 2012 R2 exécutant une machine virtuelle invitée Windows Server 2012 R2 avec la journalisation SIL démarrée.  Vous remarquerez que le premier exemple, qui utilise SilData seul, génère toutes les données de l’hôte comme prévu.  Toutes les données SIL de l’invité sont également incluses, mais dans un format réduit.  Pour développer et afficher ces données à partir de l’invité, coupez et collez simplement l’extrait de code utilisé dans le deuxième exemple ci-dessous.  Les objets de données SIL de l’invité auront toujours le GUID de l’ordinateur virtuel associé au sein de l’objet.  
   
 > [!NOTE]  
-> Les données SIL étant une sortie sur la console, lors de l’utilisation de l’applet de commande Get-SilData, dans des flux de données, les objets ne sortiront pas systématiquement dans l’ordre prévu.  Dans les deux exemples ci-dessous, le texte a été codé par couleur (bleu pour les données de l’hôte physique et vert pour les données de l’invité virtuel) uniquement comme outil d’illustration de ce document.  
+> Les données SIL étant une sortie sur la console, lors de l’utilisation de l’applet de commande Get-SilData, dans des flux de données, les objets ne sortiront pas systématiquement dans l’ordre prévu.  Dans les deux exemples ci-dessous, le texte a été codé par couleur (bleu pour les données de l’hôte physique et vert pour les données de l’invité virtuel) uniquement comme outil d’illustration pour ce document.  
   
 **Exemple de sortie 1**  
   
 ![](../media/software-inventory-logging/SILHyper-VExample1.png)  
   
-**Exemple de sortie 2** (w/Expand-SilData fonction)  
+**Exemple de sortie 2** (fonction w/Expand-SilData)  
   
 ![](../media/software-inventory-logging/SILHyper-VExample2.png)  
   

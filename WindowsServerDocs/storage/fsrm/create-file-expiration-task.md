@@ -17,13 +17,13 @@ ms.locfileid: "71394228"
 ---
 # <a name="create-a-file-expiration-task"></a>Créer une tâche d'expiration de fichiers
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 La procédure suivante vous guide tout au long du processus de création d’une tâche de gestion des fichiers arrivant à expiration. Les tâches d’expiration de fichiers sont utilisées pour déplacer automatiquement tous les fichiers répondant à certains critères vers un répertoire d’expiration spécifié, dans lequel un administrateur peut les sauvegarder et les supprimer.
 
 Lorsqu’une tâche d’expiration de fichiers est exécutée, un répertoire est créé dans le répertoire d’expiration, regroupé par le nom du serveur sur lequel la tâche a été exécutée.
 
-Le nom du nouveau répertoire est basé sur le nom de la tâche de gestion de fichiers et l’heure à laquelle elle a été exécutée. Lorsqu’un fichier ayant expiré est identifié, il est déplacé dans le nouveau répertoire. Notez que la structure du répertoire d’origine est préservée.
+Le nom du nouveau répertoire est basé sur le nom de la tâche de gestion de fichiers et l'heure à laquelle elle a été exécutée. Lorsqu’un fichier arrivé à expiration est trouvé, il est déplacé dans le nouveau répertoire, tout en conservant sa structure de répertoire d’origine.
 
 ## <a name="to-create-a-file-expiration-task"></a>Pour créer une tâche d'expiration de fichiers
 
@@ -61,7 +61,7 @@ Le nom du nouveau répertoire est basé sur le nom de la tâche de gestion de fi
 
      - Pour envoyer un courrier électronique à la personne dont les fichiers vont expirer, cochez la case **Envoyer un message électronique à l’utilisateur dont les fichiers vont expirer**.
 
-     - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, la variable **\[Source du fichier @ no__t-2** insère le nom de l’utilisateur dont le fichier est sur le paragraphe de l’expiration. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
+     - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, la variable **\[propriétaire du fichier Source\]** insère le nom de l’utilisateur dont le fichier est sur le paragraphe de l’expiration. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
 
      - Pour joindre une liste des fichiers qui vont expirer, cliquez sur **Joindre aux messages électroniques la liste des fichiers sur lesquels une action sera effectuée**, puis tapez ou sélectionnez une valeur pour **Nombre maximal de fichiers dans la liste**.
 
@@ -96,7 +96,7 @@ Le nom du nouveau répertoire est basé sur le nom de la tâche de gestion de fi
 
 8. Sous l'onglet **Planification**, cliquez sur **Créer une planification**, puis, dans la boîte de dialogue **Planification**, cliquez sur **Nouvelle**. Une planification par défaut s'affiche, configurée à 9 h 00 tous les jours, que vous pouvez modifier. Lorsque vous avez terminé de configurer la planification, cliquez sur **OK**, puis sur **OK** à nouveau.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 -   [Gestion de la classification](classification-management.md)
 -   [Tâches de gestion de fichiers](file-management-tasks.md)

@@ -17,18 +17,18 @@ ms.locfileid: "71405932"
 ---
 # <a name="network-controller-high-availability"></a>Contrôleur de réseau haute disponibilité
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour en savoir plus sur la configuration de la haute disponibilité et de l’évolutivité du contrôleur de réseau pour la mise en réseau définie par logiciel \(SDN @ no__t-1.
+Vous pouvez utiliser cette rubrique pour en savoir plus sur la configuration de la haute disponibilité et de l’évolutivité du contrôleur de réseau pour la mise en réseau \(SDN\).
 
-Lorsque vous déployez SDN dans votre centre de messages, vous pouvez utiliser le contrôleur de réseau pour déployer, surveiller et gérer de manière centralisée de nombreux éléments réseau, y compris les passerelles RAS, les équilibreurs de charge logicielle, les stratégies de réseau virtuel pour la communication avec les locataires, le pare-feu de centre de messages les stratégies, la qualité de service @no__t 0QoS @ no__t-1 pour les stratégies SDN, les stratégies de mise en réseau hybride, et bien plus encore.
+Lorsque vous déployez SDN dans votre centre de informations, vous pouvez utiliser le contrôleur de réseau pour déployer, surveiller et gérer de manière centralisée de nombreux éléments réseau, y compris les passerelles RAS, les équilibreurs de charge logiciels, les stratégies de réseau virtuel pour la communication avec les locataires, les stratégies de pare-feu de centre de informations, la qualité de service \(QoS\) pour les
 
 Étant donné que le contrôleur de réseau est la pierre angulaire de la gestion de SDN, il est essentiel pour les déploiements de contrôleur de réseau de fournir une haute disponibilité et la possibilité de mettre à l’échelle facilement des nœuds de contrôleur de réseau avec vos besoins en matière de centre de donnes.
 
 Bien que vous puissiez déployer un contrôleur de réseau en tant que cluster à ordinateur unique, pour la haute disponibilité et le basculement, vous devez déployer le contrôleur de réseau dans un cluster à plusieurs ordinateurs avec un minimum de trois machines.
 
 >[!NOTE]
->Vous pouvez déployer un contrôleur de réseau sur les ordinateurs serveurs ou sur les ordinateurs virtuels \(VMs @ no__t-1 qui exécute Windows Server 2016 Datacenter Edition. Si vous déployez un contrôleur de réseau sur des machines virtuelles, les machines virtuelles doivent être en cours d’exécution sur des ordinateurs hôtes Hyper-V qui exécutent également Datacenter Edition. Le contrôleur de réseau n’est pas disponible sur Windows Server 2016 Standard Edition.
+>Vous pouvez déployer un contrôleur de réseau sur les ordinateurs serveurs ou sur des machines virtuelles \(les machines virtuelles\) qui exécutent Windows Server 2016 Datacenter Edition. Si vous déployez un contrôleur de réseau sur des machines virtuelles, les machines virtuelles doivent être en cours d’exécution sur des ordinateurs hôtes Hyper-V qui exécutent également Datacenter Edition. Le contrôleur de réseau n’est pas disponible sur Windows Server 2016 Standard Edition.
 
 ## <a name="network-controller-as-a-service-fabric-application"></a>Contrôleur de réseau en tant qu’application Service Fabric
 
@@ -45,7 +45,7 @@ L’application de contrôleur de réseau est composée de plusieurs services de
 
 Chaque service de Service Fabric a un réplica principal et deux réplicas secondaires. Le réplica de service principal traite les demandes, tandis que les deux réplicas de service secondaires offrent une haute disponibilité dans les cas où le réplica principal est désactivé ou indisponible pour une raison quelconque.
 
-L’illustration suivante représente un contrôleur de réseau Service Fabric cluster avec cinq machines. Quatre services sont répartis sur les cinq machines : Service de pare-feu, service de passerelle, équilibrage de charge logiciel \(SLB @ no__t-1 service et réseau virtuel \(Vnet @ no__t-3.  Chacun des quatre services comprend un réplica de service principal et deux réplicas de service secondaires.
+L’illustration suivante représente un contrôleur de réseau Service Fabric cluster avec cinq machines. Quatre services sont répartis sur les cinq ordinateurs : le service de pare-feu, le service de passerelle, l’équilibrage de la charge logicielle \(service SLB\) et le service\) de réseau virtuel \(vnet.  Chacun des quatre services comprend un réplica de service principal et deux réplicas de service secondaires.
 
 ![Contrôleur de réseau Service Fabric cluster](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
 
@@ -62,11 +62,11 @@ Voici les principaux avantages de l’utilisation de Service Fabric pour les clu
 
 ### <a name="persistent-storage"></a>Stockage persistant
 
-L’application du contrôleur de réseau a des exigences de stockage importantes pour sa configuration et son état. L’application doit également être utilisable sur des interruptions planifiées et non planifiées. À cet effet, Service Fabric fournit un magasin clé-valeur \(KVS @ no__t-1 qui est un magasin répliqué, transactionnel et persistant.
+L’application du contrôleur de réseau a des exigences de stockage importantes pour sa configuration et son état. L’application doit également être utilisable sur des interruptions planifiées et non planifiées. À cet effet, Service Fabric fournit un magasin clé-valeur \(KVS\) qui est un magasin répliqué, transactionnel et persistant.
 
 ### <a name="modularity"></a>Modularité
 
-Le contrôleur de réseau est conçu avec une architecture modulaire, avec chacun des services réseau, tels que le service de pare-feu et le service de réseaux virtuels, conçu @ no__t-0in en tant que services individuels. 
+Le contrôleur de réseau est conçu avec une architecture modulaire, avec chacun des services réseau, tels que le service des réseaux virtuels et le service de pare-feu, conçu\-dans en tant que services individuels. 
 
 Cette architecture d’application offre les avantages suivants.
 
@@ -80,7 +80,7 @@ La modularité Service Fabric utilise des schémas de modèle de service pour op
 
 ## <a name="network-controller-deployment-options"></a>Options de déploiement du contrôleur de réseau
 
-Pour déployer un contrôleur de réseau à l’aide de System Center Virtual Machine Manager \(VMM @ no__t-1, consultez [configurer un contrôleur de réseau SDN dans l’infrastructure VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Pour déployer un contrôleur de réseau à l’aide de System Center Virtual Machine Manager \(VMM\), consultez [configurer un contrôleur de réseau SDN dans l’infrastructure VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
 Pour déployer un contrôleur de réseau à l’aide de scripts, consultez [déployer une infrastructure réseau définie par logiciel à l’aide de scripts](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
 

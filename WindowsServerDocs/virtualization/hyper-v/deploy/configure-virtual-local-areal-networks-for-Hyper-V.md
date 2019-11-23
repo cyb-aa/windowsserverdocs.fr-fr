@@ -19,7 +19,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71364279"
 ---
 # <a name="configure-virtual-local-area-networks-for-hyper-v"></a>Configurer des réseaux locaux virtuels pour Hyper-V
-Les réseaux locaux virtuels \(VLANs @ no__t-1 offrent un moyen d’isoler le trafic réseau. Les réseaux locaux virtuels sont configurés dans des commutateurs et des routeurs qui prennent en charge 802.1 q. Si vous configurez plusieurs réseaux locaux virtuels et que vous souhaitez que la communication se produise entre eux, vous devez configurer les périphériques réseau pour l’autoriser. 
+Les réseaux locaux virtuels \(les réseaux locaux virtuels\) offrent un moyen d’isoler le trafic réseau. Les réseaux locaux virtuels sont configurés dans des commutateurs et des routeurs qui prennent en charge 802.1 q. Si vous configurez plusieurs réseaux locaux virtuels et que vous souhaitez que la communication se produise entre eux, vous devez configurer les périphériques réseau pour l’autoriser. 
 
 Pour configurer des réseaux locaux virtuels, vous aurez besoin des éléments suivants :  
   
@@ -30,7 +30,7 @@ Sur l’ordinateur hôte, vous configurez le commutateur virtuel pour autoriser 
   
 #### <a name="to-allow-a-virtual-switch-to-use-a-vlan"></a>Pour autoriser un commutateur virtuel à utiliser un réseau local virtuel  
   
-1.  Ouvrez hyper @ no__t-0V Manager.  
+1.  Ouvrez le Gestionnaire Hyper\-V.  
   
 2.  Dans le menu actions, cliquez sur **Gestionnaire de commutateur virtuel**.  
   
@@ -42,7 +42,7 @@ Sur l’ordinateur hôte, vous configurez le commutateur virtuel pour autoriser 
   
 #### <a name="to-allow-a-virtual-machine-to-use-a-vlan"></a>Pour autoriser un ordinateur virtuel à utiliser un réseau local virtuel  
   
-1.  Ouvrez hyper @ no__t-0V Manager.  
+1.  Ouvrez le Gestionnaire Hyper\-V.  
   
 2.  Dans le volet de résultats, sous **ordinateurs virtuels**, sélectionnez l’ordinateur virtuel approprié, puis cliquez avec le bouton droit sur **paramètres**.  
 
@@ -54,8 +54,8 @@ Si la machine virtuelle doit utiliser davantage de réseaux locaux virtuels, eff
   
 -   Connectez plus de cartes réseau virtuelles aux commutateurs virtuels appropriés et attribuez les ID de réseau local virtuel. Veillez à configurer correctement les adresses IP et que le trafic que vous souhaitez acheminer via le réseau local virtuel utilise également l’adresse IP correcte.  
   
--   Configurez l’adaptateur de mot de réseau virtuel en mode Trunk à l’aide de l' [ensemble @ no__t-1VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848475.aspx) applet.
+-   Configurez l’adaptateur de mot de réseau virtuel en mode Trunk à l’aide de l' [ensemble\-VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848475.aspx) applet.
   
 ## <a name="see-also"></a>Voir aussi  
  
-[Commutateur virtuel Hyper @ no__t-1V](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/hyper-v-virtual-switch)
+[Commutateur virtuel Hyper\-V](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/hyper-v-virtual-switch)

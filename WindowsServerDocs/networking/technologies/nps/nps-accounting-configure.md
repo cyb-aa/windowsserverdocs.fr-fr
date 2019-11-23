@@ -18,7 +18,7 @@ ms.locfileid: "71405568"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Configurer la gestion des comptes de serveur NPS (Network Policy Server)
 
-Il existe trois types de journalisation pour NPS \(\)(Network Policy Server) :
+Il existe trois types de journalisation pour le serveur de stratégie réseau \(\)NPS :
 
 - **Journalisation des événements**. Utilisé principalement pour l’audit et le dépannage des tentatives de connexion. Vous pouvez configurer la journalisation des événements NPS en obtenant les propriétés du serveur NPS dans la console NPS.
 
@@ -53,9 +53,9 @@ Pour plus d’informations sur l’interprétation des fichiers journaux, consul
 
 Pour empêcher les fichiers journaux de saturer le disque dur, il est fortement recommandé de les conserver sur une partition distincte de la partition système. Vous trouverez ci-dessous plus d’informations sur la configuration de la gestion des comptes pour NPS :
 
-- Pour envoyer les données du fichier journal pour la collecte par un autre processus, vous pouvez configurer NPS pour écrire dans un canal nommé. Pour utiliser des canaux nommés, définissez le dossier du fichier \\journal sur \\.\pipe ou ComputerName\pipe. Le programme de serveur de canal nommé crée un canal \\nommé appelé .\pipe\iaslog.log pour accepter les données. Dans la boîte de dialogue Propriétés du fichier local, dans créer un fichier journal, sélectionnez jamais (taille de fichier illimitée) quand vous utilisez des canaux nommés.
+- Pour envoyer les données du fichier journal pour la collecte par un autre processus, vous pouvez configurer NPS pour écrire dans un canal nommé. Pour utiliser des canaux nommés, définissez le dossier du fichier journal sur \\.\pipe ou \\ComputerName\pipe. Le programme de serveur de canal nommé crée un canal nommé appelé \\.\pipe\iaslog.log pour accepter les données. Dans la boîte de dialogue Propriétés du fichier local, dans créer un fichier journal, sélectionnez jamais (taille de fichier illimitée) quand vous utilisez des canaux nommés.
 
-- Le répertoire du fichier journal peut être créé à l’aide de variables d’environnement système (au lieu de variables utilisateur), telles que% systemdrive%,% systemroot% et% windir%. Par exemple, le chemin d’accès suivant, à l’aide de la variable d’environnement% windir%, localise le fichier journal dans le répertoire système dans le sous-dossier \System32\Logs (c’est-à-dire,%windir%\System32\Logs @ no__t-0.
+- Le répertoire du fichier journal peut être créé à l’aide de variables d’environnement système (au lieu de variables utilisateur), telles que% systemdrive%,% systemroot% et% windir%. Par exemple, le chemin d’accès suivant, à l’aide de la variable d’environnement% windir%, localise le fichier journal dans le répertoire système dans le sous-dossier \System32\Logs (c’est-à-dire,%windir%\System32\Logs\).
 
 - Le changement de format de fichier journal n’entraîne pas la création d’un nouveau journal. Si vous modifiez les formats de fichier journal, le fichier qui est actif au moment de la modification contient une combinaison des deux formats (les enregistrements au début du journal auront le format précédent, et les enregistrements à la fin du journal auront le nouveau format).
 
@@ -75,13 +75,13 @@ Pour effectuer cette procédure, vous devez au minimum appartenir au groupe **Ad
 5. Dans **action d’échec de journalisation**, sélectionnez **si la journalisation échoue, ignorer les demandes de connexion** si vous souhaitez que NPS arrête le traitement des messages de demande d’accès lorsque les fichiers journaux sont saturés ou indisponibles pour une raison quelconque. Si vous souhaitez que NPS continue de traiter les demandes de connexion en cas d’échec de la journalisation, n’activez pas cette case à cocher.
 6. Dans la boîte de dialogue **Propriétés du fichier journal** , cliquez sur l’onglet **fichier journal** .
 7. Sous l’onglet **fichier journal** , dans le **répertoire**, tapez l’emplacement où vous souhaitez stocker les fichiers journaux NPS. L’emplacement par défaut est le dossier systemroot\System32\LogFiles.<br>Si vous ne fournissez pas d’instruction de chemin d’accès complet dans le **répertoire du fichier journal**, le chemin d’accès par défaut est utilisé. Par exemple, si vous tapez **NPSLogFile** dans le **répertoire du fichier journal**, le fichier se trouve à l’emplacement suivant :%systemroot%\System32\NPSLogFile.
-8. Dans **format**, cliquez sur **compatible DTS**. Si vous préférez, vous pouvez sélectionner à la place un format de fichier hérité, tel que **ODBC \(hérité\)**  ou **IAS \(hérité.\)**<br>Les types de fichiers hérités **ODBC** et **IAS** contiennent un sous-ensemble des informations que NPS envoie à sa base de données SQL Server. Le format XML du type de fichier **compatible DTS** est identique au format XML utilisé par le serveur NPS pour importer des données dans sa base de données SQL Server. Par conséquent, le format de fichier **compatible DTS** fournit un transfert plus efficace et plus efficace des données dans la base de données SQL Server standard pour NPS.
+8. Dans **format**, cliquez sur **compatible DTS**. Si vous préférez, vous pouvez sélectionner à la place un format de fichier hérité, tel que **ODBC \(hérité\)** ou **IAS \(\)hérité** .<br>Les types de fichiers hérités **ODBC** et **IAS** contiennent un sous-ensemble des informations que NPS envoie à sa base de données SQL Server. Le format XML du type de fichier **compatible DTS** est identique au format XML utilisé par le serveur NPS pour importer des données dans sa base de données SQL Server. Par conséquent, le format de fichier **compatible DTS** fournit un transfert plus efficace et plus efficace des données dans la base de données SQL Server standard pour NPS.
 9. Dans **créer un nouveau fichier journal**, pour configurer NPS afin de démarrer de nouveaux fichiers journaux à intervalles spécifiés, cliquez sur l’intervalle que vous souhaitez utiliser :
     - Pour activité intensive du volume de transactions et de la journalisation, cliquez sur tous les **jours**.
     - Pour les volumes de transaction inférieurs et l’activité de journalisation, cliquez sur **hebdomadaire** ou **mensuel**.
-    - Pour stocker toutes les transactions dans un fichier journal, cliquez sur **taille \(\)de fichier jamais illimitée**.
+    - Pour stocker toutes les transactions dans un fichier journal, cliquez sur **jamais \(taille de fichier illimitée\)** .
     - Pour limiter la taille de chaque fichier journal, cliquez sur **quand le fichier journal atteint cette taille**, puis tapez une taille de fichier, après laquelle un nouveau journal est créé. La taille par défaut est de 10 mégaoctets (Mo).
-10. Si vous souhaitez que NPS supprime les anciens fichiers journaux afin de créer de l’espace disque pour les nouveaux fichiers journaux lorsque le disque dur est proche de la capacité, assurez-vous que l’option **lorsque le disque est saturé supprimer les anciens fichiers journaux** est sélectionnée. Toutefois, cette option n’est pas disponible si la valeur de **créer un nouveau fichier journal** n' **est \(jamais de taille\)de fichier illimitée**. En outre, si le fichier journal le plus ancien est le fichier journal actuel, il n’est pas supprimé.
+10. Si vous souhaitez que NPS supprime les anciens fichiers journaux afin de créer de l’espace disque pour les nouveaux fichiers journaux lorsque le disque dur est proche de la capacité, assurez-vous que l’option **lorsque le disque est saturé supprimer les anciens fichiers journaux** est sélectionnée. Toutefois, cette option n’est pas disponible si la valeur de **créer un nouveau fichier journal** n’est **jamais \(taille de fichier illimitée\)** . En outre, si le fichier journal le plus ancien est le fichier journal actuel, il n’est pas supprimé.
 
 ## <a name="configure-nps-sql-server-logging"></a>Configurer la journalisation des SQL Server NPS
 
@@ -130,9 +130,9 @@ Ping User-Name peut être ajouté à la clé de Registre suivante sous la forme 
 
 `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\IAS\Parameters`
 
-- **Nom**:`ping user-name`
-- **Tapez**:`REG_SZ`
-- **Données**:  *Nom d’utilisateur*
+- **Nom**: `ping user-name`
+- **Type**: `REG_SZ`
+- **Données**: *nom d’utilisateur*
 
 >[!TIP]
 >Pour indiquer plusieurs noms d’utilisateur pour une valeur de **nom d’utilisateur ping** , entrez un modèle de nom, tel qu’un nom DNS, y compris des caractères génériques, dans les **données**.

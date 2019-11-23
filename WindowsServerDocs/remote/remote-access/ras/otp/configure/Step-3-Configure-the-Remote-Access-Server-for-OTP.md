@@ -21,7 +21,7 @@ ms.locfileid: "71404333"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-otp"></a>Étape 3 configurer le serveur d’accès à distance pour le mot de passe à usage unique
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Une fois que le serveur RADIUS a été configuré avec des jetons de distribution de logiciels, les ports de communication sont ouverts, un secret partagé a été créé, les comptes d’utilisateurs correspondant à Active Directory ont été créés sur le serveur RADIUS et le serveur d’accès à distance a configuré en tant qu’agent d’authentification RADIUS, le serveur d’accès à distance doit être configuré pour prendre en charge le mot de passe à usage unique.  
   
@@ -63,7 +63,7 @@ Pour configurer l’accès à distance pour utiliser l’authentification à deu
     > [!NOTE]  
     > Une fois que le mot de passe à usage unique a été activé sur le serveur d’accès à distance, si vous désactivez l’utilisation du mot de passe à usage **unique**, les extensions ISAPI et CGI seront désinstallées sur le serveur.  
   
-4.  Si la prise en charge de Windows 7 est requise, activez la case à cocher **autoriser les ordinateurs clients Windows 7 à se connecter via DirectAccess** . Remarque : Comme indiqué dans la section de planification, les clients Windows 7 doivent avoir DCA 2,0 installé pour prendre en charge DirectAccess avec le mot de passe à usage unique.  
+4.  Si la prise en charge de Windows 7 est requise, activez la case à cocher **autoriser les ordinateurs clients Windows 7 à se connecter via DirectAccess** . Remarque : comme indiqué dans la section planification, les clients Windows 7 doivent avoir DCA 2,0 installé pour prendre en charge DirectAccess avec le mot de passe à usage unique.  
   
 5.  Cliquez sur **Suivant**.  
   
@@ -105,7 +105,7 @@ Pour configurer l’accès à distance pour utiliser l’authentification à deu
   
 Pour configurer l’accès à distance pour mot de passe à usage unique à l’aide de commandes PowerShell :  
   
-](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**commandes Windows PowerShell équivalentes** @no__t 0Windows PowerShell  
+![les commandes Windows PowerShell](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -150,7 +150,7 @@ Pour autoriser l'accès temporaire aux utilisateurs munis de cartes à puce qui 
   
 Pour accorder l'accès à un utilisateur qui ne peut pas utiliser sa carte à puce, ajoutez temporairement son compte d'utilisateur au groupe de sécurité Active Directory. Supprimez le compte d'utilisateur du groupe lorsque la carte à puce est utilisable.  
   
-### <a name="under-the-covers-smart-card-authorization"></a>En coulisse : Autorisation par carte à puce  
+### <a name="under-the-covers-smart-card-authorization"></a>En coulisses : autorisation par carte à puce  
 L'autorisation par carte à puce fonctionne grâce à l'activation de l'autorisation en mode tunnel sur la règle de sécurité de connexion du tunnel intranet du serveur DirectAccess pour un identificateur de sécurité (SID) Kerberos spécifique. Pour l'autorisation par carte à puce, c'est le SID bien connu (S-1-5-65), qui effectue les mappages aux ouvertures de session à base de cartes à puce. Ce SID est présent dans le jeton Kerberos d’un client DirectAccess et est appelé « ce certificat d’organisation » lorsqu’il est configuré dans les paramètres d’autorisation globaux du mode de tunnel IPsec.  
   
 Lorsque vous activez l’autorisation par carte à puce à l’étape 2 de l’Assistant Installation DirectAccess, l’Assistant Installation DirectAccess configure le paramètre d’autorisation du mode de tunnel IPsec global avec ce SID pour l’objet de stratégie de groupe du serveur DirectAccess. Pour afficher cette configuration dans le composant logiciel enfichable pare-feu Windows avec fonctions avancées de sécurité pour l’objet stratégie de groupe du serveur DirectAccess, procédez comme suit :  

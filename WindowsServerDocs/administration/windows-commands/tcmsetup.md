@@ -40,8 +40,8 @@ tcmsetup  [/q] /c /d
 |/q|Empêche l’affichage des boîtes de message.|
 |/x|Spécifie que les rappels orientés connexion seront utilisés pour les réseaux à trafic intense où la perte de paquets est élevée. Lorsque ce paramètre est omis, les rappels sans connexion sont utilisés.|
 |/c|Obligatoire. Spécifie l’installation du client.|
-|@no__t 0Server1 >|Obligatoire. Spécifie le nom du serveur distant disposant des fournisseurs de services TAPI que le client utilisera. Le client utilisera les lignes et les téléphones du fournisseur de services. Le client doit se trouver dans le même domaine que le serveur ou dans un domaine qui a une relation d’approbation bidirectionnelle avec le domaine qui contient le serveur.|
-|\<Server2 >...|Spécifie tout serveur ou serveur supplémentaire qui sera disponible pour ce client. Si vous spécifiez une liste de serveurs, utilisez un espace pour séparer les noms de serveurs.|
+|\<Serveur1 >|Obligatoire. Spécifie le nom du serveur distant disposant des fournisseurs de services TAPI que le client utilisera. Le client utilisera les lignes et les téléphones du fournisseur de services. Le client doit se trouver dans le même domaine que le serveur ou dans un domaine qui a une relation d’approbation bidirectionnelle avec le domaine qui contient le serveur.|
+|\<de la > Server2...|Spécifie tout serveur ou serveur supplémentaire qui sera disponible pour ce client. Si vous spécifiez une liste de serveurs, utilisez un espace pour séparer les noms de serveurs.|
 |/d|Efface la liste des serveurs distants. Désactive le client TAPI en l’empêchant d’utiliser les fournisseurs de services TAPI qui se trouvent sur les serveurs distants.|
 |/?|Affiche l'aide à l'invite de commandes.|
 

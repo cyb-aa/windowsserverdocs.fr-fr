@@ -22,7 +22,7 @@ ms.locfileid: "71372878"
 ---
 # <a name="nslookup-set-type"></a>nslookup set type
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Modifie le type d’enregistrement de ressource pour la requête.
 ## <a name="syntax"></a>Syntaxe
@@ -30,9 +30,9 @@ Modifie le type d’enregistrement de ressource pour la requête.
 set type=<ResourceRecordtype>
 ```
 ## <a name="parameters"></a>Paramètres
-<ResourceRecordtype>Spécifie un type d’enregistrement de ressource DNS. Le type d’enregistrement de ressource par défaut est. Le tableau suivant répertorie les valeurs valides pour cette commande.
+<ResourceRecordtype> spécifie un type d’enregistrement de ressource DNS. Le type d’enregistrement de ressource par défaut est. Le tableau suivant répertorie les valeurs valides pour cette commande.
 
-| Value |                                                   Description                                                   |
+| Valeur |                                                   Description                                                   |
 |-------|-----------------------------------------------------------------------------------------------------------------|
 |   A   |                                      Spécifie l'&#39;adresse IP de l’ordinateur                                      |
 |  AUX  |                                     Spécifie l'&#39;adresse IP de l’ordinateur.                                      |
@@ -46,7 +46,7 @@ set type=<ResourceRecordtype>
 |  MX   |                                          Spécifie l’échange de messagerie.                                          |
 |  NS   |                                 Spécifie un serveur de noms DNS pour la zone nommée.                                 |
 |  EFFECTUÉS  | Spécifie un nom d’ordinateur si la requête est une adresse IP ; Sinon, spécifie le pointeur vers d’autres informations. |
-|  START  |                                Spécifie le début de l’autorité d’une zone DNS.                                 |
+|  Start  |                                Spécifie le début de l’autorité d’une zone DNS.                                 |
 |  TXT  |                                         Spécifie les informations de texte.                                         |
 |  CODÉ  |                                         Spécifie l’identificateur de l’utilisateur.                                          |
 | UINFO |                                         Spécifie les informations sur l’utilisateur.                                         |
@@ -58,5 +58,5 @@ Affiche un bref résumé des sous-commandes <strong>nslookup</strong> .
 - La commande <strong>Set type</strong> effectue la même fonction que la commande <strong>Set QueryType</strong> .
 - Pour plus d’informations sur les types d’enregistrements de ressources, consultez Request for Comment (RFC) 1035.
   ## <a name="additional-references"></a>Références supplémentaires
-  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Clé de syntaxe de ligne de commande</a><a href="nslookup-set-querytype.md" data-raw-source="[nslookup set querytype](nslookup-set-querytype.md)">nslookup Set QueryType</a> 
-  
+  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Clé de syntaxe de ligne de commande</a>
+  <a href="nslookup-set-querytype.md" data-raw-source="[nslookup set querytype](nslookup-set-querytype.md)">nslookup Set QueryType</a>

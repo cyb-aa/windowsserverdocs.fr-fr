@@ -39,7 +39,7 @@ rmdir [<Drive>:]<Path> [/s [/q]]
 
 |     Paramètre     |                                                                 Description                                                                  |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| [@no__t 0Drive >:] <Path> |                      Spécifie l’emplacement et le nom du répertoire que vous souhaitez supprimer. Le *chemin d’accès* est obligatoire.                       |
+| [lecteur\<>:]<Path> |                      Spécifie l’emplacement et le nom du répertoire que vous souhaitez supprimer. Le *chemin d’accès* est obligatoire.                       |
 |        /s         |                     Supprime une arborescence de répertoires (répertoire spécifié et tous ses sous-répertoires, y compris tous les fichiers).                      |
 |        /q         | Spécifie le mode silencieux. Ne demande pas de confirmation lors de la suppression d’une arborescence de répertoires. (Notez que **/q** fonctionne uniquement si **/s** est spécifié.) |
 |        /?         |                                                     Affiche l'aide à l'invite de commandes.                                                     |
@@ -51,7 +51,7 @@ rmdir [<Drive>:]<Path> [/s [/q]]
     `The directory is not empty`
 
     Utilisez la commande **dir/a** pour répertorier tous les fichiers (y compris les fichiers cachés et système). Utilisez ensuite la commande **Attrib** avec **-h** pour supprimer les attributs de fichier masqués, **-s** pour supprimer les attributs de fichier système ou **-h-s** pour supprimer les attributs de fichier système et masqués. Une fois les attributs masqués et de fichier supprimés, vous pouvez supprimer les fichiers.
--   Si vous insérez une barre oblique inverse (\) au début du *chemin d’accès*, le *chemin d’accès* commence au répertoire racine (quel que soit le répertoire actif).
+-   Si vous insérez une barre oblique inverse (\) au début du *chemin d’accès*, le *chemin d’accès* commence dans le répertoire racine (quel que soit le répertoire actif).
 -   Vous ne pouvez pas utiliser **rd** pour supprimer le répertoire actif. Si vous tentez de supprimer le répertoire actif, le message d’erreur suivant s’affiche :
 
     `The process cannot access the file because it is being used by another process.`

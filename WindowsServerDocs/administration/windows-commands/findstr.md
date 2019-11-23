@@ -49,13 +49,13 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/o|Imprime le décalage de caractère avant chaque ligne correspondante.|
 |/p|Ignore les fichiers avec des caractères non imprimables.|
 |/OFF [ligne]|N’ignore pas les fichiers dont l’attribut offline est défini.|
-|/f : \<File >|Obtient une liste de fichiers à partir du fichier spécifié.|
-|/c : \<String >|Utilise le texte spécifié comme chaîne de recherche littérale.|
-|/g : \<File >|Obtient les chaînes de recherche à partir du fichier spécifié.|
-|/d : \<DirList >|Recherche la liste de répertoires spécifiée. Chaque répertoire doit être séparé par un point-virgule (;), par exemple `dir1;dir2;dir3`.|
-|/a : \<ColorAttribute >|Spécifie des attributs de couleur avec deux chiffres hexadécimaux. Pour plus d’informations, tapez `color /?`.|
-|@no__t 0Strings >|Spécifie le texte à rechercher dans *filename*. Obligatoire.|
-|[@no__t 0Drive >:] [<Path>] <FileName> [...]|Spécifie l’emplacement et les fichiers à rechercher. Au moins un nom de fichier est requis.|
+|/f :\<> de fichier|Obtient une liste de fichiers à partir du fichier spécifié.|
+|/c :\<chaîne >|Utilise le texte spécifié comme chaîne de recherche littérale.|
+|/g :\<> de fichier|Obtient les chaînes de recherche à partir du fichier spécifié.|
+|/d :\<DirList >|Recherche la liste de répertoires spécifiée. Chaque répertoire doit être séparé par un point-virgule (;), par exemple `dir1;dir2;dir3`.|
+|/a :\<ColorAttribute >|Spécifie des attributs de couleur avec deux chiffres hexadécimaux. Pour plus d’informations, tapez `color /?`.|
+|Chaînes de \<>|Spécifie le texte à rechercher dans *filename*. Obligatoire.|
+|[\<> de lecteur :] [<Path>]<FileName>[...]|Spécifie l’emplacement et les fichiers à rechercher. Au moins un nom de fichier est requis.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -65,7 +65,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 
   Le tableau suivant répertorie les métacaractères que **findstr** accepte.  
 
-  |Métacaractère|Value|
+  |Métacaractère|Valeur|
   |-------------|-----|
   |.|Caractère générique : tout caractère|
   |*|REPEAT : zéro, une ou plusieurs occurrences du caractère ou de la classe précédente|
@@ -75,8 +75,8 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   |[^ classe]|Classe inverse : tout caractère ne figurant pas dans un jeu|
   |[x-y]|Plage : tous les caractères de la plage spécifiée|
   |\x|Escape : utilisation littérale d’un métacaractère x|
-  |\\ chaîne <|Position du mot : début du mot|
-  |chaîne @ no__t-0|Position du mot : fin du mot|
+  |chaîne de < \\|Position du mot : début du mot|
+  |\> de chaîne|Position du mot : fin du mot|
 
   Les caractères spéciaux de la syntaxe des expressions régulières sont le plus puissant lorsque vous les utilisez ensemble. Par exemple, utilisez la combinaison suivante des caractères génériques (.) et REPEAT (*) pour faire correspondre n’importe quelle chaîne de caractères :
 

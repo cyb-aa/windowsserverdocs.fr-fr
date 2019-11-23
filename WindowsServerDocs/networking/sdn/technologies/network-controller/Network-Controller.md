@@ -17,7 +17,7 @@ ms.locfileid: "71355648"
 ---
 # <a name="network-controller"></a>Contrôleur de réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Nouveauté de Windows Server 2016, le contrôleur de réseau fournit un point d’automatisation centralisé et programmable pour gérer, configurer, surveiller et dépanner l’infrastructure réseau virtuelle et physique dans votre centre de donnes. 
 
@@ -34,23 +34,23 @@ Nouveauté de Windows Server 2016, le contrôleur de réseau fournit un point d�
 
 ## <a name="bkmk_overview"></a>Vue d’ensemble du contrôleur de réseau
 
-Le contrôleur de réseau est un rôle serveur hautement disponible et évolutif, et fournit une interface de programmation d’applications @no__t 0API @ no__t-1 qui permet au contrôleur de réseau de communiquer avec le réseau, et une deuxième API qui vous permet de communiquer avec Contrôleur de réseau.
+Le contrôleur de réseau est un rôle serveur hautement disponible et évolutif, et fournit une interface de programmation d’applications \(API\) qui permet au contrôleur de réseau de communiquer avec le réseau, et une deuxième API qui vous permet de communiquer avec le contrôleur de réseau.
 
 Vous pouvez déployer le contrôleur de réseau dans les environnements domaine et non-domaine. Dans les environnements de domaine, le contrôleur de réseau authentifie les utilisateurs et les périphériques réseau à l’aide de Kerberos. dans les environnements n’appartenant pas à un domaine, vous devez déployer des certificats pour l’authentification.
 
 >[!IMPORTANT]
->Ne déployez pas le rôle de serveur de contrôleur de réseau sur les hôtes physiques. Pour déployer le contrôleur de réseau, vous devez installer le rôle serveur contrôleur de réseau sur une machine virtuelle Hyper-V \(VM @ no__t-1 qui est installée sur un ordinateur hôte Hyper-V. Une fois que vous avez installé le contrôleur de réseau sur les machines virtuelles sur trois ordinateurs hôtes Hyper @ no__t-0V différents, vous devez activer les hôtes Hyper @ no__t-1V pour la mise en réseau définie par logiciel \(SDN @ no__t-3 en ajoutant les ordinateurs hôtes au contrôleur de réseau à l’aide de Windows PowerShell commande **New-NetworkControllerServer**. En procédant ainsi, vous activez le Load Balancer logiciel SDN pour fonctionner. Pour plus d’informations, consultez [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Ne déployez pas le rôle de serveur de contrôleur de réseau sur les hôtes physiques. Pour déployer le contrôleur de réseau, vous devez installer le rôle de serveur contrôleur de réseau sur un ordinateur virtuel Hyper-V \(\) d’ordinateur virtuel installé sur un ordinateur hôte Hyper-V. Une fois que vous avez installé le contrôleur de réseau sur les machines virtuelles sur trois hôtes Hyper\-V différents, vous devez activer les hôtes Hyper\-V pour la mise en réseau définie par logiciel \(SDN\) en ajoutant les ordinateurs hôtes au contrôleur de réseau à l’aide de la commande Windows PowerShell **New-NetworkControllerServer**. En procédant ainsi, vous activez le Load Balancer logiciel SDN pour fonctionner. Pour plus d’informations, consultez [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
 
 Le contrôleur de réseau communique avec les composants, services et appareils réseau à l'aide de l'API Southbound. Avec l'API Southbound, le contrôleur de réseau peut détecter les appareils réseau, détecter les configurations des services et rassembler toutes les informations nécessaires sur le réseau. En outre, l'API Southbound indique au contrôleur de réseau une voie pour envoyer des informations à l'infrastructure réseau, par exemple les modifications de configuration que vous avez apportées.
 
 L'API Northbound du contrôleur de réseau vous offre la possibilité de recueillir des informations sur le réseau à partir du contrôleur de réseau et de les utiliser pour analyser et configurer le réseau.
 
-L’API Northbound du contrôleur de réseau vous permet de configurer, de surveiller, de dépanner et de déployer de nouveaux appareils sur le réseau à l’aide de Windows PowerShell, de l’API Representational State Transfer \(REST @ no__t-1 ou d’une application de gestion avec un graphique interface utilisateur, telle que System Center Virtual Machine Manager.
+L’API Northbound du contrôleur de réseau vous permet de configurer, de surveiller, de dépanner et de déployer de nouveaux appareils sur le réseau à l’aide de Windows PowerShell, de l’API REST\) de transfert d’État \(ou d’une application de gestion avec une interface utilisateur graphique, telle que System Center Virtual Machine Manager.
 
 >[!NOTE]
 >L'API Northbound du contrôleur de réseau est implémentée comme une interface REST.
 
-Vous pouvez gérer votre réseau de centre de centres avec le contrôleur de réseau à l’aide d’applications de gestion, telles que System Center Virtual Machine Manager \(SCVMM @ no__t-1 et System Center Operations Manager \(SCOM @ no__t-3, car le contrôleur de réseau vous permet de configurer, de surveiller, de programmer et de dépanner l’infrastructure réseau qui est sous son contrôle.
+Vous pouvez gérer votre réseau de centre de donnes avec le contrôleur de réseau à l’aide d’applications de gestion, telles que System Center Virtual Machine Manager \(SCVMM\)et System Center Operations Manager \(SCOM\), car le contrôleur de réseau vous permet de configurer, surveiller, programmer et dépanner l’infrastructure réseau qui est sous son contrôle.
 
 À l'aide de Windows PowerShell, de l'API REST ou d'une application de gestion, vous pouvez utiliser le contrôleur de réseau pour gérer l'infrastructure réseau physique et virtuelle suivante :
 
@@ -58,7 +58,7 @@ Vous pouvez gérer votre réseau de centre de centres avec le contrôleur de ré
 
 - Pare-feu de centre de données
 
-- Service d’accès à distance \(RAS @ no__t-1 passerelles mutualisées, passerelles virtuelles et pools de passerelle
+- Service d’accès à distance \(les passerelles mutualisées\) les passerelles mutualisées, les passerelles virtuelles et les pools de passerelle
 
 - Programmes d’équilibrage de la charge logicielle
 
@@ -66,7 +66,7 @@ Dans l'illustration suivante, un administrateur utilise un outil de gestion qui 
 
 ![Vue d’ensemble du contrôleur de réseau](../../../media/Network-Controller/NetController_overview.png)  
 
-Si vous déployez un contrôleur de réseau dans un environnement de laboratoire de test, vous pouvez exécuter le rôle de serveur contrôleur de réseau sur une machine virtuelle Hyper-V \(VM @ no__t-1 qui est installée sur un ordinateur hôte Hyper-V.
+Si vous déployez un contrôleur de réseau dans un environnement de laboratoire de test, vous pouvez exécuter le rôle de serveur contrôleur de réseau sur un ordinateur virtuel Hyper-V \(\) d’ordinateur virtuel installé sur un ordinateur hôte Hyper-V.
 
 Pour une haute disponibilité dans des centres de plus grande taille, vous pouvez déployer un cluster à l’aide de trois machines virtuelles qui sont installées sur trois hôtes Hyper-V ou plus. Pour plus d’informations, consultez [haute disponibilité du contrôleur de réseau](network-controller-high-availability.md).
 
@@ -128,7 +128,7 @@ Pour plus d’informations sur la passerelle RAS, consultez [passerelle RAS pour
 
 ## <a name="network-controller-deployment-options"></a>Options de déploiement du contrôleur de réseau
 
-Pour déployer un contrôleur de réseau à l’aide de System Center Virtual Machine Manager \(VMM @ no__t-1, consultez [configurer un contrôleur de réseau SDN dans l’infrastructure VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Pour déployer un contrôleur de réseau à l’aide de System Center Virtual Machine Manager \(VMM\), consultez [configurer un contrôleur de réseau SDN dans l’infrastructure VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
 Pour déployer un contrôleur de réseau à l’aide de scripts, consultez [déployer une infrastructure réseau définie par logiciel à l’aide de scripts](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
 

@@ -17,13 +17,13 @@ ms.locfileid: "71406257"
 ---
 # <a name="wireless-access-deployment-process"></a>Processus de déploiement de l’accès sans fil
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Le processus que vous utilisez pour déployer l’accès sans fil se produit dans les étapes suivantes :
 
 ## <a name="stage-1--ap-deployment"></a>Étape 1 : déploiement d’AP
 
-Planifiez, déployez et configurez vos APs pour la connectivité des clients sans fil et pour une utilisation avec NPS. Selon vos préférences et vos dépendances réseau, vous pouvez pré-no__t-0configure paramètres sur vos points d’accès sans fil avant de les installer sur votre réseau, ou vous pouvez les configurer à distance après l’installation.
+Planifiez, déployez et configurez vos APs pour la connectivité des clients sans fil et pour une utilisation avec NPS. Selon vos préférences et vos dépendances réseau, vous pouvez pré\-configurer les paramètres sur vos points d’accès sans fil avant de les installer sur votre réseau, ou vous pouvez les configurer à distance après l’installation.
 
 ## <a name="stage-2--adds-group-configuration"></a>Étape 2 : configuration du groupe de AD DS
 
@@ -38,11 +38,11 @@ Enfin, ajoutez les utilisateurs aux groupes de sécurité des utilisateurs sans 
 
 ## <a name="stage-3--group-policy-configuration"></a>Étape 3 : configuration de la stratégie de groupe
 
-Configurez l’extension de stratégies de @no__t de réseau sans fil 0IEEE 802.11 @ no__t-1 de stratégie de groupe à l’aide de la console de gestion Microsoft Éditeur de gestion des stratégies de groupe \(MMC @ no__t-3.
+Configurez le réseau sans fil \(l’extension des stratégies de\) IEEE 802,11 de stratégie de groupe à l’aide de la Éditeur de gestion des stratégies de groupe \(MMC\)de la console de gestion Microsoft.
 
-Pour configurer les ordinateurs Domain @ no__t-0member à l’aide des paramètres des stratégies de réseau sans fil, vous devez appliquer stratégie de groupe. Lorsqu’un ordinateur est d’abord joint au domaine, stratégie de groupe est appliqué automatiquement. Si des modifications sont apportées à stratégie de groupe, les nouveaux paramètres sont appliqués automatiquement :
+Pour configurer des ordinateurs membres du domaine\-à l’aide des paramètres des stratégies de réseau sans fil, vous devez appliquer les stratégie de groupe. Lorsqu’un ordinateur est d’abord joint au domaine, stratégie de groupe est appliqué automatiquement. Si des modifications sont apportées à stratégie de groupe, les nouveaux paramètres sont appliqués automatiquement :
 
-- Par stratégie de groupe à des intervalles antérieurs à no__t-0determined
+- Par stratégie de groupe à des intervalles déterminés au préalable\-
 
 - Si un utilisateur de domaine se déconnecte puis revient au réseau
 
@@ -62,7 +62,7 @@ Utilisez les ordinateurs clients pour se connecter au réseau.
 
 Pour les ordinateurs membres du domaine qui peuvent se connecter au réseau local câblé, les paramètres de configuration sans fil nécessaires sont automatiquement appliqués lorsque stratégie de groupe est actualisé.
 
-Si vous avez activé le paramètre dans les stratégies de réseau sans fil \(IEEE 802.11 @ no__t-1 pour la connexion automatique lorsque l’ordinateur se trouve dans la plage de diffusion du réseau sans fil, vos ordinateurs sans fil @ no__t-2joined sont automatiquement essayez de vous connecter au réseau local sans fil.
+Si vous avez activé le paramètre des stratégies de réseau sans fil \(IEEE 802,11\) pour se connecter automatiquement lorsque l’ordinateur se trouve dans la plage de diffusion du réseau sans fil, vos ordinateurs sans fil\-joints à un domaine sont automatiquement tentés de se connecter au réseau local sans fil.
 
 Pour vous connecter au réseau sans fil, les utilisateurs doivent uniquement fournir leurs informations d’identification de nom d’utilisateur et de mot de passe de domaine lorsqu’ils y sont invités par Windows.
 

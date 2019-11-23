@@ -16,19 +16,19 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408640"
 ---
-# <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Annexe G : Sécurisation des groupes d’administrateurs dans Active Directory
+# <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>AnnexeG: Sécurisation des groupes d’administrateurs dans Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Annexe G : Sécurisation des groupes d’administrateurs dans Active Directory  
-Comme c’est le cas avec les groupes Administrateurs de l’entreprise (EA) et Admins du domaine (DA), l’appartenance au groupe Administrateurs intégré (BA) doit être requise uniquement dans les scénarios de génération ou de récupération d’urgence. Il ne doit y avoir aucun compte d’utilisateur quotidien dans le groupe administrateurs, à l’exception du compte administrateur intégré pour le domaine, s’il a été sécurisé, comme décrit dans [Appendix D : Sécurisation des comptes administrateur intégrés dans Active Directory @ no__t-0.  
+## <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>AnnexeG: Sécurisation des groupes d’administrateurs dans Active Directory  
+Comme c’est le cas avec les groupes Administrateurs de l’entreprise (EA) et Admins du domaine (DA), l’appartenance au groupe Administrateurs intégré (BA) doit être requise uniquement dans les scénarios de génération ou de récupération d’urgence. Il ne doit y avoir aucun compte d’utilisateur quotidien dans le groupe administrateurs, à l’exception du compte administrateur intégré pour le domaine, s’il a été sécurisé, comme décrit dans l' [annexe D : sécurisation des comptes administrateur intégrés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
 Les administrateurs sont, par défaut, les propriétaires de la plupart des objets AD DS dans leurs domaines respectifs. L’appartenance à ce groupe peut être nécessaire dans les scénarios de génération ou de récupération d’urgence dans lesquels la propriété ou la possibilité de prendre possession d’objets est requise. En outre, les DAs et EAs héritent d’un certain nombre de leurs droits et autorisations en raison de leur appartenance par défaut au groupe administrateurs. L’imbrication de groupe par défaut pour les groupes privilégiés dans Active Directory ne doit pas être modifiée, et chaque groupe administrateurs de domaine doit être sécurisé comme décrit dans les instructions pas à pas qui suivent.  
 
 Pour le groupe administrateurs dans chaque domaine de la forêt :  
 
-1.  Supprimez tous les membres du groupe administrateurs, à l’exception possible du compte administrateur intégré pour le domaine, à condition qu’il ait été sécurisé, comme décrit dans [Appendix D : Sécurisation des comptes administrateur intégrés dans Active Directory @ no__t-0.  
+1.  Supprimez tous les membres du groupe administrateurs, à l’exception possible du compte administrateur intégré pour le domaine, à condition qu’il ait été sécurisé, comme décrit dans l' [annexe D : sécurisation des comptes administrateur intégrés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
 2.  Dans les objets de stratégie de groupe liés à des unités d’organisation contenant des serveurs membres et des stations de travail dans chaque domaine, le groupe BA doit être ajouté aux droits d’utilisateur suivants dans la stratégie d’autorisation **\ stratégies \ stratégies \ autorisations \ utilisateurs \ attribution des droits utilisateur**:  
 
@@ -44,7 +44,7 @@ Pour le groupe administrateurs dans chaque domaine de la forêt :
 
     -   Permettre l’ouverture d’une session locale  
 
-    -   Autoriser l’ouverture de session par les services Bureau à distance  
+    -   Autoriser l’ouverture de session via les services Bureau à distance  
 
 4.  L’audit doit être configuré pour envoyer des alertes si des modifications sont apportées aux propriétés ou à l’appartenance au groupe administrateurs.  
 
@@ -66,7 +66,7 @@ Pour le groupe administrateurs dans chaque domaine de la forêt :
 
 1.  Dans **Gestionnaire de serveur**, cliquez sur **Outils**, puis sur **gestion des stratégie de groupe**.  
 
-2.  Dans l’arborescence de la console, développez &lt;Forest @ no__t-1\Domains @ no__t-2 @ no__t-3Domain @ no__t-4, puis **stratégie de groupe objets** (où &lt;Forest @ no__t-7 est le nom de la forêt et &lt;Domain @ no__t-9 est le nom du domaine dans lequel vous souhaitez Définissez le stratégie de groupe).  
+2.  Dans l’arborescence de la console, développez &lt;forêt&gt;\Domains\\&lt;domaine&gt;, puis **stratégie de groupe objets** (où &lt;forêt&gt; est le nom de la forêt et &lt;domaine&gt; est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
 3.  Dans l’arborescence de la console, cliquez avec le bouton droit sur **stratégie de groupe objets**, puis cliquez sur **nouveau**.  
 
@@ -122,7 +122,7 @@ Pour le groupe administrateurs dans chaque domaine de la forêt :
 
 11. Dans **stratégie de groupe gestion**, liez l’objet de stratégie de groupe aux unités d’organisation serveur et station de travail membres en procédant comme suit :  
 
-    1.  Accédez au &lt;Forest @ no__t-1 > \Domains @ no__t-2 @ no__t-3Domain @ no__t-4 (où &lt;Forest @ no__t-6 est le nom de la forêt et &lt;Domain @ no__t-8 est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
+    1.  Accédez à la forêt &lt;&gt;> \Domains\\&lt;domaine&gt; (où &lt;forêt&gt; est le nom de la forêt et &lt;domaine&gt; est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
     2.  Cliquez avec le bouton droit sur l’unité d’organisation à laquelle l’objet de stratégie de groupe sera appliqué, puis cliquez sur **lier un objet de stratégie de groupe existant**.  
 
@@ -150,7 +150,7 @@ Pour le groupe administrateurs dans chaque domaine de la forêt :
 
 1.  Dans **Gestionnaire de serveur**, cliquez sur **Outils**, puis sur **gestion des stratégie de groupe**.  
 
-2.  Dans l’arborescence de la console, développez <Forest> \ Domains @ no__t-1 @ no__t-2, puis **stratégie de groupe objets** (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
+2.  Dans l’arborescence de la console, développez <Forest>\Domains\\<Domain>, puis **stratégie de groupe objets** (où <Forest> est le nom de la forêt et <Domain> le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
 3.  Dans l’arborescence de la console, cliquez avec le bouton droit sur **stratégie de groupe objets**, puis cliquez sur **nouveau**.  
 
@@ -206,7 +206,7 @@ Pour le groupe administrateurs dans chaque domaine de la forêt :
 
 11. Dans **stratégie de groupe gestion**, liez l’objet de stratégie de groupe à l’unité d’organisation contrôleurs de domaine en procédant comme suit :  
 
-    1.  Accédez au <Forest> \ Domains @ no__t-1 @ no__t-2 (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir le stratégie de groupe).  
+    1.  Accédez au <Forest>\Domains\\<Domain> (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
     2.  Cliquez avec le bouton droit sur l’unité d’organisation contrôleurs de domaine et cliquez sur **lier un objet de stratégie de groupe existant**.  
 
@@ -231,7 +231,7 @@ Pour le groupe administrateurs dans chaque domaine de la forêt :
 
     ![groupes d’administration sécurisés](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_97.gif)  
 
-5.  Dans la fenêtre d' **invite de commandes** , tapez **net use \\ @ no__t-3 @ No__t-4Server Name @ no__t-5\c $** , où \<Server Name @ no__t-7 est le nom du serveur membre ou de la station de travail auquel vous essayez d’accéder sur le réseau.  
+5.  Dans la fenêtre d' **invite de commandes** , tapez **net use \\\\\<nom du serveur\>\c $** , où \<nom du serveur\> est le nom du serveur membre ou de la station de travail à laquelle vous tentez d’accéder sur le réseau.  
 
 6.  La capture d’écran suivante montre le message d’erreur qui doit s’afficher.  
 
@@ -250,7 +250,7 @@ Pour le groupe administrateurs dans chaque domaine de la forêt :
 
 4.  Cliquez sur **fichier**, puis sur **Enregistrer sous**.  
 
-5.  Dans le champ **nom de fichier** , tapez @no__t- **2. bat** (où <Filename> est le nom du nouveau fichier de commandes).  
+5.  Dans le champ **nom de fichier** , tapez **<Filename>. bat** (où <Filename> est le nom du nouveau fichier de commandes).  
 
 ###### <a name="schedule-a-task"></a>Planifier une tâche  
 

@@ -42,15 +42,15 @@ Le scénario suivant décrit comment un cluster de basculement de serveur de fic
 
 La liste suivante décrit les fonctionnalités de configuration de dossiers partagés intégrées au clustering de basculement :
 
-- L’affichage est limité aux dossiers partagés en cluster uniquement (pas de combinaison avec des dossiers partagés non cluster) : Quand un utilisateur affiche des dossiers partagés en spécifiant le chemin d’accès à un serveur de fichiers en cluster, l’affichage inclut uniquement les dossiers partagés qui font partie du rôle de serveur de fichiers spécifique. Il exclut les dossiers partagés non cluster et partage une partie des rôles de serveur de fichiers distincts qui se trouvent sur un nœud du cluster.
+- L’affichage est limité à des dossiers partagés en cluster uniquement (pas de combinaison avec des dossiers partagés non cluster) : quand un utilisateur affiche des dossiers partagés en spécifiant le chemin d’accès d’un serveur de fichiers en cluster, l’affichage inclut uniquement les dossiers partagés qui font partie du fichier spécifique. rôle de serveur. Il exclut les dossiers partagés non cluster et partage une partie des rôles de serveur de fichiers distincts qui se trouvent sur un nœud du cluster.
 
-- Énumération basée sur l’accès : Vous pouvez utiliser l'énumération basée sur l'accès pour masquer un dossier spécifique dans l'affichage de l'utilisateur. Au lieu de permettre aux utilisateurs de voir un dossier sans qu'ils puissent toutefois y accéder, vous pouvez choisir de les empêcher de voir le dossier. Vous pouvez configurer l’énumération basée sur l’accès pour un dossier partagé en cluster de la même façon que pour un dossier partagé non cluster.
+- Énumération basée sur l’accès : vous pouvez utiliser l’énumération basée sur l’accès pour masquer un dossier spécifié à partir de l’affichage des utilisateurs. Au lieu de permettre aux utilisateurs de voir un dossier sans qu'ils puissent toutefois y accéder, vous pouvez choisir de les empêcher de voir le dossier. Vous pouvez configurer l’énumération basée sur l’accès pour un dossier partagé en cluster de la même façon que pour un dossier partagé non cluster.
 
-- Accès hors connexion : Vous pouvez configurer l'accès hors connexion (mise en cache) pour un dossier partagé en cluster comme pour un dossier partagé qui n'est pas en cluster.
+- Accès hors connexion : vous pouvez configurer l’accès hors connexion (mise en cache) pour un dossier partagé en cluster de la même façon que pour un dossier partagé non cluster.
 
-- Les disques en cluster sont toujours reconnus comme faisant partie du cluster : Que vous utilisiez l’interface de cluster de basculement, l’Explorateur Windows ou le composant logiciel enfichable Gestion du partage et du stockage, Windows reconnaît si un disque a été désigné comme étant dans le stockage en cluster. Si un disque de ce type a déjà été configuré dans la gestion du cluster de basculement dans le cadre d’un serveur de fichiers en cluster, vous pouvez utiliser l’une des interfaces mentionnées précédemment pour créer un partage sur le disque. Si ce disque n'a pas été configuré comme faisant partie d'un serveur de fichiers en cluster, vous ne pouvez pas créer de partage sur ce disque par inadvertance. En effet, le système afficherait alors un message d'erreur indiquant que, pour être partagé, le disque doit d'abord être configuré comme faisant partie d'un serveur de fichiers en cluster.
+- Les disques en cluster sont toujours reconnus comme faisant partie du cluster : que vous utilisiez l’interface de cluster de basculement, l’Explorateur Windows ou le composant logiciel enfichable Gestion du partage et du stockage, Windows reconnaît si un disque a été désigné comme étant dans le stockage en cluster. Si un disque de ce type a déjà été configuré dans la gestion du cluster de basculement dans le cadre d’un serveur de fichiers en cluster, vous pouvez utiliser l’une des interfaces mentionnées précédemment pour créer un partage sur le disque. Si ce disque n'a pas été configuré comme faisant partie d'un serveur de fichiers en cluster, vous ne pouvez pas créer de partage sur ce disque par inadvertance. En effet, le système afficherait alors un message d'erreur indiquant que, pour être partagé, le disque doit d'abord être configuré comme faisant partie d'un serveur de fichiers en cluster.
 
-- Intégration des services pour le système de fichiers réseau : Le rôle de serveur de fichiers dans Windows Server comprend le service de rôle facultatif appelé services pour NFS (Network File System). En installant le service de rôle et en configurant les dossiers partagés avec Services pour NFS, vous pouvez créer un serveur de fichiers en cluster qui prend en charge les clients basés sur UNIX.
+- Intégration de services pour le système de fichiers réseau : le rôle de serveur de fichiers dans Windows Server comprend le service de rôle facultatif appelé services pour NFS (Network File System). En installant le service de rôle et en configurant les dossiers partagés avec Services pour NFS, vous pouvez créer un serveur de fichiers en cluster qui prend en charge les clients basés sur UNIX.
 
 ## <a name="requirements-for-a-two-node-failover-cluster"></a>Configuration requise pour un cluster de basculement à deux nœuds
 
@@ -62,7 +62,7 @@ Pour qu’un cluster de basculement dans Windows Server 2016 ou Windows Server 2
 
 Les éléments suivants seront nécessaires pour un cluster de basculement à deux nœuds.
 
-- **Serveurs** Nous vous recommandons d’utiliser des ordinateurs correspondants avec des composants identiques ou similaires.  Les serveurs d’un cluster de basculement à deux nœuds doivent exécuter la même version de Windows Server. Ils doivent également avoir les mêmes mises à jour logicielles (correctifs).
+- **Serveurs :** Nous vous recommandons d’utiliser des ordinateurs correspondants avec des composants identiques ou similaires.  Les serveurs d’un cluster de basculement à deux nœuds doivent exécuter la même version de Windows Server. Ils doivent également avoir les mêmes mises à jour logicielles (correctifs).
 
 - **Cartes réseau et câble :** Le matériel réseau, comme les autres composants de la solution de cluster de basculement, doit être compatible avec Windows Server 2016 ou Windows Server 2019. Si vous utilisez iSCSI, les cartes réseau doivent être dédiées à la communication réseau ou à iSCSI, et non aux deux. Dans l’infrastructure réseau qui connecte vos nœuds de cluster, évitez d’avoir des points de défaillance uniques. Il existe plusieurs façons d'y parvenir. Vous pouvez connecter vos nœuds de cluster à l'aide de plusieurs réseaux distincts. Vous pouvez également connecter vos nœuds de cluster à l’aide d’un réseau construit avec des cartes réseau associées, des commutateurs redondants, des routeurs redondants ou tout autre matériel similaire permettant de supprimer les points de défaillance uniques.
 
@@ -70,10 +70,10 @@ Les éléments suivants seront nécessaires pour un cluster de basculement à de
    > Si les nœuds de cluster sont connectés avec un seul réseau, le réseau passe l’exigence de redondance dans l’Assistant validation d’une configuration.  Toutefois, le rapport inclut un avertissement indiquant que le réseau ne doit pas avoir un point de défaillance unique.
 
 - **Contrôleurs d’appareil ou adaptateurs appropriés pour le stockage :**
-    - **Serial Attached SCSI ou Fibre Channel :** si vous utilisez SAS (Serial Attached SCSI) ou Fibre Channel, dans l'ensemble des serveurs en cluster, tous les composants de la pile de stockage doivent être identiques. Il est nécessaire que les composants logiciels MPIO (Multipath I/O) et DSM (Device specific module) soient identiques.  Il est recommandé que les contrôleurs de périphériques de stockage de masse, c’est-à-dire l’adaptateur de bus hôte (HBA), les pilotes HBA et le microprogramme HBA, qui sont attachés à l’espace de stockage en cluster soient identiques. Si vous utilisez des adaptateurs de bus hôte non similaires, vous devez vérifier auprès du fournisseur de stockage que vous respectez les configurations prises en charge ou recommandées.
-    - **Protocole** Si vous utilisez iSCSI, chaque serveur en cluster doit avoir une ou plusieurs cartes réseau ou adaptateurs de bus hôte dédiés au stockage ISCSI. Le réseau que vous utilisez pour iSCSI ne peut pas être utilisé pour la communication réseau. Dans tous les serveurs en cluster, les cartes réseau que vous utilisez pour la connexion à la cible de stockage iSCSI doivent être identiques ; en outre, il est recommandé d’utiliser des cartes Gigabit Ethernet ou une connexion plus rapide.  
+    - **Serial Attached SCSI ou Fibre Channel :** Si vous utilisez une connexion Serial Attached SCSI ou Fibre Channel, tous les composants de la pile de stockage doivent être identiques dans tous les serveurs en cluster. Il est nécessaire que les composants logiciels MPIO (Multipath I/O) et DSM (Device specific module) soient identiques.  Il est recommandé que les contrôleurs de périphériques de stockage de masse, c’est-à-dire l’adaptateur de bus hôte (HBA), les pilotes HBA et le microprogramme HBA, qui sont attachés à l’espace de stockage en cluster soient identiques. Si vous utilisez des adaptateurs de bus hôte non similaires, vous devez vérifier auprès du fournisseur de stockage que vous respectez les configurations prises en charge ou recommandées.
+    - **iSCSI :** Si vous utilisez iSCSI, chaque serveur en cluster doit avoir une ou plusieurs cartes réseau ou adaptateurs de bus hôte dédiés au stockage ISCSI. Le réseau que vous utilisez pour iSCSI ne peut pas être utilisé pour la communication réseau. Dans tous les serveurs en cluster, les cartes réseau que vous utilisez pour la connexion à la cible de stockage iSCSI doivent être identiques ; en outre, il est recommandé d’utiliser des cartes Gigabit Ethernet ou une connexion plus rapide.  
 
-- **Rangement** Vous devez utiliser un stockage partagé certifié pour Windows Server 2016 ou Windows Server 2019.
+- **Stockage :** Vous devez utiliser un stockage partagé certifié pour Windows Server 2016 ou Windows Server 2019.
   
     Pour un cluster de basculement à deux nœuds, le stockage doit contenir au moins deux volumes (numéros d’unités logiques) distincts si vous utilisez un disque témoin pour le quorum. Le disque témoin est un disque de l'espace de stockage en cluster qui est conçu pour conserver une copie de la base de données de configuration du cluster. Pour cet exemple de cluster à deux nœuds, la configuration de quorum sera node et Disk majoritaire. Nœud et disque majoritaires signifie que les nœuds et le disque témoin contiennent chacun des copies de la configuration du cluster, et que le cluster a un quorum tant qu’une majorité (deux sur trois) de ces copies sont disponibles. L’autre volume (LUN) contient les fichiers qui sont partagés avec les utilisateurs.
 
@@ -91,45 +91,45 @@ Lors du déploiement d’un réseau de zone de stockage (SAN) avec un cluster de
 
 - **Confirmez la certification du stockage :** À l’aide du site du [Catalogue Windows Server](https://www.windowsservercatalog.com/default.aspx) , vérifiez que le stockage du fournisseur, y compris les pilotes, les microprogrammes et les logiciels, est certifié pour windows server 2016 ou windows server 2019.
 
-- **Isoler les périphériques de stockage, un cluster par appareil :** les serveurs de clusters distincts ne doivent pas être en mesure d'accéder aux mêmes dispositifs de stockage. Dans la plupart des cas, un numéro d'unité logique utilisé pour un jeu de serveurs de cluster doit être isolé de tous les autres serveurs via le masquage ou la répartition en zones du numéro d'unité logique.
+- **Isoler les périphériques de stockage, un cluster par appareil :** Les serveurs de clusters différents ne doivent pas être en mesure d’accéder aux mêmes dispositifs de stockage. Dans la plupart des cas, un numéro d'unité logique utilisé pour un jeu de serveurs de cluster doit être isolé de tous les autres serveurs via le masquage ou la répartition en zones du numéro d'unité logique.
 
-- **Envisagez d’utiliser le logiciel MPIO (Multipath I/O) :** dans un ensemble fibre optique de stockage à haut niveau de disponibilité, vous pouvez déployer des clusters de basculement avec plusieurs adaptateurs de bus hôte à l'aide de logiciels MPIO (Multipath I/O). Cela fournit le niveau le plus élevé de redondance et de disponibilité. La solution multivoie doit être basée sur Microsoft MPIO (Multipath I/O). Le fabricant de matériel de stockage peut fournir un module spécifique au périphérique (DSM) MPIO pour votre matériel, bien que Windows Server 2016 et Windows Server 2019 incluent un ou plusieurs modules DSM dans le cadre du système d’exploitation.
+- **Envisagez d’utiliser le logiciel MPIO (Multipath I/O) :** Dans une infrastructure de stockage à haute disponibilité, vous pouvez déployer des clusters de basculement avec plusieurs adaptateurs de bus hôte à l’aide du logiciel Multipath I/O. Cela fournit le niveau le plus élevé de redondance et de disponibilité. La solution multivoie doit être basée sur Microsoft MPIO (Multipath I/O). Le fabricant de matériel de stockage peut fournir un module spécifique au périphérique (DSM) MPIO pour votre matériel, bien que Windows Server 2016 et Windows Server 2019 incluent un ou plusieurs modules DSM dans le cadre du système d’exploitation.
 
 ## <a name="network-infrastructure-and-domain-account-requirements"></a>Configuration requise de l'infrastructure et du compte de domaine
 
 Pour un cluster de basculement à deux nœuds, vous avez besoin de l'infrastructure réseau suivante et d'un compte d'administration avec les autorisations de domaine suivantes :
 
-- **Paramètres réseau et adresses IP :** lorsque vous utilisez des cartes réseau identiques pour un réseau, utilisez également des paramètres de communication identiques sur ces cartes (par exemple pour la vitesse, le mode duplex, le contrôle de flux et le type de média). En outre, comparez les paramètres de la carte réseau et du commutateur auquel elle est connectée, et vérifiez qu'aucun paramètre n'est en conflit.
+- **Paramètres réseau et adresses IP :** Lorsque vous utilisez des cartes réseau identiques pour un réseau, utilisez également des paramètres de communication identiques sur ces cartes (par exemple, la vitesse, le mode duplex, le contrôle de débit et le type de média). En outre, comparez les paramètres de la carte réseau et du commutateur auquel elle est connectée, et vérifiez qu'aucun paramètre n'est en conflit.
 
     Si vous avez des réseaux privés qui ne sont pas routés vers le reste de votre infrastructure réseau, vérifiez que chacun de ces réseaux privés utilise un sous-réseau unique. Cela est nécessaire même si vous attribuez une adresse IP unique à chaque carte réseau. Par exemple, si vous avez un nœud de cluster dans un bureau central qui utilise un réseau physique, et un autre nœud dans une filiale qui utilise un autre réseau physique, ne spécifiez pas 10.0.0.0/24 pour les deux réseaux, même si vous attribuez une adresse IP unique à chaque carte adaptateur.
 
     Pour plus d’informations sur les cartes réseau, consultez Configuration matérielle requise pour un cluster de basculement à deux nœuds, plus haut dans ce guide.
 
-- **DN** les serveurs du cluster doivent utiliser le système DNS (Domain Name System) pour la résolution de noms. Le protocole de mise à jour dynamique DNS peut être utilisé.
+- **DNS :** Les serveurs du cluster doivent utiliser le système DNS (Domain Name System) pour la résolution de noms. Le protocole de mise à jour dynamique DNS peut être utilisé.
 
-- **Rôle de domaine :** tous les serveurs du cluster doivent se trouver dans le même domaine Active Directory. Il est recommandé d'attribuer le même rôle de domaine à tous les serveurs en cluster (serveur membre ou contrôleur de domaine). Le rôle recommandé est celui de serveur membre.
+- **Rôle de domaine :** Tous les serveurs du cluster doivent se trouver dans le même domaine de Active Directory. Il est recommandé d'attribuer le même rôle de domaine à tous les serveurs en cluster (serveur membre ou contrôleur de domaine). Le rôle recommandé est celui de serveur membre.
 
-- **Contrôleur de domaine :** il est recommandé de faire de vos serveurs en cluster des serveurs membres. Si tel est le cas, vous avez besoin d'un autre serveur qui joue le rôle de contrôleur de domaine dans le domaine qui contient votre cluster de basculement.
+- **Contrôleur de domaine :** Nous recommandons que vos serveurs en cluster soient des serveurs membres. Si tel est le cas, vous avez besoin d'un autre serveur qui joue le rôle de contrôleur de domaine dans le domaine qui contient votre cluster de basculement.
 
-- **Les** Pour les besoins du test, vous pouvez connecter un ou plusieurs clients en réseau au cluster de basculement que vous créez et observer l'effet sur un client lorsque vous déplacez ou basculez le serveur de fichiers en cluster d'un nœud de cluster à l'autre.
+- **Clients :** Si nécessaire pour le test, vous pouvez connecter un ou plusieurs clients en réseau au cluster de basculement que vous créez et observer l’effet sur un client lorsque vous déplacez ou basculez le serveur de fichiers en cluster d’un nœud de cluster à l’autre.
 
-- **Compte d’administration du cluster :** lorsque vous créez un cluster ou que vous y ajoutez des serveurs, vous devez avoir ouvert une session sur le domaine à l'aide d'un compte qui dispose de droits d'administrateur et d'autorisations pour tous les serveurs de ce cluster. Le compte n’a pas besoin d’être un compte Admins du domaine, mais peut être un compte Utilisateurs du domaine situé dans le groupe Administrateurs sur chaque serveur en cluster. En outre, si le compte n’est pas un compte admins du domaine, le compte (ou le groupe dont le compte est membre) doit disposer des autorisations **créer des objets ordinateur** et **Lire toutes les propriétés** dans l’unité d’organisation de domaine (UO) qui est résident dans.
+- **Compte d’administration du cluster :** Lorsque vous créez un cluster ou y ajoutez des serveurs, vous devez avoir ouvert une session sur le domaine à l’aide d’un compte disposant de droits d’administrateur et d’autorisations sur tous les serveurs de ce cluster. Le compte n’a pas besoin d’être un compte Admins du domaine, mais peut être un compte Utilisateurs du domaine situé dans le groupe Administrateurs sur chaque serveur en cluster. En outre, si le compte n’est pas un compte admins du domaine, le compte (ou le groupe dont le compte est membre) doit disposer des autorisations **créer des objets ordinateur** et **Lire toutes les propriétés** dans l’unité d’organisation de domaine qui réside dans.
 
 ## <a name="steps-for-installing-a-two-node-file-server-cluster"></a>Étapes pour l'installation d'un cluster de serveur de fichiers à deux nœuds
 
 Vous devez effectuer les étapes suivantes pour installer un cluster de basculement de serveur de fichiers à deux nœuds.
 
-Étape 1 : connecter les serveurs de cluster aux réseaux et au stockage
+Étape 1 : connecter les serveurs de cluster aux réseaux et au stockage
 
 Étape 2 : installer la fonctionnalité de cluster de basculement
 
-Étape 3 : valider la configuration du cluster
+Étape 3 : valider la configuration du cluster
 
-Étape 4 : créer le cluster
+Étape 4 : créer le cluster
 
 Si vous avez déjà installé les nœuds de cluster et souhaitez configurer un cluster de basculement de serveur de fichiers, consultez étapes de configuration d’un cluster de serveurs de fichiers à deux nœuds, plus loin dans ce guide.
 
-### <a name="step-1-connect-the-cluster-servers-to-the-networks-and-storage"></a>Étape 1 : connecter les serveurs de cluster aux réseaux et au stockage
+### <a name="step-1-connect-the-cluster-servers-to-the-networks-and-storage"></a>Étape 1 : connecter les serveurs de cluster aux réseaux et au stockage
 
 Pour un réseau de cluster de basculement, évitez d'avoir des points de défaillance uniques. Il existe plusieurs façons d'y parvenir. Vous pouvez connecter vos nœuds de cluster à l'aide de plusieurs réseaux distincts. Vous pouvez également connecter vos nœuds de cluster à l'aide d'un réseau construit avec des cartes réseau associées, des commutateurs redondants, des routeurs redondants ou tout autre matériel similaire permettant de supprimer les points de défaillance uniques (si vous utilisez un réseau pour iSCSI, vous devez le créer en plus des autres réseaux).
 
@@ -159,7 +159,7 @@ Pour un cluster de serveur de fichiers à deux nœuds, lorsque vous connectez le
 
 9. Vérifiez le format des volumes ou numéros d’unités logiques exposés. Il est recommandé d'utiliser le format NTFS (pour le disque témoin, vous devez utiliser NTFS).
 
-### <a name="step-2-install-the-file-server-role-and-failover-cluster-feature"></a>Étape 2 : Installer le rôle de serveur de fichiers et la fonctionnalité de cluster de basculement
+### <a name="step-2-install-the-file-server-role-and-failover-cluster-feature"></a>Étape 2 : installer le rôle de serveur de fichiers et la fonctionnalité de cluster de basculement
 
 Dans cette étape, le rôle de serveur de fichiers et la fonctionnalité de cluster de basculement seront installés. Les deux serveurs doivent exécuter Windows Server 2016 ou Windows Server 2019.
 
@@ -219,7 +219,7 @@ Dans cette étape, le rôle de serveur de fichiers et la fonctionnalité de clus
 
 6. Répétez les étapes sur le second serveur.
 
-### <a name="step-3-validate-the-cluster-configuration"></a>Étape 3 : valider la configuration du cluster
+### <a name="step-3-validate-the-cluster-configuration"></a>Étape 3 : valider la configuration du cluster
 
 Avant de créer un cluster, il est fortement recommandé de valider votre configuration. La validation vous permet de vérifier que la configuration de vos serveurs, du réseau et du stockage répond à un ensemble de conditions requises spécifiques aux clusters de basculement.
 
@@ -252,11 +252,11 @@ Avant de créer un cluster, il est fortement recommandé de valider votre config
     ```PowerShell
     Test-Cluster -Node "NODE1","NODE2"
     ```
-4. Pour afficher les résultats des tests après avoir fermé l’Assistant, consultez le fichier spécifié (dans SystemRoot\Cluster\Reports @ no__t-0, apportez les modifications nécessaires à la configuration et réexécutez les tests.
+4. Pour afficher les résultats des tests après avoir fermé l’Assistant, consultez le fichier spécifié (dans SystemRoot\Cluster\Reports\), apportez les modifications nécessaires à la configuration et réexécutez les tests.
 
 Pour plus d’informations, consultez [validation d’une configuration de cluster de basculement](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v=ws.11)).
 
-### <a name="step-4-create-the-cluster"></a>Étape 4 : Créer le cluster
+### <a name="step-4-create-the-cluster"></a>Étape 4 : créer le cluster
 
 La commande suivante permet de créer un cluster à partir des ordinateurs et de la configuration que vous avez.
 
@@ -317,7 +317,7 @@ Pour configurer un cluster de basculement de serveur de fichiers, suivez les ét
 
    ![Type de serveur de fichiers](media/Cluster-File-Server/Cluster-FS-File-Server-Type.png)
 
-8. Dans la fenêtre **point d’accès client** , entrez le nom du serveur de fichiers que vous allez utiliser.  Notez qu’il ne s’agit pas du nom du cluster.  Il s’agit de la connectivité de partage de fichiers.  Par exemple, si je souhaite me connecter à \\SERVER, le nom entré est SERVER.
+8. Dans la fenêtre **point d’accès client** , entrez le nom du serveur de fichiers que vous allez utiliser.  Notez qu’il ne s’agit pas du nom du cluster.  Il s’agit de la connectivité de partage de fichiers.  Par exemple, si je souhaite me connecter au serveur \\, le nom entré est serveur.
 
    > [!NOTE]
    > Si vous utilisez des adresses IP statiques, vous devrez sélectionner le réseau à utiliser et entrer l’adresse IP qu’elle utilisera pour le nom du cluster.  Si vous utilisez DHCP pour vos adresses IP, l’adresse IP est configurée automatiquement pour vous.

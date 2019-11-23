@@ -19,7 +19,7 @@ ms.locfileid: "71403514"
 
 >S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
 
-Le mode TPM utilise un identificateur de module de plateforme sécurisée (également appelé identificateur de plateforme ou clé de type EK \[EKpub @ no__t-1) pour commencer à déterminer si un hôte particulier est autorisé comme « protégé ». Ce mode d’attestation utilise les mesures de démarrage sécurisé et d’intégrité du code pour s’assurer qu’un ordinateur hôte Hyper-V donné se trouve dans un état sain et exécute uniquement du code de confiance. Pour que l’attestation comprenne ce qui est et n’est pas intègre, vous devez capturer les artefacts suivants :
+Le mode TPM utilise un identificateur de module de plateforme sécurisée (également appelé identificateur de plateforme ou clé de type EK \[EKpub\]) pour commencer à déterminer si un hôte particulier est autorisé comme « protégé ». Ce mode d’attestation utilise les mesures de démarrage sécurisé et d’intégrité du code pour s’assurer qu’un ordinateur hôte Hyper-V donné se trouve dans un état sain et exécute uniquement du code de confiance. Pour que l’attestation comprenne ce qui est et n’est pas intègre, vous devez capturer les artefacts suivants :
 
 1.  Identificateur du module de plateforme sécurisée (EKpub)
 
@@ -64,7 +64,7 @@ Un hôte peut uniquement attester si tous les artefacts (EKPub + TPM de référe
     > Si vous rencontrez une erreur lors de l’ajout d’un identificateur TPM concernant un certificat de clé de type EK non approuvé (EKCert), assurez-vous que les [certificats racines TPM approuvés ont été ajoutés](guarded-fabric-install-trusted-tpm-root-certificates.md) au nœud SGH.
     > En outre, certains fournisseurs de module de plateforme sécurisée n’utilisent pas EKCerts.
     > Vous pouvez vérifier si un EKCert est manquant en ouvrant le fichier XML dans un éditeur tel que le bloc-notes et en recherchant un message d’erreur indiquant qu’aucun EKCert n’a été trouvé.
-    > Si c’est le cas et que vous faites confiance à l’authenticité du module de plateforme sécurisée de votre ordinateur, vous pouvez utiliser le paramètre `-Force` pour ajouter l’identificateur d’hôte à SGH. Dans Windows Server 2019, vous devez également utiliser le paramètre `-PolicyVersion v1` lors de l’utilisation de `-Force`. Cela crée une stratégie cohérente avec le comportement de Windows Server 2016 et vous oblige à utiliser `-PolicyVersion v1` lors de l’enregistrement de la stratégie CI et de la ligne de base du module de plateforme sécurisée (TPM).
+    > Si c’est le cas et que vous faites confiance à l’authenticité du module de plateforme sécurisée de votre ordinateur, vous pouvez utiliser le paramètre `-Force` pour ajouter l’identificateur d’hôte à SGH. Dans Windows Server 2019, vous devez également utiliser le paramètre `-PolicyVersion v1` lors de l’utilisation de `-Force`. Cela crée une stratégie cohérente avec le comportement de Windows Server 2016 et vous oblige à utiliser `-PolicyVersion v1` lors de l’enregistrement de la stratégie CI et de la ligne de base du module de plateforme sécurisée.
 
 ## <a name="create-and-apply-a-code-integrity-policy"></a>Créer et appliquer une stratégie d’intégrité du code
 
@@ -74,8 +74,8 @@ Une stratégie d’intégrité du code doit être appliquée à chaque hôte ser
 
 À compter de Windows Server version 1709, les exemples de stratégies d’intégrité du code sont inclus avec Windows sur C:\Windows\schemas\CodeIntegrity\ExamplePolicies. Deux stratégies sont recommandées pour Windows Server :
 
-- **AllowMicrosoft**: Autorise tous les fichiers signés par Microsoft. Cette stratégie est recommandée pour les applications serveur telles que SQL ou Exchange, ou si le serveur est analysé par les agents publiés par Microsoft.
-- **DefaultWindows_Enforced**: Autorise uniquement les fichiers livrés avec Windows et n’autorise pas les autres applications publiées par Microsoft, telles qu’Office. Cette stratégie est recommandée pour les serveurs qui exécutent uniquement des rôles serveur intégrés et des fonctionnalités telles que Hyper-V. 
+- **AllowMicrosoft**: autorise tous les fichiers signés par Microsoft. Cette stratégie est recommandée pour les applications serveur telles que SQL ou Exchange, ou si le serveur est analysé par les agents publiés par Microsoft.
+- **DefaultWindows_Enforced**: autorise uniquement les fichiers livrés dans Windows et n’autorise pas les autres applications publiées par Microsoft, comme Office. Cette stratégie est recommandée pour les serveurs qui exécutent uniquement des rôles serveur intégrés et des fonctionnalités telles que Hyper-V. 
 
 Il est recommandé de créer d’abord la stratégie CI en mode audit (journalisation) pour voir s’il manque quelque chose, puis d’appliquer la stratégie pour les charges de travail de production hôtes. 
 
@@ -128,7 +128,7 @@ Pour plus d’informations sur les niveaux de règle de stratégie CI disponible
     >[!NOTE]
     >Soyez prudent lorsque vous appliquez des stratégies CI aux hôtes et lorsque vous mettez à jour des logiciels sur ces ordinateurs. Les pilotes en mode noyau qui ne sont pas conformes à la stratégie d’intégration continue peuvent empêcher le démarrage de l’ordinateur. 
 
-6.  Fournissez le fichier binaire (dans cet exemple, HW1CodeIntegrity @ no__t-0enforced. p7b) à l’administrateur SGH.
+6.  Fournissez le fichier binaire (dans cet exemple, HW1CodeIntegrity\_imposés. p7b) à l’administrateur SGH.
 
 7.  Dans le domaine SGH, copiez la stratégie d’intégrité du code sur un serveur SGH et exécutez la commande suivante.
 

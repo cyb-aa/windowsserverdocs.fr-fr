@@ -23,7 +23,7 @@ ms.locfileid: "71383258"
 ---
 # <a name="add-servers-to-server-manager"></a>Ajouter des serveurs au Gestionnaire de serveur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans Windows Server, vous pouvez gérer plusieurs serveurs distants à l’aide d’une seule console du Gestionnaire de serveur. Les serveurs que vous voulez gérer à l’aide du Gestionnaire de serveur peuvent exécuter Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008. Notez que vous ne pouvez pas gérer une version plus récente de Windows Server avec une version antérieure du Gestionnaire de serveur.
 
@@ -129,7 +129,7 @@ Ces erreurs ou des erreurs similaires peuvent se produire dans les conditions su
 3.  > [!IMPORTANT]
     > L’exécution de l’applet de commande à cette étape a pour effet de remplacer les mesures de Contrôle de compte d’utilisateur (UAC) qui empêchent l’exécution de processus élevés sur les ordinateurs de groupe de travail, sauf si le compte Administrateur ou Système intégré exécute ces processus. L’applet de commande permet aux membres du groupe Administrateurs de gérer le serveur de groupe de travail sans se connecter via le compte Administrateur intégré. En autorisant des utilisateurs supplémentaires à gérer le serveur de groupe de travail, vous pouvez réduire la sécurité de ce dernier. Cette opération est néanmoins plus sûre que de fournir les informations d’identification d’un compte Administrateur intégré à une multitude possible de personnes chargées de gérer le serveur de groupe de travail.
 
-    Pour outrepasser les restrictions du contrôle de compte d’utilisateur relatives à l’exécution de processus élevés sur les ordinateurs de groupe de travail, créez une entrée de Registre nommée **LocalAccountTokenFilterPolicy** sur l’ordinateur de groupe de travail en exécutant l’applet de commande suivante.
+    Pour outrepasser les restrictions liées au contrôle de compte d’utilisateur (UAC) relatives à l’exécution de processus élevés sur les ordinateurs de groupe de travail, créez une entrée de Registre nommée **LocalAccountTokenFilterPolicy** sur l’ordinateur de groupe de travail en exécutant l’applet de commande suivante.
 
     ```
     New-ItemProperty -Name LocalAccountTokenFilterPolicy -path HKLM:\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System -propertytype DWord -value 1

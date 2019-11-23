@@ -22,9 +22,9 @@ ms.locfileid: "71378422"
 ---
 # <a name="dfsdiag-testdfsconfig"></a>Dfsdiag TestDFSConfig
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vérifie la configuration d’un espace de noms système de fichiers DFS \(DFS @ no__t-1 en effectuant les actions suivantes :  
+Vérifie la configuration d’un système de fichiers DFS \(espace de noms DFS\) en effectuant les actions suivantes :  
   
 -   vérifie que le service d’espace de noms DFS est en cours d’exécution et que son type de démarrage est défini sur automatique sur tous les serveurs d’espaces de noms.  
   
@@ -50,7 +50,7 @@ dfsdiag /TestDFSConfig /DFSRoot:<namespace>
   
 |       Paramètre       |               Description               |
 |-----------------------|-----------------------------------------|
-| \/DFSRoot : <namespace> | Espace de noms \(DFS racine @ no__t-1 à diagnostiquer. |
+| \/DFSRoot :<namespace> | Espace de noms \(\) racine DFS à diagnostiquer. |
   
 ## <a name="BKMK_Examples"></a>Illustre  
 À TBD, tapez :  

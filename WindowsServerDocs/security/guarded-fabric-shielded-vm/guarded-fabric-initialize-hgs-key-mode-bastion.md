@@ -16,7 +16,7 @@ ms.locfileid: "71403640"
 ---
 # <a name="initialize-the-hgs-cluster-using-key-mode-in-an-existing-bastion-forest"></a>Initialiser le cluster SGH à l’aide du mode clé dans une forêt bastion existante
 
-> S’applique à : Windows Server 2019
+> S’applique à : Windows Server 2019
 > 
 > [!div class="step-by-step"]
 > [« Installer SGH dans une nouvelle forêt](guarded-fabric-install-hgs-in-a-bastion-forest.md)
@@ -43,5 +43,5 @@ Install-ADServiceAccount -Identity 'HGSgMSA'
 Initialize-HgsServer -UseExistingDomain -ServiceAccount 'HGSgMSA' -JeaReviewersGroup 'HgsJeaReviewers' -JeaAdministratorsGroup 'HgsJeaAdmins' -HgsServiceName 'HgsService' -ClusterName 'HgsCluster' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustHostKey
 ```
 
-Si vous utilisez des certificats installés sur l’ordinateur local (tels que des certificats sauvegardés par HSM et des certificats non exportables), utilisez les paramètres `-SigningCertificateThumbprint` et `-EncryptionCertificateThumbprint` à la place.
+Si vous utilisez des certificats installés sur l’ordinateur local (tels que des certificats sauvegardés par HSM et des certificats non exportables), utilisez plutôt les paramètres `-SigningCertificateThumbprint` et `-EncryptionCertificateThumbprint`.
 

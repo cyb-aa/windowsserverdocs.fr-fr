@@ -17,21 +17,21 @@ ms.locfileid: "71356029"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-in-active-directory"></a>Utiliser une stratégie DNS pour un déploiement DNS Split-Brain dans Active Directory
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour tirer parti des fonctionnalités de gestion du trafic des stratégies DNS pour les déploiements de fractionnement @ no__t-0brain avec Active Directory zones DNS intégrées dans Windows Server 2016.
+Vous pouvez utiliser cette rubrique pour tirer parti des fonctionnalités de gestion du trafic des stratégies DNS pour les déploiements de fractionnement\-Brain avec Active Directory zones DNS intégrées dans Windows Server 2016.
 
-Dans Windows Server 2016, la prise en charge des stratégies DNS est étendue à Active Directory zones DNS intégrées. L’intégration de Active Directory fournit des fonctionnalités de haute disponibilité à plusieurs no__t-0master au serveur DNS. 
+Dans Windows Server 2016, la prise en charge des stratégies DNS est étendue à Active Directory zones DNS intégrées. L’intégration de Active Directory offre des fonctionnalités de haute disponibilité maître à plusieurs\-au serveur DNS. 
 
-Auparavant, ce scénario nécessitait que les administrateurs DNS maintiennent deux serveurs DNS différents, chacun fournissant des services à chaque ensemble d’utilisateurs, interne et externe. Si seuls quelques enregistrements à l’intérieur de la zone étaient fractionnés @ no__t-0brained ou si les deux instances de la zone (interne et externe) ont été déléguées au même domaine parent, il s’agit d’un énigme de gestion.
+Auparavant, ce scénario nécessitait que les administrateurs DNS maintiennent deux serveurs DNS différents, chacun fournissant des services à chaque ensemble d’utilisateurs, interne et externe. Si seuls quelques enregistrements à l’intérieur de la zone étaient fractionnés\-cerveaud ou si les deux instances de la zone (interne et externe) étaient déléguées au même domaine parent, cela devenait un énigme de gestion.
 
 > [!NOTE]
-> - Les déploiements DNS sont divisés en @ no__t-0brain lorsqu’il existe deux versions d’une seule zone, une version pour les utilisateurs internes sur l’intranet de l’organisation et une version pour les utilisateurs externes, qui sont généralement des utilisateurs sur Internet.
-> - La rubrique [utiliser une stratégie DNS pour le déploiement DNS split-brain](split-brain-DNS-deployment.md) explique comment vous pouvez utiliser des stratégies DNS et des étendues de zone pour déployer un système DNS split @ no__t-1brain sur un serveur DNS Windows Server 2016 unique.
+> - Les déploiements DNS sont répartis\-cerveau lorsqu’il existe deux versions d’une seule zone, une version pour les utilisateurs internes sur l’intranet de l’organisation et une version pour les utilisateurs externes, qui sont généralement des utilisateurs sur Internet.
+> - La rubrique [utiliser une stratégie DNS pour le déploiement DNS split-brain](split-brain-DNS-deployment.md) explique comment utiliser des stratégies DNS et des étendues de zone pour déployer un système DNS de fractionnement\-Brain sur un serveur DNS Windows Server 2016 unique.
 
 
 
-##  <a name="example-split-brain-dns-in-active-directory"></a>Exemple de fractionnement du DNS @ no__t-0Brain dans Active Directory
+##  <a name="example-split-brain-dns-in-active-directory"></a>Exemple de fractionnement du DNS du cerveau\-dans Active Directory
 
 Cet exemple utilise une société fictive contoso, qui gère un site Web de carrière sur www.career.contoso.com.
 
@@ -43,7 +43,7 @@ En l’absence de stratégie DNS, l’administrateur doit héberger ces deux zon
 
 À l’aide de stratégies DNS, ces zones peuvent désormais être hébergées sur le même serveur DNS.
 
-Si le serveur DNS pour contoso.com est Active Directory intégré et est à l’écoute de deux interfaces réseau, l’administrateur DNS contoso peut suivre les étapes de cette rubrique pour réaliser un déploiement Split @ no__t-0brain.
+Si le serveur DNS pour contoso.com est Active Directory intégré et qu’il est à l’écoute de deux interfaces réseau, l’administrateur DNS contoso peut suivre les étapes de cette rubrique pour réaliser un déploiement\-Brain Split.
 
 L’administrateur DNS configure les interfaces du serveur DNS avec les adresses IP suivantes.
 
@@ -54,7 +54,7 @@ L’illustration suivante représente ce scénario.
 
 ![Déploiement du DNS intégré à AD split-brain](../../media/DNS-SB-AD/DNS-SB-AD.jpg)
 
-## <a name="how-dns-policy-for-split-brain-dns-in-active-directory-works"></a>Fonctionnement de la stratégie DNS de Split @ no__t-0Brain DNS dans Active Directory
+## <a name="how-dns-policy-for-split-brain-dns-in-active-directory-works"></a>Fonctionnement de la stratégie DNS pour le\-Split DNS du cerveau dans Active Directory
 
 Lorsque le serveur DNS est configuré avec les stratégies DNS requises, chaque demande de résolution de nom est évaluée par rapport aux stratégies sur le serveur DNS.
 
@@ -64,7 +64,7 @@ Si l’interface de serveur sur laquelle la requête est reçue correspond à l�
 
 Ainsi, dans notre exemple, les requêtes DNS pour www.career.contoso.com reçues sur l’adresse IP privée (10.0.0.56) reçoivent une réponse DNS qui contient une adresse IP interne ; et les requêtes DNS reçues sur l’interface réseau publique reçoivent une réponse DNS qui contient l’adresse IP publique dans l’étendue de la zone par défaut (cela est identique à la résolution de requête normale).  
 
-La prise en charge des mises à jour et du nettoyage du DNS dynamique \(DDNS @ no__t-1 est prise en charge uniquement sur l’étendue de la zone par défaut. Étant donné que les clients internes sont desservis par l’étendue de zone par défaut, les administrateurs DNS contoso peuvent continuer à utiliser les mécanismes existants (DNS dynamique ou statique) pour mettre à jour les enregistrements dans contoso.com. Pour les étendues de zone non @ no__t-0default \(such comme étendue externe dans cet exemple, @ no__t-2, la prise en charge DDNS ou de nettoyage n’est pas disponible.
+La prise en charge des mises à jour et du nettoyage du DNS dynamique \(DDNS\) est prise en charge uniquement sur l’étendue de la zone par défaut. Étant donné que les clients internes sont desservis par l’étendue de zone par défaut, les administrateurs DNS contoso peuvent continuer à utiliser les mécanismes existants (DNS dynamique ou statique) pour mettre à jour les enregistrements dans contoso.com. Pour les étendues de zone par défaut non\-\(telles que l’étendue externe dans cet exemple\), la prise en charge DDNS ou de nettoyage n’est pas disponible.
 
 ### <a name="high-availability-of-policies"></a>Haute disponibilité des stratégies
 
@@ -82,7 +82,7 @@ Pour plus d’informations, consultez les rubriques de référence Windows Power
 - [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)
 
 
-## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>Procédure de configuration de la stratégie DNS pour le serveur DNS split @ no__t-0Brain dans Active Directory
+## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>Comment configurer la stratégie DNS pour le\-Split DNS Brain dans Active Directory
 
 Pour configurer le déploiement de Split-Brain DNS à l’aide d’une stratégie DNS, vous devez utiliser les sections suivantes, qui fournissent des instructions de configuration détaillées.
 
@@ -112,11 +112,11 @@ Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.micr
 
 ### <a name="add-records-to-the-zone-scopes"></a>Ajouter des enregistrements aux étendues de zone
 
-L’étape suivante consiste à ajouter les enregistrements représentant l’hôte du serveur Web dans les deux étendues de zone : External et default \(for-no__t-1. 
+L’étape suivante consiste à ajouter les enregistrements qui représentent l’hôte du serveur Web dans les deux étendues de zone : External et default \(pour les clients internes\). 
 
-Dans l’étendue de la zone interne par défaut, l’enregistrement www.career.contoso.com est ajouté avec l’adresse IP 10.0.0.39, qui est une adresse IP privée. et dans l’étendue de la zone externe, le même enregistrement @no__t -0www. carrière. contoso. com @ no__t-1 est ajouté avec l’adresse IP publique 65.55.39.10. 
+Dans l’étendue de la zone interne par défaut, l’enregistrement www.career.contoso.com est ajouté avec l’adresse IP 10.0.0.39, qui est une adresse IP privée. et dans l’étendue de la zone externe, le même enregistrement \(www.career.contoso.com\) est ajouté avec l’adresse IP publique 65.55.39.10. 
 
-Les enregistrements \(both dans l’étendue de la zone interne par défaut et l’étendue de la zone externe @ no__t-1 sont automatiquement répliqués sur le domaine avec leurs étendues de zone respectives.
+Les enregistrements \(à la fois dans l’étendue de zone interne par défaut et dans l’étendue de la zone externe\) automatiquement répliqués sur le domaine avec leurs étendues de zone respectives.
 
 Vous pouvez utiliser l’exemple de commande suivant pour ajouter des enregistrements aux étendues de zone sur le serveur DNS.
 
@@ -134,7 +134,7 @@ Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs
 Une fois que vous avez identifié les interfaces de serveur pour le réseau externe et le réseau interne et que vous avez créé les étendues de zone, vous devez créer des stratégies DNS qui connectent les étendues de zone interne et externe.
 
 > [!NOTE]
-> Cet exemple utilise le paramètre \(the-ServerInterface de l’interface de serveur dans l’exemple de commande ci-dessous de @ no__t-1 comme critère pour différencier les clients internes et externes. Une autre méthode pour différencier les clients externes et internes consiste à utiliser des sous-réseaux clients en tant que critères. Si vous pouvez identifier les sous-réseaux auxquels appartiennent les clients internes, vous pouvez configurer la stratégie DNS pour la différencier en fonction du sous-réseau client. Pour plus d’informations sur la configuration de la gestion du trafic à l’aide de critères de sous-réseau client, consultez [utiliser une stratégie DNS pour la gestion du trafic basée sur la géolocalisation avec les serveurs principaux](primary-geo-location.md).
+> Cet exemple utilise l’interface de serveur \(le paramètre-ServerInterface dans l’exemple de commande ci-dessous\) en tant que critères pour faire la distinction entre les clients internes et externes. Une autre méthode pour différencier les clients externes et internes consiste à utiliser des sous-réseaux clients en tant que critères. Si vous pouvez identifier les sous-réseaux auxquels appartiennent les clients internes, vous pouvez configurer la stratégie DNS pour la différencier en fonction du sous-réseau client. Pour plus d’informations sur la configuration de la gestion du trafic à l’aide de critères de sous-réseau client, consultez [utiliser une stratégie DNS pour la gestion du trafic basée sur la géolocalisation avec les serveurs principaux](primary-geo-location.md).
 
 Une fois que vous avez configuré des stratégies, lorsqu’une requête DNS est reçue sur l’interface publique, la réponse est retournée à partir de la portée externe de la zone. 
 

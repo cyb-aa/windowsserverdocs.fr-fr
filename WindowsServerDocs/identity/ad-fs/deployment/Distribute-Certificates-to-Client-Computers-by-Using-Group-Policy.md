@@ -19,23 +19,23 @@ ms.locfileid: "71359623"
 # <a name="distribute-certificates-to-client-computers-by-using-group-policy"></a>Distribuer des certificats aux ordinateurs clients à l’aide de stratégie de groupe
 
 
-Vous pouvez utiliser la procédure suivante pour pousser les certificats équivalents de l’protocole SSL \(SSL @ no__t-1 \(or qui s’enchaînent à une racine approuvée @ no__t-3 pour les serveurs de Fédération de comptes, les serveurs de Fédération de ressources et Serveurs Web sur chaque ordinateur client de la forêt du partenaire de compte à l’aide de stratégie de groupe.  
+Vous pouvez utiliser la procédure suivante pour envoyer les certificats de\) protocole SSL \(SSL appropriés \(ou des certificats équivalents qui sont liés à un\) racine approuvé pour les serveurs de Fédération de comptes, les serveurs de Fédération de ressources et les serveurs Web sur chaque ordinateur client de la forêt du partenaire de compte à l’aide de stratégie de groupe.  
   
-Pour effectuer cette procédure, vous devez au minimum appartenir au groupe **Admins du domaine** ou administrateurs de l' **entreprise**ou à un groupe équivalent dans Active Directory Domain Services \(AD DS @ no__t-3.  Passez en revue les détails sur l’utilisation des comptes et des appartenances aux groupes appropriés dans les\/ \( [groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477) http :\/Go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
+Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Admins du domaine** ou administrateurs de l' **entreprise**, ou à un groupe équivalent, dans Active Directory Domain Services \(AD DS\).  Passez en revue les détails sur l’utilisation des comptes et des appartenances aux groupes appropriés dans les [groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477) \(http :\/\/Go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
   
 ### <a name="to-distribute-certificates-to-client-computers-by-using-group-policy"></a>Pour distribuer des certificats aux ordinateurs clients à l’aide de stratégie de groupe  
   
-1.  Sur un contrôleur de domaine dans la forêt de l’organisation partenaire de compte, démarrez le composant logiciel enfichable de **gestion de stratégie de groupe** @ no__t-1Dans.  
+1.  Sur un contrôleur de domaine dans la forêt de l’organisation partenaire de compte, démarrez le\-du composant logiciel enfichable de **gestion de stratégie de groupe** dans.  
   
-2.  Recherchez un objet stratégie de groupe existant \(GPO @ no__t-1 ou créez un nouvel objet de stratégie de groupe contenant les paramètres du certificat. Assurez-vous que l’objet de stratégie de groupe est associé au domaine, au site ou à l’unité d’organisation @no__t 0OU @ no__t-1 où se trouvent les comptes d’utilisateur et d’ordinateur appropriés.  
+2.  Recherchez un objet stratégie de groupe existant \(objet de stratégie de groupe\) ou créez un nouvel objet de stratégie de groupe contenant les paramètres du certificat. Assurez-vous que l’objet de stratégie de groupe est associé au domaine, au site ou à l’unité d’organisation \(UO\) où se trouvent les comptes d’utilisateur et d’ordinateur appropriés.  
   
-3.  Right @ no__t-0click l’objet de stratégie de groupe, puis cliquez sur **modifier**.  
+3.  Cliquez avec le bouton droit\-sur l’objet de stratégie de groupe, puis cliquez sur **modifier**.  
   
-4.  Dans l’arborescence de la console, ouvrez **Configuration ordinateur @ no__t-1Policies @ no__t-2Windows paramètres @ no__t-3Security paramètres @ no__t-4Public stratégies de clé**, à droite @ no__t-5Click **autorités de certification racines de confiance**, puis cliquez sur **Importer.** .  
+4.  Dans l’arborescence de la console, ouvrez Configuration de l' **ordinateur\\stratégies\\paramètres Windows\\paramètres de sécurité\\stratégies de clé publique**,\-cliquez avec le bouton droit sur **autorités de certification racines de confiance**, puis cliquez sur **Importer**.  
   
 5.  Dans la page **Bienvenue** de l'Assistant Importation de certificat, cliquez sur **Suivant**.  
   
-6.  Sur la page **fichier à importer** , tapez le chemin d’accès aux fichiers de certificat appropriés \(Pour exemple, \\ @ no__t-3FS1 @ no__t-4c $ @no__t -5fs1. cer @ no__t-6, puis cliquez sur **suivant**.  
+6.  Sur la page **fichier à importer** , tapez le chemin d’accès aux fichiers de certificat appropriés \(par exemple, \\\\FS1\\c $\\FS1. cer\), puis cliquez sur **suivant**.  
   
 7.  Dans la page **magasin de certificats** , cliquez sur **Placer tous les certificats dans le magasin suivant**, puis cliquez sur **suivant**.  
   

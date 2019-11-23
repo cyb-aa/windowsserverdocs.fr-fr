@@ -36,9 +36,9 @@ WDSUTIL /Copy-DriverGroup [/Server:<Server name>] /DriverGroup:<Source Group Nam
 
 |Paramètre|Description|
 |---------|-----------|
-|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|/DriverGroup : \<Source nom du groupe >|Spécifie le nom du groupe de pilotes source.|
-|/GroupName : \<New nom du groupe >|Spécifie le nom du nouveau groupe de pilotes.|
+|[/Server :\<nom du serveur >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|/DriverGroup :\<nom du groupe source >|Spécifie le nom du groupe de pilotes source.|
+|/GroupName :\<nom du nouveau groupe >|Spécifie le nom du nouveau groupe de pilotes.|
 
 ## <a name="BKMK_examples"></a>Illustre
 

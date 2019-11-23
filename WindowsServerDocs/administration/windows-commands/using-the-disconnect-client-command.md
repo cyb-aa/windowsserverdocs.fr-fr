@@ -36,9 +36,9 @@ WDSUTIL /Disconnect-Client /ClientId:<Client ID> [/Server:<Server name>] [/Force
 
 |Paramètre|Description|
 |---------|-----------|
-|/ClientId : ID de \<Client >|Spécifie l’ID du client à déconnecter. Pour afficher l’ID d’un client, tapez **WDSUTIL/Get-MulticastTransmission/Show : clients**.|
-|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|/Force|Arrête complètement l’installation et n’utilise pas de méthode de secours. Notez que Wdsmcast. exe ne prend en charge aucun mécanisme de secours. Si vous n’utilisez pas cette option, le comportement par défaut est le suivant :</br>-Si vous utilisez le client des services de déploiement Windows, le client continue l’installation à l’aide de la monodiffusion.</br>-Si vous n’utilisez pas le client des services de déploiement Windows, l’installation échoue.</br>Important : Vous devez utiliser cette option avec précaution, car l’installation échoue et l’ordinateur peut être laissé dans un état inutilisable.|
+|/ClientId : ID client\<>|Spécifie l’ID du client à déconnecter. Pour afficher l’ID d’un client, tapez **WDSUTIL/Get-MulticastTransmission/Show : clients**.|
+|[/Server :\<nom du serveur >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|/Force|Arrête complètement l’installation et n’utilise pas de méthode de secours. Notez que Wdsmcast. exe ne prend en charge aucun mécanisme de secours. Si vous n’utilisez pas cette option, le comportement par défaut est le suivant :</br>-Si vous utilisez le client des services de déploiement Windows, le client continue l’installation à l’aide de la monodiffusion.</br>-Si vous n’utilisez pas le client des services de déploiement Windows, l’installation échoue.</br>Important : vous devez utiliser cette option avec précaution, car l’installation échoue et l’ordinateur peut être laissé dans un état inutilisable.|
 
 ## <a name="BKMK_examples"></a>Illustre
 

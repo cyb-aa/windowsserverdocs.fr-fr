@@ -31,10 +31,10 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 |Paramètre|Description|
 |---|---|
-|/for = @no__t 0ForVolumeSpec >|Spécifie le cliché instantané du volume qui sera supprimé.|
+|/for =\<> VolumeFor|Spécifie le cliché instantané du volume qui sera supprimé.|
 |/oldest|Supprime uniquement le cliché instantané le plus ancien.|
 |All|Supprime tous les clichés instantanés du volume spécifié.|
-|/Shadow = \<ShadowID >|Supprime le cliché instantané spécifié par ShadowID. Pour afficher l’ID du cliché instantané, utilisez la commande **vssadmin list Shadows** . Lorsque vous entrez un ID de cliché instantané, utilisez le format suivant, où chaque *X* représente un caractère hexadécimal :<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
+|/Shadow =\<ShadowID >|Supprime le cliché instantané spécifié par ShadowID. Pour afficher l’ID du cliché instantané, utilisez la commande **vssadmin list Shadows** . Lorsque vous entrez un ID de cliché instantané, utilisez le format suivant, où chaque *X* représente un caractère hexadécimal :<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
 |/quiet|Spécifie que la commande n’affichera pas de messages pendant l’exécution.|
 
 ## <a name="remarks"></a>Notes

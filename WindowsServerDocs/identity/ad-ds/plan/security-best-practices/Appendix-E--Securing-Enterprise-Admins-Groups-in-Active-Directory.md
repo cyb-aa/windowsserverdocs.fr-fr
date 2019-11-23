@@ -16,19 +16,19 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408719"
 ---
-# <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Annexe E : Sécurisation des groupes Administrateurs de l’entreprise dans Active Directory
+# <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>AnnexeE: Sécurisation des groupes d’administrateurs de l’entreprise dans Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Annexe E : Sécurisation des groupes Administrateurs de l’entreprise dans Active Directory  
-Le groupe administrateurs de l’entreprise (EA), qui est hébergé dans le domaine racine de la forêt, ne doit pas contenir d’utilisateurs au quotidien, à l’exception possible du compte administrateur du domaine racine, à condition qu’il soit sécurisé comme décrit dans [Appendix D : Sécurisation des comptes administrateur intégrés dans Active Directory @ no__t-0.  
+## <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>AnnexeE: Sécurisation des groupes d’administrateurs de l’entreprise dans Active Directory  
+Le groupe administrateurs de l’entreprise (EA), qui est hébergé dans le domaine racine de la forêt, ne doit pas contenir d’utilisateurs au quotidien, à l’exception possible du compte administrateur du domaine racine, à condition qu’il soit sécurisé, comme décrit dans l' [annexe D : sécurisation des comptes administrateur intégrés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
 Les administrateurs de l’entreprise sont, par défaut, les membres du groupe administrateurs dans chaque domaine de la forêt. Vous ne devez pas supprimer le groupe EA des groupes Administrateurs dans chaque domaine, car en cas de récupération d’urgence de forêt, les droits EA seront probablement requis. Le groupe administrateurs de l’entreprise de la forêt doit être sécurisé comme indiqué dans les instructions pas à pas qui suivent.  
 
 Pour le groupe administrateurs de l’entreprise dans la forêt :  
 
-1.  Dans les objets de stratégie de groupe liés à des unités d’organisation contenant des serveurs membres et des stations de travail dans chaque domaine, le groupe administrateurs de l’entreprise doit être ajouté aux droits d’utilisateur suivants dans l' **ordinateur \ stratégies \ stratégies \ Stratégies locales\Attribution des droits utilisateur Attributions**:  
+1.  Dans les objets de stratégie de groupe liés à des unités d’organisation contenant des serveurs membres et des stations de travail dans chaque domaine, le groupe administrateurs de l’entreprise doit être ajouté aux droits d’utilisateur suivants dans l' **ordinateur \ stratégies \ paramètres d’autorisation \ stratégies d’autorisation**:  
 
     -   Interdire l’accès à cet ordinateur à partir du réseau  
 
@@ -46,7 +46,7 @@ Pour le groupe administrateurs de l’entreprise dans la forêt :
 
 1.  Dans **Gestionnaire de serveur**, cliquez sur **Outils**, puis sur **Active Directory les utilisateurs et les ordinateurs**.  
 
-2.  Si vous ne gérez pas le domaine racine de la forêt, dans l’arborescence de la console, cliquez avec le bouton droit sur <Domain>, puis cliquez sur **modifier le domaine** (où <Domain> est le nom du domaine que vous êtes en train d’administrer).  
+2.  Si vous ne gérez pas le domaine racine de la forêt, dans l’arborescence de la console, cliquez avec le bouton droit sur <Domain>, puis cliquez sur **modifier le domaine** (où <Domain> est le nom du domaine que vous gérez actuellement).  
 
     ![sécuriser les groupes d’administration d’entreprise](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_43.gif)  
 
@@ -68,7 +68,7 @@ Pour le groupe administrateurs de l’entreprise dans la forêt :
 
 1.  Dans **Gestionnaire de serveur**, cliquez sur **Outils**, puis sur **gestion des stratégie de groupe**.  
 
-2.  Dans l’arborescence de la console, développez <Forest> \ Domains @ no__t-1 @ no__t-2, puis **stratégie de groupe objets** (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
+2.  Dans l’arborescence de la console, développez <Forest>\Domains\\<Domain>, puis **stratégie de groupe objets** (où <Forest> est le nom de la forêt et <Domain> le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
     > [!NOTE]  
     > Dans une forêt qui contient plusieurs domaines, un objet de stratégie de groupe similaire doit être créé dans chaque domaine nécessitant la sécurisation du groupe administrateurs de l’entreprise.  
@@ -163,7 +163,7 @@ Pour le groupe administrateurs de l’entreprise dans la forêt :
 
 13. Dans **stratégie de groupe gestion**, liez l’objet de stratégie de groupe aux unités d’organisation serveur et station de travail membres en procédant comme suit :  
 
-    1.  Accédez au <Forest> \ Domains @ no__t-1 @ no__t-2 (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir le stratégie de groupe).  
+    1.  Accédez au <Forest>\Domains\\<Domain> (où <Forest> est le nom de la forêt et <Domain> est le nom du domaine dans lequel vous souhaitez définir la stratégie de groupe).  
 
     2.  Cliquez avec le bouton droit sur l’unité d’organisation à laquelle l’objet de stratégie de groupe sera appliqué, puis cliquez sur **lier un objet de stratégie de groupe existant**.  
 
@@ -197,7 +197,7 @@ Pour le groupe administrateurs de l’entreprise dans la forêt :
 
     ![sécuriser les groupes d’administration d’entreprise](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_56.gif)  
 
-5.  Dans la fenêtre d' **invite de commandes** , tapez **net use \\ @ no__t-3 @ No__t-4Server Name @ no__t-5\c $** , où \<Server Name @ no__t-7 est le nom du serveur membre ou de la station de travail auquel vous essayez d’accéder sur le réseau.  
+5.  Dans la fenêtre d' **invite de commandes** , tapez **net use \\\\\<nom du serveur\>\c $** , où \<nom du serveur\> est le nom du serveur membre ou de la station de travail à laquelle vous tentez d’accéder sur le réseau.  
 
 6.  La capture d’écran suivante montre le message d’erreur qui doit s’afficher.  
 

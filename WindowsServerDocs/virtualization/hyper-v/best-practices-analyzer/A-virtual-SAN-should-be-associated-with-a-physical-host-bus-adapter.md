@@ -19,7 +19,7 @@ ms.locfileid: "71366689"
 ---
 # <a name="a-virtual-san-should-be-associated-with-a-physical-host-bus-adapter"></a>Un réseau SAN virtuel doit être associé à un adaptateur de bus hôte physique
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
   
@@ -37,10 +37,10 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Un réseau de zone de stockage (SAN) virtuel a été configuré sans association à une carte de bus hôte (HBA).*  
   
 ## <a name="impact"></a>**Impact**  
-le démarrage de l’ordinateur virtuel *A échoue lorsqu’il est configuré avec une carte Fibre Channel virtuelle connectée à un réseau SAN virtuel mal configuré. Cela a un impact sur les réseaux SAN virtuels suivants :*  
+*Un ordinateur virtuel ne peut pas démarrer lorsqu’il est configuré avec une carte Fibre Channel virtuelle connectée à un réseau SAN virtuel mal configuré. Cela a un impact sur les réseaux SAN virtuels suivants :*  
   
   
-@no__t 0list de réseaux SAN virtuels >  
+\<la liste des réseaux SAN virtuels >  
   
   
 ## <a name="resolution"></a>**Résolution**  

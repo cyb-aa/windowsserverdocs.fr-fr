@@ -17,7 +17,7 @@ ms.locfileid: "71405348"
 ---
 # <a name="network-policies"></a>Stratégies réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour obtenir une vue d’ensemble des stratégies réseau dans NPS.
 
@@ -30,7 +30,7 @@ Les stratégies réseau sont des ensembles de conditions, de contraintes et de p
 
 Lors du traitement des demandes de connexion en tant que serveur protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS), NPS effectue l’authentification et l’autorisation pour la demande de connexion. Pendant le processus d’authentification, NPS vérifie l’identité de l’utilisateur ou de l’ordinateur qui se connecte au réseau. Au cours du processus d’autorisation, le serveur NPS détermine si l’utilisateur ou l’ordinateur est autorisé à accéder au réseau.
 
-Pour effectuer ces déterminations, le serveur NPS utilise des stratégies réseau qui sont configurées dans la console NPS. NPS examine également les propriétés de numérotation du compte d’utilisateur dans Active Directory @ no__t-0 Domain Services \(AD DS @ no__t-2 pour effectuer l’autorisation.
+Pour effectuer ces déterminations, le serveur NPS utilise des stratégies réseau qui sont configurées dans la console NPS. NPS examine également les propriétés de numérotation du compte d’utilisateur dans Active Directory&reg; services de domaine \(AD DS\) pour effectuer l’autorisation.
 
 ## <a name="network-policies---an-ordered-set-of-rules"></a>Stratégies réseau-un ensemble ordonné de règles
 
@@ -47,7 +47,7 @@ Chaque stratégie réseau a un paramètre d’état de la **stratégie** qui vou
 
 Il existe quatre catégories de propriétés pour chaque stratégie réseau :
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 
  Ces propriétés vous permettent de spécifier si la stratégie est activée, si la stratégie accorde ou refuse l’accès, et si une méthode de connexion réseau spécifique, ou un type de serveur d’accès réseau (NAS), est requis pour les demandes de connexion. Les propriétés de vue d’ensemble vous permettent également de spécifier si les propriétés de numérotation des comptes d’utilisateur dans AD DS sont ignorées. Si vous sélectionnez cette option, seuls les paramètres de la stratégie réseau sont utilisés par NPS pour déterminer si la connexion est autorisée.
 

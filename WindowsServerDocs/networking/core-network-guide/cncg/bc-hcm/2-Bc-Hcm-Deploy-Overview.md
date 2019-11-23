@@ -17,7 +17,7 @@ ms.locfileid: "71406372"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment-overview"></a>Présentation du déploiement du mode de cache hébergé BranchCache
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser ce guide pour déployer un serveur de cache hébergé de BranchCache dans une filiale où les ordinateurs sont joints à un domaine. Vous pouvez utiliser cette rubrique pour obtenir une vue d’ensemble du processus de déploiement en mode de cache hébergé de BranchCache.
 
@@ -25,7 +25,7 @@ Cette vue d’ensemble comprend l’infrastructure BranchCache dont vous avez be
 
 ## <a name="bkmk_components"></a>Infrastructure de déploiement du serveur de cache hébergé
 
-Dans ce déploiement, le serveur de cache hébergé est déployé à l’aide de points de connexion de service dans Active Directory Domain Services \(AD DS @ no__t-1, et vous avez la possibilité avec BranchCache dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012, pour préhacher le contenu partagé sur les serveurs de contenu Web et basés sur des fichiers, Préchargez le contenu sur les serveurs de cache hébergé.
+Dans ce déploiement, le serveur de cache hébergé est déployé à l’aide de points de connexion de service dans Active Directory Domain Services \(AD DS\), et vous avez l’option avec BranchCache dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012, pour préhacher le contenu partagé sur les serveurs de contenu Web et basés sur des fichiers, puis précharger le contenu sur les serveurs de cache hébergé.
 
 L’illustration suivante montre l’infrastructure requise pour déployer un serveur de cache hébergé BranchCache.
 
@@ -40,11 +40,11 @@ Vous devez configurer cet ordinateur en tant que serveur de cache hébergé. Si 
 
 ### <a name="web1-in-the-cloud-data-center"></a>WEB1 dans le centre de données Cloud
 
-WEB1 est un serveur de contenu BranchCache @ no__t-0enabled. Si vous choisissez de préhacher des données de serveur de contenu pour pouvoir précharger le contenu sur vos serveurs de cache hébergé, vous pouvez préhacher le contenu partagé sur WEB1, puis créer un package de données que vous copiez dans HCS1.
+WEB1 est un serveur de contenu BranchCache\-activé. Si vous choisissez de préhacher des données de serveur de contenu pour pouvoir précharger le contenu sur vos serveurs de cache hébergé, vous pouvez préhacher le contenu partagé sur WEB1, puis créer un package de données que vous copiez dans HCS1.
 
 ### <a name="file1-in-the-cloud-data-center"></a>Fichier1 dans le centre de données Cloud
 
-Fichier1 est un serveur de contenu BranchCache @ no__t-0enabled. Si vous choisissez de préhacher des données de serveur de contenu pour pouvoir précharger le contenu sur vos serveurs de cache hébergé, vous pouvez préhacher le contenu partagé sur fichier1, puis créer un package de données que vous copiez dans HCS1.
+Fichier1 est un serveur de contenu BranchCache\-activé. Si vous choisissez de préhacher des données de serveur de contenu pour pouvoir précharger le contenu sur vos serveurs de cache hébergé, vous pouvez préhacher le contenu partagé sur fichier1, puis créer un package de données que vous copiez dans HCS1.
   
 ### <a name="dc1-in-the-main-office"></a>DC1 dans le siège social
 
@@ -68,12 +68,12 @@ Le processus de déploiement d’un serveur de cache hébergé BranchCache se pr
 
 1. Sur HCS1, utilisez les commandes Windows PowerShell pour configurer l’ordinateur en tant que serveur de cache hébergé et pour inscrire un point de connexion de service dans Active Directory.
 
-2. \(Optional @ no__t-1 sur HCS1, si les valeurs par défaut BranchCache ne correspondent pas à vos objectifs de déploiement pour le serveur et le cache hébergé, configurez la quantité d’espace disque que vous souhaitez allouer pour le cache hébergé. Configurez également l’emplacement du disque que vous préférez pour le cache hébergé.
+2. \(\) facultatif sur HCS1, si les valeurs par défaut BranchCache ne correspondent pas à vos objectifs de déploiement pour le serveur et le cache hébergé, configurez la quantité d’espace disque que vous souhaitez allouer au cache hébergé. Configurez également l’emplacement du disque que vous préférez pour le cache hébergé.
 
-3. \(Optional @ no__t-1 contenu de préhachage sur les serveurs de contenu, créer des packages de données et précharger du contenu sur le serveur de cache hébergé.
+3. \(facultative\) contenu de préhachage sur les serveurs de contenu, créer des packages de données et précharger du contenu sur le serveur de cache hébergé.
 
     > [!NOTE]
-    > Le préhachage et le préchargement du contenu sur votre serveur de cache hébergé sont facultatifs. Toutefois, si vous optez pour le préhachage et le préchargement, vous devez effectuer toutes les étapes ci-dessous applicables à votre déploiement. \(For exemple, si vous n’avez pas de serveurs Web, vous n’avez pas besoin d’effectuer les étapes relatives au préhachage et au préchargement du contenu du serveur Web. \)
+    > Le préhachage et le préchargement du contenu sur votre serveur de cache hébergé sont facultatifs. Toutefois, si vous optez pour le préhachage et le préchargement, vous devez effectuer toutes les étapes ci-dessous applicables à votre déploiement. \(par exemple, si vous n’avez pas de serveurs Web, vous n’avez pas besoin d’effectuer les étapes relatives au préhachage et au préchargement du contenu du serveur Web.\)
 
     1. Sur WEB1, le contenu du serveur Web de préhachage et crée un package de données.
 

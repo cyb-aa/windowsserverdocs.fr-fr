@@ -51,7 +51,7 @@ Vous pouvez activer l’énumération basée sur l’accès pour un espace de no
 
 1.  Ouvrez une fenêtre d’invite de commandes sur un serveur sur lequel est installé le service de rôle **Système de fichiers DFS** ou la fonctionnalité **Outils du système de fichiers DFS**.
 
-2.  Tapez la commande suivante, où *< espace de noms @ no__t-1root >* est la racine de l’espace de noms :
+2.  Tapez la commande suivante, où *< espace de noms\_racine >* est la racine de l’espace de noms :
 
     ```  
     dfsutil property abe enable \\ <namespace_root>
@@ -80,13 +80,13 @@ Vous pouvez contrôler les utilisateurs et les groupes qui peuvent afficher des 
 
 1. Ouvrez une fenêtre d’invite de commandes sur un serveur sur lequel est installé le service de rôle **Système de fichiers DFS** ou la fonctionnalité **Outils du système de fichiers DFS**.
 
-2. Tapez la commande suivante, où *&lt;DFSPath @ no__t-2* est le chemin d’accès du dossier DFS (lien), *< domaine @ no__t-4Account >* est le nom du compte de groupe ou d’utilisateur, et *(...)* est remplacé par des entrées de Access Control supplémentaires ( ACE) :
+2. Tapez la commande suivante, où *&lt;DFSPath&gt;* correspond au chemin d’accès du dossier DFS (lien), *< compte de\\de domaine >* est le nom du compte de groupe ou d’utilisateur, et *(...)* est remplacé par des entrées de Access Control supplémentaires (ACE) :
 
    ```
    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
    ```
 
-   Par exemple, pour remplacer les autorisations existantes par des autorisations qui permettent aux administrateurs de domaine et aux groupes CONTOSO @ no__t-0Trainers d’accéder en lecture (R) au dossier \\contoso. office\public\training, tapez la commande suivante :
+   Par exemple, pour remplacer les autorisations existantes par des autorisations qui permettent aux administrateurs de domaine et aux groupes de formateurs CONTOSO\\d’accéder en lecture (R) au dossier \\contoso. office\public\training, tapez la commande suivante :
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -95,13 +95,13 @@ Vous pouvez contrôler les utilisateurs et les groupes qui peuvent afficher des 
 3. Pour effectuer des tâches supplémentaires à partir de l’invite de commandes, utilisez les commandes suivantes :
 
 
-| Command | Description |
+| Commande | Description |
 |---|---|
 |[Dfsutil Property SD Deny](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)|Refuse à un groupe ou un utilisateur la possibilité d’afficher le dossier.|
 |[Dfsutil Property Reset SD](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx) |Supprime toutes les autorisations du dossier.|
 |[Dfsutil Property SD Revoke](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)| Supprime une entrée de contrôle d’accès d’un groupe ou d’un utilisateur du dossier. |
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 -   [Créer un espace de noms DFS](create-a-dfs-namespace.md)
 -   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)

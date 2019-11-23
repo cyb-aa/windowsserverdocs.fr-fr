@@ -22,7 +22,7 @@ ms.locfileid: "71385647"
 ---
 # <a name="tracert"></a>tracert
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Détermine le chemin d’accès à une destination en envoyant la demande d’écho ICMP (Internet Control Message Protocol) ou des messages ICMPv6 à la destination avec des valeurs de champ TTL (Time to Live) de manière incrémentielle. Le chemin d’accès affiché est la liste des interfaces de routeur near/Side des routeurs dans le chemin d’accès entre un hôte source et une destination. L’interface near/Side est l’interface du routeur qui est le plus proche de l’hôte d’envoi dans le chemin d’accès. Utilisé sans paramètres, tracert affiche l’aide.   
 
@@ -34,14 +34,14 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 |Paramètre|Description|  
 |-------|--------|  
 |/d|Empêche le **traceurt** de tenter de résoudre les adresses IP des routeurs intermédiaires en leurs noms. Cela peut accélérer l’affichage des résultats de **tracert** .|  
-|/h @no__t 0MaximumHops >|Spécifie le nombre maximal de sauts dans le chemin d’accès pour rechercher la cible (destination). La valeur par défaut est 30 tronçons.|  
-|/j \<Hostlist >|Spécifie que les messages de demande d’écho utilisent l’option de route de source libre dans l’en-tête IP avec l’ensemble de destinations intermédiaires spécifié dans *hostlist*. Avec un routage source libre, les destinations intermédiaires successives peuvent être séparées par un ou plusieurs routeurs. Le nombre maximal d’adresses ou de noms dans la liste d’ordinateurs hôtes est de 9. Le *hostlist* est une série d’adresses IP (en notation décimale séparée par des points), séparées par des espaces. Utilisez ce paramètre uniquement lors du suivi des adresses IPv4.|  
-|/w @no__t 0timeout >|Spécifie la durée, en millisecondes, d’attente pour la réception du message ICMP de dépassement de délai ou de réponse à écho correspondant à un message de demande d’écho donné. S’il n’est pas reçu dans le délai d’attente, un astérisque (*) est affiché. Le délai d’attente par défaut est de 4000 (4 secondes).|  
+|/h \<MaximumHops >|Spécifie le nombre maximal de sauts dans le chemin d’accès pour rechercher la cible (destination). La valeur par défaut est 30 tronçons.|  
+|/j \<hostlist >|Spécifie que les messages de demande d’écho utilisent l’option de route de source libre dans l’en-tête IP avec l’ensemble de destinations intermédiaires spécifié dans *hostlist*. Avec un routage source libre, les destinations intermédiaires successives peuvent être séparées par un ou plusieurs routeurs. Le nombre maximal d’adresses ou de noms dans la liste d’ordinateurs hôtes est de 9. Le *hostlist* est une série d’adresses IP (en notation décimale séparée par des points), séparées par des espaces. Utilisez ce paramètre uniquement lors du suivi des adresses IPv4.|  
+|/w \<délai d’expiration >|Spécifie la durée, en millisecondes, d’attente pour la réception du message ICMP de dépassement de délai ou de réponse à écho correspondant à un message de demande d’écho donné. S’il n’est pas reçu dans le délai d’attente, un astérisque (*) est affiché. Le délai d’attente par défaut est de 4000 (4 secondes).|  
 |/R|Spécifie que l’en-tête d’extension de routage IPv6 doit être utilisé pour envoyer un message de demande d’écho à l’hôte local, en utilisant la destination comme destination intermédiaire et en testant l’itinéraire inverse.|  
-|/S \<Srcaddr >|Spécifie l’adresse source à utiliser dans les messages de demande d’écho. Utilisez ce paramètre uniquement lors du suivi des adresses IPv6.|  
+|/S \<srcaddr >|Spécifie l’adresse source à utiliser dans les messages de demande d’écho. Utilisez ce paramètre uniquement lors du suivi des adresses IPv6.|  
 |/4|Spécifie que tracert. exe peut uniquement utiliser IPv4 pour cette trace.|  
 |/6|Spécifie que tracert. exe peut utiliser uniquement IPv6 pour ce suivi.|  
-|@no__t 0TargetName >|Spécifie la destination, identifiée par une adresse IP ou un nom d’hôte.|  
+|\<TargetName >|Spécifie la destination, identifiée par une adresse IP ou un nom d’hôte.|  
 |/?|Affiche l'aide à l'invite de commandes.|  
 
 ## <a name="remarks"></a>Notes  

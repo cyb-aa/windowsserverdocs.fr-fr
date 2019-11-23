@@ -17,7 +17,7 @@ ms.locfileid: "71406196"
 ---
 # <a name="dns-responses-based-on-time-of-day-with-an-azure-cloud-app-server"></a>Réponses DNS basées sur l’heure du jour avec un serveur d’applications Azure Cloud
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour savoir comment distribuer le trafic d’application sur différentes instances géographiquement distribuées d’une application à l’aide de stratégies DNS basées sur l’heure de la journée. 
 
@@ -40,7 +40,7 @@ Avec une récente augmentation des activités, contosogiftservices.com a un plus
 
 Contoso Gift services effectue une analyse de site et découvre que chaque soir entre 18 h 00 et 9 h 00 heure locale, il y a un accroissement du trafic vers le serveur Web de Seattle. Le serveur Web ne peut pas se mettre à l’échelle pour gérer l’augmentation du trafic à ces heures de pointe, ce qui entraîne un déni de service pour les clients. 
 
-Pour vous assurer que les clients contosogiftservices.com bénéficient d’une expérience réactive à partir du site Web, contoso Gift services décide qu’au cours de ces heures, il loue un ordinateur virtuel \(VM @ no__t-1 sur Microsoft Azure pour héberger une copie de son serveur Web.  
+Pour vous assurer que les clients contosogiftservices.com bénéficient d’une expérience réactive à partir du site Web, contoso Gift services décide qu’au cours de ces heures, il loue un ordinateur virtuel \(machine virtuelle\) sur Microsoft Azure pour héberger une copie de son serveur Web.  
 
 Contoso Gift services obtient une adresse IP publique à partir d’Azure pour la machine virtuelle (192.68.31.44) et développe l’automatisation pour déployer le serveur Web chaque jour sur Azure entre 5-10 PM, ce qui permet une période d’urgence d’une heure.
 
@@ -100,7 +100,7 @@ L’étape suivante consiste à ajouter les enregistrements qui représentent l�
 
 Dans AzureZoneScope, l’enregistrement www.contosogiftservices.com est ajouté avec l’adresse IP 192.68.31.44, qui se trouve dans le cloud public Azure. 
 
-De même, dans l’étendue de zone par défaut @no__t -0contosogiftservices. com @ no__t-1, un enregistrement @no__t -2www. contosogiftservices. com @ no__t-3 est ajouté avec l’adresse IP 192.68.30.2 du serveur Web qui s’exécute dans le centre de centres local de Seattle.
+De même, dans l’étendue de zone par défaut \(contosogiftservices.com\), un enregistrement \(www.contosogiftservices.com\) est ajouté avec l’adresse IP 192.68.30.2 du serveur Web qui s’exécute dans le centre de centres local de Seattle.
 
 Dans la deuxième applet de commande ci-dessous, le paramètre – ZoneScope n’est pas inclus. Pour cette raison, les enregistrements sont ajoutés dans le ZoneScope par défaut. 
 

@@ -20,7 +20,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71374053"
 ---
-# <a name="manage-bde-keypackage"></a>Manage Keypackage
+# <a name="manage-bde-keypackage"></a>Manage-bde : keypackage
 
 
 
@@ -36,7 +36,7 @@ manage-bde -KeyPackage [<Drive>] [-ID <KeyProtectoryID>] [-path <PathToExternalK
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Drive >|Représente une lettre de lecteur suivie par un signe deux-points.|
+|Lecteur \<>|Représente une lettre de lecteur suivie par un signe deux-points.|
 |-ID|Créez un package de clés à l’aide du protecteur de clé avec l’identificateur spécifié par cette valeur d’ID.|
 |-chemin d’accès|Emplacement dans lequel enregistrer le package de clés créé.|
 |-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|

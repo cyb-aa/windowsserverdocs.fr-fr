@@ -19,7 +19,7 @@ ms.locfileid: "71393601"
 ---
 # <a name="offer-all-available-integration-services-to-virtual-machines"></a>Offrir tous les services d’intégration disponibles aux machines virtuelles
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d'informations sur les meilleures pratiques et les analyses, consultez [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).
   
@@ -27,7 +27,7 @@ Pour plus d'informations sur les meilleures pratiques et les analyses, consultez
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -40,11 +40,11 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 *Certaines fonctionnalités ne seront pas disponibles pour les machines virtuelles suivantes :*  
   
-@no__t 0list de noms de machines virtuelles >  
+\<liste des noms de machine virtuelle >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
-*If cette opération est intentionnelle, aucune autre action n’est requise. Dans le cas contraire, envisagez d’offrir tous les services d’intégration dans les paramètres de ces machines virtuelles.*  
+*Si cela est intentionnel, aucune action supplémentaire n’est requise. Dans le cas contraire, envisagez d’offrir tous les services d’intégration dans les paramètres de ces machines virtuelles.*  
   
 La disponibilité de certains services d’intégration peut être gérée par le biais des paramètres de la machine virtuelle.   
   

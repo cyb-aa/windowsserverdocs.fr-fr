@@ -17,7 +17,7 @@ ms.locfileid: "71394156"
 ---
 # <a name="create-a-quota-template"></a>Créer un modèle de quota
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Un *modèle de quota* définit une limite d’espace, le type de quota (inconditionnel ou conditionnel) et éventuellement un ensemble de notifications qui seront automatiquement générées lorsque l’utilisation du quota aura atteint les niveaux de seuil définis.
 
@@ -67,7 +67,7 @@ Par exemple, vous pouvez configurer des seuils pour envoyer un message électron
 
    - Pour avertir les administrateurs qu’un seuil a été atteint, cochez la case **Envoyer un courrier électronique aux administrateurs suivants**, puis entrez les noms des comptes d’administration qui recevront les notifications. Utilisez le format <em>account@domain</em> et séparez les différents comptes par des points-virgules.
    - Pour envoyer un courrier électronique à la personne ayant enregistré le fichier qui atteint le seuil de quota, cochez la case **Envoyer un message à l'utilisateur qui dépasse le seuil**.
-   - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, la variable **\[Source Io Owner @ no__t-2** insère le nom de l’utilisateur qui a enregistré le fichier ayant atteint le seuil de quota. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
+   - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, la variable **\[propriétaire d’e/s Source\]** insère le nom de l’utilisateur qui a enregistré le fichier ayant atteint le seuil de quota. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
    - Pour configurer des en-têtes supplémentaires (notamment De, Cc, Cci et Répondre), cliquez sur **Autres en-têtes de courrier électronique**.
 
 4. Pour consigner un événement :
@@ -88,7 +88,7 @@ Par exemple, vous pouvez configurer des seuils pour envoyer un message électron
 
 8. Répétez ces étapes si vous souhaitez configurer d'autres seuils de notification pour le modèle de quota.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 -   [Gestion de quota](quota-management.md)
 -    [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)

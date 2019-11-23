@@ -18,7 +18,7 @@ ms.locfileid: "71365278"
 ---
 # <a name="avoid-enabling-virtual-machines-configured-with-virtual-fibre-channel-adapters-to-allow-live-migrations-when-there-are-fewer-paths-to-fibre-channel-logical-units-luns-on-the-destination-than-on-the-source"></a>Évitez d’activer des machines virtuelles configurées avec des adaptateurs de Fibre Channel virtuel pour autoriser les migrations dynamiques lorsqu’il y a moins de chemins vers Fibre Channel d’unités logiques (LUN) sur la destination que sur la source.
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -26,7 +26,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|
 
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.
@@ -37,7 +37,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>**Impact**  
 *La migration dynamique des machines virtuelles suivantes peut entraîner une perte de données ou une interruption des e/s dans le stockage :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
-*Consider en désactivant la propriété WMI AllowReducedFcRedundancy sur les machines virtuelles affectées. Lorsque cette propriété est désactivée, vous pouvez effectuer une migration dynamique sur des ordinateurs virtuels configurés avec des adaptateurs de Fibre Channel virtuel uniquement lorsque le nombre de chemins d’accès à Fibre Channel sur la destination est identique ou supérieur au nombre de chemins d’accès sur la source. Ces contrôles permettent d’éviter la perte de données ou l’interruption des e/s vers le stockage.* 
+*Envisagez d’effacer la propriété WMI AllowReducedFcRedundancy sur les machines virtuelles affectées. Lorsque cette propriété est désactivée, vous pouvez effectuer une migration dynamique sur des ordinateurs virtuels configurés avec des adaptateurs de Fibre Channel virtuel uniquement lorsque le nombre de chemins d’accès à Fibre Channel sur la destination est identique ou supérieur au nombre de chemins d’accès sur la source. Ces contrôles permettent d’éviter la perte de données ou l’interruption des e/s vers le stockage.* 

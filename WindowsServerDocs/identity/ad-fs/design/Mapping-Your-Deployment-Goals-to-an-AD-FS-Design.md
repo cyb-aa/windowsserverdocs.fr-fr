@@ -19,7 +19,7 @@ ms.locfileid: "71359086"
 # <a name="mapping-your-deployment-goals-to-an-ad-fs-design"></a>Mappage de vos objectifs de déploiement sur une conception AD FS
 
 
-Après avoir examiné les objectifs de déploiement Services ADFS \(AD FS @ no__t-1 existants et déterminé les objectifs liés à votre déploiement, vous pouvez mapper ces objectifs à une conception de AD FS spécifique. Pour plus d’informations sur AD FS objectifs de déploiement prédéfinis, consultez [identification de vos objectifs de déploiement AD FS](Identifying-Your-AD-FS-Deployment-Goals.md).  
+Une fois que vous avez terminé de consulter les Services ADFS existants \(AD FS\) objectifs du déploiement et que vous avez déterminé les objectifs liés à votre déploiement, vous pouvez mapper ces objectifs à une conception de AD FS spécifique. Pour plus d’informations sur AD FS objectifs de déploiement prédéfinis, consultez [identification de vos objectifs de déploiement AD FS](Identifying-Your-AD-FS-Deployment-Goals.md).  
   
 Utilisez le tableau suivant pour déterminer quelle AD FS conception correspond à la combinaison appropriée des objectifs de déploiement AD FS pour votre organisation. Ce tableau fait uniquement référence aux deux principales conceptions de AD FS, comme décrit dans ce guide. Toutefois, vous pouvez créer une conception hybride ou personnalisée AD FS à l’aide de n’importe quelle combinaison des objectifs de déploiement AD FS pour répondre aux besoins de votre organisation.  
   

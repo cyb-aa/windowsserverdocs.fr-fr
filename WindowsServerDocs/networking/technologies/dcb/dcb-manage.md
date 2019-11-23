@@ -17,9 +17,9 @@ ms.locfileid: "71405778"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Gérer Data Center Bridging (DCB)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Cette rubrique fournit des instructions sur l’utilisation des commandes Windows PowerShell pour configurer Data Center Bridging \(DCB\) sur une carte\-réseau compatible DCB installée sur un ordinateur exécutant l’un des deux Windows Server 2016 ou Windows 10.
+Cette rubrique fournit des instructions sur l’utilisation des commandes Windows PowerShell pour configurer le pontage du centre de données \(DCB\) sur une carte réseau compatible DCB\-installée sur un ordinateur exécutant Windows Server 2016 ou Windows 10.
 
 ## <a name="install-dcb-in-windows-server-2016-or-windows-10"></a>Installer DCB dans Windows Server 2016 ou Windows 10
 
@@ -30,7 +30,7 @@ Pour plus d’informations sur les conditions préalables à l’utilisation de 
 
 Avant Windows Server 2016, toute la configuration DCB était appliquée universellement à toutes les cartes réseau qui prenait en charge DCB. 
 
-Dans Windows Server 2016, vous pouvez appliquer des configurations DCB au magasin de stratégies global ou à des\(savesets\)de stratégie individuels. Lorsque des stratégies individuelles sont appliquées, elles remplacent tous les paramètres de stratégie globaux.
+Dans Windows Server 2016, vous pouvez appliquer des configurations DCB dans le magasin de stratégies global ou dans un magasin de stratégies individuel\(s\). Lorsque des stratégies individuelles sont appliquées, elles remplacent tous les paramètres de stratégie globaux.
 
 Les configurations de la classe de trafic, PFC et l’attribution de priorité d’application au niveau du système ne sont pas appliquées sur les cartes réseau tant que vous n’effectuez pas les opérations suivantes.
 
@@ -109,7 +109,7 @@ Vous pouvez utiliser la commande **New-NetQosTrafficClass** pour créer une clas
     SMB  ETS   30   4Global
       
 
-Par défaut, toutes les valeurs p 802.1 sont mappées à une classe de trafic par défaut, qui a 100% de la bande passante de la liaison physique. La commande **New-NetQosTrafficClass** crée une nouvelle classe de trafic, à laquelle tout paquet balisé avec 802.1 p Priority value 4 est mappé. L’algorithme de sélection de transmission \(TSA @ no__t-1 est ETS et a 30% de la bande passante.
+Par défaut, toutes les valeurs p 802.1 sont mappées à une classe de trafic par défaut, qui a 100% de la bande passante de la liaison physique. La commande **New-NetQosTrafficClass** crée une nouvelle classe de trafic, à laquelle tout paquet balisé avec 802.1 p Priority value 4 est mappé. L’algorithme de sélection de la transmission \(la\) TSA est ETS et a 30% de la bande passante.
 
 Vous pouvez créer jusqu’à 7 nouvelles classes de trafic. En incluant la classe de trafic par défaut, il peut y avoir au maximum 8 classes de trafic dans le système. Toutefois, une carte réseau compatible DCB peut ne pas prendre en charge de nombreuses classes de trafic dans le matériel. Si vous créez plusieurs classes de trafic qui peuvent être prises en charge sur une carte réseau et que vous activez DCB sur cette carte réseau, le pilote de miniport signale une erreur au système d’exploitation. L’erreur est consignée dans le journal des événements.
 
@@ -144,11 +144,11 @@ Vous pouvez ensuite utiliser la commande **NetQosTrafficClass** pour afficher le
 
 Après avoir créé une classe de trafic, vous pouvez modifier ses paramètres indépendamment. Les paramètres que vous pouvez modifier sont les suivants :
 
-1. Allocation \(de bande passante-BandwidthPercentage\)
+1. \(d’allocation de bande passante-BandwidthPercentage\)
 
-2. TSA (\-algorithme\)
+2. \) de l’algorithme de TSA (\-
 
-3. Mappage \(de priorité-priorité\)
+3. \(de mappage de priorité-priorité\)
 
 ### <a name="remove-a-traffic-class"></a>Supprimer une classe de trafic
 
@@ -175,7 +175,7 @@ Une fois que vous avez supprimé une classe de trafic, la valeur 802.1 p mappée
 
 Tous les exemples ci-dessus définissent des stratégies globales. Vous trouverez ci-dessous des exemples de la façon dont vous pouvez définir et récupérer des stratégies par carte réseau. 
 
-Le champ « PolicySet » passe de global à AdapterSpecific. Lorsque les stratégies AdapterSpecific sont affichées, les ifIndex \(\) d’index d’interface \(et\) de nom d’interface ifAlias sont également affichés.
+Le champ « PolicySet » passe de global à AdapterSpecific. Lorsque les stratégies AdapterSpecific sont affichées, l’index d’interface \(\) ifIndex et le nom de l’interface \(\) ifAlias sont également affichés.
 
 ```
 PS C:\> Get-NetQosTrafficClass
@@ -476,12 +476,12 @@ Il existe des commandes Windows PowerShell DCB pour Windows Server 2016 et Windo
 
 ### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Commandes Windows PowerShell pour DCB Windows Server 2016
 
-La rubrique suivante pour Windows Server 2016 fournit des descriptions et la syntaxe des applets de commande Windows \(PowerShell pour l’ensemble \(des\)applets de commande spécifiques à la\) qualité de service (QoS\-) de Data Center Bridg. Elle répertorie les applets de commande par ordre alphabétique en fonction du verbe situé au début de l’applet de commande.
+La rubrique suivante pour Windows Server 2016 fournit des descriptions et la syntaxe des applets de commande Windows PowerShell pour toutes les opérations de pontage de centre de données \(DCB\) Quality of service \(QoS\)\-des applets de commande spécifiques. Elle répertorie les applets de commande par ordre alphabétique en fonction du verbe situé au début de l’applet de commande.
 
 - [Module DcbQoS](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
 
 ### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Commandes Windows PowerShell pour DCB Windows Server 2012 R2
 
-La rubrique suivante pour Windows Server 2012 R2 fournit des descriptions et la syntaxe des applets de commande Windows \(PowerShell pour l’ensemble \(des\)applets de commande spécifiques à la\) qualité de service (QoS\-) de Data Center Bridg. Elle répertorie les applets de commande par ordre alphabétique en fonction du verbe situé au début de l’applet de commande.
+La rubrique suivante pour Windows Server 2012 R2 fournit des descriptions et la syntaxe des applets de commande Windows PowerShell pour toutes les opérations de pontage de centre de données \(DCB\) Quality of service \(QoS\)\-des applets de commande spécifiques. Elle répertorie les applets de commande par ordre alphabétique en fonction du verbe situé au début de l’applet de commande.
 
 - [Applets de commande Quality of service (QoS) Data Center Bridging (QoS) dans Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)

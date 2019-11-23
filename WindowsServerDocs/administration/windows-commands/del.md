@@ -39,12 +39,12 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Names >|Spécifie une liste d’un ou plusieurs fichiers ou répertoires. Les caractères génériques peuvent être utilisés pour supprimer plusieurs fichiers. Si un répertoire est spécifié, tous les fichiers du répertoire sont supprimés.|
+|Noms de \<>|Spécifie une liste d’un ou plusieurs fichiers ou répertoires. Les caractères génériques peuvent être utilisés pour supprimer plusieurs fichiers. Si un répertoire est spécifié, tous les fichiers du répertoire sont supprimés.|
 |/p|Demande confirmation avant de supprimer le fichier spécifié.|
 |/f|Force la suppression des fichiers en lecture seule.|
 |/s|Supprime les fichiers spécifiés du répertoire actif et de tous ses sous-répertoires. Affiche les noms des fichiers au fur et à mesure de leur suppression.|
 |/q|Spécifie le mode silencieux. Vous n’êtes pas invité à confirmer la suppression.|
-|/a [ :] \<Attributes >|Supprime les fichiers en fonction des attributs de fichier suivants :</br>fichiers en lecture seule **r**</br>fichiers masqués **h**</br>**je** ne trouve pas les fichiers indexés</br>fichiers système **s**</br>**fichiers prêts** pour l’archivage</br>points d’analyse **l**</br>-Le préfixe signifie « not »|
+|/a [ :]\<les attributs >|Supprime les fichiers en fonction des attributs de fichier suivants :</br>fichiers en lecture seule **r**</br>fichiers masqués **h**</br>**je** ne trouve pas les fichiers indexés</br>fichiers système **s**</br>**fichiers prêts** pour l’archivage</br>points d’analyse **l**</br>-Le préfixe signifie « not »|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

@@ -17,7 +17,7 @@ ms.locfileid: "71395877"
 ---
 # <a name="manage-qos-policy"></a>Gérer la stratégie QoS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour en savoir plus sur l’utilisation de l’Assistant stratégie de QoS pour créer, modifier ou supprimer une stratégie de QoS.
 
@@ -80,7 +80,7 @@ Sur la première page de l’Assistant stratégie de QoS, vous pouvez spécifier
 
 2. Si vous le souhaitez, utilisez **spécifier la valeur DSCP** pour activer le marquage DSCP, puis configurez une valeur DSCP comprise entre 0 et 63.
 
-3. Vous pouvez éventuellement utiliser **Spécifier le taux d’accélération** pour activer le limitation du trafic et configurer le taux d’accélération. La valeur du taux d’accélération doit être supérieure à 1 et vous pouvez spécifier des unités de kilo- \(octets\) par seconde ou\)mégaoctets \(par seconde.
+3. Vous pouvez éventuellement utiliser **Spécifier le taux d’accélération** pour activer le limitation du trafic et configurer le taux d’accélération. La valeur du taux d’accélération doit être supérieure à 1 et vous pouvez spécifier des unités de kilo-octets par seconde \(Kbits/s\) ou mégaoctets par seconde \(MBps\).
 
 4. Cliquez sur **Suivant**.
 
@@ -99,11 +99,11 @@ Vous pouvez éventuellement entrer le chemin d’accès de l’application. Pour
 >[!NOTE]
 >Le chemin d’accès de l’application ne peut pas inclure un chemin d’accès qui correspond à un lien symbolique.
 
-L’URL doit être conforme à la [norme RFC 1738](https://tools.ietf.org/html/rfc1738), sous `http[s]://<hostname\>:<port\>/<url-path>`la forme. Vous pouvez utiliser un caractère générique `‘*'`,, `<hostname>` pour `https://training.\*/, https://\*.\*`et/ `<port>`ou, par exemple,, mais le caractère générique ne peut pas désigner `<hostname>` une `<port>`sous-chaîne de ou.
+L’URL doit être conforme à la [norme RFC 1738](https://tools.ietf.org/html/rfc1738), sous la forme d' `http[s]://<hostname\>:<port\>/<url-path>`. Vous pouvez utiliser un caractère générique, `‘*'`pour `<hostname>` et/ou `<port>`, par exemple `https://training.\*/, https://\*.\*`, mais le caractère générique ne peut pas désigner une sous-chaîne de `<hostname>` ou `<port>`.
 
-En d’autres termes, `https://my\*site/` ni `https://\*training\*/` ni n’est valide. 
+En d’autres termes, ni `https://my\*site/` ni `https://\*training\*/` n’est valide. 
 
-Si vous le souhaitez, vous pouvez cocher **inclure les sous-répertoires et les fichiers** pour effectuer la correspondance sur tous les sous-répertoires et fichiers qui suivent une URL. Par exemple, si cette option est activée et que l’URL `https://training`est, la stratégie de QoS prend` https://training/video` en compte les demandes pour une bonne correspondance.
+Si vous le souhaitez, vous pouvez cocher **inclure les sous-répertoires et les fichiers** pour effectuer la correspondance sur tous les sous-répertoires et fichiers qui suivent une URL. Par exemple, si cette option est activée et que l’URL est `https://training`, la stratégie de qualité de service considère les demandes de` https://training/video` une correspondance correcte.
 
 #### <a name="to-configure-the-application-name-page-of-the-qos-policy-wizard"></a>Pour configurer la page nom de l’application de l’Assistant stratégie de QoS
 
@@ -123,13 +123,13 @@ Dans la troisième page de l’Assistant stratégie de QoS, vous pouvez spécifi
 
 Si vous sélectionnez **Uniquement pour l’adresse ou le préfixe IP source suivant** ou **Uniquement pour l’adresse ou le préfixe IP de destination suivant**, vous devez taper l’un des éléments suivants :
 
-- Une adresse IPv4, telle que`192.168.1.1`
+- Une adresse IPv4, par exemple `192.168.1.1`
 
-- Préfixe d’adresse IPv4 utilisant la notation de longueur de préfixe réseau, tel que`192.168.1.0/24`
+- Préfixe d’adresse IPv4 utilisant la notation de longueur de préfixe réseau, comme `192.168.1.0/24`
 
-- Une adresse IPv6, telle que`3ffe:ffff::1`
+- Une adresse IPv6, telle que `3ffe:ffff::1`
 
-- Préfixe d’adresse IPv6, tel que`3ffe:ffff::/48`
+- Préfixe d’adresse IPv6, tel que `3ffe:ffff::/48`
 
 Si vous sélectionnez les deux **uniquement pour l’adresse IP source suivante** et **uniquement pour l’adresse IP de destination suivante**, les adresses ou les préfixes d’adresse doivent être basés sur IPv4 ou IPv6.
 
@@ -240,7 +240,7 @@ Les paramètres de QoS avancés fournissent des contrôles supplémentaires perm
   
 2.  Cliquez avec le bouton droit sur **stratégie QoS**, puis cliquez sur **paramètres de QoS avancés**.
 
-     L’illustration suivante montre les deux onglets paramètres de QoS avancés : **Le trafic TCP entrant et le** **marquage DSCP remplacent**.
+     L’illustration suivante montre les deux onglets avancés des paramètres de QoS : **trafic TCP entrant** et **remplacement du marquage DSCP**.
   
 > [!NOTE]
 >  Les paramètres de QoS avancés sont des paramètres de stratégie de groupe au niveau de l’ordinateur.
@@ -253,7 +253,7 @@ En définissant un niveau de débit inférieur sous l’onglet **trafic TCP entr
   
 La fenêtre de réception TCP a été modifiée dans Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 et Windows Vista à partir des versions précédentes de Windows. Dans les versions précédentes de Windows, la fenêtre côté réception TCP était limitée à un maximum de 64 kilo-octets (Ko), alors que Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 et Windows Vista redimensionnent dynamiquement la fenêtre côté réception jusqu’à 16 mégaoctets (Mo ). Dans le contrôle du trafic TCP entrant, vous pouvez contrôler le niveau de débit entrant en définissant la valeur maximale que peut atteindre la fenêtre de réception TCP. Les niveaux correspondent aux valeurs maximales suivantes. 
   
-|Niveau de débit entrant|Maximale|  
+|Niveau de débit entrant|Durée maximum|  
 |------------------------|-------|  
 |0|64 KO|
 |1|256 KO|
@@ -270,7 +270,7 @@ La taille réelle de la fenêtre peut être une valeur inférieure ou égale à 
 
 3.  Liez l’objet de stratégie de groupe à l’unité d’organisation.
 
-#### <a name="advanced-qos-settings-dscp-marking-override"></a>Paramètres de QoS avancés : Remplacement du marquage DSCP
+#### <a name="advanced-qos-settings-dscp-marking-override"></a>Paramètres de QoS avancés : remplacement du marquage DSCP
 
 Le remplacement du marquage DSCP restreint la possibilité pour les applications de spécifier (ou « marquer ») des valeurs DSCP autres que celles spécifiées dans les stratégies QoS. En spécifiant que les applications sont autorisées à définir des valeurs DSCP, les applications peuvent définir des valeurs DSCP non nulles. 
 
@@ -280,7 +280,7 @@ Par défaut, les ordinateurs qui exécutent Windows Server 2016, Windows 10, Win
 
 ##### <a name="wireless-multimedia-and-dscp-values"></a>Valeurs multimédias et DSCP sans fil
 
-[Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) a établi une certification pour Wireless Multimedia \(WMM @ no__t-2 qui définit quatre catégories d’accès \(WMM_AC @ no__t-4 pour définir la priorité du trafic réseau transmis sur un réseau sans fil Wi-No__t-5Fi. Les catégories d’accès \(incluent dans l’ordre de priorité\)la plus élevée à la plus basse : voix, vidéo, meilleur effort et arrière-plan ; respectivement, les abréviations VO, VI, is et BK. La spécification WMM définit les valeurs DSCP qui correspondent à chacune des quatre catégories d’accès :
+[Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) a établi une certification pour Wireless Multimedia \(WMM\) qui définit quatre catégories d’accès \(WMM_AC\) pour hiérarchiser le trafic réseau transmis sur un réseau sans fil Wi\-fi. Les catégories d’accès incluent \(dans l’ordre de priorité la plus faible\): voix, vidéo, meilleur effort et arrière-plan. respectivement, les abréviations VO, VI, is et BK. La spécification WMM définit les valeurs DSCP qui correspondent à chacune des quatre catégories d’accès :
   
 |Valeur DSCP|Catégorie d’accès WMM|
 |----------|-------------------|
@@ -289,7 +289,7 @@ Par défaut, les ordinateurs qui exécutent Windows Server 2016, Windows 10, Win
 |24-31, 0-7|Meilleur effort (a)|
 |8-23|Arrière-plan (BK)|
 
-Vous pouvez créer des stratégies de qualité de service qui utilisent ces valeurs DSCP pour vous assurer\-que les ordinateurs portables dotés de™ certifiés Wi-Fi pour les\-adaptateurs sans fil WMM reçoivent une gestion hiérarchisée lorsqu’ils sont associés à des points d’accès certifiés Wi-Fi pour WMM.
+Vous pouvez créer des stratégies de qualité de service qui utilisent ces valeurs DSCP pour vous assurer que les ordinateurs portables avec Wi\-fi certifiés™ pour les adaptateurs sans fil WMM reçoivent une gestion hiérarchisée lorsqu’ils sont associés à Wi\-fi certifié pour les points d’accès WMM.
   
 ### <a name="BKMK_precedencerules"></a>Règles de priorité de la stratégie QoS
 
@@ -297,7 +297,7 @@ Vous pouvez créer des stratégies de qualité de service qui utilisent ces vale
 
 En général, la stratégie de QoS avec les conditions les plus identiques gagne. Lorsque plusieurs stratégies de QoS s’appliquent, les règles se répartissent en trois catégories : au niveau de l’utilisateur et au niveau de l’ordinateur ; application et quintuple réseau ; et entre le réseau quintuple.
 
-Par *réseau quintuple*, nous entendons l’adresse IP source, l’adresse IP de destination, le port source, le \(port de destination\)et le protocole TCP/UDP.  
+Par *réseau quintuple*, nous entendons l’adresse IP source, l’adresse IP de destination, le port source, le port de destination et le protocole \(TCP/UDP\).  
 
  **La stratégie QoS au niveau de l’utilisateur est prioritaire sur la stratégie QoS au niveau de l’ordinateur**
 
@@ -312,13 +312,13 @@ Lorsque plusieurs stratégies de QoS correspondent au trafic spécifique, la str
 
 En guise d’alternative, plusieurs stratégies de QoS peuvent s’appliquer au même trafic en spécifiant des conditions qui ne se chevauchent pas. Entre les conditions des applications et le réseau quintuple, la stratégie qui spécifie l’application est considérée comme plus spécifique et est appliquée. 
 
-Par exemple, policy_A spécifie uniquement un nom d’application (App. exe) et policy_B spécifie l’adresse IP de destination 192.168.1.0/24. Lorsque ces stratégies de QoS sont en conflit @no__t -0app. exe envoie le trafic à une adresse IP dans la plage de 192.168.4.0/24 @ no__t-1, policy_A est appliqué.
+Par exemple, policy_A spécifie uniquement un nom d’application (App. exe) et policy_B spécifie l’adresse IP de destination 192.168.1.0/24. Lorsque ces stratégies de QoS sont en conflit \(App. exe envoie le trafic à une adresse IP dans la plage de 192.168.4.0/24\), policy_A est appliqué.
 
  **Une plus grande spécificité est prioritaire dans le quintuple réseau**
 
 Pour les conflits de stratégie au sein du réseau quintuple, la stratégie avec le plus de conditions de correspondance est prioritaire. Par exemple, supposons que policy_C spécifie l’adresse IP source « any », l’adresse IP de destination 10.0.0.1, le port source « any », le port de destination « any » et le protocole « TCP ». 
 
-Ensuite, supposons que policy_D spécifie l’adresse IP source « any », l’adresse IP de destination 10.0.0.1, le port source « any », le port de destination 80 et le protocole « TCP ». Ensuite, policy_C et policy_D correspondent aux connexions à la destination 10.0.0.1:80. Étant donné que la stratégie de QoS applique la stratégie avec les conditions de correspondance les plus spécifiques, policy_D est prioritaire dans cet exemple.  
+Supposons ensuite que policy_D spécifie l’adresse IP source « any », l’adresse IP de destination 10.0.0.1, le port source « any », le port de destination 80 et le protocole « TCP ». Ensuite policy_C et policy_D à la fois les connexions à la destination 10.0.0.1:80. Étant donné que la stratégie de QoS applique la stratégie avec les conditions de correspondance les plus spécifiques, policy_D est prioritaire dans cet exemple.  
   
 Toutefois, les stratégies de QoS peuvent avoir un nombre égal de conditions. Par exemple, plusieurs stratégies peuvent spécifier chacune une seule partie (mais pas la même) du réseau quintuple. Parmi les quintuple réseau, l’ordre suivant passe de la priorité la plus élevée à la plus faible :
 

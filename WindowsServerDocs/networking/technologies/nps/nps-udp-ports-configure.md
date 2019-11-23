@@ -17,16 +17,16 @@ ms.locfileid: "71405309"
 ---
 # <a name="configure-nps-udp-port-information"></a>Configurer des informations de port UDP NPS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser la procédure suivante pour configurer les ports utilisés par le serveur NPS (Network Policy Server) pour protocole RADIUS (Remote Authentication Dial-In User Service) le trafic d’authentification et de gestion des comptes \(RADIUS @ no__t-1.
+Vous pouvez utiliser la procédure suivante pour configurer les ports utilisés par le serveur NPS (Network Policy Server) pour protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS\) le trafic d’authentification et de gestion des comptes.
 
-Par défaut, NPS écoute le trafic RADIUS sur les ports 1812, 1813, 1645 et 1646 pour le protocole Internet version 6 \(IPv6 @ no__t-1 et IPv4 pour toutes les cartes réseau installées.
+Par défaut, NPS écoute le trafic RADIUS sur les ports 1812, 1813, 1645 et 1646 pour le protocole Internet version 6 \(IPv6\) et IPv4 pour toutes les cartes réseau installées.
 
 >[!NOTE]
 >Si vous désinstallez IPv4 ou IPv6 sur une carte réseau, NPS n’analyse pas le trafic RADIUS pour le protocole désinstallé.
 
-Les valeurs de port 1812 pour l’authentification et 1813 pour la gestion des comptes sont les ports standard RADIUS définis par l’IETF (Internet Engineering Task Force) @no__t 0IETF @ no__t-1 dans les RFC 2865 et 2866. Toutefois, par défaut, de nombreux serveurs d’accès utilisent les ports 1645 pour les demandes d’authentification et 1646 pour les demandes de gestion des comptes. Quel que soit le numéro de port que vous décidez d’utiliser, assurez-vous que NPS et votre serveur d’accès sont configurés pour utiliser les mêmes.
+Les valeurs de port 1812 pour l’authentification et 1813 pour la comptabilité sont les ports standard RADIUS définis par l’IETF (Internet Engineering Task Force \(IETF\) dans les RFC 2865 et 2866. Toutefois, par défaut, de nombreux serveurs d’accès utilisent les ports 1645 pour les demandes d’authentification et 1646 pour les demandes de gestion des comptes. Quel que soit le numéro de port que vous décidez d’utiliser, assurez-vous que NPS et votre serveur d’accès sont configurés pour utiliser les mêmes.
 
 >PRÉCIEUSE Si vous n’utilisez pas les numéros de port par défaut RADIUS, vous devez configurer des exceptions sur le pare-feu de l’ordinateur local pour autoriser le trafic RADIUS sur les nouveaux ports. Pour plus d’informations, consultez [configurer des pare-feu pour le trafic RADIUS](nps-firewalls-configure.md).
 

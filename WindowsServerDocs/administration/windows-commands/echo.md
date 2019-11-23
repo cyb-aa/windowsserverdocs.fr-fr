@@ -39,8 +39,8 @@ echo [on | off]
 
 |Paramètre|Description|
 |---------|-----------|
-|[sur \| OFF]|Active ou désactive la fonctionnalité d’écho de la commande. L’écho de la commande est activé par défaut.|
-|@no__t 0Message >|Spécifie le texte à afficher à l’écran.|
+|[on \| OFF]|Active ou désactive la fonctionnalité d’écho de la commande. L’écho de la commande est activé par défaut.|
+|Message de \<>|Spécifie le texte à afficher à l’écran.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -49,7 +49,7 @@ echo [on | off]
 -   Quand **echo** est désactivé, l’invite de commandes n’apparaît pas dans la fenêtre d’invite de commandes. Pour afficher l’invite de commandes, tapez **echo on.**
 -   S’il est utilisé dans un fichier de commandes, **echo on** et **echo off** n’affectent pas le paramètre à l’invite de commandes.
 -   Pour empêcher l’écho d’une commande particulière dans un fichier de commandes, insérez un arobase (@) devant la commande. Pour empêcher l’écho de toutes les commandes dans un fichier de commandes, incluez la commande **echo off** au début du fichier.
--   Pour afficher un canal ( **|** ) ou un caractère de redirection ( **<** ou **>** ) quand vous utilisez **echo**, utilisez un signe d’insertion (^) juste avant le caractère de redirection ou de redirection (par exemple, **^|** , **0** , ou **2**). Pour afficher un signe insertion, tapez deux signes de suite ( **^^** ).
+-   Pour afficher un canal ( **|** ) ou un caractère de redirection ( **<** ou **>** ) quand vous utilisez **echo**, utilisez un signe insertion (^) juste avant le caractère de redirection ou de redirection (par exemple, **^|** , **^>** ou **^<** ). Pour afficher un signe insertion, tapez deux signes de suite ( **^^** ).
 
 ## <a name="examples"></a>Exemples
 

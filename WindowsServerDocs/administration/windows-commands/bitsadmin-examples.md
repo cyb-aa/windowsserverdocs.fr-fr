@@ -48,7 +48,7 @@ Ensuite, utilisez le commutateur **/AddFile** pour ajouter un ou plusieurs fichi
 
 Utilisez le commutateur **/AddFile** pour ajouter un fichier au travail. Répétez cet appel pour chaque fichier que vous souhaitez ajouter. Si plusieurs travaux utilisent myDownloadJob comme nom, vous devez remplacer myDownloadJob par le GUID du travail pour identifier le travail de façon unique.
 
-**Bitsadmin/AddFile myDownloadJob https://downloadsrv/10mb.zip c : @no__t -210mb. zip**
+**Bitsadmin/AddFile myDownloadJob https://downloadsrv/10mb.zip c :\\10 Mo. zip**
 
 Pour activer le travail dans la file d’attente de transfert, utilisez le commutateur **/Resume**
 

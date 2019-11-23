@@ -20,7 +20,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71373776"
 ---
-# <a name="manage-bde-wipefreespace"></a>Manage WipeFreeSpace
+# <a name="manage-bde-wipefreespace"></a>Manage-bde : WipeFreeSpace
 
 
 
@@ -36,7 +36,7 @@ manage-bde -WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Drive >|Représente une lettre de lecteur suivie d’un signe deux-points, d’un chemin d’accès de GUID de volume ou d’un volume monté.|
+|Lecteur \<>|Représente une lettre de lecteur suivie d’un signe deux-points, d’un chemin d’accès de GUID de volume ou d’un volume monté.|
 |-Annuler|Annule une réinitialisation de l’espace libre en cours.|
 |-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
 |\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|

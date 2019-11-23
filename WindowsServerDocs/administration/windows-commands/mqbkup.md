@@ -22,7 +22,7 @@ ms.locfileid: "71373512"
 ---
 # <a name="mqbkup"></a>mqbkup
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sauvegarde les fichiers de messages et les paramètres de Registre MSMQ sur un dispositif de stockage et restaure les messages et paramètres précédemment stockés.   
 La sauvegarde et l’opération de restauration interrompent le service MSMQ local. Si le service MSMQ a été démarré au préalable, l’utilitaire tente de redémarrer le service MSMQ à la fin de la sauvegarde ou de l’opération de restauration. Si le service a déjà été arrêté avant l’exécution de l’utilitaire, aucune tentative de redémarrage du service n’est effectuée.  
@@ -36,7 +36,7 @@ mqbkup {/b | /r} <folder path_to_storage_device>
 |-------|--------|  
 |/b|Spécifie l’opération de sauvegarde|  
 |/r|Spécifie l’opération de restauration|  
-|dossier < path_to_storage @ no__t-0device >|Spécifie le chemin d’accès de stockage des fichiers de messages et des paramètres de Registre MSMQ|  
+|dossier < path_to_storage\_périphérique >|Spécifie le chemin d’accès de stockage des fichiers de messages et des paramètres de Registre MSMQ|  
 |/?|Affiche l'aide à l'invite de commandes.|  
 ## <a name="BKMK_Examples"></a>Illustre  
 Pour sauvegarder tous les fichiers de messages MSMQ et les paramètres du Registre, et les stocker dans le dossier *Msmqbkup* sur votre lecteur C :.  

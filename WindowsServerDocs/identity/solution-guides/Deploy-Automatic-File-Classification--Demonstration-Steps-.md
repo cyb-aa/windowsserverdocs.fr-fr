@@ -18,7 +18,7 @@ ms.locfileid: "71357588"
 ---
 # <a name="deploy-automatic-file-classification-demonstration-steps"></a>Déployer la classification automatique des fichiers (étapes de démonstration)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique explique comment activer les propriétés de ressource dans Active Directory, créer des règles de classification sur le serveur de fichiers, puis assigner des valeurs aux propriétés de ressource pour des fichiers sur le serveur de fichiers. Pour cet exemple, les règles de classification suivantes sont créées :  
   
@@ -28,13 +28,13 @@ Cette rubrique explique comment activer les propriétés de ressource dans Activ
   
 **Dans ce document**  
   
--   [Étape 1 : Créer des définitions de propriétés de ressource @ no__t-0  
+-   [Étape 1 : créer des définitions de propriétés de ressource](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
   
--   [Étape 2 : Créer une règle de classification de contenu de chaîne @ no__t-0  
+-   [Étape 2 : créer une règle de classification de contenu de chaîne](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step2)  
   
--   [Étape 3 : Créer une règle de classification de contenu d’expression régulière @ no__t-0  
+-   [Étape 3 : créer une règle de classification de contenu d’expression régulière](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
   
--   [Étape 4 : Vérifier que les fichiers sont classifiés @ no__t-0  
+-   [Étape 4 : vérifier que les fichiers sont classés](Deploy-Automatic-File-Classification--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -56,7 +56,7 @@ Les propriétés de ressource Impact et Informations d'identification personnell
   
 5.  Cliquez avec le bouton droit sur **Informations d'identification personnelle**, puis cliquez sur **Activer**.  
   
-@no__t-guides 0solution-](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -89,7 +89,7 @@ Une règle de classification de contenu de chaîne analyse un fichier à la rech
 8.  Sous l'onglet **Étendue** , cliquez sur **Ajouter**et choisissez les dossiers qui doivent être inclus dans cette règle, tels que D:\Finance Documents.  
   
     > [!NOTE]  
-    > Vous pouvez aussi choisir un espace de noms dynamique pour l'étendue. Pour plus d’informations sur les espaces de noms dynamiques pour les règles de classification, voir [Nouveautés du serveur de fichiers gestionnaire des ressources dans Windows server 2012 \[redirected @ no__t-2](assetId:///d53c603e-6217-4b98-8508-e8e492d16083).  
+    > Vous pouvez aussi choisir un espace de noms dynamique pour l'étendue. Pour plus d’informations sur les espaces de noms dynamiques pour les règles de classification, voir [Nouveautés du serveur de fichiers gestionnaire des ressources dans Windows server 2012 \[Redirigé\]](assetId:///d53c603e-6217-4b98-8508-e8e492d16083).  
   
 9. Sous l'onglet **Classification**, configurez ce qui suit :  
   
@@ -107,7 +107,7 @@ Une règle de classification de contenu de chaîne analyse un fichier à la rech
   
 13. Sous l'onglet **Type d'évaluation**, cochez la case **Réévaluer les valeurs de propriété existantes**, cliquez sur  **Remplacer la valeur existante**, puis sur **OK**.  
   
-@no__t-guides 0solution-](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -118,7 +118,7 @@ Set-FsrmClassification -Continuous -schedule $AutomaticClassificationScheduledTa
 New-FSRMClassificationRule -Name 'Contoso Confidential' -Property "Impact_MS" -PropertyValue "3000" -Namespace @('D:\Finance Documents') -ClassificationMechanism "Content Classifier" -Parameters @("StringEx=Min=1;Expr=Contoso Confidential") -ReevaluateProperty Overwrite  
 ```  
   
-## <a name="BKMK_Step3"></a>Étape 3 : créer une règle de classification de contenu d'expression régulière  
+## <a name="BKMK_Step3"></a>Étape 3 : créer une règle de classification de contenu d’expression régulière  
 Une règle de classification de contenu d'expression régulière analyse un fichier à la recherche d'un modèle qui correspond à l'expression régulière. Si une chaîne correspondant à l'expression régulière est détectée, la valeur d'une propriété de ressource peut être configurée. Dans cet exemple, nous allons analyser chaque fichier d'un dossier réseau partagé à la recherche d'une chaîne qui correspond au modèle d'un numéro de sécurité sociale (XXX-XX-XXXX). Si ce modèle est détecté, le fichier associé est classifié comme contenant des informations d'identification personnelle.  
   
 [Effectuez cette étape à l’aide de Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
@@ -149,13 +149,13 @@ Une règle de classification de contenu d'expression régulière analyse un fich
   
 9. Dans la colonne **Type d'expression** , sélectionnez **Expression régulière**.  
   
-10. Dans la colonne **expression** , tapez **^ ( ?! 000) ([0-7] \d @ no__t-2 | 7 ([0-7] \d | 7 [012])) ([-] ?) (?! 00) \d\d\3 ( ?! 0000) \d @ no__t-3 $**  
+10. Dans la colonne **expression** , tapez **^ ( ?! 000) ([0-7] \d{2}| 7 ([0-7] \d | 7 [012])) ([-] ?) (?! 00) \d\d\3 ( ?! 0000) \d{4}$**  
   
 11. Dans la colonne **Occurrences minimales**, tapez **10**, puis cliquez sur **OK**.  
   
 12. Sous l'onglet **Type d'évaluation**, cochez la case **Réévaluer les valeurs de propriété existantes**, cliquez sur  **Remplacer la valeur existante**, puis sur **OK**.  
   
-@no__t-guides 0solution-](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -176,7 +176,7 @@ Vous pouvez vérifier que les fichiers sont classifiés correctement en affichan
   
     3.  Fermez le Rapport de classification automatique.  
   
-    4.  Pour ce faire, vous pouvez exécuter la commande suivante dans Windows PowerShell : **Start-FSRMClassification' "RunDuration spécifié 0-Confirm : $false**  
+    4.  Pour ce faire, vous pouvez utiliser Windows PowerShell avec la commande suivante : **Start-FSRMClassification' "RunDuration spécifié 0-Confirm : $false**  
   
 2.  Accédez au dossier qui a été spécifié dans les règles de classification, tel que D:\Documents de finance.  
   
@@ -186,11 +186,11 @@ Vous pouvez vérifier que les fichiers sont classifiés correctement en affichan
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Scénario : classification des données pour mieux les comprendre](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
+-   [Scénario : obtenir des informations sur vos données à l’aide de la classification](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
   
 -   [Planifier la classification automatique des fichiers](https://docs.microsoft.com/previous-versions/orphan-topics/ws.11/jj574209(v%3dws.11))  
 
   
--   [Contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Access Control dynamique : vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

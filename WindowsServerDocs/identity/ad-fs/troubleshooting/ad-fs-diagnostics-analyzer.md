@@ -30,7 +30,7 @@ Accédez à [AD FS l’analyseur de diagnostics de l’aide (https://aka.ms/adfs
 
 ![AD FS l’outil Analyseur de diagnostics sur AD FS aide](media/ad-fs-diagonostics-analyzer/home.png)
 
-## <a name="step-1-setup-the-adfstoolbox-module-on-ad-fs-server"></a>Étape 1 : Configuration du module ADFSToolbox sur AD FS Server
+## <a name="step-1-setup-the-adfstoolbox-module-on-ad-fs-server"></a>Étape 1 : configurer le module ADFSToolbox sur AD FS Server
 
 Pour exécuter l' [Analyseur de diagnostics](https://aka.ms/adfsdiagnosticsanalyzer), vous devez installer le module PowerShell ADFSToolbox. Si le serveur AD FS dispose d’une connectivité à Internet, vous pouvez installer le module ADFSToolbox directement à partir de PowerShell Gallery. En cas d’absence de connectivité à Internet, vous pouvez l’installer manuellement. 
 
@@ -58,7 +58,7 @@ Le module ADFSToolbox doit être copié manuellement sur les serveurs AD FS ou W
     ```powershell
     Install-Module -Name ADFSToolbox -Force
     ```
-3. Copiez le dossier ADFSToolbox situé `%SYSTEMDRIVE%\Program Files\WindowsPowerShell\Modules\` sur votre ordinateur local dans le même emplacement sur votre AD FS ou sur votre ordinateur WAP.
+3. Copiez le dossier ADFSToolbox `%SYSTEMDRIVE%\Program Files\WindowsPowerShell\Modules\` situé sur votre ordinateur local dans le même emplacement sur votre AD FS ou sur votre ordinateur WAP.
 
 4. Lancez une fenêtre PowerShell avec élévation de privilèges sur votre machine AD FS et exécutez l’applet de commande suivante pour importer le module.
 
@@ -66,7 +66,7 @@ Le module ADFSToolbox doit être copié manuellement sur les serveurs AD FS ou W
     Import-Module ADFSToolbox -Force
     ```
 
-## <a name="step-2-execute-the-diagnostics-cmdlet"></a>Étape 2 : Exécuter l’applet de commande Diagnostics
+## <a name="step-2-execute-the-diagnostics-cmdlet"></a>Étape 2 : exécuter l’applet de commande Diagnostics
 
 ![Outil Analyseur de diagnostics de AD FS-exécuter et charger les résultats](media/ad-fs-diagonostics-analyzer/step2_v2.png)
 
@@ -82,11 +82,11 @@ Dans un serveur 2016 ou supérieur AD FS batterie de serveurs, la commande lira 
     Export-AdfsDiagnosticsFile -ServerNames @("adfs1.contoso.com", "adfs2.contoso.com")
 ```
 
-Le résultat est un fichier JSON qui est créé dans le même répertoire que celui où la commande a été exécutée. Le nom du fichier est AdfsDiagnosticsFile-\<timestamp @ no__t-1. Un exemple de nom de fichier est AdfsDiagnosticsFile-07312019-184201. JSON.
+Le résultat est un fichier JSON qui est créé dans le même répertoire que celui où la commande a été exécutée. Le nom du fichier est AdfsDiagnosticsFile-\<timestamp\>. Un exemple de nom de fichier est AdfsDiagnosticsFile-07312019-184201. JSON.
 
-## <a name="step-3-upload-the-diagnostics-file"></a>Étape 3 : Charger le fichier de diagnostic
+## <a name="step-3-upload-the-diagnostics-file"></a>Étape 3 : charger le fichier de diagnostic
 
-À l’étape 3 sur [https://aka.ms/adfsdiagnosticsanalyzer,](https://aka.ms/adfsdiagnosticsanalyzer) utilisez l’Explorateur de fichiers pour sélectionner le fichier de résultats à télécharger.
+À l’étape 3 sur [https://aka.ms/adfsdiagnosticsanalyzer](https://aka.ms/adfsdiagnosticsanalyzer) utilisez l’Explorateur de fichiers pour sélectionner le fichier de résultats à télécharger.
 
 Cliquez sur **Télécharger** pour terminer le téléchargement.
 
@@ -94,22 +94,22 @@ En vous connectant avec un compte Microsoft, vous pouvez enregistrer les résult
 
 ![Outil Analyseur de diagnostics de AD FS-connexion](media/ad-fs-diagonostics-analyzer/sign_in_step.png)
 
-## <a name="step-4-view-diagnostics-analysis-and-resolve-any-issues"></a>Étape 4 : Afficher l’analyse des diagnostics et résoudre les problèmes
+## <a name="step-4-view-diagnostics-analysis-and-resolve-any-issues"></a>Étape 4 : afficher l’analyse des diagnostics et résoudre les problèmes
 
 Il y a cinq sections des résultats des tests :
 
-1. Échec : Cette section contient la liste des tests qui ont échoué. Chaque résultat se compose des éléments suivants :
-2. Avertissement : Cette section contient une liste de tests qui ont généré un avertissement. Ces problèmes n’entraînent probablement pas de problèmes d’authentification sur une plus grande échelle, mais doivent être traités au plus tôt.
-3. Passe Cette section contient la liste des tests qui ont réussi et qui ne comportent aucun élément d’action pour l’utilisateur.
-4. Non exécuté : Cette section contient la liste des tests qui n’ont pas pu être exécutés en raison d’informations manquantes.
-5. Non applicable : Cette section contient la liste des tests qui n’ont pas été exécutés, car ils n’étaient pas applicables au serveur sur lequel la commande s’exécutait.
+1. Échec : cette section contient la liste des tests qui ont échoué. Chaque résultat se compose des éléments suivants :
+2. AVERTISSEMENT : cette section contient une liste de tests qui ont généré un avertissement. Ces problèmes n’entraînent probablement pas de problèmes d’authentification sur une plus grande échelle, mais doivent être traités au plus tôt.
+3. Réussite : cette section contient la liste des tests qui ont réussi et qui n’ont aucun élément d’action pour l’utilisateur.
+4. Non exécuté : cette section contient la liste des tests qui n’ont pas pu être exécutés en raison d’informations manquantes.
+5. Non applicable : cette section contient la liste des tests qui n’ont pas été exécutés, car ils n’étaient pas applicables au serveur sur lequel la commande s’exécutait.
 
-outil ![AD FS Diagnostics Analyzer-liste des résultats des tests @ no__t-1 chaque résultat de test s’affiche avec des détails qui décrivent le test et la résolution des étapes :
+![AD FS outil Analyseur de diagnostics-liste des résultats des tests](media/ad-fs-diagonostics-analyzer/step3a_v3.png) chaque résultat de test s’affiche avec des détails qui décrivent le test et la résolution des étapes :
 
-1. Nom du test : Nom du test qui a été exécuté
-2. Description : Description du test.
-3. Détails : Description de l’opération globale effectuée pendant le test
-4. Étapes de résolution : Les étapes suggérées pour résoudre le problème mis en surbrillance par le test
+1. Nom du test : nom du test qui a été exécuté
+2. Description : description du test.
+3. Détails : description de l’opération globale effectuée pendant le test
+4. Procédure de résolution : étapes suggérées pour résoudre le problème mis en surbrillance par le test
 
 ![Outil Analyseur de diagnostics de AD FS-résolution d’échec](media/ad-fs-diagonostics-analyzer/step3b_v3.png)
 

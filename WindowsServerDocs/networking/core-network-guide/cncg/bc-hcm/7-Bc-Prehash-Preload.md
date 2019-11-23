@@ -15,9 +15,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356254"
 ---
-# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Contenu de préhachage et de préchargement sur le serveur de cache hébergé \(Optional @ no__t-1
+# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Contenu de préhachage et de préchargement sur le serveur de cache hébergé \(facultatif\)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser les procédures de cette section pour préhacher le contenu sur vos serveurs de contenu, ajouter le contenu aux packages de données, puis précharger le contenu sur vos serveurs de cache hébergé. 
 

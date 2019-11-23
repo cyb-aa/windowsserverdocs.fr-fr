@@ -76,31 +76,31 @@ Lorsque vous créez un fichier Unattend. xml pour les machines virtuelles proté
 
     | Élément remplaçable | Chaîne de substitution |
     |-----------|-----------|
-    | ComputerName        | @ComputerName @      |
-    | Horaires            | @TimeZone @          |
-    | ProductKey          | @ProductKey @        |
-    | IPAddr4-1           | @IP4Addr-1 @         |
-    | IPAddr6-1           | @IP6Addr-1 @         |
-    | MACAddr-1           | @MACAddr-1 @         |
-    | Préfixe-1-1          | @Prefix-1-1 @        |
-    | NextHop-1-1         | @NextHop-1-1 @       |
-    | Préfixe-1-2          | @Prefix-1-2 @        |
-    | NextHop-1-2         | @NextHop-1-2 @       |
+    | ComputerName        | @ComputerName@      |
+    | Horaires            | @TimeZone@          |
+    | ProductKey          | @ProductKey@        |
+    | IPAddr4-1           | @IP4Addr-1@         |
+    | IPAddr6-1           | @IP6Addr-1@         |
+    | MACAddr-1           | @MACAddr-1@         |
+    | Préfixe-1-1          | @Prefix-1-1@        |
+    | NextHop-1-1         | @NextHop-1-1@       |
+    | Préfixe-1-2          | @Prefix-1-2@        |
+    | NextHop-1-2         | @NextHop-1-2@       |
 
     Si vous avez plusieurs cartes réseau, vous pouvez ajouter plusieurs chaînes de substitution pour la configuration IP en incrémentant le premier chiffre. Par exemple, pour définir l’adresse IPv4, le sous-réseau et la passerelle pour 2 cartes réseau, vous devez utiliser les chaînes de substitution suivantes :
 
     | Chaîne de substitution | Exemple de substitution |
     |---------------------|----------------------|
-    | @IP4Addr-1 @         | 192.168.1.10         |
-    | @MACAddr-1 @         | Ethernet             |
-    | @Prefix-1-1 @        | 192.168.1.0/24       |
-    | @NextHop-1-1 @       | 192.168.1.254        |
-    | @IP4Addr-2 @         | 10.0.20.30           |
-    | @MACAddr-2 @         | Ethernet 2           |
-    | @Prefix-2-1 @        | 10.0.20.0/24         |
-    | @NextHop-2-1 @       | 10.0.20.1            |
+    | @IP4Addr-1@         | 192.168.1.10         |
+    | @MACAddr-1@         | Ethernet             |
+    | @Prefix-1-1@        | 192.168.1.0/24       |
+    | @NextHop-1-1@       | 192.168.1.254        |
+    | @IP4Addr-2@         | 10.0.20.30           |
+    | @MACAddr-2@         | Ethernet 2           |
+    | @Prefix-2-1@        | 10.0.20.0/24         |
+    | @NextHop-2-1@       | 10.0.20.1            |
 
-Lors de l’utilisation de chaînes de substitution, il est important de s’assurer que les chaînes seront remplies pendant le processus d’approvisionnement de la machine virtuelle. Si une chaîne telle que @ProductKey @ n’est pas fournie au moment du déploiement, le fait de laisser le nœud &lt;ProductKey @ no__t-2 dans le fichier d’installation sans assistance n’est pas renseigné, le processus de spécialisation échoue et vous ne pouvez pas vous connecter à votre machine virtuelle.
+Lors de l’utilisation de chaînes de substitution, il est important de s’assurer que les chaînes seront remplies pendant le processus d’approvisionnement de la machine virtuelle. Si une chaîne telle que @ProductKey@ n’est pas fournie au moment du déploiement, le fait de laisser le nœud &lt;ProductKey&gt; dans le fichier d’installation sans assistance n’est pas renseigné, le processus de spécialisation échoue et vous ne pouvez pas vous connecter à votre machine virtuelle.
 
 Notez également que les chaînes de substitution associées à la mise en réseau vers la fin de la table sont utilisées uniquement si vous tirez parti des pools d’adresses IP statiques VMM. Votre fournisseur de services d’hébergement doit être en mesure de vous indiquer si ces chaînes de substitution sont requises. Pour plus d’informations sur les adresses IP statiques dans les modèles VMM, consultez les rubriques suivantes dans la documentation de VMM :
 
@@ -161,13 +161,13 @@ Procurez-vous les fichiers de métadonnées Guardian pour chaque infrastructure 
 
 Exécutez l’Assistant fichier de données de protection pour créer un fichier de données de protection (PDK). Ici, vous allez ajouter le certificat RDP, le fichier d’installation sans assistance, les catalogues de signatures de volume, le gardien propriétaire et les métadonnées du gardien téléchargées obtenues à l’étape précédente.
 
-1. Installez **Outils d’administration de serveur distant outils d’administration de fonctionnalités &gt; &gt; outils de machine virtuelle protégée** sur votre ordinateur à l’aide de gestionnaire de serveur ou de la commande Windows PowerShell suivante :
+1. Installez **Outils d’administration de serveur distant &gt; outils d’administration de fonctionnalités &gt; outils de machine virtuelle protégée** sur votre ordinateur à l’aide de gestionnaire de serveur ou de la commande Windows PowerShell suivante :
 
     ```powershell
     Install-WindowsFeature RSAT-Shielded-VM-Tools
     ```
 
-2. Ouvrez l’Assistant fichier de données de protection à partir de la section outils d’administration de votre menu Démarrer ou en exécutant l’exécutable suivant **C : \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**.
+2. Ouvrez l’Assistant fichier de données de protection à partir de la section outils d’administration de votre menu Démarrer ou en exécutant l’exécutable suivant **C :\\Windows\\System32\\ShieldingDataFileWizard. exe**.
 
 3. Sur la première page, utilisez la deuxième zone de sélection de fichier pour choisir un emplacement et un nom de fichier pour votre fichier de données de protection. Normalement, vous nommez un fichier de données de protection après l’entité qui possède les machines virtuelles créées avec ces données de protection (par exemple, HR, IT, finance) et le rôle de charge de travail qu’il exécute (par exemple, serveur de fichiers, serveur Web ou tout autre fichier configuré par le fichier d’installation sans assistance). Laissez la case d’option définie sur **protection des données pour les modèles protégés**.
 
@@ -200,7 +200,7 @@ Exécutez l’Assistant fichier de données de protection pour créer un fichier
 
 6. Sur la page **valeurs de spécialisation** , cliquez sur **Parcourir** pour sélectionner votre fichier Unattend. XML qui sera utilisé pour spécialiser vos machines virtuelles.
 
-    Utilisez le bouton **Ajouter** en bas pour ajouter tout fichier supplémentaire au PDK qui est nécessaire pendant le processus de spécialisation. Par exemple, si votre fichier d’installation sans assistance installe un certificat RDP sur la machine virtuelle (comme décrit dans [générer un fichier de réponses à l’aide de la fonction New-ShieldingDataAnswerFile](guarded-fabric-sample-unattend-xml-file.md)), vous devez ajouter le fichier PFX du certificat RDP et RDPCertificateConfig. ps1 script ici. Notez que tous les fichiers que vous spécifiez ici seront automatiquement copiés dans C : \\temp @ no__t-1 sur la machine virtuelle créée. Votre fichier d’installation sans assistance doit s’attendre à ce que les fichiers se trouvent dans ce dossier lors de leur référencement par chemin d’accès.
+    Utilisez le bouton **Ajouter** en bas pour ajouter tout fichier supplémentaire au PDK qui est nécessaire pendant le processus de spécialisation. Par exemple, si votre fichier d’installation sans assistance installe un certificat RDP sur la machine virtuelle (comme décrit dans [générer un fichier de réponses à l’aide de la fonction New-ShieldingDataAnswerFile](guarded-fabric-sample-unattend-xml-file.md)), vous devez ajouter le fichier PFX du certificat RDP et le script RDPCertificateConfig. ps1 ici. Notez que tous les fichiers que vous spécifiez ici seront automatiquement copiés dans C :\\Temp\\ sur la machine virtuelle créée. Votre fichier d’installation sans assistance doit s’attendre à ce que les fichiers se trouvent dans ce dossier lors de leur référencement par chemin d’accès.
 
 7. Passez en revue vos sélections sur la page suivante, puis cliquez sur **générer**.
 
@@ -251,11 +251,11 @@ Si vous avez plusieurs gardiens, séparez les noms des gardiens par des virgules
 Le qualificateur d’ID de volume spécifie si vous approuvez uniquement la version exacte (égale) des disques de modèle ou des futures versions (GreaterThanOrEquals).
 Le nom du disque et le certificat de signature doivent correspondre exactement pour que la comparaison des versions soit prise en compte au moment du déploiement.
 Vous pouvez faire confiance à plusieurs disques de modèle en fournissant une liste séparée par des virgules de qualificateurs d’ID de volume au paramètre `-VolumeIDQualifier`.
-Enfin, si vous avez d’autres fichiers qui doivent accompagner le fichier de réponses avec la machine virtuelle, utilisez le paramètre `-OtherFile` et fournissez une liste de chemins de fichiers séparés par des virgules.
+Enfin, si vous avez d’autres fichiers qui doivent accompagner le fichier de réponses avec la machine virtuelle, utilisez le paramètre `-OtherFile` et spécifiez une liste de chemins de fichiers séparés par des virgules.
 
 Consultez la documentation sur les applets de commande [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) et [New-VolumeIDQualifier](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) pour en savoir plus sur les autres méthodes de configuration de votre fichier de données de protection.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Déployer des machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

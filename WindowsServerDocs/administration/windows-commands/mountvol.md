@@ -44,8 +44,8 @@ mountvol <Drive>: /s
 
 |Paramètre|Description|
 |---------|-----------|
-|[@no__t 0Drive >:] <Path>|Spécifie le répertoire NTFS existant dans lequel se trouve le point de montage.|
-|@no__t 0VolumeName >|Spécifie le nom du volume qui est la cible du point de montage. Le nom du volume utilise la syntaxe suivante, où *GUID* est un identificateur global unique :</br>`\\\\?\Volume\{GUID}\`</br>Les crochets {} sont requis.|
+|[lecteur\<>:]<Path>|Spécifie le répertoire NTFS existant dans lequel se trouve le point de montage.|
+|\<nom_volume >|Spécifie le nom du volume qui est la cible du point de montage. Le nom du volume utilise la syntaxe suivante, où *GUID* est un identificateur global unique :</br>`\\\\?\Volume\{GUID}\`</br>Les crochets {} sont requis.|
 |/d|Supprime le point de montage de volume du dossier spécifié.|
 |/l|Répertorie le nom du volume monté pour le dossier spécifié.|
 |/p|Supprime le point de montage de volume du répertoire spécifié, démonte le volume de base et met le volume de base hors connexion, ce qui le rend non montable. Si d’autres processus utilisent le volume, **mountvol** ferme tous les descripteurs ouverts avant de démonter le volume.|
@@ -59,7 +59,7 @@ mountvol <Drive>: /s
 
 -   **Mountvol** vous permet de lier des volumes sans nécessiter de lettre de lecteur.
 -   Les volumes démontés à l’aide de **/p** sont répertoriés dans la liste des volumes comme « non montés tant qu’un point de montage de volume n’a pas été créé ». Si le volume a plusieurs points de montage, utilisez **/d** pour supprimer les points de montage supplémentaires avant d’utiliser **/p**. Vous pouvez rendre le volume de base montable à nouveau en affectant un point de montage de volume.
--   Si vous devez étendre votre espace de volume sans reformater ou remplacer un disque dur, vous pouvez ajouter un chemin d’accès de montage à un autre volume. L’avantage de l’utilisation d’un seul volume avec plusieurs chemins de montage est que vous pouvez accéder à tous les volumes locaux à l’aide d’une seule lettre de lecteur (par exemple, `C:`). Vous n’avez pas besoin de vous souvenir du volume qui correspond à la lettre de lecteur, même si vous pouvez toujours monter des volumes locaux et leur attribuer des lettres de lecteur.
+-   Si vous devez étendre votre espace de volume sans reformater ou remplacer un disque dur, vous pouvez ajouter un chemin d’accès de montage à un autre volume. L’avantage de l’utilisation d’un seul volume avec plusieurs chemins de montage est que vous pouvez accéder à tous les volumes locaux à l’aide d’une seule lettre de lecteur (par exemple `C:`). Vous n’avez pas besoin de vous souvenir du volume qui correspond à la lettre de lecteur, même si vous pouvez toujours monter des volumes locaux et leur attribuer des lettres de lecteur.
 
 ## <a name="BKMK_examples"></a>Illustre
 

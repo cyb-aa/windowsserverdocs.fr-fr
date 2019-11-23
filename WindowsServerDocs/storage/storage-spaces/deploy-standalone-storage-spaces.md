@@ -17,7 +17,7 @@ ms.locfileid: "71393732"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Déployer des espaces de stockage sur un serveur autonome
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Cette rubrique explique comment déployer des espaces de stockage sur un serveur autonome. Pour plus d’informations sur la création d’un espace de stockage en cluster, voir [déployer un cluster d’espaces de stockage sur Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>).
 
@@ -34,19 +34,19 @@ La figure suivante illustre le flux de travail des espaces de stockage.
 
 ![Flux de travail des espaces de stockage](media/deploy-standalone-storage-spaces/storage-spaces-workflow.png)
 
-**Figure 1 : Flux de travail des espaces de stockage @ no__t-0
+**Figure 1 : flux de travail des espaces de stockage**
 
 >[!NOTE]
 >Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser des espaces de stockage sur un serveur autonome Windows Server 2012, assurez-vous que les disques physiques que vous voulez utiliser respectent les conditions préalables suivantes.
 
 > [!IMPORTANT]
 > Si vous souhaitez savoir comment déployer des espaces de stockage sur un cluster de basculement, voir [déployer un cluster d’espaces de stockage sur Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>). Un déploiement de cluster de basculement présente des conditions préalables différentes, telles que les types de bus de disque pris en charge, les types de résilience pris en charge et le nombre minimal de disques requis.
 
-|Domaine|Condition requise|Notes|
+|Zone|Condition requise|Remarques|
 |---|---|---|
 |Types de bus du disque|-SAS (Serial Attached SCSI)<br>-SATA (Serial Advanced Technology Attachment)<br>-les contrôleurs iSCSI et Fibre Channel. |Vous pouvez également utiliser des lecteurs USB. Toutefois, il n’est pas optimal d’utiliser des lecteurs USB dans un environnement de serveur.<br>Les espaces de stockage sont pris en charge sur les contrôleurs iSCSI et Fibre Channel (FC) tant que les disques virtuels créés sur ceux-ci ne sont pas résilients (simples avec un nombre quelconque de colonnes).<br>|
 |Configuration de disque|-Les disques physiques doivent avoir au moins 4 Go<br>-Les disques doivent être vierges et non formatés. Ne créez pas de volumes.||
@@ -55,13 +55,13 @@ Pour utiliser des espaces de stockage sur un serveur autonome Windows Server 201
 
 Pour planifier le nombre de disques physiques et le type de résilience voulu pour le déploiement d'un serveur autonome, utilisez les instructions suivantes.
 
-|Type de résilience|Configuration requise pour le disque|Quand utiliser|
+|Type de résilience|Configuration requise pour le disque|Quand l’utiliser|
 |---|---|---|
 |**Simple**<br><br>-Entrelace les données sur les disques physiques<br>-Optimise la capacité du disque et augmente le débit<br>-Aucune résilience (ne protège pas contre les défaillances de disque)<br><br><br><br><br><br><br>|Nécessite au moins un disque physique.|À ne pas utiliser pour héberger des données irremplaçables. Les espaces simples ne protègent pas les défaillances de disque.<br><br>À utiliser pour héberger des données temporaires ou facilement recréées à moindre coût.<br><br>Adapté aux charges de travail hautes performances dans lesquelles la résilience n’est pas requise ou est déjà fournie par l’application.|
 |**Miroir**<br><br>-Stocke deux ou trois copies des données sur l’ensemble des disques physiques.<br>-Augmente la fiabilité, mais réduit la capacité. Une duplication se produit avec chaque écriture. Un espace en miroir agrège également les données par bandes sur plusieurs disques physiques.<br>-Meilleur débit de données et latence d’accès inférieure à la parité<br>-Utilise le suivi des régions modifiées (DRT) pour effectuer le suivi des modifications apportées aux disques dans le pool. Quand le système redémarre après un arrêt non planifié et que les espaces sont remis en ligne, DRT assure la cohérence des disques dans le pool.|Nécessite au moins deux disques physiques pour une protection contre une seule défaillance de disque.<br><br>Nécessite au moins cinq disques physiques pour une protection contre deux défaillances de disque simultanées.|À utiliser pour la plupart des déploiements. Par exemple, les espaces en miroir sont adaptés à un partage de fichiers à usage général ou à une bibliothèque de disques durs virtuels (VHD).|
 |**Parité**<br><br>-Entrelace les données et les informations de parité sur les disques physiques<br>-Augmente la fiabilité lorsqu’il est comparé à un espace simple, mais réduit la capacité<br>-Augmente la résilience par le biais de la journalisation. Vous pouvez ainsi empêcher tout endommagement des données en cas d'arrêt non planifié.|Nécessite au moins trois disques physiques pour une protection contre une seule défaillance de disque.|À utiliser pour les charges de travail hautement séquentielles, telles que l'archivage ou la sauvegarde.|
 
-## <a name="step-1-create-a-storage-pool"></a>Étape 1 : Créer un pool de stockage
+## <a name="step-1-create-a-storage-pool"></a>Étape 1 : créer un pool de stockage
 
 Vous devez d'abord regrouper les disques physiques disponibles en un ou plusieurs pools de stockage.
 
@@ -124,7 +124,7 @@ $PDToAdd = Get-PhysicalDisk –FriendlyName PhysicalDisk5
 Add-PhysicalDisk –StoragePoolFriendlyName StoragePool1 –PhysicalDisks $PDToAdd –Usage HotSpare
 ```
 
-## <a name="step-2-create-a-virtual-disk"></a>Étape 2 : Créer un disque virtuel
+## <a name="step-2-create-a-virtual-disk"></a>Étape 2 : créer un disque virtuel.
 
 Vous devez ensuite créer un ou plusieurs disques virtuels à partir du pool de stockage. Quand vous créez un disque virtuel, vous pouvez sélectionner la disposition des données sur les disques physiques. Cela affecte à la fois la fiabilité et les performances. Vous pouvez également choisir de créer des disques à allocation dynamique ou fixe.
 
@@ -215,7 +215,7 @@ L’exemple suivant crée un disque virtuel nommé *VirtualDisk1* sur un pool de
 New-VirtualDisk -StoragePoolFriendlyName StoragePool1 -FriendlyName VirtualDisk1 -ResiliencySettingName Mirror -NumberOfDataCopies 3 -Size 20GB -ProvisioningType Fixed
 ```
 
-## <a name="step-3-create-a-volume"></a>Étape 3 : Créer un volume
+## <a name="step-3-create-a-volume"></a>Étape 3 : créer un volume
 
 Vous devez ensuite créer un volume à partir du disque virtuel. Vous pouvez affecter une lettre de lecteur ou un dossier facultatif, puis formater le volume avec un système de fichiers.
 

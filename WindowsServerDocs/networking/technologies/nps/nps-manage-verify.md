@@ -17,7 +17,7 @@ ms.locfileid: "71405354"
 ---
 # <a name="verify-configuration-after-nps-changes"></a>Vérifier la configuration après les modifications de NPS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour vérifier la configuration de NPS après une modification d’adresse IP ou de nom sur le serveur.
 
@@ -53,7 +53,7 @@ Pour exécuter ces procédures, vous devez être membre du **groupe administrate
 
     a. Double-cliquez sur **NPS (local)** , double-cliquez sur **clients et serveurs RADIUS**, cliquez sur **clients RADIUS**, puis, dans le volet d’informations, double-cliquez sur le client RADIUS que vous souhaitez modifier.
 
-    b. Dans **Propriétés**du client RADIUS, dans **adresse \(IP ou DNS @ no__t-3**, tapez la nouvelle adresse IP du proxy NPS.
+    b. Dans **Propriétés**du client RADIUS, dans **adresse \(\)IP ou DNS** , tapez la nouvelle adresse IP du proxy NPS.
 
 4. Si vous avez configuré le proxy NPS pour utiliser SQL Server la journalisation, vérifiez que la connectivité entre l’ordinateur exécutant SQL Server et le proxy NPS fonctionne toujours correctement.
 

@@ -22,12 +22,12 @@ ms.locfileid: "71406112"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Déployer le contrôleur de réseau à l’aide de Windows PowerShell
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique fournit des instructions sur l’utilisation de Windows PowerShell pour déployer un contrôleur de réseau sur une ou plusieurs machines virtuelles qui exécutent Windows Server 2016.
 
 >[!IMPORTANT]
->Ne déployez pas le rôle de serveur de contrôleur de réseau sur les hôtes physiques. Pour déployer le contrôleur de réseau, vous devez installer le rôle serveur contrôleur de réseau sur une machine virtuelle Hyper-V \(VM @ no__t-1 qui est installée sur un ordinateur hôte Hyper-V. Une fois que vous avez installé le contrôleur de réseau sur les machines virtuelles sur trois ordinateurs hôtes Hyper @ no__t-0V différents, vous devez activer les hôtes Hyper @ no__t-1V pour la mise en réseau définie par logiciel \(SDN @ no__t-3 en ajoutant les ordinateurs hôtes au contrôleur de réseau à l’aide de Windows PowerShell commande **New-NetworkControllerServer**. En procédant ainsi, vous activez le Load Balancer logiciel SDN pour fonctionner. Pour plus d’informations, consultez [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Ne déployez pas le rôle de serveur de contrôleur de réseau sur les hôtes physiques. Pour déployer le contrôleur de réseau, vous devez installer le rôle de serveur contrôleur de réseau sur un ordinateur virtuel Hyper-V \(\) d’ordinateur virtuel installé sur un ordinateur hôte Hyper-V. Une fois que vous avez installé le contrôleur de réseau sur les machines virtuelles sur trois hôtes Hyper\-V différents, vous devez activer les hôtes Hyper\-V pour la mise en réseau définie par logiciel \(SDN\) en ajoutant les ordinateurs hôtes au contrôleur de réseau à l’aide de la commande Windows PowerShell **New-NetworkControllerServer**. En procédant ainsi, vous activez le Load Balancer logiciel SDN pour fonctionner. Pour plus d’informations, consultez [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
 
 Cette rubrique contient les sections suivantes.
 
@@ -47,10 +47,10 @@ Cette rubrique contient les sections suivantes.
 
 ## <a name="install-the-network-controller-server-role"></a>Installer le rôle de serveur du contrôleur de réseau
 
-Vous pouvez utiliser cette procédure pour installer le rôle de serveur contrôleur de réseau sur une machine virtuelle \(VM @ no__t-1.
+Vous pouvez utiliser cette procédure pour installer le rôle de serveur du contrôleur de réseau sur une machine virtuelle \(\)d’ordinateur virtuel.
 
 >[!IMPORTANT]
->Ne déployez pas le rôle de serveur de contrôleur de réseau sur les hôtes physiques. Pour déployer le contrôleur de réseau, vous devez installer le rôle serveur contrôleur de réseau sur une machine virtuelle Hyper-V \(VM @ no__t-1 qui est installée sur un ordinateur hôte Hyper-V. Une fois que vous avez installé le contrôleur de réseau sur les machines virtuelles sur trois ordinateurs hôtes Hyper @ no__t-0V différents, vous devez activer les hôtes Hyper @ no__t-1V pour la mise en réseau définie par logiciel \(SDN @ no__t-3 en ajoutant les ordinateurs hôtes au contrôleur de réseau. En procédant ainsi, vous activez le Load Balancer logiciel SDN pour fonctionner.
+>Ne déployez pas le rôle de serveur de contrôleur de réseau sur les hôtes physiques. Pour déployer le contrôleur de réseau, vous devez installer le rôle de serveur contrôleur de réseau sur un ordinateur virtuel Hyper-V \(\) d’ordinateur virtuel installé sur un ordinateur hôte Hyper-V. Une fois que vous avez installé le contrôleur de réseau sur les machines virtuelles sur trois hôtes Hyper\-V différents, vous devez activer les hôtes Hyper\-V pour la mise en réseau définie par logiciel \(la\) SDN en ajoutant les ordinateurs hôtes au contrôleur de réseau. En procédant ainsi, vous activez le Load Balancer logiciel SDN pour fonctionner.
 
 Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
 
@@ -90,7 +90,7 @@ Le tableau suivant fournit des descriptions pour chaque paramètre de la command
 |-------------|---------------|
 |Nom|Le paramètre **Name** spécifie le nom convivial du serveur que vous souhaitez ajouter au cluster.|
 |Server|Le paramètre **Server** spécifie le nom d’hôte, le nom de domaine complet (FQDN) ou l’adresse IP du serveur que vous souhaitez ajouter au cluster. Pour les ordinateurs joints à un domaine, un nom de domaine complet est requis.|
-|FaultDomain|Le paramètre **FaultDomain** spécifie le domaine d’échec pour le serveur que vous ajoutez au cluster. Ce paramètre définit les serveurs qui peuvent rencontrer un échec en même temps que le serveur que vous ajoutez au cluster. Cet échec peut être dû à des dépendances physiques partagées, telles que des sources d’alimentation et de mise en réseau. Les domaines d’erreur représentent généralement des hiérarchies associées à ces dépendances partagées, avec un plus grand nombre de serveurs susceptibles de tomber en panne à partir d’un point supérieur dans l’arborescence de domaine d’erreur. Pendant l’exécution, le contrôleur de réseau prend en compte les domaines d’erreur dans le cluster et tente de répartir les services de contrôleur de réseau afin qu’ils se trouvent dans des domaines d’erreur distincts. Ce processus permet de s’assurer, en cas de défaillance d’un domaine d’erreur, que la disponibilité de ce service et de son état n’est pas compromise. Les domaines d’erreur sont spécifiés dans un format hiérarchique. Exemple : « FD:/DC1/RACK1/host1 », où DC1 est le nom du centre de connaissances, RACK1 est le nom du rack et host1 est le nom de l’hôte sur lequel le nœud est placé.|
+|FaultDomain|Le paramètre **FaultDomain** spécifie le domaine d’échec pour le serveur que vous ajoutez au cluster. Ce paramètre définit les serveurs qui peuvent rencontrer un échec en même temps que le serveur que vous ajoutez au cluster. Cet échec peut être dû à des dépendances physiques partagées, telles que des sources d’alimentation et de mise en réseau. Les domaines d’erreur représentent généralement des hiérarchies associées à ces dépendances partagées, avec un plus grand nombre de serveurs susceptibles de tomber en panne à partir d’un point supérieur dans l’arborescence de domaine d’erreur. Pendant l’exécution, le contrôleur de réseau prend en compte les domaines d’erreur dans le cluster et tente de répartir les services de contrôleur de réseau afin qu’ils se trouvent dans des domaines d’erreur distincts. Ce processus permet de s’assurer, en cas de défaillance d’un domaine d’erreur, que la disponibilité de ce service et de son état n’est pas compromise. Les domaines d’erreur sont spécifiés dans un format hiérarchique. Par exemple : « FD:/DC1/RACK1/host1 », où DC1 est le nom du centre de connaissances, RACK1 est le nom du rack et host1 est le nom de l’hôte sur lequel le nœud est placé.|
 |RestInterface|Le paramètre **RestInterface** spécifie le nom de l’interface sur le nœud où la communication Rest est arrêtée. Cette interface de contrôleur de réseau reçoit les demandes de l’API Northbound à partir de la couche de gestion du réseau.|
 |NodeCertificate|Le paramètre **NodeCertificate** spécifie le certificat utilisé par le contrôleur de réseau pour l’authentification de l’ordinateur. Le certificat est requis si vous utilisez l’authentification basée sur les certificats pour la communication au sein du cluster. le certificat est également utilisé pour le chiffrement du trafic entre les services de contrôleur de réseau. Le nom d’objet du certificat doit être le même que le nom DNS du nœud.|
 
@@ -198,7 +198,7 @@ Après avoir déployé le contrôleur de réseau, vous pouvez utiliser les comma
 
 Le tableau suivant fournit la syntaxe des commandes Windows PowerShell que vous pouvez utiliser pour accomplir ces tâches.
 
-|Tâche|Command|Syntaxe|
+|Tâche|Commande|Syntaxe|
 |--------|-------|----------|
 |Modifier les paramètres de cluster du contrôleur de réseau|Set-NetworkControllerCluster|`Set-NetworkControllerCluster [-ManagementSecurityGroup <string>][-Credential <PSCredential>] [-computerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Modifier les paramètres d’application du contrôleur de réseau|Set-NetworkController|`Set-NetworkController [-ClientAuthentication <ClientAuthentication>] [-Credential <PSCredential>] [-ClientCertificateThumbprint <string[]>] [-ClientSecurityGroup <string>] [-ServerCertificate <X509Certificate2>] [-RestIPAddress <String>] [-ComputerName <String>][-CertificateThumbprint <String> ] [-UseSSL]`

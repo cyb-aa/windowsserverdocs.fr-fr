@@ -23,7 +23,7 @@ ms.locfileid: "71380569"
 
 Définit le jeton principal de l’invite de commandes en cours (ou le jeton d’un compte d’utilisateur local arbitraire, s’il est spécifié) comme [jeton d’assistance](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)d’une tâche de transfert bits.
 
-**BITS 3,0 et versions antérieures**: Non pris en charge.
+**BITS 3,0 et versions antérieures**: non pris en charge.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,7 +36,7 @@ bitsadmin /SetHelperToken <Job> [\<username@domain\> \<password\>]
 |Paramètre|Description|
 |---------|-----------|
 |Tâche|Nom complet ou GUID du travail.|
-|\< @ no__t-1 @ no__t-2 \<password @ no__t-4|Informations d’identification @ no__t-0The facultatives d’un compte d’utilisateur local dont le jeton doit être utilisé.|
+|\<username@domain\> mot de passe \<\>|Facultatif&mdash;les informations d’identification d’un compte d’utilisateur local dont le jeton doit être utilisé.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 

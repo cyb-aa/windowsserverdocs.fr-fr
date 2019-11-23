@@ -16,11 +16,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408727"
 ---
-# <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Annexe C : Comptes et groupes protégés dans Active Directory
+# <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>AnnexeC: Comptes protégés et groupes dans Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Annexe C : Comptes et groupes protégés dans Active Directory
+## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>AnnexeC: Comptes protégés et groupes dans Active Directory
 
 Dans Active Directory, un ensemble par défaut de comptes et de groupes à privilèges élevés est considéré comme des groupes et des comptes protégés. Avec la plupart des objets dans Active Directory, les administrateurs délégués (les utilisateurs qui ont été délégués des autorisations pour gérer des objets Active Directory) peuvent modifier les autorisations sur les objets, y compris modifier les autorisations pour autoriser la modification des appartenances de les groupes, par exemple.  
 
@@ -53,7 +53,7 @@ Le tableau suivant contient les groupes protégés dans Active Directory listés
 
 #### <a name="adminsdholder"></a>AdminSDHolder
 
-L’objectif de l’objet AdminSDHolder est de fournir des autorisations « template » pour les comptes et les groupes protégés dans le domaine. AdminSDHolder est automatiquement créé en tant qu’objet dans le conteneur système de chaque Active Directory domaine. Son chemin d’accès est le suivant : **CN = AdminSDHolder, CN = System, DC = < domain_component >, DC = < domain_component >?.**  
+L’objectif de l’objet AdminSDHolder est de fournir des autorisations « template » pour les comptes et les groupes protégés dans le domaine. AdminSDHolder est automatiquement créé en tant qu’objet dans le conteneur système de chaque Active Directory domaine. Son chemin d’accès est : **CN = AdminSDHolder, CN = System, DC = < domain_component >, DC = < domain_component >?.**  
 
 Contrairement à la plupart des objets du domaine Active Directory, qui sont détenus par le groupe administrateurs, AdminSDHolder appartient au groupe Admins du domaine. Par défaut, EAs peut apporter des modifications à l’objet AdminSDHolder d’un domaine, tout comme les groupes Admins du domaine et administrateurs du domaine. En outre, bien que le propriétaire par défaut de AdminSDHolder soit le groupe Admins du domaine du domaine, les membres des administrateurs ou administrateurs de l’entreprise peuvent prendre possession de l’objet.  
 
@@ -88,7 +88,7 @@ Vous pouvez forcer l’exécution de SDProp à l’aide de Ldp. exe ou en exécu
 
    ![comptes et groupes protégés](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_10.png)  
 
-4. Vérifiez que vous vous êtes correctement connecté, comme indiqué par **Dn : (RootDSE)**  dans la capture d’écran suivante, cliquez sur **connexion** , puis sur **lier**.  
+4. Vérifiez que vous êtes connecté avec succès, comme indiqué par **DN : (RootDSE)** dans la capture d’écran suivante, cliquez sur **connexion** , puis sur **lier**.  
 
    ![comptes et groupes protégés](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_11.png)  
 
@@ -107,7 +107,7 @@ Vous pouvez forcer l’exécution de SDProp à l’aide de Ldp. exe ou en exécu
 8. Dans la boîte de dialogue modification remplie, cliquez sur Exécuter, puis vérifiez que les modifications que vous avez apportées à l’objet AdminSDHolder sont apparues sur cet objet.  
 
 > [!NOTE]  
-> Pour plus d’informations sur la modification de AdminSDHolder pour permettre aux comptes non privilégiés désignés de modifier l’appartenance aux groupes protégés, consultez [Appendix I : Création de comptes de gestion pour les comptes et les groupes protégés dans Active Directory @ no__t-0.  
+> Pour plus d’informations sur la modification de AdminSDHolder pour permettre aux comptes non privilégiés désignés de modifier l’appartenance aux groupes protégés, consultez [l’annexe I : création de comptes de gestion pour les comptes et groupes protégés dans Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md).  
 
 Si vous préférez exécuter SDProp manuellement via LDIFDE ou un script, vous pouvez créer une entrée de modification comme indiqué ici :  
 
@@ -127,7 +127,7 @@ Vous pouvez également forcer l’exécution de SDProp à l’aide de Ldp. exe o
 
    ![comptes et groupes protégés](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_17.gif)  
 
-4. Vérifiez que vous vous êtes correctement connecté, comme indiqué par **Dn : (RootDSE)**  dans la capture d’écran suivante, cliquez sur **connexion** , puis sur **lier**.  
+4. Vérifiez que vous êtes connecté avec succès, comme indiqué par **DN : (RootDSE)** dans la capture d’écran suivante, cliquez sur **connexion** , puis sur **lier**.  
 
    ![comptes et groupes protégés](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_18.gif)  
 

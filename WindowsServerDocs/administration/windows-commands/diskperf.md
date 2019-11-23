@@ -45,4 +45,4 @@ diskperf [-Y[D|V] | -N[D|V]] [\\computername]
 |-N|Désactivez tous les compteurs de performances de disque au redémarrage de l’ordinateur.|
 |-ND|Désactivez les compteurs de performances de disque pour les lecteurs physiques au redémarrage de l’ordinateur.|
 |-NV|Désactivez les compteurs de performances de disque pour les lecteurs logiques ou les volumes de stockage au redémarrage de l’ordinateur.|
-|\\ @ no__t-1 *\<computername >*|Spécifiez le nom de l’ordinateur sur lequel vous souhaitez activer ou désactiver les compteurs de performances de disque.|
+|\\\\ *\<computername >*|Spécifiez le nom de l’ordinateur sur lequel vous souhaitez activer ou désactiver les compteurs de performances de disque.|

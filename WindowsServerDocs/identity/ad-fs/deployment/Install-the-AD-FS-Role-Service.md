@@ -26,9 +26,9 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
   
 1.  Ouvrez le Gestionnaire de serveur. Pour ouvrir Gestionnaire de serveur, cliquez sur **Gestionnaire de serveur** dans l’écran d' **accueil** , ou **Gestionnaire de serveur** dans la barre des tâches sur le bureau. Sous l’onglet **Démarrage rapide** de la vignette **Bienvenue** dans la page **Tableau de bord**, cliquez sur **Ajouter des rôles et des fonctionnalités**. Vous pouvez également cliquer sur **Ajouter des rôles et fonctionnalités** dans le menu **Gérer** .  
   
-2.  Dans la page **Avant de commencer** , cliquez sur **Suivant**.  
+2.  Sur la page **Before you begin**, cliquez sur **Next**.  
   
-3.  Dans la page **Sélectionner le type d’installation** , cliquez sur **rôle @ no__t-2Based ou sur fonctionnalité @ no__t-3based installation**, puis cliquez sur **suivant**.  
+3.  Dans la page **Sélectionner le type d’installation** , cliquez sur **rôle\-en fonction ou sur fonctionnalité\-installation**, puis cliquez sur **suivant**.  
   
 4.  Dans la page **Sélectionner le serveur de destination** , cliquez sur **Sélectionner un serveur du pool de serveurs**, vérifiez que l'ordinateur cible est sélectionné, puis cliquez sur **Suivant**.  
   
@@ -36,7 +36,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
   
 6.  Dans la page **Sélectionner les fonctionnalités** , cliquez sur **Suivant**. La configuration requise est présélectionnée pour vous. Vous n’avez pas besoin de sélectionner d’autres fonctionnalités.  
   
-7.  Dans la page **Active Directory service FS (Federation Service) \(AD FS @ no__t-2** , cliquez sur **suivant**.  
+7.  Sur la page **Active Directory service FS (Federation Service) \(AD FS\)** , cliquez sur **suivant**.  
   
 8.  Après avoir vérifié les informations de la page **confirmer les sélections d’installation** , cliquez sur **installer**.  
   
@@ -44,7 +44,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
   
 ### <a name="to-install-the-ad-fs-server-role-via-windows-powershell"></a>Pour installer le rôle serveur AD FS via Windows PowerShell  
   
-1.  Sur l’ordinateur que vous souhaitez configurer en tant que serveur de Fédération, ouvrez la fenêtre de commande Windows PowerShell, puis exécutez la commande suivante `Install-windowsfeature adfs-federation –IncludeManagementTools`:.  
+1.  Sur l’ordinateur que vous souhaitez configurer en tant que serveur de Fédération, ouvrez la fenêtre de commande Windows PowerShell, puis exécutez la commande suivante : `Install-windowsfeature adfs-federation –IncludeManagementTools`.  
   
 ## <a name="see-also"></a>Voir aussi 
 

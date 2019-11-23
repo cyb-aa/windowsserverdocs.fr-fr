@@ -38,8 +38,8 @@ tree [<Drive>:][<Path>] [/f] [/a]
 
 |Paramètre|Description|
 |---------|-----------|
-|> @no__t 0Drive :|Spécifie le lecteur qui contient le disque pour lequel vous souhaitez afficher la structure de répertoires.|
-|@no__t 0Path >|Spécifie le répertoire pour lequel vous souhaitez afficher la structure de répertoires.|
+|> du lecteur de \<:|Spécifie le lecteur qui contient le disque pour lequel vous souhaitez afficher la structure de répertoires.|
+|Chemin de \<>|Spécifie le répertoire pour lequel vous souhaitez afficher la structure de répertoires.|
 |/f|Affiche les noms des fichiers dans chaque répertoire.|
 |/a|Spécifie que l' **arborescence** doit utiliser des caractères de texte plutôt que des caractères graphiques pour afficher les lignes qui lient des sous-répertoires.|
 |/?|Affiche l'aide à l'invite de commandes.|

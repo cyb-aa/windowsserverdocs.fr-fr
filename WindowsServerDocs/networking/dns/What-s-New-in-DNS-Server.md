@@ -17,13 +17,13 @@ ms.locfileid: "71406233"
 ---
 # <a name="whats-new-in-dns-server-in-windows-server"></a>Nouveautés du serveur DNS dans Windows Server
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit les nouveautés et les modifications apportées à la fonctionnalité de serveur DNS (Domain Name System) dans Windows Server 2016.  
   
 Dans Windows Server 2016, le serveur DNS offre une prise en charge améliorée dans les domaines suivants.  
   
-|Fonctionnalité|Nouveauté ou amélioration|Description|  
+|Fonctionnalités|Nouveauté ou amélioration|Description|  
 |-----------------|-------------------|---------------|  
 |Stratégies DNS|Nouveau|Vous pouvez configurer des stratégies DNS pour spécifier la façon dont un serveur DNS répond aux requêtes DNS. Les réponses DNS peuvent être basées sur l’adresse IP du client (emplacement), l’heure de la journée et plusieurs autres paramètres. Les stratégies DNS activent les DNS sensibles à l’emplacement, la gestion du trafic, l’équilibrage de charge, le DNS de fractionnement et d’autres scénarios.|  
 |Limitation du taux de réponse (RRL)|Nouveau|Vous pouvez activer la limitation du taux de réponse sur vos serveurs DNS. En procédant ainsi, vous évitez la possibilité que des systèmes malveillants utilisent vos serveurs DNS pour lancer une attaque par déni de service sur un client DNS.|  
@@ -34,16 +34,16 @@ Dans Windows Server 2016, le serveur DNS offre une prise en charge améliorée d
   
 ## <a name="dns-policies"></a>Stratégies DNS
 
-Vous pouvez utiliser la stratégie DNS pour la gestion du trafic basée sur la géolocalisation, les réponses DNS intelligentes en fonction de l’heure de la journée, pour gérer un serveur DNS unique configuré pour le déploiement Split @ no__t-0brain, l’application de filtres sur les requêtes DNS, etc. Les éléments suivants fournissent plus de détails sur ces fonctionnalités.
+Vous pouvez utiliser une stratégie DNS pour la gestion du trafic basée sur la géolocalisation, les réponses DNS intelligentes en fonction de l’heure de la journée, pour gérer un serveur DNS unique configuré pour le déploiement\-Brain de fractionnement, l’application de filtres sur les requêtes DNS, etc. Les éléments suivants fournissent plus de détails sur ces fonctionnalités.
 
 -   **Équilibrage de charge de l’application.** Lorsque vous avez déployé plusieurs instances d’une application à différents emplacements, vous pouvez utiliser la stratégie DNS pour équilibrer la charge du trafic entre les différentes instances d’application, en allouant de manière dynamique la charge du trafic pour l’application.
 
--   **La gestion du trafic basée sur la géo-no__t-1Location.** Vous pouvez utiliser une stratégie DNS pour permettre aux serveurs DNS principaux et secondaires de répondre aux requêtes du client DNS en fonction de l’emplacement géographique du client et de la ressource à laquelle le client tente de se connecter, en fournissant au client l’adresse IP la plus proche. ressource. 
+-   **Zone géographique\-gestion du trafic basée sur l’emplacement.** Vous pouvez utiliser une stratégie DNS pour permettre aux serveurs DNS principaux et secondaires de répondre aux requêtes du client DNS en fonction de l’emplacement géographique du client et de la ressource à laquelle le client tente de se connecter, en fournissant au client l’adresse IP la plus proche. ressource. 
 
--   **Fractionnement du DNS Brain.** Avec le DNS split @ no__t-0brain, les enregistrements DNS sont répartis en différentes étendues de zones sur le même serveur DNS, et les clients DNS reçoivent une réponse selon que les clients sont des clients internes ou externes. Vous pouvez configurer le service DNS split @ no__t-0brain pour Active Directory zones intégrées ou pour les zones sur des serveurs DNS autonomes.
+-   **Fractionnement du DNS Brain.** Avec le DNS de Split\-Brain, les enregistrements DNS sont répartis en différentes étendues de zones sur le même serveur DNS, et les clients DNS reçoivent une réponse selon que les clients sont des clients internes ou externes. Vous pouvez configurer le service DNS de fractionnement\-Brain pour les zones intégrées Active Directory ou pour les zones sur des serveurs DNS autonomes.
 
 -   **Filtration.** Vous pouvez configurer une stratégie DNS pour créer des filtres de requête basés sur des critères que vous fournissez. Les filtres de requête dans la stratégie DNS vous permettent de configurer le serveur DNS pour qu’il réponde de manière personnalisée en fonction de la requête DNS et du client DNS qui envoie la requête DNS. 
--   **Investigation.** Vous pouvez utiliser une stratégie DNS pour rediriger les clients DNS malveillants vers une adresse IP non-no__t-0existent au lieu de les rediriger vers l’ordinateur auquel ils essaient d’accéder.
+-   **Investigation.** Vous pouvez utiliser une stratégie DNS pour rediriger les clients DNS malveillants vers une adresse IP non\-existante au lieu de les rediriger vers l’ordinateur auquel ils essaient d’accéder.
 
 -   **Redirection basée sur l’heure de la journée.** Vous pouvez utiliser une stratégie DNS pour distribuer le trafic d’application sur différentes instances géographiquement distribuées d’une application à l’aide de stratégies DNS basées sur l’heure de la journée. 
   
@@ -75,7 +75,7 @@ Vous pouvez configurer les paramètres RRL pour contrôler la façon de répondr
   
 ## <a name="dane-support"></a>Prise en charge de l’e
 
-Vous pouvez utiliser la prise en @no__t charge de la fonction 0RFC-6394 et 6698 @ no__t-1 pour spécifier à vos clients DNS l’autorité de certification à partir de laquelle les certificats doivent être émis pour les noms de domaine hébergés sur votre serveur DNS. Cela empêche une forme d’attaque de l’intercepteur dans laquelle un utilisateur peut corrompre un cache DNS et faire pointer un nom DNS sur sa propre adresse IP.  
+Vous pouvez utiliser la prise en charge de l’élément de support \(RFC 6394 et 6698\) pour spécifier à vos clients DNS l’autorité de certification à partir de laquelle les certificats doivent être émis pour les noms de domaine hébergés sur votre serveur DNS. Cela empêche une forme d’attaque de l’intercepteur dans laquelle un utilisateur peut corrompre un cache DNS et faire pointer un nom DNS sur sa propre adresse IP.  
   
 Par exemple, imaginez que vous hébergez un site Web sécurisé qui utilise SSL sur www.contoso.com à l’aide d’un certificat d’une autorité connue nommée CA1. Une personne peut toujours être en mesure d’obtenir un certificat pour www.contoso.com à partir d’une autorité de certification différente et non connue, nommée CA2. Ensuite, l’entité hébergeant le site Web factice www.contoso.com peut corrompre le cache DNS d’un client ou d’un serveur pour pointer www.contoto.com vers son site factice. L’utilisateur final reçoit un certificat à partir de CA2 et peut simplement le reconnaître et se connecter au site factice. Avec la valeur de l’enregistrement, le client envoie une demande au serveur DNS pour que contoso.com demande l’enregistrement TLSA et s’assure que le certificat pour www.contoso.com était un problème par CA1. S’il est présenté avec un certificat d’une autre autorité de certification, la connexion est abandonnée.  
   
@@ -150,7 +150,7 @@ Pour plus d’informations, consultez les rubriques de référence sur les comma
 - [Module DnsServer](https://docs.microsoft.com/powershell/module/dnsserver/?view=win10-ps)
 - [Module dnsclient Show State](https://docs.microsoft.com/powershell/module/dnsclient/?view=win10-ps)
 
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Voir également  
   
 -   [Nouveautés du client DNS](What-s-New-in-DNS-Client.md)  
   

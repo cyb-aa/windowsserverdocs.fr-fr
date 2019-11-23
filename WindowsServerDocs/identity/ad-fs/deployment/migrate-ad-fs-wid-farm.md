@@ -35,11 +35,11 @@ Pour migrer une batterie de serveurs WID vers Windows Server 2012, procédez com
 Vous pouvez créer la configuration de AD FS d’origine à l’aide de l' **Assistant Configuration du serveur de fédération AD FS** pour ajouter un serveur de Fédération à une batterie de serveurs WID. Pour plus d'informations, consultez [Ajouter un serveur de fédération à une batterie de serveurs de fédération](add-a-federation-server-to-a-federation-server-farm.md).  
   
 > [!NOTE]
-> Quand vous atteignez la page **spécifier le serveur de Fédération principal et un compte de service** dans l' **Assistant Configuration du serveur de fédération AD FS**, entrez le nom du serveur de Fédération principal de la batterie de serveurs wid et veillez à entrer le compte de service. les informations que vous avez enregistrées lors de la préparation de la migration de AD FS. Pour plus d’informations, consultez [préparer la migration du serveur de fédération AD FS 2,0](prepare-to-migrate-a-wid-farm.md). 
+> Quand vous atteignez la page **spécifier le serveur de Fédération principal et un compte de service** dans l' **Assistant Configuration du serveur de fédération AD FS**, entrez le nom du serveur de Fédération principal de la batterie de serveurs wid et veillez à entrer les informations du compte de service que vous avez enregistrées pendant la préparation de la migration de AD FS. Pour plus d’informations, consultez [préparer la migration du serveur de fédération AD FS 2,0](prepare-to-migrate-a-wid-farm.md). 
 >  
 > Quand vous atteignez la page **spécifier le nom du service FS (Federation Service)** , veillez à sélectionner le même certificat SSL que celui que vous avez enregistré dans la section « préparer la migration d’une batterie de serveurs wid » dans [préparer la migration du serveur de fédération AD FS 2,0](prepare-to-migrate-a-wid-farm.md).  
   
-5. Mettez à jour vos pages web AD FS sur ce serveur. Si vous avez sauvegardé vos pages Web AD FS personnalisées pendant la préparation de la migration, vous devez utiliser vos données de sauvegarde pour remplacer les pages Web par défaut AD FS qui ont été créées par défaut dans le répertoire **%systemdrive%\inetpub\adfs\ls** à la suite de l’AD FS configuration sur Windows Server 2012.  
+5. Mettez à jour vos pages web AD FS sur ce serveur. Si vous avez sauvegardé vos pages Web AD FS personnalisées pendant la préparation de la migration, vous devez utiliser vos données de sauvegarde pour remplacer les pages Web par défaut AD FS qui ont été créées par défaut dans le répertoire **%systemdrive%\inetpub\adfs\ls** à la suite de la configuration de AD FS sur Windows Server 2012.  
   
 6. Ajoutez le serveur que vous venez de mettre à niveau vers Windows Server 2012 vers l’équilibreur de charge.  
   
@@ -65,7 +65,7 @@ Vous pouvez créer la configuration de AD FS d’origine à l’aide de l' **Ass
 >  
 > Quand vous atteignez la page **spécifier le nom du service FS (Federation Service)** , veillez à sélectionner le même certificat SSL que celui que vous avez enregistré dans [préparer la migration du serveur de fédération AD FS 2,0](prepare-to-migrate-a-wid-farm.md).  
   
-13. Mettez à jour vos pages Web AD FS sur ce dernier serveur dans votre batterie WID. Si vous avez sauvegardé vos pages Web AD FS personnalisées pendant la préparation de la migration, utilisez vos données de sauvegarde pour remplacer les pages Web par défaut AD FS qui ont été créées par défaut dans le répertoire **%systemdrive%\inetpub\adfs\ls** à la suite de l’AD FS configuration sur Windows Server 2012.  
+13. Mettez à jour vos pages Web AD FS sur ce dernier serveur dans votre batterie WID. Si vous avez sauvegardé vos pages Web AD FS personnalisées pendant la préparation de la migration, utilisez vos données de sauvegarde pour remplacer les pages Web par défaut AD FS qui ont été créées par défaut dans le répertoire **%systemdrive%\inetpub\adfs\ls** à la suite de la configuration de AD FS sur Windows Server 2012.  
   
 14. Ajoutez le dernier serveur de votre batterie de serveurs WID que vous venez de mettre à niveau vers Windows Server 2012 vers l’équilibreur de charge.  
   

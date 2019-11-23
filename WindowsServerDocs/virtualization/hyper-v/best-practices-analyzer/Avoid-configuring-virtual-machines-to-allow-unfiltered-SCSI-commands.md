@@ -19,7 +19,7 @@ ms.locfileid: "71365271"
 ---
 # <a name="avoid-configuring-virtual-machines-to-allow-unfiltered-scsi-commands"></a>Éviter de configurer des machines virtuelles pour autoriser les commandes SCSI non filtrées
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 
   
@@ -29,7 +29,7 @@ ms.locfileid: "71365271"
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Opérations|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -40,13 +40,13 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 ## <a name="impact"></a>Impact  
   
-*Bypassing le filtrage des commandes SCSI pose un risque pour la sécurité. Cette configuration doit être activée uniquement si elle est requise pour la compatibilité avec les applications de stockage s’exécutant dans le système d’exploitation invité. Les ordinateurs virtuels suivants sont configurés pour autoriser les commandes SCSI non filtrées :*  
+*Le contournement du filtrage des commandes SCSI pose un risque pour la sécurité. Cette configuration doit être activée uniquement si elle est requise pour la compatibilité avec les applications de stockage s’exécutant dans le système d’exploitation invité. Les ordinateurs virtuels suivants sont configurés pour autoriser les commandes SCSI non filtrées :*  
   
-@no__t 0list de noms de machines virtuelles >  
+\<liste des noms de machine virtuelle >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
-*Contact votre fournisseur de stockage pour déterminer si cette configuration est requise. De même, si le système d’exploitation de gestion ou d’autres systèmes d’exploitation invités sont compromis ou présentent un comportement inhabituel, reconfigurez l’ordinateur virtuel pour bloquer les commandes.*  
+*Contactez votre fournisseur de stockage pour déterminer si cette configuration est requise. De même, si le système d’exploitation de gestion ou d’autres systèmes d’exploitation invités sont compromis ou présentent un comportement inhabituel, reconfigurez l’ordinateur virtuel pour bloquer les commandes.*  
   
 
 

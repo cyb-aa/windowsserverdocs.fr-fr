@@ -21,7 +21,7 @@ ms.locfileid: "71357981"
 
 La localisation de contenu web dans des langues autres que l'anglais est possible. Gardez à l'esprit les considérations suivantes quand vous localisez du contenu.  
   
-Une fois le contenu personnalisé, vous devez étendre la personnalisation à toutes les langues à prendre en charge. Tout le contenu personnalisé prend un paramètre local. Quand vous configurez un contenu localisé, configurez-le avec les paramètres régionaux Country @ no__t-0less First, par exemple, « en », avant de configurer un pays et une région @ no__t-1specific locale, par exemple « en @ no__t-2us ».  
+Une fois le contenu personnalisé, vous devez étendre la personnalisation à toutes les langues à prendre en charge. Tout le contenu personnalisé prend un paramètre local. Quand vous configurez un contenu localisé, vous devez d’abord le configurer avec un pays\-moins de paramètres régionaux, par exemple « en », avant de configurer un pays et une région\-des paramètres régionaux spécifiques tels que « en\-US ».  
   
 Voici quelques exemples de code supplémentaires.  
   

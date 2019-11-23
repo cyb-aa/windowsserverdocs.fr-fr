@@ -40,29 +40,29 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 |           Paramètre            |                               Description                               |
 |--------------------------------|-------------------------------------------------------------------------|
-|           @no__t 0Command >           |      Spécifie une commande pour laquelle vous souhaitez afficher la sortie.      |
+|           > de commande \<           |      Spécifie une commande pour laquelle vous souhaitez afficher la sortie.      |
 |               /c               |               Efface l’écran avant d’afficher une page.               |
 |               /p               |                      Développe des caractères de saut de formulaire.                      |
 |               /s               |          Affiche plusieurs lignes vides sous la forme d’une seule ligne vide.          |
-|             /t @ no__t-0N >             |         Affiche les tabulations sous la forme du nombre d’espaces spécifié par *N*.         |
-|             + @ NO__T-1N >              |     Affiche le premier fichier en commençant à la ligne spécifiée par *N*.     |
-| [@no__t 0Drive >:] [\<Path >] \<FileName > |          Spécifie l’emplacement et le nom d’un fichier à afficher.          |
-|            @no__t 0Files >            | Spécifie une liste de fichiers à afficher. Séparez les noms de fichiers par un espace. |
+|             /t\<N >             |         Affiche les tabulations sous la forme du nombre d’espaces spécifié par *N*.         |
+|             +\<N >              |     Affiche le premier fichier en commençant à la ligne spécifiée par *N*.     |
+| [\<> de lecteur :] [\<Path >]\<nom de fichier > |          Spécifie l’emplacement et le nom d’un fichier à afficher.          |
+|            Fichiers de \<>            | Spécifie une liste de fichiers à afficher. Séparez les noms de fichiers par un espace. |
 |               /?               |                  Affiche l'aide à l'invite de commandes.                   |
 
 ## <a name="remarks"></a>Notes
 
 -   Les sous-commandes suivantes sont acceptées à l’invite **plus** (`-- More --`). 
 
-    | Touche | Action |
+    | Clé | Action |
     | --- | ------ |
     | TOUCHE | Affiche la page suivante. |
-    | Entrée | Affiche la ligne suivante. |
+    | ENTRÉE | Affiche la ligne suivante. |
     | f | Affiche le fichier suivant. |
     | q | Quitte la commande **More** . |
     | = | Affiche le numéro de ligne. |
-    | p @no__t 0N > | Affiche les *N* lignes suivantes. |
-    | @no__t > 0N |Kips les *N* lignes suivantes. |
+    | p \<N > | Affiche les *N* lignes suivantes. |
+    | \<N > |Kips les *N* lignes suivantes. |
     | ? | Affiche les commandes qui sont disponibles à l’invite **plus** .| 
     
 -   Lorsque vous utilisez le caractère de redirection ( **<** ), vous devez spécifier un nom de fichier comme source. Lorsque vous utilisez le canal ( **\|** ), vous pouvez utiliser des commandes telles que **dir**, **sort**et **type**.

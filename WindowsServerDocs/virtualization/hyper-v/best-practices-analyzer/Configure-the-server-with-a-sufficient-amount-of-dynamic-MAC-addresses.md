@@ -19,15 +19,15 @@ ms.locfileid: "71364937"
 ---
 # <a name="configure-the-server-with-a-sufficient-amount-of-dynamic-mac-addresses"></a>Configurer le serveur avec un nombre suffisant d’adresses MAC dynamiques
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
-@no__t rubrique 0This a pour but de résoudre un problème spécifique identifié par une analyse de Best Practices Analyzer. Vous devez appliquer les informations contenues dans cette rubrique uniquement aux ordinateurs sur lesquels l’Best Practices Analyzer Hyper-V s’exécutent et qui rencontrent le problème traité dans cette rubrique. Pour plus d’informations sur les meilleures pratiques et les analyses, consultez @ no__t-0 [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
+*Cette rubrique vise à résoudre un problème spécifique identifié par une analyse Best Practices Analyzer. Vous devez appliquer les informations contenues dans cette rubrique uniquement aux ordinateurs sur lesquels l’Best Practices Analyzer Hyper-V s’exécutent et qui rencontrent le problème traité dans cette rubrique. Pour plus d’informations sur les meilleures pratiques et les analyses, consultez* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Propriété|Détails|  
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -40,7 +40,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 *Si aucune adresse MAC dynamique n’est disponible, les machines virtuelles configurées pour utiliser une adresse MAC dynamique ne peuvent pas être démarrées.*  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Utilisez le gestionnaire de commutateur virtuel pour afficher et étendre la plage d’adresses dynamiques.*  
   

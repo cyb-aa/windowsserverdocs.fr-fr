@@ -18,7 +18,7 @@ ms.locfileid: "71369360"
 ---
 # <a name="ad-forest-recovery---backing-up-a-full-server"></a>Récupération de la forêt Active Directory-sauvegarde d’un serveur complet  
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Une sauvegarde complète du serveur est recommandée pour préparer une récupération de forêt, car elle peut être restaurée sur un matériel différent ou sur une instance de système d’exploitation différente.  À l’aide de Sauvegarde Windows Server vous pouvez effectuer une sauvegarde complète de votre serveur. 
 
@@ -39,7 +39,7 @@ Pour connaître les étapes à suivre pour l’installer dans Windows Server 200
 4. Dans l’écran **sélection du serveur** , cliquez sur **suivant**.
 5. Dans l’écran **rôles du serveur** , cliquez sur **suivant**.
 6. Dans l’écran **fonctionnalités** , sélectionnez **sauvegarde Windows Server** , puis cliquez sur **suivant**
-    @ no__t-4Install Backup @ no__t-5.
+   ![installer la sauvegarde](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup2.png)
 7. Cliquez sur **Installer**.
 8. Une fois l’installation terminée, cliquez sur **Fermer**.
 

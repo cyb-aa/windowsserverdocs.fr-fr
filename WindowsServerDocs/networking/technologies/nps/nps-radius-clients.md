@@ -17,12 +17,12 @@ ms.locfileid: "71395997"
 ---
 # <a name="radius-clients"></a>Clients RADIUS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Un serveur d’accès réseau \(NAS @ no__t-1 est un appareil qui fournit un certain niveau d’accès à un réseau plus large. Un NAS utilisant une infrastructure RADIUS est également un client RADIUS, qui envoie des demandes de connexion et des messages de gestion de comptes à un serveur RADIUS pour l’authentification, l’autorisation et la gestion des comptes.
+Un serveur d’accès réseau \(\) NAS est un appareil qui fournit un certain niveau d’accès à un réseau plus large. Un NAS utilisant une infrastructure RADIUS est également un client RADIUS, qui envoie des demandes de connexion et des messages de gestion de comptes à un serveur RADIUS pour l’authentification, l’autorisation et la gestion des comptes.
 
 >[!NOTE]
->Les ordinateurs clients, tels que les ordinateurs portables et les autres ordinateurs exécutant des systèmes d’exploitation clients, ne sont pas des clients RADIUS. Les clients RADIUS sont des serveurs d’accès réseau, tels que les points d’accès sans fil, les commutateurs d’authentification 802.1 X, les serveurs de réseau privé virtuel \(VPN @ no__t-1 et les serveurs d’accès à distance, car ils utilisent le protocole RADIUS pour communiquer avec les serveurs RADIUS. As Network Policy Server \(NPS @ no__t-3 Servers.
+>Les ordinateurs clients, tels que les ordinateurs portables et les autres ordinateurs exécutant des systèmes d’exploitation clients, ne sont pas des clients RADIUS. Les clients RADIUS sont des serveurs d’accès réseau, tels que les points d’accès sans fil, les commutateurs d’authentification 802.1 X, le réseau privé virtuel \(les serveurs de\) VPN et les serveurs d’accès à distance, car ils utilisent le protocole RADIUS pour communiquer avec les serveurs RADIUS tels que le serveur de stratégie réseau \(les serveurs\) NPS.
 
 Pour déployer NPS en tant que serveur RADIUS ou proxy RADIUS, vous devez configurer les clients RADIUS dans NPS.
 
@@ -65,7 +65,7 @@ Quand vous configurez un client RADIUS dans NPS, vous pouvez désigner les propr
 
 ### <a name="ip-address"></a>Adresse IP
 
-L’adresse IP (Internet Protocol version 4) \(IPv4 @ no__t-1 ou le nom de domaine System \(DNS @ no__t-3 nom du client RADIUS.
+Le protocole Internet version 4 \(adresse\) IPv4 ou le nom de domaine DNS \(nom de l'\) DNS du client RADIUS.
 
 ### <a name="client-vendor"></a>Client-fournisseur
 
@@ -77,10 +77,10 @@ Chaîne de texte utilisée comme mot de passe entre les clients RADIUS, les serv
 
 ### <a name="message-authenticator-attribute"></a>Attribut de l’authentificateur de message
 
-Décrit dans le document RFC 2869, « extensions RADIUS », un message Digest 5 \(MD5 @ no__t-1 hash de l’ensemble du message RADIUS. Si l’attribut de l’authentificateur de message RADIUS est présent, il est vérifié. En cas d’échec de la vérification, le message RADIUS est ignoré. Si les paramètres du client requièrent l’attribut de l’authentificateur du message et qu’il n’est pas présent, le message RADIUS est ignoré. L’utilisation de l’attribut de l’authentificateur de message est recommandée.
+Décrit dans le document RFC 2869, « extensions RADIUS », un message Digest 5 \(hachage MD5\) hachage de l’ensemble du message RADIUS. Si l’attribut de l’authentificateur de message RADIUS est présent, il est vérifié. En cas d’échec de la vérification, le message RADIUS est ignoré. Si les paramètres du client requièrent l’attribut de l’authentificateur du message et qu’il n’est pas présent, le message RADIUS est ignoré. L’utilisation de l’attribut de l’authentificateur de message est recommandée.
 
 >[!NOTE]
->L’attribut de l’authentificateur de message est obligatoire et activé par défaut lorsque vous utilisez l’authentification \(EAP @ no__t-1. 
+>L’attribut de l’authentificateur de message est obligatoire et activé par défaut lorsque vous utilisez le protocole EAP (Extensible Authentication Protocol) \(l’authentification\) EAP. 
 
 Pour plus d’informations sur NPS, consultez [serveur NPS (Network Policy Server)](nps-top.md).
 

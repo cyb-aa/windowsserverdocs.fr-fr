@@ -43,7 +43,7 @@ assoc [<.ext>[=[<FileType>]]]
 |Paramètre|Description|
 |---------|-----------|
 |<. ext >|Spécifie l’extension de nom de fichier.|
-|@no__t 0FileType >|Spécifie le type de fichier à associer à l’extension de nom de fichier spécifiée.|
+|\<FileType >|Spécifie le type de fichier à associer à l’extension de nom de fichier spécifiée.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

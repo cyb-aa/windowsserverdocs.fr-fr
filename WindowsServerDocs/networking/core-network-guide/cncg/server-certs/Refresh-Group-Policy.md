@@ -17,7 +17,7 @@ ms.locfileid: "71356186"
 ---
 # <a name="refresh-group-policy"></a>Actualiser la stratégie de groupe
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez appliquer cette procédure pour actualiser manuellement la stratégie de groupe sur l'ordinateur local. Lorsque stratégie de groupe est actualisé, si l’inscription automatique des certificats est configurée et fonctionne correctement, l’ordinateur local est inscrit automatiquement auprès de l’autorité de certification (CA).  
   
@@ -28,7 +28,7 @@ Pour mener à bien cette procédure, il faut appartenir au groupe **Administrate
   
 ### <a name="to-refresh-group-policy-on-the-local-computer"></a>Pour actualiser la stratégie de groupe sur l'ordinateur local  
   
-1.  Sur l’ordinateur sur lequel NPS est installé, ouvrez Windows PowerShell @ no__t-0 en utilisant l’icône de la barre des tâches.  
+1.  Sur l’ordinateur sur lequel NPS est installé, ouvrez Windows PowerShell&reg; à l’aide de l’icône dans la barre des tâches.  
   
 2.  À l’invite de commandes Windows PowerShell, tapez **gpupdate**, puis appuyez sur entrée.  
   

@@ -17,7 +17,7 @@ ms.locfileid: "71394388"
 ---
 # <a name="define-file-groups-for-screening"></a>Définir des groupes de fichiers pour le filtrage
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Un *groupe de fichiers* permet de créer un espace de noms pour un filtre de fichiers, une exception au filtre de fichiers ou un rapport de stockage **Fichiers par groupe de fichiers**. Il se compose d’un ensemble de modèles de nom de fichier, qui sont regroupés par les éléments suivants :
 
@@ -41,11 +41,11 @@ Un *groupe de fichiers* permet de créer un espace de noms pour un filtre de fic
 
     -   Pour chaque ensemble de fichiers que vous souhaitez inclure dans le groupe de fichiers, dans la zone **Fichiers à inclure**, entrez un modèle de nom de fichier, puis cliquez sur **Ajouter**.
     -   Pour chaque ensemble de fichiers que vous souhaitez exclure du groupe de fichiers, dans la zone **Fichiers à exclure**, entrez un modèle de nom de fichier, puis cliquez sur **Ajouter**.
-        Notez que les règles génériques standard s’appliquent, par exemple, **@no__t -1. exe** sélectionne tous les fichiers exécutables.
+        Notez que les règles génériques standard s’appliquent, par exemple, **\*. exe** sélectionne tous les fichiers exécutables.
 
 5.  Cliquez sur **OK**.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 -   [Gestion du filtrage des fichiers](file-screening-management.md)
 -   [Créer un filtre de fichiers](create-file-screen.md)

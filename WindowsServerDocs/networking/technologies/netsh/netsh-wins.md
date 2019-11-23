@@ -15,25 +15,25 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71401921"
 ---
-# <a name="network-shell-netsh-example-batch-file"></a>Exemple de fichier de commandes Network Shell \(Netsh @ no__t-1
+# <a name="network-shell-netsh-example-batch-file"></a>Exemple de fichier batch Network Shell \(netsh\)
 
-S'applique à : Windows Server 2016
+S’applique à Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à créer un fichier de commandes qui effectue plusieurs tâches à l’aide de la commande netsh dans Windows Server 2016. Dans cet exemple de fichier de commandes, le contexte **netsh WINS** est utilisé.
 
 ## <a name="example-batch-file-overview"></a>Exemple de vue d’ensemble du fichier batch
 
-Vous pouvez utiliser les commandes netsh pour Windows Internet Name Service \(WINS @ no__t-1 dans des fichiers de commandes et d’autres scripts pour automatiser des tâches. L’exemple de fichier de commandes suivant montre comment utiliser les commandes netsh pour WINS pour effectuer diverses tâches connexes.
+Vous pouvez utiliser les commandes netsh pour Windows Internet Name Service \(WINS\) dans des fichiers de commandes et d’autres scripts pour automatiser des tâches. L’exemple de fichier de commandes suivant montre comment utiliser les commandes netsh pour WINS pour effectuer diverses tâches connexes.
 
-Dans cet exemple de fichier de commandes, WINS @ no__t-0A est un serveur WINS avec l’adresse IP 192.168.125.30 et WINS @ no__t-1B est un serveur WINS avec l’adresse IP 192.168.0.189.
+Dans cet exemple de fichier de commandes, WINS\-A est un serveur WINS avec l’adresse IP 192.168.125.30 et WINS\-B est un serveur WINS avec l’adresse IP 192.168.0.189.
 
 L’exemple de fichier de commandes effectue les tâches suivantes.
 
-- Ajoute un enregistrement de nom dynamique avec l’adresse IP 192.168.0.205, mon @ no__t-0RECORD \[04h @ no__t-2, à WINS @ no__t-3A
-- Définit WINS @ no__t-0B comme partenaire de réplication push/pull de WINS @ no__t-1A
-- Se connecte à WINS @ no__t-0B, puis définit WINS @ no__t-1A comme partenaire de réplication push/pull de WINS @ no__t-2B
-- Lance une réplication push de WINS @ no__t-0A vers WINS @ no__t-1B
-- Se connecte à WINS @ no__t-0B pour vérifier que le nouvel enregistrement, MY @ no__t-1RECORD, a été correctement répliqué
+- Ajoute un enregistrement de nom dynamique avec l’adresse IP 192.168.0.205, mon enregistrement\_\[\]04h, à WINS\-A
+- Définit WINS\-B comme partenaire de réplication push/pull de WINS\-A
+- Se connecte à WINS\-B, puis définit le\-WINS comme partenaire de réplication push/pull de WINS\-B
+- Lance une réplication Push depuis WINS\-A vers WINS\-B
+- Se connecte à WINS\-B pour vérifier que le nouvel enregistrement, MY\_RECORD, a été correctement répliqué
 
 ## <a name="netsh-example-batch-file"></a>Exemple de fichier de commandes netsh
 
@@ -73,7 +73,7 @@ Dans l’exemple de fichier de commandes suivant, les lignes qui contiennent des
 
 La section suivante répertorie les commandes **WINS netsh** utilisées dans cet exemple de procédure.
 
-- **serveur**. Déplace le contexte de commande WINS @ no__t-0line actuel vers le serveur spécifié par son nom ou son adresse IP.
+- **serveur**. Déplace la commande WINS actuelle\-contexte de ligne vers le serveur spécifié par son nom ou son adresse IP.
 - **Ajouter un nom**. Inscrit un nom sur le serveur WINS.
 - **Ajoutez un partenaire**. Ajoute un partenaire de réplication sur le serveur WINS.
 - **init push**. Lance et envoie un déclencheur Push à un serveur WINS.

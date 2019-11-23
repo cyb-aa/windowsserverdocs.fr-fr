@@ -21,11 +21,11 @@ ms.locfileid: "71388318"
 ---
 # <a name="step-3-install-and-configure-client2"></a>ÉTAPE 3 installation et configuration de CLIENT2
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-CLIENT2 est un ordinateur Windows 7 @ no__t-0 utilisé pour illustrer la compatibilité descendante de l’accès à distance exécuté sur les serveurs Windows Server 2016.  
+CLIENT2 est un ordinateur Windows 7&reg; utilisé pour illustrer la compatibilité descendante de l’accès à distance exécuté sur les serveurs Windows Server 2016.  
   
-1. Pour installer le système d’exploitation sur CLIENT2. Installez Windows @ no__t-0 7 entreprise ou Windows @ no__t-1 7 Ultimate sur CLIENT2.  
+1. Pour installer le système d’exploitation sur CLIENT2. Installez Windows&reg; 7 entreprise ou Windows&reg; 7 Ultimate sur CLIENT2.  
   
 2. Pour joindre CLIENT2 au domaine CORP. Joignez CLIENT2 au domaine corp.contoso.com.  
   

@@ -22,14 +22,14 @@ ms.locfileid: "71406041"
 ---
 # <a name="guest-clustering-in-a-virtual-network"></a>Clustering invité dans un réseau virtuel
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Les machines virtuelles connectées à un réseau virtuel sont uniquement autorisées à utiliser les adresses IP affectées par le contrôleur de réseau pour communiquer sur le réseau.  Les technologies de clustering qui requièrent une adresse IP flottante, telles que le clustering de basculement Microsoft, nécessitent des étapes supplémentaires pour fonctionner correctement.
 
-La méthode permettant de rendre l’adresse IP flottante accessible consiste à utiliser un logiciel Load Balancer \(SLB @ no__t-1 IP virtuel \(VIP @ no__t-3.  L’équilibreur de charge logiciel doit être configuré avec une sonde d’intégrité sur un port de cette adresse IP afin que SLB dirige le trafic vers l’ordinateur qui a actuellement cette adresse IP.
+La méthode permettant de rendre l’adresse IP flottante accessible consiste à utiliser un logiciel Load Balancer \(SLB\) IP virtuelle \(VIP\).  L’équilibreur de charge logiciel doit être configuré avec une sonde d’intégrité sur un port de cette adresse IP afin que SLB dirige le trafic vers l’ordinateur qui a actuellement cette adresse IP.
 
 
-## <a name="example-load-balancer-configuration"></a>Exemple : Configuration de l’équilibrage de charge
+## <a name="example-load-balancer-configuration"></a>Exemple : configuration de l’équilibrage de charge
 
 Cet exemple suppose que vous avez déjà créé les machines virtuelles qui deviendront des nœuds de cluster et que vous les avez attachées à un réseau virtuel.  Pour obtenir de l’aide, consultez [créer une machine virtuelle et se connecter à un réseau virtuel locataire ou à un réseau local virtuel](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).  
 
@@ -50,7 +50,7 @@ Dans cet exemple, vous allez créer une adresse IP virtuelle (192.168.2.100) pou
    $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
    ```
 
-3. Créez une adresse IP front @ no__t-0end.
+3. Créez une adresse IP de fin\-.
 
    ```PowerShell
    $LoadBalancerProperties.frontendipconfigurations += $FrontEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfiguration
@@ -63,7 +63,7 @@ Dans cet exemple, vous allez créer une adresse IP virtuelle (192.168.2.100) pou
    $FrontEnd.properties.privateIPAllocationMethod = "Static"
    ```
 
-4. Créez un pool @ no__t-0end de retour pour contenir les nœuds de cluster.
+4. Créez un pool de terminaison\-pour contenir les nœuds de cluster.
 
    ```PowerShell
    $BackEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
@@ -132,7 +132,7 @@ Dans cet exemple, vous allez créer une adresse IP virtuelle (192.168.2.100) pou
 
 9. Facultatif Si vous utilisez un cluster de basculement Microsoft, passez à l’exemple suivant. 
 
-## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>Exemple 2 : Configuration d’un cluster de basculement Microsoft
+## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>Exemple 2 : configuration d’un cluster de basculement Microsoft
 
 Vous pouvez utiliser les étapes suivantes pour configurer un cluster de basculement.
 

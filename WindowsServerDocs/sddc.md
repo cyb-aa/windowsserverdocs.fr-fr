@@ -21,7 +21,7 @@ ms.locfileid: "71403900"
 ---
 # <a name="windows-server-software-defined-datacenter"></a>Windows Server Software-Defined Datacenter
 
->S'applique à : Windows Server 2019, Windows Server 2016
+>S’applique à : Windows Server 2019, Windows Server 2016
 
 ![](media/sddc/heading.png)
 
@@ -33,7 +33,7 @@ L’implémentation du SDDC de Microsoft est constituée des technologies Window
 
 Les technologies intégrées à Windows Server et System Center constituent les principaux blocs de construction de l’expérience SDDC Windows Server. Toutefois, même s’il s’agit d’une plateforme virtualisée, elle requiert néanmoins le matériel sous-jacent approprié. Les partenaires Microsoft qui participent aux **solutions Windows Server (WSSD)** et les programmes **Azure Stack solutions HCI** peuvent aider votre entreprise à acquérir le matériel adéquat et à l’utiliser le jour zéro.
 
-![](media/sddc/video.png) **[Regardez une vidéo pour en savoir plus sur le SDDC de Microsoft](https://mva.microsoft.com/en-US/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965)**
+![](media/sddc/video.png) **[regarder une vidéo pour en savoir plus sur le SDDC de Microsoft](https://mva.microsoft.com/en-US/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965)**
 
 ![](media/sddc/poster-ico.png) **[Télécharger un fichier de format d’affiche. pdf de cette page](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
 
@@ -82,7 +82,7 @@ Flexible, sécurisé et indépendant de la topologie de stockage sous-jacente, l
 ![](media/sddc/spacer1.png)![](media/sddc/cluster.png)
 
 - Le VHDX partagé peut résider sur un volume partagé de cluster sur un stockage par blocs, ou sur le stockage basé sur des fichiers SMB.
-- Protect Le VHDX partagé prend en charge la réplication Hyper-V et la sauvegarde au niveau de l’hôte.
+- Protégé : VHDX partagé prend en charge Réplica Hyper-V et la sauvegarde au niveau de l’hôte.
 
 ![](media/sddc/learn.png) **[en savoir plus sur le clustering invité avec VHDX partagé](https://technet.microsoft.com/library/dn281956(v=ws.11).aspx)**
 
@@ -144,7 +144,7 @@ La fonctionnalité d’équilibrage de charge logicielle vous permet d’activer
 
 ![](media/sddc/spacer1.png)![](media/sddc/balancer.png)
 
-![](media/sddc/learn.png) **[en savoir plus sur l’équilibrage de la charge logicielle](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)**
+![](media/sddc/learn.png) **[en savoir plus sur l’équilibrage de charge logiciel](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)**
 
 
 ![](media/sddc/storage.png)
@@ -155,7 +155,7 @@ La fonctionnalité d’équilibrage de charge logicielle vous permet d’activer
 
 Les espaces de stockage direct tirent parti de serveurs standard utilisant des disques locaux pour fournir un stockage à définition logicielle hautement disponible et évolutif, pour un coût nettement inférieur à celui des baies SAN ou NAS traditionnelles. Son architecture simplifie considérablement la configuration et le déploiement.
 
-le nœud ![Each a des lecteurs attachés localement au niveau du cluster en espaces de stockage direct puis accessibles par des machines virtuelles via CSV @ no__t-1
+![chaque nœud a des lecteurs attachés localement au niveau du cluster en espaces de stockage direct puis accessibles par des machines virtuelles via CSV](media/sddc/spacer1.png)![](media/sddc/ssd.png)
 
 Les espaces de stockage direct introduisent le nouveau bus de stockage virtuel Software Storage Bus et tirent parti des nombreuses fonctionnalités de Windows Server que vous connaissez déjà, telles que le clustering de basculement, les volumes partagés de cluster, le protocole SMB3 (Server Message Block) et les espaces de stockage.
 
@@ -190,7 +190,7 @@ Réplication synchrone
 4. Accusé de réception du site distant
 5. Réception de l’écriture d’application confirmée
 
-t & T1 : Données vidées sur le volume, les journaux sont toujours écrits
+t & t1 : données vidées sur le volume, journaux toujours écrits en continu
 
 ![](media/sddc/learn.png) **[en savoir plus sur le réplica de stockage](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)**
 
@@ -272,10 +272,10 @@ Virtual Machine Manager fait partie de la suite System Center, utilisée pour
 
 ![](media/sddc/spacer1.png)![](media/sddc/vmm.png)
 
-- Centre Configurer et gérer des composants de centre de donnée en tant qu’infrastructure unique dans VMM. 
-- Hôtes de virtualisation : VMM peut ajouter, approvisionner et gérer des clusters et des hôtes de virtualisation Hyper-V et VMware.
-- Mise VMM assure la virtualisation de réseau, notamment la prise en charge de la création et de la gestion des réseaux virtuels et des passerelles réseau. 
-- Stockage : VMM peut découvrir, classer, approvisionner, allouer et affecter un stockage local et distant.
+- Centre de données : configuration et gestion des composants du centre de données en tant qu’infrastructure unique dans VMM. 
+- Hôtes de virtualisation : VMM peut ajouter, configurer et gérer des hôtes de virtualisation et des clusters Hyper-V et VMware.
+- Mise en réseau : VMM fournit la virtualisation de réseau, y compris la prise en charge de la création et la gestion des réseaux virtuels et des passerelles de réseau. 
+- Stockage : VMM peut détecter, classer, configurer, allouer et affecter le stockage local et distant.
 
 ![](media/sddc/learn.png) **[en savoir plus sur System Center VMM](https://docs.microsoft.com/system-center/vmm/)**
 

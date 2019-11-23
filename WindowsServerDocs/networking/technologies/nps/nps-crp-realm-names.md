@@ -17,7 +17,7 @@ ms.locfileid: "71405467"
 ---
 # <a name="realm-names"></a>Noms de domaine
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 
 Vous pouvez utiliser cette rubrique pour obtenir une vue d’ensemble de l’utilisation de noms de domaine dans le traitement des demandes de connexion au serveur de stratégie réseau.
@@ -26,7 +26,7 @@ L’attribut RADIUS de nom d’utilisateur est une chaîne de caractères qui co
 
 Dans un autre exemple, si l’attribut RADIUS User-Name contient le nom d’utilisateur user1@example.com, User1 est le nom du compte d’utilisateur et example.com est le nom de domaine. Les noms de domaine peuvent être présentés dans le nom d’utilisateur sous la forme d’un préfixe ou d’un suffixe :
 
-- **Example\user1**. Dans cet exemple, l' **exemple** de nom de domaine est un préfixe ; Il s’agit également du nom d’un domaine Active Directory @ no__t-1 Domain Services \(AD DS @ no__t-3.
+- **Example\user1**. Dans cet exemple, l' **exemple** de nom de domaine est un préfixe ; Il s’agit également du nom d’un Active Directory&reg; les services de domaine \(AD DS domaine\).
 
 - <strong>user1@example.com</strong>. Dans cet exemple, le nom de domaine **example.com** est un suffixe. Il s’agit soit d’un nom de domaine DNS, soit du nom d’un domaine AD DS.
 
@@ -58,7 +58,7 @@ Avant que le message RADIUS soit traité localement (lorsque NPS est utilisé en
 
 Vous pouvez configurer des règles de manipulation d’attributs pour l’attribut User-Name afin de modifier les éléments suivants :
 
-- Supprimez le nom de domaine du nom d’utilisateur \(also, appelé extraction de domaine @ no__t-1. Par exemple, le nom d’utilisateur user1@example.com est remplacé par utilisateur1.
+- Supprimez le nom de domaine du nom d’utilisateur \(également appelé\)de suppression de domaine. Par exemple, le nom d’utilisateur user1@example.com est défini sur User1.
 
 - Modifiez le nom du domaine, mais pas sa syntaxe. Par exemple, le nom d’utilisateur user1@example.com est remplacé par user1@wcoast.example.com.
 

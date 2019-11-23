@@ -51,7 +51,7 @@ Cet événement est consigné lors du démarrage du service de temps Windows (W3
 |Données enregistrées |<ul><li>Heure actuelle en heure UTC</li><li>Nombre de cycles actuel</li><li>Configuration de W32Time</li><li>Configuration du fournisseur de temps</li><li>Fréquence d’horloge</li></ul> |
 |Mécanisme de limitation  |Aucun. Cet événement se déclenche chaque fois que le service démarre. |
 
-**Tels**
+**Exemple :**
 ```
 W32time service has started at 2018-02-27T04:25:17.156Z (UTC), System Tick Count 3132937.
 ```
@@ -81,7 +81,7 @@ Cet événement est consigné lorsque le service de temps Windows (W32Time) est 
 |Données enregistrées |<ul><li>Heure actuelle en heure UTC</li><li>Nombre de cycles actuel</li></ul> |
 |Mécanisme de limitation  |Aucun. Cet événement se déclenche chaque fois que le service s’arrête. |
 
-**Exemple de texte :** 
+**Texte d’exemple :** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
 
 # <a name="259tab259"></a>[259](#tab/259)
@@ -102,7 +102,7 @@ Serveur1. fabrikam. com, 0x8 (NTP. m | 0x8 | [ ::] : 123-> [IPAddress] : 123)
 
 **Commande** Vous pouvez également interroger ces informations à l’aide des commandes suivantes :
 
-*Identifier les pairs*
+*Identifier les homologues*
 `w32tm.exe /query /peers`
 
 # <a name="260tab260"></a>[260](#tab/260)

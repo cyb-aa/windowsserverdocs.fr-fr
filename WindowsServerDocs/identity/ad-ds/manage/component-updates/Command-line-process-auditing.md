@@ -18,14 +18,14 @@ ms.locfileid: "71368989"
 ---
 # <a name="command-line-process-auditing"></a>Audit des processus de ligne de commande
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 R2
 
 **Auteur**: Justin Turner, ingénieur du support technique senior avec le groupe Windows  
   
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
-## <a name="overview"></a>Vue d'ensemble  
+## <a name="overview"></a>Vue d’ensemble  
   
 -   L’ID d’événement d’audit de création de processus pré-existant 4688 inclut désormais des informations d’audit pour les processus de ligne de commande.  
   
@@ -39,7 +39,7 @@ ms.locfileid: "71368989"
   
 ![audit de la ligne de commande](media/Command-line-process-auditing/GTR_ADDS_Event4688.gif)  
   
-**Figure SEQ figure \\ @ no__t-2 ARABIC 16, événement 4688**  
+**Figure SEQ figure \\\* l’événement arabe 16 4688**  
   
 Passez en revue l’ID d’événement 4688 mis à jour dans REF _Ref366427278 \h figure 16.  Avant cette mise à jour, aucune information pour **traiter la ligne de commande** n’est journalisée.  En raison de cette journalisation supplémentaire, nous pouvons maintenant voir que non seulement le processus WScript. exe a démarré, mais qu’il a également été utilisé pour exécuter un script VB.  
   
@@ -51,7 +51,7 @@ Pour activer la stratégie d’audit de création de processus, modifiez la stra
   
 **Emplacement de la stratégie :** Configuration de l’ordinateur > stratégies > Paramètres Windows > paramètres de sécurité > Configuration avancée de l’audit > suivi détaillé  
   
-**Nom de la stratégie :** Auditer la création du processus  
+**Nom de la stratégie :** Auditer la création de processus  
   
 **Pris en charge sur :** Windows 7 et versions ultérieures  
   
@@ -61,12 +61,12 @@ Ce paramètre de stratégie de sécurité détermine si le système d’exploita
   
 Ces événements d’audit peuvent vous aider à comprendre comment un ordinateur est utilisé et à effectuer le suivi de l’activité des utilisateurs.  
   
-Volume d’événements : Faible à moyen, en fonction de l’utilisation du système  
+Volume d’événements : faible à moyen, en fonction de l’utilisation du système  
   
-**Valeurs** Non configuré  
+**Par défaut :** Non configuré  
   
-### <a name="in-order-to-see-the-additions-to-event-id-4688-you-must-enable-the-new-policy-setting-include-command-line-in-process-creation-events"></a>Pour afficher les ajouts à l’ID d’événement 4688, vous devez activer le nouveau paramètre de stratégie : Inclure la ligne de commande dans les événements de création de processus  
-**Table SEQ Table \\ @ no__t-2 arabe 19 paramètre de stratégie de processus de ligne de commande**  
+### <a name="in-order-to-see-the-additions-to-event-id-4688-you-must-enable-the-new-policy-setting-include-command-line-in-process-creation-events"></a>Pour afficher les ajouts à l’ID d’événement 4688, vous devez activer le nouveau paramètre de stratégie : inclure la ligne de commande dans les événements de création de processus  
+**Table SEQ Table \\\* paramètre de stratégie de processus de ligne de commande arabe 19**  
   
 |Configuration de la stratégie|Détails|  
 |------------------------|-----------|  
@@ -74,7 +74,7 @@ Volume d’événements : Faible à moyen, en fonction de l’utilisation du sy
 |**Paramètre**|**Inclure la ligne de commande dans les événements de création de processus**|  
 |**Paramètre par défaut**|Non configuré (non activé)|  
 |**Pris en charge sur :**|?|  
-|**Description**|Ce paramètre de stratégie détermine les informations qui sont consignées dans les événements d’audit de sécurité lors de la création d’un nouveau processus.<br /><br />Ce paramètre s’applique uniquement lorsque la stratégie d’audit de création de processus est activée. Si vous activez cette stratégie, les informations de ligne de commande pour chaque processus seront journalisées en texte brut dans le journal des événements de sécurité dans le cadre de l’événement de création de processus d’audit 4688 « un nouveau processus a été créé » sur les stations de travail et les serveurs sur lesquels cette stratégie le paramètre est appliqué.<br /><br />Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les informations de ligne de commande du processus ne seront pas incluses dans les événements de création de processus d’audit.<br /><br />Default : Non configuré<br /><br />Remarque : Lorsque ce paramètre de stratégie est activé, tout utilisateur disposant d’un accès pour lire les événements de sécurité peut lire les arguments de ligne de commande pour tout processus créé avec succès. Les arguments de ligne de commande peuvent contenir des informations sensibles ou privées, telles que des mots de passe ou des données utilisateur.|  
+|**Description**|Ce paramètre de stratégie détermine les informations qui sont consignées dans les événements d’audit de sécurité lors de la création d’un nouveau processus.<br /><br />Ce paramètre s’applique uniquement lorsque la stratégie d’audit de création de processus est activée. Si vous activez cette stratégie, les informations de ligne de commande pour chaque processus seront journalisées en texte brut dans le journal des événements de sécurité dans le cadre de l’événement de création de processus d’audit 4688 « un nouveau processus a été créé » sur les stations de travail et les serveurs sur lesquels cette stratégie le paramètre est appliqué.<br /><br />Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les informations de ligne de commande du processus ne seront pas incluses dans les événements de création de processus d’audit.<br /><br />Par défaut : non configuré<br /><br />Remarque : lorsque ce paramètre de stratégie est activé, tout utilisateur disposant d’un accès pour lire les événements de sécurité peut lire les arguments de ligne de commande pour tout processus créé avec succès. Les arguments de ligne de commande peuvent contenir des informations sensibles ou privées, telles que des mots de passe ou des données utilisateur.|  
   
 ![audit de la ligne de commande](media/Command-line-process-auditing/GTR_ADDS_IncludeCLISetting.gif)  
   
@@ -95,7 +95,7 @@ La procédure suivante montre comment empêcher les conflits en bloquant l’app
   
 4.  Double-cliquez sur paramètres de sécurité, double-cliquez sur stratégies locales, puis cliquez sur options de sécurité.  
   
-5.  Double-cliquez sur audit : Forcer les paramètres de sous-catégorie de stratégie d’audit (Windows Vista ou version ultérieure) pour remplacer les paramètres de catégorie de stratégie d’audit, puis cliquez sur définir ce paramètre de stratégie.  
+5.  Double-cliquez sur audit : forcer les paramètres de sous-catégorie de stratégie d’audit (Windows Vista ou version ultérieure) pour remplacer les paramètres de catégorie de stratégie d’audit, puis cliquez sur définir ce paramètre de stratégie.  
   
 6.  Cliquez sur activé, puis sur OK.  
   
@@ -104,9 +104,9 @@ La procédure suivante montre comment empêcher les conflits en bloquant l’app
   
 [Guide pas à pas de la stratégie d’audit de sécurité avancée](https://technet.microsoft.com/library/dd408940(v=WS.10).aspx)  
   
-@no__t 0AppLocker : Forum Aux Questions](https://technet.microsoft.com/library/ee619725(v=ws.10).aspx)  
+[AppLocker : Forum aux questions](https://technet.microsoft.com/library/ee619725(v=ws.10).aspx)  
   
-## <a name="try-this-explore-command-line-process-auditing"></a>Essayez ceci : Explorer l’audit des processus de ligne de commande  
+## <a name="try-this-explore-command-line-process-auditing"></a>Essayez ceci : explorer l’audit des processus de ligne de commande  
   
 1.  Activez les événements de **création de processus d’audit** et assurez-vous que la configuration de la stratégie d’audit avancée n’est pas remplacée  
   

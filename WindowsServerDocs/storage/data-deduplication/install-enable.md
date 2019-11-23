@@ -30,9 +30,9 @@ Cette rubrique explique comment installer la [déduplication des données](overv
 
 ### <a id="install-dedup-via-server-manager"></a>Installer la déduplication des données à l’aide de Gestionnaire de serveur
 1. Dans l’Assistant Ajout de rôles et de fonctionnalités, sélectionnez **Rôles de serveurs**, puis **Déduplication des données**.  
-![Install la déduplication des données via Gestionnaire de serveur : sélectionner la déduplication des données à partir des rôles de serveur @ no__t-1
+![installer la déduplication des données via Gestionnaire de serveur : sélectionner la déduplication des données à partir des rôles de serveur](media/install-dedup-via-server-manager-1.png)
 2. Cliquez sur **Suivant** jusqu’à ce que le bouton **Installer** soit actif, puis cliquez sur **Installer**.  
-![Install la déduplication des données via Gestionnaire de serveur : cliquez sur installer @ no__t-1
+![installer la déduplication des données via Gestionnaire de serveur : cliquez sur installer](media/install-dedup-via-server-manager-2.png)
 
 ### <a id="install-dedup-via-powershell"></a>Installer la déduplication des données à l’aide de PowerShell
 Pour installer la déduplication des données, exécutez la commande PowerShell suivante comme administrateur:  
@@ -46,8 +46,8 @@ Pour installer la déduplication des données dans une installation Nano Server�
     Install-WindowsFeature -ComputerName <MyNanoServer> -Name FS-Data-Deduplication
     ```  
     <br />
-    <strong>--OU--</strong>
-    @ NO__T-2<br />
+    <strong>--Ou--</strong>
+    <br />
     Connectez-vous à distance à l’instance NanoServer avec la communication à distance PowerShell et la commande DISM pour installer la déduplication des données:  
     
     ```PowerShell
@@ -77,7 +77,7 @@ Pour déterminer si une charge de travail fonctionne correctement avec la dédup
 1. **Mon jeu de données de charge de travail a-t-il suffisamment de duplication pour tirer parti de l’activation de la déduplication ?**  
     Avant d’activer la déduplication des données d’une charge de travail, déterminez le niveau de duplication du jeu de données de votre charge de travail à l’aide de l’outil d’évaluation des gains de la déduplication des données, appelé DDPEval. Après avoir installé la déduplication des données, cet outil est disponible à l’emplacement suivant : `C:\Windows\System32\DDPEval.exe`. DDPEval peut évaluer le potentiel d’optimisation par rapport aux volumes connectés directement (notamment les lecteurs locaux ou les volumes partagés du cluster) et aux partages réseau mappés ou non mappés.  
     &nbsp;   
-    L’exécution de DDPEval.exe retourne une sortie semblable à ce qui suit :  
+    L’exécution de DDPEval.exe retourne une sortie semblable à ce qui suit:  
     &nbsp;  
     `Data Deduplication Savings Evaluation Tool`  
     `Copyright 2011-2012 Microsoft Corporation.  All Rights Reserved.`    
@@ -95,7 +95,7 @@ Pour déterminer si une charge de travail fonctionne correctement avec la dédup
     `Files excluded by policy: 20`  
     `Files excluded by error: 0`  
 
-2. **Comment se présentent les modèles d’E/S de ma charge de travail sur son jeu de données ? Quelles sont les performances disponibles pour ma charge de travail ?**  
+2. **À quoi ressemble le modèle d’e/s de ma charge de travail dans son jeu de données ? De quelles performances ai-je besoin pour ma charge de travail ?**  
      La déduplication des données optimise les fichiers sous forme de tâche périodique, plutôt que lors de l’écriture du fichier sur le disque. Par conséquent, il est important d’examiner les modèles de lecture attendus d’une charge de travail pour le volume dédupliqué. Étant donné que la déduplication des données déplace le contenu des fichiers vers le magasin de blocs et tente, dans la mesure du possible, d’organiser ce magasin par fichier, les opérations de lecture donnent des résultats optimaux quand elles sont effectuées sur des plages séquentielles d’un fichier.  
 
     Les charges de travail de type base de données ont généralement plus de modèles de lecture aléatoire que de modèles de lecture séquentielle, car les bases de données ne garantissent généralement pas une disposition optimale pour toutes les requêtes qui peuvent éventuellement être exécutées. Étant donné que les sections du magasin de blocs peuvent être sur tout le volume, l’accès à des plages de données dans le magasin de blocs pour les requêtes de base de données peut entraîner une latence supplémentaire. Les charges de travail hautes performances sont particulièrement sensibles à cette latence supplémentaire. Toutefois, les autres charges de travail de type base de données ne le sont pas nécessairement.
@@ -115,13 +115,13 @@ Avant d’activer la déduplication des données, vous devez choisir le [Type d�
 
 #### <a id="enable-dedup-via-server-manager"></a>Activer la déduplication des données à l’aide de Gestionnaire de serveur
 1. Sélectionnez **Services de fichiers et de stockage** dans le Gestionnaire de serveur.  
-Services de fichiers et de stockage @no__t 0Click @ no__t-1
+![cliquez sur services de fichiers et de stockage](media/enable-dedup-via-server-manager-1.PNG)
 2. Sélectionnez **Volumes** dans **Services de fichiers et de stockage**.  
-@no__t-volumes 0Click @ no__t-1
+![cliquez sur volumes](media/enable-dedup-via-server-manager-2.png)
 3. Cliquez avec le bouton droit sur le volume de votre choix, puis sélectionnez **Configurer la déduplication des données**.  
-![Click configurer la déduplication des données @ no__t-1
+![cliquez sur configurer la déduplication des données](media/enable-dedup-via-server-manager-3.png)
 4. Sélectionnez le **Type d’utilisation** souhaité dans la zone de liste déroulante, puis cliquez sur **OK**.  
-![Select le type d’utilisation souhaité à partir de la liste déroulante @ no__t-1
+![sélectionnez le type d’utilisation souhaité dans la liste déroulante](media/enable-dedup-via-server-manager-4.png)
 5. Si vous exécutez une charge de travail recommandée, vous avez terminé. Pour les autres charges de travail, consultez [Autres considérations](#enable-dedup-sometimes-considerations).
 
 > [!Note]  
@@ -147,7 +147,7 @@ Services de fichiers et de stockage @no__t 0Click @ no__t-1
 * Si votre charge de travail n’a pas de forts besoins en ressources, ou s’il est plus important d’effectuer les tâches d’optimisation que de traiter les demandes de charge de travail, [la mémoire, le processeur et la priorité des tâches de déduplication des données peuvent être configurés](advanced-settings.md#modifying-job-schedules).
 
 ## <a id="faq"></a>Forum aux questions (FAQ)
-**I souhaitez exécuter la déduplication des données sur le jeu de données pour la charge de travail X. Cela est-il pris en charge ?**  
+**Je souhaite exécuter la déduplication des données sur le jeu de données pour la charge de travail X. Cette prise en charge est-elle prise en charge ?**  
 En plus des charges de travail qui [sont répertoriées comme ne permettant pas l’interopérabilité avec la déduplication des données](interop.md), nous prenons totalement en charge l’intégrité des données de la déduplication des données avec n’importe quelle charge de travail. Les charges de travail recommandées sont également prises en charge par Microsoft pour les performances. Les performances des autres charges de travail dépendent en grande partie de ce qu’ils font sur votre serveur. Vous devez déterminer quelles conséquences en termes de performances la déduplication a sur votre charge de travail, et si cela est acceptable pour cette charge de travail.
 
 **Quelles sont les exigences de dimensionnement de volume pour les volumes dédupliqués ?**  
@@ -157,7 +157,7 @@ Dans Windows Server 2012 et Windows Server 2012 R2, la taille des volumes dev
 Non, les [types d’utilisation](understand.md#usage-type) fournis ont été créés pour fournir des valeurs par défaut raisonnables pour les charges de travail recommandées.
 
 **Quelles sont les besoins en mémoire pour la déduplication des données ?**  
-Au minimum, la déduplication des données doit disposer de 300 Mo + 50 Mo pour chaque To de données logiques. Par exemple, si vous optimisez un volume de 10 To, vous devez disposer d’au moins 800 Mo de mémoire allouée à la déduplication (`300 MB + 50 MB * 10 = 300 MB + 500 MB = 800 MB`). Même si la déduplication des données peut optimiser un volume avec cette faible quantité de mémoire, le fait d’avoir des ressources restreintes ralentit les tâches de déduplication des données.
+Au minimum, la déduplication des données doit disposer de 300Mo + 50Mo pour chaqueTo de données logiques. Par exemple, si vous optimisez un volume de 10 To, vous devez disposer d’au moins 800 Mo de mémoire allouée à la déduplication (`300 MB + 50 MB * 10 = 300 MB + 500 MB = 800 MB`). Même si la déduplication des données peut optimiser un volume avec cette faible quantité de mémoire, le fait d’avoir des ressources restreintes ralentit les tâches de déduplication des données.
 
 Dans le meilleur des cas, la déduplication des données doit avoir 1 Go de mémoire pour chaque To de données logique. Par exemple, si vous optimisez un volume de 10To, vous devez idéalement disposer de 10Go de mémoire allouée à la déduplication de données (`1 GB * 10`). Ce rapport garantit des performances maximales pour les tâches de déduplication des données.
 

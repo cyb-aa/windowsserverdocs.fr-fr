@@ -21,7 +21,7 @@ ms.locfileid: "71355231"
 ---
 # <a name="manage-resources-in-multiple-active-directory-forests"></a>Gérer des ressources dans plusieurs forêts Active Directory
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à utiliser IPAM pour gérer les contrôleurs de domaine, les serveurs DHCP et les serveurs DNS dans plusieurs forêts Active Directory.  
   
@@ -32,7 +32,7 @@ Pour démarrer le processus de découverte pour différentes forêts de Active D
 ![Configurer la découverte de serveurs](../../media/Manage-Resources-in-Multiple-Active-Directory-Forests/ipam_serverdiscovery.jpg)  
 
 >[!NOTE]
->Pour stratégie de groupe l’approvisionnement @ no__t-0based pour un scénario inter-forêts Active Directory, veillez à exécuter l’applet de commande Windows PowerShell suivante sur le serveur IPAM et non sur les contrôleurs de domaine de confiance. Par exemple, si votre serveur IPAM est joint à la forêt corp.contoso.com et que la forêt d’approbation est fabrikam.com, vous pouvez exécuter l’applet de commande Windows PowerShell suivante sur le serveur IPAM dans corp.contoso.com pour stratégie de groupe @ no__t-0based approvisionnement sur le forêt fabrikam.com. Pour exécuter cette applet de commande, vous devez être membre du groupe Admins du domaine dans la forêt fabrikam.com.
+>Pour stratégie de groupe l’approvisionnement\-pour un scénario inter-forêts Active Directory, veillez à exécuter l’applet de commande Windows PowerShell suivante sur le serveur IPAM et non sur les contrôleurs de domaine de confiance. Par exemple, si votre serveur IPAM est joint à la forêt corp.contoso.com et que la forêt d’approbation est fabrikam.com, vous pouvez exécuter l’applet de commande Windows PowerShell suivante sur le serveur IPAM dans corp.contoso.com pour stratégie de groupe\-la configuration basée sur la forêt fabrikam.com. Pour exécuter cette applet de commande, vous devez être membre du groupe Admins du domaine dans la forêt fabrikam.com.
 
     
     Invoke-IpamGpoProvisioning -Domain fabrikam.COM -GpoPrefixName IPAMSERVER -IpamServerFqdn IPAM.CORP.CONTOSO.COM

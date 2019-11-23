@@ -22,7 +22,7 @@ ms.locfileid: "71355664"
 ---
 # <a name="whats-new-in-hyper-v-network-virtualization-in-windows-server-2016"></a>Nouveautés de la virtualisation de réseau Hyper-V dans Windows Server 2016
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la fonctionnalité de virtualisation de réseau Hyper-V (HNV) qui est nouvelle ou modifiée dans Windows Server 2016.  
   
@@ -41,7 +41,7 @@ HNV est un bloc de construction fondamental de la solution SDN (Software Defined
   
 Le nouveau contrôleur de réseau de Microsoft pousse les stratégies de HNV vers un agent hôte s’exécutant sur chaque hôte à l’aide du protocole OVSDB (Open vSwitch Database Management Protocol) en tant qu’interface SouthBound (SBI). L’agent hôte stocke cette stratégie à l’aide d’une personnalisation du [schéma VTEP](https://github.com/openvswitch/ovs/blob/master/vtep/vtep.ovsschema) et des règles de Flow complexes dans un moteur de workflow performant du commutateur Hyper-V.  
   
-Le moteur de flows à l’intérieur du commutateur Hyper-V est le même que celui utilisé dans Microsoft Azure @ no__t-0, qui a été prouvé à l’échelle Hyper-V dans le Microsoft Azure cloud public. En outre, l’ensemble des SDN empilés dans le contrôleur de réseau et le fournisseur de ressources réseau (les détails sont bientôt disponibles) sont cohérents avec Microsoft Azure, mettant ainsi la puissance du Microsoft Azure cloud public à notre service d’entreprise et d’hébergement clients du fournisseur.  
+Le moteur de Flow à l’intérieur du commutateur Hyper-V est le même que celui utilisé dans Microsoft Azure&trade;, qui a été prouvé à l’échelle Hyper-V dans le cloud public Microsoft Azure. En outre, l’ensemble des SDN empilés dans le contrôleur de réseau et le fournisseur de ressources réseau (les détails sont bientôt disponibles) sont cohérents avec Microsoft Azure, mettant ainsi la puissance du Microsoft Azure cloud public à notre service d’entreprise et d’hébergement clients du fournisseur.  
   
 > [!NOTE]  
 > Pour plus d’informations sur OVSDB, consultez la [RFC 7047](https://www.rfc-editor.org/info/rfc7047).  
@@ -59,7 +59,7 @@ Windows Server 2016 comprend un équilibreur de charge logiciel (SLB) avec une p
 ### <a name="L2"></a>En-têtes Ethernet IEEE conformes  
 HNV implémente des en-têtes Ethernet L2 corrects pour garantir l’interopérabilité avec des appliances virtuelles et physiques tierces qui dépendent des protocoles standard. Microsoft s’assure que tous les paquets transmis ont des valeurs conformes dans tous les champs pour garantir cette interopérabilité. En outre, la prise en charge des trames Jumbo (MTU > 1780) dans le réseau physique L2 est nécessaire pour prendre en compte la surcharge de paquets introduite par les protocoles d’encapsulation (NVGRE, VXLAN) tout en veillant à ce que les machines virtuelles invitées connectées à un réseau virtuel HNV maintiennent un 1514 MTU.  
   
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Voir également  
   
 -   [Vue d'ensemble de la virtualisation de réseau Hyper-V](hyperv-network-virtualization-overview-windows-server.md)  
   

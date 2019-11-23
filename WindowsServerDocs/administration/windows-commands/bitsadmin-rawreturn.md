@@ -34,7 +34,7 @@ bitsadmin /RawReturn
 
 Supprime les caractères de saut de ligne et la mise en forme de la sortie.
 
-En général, vous utilisez cette commande conjointement avec les commutateurs **Create** et **obtenir @ no__t-2*** pour recevoir uniquement la valeur. Vous devez spécifier ce commutateur avant les autres commutateurs.
+En général, vous utilisez cette commande conjointement avec les commutateurs **Create** et **obtenir\\** * pour recevoir uniquement la valeur. Vous devez spécifier ce commutateur avant les autres commutateurs.
 
 ## <a name="BKMK_examples"></a>Illustre
 

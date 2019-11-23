@@ -40,8 +40,8 @@ move [{/y | /-y}] [<Source>] [<Target>]
 |---------|-----------|
 |/y|Supprime l’invite pour confirmer que vous souhaitez remplacer un fichier de destination existant.|
 |/-y|Invite à confirmer que vous souhaitez remplacer un fichier de destination existant.|
-|@no__t 0Source >|Spécifie le chemin d’accès et le nom du ou des fichiers à déplacer. Si vous souhaitez déplacer ou renommer un répertoire, la *source* doit être le chemin d’accès et le nom du répertoire actif.|
-|@no__t 0Target >|Spécifie le chemin d’accès et le nom des fichiers à déplacer. Si vous souhaitez déplacer ou renommer un répertoire, *cible* doit être le chemin d’accès au répertoire et le nom souhaités.|
+|\<> source|Spécifie le chemin d’accès et le nom du ou des fichiers à déplacer. Si vous souhaitez déplacer ou renommer un répertoire, la *source* doit être le chemin d’accès et le nom du répertoire actif.|
+|\<> cible|Spécifie le chemin d’accès et le nom des fichiers à déplacer. Si vous souhaitez déplacer ou renommer un répertoire, *cible* doit être le chemin d’accès au répertoire et le nom souhaités.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -51,7 +51,7 @@ move [{/y | /-y}] [<Source>] [<Target>]
 
 ## <a name="BKMK_examples"></a>Illustre
 
-Pour déplacer tous les fichiers avec l’extension. xls du répertoire \Data vers le répertoire \Second_Q\Reports, tapez :
+Pour déplacer tous les fichiers avec l’extension. xls du répertoire \Data vers le répertoire \ Second_Q \Rapports, tapez :
 ```
 move \data\*.xls \second_q\reports\ 
 ```

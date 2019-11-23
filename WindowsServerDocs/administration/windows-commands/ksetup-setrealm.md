@@ -36,7 +36,7 @@ ksetup /setrealm <DNSDomainName>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0DNSDomainName >|Le nom de domaine DNS peut se présenter sous la forme d’un nom de domaine complet ou d’un nom de domaine simple.|
+|\<nom_domaine_dns >|Le nom de domaine DNS peut se présenter sous la forme d’un nom de domaine complet ou d’un nom de domaine simple.|
 
 ## <a name="remarks"></a>Notes
 

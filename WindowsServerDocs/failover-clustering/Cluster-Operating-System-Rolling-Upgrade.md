@@ -52,7 +52,7 @@ Avant de commencer le processus de mise à niveau propagée du système d’expl
 - La mise à niveau d’un cluster espaces de stockage direct vers Windows Server version 1709 n’est pas prise en charge.
 - Si la charge de travail du cluster est des machines virtuelles Hyper-V ou Serveur de fichiers avec montée en puissance parallèle, vous pouvez vous attendre à une mise à niveau sans temps mort.
 - Vérifiez que les nœuds Hyper-V ont des processeurs qui prennent en charge la table d’adressage de second niveau (SLAT) à l’aide de l’une des méthodes suivantes :  
-        -Passez en revue les [Are vous avez une compatibilité SLAT ? WP8 SDK Tip 01 @ no__t-0 article qui décrit deux méthodes pour vérifier si un processeur prend en charge les SLAT  
+        -Passez en revue la [compatibilité SLAT ? Article du kit de développement logiciel (SDK) WP8, tip 01](http://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) , qui décrit deux méthodes pour vérifier si un processeur prend en charge les SLAT  
         -Téléchargez l’outil [Coreinfo v 3.31](https://technet.microsoft.com/sysinternals/cc835722) pour déterminer si un processeur prend en charge SLAT.
 
 ## <a name="cluster-transition-states-during-cluster-os-rolling-upgrade"></a>États de transition de cluster pendant la mise à niveau propagée du système d’exploitation
@@ -61,8 +61,8 @@ Cette section décrit les différents États de transition du cluster Windows Se
 
 Pour que les charges de travail de cluster s’exécutent pendant le processus de mise à niveau propagée du système d’exploitation du cluster, le déplacement d’une charge de travail de cluster à partir d’un nœud Windows Server 2012 R2 vers le nœud Windows Server 2016 fonctionne comme si les deux nœuds exécutaient le système d’exploitation Windows Server 2012 R2. Quand des nœuds Windows Server 2016 sont ajoutés au cluster, ils fonctionnent dans un mode de compatibilité Windows Server 2012 R2. Un nouveau mode de cluster conceptuel, appelé « mode de système d’exploitation mixte », permet à des nœuds de différentes versions d’exister dans le même cluster (voir la figure 1).  
 
-![Illustration présentant les trois étapes d’une mise à niveau propagée de système d’exploitation de cluster : tous les nœuds Windows Server 2012 R2, mode de système d’exploitation mixte et tous les nœuds Windows Server 2016 @ no__t-1  
-**Figure 1 : Transitions d’État du système d’exploitation du cluster @ no__t-0  
+![illustration illustrant les trois étapes d’une mise à niveau propagée de système d’exploitation de cluster : tous les nœuds Windows Server 2012 R2, mode mixte du système d’exploitation et tous les nœuds Windows Server 2016](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_RollingUpgrade_Overview.png)  
+**Figure 1 : transitions d’État du système d’exploitation du cluster**  
 
 Un cluster Windows Server 2012 R2 passe en mode mixte lorsqu’un nœud Windows Server 2016 est ajouté au cluster. Le processus est entièrement réversible-les nœuds Windows Server 2016 peuvent être supprimés du cluster et les nœuds Windows Server 2012 R2 peuvent être ajoutés au cluster dans ce mode. Le « point de non retour » se produit lorsque l’applet de commande PowerShell Update-ClusterFunctionalLevel est exécutée sur le cluster. Pour que cette applet de commande aboutisse, tous les nœuds doivent être Windows Server 2016, et tous les nœuds doivent être en ligne.  
 
@@ -72,33 +72,33 @@ Cette section illustre et décrit les quatre étapes différentes d’un cluster
 
 « Étape 1 » est l’état initial : nous commençons par un cluster Windows Server 2012 R2.  
 
-![Illustration qui indique l’état initial : tous les nœuds Windows Server 2012 R2 @ no__t-1  
-**Figure 2: État initial : Cluster de basculement Windows Server 2012 R2 (étape 1)**  
+![illustration montrant l’état initial : tous les nœuds Windows Server 2012 R2](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_Stage1.png)  
+**Figure 2 : état initial : cluster de basculement Windows Server 2012 R2 (étape 1)**  
 
 Dans « étape 2 », deux nœuds ont été suspendus, vidés, supprimés, reformatés et installés avec Windows Server 2016.  
 
-![Illustration qui montre le cluster en mode de système d’exploitation mixte : en dehors de l’exemple de cluster à 4 nœuds, deux nœuds exécutent Windows Server 2016 et deux nœuds exécutent Windows Server 2012 R2 @ no__t-1  
-**Figure 3: État intermédiaire : Mode mixte du système d’exploitation : Cluster de basculement Windows Server 2012 R2 et Windows Server 2016 (étape 2)**  
+![illustration illustrant le cluster en mode de système d’exploitation mixte : en dehors de l’exemple de cluster à 4 nœuds, deux nœuds exécutent Windows Server 2016 et deux nœuds exécutent Windows Server 2012 R2](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_Stage2.png)  
+**Figure 3 : état intermédiaire : mode mixte du système d’exploitation : cluster de basculement Windows Server 2012 R2 et Windows Server 2016 (étape 2)**  
 
 À l’étape 3, tous les nœuds du cluster ont été mis à niveau vers Windows Server 2016 et le cluster est prêt à être mis à niveau avec l’applet de commande PowerShell Update-ClusterFunctionalLevel.  
 
 > [!NOTE]  
 > À ce niveau, le processus peut être complètement inversé et les nœuds Windows Server 2012 R2 peuvent être ajoutés à ce cluster.  
 
-![Illustration indiquant que le cluster a été entièrement mis à niveau vers Windows Server 2016 et que l’applet de commande Update-ClusterFunctionalLevel est prête à mettre à jour le niveau fonctionnel du cluster jusqu’à Windows Server 2016 @ no__t-1  
-**Figure 4 : État intermédiaire : Tous les nœuds mis à niveau vers Windows Server 2016, prêts pour la mise à jour-ClusterFunctionalLevel (étape 3)**  
+![illustration montrant que le cluster a été entièrement mis à niveau vers Windows Server 2016 et que l’applet de commande Update-ClusterFunctionalLevel est prête pour ramener le niveau fonctionnel du cluster à Windows Server 2016](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_Stage3.png)  
+**Figure 4 : état intermédiaire : tous les nœuds mis à niveau vers Windows Server 2016, prêts pour la mise à jour-ClusterFunctionalLevel (étape 3)**  
 
 Une fois la mise à jour-ClusterFunctionalLevelcmdlet exécutée, le cluster passe à « Stage 4 », ce qui permet d’utiliser les nouvelles fonctionnalités de cluster Windows Server 2016.  
 
-![Illustration indiquant que la mise à niveau du système d’exploitation propagée au cluster s’est terminée avec succès ; tous les nœuds ont été mis à niveau vers Windows Server 2016 et le cluster s’exécute au niveau fonctionnel de cluster Windows Server 2016 @ no__t-1  
-@no__t 0Figure 5 : État final : Cluster de basculement Windows Server 2016 (étape 4) **  
+![illustration montrant que la mise à niveau propagée du système d’exploitation a été correctement effectuée ; tous les nœuds ont été mis à niveau vers Windows Server 2016 et le cluster s’exécute au niveau fonctionnel du cluster Windows Server 2016](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_Stage4.png)  
+**Figure 5 : état final : cluster de basculement Windows Server 2016 (étape 4)**  
 
 ## <a name="cluster-os-rolling-upgrade-process"></a>Processus de mise à niveau propagée du système d’exploitation
 
 Cette section décrit le flux de travail pour effectuer une mise à niveau propagée du système d’exploitation du cluster.  
 
-![Illustration qui présente le flux de travail pour la mise à niveau d’un cluster @ no__t-1  
-@no__t 0Figure 6 : Workflow de mise à niveau propagée de système d’exploitation de cluster @ no__t-0  
+![illustration montrant le flux de travail pour la mise à niveau d’un cluster](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_RollingUpgrade_Workflow.png)  
+**Figure 6 : workflow du processus de mise à niveau propagée du système d’exploitation du cluster**  
 
 La mise à niveau propagée de système d’exploitation de cluster comprend les étapes suivantes :  
 
@@ -106,37 +106,37 @@ La mise à niveau propagée de système d’exploitation de cluster comprend les
     1. La mise à niveau propagée de système d’exploitation de cluster nécessite la suppression d’un nœud à la fois du cluster. Vérifiez que vous disposez d’une capacité suffisante sur le cluster pour maintenir les SLA de haute disponibilité quand l’un des nœuds de cluster est supprimé du cluster pour une mise à niveau du système d’exploitation. En d’autres termes, avez-vous besoin de la possibilité de basculer des charges de travail vers un autre nœud lorsqu’un nœud est supprimé du cluster pendant le processus de mise à niveau propagée du système d’exploitation du cluster ? Le cluster a-t-il la capacité d’exécuter les charges de travail requises lorsqu’un nœud est supprimé du cluster pour la mise à niveau propagée du système d’exploitation du cluster ?  
     2. Pour les charges de travail Hyper-V, vérifiez que tous les ordinateurs hôtes Windows Server 2016 Hyper-V prennent en charge l’utilisation d’une table d’adresses de second niveau (SLAT). Seuls les ordinateurs à capacité SLAT peuvent utiliser le rôle Hyper-V dans Windows Server 2016.  
     3. Vérifiez que toutes les sauvegardes de charge de travail sont terminées, puis envisagez de sauvegarder le cluster. Arrêtez les opérations de sauvegarde lors de l’ajout de nœuds au cluster.  
-    4. Vérifiez que tous les nœuds de cluster sont en ligne/Running/up à l’aide de l’applet [de commande `Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) (voir la figure 7).  
+    4. Vérifiez que tous les nœuds de cluster sont en ligne/Running/up à l’aide de l’applet de commande [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) (voir la figure 7).  
 
-        ![Screencap qui indique les résultats de l’exécution de l’applet de commande obtenir-ClusterNode @ no__t-1  
-        @no__t 0Figure 7 : Détermination de l’état d’un nœud à l’aide de l’applet de commande  
+        ![ScreenCap présentant les résultats de l’exécution de l’applet de commande de la commande obtenir-ClusterNode](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetClusterNode.png)  
+        **Figure 7 : détermination de l’état du nœud à l’aide de l’applet de commande**  
 
-    5. Si vous exécutez la mise à jour adaptée aux clusters, vérifiez que la mise à jour adaptée aux clusters est en cours d’exécution à l’aide de l’interface utilisateur de **mise à jour adaptée aux clusters** ou de l’applet [de commande `Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) (voir figure 8). Arrêtez la mise à jour adaptée aux clusters à l’aide de l’applet de commande [`Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) (voir figure 9) pour empêcher la mise à jour propagée de tous les nœuds au cours du processus de mise à niveau propagée du système d’exploitation.  
+    5. Si vous exécutez la mise à jour adaptée aux clusters, vérifiez si la mise à jour adaptée aux clusters est en cours d’exécution à l’aide de l’interface utilisateur de **mise à jour adaptée aux clusters** ou de l’applet de commande [`Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) (voir figure 8). Arrêtez la mise à jour adaptée aux clusters à l’aide de l’applet de commande [`Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) (voir figure 9) pour empêcher la mise à jour propagée de tous les nœuds au cours du processus de mise à niveau propagée du système d’exploitation.  
 
-        ![Screencap qui affiche la sortie de l’applet de commande CauRun @ no__t-1  
-        @no__t 0Figure 8 : Utilisation de l’applet de commande [`Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) pour déterminer si les mises à jour adaptées aux clusters sont en cours d’exécution sur le cluster @ no__t-2  
+        ![ScreenCap présentant la sortie de l’applet de commande CauRun](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetCAU.png)  
+        **Figure 8 : utilisation de l’applet de commande [`Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) pour déterminer si les mises à jour adaptées aux clusters sont en cours d’exécution sur le cluster**  
 
-        ![Screencap qui affiche la sortie de l’applet de commande Disable-CauClusterRole @ no__t-1  
-        **Figure 9 : Désactivation du rôle mises à jour prenant en charge les clusters à l’aide de l’applet [de commande `Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) @ no__t-2  
+        ![ScreenCap présentant la sortie de l’applet de commande Disable-CauClusterRole](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_DisableCAU.png)  
+        **Figure 9 : désactivation du rôle mises à jour prenant en charge les clusters à l’aide de l’applet de commande [`Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps)**  
 
 2. Pour chaque nœud du cluster, procédez comme suit :  
     1. À l’aide de l’interface utilisateur du gestionnaire de cluster, sélectionnez un nœud et utilisez la **Pause |** L’option de menu drainer permet de purger le nœud (voir figure 10) ou d’utiliser l’applet de commande [`Suspend-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps) (voir figure 11).  
 
-        ![Screencap illustrant comment drainer des rôles avec l’interface utilisateur du gestionnaire de cluster @ no__t-1  
-        @no__t 0Figure 10 : Drainage de rôles à partir d’un nœud à l’aide de Gestionnaire du cluster de basculement @ no__t-0  
+        ![ScreenCap qui montre comment drainer des rôles à l’aide de l’interface utilisateur du gestionnaire de cluster](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_FCM_DrainRoles.png)  
+        **Figure 10 : purge des rôles d’un nœud à l’aide de Gestionnaire du cluster de basculement**  
 
-        ![Screencap qui affiche la sortie de l’applet de commande suspend-ClusterNode @ no__t-1  
-        @no__t 0Figure 11 : Drainage de rôles à partir d’un nœud à l’aide de l’applet de commande [`Suspend-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps) @ no__t-2  
+        ![ScreenCap présentant la sortie de l’applet de commande suspend-ClusterNode](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_SuspendNode.png)  
+        **Figure 11 : purge des rôles d’un nœud à l’aide de l’applet de commande [`Suspend-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps)**  
 
     2.  À l’aide de l’interface utilisateur du gestionnaire de cluster, **supprimez** le nœud suspendu du cluster ou utilisez l’applet de commande [`Remove-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) .  
 
-        ![Screencap qui affiche la sortie de l’applet de commande Remove-ClusterNode @ no__t-1  
-        @no__t 0Figure 12 : Supprimer un nœud du cluster à l’aide de l’applet de commande [`Remove-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) @ no__t-2  
+        ![ScreenCap présentant la sortie de l’applet de commande Remove-ClusterNode](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_RemoveNode.png)  
+        **Figure 12 : supprimer un nœud du cluster à l’aide de l’applet de commande [`Remove-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps)**  
 
-    3.  Reformatez le lecteur système et effectuez une nouvelle installation du système d’exploitation de Windows Server 2016 sur le nœud à l’aide de l' **Custom : Installez l’option Windows uniquement (avancé)**  (voir figure 13) dans Setup. exe. Évitez de sélectionner le **Upgrade : Installez Windows et conservez les fichiers, les paramètres et les applications de l’option @ no__t-0, car la mise à niveau propagée du système d’exploitation du cluster n’encourage pas la mise à niveau sur place.  
+    3.  Reformatez le lecteur système et effectuez une nouvelle installation du système d’exploitation de Windows Server 2016 sur le nœud à l’aide de l’option **personnalisée : installer uniquement Windows (** voir figure 13) dans Setup. exe. Évitez de sélectionner l’option **mettre à niveau : installer Windows et conserver les fichiers, les paramètres et les applications** , car la mise à niveau propagée du système d’exploitation du cluster n’encourage pas la mise à niveau sur place.  
 
-        ![Screencap de l’Assistant Installation de Windows Server 2016 avec l’option d’installation personnalisée sélectionnée @ no__t-1  
-        @no__t 0Figure 13 : Options d’installation disponibles pour Windows Server 2016 @ no__t-0  
+        ![ScreenCap de l’Assistant Installation de Windows Server 2016 avec l’option d’installation personnalisée sélectionnée](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_InstallOption.png)  
+        **Figure 13 : options d’installation disponibles pour Windows Server 2016**  
 
     4.  Ajoutez le nœud au domaine de Active Directory approprié.  
     5.  Ajoutez les utilisateurs appropriés au groupe administrateurs.  
@@ -159,26 +159,26 @@ La mise à niveau propagée de système d’exploitation de cluster comprend les
 
         Vérifiez que le nom du ou des commutateurs virtuels utilisés est identique pour tous les nœuds hôtes Hyper-V du cluster.  
 
-        ![Screencap qui indique l’emplacement de la boîte de dialogue du gestionnaire de commutateur virtuel Hyper-V @ no__t-1  
-        @no__t 0Figure 14 : Gestionnaire de commutateur virtuel @ no__t-0  
+        ![ScreenCap présentant l’emplacement de la boîte de dialogue Gestionnaire de commutateur virtuel Hyper-V](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_VMSwitch.png)  
+        **Figure 14 : gestionnaire de commutateur virtuel**  
 
     12. Sur un nœud Windows Server 2016 (n’utilisez pas de nœud Windows Server 2012 R2), utilisez le Gestionnaire du cluster de basculement (voir figure 15) pour vous connecter au cluster.  
 
-        ![Screencap qui indique la boîte de dialogue Sélectionner un cluster @ no__t-1  
-        @no__t 0Figure 15 : Ajout d’un nœud au cluster à l’aide de Gestionnaire du cluster de basculement @ no__t-0  
+        ![ScreenCap présentant la boîte de dialogue Sélectionner un cluster](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_AddNode.png)  
+        **Figure 15 : ajout d’un nœud au cluster à l’aide de Gestionnaire du cluster de basculement**  
 
     13. Utilisez l’interface utilisateur Gestionnaire du cluster de basculement ou l’applet de commande [`Add-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) (voir figure 16) pour ajouter le nœud au cluster.  
 
-        ![Screencap qui affiche la sortie de l’applet de commande Add-ClusterNode @ no__t-1  
-        @no__t 0Figure 16 : Ajout d’un nœud au cluster à l’aide de l’applet de commande [`Add-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) @ no__t-2  
+        ![ScreenCap présentant la sortie de l’applet de commande Add-ClusterNode](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_AddNode3.png)  
+        **Figure 16 : ajout d’un nœud au cluster à l’aide de l’applet de commande [`Add-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps)**  
 
         > [!NOTE]  
         > Lorsque le premier nœud Windows Server 2016 rejoint le cluster, le cluster passe en mode « système d’exploitation mixte » et les principales ressources du cluster sont déplacées vers le nœud Windows Server 2016. Un cluster en mode de « système d’exploitation mixte » est un cluster entièrement fonctionnel dans lequel les nouveaux nœuds s’exécutent dans un mode de compatibilité avec les anciens nœuds. Le mode « mixte-système d’exploitation » est un mode transitoire pour le cluster. Elle n’est pas destinée à être permanente et les clients sont censés mettre à jour tous les nœuds de leur cluster dans un délai de quatre semaines.  
 
     14. Une fois le nœud Windows Server 2016 correctement ajouté au cluster, vous pouvez (si vous le souhaitez) déplacer une partie de la charge de travail du cluster vers le nœud qui vient d’être ajouté pour rééquilibrer la charge de travail sur le cluster comme suit :
 
-        ![Screencap qui affiche la sortie de l’applet de commande Move-ClusterVirtualMachineRole @ no__t-1  
-        **Figure 17 : Déplacement d’une charge de travail de cluster (rôle de machine virtuelle du cluster) à l’aide de l’applet [de commande `Move-ClusterVirtualMachineRole`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) @ no__t-2  
+        ![ScreenCap présentant la sortie de l’applet de commande Move-ClusterVirtualMachineRole](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_MoveVMRole.png)  
+        **Figure 17 : déplacement d’une charge de travail de cluster (rôle de machine virtuelle du cluster) à l’aide de [`Move-ClusterVirtualMachineRole`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) applet de commande**  
 
         1. Utilisez **migration dynamique** de la gestionnaire du cluster de basculement pour les machines virtuelles ou l’applet de commande [`Move-ClusterVirtualMachineRole`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) (voir figure 17) pour effectuer une migration dynamique des machines virtuelles.  
 
@@ -192,28 +192,28 @@ La mise à niveau propagée de système d’exploitation de cluster comprend les
 
     > [!IMPORTANT]  
     > -   Après avoir mis à jour le niveau fonctionnel du cluster, vous ne pouvez pas revenir au niveau fonctionnel de Windows Server 2012 R2 et les nœuds Windows Server 2012 R2 ne peuvent pas être ajoutés au cluster.
-    > -   Tant que l’applet [de commande `Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) n’est pas exécutée, le processus est entièrement réversible et les nœuds windows server 2012 R2 peuvent être ajoutés à ce cluster et les nœuds windows server 2016 peuvent être supprimés.  
-    > -   Une fois l’applet [de commande `Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) exécutée, de nouvelles fonctionnalités sont disponibles.  
+    > -   Tant que l’applet de commande [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) n’est pas exécutée, le processus est entièrement réversible et les nœuds windows server 2012 R2 peuvent être ajoutés à ce cluster et les nœuds windows server 2016 peuvent être supprimés.  
+    > -   Une fois l’applet de commande [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) exécutée, de nouvelles fonctionnalités sont disponibles.  
 
     1.  À l’aide de l’interface utilisateur Gestionnaire du cluster de basculement ou de l’applet de commande [`Get-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) , vérifiez que tous les rôles de cluster s’exécutent sur le cluster comme prévu. Dans l’exemple suivant, le stockage disponible n’est pas utilisé. au lieu de cela, le volume partagé de cluster est utilisé, par conséquent, le stockage disponible affiche un état **hors connexion** (voir la figure 18).  
 
-        ![Screencap qui affiche la sortie de l’applet de commande ClusterGroup @ no__t-1  
-        @no__t 0Figure 18 : Vérification de l’exécution de tous les groupes de cluster (rôles de cluster) à l’aide de l’applet [de commande `Get-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) @ no__t-2  
+        ![ScreenCap présentant la sortie de l’applet de commande ClusterGroup](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetClusterGroup.png)  
+        **Figure 18 : vérification de l’exécution de tous les groupes de cluster (rôles de cluster) à l’aide de l’applet de commande [`Get-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps)**  
 
-    2.  Vérifiez que tous les nœuds de cluster sont en ligne et en cours d’exécution à l’aide de l’applet [de commande `Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) .  
-    3.  Exécutez l’applet [de commande `Update-ClusterFunctionalLevel`](https://technet.microsoft.com/library/mt589702.aspx) : aucune erreur ne doit être retournée (voir figure 19).  
+    2.  Vérifiez que tous les nœuds de cluster sont en ligne et en cours d’exécution à l’aide de l’applet de commande [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) .  
+    3.  Exécutez l’applet de commande [`Update-ClusterFunctionalLevel`](https://technet.microsoft.com/library/mt589702.aspx) -aucune erreur ne doit être retournée (voir figure 19).  
 
-        ![Screencap qui affiche la sortie de l’applet de commande Update-ClusterFunctionalLevel @ no__t-1  
-        @no__t 0Figure 19 : Mise à jour du niveau fonctionnel d’un cluster à l’aide de PowerShell @ no__t-0  
+        ![ScreenCap présentant la sortie de l’applet de commande Update-ClusterFunctionalLevel](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_SelectFunctionalLevel.png)  
+        **Figure 19 : mise à jour du niveau fonctionnel d’un cluster à l’aide de PowerShell**  
 
-    4.  Une fois l’applet [de commande `Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) exécutée, de nouvelles fonctionnalités sont disponibles.  
+    4.  Une fois l’applet de commande [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) exécutée, de nouvelles fonctionnalités sont disponibles.  
 
 4. Windows Server 2016-reprendre les mises à jour et les sauvegardes de cluster normales :  
 
-    1. Si vous exécutez la mise à jour adaptée aux clusters, redémarrez-la à l’aide de l’interface utilisateur de la mise à jour adaptée aux clusters ou utilisez l’applet [de commande `Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps)  
+    1. Si vous exécutez la mise à jour adaptée aux clusters, redémarrez-la à l’aide de l’interface utilisateur de la mise à jour adaptée aux clusters ou utilisez l’applet de commande [`Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps)  
 
-        ![Screencap qui affiche la sortie de Enable-CauClusterRole @ no__t-1  
-        @no__t 0Figure 20 : Activer le rôle de mise à jour adaptée aux clusters à l’aide de l’applet [de commande `Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps) @ no__t-2  
+        ![ScreenCap présentant la sortie de la](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_EnableCAUClusterRole.png) Enable-CauClusterRole  
+        **Figure 20 : activer le rôle mises à jour prenant en charge les clusters à l’aide de l’applet de commande [`Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps)**  
 
     2. Reprendre les opérations de sauvegarde.  
 
@@ -223,13 +223,13 @@ La mise à niveau propagée de système d’exploitation de cluster comprend les
 
     2. Sur chaque nœud hôte Hyper-V du cluster, utilisez l’applet de commande [`Get-VMHostSupportedVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Get-VMHostSupportedVersion?view=win10-ps) pour afficher les versions de configuration de machine virtuelle Hyper-v prises en charge par l’hôte.  
 
-        ![Screencap qui affiche la sortie de l’applet de commande VMHostSupportedVersion @ no__t-1  
-        @no__t 0Figure 21 : Affichage des versions de configuration des machines virtuelles Hyper-V prises en charge par l’hôte @ no__t-0  
+        ![ScreenCap présentant la sortie de l’applet de commande VMHostSupportedVersion](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png)  
+        **Figure 21 : affichage des versions de configuration des machines virtuelles Hyper-V prises en charge par l’hôte**  
 
-   3. Sur chaque nœud hôte Hyper-V du cluster, les versions de configuration de machine virtuelle Hyper-V peuvent être mises à niveau en planifiant une courte fenêtre de maintenance avec des utilisateurs, en sauvegardant, en désactivant des machines virtuelles et en exécutant l’applet [de commande `Update-VMVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (voir figure 22). Cette opération met à jour la version de la machine virtuelle et active les nouvelles fonctionnalités Hyper-V, ce qui évite d’avoir à effectuer de futures mises à jour du composant d’intégration Hyper-V. Cette applet de commande peut être exécutée à partir du nœud Hyper-V qui héberge la machine virtuelle, ou le paramètre `-ComputerName` peut être utilisé pour mettre à jour la version de la machine virtuelle à distance. Dans cet exemple, nous mettons à niveau la version de configuration de VM1 de 5,0 à 7,0 pour tirer parti de nombreuses nouvelles fonctionnalités Hyper-V associées à cette version de configuration de machine virtuelle, telles que les points de contrôle de production (sauvegardes de cohérence d’application) et les machines virtuelles binaires fichier de configuration.  
+   3. Sur chaque nœud hôte Hyper-V du cluster, les versions de configuration de machine virtuelle Hyper-V peuvent être mises à niveau en planifiant une courte fenêtre de maintenance avec les utilisateurs, en sauvegardant, en désactivant les machines virtuelles et en exécutant l’applet de commande [`Update-VMVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (voir figure 22). Cette opération met à jour la version de la machine virtuelle et active les nouvelles fonctionnalités Hyper-V, ce qui évite d’avoir à effectuer de futures mises à jour du composant d’intégration Hyper-V. Cette applet de commande peut être exécutée à partir du nœud Hyper-V qui héberge la machine virtuelle, ou le paramètre `-ComputerName` peut être utilisé pour mettre à jour la version de la machine virtuelle à distance. Dans cet exemple, nous mettons à niveau la version de configuration de VM1 de 5,0 à 7,0 pour tirer parti de nombreuses nouvelles fonctionnalités Hyper-V associées à cette version de configuration de machine virtuelle, telles que les points de contrôle de production (sauvegardes de cohérence d’application) et les machines virtuelles binaires fichier de configuration.  
 
-       ![Screencap avec l’applet de commande Update-VMVersion en action @ no__t-1  
-       **Figure 22 : Mise à niveau d’une version de machine virtuelle à l’aide de l’applet de commande PowerShell Update-VMVersion @ no__t-0  
+       ![ScreenCap présentant l’applet de commande Update-VMVersion en action](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
+       **Figure 22 : mise à niveau d’une version de machine virtuelle à l’aide de l’applet de commande PowerShell Update-VMVersion**  
 
 6. Les pools de stockage peuvent être mis à niveau à l’aide de l’applet de commande PowerShell [Update-StoragePool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) -il s’agit d’une opération en ligne.  
 
@@ -253,10 +253,10 @@ Bien que nous ciblions des scénarios de cloud privé, en particulier les cluste
 **Est-ce que toutes les mises à jour logicielles doivent être installées sur le cluster Windows Server 2012 R2 avant de commencer le processus de mise à niveau propagée du système d’exploitation du cluster ?**  
     Oui, avant de commencer le processus de mise à niveau propagée du système d’exploitation du cluster, vérifiez que tous les nœuds de cluster sont mis à jour avec les dernières mises à jour logicielles.  
 
-**Puis-je exécuter l’applet [de commande `Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) alors que les nœuds sont désactivés ou suspendus ?**  
+**Puis-je exécuter l’applet de commande [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) alors que les nœuds sont désactivés ou suspendus ?**  
     Non. Tous les nœuds de cluster doivent être activés et dans l’appartenance active pour que l’applet de commande [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) fonctionne.  
 
-la mise à niveau propagée du système d’exploitation du cluster @no__t 0Does fonctionne pour toute charge de travail de cluster ? Fonctionne-t-il pour SQL Server ? **  
+**La mise à niveau propagée du système d’exploitation du cluster fonctionne-t-elle pour toute charge de travail Fonctionne-t-il pour SQL Server ?**  
     Oui, la mise à niveau propagée de système d’exploitation de cluster fonctionne pour toute charge de travail de cluster. Toutefois, il ne s’agit que d’un temps d’arrêt nul pour les clusters de serveurs de fichiers avec montée en puissance parallèle et Hyper-V. La plupart des autres charges de travail entraînent des temps d’arrêt (généralement quelques minutes) lors du basculement, et le basculement est requis au moins une fois pendant le processus de mise à niveau propagée du système d’exploitation du cluster.  
 
 **Puis-je automatiser ce processus à l’aide de PowerShell ?**  
@@ -277,7 +277,7 @@ la mise à niveau propagée du système d’exploitation du cluster @no__t 0Does
 **Puis-je utiliser System Center 2016 Virtual Machine Manager (SCVMM) pour automatiser le processus de mise à niveau propagée du système d’exploitation du cluster ?**  
     Oui, vous pouvez automatiser le processus de mise à niveau propagée du système d’exploitation du cluster à l’aide de VMM dans System Center 2016.  
 
-## <a name="see-also"></a>Voir aussi  
--   [Notes de publication : problèmes importants sur Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
+## <a name="see-also"></a>Voir également  
+-   [Notes de publication : problèmes importants dans Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
 -   [Nouveautés de Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [Nouveautés du clustering de basculement dans Windows Server](whats-new-in-failover-clustering.md)  

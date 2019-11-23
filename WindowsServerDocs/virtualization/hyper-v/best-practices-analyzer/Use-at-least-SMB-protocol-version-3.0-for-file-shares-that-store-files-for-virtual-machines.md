@@ -19,7 +19,7 @@ ms.locfileid: "71393321"
 ---
 # <a name="use-at-least-smb-protocol-version-30-for-file-shares-that-store-files-for-virtual-machines"></a>Utilisez au moins la version 3,0 du protocole SMB pour les partages de fichiers qui stockent des fichiers pour les ordinateurs virtuels.
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Error|  
+|**Va**|Erreur|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -36,9 +36,9 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Les fichiers de l’ordinateur virtuel ou les fichiers de disque dur virtuel sont stockés sur un partage de fichiers qui ne prend pas en charge au moins le protocole SMB version 3,0.*  
   
 ## <a name="impact"></a>**Impact**  
-*Microsoft ne prend pas en charge cette configuration. Cela a un impact sur les ordinateurs virtuels suivants :*  
+*Microsoft ne prend pas en charge cette configuration. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
 *Déplacez les fichiers vers un partage de fichiers qui utilise au moins le protocole SMB version 3,0.*  

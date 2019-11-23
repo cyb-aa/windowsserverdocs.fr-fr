@@ -38,8 +38,8 @@ ftype [<FileType>[=[<OpenCommandString>]]]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0FileType >|Spécifie le type de fichier à afficher ou à modifier.|
-|@no__t 0OpenCommandString >|Spécifie la chaîne de commande ouverte à utiliser lors de l’ouverture de fichiers du type de fichier spécifié.|
+|\<FileType >|Spécifie le type de fichier à afficher ou à modifier.|
+|\<OpenCommandString >|Spécifie la chaîne de commande ouverte à utiliser lors de l’ouverture de fichiers du type de fichier spécifié.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -48,10 +48,10 @@ Le tableau suivant décrit comment **ftype** remplace les variables dans une cha
 
 |Variable|Valeur de remplacement|
 |--------|-----------------|
-|% 0 ou% 1|Est remplacé par le nom de fichier qui est lancé via l’Association.|
+|%0 ou %1|Est remplacé par le nom de fichier qui est lancé via l’Association.|
 |%*|Obtient tous les paramètres.|
-|% 2,% 3,...|Obtient le premier paramètre (% 2), le deuxième paramètre (% 3), et ainsi de suite.|
-|%~ @ NO__T-1N >|Obtient tous les paramètres restants à partir du *n*ième paramètre, où *N* peut être un nombre compris entre 2 et 9.|
+|%2, %3,...|Obtient le premier paramètre (%2), le deuxième paramètre (%3), et ainsi de suite.|
+|%~\<N >|Obtient tous les paramètres restants à partir du *n*ième paramètre, où *N* peut être un nombre compris entre 2 et 9.|
 
 ## <a name="BKMK_examples"></a>Illustre
 

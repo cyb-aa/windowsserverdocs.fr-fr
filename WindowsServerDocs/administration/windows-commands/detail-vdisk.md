@@ -22,9 +22,9 @@ ms.locfileid: "71378560"
 ---
 # <a name="detail-vdisk"></a>détailler vdisk
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Affiche les propriétés du disque dur virtuel sélectionné @no__t 0VHD @ no__t-1.  
+Affiche les propriétés du disque dur virtuel sélectionné \(\)VHD.  
   
 ## <a name="syntax"></a>Syntaxe  
   

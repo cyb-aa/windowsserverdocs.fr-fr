@@ -21,11 +21,11 @@ ms.locfileid: "71405963"
 ---
 # <a name="internal-dns-service-idns-for-sdn"></a>Service DNS interne pour SDN
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Si vous travaillez pour un fournisseur de services Cloud \(CSP @ no__t-1 ou Enterprise qui envisage de déployer la mise en réseau définie par logiciel \(SDN @ no__t-3 dans Windows Server 2016, vous pouvez fournir des services DNS à vos charges de travail de locataire hébergées à l’aide de DNS interne @no__ t-4iDNS @ no__t-5, qui est intégré à SDN.
+Si vous travaillez pour un fournisseur de services Cloud \(CSP\) ou entreprise qui envisage de déployer des\) de mise en réseau à définition logicielle \(SDN dans Windows Server 2016, vous pouvez fournir des services DNS à vos charges de travail de locataire hébergées à l’aide de DNS interne \(iDNS\), qui est intégré à SDN.
 
-Les machines virtuelles hébergées \(VMs @ no__t-1 et les applications requièrent le DNS pour communiquer au sein de leurs propres réseaux et avec des ressources externes sur Internet. Avec iDNS, vous pouvez fournir aux locataires des services de résolution de noms DNS pour leur espace de noms local isolé et pour les ressources Internet.
+Les machines virtuelles hébergées \(les machines virtuelles\) et les applications requièrent le DNS pour communiquer au sein de leurs propres réseaux et avec des ressources externes sur Internet. Avec iDNS, vous pouvez fournir aux locataires des services de résolution de noms DNS pour leur espace de noms local isolé et pour les ressources Internet.
 
 Étant donné que le service iDNS n’est pas accessible à partir de réseaux virtuels locataires, à l’exception du proxy iDNS, le serveur n’est pas vulnérable aux activités malveillantes sur les réseaux locataires.
 
@@ -54,7 +54,7 @@ les serveurs iDNS sont les serveurs faisant autorité pour leurs zones DNS inter
 
 Tous les noms d’hôte des machines virtuelles sur les réseaux virtuels sont stockés sous la forme d’enregistrements de ressources DNS sous la même zone. Par exemple, si vous déployez iDNS pour une zone nommée contoso. local, les enregistrements de ressources DNS pour les machines virtuelles sur ce réseau sont stockés dans la zone contoso. local.
 
-Les noms de domaine complets des machines virtuelles du locataire \(FQDNs @ no__t-1 se composent du nom de l’ordinateur et de la chaîne de suffixe DNS pour le réseau virtuel, au format GUID. Par exemple, si vous avez une machine virtuelle cliente nommée LOCATAIRE1 qui se trouve sur le réseau virtuel Contoso, local, le nom de domaine complet de la machine virtuelle est LOCATAIRE1. *VN-GUID*. contoso. local, où *VN-GUID* est la chaîne de suffixe DNS pour le réseau virtuel.
+Les noms de domaine complets des machines virtuelles du locataire \(noms de domaine complets\) se composent du nom d’ordinateur et de la chaîne de suffixe DNS pour le réseau virtuel, au format GUID. Par exemple, si vous avez une machine virtuelle cliente nommée LOCATAIRE1 qui se trouve sur le réseau virtuel Contoso, local, le nom de domaine complet de la machine virtuelle est LOCATAIRE1. *VN-GUID*. contoso. local, où *VN-GUID* est la chaîne de suffixe DNS pour le réseau virtuel.
 
 >[!NOTE]
 >Si vous êtes administrateur de structure, vous pouvez utiliser votre fournisseur de services de chiffrement ou votre infrastructure DNS d’entreprise en tant que serveurs iDNS au lieu de déployer de nouveaux serveurs DNS spécifiquement pour une utilisation en tant que serveurs iDNS. Que vous déployiez de nouveaux serveurs pour iDNS ou que vous utilisiez votre infrastructure existante, iDNS s’appuie sur Active Directory pour fournir une haute disponibilité. Vos serveurs iDNS doivent donc être intégrés à Active Directory.
@@ -82,12 +82,12 @@ Voici un résumé des étapes nécessaires pour déployer iDNS.
 >[!NOTE]
 >Si vous avez déployé SDN à l’aide de scripts, vous n’avez pas besoin d’effectuer ces étapes. Les étapes sont fournies à titre d’information et de résolution des problèmes uniquement.
 
-### <a name="step-1-deploy-dns"></a>Étape 1 : Déployer DNS
+### <a name="step-1-deploy-dns"></a>Étape 1 : déployer DNS
 Vous pouvez déployer un serveur DNS à l’aide de l’exemple de commande Windows PowerShell suivant.
     
     Install-WindowsFeature DNS -IncludeManagementTools
     
-### <a name="step-2-configure-idns-information-in-network-controller"></a>Étape 2 : Configurer les informations iDNS dans le contrôleur de réseau
+### <a name="step-2-configure-idns-information-in-network-controller"></a>Étape 2 : configurer les informations iDNS dans le contrôleur de réseau
 Ce segment de script est un appel REST effectué par l’administrateur au contrôleur de réseau, en l’informant de la configuration de la zone iDNS, par exemple l’adresse IP du iDNSServer et la zone utilisée pour héberger les noms de iDNS. 
 
 ```
@@ -114,7 +114,7 @@ Method: PUT
 >[!NOTE]
 >Il s’agit d’un extrait de la section **configuration ConfigureIDns** dans SDNExpress. ps1. Pour plus d’informations, consultez [déployer une infrastructure réseau définie par logiciel à l’aide de scripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-3-configure-the-idns-proxy-service"></a>Étape 3 : Configurer le service de proxy iDNS
+### <a name="step-3-configure-the-idns-proxy-service"></a>Étape 3 : configurer le service de proxy iDNS
 Le service proxy iDNS s’exécute sur chacun des hôtes Hyper-V, en fournissant la passerelle entre les réseaux virtuels des locataires et le réseau physique où se trouvent les serveurs iDNS. Les clés de Registre suivantes doivent être créées sur chaque hôte Hyper-V.
 
 
@@ -133,7 +133,7 @@ Le service proxy iDNS s’exécute sur chacun des hôtes Hyper-V, en fournissant
 - ValueData = 53
 - ValueType = "DWORD"
         
-**ADRESSE IP DNS :** Adresse IP fixe configurée sur l’interface réseau, au cas où le locataire choisit d’utiliser le service iDNS
+**adresse IP DNS :** Adresse IP fixe configurée sur l’interface réseau, au cas où le locataire choisit d’utiliser le service iDNS
 
 - Clé de Registre = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
 - ValueName = "IP"
@@ -148,7 +148,7 @@ Le service proxy iDNS s’exécute sur chacun des hôtes Hyper-V, en fournissant
 - ValueData = "AA-BB-CC-AA-BB-CC"
 - ValueType = "String"
 
-**Adresse du serveur IDNS :** Liste séparée par des virgules de serveurs iDNS.
+**Adresse du serveur IDNs :** Liste séparée par des virgules de serveurs iDNS.
 
 - Clé de Registre : HKLM\SYSTEM\CurrentControlSet\Services\DNSProxy\Parameters
 - ValueName = "redirecteurs"
@@ -160,7 +160,7 @@ Le service proxy iDNS s’exécute sur chacun des hôtes Hyper-V, en fournissant
 >[!NOTE]
 >Il s’agit d’un extrait de la section **configuration ConfigureIDnsProxy** dans SDNExpress. ps1. Pour plus d’informations, consultez [déployer une infrastructure réseau définie par logiciel à l’aide de scripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Étape 4 : Redémarrer le service agent hôte du contrôleur de réseau
+### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Étape 4 : redémarrer le service agent hôte du contrôleur de réseau
 Vous pouvez utiliser la commande Windows PowerShell suivante pour redémarrer le service agent hôte du contrôleur de réseau.
     
     Restart-Service nchostagent -Force

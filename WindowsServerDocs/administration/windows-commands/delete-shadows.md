@@ -37,11 +37,11 @@ delete shadows [all | volume <Volume> | oldest <Volume> | set <SetID> | id <Shad
 |     Paramètre     |                                                                             Description                                                                              |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        tous        |                                                                      Supprime tous les clichés instantanés.                                                                      |
-| @no__t de volume-0Volume >  |                                                            Supprime tous les clichés instantanés du volume donné.                                                            |
-| @no__t le plus ancien > 0Volume  |                                                         Supprime le cliché instantané le plus ancien du volume donné.                                                          |
-|   définir @no__t > 0SetID    | Supprime les clichés instantanés dans le jeu de clichés instantanés de l’ID donné. Vous pouvez spécifier un alias à l’aide du symbole **%** si l’alias existe dans l’environnement actuel. |
+| volume \<volume >  |                                                            Supprime tous les clichés instantanés du volume donné.                                                            |
+| > du volume de \<le plus ancien  |                                                         Supprime le cliché instantané le plus ancien du volume donné.                                                          |
+|   définir \<SetID >    | Supprime les clichés instantanés dans le jeu de clichés instantanés de l’ID donné. Vous pouvez spécifier un alias à l’aide du symbole **%** si l’alias existe dans l’environnement actuel. |
 |  ID \<ShadowID >   |              Supprime un cliché instantané de l’ID donné. Vous pouvez spécifier un alias à l’aide du symbole **%** si l’alias existe dans l’environnement actuel.               |
-| {\<Drive exposée > |                                                                            <MountPoint>}                                                                             |
+| > du lecteur {\<exposé |                                                                            <MountPoint>}                                                                             |
 
 #### <a name="additional-references"></a>Références supplémentaires
 

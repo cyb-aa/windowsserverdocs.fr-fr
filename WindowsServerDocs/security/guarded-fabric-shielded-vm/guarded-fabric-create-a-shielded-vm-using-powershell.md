@@ -42,7 +42,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath "C:\temp\MyTemplateDisk.vhdx" -Vol
 Pour chacune des infrastructures de virtualisation où vous souhaitez exécuter votre machine virtuelle protégée, vous devez obtenir les métadonnées du gardien pour les clusters SGH de l’étoffe.
 Votre fournisseur d’hébergement doit être en mesure de fournir ces informations pour vous.
 
-Si vous êtes dans un environnement d’entreprise et que vous pouvez communiquer avec le serveur SGH, les métadonnées Guardian sont disponibles sur *http://\<HGSCLUSTERNAME @ no__t-2/keyprotection/service/Metadata/2014-07/Metadata. xml*
+Si vous êtes dans un environnement d’entreprise et que vous pouvez communiquer avec le serveur SGH, les métadonnées Guardian sont disponibles sur *http://\<HGSCLUSTERNAME\>/KeyProtection/service/Metadata/2014-07/Metadata.xml*
 
 ## <a name="create-shielding-data-pdk-file"></a>Créer un fichier de données de protection (PDK)
 
@@ -80,7 +80,7 @@ Sur l’hôte service Guardian, installez le module PowerShell outils d’infras
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-Vous pouvez également télécharger le module sur un autre ordinateur disposant d’un accès à Internet et copier le module résultant sur `C:\Program Files\WindowsPowerShell\Modules` sur l’hôte service Guardian.
+Vous pouvez également télécharger le module sur un autre ordinateur disposant d’un accès à Internet et copier le module obtenu vers `C:\Program Files\WindowsPowerShell\Modules` sur l’hôte service Guardian.
 
 ```powershell
 Save-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0 -Path C:\temp\

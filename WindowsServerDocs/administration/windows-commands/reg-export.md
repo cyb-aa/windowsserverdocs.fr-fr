@@ -38,8 +38,8 @@ Reg export KeyName FileName [/y]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0KeyName >|Spécifie le chemin d’accès complet de la sous-clé. L’opération d’exportation fonctionne uniquement avec l’ordinateur local. Le KeyName doit inclure une clé racine valide. Les clés racines valides sont : HKLM, HKCU, HKCR, HKU et HKCC.|
-|\<Nom de fichier >|Spécifie le nom et le chemin d’accès du fichier à créer au cours de l’opération. Le fichier doit avoir une extension. reg.|
+|\<KeyName >|Spécifie le chemin d’accès complet de la sous-clé. L’opération d’exportation fonctionne uniquement avec l’ordinateur local. Le KeyName doit inclure une clé racine valide. Les clés racines valides sont : HKLM, HKCU, HKCR, HKU et HKCC.|
+|Nom de fichier \<>|Spécifie le nom et le chemin d’accès du fichier à créer au cours de l’opération. Le fichier doit avoir une extension. reg.|
 |/y|Remplace tout fichier existant portant le nom *filename* sans demander confirmation.|
 |/?|Affiche l’aide pour **reg Export** à l’invite de commandes.|
 
@@ -47,9 +47,9 @@ Reg export KeyName FileName [/y]
 
 Le tableau suivant répertorie les valeurs renvoyées pour l’opération **reg Export** .
 
-|Value|Description|
+|Valeur|Description|
 |-----|-----------|
-|0|Succès|
+|0|Réussite|
 |1|Échec|
 
 ## <a name="BKMK_examples"></a>Illustre

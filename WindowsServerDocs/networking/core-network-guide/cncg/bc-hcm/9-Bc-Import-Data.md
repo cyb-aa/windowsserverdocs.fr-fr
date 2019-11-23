@@ -15,15 +15,15 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356201"
 ---
-# <a name="import-data-packages-on-the-hosted-cache-server-optional"></a>Importer des packages de données sur le serveur de cache hébergé \(Optional @ no__t-1
+# <a name="import-data-packages-on-the-hosted-cache-server-optional"></a>Importer des packages de données sur le serveur de cache hébergé \(facultatif\)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser cette procédure pour importer des packages de données et précharger du contenu sur vos serveurs de cache hébergé.
 
 Cette procédure est facultative car vous n’êtes pas obligé d’effectuer un préhachage et de précharger du contenu sur vos serveurs de cache hébergé.
 
-Si vous ne configurez pas un contenu antérieur à @ no__t-0load, les données sont ajoutées automatiquement au cache hébergé à mesure que les clients les téléchargent via la connexion WAN.
+Si vous ne pré\-pas de charger le contenu, les données sont automatiquement ajoutées au cache hébergé à mesure que les clients les téléchargent via la connexion WAN.
 
 Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs.
 

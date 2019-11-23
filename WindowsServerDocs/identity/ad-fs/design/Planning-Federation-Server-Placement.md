@@ -18,7 +18,7 @@ ms.locfileid: "71408029"
 ---
 # <a name="planning-federation-server-placement"></a>Planification de la sélection élective du serveur de fédération
 
-Le composant le plus critique d’un déploiement Services ADFS \(AD FS @ no__t-1 est le serveur de Fédération. Par conséquent, il est important de planifier soigneusement votre stratégie de placement de serveurs de Fédération, notamment quand et où déployer des serveurs de Fédération. Les informations contenues dans les rubriques suivantes peuvent vous aider à déterminer quand et où créer un serveur de Fédération ou une batterie de serveurs de Fédération et s’il faut utiliser ce serveur de Fédération dans le rôle de partenaire de compte, le rôle de partenaire de ressource ou les deux :  
+Le composant le plus critique d’un Services ADFS \(AD FS\) le déploiement est le serveur de Fédération. Par conséquent, il est important de planifier soigneusement votre stratégie de placement de serveurs de Fédération, notamment quand et où déployer des serveurs de Fédération. Les informations contenues dans les rubriques suivantes peuvent vous aider à déterminer quand et où créer un serveur de Fédération ou une batterie de serveurs de Fédération et s’il faut utiliser ce serveur de Fédération dans le rôle de partenaire de compte, le rôle de partenaire de ressource ou les deux :  
   
 -   [Passer en revue le rôle du serveur de fédération du partenaire de compte](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   

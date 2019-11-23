@@ -38,13 +38,13 @@ find [/v] [/c] [/n] [/i] [/off[line]] "<String>" [[<Drive>:][<Path>]<FileName>[.
 
 |           Paramètre           |                                              Description                                               |
 |-------------------------------|--------------------------------------------------------------------------------------------------------|
-|              /v               |                    Affiche toutes les lignes qui ne contiennent pas le > \<String spécifié.                     |
-|              /c               |              Compte les lignes qui contiennent la > @no__t 0String spécifiée et affiche le total.              |
+|              /v               |                    Affiche toutes les lignes qui ne contiennent pas la chaîne de \<spécifiée >.                     |
+|              /c               |              Compte les lignes qui contiennent la chaîne de \<spécifiée > et affiche le total.              |
 |              /n               |                            Précède chaque ligne avec le numéro de ligne du fichier.                             |
 |              /i               |                            Spécifie que la recherche ne respecte pas la casse.                            |
 |         [/OFF [Line]]          |                        N’ignore pas les fichiers dont l’attribut offline est défini.                        |
-|          « \<String > »          | Obligatoire. Spécifie le groupe de caractères (entre guillemets) que vous souhaitez rechercher. |
-| [@no__t 0Drive >:] [<Path>] <FileName> |        Spécifie l’emplacement et le nom du fichier dans lequel rechercher la chaîne spécifiée.        |
+|          «\<chaîne > »          | Obligatoire. Spécifie le groupe de caractères (entre guillemets) que vous souhaitez rechercher. |
+| [\<> de lecteur :] [<Path>]<FileName> |        Spécifie l’emplacement et le nom du fichier dans lequel rechercher la chaîne spécifiée.        |
 |              /?               |                                  Affiche l'aide à l'invite de commandes.                                  |
 
 ## <a name="remarks"></a>Notes

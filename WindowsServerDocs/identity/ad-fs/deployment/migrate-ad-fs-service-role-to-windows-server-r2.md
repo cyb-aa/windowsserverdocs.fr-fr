@@ -59,7 +59,7 @@ ms.locfileid: "71359389"
   
 |De|Pour AD FS installé avec Windows Server 2012 R2|  
 |----------|----------------------------------------------------------------------------------------------|  
-|AD FS serveur de Fédération 2,0 installé sur Windows Server 2008 ou Windows Server 2008 R2|La migration sur le même serveur est prise en charge. Pour plus d'informations, voir :<br /><br /> [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)|  
+|AD FS serveur de Fédération 2,0 installé sur Windows Server 2008 ou Windows Server 2008 R2|La migration sur le même serveur est prise en charge. Pour plus d’informations, consultez :<br /><br /> [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)|  
 |AD FS serveur de Fédération installé sur Windows Server 2012|La migration sur le même serveur est prise en charge.  Pour plus d’informations, voir :<br /><br /> [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)|  
   
 ## <a name="next-steps"></a>Étapes suivantes

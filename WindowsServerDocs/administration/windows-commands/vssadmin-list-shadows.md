@@ -31,8 +31,8 @@ vssadmin list shadows [/for=<ForVolumeSpec>] [/shadow=<ShadowID>]
 
 |Paramètre|Description|
 |---|---|
-|/for = @no__t 0ForVolumeSpec >|Spécifie le volume pour lequel les clichés instantanés seront listés.|
-|/Shadow = \<ShadowID >|Répertorie les clichés instantanés spécifiés par ShadowID. Pour afficher l’ID du cliché instantané, utilisez la commande **vssadmin list Shadows** . Lorsque vous tapez un ID de cliché instantané, utilisez le format suivant, où chaque *X* représente un caractère hexadécimal :<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
+|/for =\<> VolumeFor|Spécifie le volume pour lequel les clichés instantanés seront listés.|
+|/Shadow =\<ShadowID >|Répertorie les clichés instantanés spécifiés par ShadowID. Pour afficher l’ID du cliché instantané, utilisez la commande **vssadmin list Shadows** . Lorsque vous tapez un ID de cliché instantané, utilisez le format suivant, où chaque *X* représente un caractère hexadécimal :<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
 
 ## <a name="additional-references"></a>Références supplémentaires
 

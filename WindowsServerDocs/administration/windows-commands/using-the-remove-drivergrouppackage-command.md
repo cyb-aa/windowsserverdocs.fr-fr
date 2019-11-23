@@ -36,9 +36,9 @@ WDSUTIL /Remove-DriverGroupPackage /DriverGroup:<Group Name> [/Server:<Server Na
 
 |Paramètre|Description|
 |---------|-----------|
-|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|[/DriverPackage : \<Name >]|Spécifie le nom du package de pilotes à supprimer.|
-|[/PackageId : \<ID >]|Spécifie l’ID des services de déploiement Windows du package de pilotes à supprimer. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom.|
+|[/Server :\<nom du serveur >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|[/DriverPackage : nom de\<>]|Spécifie le nom du package de pilotes à supprimer.|
+|[/PackageId : ID de\<>]|Spécifie l’ID des services de déploiement Windows du package de pilotes à supprimer. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom.|
 
 ## <a name="BKMK_examples"></a>Illustre
 

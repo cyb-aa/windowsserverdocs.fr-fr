@@ -22,10 +22,10 @@ ms.locfileid: "71362810"
 ---
 # <a name="using-the-remove-driverpackage-command"></a>Utilisation de la commande Remove-DriverPackage
 
-> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > 
-> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 supprime un package de pilotes d’un serveur.
 ## <a name="syntax"></a>Syntaxe
@@ -37,8 +37,8 @@ wdsutil /remove-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package N
 |        Paramètre        |                                                                            Description                                                                             |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:<Server name>] |              Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.              |
-| [/DriverPackage : <Name>] |                                                        Spécifie le nom du package de pilotes à supprimer.                                                         |
-|    [/PackageId : <ID>]    | Spécifie l’ID des services de déploiement Windows du package de pilotes à supprimer. Vous devez spécifier l’ID si le package de pilotes ne peut pas être identifié de manière unique par son nom. |
+| [/DriverPackage :<Name>] |                                                        Spécifie le nom du package de pilotes à supprimer.                                                         |
+|    [/PackageId :<ID>]    | Spécifie l’ID des services de déploiement Windows du package de pilotes à supprimer. Vous devez spécifier l’ID si le package de pilotes ne peut pas être identifié de manière unique par son nom. |
 
 ## <a name="BKMK_examples"></a>Illustre
 Pour afficher des informations sur les images, tapez l’une des options suivantes :

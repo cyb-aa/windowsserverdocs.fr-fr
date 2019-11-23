@@ -17,11 +17,11 @@ ms.locfileid: "71405243"
 ---
 #  <a name="windows-internet-name-service-wins"></a>Service WINS (Windows Internet Name Service)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Le service WINS (Windows Internet Name Service) représente un service hérité d’inscription et de résolution de noms d’ordinateurs qui mappe les noms NetBIOS d’ordinateurs à des adresses IP.
 
-Si vous n’avez pas encore déployé WINS sur votre réseau, ne déployez pas WINS-à la place, déployez Domain Name System \(DNS @ no__t-1. DNS fournit également des services de résolution et d’inscription de nom d’ordinateur, et inclut de nombreux avantages supplémentaires par rapport à WINS, tels que l’intégration à Active Directory Domain Services.
+Si WINS n’est pas déjà déployé sur votre réseau, ne déployez pas WINS-à la place, déployez Domain Name System \(DNS\). DNS fournit également des services de résolution et d’inscription de nom d’ordinateur, et inclut de nombreux avantages supplémentaires par rapport à WINS, tels que l’intégration à Active Directory Domain Services.
 
 Pour plus d’informations, consultez [DNS (Domain Name System)](https://docs.microsoft.com/windows-server/networking/dns/dns-top) .
 

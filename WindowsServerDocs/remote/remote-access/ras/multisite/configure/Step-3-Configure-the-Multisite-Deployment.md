@@ -21,7 +21,7 @@ ms.locfileid: "71404510"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Étape 3 configurer le déploiement multisite
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Après avoir configuré l’infrastructure multisite, procédez comme suit pour configurer le déploiement multisite de l’accès à distance.  
   
@@ -66,7 +66,7 @@ Après avoir configuré l’infrastructure multisite, procédez comme suit pour 
 11.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
   
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
 
   
 Les étapes 1-3 doivent être effectuées manuellement et ne sont pas effectuées à l’aide de cette applet de commande Windows PowerShell.  
@@ -81,7 +81,7 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-grant-administrator-permissions"></a>Pour accorder des autorisations d’administrateur  
   
-1.  Sur le serveur d’accès à distance dans le point d’entrée supplémentaire : Dans l’écran d' **Accueil** , tapez gestion de l' **ordinateur**, puis appuyez sur entrée.  
+1.  Sur le serveur d’accès à distance, dans le point d’entrée supplémentaire : dans l’écran d' **Accueil** , tapez gestion de l' **ordinateur**, puis appuyez sur entrée.  
   
 2.  Dans le volet gauche, cliquez sur **utilisateurs et groupes locaux**.  
   
@@ -104,7 +104,7 @@ Sur chaque serveur d’accès à distance qui sera ajouté au déploiement multi
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>Pour obtenir un certificat IP-HTTPs  
   
-1.  Sur chaque serveur d’accès à distance : Dans l’écran **Démarrer** , tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur chaque serveur d’accès à distance : dans l’écran **Démarrer** , tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
   
 2.  Cliquez sur **Fichier**, puis sur **Ajouter ou supprimer des composants logiciels enfichables**.  
   
@@ -142,7 +142,7 @@ Si vous avez choisi de configurer le site Web du serveur d’emplacement réseau
   
 #### <a name="to-install-a-certificate-for-network-location"></a>Pour installer un certificat pour l’emplacement réseau  
   
-1.  Sur le serveur d'accès à distance : Dans l’écran **Démarrer** , tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance : dans l’écran **Démarrer** , tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
   
 2.  Cliquez sur **Fichier**, puis sur **Ajouter ou supprimer des composants logiciels enfichables**.  
   
@@ -180,7 +180,7 @@ Si vous avez choisi de configurer le site Web du serveur d’emplacement réseau
   
 ### <a name="NLS"></a>Pour créer les enregistrements DNS du serveur d’emplacement réseau  
   
-1.  Sur le serveur DNS : Dans l’écran d' **Accueil** , tapez **dnsmgmt. msc**, puis appuyez sur entrée.  
+1.  Sur le serveur DNS : dans l’écran d' **Accueil** , tapez **dnsmgmt. msc**, puis appuyez sur entrée.  
   
 2.  Dans le volet gauche de la console du **Gestionnaire DNS** , ouvrez la zone de recherche directe pour le réseau interne. Cliquez avec le bouton droit sur la zone appropriée, puis cliquez sur **nouvel hôte (A ou AAAA)** .  
   
@@ -195,13 +195,13 @@ Si vous avez choisi de configurer le site Web du serveur d’emplacement réseau
 7.  Répétez cette procédure avant d’ajouter des serveurs en tant que points d’entrée supplémentaires dans le déploiement.  
   
 ## <a name="BKMK_Client"></a>3,5. Configurer des clients DirectAccess pour un déploiement multisite  
-Les ordinateurs clients Windows DirectAccess doivent être membres d’un ou plusieurs groupes de sécurité qui définissent leur association DirectAccess. Avant l’activation de l’option multisite, ces groupes de sécurité peuvent contenir à la fois des clients Windows 8 et des clients Windows 7 (si le mode « de bas niveau » approprié a été sélectionné). Une fois que le multisite est activé, le ou les groupes de sécurité client existants, en mode serveur unique, sont convertis en groupes de sécurité pour Windows 8 uniquement. Une fois que le multisite est activé, les ordinateurs clients Windows 7 DirectAccess doivent être déplacés vers les groupes de sécurité client Windows 7 dédiés correspondants (qui sont associés à des points d’entrée spécifiques), ou ils ne pourront pas se connecter via DirectAccess. Les clients Windows 7 doivent d’abord être supprimés des groupes de sécurité existants qui sont désormais des groupes de sécurité Windows 8. Avertissement :  Les ordinateurs clients Windows 7 qui sont membres des groupes de sécurité client Windows 7 et Windows 8 perdent la connectivité à distance et les clients Windows 7 sans SP1 perdent également la connectivité de l’entreprise. Par conséquent, tous les ordinateurs clients Windows 7 doivent être supprimés des groupes de sécurité Windows 8.  
+Les ordinateurs clients Windows DirectAccess doivent être membres d’un ou plusieurs groupes de sécurité qui définissent leur association DirectAccess. Avant l’activation de l’option multisite, ces groupes de sécurité peuvent contenir à la fois des clients Windows 8 et des clients Windows 7 (si le mode « de bas niveau » approprié a été sélectionné). Une fois que le multisite est activé, le ou les groupes de sécurité client existants, en mode serveur unique, sont convertis en groupes de sécurité pour Windows 8 uniquement. Une fois que le multisite est activé, les ordinateurs clients Windows 7 DirectAccess doivent être déplacés vers les groupes de sécurité client Windows 7 dédiés correspondants (qui sont associés à des points d’entrée spécifiques), ou ils ne pourront pas se connecter via DirectAccess. Les clients Windows 7 doivent d’abord être supprimés des groupes de sécurité existants qui sont désormais des groupes de sécurité Windows 8. ATTENTION : les ordinateurs clients Windows 7 qui sont membres des groupes de sécurité client Windows 7 et Windows 8 perdent la connectivité à distance et les clients Windows 7 sans SP1 perdent également la connectivité de l’entreprise. Par conséquent, tous les ordinateurs clients Windows 7 doivent être supprimés des groupes de sécurité Windows 8.  
   
 #### <a name="remove--windows-7--clients-from-windows-8-security-groups"></a>Supprimer les clients Windows 7 des groupes de sécurité Windows 8  
   
 1.  Sur le contrôleur de domaine principal, cliquez sur **Démarrer**, puis sur **Active Directory les utilisateurs et les ordinateurs**.  
   
-2.  Pour supprimer des ordinateurs du groupe de sécurité, double-cliquez sur le groupe de sécurité, puis dans la boîte de dialogue **Propriétés de < nom_groupe >** , cliquez sur l’onglet **membres** .  
+2.  Pour supprimer des ordinateurs du groupe de sécurité, double-cliquez sur le groupe de sécurité, puis dans la boîte de dialogue **< Group_Name propriétés du >** , cliquez sur l’onglet **membres** .  
   
 3.  Sélectionnez l’ordinateur client Windows 7, puis cliquez sur **supprimer**.  
   
@@ -221,7 +221,7 @@ Pour configurer un déploiement multisite, activez la fonctionnalité multisite 
   
 ### <a name="EnabledMultisite"></a>Pour activer une configuration multisite  
   
-1.  Sur votre serveur d’accès à distance existant : Dans l’écran d' **Accueil** , tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur votre serveur d’accès à distance existant : dans l’écran d' **Accueil** , tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
   
 2.  Dans la console Gestion de l’accès à distance, cliquez sur **configuration**, puis dans le volet **tâches** , cliquez sur **activer multisite**.  
   
@@ -242,7 +242,7 @@ Pour configurer un déploiement multisite, activez la fonctionnalité multisite 
         > [!NOTE]  
         > Lorsque cette option est sélectionnée, les ordinateurs clients se connectent automatiquement à leur point d’entrée le plus proche.  
   
-    -   Cliquez sur **Oui, utiliser l’équilibrage de charge global** si vous souhaitez équilibrer la charge du trafic globalement entre tous les points d’entrée. Dans **tapez le nom de domaine complet de l’équilibrage de charge global à utiliser par tous les points d’entrée**, entrez le nom de domaine complet de l’équilibrage de charge global, puis dans **tapez l’adresse IP d’équilibrage de charge globale pour ce point d’entrée** contenant le premier serveur d’accès à distance, entrez la charge globale. équilibrage de l’adresse IP pour ce point d’entrée, puis cliquez sur **suivant**.  
+    -   Cliquez sur **Oui, utiliser l’équilibrage de charge global** si vous souhaitez équilibrer la charge du trafic globalement entre tous les points d’entrée. Dans **tapez le nom de domaine complet de l’équilibrage de charge global à utiliser par tous les points d’entrée**, entrez le nom de domaine complet de l’équilibrage de charge global, puis dans **tapez l’adresse IP d’équilibrage de charge globale pour ce point d’entrée** contenant le premier serveur d’accès à distance, entrez l’adresse IP d’équilibrage de charge globale pour ce point d’entrée, puis cliquez sur **suivant**  
   
 7.  Sur la page **prise en charge du client** , effectuez l’une des opérations suivantes :  
   
@@ -260,7 +260,7 @@ Pour configurer un déploiement multisite, activez la fonctionnalité multisite 
   
 10. Dans la boîte de dialogue **activation du déploiement multisite** , cliquez sur **Fermer** , puis dans l’Assistant activer le déploiement multisite, cliquez sur **Fermer**.  
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -270,7 +270,7 @@ Pour activer un déploiement multisite nommé « Contoso » sur le premier poi
 Enable-DAMultiSite -Name 'Contoso' -EntryPointName 'Edge1-US' -ManualEntryPointSelectionAllowed 'Enabled'  
 ```  
   
-Pour autoriser l’accès des ordinateurs clients Windows 7 via le premier point d’entrée via le groupe de sécurité DA_Clients_US et l’utilisation de l’objet de stratégie de groupe DA_W7_Clients_GPO_US.  
+Pour autoriser l’accès des ordinateurs clients Windows 7 par le biais du premier point d’entrée via le groupe de sécurité DA_Clients_US et à l’aide de l’DA_W7_Clients_GPO_US de stratégie de groupe.  
   
 ```  
 Add-DAClient -EntrypointName 'Edge1-US' -DownlevelSecurityGroupNameList @('corp.contoso.com\DA_Clients_US') -DownlevelGpoName @('corp.contoso.com\DA_W7_Clients_GPO_US)  
@@ -289,7 +289,7 @@ Après avoir activé la multisite dans votre déploiement, vous pouvez ajouter d
   
 ### <a name="AddEP"></a>Pour ajouter des points d’entrée à votre déploiement multisite  
   
-1.  Sur votre serveur d’accès à distance existant : Dans l’écran d' **Accueil** , tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur votre serveur d’accès à distance existant : dans l’écran d' **Accueil** , tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
   
 2.  Dans la console Gestion de l’accès à distance, cliquez sur **configuration**, puis dans le volet **tâches** , cliquez sur **Ajouter un point d’entrée**.  
   
@@ -320,7 +320,7 @@ Après avoir activé la multisite dans votre déploiement, vous pouvez ajouter d
   
     -   Pour permettre aux ordinateurs clients exécutant Windows 7 d’accéder à ce point d’entrée, cliquez sur **autoriser les ordinateurs clients exécutant Windows 7 à accéder à ce point d’entrée**, puis cliquez sur **Ajouter**. Dans la boîte de dialogue **Sélectionner des groupes** , sélectionnez le ou les groupes de sécurité qui contiennent les ordinateurs clients Windows 7 qui se connecteront à ce point d’entrée, cliquez sur **OK**, puis sur **suivant**.  
   
-11. Dans la page Paramètres de l' **objet de stratégie de groupe du client** , acceptez l’objet de stratégie de groupe par défaut pour les ordinateurs clients Windows 7 pour ce point d’entrée, tapez le nom de l’objet de stratégie de groupe que vous souhaitez que l’accès à distance crée automatiquement, ou cliquez sur **Parcourir** pour localiser le GPO pour les ordinateurs clients Windows 7. , puis cliquez sur **suivant**.  
+11. Dans la page Paramètres de l' **objet de stratégie de groupe du client** , acceptez l’objet de stratégie de groupe par défaut pour les ordinateurs clients Windows 7 pour ce point d’entrée, tapez le nom de l’objet de stratégie de groupe que vous souhaitez que l’accès à distance crée automatiquement, ou cliquez sur **Parcourir** pour localiser le GPO pour les ordinateurs clients Windows 7, puis cliquez sur **suivant**.  
   
     > [!NOTE]  
     > -   La page des paramètres de l' **objet de stratégie de groupe du client** s’affiche uniquement lorsque vous configurez le point d’entrée pour autoriser les ordinateurs clients Windows 7 à accéder au point d’entrée.  
@@ -338,21 +338,21 @@ Après avoir activé la multisite dans votre déploiement, vous pouvez ajouter d
 15. Dans la boîte de dialogue Ajout d’un **point d’entrée** , cliquez sur **Fermer** , puis dans l’Assistant Ajouter un point d’entrée, cliquez sur **Fermer**.  
   
     > [!NOTE]  
-    > Si le point d’entrée ajouté se trouve dans une forêt différente de celle des points d’entrée ou des ordinateurs clients existants, il est nécessaire de cliquer sur **Actualiser les serveurs d’administration** dans le volet **tâches** pour découvrir les contrôleurs de domaine et System Center. Configuration Manager dans la nouvelle forêt.  
+    > Si le point d’entrée ajouté se trouve dans une forêt différente de celle des points d’entrée ou des ordinateurs clients existants, il est nécessaire de cliquer sur **Actualiser les serveurs d’administration** dans le volet **tâches** pour découvrir les contrôleurs de domaine et les System Center Configuration Manager de la nouvelle forêt.  
   
 16. Répétez cette procédure à partir de l’étape 2 pour chaque point d’entrée que vous souhaitez ajouter à votre déploiement multisite.  
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
-Pour ajouter l’ordinateur Edge2 à partir du domaine corp2 en tant que deuxième point d’entrée nommé Edge2-Europe. La configuration du point d’entrée est : un préfixe IPv6 du client « 2001 : DB8:2 : 2000 ::/64 », une adresse de connexion (le certificat IP-HTTPs sur l’ordinateur Edge2) « edge2.contoso.com », un objet de stratégie de groupe de serveur nommé « paramètres du serveur DirectAccess-Edge2-Europe » et le interfaces externes nommées Internet et Corpnet2 respectivement :  
+Pour ajouter l’ordinateur Edge2 à partir du domaine corp2 en tant que deuxième point d’entrée nommé Edge2-Europe. La configuration du point d’entrée est : un préfixe IPv6 client « 2001 : DB8:2 : 2000 ::/64 », une adresse de connexion (le certificat IP-HTTPs sur l’ordinateur Edge2) « edge2.contoso.com », un objet de stratégie de groupe de serveur nommé « paramètres de serveur DirectAccess-Edge2-Europe » et les interfaces internes et externes nommées Internet et Corpnet2 respectivement :  
   
 ```  
 Add-DAEntryPoint -RemoteAccessServer 'edge2.corp2.corp.contoso.com' -Name 'Edge2-Europe' -ClientIPv6Prefix '2001:db8:2:2000::/64' -ConnectToAddress 'Europe.contoso.com' -ServerGpoName 'corp2.corp.contoso.com\DirectAccess Server Settings - Edge2-Europe' -InternetInterface 'Internet' -InternalInterface 'Corpnet2'  
 ```  
   
-Pour autoriser l’accès des ordinateurs clients Windows 7 via le deuxième point d’entrée via le groupe de sécurité DA_Clients_Europe et l’utilisation de l’objet de stratégie de groupe DA_W7_Clients_GPO_Europe.  
+Pour autoriser l’accès des ordinateurs clients Windows 7 par le biais du deuxième point d’entrée via le groupe de sécurité DA_Clients_Europe et à l’aide de l’DA_W7_Clients_GPO_Europe de stratégie de groupe.  
   
 ```  
 Add-DAClient -EntrypointName 'Edge2-Europe' -DownlevelGpoName @('corp.contoso.com\ DA_W7_Clients_GPO_Europe') -DownlevelSecurityGroupNameList @('corp.contoso.com\DA_Clients_Europe')  
@@ -360,4 +360,4 @@ Add-DAClient -EntrypointName 'Edge2-Europe' -DownlevelGpoName @('corp.contoso.co
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 2 : Configurer l’infrastructure multisite @ no__t-0
+-   [Étape 2 : configurer l’infrastructure multisite](Step-2-Configure-the-Multisite-Infrastructure.md)

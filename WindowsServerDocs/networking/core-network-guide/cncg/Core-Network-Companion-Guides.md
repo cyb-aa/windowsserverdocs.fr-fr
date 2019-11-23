@@ -17,19 +17,19 @@ ms.locfileid: "71406304"
 ---
 # <a name="core-network-companion-guidance"></a>Guide complémentaire du réseau principal
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Tandis que le [Guide du réseau de base](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) Windows Server 2016 fournit des instructions sur le déploiement d’une nouvelle forêt Active Directory @ no__t-1 avec un nouveau domaine racine et l’infrastructure réseau de prise en charge, les guides d’accompagnement vous offrent la possibilité d’ajouter fonctionnalités sur votre réseau.
+Le Guide du réseau de [base](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) Windows Server 2016 fournit des instructions sur le déploiement d’un nouveau Active Directory&reg; forêt avec un nouveau domaine racine et l’infrastructure réseau de prise en charge, les guides d’accompagnement vous permettent d’ajouter des fonctionnalités à votre réseau.
 
 Chaque guide d’accompagnement est consacré à la mise en œuvre d’un objectif particulier après le déploiement de votre réseau de base. Dans certains cas, il existe plusieurs guides d’accompagnement qui, lorsqu’ils sont déployés ensemble et dans l’ordre approprié, vous permettent de mener à bien des objectifs très complexes selon des méthodes mesurables, rentables et fiables.
 
 Si vous avez déployé votre domaine Active Directory et votre réseau de base sans vous aider du Guide du réseau de base, vous pouvez quand même utiliser les guides d’accompagnement pour ajouter des fonctionnalités à votre réseau. Dans ce cas, servez-vous du Guide du réseau de base pour dresser la liste des conditions préalables que votre réseau doit remplir si vous prévoyez de déployer des fonctionnalités supplémentaires avec les guides d’accompagnement.
 
-## <a name="core-network-companion-guide-deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Guide d'accompagnement du réseau de base : Déployer des certificats de serveur pour des déploiements câblés et sans fil 802.1X 
+## <a name="core-network-companion-guide-deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Guide d’accompagnement du réseau de base : déployer des certificats de serveur pour les déploiements sans fil et câblés 802.1 X 
 
-Ce guide d’accompagnement explique comment créer sur le réseau de base en déployant des certificats de serveur pour les ordinateurs qui exécutent le serveur de stratégie réseau \(NPS @ no__t-1, le service d’accès à distance \(RAS @ no__t-3, ou les deux.
+Ce guide d’accompagnement explique comment créer sur le réseau de base en déployant des certificats de serveur pour les ordinateurs qui exécutent le serveur de stratégie réseau \(\)NPS, le service d’accès à distance \(le\)RAS, ou les deux.
 
-Des certificats de serveur sont requis lorsque vous déployez des méthodes d’authentification basées sur des certificats avec le protocole EAP (Extensible Authentication Protocol) @no__t 0EAP @ no__t-1 et Protected EAP \(PEAP @ no__t-3 pour l’authentification de l’accès réseau. Le déploiement de certificats de serveur avec les services de certificats Active Directory \(AD CS @ no__t-1 pour les méthodes d’authentification basées sur des certificats EAP et PEAP offre les avantages suivants :
+Des certificats de serveur sont requis lorsque vous déployez des méthodes d’authentification basées sur des certificats avec le protocole EAP (Extensible Authentication Protocol) \(EAP\) et PEAP\) Protected EAP \(pour l’authentification d’accès réseau. Le déploiement de certificats de serveur avec les services de certificats Active Directory \(les services AD CS\) pour les méthodes d’authentification basées sur des certificats EAP et PEAP offre les avantages suivants :
 
 - Liaison de l’identité du serveur NPS ou RAS à une clé privée
 - Méthode économique et sécurisée pour l’inscription automatique de certificats sur des serveurs NPS et RAS membres du domaine
@@ -38,22 +38,22 @@ Des certificats de serveur sont requis lorsque vous déployez des méthodes d’
 - Possibilité d’étendre l’utilisation de certificats à d’autres usages
   
 Pour obtenir des instructions sur le déploiement de certificats de serveur, consultez [déployer des certificats de serveur pour les déploiements sans fil et câblés 802.1 x](server-certs/Deploy-Server-Certificates-for-802.1X-Wired-and-Wireless-Deployments.md).  
-## <a name="core-network-companion-guide-deploy-password-based-8021x-authenticated-wireless-access"></a>Guide d'accompagnement du réseau de base : Déployer un accès sans fil authentifié 802.1X basé sur des mots de passe
+## <a name="core-network-companion-guide-deploy-password-based-8021x-authenticated-wireless-access"></a>Guide d’accompagnement du réseau de base : déployer un accès sans fil authentifié 802.1 X basé sur un mot de passe
 
-Ce guide d’accompagnement explique comment créer un réseau de base en fournissant des instructions sur la façon de déployer des ingénieurs de l’électro-et des appareils électriques \(IEEE @ no__t-1 802.1 X @ no__t-2authenticated l’accès sans fil IEEE 802,11 à l’aide de protected Protocole EAP (Extensible Authentication Protocol)-Microsoft Challenge Handshake Authentication Protocol version 2 \(PEAP @ no__t-4 ms @ no__t-5CHAP v2 @ no__t-6.
+Ce guide d’accompagnement explique comment créer sur le réseau de base en fournissant des instructions sur la façon de déployer des ingénieurs de l’électro-et des appareils électroniques \(IEEE\) 802.1 X\-un accès sans fil IEEE 802,11 authentifié à l’aide du protocole PEAP (Protected Extensible Authentication Protocol) \(PEAP\-MS\-CHAP v2\).
 
-La méthode d’authentification PEAP @ no__t-0 ms @ no__t-1CHAP v2 exige que les serveurs d’authentification qui exécutent le serveur de stratégie réseau \(NPS @ no__t-3 présentent des clients sans fil avec un certificat de serveur pour prouver l’identité NPS au client. Toutefois, l’utilisateur l’authentification n’est pas effectuée à l’aide d’un certificat, les utilisateurs fournissent leur nom d’utilisateur de domaine et leur mot de passe.
+La méthode d’authentification PEAP\-MS\-CHAP v2 exige que les serveurs d’authentification exécutant Network Policy Server \(NPS\) présentent des clients sans fil avec un certificat de serveur pour prouver l’identité du serveur NPS au client, mais que l’authentification utilisateur n’est pas effectuée à l’aide d’un certificat, les utilisateurs fournissent leur nom d’utilisateur de domaine et leur mot de passe.
 
-Étant donné que PEAP @ no__t-0 ms @ no__t-1CHAP v2 exige que les utilisateurs fournissent des informations d’identification basées sur un mot de passe plutôt qu’un certificat au cours du processus d’authentification, il est généralement plus facile et moins coûteux à déployer que EAP @ no__t-2TLS ou PEAP @ no__t-3TLS.
+Étant donné que PEAP\-MS\-CHAP v2 exige que les utilisateurs fournissent des informations d’identification basées sur un mot de passe plutôt qu’un certificat au cours du processus d’authentification, il est généralement plus facile et moins coûteux à déployer que EAP\-TLS ou PEAP\-TLS.
 
-Avant d’utiliser ce guide pour déployer l’accès sans fil avec la méthode d’authentification PEAP @ no__t-0 ms @ no__t-1CHAP v2, vous devez effectuer les opérations suivantes :
+Avant d’utiliser ce guide pour déployer l’accès sans fil avec la méthode d’authentification PEAP\-MS\-CHAP v2, vous devez effectuer les opérations suivantes :
 
 1. Suivez les instructions du Guide du réseau de base pour déployer votre infrastructure réseau de base, ou déjà disposer des technologies présentées dans ce guide sur votre réseau.
 2. Suivez les instructions du Guide d’accompagnement du réseau de base déployer des certificats de serveur pour les déploiements sans fil et câblés 802.1 X, ou les technologies présentées dans ce guide sont déjà déployées sur votre réseau.
 
-Pour obtenir des instructions sur le déploiement de l’accès sans fil avec PEAP @ no__t-0 ms @ no__t-1CHAP v2, consultez [déployer un accès sans fil authentifié 802.1 x basé sur un mot de passe](wireless/a-deploy-8021X-wireless-access.md).
+Pour obtenir des instructions sur le déploiement de l’accès sans fil avec PEAP\-MS\-CHAP v2, consultez [déployer un accès sans fil authentifié 802.1 x basé sur un mot de passe](wireless/a-deploy-8021X-wireless-access.md).
 
-## <a name="core-network-companion-guide-deploy-branchcache-hosted-cache-mode"></a>Guide d'accompagnement du réseau de base : Déployer le mode de cache hébergé de BranchCache
+## <a name="core-network-companion-guide-deploy-branchcache-hosted-cache-mode"></a>Guide d’accompagnement du réseau de base : déployer le mode de cache hébergé de BranchCache
 
 Ce guide d’accompagnement explique comment déployer BranchCache en mode de cache hébergé dans une ou plusieurs filiales.
 

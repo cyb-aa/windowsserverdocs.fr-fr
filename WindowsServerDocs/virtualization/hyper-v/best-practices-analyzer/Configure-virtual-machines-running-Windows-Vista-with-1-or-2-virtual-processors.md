@@ -19,7 +19,7 @@ ms.locfileid: "71364935"
 ---
 # <a name="configure-virtual-machines-running-windows-vista-with-1-or-2-virtual-processors"></a>Configurer des machines virtuelles exécutant Windows Vista avec 1 ou 2 processeurs virtuels
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -28,7 +28,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Configuration|  
-|**Catégorie**|Error|  
+|**Catégorie**|Erreur|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
@@ -40,9 +40,9 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 *Microsoft ne prend pas en charge la configuration des machines virtuelles suivantes :*  
   
-@no__t 0list de noms de machines virtuelles >  
+\<liste des noms de machine virtuelle >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Arrêtez l’ordinateur virtuel et supprimez un ou plusieurs processeurs virtuels.*  
   

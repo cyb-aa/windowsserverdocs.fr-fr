@@ -17,9 +17,9 @@ ms.locfileid: "71405290"
 ---
 # <a name="getting-started-with-qos-policy"></a>Prise en main avec la stratégie QoS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser les rubriques suivantes pour vous familiariser avec la stratégie de qualité de service \(QoS @ no__t-1.
+Vous pouvez utiliser les rubriques suivantes pour vous familiariser avec la stratégie de qualité de service \(QoS\).
 
 - [Fonctionnement de la stratégie QoS](qos-policy-works.md)
 - [Architecture de la stratégie QoS](qos-policy-architecture.md)

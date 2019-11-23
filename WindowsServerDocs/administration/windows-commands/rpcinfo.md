@@ -22,7 +22,7 @@ ms.locfileid: "71384474"
 ---
 # <a name="rpcinfo"></a>rpcinfo
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Répertorie les programmes installés sur des ordinateurs distants. L’utilitaire de ligne de commande **rpcinfo** effectue un appel de procédure distante (RPC) sur un serveur RPC et signale ce qu’il trouve. 
 
@@ -34,10 +34,10 @@ rpcinfo [/p [<Node>]] [/b <Program version>] [/t <Node Program> [<version>]] [/u
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|/p [@no__t 0Node >]|répertorie tous les programmes inscrits avec le mappeur de port sur l’ordinateur hôte spécifié. Si vous ne spécifiez pas de nom de nœud (ordinateur), le programme interroge le mappeur de port sur l’hôte local.|
-|/b version de @no__t 0Program >|Demande une réponse de tous les nœuds réseau qui ont le programme et la version spécifiés inscrits auprès du mappeur de port. Vous devez spécifier un nom de programme ou un numéro de version, ainsi qu’un numéro de version.|
-|/t \<Node programme > [\<version >]|Utilise le protocole de transport TCP pour appeler le programme spécifié. Vous devez spécifier à la fois un nom de nœud (ordinateur) et un nom de programme. Si vous ne spécifiez pas de version, le programme appelle toutes les versions.|
-|/u \<Node programme > [\<version >]|Utilise le protocole de transport UDP pour appeler le programme spécifié. Vous devez spécifier à la fois un nom de nœud (ordinateur) et un nom de programme. Si vous ne spécifiez pas de version, le programme appelle toutes les versions.|
+|/p [\<> de nœud]|répertorie tous les programmes inscrits avec le mappeur de port sur l’ordinateur hôte spécifié. Si vous ne spécifiez pas de nom de nœud (ordinateur), le programme interroge le mappeur de port sur l’hôte local.|
+|/b \<version du programme >|Demande une réponse de tous les nœuds réseau qui ont le programme et la version spécifiés inscrits auprès du mappeur de port. Vous devez spécifier un nom de programme ou un numéro de version, ainsi qu’un numéro de version.|
+|/t \<du nœud programme > [\<version >]|Utilise le protocole de transport TCP pour appeler le programme spécifié. Vous devez spécifier à la fois un nom de nœud (ordinateur) et un nom de programme. Si vous ne spécifiez pas de version, le programme appelle toutes les versions.|
+|/u \<nœud programme > [\<version >]|Utilise le protocole de transport UDP pour appeler le programme spécifié. Vous devez spécifier à la fois un nom de nœud (ordinateur) et un nom de programme. Si vous ne spécifiez pas de version, le programme appelle toutes les versions.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="BKMK_Examples"></a>Illustre

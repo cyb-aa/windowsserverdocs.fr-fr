@@ -54,12 +54,12 @@ Le diagramme architectural suivant montre l’installation qui a été utilisée
 1.  Utilisation de Gestionnaire de serveur installer le rôle Services ADFS sur Windows Server 2016  
 
 2.  À l’aide de l’Assistant Configuration de AD FS, joignez le nouveau serveur Windows Server 2016 à la batterie de AD FS existante.  Dans l’écran d' **Accueil** , cliquez sur **suivant**.
- @no__t-batterie 0Join @ no__t-1  
+ ](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure1.png) de la batterie de serveurs ![Join  
 3.  Dans l’écran **se connecter à Active Directory Domain Services** ,**pécifier un compte administrateur** disposant des autorisations nécessaires pour effectuer la configuration des services de Fédération, puis cliquez sur **suivant**.
 4.  Dans l’écran **spécifier une batterie de serveurs** , entrez le nom de l’instance et du serveur SQL Server, puis cliquez sur **suivant**.
-@no__t-batterie 0Join @ no__t-1
+](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure3.png) de la batterie de serveurs ![Join
 5.  Dans l’écran **spécifier le certificat SSL** , spécifiez le certificat, puis cliquez sur **suivant**.
-@no__t-batterie 0Join @ no__t-1
+](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure4.png) de la batterie de serveurs ![Join
 6.  Dans l’écran **spécifier le compte de service** , spécifiez le compte de service, puis cliquez sur **suivant**.
 7.  Dans l’écran **examiner les options** , passez en revue les options, puis cliquez sur **suivant**.
 8.  Dans l’écran **vérifications des conditions** préalables, assurez-vous que toutes les vérifications des conditions préalables ont été satisfaites, puis cliquez sur **configurer**.
@@ -72,11 +72,11 @@ Le diagramme architectural suivant montre l’installation qui a été utilisée
 >Vous n’avez pas besoin de définir le serveur de AD FS principal à l’aide de Set-AdfsSyncProperties-Role lors de l’utilisation de SQL comme base de données.  Cela est dû au fait que tous les nœuds sont considérés comme des nœuds principaux dans cette configuration.
 
 1.  Sur le serveur Windows Server 2012 R2 AD FS dans Gestionnaire de serveur Utilisez **supprimer des rôles et des fonctionnalités** sous **gérer**.
-@no__t-serveur 0Remove @ no__t-1
+![supprimer le serveur](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove1.png)
 2.  Dans l'écran **Avant de commencer** , cliquez sur **Suivant**.
 3.  Dans l’écran **sélection du serveur** , cliquez sur **suivant**.
 4.  Dans l’écran **rôles de serveurs** , désactivez la case à cocher en regard de **services ADFS** , puis cliquez sur **suivant**.
-@no__t-serveur 0Remove @ no__t-1
+![supprimer le serveur](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove2.png)
 5.  Dans l’écran **fonctionnalités** , cliquez sur **suivant**.
 6.  Dans l’écran **confirmation** , cliquez sur **supprimer**.
 7.  Une fois cette opération terminée, redémarrez le serveur.
@@ -89,11 +89,11 @@ Avant cette étape, vous devez vous assurer que ForestPrep et DomainPrep ont ét
 
 1. Maintenant, sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez la commande suivante : **$cred = acquérir-Credential** et appuyez sur entrée.
 2. Entrez les informations d’identification qui possèdent des privilèges d’administrateur sur la SQL Server.
-3. Maintenant, dans PowerShell, entrez ce qui suit : **Invoke-AdfsFarmBehaviorLevelRaise-informations d’identification $cred**
+3. Maintenant, dans PowerShell, entrez ce qui suit : **Invoke-AdfsFarmBehaviorLevelRaise-Credential $cred**
 2. Lorsque vous y êtes invité, tapez **o**.  Cela commencera à augmenter le niveau.  Une fois cette opération terminée, vous avez correctement déclenché le FBL.  
-@no__t-mise à jour 0Finish @ no__t-1
+![terminer la mise à jour](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish1.png)
 3. Maintenant, si vous accédez à AD FS Management, vous verrez les nouveaux nœuds qui ont été ajoutés pour AD FS dans Windows Server 2016  
-4. De même, vous pouvez utiliser le applet PowerShell :  Obtient-AdfsFarmInformation pour afficher le FBL actuel.  
+4. De même, vous pouvez utiliser PowerShell applet : obten-AdfsFarmInformation pour afficher le FBL actuel.  
 ![Terminer la mise à jour](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish2.png)
 
 #### <a name="upgrade-the-configuration-version-of-existing-wap-servers"></a>Mettre à niveau la version de configuration des serveurs WAP existants

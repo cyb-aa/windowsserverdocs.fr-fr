@@ -22,7 +22,7 @@ ms.locfileid: "71372759"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 modifie le nombre initial de secondes d’attente d’une réponse à une demande de recherche.
 ## <a name="syntax"></a>Syntaxe

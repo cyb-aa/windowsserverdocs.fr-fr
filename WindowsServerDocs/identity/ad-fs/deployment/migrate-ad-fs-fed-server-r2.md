@@ -43,7 +43,7 @@ Pour rechercher le certificat SSL, ouvrez la console de gestion des services Int
 Vous devez exporter le certificat SSL utilisé par le service de fédération et sa clé privée vers un fichier .pfx. Pour plus d’informations, voir [Exporter la partie clé privée d’un certificat d’authentification serveur](export-the-private-key-portion-of-a-server-authentication-certificate.md).  
   
 > [!NOTE]
->  Si vous envisagez de déployer le service Device Registration dans le cadre de l’exécution de votre AD FS dans Windows Server 2012 R2, vous devez obtenir un nouveau certificat SSL. Pour plus d'informations, consultez [Inscrire un certificat SSL pour AD FS](enroll-an-ssl-certificate-for-ad-fs.md) et [Configurer un serveur de fédération avec Device Registration Service](configure-a-federation-server-with-device-registration-service.md).  
+>  Si vous envisagez de déployer le service Device Registration dans le cadre de l’exécution de votre AD FS dans Windows Server 2012 R2, vous devez obtenir un nouveau certificat SSL. Pour plus d’informations, consultez [inscrire un certificat SSL pour AD FS](enroll-an-ssl-certificate-for-ad-fs.md) et [configurer un serveur de Fédération avec Device Registration service](configure-a-federation-server-with-device-registration-service.md).  
   
 Pour afficher les certificats de signature de jetons, de déchiffrement de jeton et de communications de service qui sont utilisés, exécutez la commande Windows PowerShell suivante pour créer une liste de tous les certificats utilisés dans un fichier :  
   
@@ -103,14 +103,14 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
   
 ###  <a name="to-export-claims-provider-trusts-and-relying-party-trusts"></a>Pour exporter les approbations de fournisseur de revendications et approbations de partie de confiance  
   
-1.  Pour exporter AD FS approbations de fournisseur de revendications et des approbations de partie de confiance, vous devez ouvrir une session en tant qu’administrateur (Toutefois, pas en tant qu’administrateur de domaine) sur votre serveur de Fédération et exécuter le script Windows PowerShell suivant qui se trouve dans le **média/server_support dossier/ADFS** du CD d’installation de Windows Server 2012 R2 : `export-federationconfiguration.ps1`.  
+1.  Pour exporter AD FS approbations de fournisseur de revendications et des approbations de partie de confiance, vous devez ouvrir une session en tant qu’administrateur (Toutefois, pas en tant qu’administrateur de domaine) sur votre serveur de Fédération et exécuter le script Windows PowerShell suivant qui se trouve dans le dossier **Media/server_support/ADFS** du CD d’installation de Windows Server 2012 R2 : `export-federationconfiguration.ps1`.  
   
 > [!IMPORTANT]
 >  Le script d’exportation accepte les paramètres suivants :  
 > 
-> - Export-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-CertificatePassword < SecureString @ no__t-3]  
->   -   Export-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-CertificatePassword < SecureString @ no__t-3] [-RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >]  
->   -   Export-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-CertificatePassword < SecureString @ no__t-3] [-RelyingPartyTrustName < String [] >] [- ClaimsProviderTrustName < String [] >]  
+> - Export-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-CertificatePassword < SecureString\>]  
+>   -   Export-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-CertificatePassword < SecureString\>] [-RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >]  
+>   -   Export-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-CertificatePassword < SecureString\>] [-RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>**  : l’applet de commande exporte uniquement les approbations de partie de confiance dont les identificateurs sont spécifiés dans le tableau de chaînes. Par défaut, AUCUNE des approbations de partie de confiance n’est exportée. Si aucun des éléments RelyingPartyTrustIdentifier, ClaimsProviderTrustIdentifier, RelyingPartyTrustName et ClaimsProviderTrustName n’est spécifié, le script exporte toutes les approbations de partie de confiance et approbations de fournisseur de revendications.  
 > 
@@ -120,17 +120,17 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
 > 
 >   **-ClaimsProviderTrustName <string[]>**  : l’applet de commande exporte uniquement les approbations de fournisseur de revendications dont les noms sont spécifiés dans le tableau de chaînes. Par défaut, AUCUNE des approbations de fournisseur de revendications n’est exportée.  
 > 
->   **-Path < chaîne\>**  -chemin d’accès à un dossier qui contiendra les fichiers exportés.  
+>   **-Path < chaîne\>** : chemin d’accès à un dossier qui contiendra les fichiers exportés.  
 > 
->   **-ComputerName < chaîne\>**  -spécifie le nom d’hôte du serveur STS. La valeur par défaut est l'ordinateur local. Si vous migrez AD FS 2.0 ou AD FS dans Windows Server 2012 vers AD FS dans Windows Server 2012 R2, il s’agit du nom d’hôte du serveur AD FS hérité.  
+>   **-ComputerName < string\>** : spécifie le nom d’hôte du serveur STS. La valeur par défaut est l'ordinateur local. Si vous migrez AD FS 2.0 ou AD FS dans Windows Server 2012 vers AD FS dans Windows Server 2012 R2, il s’agit du nom d’hôte du serveur AD FS hérité.  
 > 
->   **-Credential < PSCredential\>**  -spécifie un compte d’utilisateur qui a l’autorisation d’effectuer cette action. La valeur par défaut est l’utilisateur actuel.  
+>   **-Credential < PSCredential\>** -spécifie un compte d’utilisateur qui a l’autorisation d’effectuer cette action. La valeur par défaut est l’utilisateur actuel.  
 > 
 >   **-Force** : spécifie de ne pas demander de confirmation de l’utilisateur.  
 > 
->   **-CertificatePassword < SecureString\>**  -spécifie un mot de passe pour l’exportation des clés privées des certificats AD FS. Si cette valeur n’est pas spécifiée, le script demande un mot de passe si un certificat AD FS avec une clé privée doit être exporté.  
+>   **-CertificatePassword < SecureString\>** : spécifie un mot de passe pour l’exportation des clés privées des certificats AD FS. Si cette valeur n’est pas spécifiée, le script demande un mot de passe si un certificat AD FS avec une clé privée doit être exporté.  
 > 
->   **Entrées** : Aucune  
+>   **Entrées**: Aucune  
 > 
 >   **Sorties** : chaîne. Cette applet de commande retourne le chemin d’accès du dossier d’exportation. Vous pouvez diriger l’objet retourné vers Import-FederationConfiguration.  
   
@@ -193,9 +193,9 @@ import-federationconfiguration.ps1
 > [!IMPORTANT]
 >  Le script d’importation accepte les paramètres suivants :  
 > 
-> - Import-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-LogPath < chaîne @ no__t-3] [-CertificatePassword < SecureString @ no__t-4]  
->   -   Import-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-LogPath < chaîne @ no__t-3] [-CertificatePassword < SecureString @ no__t-4] [- RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >  
->   -   Import-federationconfiguration. ps1-Path < chaîne @ no__t-0 [-ComputerName < chaîne @ no__t-1] [-Credential < PSCredential @ no__t-2] [-force] [-LogPath < chaîne @ no__t-3] [-CertificatePassword < SecureString @ no__t-4] [- RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
+> - Import-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-LogPath < String\>] [-CertificatePassword < SecureString\>]  
+>   -   Import-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-LogPath < String\>] [-CertificatePassword < SecureString\>] [-RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >  
+>   -   Import-federationconfiguration. ps1-Path < chaîne\> [-ComputerName < chaîne\>] [-Credential < PSCredential\>] [-force] [-LogPath < String\>] [-CertificatePassword < SecureString\>] [-RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>**  : l’applet de commande importe uniquement les approbations de partie de confiance dont les identificateurs sont spécifiés dans le tableau de chaînes. Par défaut, AUCUNE des approbations de partie de confiance n’est importée. Si aucun des éléments RelyingPartyTrustIdentifier, ClaimsProviderTrustIdentifier, RelyingPartyTrustName et ClaimsProviderTrustName n’est spécifié, le script importe toutes les approbations de partie de confiance et approbations de fournisseur de revendications.  
 > 
@@ -205,21 +205,21 @@ import-federationconfiguration.ps1
 > 
 >   **-ClaimsProviderTrustName <string[]>**  : l’applet de commande importe uniquement les approbations de fournisseur de revendications dont les noms sont spécifiés dans le tableau de chaînes. Par défaut, AUCUNE des approbations de fournisseur de revendications n’est importée.  
 > 
->   **-Path < chaîne\>**  -chemin d’accès à un dossier qui contient les fichiers de configuration à importer.  
+>   **-Path < chaîne\>** : chemin d’accès à un dossier qui contient les fichiers de configuration à importer.  
 > 
->   **-LogPath < chaîne\>**  -chemin d’accès à un dossier qui contiendra le fichier journal d’importation. Un fichier journal nommé import.log sera créé dans ce dossier.  
+>   **-LogPath < string\>** -chemin d’accès à un dossier qui contiendra le fichier journal d’importation. Un fichier journal nommé import.log sera créé dans ce dossier.  
 > 
->   **-ComputerName < String\>**  -spécifie le nom d’hôte du serveur STS. La valeur par défaut est l'ordinateur local. Si vous migrez AD FS 2.0 ou AD FS dans Windows Server 2012 vers AD FS dans Windows Server 2012 R2, ce paramètre doit avoir pour valeur le nom d’hôte du serveur AD FS hérité.  
+>   **-ComputerName < string\>** : spécifie le nom d’hôte du serveur STS. La valeur par défaut est l'ordinateur local. Si vous migrez AD FS 2.0 ou AD FS dans Windows Server 2012 vers AD FS dans Windows Server 2012 R2, ce paramètre doit avoir pour valeur le nom d’hôte du serveur AD FS hérité.  
 > 
 >   **-Credential < PSCredential\>** -spécifie un compte d’utilisateur qui a l’autorisation d’effectuer cette action. La valeur par défaut est l’utilisateur actuel.  
 > 
 >   **-Force** : spécifie de ne pas demander de confirmation de l’utilisateur.  
 > 
->   **-CertificatePassword < SecureString\>**  -spécifie un mot de passe pour l’importation des clés privées des certificats AD FS. Si cette valeur n’est pas spécifiée, le script demande un mot de passe si un certificat AD FS avec une clé privée doit être importé.  
+>   **-CertificatePassword < SecureString\>** : spécifie un mot de passe pour l’importation des clés privées des certificats AD FS. Si cette valeur n’est pas spécifiée, le script demande un mot de passe si un certificat AD FS avec une clé privée doit être importé.  
 > 
 >   **Entrées** : chaîne. Cette commande prend le chemin d’accès du dossier d’importation comme entrée. Vous pouvez diriger Export-FederationConfiguration vers cette commande.  
 > 
->   **Sorties :** Aucun.  
+>   **Sorties :** Aucune.  
   
 La présence d’espaces en fin de chaîne dans la propriété WSFedEndpoint d’une approbation de partie de confiance peut provoquer l’échec du script d’importation. Dans ce cas, supprimez manuellement les espaces du fichier avant l’importation. Par exemple, les entrées suivantes provoquent des erreurs :  
   
@@ -245,7 +245,7 @@ La présence d’espaces en fin de chaîne dans la propriété WSFedEndpoint d�
   
 4. Configurez tous les paramètres de point de terminaison AD FS personnalisés. Dans la console de gestion AD FS, sélectionnez **Points de terminaison**. Vérifiez les points de terminaison AD FS activés par rapport à la liste des points de terminaison AD FS activés que vous avez exportés dans un fichier lors de la préparation de la migration AD FS.  
   
-    \-Les  
+    \- et-  
   
     Configurez toutes les descriptions des revendications personnalisées. Dans la console de gestion AD FS, sélectionnez **Descriptions des revendications**. Vérifiez la liste des descriptions des revendications AD FS par rapport à la liste des descriptions des revendications que vous avez exportées dans un fichier pendant la préparation de la migration AD FS. Ajoutez toutes les descriptions des revendications personnalisées incluses dans votre fichier, mais qui ne figurent pas dans la liste par défaut dans AD FS. Notez que l’identificateur de revendication dans la console de gestion est mappé au type de revendication dans le fichier.  
   
@@ -257,11 +257,11 @@ La présence d’espaces en fin de chaîne dans la propriété WSFedEndpoint d�
   
        -   AD FS dans Windows Server 2012 R2 comprend un fichier **%systemroot%\ADFS\Microsoft.IdentityServer.ServiceHost.exe.config** . Créez un élément avec la même syntaxe que l’élément de fichier **Web. config** : `<useRelayStateForIdpInitiatedSignOn enabled="true" />`. Incluez cet élément dans le cadre de **< section Microsoft. IdentityServer. web >** du fichier **Microsoft. IdentityServer. ServiceHost. exe. config** .  
   
-   -   Si **< persistIdentityProviderInformation Enabled = "true&#124;false" lifetimeInDays = "90" enablewhrPersistence = "&#124;true false\> "/** a été ajouté au fichier **Web. config** dans votre AD FS 2,0 ou AD FS dans Windows Server 2012 batterie de serveurs, vous devez configurer les propriétés de service suivantes dans votre AD FS dans la batterie de serveurs Windows Server 2012 R2 :  
+   -   Si **< persistIdentityProviderInformation Enabled = "true&#124;false" lifetimeInDays = "90" enablewhrPersistence = "&#124;true false"/\>** a été ajouté au fichier **Web. config** dans votre AD FS 2,0 ou AD FS dans la batterie de serveurs 2012 Windows Server, vous devez configurer les propriétés de service suivantes dans votre AD FS dans la batterie de serveurs Windows Server 2012 R2 :  
   
        1.  Dans AD FS de Windows Server 2012 R2, exécutez la commande Windows PowerShell suivante : `Set-AdfsWebConfig –HRDCookieEnabled –HRDCookieLifetime`.  
   
-   -   Si **< singleSignOn Enabled = "true&#124;false"\> /** a été ajouté au fichier **Web. config** dans votre AD FS 2,0 ou AD FS dans la batterie de serveurs 2012 Windows Server, vous n’avez pas besoin de définir des propriétés de service supplémentaires dans votre AD FS dans Windows Server 2012 Batterie de serveurs R2. L’authentification unique est activée par défaut dans AD FS dans la batterie de serveurs Windows Server 2012 R2.  
+   -   Si **< singleSignOn Enabled = "true&#124;false"/\>** a été ajouté au fichier **web. config** dans votre AD FS 2,0 ou AD FS dans la batterie de serveurs Windows Server 2012, vous n’avez pas besoin de définir des propriétés de service supplémentaires dans votre AD FS dans la batterie de serveurs Windows Server 2012 R2. L’authentification unique est activée par défaut dans AD FS dans la batterie de serveurs Windows Server 2012 R2.  
   
    -   Si des paramètres localAuthenticationTypes ont été ajoutés au fichier **Web. config** dans votre AD FS 2,0 ou AD FS dans la batterie de serveurs 2012 windows Server, vous devez configurer les propriétés de service suivantes dans votre AD FS dans la batterie de serveurs windows server 2012 R2 :  
   
@@ -270,7 +270,7 @@ La présence d’espaces en fin de chaîne dans la propriété WSFedEndpoint d�
    Après avoir importé les données de configuration d’origine, vous pouvez personnaliser les pages de connexion AD FS si nécessaire. Pour plus d'informations, voir [Customizing the AD FS Sign-in Pages](../operations/AD-FS-Customization-in-Windows-Server-2016.md).  
   
 ## <a name="next-steps"></a>Étapes suivantes
- [Migrer Services ADFS services de rôle vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
+ [Migrer services ADFS services de rôle vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
  [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)   
  [Migration du serveur proxy de fédération AD FS](migrate-fed-server-proxy-r2.md)   
  [Vérification de la migration de AD FS vers Windows Server 2012 R2](verify-ad-fs-migration.md)

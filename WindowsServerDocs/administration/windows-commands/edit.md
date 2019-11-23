@@ -38,12 +38,12 @@ edit [/b] [/h] [/r] [/s] [/<NNN>] [[<Drive>:][<Path>]<FileName> [<FileName2> [..
 
 |Paramètre|Description|
 |---------|-----------|
-|[@no__t 0Drive >:] [<Path>] <FileName> [<FileName2> [...]]|Spécifie l’emplacement et le nom d’un ou plusieurs fichiers texte ASCII. Si le fichier n’existe pas, l’éditeur MS-DOS le crée. Si le fichier existe, l’éditeur MS-DOS l’ouvre et affiche son contenu à l’écran. Le *nom de fichier* peut contenir **&#42;** des caractères génériques (et **?** ). Séparez les noms de fichiers multiples par des espaces.|
+|[\<> de lecteur :] [<Path>]<FileName> [<FileName2> [...]]|Spécifie l’emplacement et le nom d’un ou plusieurs fichiers texte ASCII. Si le fichier n’existe pas, l’éditeur MS-DOS le crée. Si le fichier existe, l’éditeur MS-DOS l’ouvre et affiche son contenu à l’écran. Le *nom de fichier* peut contenir **&#42;** des caractères génériques (et **?** ). Séparez les noms de fichiers multiples par des espaces.|
 |/b|Force le mode monochrome, de sorte que l’éditeur MS-DOS s’affiche en noir et blanc.|
 |/h|Affiche le nombre maximal de lignes possibles pour l’analyse en cours.|
 |/r|Charge le ou les fichiers en mode lecture seule.|
 |/s|Force l’utilisation de noms de fichiers courts.|
-|@NO__T 0NNN >|Charge le ou les fichiers binaires, en encapsulant les lignes dans *nnn* caractères de largeur.|
+|\<NNN >|Charge le ou les fichiers binaires, en encapsulant les lignes dans *nnn* caractères de largeur.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

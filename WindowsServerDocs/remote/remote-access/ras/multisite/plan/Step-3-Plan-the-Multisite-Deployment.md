@@ -21,7 +21,7 @@ ms.locfileid: "71404454"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>Étape 3 planifier le déploiement multisite
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Après avoir planifié l’infrastructure multisite, planifiez les exigences de certificat supplémentaires, comment les ordinateurs clients sélectionnent les points d’entrée et les adresses IPv6 affectées dans votre déploiement.  
 
@@ -79,7 +79,7 @@ Lorsque vous obtenez le certificat de site Web à utiliser pour le serveur empla
 3.  Pour le champ points de distribution de la liste de révocation de certificats, utilisez un point de distribution de liste de révocation de certificats accessible par les clients DirectAccess connectés à l’intranet.  
   
 ### <a name="322dns-for-the-network-location-server"></a>3.2.2 DNS pour le serveur emplacement réseau  
-Si vous hébergez le serveur emplacement réseau sur le serveur d’accès à distance, vous devez ajouter une entrée DNS pour le site Web du serveur emplacement réseau pour chaque point d’entrée de votre déploiement. Notez les points suivants :  
+Si vous hébergez le serveur emplacement réseau sur le serveur d’accès à distance, vous devez ajouter une entrée DNS pour le site Web du serveur emplacement réseau pour chaque point d’entrée de votre déploiement. Notez les éléments suivants :  
   
 -   Le nom du sujet du premier certificat de serveur d’emplacement réseau dans le déploiement multisite est utilisé comme URL du serveur d’emplacement réseau pour tous les points d’entrée. par conséquent, le nom du sujet et l’URL du serveur d’emplacement réseau ne peuvent pas être identiques au nom d’ordinateur du premier serveur d’accès à distance dans le déploiement. Il doit s’agir d’un nom de domaine complet dédié pour le serveur emplacement réseau.  
   
@@ -162,11 +162,11 @@ Dans un déploiement multisite, le routage symétrique est appliqué à l’aide
   
    3. Préfixe Teredo (facultatif). Ce préfixe est pertinent uniquement si le serveur d’accès à distance est configuré avec deux adresses IPv4 publiques consécutives sur la carte externe. Le préfixe est basé sur la première adresse IPv4 publique de la paire d’adresses. Par exemple, si les adresses externes sont :  
   
-      1. www\.xxx.yyy.zzz  
+      1. www\.xxx. yyy. zzz  
   
-      2. www\.xxx.yyy.zzz + 1  
+      2. www\.xxx. yyy. zzz + 1  
   
-      Le préfixe Teredo à configurer est alors 2001:0 : WWXX : YYZZ ::/64, où WWXX : YYZZ est la représentation hexadécimale de l’adresse IPv4 www\.xxx.yyy.zzz.  
+      Le préfixe Teredo à configurer est alors 2001:0 : WWXX : YYZZ ::/64, où WWXX : YYZZ est la représentation hexadécimale de l’adresse IPv4 www\.xxx. yyy. zzz.  
   
       Notez que vous pouvez utiliser le script suivant pour calculer le préfixe Teredo :  
   
@@ -247,7 +247,7 @@ La transition d’un réseau d’entreprise IPv4 uniquement vers un réseau d’
     > [!NOTE]  
     > Lors de l’installation d’un déploiement de DirectAccess supplémentaire en même temps qu’un déploiement actuel, assurez-vous que deux points d’entrée ne partagent pas le même préfixe client.  
     >   
-    > Si vous installez DirectAccess à l’aide de l’Assistant Prise en main ou avec l’applet de commande `Install-RemoteAccess`, l’accès à distance définit automatiquement le préfixe client du premier point d’entrée dans le déploiement sur une valeur par défaut < sous-réseau IPv6 @ no__t-1prefix >: 1000 ::/64. Si nécessaire, vous devez modifier le préfixe.  
+    > Si vous installez DirectAccess à l’aide de l’Assistant Prise en main ou avec l’applet de commande `Install-RemoteAccess`, l’accès à distance définit automatiquement le préfixe du client du premier point d’entrée dans le déploiement sur une valeur par défaut de < sous-réseau IPv6\_préfixe >: 1000 ::/64. Si nécessaire, vous devez modifier le préfixe.  
   
 2.  Supprimez les groupes de sécurité du client choisis du premier déploiement.  
   
@@ -256,7 +256,7 @@ La transition d’un réseau d’entreprise IPv4 uniquement vers un réseau d’
     > [!IMPORTANT]  
     > Pour maintenir la connectivité du client tout au long du processus, vous devez ajouter les groupes de sécurité au deuxième déploiement immédiatement après les avoir supprimés de la première. Cela permet de s’assurer que les clients ne seront pas mis à jour avec deux ou zéro objets de stratégie de groupe DirectAccess. Les clients commenceront à utiliser le deuxième déploiement une fois qu’ils auront récupéré et mis à jour leur GPO client.  
   
-4.  Facultatif : Supprimez les points d’entrée DirectAccess du premier déploiement et ajoutez ces serveurs comme nouveaux points d’entrée dans la seconde.  
+4.  Facultatif : supprimez les points d’entrée DirectAccess du premier déploiement et ajoutez ces serveurs comme nouveaux points d’entrée dans la seconde.  
   
 Une fois la transition terminée, vous pouvez désinstaller le premier déploiement de DirectAccess. Lors de la désinstallation de, les problèmes suivants peuvent se produire :  
   
@@ -270,7 +270,7 @@ Une fois la transition terminée, vous pouvez désinstaller le premier déploiem
   
     -   Adresse IP ::: 1  
   
-    -   Tapez : AAA  
+    -   Type : AAAA  
   
   
   

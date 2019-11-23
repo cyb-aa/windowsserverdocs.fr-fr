@@ -19,13 +19,13 @@ ms.locfileid: "71358160"
 # <a name="create-a-rule-to-send-an-authentication-method-claim"></a>Créer une règle pour envoyer une revendication de méthode d’authentification
 
 
-Vous pouvez utiliser le modèle de règle envoyer l’appartenance à un **groupe en tant que revendications** ou le modèle de règle **transformer une revendication entrante** pour envoyer une revendication de méthode d’authentification. La partie de confiance peut utiliser une revendication de méthode d’authentification pour déterminer le mécanisme d’ouverture de session que l’utilisateur utilise pour s’authentifier et obtenir des revendications à partir de Services ADFS \(AD FS @ no__t-1. Vous pouvez également utiliser la fonctionnalité d’assurance du mécanisme d’authentification de Services ADFS \(AD FS @ no__t-1 dans Windows Server 2012 R2 comme entrée pour générer des revendications de méthode d’authentification pour les situations dans lesquelles la partie de confiance souhaite déterminer niveau d’accès basé sur les ouvertures de session par carte à puce. Par exemple, un développeur peut attribuer différents niveaux d’accès aux utilisateurs fédérés de l’application par partie de confiance. Les niveaux d’accès sont basés sur le fait que les utilisateurs se connectent avec leurs informations d’identification de nom d’utilisateur et de mot de passe, par opposition à leurs cartes à puce.  
+Vous pouvez utiliser le modèle de règle envoyer l’appartenance à un **groupe en tant que revendications** ou le modèle de règle **transformer une revendication entrante** pour envoyer une revendication de méthode d’authentification. La partie de confiance peut utiliser une revendication de méthode d’authentification pour déterminer le mécanisme d’ouverture de session que l’utilisateur utilise pour s’authentifier et obtenir des revendications à partir de Services ADFS \(AD FS\). Vous pouvez également utiliser la fonctionnalité d’assurance du mécanisme d’authentification de Services ADFS \(AD FS\) dans Windows Server 2012 R2 comme entrée pour générer des revendications de méthode d’authentification dans des situations où la partie de confiance souhaite déterminer le niveau d’accès basé sur les ouvertures de session par carte à puce. Par exemple, un développeur peut attribuer différents niveaux d’accès aux utilisateurs fédérés de l’application par partie de confiance. Les niveaux d’accès sont basés sur le fait que les utilisateurs se connectent avec leurs informations d’identification de nom d’utilisateur et de mot de passe, par opposition à leurs cartes à puce.  
 
 Selon les exigences de votre organisation, utilisez l’une des procédures suivantes :  
 
--   Créez cette règle à l’aide du modèle de règle **Envoyer l’appartenance au groupe en tant que revendications** \-. vous pouvez utiliser ce modèle de règle lorsque vous souhaitez que le groupe que vous spécifiez dans ce modèle détermine en fin de compte la revendication de méthode d’authentification à émettre.  
+-   Créez cette règle à l’aide du modèle de règle **Envoyer l’appartenance au groupe en tant que revendications** \- vous pouvez utiliser ce modèle de règle lorsque vous souhaitez que le groupe que vous spécifiez dans ce modèle détermine en fin de compte la revendication de méthode d’authentification à émettre.  
 
--   Créez cette règle à l’aide du modèle de règle **transformer une revendication entrante** \- vous pouvez utiliser ce modèle de règle lorsque vous souhaitez modifier la méthode d’authentification existante en une nouvelle méthode d’authentification qui fonctionne avec un produit qui ne reconnaît pas revendications de méthode d’authentification standard AD FS.  
+-   Créez cette règle à l’aide du modèle de règle **transformer une revendication entrante** \- vous pouvez utiliser ce modèle de règle lorsque vous souhaitez modifier la méthode d’authentification existante en une nouvelle méthode d’authentification qui fonctionne avec un produit qui ne reconnaît pas les revendications de méthode d’authentification AD FS standard.  
 
 
 
@@ -36,7 +36,7 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
 
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
 
 4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
@@ -51,14 +51,14 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 
 8.  Dans **type de revendication sortante**, sélectionnez **méthode d’authentification** dans la liste.  
 
-9. Dans **valeur de revendication sortante**, tapez l’un des valeurs par défaut de l’identificateur de ressource uniforme \(URI @ no__t-2 dans le tableau suivant, en fonction de votre méthode d’authentification par défaut, cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
+9. Dans **valeur de revendication sortante**, tapez l’un des identificateurs de ressource uniformes par défaut \(URI\) valeurs dans le tableau suivant, en fonction de votre méthode d’authentification par défaut, cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
 |                            Méthode d’authentification réelle                             |                                URI correspondant                                 |
 |-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |                        Authentification par nom d’utilisateur et mot de passe                        | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                               Authentification Windows                                |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Transport Layer Security \(TLS @ no__t-1 authentification mutuelle qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|                  X. 509 @ no__t-0based authentification qui n’utilise pas TLS                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Transport Layer Security \(TLS\) l’authentification mutuelle qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|                  Authentification\-basée sur X. 509 qui n’utilise pas TLS                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![créer une règle](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth2.PNG)
 
@@ -69,7 +69,7 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
 
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
 
 4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
@@ -84,14 +84,14 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 
 8.  Dans **type de revendication sortante**, sélectionnez **méthode d’authentification** dans la liste.  
 
-9. Dans **valeur de revendication sortante**, tapez l’un des valeurs par défaut de l’identificateur de ressource uniforme \(URI @ no__t-2 dans le tableau suivant, en fonction de votre méthode d’authentification par défaut, cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
+9. Dans **valeur de revendication sortante**, tapez l’un des identificateurs de ressource uniformes par défaut \(URI\) valeurs dans le tableau suivant, en fonction de votre méthode d’authentification par défaut, cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
 |                            Méthode d’authentification réelle                             |                                URI correspondant                                 |
 |-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |                        Authentification par nom d’utilisateur et mot de passe                        | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                               Authentification Windows                                |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Transport Layer Security \(TLS @ no__t-1 authentification mutuelle qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|                  X. 509 @ no__t-0based authentification qui n’utilise pas TLS                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Transport Layer Security \(TLS\) l’authentification mutuelle qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|                  Authentification\-basée sur X. 509 qui n’utilise pas TLS                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![créer une règle](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth2.PNG)
 
@@ -103,7 +103,7 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
 
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
 
 4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
@@ -129,7 +129,7 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 |         Authentification par nom d’utilisateur et mot de passe          | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                 Authentification Windows                 |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
 | Authentification mutuelle TLS qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|   X. 509 @ no__t-0based authentification qui n’utilise pas TLS    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+|   Authentification\-basée sur X. 509 qui n’utilise pas TLS    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![créer une règle](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth4.PNG)
 
@@ -143,7 +143,7 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
 
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
 
 4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
@@ -169,7 +169,7 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 |         Authentification par nom d’utilisateur et mot de passe          | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                 Authentification Windows                 |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
 | Authentification mutuelle TLS qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|   X. 509 @ no__t-0based authentification qui n’utilise pas TLS    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+|   Authentification\-basée sur X. 509 qui n’utilise pas TLS    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![créer une règle](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth4.PNG)
 
@@ -199,12 +199,12 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
 
-2.  Dans l’arborescence de la console, sous **\\AD FS relations d’approbation**, cliquez sur approbations de fournisseur de **revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation**, cliquez sur approbations de **fournisseur de revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
 
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)  
 
-4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles :  
 
     -   **Règles de transformation d’acceptation**  
 
@@ -224,14 +224,14 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 
 8.  Dans **type de revendication sortante**, sélectionnez **méthode d’authentification** dans la liste.  
 
-9. Dans **valeur de revendication sortante**, tapez l’un des valeurs par défaut de l’identificateur de ressource uniforme \(URI @ no__t-2 dans le tableau suivant, en fonction de votre méthode d’authentification par défaut, cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
+9. Dans **valeur de revendication sortante**, tapez l’un des identificateurs de ressource uniformes par défaut \(URI\) valeurs dans le tableau suivant, en fonction de votre méthode d’authentification par défaut, cliquez sur **Terminer**, puis sur **OK** pour enregistrer la règle.  
 
 |                            Méthode d’authentification réelle                             |                                URI correspondant                                 |
 |-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |                        Authentification par nom d’utilisateur et mot de passe                        | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                               Authentification Windows                                |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Transport Layer Security \(TLS @ no__t-1 authentification mutuelle qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|                  X. 509 @ no__t-0based authentification qui n’utilise pas TLS                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Transport Layer Security \(TLS\) l’authentification mutuelle qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|                  Authentification\-basée sur X. 509 qui n’utilise pas TLS                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![créer une règle](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth1.PNG)
 
@@ -244,12 +244,12 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **gestion des AD FS**.  
 
-2.  Dans l’arborescence de la console, sous **\\AD FS relations d’approbation**, cliquez sur approbations de fournisseur de **revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation**, cliquez sur approbations de **fournisseur de revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
 
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
 
-4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, qui dépend de l’approbation que vous modifiez et de l’ensemble de règles pour lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, qui dépend de l’approbation que vous modifiez et de l’ensemble de règles pour lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles :  
 
     -   **Règles de transformation d’acceptation**  
 
@@ -280,7 +280,7 @@ Selon les exigences de votre organisation, utilisez l’une des procédures suiv
 |         Authentification par nom d’utilisateur et mot de passe          | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                 Authentification Windows                 |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
 | Authentification mutuelle TLS qui utilise des certificats X. 509 | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|   X. 509 @ no__t-0based authentification qui n’utilise pas TLS    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+|   Authentification\-basée sur X. 509 qui n’utilise pas TLS    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![créer une règle](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth3.PNG)
 

@@ -15,9 +15,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71405786"
 ---
-# <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installer Data Center Bridging \(DCB @ no__t-1 dans Windows Server 2016 ou Windows 10
+# <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installer Data Center Bridging \(DCB\) dans Windows Server 2016 ou Windows 10
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à installer DCB dans Windows Server 2016 ou Windows 10.
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser les commandes DCB de ce guide dans les systèmes d’exploi
 
 - Windows Server (canal semi-annuel)
 - Windows Server 2016
-- Windows 10 @no__t-versions 0tous @ no__t-1
+- Windows 10 \(toutes les versions\)
 
 Les systèmes d’exploitation suivants incluent des versions précédentes de DCB qui ne sont pas compatibles avec les commandes utilisées dans la documentation DCB pour Windows Server 2016 et Windows 10.
 
@@ -42,8 +42,8 @@ Les systèmes d’exploitation suivants incluent des versions précédentes de D
 
 La liste suivante répertorie la configuration matérielle requise pour DCB.
 
-- La carte réseau Ethernet DCB @ no__t-0capable @ no__t-1s @ no__t-2 doit être installée sur les ordinateurs qui fournissent Windows Server 2016 DCB.
-- Les commutateurs matériels DCB @ no__t-0capable doivent être déployés sur votre réseau.
+- La carte réseau Ethernet prenant en charge DCB\-\(s\) doit être installée sur les ordinateurs qui fournissent Windows Server 2016 DCB.
+- Les commutateurs matériels de\-DCB doivent être déployés sur votre réseau.
 
 
 ## <a name="install-dcb-in-windows-server-2016"></a>Installer DCB dans Windows Server 2016
@@ -81,7 +81,7 @@ Vous pouvez utiliser la procédure suivante pour installer DCB à l’aide de Ge
 7. Dans **Sélectionner des fonctionnalités**, cliquez sur **suivant**. 
 8. 7.In **confirmer les sélections d’installation**, cliquez sur **installer**. La page progression de l' **installation** affiche l’État pendant le processus d’installation. Après l’affichage du message indiquant que l’installation a réussi, cliquez sur **Fermer**.
 
-### <a name="configure-the-kernel-debugger-to-allow-qos-optional"></a>Configurer le débogueur du noyau pour autoriser la QoS \(Optional @ no__t-1
+### <a name="configure-the-kernel-debugger-to-allow-qos-optional"></a>Configurez le débogueur du noyau pour autoriser la QoS \(facultative\)
 
  Par défaut, les débogueurs de noyau bloquent NetQos. Quelle que soit la méthode que vous avez utilisée pour installer DCB, si vous avez un débogueur de noyau installé sur l’ordinateur, vous devez configurer le débogueur pour permettre l’activation et la configuration de la qualité de service (QoS) à l’aide de la commande suivante.
 

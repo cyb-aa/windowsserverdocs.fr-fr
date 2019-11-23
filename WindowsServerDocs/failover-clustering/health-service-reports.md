@@ -46,9 +46,9 @@ Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 
 ## <a name="usage-in-net-and-c"></a>Utilisation dans .NET etC#
 
-### <a name="connect"></a>Connection
+### <a name="connect"></a>Se connecter
 
-Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utilisent C @ no__t-0, le choix le plus simple pour cette couche d’accès aux données.
+Pour pouvoir interroger le Service de contrôle d’intégrité, vous devez établir un **CimSession** avec le cluster. Pour ce faire, vous aurez besoin de certains éléments qui ne sont disponibles que dans le .NET complet, ce qui signifie que vous ne pouvez pas effectuer cette opération directement à partir d’une application Web ou mobile. Ces exemples de code utilisent C\#, le choix le plus simple pour cette couche d’accès aux données.
 
 ``` 
 ...
@@ -80,7 +80,7 @@ Il est recommandé de construire la **SecureString** de mot de passe directement
 
 Une fois le **CimSession** établi, vous pouvez interroger Windows Management Instrumentation (WMI) sur le cluster.
 
-Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, **msft @ no__t-1StorageSubSystem** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **msft @ no__t-1StorageNode** dans le cluster, et chaque **msft @ no__t-3Volume**, les volumes de données. Enfin, vous aurez besoin de **msft @ no__t-1StorageHealth**, le service de contrôle d’intégrité lui-même.
+Avant de pouvoir récupérer des erreurs ou des métriques, vous devez récupérer les instances de plusieurs objets pertinents. Tout d’abord, **MSFT\_StorageSubSystem** qui représente espaces de stockage direct sur le cluster. À l’aide de cela, vous pouvez récupérer chaque **\_msft StorageNode** dans le cluster, et chaque **msft\_volume**, les volumes de données. Enfin, vous aurez besoin du **\_msft**, le service de contrôle d’intégrité lui-même.
 
 ```
 CimInstance Cluster;
@@ -209,14 +209,14 @@ Il est inutile de préciser que ces métriques peuvent être visualisées, stock
 
 Chaque exemple de métrique est un « rapport » qui contient de nombreux « enregistrements » correspondant à des mesures individuelles.
 
-Pour le schéma complet, examinez les classes **msft @ no__t-1StorageHealthReport** et **msft @ no__t-3HealthRecord** dans *storagewmi. mof*.
+Pour obtenir le schéma complet, inspectez les classes **msft\_StorageHealthReport** et **msft\_HealthRecord** dans *storagewmi. mof*.
 
 Chaque mesure a seulement trois propriétés, par cette table.
 
 | **Propriété** | **Exemple**       |
 | -------------|-------------------|
 | Nom         | IOLatencyAverage  |
-| Value        | 0,00021           |
+| Valeur        | 0,00021           |
 | Sections        | 3                 |
 
 Units = {0, 1, 2, 3, 4}, où 0 = « octets », 1 = « BytesPerSecond », 2 = « CountPerSecond », 3 = « secondes » ou 4 = « pourcentage ».
@@ -282,6 +282,6 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 | IOThroughputTotal   | 1         |
 | IOThroughputWrite   | 1         |
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)

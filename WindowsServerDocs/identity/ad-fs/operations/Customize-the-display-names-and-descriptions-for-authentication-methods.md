@@ -19,7 +19,7 @@ ms.locfileid: "71407569"
 # <a name="customize-the-display-names-and-descriptions-for-authentication-methods"></a>Personnaliser les noms complets et les descriptions des méthodes d’authentification 
 
 
-Pour personnaliser le nom complet et la description des méthodes d'authentification, utilisez l’applet de commande PowerShell `Set-AdfsAuthenticationProviderWebContent` .  Pour utiliser cette applet de commande, vous devez d'abord obtenir le nom de la méthode d'authentification que vous voulez personnaliser.  Cette opération s’effectue avec `Get-AdfsGlobalAuthenticationPolicy`.  Dans l’exemple ci-dessous, nous voyons que, sur notre page Sign @ no__t-0in, les éléments suivants s’affichent :  « Connexion à l'aide d'un certificat X.509 ».  Nous allons simplifier cet affichage pour nos utilisateurs.  
+Pour personnaliser le nom complet et la description des méthodes d'authentification, utilisez l’applet de commande PowerShell `Set-AdfsAuthenticationProviderWebContent` .  Pour utiliser cette applet de commande, vous devez d'abord obtenir le nom de la méthode d'authentification que vous voulez personnaliser.  Cette opération s’effectue avec `Get-AdfsGlobalAuthenticationPolicy`.  Dans l’exemple ci-dessous, nous voyons que, sur la page Sign\-in, les éléments suivants s’affichent : « Connectez-vous à l’aide d’un certificat X. 509 ».  Nous allons simplifier cet affichage pour nos utilisateurs.  
   
 ![personnaliser DisplayName](media/AD-FS-user-sign-in-customization/ADFS_Customize_Update1.PNG)  
   

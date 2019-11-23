@@ -21,7 +21,7 @@ ms.locfileid: "71404636"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>Étape 3 : configurer un cluster à charge équilibrée
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Après avoir préparé les serveurs du cluster, configurez l’équilibrage de charge sur le serveur unique, configurez les certificats requis et déployez le cluster.  
   
@@ -69,9 +69,9 @@ Après avoir préparé les serveurs du cluster, configurez l’équilibrage de c
   
 4.  En fonction de ce que vous avez choisi dans les étapes de planification :  
   
-    1.  NLB Windows : Sur la page **méthode d’équilibrage de charge** , cliquez sur utiliser l’équilibrage de **charge réseau Windows (NLB)** , puis cliquez sur **suivant**.  
+    1.  Windows NLB : sur la page **méthode d’équilibrage de charge** , cliquez sur utiliser l’équilibrage de **charge réseau Windows (NLB)** , puis cliquez sur **suivant**.  
   
-    2.  Équilibreur de charge externe : Sur la page **méthode d’équilibrage de charge** , cliquez sur **utiliser un équilibreur de charge externe**, puis cliquez sur **suivant**.  
+    2.  Équilibrage de charge externe : sur la page **méthode d’équilibrage de charge** , cliquez sur **utiliser un équilibreur de charge externe**, puis cliquez sur **suivant**.  
   
 5.  Dans un déploiement à une seule carte réseau, dans la page **adresses IP dédiées** , effectuez les opérations suivantes, puis cliquez sur **suivant**:  
   
@@ -100,7 +100,7 @@ Après avoir préparé les serveurs du cluster, configurez l’équilibrage de c
     > [!NOTE]  
     > Si l’équilibrage de charge externe est utilisé, notez les adresses IP virtuelles et fournissez-les comme sur les équilibrages de charge externes.  
   
-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -247,7 +247,7 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 12. Dans la boîte de dialogue **Ajout et suppression de serveurs** , cliquez sur **Fermer**.  
   
-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -277,7 +277,7 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 7.  Dans la boîte de dialogue **Ajout et suppression de serveurs** , cliquez sur **Fermer**.  
   
-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -298,7 +298,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 4.  Dans la boîte de dialogue **désactiver l’équilibrage de charge** , cliquez sur **Fermer**.  
   
-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -317,7 +317,7 @@ Cliquer sur **Supprimer les paramètres de configuration** supprime l’accès �
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 4 : Vérification du cluster @ no__t-0  
+-   [Étape 4 : vérification du cluster](Step-4-Verify-the-Cluster.md)  
   
 
 

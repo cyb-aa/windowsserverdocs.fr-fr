@@ -19,9 +19,9 @@ ms.locfileid: "71405265"
 ---
 # <a name="enable-vrss-on-a-virtual-network-adapter"></a>Activer vRSS sur une carte réseau virtuelle
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Virtual RSS \(vRSS @ no__t-1 nécessite la prise en charge de File d’attente d’ordinateurs virtuels \(VMQ @ no__t-3 de la carte physique. Si l’extension d’ordinateurs virtuels est désactivée ou n’est pas prise en charge, la mise à l’échelle côté réception virtuelle est désactivée. 
+Virtual RSS \(vRSS\) nécessite la prise en charge de l’File d’attente d’ordinateurs virtuels \(d’un\) d’ordinateurs virtuels à partir de la carte physique. Si l’extension d’ordinateurs virtuels est désactivée ou n’est pas prise en charge, la mise à l’échelle côté réception virtuelle est désactivée. 
 
 Pour plus d’informations, consultez [planifier l’utilisation de vRSS](vrss-plan.md).
 

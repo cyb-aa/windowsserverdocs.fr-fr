@@ -24,7 +24,7 @@ ms.locfileid: "71389398"
 Le remappage de stations dans le tableau de bord MultiPoint vous permet d’associer des claviers et des souris à des moniteurs. Les stations d’utilisateur locales sont suspendues pendant qu’un système MultiPoint Services est remappé.  
   
 > [!CAUTION]  
-> Le remappage est généralement utilisé à des fins de dépannage. Les paramètres de station, tels que le nom et les informations auto @ no__t-0logon, sont effacés pendant le processus de remappage.  
+> Le remappage est généralement utilisé à des fins de dépannage. Les paramètres de station, tels que le nom et les informations d’ouverture de session\-automatique, sont effacés pendant le processus de remappage.  
   
 #### <a name="to-remap-a-multipoint-services-system"></a>Pour remapper un système MultiPoint Services  
   

@@ -24,7 +24,7 @@ ms.locfileid: "71372020"
 
 
 
-Modifie l’invite de commandes de cmd. exe. En cas d’utilisation sans paramètres, **prompt** rétablit la valeur par défaut de l’invite de commandes, qui est la lettre de lecteur et le répertoire actuels suivis du symbole supérieur à ( **>** ).
+Modifie l’invite de commandes de cmd. exe. S’il est utilisé sans paramètres, l' **invite** de commandes rétablit la valeur par défaut de l’invite de commandes, qui est la lettre de lecteur et le répertoire actuels suivis du symbole supérieur à ( **>** ).
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,7 +38,7 @@ prompt [<Text>]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Text >|Spécifie le texte et les informations que vous souhaitez inclure dans l’invite de commandes.|
+|Texte \<>|Spécifie le texte et les informations que vous souhaitez inclure dans l’invite de commandes.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -47,7 +47,7 @@ Vous pouvez personnaliser l’invite de commandes pour afficher le texte de votr
 
 Le tableau suivant répertorie les combinaisons de caractères que vous pouvez inclure au lieu de, ou en plus de, une ou plusieurs chaînes de caractères dans le paramètre *Text* . La liste inclut une brève description du texte ou des informations que chaque combinaison de caractères ajoute à votre invite de commandes.  
 
-| symbole |                                 Description                                 |
+| Symbole |                                 Description                                 |
 |-----------|-----------------------------------------------------------------------------|
 |    $q     |                               = (signe égal)                                |
 |    $$     |                               $ (signe dollar)                               |
@@ -69,9 +69,9 @@ Le tableau suivant répertorie les combinaisons de caractères que vous pouvez i
 
 Lorsque les extensions de commande sont activées (autrement dit, la valeur par défaut), la commande **prompt** prend en charge les caractères de mise en forme suivants :  
 
-|symbole|Description|
+|Symbole|Description|
 |---------|-----------|
-|$+|Zéro ou plusieurs caractères signe plus ( **+** ), en fonction de la profondeur de la pile de répertoires **pushd** (un caractère pour chaque niveau poussé).|
+|$+|Zéro, un ou plusieurs caractères de signe plus ( **+** ), en fonction de la profondeur de la pile de répertoires **pushd** (un caractère pour chaque niveau poussé).|
 |$m|Nom distant associé à la lettre de lecteur en cours ou à la chaîne vide si le lecteur actuel n’est pas un lecteur réseau.|
 
 Si vous incluez le caractère **$p** dans le paramètre text, votre disque est lu après l’entrée de chaque commande (pour déterminer le lecteur et le chemin d’accès actuels). Cela peut prendre du temps supplémentaire, en particulier pour les lecteurs de disquette.

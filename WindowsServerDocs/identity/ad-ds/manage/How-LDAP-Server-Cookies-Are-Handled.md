@@ -18,7 +18,7 @@ ms.locfileid: "71390080"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Gestion des cookies du serveur LDAP
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans LDAP, certaines requêtes génèrent un jeu de résultats de grande taille. Ces requêtes présentent des défis pour Windows Server.  
   
@@ -48,15 +48,15 @@ Dans ce cas, le cookie envoyé au client par le serveur est également utilisé 
 ## <a name="how-the-cookie-pool-is-managed"></a>Gestion du pool de cookies  
 Évidemment, le serveur LDAP sert plusieurs clients à la fois, et plusieurs clients à la fois peuvent lancer des requêtes qui requièrent l'utilisation du cache de cookie du serveur. Par conséquent, l'implémentation de Windows Server comporte un suivi de l'utilisation et des limites du pool de cookies afin que le pool n'utilise pas trop de ressources. Les limites peuvent être définies par l'administrateur en utilisant les paramètres suivants dans la stratégie LDAP. Les valeurs par défaut et les explications sont les suivantes :  
   
-@no__t 0MinResultSets : 4 @ no__t-0  
+**MinResultSets : 4**  
   
 Le serveur LDAP ne recherche pas la taille maximale du pool indiquée ci-dessous s'il y a moins de MinResultSets entrées dans le cache de cookie du serveur.  
   
-@no__t 0MaxResultSetSize : 262 144 octets @ no__t-0  
+**MaxResultSetSize : 262 144 octets**  
   
 La taille totale du cache de cookie sur le serveur ne doit pas dépasser le nombre maximal de MaxResultSetSize en octets. Le cas échéant, les cookies, à partir du plus ancien, sont supprimés jusqu'à ce que le pool soit inférieur à MaxResultSetSize octets ou à MinResultSets cookies. Cela signifie que, en utilisant les paramètres par défaut, le serveur LDAP considère qu'un pool de 450 Ko est correct s'il y a seulement 3 cookies stockés.  
   
-@no__t 0MaxResultSetsPerConn : 10 @ no__t-0  
+**MaxResultSetsPerConn : 10**  
   
 Le serveur LDAP n'autorise pas plus de MaxResultSetsPerConn cookies par connexion LDAP dans le pool.  
   

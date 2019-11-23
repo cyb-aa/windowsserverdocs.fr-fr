@@ -22,7 +22,7 @@ ms.locfileid: "71374587"
 ---
 # <a name="logman-create-cfg"></a>logman créer cfg
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 créer un collecteur de données de configuration.  
 
@@ -62,7 +62,7 @@ logman create cfg <[-n] <name>> [options]
 ## <a name="remarks"></a>Notes  
 Où [-] est listé, un extra-inverse l’option.  
 ## <a name="BKMK_examples"></a>Illustre  
-La commande suivante crée un collecteur de données de configuration appelé cfg_log à l’aide de la clé de registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion @ no__t-0.  
+La commande suivante crée un collecteur de données de configuration appelé cfg_log à l’aide de la clé de Registre HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\Currentverion\\.  
 ```  
 logman create cfg cfg_log -reg "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\\"  
 ```  

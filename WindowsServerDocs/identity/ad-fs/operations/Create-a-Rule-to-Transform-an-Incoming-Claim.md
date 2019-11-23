@@ -19,9 +19,9 @@ ms.locfileid: "71407572"
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Créer une règle pour transformer une revendication entrante
 
 
-En utilisant le modèle de règle **transformer une revendication entrante** dans services ADFS \(AD FS @ no__t-2, vous pouvez sélectionner une revendication entrante, modifier son type de revendication et modifier sa valeur de revendication. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui envoie une revendication de rôle avec la même valeur de revendication d’une revendication de groupe entrante. Vous pouvez également utiliser cette règle pour envoyer une revendication de groupe avec une valeur de revendication des acheteurs lorsqu’il existe une revendication de groupe entrante avec la valeur administrateurs, ou vous pouvez envoyer uniquement les revendications de nom d’utilisateur principal \(UPN @ no__t-1 qui se terminent par @fabrikam.  
+En utilisant le modèle de règle **transformer une revendication entrante** dans Services ADFS \(AD FS\), vous pouvez sélectionner une revendication entrante, modifier son type de revendication et modifier sa valeur de revendication. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui envoie une revendication de rôle avec la même valeur de revendication d’une revendication de groupe entrante. Vous pouvez également utiliser cette règle pour envoyer une revendication de groupe avec une valeur de revendication des acheteurs lorsqu’il existe une revendication de groupe entrante avec la valeur admins, ou vous pouvez envoyer uniquement le nom d’utilisateur principal \(UPN\) revendications qui se terminent par @fabrikam.  
   
-Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le composant logiciel\-enfichable de gestion AD FS.  
+Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le\-du composant logiciel enfichable Gestion de la AD FS dans.  
   
 Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **administrateurs**ou à un groupe équivalent sur l’ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477). 
 
@@ -32,7 +32,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
 4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
@@ -47,7 +47,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
   
     -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+    -   **Remplacer les revendications e\-de messagerie entrantes par un nouveau suffixe de courrier électronique\-**  
 ![créer une règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform4.PNG)   
 
 7.  Cliquez sur le bouton **Terminer** .  
@@ -55,7 +55,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 8.  Dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur **OK** pour enregistrer la règle.
   
 > [!NOTE]  
-> Si vous configurez le scénario de Access Control dynamique qui utilise des revendications AD FS @ no__t-0issued, commencez par créer une règle de transformation sur l’approbation de fournisseur de revendications et, dans **type de revendication entrante**, tapez le nom de la revendication entrante ou, si une description de revendication a été précédemment créée, sélectionnez-la dans la liste. Ensuite, dans **type de revendication sortante**, sélectionnez l’URL de revendication souhaitée, puis créez une règle de transformation sur l’approbation de la partie de confiance pour émettre la revendication de l’appareil.  
+> Si vous configurez le scénario de Access Control dynamique qui utilise AD FS des revendications émises par\-, commencez par créer une règle de transformation sur l’approbation de fournisseur de revendications et, dans **type de revendication entrante**, tapez le nom de la revendication entrante, ou, si une description de revendication a été créée précédemment, sélectionnez-la dans la liste. Ensuite, dans **type de revendication sortante**, sélectionnez l’URL de revendication souhaitée, puis créez une règle de transformation sur l’approbation de la partie de confiance pour émettre la revendication de l’appareil.  
 >   
 > Pour plus d’informations sur les scénarios de Access Control dynamique, consultez feuille de [route de contenu dynamique Access Control](../../solution-guides/dynamic-access-control--scenario-overview.md) ou [utilisation de AD DS des revendications avec AD FS](https://technet.microsoft.com/library/hh831504.aspx). 
 
@@ -66,7 +66,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
@@ -81,7 +81,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
   
     -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+    -   **Remplacer les revendications e\-de messagerie entrantes par un nouveau suffixe de courrier électronique\-**  
 ![créer une règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform4.PNG)       
 
 7.  Cliquez sur le bouton **Terminer** .  
@@ -89,7 +89,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 8.  Dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur **OK** pour enregistrer la règle.  
 
 > [!NOTE]  
-> Si vous configurez le scénario de Access Control dynamique qui utilise des revendications AD FS @ no__t-0issued, commencez par créer une règle de transformation sur l’approbation de fournisseur de revendications et, dans **type de revendication entrante**, tapez le nom de la revendication entrante ou, si une description de revendication a été précédemment créée, sélectionnez-la dans la liste. Ensuite, dans **type de revendication sortante**, sélectionnez l’URL de revendication souhaitée, puis créez une règle de transformation sur l’approbation de la partie de confiance pour émettre la revendication de l’appareil.  
+> Si vous configurez le scénario de Access Control dynamique qui utilise AD FS des revendications émises par\-, commencez par créer une règle de transformation sur l’approbation de fournisseur de revendications et, dans **type de revendication entrante**, tapez le nom de la revendication entrante, ou, si une description de revendication a été créée précédemment, sélectionnez-la dans la liste. Ensuite, dans **type de revendication sortante**, sélectionnez l’URL de revendication souhaitée, puis créez une règle de transformation sur l’approbation de la partie de confiance pour émettre la revendication de l’appareil.  
 >   
 > Pour plus d’informations sur les scénarios de Access Control dynamique, consultez feuille de [route de contenu dynamique Access Control](../../solution-guides/dynamic-access-control--scenario-overview.md) ou [utilisation de AD DS des revendications avec AD FS](https://technet.microsoft.com/library/hh831504.aspx).   
   
@@ -97,12 +97,12 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
   
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **\\AD FS relations d’approbation**, cliquez sur approbations de fournisseur de **revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation**, cliquez sur approbations de **fournisseur de revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, qui dépend de l’approbation que vous modifiez et de l’ensemble de règles pour lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, qui dépend de l’approbation que vous modifiez et de l’ensemble de règles pour lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles :  
   
     -   **Règles de transformation d’acceptation**  
   
@@ -122,11 +122,11 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
   
     -   **Remplacer une valeur de revendication entrante par une autre valeur de revendication sortante**  
   
-    -   **Remplacement des revendications de suffixe e @ no__t-1mail entrantes par un nouveau suffixe e @ no__t-2Mail**  
+    -   **Remplacer les revendications e\-de messagerie entrantes par un nouveau suffixe de courrier électronique\-**  
 ![créer une règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform2.PNG)  
 
 > [!NOTE]  
-> Si vous configurez le scénario de Access Control dynamique qui utilise des revendications AD FS @ no__t-0issued, commencez par créer une règle de transformation sur l’approbation de fournisseur de revendications et, dans **type de revendication entrante**, tapez le nom de la revendication entrante ou, si une description de revendication a été précédemment créée, sélectionnez-la dans la liste. Ensuite, dans **type de revendication sortante**, sélectionnez l’URL de revendication souhaitée, puis créez une règle de transformation sur l’approbation de la partie de confiance pour émettre la revendication de l’appareil.  
+> Si vous configurez le scénario de Access Control dynamique qui utilise AD FS des revendications émises par\-, commencez par créer une règle de transformation sur l’approbation de fournisseur de revendications et, dans **type de revendication entrante**, tapez le nom de la revendication entrante, ou, si une description de revendication a été créée précédemment, sélectionnez-la dans la liste. Ensuite, dans **type de revendication sortante**, sélectionnez l’URL de revendication souhaitée, puis créez une règle de transformation sur l’approbation de la partie de confiance pour émettre la revendication de l’appareil.  
 >   
 > Pour plus d’informations sur les scénarios de Access Control dynamique, consultez feuille de [route de contenu dynamique Access Control](../../solution-guides/dynamic-access-control--scenario-overview.md) ou [utilisation de AD DS des revendications avec AD FS](https://technet.microsoft.com/library/hh831504.aspx).  
   

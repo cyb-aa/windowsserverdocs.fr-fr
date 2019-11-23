@@ -22,7 +22,7 @@ ms.locfileid: "71370844"
 ---
 # <a name="subcommand-set-drivergroup"></a>Sous-commande : Set-DriverGroup
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Définit les propriétés d’un groupe de pilotes existant sur un serveur.
 ## <a name="syntax"></a>Syntaxe
@@ -32,9 +32,9 @@ wdsutil /Set-DriverGroup /DriverGroup:<Group Name> [/Server:<Server Name>] [/Nam
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|/DriverGroup : <Group Name>|Spécifie le nom du groupe de pilotes.|
+|/DriverGroup :<Group Name>|Spécifie le nom du groupe de pilotes.|
 |[/Server:<Server name>]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|[/Name : <New Group Name>]|Spécifie le nouveau nom du groupe de pilotes.|
+|[/Name :<New Group Name>]|Spécifie le nouveau nom du groupe de pilotes.|
 |[/Enabled : {oui &#124; non}|Active ou désactive le groupe de pilotes.|
 |[/Applicability : {correspondance trouvée &#124; }]|Spécifie les packages à installer si les critères de filtre sont satisfaits. **Correspondante** signifie que installe uniquement les packages de pilotes qui correspondent au matériel du client. **Tout** signifie d’installer tous les packages sur les clients, quel que soit leur matériel.|
 ## <a name="BKMK_examples"></a>Illustre
@@ -47,4 +47,4 @@ wdsutil /Set-DriverGroup /DriverGroup:printerdrivers /Name:colorprinterdrivers /
 ```
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
- sous-[commande : Set-DriverGroupFilter](subcommand-set-drivergroupfilter.md)
+sous- [commande : Set-DriverGroupFilter](subcommand-set-drivergroupfilter.md)

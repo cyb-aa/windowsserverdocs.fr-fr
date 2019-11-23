@@ -20,7 +20,7 @@ ms.locfileid: "71365490"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels Oracle Linux pris en charge sur Hyper-V
 
->S'applique à : Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
+>S’applique à : Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
 La carte de distribution des fonctionnalités suivante indique les fonctionnalités qui sont présentes dans chaque version. Les problèmes connus et les solutions de contournement pour chaque distribution sont répertoriés après le tableau.
 
@@ -40,7 +40,7 @@ Dans cette section :
 
 * (*vide*)-fonctionnalité non disponible
 
-* **UEK R @ no__t-1x qu @ no__t-2y** -unbrised Enterprise kernel (UEK) où *x* est le numéro de version et *y* la mise à jour trimestrielle.
+* **UEK R\*x QU\*** noyau de l’entreprise (UEK), où *x* est le numéro de version et *y* , la mise à jour trimestrielle.
 
 ## <a name="BKMK_rhc"></a>Série de noyaux compatibles Red Hat
 

@@ -22,7 +22,7 @@ ms.locfileid: "71372138"
 ---
 # <a name="prncnfg"></a>prncnfg
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Configure ou affiche les informations de configuration relatives à une imprimante.
 
@@ -37,20 +37,20 @@ cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <Ne
 |-g|Affiche les informations de configuration relatives à une imprimante.|
 |-t|Configure une imprimante.|
 |-x|renomme une imprimante.|
-|-S \<ServerName @ no__t-1|Spécifie le nom de l’ordinateur distant qui héberge l’imprimante que vous souhaitez gérer. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est utilisé.|
-|-P \<printerName @ no__t-1|Spécifie le nom de l’imprimante que vous souhaitez gérer. Obligatoire.|
-|-z \<NewprinterName @ no__t-1|Spécifie le nouveau nom de l’imprimante. Requiert les paramètres **-x** et **-P** .|
-|-u \<UserName @ no__t-1-w \<Password @ no__t-3|Spécifie un compte disposant des autorisations nécessaires pour se connecter à l’ordinateur qui héberge l’imprimante que vous souhaitez gérer. Tous les membres du groupe Administrateurs local de l’ordinateur cible disposent de ces autorisations, mais les autorisations peuvent également être accordées à d’autres utilisateurs. Si vous ne spécifiez pas de compte, vous devez avoir ouvert une session sous un compte disposant de ces autorisations pour que la commande fonctionne.|
-|-r \<PortName @ no__t-1|Spécifie le port sur lequel l’imprimante est connectée. S’il s’agit d’un port parallèle ou d’un port série, utilisez l’ID du port (par exemple, LPT1 ou COM1). S’il s’agit d’un port TCP/IP, utilisez le nom de port qui a été spécifié lors de l’ajout du port.|
-|-l \<Location @ no__t-1|Spécifie l’emplacement de l’imprimante, par exemple « copie de l’espace ».|
-|-h \<Sharename @ no__t-1|Spécifie le nom de partage de l’imprimante.|
-|-m \<Comment @ no__t-1|Spécifie la chaîne de commentaire de l’imprimante.|
-|-f \<SeparatorFileName @ no__t-1|Spécifie un fichier qui contient le texte qui apparaît sur la page de séparation.|
-|-y \<Datatype @ no__t-1|Spécifie les types de données que l’imprimante peut accepter.|
-|-St \<starttime @ no__t-1|Configure l’imprimante pour une disponibilité limitée. Spécifie l’heure de la journée à laquelle l’imprimante est disponible. Si vous envoyez un document à une imprimante lorsqu’il n’est pas disponible, le document est conservé (mis en file d’attente) jusqu’à ce que l’imprimante soit disponible. Vous devez spécifier l’heure sous la forme d’une horloge de 24 heures. Par exemple, pour spécifier 11:00, tapez **2300**.|
-|-UT \<Endtime @ no__t-1|Configure l’imprimante pour une disponibilité limitée. Spécifie l’heure de la journée à laquelle l’imprimante n’est plus disponible. Si vous envoyez un document à une imprimante lorsqu’il n’est pas disponible, le document est conservé (mis en file d’attente) jusqu’à ce que l’imprimante soit disponible. Vous devez spécifier l’heure sous la forme d’une horloge de 24 heures. Par exemple, pour spécifier 11:00, tapez **2300**.|
-|-o \<Priority @ no__t-1|Spécifie une priorité que le spouleur utilise pour acheminer les travaux d’impression dans la file d’attente à l’impression. Une file d’attente à l’impression avec une priorité plus élevée reçoit tous ses travaux avant toute file d’attente avec une priorité plus faible.|
-|-i @no__t 0DefaultPriority @ no__t-1|Spécifie la priorité par défaut assignée à chaque travail d’impression.|
+|-S \<ServerName\>|Spécifie le nom de l’ordinateur distant qui héberge l’imprimante que vous souhaitez gérer. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est utilisé.|
+|-P \<nom_imprimante\>|Spécifie le nom de l’imprimante que vous souhaitez gérer. Obligatoire.|
+|-z \<NewprinterName\>|Spécifie le nouveau nom de l’imprimante. Requiert les paramètres **-x** et **-P** .|
+|-u \<nom_utilisateur\>-w \<mot de passe\>|Spécifie un compte disposant des autorisations nécessaires pour se connecter à l’ordinateur qui héberge l’imprimante que vous souhaitez gérer. Tous les membres du groupe Administrateurs local de l’ordinateur cible disposent de ces autorisations, mais les autorisations peuvent également être accordées à d’autres utilisateurs. Si vous ne spécifiez pas de compte, vous devez avoir ouvert une session sous un compte disposant de ces autorisations pour que la commande fonctionne.|
+|-r \<PortName\>|Spécifie le port sur lequel l’imprimante est connectée. S’il s’agit d’un port parallèle ou d’un port série, utilisez l’ID du port (par exemple, LPT1 ou COM1). S’il s’agit d’un port TCP/IP, utilisez le nom de port qui a été spécifié lors de l’ajout du port.|
+|-l \<emplacement\>|Spécifie l’emplacement de l’imprimante, par exemple « copie de l’espace ».|
+|-h \<nom_partage\>|Spécifie le nom de partage de l’imprimante.|
+|-m \<commentaire\>|Spécifie la chaîne de commentaire de l’imprimante.|
+|-f \<SeparatorFileName\>|Spécifie un fichier qui contient le texte qui apparaît sur la page de séparation.|
+|-y \<type de données\>|Spécifie les types de données que l’imprimante peut accepter.|
+|-St \<StartTime\>|Configure l’imprimante pour une disponibilité limitée. Spécifie l’heure de la journée à laquelle l’imprimante est disponible. Si vous envoyez un document à une imprimante lorsqu’il n’est pas disponible, le document est conservé (mis en file d’attente) jusqu’à ce que l’imprimante soit disponible. Vous devez spécifier l’heure sous la forme d’une horloge de 24 heures. Par exemple, pour spécifier 11:00, tapez **2300**.|
+|-UT \<EndTime\>|Configure l’imprimante pour une disponibilité limitée. Spécifie l’heure de la journée à laquelle l’imprimante n’est plus disponible. Si vous envoyez un document à une imprimante lorsqu’il n’est pas disponible, le document est conservé (mis en file d’attente) jusqu’à ce que l’imprimante soit disponible. Vous devez spécifier l’heure sous la forme d’une horloge de 24 heures. Par exemple, pour spécifier 11:00, tapez **2300**.|
+|-o \<priorité\>|Spécifie une priorité que le spouleur utilise pour acheminer les travaux d’impression dans la file d’attente à l’impression. Une file d’attente à l’impression avec une priorité plus élevée reçoit tous ses travaux avant toute file d’attente avec une priorité plus faible.|
+|-i \<DefaultPriority\>|Spécifie la priorité par défaut assignée à chaque travail d’impression.|
 |{+&#124;-} partagé|Spécifie si cette imprimante est partagée sur le réseau.|
 |{+&#124;-} direct|Spécifie si le document doit être envoyé directement à l’imprimante sans être mis en file d’attente.|
 |{+&#124;-} publié (e)|Spécifie si cette imprimante doit être publiée dans Active Directory. Si vous publiez l’imprimante, d’autres utilisateurs peuvent la Rechercher en fonction de son emplacement et de ses fonctionnalités (telles que l’impression et l’agrafage des couleurs).|
@@ -65,7 +65,7 @@ cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <Ne
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
--   La commande **prncnfg** est un script Visual Basic situé dans le répertoire%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Pour utiliser cette commande, à l’invite de commandes, tapez **cscript** suivi du chemin d’accès complet au fichier prncnfg ou accédez au dossier approprié. Exemple :
+-   La commande **prncnfg** est un script Visual Basic situé dans le répertoire%windir%\system32\ printing_Admin_Scripts\\<language>. Pour utiliser cette commande, à l’invite de commandes, tapez **cscript** suivi du chemin d’accès complet au fichier prncnfg ou accédez au dossier approprié. Par exemple :
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prncnfg
     ```
@@ -77,12 +77,12 @@ Pour afficher les informations de configuration de l’imprimante nommée colorp
 cscript prncnfg -g -S HRServer -P colorprinter_2 
 ```
 
-Pour configurer une imprimante nommée colorprinter_2 de sorte que le spouleur de l’ordinateur distant nommé HRServer conserve les travaux d’impression après leur impression, tapez :
+Pour configurer une imprimante nommée colorprinter_2 afin que le spouleur de l’ordinateur distant nommé HRServer conserve les travaux d’impression après leur impression, tapez :
 ```
 cscript prncnfg -t -S HRServer -P colorprinter_2 +keepprintedjobs 
 ```
 
-Pour modifier le nom d’une imprimante sur l’ordinateur distant nommé HRServer de colorprinter_2 à colorprinter 3, tapez :
+Pour modifier le nom d’une imprimante sur l’ordinateur distant nommé HRServer, de colorprinter_2 à colorprinter 3, tapez :
 ```
 cscript prncnfg -x -S HRServer -P colorprinter_2 -z "colorprinter 3" 
 ```

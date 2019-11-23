@@ -41,24 +41,24 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 
 |      Paramètre       |                  Description                                    |
 | -------------------- | ------------------------------------------------------------------------ |
-|      @no__t 0Volume >      | Spécifie la lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume.  |
-| [@no__t 0Path >] <FileName> | À utiliser avec la table d’allocation des fichiers (FAT) et FAT32 uniquement. Spécifie l’emplacement et le nom d’un fichier ou d’un ensemble de fichiers dont vous souhaitez que **chkdsk** vérifie la fragmentation. Vous pouvez utiliser l' **?** et **&#42;** des caractères génériques pour spécifier plusieurs fichiers. |
+|      > du volume \<      | Spécifie la lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume.  |
+| [\<Path >]<FileName> | À utiliser avec la table d’allocation des fichiers (FAT) et FAT32 uniquement. Spécifie l’emplacement et le nom d’un fichier ou d’un ensemble de fichiers dont vous souhaitez que **chkdsk** vérifie la fragmentation. Vous pouvez utiliser l' **?** et **&#42;** des caractères génériques pour spécifier plusieurs fichiers. |
 |         /f          | Corrige les erreurs sur le disque. Le disque doit être verrouillé. Si **chkdsk** ne peut pas verrouiller le lecteur, un message s’affiche vous demandant si vous souhaitez vérifier le lecteur la prochaine fois que vous redémarrez l’ordinateur. |
 |         /v          | Affiche le nom de chaque fichier dans chaque répertoire lors de la vérification du disque.     |
 |         /r          | Localise les secteurs défectueux et récupère des informations lisibles. Le disque doit être verrouillé. **/r** comprend les fonctionnalités de l' **/f**, avec l’analyse supplémentaire des erreurs de disque physique.                                   |
 |         /x          | Force le démontage du volume en premier, si nécessaire. Tous les descripteurs ouverts sur le lecteur sont invalidés. **/x** comprend également les fonctionnalités de l' **/f**.  |
 |         /i          | À utiliser avec NTFS uniquement. Effectue une vérification moins énergique des entrées d’index, ce qui réduit le temps nécessaire à l’exécution de **chkdsk**.  |
 |         /c          | À utiliser avec NTFS uniquement. Ne vérifie pas les cycles au sein de la structure de dossiers, ce qui réduit le temps nécessaire à l’exécution de **chkdsk**.  |
-|    /l [ : \<Size >]     | À utiliser avec NTFS uniquement. Remplace la taille du fichier journal par la taille que vous avez tapée. Si vous omettez le paramètre de taille, **/l** affiche la taille actuelle. |
-|         /b          | NTFS uniquement : Efface la liste des clusters défectueux sur le volume et rerecherche les erreurs dans tous les clusters alloués et libres. **/b** comprend les fonctionnalités de **/r**. Utilisez ce paramètre après avoir Imaging un volume sur un nouveau disque dur.            |
-| /Scan               | NTFS uniquement : Exécute une analyse en ligne sur le volume. |
-| /forceofflinefix    | NTFS uniquement : (Doit être utilisé avec « /Scan »). Ignorer toute réparation en ligne ; tous les défauts détectés sont mis en file d’attente pour une réparation hors connexion (c.-à-d. « CHKDSK/spotfix »). |
-| /perf               | NTFS uniquement : (Doit être utilisé avec « /Scan »). Utilise davantage de ressources système pour effectuer une analyse en tant que aspossible rapide. Cela peut avoir un impact négatif sur les performances sur les autres tâches qui s’exécutent sur le système.|
-| /spotfix            | NTFS uniquement : Exécute la résolution des points sur le volume. |
+|    /l [ :\<> de taille]     | À utiliser avec NTFS uniquement. Remplace la taille du fichier journal par la taille que vous avez tapée. Si vous omettez le paramètre de taille, **/l** affiche la taille actuelle. |
+|         /b          | NTFS uniquement : efface la liste des clusters défectueux sur le volume et rerecherche les erreurs dans tous les clusters alloués et libres. **/b** comprend les fonctionnalités de **/r**. Utilisez ce paramètre après avoir Imaging un volume sur un nouveau disque dur.            |
+| /Scan               | NTFS uniquement : exécute une analyse en ligne sur le volume. |
+| /forceofflinefix    | NTFS uniquement : (doit être utilisé avec « /Scan »). Ignorer toute réparation en ligne ; tous les défauts détectés sont mis en file d’attente pour une réparation hors connexion (c.-à-d. « CHKDSK/spotfix »). |
+| /perf               | NTFS uniquement : (doit être utilisé avec « /Scan »). Utilise davantage de ressources système pour effectuer une analyse en tant que aspossible rapide. Cela peut avoir un impact négatif sur les performances sur les autres tâches qui s’exécutent sur le système.|
+| /spotfix            | NTFS uniquement : exécute une correction des points sur le volume. |
 | /sdcleanup          | NTFS uniquement : Récupérez les données inutiles du descripteur de sécurité (implique/F). |
 | /offlinescanandfix  | Exécute une analyse hors connexion et un correctif sur le volume. |
-| /freeorphanedchains | FAT/FAT32/exFAT uniquement : Libère toutes les chaînes de cluster orphelines au lieu de récupérer leur contenu. |
-| /markclean          | FAT/FAT32/exFAT uniquement : Marque le nettoyage du volume si aucune altération n’a été détectée, même si/F n’a pas été spécifié. |
+| /freeorphanedchains | FAT/FAT32/exFAT uniquement : libère les chaînes de cluster orphelines au lieu de récupérer leur contenu. |
+| /markclean          | FAT/FAT32/exFAT uniquement : marque le nettoyage du volume si aucune altération n’a été détectée, même si/F n’a pas été spécifié. |
 |         /?          | Affiche l'aide à l'invite de commandes.                       |
 
 ## <a name="remarks"></a>Notes
@@ -91,7 +91,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
   Convert lost chains to files?  
   ``` 
 
-  Si vous appuyez sur **o**, Windows enregistre chaque chaîne perdue dans le répertoire racine sous la forme d’un fichier dont le nom est au format fichier @ no__t-1NNNN >. chk. À la fin de l’exécution de **chkdsk** , vous pouvez vérifier ces fichiers pour voir s’ils contiennent des données dont vous avez besoin. Si vous appuyez sur **N**, Windows corrige le disque, mais il n’enregistre pas le contenu des unités d’allocation perdues.
+  Si vous appuyez sur **o**, Windows enregistre chaque chaîne perdue dans le répertoire racine en tant que fichier avec un nom au format fichier\<nnnn >. chk. À la fin de l’exécution de **chkdsk** , vous pouvez vérifier ces fichiers pour voir s’ils contiennent des données dont vous avez besoin. Si vous appuyez sur **N**, Windows corrige le disque, mais il n’enregistre pas le contenu des unités d’allocation perdues.
 
   Si vous n’utilisez pas le paramètre **/f** , **chkdsk** affiche un message indiquant que le fichier doit être corrigé, mais ne corrige aucune erreur.
 

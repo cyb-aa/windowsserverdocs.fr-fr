@@ -18,7 +18,7 @@ ms.locfileid: "71408781"
 ---
 # <a name="identifying-your-functional-level-upgrade"></a>Identification de la mise à niveau de votre niveau fonctionnel
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Avant de pouvoir augmenter les niveaux fonctionnels des domaines et des forêts, vous devez évaluer votre environnement actuel et identifier l’exigence de niveau fonctionnel qui répond le mieux aux besoins de votre organisation. Évaluez votre environnement actuel en identifiant les domaines de votre forêt, les contrôleurs de domaine qui se trouvent dans chaque domaine, le système d’exploitation et les service packs exécutés par chaque contrôleur de domaine, ainsi que la date à laquelle vous envisagez de mettre à niveau le domaine. secondaires. Si vous envisagez de mettre hors service un contrôleur de domaine, assurez-vous que vous comprenez l’impact total de cette opération sur votre environnement.  
   
@@ -55,7 +55,7 @@ Pour utiliser toutes les fonctionnalités au niveau de la forêt et du domaine d
   
 -   Introduisez dans la forêt les contrôleurs de domaine Windows Server 2008 ou Windows Server 2008 R2 qui viennent d’être installés, puis mettez hors service tous les contrôleurs de domaine exécutant Windows 2000.  
   
--   Effectuez une mise à niveau sur place de tous les contrôleurs de domaine existants exécutant Windows 2000 dans la forêt vers les contrôleurs de domaine exécutant Windows Server 2003. Ensuite, effectuez une mise à niveau sur place de ces contrôleurs de domaine vers Windows Server 2008 ou Windows Server 2008 R2. Pour plus d’informations, consultez [mise à niveau des domaines de Active Directory vers Windows Server 2008 AD DS domaines \[LH @ no__t-2](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
+-   Effectuez une mise à niveau sur place de tous les contrôleurs de domaine existants exécutant Windows 2000 dans la forêt vers les contrôleurs de domaine exécutant Windows Server 2003. Ensuite, effectuez une mise à niveau sur place de ces contrôleurs de domaine vers Windows Server 2008 ou Windows Server 2008 R2. Pour plus d’informations, consultez [mise à niveau des domaines de Active Directory vers Windows Server 2008 AD DS domaines \[LH\]](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
   
     > [!IMPORTANT]  
     >  Windows Server 2008 R2 est un système d’exploitation basé sur x64. Si votre serveur exécute une version x64 de Windows Server 2003, vous pouvez effectuer une mise à niveau sur place du système d’exploitation de cet ordinateur vers Windows Server 2008 R2. Si votre serveur exécute une version x86 de Windows Server 2003, vous ne pouvez pas mettre à niveau cet ordinateur vers Windows Server 2008 R2.  
@@ -67,7 +67,7 @@ Pour utiliser les fonctionnalités au niveau du domaine Windows Server 2008 ou W
   
 Après avoir remplacé tous les contrôleurs de domaine basés sur Windows 2000 dans la forêt par des contrôleurs de domaine qui exécutent Windows Server 2008 ou Windows Server 2008 R2, vous pouvez augmenter le niveau fonctionnel de la forêt à Windows Server 2008 ou à Windows Server 2008 R2. Cela déclenche automatiquement le niveau fonctionnel de tous les domaines de la forêt qui sont définis sur Windows 2000 natif ou version ultérieure sur Windows Server 2008 ou Windows Server 2008 R2.  
   
-Pour plus d’informations sur le déclenchement des niveaux fonctionnels de forêt et de domaine, et sur les procédures d’exécution de ces tâches, voir [déploiement d’un domaine racine de forêt Windows Server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+Pour plus d’informations sur l’augmentation des niveaux fonctionnels de forêt et de domaine, et sur les procédures pour effectuer ces tâches, voir [déploiement d’un domaine racine de forêt Windows Server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
 ## <a name="upgrading-functional-levels-in-a-windows-server-2003-active-directory-forest"></a>Mise à niveau des niveaux fonctionnels dans une forêt Windows Server 2003 Active Directory  
 Dans un environnement Windows Server 2003 qui se compose uniquement de contrôleurs de domaine basés sur Windows Server 2003, les niveaux fonctionnels sont définis par défaut aux niveaux suivants, et ils restent à ces niveaux jusqu’à ce que vous les montiez manuellement :  
@@ -80,7 +80,7 @@ Pour utiliser toutes les fonctionnalités au niveau de la forêt et du domaine d
   
 -   Introduisez un contrôleur de domaine Windows Server 2008 ou Windows Server 2008 R2 récemment installé dans la forêt, puis retirez tous les contrôleurs de domaine exécutant Windows Server 2003 ou mettez-les à niveau vers Windows Server 2008 ou Windows Server 2008 R2.  
   
--   Effectuez une mise à niveau sur place de tous les contrôleurs de domaine existants exécutant Windows Server 2003 vers des contrôleurs de domaine exécutant Windows Server 2008 ou Windows Server 2008 R2. Pour plus d’informations, consultez [mise à niveau des domaines de Active Directory vers Windows Server 2008 AD DS domaines \[LH @ no__t-2](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
+-   Effectuez une mise à niveau sur place de tous les contrôleurs de domaine existants exécutant Windows Server 2003 vers des contrôleurs de domaine exécutant Windows Server 2008 ou Windows Server 2008 R2. Pour plus d’informations, consultez [mise à niveau des domaines de Active Directory vers Windows Server 2008 AD DS domaines \[LH\]](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
   
 > [!IMPORTANT]  
 >  Windows Server 2008 R2 est un système d’exploitation basé sur x64. Si votre serveur exécute une version x64 de Windows Server 2003, vous pouvez effectuer une mise à niveau sur place du système d’exploitation de cet ordinateur vers Windows Server 2008 R2. Si votre serveur exécute une version x86 de Windows Server 2003, vous ne pouvez pas mettre à niveau cet ordinateur pour exécuter Windows Server 2008 R2.  
@@ -92,7 +92,7 @@ Pour utiliser toutes les fonctionnalités au niveau du domaine Windows Server 20
   
 Après avoir mis à niveau tous les contrôleurs de domaine Windows Server 2003 de la forêt vers Windows Server 2008 ou Windows Server 2008 R2, vous pouvez augmenter le niveau fonctionnel de la forêt à Windows Server 2008 ou Windows Server 2008 R2. Cela déclenche automatiquement le niveau fonctionnel de tous les domaines de la forêt qui sont définis sur Windows Server 2003 sur Windows Server 2008 ou Windows Server 2008 R2.  
   
-Pour plus d’informations sur le déclenchement des niveaux fonctionnels de forêt et de domaine, et sur les procédures d’exécution de ces tâches, voir [déploiement d’un domaine racine de forêt Windows Server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+Pour plus d’informations sur l’augmentation des niveaux fonctionnels de forêt et de domaine, et sur les procédures pour effectuer ces tâches, voir [déploiement d’un domaine racine de forêt Windows Server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
 ## <a name="upgrading-functional-levels-in-a-new-windows-server-2008-forest"></a>Mise à niveau des niveaux fonctionnels dans une nouvelle forêt Windows Server 2008  
 Lorsque vous installez le premier contrôleur de domaine dans une nouvelle forêt Windows Server 2008, les niveaux fonctionnels sont définis par défaut aux niveaux suivants, et ils restent à ces niveaux jusqu’à ce que vous les montiez manuellement :  
@@ -106,7 +106,7 @@ Les niveaux fonctionnels sont définis à ces niveaux par défaut pour vous perm
 > [!IMPORTANT]  
 > Si la forêt fonctionne au niveau fonctionnel de Windows Server 2008 et que vous tentez d’installer Active Directory sur un serveur membre basé sur Windows Server 2003 ou un serveur membre Windows 2000, l’installation échoue.  
   
-Pour plus d’informations sur le déclenchement des niveaux fonctionnels de forêt et de domaine, et sur les procédures d’exécution de ces tâches, voir [déploiement d’un domaine racine de forêt Windows Server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+Pour plus d’informations sur l’augmentation des niveaux fonctionnels de forêt et de domaine, et sur les procédures pour effectuer ces tâches, voir [déploiement d’un domaine racine de forêt Windows Server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
 ## <a name="upgrading-functional-levels-in-a-new-windows-server-2008-r2-forest"></a>Mise à niveau des niveaux fonctionnels dans une nouvelle forêt Windows Server 2008 R2  
 Lorsque vous installez le premier contrôleur de domaine dans une nouvelle forêt Windows Server 2008 R2, les niveaux fonctionnels sont définis par défaut aux niveaux suivants, et ils restent à ces niveaux jusqu’à ce que vous les montiez manuellement :  
@@ -120,10 +120,10 @@ Les niveaux fonctionnels sont définis à ces niveaux par défaut pour vous perm
 > [!IMPORTANT]  
 > Si la forêt fonctionne au niveau fonctionnel de Windows Server 2008 R2 et que vous tentez d’installer Active Directory sur un serveur membre Windows Server 2008 ou Windows Server 2003, ou sur un serveur membre basé sur Windows 2000, l’installation échoue.  
   
-Pour plus d’informations sur le déclenchement des niveaux fonctionnels de forêt et de domaine, et sur les procédures d’exécution de ces tâches, voir [déploiement d’un domaine racine de forêt Windows Server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+Pour plus d’informations sur l’augmentation des niveaux fonctionnels de forêt et de domaine, et sur les procédures pour effectuer ces tâches, voir [déploiement d’un domaine racine de forêt Windows Server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
 > [!NOTE]  
-> Même si ADMT v 3.1 doit être installé sur Windows Server 2008, vous pouvez utiliser ADMT v 3.1 pour migrer des objets vers un domaine hébergé par un ou plusieurs contrôleurs de domaine Windows Server 2008 R2. Pour plus d’informations, consultez l' [article 976659](https://go.microsoft.com/fwlink/?LinkId=180398) de la base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=180398).  
+> Même si ADMT v 3.1 doit être installé sur Windows Server 2008, vous pouvez utiliser ADMT v 3.1 pour migrer des objets vers un domaine hébergé par un ou plusieurs contrôleurs de domaine Windows Server 2008 R2. Pour plus d’informations, voir l' [article 976659](https://go.microsoft.com/fwlink/?LinkId=180398) de la base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=180398).  
   
 
 

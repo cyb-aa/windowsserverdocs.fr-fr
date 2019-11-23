@@ -17,9 +17,9 @@ ms.locfileid: "71396154"
 ---
 # <a name="manage-nps-templates"></a>Gérer les modèles NPS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser les modèles \(NPS @ no__t-1 du serveur de stratégie réseau pour créer des éléments de configuration, tels que protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS @ no__t-3 clients ou des secrets partagés, que vous pouvez réutiliser sur le serveur NPS local et exporter pour une utilisation sur d’autres NPSs. 
+Vous pouvez utiliser le serveur de stratégie réseau \(les modèles de\) NPS pour créer des éléments de configuration, tels que protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS\) des clients ou des secrets partagés, que vous pouvez réutiliser sur le serveur NPS local et exporter pour une utilisation sur d’autres NPSs. 
 
 La gestion des modèles fournit un nœud dans la console NPS dans lequel vous pouvez créer, modifier, supprimer, dupliquer et afficher l’utilisation des modèles NPS. Les modèles NPS sont conçus pour réduire la durée et le coût nécessaires à la configuration de NPS sur un ou plusieurs serveurs.
 
@@ -31,15 +31,15 @@ Les types de modèles NPS suivants sont disponibles pour la configuration dans l
 
 - **Serveurs RADIUS distants**. Ce modèle vous permet de configurer des paramètres de serveur RADIUS distants que vous pouvez réutiliser en sélectionnant le modèle à l’emplacement approprié dans la console NPS. 
 
-- **Filtres IP**. Ce modèle vous permet de créer des filtres \(IPv6 @ no__t-1 protocole IPv4 (Internet Protocol version 4) et Internet Protocol version 6 que vous pouvez réutiliser \(by en sélectionnant le modèle à l’emplacement approprié dans la console NPS @ no__t-3 lorsque vous Configurez les stratégies réseau.
+- **Filtres IP**. Ce modèle vous permet de créer des filtres de\) IPv6 (Internet Protocol version 4) et IPv6 (Internet Protocol version 6) \(que vous pouvez réutiliser \(en sélectionnant le modèle à l’emplacement approprié dans la\) de la console NPS lorsque vous configurez des stratégies réseau.
 
 ## <a name="create-an-nps-template"></a>Créer un modèle NPS
 
 La configuration d’un modèle est différente de la configuration du serveur NPS directement. La création d’un modèle n’affecte pas la fonctionnalité du serveur NPS. Ce n’est que lorsque vous sélectionnez le modèle à l’emplacement approprié dans la console NPS et que vous appliquez le modèle qui affecte les fonctionnalités du serveur NPS. 
 
-Par exemple, si vous configurez un client RADIUS dans la console NPS sous **clients et serveurs RADIUS**, vous modifiez la configuration du serveur NPS et vous effectuez une étape dans la configuration de NPS pour communiquer avec l’un de vos serveurs d’accès réseau. \(The étape suivante consiste à configurer le serveur d’accès réseau \(NAS @ no__t-2 pour communiquer avec NPS. \) 
+Par exemple, si vous configurez un client RADIUS dans la console NPS sous **clients et serveurs RADIUS**, vous modifiez la configuration du serveur NPS et vous effectuez une étape dans la configuration de NPS pour communiquer avec l’un de vos serveurs d’accès réseau. \(l’étape suivante consiste à configurer le serveur d’accès réseau \(\) NAS pour communiquer avec NPS.\) 
 
-Toutefois, si vous configurez un nouveau modèle **clients RADIUS** dans la console NPS sous **gestion des modèles** au lieu de créer un client RADIUS sous **clients et serveurs RADIUS**, vous avez créé un modèle, mais vous n’avez pas modifié la Fonctionnalité NPS pour le moment. Pour modifier la fonctionnalité de serveur NPS, vous devez appliquer le modèle à partir de l’emplacement approprié dans la console NPS.
+Toutefois, si vous configurez un nouveau modèle **clients RADIUS** dans la console NPS sous **gestion des modèles** au lieu de créer un client RADIUS sous **clients et serveurs RADIUS**, vous avez créé un modèle, mais vous n’avez pas encore modifié la fonctionnalité du serveur NPS. Pour modifier la fonctionnalité de serveur NPS, vous devez appliquer le modèle à partir de l’emplacement approprié dans la console NPS.
 
 La procédure suivante fournit des instructions sur la création d’un nouveau modèle.
 

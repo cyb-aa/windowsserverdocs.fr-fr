@@ -18,7 +18,7 @@ ms.locfileid: "71357544"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez définir des périodes de rétention pour les dossiers et placer des fichiers en mode de conservation légale à l'aide de l'Infrastructure de classification des fichiers et du Gestionnaire de ressources du serveur de fichiers.  
   
@@ -26,18 +26,18 @@ Vous pouvez définir des périodes de rétention pour les dossiers et placer des
   
 -   [Conditions préalables](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
   
--   [Étape 1 : Créer des définitions de propriétés de ressource @ no__t-0  
+-   [Étape 1 : créer des définitions de propriétés de ressource](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
   
--   [Étape 2 : Configurer les notifications @ no__t-0  
+-   [Étape 2 : configurer les notifications](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step2)  
   
--   [Étape 3 : Créer une tâche de gestion de fichiers @ no__t-0  
+-   [Étape 3 : créer une tâche de gestion de fichiers](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
   
--   [Étape 4 : Classer un fichier manuellement @ no__t-0  
+-   [Étape 4 : classer un fichier manuellement](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Les étapes décrites dans cette rubrique partent du principe que vous avez un serveur SMTP configuré pour les notifications d'expiration de fichier.  
   
 ## <a name="BKMK_Step1"></a>Étape 1 : créer des définitions de propriétés de ressource  
@@ -57,7 +57,7 @@ Lors de cette étape, nous allons activer les propriétés de ressource de péri
   
 5.  Cliquez avec le bouton droit sur **Détectabilité**, puis cliquez sur **Activer**.  
   
-@no__t-guides 0solution-](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -91,7 +91,7 @@ Lors de cette étape, nous allons utiliser la console Gestionnaire de ressources
   
 6.  Cliquez sur **OK**.  
   
-@no__t-guides 0solution-](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -142,7 +142,7 @@ Lors de cette étape, nous allons utiliser la console Gestionnaire de ressources
   
 11. Cliquez sur **OK**.  
   
-@no__t-guides 0solution-](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -158,7 +158,7 @@ $schedule = New-FsrmScheduledTask -Time $date -Monthly @(-1)
 $fmj1=New-FSRMFileManagementJob -Name "Retention Task" -Namespace @('D:\Finance Documents') -Action $fmjexpiration -Schedule $schedule -Notification @($fmjNotification) -Condition @( $fmjCondition1, $fmjCondition2, $fmjCondition3)  
 ```  
   
-## <a name="BKMK_Step4"></a>Étape 4 : classifier un fichier manuellement  
+## <a name="BKMK_Step4"></a>Étape 4 : classer un fichier manuellement  
 Lors de cette étape, nous allons classifier manuellement un fichier en mode de conservation légale. Le dossier parent de ce fichier sera classifié avec une période de rétention à long terme.  
   
 #### <a name="to-manually-classify-a-file"></a>Pour classifier manuellement un fichier  
@@ -185,10 +185,10 @@ Lors de cette étape, nous allons classifier manuellement un fichier en mode de 
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Scénario : implémenter la conservation des informations sur les serveurs de fichiers](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
+-   [Scénario : implémenter la rétention des informations sur les serveurs de fichiers](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   
 -   [Planifier la rétention des informations sur les serveurs de fichiers](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   
--   [Contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Access Control dynamique : vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

@@ -39,7 +39,7 @@ Les modifications apportées à l’ordre de la suite de chiffrement TLS prennen
 
 Vous pouvez utiliser les paramètres de stratégie de groupe ordre de la suite de chiffrement SSL pour configurer l’ordre de la suite de chiffrement TLS par défaut.
 
-1. Dans la console de gestion des stratégies de groupe, accédez à **configuration** > ordinateur**modèles d’administration** > **réseaux** > **paramètres de configuration SSL**.
+1. Dans la Console de gestion des stratégies de groupe, accédez à **Configuration ordinateur** > **Modèles d’administration** > **réseaux** > **paramètres de configuration SSL**.
 2. Double-cliquez sur ordre de la **suite de chiffrement SSL**, puis cliquez sur l’option **activé** .
 3. Cliquez avec le bouton droit sur la zone **suites de chiffrement SSL** , puis sélectionnez **Sélectionner tout** dans le menu contextuel.
 
@@ -123,8 +123,8 @@ Le processus de distribution d’une courbe est le suivant :
 
 1.  Sur Windows 10 et Windows Server 2016, utilisez **certutil. exe** pour ajouter une nouvelle courbe nommée inscrite à Windows.
 2.  À partir de ce même ordinateur, ouvrez la Console de gestion des stratégies de groupe (GPMC), créez un nouvel objet stratégie de groupe, puis modifiez-le.
-3.  Accédez à **Configuration ordinateur | Préférences | Paramètres Windows | Registre**.  Cliquez avec le bouton droit sur **Registre**. Pointez sur **nouveau** , puis sélectionnez **élément de collecte**. Renommez l’élément de collecte pour qu’il corresponde au nom de la courbe. Vous allez créer un élément de collecte de Registre pour chaque clé de Registre sous *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
-4.  Configurez la collection de registres de préférences de stratégie de groupe nouvellement créée en ajoutant un nouvel **élément de Registre** pour chaque valeur de Registre listée sous *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters @ no__t-2curveName]* .
+3.  Accédez à **Configuration ordinateur | Préférences | Paramètres Windows | Registre**.  Cliquez avec le bouton droit sur **Registre**. Pointez sur **nouveau** , puis sélectionnez **élément de collecte**. Renommez l’élément de collecte pour qu’il corresponde au nom de la courbe. Vous allez créer un élément de collecte de Registre pour chaque clé de Registre sous *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
+4.  Configurez la collection de registres de préférences de stratégie de groupe nouvellement créée en ajoutant un nouvel **élément de Registre** pour chaque valeur de Registre indiquée sous *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[curveName]* .
 5.  Déployez l’objet stratégie de groupe contenant stratégie de groupe élément de collection de Registre sur les ordinateurs Windows 10 et Windows Server 2016 qui doivent recevoir les nouvelles courbes nommées.
 
     ![PRÉFÉRENCES distribuer des courbes](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

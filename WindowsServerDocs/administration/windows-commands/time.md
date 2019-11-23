@@ -1,5 +1,5 @@
 ---
-title: time
+title: heure
 description: Découvrez comment définir et afficher l’heure système.
 ms.custom: na
 ms.prod: windows-server
@@ -20,7 +20,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71369952"
 ---
-# <a name="time"></a>time
+# <a name="time"></a>heure
 
 
 
@@ -38,7 +38,7 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<HH > [ : \<MM > [ : \<SS > [. \<NN >]]] [AM @ no__t-16h00]|Définit l’heure système sur la nouvelle heure spécifiée, où *hh* est en heures (obligatoire), *mm* est en minutes et *SS* est en secondes. *Nn* peut être utilisé pour spécifier les centièmes de seconde. Si **am** ou **PM** n’est pas spécifié, l' **heure** utilise le format 24 heures par défaut.|
+|\<HH > [ :\<MM > [ :\<SS > [.\<NN >]]] [AM\|PM]|Définit l’heure système sur la nouvelle heure spécifiée, où *hh* est en heures (obligatoire), *mm* est en minutes et *SS* est en secondes. *Nn* peut être utilisé pour spécifier les centièmes de seconde. Si **am** ou **PM** n’est pas spécifié, l' **heure** utilise le format 24 heures par défaut.|
 |commutateur|Affiche l’heure actuelle sans vous demander une nouvelle heure.|
 |/?|Affiche l'aide à l'invite de commandes.|
 

@@ -21,11 +21,11 @@ ms.locfileid: "71370509"
 ---
 # <a name="get-started-with-setup-and-boot-event-collection"></a>Prise en main de la collecte d’événements de configuration et de démarrage
 
->S'applique à : Windows Server
+>S’applique à : Windows Server
 
   
-## <a name="overview"></a>Vue d'ensemble  
-La collecte d’événements de configuration et de démarrage est une nouvelle fonctionnalité dans Windows Server 2016 qui vous permet de désigner un ordinateur « collecteur » qui peut collecter différents événements importants qui se produisent sur d’autres ordinateurs lorsqu’ils démarrer ou passent par le processus de configuration. Vous pouvez ensuite analyser les événements collectés avec l’Observateur d’événements, l’Analyseur de messages, Wevtutil ou les applets de commande Windows PowerShell.  
+## <a name="overview"></a>Vue d’ensemble  
+La collecte d’événements de configuration et de démarrage est une nouvelle fonctionnalité dans Windows Server 2016 qui vous permet de désigner un ordinateur « collecteur » qui peut collecter différents événements importants qui se produisent sur d’autres ordinateurs lorsqu’ils démarrer ou passent par le processus de configuration. Vous pouvez ensuite analyser les événements collectés avec l’observateur d’événements, l’analyseur de messages, Wevtutil ou les applets de commande Windows PowerShell.  
   
 Auparavant, ces événements étaient impossibles à surveiller, car l’infrastructure nécessaire pour les collecter n’existe pas tant qu’un ordinateur n'est pas déjà configuré. Les types d’événements de configuration et de démarrage que vous pouvez surveiller sont les suivants :  
   
@@ -86,9 +86,9 @@ Vous pouvez activer le transport des événements à distance (avec Windows Powe
   
 3.  Sur l’ordinateur collecteur, exécutez l'une de ces commandes :  
   
-    -   Dans une invite Windows PowerShell : `Set-Item -Force WSMan:\localhost\Client\TrustedHosts "<target1>,<target2>,..."`, suivi de `Set-Item -Force WSMan:\localhost\Client\AllowUnencrypted true` où \<target1 >, etc. sont les noms ou adresses IP des ordinateurs cibles.  
+    -   Dans une invite Windows PowerShell : `Set-Item -Force WSMan:\localhost\Client\TrustedHosts "<target1>,<target2>,..."`, suivi par `Set-Item -Force WSMan:\localhost\Client\AllowUnencrypted true` où \<target1 >, etc. sont les noms ou les adresses IP des ordinateurs cibles.  
   
-    -   Ou dans une invite de commandes : **winrm set winrm/config/client @ {TrustedHosts = "\<target1 >, \<target2 >,..."; AllowUnencrypted = "true"}**  
+    -   Ou dans une invite de commandes : **winrm set winrm/config/client @ {TrustedHosts = "\<target1 >,\<target2 >,..."; AllowUnencrypted = "true"}**  
   
         > [!IMPORTANT]  
         > Cela définit une communication non chiffrée, donc ne l'exécutez pas en dehors d’un environnement de laboratoire.  
@@ -105,7 +105,7 @@ Vous pouvez activer le transport des événements à distance (avec Windows Powe
   
     `Enable-SbecBcd -ComputerName <target_name> -CollectorIP <ip> -CollectorPort <port> -Key <a.b.c.d>`  
   
-    Ici < NomCible > est le nom de l’ordinateur cible, \<ip > est l’adresse IP de l’ordinateur collecteur. \<port > est le numéro de port sur lequel le collecteur s’exécutera. La clé <a.b.c.d> est une clé de chiffrement requise pour la communication, composée de quatre chaînes alphanumériques séparées par des points. Cette même clé est utilisée sur l’ordinateur collecteur. Si vous n’entrez pas de clé, le système génère une clé aléatoire ; vous en aurez besoin pour l’ordinateur collecteur, donc prenez note de celle-ci.  
+    Ici < target_name > est le nom de l’ordinateur cible, \<> IP est l’adresse IP de l’ordinateur collecteur. \<port > est le numéro de port sur lequel le collecteur s’exécutera. La clé <a.b.c.d> est une clé de chiffrement requise pour la communication, composée de quatre chaînes alphanumériques séparées par des points. Cette même clé est utilisée sur l’ordinateur collecteur. Si vous n’entrez pas de clé, le système génère une clé aléatoire ; vous en aurez besoin pour l’ordinateur collecteur, donc prenez note de celle-ci.  
   
 6.  Si vous avez déjà configuré un ordinateur collecteur, mettez à jour le fichier de configuration sur l’ordinateur collecteur avec les informations pour le nouvel ordinateur cible. Consultez la section « Configuration de l’ordinateur collecteur » pour plus d’informations.  
   
@@ -150,7 +150,7 @@ Si l’ordinateur cible possède plusieurs cartes réseau, le pilote KDNET chois
   
 1.  Sur l’ordinateur cible, ouvrez le Gestionnaire de périphériques, développez **Cartes réseau**, recherchez la carte réseau que vous souhaitez utiliser et cliquez dessus avec le bouton droit.  
   
-2.  Dans le menu qui s’ouvre, cliquez sur **Propriétés**, puis sur l’onglet **Détails** . Développez le menu dans le champ de **propriété** , faites défiler jusqu’à rechercher les **informations d’emplacement** (la liste n’est probablement pas dans l’ordre alphabétique), puis cliquez dessus. La valeur est une chaîne au format **PCI bus X, Device Y, Function Z**. Prenez note de X. Y. Z ; Il s’agit des paramètres de bus dont vous avez besoin pour la commande suivante.  
+2.  Dans le menu qui s’ouvre, cliquez sur **Propriétés**, puis cliquez sur l’onglet **Détails**. Développez le menu dans le champ **Propriété**, faites défiler pour trouver les **informations de localisation** (la liste n’est probablement pas classée dans l'ordre alphabétique), puis cliquez dessus. La valeur sera une chaîne sous la forme **bus PCI X, appareil Y, fonction Z**. Prenez note de X.Y.Z ; ce sont les paramètres de bus dont vous avez besoin pour la commande suivante.  
   
 3.  Exécutez l’une des commandes suivantes :  
   
@@ -161,13 +161,13 @@ Si l’ordinateur cible possède plusieurs cartes réseau, le pilote KDNET chois
 ### <a name="validate-target-computer-configuration"></a>Valider la configuration de l’ordinateur cible  
 Pour vérifier les paramètres sur l’ordinateur cible, ouvrez une invite de commandes avec élévation de privilèges et exécutez **bcdedit/enum**. Une fois terminé, exécutez **bcdedit /eventsettings**. Vous pouvez vérifier les valeurs suivantes :  
   
--   Touche  
+-   Clé  
   
 -   Debugtype = NET  
   
--   HostIP = \<IP adresse du collecteur >  
+-   HostIP = \<adresse IP du collecteur >  
   
--   Port = @no__t-numéro 0port que vous avez spécifié pour le collecteur à utiliser >  
+-   Port = \<numéro de port que vous avez spécifié pour le collecteur à utiliser >  
   
 -   DHCP = oui  
   
@@ -251,17 +251,17 @@ Plusieurs détails sont à prendre en compte concernant le fichier de configurat
     ```  
   
     > [!NOTE]  
-    > Le nœud racine est @no__t 0collector >. Ses attributs spécifient la version de la syntaxe du fichier de configuration et le nom du fichier journal d'état.  
+    > Le nœud racine est \<> du collecteur. Ses attributs spécifient la version de la syntaxe du fichier de configuration et le nom du fichier journal d'état.  
     >   
-    > L’élément \<common > regroupe plusieurs cibles en spécifiant les éléments de configuration communs à leur place, tout comme un groupe d’utilisateurs qui peut être utilisé pour spécifier les autorisations communes pour plusieurs utilisateurs.  
+    > Le \<des groupes d’éléments de > communs ensemble plusieurs cibles spécifiant les éléments de configuration communs pour eux, de manière très similaire à un groupe d’utilisateurs qui peut être utilisé pour spécifier les autorisations communes pour plusieurs utilisateurs.  
     >   
-    > L’élément \<collectorport > définit le numéro de port UDP où le collecteur doit écouter les données entrantes. Il s’agit du même port que celui spécifié dans l’étape de configuration cible pour Bcdedit. Le collecteur ne prend en charge qu’un seul port et toutes les cibles doivent se connecter au même port.  
+    > L’élément \<collectorport > définit le numéro de port UDP dans lequel le collecteur doit écouter les données entrantes. Il s’agit du même port que celui spécifié dans l’étape de configuration cible pour Bcdedit. Le collecteur ne prend en charge qu’un seul port et toutes les cibles doivent se connecter au même port.  
     >   
-    > L’élément \<forwarder > spécifie la manière dont les événements ETW reçus des ordinateurs cibles seront transférés. Il n'existe qu’un seul type de redirecteur, qui les écrit dans les fichiers ETL. Les paramètres spécifient le modèle de nom de fichier, la limite de taille pour chaque fichier dans l’anneau et la taille de l’anneau pour chaque ordinateur. Le paramètre « toxml » spécifie que les événements ETW seront écrits sous forme binaire tels qu'ils ont été reçus, sans conversion en XML. Consultez la section « Conversion des événements en XML » pour plus d’informations sur le choix de conférer les événements au format XML ou non. Le modèle de nom de fichier contient les remplacements suivants : {computer} pour le nom d’ordinateur et {#3} pour l’index du fichier de l’anneau.  
+    > L’élément \<redirecteur > spécifie la manière dont les événements ETW reçus des ordinateurs cibles seront transférés. Il n'existe qu’un seul type de redirecteur, qui les écrit dans les fichiers ETL. Les paramètres spécifient le modèle de nom de fichier, la limite de taille pour chaque fichier dans l’anneau et la taille de l’anneau pour chaque ordinateur. Le paramètre « toxml » spécifie que les événements ETW seront écrits sous forme binaire tels qu'ils ont été reçus, sans conversion en XML. Consultez la section « Conversion des événements en XML » pour plus d’informations sur le choix de conférer les événements au format XML ou non. Le modèle de nom de fichier contient les remplacements suivants : {computer} pour le nom d’ordinateur et {#3} pour l’index du fichier de l’anneau.  
     >   
-    > Dans cet exemple de fichier, deux ordinateurs cibles sont définis avec l’élément \<target >. Chaque définition spécifie l’adresse IP avec @no__t > 0ipv4, mais vous pouvez également utiliser l’adresse MAC (par exemple, < valeur Mac = "11:22:33:44:55:66" \/ > ou < Mac valeur = "11-22-33-44-55-66" \/ >) ou le GUID SMBIOS (par exemple, < GUID value = "{269076F9-4B77-46E1-B03B-CA5003775B88}" \/ >) pour identifier l’ordinateur cible. Notez également la clé de chiffrement (la même que celle qui a été spécifiée ou générée avec Bcdedit sur l’ordinateur cible) et le nom de l’ordinateur.  
+    > Dans cet exemple de fichier, deux ordinateurs cibles sont définis avec l’élément \<target >. Chaque définition spécifie l’adresse IP avec \<> IPv4, mais vous pouvez également utiliser l’adresse MAC (par exemple, < Mac value = "11:22:33:44:55:66"\/> ou < valeur Mac = "11-22-33-44-55-66"\/>) ou le GUID SMBIOS (par exemple, < Guid value = "{269076F9-4B77-46E1-B03B-CA5003775B88}"\/>) pour identifier l’ordinateur cible. Notez également la clé de chiffrement (la même que celle qui a été spécifiée ou générée avec Bcdedit sur l’ordinateur cible) et le nom de l’ordinateur.  
   
-4.  Entrez les détails de chaque ordinateur cible en tant qu’élément > \<target distinct dans le fichier de configuration, puis enregistrez newconfig. xml et fermez le bloc-notes.  
+4.  Entrez les détails de chaque ordinateur cible sous la forme d’un élément distinct \<target > dans le fichier de configuration, puis enregistrez newconfig. xml et fermez le bloc-notes.  
   
 5.  Appliquez la nouvelle configuration avec `$result = (Get-Content .\newconfig.xml | Set-SbecActiveConfig); $result`. La sortie doit revenir avec le champ Réussite « true ». Si vous obtenez un autre résultat, voir la section Résolution des problèmes de cette rubrique.  
   
@@ -309,10 +309,10 @@ Vous trouverez le journal du service collecteur proprement dit (c'est-à-dire di
   
 ### <a name="troubleshooting-installation-of-the-feature"></a>Résolution des problèmes d’installation de la fonctionnalité  
   
-||Error|Description de l’erreur|Symptôme|Problème potentiel|  
+||Erreur|Description de l’erreur|Symptôme|Problème potentiel|  
 |-|---------|---------------------|-----------|---------------------|  
 |Dism.exe|87|L’option du nom de la fonctionnalité n’est pas reconnue dans ce contexte||-   Cela peut se produire si le nom de la fonctionnalité a été mal orthographié. Vérifiez que vous l'avez correctement orthographié et réessayez.<br />-   Vérifiez que cette fonctionnalité est disponible sur la version du système d’exploitation que vous utilisez. Dans Windows PowerShell, exécutez **dism /online /get-features &#124; ?{$_ -match "boot"}** . Si aucune correspondance n’est renvoyée, vous exécutez probablement une version qui ne prend pas en charge cette fonctionnalité.|  
-|Dism.exe|0x800f080c|La fonctionnalité @no__t 0name > est inconnue.||Comme ci-dessus|  
+|Dism.exe|0x800f080c|Le nom de la \<de fonctionnalités > est inconnu.||Comme ci-dessus|  
   
 ### <a name="troubleshooting-the-collector"></a>Résolution des problèmes du collecteur  
   
@@ -325,13 +325,13 @@ Dans une invite de commandes Windows PowerShell : `Get-WinEvent -LogName Micros
   
 Vous pouvez ajuster le niveau de détail dans les journaux avec « erreur », « avertissement », « Info » (par défaut), « détaillé » et « débogage ». Les niveaux plus détaillés que « info » sont utiles pour diagnostiquer les problèmes liés aux ordinateurs cible qui ne se connectent pas, mais ils peuvent générer une grande quantité de données. Par conséquent, utilisez-les avec précaution.  
   
-Vous définissez le niveau de journalisation minimale dans l’élément \<collector > du fichier de configuration. Par exemple : < Collector configVersionMajor = "1" minlog @ no__t-0 "Verbose" >.  
+Vous définissez le niveau de journalisation minimale dans l’élément > du collecteur de \<du fichier de configuration. Par exemple : < Collector configVersionMajor = "1" minlog\="Verbose" >.  
   
 Le niveau détaillé consigne un enregistrement pour chaque paquet reçu comme il est traité. Le niveau de débogage ajoute davantage de détails sur le traitement et vide également le contenu de tous les paquets ETW reçus.  
   
-Au niveau débogage, il peut être utile d’écrire le journal dans un fichier plutôt que d’essayer de l’afficher dans le système de journalisation habituel. Pour ce faire, ajoutez un élément supplémentaire dans l’élément \<collector > du fichier de configuration :  
+Au niveau débogage, il peut être utile d’écrire le journal dans un fichier plutôt que d’essayer de l’afficher dans le système de journalisation habituel. Pour ce faire, ajoutez un élément supplémentaire dans le \<collecteur > élément du fichier de configuration :  
   
-< Collector configVersionMajor = "1" minlog = "debug" log @ no__t-0 "c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
+< Collector configVersionMajor = "1" minlog = "debug" log\="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
       
  **Une approche suggérée pour dépanner le collecteur :**  
    
@@ -341,11 +341,11 @@ Au niveau débogage, il peut être utile d’écrire le journal dans un fichier 
    ```  
    Si une connexion à cette cible est retournée, le problème vient peut être des paramètres du Journal automatique. Si rien n'est renvoyé, le problème vient d’abord de la connexion KDNET. Pour diagnostiquer les problèmes de connexion KDNET, essayez de vérifier la connexion aux deux extrémités (autrement dit, le collecteur et la cible).  
   
-2. Pour afficher les diagnostics étendus à partir du collecteur, ajoutez-le à l’élément \<collector > du fichier de configuration :  
-   @no__t 0collector... minlog = "Verbose" >  
+2. Pour afficher les diagnostics étendus à partir du collecteur, ajoutez-le à l’élément > du collecteur de \<du fichier de configuration :  
+   collecteur de \<... minlog = "Verbose" >  
    Cela activera les messages sur tous les paquets reçus.  
-3. Vérifiez si des paquets sont reçus. Si vous le souhaitez, vous pouvez écrire le journal en mode détaillé directement dans un fichier plutôt que via ETW. Pour ce faire, ajoutez-le à l’élément \<collector > du fichier de configuration :  
-   @no__t 0collector... minlog = "Verbose" log = "c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
+3. Vérifiez si des paquets sont reçus. Si vous le souhaitez, vous pouvez écrire le journal en mode détaillé directement dans un fichier plutôt que via ETW. Pour ce faire, ajoutez-le à l’élément > du collecteur de \<du fichier de configuration :  
+   collecteur de \<... minlog = "Verbose" log = "c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
       
 4. Vérifiez si des messages sur les paquets reçus se trouvent dans les journaux des événements. Vérifiez si des paquets sont reçus. Si les paquets sont reçus mais sont incorrects, vérifiez les messages d’événements pour plus d’informations.  
 5. À partir du côté cible, KDNET écrit des informations de diagnostic dans le Registre. Consulter   
@@ -378,7 +378,7 @@ Si vous ne souhaitez pas enregistrer le résultat dans une variable, vous pouvez
   
 ### <a name="troubleshooting-target-computers"></a>Résolution des problèmes d’ordinateurs cibles  
   
-||Error|Description de l’erreur|Symptôme|Problème potentiel|  
+||Erreur|Description de l’erreur|Symptôme|Problème potentiel|  
 |-|---------|---------------------|-----------|---------------------|  
 |Ordinateur cible||La cible se connecte pas au collecteur||-   L’ordinateur cible n’a pas été redémarré une fois configuré. Redémarrez l’ordinateur cible.<br />-   L’ordinateur cible comporte des paramètres BCD incorrects. Vérifiez les paramètres dans la section « Valider les paramètres de l’ordinateur cible ». Corriger si nécessaire, puis redémarrez l’ordinateur cible.<br />-   Le pilote de KDNET/EVENT-NET n’a pas pu se connecter à une carte réseau ou s'est connecté à la mauvaise carte réseau. Dans Windows PowerShell, exécutez `gwmi Win32_NetworkAdapter` et vérifiez la sortie avec le ServiceName **kdnic**. Si la mauvaise carte réseau est sélectionnée, refaites les étapes décrites dans « Pour spécifier une carte réseau ». Si la carte réseau n’apparaît pas du tout, il se peut que le pilote ne prend en charge aucune de vos cartes réseau.<br>**Voir aussi** « Méthode suggérée pour résoudre les problèmes de collecteur » ci-dessus, en particulier les étapes 5 à 8.|  
 |Collecteur||Je ne vois plus aucun événement après la migration de la machine virtuelle sur laquelle mon collecteur est hébergé.||Vérifiez que l’adresse IP de l’ordinateur collecteur n’a pas changé. Si tel est le cas, consultez « Pour activer l’envoi des événements ETW via le transport à distance ».|  

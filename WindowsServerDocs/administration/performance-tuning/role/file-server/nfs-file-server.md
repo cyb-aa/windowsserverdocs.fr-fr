@@ -33,7 +33,7 @@ L’illustration suivante montre le modèle de communication pour NFS.
 
 ### <a name="tuning-parameters-for-nfs-file-servers"></a>Paramétrage des paramètres pour les serveurs de fichiers NFS
 
-Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les performances des serveurs de fichiers NFS :
+Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performances des serveurs de fichiers NFS :
 
 -   **OptimalReads**
 
@@ -41,7 +41,7 @@ Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les per
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\OptimalReads
     ```
 
-    La valeur par défaut est 0. Ce paramètre détermine si les fichiers sont ouverts pour le fichier @ no__t-0RANDOM @ no__t-1ACCESS ou pour le fichier @ no__t-2SEQUENTIAL @ no__t-3ONLY, en fonction des caractéristiques d’e/s de la charge de travail. Définissez cette valeur sur 1 pour forcer l’ouverture des fichiers pour le fichier @ no__t-0RANDOM @ no__t-1ACCESS. Le fichier @ no__t-0RANDOM @ no__t-1ACCESS empêche le système de fichiers et le gestionnaire de cache de prérécupérer.
+    La valeur par défaut est 0. Ce paramètre détermine si les fichiers sont ouverts pour un accès de fichier\_aléatoire\_ou pour un fichier\_séquentiel\_uniquement, en fonction des caractéristiques d’e/s de la charge de travail. Définissez cette valeur sur 1 pour forcer l’ouverture des fichiers pour le fichier\_un accès\_aléatoire. Le fichier\_RANDOM\_ACCESS empêche le système de fichiers et le gestionnaire de cache de prérécupérer.
 
     >[!NOTE]
     > Ce paramètre doit être évalué avec soin, car il peut avoir un impact potentiel sur la croissance du cache des fichiers système.
@@ -85,7 +85,7 @@ Les paramètres de Registre REG @ no__t-0DWORD suivants peuvent affecter les per
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\FileHandleCacheSizeinMB
     ```
 
-    La valeur par défaut est 4. Ce paramètre spécifie la mémoire maximale à consommer par les entrées du cache des handles de fichiers. La valeur minimale est 1 et la valeur maximale est 1 @ no__t-01024 @ no__t-11024 @ no__t-21024 (1073741824).
+    La valeur par défaut est 4. Ce paramètre spécifie la mémoire maximale à consommer par les entrées du cache des handles de fichiers. La valeur minimale est 1 et la valeur maximale est 1\*1024\*1024\*1024 (1073741824).
 
 -   **LockFileHandleCacheInMemory**
 

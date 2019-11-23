@@ -36,24 +36,24 @@ ksetup /setrealmflags <RealmName> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM.|
+|\<RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM.|
 |Indicateur de domaine|Indique l’un des indicateurs suivants :</br>-SendAddress</br>- TcpSupported</br>-Délégué</br>- NcSupported</br>-RC4|
 
 ## <a name="remarks"></a>Notes
 
 Les indicateurs de domaine spécifient des fonctionnalités supplémentaires d’un domaine Kerberos qui n’est pas basé sur le système d’exploitation Windows Server. Les ordinateurs qui exécutent Windows Server 2003, Windows Server 2008 ou Windows Server 2008 R2 peuvent utiliser un serveur Kerberos pour administrer l’authentification au lieu d’utiliser un domaine qui exécute un système d’exploitation Windows Server, et ces systèmes participent à un Domaine Kerberos. Cette entrée établit les fonctionnalités du domaine. Le tableau suivant décrit chacune d’elles.
 
-|Value|Indicateur de domaine|Description|
+|Valeur|Indicateur de domaine|Description|
 |-----|----------|-----------|
 |0xF|Tous|Tous les indicateurs de domaine sont définis.|
-|0x00|Aucune|Aucun indicateur de domaine n’est défini et aucune fonctionnalité supplémentaire n’est activée.|
+|0x00|Aucun(e)|Aucun indicateur de domaine n’est défini et aucune fonctionnalité supplémentaire n’est activée.|
 |0x01|SendAddress|L’adresse IP sera incluse dans les tickets d’accord de tickets.|
 |0x02|TcpSupported|Le protocole TCP (Transmission Control Protocol) et le protocole UDP (User Datagram Protocol) sont tous deux pris en charge dans ce domaine.|
 |0x04|Délégué|Tous les membres de ce domaine sont approuvés pour la délégation.|
 |0x08|NcSupported|Ce domaine prend en charge la canonicalisation des noms, ce qui permet les normes de nommage DNS et de domaine.|
 |0x80|RC4|Ce domaine prend en charge le chiffrement RC4 pour permettre l’approbation inter-domaines, ce qui permet l’utilisation du protocole TLS.|
 
-Les indicateurs de domaine sont stockés dans le Registre sous **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains @ no__t-1**<em>RealmName</em>. Par défaut, cette entrée n’existe pas dans le Registre. Vous pouvez utiliser la commande [Ksetup : addrealmflags](ksetup-addrealmflags.md) pour remplir le registre.
+Les indicateurs de domaine sont stockés dans le Registre sous **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\lsa\kerberos\domains\\** <em>RealmName</em>. Par défaut, cette entrée n’existe pas dans le Registre. Vous pouvez utiliser la commande [Ksetup : addrealmflags](ksetup-addrealmflags.md) pour remplir le registre.
 
 Vous pouvez voir quels indicateurs de domaine sont disponibles et définis en affichant la sortie de **Ksetup**.
 

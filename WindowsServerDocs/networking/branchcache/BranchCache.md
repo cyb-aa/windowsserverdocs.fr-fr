@@ -21,7 +21,7 @@ ms.locfileid: "71406760"
 ---
 # <a name="branchcache"></a>BranchCache
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique, qui s'adresse aux professionnels de l'informatique, présente des informations générales sur BranchCache, notamment les modes BranchCache, les caractéristiques et les capacités, ainsi que les fonctionnalités BranchCache disponibles dans différents systèmes d'exploitation.
 
@@ -188,13 +188,13 @@ Quand le fichier modifié est demandé par un autre client dans une filiale, les
 
 Vous pouvez utiliser Gestionnaire de serveur dans Windows Server 2016 pour installer la fonctionnalité BranchCache ou le service de rôle BranchCache pour fichiers réseau du rôle serveur services de fichiers. Le tableau suivant vous permet de déterminer si vous devez installer le service de rôle ou la fonctionnalité.
 
-|Fonctionnalité|Emplacement de l’ordinateur|Installer cet élément BranchCache|
+|Fonctionnalités|Emplacement de l’ordinateur|Installer cet élément BranchCache|
 |-----------------|---------------------|------------------------------------|
-|Serveur de contenu @no__t-serveur d’applications 0BITS @ no__t-1|Siège social ou centre de données en nuage|Fonctionnalité BranchCache|
-|Serveur de contenu \(Web Server @ no__t-1|Siège social ou centre de données en nuage|Fonctionnalité BranchCache|
-|Serveur de contenu \(file Server à l’aide du protocole SMB @ no__t-1|Siège social ou centre de données en nuage|Service de rôle BranchCache pour fichiers réseau du rôle serveur Services de fichiers|
+|Serveur de contenu \(serveur d’applications BITS\)|Siège social ou centre de données en nuage|Fonctionnalité BranchCache|
+|Serveur de contenu \(\) serveur Web|Siège social ou centre de données en nuage|Fonctionnalité BranchCache|
+|Serveur de contenu \(serveur de fichiers à l’aide du protocole SMB\)|Siège social ou centre de données en nuage|Service de rôle BranchCache pour fichiers réseau du rôle serveur Services de fichiers|
 |Serveur de cache hébergé|Filiale|Fonctionnalité BranchCache avec le mode de serveur de cache hébergé activé|
-|Ordinateur client prenant en charge BranchCache|Filiale|Aucune installation nécessaire ; activez simplement BranchCache et un mode BranchCache \(distributed ou Hosted @ no__t-1 sur le client|
+|Ordinateur client prenant en charge BranchCache|Filiale|Aucune installation nécessaire ; activez simplement BranchCache et un mode BranchCache \(\) distribué ou hébergé sur le client|
 
 Pour installer le service de rôle ou la fonctionnalité, ouvrez le Gestionnaire de serveur et sélectionnez les ordinateurs sur lesquels vous voulez activer la fonctionnalité BranchCache. Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**. L’Assistant **Ajout de rôles et de fonctionnalités** s’ouvre. Lorsque vous exécutez l’Assistant, effectuez les sélections suivantes :
 
@@ -263,7 +263,7 @@ En outre, les systèmes d’exploitation Windows Server 2008 R2 suivants peuvent
 
 - Windows Server 2008 R2 pour les systèmes Itanium
 
-- Windows Server 2008 R2 Datacenter
+- Windows Server 2008 R2 Datacenter
 
 - Windows Server 2008 R2 Datacenter avec Hyper-V
 
@@ -322,19 +322,19 @@ De plus, BranchCache gère les informations de contenu avec le même niveau de s
 
 Le flux d’informations de contenu et de contenu réel est divisé en quatre phases :
 
-1.  processus de @no__t 0BranchCache : Contenu de la requête @ no__t-0
+1.  [Processus BranchCache : demander du contenu](#BKMK_8)
 
-2.  processus de @no__t 0BranchCache : Localiser le contenu @ no__t-0
+2.  [Processus BranchCache : localiser le contenu](#BKMK_9)
 
-3.  processus de @no__t 0BranchCache : Récupérer le contenu @ no__t-0
+3.  [Processus BranchCache : récupérer du contenu](#BKMK_10)
 
-4.  processus de @no__t 0BranchCache : Contenu du cache @ no__t-0
+4.  [Processus BranchCache : contenu du cache](#BKMK_11)
 
 Les sections suivantes décrivent ces différentes phases.
 
-## <a name="BKMK_8"></a>Processus BranchCache : Demander du contenu
+## <a name="BKMK_8"></a>Processus BranchCache : demander du contenu
 
-Au cours de la première phase, l’ordinateur client de la filiale demande du contenu, tel qu’un fichier ou une page Web, d’un serveur de contenu situé dans un emplacement distant, tel qu’un siège social. Le serveur de contenu vérifie que l’ordinateur client est autorisé à recevoir le contenu demandé. Si l’ordinateur client est autorisé et que le serveur de contenu et le client sont BranchCache @ no__t-0enabled, le serveur de contenu génère des informations de contenu.
+Au cours de la première phase, l’ordinateur client de la filiale demande du contenu, tel qu’un fichier ou une page Web, d’un serveur de contenu situé dans un emplacement distant, tel qu’un siège social. Le serveur de contenu vérifie que l’ordinateur client est autorisé à recevoir le contenu demandé. Si l’ordinateur client est autorisé et que BranchCache\-est activé pour le serveur de contenu et le client, le serveur de contenu génère des informations de contenu.
 
 Le serveur de contenu envoie alors les informations de contenu à l’ordinateur client en utilisant le même protocole que celui qui aurait été utilisé pour le contenu réel. 
 
@@ -352,7 +352,7 @@ Une fois la partie initiale des informations de contenu (hachage de données + s
 
 Cette approche garantit qu’une entité qui n’est pas en possession du secret de serveur ne peut pas découvrir le contenu réel d’un bloc de données. Le secret de segment est traité avec le même niveau de sécurité que le segment en texte brut lui-même, car le fait de connaître le secret de segment d’un segment donné permet à une entité d’obtenir le segment auprès d’homologues, puis de le déchiffrer. La connaissance du secret de serveur ne produit pas immédiatement un texte brut particulier, mais permet de dériver certains types de données du texte chiffré, puis d’exposer éventuellement certaines données partiellement connues à une attaque de déchiffrement en force brute. Par conséquent, le secret de serveur doit être maintenu confidentiel.
   
-## <a name="BKMK_9"></a>Processus BranchCache : Localiser du contenu
+## <a name="BKMK_9"></a>Processus BranchCache : localiser le contenu
 
 Une fois les informations de contenu reçues par l’ordinateur client, le client utilise l’ID de segment pour localiser le contenu demandé dans le cache de la filiale locale, que le cache soit distribué entre les ordinateurs clients ou situé sur un serveur de cache hébergé.
 
@@ -372,11 +372,11 @@ Si le contenu demandé est introuvable dans la filiale, le client demande le con
 
 Une fois le contenu reçu, il est ajouté au cache local, soit sur l’ordinateur client, soit sur un serveur de cache hébergé. Dans ce cas, les informations de contenu empêchent un client ou un serveur de cache hébergé d’ajouter au cache local du contenu qui ne correspond pas aux hachages. Le processus de vérification du contenu en faisant correspondre les hachages garantit que seul le contenu valide est ajouté au cache, protégeant ainsi l’intégrité du cache local.
 
-## <a name="BKMK_10"></a>Processus BranchCache : Récupérer du contenu
+## <a name="BKMK_10"></a>Processus BranchCache : récupérer du contenu
 
 Une fois qu’un ordinateur client a localisé le contenu souhaité sur l’hôte de contenu, lequel est soit un serveur de cache hébergé soit un ordinateur client en mode de cache distribué, il commence le processus de récupération du contenu.
 
-L’ordinateur client commence par envoyer une demande à l’hôte de contenu pour le premier bloc dont il a besoin. La demande contient l’ID de segment et la plage de blocs qui identifient le contenu souhaité. Étant donné qu’un seul bloc est retourné, la plage de blocs contient un seul bloc. (Les demandes de plusieurs blocs ne sont actuellement pas prises en charge.) Le client stocke également la demande dans sa liste des demandes non traitées locale.  
+L’ordinateur client commence par envoyer une demande à l’hôte de contenu pour le premier bloc dont il a besoin. La demande contient l’ID de segment et la plage de blocs qui identifient le contenu souhaité. Étant donné qu’un seul bloc est retourné, la plage de blocs contient un seul bloc. (Les demandes de plusieurs blocs ne sont actuellement pas prises en charge.) Le client stocke également la demande dans sa liste de demandes en suspens locale.  
 
 Lors de la réception d’un message de demande valide d’un client, l’hôte de contenu vérifie si le bloc spécifié dans la demande existe dans le cache de contenu de l’hôte de contenu.
 
@@ -421,7 +421,7 @@ Les serveurs et les clients ne s’échangent, ne partagent et ne s’envoient j
 
     *Un client est submergé de demandes de données*. Les protocoles BranchCache incorporent des compteurs de gestion des files d’attente et des minuteurs pour éviter que les clients soient surchargés.
 
-## <a name="BKMK_11"></a>Processus BranchCache : Mettre en cache du contenu
+## <a name="BKMK_11"></a>Processus BranchCache : contenu du cache
 
 Sur les ordinateurs clients en mode de cache distribué et sur les serveurs de cache hébergé situés dans les filiales, des caches de contenu sont progressivement intégrés à mesure que du contenu est récupéré via des liaisons de réseau étendu (WAN).
 
@@ -448,7 +448,7 @@ Pour mettre à jour le serveur de cache hébergé en utilisant le protocole de c
 
 ### <a name="hosted-cache-mode-cache-population"></a>Remplissage du cache en mode cache hébergé
 
-Le processus d’ajout de contenu au cache du serveur de cache hébergé dans une filiale commence lorsque le client envoie un INITIAL_OFFER_MESSAGE, qui comprend l’ID de segment. L’ID de segment dans la demande INITIAL_OFFER_MESSAGE est utilisé pour récupérer le hachage de données de segment correspondant, la liste des hachages de blocs et le secret de segment à partir du cache de blocs du serveur de cache hébergé. Si le serveur de cache hébergé dispose déjà de toutes les informations de contenu pour un segment particulier, la réponse au message INITIAL_OFFER_MESSAGE est OK, et aucune demande de téléchargement de blocs ne se produit.
+Le processus d’ajout de contenu au cache du serveur de cache hébergé dans une filiale commence lorsque le client envoie un INITIAL_OFFER_MESSAGE, qui comprend l’ID de segment. L’ID de segment dans la demande de INITIAL_OFFER_MESSAGE est utilisé pour récupérer le hachage de données de segment correspondant, la liste des hachages de blocs et le secret de segment à partir du cache de blocs du serveur de cache hébergé. Si le serveur de cache hébergé dispose déjà de toutes les informations de contenu pour un segment particulier, la réponse au message INITIAL_OFFER_MESSAGE est OK, et aucune demande de téléchargement de blocs ne se produit.
 
 Si le serveur de cache hébergé ne dispose pas de tous les blocs de données proposés qui sont associés aux hachages du segment, la réponse au message INITIAL_OFFER_MESSAGE est INTERESTED. Le client envoie alors un message SEGMENT_INFO_MESSAGE décrivant l’unique segment qui est proposé. Le serveur de cache hébergé répond par un message OK et commence le téléchargement des blocs manquants à partir de l’ordinateur client émetteur de l’offre.
 

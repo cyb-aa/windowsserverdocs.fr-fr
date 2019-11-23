@@ -21,7 +21,7 @@ ms.locfileid: "71404557"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>Étape 2 configurer le serveur d’accès à distance
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment configurer les paramètres client et serveur requis pour la gestion à distance des clients DirectAccess. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [étape 2 planifier le déploiement de l’accès à distance](../plan/Step-2-Plan-the-Remote-Access-Deployment.md).  
   
@@ -61,7 +61,7 @@ Vous devez installer le rôle accès à distance sur un serveur de votre organis
   
 8.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
   
-](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -83,7 +83,7 @@ Il existe trois options que vous pouvez utiliser pour déployer l’accès à di
   
 #### <a name="to-configure-the-deployment-type"></a>Pour configurer le type de déploiement  
   
-1.  Sur le serveur d'accès à distance, ouvrez la console de gestion de l'accès à distance : Dans l’écran d' **Accueil** , tapez, tapez **console de gestion de l’accès à distance**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance, ouvrez la console de gestion de l’accès à distance : dans l’écran **Démarrer** , tapez, tapez **console de gestion de l’accès à distance**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
   
 2.  Dans la console de gestion de l'accès à distance, dans le volet du milieu, cliquez sur **Exécuter l'Assistant Configuration de l'accès à distance**.  
   
@@ -205,7 +205,7 @@ Une fois la configuration de l'accès à distance terminée, la **Vérification 
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 3 : Vérifier le déploiement](Step-3-Verify-the-Deployment_2.md)  
+-   [Étape 3 : vérifier le déploiement](Step-3-Verify-the-Deployment_2.md)  
   
   
 

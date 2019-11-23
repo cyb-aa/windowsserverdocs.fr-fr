@@ -82,13 +82,13 @@ Les espaces de stockage direct ont été conçus pour deux types de déploiemen
 
 Les espaces de stockage direct sont une évolution des espaces de stockage inaugurés par Windows Server 2012. Ils tirent parti des nombreuses fonctionnalités de Windows Server que vous connaissez déjà, telles que le clustering de basculement, le système de fichiers de volume partagé de cluster (CSV), le protocole SMB3 (Server Message Block) et bien entendu les espaces de stockage. De même, ils introduisent de nouvelles technologies, plus particulièrement le Software Storage Bus.
 
-Voici une vue d’ensemble de la pile d’espaces de stockage direct:
+Voici une vue d’ensemble de la pile des espaces de stockage direct :
 
 ![Pile d’espaces de stockage direct](media/storage-spaces-direct-in-windows-server-2016/converged-full-stack.png)
 
 **Matériel de mise en réseau.** Les espaces de stockage direct utilisent SMB3, dont SMB Direct et SMB Multichannel, via une connexion Ethernet pour assurer la communication entre les serveurs. Nous recommandons fortement le 10+ GbE avec un accès direct à la mémoire à distance (RDMA), iWARP ou RoCE.
 
-**Matériel de stockage.** De 2 à 16 serveurs équipés de lecteurs SATA, SAS ou NVMe locaux. Chaque serveur doit disposer d’au moins 2 lecteurs SSD et au moins 4 lecteurs supplémentaires. Les appareils SATA et SAS doivent se trouver derrière un adaptateur de bus hôte/carte de bus hôte (HBA) et un expandeur SAS. Nous recommandons fortement les plateformes conçues avec soin et largement validées de nos partenaires (à venir).
+**Matériel de stockage.** De 2 à 16serveurs équipés de disques SATA, SAS ou NVMe locaux. Chaque serveur doit disposer d’au moins 2 lecteurs SSD et au moins 4 lecteurs supplémentaires. Les appareils SATA et SAS doivent se trouver derrière un adaptateur de bus hôte/carte de bus hôte (HBA) et un expandeur SAS. Nous recommandons fortement les plateformes conçues avec soin et largement validées de nos partenaires (à venir).
 
 **Clustering de basculement.** Les fonctionnalités de clustering intégrées à Windows Server servent à connecter les serveurs.
 
@@ -112,7 +112,7 @@ Il existe [plus de 10 000 clusters](https://blogs.technet.microsoft.com/filecab/
 
 Visitez [Microsoft.com/HCI](https://www.microsoft.com/hci) pour lire ses histoires :
 
-[@no__t 1Grid des logos des clients](media/storage-spaces-direct-in-windows-server-2016/customer-stories.png)](https://www.microsoft.com/hci)
+[![grille des logos des clients](media/storage-spaces-direct-in-windows-server-2016/customer-stories.png)](https://www.microsoft.com/hci)
 
 ## <a name="management-tools"></a>Outils de gestion
 
@@ -125,11 +125,11 @@ Les outils suivants peuvent être utilisés pour gérer et/ou surveiller espaces
 | Windows PowerShell                                                        | Ligne de commande | Inclus |
 | [System Center Virtual Machine Manager (SCVMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-storage-spaces-direct-vmm) <br>& [Operations Manager (SCOM)](https://www.microsoft.com/download/details.aspx?id=54700) | Interface    | Payant     |
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Commencer
 
 Essayez les espaces de stockage direct [dans Microsoft Azure](https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/), ou téléchargez une version d’évaluation avec licence de 180 jours de Windows Server sur la page [Windows Server - Évaluations](https://go.microsoft.com/fwlink/?linkid=842602).
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Tolérance de panne et efficacité du stockage](storage-spaces-fault-tolerance.md)
 - [Réplica de stockage](../storage-replica/storage-replica-overview.md)

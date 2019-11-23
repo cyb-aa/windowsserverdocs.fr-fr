@@ -17,9 +17,9 @@ ms.locfileid: "71405341"
 ---
 # <a name="plan-nps-as-a-radius-server"></a>Planifier un serveur NPS en tant que serveur RADIUS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Lorsque vous déployez un serveur de stratégie réseau \(NPS @ no__t-1 en tant que serveur protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS), NPS effectue l’authentification, l’autorisation et la gestion des comptes pour les demandes de connexion pour le domaine local et pour les domaines qui approuvent le domaine local. Vous pouvez utiliser ces instructions de planification pour simplifier votre déploiement RADIUS.
+Lorsque vous déployez un serveur de stratégie réseau \(\) NPS en tant que serveur protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS), NPS effectue l’authentification, l’autorisation et la gestion des comptes pour les demandes de connexion pour le domaine local et pour les domaines qui approuvent le domaine local. Vous pouvez utiliser ces instructions de planification pour simplifier votre déploiement RADIUS.
 
 Ces instructions de planification n’incluent pas les circonstances dans lesquelles vous souhaitez déployer NPS en tant que proxy RADIUS. Lorsque vous déployez NPS en tant que proxy RADIUS, NPS transfère les demandes de connexion à un serveur exécutant NPS ou d’autres serveurs RADIUS dans des domaines distants, des domaines non approuvés, ou les deux. 
 
@@ -62,7 +62,7 @@ Les clients RADIUS sont des serveurs d’accès réseau, tels que les points d�
 >[!IMPORTANT]
 >Les clients d’accès, tels que les ordinateurs clients, ne sont pas des clients RADIUS. Seuls les serveurs d’accès réseau et les serveurs proxy qui prennent en charge le protocole RADIUS sont des clients RADIUS.
 
-En outre, les commutateurs et les points d’accès sans fil doivent être en charge de l’authentification 802.1 X. Si vous souhaitez déployer le protocole EAP (Extensible Authentication Protocol \(EAP @ no__t-1 ou Protected Extensible Authentication Protocol \(PEAP @ no__t-3, les points d’accès et les commutateurs doivent prendre en charge l’utilisation d’EAP.
+En outre, les commutateurs et les points d’accès sans fil doivent être en charge de l’authentification 802.1 X. Si vous souhaitez déployer le protocole EAP (Extensible Authentication Protocol) \(EAP\) \(ou PEAP\), les points d’accès et les commutateurs doivent prendre en charge l’utilisation du protocole EAP.
 
 Pour tester l’interopérabilité de base pour les connexions PPP pour les points d’accès sans fil, configurez le point d’accès et le client d’accès pour utiliser le protocole PAP (Password Authentication Protocol). Utilisez des protocoles d’authentification PPP supplémentaires, tels que PEAP, jusqu’à ce que vous ayez testé ceux que vous envisagez d’utiliser pour l’accès au réseau.
 
@@ -80,7 +80,7 @@ Au cours de la planification des clients RADIUS, vous pouvez suivre les étapes 
 
 NPS prend en charge les méthodes d’authentification par mot de passe et par certificat. Toutefois, tous les serveurs d’accès réseau ne prennent pas en charge les mêmes méthodes d’authentification. Dans certains cas, vous souhaiterez peut-être déployer une méthode d’authentification différente en fonction du type d’accès réseau.
 
-Par exemple, vous souhaiterez peut-être déployer un accès sans fil et VPN pour votre organisation, mais vous pouvez utiliser une méthode d’authentification différente pour chaque type d’accès : EAP-TLS pour les connexions VPN, en raison de la sécurité renforcée fournie par EAP-TLS (Transport Layer Security) et PEAP-MS-CHAP v2 pour les connexions sans fil 802.1 X.
+Par exemple, vous souhaiterez peut-être déployer un accès sans fil et VPN pour votre organisation, mais utilisez une méthode d’authentification différente pour chaque type d’accès : EAP-TLS pour les connexions VPN, en raison de la sécurité renforcée d’EAP avec EAP-TLS (Transport Layer Security). fournit et PEAP-MS-CHAP v2 pour les connexions sans fil 802.1 X.
 
 PEAP-MS-CHAP v2, PEAP avec Microsoft Challenge Handshake Authentication Protocol version 2 (PEAP-MS-CHAP v2) fournit une fonctionnalité appelée reconnexion rapide, conçue spécifiquement pour une utilisation avec des ordinateurs portables et d’autres périphériques sans fil. La reconnexion rapide permet aux clients sans fil de se déplacer entre des points d’accès sans fil sur le même réseau sans avoir à s’authentifier à chaque fois qu’ils sont associés à un nouveau point d’accès. Cela offre une meilleure expérience pour les utilisateurs sans fil et leur permet de se déplacer entre les points d’accès sans avoir à retaper leurs informations d’identification.
 En raison de la reconnexion rapide et de la sécurité fournie par PEAP-MS-CHAP v2, PEAP-MS-CHAP v2 est un choix logique comme méthode d’authentification pour les connexions sans fil.
@@ -97,7 +97,7 @@ PEAP-MS-CHAP v2 et EAP-TLS sont des méthodes d’authentification basées sur d
 
 EAP-TLS utilise des certificats pour l’authentification du client et du serveur, et exige que vous déployiez une infrastructure à clé publique (PKI) dans votre organisation. Le déploiement d’une infrastructure à clé publique peut être complexe et nécessite une phase de planification indépendante de la planification de l’utilisation de NPS en tant que serveur RADIUS.
 
-Avec EAP-TLS, le serveur NPS inscrit un certificat de serveur auprès d’une autorité de certification \(CA @ no__t-1, et le certificat est enregistré sur l’ordinateur local dans le magasin de certificats. Pendant le processus d’authentification, l’authentification serveur se produit lorsque le serveur NPS envoie son certificat de serveur au client d’accès pour prouver son identité au client d’accès. Le client d’accès examine diverses propriétés de certificat pour déterminer si le certificat est valide et convient à une utilisation lors de l’authentification du serveur. Si le certificat de serveur répond à la configuration minimale requise pour les certificats de serveur et s’il est émis par une autorité de certification approuvée par le client d’accès, le serveur NPS est correctement authentifié par le client.
+Avec EAP-TLS, le serveur NPS inscrit un certificat de serveur auprès d’une autorité de certification \(\)de l’autorité de certification, et le certificat est enregistré sur l’ordinateur local dans le magasin de certificats. Pendant le processus d’authentification, l’authentification serveur se produit lorsque le serveur NPS envoie son certificat de serveur au client d’accès pour prouver son identité au client d’accès. Le client d’accès examine diverses propriétés de certificat pour déterminer si le certificat est valide et convient à une utilisation lors de l’authentification du serveur. Si le certificat de serveur répond à la configuration minimale requise pour les certificats de serveur et s’il est émis par une autorité de certification approuvée par le client d’accès, le serveur NPS est correctement authentifié par le client.
 
 De même, l’authentification du client se produit pendant le processus d’authentification lorsque le client envoie son certificat client au serveur NPS pour prouver son identité au serveur NPS. Le serveur NPS examine le certificat et, si le certificat client répond à la configuration minimale requise pour les certificats clients et est émis par une autorité de certification approuvée par le serveur NPS, le client d’accès est correctement authentifié par le serveur NPS.
 
@@ -157,7 +157,7 @@ Lors de la planification des stratégies réseau, vous pouvez suivre les étapes
 
 ## <a name="plan-nps-accounting"></a>Planifier la gestion des comptes NPS
 
-NPS offre la possibilité de consigner les données de gestion des comptes RADIUS, telles que les demandes d’authentification des utilisateurs et de gestion des comptes, dans les trois formats suivants : Le format IAS, le format compatible avec la base de données et la journalisation Microsoft SQL Server. 
+NPS offre la possibilité de consigner les données de gestion des comptes RADIUS, telles que les demandes d’authentification des utilisateurs et de gestion des comptes, dans trois formats : le format IAS, le format compatible avec la base de données et la journalisation Microsoft SQL Server. 
 
 Le format IAS et le format compatible avec la base de données créent des fichiers journaux sur le serveur NPS local au format de fichier texte. 
 
@@ -195,9 +195,9 @@ Pendant la planification de la gestion des comptes NPS à l’aide des fichiers 
 
 La journalisation des SQL Server NPS est utilisée lorsque vous avez besoin d’informations d’état de session, de création de rapports et d’analyse des données, ainsi que de centralisation et de simplification de la gestion de vos données de comptabilité.
 
-NPS permet d’utiliser SQL Server la journalisation pour enregistrer les demandes d’authentification des utilisateurs et de gestion des comptes reçues d’un ou plusieurs serveurs d’accès réseau à une source de données sur un ordinateur exécutant le moteur d’Microsoft SQL Server Desktop \(MSDE 2000 @ no__t-1, ou à tout version de SQL Server ultérieure à SQL Server 2000.
+NPS offre la possibilité d’utiliser la journalisation SQL Server pour enregistrer les demandes d’authentification des utilisateurs et de gestion des comptes reçues à partir d’un ou plusieurs serveurs d’accès réseau à une source de données sur un ordinateur exécutant le moteur d’Microsoft SQL Server Desktop \(MSDE 2000\), ou toute version de SQL Server ultérieure à SQL Server 2000.
 
-Les données de gestion des comptes sont transmises de NPS au format XML à une procédure stockée dans la base de données, qui prend en charge le langage de requête structuré \(SQL @ no__t-1 et XML \(SQLXML @ no__t-3. L’enregistrement des demandes d’authentification des utilisateurs et de gestion des comptes dans une base de données SQL Server conforme à XML permet à plusieurs NPSs d’avoir une seule source de données.
+Les données de gestion des comptes sont transmises de NPS au format XML à une procédure stockée dans la base de données, qui prend en charge le langage de requête structuré \(SQL\) et XML \(SQLXML\). L’enregistrement des demandes d’authentification des utilisateurs et de gestion des comptes dans une base de données SQL Server conforme à XML permet à plusieurs NPSs d’avoir une seule source de données.
 
 ### <a name="key-steps"></a>Étapes clés
 

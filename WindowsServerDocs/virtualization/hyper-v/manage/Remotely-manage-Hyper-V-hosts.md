@@ -20,7 +20,7 @@ ms.locfileid: "71392688"
 ---
 # <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Gérer à distance les ordinateurs hôtes Hyper-V à l’aide du Gestionnaire Hyper-V
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows 10 Windows 8.1
 
 Cet article répertorie les combinaisons prises en charge des ordinateurs hôtes Hyper-V et du Gestionnaire Hyper-V et explique comment se connecter aux hôtes Hyper-V locaux et distants afin de pouvoir les gérer. 
 
@@ -67,7 +67,7 @@ Si vous ne pouvez pas vous connecter :
 
 Pour gérer les ordinateurs hôtes Hyper-V distants, activez la gestion à distance sur l’ordinateur local et l’hôte distant.
 
-Sur Windows Server, ouvrez Gestionnaire de serveur**serveur Local** @no__t 0 \>**administration à distance** , puis cliquez sur **autoriser les connexions à distance à cet ordinateur**. 
+Sur Windows Server, ouvrez Gestionnaire de serveur \>**serveur Local** \>**administration à distance** , puis cliquez sur **autoriser les connexions à distance à cet ordinateur**. 
 
 Ou, à partir de l’un des systèmes d’exploitation, ouvrez Windows PowerShell en tant qu’administrateur et exécutez : 
 
@@ -79,7 +79,7 @@ Enable-PSRemoting
 
 Pour Windows 8.1 et versions antérieures, la gestion à distance fonctionne uniquement lorsque l’ordinateur hôte se trouve dans le même domaine et que votre compte d’utilisateur local est également sur l’hôte distant.
 
-Pour ajouter un hôte Hyper-V distant au Gestionnaire Hyper-V, sélectionnez **un autre ordinateur** dans la boîte de dialogue **Sélectionner un ordinateur** , puis tapez le nom d’hôte de l’hôte distant, le nom NetBIOS ou le nom de domaine complet \(FQDN @ no__t-3.
+Pour ajouter un hôte Hyper-V distant au Gestionnaire Hyper-V, sélectionnez **un autre ordinateur** dans la boîte de dialogue **Sélectionner un ordinateur** , puis tapez le nom d’hôte de l’hôte distant, le nom NetBIOS ou le nom de domaine complet \(\)de noms de domaine complet.
 
 Le Gestionnaire Hyper-V dans Windows Server 2016 et Windows 10 offre plus de types de connexion à distance que les versions précédentes, décrits dans les sections suivantes.  
 
@@ -129,7 +129,7 @@ Pour ce faire :
 Ensuite, configurez l’ordinateur que vous utiliserez pour gérer l’hôte Hyper-V.
 
 1. Ouvrez une session Windows PowerShell en tant qu’administrateur.
-1. Exécutez les commandes suivantes:
+1. Exécutez les commandes suivantes :
 
      ```
      Set-Item WSMan:\localhost\Client\TrustedHosts -Value "fqdn-of-hyper-v-host"
@@ -138,7 +138,7 @@ Ensuite, configurez l’ordinateur que vous utiliserez pour gérer l’hôte Hyp
      Enable-WSManCredSSP -Role client -DelegateComputer "fqdn-of-hyper-v-host"
      ```
 1. Vous devrez peut-être également configurer la stratégie de groupe suivante : 
-    * **Configuration** de l’ordinateur \> **modèles d’administration** la **délégation des informations d’identification** \> du **système** \> \> **autoriser la délégation de nouvelles informations d’identification avec l’authentification du serveur NTLM uniquement**
+    * **Configuration** de l’ordinateur \> **modèles d’administration** \> la **délégation des informations d’identification** du **système** \> \> **autoriser la délégation de nouvelles informations d’identification avec l’authentification du serveur NTLM uniquement**
     * Cliquez sur **activer** et ajoutez *WSMan/FQDN-of-Hyper-v-Host*.
 1. Ouvrez **le Gestionnaire Hyper-V**.
 1. Dans le volet gauche, cliquez avec le bouton droit sur **Gestionnaire Hyper-V**.
@@ -153,7 +153,7 @@ Pour plus d’informations sur les applets de commande, consultez [Set-Item](htt
 
 Pour utiliser un outil d’interface utilisateur, choisissez celui qui convient au système d’exploitation sur l’ordinateur sur lequel vous allez exécuter le Gestionnaire Hyper-V :
 
-Sur Windows Server, ouvrez Gestionnaire de serveur \> **gérer** \> **Ajouter des rôles et des fonctionnalités**. Accédez à la page **fonctionnalités** et développez **Outils d’administration de serveur distant** \> **outils d’administration de rôle** \> **outils de gestion Hyper-V**. 
+Sur Windows Server, ouvrez Gestionnaire de serveur \> **gérer** \> **Ajouter des rôles et des fonctionnalités**. Accédez à la page **fonctionnalités** et développez **Outils d’administration de serveur distant** \> outils d' **administration de rôle** \> **outils de gestion Hyper-V**. 
 
 Sur Windows, le Gestionnaire Hyper-V est disponible sur [n’importe quel système d’exploitation Windows incluant Hyper-v](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
 
@@ -169,7 +169,7 @@ Pour utiliser Windows PowerShell, exécutez la commande suivante en tant qu’ad
 add-windowsfeature rsat-hyper-v-tools
 ```
 
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Voir également  
  
 [Installer Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
 

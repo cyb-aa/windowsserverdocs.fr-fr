@@ -38,17 +38,17 @@ winsat mfmedia <parameters>
 
 |Paramètres|Description|
 |----------|-----------|
-|-@no__t d’entrée-nom 0file >|Obligatoire : Spécifiez le fichier contenant le clip vidéo à lire ou à encoder. Le fichier peut être dans n’importe quel format qui peut être rendu par Media Foundation.|
+|-nom du fichier \<d’entrée >|Obligatoire : spécifiez le fichier contenant le clip vidéo à lire ou à encoder. Le fichier peut être dans n’importe quel format qui peut être rendu par Media Foundation.|
 |-dumpgraph|Spécifiez que le graphique de filtre doit être enregistré dans un fichier compatible GraphEdit avant le démarrage de l’évaluation.|
 |-NS|Spécifiez que le graphique de filtre doit s’exécuter à la vitesse de lecture normale du fichier d’entrée. Par défaut, le graphique de filtre s’exécute aussi rapidement que possible, en ignorant les durées de présentation.|
 |-Play|Exécutez l’évaluation en mode décode et lisez tout contenu audio fourni dans le fichier spécifié en **entrée** à l’aide de l’appareil DirectSound par défaut. Par défaut, la lecture audio est désactivée.|
 |-nopmp|N’utilisez pas Media Foundation le processus MFPMP (Protected Media Pipeline) pendant l’évaluation.|
-|-PMP|Utilisez toujours le processus MFPMP pendant l’évaluation.</br>Remarque : Si **-PMP** ou **-nopmp** n’est pas spécifié, MFPMP est utilisé uniquement lorsque cela est nécessaire.|
+|-PMP|Utilisez toujours le processus MFPMP pendant l’évaluation.</br>Remarque : si **-PMP** ou **-nopmp** n’est pas spécifié, MFPMP est utilisé uniquement lorsque cela est nécessaire.|
 |-v|Envoie la sortie détaillée à STDOUT, y compris les informations d’État et de progression. Toutes les erreurs sont également écrites dans la fenêtre de commande.|
-|-nom \<du fichier XML >|Enregistre la sortie de l’évaluation en tant que fichier XML spécifié. Si le fichier spécifié existe, il est remplacé.|
-|-idiskinfo|Enregistrer les informations sur les volumes physiques et les disques logiques dans le cadre de la  **\<section SystemConfig >** de la sortie XML.|
+|-nom de fichier \<XML >|Enregistre la sortie de l’évaluation en tant que fichier XML spécifié. Si le fichier spécifié existe, il est remplacé.|
+|-idiskinfo|Enregistrer les informations sur les volumes physiques et les disques logiques dans le cadre de la section **\<SystemConfig >** dans la sortie XML.|
 |-iguid|Créez un identificateur global unique (GUID) dans le fichier de sortie XML.|
-|-Remarque : « texte de la note »|Ajoutez le texte de la note à la  **\<section note >** du fichier de sortie XML.|
+|-Remarque : « texte de la note »|Ajoutez le texte de note à la section **\<note >** dans le fichier de sortie XML.|
 |-icn|Incluez le nom de l’ordinateur local dans le fichier de sortie XML.|
 |-EEF|Énumérer les informations système supplémentaires dans le fichier de sortie XML.|
 

@@ -22,7 +22,7 @@ ms.locfileid: "71373392"
 ---
 # <a name="nslookup-root"></a>nslookup root
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 remplace le serveur par défaut par le serveur pour la racine de l’espace de noms de domaine DNS (Domain Name System).
 ## <a name="syntax"></a>Syntaxe

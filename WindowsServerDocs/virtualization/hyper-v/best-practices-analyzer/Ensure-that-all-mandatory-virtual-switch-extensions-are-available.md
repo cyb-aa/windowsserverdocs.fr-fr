@@ -19,7 +19,7 @@ ms.locfileid: "71364823"
 ---
 # <a name="ensure-that-all-mandatory-virtual-switch-extensions-are-available"></a>Vérifier que toutes les extensions de commutateur virtuel obligatoires sont disponibles
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -38,10 +38,10 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>Impact  
 *Le trafic réseau est bloqué sur une ou plusieurs cartes réseau virtuelles sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
-*First, assurez-vous que l’extension obligatoire a été installée sur l’hôte et installez l’extension si nécessaire. Ensuite, si l’extension obligatoire est désactivée, utilisez le gestionnaire de commutateur virtuel ou l’applet de commande Windows PowerShell Enable-VMSwitchExtension pour activer l’extension.*  
+## <a name="resolution"></a>Résolution  
+*Tout d’abord, assurez-vous que l’extension obligatoire a été installée sur l’hôte et installez l’extension si nécessaire. Ensuite, si l’extension obligatoire est désactivée, utilisez le gestionnaire de commutateur virtuel ou l’applet de commande Windows PowerShell Enable-VMSwitchExtension pour activer l’extension.*  
   
 
 

@@ -22,7 +22,7 @@ ms.locfileid: "71363379"
 ---
 # <a name="using-the-get-alldrivergroups-command"></a>Utilisation de la commande AllDriverGroups
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche des informations sur tous les groupes de pilotes sur un serveur.
 ## <a name="syntax"></a>Syntaxe

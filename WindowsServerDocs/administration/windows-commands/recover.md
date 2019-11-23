@@ -38,7 +38,7 @@ recover [<Drive>:][<Path>]<FileName>
 
 |           Paramètre           |                                          Description                                          |
 |-------------------------------|-----------------------------------------------------------------------------------------------|
-| [@no__t 0Drive >:] [<Path>] <FileName> | Spécifie l’emplacement et le nom du fichier que vous souhaitez récupérer. Le *nom de fichier* est obligatoire. |
+| [\<> de lecteur :] [<Path>]<FileName> | Spécifie l’emplacement et le nom du fichier que vous souhaitez récupérer. Le *nom de fichier* est obligatoire. |
 |              /?               |                             Affiche l'aide à l'invite de commandes.                              |
 
 ## <a name="remarks"></a>Notes

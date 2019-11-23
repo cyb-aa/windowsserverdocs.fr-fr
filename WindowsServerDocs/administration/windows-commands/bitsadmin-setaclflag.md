@@ -22,7 +22,7 @@ ms.locfileid: "71380759"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
-Définit les indicateurs de propagation de la liste de contrôle d’accès (ACL) pour le travail. Les indicateurs indiquent que vous souhaitez conserver les informations relatives au propriétaire et à la liste de contrôle d’accès avec le fichier en cours de téléchargement. Par exemple, pour conserver le propriétaire et le groupe avec le fichier, définissez les **indicateurs** Pour `OG`.
+Définit les indicateurs de propagation de la liste de contrôle d’accès (ACL) pour le travail. Les indicateurs indiquent que vous souhaitez conserver les informations relatives au propriétaire et à la liste de contrôle d’accès avec le fichier en cours de téléchargement. Par exemple, pour conserver le propriétaire et le groupe avec le fichier, affectez à **flags** la valeur `OG`.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -35,7 +35,7 @@ bitsadmin /SetAclFlags <Job> <Flags>
 |Paramètre|Description|
 |---------|-----------|
 |Tâche|Nom complet ou GUID du travail|
-|Flags|Spécifiez une ou plusieurs des valeurs d’indicateur suivantes :</br>SORTIES Copiez les informations de propriétaire avec le fichier.</br>ACTIVÉE Copier les informations de groupe avec le fichier.</br>E Copiez les informations DACL avec le fichier.</br>-S : copie des informations SACL avec le fichier.|
+|Flags|Spécifiez une ou plusieurs des valeurs d’indicateur suivantes :</br>-O : copie des informations de propriétaire avec le fichier.</br>-G : copie des informations de groupe avec le fichier.</br>-D : copie des informations DACL avec le fichier.</br>-S : copie des informations SACL avec le fichier.|
 
 ## <a name="remarks"></a>Notes
 

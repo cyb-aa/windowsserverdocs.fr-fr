@@ -19,7 +19,7 @@ ms.locfileid: "71364613"
 ---
 # <a name="the-number-of-running-virtual-machines-configured-for-sr-iov-should-not-exceed-the-number-of-virtual-functions-available-to-the-virtual-machines"></a>Le nombre d’ordinateurs virtuels en cours d’exécution configurés pour SR-IOV ne doit pas dépasser le nombre de fonctions virtuelles disponibles pour les machines virtuelles
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -38,9 +38,9 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>Impact  
 *Les performances de mise en réseau peuvent ne pas être optimales sur les ordinateurs virtuels suivants :*  
    
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
 *Envisagez de désactiver SR-IOV sur une ou plusieurs machines virtuelles qui ne nécessitent pas de fonction virtuelle SR-IOV.*  
   
 

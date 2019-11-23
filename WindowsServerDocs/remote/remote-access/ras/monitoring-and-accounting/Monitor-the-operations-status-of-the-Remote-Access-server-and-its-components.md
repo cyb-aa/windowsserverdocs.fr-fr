@@ -21,7 +21,7 @@ ms.locfileid: "71404550"
 ---
 # <a name="monitor-the-operations-status-of-the-remote-access-server-and-its-components"></a>Analyser l'état de fonctionnement du serveur d'accès à distance et de ses composants
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 **Remarque :** Windows Server 2012 associe DirectAccess et le service Routage et accès distant (RRAS) dans un rôle Accès à distance unique.  
   
@@ -40,7 +40,7 @@ La console de gestion du serveur d’accès à distance peut être utilisée pou
   
 4.  Cliquez sur **Actualiser** sous **tâches** dans le volet droit pour recharger l’état des opérations. L’état des opérations est actualisé automatiquement toutes les cinq minutes, ce qui correspond à l’intervalle d’actualisation par défaut. Pour modifier l’intervalle d’actualisation par défaut, cliquez sur **configurer l’intervalle d’actualisation**.  
   
-](../../../media/Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   

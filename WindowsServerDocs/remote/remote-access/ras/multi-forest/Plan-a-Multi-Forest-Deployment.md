@@ -21,11 +21,11 @@ ms.locfileid: "71404514"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>Plan a Multi-Forest Deployment
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit les étapes de planification requises pour configurer l’accès à distance dans un déploiement à forêts multiples.  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Avant de déployer ce scénario, prenez connaissance des conditions requises suivantes qui ont leur importance :  
   
 -   Une approbation bidirectionnelle est requise.  
@@ -42,8 +42,8 @@ En outre, l’administrateur de l’accès à distance doit être administrateur
 Vous devez configurer au moins un groupe de sécurité dans la nouvelle forêt pour les ordinateurs clients DirectAccess inclus dans cette nouvelle forêt. Cela est dû au fait qu’un groupe de sécurité ne peut pas contenir des comptes provenant de plusieurs forêts.  
   
 > [!NOTE]  
-> -   DirectAccess requiert au moins un groupe de sécurité client Windows 10 @ no__t-0 ou Windows @ no__t-1 8 pour chaque forêt. Toutefois, il est recommandé de disposer d’un groupe de sécurité client Windows 10 ou Windows 8 pour chaque domaine contenant des clients Windows 10 ou Windows 8.  
-> -   Lorsque le multisite est activé, DirectAccess requiert au moins un groupe de sécurité client Windows 7 @ no__t-0 par forêt pour chaque point d’entrée DirectAccess dans lequel les ordinateurs clients Windows 7 sont pris en charge. Toutefois, il est recommandé de disposer d’un groupe de sécurité client Windows 7 distinct pour chaque point d’entrée de chaque domaine contenant des clients Windows 7.  
+> -   DirectAccess requiert au moins un groupe de sécurité Windows 10&reg; ou Windows&reg; 8 client pour chaque forêt. Toutefois, il est recommandé de disposer d’un groupe de sécurité client Windows 10 ou Windows 8 pour chaque domaine contenant des clients Windows 10 ou Windows 8.  
+> -   Lorsque le multisite est activé, DirectAccess requiert au moins un groupe de sécurité client Windows 7&reg; par forêt pour chaque point d’entrée DirectAccess dans lequel les ordinateurs clients Windows 7 sont pris en charge. Toutefois, il est recommandé de disposer d’un groupe de sécurité client Windows 7 distinct pour chaque point d’entrée de chaque domaine contenant des clients Windows 7.  
 >   
 > Pour que DirectAccess soit appliqué aux ordinateurs clients situés dans d’autres domaines, il est nécessaire de créer des objets de stratégie de groupe dans ces domaines. L’ajout de groupes de sécurité déclenche l’écriture de nouveaux objets de stratégie de groupe clients pour les nouveaux domaines ; par conséquent, si vous ajoutez un nouveau groupe de sécurité à partir d’un nouveau domaine à la liste des groupes de sécurité clients DirectAccess, un objet de stratégie de groupe client est automatiquement créé sur le nouveau domaine et les ordinateurs clients du nouveau domaine obtiennent les paramètres DirectAccess via cet objet de stratégie de groupe client.  
 >   

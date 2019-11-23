@@ -21,9 +21,9 @@ ms.locfileid: "71381569"
 ---
 # <a name="bitsadmin-gethelpertokenflags"></a>Bitsadmin gethelpertokenflags
 
-Retourne les indicateurs d’utilisation d’un [jeton d’assistance](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)  que est associé à une tâche de transfert bits.
+Retourne les indicateurs d’utilisation d’un [jeton d’assistance](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs) associé à une tâche de transfert bits.
 
-**BITS 3,0 et versions antérieures**: Non pris en charge.
+**BITS 3,0 et versions antérieures**: non pris en charge.
 
 ## <a name="syntax"></a>Syntaxe
 

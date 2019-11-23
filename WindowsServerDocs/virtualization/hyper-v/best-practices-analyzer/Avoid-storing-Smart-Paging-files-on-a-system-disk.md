@@ -19,7 +19,7 @@ ms.locfileid: "71365239"
 ---
 # <a name="avoid-storing-smart-paging-files-on-a-system-disk"></a>Éviter de stocker les fichiers de pagination intelligente sur un disque système
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Opérations|  
   
 Dans les sections suivantes, l’italique indique le texte qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
@@ -36,11 +36,11 @@ Dans les sections suivantes, l’italique indique le texte qui apparaît dans l�
 *La configuration de la mémoire pour un ou plusieurs ordinateurs virtuels peut nécessiter l’utilisation de la pagination intelligente si la machine virtuelle est redémarrée, et que l’emplacement spécifié pour le fichier de pagination intelligente est le disque système du serveur exécutant Hyper-V.*  
   
 ## <a name="impact"></a>Impact  
-*Use du disque système pour la pagination intelligente peut entraîner des problèmes au niveau du serveur exécutant Hyper-V. Cela affecte les ordinateurs virtuels suivants :*  
+*L’utilisation du disque système pour la pagination intelligente peut entraîner des problèmes sur le serveur exécutant Hyper-V. Cela affecte les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
 *Reconfigurez les machines virtuelles pour stocker les fichiers de pagination intelligente sur un disque non-système.*  
   
 

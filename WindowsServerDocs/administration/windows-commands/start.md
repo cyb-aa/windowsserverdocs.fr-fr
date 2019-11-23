@@ -38,17 +38,17 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 
 |Paramètre|Description|
 |---------|-----------|
-|« \<Title > »|Spécifie le titre à afficher dans la barre de titre de la fenêtre d’invite de commandes.|
-|/d \<Path >|Spécifie le répertoire de démarrage.|
+|«\<titre > »|Spécifie le titre à afficher dans la barre de titre de la fenêtre d’invite de commandes.|
+|/d \<chemin d’accès >|Spécifie le répertoire de démarrage.|
 |/i|Passe l’environnement de démarrage cmd. exe à la nouvelle fenêtre d’invite de commandes. Si **/i** n’est pas spécifié, l’environnement actuel est utilisé.|
-|/min \|/max|Spécifie de réduire ( **/min**) ou d’agrandir ( **/Max**) la nouvelle fenêtre d’invite de commandes.|
+|/min \|/Max|Spécifie de réduire ( **/min**) ou d’agrandir ( **/Max**) la nouvelle fenêtre d’invite de commandes.|
 |/Separate \|/Shared|Démarre les programmes 16 bits dans un espace mémoire séparé ( **/Separate**) ou dans un espace mémoire partagé ( **/Shared**). Ces options ne sont pas prises en charge sur les plateformes 64 bits.|
 |/Low \|/normal \|/High \|/Realtime \|/AboveNormal \|/BelowNormal|Démarre une application dans la classe de priorité spécifiée. Les valeurs de classe de priorité valides sont **/Low**, **/normal**, **/High**, **/Realtime**, **/AboveNormal**et **/BelowNormal**.|
 |/Affinity \<HexAffinity >|Applique le masque d’affinité de processeur spécifié (exprimé sous forme de nombre hexadécimal) à la nouvelle application.|
 |/Wait|Démarre une application et attend qu’elle se termine.|
 |/b|Démarre une application sans ouvrir une nouvelle fenêtre d’invite de commandes. La gestion CTRL + C est ignorée, sauf si l’application active le traitement CTRL + C. Utilisez CTRL + Pause pour interrompre l’application.|
-|/b \<Command > \| \<Program >|Spécifie la commande ou le programme à démarrer.|
-|@no__t 0Parameters >|Spécifie les paramètres à passer à la commande ou au programme.|
+|/b \<> de commande \| programme \<>|Spécifie la commande ou le programme à démarrer.|
+|Paramètres de \<>|Spécifie les paramètres à passer à la commande ou au programme.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

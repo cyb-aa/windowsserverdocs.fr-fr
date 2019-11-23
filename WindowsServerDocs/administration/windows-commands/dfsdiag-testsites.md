@@ -22,9 +22,9 @@ ms.locfileid: "71378382"
 ---
 # <a name="dfsdiag-testsites"></a>Dfsdiag TestSites
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vérifie la configuration des services de domaine Active Directory \(AD DS @ no__t-1 sites en vérifiant que les serveurs qui jouent le rôle de serveurs d’espaces de noms ou de dossiers \(link @ no__t-3 cibles ont les mêmes associations de site sur tous les contrôleurs de domaine.  
+Vérifie la configuration des services de domaine Active Directory \(AD DS les sites\) en vérifiant que les serveurs qui jouent le rôle de serveurs d’espaces de noms ou de \(de\) de lien de dossiers ou de dossiers ont les mêmes associations de sites sur tous les contrôleurs de domaine.  
   
   
   
@@ -38,10 +38,10 @@ dfsdiag /TestSites </Machine:<server name>| /DFSpath:<namespace root or DFS fold
   
 |Paramètre|Description|  
 |-------|--------|  
-|\/Machine : <server name>|Nom du serveur sur lequel vérifier l’Association de sites.|  
-|\/DFSpath : <namespace root or DFS folder>|La racine de l’espace de noms ou système de fichiers DFS \(DFS @ no__t-1 \(link @ no__t-3 avec les cibles pour lesquelles vérifier l’Association de site.|  
-|@no__t 0Recurse|Énumère et vérifie les associations de sites pour toutes les cibles de dossiers sous la racine d’espace de noms spécifiée.|  
-|@no__t 0Full|vérifie que AD DS et que le Registre du serveur contiennent les mêmes informations d’association de site.|  
+|Ordinateur \/:<server name>|Nom du serveur sur lequel vérifier l’Association de sites.|  
+|\/DFSpath :<namespace root or DFS folder>|La racine de l’espace de noms ou le système de fichiers DFS \(dossier DFS\) \(lien\) avec les cibles pour lesquelles vérifier l’Association de site.|  
+|\/recurse|Énumère et vérifie les associations de sites pour toutes les cibles de dossiers sous la racine d’espace de noms spécifiée.|  
+|\/complète|vérifie que AD DS et que le Registre du serveur contiennent les mêmes informations d’association de site.|  
   
 ## <a name="BKMK_Examples"></a>Illustre  
 À TBD, tapez :  

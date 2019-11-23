@@ -17,19 +17,19 @@ ms.locfileid: "71403060"
 ---
 # <a name="iscsi-target-server-overview"></a>vue d’ensemble du serveur cible iSCSI
 
-S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique fournit une brève vue d’ensemble du serveur cible iSCSI, un service de rôle dans Windows Server qui vous permet de rendre le stockage disponible via le protocole iSCSI. Cela est utile pour fournir un accès au stockage sur votre serveur Windows Server pour les clients qui ne peuvent pas communiquer via le protocole de partage de fichiers Windows natif, à l’adresse SMB.
 
 Le serveur cible iSCSI est idéal pour les opérations suivantes :
 
-* Le **démarrage réseau et sans disque**   By à l’aide de cartes réseau de démarrage ou d’un chargeur de logiciel, vous pouvez déployer des centaines de serveurs sans disque. Avec le serveur cible iSCSI, le déploiement est rapide. Dans les tests internes de Microsoft, 256 ordinateurs ont été déployés en 34 minutes. En utilisant des disques durs virtuels de différenciation, vous pouvez économiser jusqu’à 90 % de l’espace de stockage utilisé pour les images de système d’exploitation. Cette approche est idéale pour les déploiements à grande échelle d’images de système d’exploitation identiques, par exemple sur des machines virtuelles exécutant Hyper-V ou dans des clusters HPC (High-Performance Computing).
+* Le **démarrage réseau et sans disque**   à l’aide de cartes réseau de démarrage ou d’un chargeur de logiciel, vous pouvez déployer des centaines de serveurs sans disque. Avec le serveur cible iSCSI, le déploiement est rapide. Dans les tests internes de Microsoft, 256 ordinateurs ont été déployés en 34 minutes. En utilisant des disques durs virtuels de différenciation, vous pouvez économiser jusqu’à 90 % de l’espace de stockage utilisé pour les images de système d’exploitation. Cette approche est idéale pour les déploiements à grande échelle d’images de système d’exploitation identiques, par exemple sur des machines virtuelles exécutant Hyper-V ou dans des clusters HPC (High-Performance Computing).
 
-* @No__t de **stockage d’application serveur**-les applications 1Some requièrent un stockage de bloc. Le serveur cible iSCSI peut fournir à ces applications un stockage par blocs disponible en continu. Dans la mesure où le stockage est accessible à distance, il peut également consolider le stockage par blocs pour des emplacements centraux ou des filiales.
+* Le **stockage d’applications serveur**   certaines applications requièrent un stockage de bloc. Le serveur cible iSCSI peut fournir à ces applications un stockage par blocs disponible en continu. Dans la mesure où le stockage est accessible à distance, il peut également consolider le stockage par blocs pour des emplacements centraux ou des filiales.
 
-* **Stockage hétérogène**   ISCSI serveur cible prend en charge les initiateurs iSCSI non-Microsoft, ce qui facilite le partage du stockage sur les serveurs dans un environnement logiciel mixte.
+* Le **stockage hétérogène**   serveur cible iSCSI prend en charge les initiateurs iSCSI non-Microsoft, ce qui facilite le partage du stockage sur les serveurs dans un environnement logiciel mixte.
 
-* Les **environnements de développement, de test, de démonstration et lab**@no__t serveur cible iSCSI 1When sont activés, un ordinateur exécutant le système d’exploitation Windows Server devient un dispositif de stockage par blocs accessible via le réseau. Cela peut s’avérer utile pour tester des applications avant de les déployer sur un périphérique de stockage SAN.
+* Les **environnements de développement, de test, de démonstration et lab**   quand le serveur cible iSCSI est activé, un ordinateur exécutant le système d’exploitation Windows Server devient un dispositif de stockage par blocs accessible via le réseau. Cela peut s’avérer utile pour tester des applications avant de les déployer sur un périphérique de stockage SAN.
 
 ## <a name="block-storage-requirements"></a>Configuration requise pour le stockage par blocs
 

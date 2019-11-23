@@ -18,12 +18,12 @@ ms.locfileid: "71405832"
 ---
 # <a name="install-the-network-controller-server-role-using-server-manager"></a>Installer le rôle de serveur du contrôleur de réseau à l’aide de Gestionnaire de serveur
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique fournit des instructions sur l’installation du rôle de serveur de contrôleur de réseau à l’aide de Gestionnaire de serveur.
 
 >[!IMPORTANT]
->Ne déployez pas le rôle de serveur de contrôleur de réseau sur les hôtes physiques. Pour déployer le contrôleur de réseau, vous devez installer le rôle serveur contrôleur de réseau sur une machine virtuelle Hyper-V \(VM @ no__t-1 qui est installée sur un ordinateur hôte Hyper-V. Une fois que vous avez installé le contrôleur de réseau sur les machines virtuelles sur trois ordinateurs hôtes Hyper @ no__t-0V différents, vous devez activer les hôtes Hyper @ no__t-1V pour la mise en réseau définie par logiciel \(SDN @ no__t-3 en ajoutant les ordinateurs hôtes au contrôleur de réseau à l’aide de Windows PowerShell commande **New-NetworkControllerServer**. En procédant ainsi, vous activez le Load Balancer logiciel SDN pour fonctionner. Pour plus d’informations, consultez [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Ne déployez pas le rôle de serveur de contrôleur de réseau sur les hôtes physiques. Pour déployer le contrôleur de réseau, vous devez installer le rôle de serveur contrôleur de réseau sur un ordinateur virtuel Hyper-V \(\) d’ordinateur virtuel installé sur un ordinateur hôte Hyper-V. Une fois que vous avez installé le contrôleur de réseau sur les machines virtuelles sur trois hôtes Hyper\-V différents, vous devez activer les hôtes Hyper\-V pour la mise en réseau définie par logiciel \(SDN\) en ajoutant les ordinateurs hôtes au contrôleur de réseau à l’aide de la commande Windows PowerShell **New-NetworkControllerServer**. En procédant ainsi, vous activez le Load Balancer logiciel SDN pour fonctionner. Pour plus d’informations, consultez [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
   
 Une fois que vous avez installé le contrôleur de réseau, vous devez utiliser les commandes Windows PowerShell pour une configuration de contrôleur de réseau supplémentaire. Pour plus d’informations, consultez [déployer un contrôleur de réseau à l’aide de Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
@@ -51,7 +51,7 @@ Une fois que vous avez installé le contrôleur de réseau, vous devez utiliser 
   
 8.  Dans **contrôleur de réseau** , cliquez sur **suivant**.  
   
-9. Dans **confirmer les sélections d’installation**, passez en revue vos choix. L’installation du contrôleur de réseau requiert le redémarrage de l’ordinateur après l’exécution de l’Assistant. Pour cette raison, cliquez sur **redémarrer automatiquement le serveur de destination, si nécessaire**. La boîte de dialogue **Assistant Ajout de rôles et de fonctionnalités** s’ouvre. Cliquez sur **Oui**.  
+9. Dans **confirmer les sélections d’installation**, passez en revue vos choix. L’installation du contrôleur de réseau requiert le redémarrage de l’ordinateur après l’exécution de l’Assistant. Pour cette raison, cliquez sur **redémarrer automatiquement le serveur de destination, si nécessaire**. La boîte de dialogue **Assistant Ajout de rôles et de fonctionnalités** s’ouvre. cliquez sur **Oui**.  
   
     ![Assistant Ajout de rôles et de fonctionnalités](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_11.jpg)  
   

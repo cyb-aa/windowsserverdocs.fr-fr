@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376779"
 ---
 # <a name="fsutil-tiering"></a>Hiérarchisation de fsutil
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
 
 Active la gestion des fonctions de niveau de stockage, telles que la définition et la désactivation des indicateurs et la liste des niveaux.
 
@@ -36,7 +36,7 @@ fsutil tiering [tierlist] <volume>
 |Paramètre|Description|
 |-------------|---------------|
 |clearflags|Désactive les indicateurs de comportement de hiérarchisation d’un volume.|
-|@no__t 0volume >|Spécifie le volume.|
+|> du volume \<|Spécifie le volume.|
 |/TrNH|Pour les volumes avec stockage hiérarchisé, la collecte de chaleur est désactivée.<br /><br>S’applique uniquement aux fichiers NTFS et ReFS.|
 |queryflags|Interroge les indicateurs de comportement de hiérarchisation d’un volume.|
 |regionlist|Répertorie les régions à plusieurs niveaux d’un volume et leurs niveaux de stockage respectifs.|

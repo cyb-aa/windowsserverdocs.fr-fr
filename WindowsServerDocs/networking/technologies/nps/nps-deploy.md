@@ -17,7 +17,7 @@ ms.locfileid: "71405418"
 ---
 # <a name="deploy-network-policy-server"></a>Déployer un serveur NPS (Network Policy Server)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour obtenir des informations sur le déploiement du serveur NPS (Network Policy Server).
 
@@ -27,11 +27,11 @@ Vous pouvez utiliser cette rubrique pour obtenir des informations sur le déploi
 >- [Planifier le serveur NPS (Network Policy Server)](nps-plan-top.md)
 >- [Gérer le serveur NPS (Network Policy Server)](nps-manage-top.md)
 
-Le Guide du réseau de base de Windows Server 2016 comprend une section sur la planification et l’installation du serveur de stratégie réseau \(NPS @ no__t-1, et les technologies présentées dans le guide servent de prérequis pour le déploiement de NPS dans un domaine Active Directory. Pour plus d’informations, consultez la section « deploy le serveur NPS1 » dans le Guide du [réseau de base](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide#BKMK_deployNPS1)de Windows Server 2016.
+Le Guide du réseau de base de Windows Server 2016 comprend une section sur la planification et l’installation du serveur NPS \(\), et les technologies présentées dans le guide servent de prérequis pour le déploiement de NPS dans un domaine Active Directory. Pour plus d’informations, consultez la section « deploy le serveur NPS1 » dans le Guide du [réseau de base](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide#BKMK_deployNPS1)de Windows Server 2016.
 
 ## <a name="deploy-nps-certificates-for-vpn-and-8021x-access"></a>Déployer des certificats NPS pour l’accès VPN et 802.1 X
 
-Si vous souhaitez déployer des méthodes d’authentification telles que le protocole d’authentification extensible \(EAP @ no__t-1 et le protocole EAP protégé qui nécessitent l’utilisation de certificats de serveur sur votre serveur NPS, vous pouvez déployer des certificats NPS avec le guide [déployer des certificats de serveur pour Déploiements sans fil et câblés 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments).
+Si vous souhaitez déployer des méthodes d’authentification comme le protocole EAP (Extensible Authentication Protocol \(EAP\) et le protocole EAP protégé qui nécessitent l’utilisation de certificats de serveur sur votre serveur NPS, vous pouvez déployer des certificats NPS avec le guide [déployer des certificats de serveur pour les déploiements sans fil et câblés 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments).
 
 ## <a name="deploy-nps-for-8021x-wireless-access"></a>Déployer un serveur NPS pour l’accès sans fil 802.1 X
 
@@ -39,7 +39,7 @@ Pour déployer NPS pour l’accès sans fil, vous pouvez utiliser le guide [dép
 
 ## <a name="deploy-nps-for-windows-10-vpn-access"></a>Déployer NPS pour l’accès VPN Windows 10
 
-Vous pouvez utiliser NPS pour traiter les demandes de connexion pour Always On réseaux privés virtuels \(VPN @ no__t-1 pour les employés distants qui utilisent des ordinateurs et des appareils exécutant Windows 10.
+Vous pouvez utiliser NPS pour traiter les demandes de connexion pour Always On réseau privé virtuel \(connexions VPN\) pour les employés distants qui utilisent des ordinateurs et des appareils exécutant Windows 10.
 
 Pour plus d’informations, consultez le [Guide de déploiement de l’accès à distance Always on VPN pour Windows Server 2016 et Windows 10](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy).
 

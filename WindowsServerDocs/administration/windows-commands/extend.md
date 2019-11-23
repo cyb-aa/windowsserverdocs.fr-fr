@@ -22,9 +22,9 @@ ms.locfileid: "71377307"
 ---
 # <a name="extend"></a>extend
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-étend le volume ou la partition qui a le focus et son système de fichiers à l’espace libre @no__t 0unallocated @ no__t-1 sur un disque.  
+étend le volume ou la partition qui a le focus et son système de fichiers en libre \(espace\) non alloué sur un disque.  
   
   
   
@@ -39,16 +39,16 @@ extend filesystem [noerr]
   
 | Paramètre  |                                                                                             Description                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| taille @ no__t-0 @ no__t-1  |      Spécifie la quantité d’espace en mégaoctets \(MB @ no__t-1 à ajouter au volume ou à la partition en cours. Si aucune taille n’est donnée, tout l’espace libre contigu disponible sur le disque est utilisé.       |
-| disque @ no__t-0 @ no__t-1  |                          Spécifie le disque sur lequel le volume ou la partition est étendu (e). Si aucun disque n’est spécifié, le volume ou la partition est étendu sur le disque actuel.                          |
+| taille\=<n>  |      Spécifie la quantité d’espace en mégaoctets \(Mo\) à ajouter au volume ou à la partition en cours. Si aucune taille n’est donnée, tout l’espace libre contigu disponible sur le disque est utilisé.       |
+| disque\=<n>  |                          Spécifie le disque sur lequel le volume ou la partition est étendu (e). Si aucun disque n’est spécifié, le volume ou la partition est étendu sur le disque actuel.                          |
 | FileSystem |                                   étend le système de fichiers du volume qui a le focus. À utiliser uniquement sur les disques où le système de fichiers n’a pas été étendu avec le volume.                                    |
-|   noerr    | À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
+|   noerr    | à des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
   
 ## <a name="remarks"></a>Notes  
   
--   Sur les disques de base, l’espace libre doit être sur le même disque que le volume ou la partition qui a le focus. Elle doit également suivre immédiatement le volume ou la partition ayant le focus \(that est, elle doit commencer au prochain décalage de secteur @ no__t-1.  
+-   Sur les disques de base, l’espace libre doit être sur le même disque que le volume ou la partition qui a le focus. Il doit également suivre immédiatement le volume ou la partition ayant le focus \(autrement dit, il doit commencer au décalage de secteur suivant\).  
   
--   Sur les disques dynamiques avec des volumes simples ou fractionnés, un volume peut être étendu à n’importe quel espace libre sur un disque dynamique. À l’aide de cette commande, vous pouvez convertir un volume dynamique simple en volume dynamique fractionné. En miroir, RAID @ no__t-05 et les volumes agrégés par bandes ne peuvent pas être étendus.  
+-   Sur les disques dynamiques avec des volumes simples ou fractionnés, un volume peut être étendu à n’importe quel espace libre sur un disque dynamique. À l’aide de cette commande, vous pouvez convertir un volume dynamique simple en volume dynamique fractionné. Les volumes en miroir, RAID\-5 et agrégés par bandes ne peuvent pas être étendus.  
   
 -   Si la partition a été précédemment formatée avec le système de fichiers NTFS, le système de fichiers est automatiquement étendu pour remplir la plus grande partition et aucune perte de données ne se produit.  
   

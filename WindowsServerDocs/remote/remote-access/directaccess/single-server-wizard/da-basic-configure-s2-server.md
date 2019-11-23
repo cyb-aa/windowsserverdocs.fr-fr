@@ -21,7 +21,7 @@ ms.locfileid: "71404912"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Étape 2 configurer le serveur DirectAccess de base
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment configurer les paramètres de client et de serveur requis pour un déploiement DirectAccess de base. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [planifier un déploiement de base de DirectAccess](Plan-a-Basic-DirectAccess-Deployment.md).  
   
@@ -53,7 +53,7 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 7.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
   
-](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L’applet de commande Windows PowerShell ou les applets de commande suivantes installent le rôle accès à distance : 
 
@@ -121,7 +121,7 @@ L’applet de commande Windows PowerShell ou les applets de commande suivantes i
   
 ## <a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 1 : Configurer l’infrastructure DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
+-   [Étape 1 : configurer l’infrastructure DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   
 ## <a name="next-step"></a>Étape suivante  
   

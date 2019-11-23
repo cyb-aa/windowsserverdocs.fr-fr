@@ -34,7 +34,7 @@ Pour comprendre le fonctionnement de cette rubrique dans le processus global de 
 
     - Fonctionnalités
 
-        - Outils d’administration de Outils d’administration de serveur distant @ no__t-0Feature @ no__t-1Shielded outils de machine virtuelle
+        - Outils d’administration de fonctionnalités de Outils d’administration de serveur distant\\\\outils de machine virtuelle protégée
 
     > [!NOTE]
     > L’hôte utilisé ici ne doit *pas* être un hôte dans l’infrastructure protégée. Il s’agit d’un hôte distinct où les machines virtuelles sont préparées avant d’être déplacées vers l’infrastructure protégée.
@@ -51,9 +51,9 @@ Pour comprendre le fonctionnement de cette rubrique dans le processus global de 
 
 4.  Pour importer la clé Guardian dont vous aurez besoin dans une procédure ultérieure, exécutez la commande suivante.
 
-    Par &lt;Path @ no__t-1 @ no__t-2Filename @ no__t-3, remplacez le chemin d’accès et le nom du fichier XML que vous avez enregistré à l’étape précédente, par exemple : **C : @no__t -1temp\\GuardianKey.xml**
+    Pour &lt;chemin d’accès&gt;&lt;nom de fichier&gt;, remplacez le chemin d’accès et le nom de fichier du fichier XML que vous avez enregistré à l’étape précédente, par exemple : **C :\\temp\\GuardianKey. xml**
 
-    Pour &lt;GuardianName @ no__t-1, spécifiez un nom pour votre fournisseur d’hébergement ou votre centre de centres d’entreprise, par exemple, **HostingProvider1**. Notez le nom de la procédure suivante.
+    Pour &lt;&gt;GuardianName, spécifiez un nom pour le fournisseur d’hébergement ou le centre de vos entreprises, par exemple, **HostingProvider1**. Notez le nom de la procédure suivante.
 
     Include **-AllowUntrustedRoot** uniquement si le serveur SGH a été configuré avec des certificats auto-signés. (Ces certificats font partie du service de protection de clé dans SGH.)
 
@@ -65,19 +65,19 @@ Dans cette procédure, vous allez créer un ordinateur virtuel sur l’hôte Hyp
 
 Dans le cadre de la procédure, vous allez créer un protecteur de clé qui contient deux éléments importants :
 
--   **Propriétaire**: Dans le protecteur de clé, vous-même ou plus probable, le groupe dans lequel vous travaillez, qui partage des éléments de sécurité tels que des certificats, sont identifiés comme « propriétaires » de la machine virtuelle. Votre identité en tant que propriétaire est représentée par un certificat qui, si vous exécutez les commandes comme indiqué, est généré sous la forme d’un certificat auto-signé. Si vous le souhaitez, vous pouvez utiliser à la place un certificat sauvegardé par l’infrastructure de l’infrastructure à clé publique et omettre le paramètre **-AllowUntrustedRoot** dans les commandes.
+-   **Propriétaire**: dans le protecteur de clé, vous-même ou plus probable, le groupe dans lequel vous travaillez, qui partage des éléments de sécurité tels que des certificats, est identifié comme « propriétaire » de la machine virtuelle. Votre identité en tant que propriétaire est représentée par un certificat qui, si vous exécutez les commandes comme indiqué, est généré sous la forme d’un certificat auto-signé. Si vous le souhaitez, vous pouvez utiliser à la place un certificat sauvegardé par l’infrastructure de l’infrastructure à clé publique et omettre le paramètre **-AllowUntrustedRoot** dans les commandes.
 
--   **Gardiens**: En outre, dans le protecteur de clé, votre fournisseur d’hébergement ou centre de code d’entreprise (qui exécute les hôtes SGH et service Guardian) est identifié comme « gardien ». Le gardien est représenté par la clé Guardian que vous avez importée dans la procédure précédente, puis vous [importez la configuration Guardian sur le serveur Hyper-V du locataire](#import-the-guardian-configuration-on-the-tenant-hyper-v-server).
+-   **Gardiens**: dans le protecteur de clé, votre fournisseur d’hébergement ou centre de code d’entreprise (qui exécute les hôtes SGH et service Guardian) est identifié en tant que « gardien ». Le gardien est représenté par la clé Guardian que vous avez importée dans la procédure précédente, puis vous [importez la configuration Guardian sur le serveur Hyper-V du locataire](#import-the-guardian-configuration-on-the-tenant-hyper-v-server).
 
 Pour obtenir une illustration illustrant le protecteur de clé, qui est un élément dans un fichier de données de protection, consultez [qu’est-ce que les données de protection et pourquoi est-il nécessaire ?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
 1. Sur un ordinateur hôte Hyper-V client, pour créer un ordinateur virtuel de 2e génération, exécutez la commande suivante.
 
-   Pour &lt;ShieldedVMname @ no__t-1, spécifiez un nom pour la machine virtuelle, par exemple : **ShieldVM1**
+   Pour &lt;&gt;ShieldedVMname, spécifiez un nom pour la machine virtuelle, par exemple : **ShieldVM1**
     
-   Pour &lt;VHDPath @ no__t-1, spécifiez un emplacement pour stocker le VHDX de la machine virtuelle, par exemple : **C : \\VMs @ no__t-2ShieldVM1\\ShieldVM1.vhdx**
+   Pour &lt;&gt;VHDPath, spécifiez un emplacement pour stocker le VHDX de la machine virtuelle, par exemple : **C :\\machines virtuelles\\ShieldVM1\\ShieldVM1. VHDX**
     
-   Pour &lt;nnGB @ no__t-1, spécifiez une taille pour le VHDX, par exemple : **60 GO**
+   Pour &lt;&gt;nnGB, spécifiez une taille pour le VHDX, par exemple : **60 Go**
 
        New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
 
@@ -87,7 +87,7 @@ Pour obtenir une illustration illustrant le protecteur de clé, qui est un élé
 
 4. Pour créer un protecteur de clé (décrit au début de cette section), exécutez la commande suivante.
 
-   Pour &lt;GuardianName @ no__t-1, utilisez le nom que vous avez spécifié dans la procédure précédente, par exemple : **HostingProvider1**
+   Pour &lt;&gt;GuardianName, utilisez le nom que vous avez spécifié dans la procédure précédente, par exemple : **HostingProvider1**
 
    Include **-AllowUntrustedRoot** pour autoriser les certificats auto-signés.
 
@@ -99,7 +99,7 @@ Pour obtenir une illustration illustrant le protecteur de clé, qui est un élé
 
    Si vous souhaitez que plusieurs centres de informations puissent exécuter votre machine virtuelle protégée (par exemple, un site de récupération d’urgence et un fournisseur de cloud public), vous pouvez fournir une liste de gardiens au paramètre **-Guardian** . Pour plus d’informations, consultez [New-HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
 
-5. Pour activer vTPM à l’aide du protecteur de clé, exécutez la commande suivante. Pour &lt;ShieldedVMname @ no__t-1, utilisez le même nom de machine virtuelle que celui utilisé dans les étapes précédentes.
+5. Pour activer vTPM à l’aide du protecteur de clé, exécutez la commande suivante. Pour &lt;&gt;ShieldedVMname, utilisez le même nom de machine virtuelle que celui utilisé dans les étapes précédentes.
 
        $VMName="<ShieldedVMname>"
 
@@ -130,7 +130,7 @@ Pour obtenir une illustration illustrant le protecteur de clé, qui est un élé
 
     Importez la machine virtuelle protégée à l’aide du Gestionnaire Hyper-V ou de Windows PowerShell. Vous devez importer le fichier de configuration de machine virtuelle à partir du propriétaire de la machine virtuelle afin de démarrer la machine virtuelle. Cela est dû au fait que le protecteur de clé et le module de plateforme sécurisée virtuel de la machine virtuelle sont stockés dans le fichier de configuration. Si la machine virtuelle est configurée pour s’exécuter sur l’infrastructure protégée, elle doit pouvoir démarrer correctement.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Étapes de configuration du fournisseur de services d’hébergement pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

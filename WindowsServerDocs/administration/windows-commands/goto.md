@@ -38,14 +38,14 @@ goto <Label>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Label >|Spécifie une chaîne de texte utilisée comme étiquette dans le programme de traitement par lots.|
+|Étiquette \<>|Spécifie une chaîne de texte utilisée comme étiquette dans le programme de traitement par lots.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
 -   Utilisation des extensions de commande
 
-    Si les extensions de commande sont activées (valeur par défaut) et que vous utilisez la commande **goto** avec une étiquette cible **: EOF**, vous transférez le contrôle à la fin du fichier de script de commandes en cours et quittez le fichier de script de commandes sans définir une étiquette. Quand vous utilisez **goto** avec l’étiquette **: EOF** , vous devez insérer un signe deux-points avant l’étiquette. Exemple :  
+    Si les extensions de commande sont activées (valeur par défaut) et que vous utilisez la commande **goto** avec une étiquette cible **: EOF**, vous transférez le contrôle à la fin du fichier de script de commandes en cours et quittez le fichier de script de commandes sans définir une étiquette. Quand vous utilisez **goto** avec l’étiquette **: EOF** , vous devez insérer un signe deux-points avant l’étiquette. Par exemple :  
     ```
     goto:EOF
     ```  

@@ -36,11 +36,11 @@ WDSUTIL /Add-DriverPackage /InfFile:<Inf File path> [/Server:<Server name>] [/Ar
 
 |          Paramètre           |                                                              Description                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|   InfFile : chemin d’accès du fichier \<Inf >   |                                           Spécifie le chemin d’accès complet du fichier. inf à ajouter.                                            |
-|    /Server : @no__t-nom 0Server >    | Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
+|   InfFile :\<chemin d’accès du fichier INF >   |                                           Spécifie le chemin d’accès complet du fichier. inf à ajouter.                                            |
+|    /Server : nom du serveur\<>    | Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
 |      /Architecture : {x86      |                                                                 ia64                                                                  |
-| [/DriverGroup : @no__t > 0Group] |                             Spécifie le nom du groupe de pilotes auquel le package doit être ajouté.                              |
-|   [/Name : @no__t-nom 0Friendly >]   |                                           Indique le nom convivial du package de pilotes.                                            |
+| [/DriverGroup : nom de groupe\<>] |                             Spécifie le nom du groupe de pilotes auquel le package doit être ajouté.                              |
+|   [/Name :\<nom convivial >]   |                                           Indique le nom convivial du package de pilotes.                                            |
 
 ## <a name="BKMK_examples"></a>Illustre
 

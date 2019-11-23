@@ -22,11 +22,11 @@ ms.locfileid: "71407151"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Utiliser les règles des stratégies de restriction logicielle
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit les procédures qui utilisent des stratégies de restriction logicielle en utilisant des certificats, des chemins d’accès, des règles de zone Internet et de hachage.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Avec les stratégies de restriction logicielle, vous pouvez protéger votre environnement informatique contre les logiciels non approuvés en identifiant et en spécifiant les logiciels qui sont autorisés à s’exécuter. Vous pouvez définir un niveau de sécurité par défaut non restreint **ou non autorisé pour** un objet stratégie de groupe (GPO) afin que le logiciel soit autorisé ou non à s’exécuter par défaut. Vous pouvez appliquer des exceptions à ce niveau de sécurité par défaut en créant des règles de stratégies de restriction logicielles pour un logiciel spécifique. Par exemple, si le niveau de sécurité par défaut a la valeur **Non autorisé**, vous pouvez créer des règles pour autoriser l’exécution de logiciels spécifiques. Les types de règles sont les suivants :
 
 -   **Règles de certificat**
@@ -88,7 +88,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
 2.  Dans l’arborescence de la console, cliquez sur **options de sécurité** situées sous paramètres de sécurité/stratégies locales.
 
-3.  Dans le volet d’informations, double-cliquez sur @no__t paramètres 0System : Utilisez les règles de certificat sur les exécutables Windows pour les stratégies de restriction logicielle @ no__t-0.
+3.  Dans le volet d’informations, double-cliquez sur **Paramètres système : utiliser les règles de certificat avec les exécutables Windows pour les stratégies de restriction logicielle**.
 
 4.  Effectuez les actions suivantes, puis cliquez sur **OK** :
 
@@ -112,7 +112,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
 7.  Dans l’arborescence de la console, cliquez sur **options de sécurité** situées sous *grouppolicyobject/configuration* [*nomordinateur*] stratégie/Configuration ordinateur/Paramètres Windows/paramètres de sécurité/stratégies locales/.
 
-8.  Dans le volet d’informations, double-cliquez sur @no__t paramètres 0System : Utilisez les règles de certificat sur les exécutables Windows pour les stratégies de restriction logicielle @ no__t-0.
+8.  Dans le volet d’informations, double-cliquez sur **Paramètres système : utiliser les règles de certificat avec les exécutables Windows pour les stratégies de restriction logicielle**.
 
 9. Si ce paramètre de stratégie n’a pas encore été défini, activez la case à cocher **Définir ces paramètres de stratégie**.
 
@@ -134,7 +134,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
 5.  Dans l’arborescence de la console, cliquez sur **options de sécurité** situées sous *grouppolicyobject/configuration*[*nomordinateur*] stratégie/Configuration ordinateur/Paramètres Windows/paramètres de sécurité/stratégies locales.
 
-6.  Dans le volet d’informations, double-cliquez sur @no__t paramètres 0System : Utilisez les règles de certificat sur les exécutables Windows pour les stratégies de restriction logicielle @ no__t-0.
+6.  Dans le volet d’informations, double-cliquez sur **Paramètres système : utiliser les règles de certificat avec les exécutables Windows pour les stratégies de restriction logicielle**.
 
 7.  Si ce paramètre de stratégie n’a pas encore été défini, activez la case à cocher **Définir ces paramètres de stratégie**.
 
@@ -150,7 +150,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
 2.  Dans l’arborescence de la console, cliquez sur **Options de sécurité** sous Stratégie *[NomOrdinateur]* *GroupPolicyObject*/Configuration ordinateur/Paramètres Windows/Paramètres de sécurité/Stratégies locales.
 
-3.  Dans le volet d’informations, double-cliquez sur @no__t paramètres 0System : Utilisez les règles de certificat sur les exécutables Windows pour les stratégies de restriction logicielle @ no__t-0.
+3.  Dans le volet d’informations, double-cliquez sur **Paramètres système : utiliser les règles de certificat avec les exécutables Windows pour les stratégies de restriction logicielle**.
 
 4.  Si ce paramètre de stratégie n’a pas encore été défini, activez la case à cocher **Définir ces paramètres de stratégie**.
 
@@ -310,7 +310,7 @@ Comme ces règles sont indiquées par leur chemin, si un programme logiciel est 
 
 5.  Dans **chemin d’accès**, collez le nom de la clé de Registre, suivi du nom de la valeur.
 
-6.  Placez le chemin d’accès du registre en signes de pourcentage (%), par exemple,%HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PlatformSDK\Directories\InstallDir%.
+6.  Placez le chemin d’accès du registre en signes de pourcentage (%), par exemple,% HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\PlatformSDK\Directories\InstallDir%.
 
 7.  Dans **niveau de sécurité**, cliquez sur non **autorisé** ou **illimité**.
 

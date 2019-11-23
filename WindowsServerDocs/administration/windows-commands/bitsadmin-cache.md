@@ -22,7 +22,7 @@ ms.locfileid: "71381862"
 ---
 # <a name="bitsadmin-cache"></a>cache Bitsadmin
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -43,11 +43,11 @@ bitsadmin /Cache /SetExpirationtime
 
 |Paramètre|Description|
 |-------|--------|
-|[bitsadmin cache and help](bitsadmin-cache-and-help.md)|Affiche l’utilisation de la commande @ no__t-0line pour les commutateurs \/Cache.|
+|[bitsadmin cache and help](bitsadmin-cache-and-help.md)|Affiche la commande\-utilisation de la ligne pour les commutateurs de cache \/.|
 |[bitsadmin cache and clear](bitsadmin-cache-clear.md)|Purge le cache local.|
 |[bitsadmin cache and delete](bitsadmin-cache-and-delete.md)|supprime une entrée de cache.|
-|[bitsadmin cache and deleteurl](bitsadmin-cache-and-deleteurl.md)|Supprime toutes les entrées de cache pour l’URL donnée.|
-|[bitsadmin cache and list](bitsadmin-cache-and-list.md)|Répertorie toutes les entrées de cache.|
+|[bitsadmin cache and deleteurl](bitsadmin-cache-and-deleteurl.md)|supprime toutes les entrées de cache pour l’URL donnée.|
+|[bitsadmin cache and list](bitsadmin-cache-and-list.md)|répertorie toutes les entrées de cache.|
 |[bitsadmin cache and info](bitsadmin-cache-and-info.md)|Vide une entrée de cache spécifique.|
 |[bitsadmin cache and getlimit](bitsadmin-cache-and-getlimit.md)|Récupère la limite du cache.|
 |[bitsadmin cache and setlimit](bitsadmin-cache-and-setlimit.md)|Définit la limite du cache.|

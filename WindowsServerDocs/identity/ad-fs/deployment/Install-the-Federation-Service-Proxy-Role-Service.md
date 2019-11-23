@@ -18,7 +18,7 @@ ms.locfileid: "71359566"
 ---
 # <a name="install-the-federation-service-proxy-role-service"></a>Installer le service de rôle Proxy de service de fédération
 
-Après avoir configuré un ordinateur avec les applications et certificats requis, vous êtes prêt à installer le service de rôle proxy FSP (Federation Service Proxy) de Services ADFS @no__t 0AD FS @ no__t-1. Vous pouvez utiliser la procédure suivante pour installer le service de rôle proxy FSP (Federation Service Proxy). Lorsque vous installez le service de rôle proxy FSP (Federation Service Proxy) sur un ordinateur, cet ordinateur devient un serveur proxy de Fédération.  
+Après avoir configuré un ordinateur avec les applications et certificats requis, vous êtes prêt à installer le service de rôle proxy FSP (Federation Service Proxy) de Services ADFS \(AD FS\). Vous pouvez utiliser la procédure suivante pour installer le service de rôle proxy FSP (Federation Service Proxy). Lorsque vous installez le service de rôle proxy FSP (Federation Service Proxy) sur un ordinateur, cet ordinateur devient un serveur proxy de Fédération.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -28,9 +28,9 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
   
 2.  Cliquez sur **gérer**, puis sur **Ajouter des rôles et des fonctionnalités** pour démarrer l’Assistant Ajout de rôles et de fonctionnalités.  
   
-3.  Dans la page **Avant de commencer** , cliquez sur **Suivant**.  
+3.  Sur la page **Before you begin**, cliquez sur **Next**.  
   
-4.  Dans la page **Sélectionner le type d’installation** , cliquez sur **rôle @ no__t-2Based ou sur fonctionnalité @ no__t-3based installation**, puis cliquez sur **suivant**.  
+4.  Dans la page **Sélectionner le type d’installation** , cliquez sur **rôle\-en fonction ou sur fonctionnalité\-installation**, puis cliquez sur **suivant**.  
   
 5.  Dans la page **Sélectionner le serveur de destination** , cliquez sur **Sélectionner un serveur du pool de serveurs**, vérifiez que l’ordinateur cible est mis en surbrillance, puis cliquez sur **suivant**.  
   
@@ -57,8 +57,8 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Liste de vérification : Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
+[Liste de vérification : configuration d’un serveur de Fédération](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : configuration d’un serveur proxy de Fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

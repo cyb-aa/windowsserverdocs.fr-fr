@@ -57,7 +57,7 @@ Pour restaurer un catalogue à partir d’une sauvegarde stockée sur le disque 
 ```
 wbadmin restore catalog -backupTarget:d
 ```
-Pour restaurer un catalogue à partir d’une sauvegarde stockée dans le dossier partagé \\ @ no__t-1servername\share de Serveur01, tapez :
+Pour restaurer un catalogue à partir d’une sauvegarde stockée dans le dossier partagé \\\\servername\share de Serveur01, tapez :
 ```
 wbadmin restore catalog -backupTarget:\\servername\share -machine:server01
 ```

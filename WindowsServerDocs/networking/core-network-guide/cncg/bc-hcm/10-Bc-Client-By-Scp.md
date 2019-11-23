@@ -17,9 +17,9 @@ ms.locfileid: "71406392"
 ---
 #  <a name="configure-client-automatic-hosted-cache-discovery-by-service-connection-point"></a>Configurer la découverte automatique du cache hébergé par le point de connexion de service
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Avec cette procédure, vous pouvez utiliser stratégie de groupe pour activer et configurer le mode de cache hébergé de BranchCache sur les ordinateurs Domain @ no__t-0joined qui exécutent les systèmes d’exploitation Windows BranchCache @ no__t-1capable BranchCache suivants.
+Avec cette procédure, vous pouvez utiliser stratégie de groupe pour activer et configurer le mode de cache hébergé de BranchCache sur un domaine\-ordinateurs joints qui exécutent les systèmes d’exploitation Windows BranchCache\-s suivants.
 
 - Windows 10 Entreprise
 - Windows 10 Éducation
@@ -35,31 +35,31 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 1. Sur un ordinateur sur lequel est installé le rôle de serveur Active Directory Domain Services, ouvrez Gestionnaire de serveur, sélectionnez le serveur local, cliquez sur **Outils**, puis sur **gestion des stratégie de groupe**. La console de gestion stratégie de groupe s’ouvre.
 
-2. Dans la console de gestion des stratégies de groupe, développez le chemin suivant : **Forêt :** *Corp.contoso.com*, **domaines**, *Corp.contoso.com* **stratégie de groupe objets**, où *Corp.contoso.com* est le nom du domaine dans lequel les comptes d’ordinateur client BranchCache que vous souhaitez la configuration est localisée.
+2. Dans la console de gestion de stratégie de groupe, développez le chemin suivant : **Forest :** *Corp.contoso.com*, **Domains**, *corp.contoso.com*, **stratégie de groupe Objects**, où *Corp.contoso.com* est le nom du domaine dans lequel se trouvent les comptes d’ordinateur client BranchCache que vous souhaitez configurer.
 
-3. Cliquez avec le bouton droit sur no__t-0click **stratégie de groupe objets**, puis cliquez sur **nouveau**. La boîte de dialogue **Nouvel objet GPO** s'ouvre. Dans **nom**, tapez un nom pour le nouvel objet stratégie de groupe \(GPO @ no__t-2. Par exemple, si vous voulez nommer l'objet Ordinateurs clients BranchCache, tapez **Ordinateurs clients BranchCache**. Cliquez sur **OK**.
+3. Cliquez avec le bouton droit\-sur **stratégie de groupe objets**, puis cliquez sur **nouveau**. La boîte de dialogue **Nouvel objet GPO** s'ouvre. Dans **nom**, tapez un nom pour le nouvel objet stratégie de groupe \(\)d’objets de stratégie de groupe. Par exemple, si vous voulez nommer l'objet Ordinateurs clients BranchCache, tapez **Ordinateurs clients BranchCache**. Cliquez sur **OK**.
 
-4. Dans la console de gestion stratégie de groupe, assurez-vous que **stratégie de groupe objets** est sélectionné, puis dans le volet d’informations, cliquez avec le bouton droit sur @ no__t-1Cliquez sur l’objet de stratégie de groupe que vous venez de créer. Par exemple, si vous avez nommé votre objet de stratégie de groupe ordinateurs clients BranchCache, cliquez avec le bouton droit sur **ordinateurs clients BranchCache**@ no__t-0click. Cliquez sur **Modifier**. La console Éditeur de gestion des stratégies de groupe s’ouvre.
+4. Dans la console de gestion stratégie de groupe, assurez-vous que **stratégie de groupe objets** est sélectionné, et dans le\-volet d’informations, cliquez sur l’objet de stratégie de groupe que vous venez de créer. Par exemple, si vous avez nommé votre objet de stratégie de groupe ordinateurs clients BranchCache, cliquez avec le bouton droit\-sur **ordinateurs clients BranchCache**. Cliquez sur **Modifier**. La console Éditeur de gestion des stratégies de groupe s’ouvre.
 
-5. Dans la console Éditeur de gestion des stratégies de groupe, développez le chemin d’accès suivant : **Configuration ordinateur**, **Stratégies**, **Modèles d'administration : Définitions de stratégie @no__t-fichiers 0ADMX @ no__t-1 récupérés à partir de l’ordinateur local @ no__t-2, **Network**, **BranchCache**.
+5. Dans la console Éditeur de gestion des stratégies de groupe, développez le chemin suivant : **Configuration ordinateur**, **stratégies**, **Modèles d’administration : définitions de stratégie \(fichiers ADMX\) récupérés à partir de l’ordinateur local**, **réseau**, **BranchCache**.
 
-6. Cliquez sur **BranchCache**, puis dans le volet d’informations, double @ no__t-1Cliquez **activer BranchCache**. La boîte de dialogue **Activer BranchCache** s'ouvre.
+6. Cliquez sur **BranchCache**, puis dans le volet d’informations, double\-cliquez sur **activer BranchCache**. La boîte de dialogue **Activer BranchCache** s'ouvre.
   
 7.  Dans la boîte de dialogue **Activer BranchCache**, cliquez sur **Activé**, puis sur **OK**.
 
-8. Dans la console Éditeur de gestion des stratégies de groupe, assurez-vous que **BranchCache** est toujours sélectionné, puis dans le volet d’informations double @ no__t-1Cliquez **activer la découverte automatique du cache hébergé par le point de connexion de service**. La boîte de dialogue paramètre de stratégie s’ouvre.
+8. Dans la console Éditeur de gestion des stratégies de groupe, assurez-vous que **BranchCache** est toujours sélectionné, puis dans le volet d’informations double\-cliquez sur **activer la découverte automatique du cache hébergé par le point de connexion de service**. La boîte de dialogue paramètre de stratégie s’ouvre.
 
 9. Dans la boîte de dialogue **activer la découverte automatique du cache hébergé par le point de connexion de service** , cliquez sur **activé**, puis sur **OK**.
 
-10. Pour permettre aux ordinateurs clients de télécharger et de mettre en cache du contenu à partir du serveur de fichiers BranchCache @ no__t-0based content servers : Dans la console Éditeur de gestion des stratégies de groupe, assurez-vous que **BranchCache** est toujours sélectionné, puis dans le volet d’informations double @ no__t-1Cliquez **BranchCache pour fichiers réseau**. La boîte de dialogue **Configurer BranchCache pour les fichiers réseau** s'ouvre. 
+10. Pour permettre aux ordinateurs clients de télécharger et de mettre en cache du contenu à partir des serveurs de contenu\-basés sur le serveur de fichiers BranchCache : dans la console Éditeur de gestion des stratégies de groupe, assurez-vous que **BranchCache** est toujours sélectionné, puis dans le volet d’informations double\-cliquez sur **BranchCache pour fichiers réseau**. La boîte de dialogue **Configurer BranchCache pour les fichiers réseau** s'ouvre. 
 11. Dans la boîte de dialogue **Configurer BranchCache pour les fichiers réseau**, cliquez sur **Activé**. Dans **Options**, tapez une valeur numérique, en millisecondes, pour la durée de latence réseau maximale aller-retour, puis cliquez sur **OK**.
   
     > [!NOTE]
     > Par défaut, les ordinateurs clients cachent du contenu à partir de serveurs de fichiers si la latence du réseau de boucles est supérieure à 80 millisecondes.
   
-12. Pour configurer la quantité d'espace disque allouée sur chaque ordinateur client pour le cache BranchCache : Dans la console Éditeur de gestion des stratégies de groupe, assurez-vous que **BranchCache** est toujours sélectionné, puis dans le volet d’informations double @ no__t-1Cliquez **définir le pourcentage d’espace disque utilisé pour le cache de l’ordinateur client**. La boîte de dialogue **Définir le pourcentage d'espace disque utilisé pour la mémoire cache de l'ordinateur client** s'ouvre. Cliquez sur **Activé**, et puis dans **Options** tapez une valeur numérique qui représente le pourcentage d'espace disque utilisé sur chaque ordinateur client pour le cache BranchCache. Cliquez sur **OK**.
+12. Pour configurer la quantité d’espace disque disponible sur chaque ordinateur client pour le cache BranchCache : dans la console Éditeur de gestion des stratégies de groupe, assurez-vous que **BranchCache** est toujours sélectionné, puis dans le volet d’informations double\-cliquez sur **définir le pourcentage d’espace disque utilisé pour le cache de l’ordinateur client**. La boîte de dialogue **Définir le pourcentage d'espace disque utilisé pour la mémoire cache de l'ordinateur client** s'ouvre. Cliquez sur **Activé**, et puis dans **Options** tapez une valeur numérique qui représente le pourcentage d'espace disque utilisé sur chaque ordinateur client pour le cache BranchCache. Cliquez sur **OK**.
 
-13. Pour spécifier l’ancienneté par défaut, en jours, pendant laquelle les segments sont valides dans le cache de données BranchCache sur les ordinateurs clients : Dans la console Éditeur de gestion des stratégies de groupe, assurez-vous que **BranchCache** est toujours sélectionné, puis dans le volet d’informations double @ no__t-1Cliquez **définir Age pour les segments dans le cache de données**. La boîte de dialogue **définir l’âge des segments dans le cache de données** s’ouvre. Cliquez sur **activé**, puis dans le volet d’informations, tapez le nombre de jours que vous préférez. Cliquez sur **OK**.
+13. Pour spécifier l’ancienneté par défaut, en jours, pendant laquelle les segments sont valides dans le cache de données BranchCache sur les ordinateurs clients : dans la console Éditeur de gestion des stratégies de groupe, assurez-vous que **BranchCache** est toujours sélectionné, puis, dans le volet d’informations double\-cliquez sur **définir l’âge des segments dans le cache de données**. La boîte de dialogue **définir l’âge des segments dans le cache de données** s’ouvre. Cliquez sur **activé**, puis dans le volet d’informations, tapez le nombre de jours que vous préférez. Cliquez sur **OK**.
 
 14. Configurez des paramètres de stratégie BranchCache supplémentaires pour les ordinateurs clients en fonction de votre déploiement.
 

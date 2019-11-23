@@ -18,24 +18,24 @@ ms.locfileid: "71359564"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importer un certificat d'authentification serveur sur le site web par défaut
 
-Une fois que vous avez obtenu un certificat d’authentification serveur auprès d’une autorité de certification \(CA @ no__t-1, vous devez installer manuellement ce certificat sur le site Web par défaut pour chaque serveur de Fédération ou serveur proxy de Fédération dans une batterie de serveurs.  
+Après avoir obtenu un certificat d’authentification serveur auprès d’une autorité de certification \(\)de l’autorité de certification, vous devez installer manuellement ce certificat sur le site Web par défaut pour chaque serveur de Fédération ou serveur proxy de Fédération dans une batterie de serveurs.  
   
 Pour les serveurs web, vous devez installer le certificat d'authentification serveur sur le site web ou le répertoire virtuel où se trouve votre application fédérée.  
   
 Si vous configurez une batterie de serveurs, assurez-vous d'effectuer exactement la même procédure, en utilisant des paramètres identiques, sur chacun des serveurs.  
   
 > [!NOTE]  
-> Le composant logiciel enfichable de gestion AD FS @ no__t-0in fait référence aux certificats d’authentification serveur pour les serveurs de Fédération en tant que certificats de communication de service.  
+> Le\-du composant logiciel enfichable Gestion de AD FS dans fait référence aux certificats d’authentification serveur pour les serveurs de Fédération en tant que certificats de communication de service.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>Pour importer un certificat d'authentification serveur sur le site web par défaut  
   
-1.  Dans l’écran d' **Accueil** , tapez**Internet Information Services \(IIS @ No__t-3 Manager**, puis appuyez sur entrée.  
+1.  Dans l’écran d' **Accueil** , tapez**Internet Information Services \(IIS\) Manager**, puis appuyez sur entrée.  
   
 2.  Dans l'arborescence de la console, cliquez sur **Nom_Ordinateur**.  
   
-3.  Dans le volet central, doublez les certificats de **serveur**@ no__t-0click.  
+3.  Dans le volet central, double\-cliquez sur **certificats de serveur**.  
   
 4.  Dans le volet **Actions**, cliquez sur **Importer**.  
   
@@ -46,9 +46,9 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 7.  Tapez le mot de passe du certificat, puis cliquez sur **OK**.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Liste de vérification : Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
+[Liste de vérification : configuration d’un serveur de Fédération](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : configuration d’un serveur proxy de Fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 [Certificats requis pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
   

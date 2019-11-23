@@ -17,7 +17,7 @@ ms.locfileid: "71407859"
 ---
 #  <a name="single-log-out-for-openid-connect-with-ad-fs"></a>Déconnexion unique pour OpenID Connect avec AD FS
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 En s’appuyant sur la prise en charge d’OAuth initiale dans AD FS dans Windows Server 2012 R2, AD FS 2016 a introduit la prise en charge de l’authentification OpenId Connect. Avec [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801), AD FS 2016 prend désormais en charge la déconnexion unique pour les scénarios OpenID Connect. Cet article fournit une vue d’ensemble du scénario de déconnexion unique pour OpenId Connect et fournit des conseils sur la façon de l’utiliser pour vos applications OpenId Connect dans AD FS.
 
 
@@ -72,7 +72,7 @@ Set-ADFSProperties -EnableOAuthLogout $true
 ```
 
 >[!NOTE]
-> le paramètre `EnableOAuthLogout` sera marqué comme obsolète après l’installation de [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801). `EnableOAUthLogout` aura toujours la valeur true et n’aura aucun impact sur la fonctionnalité de déconnexion.
+> `EnableOAuthLogout` paramètre sera marqué comme obsolète après l’installation de [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801). `EnableOAUthLogout` est toujours true et n’aura aucun impact sur la fonctionnalité de déconnexion.
 
 >[!NOTE]
 >frontchannel_logout est pris en charge **uniquement** après installation vcredist de [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)
@@ -89,25 +89,25 @@ Le client doit implémenter une URL désignant l’utilisateur connecté. L’ad
 Set-AdfsClient -LogoutUri <url>
 ```
 
-Le `LogoutUri` est l’URL utilisée par AF FS pour « fermer la session » de l’utilisateur. Pour implémenter le `LogoutUri`, le client doit s’assurer qu’il efface l’état d’authentification de l’utilisateur dans l’application, par exemple, en supprimant les jetons d’authentification dont il dispose. AD FS accédera à cette URL, avec le SID comme paramètre de requête, en signalant à la partie de confiance/application qu’elle doit se déconnecter de l’utilisateur. 
+Le `LogoutUri` est l’URL utilisée par AF FS pour « fermer la session » de l’utilisateur. Pour implémenter l' `LogoutUri`, le client doit s’assurer qu’il efface l’état d’authentification de l’utilisateur dans l’application, par exemple, en supprimant les jetons d’authentification dont il dispose. AD FS accédera à cette URL, avec le SID comme paramètre de requête, en signalant à la partie de confiance/application qu’elle doit se déconnecter de l’utilisateur. 
 
 ![](media/ad-fs-logout-openid-connect/adfs_single_logout2.png)
 
 
 1.  **Jeton OAuth avec l’ID de session**: AD FS comprend l’ID de session dans le jeton OAuth au moment de l’émission du jeton id_token. Ce sera utilisé ultérieurement par AD FS pour identifier les cookies SSO appropriés à nettoyer pour l’utilisateur.
-2.  L' **utilisateur lance la déconnexion sur App1**: L’utilisateur peut lancer une déconnexion à partir de n’importe quelle application connectée. Dans cet exemple de scénario, un utilisateur lance une déconnexion à partir de App1.
-3.  L' **application envoie une demande de déconnexion à AD FS**: Une fois la déconnexion initiée par l’utilisateur, l’application envoie une requête d’extraction à end_session_endpoint de AD FS. L’application peut éventuellement inclure id_token_hint en tant que paramètre de cette requête. Si id_token_hint est présent, AD FS l’utilise conjointement avec l’ID de session pour déterminer l’URI vers lequel le client doit être redirigé après la déconnexion (post_logout_redirect_uri).  Post_logout_redirect_uri doit être un URI valide inscrit avec AD FS à l’aide du paramètre RedirectUris.
+2.  L' **utilisateur lance la déconnexion sur App1**: l’utilisateur peut lancer une déconnexion à partir de n’importe quelle application connectée. Dans cet exemple de scénario, un utilisateur lance une déconnexion à partir de App1.
+3.  L' **application envoie une demande de déconnexion à AD FS**: une fois que l’utilisateur a lancé la déconnexion, l’application envoie une requête d’extraction à end_session_endpoint de AD FS. L’application peut éventuellement inclure id_token_hint en tant que paramètre de cette requête. Si id_token_hint est présent, AD FS l’utilise conjointement avec l’ID de session pour déterminer l’URI vers lequel le client doit être redirigé après la déconnexion (post_logout_redirect_uri).  Le post_logout_redirect_uri doit être un URI valide inscrit avec AD FS à l’aide du paramètre RedirectUris.
 4.  **AD FS envoie la déconnexion aux clients connectés**: AD FS utilise la valeur de l’identificateur de session pour rechercher les clients appropriés auxquels l’utilisateur est connecté. Les clients identifiés reçoivent une demande sur le LogoutUri inscrit auprès de AD FS pour initier une déconnexion côté client.
 
 ## <a name="faqs"></a>FAQ
-**QUESTION** Je ne vois pas les paramètres frontchannel_logout_supported et frontchannel_logout_session_supported dans le document de découverte.</br>
+**Q :** Je ne vois pas les paramètres frontchannel_logout_supported et frontchannel_logout_session_supported dans le document de découverte.</br>
 **R :** Assurez-vous que [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) est installé sur tous les serveurs AD FS. Reportez-vous à la déconnexion unique dans le serveur 2016 avec [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801).
 
-**QUESTION** J’ai configuré Single Logout comme étant dirigée, mais l’utilisateur reste connecté sur d’autres clients.</br>
-**R :** Assurez-vous que `LogoutUri` est défini pour tous les clients où l’utilisateur est connecté. En outre, AD FS tente d’envoyer la demande de déconnexion sur le `LogoutUri` enregistré. Le client doit implémenter la logique pour gérer la demande et prendre une mesure pour déconnecter l’utilisateur de l’application.</br>
+**Q :** J’ai configuré Single Logout comme étant dirigée, mais l’utilisateur reste connecté sur d’autres clients.</br>
+**R :** Assurez-vous que `LogoutUri` est défini pour tous les clients où l’utilisateur est connecté. De plus, AD FS tente d’envoyer la demande de déconnexion sur le `LogoutUri`inscrit. Le client doit implémenter la logique pour gérer la demande et prendre une mesure pour déconnecter l’utilisateur de l’application.</br>
 
-**QUESTION** Si, après la déconnexion, l’un des clients revient à AD FS avec un jeton d’actualisation valide, AD FS émettre un jeton d’accès ?</br>
-**R :** Oui. Il incombe à l’application cliente de supprimer tous les artefacts authentifiés après la réception d’une demande de déconnexion au @no__t inscrit-0.
+**Q :** Si, après la déconnexion, l’un des clients revient à AD FS avec un jeton d’actualisation valide, AD FS émettre un jeton d’accès ?</br>
+**R :** Oui. Il incombe à l’application cliente de supprimer tous les artefacts authentifiés après la réception d’une demande de déconnexion au `LogoutUri`inscrit.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

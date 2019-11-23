@@ -37,7 +37,7 @@ Pour planifier le déploiement de proxy d’application Web, vous pouvez passer 
 - [Installer et configurer le serveur proxy d’application Web](https://technet.microsoft.com/library/dn383662.aspx)  
   
 ## <a name="next-steps"></a>Étapes suivantes
- [Migrer Services ADFS services de rôle vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
+ [Migrer services ADFS services de rôle vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
  [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)   
  [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)    
  [Vérification de la migration de AD FS vers Windows Server 2012 R2](verify-ad-fs-migration.md)

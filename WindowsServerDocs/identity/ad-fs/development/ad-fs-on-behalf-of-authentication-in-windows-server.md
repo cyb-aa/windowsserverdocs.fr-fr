@@ -21,9 +21,9 @@ ms.locfileid: "71407814"
 
 Cette procédure pas à pas fournit des instructions pour l’implémentation d’une authentification OBO à l’aide de AD FS dans Windows Server 2016 TP5 ou version ultérieure. Pour en savoir plus sur l’authentification OBO, consultez [AD FS les flux OpenID Connect/OAuth et les scénarios d’application](../../ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md) .
 
->AVERTISSEMENT : L’exemple que vous pouvez générer ici est fourni à titre éducatif uniquement. Ces instructions sont destinées à l’implémentation la plus simple et la plus minimale possible pour exposer les éléments requis du modèle. L’exemple peut ne pas inclure tous les aspects de la gestion des erreurs et d’autres fonctionnalités liées, et se concentre uniquement sur l’obtention d’une authentification OBO réussie.
+>AVERTISSEMENT : l’exemple que vous pouvez générer ici est fourni à titre éducatif uniquement. Ces instructions sont destinées à l’implémentation la plus simple et la plus minimale possible pour exposer les éléments requis du modèle. L’exemple peut ne pas inclure tous les aspects de la gestion des erreurs et d’autres fonctionnalités liées, et se concentre uniquement sur l’obtention d’une authentification OBO réussie.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Dans cet exemple, nous allons créer un workflow d’authentification où un client accède à un service Web de niveau intermédiaire et le service Web agira ensuite pour le compte du client authentifié afin d’obtenir un jeton d’accès.
 
@@ -62,9 +62,9 @@ L’exemple utilise également SQL Server, version 11.0. Installez la base de do
 ## <a name="setting-up-the-environment"></a>Configuration de l’environnement
 Nous allons travailler avec une configuration de base de :
 
-1. **CONTRÔLEUR DE PÉRIPHÉRIQUE**: Contrôleur de domaine pour le domaine dans lequel AD FS sera hébergé
-2. **Serveur de AD FS**: Serveur AD FS pour le domaine
-3. **Ordinateur de développement**: Ordinateur sur lequel Visual Studio est installé et va développer notre exemple
+1. **DC**: contrôleur de domaine pour le domaine dans lequel AD FS sera hébergé
+2. **Serveur de AD FS**: serveur AD FS pour le domaine
+3. **Ordinateur de développement**: ordinateur sur lequel Visual Studio est installé et qui développera notre exemple
 
 Si vous le souhaitez, vous pouvez utiliser uniquement deux ordinateurs. Une pour DC/ADFS et l’autre pour le développement de l’exemple.
 
@@ -85,8 +85,8 @@ L’exemple est basé sur l’exemple OBO existant sur Azure créé par Vittorio
 
 Dès que vous ouvrez la solution WebAPI-OnBehalfOf-DotNet. sln, vous remarquerez que deux projets se trouvent dans la solution
 
-* **ToDoListClient**: Il s’agit du client OpenID avec lequel l’utilisateur interagit.
-* **ToDoListService**: Il s’agit de l’application/service WebServer de niveau intermédiaire qui interagit avec un autre WebAPI principal OBO l’utilisateur authentifié
+* **ToDoListClient**: il s’agit du client OpenID avec lequel l’utilisateur interagit
+* **ToDoListService**: il s’agit de l’application/service WebServer de niveau intermédiaire qui interagit avec un autre WEBAPI principal OBO l’utilisateur authentifié
 
 Comme vous pouvez le voir, nous devons ajouter un autre projet ultérieurement, qui agira en tant que ressource accessible par le ToDoListService de niveau intermédiaire.
 
@@ -102,7 +102,7 @@ Ouvrez la console MMC de gestion des AD FS et ajoutez un nouveau groupe d’appl
 
 Cliquez sur suivant pour afficher la page permettant de fournir des informations sur l’application cliente. Donnez un nom approprié à l’application cliente dans AD FS. Copiez l’identificateur du client et enregistrez-le quelque part. vous pourrez y accéder ultérieurement, car il sera requis dans la configuration de l’application dans Visual Studio.
 
->Remarque : L’URI de redirection peut être n’importe quel URI arbitraire, car il n’est pas vraiment utilisé dans le cas de clients natifs
+>Remarque : l’URI de redirection peut être n’importe quel URI arbitraire, car il n’est pas vraiment utilisé dans le cas de clients natifs
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO11.PNG)
 
@@ -116,13 +116,13 @@ Cliquez sur suivant pour afficher la page choisir une stratégie de Access Contr
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO1.PNG)
 
-Cliquez sur suivant pour afficher la page Configurer les autorisations de l’application. Dans cette page, sélectionnez les étendues autorisées en tant que OpenID (sélectionnées par défaut) et user_impersonation. L’étendue « user_impersonation » est nécessaire pour pouvoir demander un jeton d’accès pour le compte de AD FS.
+Cliquez sur suivant pour afficher la page Configurer les autorisations de l’application. Dans cette page, sélectionnez les étendues autorisées en tant que OpenID (sélectionnées par défaut) et user_impersonation. L’étendue « user_impersonation » est nécessaire pour pouvoir demander un jeton d’accès de la part de AD FS.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO12.PNG)
 
 Cliquez sur suivant pour afficher la page Résumé. Parcourez le reste de l’Assistant et terminez la configuration.
 
-Pour permettre l’authentification pour le compte de, nous devons nous assurer que AD FS retourne un jeton d’accès avec l’étendue user_impersonation au client. Modifiez l’émission des revendications pour ToDoListServiceWebApi pour inclure les trois règles personnalisées suivantes :
+Pour permettre l’authentification pour le compte de, nous devons nous assurer que AD FS retourne un jeton d’accès avec une étendue user_impersonation au client. Modifiez l’émission des revendications pour ToDoListServiceWebApi pour inclure les trois règles personnalisées suivantes :
 
     @RuleName = "All claims"
     c:[]
@@ -161,8 +161,8 @@ Cliquez sur suivant et terminez l’Assistant.
 Accédez à votre projet ToDoListClient dans WebAPI-OnBehalfOf-DotNet solution. Ouvrez le fichier app. config et apportez les modifications suivantes
 
 * Commenter l’entrée Ida : locataire Key
-* Pour Ida : RedirectURI, entrez l’URI arbitraire que vous avez fourni lors de la configuration du MySampleGroup_ClientApplication dans AD FS.
-* Pour la clé Ida : ClientID, fournissez l’identificateur d’ID client que AD FS a donné lors de la configuration de MySampleGroup_ClientApplication.
+* Pour Ida : RedirectURI, entrez l’URI arbitraire que vous avez fourni lors de la configuration de l’MySampleGroup_ClientApplication dans AD FS.
+* Pour la clé Ida : ClientID, fournissez l’identificateur d’ID client que AD FS a donné lors de la configuration du MySampleGroup_ClientApplication.
 * Pour Ida : ToDoListResourceID, fournissez l’ID de ressource que vous avez donné lors de la configuration du ToDoListServiceWebApi dans AD FS
 * Commentez la clé Ida : AADInstance
 * Pour Ida : ToDoListBaseAddress, entrez l’ID de ressource du ToDoListServiceWebApi. Ce sera utilisé lors de l’appel de ToDoList WebAPI.
@@ -274,13 +274,13 @@ Poursuivez le reste de l’Assistant comme lorsque nous avons configuré le WebA
 * Ouvrir le fichier Web. config
 * Modifiez les clés suivantes
 
-| Touche                      | Value                                                                                                                                                                                                                   |
+| Clé                      | Valeur                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ida : audience             | ID du ToDoListService donné à AD FS lors de la configuration du WebAPI ToDoListService, par exemple, https://localhost:44321/                                                                                         |
 | Ida : ClientID             | ID du ToDoListService donné à AD FS lors de la configuration du WebAPI ToDoListService, par exemple, <https://localhost:44321/> </br>**Il est très important que Ida : audience et Ida : ClientID correspondent** |
 | Ida : ClientSecret         | Il s’agit de la clé secrète que AD FS générée lorsque vous configurez le client ToDoListService dans AD FS                                                                                                                   |
 | Ida : AdfsMetadataEndpoint | Il s’agit de l’URL de vos métadonnées de AD FS, par exemple https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
-| Ida : OBOWebAPIBase        | Il s’agit de l’adresse de base que nous allons utiliser pour appeler l’API du serveur principal, par exemple, https://localhost:44300                                                                                                                     |
+| Ida : OBOWebAPIBase        | Il s’agit de l’adresse de base que nous allons utiliser pour appeler l’API backend, par exemple https://localhost:44300                                                                                                                     |
 | Ida : autorité            | Il s’agit de l’URL de votre service AD FS, par exemple https://fs.anandmsft.com/adfs/                                                                                                                                          |
 
 Toutes les autres clés Ida : XXXXXXx du nœud **appSettings** peuvent être commentées ou supprimées
@@ -494,10 +494,10 @@ En cas de réussite de l’opération, vous verrez que l’élément a été ajo
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
 Vous pouvez également consulter les suivis détaillés sur Fiddler. Lancez Fiddler et activez le déchiffrement HTTPs. Vous pouvez voir que nous effectuons deux demandes sur le point de terminaison/ADFS/oautincludes.
-Dans la première interaction, nous présentons le code d’accès au point de terminaison de jeton et obtenons un jeton d’accès pour https://localhost:44321/ ![ AD FS OBO @ no__t-2
+Dans la première interaction, nous présentons le code d’accès au point de terminaison de jeton et obtenons un jeton d’accès pour https://localhost:44321/ ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
 
-Dans la deuxième interaction avec le point de terminaison de jeton, vous pouvez voir que **requested_token_use** est défini en tant que **on_behalf_of** et que nous utilisons le jeton d’accès obtenu pour le service Web de niveau intermédiaire, c.-à-d. https://localhost:44321/ comme assertion pour obtenir le jeton pour le compte de.
-![AD FS OBO @ NO__T-1
+Dans la deuxième interaction avec le point de terminaison de jeton, vous pouvez voir que nous avons **requested_token_use** défini comme **on_behalf_of** et que nous utilisons le jeton d’accès obtenu pour le service Web de niveau intermédiaire, c’est-à-dire https://localhost:44321/ comme assertion pour obtenir le jeton pour le compte de.
+![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Développement des services AD FS](../../ad-fs/AD-FS-Development.md)  

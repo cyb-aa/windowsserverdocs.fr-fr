@@ -21,7 +21,7 @@ ms.locfileid: "71404939"
 ---
 # <a name="step-1-configure-advanced-directaccess-infrastructure"></a>Étape 1 configurer une infrastructure DirectAccess avancée
 
->S'applique à : Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit comment configurer l'infrastructure requise pour un déploiement avancé de l'accès à distance qui utilise un serveur DirectAccess unique dans un environnement mixte IPv4 et IPv6. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [planifier un déploiement avancé de DirectAccess](../../../remote-access/directaccess/single-server-advanced/Plan-an-Advanced-DirectAccess-Deployment.md).  
   
@@ -208,7 +208,7 @@ Assurez-vous que le certificat de site web utilisé pour l'authentification IP-H
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>Pour installer le certificat IP-HTTPS à partir d'une autorité de certification interne  
   
-1.  Sur le serveur DirectAccess : Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
+1.  Sur le serveur DirectAccess : dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
@@ -243,7 +243,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 ### <a name="NLS_DNS"></a>Pour créer le serveur d’emplacement réseau  
   
-1.  Sur le serveur DNS du réseau interne : Dans l’écran d' **Accueil** , tapez**dnsmgmt. msc**, puis appuyez sur entrée.  
+1.  Sur le serveur DNS du réseau interne : dans l’écran d' **Accueil** , tapez**dnsmgmt. msc**, puis appuyez sur entrée.  
   
 2.  Dans le volet gauche de la console **Gestionnaire DNS**, développez la zone de recherche directe de votre domaine. Cliquez avec le bouton droit sur le domaine et cliquez sur **Nouvel hôte (A ou AAAA)** .  
   
@@ -263,7 +263,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 5.  Dans la boîte de dialogue **DNS**, cliquez sur **OK**, puis sur **Terminé**.  
   
-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -335,7 +335,7 @@ Le serveur DirectAccess et tous les ordinateurs clients DirectAccess doivent êt
   
 10. Lorsque vous êtes invité à redémarrer l’ordinateur, cliquez sur **Redémarrer maintenant**.  
   
-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -424,11 +424,11 @@ Une fois que l'administrateur de l'accès à distance a terminé toutes les modi
   
     10. Dans la page **Analyse de la sauvegarde**, cliquez sur **Suivant**, puis sur **Terminer**.  
   
-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
--   Pour sauvegarder l’objet de stratégie de groupe de client intermédiaire « paramètres du client DirectAccess-intermédiaire » dans le domaine « corp.contoso.com » dans le dossier de sauvegarde «C:\Backups @ no__t-0 :  
+-   Pour sauvegarder l’objet de stratégie de groupe de client intermédiaire « paramètres du client DirectAccess-intermédiaire » dans le domaine « corp.contoso.com » dans le dossier de sauvegarde «C:\Backups\":  
   
     ```  
     $backup = Backup-GPO "Name 'DirectAccess Client Settings - Staging' "Domain 'corp.contoso.com' "Path 'C:\Backups\'  
@@ -469,7 +469,7 @@ Les paramètres DirectAccess contenus dans l’objet stratégie de groupe de l�
   
 6.  Dans la boîte de dialogue **Sélectionner Utilisateurs, contacts, ordinateurs ou comptes de service**, sélectionnez les ordinateurs clients que vous voulez activer pour DirectAccess, puis cliquez sur **OK**.  
   
-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**commandes Windows PowerShell équivalentes** @no__t 0Windows PowerShell  
+![les commandes Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -501,7 +501,7 @@ Les éléments suivants sont requis pour les deux types de certificats, s'ils n'
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>Pour installer le certificat du serveur Emplacement réseau à partir d'une autorité de certification interne  
   
-1.  Sur le serveur qui hébergera le site web du serveur Emplacement réseau : Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
+1.  Sur le serveur qui hébergera le site Web du serveur emplacement réseau : dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
@@ -545,9 +545,9 @@ Les éléments suivants sont requis pour les deux types de certificats, s'ils n'
   
     Les points de distribution de listes de révocation de certificat sont accessibles via :  
   
-    -   Serveurs Web à l’aide d’une URL HTTP, telle que : https://crl.corp.contoso.com/crld/corp-APP1-CA.crl  
+    -   Serveurs Web à l’aide d’une URL HTTP, par exemple : https://crl.corp.contoso.com/crld/corp-APP1-CA.crl  
   
-    -   Serveurs de fichiers accessibles par le biais d’un chemin d’accès UNC (Universal Naming Convention), tel que \\ \ CRL. Corp. contoso. com\crld\corp-APP1-CA.crl  
+    -   Serveurs de fichiers accessibles par le biais d’un chemin d’accès UNC (Universal Naming Convention), tel que \\\crl.corp.contoso.com\crld\corp-APP1-CA.crl  
   
     Si le point de distribution de liste de révocation de certificats interne est accessible uniquement via IPv6, vous devez configurer une règle de sécurité de connexion de Pare-feu Windows avec fonctions avancées de sécurité pour exempter la protection IPsec de l'adresse IPv6 de votre intranet jusqu'aux adresses IPv6 de vos points de distribution de liste de révocation de certificats.  
   
@@ -555,7 +555,7 @@ Les éléments suivants sont requis pour les deux types de certificats, s'ils n'
   
 ## <a name="BKMK_Links"></a>Étape suivante  
   
--   [Étape 2 : Configurer des serveurs DirectAccess avancés](da-adv-configure-s2-servers.md)  
+-   [Étape 2 : configurer des serveurs DirectAccess avancés](da-adv-configure-s2-servers.md)  
   
 
 

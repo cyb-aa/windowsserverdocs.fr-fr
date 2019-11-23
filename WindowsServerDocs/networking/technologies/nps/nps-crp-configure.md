@@ -17,11 +17,11 @@ ms.locfileid: "71405479"
 ---
 # <a name="configure-connection-request-policies"></a>Configurer des stratégies de requête de connexion
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour créer et configurer des stratégies de demande de connexion qui désignent si le serveur NPS local traite les demandes de connexion ou les transfère au serveur RADIUS distant pour traitement.
 
-Les stratégies de demande de connexion sont des ensembles de conditions et de paramètres qui permettent aux administrateurs réseau de désigner les serveurs protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS) qui effectuent l’authentification et l’autorisation des demandes de connexion que le le serveur exécutant le serveur de stratégie réseau \(NPS @ no__t-1 reçoit des clients RADIUS.
+Les stratégies de demande de connexion sont des ensembles de conditions et de paramètres qui permettent aux administrateurs réseau de désigner les serveurs protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS) qui effectuent l’authentification et l’autorisation des demandes de connexion que le serveur exécutant le serveur NPS \(\) reçoit des clients RADIUS.
 
 La stratégie de demande de connexion par défaut utilise NPS en tant que serveur RADIUS et traite toutes les demandes d’authentification localement.
 

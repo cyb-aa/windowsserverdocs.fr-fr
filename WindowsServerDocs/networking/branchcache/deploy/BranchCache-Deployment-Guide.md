@@ -17,7 +17,7 @@ ms.locfileid: "71356728"
 ---
 # <a name="branchcache-deployment-guide"></a>Guide de déploiement BranchCache
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser ce guide pour apprendre à déployer BranchCache dans Windows Server 2016.  
   
@@ -29,11 +29,11 @@ En plus de cette rubrique, ce guide contient les sections suivantes.
   
 ## <a name="branchcache-deployment-overview"></a>Présentation du déploiement de BranchCache
 
-BranchCache est une technologie d’optimisation de la bande passante du réseau étendu (WAN), incluse dans certaines éditions de Windows Server 2016, Windows Server @ no__t-0 2012 R2, Windows Server @ no__t-1 2012, Windows Server @ no__t-2 2008 R2 et le client Windows associé systèmes d’exploitation.  
+BranchCache est une technologie d’optimisation de la bande passante du réseau étendu (WAN), incluse dans certaines éditions de Windows Server 2016, Windows Server&reg; 2012 R2, Windows Server&reg; 2012, Windows Server&reg; 2008 R2 et les systèmes d’exploitation clients Windows associés.  
   
 Pour optimiser la bande passante du réseau étendu, BranchCache copie le contenu des serveurs de contenu de votre site principal et le met en cache dans les filiales, permettant ainsi aux ordinateurs clients des filiales d’accéder localement au contenu au lieu de passer par le réseau étendu.  
   
-Dans les filiales, le contenu est mis en cache sur les serveurs qui exécutent la fonctionnalité BranchCache de Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2, ou si aucun serveur n’est disponible dans la filiale, le contenu est CAC Hed sur les ordinateurs clients qui exécutent Windows 10 @ no__t-0, Windows @ no__t-1 8,1, Windows 8 ou Windows 7 @ no__t-2.  
+Dans les filiales, le contenu est mis en cache sur les serveurs qui exécutent la fonctionnalité BranchCache de Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2, ou si aucun serveur n’est disponible dans la filiale, le contenu est mis en cache sur les ordinateurs clients qui exécutent Windows 10&reg;, Windows&reg; 8,1, Windows 8 ou Windows 7&reg;.  
   
 Lorsqu’un ordinateur client demande et reçoit du contenu à partir du siège social ou du centre de données Cloud et que le contenu est mis en cache dans la filiale, les autres ordinateurs de la même filiale peuvent obtenir le contenu localement au lieu de contacter le serveur de contenu via le Liaison WAN.  
   
@@ -64,11 +64,11 @@ Pour plus d’informations, consultez [versions de système d’exploitation pou
 
 Vous trouverez ci-dessous la configuration requise pour le déploiement de BranchCache à l’aide de ce guide.  
   
--   Les **serveurs de contenu Web et de fichiers** doivent exécuter l’un des systèmes d’exploitation suivants pour fournir les fonctionnalités BranchCache : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. Les clients Windows 8 et versions ultérieures continuent de voir les avantages de BranchCache lors de l’accès aux serveurs de contenu qui exécutent Windows Server 2008 R2, mais ils ne peuvent pas utiliser les nouvelles technologies de segmentation et de hachage dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012.  
+-   Les **serveurs de contenu Web et de fichiers** doivent exécuter l’un des systèmes d’exploitation suivants pour fournir les fonctionnalités BranchCache : windows server 2016, windows server 2012 R2, windows server 2012 ou windows Server 2008 R2. Les clients Windows 8 et versions ultérieures continuent de voir les avantages de BranchCache lors de l’accès aux serveurs de contenu qui exécutent Windows Server 2008 R2, mais ils ne peuvent pas utiliser les nouvelles technologies de segmentation et de hachage dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012.  
   
 -   Les **ordinateurs clients** doivent exécuter Windows 10, Windows 8.1 ou Windows 8 pour utiliser le modèle de déploiement le plus récent, ainsi que les améliorations de segmentation et de hachage introduites avec Windows Server 2012.  
   
--   Les **serveurs de cache hébergé** doivent exécuter windows server 2016, windows server 2012 R2 ou windows server 2012 pour pouvoir utiliser les améliorations de déploiement et les fonctionnalités de mise à l’échelle décrites dans ce document.  Un ordinateur exécutant l’un de ces systèmes d’exploitation configuré en tant que serveur de cache hébergé peut continuer à servir les ordinateurs clients qui exécutent Windows 7, mais pour ce faire, il doit être équipé d’un certificat adapté au protocole TLS (Transport Layer Security). ), comme décrit dans le [Guide de déploiement](https://technet.microsoft.com/library/ee649232.aspx)de windows Server 2008 R2 et Windows 7 BranchCache.  
+-   Les **serveurs de cache hébergé** doivent exécuter windows server 2016, windows server 2012 R2 ou windows server 2012 pour pouvoir utiliser les améliorations de déploiement et les fonctionnalités de mise à l’échelle décrites dans ce document.  Un ordinateur exécutant l’un de ces systèmes d’exploitation configuré en tant que serveur de cache hébergé peut continuer à servir les ordinateurs clients qui exécutent Windows 7, mais pour ce faire, il doit être équipé d’un certificat adapté au protocole TLS (Transport Layer Security), tel que décrit dans le [Guide de déploiement](https://technet.microsoft.com/library/ee649232.aspx)de windows Server 2008 R2 et Windows 7 BranchCache.  
   
 -   **Un domaine Active Directory** est nécessaire pour tirer parti de la détection automatique des stratégie de groupe et du cache hébergé, mais un domaine n’est pas requis pour utiliser BranchCache.  Vous pouvez configurer des ordinateurs individuels à l’aide de Windows PowerShell. En outre, il n’est pas nécessaire que vos contrôleurs de domaine exécutent Windows Server 2012 ou une version ultérieure pour utiliser les nouveaux paramètres de stratégie de groupe BranchCache. vous pouvez importer les modèles d’administration BranchCache sur les contrôleurs de domaine qui exécutent des systèmes d’exploitation antérieurs, ou vous pouvez créer des objets de stratégie de groupe à distance sur d’autres ordinateurs qui exécutent Windows 10, Windows Server 2016, Windows 8.1, Windows Server 2012 R2, Windows 8 ou Windows Server 2012.
 
@@ -76,7 +76,7 @@ Vous trouverez ci-dessous la configuration requise pour le déploiement de Branc
 
 **Documentation et historique de BranchCache**
 
-BranchCache a été introduit pour la première fois dans Windows 7 @ no__t-0 et Windows Server @ no__t-1 2008 R2, et a été amélioré dans Windows Server 2012, Windows 8 et les systèmes d’exploitation ultérieurs.
+BranchCache a été introduit pour la première fois dans Windows 7&reg; et Windows Server&reg; 2008 R2, et a été amélioré dans Windows Server 2012, Windows 8 et les systèmes d’exploitation ultérieurs.
 
 > [!NOTE]
 > Si vous déployez BranchCache dans des systèmes d’exploitation autres que Windows Server 2016, les ressources de documentation suivantes sont disponibles.

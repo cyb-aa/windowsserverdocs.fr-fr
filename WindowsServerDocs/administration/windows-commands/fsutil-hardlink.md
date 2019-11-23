@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376879"
 ---
 # <a name="fsutil-hardlink"></a>Fsutil hardlink
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Crée un lien physique entre un fichier existant et un nouveau fichier.
 
@@ -33,9 +33,9 @@ fsutil hardlink list <Filename>
 |Paramètre|Description|
 |-------------|---------------|
 |créer|Établit un lien physique NTFS entre un fichier existant et un nouveau fichier. (Un lien physique NTFS est semblable à un lien physique POSIX.)|
-|@no__t 0NewFileName >|Spécifie le fichier vers lequel vous souhaitez créer un lien physique.|
-|@no__t 0ExistingFileName >|Spécifie le fichier à partir duquel vous souhaitez créer un lien physique.|
-|list|Répertorie les liaisons permanentes de *nom de fichier*.<br /><br />Ce paramètre s’applique à :  Windows Server 2008 R2 et Windows 7.|
+|\<NewFileName >|Spécifie le fichier vers lequel vous souhaitez créer un lien physique.|
+|\<ExistingFileName >|Spécifie le fichier à partir duquel vous souhaitez créer un lien physique.|
+|list|Répertorie les liaisons permanentes de *nom de fichier*.<br /><br />Ce paramètre s’applique à : Windows Server 2008 R2 et Windows 7.|
 
 ## <a name="remarks"></a>Notes
 

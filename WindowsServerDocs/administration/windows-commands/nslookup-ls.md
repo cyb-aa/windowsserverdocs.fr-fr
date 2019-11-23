@@ -22,7 +22,7 @@ ms.locfileid: "71373087"
 ---
 # <a name="nslookup-ls"></a>nslookup ls
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Répertorie des informations pour un domaine DNS (Domain Name System).
 ## <a name="syntax"></a>Syntaxe
@@ -41,5 +41,5 @@ ls [<Option>] <DNSDomain> [{[>] <FileName>|[>>] <FileName>}]
 ## <a name="remarks"></a>Notes
 - La sortie par défaut contient les noms des ordinateurs et leurs adresses IP. Lorsque la sortie est dirigée vers un fichier, les marques de hachage sont imprimées pour chaque enregistrement 50 reçu du serveur
   ## <a name="additional-references"></a>Références supplémentaires
-  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)[nslookup Set QueryType](nslookup-set-querytype.md) 
-  
+  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+  [nslookup Set QueryType](nslookup-set-querytype.md)

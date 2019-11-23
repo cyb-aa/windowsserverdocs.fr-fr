@@ -17,11 +17,11 @@ ms.locfileid: "71406230"
 ---
 # <a name="dns-policy-scenario-guide"></a>Guide de scénario de stratégie DNS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Ce guide est destiné à être utilisé par les administrateurs DNS, réseau et système.  
   
-La stratégie DNS est une nouvelle fonctionnalité de DNS dans Windows Server @ no__t-0 2016. Vous pouvez utiliser ce guide pour apprendre à utiliser la stratégie DNS afin de contrôler la façon dont un serveur DNS traite les requêtes de résolution de noms en fonction des différents paramètres que vous définissez dans les stratégies.   
+La stratégie DNS est une nouvelle fonctionnalité de DNS dans Windows Server&reg; 2016. Vous pouvez utiliser ce guide pour apprendre à utiliser la stratégie DNS afin de contrôler la façon dont un serveur DNS traite les requêtes de résolution de noms en fonction des différents paramètres que vous définissez dans les stratégies.   
   
 Ce guide contient des informations de présentation de la stratégie DNS, ainsi que des scénarios de stratégie DNS spécifiques qui vous fournissent des instructions sur la façon de configurer le comportement du serveur DNS pour atteindre vos objectifs, notamment la gestion du trafic basé sur la géolocalisation pour les serveurs principaux et serveurs DNS secondaires, haute disponibilité de l’application, DNS split-brain, et bien plus encore.  
   

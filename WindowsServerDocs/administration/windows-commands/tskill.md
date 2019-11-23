@@ -22,10 +22,10 @@ ms.locfileid: "71392331"
 ---
 # <a name="tskill"></a>tskill
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Met fin à un processus en cours d’exécution dans une session sur un serveur hôte de session Bureau à distance (hôte de session Bureau à distance).
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
+pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 
 > [!NOTE]
 > Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
@@ -39,10 +39,10 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 
 |Paramètre|Description|
 |-------|--------|
-|@no__t 0ProcessID >|Spécifie l’ID du processus que vous souhaitez terminer.|
-|@no__t 0ProcessName >|Spécifie le nom du processus que vous souhaitez terminer. Ce paramètre peut inclure des caractères génériques.|
-|/Server : \<ServerName >|Spécifie le serveur Terminal Server qui contient le processus que vous souhaitez terminer. Si **/Server** n’est pas spécifié, le serveur hôte de session Bureau à distance actuel est utilisé.|
-|/ID : \<SessionID >|Termine le processus en cours d’exécution dans la session spécifiée.|
+|\<ProcessID >|Spécifie l’ID du processus que vous souhaitez terminer.|
+|\<ProcessName >|Spécifie le nom du processus que vous souhaitez terminer. Ce paramètre peut inclure des caractères génériques.|
+|/Server :\<ServerName >|Spécifie le serveur Terminal Server qui contient le processus que vous souhaitez terminer. Si **/Server** n’est pas spécifié, le serveur hôte de session Bureau à distance actuel est utilisé.|
+|/ID :\<SessionID >|Termine le processus en cours d’exécution dans la session spécifiée.|
 |/a|Met fin au processus qui s’exécute dans toutes les sessions.|
 |/v|Affiche des informations sur les actions en cours d’exécution.|
 |/?|Affiche l'aide à l'invite de commandes.|
@@ -63,4 +63,4 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
   ```
   #### <a name="additional-references"></a>Références supplémentaires
   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [ &#40;services Bureau à distance&#41; référence des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+  [ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

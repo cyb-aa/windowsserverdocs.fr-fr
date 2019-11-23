@@ -19,11 +19,11 @@ ms.locfileid: "71405272"
 ---
 # <a name="windows-powershell-commands-for-rss-and-vrss"></a>Commandes Windows PowerShell pour RSS et vRSS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, vous allez apprendre à trouver rapidement des informations de référence technique sur les commandes Windows PowerShell pour la mise à l’échelle côté réception \(RSS @ no__t-1 et Virtual RSS \(vRSS @ no__t-3.
+Dans cette rubrique, vous allez apprendre à trouver rapidement des informations de référence technique sur les commandes Windows PowerShell pour la mise à l’échelle côté réception \(RSS\) et Virtual RSS \(le\)vRSS.
 
-Utilisez les commandes RSS suivantes pour configurer RSS sur un ordinateur physique équipé de plusieurs processeurs ou de plusieurs cœurs. Vous pouvez utiliser les mêmes commandes pour configurer vRSS sur une machine virtuelle \(VM @ no__t-1 qui exécute un système d’exploitation pris en charge. Pour plus d’informations, consultez [applets de commande de cartes réseau dans Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps).
+Utilisez les commandes RSS suivantes pour configurer RSS sur un ordinateur physique équipé de plusieurs processeurs ou de plusieurs cœurs. Vous pouvez utiliser les mêmes commandes pour configurer vRSS sur une machine virtuelle \(ordinateur virtuel\) qui exécute un système d’exploitation pris en charge. Pour plus d’informations, consultez [applets de commande de cartes réseau dans Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps).
 
 ## <a name="configure-vmq"></a>Configurer l’ordinateurs virtuels
 
@@ -36,7 +36,7 @@ vRSS requiert l’activation et la configuration de la gestion des ordinateurs v
 
 ## <a name="enable-and-configure-rss-on-a-native-host"></a>Activer et configurer RSS sur un hôte natif
 
-Utilisez les commandes PowerShell suivantes pour configurer RSS sur un hôte natif, ainsi que pour gérer RSS sur une machine virtuelle ou sur une carte réseau virtuelle hôte (carte réseau virtuelle). Certains des paramètres de ces commandes peuvent également affecter File d’attente d’ordinateurs virtuels \(VMQ @ no__t-1 dans l’hôte Hyper-V.  
+Utilisez les commandes PowerShell suivantes pour configurer RSS sur un hôte natif, ainsi que pour gérer RSS sur une machine virtuelle ou sur une carte réseau virtuelle hôte (carte réseau virtuelle). Certains des paramètres de ces commandes peuvent également affecter File d’attente d’ordinateurs virtuels \(les\) d’ordinateur virtuels dans l’hôte Hyper-V.  
 
 >[!IMPORTANT]
 >L’activation de RSS sur une machine virtuelle ou sur un ordinateur hôte carte réseau virtuelle est une condition préalable à l’activation et à l’utilisation de vRSS.
@@ -46,9 +46,9 @@ Utilisez les commandes PowerShell suivantes pour configurer RSS sur un hôte nat
 - [NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/get-netadapterrss?view=win10-ps)
 - [Set-NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/Set-NetAdapterRss?view=win10-ps)
 
-## <a name="enable-vrss-on-the-hyper-v-virtual-switch-port"></a>Activer vRSS sur le port de commutateur virtuel Hyper @ no__t-0V
+## <a name="enable-vrss-on-the-hyper-v-virtual-switch-port"></a>Activer vRSS sur le port de commutateur virtuel Hyper\-V
 
-En plus de l’activation de RSS dans la machine virtuelle, vRSS requiert l’activation de vRSS sur le port de commutateur virtuel Hyper @ no__t-0V. 
+En plus de l’activation de RSS dans la machine virtuelle, vRSS requiert l’activation de vRSS sur le port de commutateur virtuel Hyper\-V. 
 
 Déterminez les paramètres présents pour vRSS et activez ou désactivez la fonctionnalité pour une machine virtuelle.
 
@@ -81,7 +81,7 @@ Déterminez les paramètres présents pour vRSS, puis activez ou désactivez la 
    ```
 
 ## <a name="configure-the-scheduling-mode-on-the-hyper-v-virtual-switch-port"></a>Configurer le mode de planification sur le port de commutateur virtuel Hyper-V 
->S’applique à : Windows Server 2019
+>S’applique à : Windows Server 2019
 
 Dans Windows Server 2019, vRSS peut mettre à jour les processeurs logiques utilisés pour traiter le trafic réseau dynamiquement.  Ce mode de planification est activé par défaut pour les appareils avec des pilotes pris en charge. 
 
@@ -100,7 +100,7 @@ Déterminez le mode de planification présent sur un système ou modifiez le mod
    ```
 
 ## <a name="configure-the-scheduling-mode-on-a-host-vnic"></a>Configurer le mode de planification sur un ordinateur hôte carte réseau virtuelle
->S’applique à : Windows Server 2019
+>S’applique à : Windows Server 2019
 
 Pour déterminer le mode de planification actuel ou pour modifier le mode de planification d’un carte réseau virtuelle d’ordinateur hôte, utilisez les commandes Windows PowerShell suivantes :
 

@@ -21,7 +21,7 @@ ms.locfileid: "71404758"
 ---
 # <a name="step-4-install-and-configure-rsa-and-edge1"></a>ÉTAPE 4 installer et configurer RSA et EDGE1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 RSA est le serveur RADIUS et le mot de passe à usage unique, et est installé avant la configuration de RADIUS et du mot de passe à usage unique.  
   
@@ -255,7 +255,7 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
     6.  Dans la boîte de dialogue de **téléchargement de fichier** , cliquez sur **Enregistrer**, accédez à installation de C:\RSA, puis cliquez sur **Enregistrer**. Cliquez sur **Fermer** dans la boîte de dialogue **Téléchargement terminé** .  
   
-    7.  À partir du support du gestionnaire d’authentification RSA, copiez \auth_mgr\windows-x86_64\am\rsa-ace_nsload\win32-5.0-x86\agent_nsload.exe vers C:\RSA.  
+    7.  À partir de la copie du média du gestionnaire d’authentification RSA \ auth_mgr \Windows-x86_64 \am\rsa-ace_nsload \win32-5.0-x86\ agent_nsload. exe à l’installation C:\RSA.  
   
 ## <a name="BKMK_DAProbeUser"></a>Créer DAProbeUser  
   
@@ -268,7 +268,7 @@ Utilisez cette procédure pour installer le jeton logiciel SecurID sur CLIENT1.
   
 #### <a name="install-securid-software-token"></a>Installer le jeton logiciel SecurID  
   
-1.  Sur l’ordinateur CLIENT1, créez le dossier C:\RSA files. Copiez le fichier Software_Tokens. zip à partir de l’installation C:\RSA sur l’ordinateur RSA vers les fichiers C:\RSA. Extrayez le fichier User1_000031701832. SDTID dans les fichiers C:\RSA sur CLIENT1.  
+1.  Sur l’ordinateur CLIENT1, créez le dossier C:\RSA files. Copiez le fichier Software_Tokens. zip à partir de l’installation de C:\RSA sur l’ordinateur RSA vers les fichiers C:\RSA. Extrayez le fichier User1_000031701832. SDTID dans C:\RSA fichiers sur CLIENT1.  
   
 2.  Accédez à la source du média du jeton logiciel RSA SecurID, puis double-cliquez sur RSASECURIDTOKEN410 dans le dossier **SecurID SoftwareToken client App** pour démarrer l’installation de RSA SecurID. Si le message **ouverture d’un fichier-Avertissement de sécurité** s’affiche, cliquez sur **exécuter**.  
   
@@ -284,7 +284,7 @@ Utilisez cette procédure pour installer le jeton logiciel SecurID sur CLIENT1.
   
 8.  Cliquez sur **Importer à partir d’un fichier**.  
   
-9. Cliquez sur **Parcourir**, sélectionnez C:\RSA Files\User1_000031701832.SDTID, puis cliquez sur **ouvrir**.  
+9. Cliquez sur **Parcourir**, sélectionnez fichiers C:\RSA \ USER1_000031701832. SDTID, puis cliquez sur **ouvrir**.  
   
 10. Cliquez deux fois sur **OK**.  
   
@@ -303,7 +303,7 @@ Utilisez cette procédure pour configurer EDGE1 afin d’effectuer l’authentif
   
    2.  C:\Windows\SysWOW64  
   
-4. Copiez agent_nsload. exe sur C:\Windows\SysWOW64 @ no__t-0.  
+4. Copiez agent_nsload. exe dans C:\Windows\SysWOW64\\.  
   
 5. Ouvrez une invite de commandes avec élévation de privilèges et accédez à C:\Windows\SysWOW64.  
   
@@ -335,7 +335,7 @@ Utilisez cette procédure pour configurer le mot de passe à usage unique pour D
   
 8.  Dans la section **serveurs d’autorité de certification avec mot de passe à usage unique** , sélectionnez App1.Corp.contoso.com, puis cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
   
-9. Sur la page **modèles de certificats avec mot de passe à usage unique** , cliquez sur **Parcourir** pour sélectionner un modèle de certificat utilisé pour l’inscription des certificats émis pour l’authentification par mot de passe à usage unique, puis, dans la boîte de dialogue **modèles de certificat** , sélectionnez **DAOTPLogon** . Cliquez sur **OK**. Cliquez sur **Parcourir** pour sélectionner un modèle de certificat utilisé pour inscrire le certificat utilisé par le serveur d’accès à distance afin de signer les demandes d’inscription de certificat avec mot de passe à usage unique, puis, dans la boîte de dialogue **modèles de certificat** , sélectionnez **DAOTPRA**. Cliquez sur **OK**. Cliquez sur **Suivant**.  
+9. Dans la page **modèles de certificat OTP** , cliquez sur **Parcourir** pour sélectionner un modèle de certificat utilisé pour l’inscription des certificats émis pour l’authentification par mot de passe à usage unique, puis dans la boîte de dialogue **modèles de certificat** , sélectionnez **DAOTPLogon**. Cliquez sur **OK**. Cliquez sur **Parcourir** pour sélectionner un modèle de certificat utilisé pour inscrire le certificat utilisé par le serveur d’accès à distance afin de signer les demandes d’inscription de certificat avec mot de passe à usage unique, puis, dans la boîte de dialogue **modèles de certificat** , sélectionnez **DAOTPRA**. Cliquez sur **OK**. Cliquez sur **Suivant**.  
   
 10. Sur la page **installation du serveur d’accès à distance** , cliquez sur **Terminer**, puis sur **Terminer** dans l' **Assistant expert DirectAccess**.  
   

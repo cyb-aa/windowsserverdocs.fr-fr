@@ -38,8 +38,8 @@ Reg restore <KeyName> <FileName>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0KeyName >|Spécifie le chemin d’accès complet de la sous-clé à restaurer. L’opération de restauration fonctionne uniquement avec l’ordinateur local. Le KeyName doit inclure une clé racine valide. Les clés racines valides sont : HKLM, HKCU, HKCR, HKU et HKCC.|
-|\<Nom de fichier >|Spécifie le nom et le chemin d’accès du fichier contenant le contenu à écrire dans le registre. Ce fichier doit être créé à l’avance avec l’opération d' **enregistrement reg** à l’aide d’une extension. HIV.|
+|\<KeyName >|Spécifie le chemin d’accès complet de la sous-clé à restaurer. L’opération de restauration fonctionne uniquement avec l’ordinateur local. Le KeyName doit inclure une clé racine valide. Les clés racines valides sont : HKLM, HKCU, HKCR, HKU et HKCC.|
+|Nom de fichier \<>|Spécifie le nom et le chemin d’accès du fichier contenant le contenu à écrire dans le registre. Ce fichier doit être créé à l’avance avec l’opération d' **enregistrement reg** à l’aide d’une extension. HIV.|
 |/?|Affiche l’aide de **reg Restore** à l’invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -47,9 +47,9 @@ Reg restore <KeyName> <FileName>
 -   Avant de modifier des entrées de Registre, enregistrez la sous-clé parente avec l’opération **reg save** . Si la modification échoue, restaurez la sous-clé d’origine avec l’opération **reg Restore** .
 -   Le tableau suivant répertorie les valeurs renvoyées pour l’opération **reg Restore** .
 
-|Value|Description|
+|Valeur|Description|
 |-----|-----------|
-|0|Succès|
+|0|Réussite|
 |1|Échec|
 
 ## <a name="BKMK_examples"></a>Illustre

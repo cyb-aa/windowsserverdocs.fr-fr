@@ -22,9 +22,9 @@ ms.locfileid: "71378689"
 ---
 # <a name="detach-vdisk"></a>Détacher vdisk
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Arrête le disque dur virtuel sélectionné \(VHD @ no__t-1 de l’affichage en tant que lecteur de disque dur local sur l’ordinateur hôte. Lorsqu'un VHD est détaché, vous pouvez le copier à d'autres emplacements.  
+Arrête l’affichage du disque dur virtuel \(\) VHD sélectionné en tant que lecteur de disque dur local sur l’ordinateur hôte. Lorsqu'un VHD est détaché, vous pouvez le copier à d'autres emplacements.  
   
 > [!NOTE]  
 > Cette commande s’applique uniquement à Windows 7 et Windows Server 2008 R2.  

@@ -38,10 +38,10 @@ Print [/d:<PrinterName>] [<Drive>:][<Path>]<FileName>[ ...]
 
 |Paramètre|Description|
 |---------|-----------|
-|/d : \<PrinterName >|Spécifie l’imprimante pour laquelle vous souhaitez imprimer le travail. Pour imprimer sur une imprimante connectée localement, spécifiez le port de votre ordinateur sur lequel l’imprimante est connectée.</br>-Les valeurs valides pour les ports parallèles sont LPT1, LPT2 et LPT3.</br>-Les valeurs valides pour les ports série sont COM1, COM2, COM3 et COM4.</br>Vous pouvez également spécifier une imprimante réseau en utilisant son nom de file d’attente (\\ @ no__t-1*ServerName*\*PrinterName *). Si vous ne spécifiez pas d’imprimante, le travail d’impression est envoyé à LPT1 par défaut.|
-|> @no__t 0Drive :|Spécifie le lecteur logique ou physique dans lequel se trouve le fichier que vous souhaitez imprimer. Ce paramètre n’est pas obligatoire si le fichier que vous souhaitez imprimer se trouve sur le lecteur actif.|
-|@no__t 0Path >|Spécifie l’emplacement du fichier que vous souhaitez imprimer. Ce paramètre n’est pas obligatoire si le fichier que vous souhaitez imprimer se trouve dans le répertoire actif.|
-|\<FileName > [...]|Obligatoire. Spécifie le fichier que vous souhaitez imprimer. Vous pouvez inclure plusieurs fichiers dans une même commande.|
+|/d :\<nom_imprimante >|Spécifie l’imprimante pour laquelle vous souhaitez imprimer le travail. Pour imprimer sur une imprimante connectée localement, spécifiez le port de votre ordinateur sur lequel l’imprimante est connectée.</br>-Les valeurs valides pour les ports parallèles sont LPT1, LPT2 et LPT3.</br>-Les valeurs valides pour les ports série sont COM1, COM2, COM3 et COM4.</br>Vous pouvez également spécifier une imprimante réseau en utilisant son nom de file d’attente (\\\\*ServerName*\*nom_imprimante *). Si vous ne spécifiez pas d’imprimante, le travail d’impression est envoyé à LPT1 par défaut.|
+|> du lecteur de \<:|Spécifie le lecteur logique ou physique dans lequel se trouve le fichier que vous souhaitez imprimer. Ce paramètre n’est pas obligatoire si le fichier que vous souhaitez imprimer se trouve sur le lecteur actif.|
+|Chemin de \<>|Spécifie l’emplacement du fichier que vous souhaitez imprimer. Ce paramètre n’est pas obligatoire si le fichier que vous souhaitez imprimer se trouve dans le répertoire actif.|
+|\<nom de fichier > [...]|Obligatoire. Spécifie le fichier que vous souhaitez imprimer. Vous pouvez inclure plusieurs fichiers dans une même commande.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -61,7 +61,7 @@ Pour envoyer le fichier Report. txt situé dans le répertoire actif à une impr
 ```
 print /d:lpt2 report.txt
 ```
-Pour envoyer le fichier Report. txt situé dans le répertoire c:\Accounting à la file d’attente à l’impression Printer1 sur le serveur \\ @ no__t-1CopyRoom, tapez :
+Pour envoyer le fichier Report. txt situé dans le répertoire c:\Accounting à la file d’attente à l’impression Printer1 sur le serveur de \\\\CopyRoom, tapez :
 ```
 print /d:\\copyroom\printer1 c:\accounting\report.txt 
 ```

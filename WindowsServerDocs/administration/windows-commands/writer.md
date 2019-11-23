@@ -39,7 +39,7 @@ writer exclude [<Writer> | <Component>]
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   verify   | Vérifie que l’enregistreur ou le composant spécifié est inclus dans la procédure de sauvegarde ou de restauration. La procédure de sauvegarde ou de restauration échoue si l’enregistreur ou le composant n’est pas inclus. |
 |  exclude   |                                                   Exclut le writer ou le composant spécifié de la procédure de sauvegarde ou de restauration.                                                    |
-| [@no__t 0Writer > |                                                                                     <Component>]                                                                                      |
+| [\<rédacteur > |                                                                                     <Component>]                                                                                      |
 
 ## <a name="BKMK_examples"></a>Illustre
 

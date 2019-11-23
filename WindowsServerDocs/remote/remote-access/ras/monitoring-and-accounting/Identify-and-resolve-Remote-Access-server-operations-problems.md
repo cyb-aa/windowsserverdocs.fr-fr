@@ -21,7 +21,7 @@ ms.locfileid: "71404570"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>Identifier et résoudre les problèmes de fonctionnement du serveur d'accès à distance
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 **Remarque :** Windows Server 2012 associe DirectAccess et le service Routage et accès distant (RRAS) dans un rôle Accès à distance unique.  
   
@@ -91,7 +91,7 @@ Pour restaurer le service d’assistance IP sur votre serveur d’accès à dist
   
 2.  Dans la liste des **services**, faites défiler la liste, cliquez avec le bouton droit sur **assistance IP**, puis cliquez sur **Démarrer**.  
   
-](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   

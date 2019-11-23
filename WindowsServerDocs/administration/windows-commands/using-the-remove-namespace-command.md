@@ -22,7 +22,7 @@ ms.locfileid: "71362788"
 ---
 # <a name="using-the-remove-namespace-command"></a>Utilisation de la commande Remove-Namespace
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 supprime un espace de noms personnalisé.
 ## <a name="syntax"></a>Syntaxe
@@ -32,7 +32,7 @@ wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|/Namespace : <Namespace name>|Spécifie le nom de l’espace de noms. Il ne s’agit pas du nom convivial et il doit être unique.<br /><br />**service de rôle serveur de déploiement**-    : La syntaxe du nom de l’espace de noms est/Namespace : WDS : <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Exemple : **WDS : ImageGroup1/install. wim/1**<br />**service de rôle serveur de Transport**-    : Cette valeur doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur.|
+|/Namespace :<Namespace name>|Spécifie le nom de l’espace de noms. Il ne s’agit pas du nom convivial et il doit être unique.<br /><br />-   le **service de rôle serveur de déploiement**: la syntaxe du nom de l’espace de noms est/Namespace : WDS :<ImageGroup>/<ImageName>/<Index>. Par exemple : **WDS : ImageGroup1/install. wim/1**<br />**service de rôle du serveur de Transport**-   : cette valeur doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur.|
 |[/Server:<Server name>]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
 |/Force|supprime immédiatement l’espace de noms et met fin à tous les clients. Notez que, à moins que vous ne spécifiiez **/force**, les clients existants peuvent terminer le transfert, mais les nouveaux clients ne peuvent pas se joindre.|
 ## <a name="BKMK_examples"></a>Illustre
@@ -48,4 +48,4 @@ wdsutil /remove-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /force
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [à l’aide de la commande AllNamespaces](using-the-get-allnamespaces-command.md)
 [à l’aide de la commande New-Namespace](using-the-new-namespace-command.md)
- sous-[commande : Start-namespace](subcommand-start-namespace.md)
+sous- [commande : Start-namespace](subcommand-start-namespace.md)

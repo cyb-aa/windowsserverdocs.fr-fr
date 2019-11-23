@@ -17,15 +17,15 @@ ms.locfileid: "71405423"
 ---
 # <a name="nps-proxy-server-load-balancing"></a>Équilibrage de charge du serveur proxy NPS
 
-S'applique à : Windows Server 2016
+S’applique à Windows Server 2016
 
-Les clients RADIUS (Remote Authentication Dial-in User Service), qui sont des serveurs d’accès réseau tels que des serveurs de réseau privé virtuel (VPN) et des points d’accès sans fil, créent des demandes de connexion et les envoient aux serveurs RADIUS tels que NPS. Dans certains cas, un serveur NPS peut recevoir un trop grand nombre de demandes de connexion à la fois, ce qui entraîne une dégradation des performances ou une surcharge. Lorsqu’un serveur NPS est surchargé, il est judicieux d’ajouter plus de NPSs à votre réseau et de configurer l’équilibrage de charge. Lorsque vous distribuez uniformément des demandes de connexion entrante entre plusieurs NPSs pour empêcher la surcharge d’un ou plusieurs NPSs, il s’agit de l’équilibrage de charge.
+Les clients protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS), qui sont des serveurs d’accès réseau tels que des serveurs de réseau privé virtuel (VPN) et des points d’accès sans fil, créent des demandes de connexion et les envoient à des serveurs RADIUS tels que NPS. Dans certains cas, un serveur NPS peut recevoir un trop grand nombre de demandes de connexion à la fois, ce qui entraîne une dégradation des performances ou une surcharge. Lorsqu’un serveur NPS est surchargé, il est judicieux d’ajouter plus de NPSs à votre réseau et de configurer l’équilibrage de charge. Lorsque vous distribuez uniformément des demandes de connexion entrante entre plusieurs NPSs pour empêcher la surcharge d’un ou plusieurs NPSs, il s’agit de l’équilibrage de charge.
 
 L’équilibrage de charge est particulièrement utile pour :
 
-- Les organisations qui utilisent le protocole EAP (Extensible Authentication Protocol-Transport Layer Security \(EAP-TLS @ no__t-1 ou Protected Extensible Authentication Protocol \(PEAP @ no__t-3-TLS pour l’authentification. Étant donné que ces méthodes d’authentification utilisent des certificats pour l’authentification du serveur et pour l’authentification de l’utilisateur ou de l’ordinateur client, la charge sur les proxys et les serveurs RADIUS est plus lourde que lors de l’utilisation des méthodes d’authentification par mot de passe.
+- Les organisations qui utilisent le protocole EAP-TLS (Extensible Authentication Protocol-Transport Layer Security \(EAP-TLS\) ou Protected Extensible Authentication Protocol \(PEAP\)-TLS pour l’authentification. Étant donné que ces méthodes d’authentification utilisent des certificats pour l’authentification du serveur et pour l’authentification de l’utilisateur ou de l’ordinateur client, la charge sur les proxys et les serveurs RADIUS est plus lourde que lors de l’utilisation des méthodes d’authentification par mot de passe.
 - Les organisations qui doivent maintenir une disponibilité continue des services.
-- Les fournisseurs de services Internet \(ISPs @ no__t-1 qui sous-traitent l’accès VPN pour d’autres organisations. Les services VPN externalisés peuvent générer un volume important de trafic d’authentification.
+- Les fournisseurs de services Internet \(\) ISP qui sous-traitent l’accès VPN pour d’autres organisations. Les services VPN externalisés peuvent générer un volume important de trafic d’authentification.
 
 Vous pouvez utiliser deux méthodes pour équilibrer la charge des demandes de connexion envoyées à votre NPSs :
 
@@ -53,7 +53,7 @@ Avant de configurer l’équilibrage de charge, créez un plan de déploiement q
 
 Pour configurer NPS pour agir en tant que serveur proxy et transférer les demandes de connexion des clients RADIUS vers les serveurs RADIUS distants, vous devez effectuer les actions suivantes :
 
-1. Déployez vos clients RADIUS @no__t-serveurs 0VPN, les serveurs d’accès à distance, les serveurs de passerelle des services Terminal Server, les commutateurs d’authentification 802.1 X et les points d’accès sans fil 802.1 X @ no__t-1 et configurez-les pour envoyer des demandes de connexion à vos serveurs proxy NPS.
+1. Déployez vos clients RADIUS \(les serveurs VPN, les serveurs d’accès à distance, les serveurs de passerelle des services Terminal Server, les commutateurs d’authentification 802.1 X et les points d’accès sans fil 802.1 X\) et configurez-les pour envoyer des demandes de connexion à vos serveurs proxy NPS.
 
 2. Sur le proxy NPS, configurez les serveurs d’accès réseau en tant que clients RADIUS. Pour plus d’informations, consultez [configurer des clients RADIUS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-radius-clients-configure).
 

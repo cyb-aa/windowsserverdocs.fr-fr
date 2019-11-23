@@ -18,11 +18,11 @@ ms.locfileid: "71406123"
 ---
 # <a name="gateway-bandwidth-allocation"></a>Allocation de bande passante de la passerelle
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
 Dans Windows Server 2016, la bande passante de tunnel individuelle pour IPsec, GRE et L3 était un rapport entre la capacité totale de la passerelle. Par conséquent, les clients fourniraient la capacité de la passerelle en fonction de la bande passante TCP standard qui attendait ce de la machine virtuelle de la passerelle.
 
-En outre, la bande passante maximale du tunnel IPsec sur la passerelle était limitée à (3/20) @no__t 0Gateway-capacité fournie par le client. Par exemple, si vous définissez la capacité de la passerelle sur 100 Mbits/s, la capacité du tunnel IPsec est de 150 Mbits/s. Les ratios équivalents pour les tunnels GRE et L3 sont respectivement 1/5 et 1/2.
+En outre, la bande passante maximale du tunnel IPsec sur la passerelle était limitée à (3/20)\*la capacité de la passerelle fournie par le client. Par exemple, si vous définissez la capacité de la passerelle sur 100 Mbits/s, la capacité du tunnel IPsec est de 150 Mbits/s. Les ratios équivalents pour les tunnels GRE et L3 sont respectivement 1/5 et 1/2.
 
 Bien que cela fonctionnait pour la majorité des déploiements, le modèle de rapport fixe n’était pas approprié pour les environnements à débit élevé. Même lorsque les taux de transfert de données étaient élevés (par exemple, plus de 40 Gbits/s), le débit maximal de tunnels de passerelle SDN plafonné en raison de facteurs internes.
 
@@ -60,15 +60,15 @@ Par exemple, si vous allouez 2 Gbits/s de débit IPsec à un client :
 
 Capacité disponible restante sur la passerelle = capacité totale de la passerelle – taux de débit IPsec * débit IPsec alloué (capacité utilisée)
 
-&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-525 – 5 * 2 = 15 Gbits/s
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 – 5 * 2 = 15 Gbits/s
 
 Débit IPsec restant que vous pouvez allouer sur la passerelle 
 
-&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-55-2 = 3 Gbits/s
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5-2 = 3 Gbits/s
 
 Débit GRE restant que vous pouvez allouer sur la passerelle = capacité restante du ratio de débit de la passerelle/GRE 
 
-&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-515 * 3/5 = 9 Gbits/s
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15 * 3/5 = 9 Gbits/s
 
 Le taux de débit varie en fonction de la capacité totale de la passerelle. Il est important de noter que vous devez définir la capacité totale sur la bande passante TCP disponible pour la machine virtuelle de la passerelle. Si vous avez plusieurs machines virtuelles hébergées sur la passerelle, vous devez ajuster la capacité totale de la passerelle en conséquence.
 
@@ -76,7 +76,7 @@ En outre, si la capacité de la passerelle est inférieure à la capacité total
 
 ## <a name="windows-server-2016-behavior"></a>Comportement de Windows Server 2016
 
-L’algorithme de calcul de la capacité de la passerelle pour Windows Server 2016 reste inchangé. Dans Windows Server 2016, la bande passante maximale du tunnel IPsec était limitée à (3/20) @no__t 0gateway sur une passerelle. Les ratios équivalents pour les tunnels GRE et L3 étaient respectivement 1/5 et 1/2.
+L’algorithme de calcul de la capacité de la passerelle pour Windows Server 2016 reste inchangé. Dans Windows Server 2016, la bande passante maximale du tunnel IPsec était limitée à (3/20)\*la capacité de la passerelle sur une passerelle. Les ratios équivalents pour les tunnels GRE et L3 étaient respectivement 1/5 et 1/2.
 
 Si vous effectuez une mise à niveau de Windows Server 2016 vers Windows Server 2019 :
 

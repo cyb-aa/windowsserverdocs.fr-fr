@@ -18,17 +18,17 @@ ms.locfileid: "71407834"
 ---
 # <a name="web-sso-design"></a>Conception SSO Web
 
-Dans la conception Web unique @ no__t-0Sign @ no__t-1On \(SSO @ no__t-3 dans Services ADFS \(AD FS @ no__t-5, les utilisateurs doivent s’authentifier une seule fois pour accéder à plusieurs applications ou services AD FS @ no__t-6secured. Dans cette conception, tous les utilisateurs sont externes et en l’absence d’organisation partenaire, il n’existe aucune approbation de fédération. En règle générale, vous déployez cette conception lorsque vous souhaitez fournir un accès client ou client individuel à un ou plusieurs services ou applications sécurisés par AD FS via Internet, comme indiqué dans l’illustration suivante.  
+Dans le\-de la connexion Web unique\-sur \(conception de l’authentification unique\) dans Services ADFS \(AD FS\), les utilisateurs doivent s’authentifier une seule fois pour accéder à plusieurs AD FS\-applications ou services sécurisés. Dans cette conception, tous les utilisateurs sont externes et en l’absence d’organisation partenaire, il n’existe aucune approbation de fédération. En règle générale, vous déployez cette conception lorsque vous souhaitez fournir un accès client ou client individuel à un ou plusieurs services ou applications sécurisés par AD FS via Internet, comme indiqué dans l’illustration suivante.  
   
 ![conception SSO de Web](media/adfs2_WebSSODesign.gif)  
   
-Avec la conception SSO de Web, une organisation qui héberge généralement une application ou un service AD FS @ no__t-0secured dans un réseau de périmètre peut conserver un magasin distinct de comptes clients dans le réseau de périmètre, ce qui facilite l’isolement des comptes clients à partir de comptes d’employés.  
+Avec la conception SSO de Web, une organisation qui héberge généralement un AD FS\-application ou un service sécurisé dans un réseau de périmètre peut maintenir un magasin distinct de comptes clients dans le réseau de périmètre, ce qui permet d’isoler plus facilement les comptes clients des comptes des employés.  
   
-Vous pouvez gérer les comptes locaux pour les clients du réseau de périmètre à l’aide de Active Directory Domain Services \(AD DS @ no__t-1, SQL Server ou un magasin d’attributs personnalisé.  
+Vous pouvez gérer les comptes locaux pour les clients du réseau de périmètre à l’aide de Active Directory Domain Services \(AD DS\), SQL Server ou d’un magasin d’attributs personnalisé.  
   
 Cette conception correspond à l’objectif de déploiement de [Provide Your Active Directory Users Access to Your Claims-Aware Applications and Services](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md).  
   
-Pour obtenir la liste des tâches détaillées que vous pouvez utiliser pour planifier et déployer votre conception SSO de Web, voir [Checklist : Implémentation d’une conception SSO de Web @ no__t-0.  
+Pour obtenir une liste détaillée des tâches que vous pouvez utiliser pour planifier et déployer la conception de SSO de web, voir [Checklist: Implementing a Web SSO Design](../../ad-fs/deployment/Checklist--Implementing-a-Web-SSO-Design.md).  
   
 ## <a name="see-also"></a>Voir aussi
 [Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -34,9 +34,9 @@ Voici un bref résumé des mises à jour des connexions protégées disponibles 
 Les améliorations de sécurité supplémentaires suivantes sont disponibles dans AD FS 2019 :
 - **PSH à distance à l’aide** de la connexion par carte à puce : les clients peuvent désormais utiliser des cartes à puce pour se connecter à AD FS via PSH et l’utiliser pour gérer toutes les fonctions PSH incluent des applets de commande PSH à nœuds multiples.
 - **Personnalisation d’en-tête http** : les clients peuvent désormais personnaliser les en-têtes http émis pendant les réponses ADFS. Cela comprend les en-têtes suivants
-     - HSTS Cela indique que les points de terminaison ADFS ne peuvent être utilisés que sur des points de terminaison HTTPs pour qu’un navigateur conforme applique
-     - x-Frame-options : Permet aux administrateurs ADFS d’autoriser des parties de confiance spécifiques à incorporer des iFrames pour les pages de connexion interactive ADFS. Elle doit être utilisée avec précaution et uniquement sur les hôtes HTTPs. 
-     - En-tête futur : Des en-têtes futurs supplémentaires peuvent également être configurés. 
+     - HSTS : cela indique que les points de terminaison ADFS ne peuvent être utilisés que sur des points de terminaison HTTPs pour qu’un navigateur conforme applique
+     - x-Frame-options : permet aux administrateurs ADFS d’autoriser des parties de confiance spécifiques à incorporer des iFrames pour les pages de connexion interactive ADFS. Elle doit être utilisée avec précaution et uniquement sur les hôtes HTTPs. 
+     - En-tête futur : des en-têtes futurs supplémentaires peuvent également être configurés. 
 
 Pour plus d’informations, consultez [personnaliser les en-têtes de réponse de sécurité http avec AD FS 2019](../../ad-fs/operations/customize-http-security-headers-ad-fs.md) 
 
@@ -52,7 +52,7 @@ Les fonctionnalités d’authentification/de stratégie suivantes se trouvent da
 Les améliorations de l’authentification unique de connexion suivantes ont été apportées dans AD FS 2019 :
 
 - Expérience utilisateur [paginée avec thème centré](../operations/AD-FS-paginated-sign-in.md) -ADFS maintenant a été déplacé vers un processus d’expérience utilisateur paginé qui permet à ADFS de valider et de fournir une expérience de connexion plus lisse. ADFS utilise désormais une interface utilisateur centrée (au lieu du côté droit de l’écran). Vous pouvez avoir besoin d’images de logo et d’arrière-plan plus récentes pour l’adapter à cette expérience. Cela reflète également les fonctionnalités proposées dans Azure AD.
-- correctif de la @no__t 0Bug : État de l’authentification unique permanente pour les appareils Win10 lors de l’authentification PRT @ no__t-0. cela résout un problème où l’État MFA n’a pas été conservé lors de l’utilisation de l’authentification PRT pour les appareils Windows 10. Le problème est dû au fait que les utilisateurs finaux sont souvent invités à entrer des informations d’identification de 2e facteur (MFA). Le correctif rend également l’expérience cohérente lorsque l’authentification de l’appareil est effectuée avec succès via le protocole TLS du client et via le mécanisme PRT. 
+- **Correctif de bogue : état SSO persistant pour les appareils Win10 lors de l’authentification PRT**   Cela résout un problème où l’État MFA n’a pas été conservé lors de l’utilisation de l’authentification PRT pour les appareils Windows 10. Le problème est dû au fait que les utilisateurs finaux sont souvent invités à entrer des informations d’identification de 2e facteur (MFA). Le correctif rend également l’expérience cohérente lorsque l’authentification de l’appareil est effectuée avec succès via le protocole TLS du client et via le mécanisme PRT. 
 
 
 ### <a name="suppport-for-building-modern-line-of-business-apps"></a>Prise en charge pour la création d’applications métier modernes
@@ -62,7 +62,7 @@ La prise en charge suivante de la création d’applications métier modernes a 
  - La **suppression du paramètre « Resource »** -AD FS a maintenant supprimé la nécessité de spécifier un paramètre de ressource qui est conforme aux spécifications OAuth actuelles. Les clients peuvent désormais fournir l’identificateur d’approbation de la partie de confiance en tant que paramètre d’étendue en plus des autorisations demandées. 
  - **En-têtes cors dans les réponses de AD FS** : les clients peuvent désormais créer des applications à page unique qui permettent aux bibliothèques js côté client de valider la signature du id_token en interrogeant les clés de signature à partir du document de découverte OIDC sur AD FS. 
  - **Prise en charge PKCE** : AD FS ajoute la prise en charge de PKCE pour fournir un code d’authentification sécurisé dans OAuth. Cela ajoute une couche supplémentaire de sécurité à ce Flow pour empêcher le détournement du code et sa relecture à partir d’un autre client. 
- - correctif de la @no__t 0Bug : Send x5t et Kid claim @ no__t-0-il s’agit d’un correctif de bogue mineur. AD FS à présent envoie en plus la revendication « Kid » pour désigner l’indicateur d’ID de clé pour la vérification de la signature. Auparavant AD FS envoyée uniquement en tant que revendication « x5t ».
+ - **Résolution de bogue : envoyer x5t et la revendication Kid** -il s’agit d’un correctif de bogue mineur. AD FS à présent envoie en plus la revendication « Kid » pour désigner l’indicateur d’ID de clé pour la vérification de la signature. Auparavant AD FS envoyée uniquement en tant que revendication « x5t ».
 
 ### <a name="supportability-improvements"></a>Améliorations de la prise en charge
 Les améliorations de prise en charge suivantes ne font pas partie de AD FS 2019 :
@@ -76,14 +76,14 @@ Les mises à jour de déploiement suivantes sont maintenant incluses dans AD FS 
 
 ### <a name="saml-updates"></a>Mises à jour SAML
 La mise à jour SAML suivante se trouve dans AD FS 2019 :
-- correctif de la @no__t 0Bug : Correction des bogues dans la Fédération agrégée @ no__t-0-de nombreux correctifs de bogues ont été détectés autour de la prise en charge de la Fédération agrégée (par exemple, inhabituel). Les correctifs ont été mis en rapport avec les éléments suivants : 
-  - Amélioration de la mise à l’échelle pour les grands nombres d’entités dans le document de métadonnées de Fédération agrégé. Auparavant, cela échouait avec l’erreur « ADMIN0017 ». 
+- **Résolution de bogue : corriger les bogues dans la Fédération agrégée :** de nombreux correctifs de bogues ont été appliqués à la prise en charge de la Fédération agrégée (par exemple, inhabituel). Les correctifs ont été mis en rapport avec les éléments suivants : 
+  - Amélioration de la mise à l’échelle pour les grands nombres d’entités dans le document de métadonnées de Fédération agrégées. auparavant, cette erreur échouera avec l’erreur « ADMIN0017 ». 
   - Interrogez à l’aide du paramètre « ScopeGroupID » via l’applet de commande AdfsRelyingPartyTrustsGroup PSH. 
   - Gestion des conditions d’erreur autour des entityID en double
 
 
 ### <a name="azure-ad-style-resource-specification-in-scope-parameter"></a>Spécification de ressource de style Azure AD dans le paramètre d’étendue 
-Auparavant, AD FS nécessitait que la ressource et la portée souhaitées se trouvent dans un paramètre distinct dans une demande d’authentification. Par exemple, une requête OAuth typique ressemble à ce qui suit : 7 **https :&#47;&#47;FS.contoso.com/ADFS/oauth2/Authorize ? </br>response_type = code & client_id = claimsxrayclient & ressource = urn : Microsoft : </br>adfs : claimsxray & étendue = OAuth & redirect_uri = https :&#47; &#47; adfshelp.microsoft.com/</br> ClaimsXray/TokenResponse & prompt = login**
+Auparavant, AD FS nécessitait que la ressource et la portée souhaitées se trouvent dans un paramètre distinct dans une demande d’authentification. Par exemple, une requête OAuth typique ressemble à ce qui suit : 7 **https&#47;&#47;: FS.contoso.com/ADFS/oauth2/Authorize ?</br>response_type = code & client_id = claimsxrayclient & Resource = urn : Microsoft :</br>ADFS : claimsxray & Scope = OAuth & redirect_uri&#47;&#47;= https : adfshelp.Microsoft.com/</br> claimsxray/TokenResponse & prompt = login**
  
 Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Cela est cohérent avec la manière dont il est possible d’effectuer une authentification par rapport à Azure AD également. 
 
@@ -100,21 +100,21 @@ Pour tirer parti de la prise en charge PKCE, cette spécification ajoute des par
 
 ![Proofkey](media/whats-new-in-active-directory-federation-services-for-windows-server-2016/adfs2019.png)
 
-R. Le client crée et enregistre un secret nommé « code_verifier » et dérive une version transformée « t (code_verifier) » (appelée « code_challenge »), qui est envoyée dans la demande d’autorisation 2,0 OAuth avec la méthode de transformation « t_m ». 
+A. Le client crée et enregistre une clé secrète nommée « code_verifier » et dérive une version transformée « t (code_verifier) » (appelée « code_challenge »), qui est envoyée dans la demande d’autorisation 2,0 OAuth avec la méthode de transformation « t_m ». 
 
 B. Le point de terminaison d’autorisation répond comme d’habitude, mais enregistre « t (code_verifier) » et la méthode de transformation. 
 
 C. Le client envoie alors le code d’autorisation dans la demande de jeton d’accès comme d’habitude, mais il comprend le secret « code_verifier » généré à (A). 
 
-E. Le AD FS transforme « code_verifier » et le compare à « t (code_verifier) » à partir de (B).  L’accès est refusé s’ils ne sont pas égaux. 
+e. Le AD FS transforme « code_verifier » et le compare à « t (code_verifier) » à partir de (B).  L’accès est refusé s’ils ne sont pas égaux. 
 
 #### <a name="faq"></a>Questions fréquentes (FAQ) 
-**QUESTION.** Puis-je passer une valeur de ressource dans le cadre de la valeur d’étendue comme la façon dont les requêtes sont effectuées sur Azure AD ? 
-</br>**UN.** Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
+**Question.** Puis-je passer une valeur de ressource dans le cadre de la valeur d’étendue comme la façon dont les requêtes sont effectuées sur Azure AD ? 
+</br>**Un.** Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
 **< créer un exemple de demande valide >**
 
-**QUESTION.** AD FS prend-il en charge l’extension PKCE ?
-</br>**UN.** AD FS du serveur 2019 prend en charge la clé de vérification pour l’échange de code (PKCE) pour le workflow d’octroi de code d’autorisation OAuth 
+**Question.** AD FS prend-il en charge l’extension PKCE ?
+</br>**Un.** AD FS du serveur 2019 prend en charge la clé de vérification pour l’échange de code (PKCE) pour le workflow d’octroi de code d’autorisation OAuth 
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Nouveautés des services de fédération Active Directory (AD FS) pour Windows Server 2016   
 Si vous recherchez des informations sur les versions antérieures de AD FS, consultez les articles suivants :  

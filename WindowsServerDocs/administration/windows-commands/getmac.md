@@ -22,7 +22,7 @@ ms.locfileid: "71375811"
 ---
 # <a name="getmac"></a>getmac
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Retourne l’adresse MAC (Media Access Control) et la liste des protocoles réseau associés à chaque adresse pour toutes les cartes réseau de chaque ordinateur, localement ou sur un réseau. 
 ## <a name="syntax"></a>Syntaxe
@@ -34,7 +34,7 @@ getmac[.exe][/s <computer> [/u <Domain\<User> [/p <Password>]]][/fo {TABLE | lis
 |             Paramètre              |                                                                                          Description                                                                                          |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |           /s <computer>            |                                      Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                       |
-|        /u <Domain> @ no__t-1 @ no__t-2         | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par user ou domaine\utilisateur. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande. |
+|        /u <Domain>\\<User>         | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par user ou domaine\utilisateur. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande. |
 |           /p <Password>            |                                                     Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                     |
 | /FO {TABLE &#124; List&#124; CSV} |                       Spécifie le format à utiliser pour la sortie de la requête. Les valeurs valides sont **table**, **List**et **CSV**. Le format par défaut de la sortie est **table**.                        |
 |                /NH                 |                                             Supprime l’en-tête de colonne dans la sortie. Valide lorsque le paramètre **/FO** est défini sur **table** ou **CSV**.                                              |

@@ -35,6 +35,7 @@ Les mêmes outils sont disponibles en tant qu’extension d’outil lors de la g
 
 L’extension d’outil pour les clusters de basculement et les clusters hyper-convergents fournit un tableau de bord affichant l’état général du matériel du cluster, les alertes d’État, l’état de cohérence du microprogramme, le rapport, la consommation d’énergie et la température, ainsi que le ventilateur et l’alimentation électrique. État d’intégrité.
 
-Extension ![Lenovo @ no__t-1 @ no__t-2Lenovo extension @ no__t-3
+Extension ![Lenovo](../../media/extend-case-study-lenovo/lenovo-4.png)
+![extension Lenovo](../../media/extend-case-study-lenovo/lenovo-5.png)
 
 En savoir plus sur les offres de l’intégrateur XClarity Lenovo pour le centre d’administration Windows sur le [site Web Lenovo](https://support.lenovo.com/us/en/solutions/ht507549).

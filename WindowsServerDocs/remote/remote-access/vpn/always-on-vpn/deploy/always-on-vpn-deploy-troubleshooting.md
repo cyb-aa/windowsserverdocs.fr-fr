@@ -18,7 +18,7 @@ ms.locfileid: "71404378"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>Résoudre les problèmes liés au VPN Toujours actif (AlwaysOn) 
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 Si votre configuration VPN Always On ne parvient pas à connecter les clients à votre réseau interne, la cause est probablement un certificat VPN non valide, des stratégies NPS incorrectes ou des problèmes liés aux scripts de déploiement du client ou au service Routage et accès distant. La première étape de dépannage et de test de votre connexion VPN consiste à comprendre les principaux composants de l’infrastructure VPN Always On. 
 
@@ -26,7 +26,7 @@ Vous pouvez résoudre les problèmes de connexion de plusieurs façons. Pour les
 
 ## <a name="error-codes"></a>Codes d’erreur
 
-### <a name="error-code-800"></a>Code d'erreur : 800
+### <a name="error-code-800"></a>Code d’erreur : 800
 
 - **Description de l’erreur.** La connexion à distance n’a pas été établie en raison de l’échec de la tentative des tunnels VPN. Le serveur VPN est peut-être inaccessible. Si cette connexion tente d’utiliser un tunnel L2TP/IPsec, les paramètres de sécurité requis pour la négociation IPsec ne sont peut-être pas configurés correctement.
 
@@ -46,7 +46,7 @@ Vous pouvez résoudre les problèmes de connexion de plusieurs façons. Pour les
 
     - Les certificats valides pour IKE sont présents à la fois sur le client et sur le serveur.
 
-### <a name="error-code-809"></a>Code d'erreur : 809
+### <a name="error-code-809"></a>Code d’erreur : 809
 
 - **Description de l’erreur.**  La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie car le serveur distant ne répond pas. Cela peut être dû au fait que l’un des périphériques réseau (par exemple, pare-feu, NAT, routeurs) entre votre ordinateur et le serveur distant n’est pas configuré pour autoriser les connexions VPN. Veuillez contacter votre administrateur ou votre fournisseur de services pour déterminer l’appareil qui est à l’origine du problème.
 
@@ -54,7 +54,7 @@ Vous pouvez résoudre les problèmes de connexion de plusieurs façons. Pour les
 
 - **Solution possible.** Assurez-vous que les ports UDP 500 et 4500 sont autorisés via tous les pare-feu entre le client et le serveur RRAS.
 
-### <a name="error-code-812"></a>Code d'erreur : 812
+### <a name="error-code-812"></a>Code d’erreur : 812
 
 - **Description de l’erreur.** Impossible de se connecter à Always On VPN. La connexion a été empêchée en raison d’une stratégie configurée sur votre serveur RAS/VPN. Plus précisément, la méthode d’authentification utilisée par le serveur pour vérifier votre nom d’utilisateur et votre mot de passe peut ne pas correspondre à la méthode d’authentification configurée dans votre profil de connexion. Veuillez contacter l’administrateur du serveur RAS et lui notifier cette erreur.
 
@@ -66,7 +66,7 @@ Vous pouvez résoudre les problèmes de connexion de plusieurs façons. Pour les
 
 - **Solution possible.** Assurez-vous que la configuration de votre client correspond aux conditions spécifiées sur le serveur NPS.
 
-### <a name="error-code-13806"></a>Code d'erreur : 13806
+### <a name="error-code-13806"></a>Code d’erreur : 13806
 
 - **Description de l’erreur.** IKE n’a pas trouvé de certificat d’ordinateur valide. Contactez votre administrateur de sécurité réseau pour installer un certificat valide dans le magasin de certificats approprié.
 
@@ -74,7 +74,7 @@ Vous pouvez résoudre les problèmes de connexion de plusieurs façons. Pour les
 
 - **Solution possible.** Assurez-vous que les certificats décrits dans ce déploiement sont installés sur l’ordinateur client et le serveur VPN.
 
-### <a name="error-code-13801"></a>Code d'erreur : 13801
+### <a name="error-code-13801"></a>Code d’erreur : 13801
 
 - **Description de l’erreur.** Les informations d’authentification IKE ne sont pas acceptables.
 
@@ -90,7 +90,7 @@ Vous pouvez résoudre les problèmes de connexion de plusieurs façons. Pour les
 
 - **Solution possible.** Vérifiez que le certificat de serveur comprend l' **authentification du serveur** en cas d' **utilisation améliorée**de la clé. Vérifiez que le certificat de serveur est toujours valide. Vérifiez que l’autorité de certification utilisée est indiquée sous **autorités de certification racines de confiance** sur le serveur RRAS. Vérifiez que le client VPN se connecte en utilisant le nom de domaine complet du serveur VPN comme indiqué sur le certificat du serveur VPN.
 
-### <a name="error-code-0x80070040"></a>Code d'erreur : 0x80070040
+### <a name="error-code-0x80070040"></a>Code d’erreur : 0x80070040
 
 - **Description de l’erreur.** Le certificat de serveur n’a pas **d’authentification de serveur** comme l’une de ses entrées d’utilisation de certificat.
 
@@ -98,7 +98,7 @@ Vous pouvez résoudre les problèmes de connexion de plusieurs façons. Pour les
 
 - **Solution possible.** Assurez-vous que le certificat d’ordinateur utilisé par le serveur RAS pour **IKEv2** utilise l' **authentification serveur** comme l’une des entrées d’utilisation de certificat.
 
-### <a name="error-code-0x800b0109"></a>Code d'erreur : 0x800B0109
+### <a name="error-code-0x800b0109"></a>Code d’erreur : 0x800B0109
 
 En règle générale, l’ordinateur client VPN est joint au domaine Active Directory. Si vous utilisez des informations d’identification de domaine pour ouvrir une session sur le serveur VPN, le certificat est automatiquement installé dans le magasin autorités de certification racines de confiance. Toutefois, si l’ordinateur n’est pas joint au domaine ou si vous utilisez une autre chaîne de certificats, vous pouvez rencontrer ce problème.
 
@@ -108,7 +108,7 @@ En règle générale, l’ordinateur client VPN est joint au domaine Active Dire
 
 - **Solution possible.** Assurez-vous que le certificat racine est installé sur l’ordinateur client dans le magasin autorités de certification racines de confiance.
 
-## <a name="logs"></a>Journaux d’activité
+## <a name="logs"></a>Journaux
 
 ### <a name="application-logs"></a>Journaux d’application
 
@@ -118,7 +118,7 @@ Recherchez les événements à partir de la source RasClient. Tous les messages 
 
 ## <a name="nps-logs"></a>Journaux NPS
 
-NPS crée et stocke les journaux de gestion des comptes NPS. Par défaut, ceux-ci sont stockés dans% SYSTEMROOT% \\System32 @ no__t-1Logfiles @ no__t-2 dans un fichier nommé*xxxx*. txt, où *xxxx* correspond à la date à laquelle le fichier a été créé.
+NPS crée et stocke les journaux de gestion des comptes NPS. Par défaut, ceux-ci sont stockés dans% SYSTEMROOT%\\system32\\LogFiles\\ dans un fichier nommé*xxxx*. txt, où *xxxx* correspond à la date à laquelle le fichier a été créé.
 
 Par défaut, ces journaux sont au format de valeurs séparées par des virgules, mais ils n’incluent pas de ligne d’en-tête. La ligne d’en-tête est :
 
@@ -130,7 +130,7 @@ Si vous collez cette ligne d’en-tête en tant que première ligne du fichier j
 
 Les journaux NPS peuvent être utiles pour diagnostiquer les problèmes liés aux stratégies. Pour plus d’informations sur les journaux NPS, consultez [interpréter les fichiers journaux au format de base de données NPS](https://technet.microsoft.com/library/cc771748.aspx).
 
-## <a name="vpn_profileps1-script-issues"></a>Problèmes de script VPN_Profile. ps1
+## <a name="vpn_profileps1-script-issues"></a>Problèmes liés aux scripts VPN_Profile. ps1
 
 Les problèmes les plus courants lors de l’exécution manuelle du script VPN_ Profile. ps1 sont les suivants :
 
@@ -146,7 +146,7 @@ Une petite configuration insuffisante peut provoquer l’échec de la connexion 
 
 1. L’ordinateur de modèle est-il connecté en externe ? Une analyse **whatismyip** doit afficher une adresse IP publique qui ne vous appartient pas.
 
-2. Pouvez-vous résoudre le nom du serveur d’accès à distance/VPN en adresse IP ? Dans **le panneau de configuration** > **connexions** **réseau et réseau** **Internet** > , ouvrez les propriétés de votre profil VPN. La valeur de l’onglet **général** doit pouvoir être résolue publiquement via DNS.
+2. Pouvez-vous résoudre le nom du serveur d’accès à distance/VPN en adresse IP ? Dans le **panneau de configuration** > connexions réseau et **Internet** > **réseau**, ouvrez les propriétés de votre profil VPN. La valeur de l’onglet **général** doit pouvoir être résolue publiquement via DNS.
 
 3. Pouvez-vous accéder au serveur VPN à partir d’un réseau externe ? Envisagez d’ouvrir le protocole ICMP (Internet Control Message Protocol) sur l’interface externe et d’exécuter une commande ping sur le nom à partir du client distant. Une fois le test ping réussi, vous pouvez supprimer la règle d’autorisation ICMP.
 
@@ -170,14 +170,14 @@ Une petite configuration insuffisante peut provoquer l’échec de la connexion 
 
   - L’utilisateur dispose d’un certificat d’authentification client valide dans le magasin de certificats personnel qui n’a pas été émis par Azure AD.
 
-  - La section TLSExtensions \<\> du profil VPN est absente ou ne contient pas l' **\<accès\<conditionnel EKUName\>\>\<AAD/EKUName EKUOID\>1.3.6.1.4.1.311.87 </EKUOID\>\>\<\>EKUName > accès conditionnel AAD </EKUName EKUOID 1.3.6.1.4.1.311.87 </EKUOID\> \<** entrées. Les \<entrées EKUName > \<et EKUOID > indiquent au client VPN quel certificat récupérer dans le magasin de certificats de l’utilisateur lors de la transmission du certificat au serveur VPN. Sans cela, le client VPN utilise le certificat d’authentification client valide qui se trouve dans le magasin de certificats de l’utilisateur et l’authentification s’effectue correctement. 
+  - La section du profil VPN \<la\> TLSExtensions est manquante ou ne contient pas les\<EKUName\>\<\>/EKUName \<\>1.3.6.1.4.1.311.87 </EKUOID\>**EKUName \<>/EKUName** < Azure\>\<\>EKUOID < 1.3.6.1.4.1.311.87\>/EKUOID. Les entrées \<EKUName > et \<EKUOID > indiquent au client VPN quel certificat récupérer dans le magasin de certificats de l’utilisateur lors de la transmission du certificat au serveur VPN. Sans cela, le client VPN utilise le certificat d’authentification client valide qui se trouve dans le magasin de certificats de l’utilisateur et l’authentification s’effectue correctement. 
 
   - Le serveur RADIUS (NPS) n’a pas été configuré pour accepter uniquement les certificats clients qui contiennent l’OID d' **accès conditionnel AAD** .
 
 - **Solution possible.** Pour échapper à cette boucle, procédez comme suit :
 
   1. Dans Windows PowerShell, exécutez l’applet de commande **-WmiObject** pour vider la configuration du profil VPN. 
-  2. Vérifiez que les  **\<sections TLSExtensions >** ,  **\<EKUName >** et  **\<EKUOID >** existent et affichent le nom et l’OID corrects.
+  2. Vérifiez que les sections **\<TLSExtensions >** , **\<EKUName >** et **\<EKUOID >** existent et affichent le nom et l’OID corrects.
       
       ```powershell
       PS C:\> Get-WmiObject -Class MDM_VPNv2_01 -Namespace root\cimv2\mdm\dmmap
@@ -277,9 +277,9 @@ Une petite configuration insuffisante peut provoquer l’échec de la connexion 
       Encryption test passed
      ```
      >[!NOTE]
-     >Si un certificat de l’émetteur **CN = autorité de certification racine de Microsoft VPN GEN 1** est présent dans le magasin personnel de l’utilisateur, mais que l’utilisateur a obtenu l’accès en sélectionnant **X** pour fermer le message d’erreur, collectez les journaux des événements CAPI2 pour vérifier que le certificat utilisé pour l’authentification était un certificat d’authentification client valide qui n’a pas été émis par l’autorité de certification racine VPN Microsoft.
+     >Si un certificat de l’émetteur **CN = autorité de certification racine de Microsoft VPN GEN 1** est présent dans le magasin personnel de l’utilisateur, mais que l’utilisateur a obtenu l’accès en sélectionnant **X** pour fermer le message, collectez les journaux des événements CAPI2 pour vérifier que le certificat utilisé pour l’authentification était un certificat d’authentification client valide qui n’a pas été émis par l’autorité de certification racine
 
-  4. Si un certificat d’authentification client valide existe dans le magasin personnel de l’utilisateur, la connexion échoue (comme c’est le cas) après que l’utilisateur a sélectionné le **X** et si le  **\<> TLSExtensions**,  **\<EKUName >** et  **EKUOID\<>** sections existent et contiennent les informations correctes.
+  4. S’il existe un certificat d’authentification de client valide dans le magasin personnel de l’utilisateur, la connexion échoue (comme c’est le cas) après que l’utilisateur a sélectionné le **X** et si les sections **\<TLSExtensions >** , **\<EKUName >** et **\<EKUOID >** existent et contiennent les informations correctes.
    
      Un message d’erreur indiquant « un certificat introuvable qui peut être utilisé avec le protocole d’authentification extensible » s’affiche.
 

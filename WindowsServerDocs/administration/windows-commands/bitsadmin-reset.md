@@ -24,7 +24,7 @@ ms.locfileid: "71380808"
 
 Annule tous les travaux de la file d’attente de transfert détenus par l’utilisateur actuel.
 
-**BITSAdmin 1,5 et versions antérieures**: Si vous disposez de privilèges d’administrateur, **Réinitialisez** cancels tous les travaux dans la file d’attente. L’option/AllUsers n’est pas prise en charge.
+**BITSAdmin 1,5 et versions antérieures**: Si vous disposez de privilèges d’administrateur, **réinitialisez** annule tous les travaux de la file d’attente. L’option/AllUsers n’est pas prise en charge.
 
 ## <a name="syntax"></a>Syntaxe
 

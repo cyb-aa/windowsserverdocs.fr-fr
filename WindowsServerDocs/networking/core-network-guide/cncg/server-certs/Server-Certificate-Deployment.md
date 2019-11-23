@@ -17,12 +17,12 @@ ms.locfileid: "71406281"
 ---
 # <a name="server-certificate-deployment"></a>Déploiement de certificats de serveur
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Procédez comme suit pour installer une autorité de certification racine d’entreprise et déployer des certificats de serveur à utiliser avec PEAP et EAP.  
   
 > [!IMPORTANT]  
-> Avant d’installer les services de certificats Active Directory, vous devez nommer l’ordinateur, configurer l’ordinateur avec une adresse IP statique et joindre l’ordinateur au domaine. Après avoir installé les services AD CS, vous ne pouvez pas modifier le nom de l’ordinateur ou l’appartenance au domaine de l’ordinateur, mais vous pouvez modifier l’adresse IP si nécessaire. Pour plus d’informations sur la façon d’accomplir ces tâches, consultez le [Guide du réseau de base](../../Core-Network-Guide.md)Windows Server @ no__t-0 2016.  
+> Avant d’installer les services de certificats Active Directory, vous devez nommer l’ordinateur, configurer l’ordinateur avec une adresse IP statique et joindre l’ordinateur au domaine. Après avoir installé les services AD CS, vous ne pouvez pas modifier le nom de l’ordinateur ou l’appartenance au domaine de l’ordinateur, mais vous pouvez modifier l’adresse IP si nécessaire. Pour plus d’informations sur la façon d’accomplir ces tâches, consultez le Guide du [réseau de base](../../Core-Network-Guide.md)de Windows Server&reg; 2016.  
 
   
 -   [Installer le serveur Web WEB1](../../../core-network-guide/cncg/server-certs/Install-the-Web-Server-WEB1.md)  

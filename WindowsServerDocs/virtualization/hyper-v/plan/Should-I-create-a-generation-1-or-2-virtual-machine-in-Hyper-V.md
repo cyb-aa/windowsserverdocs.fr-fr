@@ -20,7 +20,7 @@ ms.locfileid: "71364078"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?
 
->S'applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>S’applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 > [!NOTE]
 > Si vous envisagez de télécharger des machines virtuelles Windows à partir d’un emplacement local vers Microsoft Azure, les machines virtuelles de génération 1 et de génération 2 dans le format de fichier VHD et qui ont un disque de taille fixe sont prises en charge. Consultez [machines virtuelles de génération 2 sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) pour en savoir plus sur les fonctionnalités de génération 2 prises en charge sur Azure. Pour plus d’informations sur le téléchargement d’un disque dur virtuel Windows ou VHDX, consultez [préparer un disque dur virtuel Windows ou un vhdx à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
@@ -57,7 +57,7 @@ Les ordinateurs virtuels de génération 1 prennent en charge la plupart des sys
 
 Le tableau suivant répertorie les versions 64 bits de Windows que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et 2.  
 
-|versions 64 bits de Windows|1e génération|2e génération|  
+|versions 64 bits de Windows|Génération 1|2e génération|  
 |-------------------------------|----------------|----------------|  
 | Windows Server 2019 |&#10004;|&#10004;|  
 | Windows Server 2016 |&#10004;|&#10004;|  
@@ -72,7 +72,7 @@ Le tableau suivant répertorie les versions 64 bits de Windows que vous pouvez u
 
 Le tableau suivant répertorie les versions 32 bits de Windows que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et 2.
 
-|versions 32 bits de Windows|1e génération|2e génération|  
+|versions 32 bits de Windows|Génération 1|2e génération|  
 |-------------------------------|----------------|----------------|  
 |Windows 10|&#10004;| &#10006;|  
 |Windows 8.1|&#10004;| &#10006;|  
@@ -81,9 +81,9 @@ Le tableau suivant répertorie les versions 32 bits de Windows que vous pouvez u
 
 ### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>Prise en charge des systèmes d’exploitation invités CentOS et Red Hat Enterprise Linux
 
-Le tableau suivant indique les versions de Red Hat Enterprise Linux \(RHEL @ no__t-1 et CentOS que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
+Le tableau suivant indique les versions de Red Hat Enterprise Linux \(RHEL\) et CentOS que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
-|Versions de système d’exploitation|1e génération|2e génération|  
+|Versions de système d’exploitation|Génération 1|2e génération|  
 |-----------------------------|----------------|----------------|  
 |Série RHEL/CentOS 7. x|&#10004;|&#10004;|  
 |Série RHEL/CentOS 6. x|&#10004;|&#10004;<br />**Remarque :** Pris en charge uniquement sur Windows Server 2016 et versions ultérieures.|  
@@ -95,7 +95,7 @@ Pour plus d’informations, consultez [CentOS et Red Hat Enterprise Linux des ma
 
 Le tableau suivant répertorie les versions de Debian que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
-|Versions de système d’exploitation|1e génération|2e génération|  
+|Versions de système d’exploitation|Génération 1|2e génération|  
 |-----------------------------|----------------|----------------|  
 |Série Debian 7. x|&#10004;| &#10006;|  
 |Série Debian 8. x|&#10004;|&#10004;|  
@@ -106,7 +106,7 @@ Pour plus d’informations, consultez [machines virtuelles Debian sur Hyper-V](.
 
 Le tableau suivant répertorie les versions de FreeBSD que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.  
 
-|Versions de système d’exploitation|1e génération|2e génération|  
+|Versions de système d’exploitation|Génération 1|2e génération|  
 |-----------------------------|----------------|----------------|  
 |FreeBSD 10 et 10,1|&#10004;| &#10006;|  
 |FreeBSD 9,1 et 9,3|&#10004;| &#10006;|  
@@ -118,14 +118,14 @@ Pour plus d’informations, consultez [machines virtuelles FreeBSD sur Hyper-V](
 
 Le tableau suivant répertorie les versions de la série de noyaux compatibles Red Hat que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.  
 
-|Versions de la série de noyaux compatibles Red Hat|1e génération|2e génération|  
+|Versions de la série de noyaux compatibles Red Hat|Génération 1|2e génération|  
 |---------------------------------------------|----------------|----------------|  
 |Série Oracle Linux 7. x|&#10004;|&#10004;|
 |Série de Oracle Linux 6. x|&#10004;| &#10006;|  
 
 Le tableau suivant indique les versions du noyau d’entreprise qui peuvent être utilisées en tant que système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
-|Versions du noyau d’entreprise (UEK)|1e génération|2e génération|  
+|Versions du noyau d’entreprise (UEK)|Génération 1|2e génération|  
 |--------------------------------------------------|----------------|----------------|  
 |Oracle Linux UEK R3 QU3|&#10004;| &#10006;|  
 |Oracle Linux UEK R3 QU2|&#10004;| &#10006;|  
@@ -137,7 +137,7 @@ Pour plus d’informations, consultez [Oracle Linux des machines virtuelles sur 
 
 Le tableau suivant indique les versions de SUSE que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
-|Versions de système d’exploitation|1e génération|2e génération|  
+|Versions de système d’exploitation|Génération 1|2e génération|  
 |-----------------------------|----------------|----------------|  
 |Série SUSE Linux Enterprise Server 12|&#10004;|&#10004;|  
 |Série SUSE Linux Enterprise Server 11|&#10004;| &#10006;|  
@@ -149,7 +149,7 @@ Pour plus d’informations, consultez [machines virtuelles Suse sur Hyper-V](../
 
 Le tableau suivant indique les versions de Ubuntu que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
-|Versions de système d’exploitation|1e génération|2e génération|  
+|Versions de système d’exploitation|Génération 1|2e génération|  
 |-----------------------------|----------------|----------------|  
 |Ubuntu 14,04 et versions ultérieures|&#10004;|&#10004;|  
 |Ubuntu 12.04|&#10004;| &#10006;|  
@@ -160,7 +160,7 @@ Pour plus d’informations, consultez [machines virtuelles Ubuntu sur Hyper-V](.
 
 Le tableau suivant indique les méthodes de démarrage prises en charge par les ordinateurs virtuels de génération 1 et de génération 2.  
 
-|Méthode de démarrage|1e génération|2e génération|  
+|Méthode de démarrage|Génération 1|2e génération|  
 |---------------|----------------|----------------|  
 |démarrage PXE avec une carte réseau standard ;| &#10006;|&#10004;|  
 |Démarrage PXE à l’aide d’une carte réseau héritée|&#10004;| &#10006;|  

@@ -17,7 +17,7 @@ ms.locfileid: "71356040"
 ---
 # <a name="use-dns-policy-for-application-load-balancing"></a>Utiliser une stratégie DNS pour l’équilibrage de charge des applications
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à configurer une stratégie DNS pour effectuer l’équilibrage de charge de l’application.
 
@@ -54,7 +54,7 @@ Ainsi, pour les quatre requêtes que le serveur DNS reçoit, il répond avec deu
 
 Un problème possible avec l’équilibrage de charge avec la stratégie DNS est la mise en cache des enregistrements DNS par le client DNS et le programme de résolution/LDNS, qui peuvent interférer avec l’équilibrage de charge, car le client ou le programme de résolution n’envoient pas de requête au serveur DNS.
 
-Vous pouvez atténuer l’effet de ce comportement en utilisant une valeur @ no__t-0to @ no__t-1Live \(TTL @ no__t-3 à faible temps pour les enregistrements DNS dont la charge doit être équilibrée.
+Vous pouvez atténuer l’effet de ce comportement en utilisant un\-faible pour\-valeur de la durée de\) vie de \(en temps réel pour les enregistrements DNS dont la charge doit être équilibrée.
 
 ### <a name="how-to-configure-application-load-balancing"></a>Comment configurer l’équilibrage de charge d’application
 
@@ -85,9 +85,9 @@ Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.micr
 
 Dans **SeattleZoneScope**, vous pouvez ajouter l’enregistrement www.contosogiftservices.com avec l’adresse IP 192.0.0.1, qui se trouve dans le centre de contenu Seattle.
 
-Dans **ChicagoZoneScope**, vous pouvez ajouter le même enregistrement @no__t -1www. contosogiftservices. com @ no__t-2 avec l’adresse IP 182.0.0.1 dans le centre de centres Chicago.
+Dans **ChicagoZoneScope**, vous pouvez ajouter le même enregistrement \(www.contosogiftservices.com\) avec l’adresse IP 182.0.0.1 dans le centre de centres Chicago.
 
-De même, dans **DallasZoneScope**, vous pouvez ajouter un enregistrement @no__t -1www. contosogiftservices. com @ no__t-2 avec l’adresse IP 162.0.0.1 dans le centre de centres Chicago.
+De même, dans **DallasZoneScope**, vous pouvez ajouter un enregistrement \(www.contosogiftservices.com\) avec l’adresse IP 162.0.0.1 dans le centre de centres Chicago.
 
 Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des enregistrements aux étendues de zone.
     
@@ -107,7 +107,7 @@ Une fois que vous avez créé les partitions (étendues de zone) et que vous ave
 Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer une stratégie DNS qui équilibre le trafic d’application sur ces trois centres de informations.
 
 >[!NOTE]
->Dans l’exemple de commande ci-dessous, l’expression – ZoneScope "SeattleZoneScope, 2 ; ChicagoZoneScope, 1 ; DallasZoneScope, 1 "configure le serveur DNS avec un tableau qui comprend la combinaison de paramètres \<ZoneScope @ no__t-1, \<weight @ no__t-3.
+>Dans l’exemple de commande ci-dessous, l’expression – ZoneScope "SeattleZoneScope, 2 ; ChicagoZoneScope, 1 ; DallasZoneScope, 1 "configure le serveur DNS avec un tableau qui comprend la combinaison de paramètres \<ZoneScope\>,\<poids\>.
     
     Add-DnsServerQueryResolutionPolicy -Name "AmericaPolicy" -Action ALLOW -ZoneScope "SeattleZoneScope,2;ChicagoZoneScope,1;DallasZoneScope,1" -ZoneName "contosogiftservices.com"
     

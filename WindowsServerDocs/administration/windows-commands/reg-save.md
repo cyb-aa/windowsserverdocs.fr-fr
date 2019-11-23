@@ -38,18 +38,18 @@ reg save <KeyName> <FileName> [/y]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0KeyName >|Spécifie le chemin d’accès complet de la sous-clé. Pour spécifier des ordinateurs distants, incluez le nom de l’ordinateur (au format \\ @ no__t-1ComputerName @ no__t-2 dans le cadre du *keyName*. Si vous omettez \\ @ no__t-1ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont les suivantes : HKLM et HKU.|
-|\<Nom de fichier >|Spécifie le nom et le chemin d’accès du fichier créé. Si aucun chemin d’accès n’est spécifié, le chemin d’accès actuel est utilisé.|
+|\<KeyName >|Spécifie le chemin d’accès complet de la sous-clé. Pour spécifier des ordinateurs distants, incluez le nom de l’ordinateur (au format \\\\ComputerName\) dans le *nom*de l’ordinateur. Si vous omettez \\\\ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont les suivantes : HKLM et HKU.|
+|Nom de fichier \<>|Spécifie le nom et le chemin d’accès du fichier créé. Si aucun chemin d’accès n’est spécifié, le chemin d’accès actuel est utilisé.|
 |/y|Remplace un fichier existant par *le nom de fichier sans demander* confirmation.|
 |/?|Affiche l’aide pour **reg save** à l’invite de commandes.|
 
-## <a name="remarks-optional-section"></a>La section Notes \<optional >
+## <a name="remarks-optional-section"></a>Remarques \<section facultative >
 
 -   Le tableau suivant répertorie les valeurs renvoyées pour l’opération de **sauvegarde de Reg** .
 
-|Value|Description|
+|Valeur|Description|
 |-----|-----------|
-|0|Succès|
+|0|Réussite|
 |1|Échec|
 -   Avant de modifier des entrées de Registre, enregistrez la sous-clé parente avec l’opération **reg save** . Si la modification échoue, restaurez la sous-clé d’origine avec l’opération **reg Restore** .
 

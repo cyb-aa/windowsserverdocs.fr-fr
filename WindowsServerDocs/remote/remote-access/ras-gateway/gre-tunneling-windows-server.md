@@ -17,9 +17,9 @@ ms.locfileid: "71404678"
 ---
 # <a name="gre-tunneling-in-windows-server-2016"></a>Tunneling GRE dans Windows Server 2016
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Windows Server 2016 fournit des mises à jour de l’encapsulation générique de routage \(GRE @ no__t-1 pour la passerelle RAS.  
+Windows Server 2016 fournit des mises à jour de l’encapsulation générique de routage \(la fonctionnalité de tunneling GRE\) pour la passerelle RAS.  
   
 GRE est un protocole de tunneling léger qui peut encapsuler une grande variété de protocoles de la couche réseau dans les liaisons point à point virtuelles sur un réseau d’interconnexion IP. L’implémentation Microsoft GRE peut encapsuler IPv4 et IPv6.  
   
@@ -27,11 +27,11 @@ Les tunnels GRE sont utiles dans de nombreux scénarios, car :
   
 -   Ils sont conformes à la norme Lightweight et RFC 2890, ce qui les rend interopérables avec différents appareils de fournisseurs  
   
--   Vous pouvez utiliser Border Gateway Protocol \(BGP @ no__t-1 pour le routage dynamique  
+-   Vous pouvez utiliser Border Gateway Protocol \(\) BGP pour le routage dynamique  
   
--   Vous pouvez configurer des passerelles RAS multi-locataires GRE pour une utilisation avec un réseau à définition logicielle \(SDN @ no__t-1
+-   Vous pouvez configurer des passerelles RAS multi-locataires GRE pour une utilisation avec un réseau à définition logicielle \(SDN\)
   
--   Vous pouvez utiliser System Center Virtual Machine Manager pour gérer les passerelles RAS GRE @ no__t-0based
+-   Vous pouvez utiliser System Center Virtual Machine Manager pour gérer les passerelles RAS\-basées sur GRE
   
 -   Vous pouvez atteindre jusqu’à 2,0 Gbits/s de débit sur une machine virtuelle 6 cœurs configurée en tant que passerelle RAS GRE
   
@@ -104,13 +104,13 @@ Ce scénario peut être utilisé pour intégrer des appareils tiers (tels que de
   
 ## <a name="configuration-and-deployment"></a>Configuration et déploiement
 
-Un tunnel GRE est exposé en tant que protocole supplémentaire au sein d’une interface S2S. Elle est implémentée de façon similaire à un tunnel IPSec S2S décrit dans le blog de mise en réseau suivant : [Passerelle VPN de site à site (S2S) mutualisée avec Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
+Un tunnel GRE est exposé en tant que protocole supplémentaire au sein d’une interface S2S. Elle est implémentée de façon similaire à un tunnel IPSec S2S décrit dans le blog sur la mise en réseau suivant : [passerelle VPN de site à site (S2S) mutualisée avec Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
   
 Consultez la rubrique suivante pour obtenir un exemple de déploiement de passerelles, notamment les passerelles de tunnel GRE :  
   
 [Déployer une infrastructure réseau définie par logiciel à l’aide de scripts](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
   
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations supplémentaires
 
 Pour plus d’informations sur le déploiement de passerelles S2S, consultez les rubriques suivantes :  
   
@@ -118,7 +118,7 @@ Pour plus d’informations sur le déploiement de passerelles S2S, consultez les
   
 -   [Border Gateway Protocol &#40;BGP&#41;](../bgp/Border-Gateway-Protocol-BGP.md)  
   
--   @no__t 0New ! Guide de déploiement de la passerelle mutualisée RAS Windows Server 2012 R2 @ no__t-0  
+-   [Nouveau! Guide de déploiement de la passerelle mutualisée RAS Windows Server 2012 R2](https://blogs.technet.com/b/wsnetdoc/archive/2014/03/26/new-windows-server-2012-r2-RAS-multitenant-gateway-deployment-guide.aspx)  
   
 -   [Déployer Border Gateway Protocol (BGP) avec la passerelle mutualisée RAS](https://blogs.technet.com/b/wsnetdoc/archive/2014/04/03/deploy-border-gateway-protocol-bgp-with-the-RAS-multitenant-gateway.aspx)  
   

@@ -1,5 +1,5 @@
 ---
-title: jeu
+title: set
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server
@@ -20,7 +20,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71384104"
 ---
-# <a name="set"></a>jeu
+# <a name="set"></a>set
 
 
 
@@ -40,12 +40,12 @@ set /a <Variable>=<Expression>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Variable >|Spécifie la variable d’environnement à définir ou modifier.|
-|@no__t 0String >|Spécifie la chaîne à associer à la variable d’environnement spécifiée.|
+|Variable \<>|Spécifie la variable d’environnement à définir ou modifier.|
+|Chaîne \<>|Spécifie la chaîne à associer à la variable d’environnement spécifiée.|
 |/p|Définit la valeur de la *variable* sur une ligne d’entrée entrée par l’utilisateur.|
-|@no__t 0PromptString >|Facultatif. Spécifie un message pour inviter l’utilisateur à entrer des données. Ce paramètre est utilisé avec l’option de ligne de commande **/p** .|
+|\<PromptString >|Facultatif. Spécifie un message pour inviter l’utilisateur à entrer des données. Ce paramètre est utilisé avec l’option de ligne de commande **/p** .|
 |/a|Définit *String* sur une expression numérique évaluée.|
-|@no__t 0Expression >|Spécifie une expression numérique. Consultez la section Notes pour connaître les opérateurs valides qui peuvent être utilisés dans *expression*.|
+|Expression \<>|Spécifie une expression numérique. Consultez la section Notes pour connaître les opérateurs valides qui peuvent être utilisés dans *expression*.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -55,7 +55,7 @@ set /a <Variable>=<Expression>
   Lorsque les extensions de commande sont activées (valeur par défaut) et que vous exécutez **Set** avec une valeur, elle affiche toutes les variables qui commencent par cette valeur.
 - Utilisation de caractères spéciaux
 
-  Les caractères **<** , **>** , **|** , **&** , **^** sont des caractères de l’interpréteur de commandes spéciaux, et ils doivent être précédés du caractère d’échappement (**1**) ou placés entre guillemets. en cas d’utilisation dans une *chaîne* (par exemple, **« StringContaining & Symbol »** ). Si vous utilisez des guillemets pour encadrer une chaîne qui contient l’un des caractères spéciaux, les guillemets sont définis dans le cadre de la valeur de la variable d’environnement.
+  Les caractères **<** , **>** , **|** , **&** , **^** sont des caractères d’interpréteur de commandes spéciaux, et ils doivent être précédés du caractère d’échappement ( **^** ) ou placés entre guillemets lorsqu’ils sont utilisés dans une *chaîne* (par exemple, **"StringContaining & symbol"** ). Si vous utilisez des guillemets pour encadrer une chaîne qui contient l’un des caractères spéciaux, les guillemets sont définis dans le cadre de la valeur de la variable d’environnement.
 - Utilisation de variables d’environnement
 
   Utilisez des variables d’environnement pour contrôler le comportement de certains fichiers et programmes de commandes et pour contrôler la façon dont Windows et le sous-système MS-DOS s’affichent et fonctionnent. La commande **Set** est souvent utilisée dans le fichier Autoexec. NT pour définir des variables d’environnement.
@@ -81,7 +81,7 @@ set /a <Variable>=<Expression>
   |            &            |     And au niveau du bit      |
   |            ^            | Or exclusif au niveau du bit |
   |                         |                      |
-  | =  @ no__t-1 =/=% = + =-= & = ^ = |      = < < = > > =       |
+  | = \*=/=% = + =-= & = ^ = |      = < < = > > =       |
   |            ,            | Séparateur d’expressions |
 
   Si vous utilisez des opérateurs logiques ( **&&** ou **||** ) ou modulo ( **%** ), mettez la chaîne d’expression entre guillemets. Toutes les chaînes non numériques de l’expression sont considérées comme des noms de variables d’environnement et leurs valeurs sont converties en nombres avant d’être traitées. Si vous spécifiez un nom de variable d’environnement qui n’est pas défini dans l’environnement actuel, la valeur zéro est allouée, ce qui vous permet d’effectuer des opérations arithmétiques avec des valeurs de variables d’environnement sans utiliser% pour récupérer une valeur.
@@ -97,10 +97,10 @@ set /a <Variable>=<Expression>
   Lorsque les extensions de commande sont activées (valeur par défaut) et que vous exécutez **Set** seul, elle affiche toutes les variables d’environnement actuelles. Si vous exécutez **Set** avec une valeur, il affiche les variables qui correspondent à cette valeur.
 - Utilisation de **Set** dans des fichiers de commandes
 
-  Lorsque vous créez des fichiers de commandes, vous pouvez utiliser **Set** pour créer des variables, puis les utiliser de la même façon que vous utilisez les variables numérotées **% 0** à **% 9**. Vous pouvez également utiliser les variables **% 0** à **% 9** comme entrée pour **Set**.
+  Lorsque vous créez des fichiers de commandes, vous pouvez utiliser **Set** pour créer des variables, puis les utiliser de la même façon que vous utilisez les variables numérotées **%0** à **%9**. Vous pouvez également utiliser les variables **%0** à **%9** comme entrée pour **Set**.
 - Appel d’une variable **Set** à partir d’un fichier de commandes
 
-  Lorsque vous appelez une valeur de variable à partir d’un fichier de commandes, placez la valeur entre les signes de pourcentage ( **%** ). Par exemple, si votre programme de traitement par lots crée une variable d’environnement nommée BAUD, vous pouvez utiliser la chaîne associée à BAUD comme paramètre remplaçable en tapant **% Baud%** à l’invite de commandes.
+  Lorsque vous appelez une valeur de variable à partir d’un fichier de commandes, placez la valeur entre des signes de pourcentage ( **%** ). Par exemple, si votre programme de traitement par lots crée une variable d’environnement nommée BAUD, vous pouvez utiliser la chaîne associée à BAUD comme paramètre remplaçable en tapant **% Baud%** à l’invite de commandes.
 - Utilisation de **Set** sur la console de récupération
 
   La commande **Set** , avec des paramètres différents, est disponible à partir de la console de récupération.
@@ -135,7 +135,7 @@ set testVar=test^^1
 > ```
 > Lorsque cette commande est traitée, la chaîne C:\Inc remplace **% include%** .
 
-Vous pouvez également utiliser **Set** dans un programme de traitement par lots qui ajoute un nouveau répertoire à la variable d’environnement PATH. Exemple :
+Vous pouvez également utiliser **Set** dans un programme de traitement par lots qui ajoute un nouveau répertoire à la variable d’environnement PATH. Par exemple :
 ```
 @echo off
 rem ADDPATH.BAT adds a new directory

@@ -22,7 +22,7 @@ ms.locfileid: "71380181"
 ---
 # <a name="bootcfg-addsw"></a>bootcfg addsw
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ajoute des options de chargement du système d’exploitation pour une entrée de système d’exploitation spécifiée.
 
@@ -35,12 +35,12 @@ bootcfg /addsw [/s <computer> [/u <Domain>\<User> /p <Password>]] [/mm <MaximumR
 |         Terme         |                                                                                                            Définition                                                                                                            |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                                        Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                        |
-| /u <Domain> @ no__t-1 @ no__t-2  |               Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain> @ no__t-2 @ no__t-3. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.               |
+| /u <Domain>\\<User>  |               Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain>\\<User>. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.               |
 |    /p <Password>     |                                                                      Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                       |
-|   @no__t/mm-0   |                                          Spécifie la quantité maximale de mémoire vive (en mégaoctets) pouvant être utilisée par le système d’exploitation. La valeur doit être supérieure ou égale à 32 mégaoctets.                                          |
-|         /bv          |                                    Ajoute l’option **/basevideo** au @no__t spécifié-1, en dirigeant le système d’exploitation pour qu’il utilise le mode VGA standard pour le pilote vidéo installé.                                     |
+|   <MaximumRAM>/mm   |                                          Spécifie la quantité maximale de mémoire vive (en mégaoctets) pouvant être utilisée par le système d’exploitation. La valeur doit être supérieure ou égale à 32 mégaoctets.                                          |
+|         /bv          |                                    Ajoute l’option **/basevideo** au <OSEntryLineNum>spécifié, en dirigeant le système d’exploitation pour qu’il utilise le mode VGA standard pour le pilote vidéo installé.                                     |
 |         /So          |                                      Ajoute l’option **/SOS** à la valeur *NumLigneEntréeSE*spécifiée, en dirigeant le système d’exploitation afin d’afficher les noms des pilotes de périphériques pendant leur chargement.                                      |
-|         /ng          |                                         Ajoute l’option **/noguiboot** au @no__t spécifié-1, en désactivant la barre de progression qui s’affiche avant l’invite d’ouverture de session Ctrl + Alt + Suppr.                                          |
+|         /ng          |                                         Ajoute l’option **/noguiboot** au <OSEntryLineNum>spécifié, en désactivant la barre de progression qui s’affiche avant l’invite d’ouverture de session Ctrl + Alt + Suppr.                                          |
 | /ID <OSEntryLineNum> | Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini auquel les options de chargement du système d’exploitation sont ajoutées. La première ligne après l’en-tête de la section [Operating Systems] est 1. |
 |          /?          |                                                                                               Affiche l'aide à l'invite de commandes.                                                                                               |
 

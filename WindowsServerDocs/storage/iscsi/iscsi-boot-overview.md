@@ -22,7 +22,7 @@ ms.locfileid: "71402987"
 Dans Windows Server, un serveur cible iSCSI peut démarrer des centaines d’ordinateurs à partir d’une seule image de système d’exploitation stockée à un emplacement centralisé. Cela contribue à améliorer l’efficacité, la simplicité de gestion, la disponibilité et la sécurité.  
   
 ## <a name="BKMK_OVER"></a>Description de la fonctionnalité  
-En utilisant des disques durs virtuels de différenciation \(VHDs @ no__t-1, vous pouvez utiliser une seule image de système d’exploitation \(Le « image maître » \) pour démarrer jusqu’à 256 ordinateurs. Par exemple, supposons que vous avez déployé Windows Server avec une image du système d’exploitation d’environ 20 Go, et que vous avez utilisé deux lecteurs de disque en miroir comme volume de démarrage. L’image de système d’exploitation aurait nécessité environ 10 To de stockage à elle seule pour démarrer 256 ordinateurs. Toutefois, avec le serveur cible iSCSI, vous utilisez 40 Go pour l’image de base du système d’exploitation et 2 Go pour les disques durs virtuels de différenciation par instance de serveur, soit un total de 552 Go pour les images de systèmes d’exploitation. Cela permet de gagner plus de 90 % d’espace de stockage juste pour les images de systèmes d’exploitation.  
+En utilisant des disques durs virtuels de différenciation \(\)VHD, vous pouvez utiliser une seule image de système d’exploitation \(le\) « image maître » pour démarrer jusqu’à 256 ordinateurs. Par exemple, supposons que vous avez déployé Windows Server avec une image du système d’exploitation d’environ 20 Go, et que vous avez utilisé deux lecteurs de disque en miroir comme volume de démarrage. L’image de système d’exploitation aurait nécessité environ 10 To de stockage à elle seule pour démarrer 256 ordinateurs. Toutefois, avec le serveur cible iSCSI, vous utilisez 40 Go pour l’image de base du système d’exploitation et 2 Go pour les disques durs virtuels de différenciation par instance de serveur, soit un total de 552 Go pour les images de systèmes d’exploitation. Cela permet de gagner plus de 90 % d’espace de stockage juste pour les images de systèmes d’exploitation.  
   
 ## <a name="BKMK_APP"></a>Applications pratiques  
 L’utilisation d’une image de système d’exploitation contrôlé offre les avantages suivants :  
@@ -37,7 +37,7 @@ L’utilisation d’une image de système d’exploitation contrôlé offre les 
 > Plusieurs fournisseurs proposent une solution de démarrage de réseau de zone de stockage \(SAN\), qui peut être utilisée par le serveur cible iSCSI dans Windows Server sur du matériel standard.  
   
 ## <a name="BKMK_HARD"></a>Configuration matérielle requise  
-Le serveur cible iSCSI ne nécessite pas de matériel spécifique. Dans les centres de données avec des déploiements @ no__t-0scale volumineux, la conception doit être validée par rapport à un matériel spécifique. Pour référence, les tests internes de Microsoft ont indiqué qu’un déploiement d’ordinateur 256 nécessitait des disques sur @ no__t-0RPM dans une configuration RAID 10 pour le stockage. Une bande passante réseau de 10 Go est optimale. L’estimation générale est de 60 serveurs de démarrage iSCSI par gigaoctet de carte réseau.  
+Le serveur cible iSCSI ne nécessite pas de matériel spécifique. Dans les centres de données avec des déploiements à grande échelle\-, la conception doit être validée par rapport à un matériel spécifique. Pour référence, les tests internes de Microsoft ont indiqué qu’un déploiement d’ordinateur 256 nécessitait sur\-disques RPM dans une configuration RAID 10 pour le stockage. Une bande passante réseau de 10 Go est optimale. L’estimation générale est de 60 serveurs de démarrage iSCSI par gigaoctet de carte réseau.  
   
 Aucune carte réseau n’est nécessaire pour ce scénario et un chargeur de démarrage logiciel peut être utilisé \(par exemple, le microprogramme de démarrage open source iPXE\).  
   
@@ -47,7 +47,7 @@ Le serveur cible iSCSI peut être installé en tant que service de rôle Service
 > [!NOTE]
 > Le démarrage d’un serveur Nano à partir d’iSCSI (à partir du serveur cible iSCSI Windows ou d’une implémentation cible tierce) n’est pas pris en charge.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 * [Serveur cible iSCSI](https://technet.microsoft.com/library/hh848272(v=ws.11).aspx)
 * [applets de commande de l’initiateur iSCSI](https://technet.microsoft.com/library/hh826099(v=wps.640).aspx)
 * [applets de commande du serveur cible iSCSI](https://technet.microsoft.com/library/jj612803(v=wps.630).aspx)

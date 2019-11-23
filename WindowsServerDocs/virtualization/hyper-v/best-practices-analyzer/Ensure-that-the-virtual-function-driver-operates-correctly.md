@@ -19,7 +19,7 @@ ms.locfileid: "71393618"
 ---
 # <a name="ensure-that-the-virtual-function-driver-operates-correctly-when-a-virtual-machine-is-configured-to-use-sr-iov"></a>S’assurer que le pilote de fonction virtuelle fonctionne correctement lorsqu’un ordinateur virtuel est configuré pour utiliser SR-IOV
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -38,10 +38,10 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>Impact  
 *Les performances de mise en réseau ne sont pas optimales sur les ordinateurs virtuels suivants :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
-*In le système d’exploitation invité, procédez comme suit : Vérifiez que les pilotes appropriés sont installés et que tous les périphériques réseau sont activés, et recherchez les erreurs ou avertissements dans le journal des événements.*  
+## <a name="resolution"></a>Résolution  
+*Dans le système d’exploitation invité, procédez comme suit : Vérifiez que les pilotes appropriés sont installés et que tous les périphériques réseau sont activés, et recherchez des erreurs ou des avertissements dans le journal des événements.*  
   
 
 

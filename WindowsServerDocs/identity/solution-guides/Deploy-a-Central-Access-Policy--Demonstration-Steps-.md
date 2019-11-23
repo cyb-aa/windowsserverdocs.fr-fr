@@ -18,7 +18,7 @@ ms.locfileid: "71357498"
 ---
 # <a name="deploy-a-central-access-policy-demonstration-steps"></a>Déployer une stratégie d'accès centralisée (étapes de démonstration)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans ce scénario, le service Sécurité du service Finance collabore avec le service centralisé Sécurité des informations pour spécifier la nécessité de mettre en place une stratégie d'accès centralisée afin de pouvoir protéger les informations financières archivées stockées sur des serveurs de fichiers. Les informations financières archivées de chaque pays sont accessibles en lecture seule par les employés du service Finance du même pays. Un groupe d'administration des finances centralisé peut accéder aux informations financières de tous les pays.  
 
@@ -26,15 +26,15 @@ Le déploiement d'une stratégie d'accès centralisée comprend les phases suiva
 
 |Phase|Description  
 |---------|---------------  
-|@no__t 0Plan : Identifier la nécessité d’une stratégie et la configuration requise pour le déploiement @ no__t-0|Identifier la nécessité d'une stratégie et la configuration requise pour le déploiement. 
-|@no__t 0Implement : Configurer les composants et la stratégie @ no__t-0|Configurer les composants et la stratégie.  
+|[Plan : identifier la nécessité d’une stratégie et la configuration requise pour le déploiement](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.2)|Identifier la nécessité d'une stratégie et la configuration requise pour le déploiement. 
+|[Implémenter : configurer les composants et la stratégie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.3)|Configurer les composants et la stratégie.  
 |[Déployer la stratégie d’accès centralisée](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.4)|Déployez la stratégie.  
-|@no__t 0Maintain : Modifier et mettre en place la stratégie @ no__t-0|Modifications de stratégie et mise en lots. 
+|[Tenir à jour : modifier et mettre en place la stratégie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.5)|Modifications de stratégie et mise en lots. 
 
 ## <a name="BKMK_1.1"></a>Configurer un environnement de test  
-Avant de commencer, vous devez configurer un laboratoire pour tester ce scénario. Les étapes de configuration du laboratoire sont expliquées en détail dans [Appendix B : Configuration de l’environnement de test @ no__t-0.  
+Avant de commencer, vous devez configurer un laboratoire pour tester ce scénario. Les étapes de configuration du laboratoire sont décrites en détail dans l' [annexe B : configuration de l’environnement de test](Appendix-B--Setting-Up-the-Test-Environment.md).  
 
-## <a name="BKMK_1.2"></a>Programme identifier la nécessité d'une stratégie et la configuration requise pour le déploiement  
+## <a name="BKMK_1.2"></a>Plan : identifier la nécessité d’une stratégie et la configuration requise pour le déploiement  
 Cette section décrit les principales étapes de la phase de planification de votre déploiement.  
 
 ||Étape|Exemple|  
@@ -46,7 +46,7 @@ Cette section décrit les principales étapes de la phase de planification de vo
 |1.5|Déterminer les types de revendications et les groupes nécessaires pour la stratégie|Types de revendications :<br /><br />-Pays<br />-Service<br /><br />Groupes d'utilisateurs :<br /><br />-FinanceAdmin<br />-FinanceException|  
 |1.6|Identifier les serveurs sur lesquels appliquer cette stratégie|Appliquer la stratégie sur tous les serveurs de fichiers financiers.|  
 
-## <a name="BKMK_1.3"></a>Applique configurer les composants et la stratégie  
+## <a name="BKMK_1.3"></a>Implémenter : configurer les composants et la stratégie  
 Cette section contient un exemple qui déploie une stratégie d'accès centralisée pour des documents financiers.  
 
 |Non|Étape|Exemple|  
@@ -58,7 +58,7 @@ Cette section contient un exemple qui déploie une stratégie d'accès centralis
 |2.5|Cibler la stratégie d'accès centralisée sur les serveurs de fichiers|Publiez la stratégie d'accès centralisée Stratégie financière sur les serveurs de fichiers.|  
 |2.6|Activer la prise en charge par le contrôleur de domaine Kerberos des revendications, de l'authentification composée et du blindage Kerberos.|Activez la prise en charge par le contrôleur de domaine Kerberos des revendications, de l'authentification composée et du blindage Kerberos pour contoso.com.|  
 
-Dans la procédure suivante, vous allez créer deux types de revendications : Country et Department.  
+Dans la procédure suivante, vous créez deux types de revendications : Country et Department.  
 
 #### <a name="to-create-claim-types"></a>Pour créer des types de revendications  
 
@@ -85,7 +85,7 @@ Dans la procédure suivante, vous allez créer deux types de revendications : C
 
 9. Répétez l'étape ci-dessus. Dans la boîte de dialogue **Ajouter une valeur suggérée**, tapez **JP** dans les champs **Valeur** et **Nom complet**, puis cliquez sur **OK**.  
 
-@no__t-guides 0solution-](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
 
@@ -121,7 +121,7 @@ L'étape suivante consiste à créer des propriétés de ressource. Lors de la p
 
     -   Service  
 
-@no__t-guides 0solution-](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
 
@@ -147,7 +147,7 @@ L'étape suivante consiste à créer des règles d'accès central qui définisse
 
 Ou pour exprimer les règles avec les constructions de Windows Server 2012 :  
 
-Cible : Resource.Department Contains Finance  
+Ciblage : Resource. Department contient finance  
 
 Règles d'accès :  
 
@@ -171,7 +171,7 @@ Règles d'accès :
 5. Dans la section **Autorisations**, sélectionnez **Utiliser les autorisations suivantes en tant qu'autorisations actuelles**, cliquez sur **Modifier** puis, dans la boîte de dialogue **Paramètres de sécurité avancés pour Autorisations**, cliquez sur **Ajouter**.  
 
    > [!NOTE]  
-   > L'option **Utiliser les autorisations suivantes en tant qu'autorisations proposées** vous permet de créer la stratégie avec des phases intermédiaires. Pour plus d'informations sur la marche à suivre, voir la section Mise à jour : stratégies intermédiaires et modifications de stratégies plus loin dans cette rubrique.  
+   > L'option **Utiliser les autorisations suivantes en tant qu'autorisations proposées** vous permet de créer la stratégie avec des phases intermédiaires. Pour plus d’informations sur la façon de procéder, consultez la section gérer : modifier et mettre en place la stratégie dans cette rubrique.  
 
 6. Dans la boîte de dialogue **Autorisations pour Autorisations**, cliquez sur **Sélectionnez un principal**, tapez **Utilisateurs authentifiés**, puis cliquez sur **OK**.  
 
@@ -189,7 +189,7 @@ Règles d'accès :
 
 11. Cliquez sur **OK** à trois reprises pour terminer et revenir au Centre d'administration Active Directory.  
 
-    @no__t-guides 0solution-](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+    guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
     L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
 
@@ -206,7 +206,7 @@ New-ADCentralAccessRule "Finance Documents Rule" -CurrentAcl $currentAcl -Resour
 
 
 > [!IMPORTANT]  
-> Dans l'exemple d'applet de commande ci-dessus, les identificateurs de sécurité (SID) du groupe FinanceAdmin et des utilisateurs sont déterminés au moment de la création et diffèreront dans votre exemple. Par exemple, la valeur de SID fournie (S-1-5-21-1787166779-1215870801-2157059049-1113) pour FinanceAdmins doit être remplacée par le SID du groupe FinanceAdmin que vous devrez créer dans votre déploiement. Vous pouvez utiliser Windows PowerShell pour rechercher la valeur SID de ce groupe, assigner cette valeur à une variable, puis utiliser la variable ici. Pour plus d’informations, consultez @no__t-conseils PowerShell 0Windows : Utilisation des SID @ no__t-0.  
+> Dans l'exemple d'applet de commande ci-dessus, les identificateurs de sécurité (SID) du groupe FinanceAdmin et des utilisateurs sont déterminés au moment de la création et diffèreront dans votre exemple. Par exemple, la valeur de SID fournie (S-1-5-21-1787166779-1215870801-2157059049-1113) pour FinanceAdmins doit être remplacée par le SID du groupe FinanceAdmin que vous devrez créer dans votre déploiement. Vous pouvez utiliser Windows PowerShell pour rechercher la valeur SID de ce groupe, assigner cette valeur à une variable, puis utiliser la variable ici. Pour plus d’informations, consultez [Windows PowerShell Tip : Working with sid](https://go.microsoft.com/fwlink/?LinkId=253545).  
 
 Vous devriez maintenant avoir une règle d'accès central qui permet aux utilisateurs d'accéder à des documents du même pays et du même service. Cette règle autorise le groupe FinanceAdmin à modifier les documents et le groupe FinanceException à lire les documents. Elle cible uniquement les documents classifiés comme financiers.  
 
@@ -224,7 +224,7 @@ Vous devriez maintenant avoir une règle d'accès central qui permet aux utilisa
 
 6. Cliquez sur **OK** pour terminer. Vous devriez maintenant avoir une stratégie d'accès centralisée nommée Stratégie Finance.  
 
-   @no__t-guides 0solution-](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+   guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
    L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
 
@@ -245,7 +245,7 @@ Vous devriez maintenant avoir une règle d'accès central qui permet aux utilisa
     > [!TIP]  
     > Dans votre environnement de production, vous devez créer une unité d'organisation Serveur de fichiers et y ajouter tous les serveurs de fichiers auxquels vous souhaitez appliquer cette stratégie. Vous pouvez ensuite créer une stratégie de groupe et ajouter cette unité d'organisation à cette stratégie.  
 
-2.  Lors de cette étape, vous allez modifier l'objet de stratégie de groupe que vous avez créé dans la section [Créer le contrôleur de domaine](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_Build) dans l'environnement de test pour inclure la stratégie d'accès centralisée que vous avez créée. Dans l'Éditeur de gestion des stratégies de groupe, accédez à l'unité d'organisation dans le domaine (contoso.com dans notre exemple) et sélectionnez-la : **Gestion des stratégies de groupe**, **Forêt : contoso.com**, **Domaines**, **contoso.com**, **Contoso**, **FileServerOU**.  
+2.  Lors de cette étape, vous allez modifier l'objet de stratégie de groupe que vous avez créé dans la section [Créer le contrôleur de domaine](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_Build) dans l'environnement de test pour inclure la stratégie d'accès centralisée que vous avez créée. Dans le Éditeur de gestion des stratégies de groupe, accédez à l’unité d’organisation dans le domaine (contoso.com dans cet exemple) et sélectionnez-la, puis sélectionnez **gestion des stratégie de groupe**, **forêt : contoso.com**, **domaines**, **contoso.com**, **contoso**, **FileServerOU**.  
 
 3.  Cliquez avec le bouton droit sur **FlexibleAccessGPO**, puis sur **Modifier**.  
 
@@ -328,7 +328,7 @@ Lors de l'étape suivante, vous allez vous assurer que l'accès est configuré c
 
 2.  Cliquez sur l'onglet **Sécurité**, sur **Avancé**, puis sur l'onglet **Accès effectif**.  
 
-3.  Pour examiner les autorisations d’un utilisateur, cliquez sur **Sélectionner un utilisateur**, tapez le nom de l’utilisateur, puis cliquez sur **afficher l’accès effectif** pour afficher les droits d’accès effectifs. Exemple :  
+3.  Pour examiner les autorisations d’un utilisateur, cliquez sur **Sélectionner un utilisateur**, tapez le nom de l’utilisateur, puis cliquez sur **afficher l’accès effectif** pour afficher les droits d’accès effectifs. Par exemple :  
 
     -   Myriam Delesalle (MDelesalle) travaille au service Finance et doit avoir un accès en lecture au dossier.  
 
@@ -340,7 +340,7 @@ Lors de l'étape suivante, vous allez vous assurer que l'accès est configuré c
 
     Notez la dernière colonne nommée **Accès limité par** dans la fenêtre d'accès effectif. Cette colonne indique les portes qui affectent les autorisations de la personne. Dans ce cas, les autorisations Partager et NTFS accordent un contrôle total à tous les utilisateurs. Toutefois, la stratégie d'accès centralisée limite l'accès en fonction des règles que vous avez configurées précédemment.  
 
-## <a name="BKMK_1.5"></a>Maintenir stratégies intermédiaires et modifications de stratégies  
+## <a name="BKMK_1.5"></a>Tenir à jour : modifier et mettre en place la stratégie  
 
 ||||  
 |-|-|-|  
@@ -392,7 +392,7 @@ L'étape suivante consiste à créer une règle de stratégie intermédiaire. Le
 
 8. Cliquez de nouveau sur **Ajouter une condition** et ajoutez la condition suivante.  
    Les   
-    [**Utilisateur**] [**Groupe**] [**Membre de n’importe lequel**] [**Valeur**] \(**FinanceException**)  
+    [**Utilisateur**] [**Groupe**] [**Membre de n’importe lequel**] [**Valeur**]\(**FinanceException**)  
 
 9. Pour définir le groupe FinanceException, cliquez sur **Ajouter des éléments** et, dans la fenêtre **Sélectionner Utilisateur, Ordinateur, Compte de service ou Groupe**, tapez **FinanceException**.  
 
@@ -402,7 +402,7 @@ L'étape suivante consiste à créer une règle de stratégie intermédiaire. Le
 
 12. Cliquez sur **OK** à deux reprises pour terminer.  
 
-@no__t-guides 0solution-](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+guides de solution ![](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
 
@@ -429,7 +429,7 @@ Lors de la procédure suivante, vous allez vérifier les résultats de la strat�
 
 3. Dans le Gestionnaire Hyper-V, connectez-vous au serveur CLIENT1. Déconnectez l'utilisateur actuellement connecté. Redémarrez l'ordinateur virtuel CLIENT1. Connectez-vous ensuite à l’ordinateur à l’aide de contoso\EValle pass@word1.  
 
-4. Double-cliquez sur le raccourci du Bureau pour \\ \ FILE1\Finance de documents. EValle doit encore avoir accès aux fichiers. Revenez à FILE1.  
+4. Double-cliquez sur le raccourci du Bureau pour \\documents \FILE1\Finance. EValle doit encore avoir accès aux fichiers. Revenez à FILE1.  
 
 5. Ouvrez l'**Observateur d'événements** à partir du raccourci sur le Bureau. Développez **Journaux Windows**, puis sélectionnez **Sécurité**. Ouvrez les entrées avec l' **ID d’événement 4818**dans la catégorie tâche de la tâche de transit de la **stratégie d’accès centralisée** . Vous constaterez que l'accès a été accordé à EValle. Toutefois, conformément à la stratégie intermédiaire, l'accès aurait été refusé à cet utilisateur.  
 

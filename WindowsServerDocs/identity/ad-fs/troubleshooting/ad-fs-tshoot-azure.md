@@ -35,7 +35,7 @@ Si la redirection n’a pas lieu, vous devez vérifier quelques éléments
    ![](media/ad-fs-tshoot-azure/azure3.png)
 
 2. Enfin, vous souhaitez vérifier [DNS](ad-fs-tshoot-dns.md) et vous assurer que vos serveurs AD FS ou vos serveurs WAP se résolvent à partir d’Internet.  Vérifiez que cette valeur est résolue et que vous pouvez y accéder.
-3. Vous pouvez également utiliser le @no__t PowerShell applet-0 pour récupérer ces informations.
+3. Vous pouvez également utiliser le `Get-AzureADDomain` PowerShell applet pour récupérer ces informations.
 
 ![](media/ad-fs-tshoot-azure/azure6.png)
 
@@ -117,16 +117,16 @@ Une fois que AD FS émet un jeton, Azure AD peut générer une erreur. Dans ce c
 - Les revendications émises par AD FS dans le jeton doivent correspondre aux attributs respectifs de l’utilisateur dans Azure AD.
 - le jeton de Azure AD doit contenir les revendications requises suivantes :
     - WSFED 
-        - NOMENCLATURE La valeur de cette revendication doit correspondre à l’UPN des utilisateurs dans Azure AD.
-        - ImmutableID La valeur de cette revendication doit correspondre à sourceAnchor ou ImmutableID de l’utilisateur dans Azure AD.
+        - UPN : la valeur de cette revendication doit correspondre à l’UPN des utilisateurs dans Azure AD.
+        - ImmutableID : la valeur de cette revendication doit correspondre au sourceAnchor ou ImmutableID de l’utilisateur dans Azure AD.
 
 Pour récupérer la valeur de l’attribut User dans Azure AD, exécutez la ligne de commande suivante : `Get-AzureADUser –UserPrincipalName <UPN>`
 
 ![](media/ad-fs-tshoot-azure/azure5.png)
 
    - 2,0 SAML :
-       - Idpemail il La valeur de cette revendication doit correspondre au nom d’utilisateur principal des utilisateurs dans Azure AD.
-       - NAMEID La valeur de cette revendication doit correspondre à sourceAnchor ou ImmutableID de l’utilisateur dans Azure AD.
+       - Idpemail il : la valeur de cette revendication doit correspondre au nom d’utilisateur principal des utilisateurs dans Azure AD.
+       - NAMEID : la valeur de cette revendication doit correspondre à sourceAnchor ou ImmutableID de l’utilisateur dans Azure AD.
 
 Pour plus d’informations, consultez [utiliser un fournisseur d’identité SAML 2,0 pour implémenter l’authentification unique](https://technet.microsoft.com/library/dn641269.aspx).
 

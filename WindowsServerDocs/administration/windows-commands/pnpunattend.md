@@ -47,8 +47,8 @@ Une préparation préliminaire est nécessaire. Avant d’utiliser cette command
 2. Téléchargez et extrayez le package de pilotes de votre appareil. Copiez le contenu du sous-dossier qui contient le fichier INF de votre version du système d’exploitation et de tous les sous-dossiers dans le dossier vidéo que vous avez créé. Par exemple, copiez les fichiers de pilote vidéo dans C:\Drivers\Video.
 3. Ajoutez une variable de chemin d’accès de l’environnement système au dossier que vous avez créé à l’étape 1. par exemple, **C:\Drivers\Video**.
 4. Créez la clé de Registre suivante, puis, pour la clé **DriverPaths** que vous créez, définissez les données de la **valeur** sur **1**.
-5. Pour Windows® 7, accédez au chemin d’accès au registre : **HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, puis créez les clés : **UnattendSettings\PnPUnattend\DriverPaths @ no__t-1**
-6. Pour Windows Vista, accédez au chemin d’accès au registre : **HK_LM\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, puis créez les clés = **\UnattendSettings\PnPUnattend\DriverPaths**.
+5. Pour Windows® 7, accédez au chemin d’accès au registre : **HKEY_LOCAL_Machine \Software\microsoft\windows NT\CurrentVersion\\** , puis créez les clés : **UnattendSettings\PnPUnattend\DriverPaths\\**
+6. Pour Windows Vista, accédez au chemin d’accès au registre : **HK_LM \Software\microsoft\windows NT\CurrentVersion\\** , puis créez les clés = **\UnattendSettings\PnPUnattend\DriverPaths**.
 
 ## <a name="examples"></a>Exemples
 

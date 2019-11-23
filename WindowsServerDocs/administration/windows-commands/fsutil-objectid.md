@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376835"
 ---
 # <a name="fsutil-objectid"></a>Fsutil objectid
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Gère les identificateurs d’objets (OID), qui sont des objets internes utilisés par le service client de suivi de lien distribué (DLT) et le service de réplication de fichiers (FRS) pour effectuer le suivi d’autres objets, tels que des fichiers, des répertoires et des liens. Les identificateurs d’objet sont invisibles pour la plupart des programmes et ne doivent jamais être modifiés.
 
@@ -42,12 +42,12 @@ fsutil objectid [set] <ObjectID> <BirthVolumeID> <BirthObjectID> <DomainID> <Fil
 |créer|Crée un identificateur d’objet si le fichier spécifié n’en a pas déjà un. Si le fichier a déjà un identificateur d’objet, cette sous-commande est équivalente à la sous-commande de **requête** .|
 |supprimer|Supprime un identificateur d’objet.|
 |requête|Interroge un identificateur d’objet.|
-|jeu|Définit un identificateur d’objet.|
-|@no__t 0ObjectID >|Définit un identificateur hexadécimal à 16 octets propre au fichier qui est garanti comme étant unique au sein d’un volume. L’identificateur d’objet est utilisé par le service client de suivi de lien distribué (DLT) et le service de réplication de fichiers (FRS) pour identifier les fichiers.|
-|@no__t 0BirthVolumeID >|Indique le volume sur lequel le fichier a été trouvé lors de la première obtention d’un identificateur d’objet. Cette valeur est un identificateur hexadécimal de 16 octets qui est utilisé par le service client DLT.|
-|@no__t 0BirthObjectID >|Indique l’identificateur d’objet d’origine du fichier (l' *ObjectID* peut changer quand un fichier est déplacé). Cette valeur est un identificateur hexadécimal de 16 octets qui est utilisé par le service client DLT.|
-|@no__t 0DomainID >|identificateur de domaine hexadécimal de 16 octets. Cette valeur n’est pas utilisée actuellement et doit être définie sur tous les zéros.|
-|\<Nom de fichier >|Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.|
+|set|Définit un identificateur d’objet.|
+|\<ObjectID >|Définit un identificateur hexadécimal à 16 octets propre au fichier qui est garanti comme étant unique au sein d’un volume. L’identificateur d’objet est utilisé par le service client de suivi de lien distribué (DLT) et le service de réplication de fichiers (FRS) pour identifier les fichiers.|
+|\<BirthVolumeID >|Indique le volume sur lequel le fichier a été trouvé lors de la première obtention d’un identificateur d’objet. Cette valeur est un identificateur hexadécimal de 16 octets qui est utilisé par le service client DLT.|
+|\<BirthObjectID >|Indique l’identificateur d’objet d’origine du fichier (l' *ObjectID* peut changer quand un fichier est déplacé). Cette valeur est un identificateur hexadécimal de 16 octets qui est utilisé par le service client DLT.|
+|\<domaine >|identificateur de domaine hexadécimal de 16 octets. Cette valeur n’est pas utilisée actuellement et doit être définie sur tous les zéros.|
+|Nom de fichier \<>|Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.|
 
 ## <a name="remarks"></a>Notes
 

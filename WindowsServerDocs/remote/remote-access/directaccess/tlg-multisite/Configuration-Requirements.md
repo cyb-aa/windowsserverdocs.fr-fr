@@ -21,7 +21,7 @@ ms.locfileid: "71404769"
 ---
 # <a name="configuration-requirements"></a>Configuration requise
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Les composants suivants sont requis pour configurer l’accès à distance dans le laboratoire de test :  
   
@@ -29,11 +29,11 @@ Les composants suivants sont requis pour configurer l’accès à distance dans 
   
 -   Neuf ordinateurs ou machines virtuelles qui répondent à la configuration matérielle minimale requise pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 ; trois de ces ordinateurs ont deux cartes réseau installées.  
   
--   Le ou les fichiers du produit pour Windows 10 @ no__t-0 ou Windows @ no__t-1 8.  
+-   Le ou les fichiers du produit pour Windows 10&reg; ou Windows&reg; 8.  
   
 -   Le ou les fichiers du produit pour Windows 7 édition intégrale.  
   
--   Trois ordinateurs ou machines virtuelles qui répondent à la configuration matérielle minimale requise pour Windows 10 @ no__t-0, Windows 8 ou Windows 7 ; deux cartes réseau sont installées sur l’un de ces ordinateurs.  
+-   Trois ordinateurs ou machines virtuelles qui répondent à la configuration matérielle minimale requise pour Windows 10&reg;, Windows 8 ou Windows 7 ; deux cartes réseau sont installées sur l’un de ces ordinateurs.  
   
 
 

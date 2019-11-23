@@ -38,12 +38,12 @@ attrib [{+|-}r] [{+|-}a] [{+|-}s] [{+|-}h] [{+|-}i] [<Drive>:][<Path>][<FileName
 
 |Paramètre|Description|
 |---------|-----------|
-|{+ \|-} r|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier en lecture seule.|
-|{+ \|-} a|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier d’archive.|
-|{+ \|-} s|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier système.|
-|{+ \|-} h|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier masqué.|
-|{+ \|-} i|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier non indexé de contenu.|
-|[@no__t 0Drive >:] [<Path>] [<FileName>]|Spécifie l’emplacement et le nom du répertoire, du fichier ou du groupe de fichiers dont vous souhaitez afficher ou modifier les attributs. Vous pouvez utiliser l' **?** et **&#42;** les caractères génériques dans le paramètre *filename* pour afficher ou modifier les attributs d’un groupe de fichiers.|
+|{+\|-} r|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier en lecture seule.|
+|{+\|-} a|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier d’archive.|
+|{+\|-} s|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier système.|
+|{+\|-} h|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier masqué.|
+|{+\|-} i|Définit ( **+** ) ou efface ( **-** ) l’attribut de fichier qui n’est pas un index de contenu.|
+|[\<> de lecteur :] [<Path>] [<FileName>]|Spécifie l’emplacement et le nom du répertoire, du fichier ou du groupe de fichiers dont vous souhaitez afficher ou modifier les attributs. Vous pouvez utiliser l' **?** et **&#42;** les caractères génériques dans le paramètre *filename* pour afficher ou modifier les attributs d’un groupe de fichiers.|
 |/s|Applique **Attrib** et toutes les options de ligne de commande aux fichiers correspondants dans le répertoire actif et tous ses sous-répertoires.|
 |/d|Applique **Attrib** et toutes les options de ligne de commande aux répertoires.|
 |/l|Applique **Attrib** et toutes les options de ligne de commande au lien symbolique, plutôt qu’à la cible du lien symbolique.|

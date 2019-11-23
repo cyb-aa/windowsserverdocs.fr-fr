@@ -19,7 +19,7 @@ ms.locfileid: "71402141"
 
 > S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
-Par défaut, les autorisations utilisées pour un dossier DFS sont héritées du système de fichiers local du serveur d’espaces de noms. Les autorisations sont héritées du répertoire racine du lecteur système et accordent au groupe @ no__t-0Users des autorisations de lecture. Par conséquent, même après l’activation de l’énumération basée sur l’accès, tous les dossiers de l’espace de noms restent visibles pour tous les utilisateurs du domaine.
+Par défaut, les autorisations utilisées pour un dossier DFS sont héritées du système de fichiers local du serveur d’espaces de noms. Les autorisations sont héritées du répertoire racine du lecteur système et accordent au domaine\\les autorisations de lecture du groupe utilisateurs. Par conséquent, même après l’activation de l’énumération basée sur l’accès, tous les dossiers de l’espace de noms restent visibles pour tous les utilisateurs du domaine.
 
 ## <a name="advantages-and-limitations-of-inherited-permissions"></a>Avantages et limites des autorisations héritées
 
@@ -58,6 +58,6 @@ Pour limiter les utilisateurs autorisés à afficher un dossier DFS, vous devez 
 
 4.  Pour modifier les autorisations héritées de dossiers ou de racines d’espaces de noms dans un espace de noms DFS, utilisez l’Explorateur Windows ou la commande **ICacls**.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 -   [Créer un espace de noms DFS](create-a-dfs-namespace.md)

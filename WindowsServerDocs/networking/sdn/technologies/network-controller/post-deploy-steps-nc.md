@@ -19,11 +19,11 @@ ms.locfileid: "71355616"
 
 Lorsque vous installez le contrôleur de réseau, vous pouvez choisir des déploiements Kerberos ou non-Kerberos.
 
-Pour les déploiements non-no__t-0Kerberos, vous devez configurer des certificats.
+Pour les déploiements Kerberos non\-, vous devez configurer des certificats.
 
 ## <a name="configure-certificates-for-non-kerberos-deployments"></a>Configurer des certificats pour les déploiements non-Kerberos
 
-Si les ordinateurs ou les ordinateurs virtuels \(VMs @ no__t-1 pour le contrôleur de réseau et le client de gestion ne sont pas de domaine @ no__t-2joined, vous devez configurer l’authentification par certificat @ no__t-3based en effectuant les étapes suivantes.
+Si les ordinateurs ou les ordinateurs virtuels \(les machines virtuelles\) pour le contrôleur de réseau et le client de gestion ne sont pas joints au domaine\-, vous devez configurer l’authentification basée sur le certificat\-en effectuant les étapes suivantes.
 
 - Créez un certificat sur le contrôleur de réseau pour l’authentification de l’ordinateur. Le nom d’objet du certificat doit être le même que le nom DNS de l’ordinateur du contrôleur de réseau ou de la machine virtuelle.
 
@@ -31,7 +31,7 @@ Si les ordinateurs ou les ordinateurs virtuels \(VMs @ no__t-1 pour le contrôle
   
 - Inscrire un certificat sur l’ordinateur ou la machine virtuelle du contrôleur de réseau. Le certificat doit remplir les conditions suivantes.
   
-    -  L’objectif d’authentification du serveur et le rôle d’authentification du client doivent être configurés dans l’utilisation améliorée de la clé \(EKU @ no__t-1 ou les extensions des stratégies d’application. L’identificateur d’objet pour l’authentification du serveur est 1.3.6.1.5.5.7.3.1. L’identificateur d’objet pour l’authentification du client est 1.3.6.1.5.5.7.3.2.
+    -  L’objectif de l’authentification du serveur et l’authentification du client doivent être configurés dans l’utilisation améliorée de la clé \(\) EKU ou les extensions des stratégies d’application. L’identificateur d’objet pour l’authentification du serveur est 1.3.6.1.5.5.7.3.1. L’identificateur d’objet pour l’authentification du client est 1.3.6.1.5.5.7.3.2.
   
     - Le nom d’objet du certificat doit être résolu en :
   

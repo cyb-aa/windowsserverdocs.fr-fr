@@ -17,7 +17,7 @@ ms.locfileid: "71406892"
 ---
 # <a name="add-an-iframe-to-a-tool-extension"></a>Ajouter un élément iFrame à une extension d'outil
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 Dans cet article, nous allons ajouter un iFrame à une nouvelle extension d’outil vide que nous avons créée à l’aide de l’interface de commande du centre d’administration Windows.
 
@@ -33,9 +33,9 @@ Ajoutez un nouveau [module vide](add-module.md) à votre projet, auquel nous ajo
 
 Nous allons maintenant ajouter un iFrame à ce nouveau module vide que nous venons de créer.
 
-Dans \src\app @ no__t-0, accédez à votre dossier de module, puis ouvrez le fichier ```{!module-name}.component.html```, qui a été trouvé avec la Convention d’affectation de noms suivante :
+Dans \src\app\, accédez à votre dossier de module, puis ouvrez le ```{!module-name}.component.html```de fichiers, qui se trouve avec la Convention d’affectation de noms suivante :
 
-| Value | Explication | Exemple de nom de fichier |
+| Valeur | Explication | Exemple de nom de fichier |
 | ----- | ----------- | ------- |
 | ```{!module-name}``` | Nom de votre module (minuscules, espaces remplacés par des tirets) | ```manage-foo-works-portal.component.html``` |
     

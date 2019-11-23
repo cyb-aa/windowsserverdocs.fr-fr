@@ -21,7 +21,7 @@ ms.locfileid: "71369478"
 ---
 # <a name="changes-made-by-adprepexe"></a>Changes Made by Adprep.exe
 
->S'applique à : Windows Server Technical Preview
+>S’applique à : Windows Server Technical Preview
 
 Cette rubrique décrit les modifications apportées par Adprep. exe dans Windows Server 2012 R2 et Windows Server 2012.  
   
@@ -34,8 +34,8 @@ Cette rubrique décrit les modifications apportées par Adprep. exe dans Windows
 -   [Mises à jour des schémas](../../../ad-ds/deploy/Schema-Updates.md)  
   
 ## <a name="see-also"></a>Voir aussi  
-@no__t 0Windows Server 2008 R2 : Annexe des modifications apportées à adprep. exe pour prendre en charge AD DS @ no__t-0  
-@no__t 0Windows Server 2008 : Annexe des modifications apportées à adprep. exe pour prendre en charge AD DS @ no__t-0  
+[Windows Server 2008 R2 : annexe des modifications apportées à adprep. exe pour prendre en charge AD DS](https://technet.microsoft.com/library/dd378876(v=ws.10).aspx)  
+[Windows Server 2008 : annexe des modifications apportées à adprep. exe pour prendre en charge AD DS](https://technet.microsoft.com/library/cc770703(v=ws.10).aspx)  
   
 
 

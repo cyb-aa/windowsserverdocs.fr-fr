@@ -20,7 +20,7 @@ ms.locfileid: "71356065"
 
 >S’applique à : Windows Server, Windows Server 2016
 
-Cette rubrique fournit une vue d’ensemble de l’aide du réseau de base pour Windows Server @ no__t-0 2016 et contient les sections suivantes.  
+Cette rubrique fournit une vue d’ensemble de l’aide du réseau de base pour Windows Server&reg; 2016 et contient les sections suivantes.  
   
 -   [Présentation du réseau Windows Server Core](#bkmk_intro)  
   
@@ -32,7 +32,7 @@ Un réseau de base est un ensemble de matériels, périphériques et logiciels r
 
 Un réseau de base Windows Server présente de nombreux avantages, notamment :
 
-- Des protocoles centraux pour la connectivité réseau entre les ordinateurs et d’autres périphériques compatibles avec le protocole TCP/IP (Transmission Control Protocol/Internet Protocol). TCP/IP est une suite de protocoles standard utilisée pour la connexion d’ordinateurs et la création de réseaux. TCP/IP est un logiciel de protocole réseau fourni avec les systèmes d’exploitation Microsoft @ no__t-0 Windows @ no__t-1 qui implémente et prend en charge la suite de protocoles TCP/IP.
+- Des protocoles centraux pour la connectivité réseau entre les ordinateurs et d’autres périphériques compatibles avec le protocole TCP/IP (Transmission Control Protocol/Internet Protocol). TCP/IP est une suite de protocoles standard utilisée pour la connexion d’ordinateurs et la création de réseaux. TCP/IP est un logiciel de protocole réseau fourni avec les systèmes d’exploitation Microsoft&reg; Windows&reg; qui implémentent et prennent en charge la suite de protocoles TCP/IP.
 
 - Adressage IP automatique par un serveur DHCP (Dynamic Host Configuration Protocol). La configuration manuelle d’adresses IP sur tous les ordinateurs de votre réseau prend du temps et est moins souple que l’attribution dynamique de baux d’adresses IP aux ordinateurs et autres périphériques par un serveur DHCP.
 
@@ -48,7 +48,7 @@ Un réseau de base vous permet également de faire évoluer votre réseau à mes
 
 ## <a name="bkmk_core"></a>Guide du réseau de base pour Windows Server
 
-Le Guide du réseau de base Windows Server 2016 fournit des instructions sur la façon de planifier et de déployer les composants principaux requis pour un réseau pleinement fonctionnel et un nouveau Active Directory @ no__t-0 domaine dans une nouvelle forêt. Ce guide vous explique comment déployer des ordinateurs configurés avec les composants Windows Server suivants :
+Le Guide du réseau de base Windows Server 2016 fournit des instructions sur la planification et le déploiement des composants principaux requis pour un réseau pleinement fonctionnel et un nouveau Active Directory&reg; domaine dans une nouvelle forêt. Ce guide vous explique comment déployer des ordinateurs configurés avec les composants Windows Server suivants :
 
 - Rôle serveur des services de domaine Active Directory (AD DS)
 

@@ -17,7 +17,7 @@ ms.locfileid: "71405432"
 ---
 # <a name="export-an-nps-configuration-for-import-on-another-server"></a>Exporter une configuration NPS pour l’importer sur un autre serveur
 
-S'applique à : Windows Server 2016
+S’applique à Windows Server 2016
 
 Vous pouvez exporter l’intégralité de la configuration du serveur NPS, y compris les clients et serveurs RADIUS, la stratégie réseau, la stratégie de demande de connexion, le registre et la configuration de journalisation, d’un serveur NPS à importer sur un autre serveur NPS. 
 
@@ -46,7 +46,7 @@ Le tableau suivant répertorie les paramètres de l’applet de commande **Expor
 
 |Paramètre|Description|
 |---------|-----------|
-|Path|Spécifie le nom et l’emplacement du fichier XML dans lequel vous souhaitez exporter la configuration du serveur NPS.|
+|Chemin d’accès|Spécifie le nom et l’emplacement du fichier XML dans lequel vous souhaitez exporter la configuration du serveur NPS.|
 
 **Informations d’identification d’administration**
 
@@ -76,7 +76,7 @@ Pour plus d’informations, consultez [Import-NpsConfiguration](https://technet.
 
 ## <a name="export-and-import-the-nps-configuration-by-using-netsh"></a>Exporter et importer la configuration du serveur NPS à l’aide de netsh
 
-Vous pouvez utiliser Network Shell \(Netsh @ no__t-1 pour exporter la configuration du serveur NPS à l’aide de la commande **netsh nps Export** .
+Vous pouvez utiliser Network Shell \(netsh\) pour exporter la configuration du serveur NPS à l’aide de la commande **netsh nps Export** .
 
 Lorsque la commande **netsh nps Import** est exécutée, le serveur NPS est automatiquement actualisé avec les paramètres de configuration mis à jour. Vous n’avez pas besoin d’arrêter NPS sur l’ordinateur de destination pour exécuter la commande **netsh nps Import** . Toutefois, si la console NPS ou le composant logiciel enfichable MMC NPS est ouvert pendant l’importation de la configuration, les modifications apportées à la configuration du serveur ne sont pas visibles tant que vous n’actualisez pas la vue. 
 
@@ -93,9 +93,9 @@ Pour effectuer cette procédure, vous devez être membre du groupe administrateu
 
 2. À l’invite **netsh** , tapez **NPS**, puis appuyez sur entrée. 
 
-3. À l’invite **netsh nps** , tapez **Export filename =** "*path\file.xml*" **exportPSK = Yes**, où *chemin* est l’emplacement du dossier dans lequel vous souhaitez enregistrer le fichier de configuration NPS, et *fichier* est le nom du fichier XML qui vous souhaitez enregistrer. Appuyez sur Entrée. 
+3. À l’invite **netsh nps** , tapez **Export filename =** "*path\file.xml*" **exportPSK = Yes**, où *chemin* est l’emplacement du dossier dans lequel vous souhaitez enregistrer le fichier de configuration NPS, et *fichier* est le nom du fichier XML que vous souhaitez enregistrer. Appuyez sur Entrée. 
 
-Cela stocke les paramètres de configuration \(including-no__t-1 dans un fichier XML. Le chemin d’accès peut être relatif ou absolu, ou il peut s’agir d’une convention d’affectation de noms universelle \(UNC @ no__t-1. Une fois que vous avez appuyé sur entrée, un message s’affiche pour indiquer si l’exportation vers le fichier a réussi.
+Cela stocke les paramètres de configuration \(y compris les paramètres du Registre\) dans un fichier XML. Le chemin d’accès peut être relatif ou absolu, ou il peut s’agir d’une convention d’affectation de noms universelle \(chemin d’accès\) UNC. Une fois que vous avez appuyé sur entrée, un message s’affiche pour indiquer si l’exportation vers le fichier a réussi.
 
 4. Copiez le fichier que vous avez créé sur le serveur NPS de destination.
 

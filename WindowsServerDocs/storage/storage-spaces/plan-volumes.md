@@ -22,7 +22,7 @@ ms.locfileid: "71366890"
 
 Cette rubrique fournit des recommandations sur la manière de planifier vos volumes dans les espaces de stockage direct de manière à répondre aux besoins de vos charges de travail en matière de performances et de capacités, y compris en ce qui concerne le choix de leur système de fichiers, de leur type de résilience et de leur taille.
 
-## <a name="review-what-are-volumes"></a>Révise Présentation des volumes
+## <a name="review-what-are-volumes"></a>Révision : Définition des volumes
 
 Les volumes sont l’endroit où vous placez les fichiers nécessaires à vos charges de travail, tels que les fichiers VHD ou VHDX pour les machines virtuelles Hyper-V. Les volumes utilisent les disques du pool de stockage de manière combinée afin d'optimiser la tolérance de panne, l'évolutivité et les performances de votre déploiement d'espaces de stockage direct.
 
@@ -31,7 +31,7 @@ Les volumes sont l’endroit où vous placez les fichiers nécessaires à vos ch
 
 ![what-are-volumes](media/plan-volumes/what-are-volumes.png)
 
-Tous les volumes sont accessibles simultanément à l'ensemble des serveurs du cluster. Une fois créés, ils s’affichent sur **C:\ClusterStorage @ no__t-1** sur tous les serveurs.
+Tous les volumes sont accessibles simultanément à l'ensemble des serveurs du cluster. Une fois créés, ils s’affichent sur **C:\ClusterStorage\\** sur tous les serveurs.
 
 ![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -158,7 +158,7 @@ Par exemple, si vous disposez de 2 serveurs et que vous utilisez des disques de
    >[!NOTE]
    > Dans les clusters utilisant des disques des trois types (NVMe + SSD + HDD), nous vous recommandons de réserver l’équivalent d’un disque SSD plus un disque HDD par serveur, jusqu'à 4 disques de chaque type.
 
-## <a name="example-capacity-planning"></a>Exemple : Planification de la capacité
+## <a name="example-capacity-planning"></a>Exemple : planification de la capacité
 
 Prenons l'exemple d'un cluster à quatre serveurs. Chaque serveur possède un certain nombre de disques de cache plus seize disques de capacité de 2 To chacun.
 
@@ -199,7 +199,7 @@ Pour simplifier, cet exemple utilise des unités décimales (base 10), c'est-à
 
 Voir [Création de volumes dans les espaces de stockage direct](create-volumes.md).
 
-### <a name="see-also"></a>Voir aussi
+### <a name="see-also"></a>Voir également
 
 - [Présentation de espaces de stockage direct](storage-spaces-direct-overview.md)
 - [Choix des lecteurs pour espaces de stockage direct](choosing-drives.md)

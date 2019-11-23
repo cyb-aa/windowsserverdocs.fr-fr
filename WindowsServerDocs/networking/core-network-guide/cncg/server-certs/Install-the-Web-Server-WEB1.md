@@ -17,7 +17,7 @@ ms.locfileid: "71356220"
 ---
 # <a name="install-the-web-server-web1"></a>Installer le serveur Web WEB1
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Le rôle de serveur Web (IIS) dans Windows Server 2016 fournit une plateforme sécurisée, facile à gérer, modulaire et extensible pour héberger de manière fiable des sites Web, des services et des applications. Avec IIS, vous pouvez partager des informations avec des utilisateurs sur Internet, un intranet ou un extranet. IIS est une plateforme Web unifiée qui intègre les services IIS, ASP.NET, FTP, PHP et Windows Communication Foundation (WCF).  
 

@@ -22,7 +22,7 @@ ms.locfileid: "71371186"
 ---
 # <a name="scwcmd-view"></a>Scwcmd: view
 
-> S'applique à : Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server 2012 R2, Windows Server 2012
 
 Génère le rendu d’un fichier. XML à l’aide d’une transformation. XSL spécifiée. Cette commande peut être utile pour afficher des fichiers. XML de l’Assistant Configuration de la sécurité (SCW) à l’aide de différentes vues.
 
@@ -36,8 +36,8 @@ scwcmd view /x:<Xmlfile.xml> [/s:<Xslfile.xsl>]
 
 |Paramètre|Description|
 |---------|-----------|
-|/x : @no__t -0Xmlfile. Xml >|Spécifie le fichier. XML à afficher. Ce paramètre doit être spécifié.|
-|/s : @no__t -0Xslfile. xsl >|Spécifie la transformation. xsl à appliquer au fichier. xml dans le cadre du processus de rendu. Ce paramètre est facultatif pour les fichiers SCW. Xml. Lorsque la commande **View** est utilisée pour afficher un fichier SCW. xml, elle essaie automatiquement de charger la transformation appropriée par défaut pour le fichier. XML spécifié. Si une transformation. xsl est spécifiée, la transformation doit être écrite en supposant que le fichier. xml se trouve dans le même répertoire que la transformation. Xsl.|
+|/x :\<xmlfile. Xml >|Spécifie le fichier. XML à afficher. Ce paramètre doit être spécifié.|
+|/s :\<xslfile. xsl >|Spécifie la transformation. xsl à appliquer au fichier. xml dans le cadre du processus de rendu. Ce paramètre est facultatif pour les fichiers SCW. Xml. Lorsque la commande **View** est utilisée pour afficher un fichier SCW. xml, elle essaie automatiquement de charger la transformation appropriée par défaut pour le fichier. XML spécifié. Si une transformation. xsl est spécifiée, la transformation doit être écrite en supposant que le fichier. xml se trouve dans le même répertoire que la transformation. Xsl.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

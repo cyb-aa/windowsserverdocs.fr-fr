@@ -22,7 +22,7 @@ ms.locfileid: "71403722"
 ---
 # <a name="what39s-new-for-managed-service-accounts"></a>Nouveautés&#39;pour les comptes de service administrés
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique destinée aux professionnels de l’informatique décrit les modifications apportées aux fonctionnalités pour les comptes de service administrés avec l’introduction du compte de service administré de groupe (gMSA) dans Windows Server 2012 et Windows 8.
 
@@ -51,12 +51,12 @@ Sur les ordinateurs exécutant Windows Server 2012 ou Windows 8, un MSA de group
 ### <a name="interoperability"></a>Fonctionnalités supprimées ou déconseillées
 Pour Windows Server 2012, les applets de commande Windows PowerShell gèrent par défaut les comptes de service administrés de groupe au lieu des comptes de service administrés de serveur.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 -   [Présentation des comptes de service administrés de groupe](group-managed-service-accounts-overview.md)
 
 -   [Vue d’ensemble d’Active Directory Domain Services](active-directory-domain-services-overview.md)
 
--   Comptes de service @no__t 0Managed : Comprendre, implémenter, meilleures pratiques et résolution des problèmes @ no__t-0
+-   [Comptes de service administrés : comprendre, implémenter, meilleures pratiques et résolution des problèmes](http://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
 
 

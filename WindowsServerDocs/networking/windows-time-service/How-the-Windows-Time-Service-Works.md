@@ -171,7 +171,7 @@ Chacun de ces types de synchronisation est abordé dans la section suivante.
 La synchronisation basée sur une hiérarchie de domaine utilise la hiérarchie de domaine AD DS pour rechercher une source fiable avec laquelle synchroniser l’heure. En fonction de la hiérarchie de domaine, le service de temps Windows détermine la précision de chaque serveur de temps. Dans une forêt Windows Server 2003, l’ordinateur qui détient le rôle de maître d’opérations de l’émulateur du contrôleur de domaine principal (PDC), situé dans le domaine racine de la forêt, contient la position de la source de temps la plus appropriée, sauf si une autre source de temps fiable a été configurée. L’illustration suivante montre un chemin de synchronisation de l’heure entre les ordinateurs d’une hiérarchie de domaines.  
   
 **Synchronisation de l’heure dans une hiérarchie de AD DS**  
-![Windows temps @ no__t-1
+![](../media/Windows-Time-Service/How-the-Windows-Time-Service-Works/trnt_ntw_adhc.gif) de temps Windows
   
 #### <a name="reliable-time-source-configuration"></a>Configuration de la source de temps fiable  
 Un ordinateur configuré pour être une source de temps fiable est identifié comme la racine du service de temps. La racine du service de temps est le serveur faisant autorité pour le domaine et est généralement configuré pour récupérer l’heure à partir d’un serveur NTP externe ou d’un périphérique matériel. Un serveur de temps peut être configuré en tant que source de temps fiable pour optimiser la façon dont le temps est transféré dans l’ensemble de la hiérarchie du domaine. Si un contrôleur de domaine est configuré pour être une source de temps fiable, le service Net Logon annonce que ce contrôleur de domaine en tant que source de temps fiable lorsqu’il se connecte au réseau. Lorsque d’autres contrôleurs de domaine recherchent une source de temps avec laquelle se synchroniser, ils choisissent d’abord une source fiable, si celle-ci est disponible.  
@@ -210,7 +210,7 @@ Le tableau suivant répertorie les requêtes qu’un contrôleur de domaine effe
 |3|Émulateur de contrôleur de domaine principal local|Sur site|Ne s’applique pas.<br /><br />Un contrôleur de domaine ne tente pas de se synchroniser avec lui-même.|  
 |4|Contrôleur de domaine parent|Hors site|Préfère une source de temps fiable, mais elle peut se synchroniser avec une source de temps non fiable si c’est tout ce qui est disponible.|  
 |5|Contrôleur de domaine local|Hors site|Se synchronise uniquement avec une source de temps fiable.|  
-|6\.|Émulateur de contrôleur de domaine principal local|Hors site|Ne s’applique pas.<br /><br />Un contrôleur de domaine ne tente pas de se synchroniser avec lui-même.| 
+|6|Émulateur de contrôleur de domaine principal local|Hors site|Ne s’applique pas.<br /><br />Un contrôleur de domaine ne tente pas de se synchroniser avec lui-même.| 
   
 **Remarque**  
   
@@ -264,5 +264,5 @@ Le service de temps Windows communique sur un réseau pour identifier les source
   
 ## <a name="see-also"></a>Voir aussi  
 [Référence technique du service de temps windows](windows-time-service-tech-ref.md)
-[Outils et paramètres du service de temps Windows](Windows-Time-Service-Tools-and-Settings.md)
-[article 902229 de la base de connaissances Microsoft](https://go.microsoft.com/fwlink/?LinkId=186066)
+[les outils et paramètres du service de temps Windows](Windows-Time-Service-Tools-and-Settings.md)
+[l’article 902229 de la base de connaissances Microsoft](https://go.microsoft.com/fwlink/?LinkId=186066)

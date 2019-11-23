@@ -17,7 +17,7 @@ ms.locfileid: "71406386"
 ---
 # <a name="create-content-server-data-packages-for-web-and-file-content-optional"></a>Créer des packages de données de serveur de contenu Web et de fichier (facultatif)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser cette procédure pour préhacher le contenu sur les serveurs Web et de fichiers, puis créer des packages de données à importer sur votre serveur de cache hébergé. 
 
@@ -26,7 +26,7 @@ Cette procédure est facultative car vous n’êtes pas obligé d’effectuer un
 Cette procédure fournit des instructions pour le préhachage du contenu sur les serveurs de fichiers et les serveurs Web. Si vous n’avez pas l’un de ces types de serveurs de contenu, vous n’êtes pas obligé d’effectuer les instructions pour ce type de serveur de contenu.
 
 >[!IMPORTANT]
->Avant d’effectuer cette procédure, vous devez installer et configurer BranchCache sur vos serveurs de contenu. En outre, si vous envisagez de modifier le secret du serveur sur un serveur de contenu, faites-le avant le contenu pre @ no__t-0hashing : la modification du secret du serveur invalide les hachages @ no__t-1generated précédents.
+>Avant d’effectuer cette procédure, vous devez installer et configurer BranchCache sur vos serveurs de contenu. En outre, si vous envisagez de modifier le secret du serveur sur un serveur de contenu, faites-le avant de pré\-er le contenu de hachage : la modification de la clé secrète du serveur n’est pas valide\-les hachages générés précédemment.
 
 Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs.
 
@@ -53,7 +53,7 @@ Pour effectuer cette procédure, vous devez être membre du groupe Administrateu
         Publish-BCWebContent –Path D:\inetpub\wwwroot -StageData
         ```  
 
-4. Créez le package de données en exécutant la commande suivante sur chacun de vos serveurs de contenu. Remplacez l’exemple de valeur \(D : \\temp @ no__t-2 pour le paramètre – destination par l’emplacement que vous avez identifié ou créé au début de cette procédure.
+4. Créez le package de données en exécutant la commande suivante sur chacun de vos serveurs de contenu. Remplacez la valeur d’exemple \(D :\\Temp\) pour le paramètre – destination par l’emplacement que vous avez identifié ou créé au début de cette procédure.
 
     ```  
     Export-BCDataPackage –Destination D:\temp

@@ -18,9 +18,9 @@ ms.locfileid: "71358959"
 ---
 # <a name="stand-alone-federation-server-using-wid"></a>Serveur de fédération autonome utilisant la base de données interne Windows
 
-Un serveur de Fédération stand @ no__t-0alone dans Services ADFS \(AD FS @ no__t-2 se compose d’un serveur unique qui héberge un service FS (Federation Service) configuré pour utiliser la base de données interne Windows \(WID @ no__t-4. Cette AD FS topologie est destinée aux laboratoires de test. Nous ne la recommandons pas pour les environnements de production, car elle n’a qu’une limite d’un seul serveur de Fédération et ne peut pas être utilisée pour augmenter la taille des serveurs.  
+Un serveur de Fédération autonome\-dans Services ADFS \(AD FS\) se compose d’un serveur unique qui héberge une service FS (Federation Service) configurée pour utiliser la base de données interne Windows \(le schéma WID.\) Cette AD FS topologie est destinée aux laboratoires de test. Nous ne la recommandons pas pour les environnements de production, car elle n’a qu’une limite d’un seul serveur de Fédération et ne peut pas être utilisée pour augmenter la taille des serveurs.  
   
-Si vous souhaitez ajouter des serveurs de Fédération supplémentaires à votre laboratoire de test, vous devez recréer le service FS (Federation Service) à partir de zéro en déployant les autres topologies mentionnées plus loin dans cette section. Par conséquent, nous vous recommandons d’utiliser cette topologie pour un laboratoire de test ou une preuve de l’environnement @ no__t-0oF @ no__t-1concept dans votre réseau de test privé, dans lequel un seul serveur de Fédération est approprié, comme le montre l’illustration suivante.  
+Si vous souhaitez ajouter des serveurs de Fédération supplémentaires à votre laboratoire de test, vous devez recréer le service FS (Federation Service) à partir de zéro en déployant les autres topologies mentionnées plus loin dans cette section. Par conséquent, nous vous recommandons d’utiliser cette topologie pour un laboratoire de test ou une preuve\-de l’environnement de\-concept dans votre réseau de test privé, dans lequel un seul serveur de Fédération est approprié, comme le montre l’illustration suivante.  
   
 ![serveur utilisant WID](media/FedServerWID.gif)  
   
@@ -29,7 +29,7 @@ Cette section décrit les différentes considérations à prendre en compte conc
   
 ### <a name="who-should-use-this-topology"></a>Qui doit utiliser cette topologie ?  
   
--   Technologies de l’information \(IT @ no__t-1 professionnels ou architectes informatiques qui souhaitent évaluer ou développer une preuve de concept pour cette technologie  
+-   Technologies de l’information \(informatique\) des professionnels de l’informatique ou des architectes informatiques qui souhaitent évaluer ou développer une preuve de concept pour cette technologie  
   
 ### <a name="what-are-the-benefits-of-using-this-topology"></a>Quels sont les avantages de l’utilisation de cette topologie ?  
   
@@ -37,9 +37,9 @@ Cette section décrit les différentes considérations à prendre en compte conc
   
 ### <a name="what-are-the-limitations-of-using-this-topology"></a>Quelles sont les limitations de l’utilisation de cette topologie ?  
   
--   Un seul serveur de Fédération par service FS (Federation Service) capacité \(no à évoluer vers une batterie de serveurs @ no__t-1  
+-   Un seul serveur de Fédération par service FS (Federation Service) \(aucune possibilité de mise à l’échelle vers une batterie de serveurs\)  
   
--   Non redondant \(only une seule instance du AD FS base de données de configuration existe @ no__t-1  
+-   Non redondant \(il existe une seule instance de la base de données de configuration AD FS\)  
   
 
 ## <a name="see-also"></a>Voir aussi

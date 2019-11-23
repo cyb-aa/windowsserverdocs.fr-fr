@@ -30,9 +30,9 @@ Lorsque le client AD FS demande d’abord une ressource, le serveur de Fédérat
 
 
 ## <a name="configure-identity-provider-to-use-certain-email-suffixes"></a>Configurer le fournisseur d'identité pour utiliser certains suffixes d'adresse de messagerie  
-Une organisation peut fédérer avec plusieurs fournisseurs de revendications. AD FS fournit désormais la fonctionnalité dans @ no__t-0box pour permettre aux administrateurs de répertorier les suffixes, par exemple, @us.contoso.com, @eu.contoso.com, qui est pris en charge par un fournisseur de revendications et l’activer pour la découverte du suffixe @ no__t-3based. Avec cette configuration, les utilisateurs finaux peuvent taper leur compte professionnel et AD FS sélectionne automatiquement le fournisseur de revendications correspondant.  
+Une organisation peut fédérer avec plusieurs fournisseurs de revendications. AD FS fournit à présent la fonctionnalité in\-Box permettant aux administrateurs de répertorier les suffixes, par exemple, @us.contoso.com, @eu.contoso.com, qui est pris en charge par un fournisseur de revendications et de l’activer pour la découverte par suffixe\-. Avec cette configuration, les utilisateurs finaux peuvent taper leur compte professionnel et AD FS sélectionne automatiquement le fournisseur de revendications correspondant.  
   
-Pour configurer un fournisseur d’identité \(IDP @ no__t-1, comme `fabrikam`, pour utiliser certains suffixes d’e-mail, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
+Pour configurer un fournisseur d’identité \(IDP\), tel que `fabrikam`, pour utiliser certains suffixes d’adresse de messagerie, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
   
 
 `Set-AdfsClaimsProviderTrust -TargetName fabrikam -OrganizationalAccountSuffix @("fabrikam.com";"fabrikam2.com") ` 
@@ -45,7 +45,7 @@ Pour configurer un fournisseur d’identité \(IDP @ no__t-1, comme `fabrikam`, 
 ## <a name="configure-an-identity-provider-list-per-relying-party"></a>Configurer une liste de fournisseurs d'identité par partie de confiance  
 Dans certains scénarios, une organisation peut souhaiter que les utilisateurs finaux ne voient que les fournisseurs de revendications propres à une application, afin que la page de la découverte de domaine d'accueil n'affiche qu'une partie des fournisseurs de revendications.  
   
-Pour configurer une liste IDP par partie de confiance \(RP @ no__t-1, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
+Pour configurer une liste IDP par partie de confiance \(RP\), utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
   
  
 `Set-AdfsRelyingPartyTrust -TargetName claimapp -ClaimsProviderName @("Fabrikam","Active Directory") ` 
@@ -61,7 +61,7 @@ Pour contourner découverte du domaine pour l’intranet, utilisez l’applet de
  
   
 > [!IMPORTANT]  
-> Notez que si une liste de fournisseurs d’identité pour une partie de confiance a été configurée, même si le paramètre précédent a été activé et que l’utilisateur accède à partir de l’intranet, AD FS affiche toujours la page de découverte de domaine d’origine \(HRD @ no__t-1. Dans ce cas, pour contourner la découverte de domaine d'accueil, vous devez vous assurer que l'option « Active Directory » est également ajoutée à la liste de fournisseurs d'identité pour cette partie de confiance.  
+> Notez que si une liste de fournisseurs d’identité pour une partie de confiance a été configurée, même si le paramètre précédent a été activé et que l’utilisateur accède à partir de l’intranet, AD FS affiche toujours la page de la découverte du domaine d’origine \(découverte du domaine\). Dans ce cas, pour contourner la découverte de domaine d'accueil, vous devez vous assurer que l'option « Active Directory » est également ajoutée à la liste de fournisseurs d'identité pour cette partie de confiance.  
 
 ## <a name="additional-references"></a>Références supplémentaires 
 [Personnalisation de la connexion de l’utilisateur AD FS](AD-FS-user-sign-in-customization.md)  

@@ -22,15 +22,15 @@ ms.locfileid: "71378431"
 ---
 # <a name="dfsdiag-testdfsintegrity"></a>Dfsdiag TestDFSIntegrity
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vérifie l’intégrité de l’espace de noms système de fichiers DFS \(DFS @ no__t-1 en effectuant les tests suivants :  
+Vérifie l’intégrité de l’espace de noms système de fichiers DFS \(DFS\) en effectuant les tests suivants :  
   
 -   Vérifie la corruption des métadonnées DFS ou les incohérences entre les contrôleurs de domaine.  
   
--   Valide la configuration de l’énumération @ no__t-0based pour s’assurer qu’elle est cohérente entre les métadonnées DFS et le partage du serveur d’espaces de noms.  
+-   Valide la configuration de l’énumération basée sur les\-d’accès afin de garantir la cohérence entre les métadonnées DFS et le partage du serveur d’espaces de noms.  
   
--   Détecte les dossiers DFS qui se chevauchent \(links @ no__t-1, les dossiers dupliqués et les dossiers avec des cibles de dossiers qui se chevauchent.  
+-   Détecte les dossiers DFS qui se chevauchent \(des liens\), des dossiers dupliqués et des dossiers avec des cibles de dossiers qui se chevauchent.  
   
   
   
@@ -44,9 +44,9 @@ dfsdiag /TestDFSIntegrity /DFSRoot:<DFS root path> [/Recurse] [/Full]
   
 |Paramètre|Description|  
 |-------|--------|  
-|\/DFSRoot : <DFS root path>|Espace de noms DFS à diagnostiquer.|  
-|@no__t 0Recurse|Effectue les tests, y compris les liaisons d’espace de noms.|  
-|@no__t 0Full|vérifie la cohérence des ACL de partage et NTFS, ainsi que la configuration côté client sur toutes les cibles de dossiers. Il vérifie également que la propriété Online est définie.|  
+|\/DFSRoot :<DFS root path>|Espace de noms DFS à diagnostiquer.|  
+|\/recurse|Effectue les tests, y compris les liaisons d’espace de noms.|  
+|\/complète|vérifie la cohérence des ACL de partage et NTFS, ainsi que la configuration côté client sur toutes les cibles de dossiers. Il vérifie également que la propriété Online est définie.|  
   
 ## <a name="BKMK_Examples"></a>Illustre  
 À TBD, tapez :  

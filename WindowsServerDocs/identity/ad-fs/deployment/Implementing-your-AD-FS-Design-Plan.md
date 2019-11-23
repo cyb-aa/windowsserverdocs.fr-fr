@@ -18,9 +18,9 @@ ms.locfileid: "71408373"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implémentation de votre plan de conception AD FS
 
-Les conditions et exigences environnementales suivantes sont des facteurs importants dans l’implémentation de votre plan de conception Services ADFS \(AD FS @ no__t-1 :  
+Les conditions et exigences environnementales suivantes sont des facteurs importants dans l’implémentation de votre Services ADFS \(AD FS plan de conception de\) :  
   
--   **Partenaires pris en charge :** En général, vous utilisez AD FS pour travailler avec des organisations partenaires. Pour établir la Fédération des identités, déterminez les organisations avec lesquelles vous souhaitez former un partenariat. Après la mise en place d’un déploiement de AD FS de référence, l’utilisation de partenaires implique l’ajout de partenaires, la suppression de partenaires et la mise à jour des informations de partenaire. Les modifications apportées aux partenariats peuvent se produire pour diverses raisons. Par exemple, votre déploiement AD FS peut nécessiter des mises à jour de partenariat si votre partenaire change de manière significative son entreprise, si votre organisation fait partie d’une plus grande organisation ou d’une Fédération d’organisations, ou si votre organisation est acquise par une autre entreprise. Dans tout scénario dans lequel vous fédérer des identités à partir de plusieurs domaines, vous devez connaître les domaines \(partners @ no__t-1 que vous prenez actuellement en charge et tous les domaines supplémentaires qui représentent des partenaires potentiels.  
+-   **Partenaires pris en charge :** En général, vous utilisez AD FS pour travailler avec des organisations partenaires. Pour établir la Fédération des identités, déterminez les organisations avec lesquelles vous souhaitez former un partenariat. Après la mise en place d’un déploiement de AD FS de référence, l’utilisation de partenaires implique l’ajout de partenaires, la suppression de partenaires et la mise à jour des informations de partenaire. Les modifications apportées aux partenariats peuvent se produire pour diverses raisons. Par exemple, votre déploiement AD FS peut nécessiter des mises à jour de partenariat si votre partenaire change de manière significative son entreprise, si votre organisation fait partie d’une plus grande organisation ou d’une Fédération d’organisations, ou si votre organisation est acquise par une autre entreprise. Dans tout scénario dans lequel vous fédérer des identités à partir de plusieurs domaines, vous devez connaître les domaines \(partenaires\) que vous prenez actuellement en charge et tous les domaines supplémentaires qui représentent des partenaires potentiels.  
   
 -   **Types d’applications et de services pris en charge :** Certaines applications et certains services requièrent l’accès aux ressources du système d’exploitation, tandis que d’autres sont « compatibles avec les revendications ». Il est important de comprendre les types d’applications et de services pris en charge par AD FS afin que vous puissiez formuler des exigences d’administration.  
   
@@ -37,6 +37,6 @@ L’étape suivante de l’implémentation de votre conception consiste à déte
   
 Utilisez les listes de contrôle parentes suivantes de cette section du guide pour vous familiariser avec les tâches de déploiement permettant d’implémenter la conception de AD FS préférée de votre organisation :  
   
--   [Liste de vérification : implémentation d’une conception SSO de web](Checklist--Implementing-a-Web-SSO-Design.md)  
+-   [Liste de vérification : implémentation d’une conception SSO de Web](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [Liste de vérification : implémentation d’une conception SSO de web fédéré](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [Liste de vérification : implémentation d’une conception SSO de Web fédéré](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  

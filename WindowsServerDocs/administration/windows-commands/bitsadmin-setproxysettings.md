@@ -37,9 +37,9 @@ bitsadmin /SetProxySettings <Job> <Usage> [List] [Bypass]
 |Paramètre|Description|
 |---------|-----------|
 |Tâche|Nom complet ou GUID du travail|
-|Utilisation|L’une des valeurs suivantes :</br>-Preconfig : utilisez les paramètres par défaut d’Internet Explorer du propriétaire.</br>-NO_PROXY : n’utilise pas de serveur proxy.</br>-OVERRIDE : utilisez une liste de proxy explicite et une liste de contournement. Une liste de contournement proxy et proxy doit suivre.</br>-DÉTECTION automatique : détecte automatiquement les paramètres du proxy.|
+|Utilisation|Une des valeurs suivantes :</br>-Preconfig : utilisez les paramètres par défaut d’Internet Explorer du propriétaire.</br>-NO_PROXY : n’utilisez pas de serveur proxy.</br>-OVERRIDE : utilisez une liste de proxy explicite et une liste de contournement. Une liste de contournement proxy et proxy doit suivre.</br>-DÉTECTION automatique : détecte automatiquement les paramètres du proxy.|
 |List|Utilisé lorsque le paramètre d' *utilisation* est défini sur override : contient une liste délimitée par des virgules de serveurs proxy à utiliser.|
-|Omettre|Utilisé lorsque le paramètre d' *utilisation* est défini sur override : contient une liste délimitée par des espaces de noms d’hôtes ou d’adresses IP, ou les deux, pour lesquels les transferts ne doivent pas être routés via un proxy. Il peut s’agir de **@no__t > 1local** pour faire référence à tous les serveurs sur le même réseau local. Les valeurs NULL ou «» peuvent être utilisées pour une liste de contournement vide du proxy.|
+|Omettre|Utilisé lorsque le paramètre d' *utilisation* est défini sur override : contient une liste délimitée par des espaces de noms d’hôtes ou d’adresses IP, ou les deux, pour lesquels les transferts ne doivent pas être routés via un proxy. Cela peut être **\<> local** pour faire référence à tous les serveurs sur le même réseau local. Les valeurs NULL ou «» peuvent être utilisées pour une liste de contournement vide du proxy.|
 
 ## <a name="BKMK_examples"></a>Illustre
 

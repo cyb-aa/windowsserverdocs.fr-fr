@@ -19,7 +19,7 @@ ms.locfileid: "71366541"
 ---
 # <a name="authorization-entries-should-have-distinct-trust-group-names-for-primary-servers-with-virtual-machines-that-are-not-part-of-the-same-trust-group"></a>Les entrées d’autorisation doivent avoir des noms de groupe d’approbation distincts pour les serveurs principaux avec des ordinateurs virtuels qui ne font pas partie du même groupe d’approbations.
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -36,10 +36,10 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Le serveur acceptera les demandes de réplication pour l’ordinateur virtuel de réplication à partir de l’un des serveurs de la liste d’autorisations associée à la même balise de réplication que l’ordinateur virtuel.*  
   
 ## <a name="impact"></a>**Impact**  
-*There peut être un problème de sécurité et de confidentialité avec une machine virtuelle acceptant la réplication à partir de serveurs principaux appartenant à des entrées d’autorisation différentes. Cela a un impact sur les entrées d’autorisation suivantes : @no__t 0list des entrées d’autorisation >*  
+*Il peut y avoir des problèmes de sécurité et de confidentialité avec une machine virtuelle acceptant la réplication à partir des serveurs principaux appartenant à différentes entrées d’autorisation. Cela a un impact sur les entrées d’autorisation suivantes : \<liste des entrées d’autorisation >*  
   
 ## <a name="resolution"></a>**Résolution**  
-*Use différentes balises dans les entrées d’autorisation pour les serveurs principaux avec des ordinateurs virtuels qui ne font pas partie du même groupe de sécurité. Modifiez les paramètres Hyper-V pour configurer les balises de réplication.*  
+*Utilisez des balises différentes dans les entrées d’autorisation pour les serveurs principaux avec des ordinateurs virtuels qui ne font pas partie du même groupe de sécurité. Modifiez les paramètres Hyper-V pour configurer les balises de réplication.*  
   
 
 

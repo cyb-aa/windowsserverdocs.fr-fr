@@ -18,7 +18,7 @@ ms.locfileid: "71409068"
 ---
 # <a name="troubleshooting-active-directory-replication-problems"></a>Résolution des problèmes de réplication Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active Directory problèmes de réplication peuvent avoir plusieurs sources différentes. Par exemple, les problèmes liés au DNS (Domain Name System), aux problèmes de mise en réseau ou aux problèmes de sécurité peuvent entraîner l’échec de la réplication Active Directory. 
 
@@ -51,7 +51,7 @@ Des erreurs de réplication se produisent parfois en raison d’interruptions in
 
 Si des erreurs de réplication sont signalées par un contrôleur de domaine qui tente de réplication avec un contrôleur de domaine qui a été créé dans un site intermédiaire et est actuellement hors connexion en attente de son déploiement sur le site de production final (un site distant, tel qu’une filiale). ), vous pouvez tenir compte de ces erreurs de réplication. Pour éviter de séparer un contrôleur de domaine de la topologie de réplication pendant des périodes prolongées, ce qui entraîne des erreurs continues jusqu’à ce que le contrôleur de domaine soit reconnecté, envisagez d’ajouter ces ordinateurs initialement en tant que serveurs membres et en utilisant l’installation à partir du support ( La méthode IFM) pour installer Active Directory Domain Services (AD DS). Vous pouvez utiliser l’outil de ligne de commande ntdsutil pour créer un support d’installation que vous pouvez stocker sur un support amovible (CD, DVD ou tout autre support) et l’envoyer au site de destination. Ensuite, vous pouvez utiliser le support d’installation pour installer AD DS sur les contrôleurs de domaine sur le site, sans utiliser la réplication. 
 
-### <a name="hardware-failures-or-upgradestitle"></a>Défaillances matérielles ou mises à niveau de @ no__t-0
+### <a name="hardware-failures-or-upgradestitle"></a>Défaillances matérielles ou mises à niveau</title>
 
 Si des problèmes de réplication se produisent suite à une défaillance matérielle (par exemple, la défaillance d’une carte mère, d’un sous-système de disque ou d’un disque dur), informez le propriétaire du serveur afin que le problème matériel puisse être résolu.
 
@@ -81,12 +81,12 @@ Par défaut, les objets Paramètres NTDS qui sont supprimés sont automatiquemen
 
 Si vous ignorez les déconnexions volontaires, les défaillances matérielles et les contrôleurs de domaine Windows 2000 obsolètes, le reste des problèmes de réplication a presque toujours l’une des causes suivantes :
 
-- Connectivité réseau : La connexion réseau est peut-être indisponible ou les paramètres réseau ne sont pas configurés correctement.
-- Résolution de noms : Les erreurs de configuration DNS sont souvent à l’origine d’échecs de réplication.
-- Authentification et autorisation : Les problèmes d’authentification et d’autorisation entraînent des erreurs de refus d’accès lorsqu’un contrôleur de domaine tente de se connecter à son partenaire de réplication.
-- Base de données d’annuaire (Store) : La base de données d’annuaire peut ne pas être en mesure de traiter les transactions assez rapidement pour suivre les délais de réplication.
-- Moteur de réplication : Si les planifications de réplication intersite sont trop courtes, les files d’attente de réplication peuvent être trop volumineuses pour être traitées dans le temps nécessaire à la planification de la réplication sortante. Dans ce cas, la réplication de certaines modifications peut être bloquée indéfiniment, suffisamment longtemps pour dépasser la durée de vie de désactivation.
-- Topologie de réplication : Les contrôleurs de domaine doivent avoir des liaisons intersites dans AD DS qui sont mappées à des connexions de réseau étendu (WAN) ou de réseau privé virtuel (VPN). Si vous créez des objets dans AD DS pour la topologie de réplication qui ne sont pas pris en charge par la topologie de site réelle de votre réseau, la réplication qui nécessite une topologie mal configurée échoue.
+- Connectivité réseau : la connexion réseau n’est peut-être pas disponible ou les paramètres réseau ne sont pas configurés correctement.
+- Résolution de noms : les erreurs de configuration DNS sont souvent à l’origine d’échecs de réplication.
+- Authentification et autorisation : les problèmes d’authentification et d’autorisation entraînent des erreurs de refus d’accès lorsqu’un contrôleur de domaine tente de se connecter à son partenaire de réplication.
+- Base de données d’annuaire (Store) : la base de données d’annuaire peut ne pas être en mesure de traiter les transactions assez rapidement pour suivre les délais de réplication.
+- Moteur de réplication : si les planifications de réplication intersite sont trop courtes, les files d’attente de réplication peuvent être trop volumineuses pour être traitées dans le temps nécessaire à la planification de la réplication sortante. Dans ce cas, la réplication de certaines modifications peut être bloquée indéfiniment, suffisamment longtemps pour dépasser la durée de vie de désactivation.
+- Topologie de réplication : les contrôleurs de domaine doivent avoir des liaisons intersites dans AD DS qui sont mappées à des connexions de réseau étendu (WAN) ou de réseau privé virtuel (VPN). Si vous créez des objets dans AD DS pour la topologie de réplication qui ne sont pas pris en charge par la topologie de site réelle de votre réseau, la réplication qui nécessite une topologie mal configurée échoue.
 
 ## <a name="general-approach-to-fixing-problems"></a>Approche générale de la résolution des problèmes
 
@@ -102,7 +102,7 @@ Utilisez l’approche générale suivante pour résoudre les problèmes de répl
 
 Pour plus d’informations sur la suppression forcée de AD DS, consultez [forcer la suppression d’un contrôleur de domaine](https://go.microsoft.com/fwlink/?LinkId=128291).
 
-## <a name="using-repadmin-to-retrieve-replication-statustitle"></a>Utilisation de repadmin pour récupérer l’état de la réplication @ no__t-0
+## <a name="using-repadmin-to-retrieve-replication-statustitle"></a>Utilisation de repadmin pour récupérer l’état de la réplication</title>
 
 L’état de la réplication est un moyen important d’évaluer l’état du service d’annuaire. Si la réplication fonctionne sans erreur, vous connaissez les contrôleurs de domaine qui sont en ligne. Vous savez également que les systèmes et services suivants fonctionnent :
 
@@ -128,7 +128,7 @@ Outils :
 
 ### <a name="to-generate-a-repadmin-showrepl-spreadsheet-for-domain-controllers"></a>Pour générer une feuille de calcul repadmin/showrepl pour les contrôleurs de domaine
 
-1. Ouvrez une invite de commandes en tant qu’administrateur. Dans le menuDémarrer, cliquez avec le bouton droit surInvite de commandes, puis cliquez surExécuter en tant qu’administrateur. Si la boîte de dialogue contrôle de compte d’utilisateur s’affiche, fournissez les informations d’identification des administrateurs d’entreprise, si nécessaire, puis cliquez sur continuer.
+1. Ouvrez une invite de commandes en tant qu’administrateur : dans le menu Démarrer, cliquez avec le bouton droit sur invite de commandes, puis cliquez sur Exécuter en tant qu’administrateur. Si la boîte de dialogue contrôle de compte d’utilisateur s’affiche, fournissez les informations d’identification des administrateurs d’entreprise, si nécessaire, puis cliquez sur continuer.
 2. À l’invite de commandes, tapez la commande suivante, puis appuyez sur entrée : `repadmin /showrepl * /csv > showrepl.csv`
 3. Ouvrez Excel.
 4. Cliquez sur le bouton Office, cliquez sur Ouvrir, accédez à showrepl. csv, puis cliquez sur Ouvrir.
@@ -160,7 +160,7 @@ Pour identifier Active Directory problèmes de réplication, utilisez la command
 
 |Erreur repadmin|Cause première|Solution|
 | --- | --- | --- |
-|Le temps écoulé depuis la dernière réplication avec ce serveur a dépassé la durée de vie de désactivation.|Un contrôleur de domaine a échoué une réplication entrante avec le contrôleur de domaine source nommé suffisamment longtemps pour qu’une suppression ait été désactivée, répliquée et récupérée par le garbage collector à partir d’AD DS.|ID d’événement 2042 : Trop de temps s'est écoulé depuis la dernière réplication de cet ordinateur|
+|Le temps écoulé depuis la dernière réplication avec ce serveur a dépassé la durée de vie de désactivation.|Un contrôleur de domaine a échoué une réplication entrante avec le contrôleur de domaine source nommé suffisamment longtemps pour qu’une suppression ait été désactivée, répliquée et récupérée par le garbage collector à partir d’AD DS.|ID d’événement 2042 : Trop de temps s’est écoulé depuis la réplication de cette machine|
 |Aucun voisin entrant.|Si aucun élément n’apparaît dans la section « voisins entrants » de la sortie générée par repadmin/showrepl, le contrôleur de domaine n’a pas pu établir de liens de réplication avec un autre contrôleur de domaine.|Résolution des problèmes de connectivité de réplication (ID d’événement 1925)| 
 |L’accès est refusé.|Un lien de réplication existe entre deux contrôleurs de domaine, mais la réplication ne peut pas être effectuée correctement suite à un échec d’authentification.|Résolution des problèmes de sécurité de réplication| 
 |La dernière tentative au < de la date et de l’heure > a échoué avec le nom du compte cible incorrect.|Ce problème peut être lié à des problèmes de connectivité, DNS ou d’authentification. S’il s’agit d’une erreur DNS, le contrôleur de domaine local n’a pas pu résoudre le nom DNS basé sur l’identificateur global unique (GUID) de son partenaire de réplication.|Résolution des problèmes de recherche DNS de réplication (ID d’événement 1925, 2087, 2088) résolution des problèmes de sécurité de réplication résolution des problèmes de connectivité de réplication (ID d’événement 1925)| 
@@ -186,4 +186,4 @@ Pour plus d’informations sur les concepts de réplication, consultez [Active D
   
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, notamment des Articles de support spécifiques aux codes d’erreur, consultez l’article du support technique : [Comment résoudre les erreurs courantes de réplication Active Directory](https://support.microsoft.com/help/3108513)
+Pour plus d’informations, notamment des Articles de support spécifiques aux codes d’erreur, consultez l’article du support technique : [Comment résoudre les erreurs courantes de réplication de Active Directory](https://support.microsoft.com/help/3108513)

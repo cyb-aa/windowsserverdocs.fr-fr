@@ -39,12 +39,12 @@ waitfor [/t <Timeout>] <SignalName>
 
 |       Paramètre       |                                                                                         Description                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s \<Computer >     | Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
-| /u [\<Domain > \] @ no__t-2 |                              Exécute le script à l’aide des informations d’identification du compte d’utilisateur spécifié. Par défaut, **WAITFOR** utilise les informations d’identification de l’utilisateur actuel.                               |
-|   /p [@no__t 0Password >]    |                                                    Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                     |
+|    /s \<> de l’ordinateur     | Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
+| /u [\<> de domaine\]<User> |                              Exécute le script à l’aide des informations d’identification du compte d’utilisateur spécifié. Par défaut, **WAITFOR** utilise les informations d’identification de l’utilisateur actuel.                               |
+|   /p [\<> de mot de passe]    |                                                    Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                     |
 |          /Si          |                                                                        Envoie le signal spécifié sur le réseau.                                                                        |
-|     /t \<Timeout >     |                                              Spécifie le nombre de secondes d’attente d’un signal. Par défaut, **WAITFOR** attend indéfiniment.                                               |
-|     @no__t 0SignalName >     |                                                Spécifie le signal que **WAITFOR** attend ou envoie. *SignalName* ne respecte pas la casse.                                                 |
+|     /t \<délai d’expiration >     |                                              Spécifie le nombre de secondes d’attente d’un signal. Par défaut, **WAITFOR** attend indéfiniment.                                               |
+|     \<SignalName >     |                                                Spécifie le signal que **WAITFOR** attend ou envoie. *SignalName* ne respecte pas la casse.                                                 |
 |          /?           |                                                                             Affiche l'aide à l'invite de commandes.                                                                             |
 
 ## <a name="remarks"></a>Notes

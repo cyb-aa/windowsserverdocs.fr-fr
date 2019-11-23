@@ -18,7 +18,7 @@ ms.locfileid: "71356518"
 ---
 # <a name="use-group-policy-to-configure-domain-member-client-computers"></a>Utiliser stratégie de groupe pour configurer les ordinateurs clients membres du domaine
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette section, vous créez un objet de stratégie de groupe pour tous les ordinateurs de votre organisation, vous configurez des ordinateurs clients membres du domaine avec le mode de cache distribué ou le mode de cache hébergé, puis vous configurez le pare-feu Windows avec fonctions avancées de sécurité pour autoriser BranchCache le trafic.  
   
@@ -39,13 +39,13 @@ Vous devez être membre du **groupe Admins du domaine**ou avoir l’équivalent 
   
 1.  Sur un ordinateur sur lequel le rôle de serveur Active Directory Domain Services est installé, dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **gestion des stratégie de groupe**. La console de gestion stratégie de groupe s’ouvre.  
   
-2.  Dans la console de gestion des stratégies de groupe, développez le chemin suivant : **Forêt :** *example.com*, **domaines**, *example.com* **stratégie de groupe objets**, où *example.com* est le nom du domaine dans lequel se trouvent les comptes d’ordinateur client BranchCache que vous souhaitez configurer.  
+2.  Dans la console de gestion de stratégie de groupe, développez le chemin suivant : **Forest :** *example.com*, **Domains**, *example.com*, **stratégie de groupe Objects**, où *example.com* est le nom du domaine dans lequel se trouvent les comptes d’ordinateur client BranchCache que vous souhaitez configurer.  
   
 3.  Cliquez avec le bouton droit de la souris sur **Objets de stratégie de groupe** et puis cliquez sur **Nouveau**. La boîte de dialogue **Nouvel objet GPO** s'ouvre. Dans **nom**, tapez un nom pour le nouvel objet de stratégie de groupe (GPO). Par exemple, si vous voulez nommer l'objet Ordinateurs clients BranchCache, tapez **Ordinateurs clients BranchCache**. Cliquez sur **OK**.  
   
 4.  Dans la console de gestion des stratégies de groupe, vérifiez que **Objets de stratégie de groupe** est sélectionné, et dans le volet d'informations, cliquez avec le bouton droit sur l'objet de stratégie de groupe que vous venez de créer. Par exemple, si vous avez nommé votre objet de stratégie de groupe Ordinateurs clients BranchCache, cliquez avec le bouton droit sur **Ordinateurs clients BranchCache**. Cliquez sur **Modifier**. La console Éditeur de gestion des stratégies de groupe s’ouvre.  
   
-5.  Dans la console Éditeur de gestion des stratégies de groupe, développez le chemin d’accès suivant : **Configuration ordinateur**, **Stratégies**, **Modèles d'administration : Définitions de stratégie (fichiers ADMX) récupérées à partir de l’ordinateur local @ no__t-0, **Network**, **BranchCache**.  
+5.  Dans la console Éditeur de gestion des stratégies de groupe, développez le chemin suivant : **Configuration ordinateur**, **stratégies**, **modèles d’administration : définitions de stratégie (fichiers ADMX) récupérées à partir de l’ordinateur local**, **réseau**, **BranchCache**.  
   
 6.  Cliquez sur **BranchCache**, puis dans le volet d'informations, double-cliquez sur **Activer BranchCache**. La boîte de dialogue paramètre de stratégie s’ouvre.  
   
@@ -60,17 +60,17 @@ Vous devez être membre du **groupe Admins du domaine**ou avoir l’équivalent 
 11. Dans la boîte de dialogue **activer la découverte automatique du cache hébergé par le point de connexion de service** , cliquez sur **activé**, puis sur **OK**.  
   
     > [!NOTE]  
-    > Lorsque vous activez les paramètres de stratégie **définir le mode de cache distribué de BranchCache** et activer la **découverte automatique du cache hébergé par le point de connexion de service** , les ordinateurs clients fonctionnent en mode de cache distribué BranchCache, sauf s’ils trouvent un serveur de cache hébergé dans la filiale, à partir duquel ils fonctionnent en mode de cache hébergé.  
+    > Lorsque vous activez les paramètres de stratégie **définir le mode de cache distribué de BranchCache** et activer la **découverte automatique du cache hébergé par le point de connexion de service** , les ordinateurs clients fonctionnent en mode de cache distribué BranchCache, sauf s’ils trouvent un serveur de cache hébergé dans la filiale, à partir duquel ils opèrent en mode de cache hébergé.  
   
 12. Utilisez les procédures ci-dessous pour configurer les paramètres de pare-feu sur les ordinateurs clients à l’aide de stratégie de groupe.  
   
 ## <a name="bkmk_inbound"></a>Pour configurer les règles de trafic entrant du pare-feu Windows avec fonctions avancées de sécurité  
   
-1.  Dans la console de gestion des stratégies de groupe, développez le chemin suivant : **Forêt :** *example.com*, **domaines**, *example.com* **stratégie de groupe objets**, où *example.com* est le nom du domaine dans lequel se trouvent les comptes d’ordinateur client BranchCache que vous souhaitez configurer.  
+1.  Dans la console de gestion de stratégie de groupe, développez le chemin suivant : **Forest :** *example.com*, **Domains**, *example.com*, **stratégie de groupe Objects**, où *example.com* est le nom du domaine dans lequel se trouvent les comptes d’ordinateur client BranchCache que vous souhaitez configurer.  
   
 2.  Dans la console de gestion des stratégies de groupe, vérifiez que **Objets de stratégie de groupe** est sélectionné, et dans le volet d'informations, cliquez avec le bouton droit sur l'objet de stratégie de groupe Ordinateurs clients BranchCache précédemment créé. Par exemple, si vous avez nommé votre objet de stratégie de groupe Ordinateurs clients BranchCache, cliquez avec le bouton droit sur **Ordinateurs clients BranchCache**. Cliquez sur **Modifier**. La console Éditeur de gestion des stratégies de groupe s’ouvre.  
   
-3.  Dans la console Éditeur de gestion des stratégies de groupe, développez le chemin d’accès suivant : **Configuration ordinateur**, **stratégies**, **Paramètres Windows**, **paramètres de sécurité**, **pare-feu Windows avec fonctions avancées de sécurité**, **pare-feu Windows avec fonctions avancées de sécurité-LDAP**, **règles de trafic entrant**.  
+3.  Dans la console Éditeur de gestion des stratégies de groupe, développez le chemin suivant **: Configuration ordinateur**, **stratégies**, **Paramètres Windows**, **paramètres de sécurité**, **pare-feu Windows avec fonctions avancées de sécurité**, **pare-feu Windows avec fonctions avancées de sécurité-LDAP**, **règles de trafic entrant**.  
   
 4.  Cliquez avec le bouton droit sur **Règles de trafic entrant**, puis cliquez sur **Nouvelle règle**. L’Assistant Nouvelle règle de trafic entrant s’ouvre.  
   

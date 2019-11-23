@@ -19,7 +19,7 @@ ms.locfileid: "71364907"
 ---
 # <a name="display-adapters-should-be-enabled-in-virtual-machines-to-provide-video-capabilities"></a>Les adaptateurs d’affichage doivent être activés sur les machines virtuelles pour fournir des fonctionnalités vidéo
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 
   
@@ -29,7 +29,7 @@ ms.locfileid: "71364907"
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -44,9 +44,9 @@ Microsoft Virtual Machine bus Video Device est une carte vidéo virtuelle optimi
   
 *Les performances vidéo pour les machines virtuelles suivantes seront dégradées :*  
   
-@no__t 0list de noms de machines virtuelles >  
+\<liste des noms de machine virtuelle >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Utilisez Device Manager dans le système d’exploitation invité pour activer le périphérique vidéo bus de machine virtuelle Microsoft.*  
   

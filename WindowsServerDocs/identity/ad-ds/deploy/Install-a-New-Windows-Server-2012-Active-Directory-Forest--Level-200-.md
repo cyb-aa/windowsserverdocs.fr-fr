@@ -18,7 +18,7 @@ ms.locfileid: "71400364"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-forest-level-200"></a>Installer une nouvelle forêt Active Directory Windows Server 2012 (niveau 200)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique présente les bases de la nouvelle fonctionnalité de promotion du contrôleur de domaine des services de domaine Active Directory Windows Server 2012. Dans Windows Server 2012, les services de domaine Active Directory remplacent l'outil Dcpromo par un système de déploiement basé sur le Gestionnaire de serveur et Windows PowerShell.  
   
@@ -91,11 +91,11 @@ Ces nouvelles fonctionnalités ne sont pas à compatibilité descendante avec Wi
 > [!IMPORTANT]
 > Dcpromo.exe ne contient plus d'Assistant graphique et n'installe plus des fichiers binaires de rôles ni de fonctionnalités. Si vous tentez d'exécuter Dcpromo.exe à partir de l'interpréteur de commandes de l'Explorateur, le message suivant s'affiche :  
 > 
-> «Le Assistant Installation Active Directory Domain Services est déplacé dans Gestionnaire de serveur. Pour plus d’informations, consultez <https://go.microsoft.com/fwlink/?LinkId=220921>.»  
+> «Le Assistant Installation Active Directory Domain Services est déplacé dans Gestionnaire de serveur. Pour plus d’informations, consultez <https://go.microsoft.com/fwlink/?LinkId=220921>».  
 > 
 > Si vous tentez d'exécuter Dcpromo.exe /unattend, les fichiers binaires sont quand même installés, comme dans les systèmes d'exploitation antérieurs, mais l'avertissement suivant s'affiche :  
 > 
-> «L’opération sans assistance Dcpromo est remplacée par le module ADDSDeployment pour Windows PowerShell. Pour plus d’informations, consultez <https://go.microsoft.com/fwlink/?LinkId=220924>.»  
+> «L’opération sans assistance Dcpromo est remplacée par le module ADDSDeployment pour Windows PowerShell. Pour plus d’informations, consultez <https://go.microsoft.com/fwlink/?LinkId=220924>».  
 > 
 > Windows Server 2012 déconseille dcpromo.exe qui ne sera pas inclus dans les futures versions de Windows, et aucune autre amélioration ne lui sera apportée dans ce système d'exploitation. Les administrateurs doivent arrêter son utilisation et passer aux modules Windows PowerShell pris en charge s'ils veulent créer des contrôleurs de domaine à partir de la ligne de commande.  
   
@@ -157,7 +157,7 @@ L'ordinateur sur lequel vous exécutez le Gestionnaire de serveur se met en pool
   
 La boîte de dialogue **Type d'installation** fournit une option qui ne prend pas en charge les services de domaine Active Directory : **Installation basée sur un scénario des services Bureau à distance**. Cette option autorise uniquement les services Bureau à distance dans une charge de travail distribuée multiserveur. Si vous la sélectionnez, les services de domaine Active Directory ne peuvent pas être installés.  
   
-Laissez toujours la sélection par défaut en place lors de l'installation des services de domaine Active Directory : **Installation basée sur un rôle ou une fonctionnalité**.  
+Laissez toujours la sélection par défaut en place lors de l'installation des services de domaine Active Directory : **Installation basée sur un rôle ou une fonctionnalité**.  
   
 #### <a name="server-selection"></a>Sélection du serveur  
 ![Installer une nouvelle forêt](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_SelectDestinationServer.png)  
@@ -242,7 +242,7 @@ Pour créer une forêt Active Directory, cliquez sur **Ajouter une nouvelle for�
 Pour plus d’informations sur les noms de domaine valides, voir l’article de la Base de connaissances [Conventions d’affectation de noms dans Active Directory pour les ordinateurs, domaines, sites et unités d’organisation](https://support.microsoft.com/kb/909264)  
   
 > [!WARNING]  
-> Ne créez pas de forêts Active Directory portant le même nom qu'un DNS externe. Par exemple, si votre URL DNS Internet est http://contoso.com, vous devez choisir un nom différent pour votre forêt interne afin d’éviter d’éventuels problèmes de compatibilité. Ce nom doit être unique et faire l'objet d'une utilisation peu probable en termes de trafic web. Par exemple, corp.contoso.com.  
+> Ne créez pas de forêts Active Directory portant le même nom qu'un DNS externe. Par exemple, si votre URL DNS Internet est http://contoso.com, vous devez choisir un autre nom pour votre forêt interne afin d’éviter d’éventuels problèmes de compatibilité. Ce nom doit être unique et faire l'objet d'une utilisation peu probable en termes de trafic web. Par exemple, corp.contoso.com.  
   
 Une nouvelle forêt ne nécessite pas de nouvelles informations d'identification pour le compte Administrateur du domaine. Le processus de promotion du contrôleur de domaine utilise les informations d'identification du compte Administrateur intégré à partir du premier contrôleur de domaine utilisé pour créer la racine de forêt. Il n'existe aucun moyen (par défaut) de désactiver ni de verrouiller le compte Administrateur intégré et il peut s'agir du seul point d'entrée dans une forêt si les autres comptes du domaine administratif ne sont pas utilisables. Il est essentiel de connaître le mot de passe avant le déploiement d'une nouvelle forêt.  
   
@@ -287,7 +287,7 @@ La page **Chemins d’accès** vous permet de remplacer les emplacements de doss
   
 La page **Examiner les options** vous permet de valider vos paramètres et de vérifier qu'ils répondent à vos exigences avant le démarrage de l'installation. Notez que vous avez encore la possibilité d'arrêter l'installation quand vous utilisez le Gestionnaire de serveur. Il s'agit simplement d'une option permettant de confirmer vos paramètres avant de poursuivre la configuration  
   
-La page **Examiner les options** du Gestionnaire de serveur offre également un bouton **Afficher le script** facultatif pour créer un fichier texte Unicode qui contient la configuration ADDSDeployment actuelle sous forme d’un script Windows PowerShell unique. Vous pouvez ainsi utiliser l’interface graphique Gestionnaire de serveur sous forme d’un studio de déploiement Windows PowerShell. Utilisez l’Assistant Configuration des services de domaine Active Directory pour configurer les options, exportez la configuration, puis annulez l’Assistant. Ce processus crée un exemple valide et correct du point de vue syntaxique pour permettre des modifications ultérieures ou une utilisation directe. Exemple :  
+La page **Examiner les options** du Gestionnaire de serveur offre également un bouton **Afficher le script** facultatif pour créer un fichier texte Unicode qui contient la configuration ADDSDeployment actuelle sous forme d’un script Windows PowerShell unique. Vous pouvez ainsi utiliser l’interface graphique Gestionnaire de serveur sous forme d’un studio de déploiement Windows PowerShell. Utilisez l’Assistant Configuration des services de domaine Active Directory pour configurer les options, exportez la configuration, puis annulez l’Assistant. Ce processus crée un exemple valide et correct du point de vue syntaxique pour permettre des modifications ultérieures ou une utilisation directe. Par exemple :  
   
 ```powershell 
 #  
@@ -367,7 +367,7 @@ Utilisez **Get-Command** pour exporter les alias et applets de commande dans Ser
 Get-Command -module ServerManager  
 ```  
   
-Exemple :  
+Par exemple :  
   
 ![Installer une nouvelle forêt](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSGetCommand.png)  
   
@@ -383,7 +383,7 @@ Si vous voulez également installer les outils de gestion des services AD DS, c
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools  
 ```  
   
-Exemple :  
+Par exemple :  
   
 ![Installer une nouvelle forêt](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallWinFeature.png)  
   
@@ -417,7 +417,7 @@ Notez également que Windows PowerShell 3.0 a considérablement simplifié les a
 Get-WindowsFeature | where {$_.displayname - like "*active dir*"}  
 ```  
   
-En utilisant le pipeline Windows PowerShell, vous pouvez créer des résultats lisibles. Exemple :  
+En utilisant le pipeline Windows PowerShell, vous pouvez créer des résultats lisibles. Par exemple :  
   
 ```powershell  
 Install-WindowsFeature | Format-List  
@@ -497,7 +497,7 @@ Vous pouvez également fournir une chaîne sécurisée sous forme d'une variable
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Enfin, vous pouvez stocker le mot de passe obscurci dans un fichier, puis le réutiliser plus tard, sans que le mot de passe en texte clair ne s'affiche. Exemple :  
+Enfin, vous pouvez stocker le mot de passe obscurci dans un fichier, puis le réutiliser plus tard, sans que le mot de passe en texte clair ne s'affiche. Par exemple :  
   
 ```powershell  
 $file = "c:\pw.txt"  
@@ -544,7 +544,7 @@ Les arguments de l'applet de commande ADDSDeployment **Chemins d'accès** du Ges
   
 Utilisez l'argument **Whatif** facultatif avec l'applet de commande **Install-ADDSForest** pour passer en revue les informations de configuration. Cela vous permet de voir les valeurs explicites et implicites des arguments d'une applet de commande.  
   
-Exemple :  
+Par exemple :  
   
 ![Installer une nouvelle forêt](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSPaths.png)  
   
@@ -573,7 +573,7 @@ Pour accepter automatiquement l'invite de redémarrage, utilisez les arguments *
 [Active Directory Domain Services pour Windows Server 2008 R2](https://technet.microsoft.com/library/dd378801(WS.10).aspx)  
 [Active Directory Domain Services pour Windows Server 2008](https://technet.microsoft.com/library/dd378891(WS.10).aspx)  
 [Informations techniques de référence sur Windows Server (Windows Server 2003)](https://technet.microsoft.com/library/cc739127(WS.10).aspx)  
-Centre d’administration de l’annuaire @no__t 0Active : Prise en main (Windows Server 2008 R2) ](https://technet.microsoft.com/library/dd560651(WS.10).aspx)  
+[Centre d’administration Active Directory : Prise en main (Windows Server 2008 R2)](https://technet.microsoft.com/library/dd560651(WS.10).aspx)  
 [Administration de Active Directory avec Windows PowerShell (Windows Server 2008 R2)](https://technet.microsoft.com/library/dd378937(WS.10).aspx)  
 [Poser une question à l’équipe services d’annuaire (blog officiel du support technique commercial Microsoft)](http://blogs.technet.com/b/askds)  
   

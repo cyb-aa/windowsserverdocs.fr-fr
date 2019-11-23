@@ -24,7 +24,7 @@ ms.locfileid: "71377277"
 
 
 
-expose un cliché instantané persistant sous la forme d’une lettre de lecteur, d’un partage ou d’un point de montage.
+Expose un cliché instantané persistant sous la forme d’une lettre de lecteur, d’un partage ou d’un point de montage.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -39,9 +39,9 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 |Paramètre|Description|
 |---------|-----------|
 |ShadowID|Spécifie l’ID d’ombre du cliché instantané que vous souhaitez exposer.|
-|\<Drive : >|Expose le cliché instantané spécifié comme une lettre de lecteur (par exemple, P :).|
-|@no__t 0Share >|Expose le cliché instantané spécifié sur un partage (par exemple, \\ @ no__t-1*MachineName*\).|
-|@no__t 0MountPoint >|Expose le cliché instantané spécifié à un point de montage (par exemple, C:\shadowcopy @ no__t-0.|
+|Lecteur \<: >|Expose le cliché instantané spécifié comme une lettre de lecteur (par exemple, P :).|
+|Partage de \<>|Expose le cliché instantané spécifié sur un partage (par exemple, \\\\*MachineName*\).|
+|\<le MountPoint >|Expose le cliché instantané spécifié à un point de montage (par exemple, C:\shadowcopy\).|
 
 ## <a name="remarks"></a>Notes
 

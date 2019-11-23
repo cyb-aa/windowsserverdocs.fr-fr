@@ -18,18 +18,18 @@ ms.locfileid: "71405801"
 ---
 # <a name="converged-nic-configuration-with-a-single-network-adapter"></a>Configuration de carte réseau convergée avec une seule carte réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, nous vous fournissons les instructions permettant de configurer une carte réseau convergée avec une seule carte réseau dans votre hôte Hyper-V.
 
-L’exemple de configuration de cette rubrique décrit deux hôtes Hyper-V, l' **hôte Hyper-v A**et l' **hôte B Hyper-v**. Les deux ordinateurs hôtes ont une seule carte réseau physique (pNIC) installée, et les cartes réseau sont connectées à un commutateur physique \(ToR @ no__t-1. En outre, les hôtes se trouvent sur le même sous-réseau, à savoir 192.168.1. x/24.
+L’exemple de configuration de cette rubrique décrit deux hôtes Hyper-V, l' **hôte Hyper-v A**et l' **hôte B Hyper-v**. Les deux ordinateurs hôtes ont une seule carte réseau physique (pNIC) installée, et les cartes réseau sont connectées à un rack \(\) commutateur physique. En outre, les hôtes se trouvent sur le même sous-réseau, à savoir 192.168.1. x/24.
 
 ![Ordinateurs hôtes Hyper-V](../../media/Converged-NIC/1-single-test-conn.jpg)
 
 
-## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Étape 1. Tester la connectivité entre la source et la destination
+## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Étape 1. Tester la connectivité entre la source et la destination
 
-Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôte de destination. Ce test illustre la connectivité à l’aide de la couche 3 \(L3 @ no__t-1-ou de la couche IP, ainsi que de la couche 2 \(L2 @ no__t-3.
+Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôte de destination. Ce test illustre la connectivité à l’aide de la couche 3 \(L3\) ou de la couche IP, ainsi que de la couche 2 \(\)L2.
 
 1. Affichez les propriétés de la carte réseau.
 
@@ -40,7 +40,7 @@ Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôt
    _**About**_  
 
 
-   | Nom |    InterfaceDescription     | IfIndex | Statut |    macAddress     | LinkSpeed |
+   | Nom |    InterfaceDescription     | ifIndex | État |    MacAddress     | LinkSpeed |
    |------|-----------------------------|---------|--------|-------------------|-----------|
    |  M1  | Mellanox ConnectX-3 Pro... |    4    |   Up (Haut)   | 7C-FE-90-93-8F-A1 |  40 Gbits/s  |
 
@@ -114,14 +114,14 @@ Dans cette étape, nous utilisons la commande **test-NetConnection** Windows Pow
    _**About**_
 
 
-   |        Paramètre         |    Value    |
+   |        Paramètre         |    Valeur    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.1.5 |
    |      RemoteAddress       | 192.168.1.5 |
    |      InterfaceAlias      |     M1      |
    |      SourceAddress       | 192.168.1.3 |
    |      PingSucceeded       |    True     |
-   | RTT \(PingReplyDetails\) |    0 ms     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
 
    ---
 
@@ -142,14 +142,14 @@ Dans cette étape, nous utilisons la commande **test-NetConnection** Windows Pow
    _**About**_
 
 
-   |        Paramètre         |    Value    |
+   |        Paramètre         |    Valeur    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.1.5 |
    |      RemoteAddress       | 192.168.1.5 |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      PingSucceeded       |    False    |
-   | RTT \(PingReplyDetails\) |    0 ms     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
 
    ---
 
@@ -159,9 +159,9 @@ Dans cette étape, nous utilisons la commande **test-NetConnection** Windows Pow
 
 De nombreuses configurations réseau utilisent des réseaux locaux virtuels. Si vous envisagez d’utiliser des réseaux locaux virtuels dans votre réseau, vous devez répéter le test précédent avec des réseaux locaux virtuels configurés. En outre, si vous envisagez d’utiliser RoCE pour les services RDMA, vous devez activer les réseaux locaux virtuels.
 
-Pour cette étape, les cartes réseau sont en mode d' **accès** . Toutefois, lorsque vous créez un commutateur \(virtuel Hyper-V vswitch\) plus loin dans ce guide, les propriétés du réseau local virtuel sont appliquées au niveau du port vswitch. 
+Pour cette étape, les cartes réseau sont en mode d' **accès** . Toutefois, lorsque vous créez un commutateur virtuel Hyper-V \(vSwitch\) plus loin dans ce guide, les propriétés du réseau local virtuel sont appliquées au niveau du port vSwitch. 
 
-Étant donné qu’un commutateur peut héberger plusieurs réseaux locaux virtuels, il est nécessaire que \(le\) commutateur physique du rack soit connecté au port auquel l’ordinateur hôte est connecté en mode Trunk.
+Étant donné qu’un commutateur peut héberger plusieurs réseaux locaux virtuels, il est nécessaire que le haut du rack \(TDR\) commutateur physique pour que le port auquel l’ordinateur hôte est connecté soit configuré en mode Trunk.
 
 >[!NOTE]
 >Consultez la documentation de votre commutateur pour obtenir des instructions sur la configuration du mode Trunk sur le commutateur.
@@ -209,7 +209,7 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   | Nom |          InterfaceDescription           | IfIndex | Statut |    macAddress     | LinkSpeed |
+   | Nom |          InterfaceDescription           | ifIndex | État |    MacAddress     | LinkSpeed |
    |------|-----------------------------------------|---------|--------|-------------------|-----------|
    |  M1  | Mellanox ConnectX-3 Pro Ethernet Ada... |    4    |   Up (Haut)   | 7C-FE-90-93-8F-A1 |  40 Gbits/s  |
 
@@ -224,15 +224,15 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    Test-NetConnection 192.168.1.5
    ```
 
-## <a name="step-4-configure-quality-of-service-qos"></a>Étape 4. Configurer la qualité de \(service (QoS)\)
+## <a name="step-4-configure-quality-of-service-qos"></a>Étape 4. Configurer la qualité de service \(QoS\)
 
 >[!NOTE]
 >Vous devez effectuer toutes les étapes de configuration DCB et QoS suivantes sur tous les ordinateurs hôtes qui sont destinés à communiquer entre eux.
 
-1. Installez Data Center \(Bridging\) DCB sur chacun de vos ordinateurs hôtes Hyper-V.
+1. Installez Data Center Bridging \(DCB\) sur chacun de vos ordinateurs hôtes Hyper-V.
 
    - **Facultatif** pour les configurations réseau qui utilisent iWarp pour les services RDMA.
-   - **Requis** pour les configurations réseau qui utilisent RoCE \(n’importe\) quelle version pour les services RDMA.
+   - **Requis** pour les configurations réseau qui utilisent RoCE \(n’importe quelle version\) pour les services RDMA.
 
    ```PowerShell
    Install-WindowsFeature Data-Center-Bridging
@@ -252,10 +252,10 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   |   Paramètre    |          Value           |
+   |   Paramètre    |          Valeur           |
    |----------------|--------------------------|
    |      Nom      |           SMB            |
-   |     Propriétaire      | Ordinateur \(stratégie de groupe\) |
+   |     Propriétaire      | Stratégie de groupe de l’ordinateur \(\) |
    | NetworkProfile |           Tous            |
    |   Priorité   |           127            |
    |   JobObject    |          &nbsp;          |
@@ -274,16 +274,16 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   | Priority | Enabled | PolicySet | IfIndex | IfAlias |
+   | Priority | Activé | PolicySet | ifIndex | IfAlias |
    |----------|---------|-----------|---------|---------|
-   |    0     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    1     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    2     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    3     |  True   |  Global   | &nbsp;  | &nbsp;  |
-   |    4     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    5     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    6\.     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    7     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    0     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    1     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    2     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    3     |  True   |  Globale   | &nbsp;  | &nbsp;  |
+   |    4     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    5     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    6     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    7     |  False  |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -299,8 +299,8 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
 
    _**About**_
 
-   **Nom** : M1  
-   **Enabled** : True  
+   **Nom**: M1  
+   **Activé**: true  
 
    _**Possibilités**_   
 
@@ -308,7 +308,7 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    |      Paramètre      |   Matériel   |   Actuelle    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Aucune     |     Aucune     |
+   |     DcbxSupport     |     Aucun(e)     |     Aucun(e)     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -318,8 +318,8 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
 
    | CT | AUTORITÉ TSA | La | Priorité |
    |----|-----|-----------|------------|
-   | 0  | STE |    70%    |  0-2, 4-7   |
-   | 1  | STE |    30    |     3      |
+   | 0  | Ste |    70 %    |  0-2, 4-7   |
+   | 1  | Ste |    30    |     3      |
 
    ---
 
@@ -330,14 +330,14 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**OperationalClassifications:**_  
 
 
-   | Protocol  | Port/type | Priority |
+   | Protocole  | Port/type | Priority |
    |-----------|-----------|----------|
-   |  Par défaut  |  &nbsp;   |    0     |
+   |  Default  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
 
    ---
 
-5. Réservez un pourcentage de la bande passante pour SMB direct \(RDMA @ no__t-1.
+5. Réservez un pourcentage de la bande passante pour SMB direct \(\)RDMA.
 
     Dans cet exemple, une réservation de bande passante de 30% est utilisée. Vous devez sélectionner une valeur qui représente ce dont votre trafic de stockage a besoin. 
 
@@ -348,9 +348,9 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   | Nom | Algorithm | Bande passante (%) | Priority | PolicySet | IfIndex | IfAlias |
+   | Nom | Algorithm | Bande passante (%) | Priority | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | SMB  |    STE    |      30      |    3     |  Global   | &nbsp;  | &nbsp;  |
+   | SMB  |    Ste    |      30      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---                                      
 
@@ -363,10 +363,10 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   |   Nom    | Algorithm | Bande passante (%) | Priority | PolicySet | IfIndex | IfAlias |
+   |   Nom    | Algorithm | Bande passante (%) | Priority | PolicySet | ifIndex | IfAlias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
-   | Valeurs |    STE    |      70      | 0-2, 4-7  |  Global   | &nbsp;  | &nbsp;  |
-   |    SMB    |    STE    |      30      |    3     |  Global   | &nbsp;  | &nbsp;  |
+   | Valeurs |    Ste    |      70      | 0-2, 4-7  |  Globale   | &nbsp;  | &nbsp;  |
+   |    SMB    |    Ste    |      30      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -394,7 +394,7 @@ L’illustration suivante montre l’état actuel des ordinateurs hôtes Hyper-V
    _**About**_
 
 
-   | Nom |           InterfaceDescription           | Enabled |
+   | Nom |           InterfaceDescription           | Activé |
    |------|------------------------------------------|---------|
    |  M1  | Adaptateur Ethernet Mellanox ConnectX-3 Pro |  True   |
 
@@ -417,7 +417,7 @@ L’illustration suivante montre l’état actuel des ordinateurs hôtes Hyper-V
 
 3. Téléchargez l' [utilitaire DiskSpd. exe](https://aka.ms/diskspd) et extrayez-le dans C:\test\.
 
-4. Téléchargez le [script PowerShell test-RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) dans un dossier de test sur votre disque local, par exemple, C:\test @ no__t-1
+4. Téléchargez le [script PowerShell test-RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) dans un dossier de test sur votre disque local, par exemple, C:\test\.
 
 5. Exécutez le script PowerShell **test-RDMA. ps1** pour transmettre la valeur ifIndex au script, ainsi que l’adresse IP de la carte à distance sur le même réseau local virtuel.<p>Dans cet exemple, le script transmet la valeur **ifIndex** de 14 à l’adresse IP de la carte réseau distante 192.168.1.5.
 
@@ -493,15 +493,15 @@ L’image suivante représente l’hôte 1 Hyper-V avec un vSwitch.
    _**About**_
 
 
-   |         Nom          |        InterfaceDescription         | IfIndex | Statut |    macAddress     | LinkSpeed |
+   |         Nom          |        InterfaceDescription         | ifIndex | État |    MacAddress     | LinkSpeed |
    |-----------------------|-------------------------------------|---------|--------|-------------------|-----------|
-   | vEthernet \(VMSTEST @ no__t-1 | Carte Ethernet virtuelle Hyper-V #2 |   27    |   Up (Haut)   | E4-1D-2D-07-40-71 |  40 Gbits/s  |
+   | vEthernet \(VMSTEST\) | Carte Ethernet virtuelle Hyper-V #2 |   27    |   Up (Haut)   | E4-1D-2D-07-40-71 |  40 Gbits/s  |
 
    ---
 
 3. Gérez le carte réseau virtuelle de l’ordinateur hôte de l’une des deux manières suivantes : 
 
-   - La vue **NetAdapter** fonctionne en fonction du nom « vEthernet \(VMSTEST @ no__t-2 ». Toutes les propriétés de la carte réseau ne s’affichent pas dans cette vue.
+   - La vue **NetAdapter** fonctionne en fonction du nom « VETHERNET \(VMSTEST\)». Toutes les propriétés de la carte réseau ne s’affichent pas dans cette vue.
    - La vue **VMNetworkAdapter** supprime le préfixe « vEthernet » et utilise simplement le nom vmswitch. (recommandé) 
 
    ```PowerShell
@@ -511,7 +511,7 @@ L’image suivante représente l’hôte 1 Hyper-V avec un vSwitch.
    _**About**_
 
 
-   |         Nom         | IsManagementOs |        VMName        |  SwitchName  | macAddress | Statut | AdressesIP |
+   |         Nom         | IsManagementOs |        VMName        |  SwitchName  | MacAddress | État | AdressesIP |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
    | CORP-External-Switch |      True      | CORP-External-Switch | 001B785768AA |    OK    | &nbsp; |             |
    |       VMSTEST        |      True      |       VMSTEST        | E41D2D074071 |    OK    | &nbsp; |             |
@@ -584,7 +584,7 @@ L’illustration suivante représente l’état actuel de vos ordinateurs hôtes
 
    _**About**_
 
-    Nom : VMSTEST IeeePriorityTag : Activé
+    Nom : VMSTEST IeeePriorityTag : on
 
 
 2. Affichez les informations RDMA de la carte réseau. 
@@ -596,9 +596,9 @@ L’illustration suivante représente l’état actuel de vos ordinateurs hôtes
    _**About**_
 
 
-   |         Nom          |        InterfaceDescription         | Enabled |
+   |         Nom          |        InterfaceDescription         | Activé |
    |-----------------------|-------------------------------------|---------|
-   | vEthernet \(VMSTEST @ no__t-1 | Carte Ethernet virtuelle Hyper-V #2 |  False  |
+   | vEthernet \(VMSTEST\) | Carte Ethernet virtuelle Hyper-V #2 |  False  |
 
    ---
 
@@ -615,7 +615,7 @@ L’illustration suivante représente l’état actuel de vos ordinateurs hôtes
    _**About**_   
 
 
-   |        Nom         |        InterfaceDescription         | IfIndex | Statut |    macAddress     | LinkSpeed |
+   |        Nom         |        InterfaceDescription         | ifIndex | État |    MacAddress     | LinkSpeed |
    |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vEthernet (VMSTEST) | Carte Ethernet virtuelle Hyper-V #2 |   27    |   Up (Haut)   | E4-1D-2D-07-40-71 |  40 Gbits/s  |
 
@@ -632,9 +632,9 @@ L’illustration suivante représente l’état actuel de vos ordinateurs hôtes
    _**About**_
 
 
-   |         Nom          |        InterfaceDescription         | Enabled |
+   |         Nom          |        InterfaceDescription         | Activé |
    |-----------------------|-------------------------------------|---------|
-   | vEthernet \(VMSTEST @ no__t-1 | Carte Ethernet virtuelle Hyper-V #2 |  True   |
+   | vEthernet \(VMSTEST\) | Carte Ethernet virtuelle Hyper-V #2 |  True   |
 
    ---
 
@@ -673,7 +673,7 @@ L’illustration suivante représente l’état actuel de vos ordinateurs hôtes
     VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.1.5
    ```
 
-La dernière ligne de cette sortie, «test du trafic RDMA réussie : Le trafic RDMA a été envoyé à 192.168.1.5, «indique que vous avez correctement configuré la carte réseau convergée sur votre carte.
+La dernière ligne de cette sortie, « test du trafic RDMA réussie : le trafic RDMA a été envoyé à 192.168.1.5 », indique que vous avez correctement configuré la carte réseau convergée sur votre carte.
 
 ## <a name="related-topics"></a>Rubriques connexes
 - [Configuration de carte réseau associée à une carte réseau convergée](cnic-datacenter.md)

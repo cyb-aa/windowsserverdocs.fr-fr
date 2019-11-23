@@ -36,7 +36,7 @@ set port=<Port>
 
 | Paramètre |                                          Description                                          |
 |-----------|-----------------------------------------------------------------------------------------------|
-|  @no__t 0Port >  | Spécifie la nouvelle valeur pour le port du serveur de noms DNS TCP/UDP par défaut. Le port par défaut est 53. |
+|  > de port \<  | Spécifie la nouvelle valeur pour le port du serveur de noms DNS TCP/UDP par défaut. Le port par défaut est 53. |
 |   {aide   |                                              ?}                                               |
 
 #### <a name="additional-references"></a>Références supplémentaires

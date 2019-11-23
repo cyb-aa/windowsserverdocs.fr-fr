@@ -17,7 +17,7 @@ ms.locfileid: "71406335"
 ---
 # <a name="configure-certificate-auto-enrollment"></a>Configurer l’inscription automatique des certificats
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 > [!NOTE]
 > Avant d’effectuer cette procédure, vous devez configurer un modèle de certificat de serveur à l’aide du composant logiciel enfichable modèles de certificats de la console MMC sur une autorité de certification qui exécute les services AD CS.
@@ -25,7 +25,7 @@ Pour être autorisé à effectuer cette procédure, vous devez faire partie du g
 
 ## <a name="configure-server-certificate-auto-enrollment"></a>Configurer l’inscription automatique de certificat de serveur
 
-1. Sur l’ordinateur où AD DS est installé, ouvrez Windows PowerShell @ no__t-0, tapez **MMC**, puis appuyez sur entrée. La console Microsoft Management Console s’ouvre.
+1. Sur l’ordinateur où est installé AD DS, ouvrez Windows PowerShell&reg;, tapez **MMC**, puis appuyez sur entrée. La console Microsoft Management Console s’ouvre.
 2. Dans le menu **Fichier** , cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**. La boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** s'ouvre.
 3. Dans **composants logiciels enfichables disponibles**, faites défiler la liste jusqu’à, puis double-cliquez sur **éditeur de gestion des stratégies de groupe**. La boîte de dialogue **Sélectionner un objet stratégie de groupe** s’ouvre.
 
@@ -35,7 +35,7 @@ Pour être autorisé à effectuer cette procédure, vous devez faire partie du g
 4. Dans **Objet de stratégie de groupe**, cliquez sur **Parcourir**. La boîte de dialogue **Rechercher un objet Stratégie de groupe** s'ouvre.
 5. Dans **Domaines, unités d'organisation et objets de stratégie de groupe liés**, cliquez sur **Stratégie de domaine par défaut**, puis cliquez sur **OK**.
 6. Cliquez sur **Terminer**, puis sur **OK**.
-7. Double-cliquez sur **Stratégie de domaine par défaut**. Dans la console, développez le chemin d’accès suivant : **Configuration de l'ordinateur**, **Stratégies**, **Paramètres Windows**, **Paramètres de sécurité**, puis **Stratégies de clé publique**.
+7. Double-cliquez sur **Stratégie de domaine par défaut**. Dans la console, développez le chemin suivant : **Configuration ordinateur**, **stratégies**, **Paramètres Windows**, **paramètres de sécurité**, puis stratégies de **clé publique**.
 8. Cliquez sur **Stratégies de clé publique**. Dans le volet d’informations, double-cliquez sur **Client des services de certificats - Inscription automatique**. La boîte de dialogue **Propriétés** s’ouvre. Configurez les éléments suivants, puis cliquez sur **OK** :
 
      1. Dans **Modèle de configuration**, sélectionnez **Activé**.
@@ -46,7 +46,7 @@ Pour être autorisé à effectuer cette procédure, vous devez faire partie du g
 
 ## <a name="configure-user-certificate-auto-enrollment"></a>Configurer l’inscription automatique des certificats utilisateur
 
-1. Sur l’ordinateur où AD DS est installé, ouvrez Windows PowerShell @ no__t-0, tapez **MMC**, puis appuyez sur entrée. La console Microsoft Management Console s’ouvre.
+1. Sur l’ordinateur où est installé AD DS, ouvrez Windows PowerShell&reg;, tapez **MMC**, puis appuyez sur entrée. La console Microsoft Management Console s’ouvre.
 2. Dans le menu **Fichier** , cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**. La boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** s'ouvre.
 3. Dans **composants logiciels enfichables disponibles**, faites défiler la liste jusqu’à, puis double-cliquez sur **éditeur de gestion des stratégies de groupe**. La boîte de dialogue **Sélectionner un objet stratégie de groupe** s’ouvre.
 
@@ -56,7 +56,7 @@ Pour être autorisé à effectuer cette procédure, vous devez faire partie du g
 4. Dans **Objet de stratégie de groupe**, cliquez sur **Parcourir**. La boîte de dialogue **Rechercher un objet Stratégie de groupe** s'ouvre.
 5. Dans **Domaines, unités d'organisation et objets de stratégie de groupe liés**, cliquez sur **Stratégie de domaine par défaut**, puis cliquez sur **OK**.
 6. Cliquez sur **Terminer**, puis sur **OK**.
-7. Double-cliquez sur **Stratégie de domaine par défaut**. Dans la console, développez le chemin d’accès suivant : **Configuration utilisateur**, **stratégies**, **Paramètres Windows**, **paramètres de sécurité**.
+7. Double-cliquez sur **Stratégie de domaine par défaut**. Dans la console, développez le chemin suivant : **Configuration utilisateur**, **stratégies**, **Paramètres Windows**, **paramètres de sécurité**.
 8. Cliquez sur **Stratégies de clé publique**. Dans le volet d’informations, double-cliquez sur **Client des services de certificats - Inscription automatique**. La boîte de dialogue **Propriétés** s’ouvre. Configurez les éléments suivants, puis cliquez sur **OK** :
 
      1. Dans **Modèle de configuration**, sélectionnez **Activé**.

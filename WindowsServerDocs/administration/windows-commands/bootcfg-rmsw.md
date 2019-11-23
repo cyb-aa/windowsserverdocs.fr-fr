@@ -22,7 +22,7 @@ ms.locfileid: "71379856"
 ---
 # <a name="bootcfg-rmsw"></a>bootcfg rmsw
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 supprime les options de chargement du système d’exploitation pour une entrée de système d’exploitation spécifiée.
 
@@ -35,12 +35,12 @@ bootcfg /rmsw [/s <computer> [/u <Domain>\<User> [/p <Password>]]] [/mm] [/bv] [
 |      Paramètre       |                                                                                                      Description                                                                                                       |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                                   Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                   |
-| /u <Domain> @ no__t-1 @ no__t-2  |          Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain> @ no__t-2 @ no__t-3. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.          |
+| /u <Domain>\\<User>  |          Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain>\\<User>. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.          |
 |    /p <Password>     |                                                                 Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                  |
-|         /mm          |           supprime l’option/MAXMEM et la valeur de mémoire maximale associée du @no__t spécifié-0. L’option/MAXMEM spécifie la quantité maximale de RAM que le système d’exploitation peut utiliser.            |
-|         /bv          |                     supprime l’option/basevideo du @no__t spécifié. L’option/basevideo indique au système d’exploitation d’utiliser le mode VGA standard pour le pilote vidéo installé.                     |
-|         /So          |                         supprime l’option/SOS du @no__t spécifié-0. L’option/SOS indique au système d’exploitation d’afficher les noms des pilotes de périphériques pendant leur chargement.                          |
-|         /ng          |                         supprime l’option/noguiboot du @no__t spécifié-0. L’option/noguiboot désactive la barre de progression qui s’affiche avant l’invite d’ouverture de session CTRL + ALT + SUPPR.                          |
+|         /mm          |           supprime l’option/MAXMEM et la valeur de mémoire maximale associée de la <OSEntryLineNum>spécifiée. L’option/MAXMEM spécifie la quantité maximale de RAM que le système d’exploitation peut utiliser.            |
+|         /bv          |                     supprime l’option/basevideo du <OSEntryLineNum>spécifié. L’option/basevideo indique au système d’exploitation d’utiliser le mode VGA standard pour le pilote vidéo installé.                     |
+|         /So          |                         supprime l’option/SOS du <OSEntryLineNum>spécifié. L’option/SOS indique au système d’exploitation d’afficher les noms des pilotes de périphériques pendant leur chargement.                          |
+|         /ng          |                         supprime l’option/noguiboot du <OSEntryLineNum>spécifié. L’option/noguiboot désactive la barre de progression qui s’affiche avant l’invite d’ouverture de session CTRL + ALT + SUPPR.                          |
 | /ID <OSEntryLineNum> | Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini à partir duquel les options de chargement du système d’exploitation sont supprimées. La première ligne après l’en-tête de la section [Operating Systems] est 1. |
 |          /?          |                                                                                          Affiche l'aide à l'invite de commandes.                                                                                          |
 

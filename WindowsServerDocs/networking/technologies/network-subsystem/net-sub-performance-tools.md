@@ -18,7 +18,7 @@ ms.locfileid: "71405517"
 ---
 # <a name="performance-tools-for-network-workloads"></a>Outils d’analyse des performances pour les charges de travail de réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour en savoir plus sur les outils de performances.
 
@@ -26,13 +26,13 @@ Cette rubrique contient des sections relatives à l’outil de trafic entre le c
 
 ##  <a name="bkmk_tuning"></a>Outil de trafic entre le client et le serveur
 
-Le trafic client à serveur \(ctsTraffic @ no__t-1 Tool vous permet de créer et de vérifier le trafic réseau.
+Le trafic client à serveur \(ctsTraffic\) outil vous permet de créer et de vérifier le trafic réseau.
 
 Pour plus d’informations et pour télécharger l’outil, consultez [ctsTraffic (trafic client à serveur)](https://github.com/Microsoft/ctsTraffic).
   
 ##  <a name="bkmk_size"></a>Taille de la fenêtre TCP/IP
 
-Pour les adaptateurs de 1 Go, les paramètres indiqués dans le tableau précédent doivent fournir un bon débit, car NTttcp définit la taille de fenêtre TCP par défaut sur 64 K via une option de processeur logique spécifique \(SO_RCVBUF @ no__t-1 pour la connexion. Cela offre de bonnes performances sur un réseau à faible latence.  
+Pour les adaptateurs de 1 Go, les paramètres indiqués dans le tableau précédent doivent fournir un bon débit, car NTttcp définit la taille de fenêtre TCP par défaut sur 64 K via une option de processeur logique spécifique \(SO_RCVBUF\) pour la connexion. Cela offre de bonnes performances sur un réseau à faible latence.  
 
 En revanche, pour les réseaux à latence élevée ou pour les adaptateurs de 10 Go, la valeur de la taille de fenêtre TCP par défaut pour NTttcp génère moins de performances optimales. Dans les deux cas, vous devez ajuster la taille de la fenêtre TCP pour autoriser le produit avec un délai de bande passante supérieur.  
 
@@ -40,7 +40,7 @@ Vous pouvez définir statiquement la taille de la fenêtre TCP sur une valeur é
 
 ##  <a name="bkmk_advisor"></a>Microsoft Server Performance Advisor
 
-Microsoft Server Performance Advisor \(SPA @ no__t-1 permet aux administrateurs informatiques de collecter des mesures pour identifier, comparer et diagnostiquer les problèmes de performances potentiels dans un Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Déploiement de Windows Server 2008. 
+Microsoft Server Performance Advisor \(SPA\) aide les administrateurs informatiques à collecter des mesures pour identifier, comparer et diagnostiquer les problèmes de performances potentiels dans un déploiement de Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008. 
 
 SPA génère des rapports et des graphiques de diagnostic complets et fournit des recommandations pour vous aider à analyser rapidement les problèmes et à développer des actions correctives.  
   

@@ -22,7 +22,7 @@ ms.locfileid: "71371841"
 ---
 # <a name="query"></a>requête
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche des informations sur les processus, les sessions et les serveurs d’hôte de session de Bureau à distance (hôte de session Bureau à distance).
 
@@ -47,4 +47,4 @@ query user
 
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[ &#40;services Bureau à distance&#41; référence des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+[ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

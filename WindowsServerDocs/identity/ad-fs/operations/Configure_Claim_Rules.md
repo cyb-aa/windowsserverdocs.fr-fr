@@ -18,7 +18,7 @@ ms.locfileid: "71407634"
 ---
 # <a name="configure-claim-rules"></a>Configurer les règles de revendication
 
-Dans un modèle d’identité claims @ no__t-0based, la fonction de Services ADFS (AD FS) en tant que services de Fédération consiste à émettre un jeton qui contient un ensemble de revendications. Les règles de revendication régissent les décisions en ce qui concerne les revendications qui AD FS problèmes. Les règles de revendication et toutes les données de configuration du serveur sont stockées dans la base de données de configuration AD FS.  
+Dans un modèle d’identité basé sur des revendications\-, la fonction de Services ADFS (AD FS) en tant que services de Fédération consiste à émettre un jeton qui contient un ensemble de revendications. Les règles de revendication régissent les décisions en ce qui concerne les revendications qui AD FS problèmes. Les règles de revendication et toutes les données de configuration du serveur sont stockées dans la base de données de configuration AD FS.  
   
 AD FS prend des décisions d’émission basées sur les informations d’identité qui lui sont fournies sous la forme de revendications et d’autres informations contextuelles. À un niveau élevé, AD FS agit comme un processeur de règles en acceptant un ensemble de revendications comme entrée, effectue un certain nombre de transformations, puis retourne un ensemble différent de revendications en sortie. 
 

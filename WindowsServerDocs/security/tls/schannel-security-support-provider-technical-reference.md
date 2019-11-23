@@ -22,7 +22,7 @@ ms.locfileid: "71403397"
 ---
 # <a name="schannel-security-support-provider-technical-reference"></a>Informations techniques de référence sur le fournisseur SSP (Security Support Provider) Schannel
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
 
 Cette référence pour les professionnels de l’informatique contient des informations sur le protocole TLS (Transport Layer Security), le protocole protocole SSL (SSL) et le protocole DTLS (Datagram Transport Layer Security) implémenté par la prise en charge de la sécurité Schannel. Fournisseur (SSP).
 
@@ -31,8 +31,8 @@ Ces protocoles permettent de sécuriser les données envoyées entre les applica
 - [Protocole TLS (Transport Layer Security)](transport-layer-security-protocol.md)
 - [Protocole de la couche de transport de datagrammes](datagram-transport-layer-security-protocol.md)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 Authentification [Windows](../windows-authentication/windows-authentication-overview.md)
-[authentification Kerberos](../kerberos/kerberos-authentication-overview.md)
+[l’authentification Kerberos](../kerberos/kerberos-authentication-overview.md)
 
 

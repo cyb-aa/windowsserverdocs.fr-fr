@@ -93,7 +93,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>
                 <ul>
                     <li>Élevé</li>
-                    <li>Moyenne</li>
+                    <li>Moyen</li>
                     <li>Faible</li>
                 </ul>
             </td>
@@ -126,7 +126,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>Pour empêcher une tâche d’être exécutée dans&#39;des heures de travail non inactives</td>
         </tr>
         <tr>
-            <td>Enabled</td>
+            <td>Activé</td>
             <td>Indique si le travail sera exécuté</td>
             <td>Vrai/Faux</td>
             <td>Pour désactiver un travail sans le supprimer</td>
@@ -162,10 +162,10 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>Vous voulez restaurer manuellement les fichiers qui se trouvent sur des sections incorrectes du disque.</td>
         </tr>
         <tr>
-            <td>Start</td>
+            <td>Début</td>
             <td>Spécifie l’heure de début d’un travail</td>
             <td><code>System.DateTime</code></td>
-            <td>La partie <em>Date</em> du <code>System.Datetime</code> fournie pour <em>Démarrer</em> n’est pas pertinente (aussi longtemps qu'&#39;elle se trouve dans le passé), mais la partie <em>heure</em> spécifie le moment où le travail doit démarrer.</td>
+            <td>La partie <em>Date</em> du <code>System.Datetime</code> fournie pour <em>Démarrer</em> n’est pas pertinente (tant qu’elle&#39;est passée), mais la partie <em>heure</em> spécifie le moment où le travail doit démarrer.</td>
         </tr>
         <tr>
             <td>StopWhenSystemBusy</td>
@@ -208,7 +208,7 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>Nombre de fois qu’un bloc est référencé avant d’être dupliqué dans la section de la zone réactive du magasin de blocs. La valeur de la section Hotspot est que les segments &quot;hot @ no__t-1 qui sont référencés ont souvent plusieurs chemins d’accès pour améliorer le temps d’accès.</td>
+            <td>Nombre de fois qu’un bloc est référencé avant d’être dupliqué dans la section de la zone réactive du magasin de blocs. La valeur de la zone de zone réactive est, par conséquent, appelée &quot;les blocs de&quot; à chaud référencés ont souvent plusieurs chemins d’accès pour améliorer le temps d’accès.</td>
             <td>Entiers positifs</td>
             <td>La principale raison de modifier ce nombre est d’accroître le taux de réduction pour les volumes à duplication élevée. En général, la valeur par défaut (100) est le paramètre recommandé, et vous&#39;devez le modifier.</td>
         </tr>
@@ -318,7 +318,7 @@ Par exemple, vous voulez peut-être désactiver le nettoyage de la mémoire comp
 </table>
 
 ## <a id="faq"></a>Forum aux questions
-<a id="faq-use-responsibly"></a>**I a modifié un paramètre de déduplication des données et les tâches sont lentes ou ne se terminent pas, ou les performances de la charge de travail diminuent. Pourquoi ?**  
+<a id="faq-use-responsibly"></a>**J’ai modifié un paramètre de déduplication des données, et les tâches sont lentes ou ne se terminent pas, ou les performances de la charge de travail diminuent. Pourquoi?**  
 Ces paramètres vous confèrent beaucoup de pouvoir sur l’exécution de la déduplication des données. Utilisez-les de manière responsable et [surveillez les performances](run.md#monitoring-dedup).
 
 <a id="faq-running-dedup-jobs-manually"></a>**Je souhaite exécuter un travail de déduplication des données pour le moment, mais je ne veux pas créer une nouvelle planification, puis-je faire cela ?**  

@@ -41,8 +41,8 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Drive1 >|Spécifie le lecteur qui contient le disque source.|
-|@no__t 0Drive2 >|Spécifie le lecteur qui contient le disque de destination.|
+|\<Lecteur1 >|Spécifie le lecteur qui contient le disque source.|
+|\<lecteur2 >|Spécifie le lecteur qui contient le disque de destination.|
 |/v|Vérifie que les informations sont copiées correctement. Cette option ralentit le processus de copie.|
 |/?|Affiche l'aide à l'invite de commandes.|
 

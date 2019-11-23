@@ -22,7 +22,7 @@ ms.locfileid: "71383218"
 ---
 # <a name="create-and-manage-server-groups"></a>créer et gérer des groupes de serveurs
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit comment créer des groupes de serveurs personnalisés définis par l’utilisateur dans Gestionnaire de serveur dans Windows Server.
 

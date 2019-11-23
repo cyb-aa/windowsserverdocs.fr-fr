@@ -17,7 +17,7 @@ ms.locfileid: "71361018"
 ---
 # <a name="configure-and-manage-quorum"></a>Configurer et gérer le quorum
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Cette rubrique fournit des informations générales et des étapes pour configurer et gérer le quorum dans un cluster de basculement Windows Server.
 
@@ -95,7 +95,7 @@ L'attribution de votes peut être vérifiée pour tous les nœuds de cluster via
 
 ## <a name="general-recommendations-for-quorum-configuration"></a>Recommandations générales concernant la configuration d'un quorum
 
-Le logiciel de cluster configure automatiquement le quorum pour un nouveau cluster en fonction du nombre de nœuds configuré et de la disponibilité du stockage partagé. Il s'agit habituellement de la configuration de quorum qui convient le mieux à ce cluster. Cependant, il est judicieux d'examiner la configuration du quorum après avoir créé le cluster et avant de mettre ce dernier en production. Pour afficher la configuration de quorum de cluster détaillée, vous pouvez utiliser l’Assistant validation d’une configuration ou l’applet de commande Windows PowerShell [test-cluster](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) pour exécuter le test **valider la configuration de quorum** . Dans Gestionnaire du cluster de basculement, la configuration de quorum de base s’affiche dans les informations récapitulatives du cluster sélectionné, ou vous pouvez consulter les informations sur les ressources de quorum qui sont renvoyées lorsque vous exécutez le [ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterquorum?view=win10-ps) Windows PowerShell PolicySchedule.
+Le logiciel de cluster configure automatiquement le quorum pour un nouveau cluster en fonction du nombre de nœuds configuré et de la disponibilité du stockage partagé. Il s'agit habituellement de la configuration de quorum qui convient le mieux à ce cluster. Cependant, il est judicieux d'examiner la configuration du quorum après avoir créé le cluster et avant de mettre ce dernier en production. Pour afficher la configuration de quorum de cluster détaillée, vous pouvez utiliser l’Assistant validation d’une configuration ou l’applet de commande Windows PowerShell [test-cluster](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) pour exécuter le test **valider la configuration de quorum** . Dans Gestionnaire du cluster de basculement, la configuration de quorum de base s’affiche dans les informations récapitulatives du cluster sélectionné, ou vous pouvez consulter les informations sur les ressources de quorum qui sont renvoyées lorsque vous exécutez l’applet de commande Windows PowerShell [ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterquorum?view=win10-ps) .
 
 À tout moment, vous pouvez exécuter le test **Valider la configuration de quorum** pour vérifier que la configuration du quorum est optimale pour votre cluster. Les résultats du test indiquent s'il est recommandé de modifier la configuration du quorum et présente les paramètres optimaux. Si une modification est recommandée, vous pouvez utiliser l'Assistant Configuration de quorum du cluster pour appliquer les paramètres recommandés.
 
@@ -157,7 +157,7 @@ L'appartenance au groupe **Administrateurs** local sur chaque serveur en cluster
 
 4. Sélectionnez **Suivant**. Confirmez vos sélections dans la page de confirmation qui s’affiche, puis sélectionnez **suivant**.
 
-Après l’exécution de l’Assistant et la page **Résumé** qui s’affiche, si vous souhaitez afficher un rapport des tâches effectuées par l’Assistant, sélectionnez **afficher le rapport**. Le rapport le plus récent est conservé dans le dossier <em>systemroot</em> **\\Cluster @ no__t-3Rapports** portant le nom **QuorumConfiguration. mht**.
+Après l’exécution de l’Assistant et la page **Résumé** qui s’affiche, si vous souhaitez afficher un rapport des tâches effectuées par l’Assistant, sélectionnez **afficher le rapport**. Le rapport le plus récent est conservé dans le dossier <em>systemroot</em> **\\cluster\\Reports** portant le nom **QuorumConfiguration. mht**.
 
 > [!NOTE]
 > Après avoir configuré le quorum de cluster, nous vous recommandons d'exécuter le test **Valider la configuration de quorum** pour vérifier les paramètres de quorum mis à jour.
@@ -178,7 +178,7 @@ L'exemple suivant modifie la configuration de quorum sur le cluster local pour a
 Set-ClusterQuorum -NodeAndDiskMajority "Cluster Disk 2"
 ```
 
-L'exemple suivant modifie la configuration de quorum sur le cluster local pour adopter une configuration de nœud majoritaire avec témoin. La ressource de partage de fichiers nommée *\\ @ no__t-2CONTOSO-FS @ no__t-3fsw* est configurée en tant que témoin de partage de fichiers.
+L'exemple suivant modifie la configuration de quorum sur le cluster local pour adopter une configuration de nœud majoritaire avec témoin. La ressource de partage de fichiers nommée *\\\\contoso-FS\\FSW* est configurée en tant que témoin de partage de fichiers.
 
 ```PowerShell
 Set-ClusterQuorum -NodeAndFileShareMajority "\\fileserver\fsw"
@@ -310,8 +310,8 @@ Le tableau suivant résume les éléments à prendre en considération et les re
 - Seuls les nœuds de *SiteA* sont initialement configurés avec les votes de quorum. Cela est nécessaire pour éviter que l'état des nœuds de *SiteB* affecte le quorum du cluster.
 - La procédure de récupération peut varier selon que *SiteA* supporte une défaillance temporaire ou une défaillance de longue durée.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations supplémentaires
 
-* [Clustering de basculement](failover-clustering.md)
+* [Clustering avec basculement](failover-clustering.md)
 * [Applets de commande Windows PowerShell pour les clusters de basculement](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)
 * [Fonctionnement du quorum de cluster et de pool](../storage/storage-spaces/understand-quorum.md)

@@ -36,14 +36,14 @@ ksetup /delhosttorealmmap <HostName> <RealmName>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0HostName >|Le nom d’hôte est le nom de l’ordinateur et il peut être indiqué comme nom de domaine complet de l’ordinateur.|
-|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM.|
+|Nom d’hôte \<>|Le nom d’hôte est le nom de l’ordinateur et il peut être indiqué comme nom de domaine complet de l’ordinateur.|
+|\<RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM.|
 
 ## <a name="remarks"></a>Notes
 
 Lorsqu’un mappage hôte à domaine (ou plusieurs hôtes au domaine) existe, cette commande supprime ce mappage.
 
-Le mappage est enregistré dans le registre dans **HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm**. Vous devez vérifier le mappage dans le registre après avoir utilisé cette commande.
+Le mappage est enregistré dans le registre dans **HKEY_LOCAL_MACHINE \system\currentcontolset\lsa\kerberos\hosttorealm**. Vous devez vérifier le mappage dans le registre après avoir utilisé cette commande.
 
 ## <a name="BKMK_Examples"></a>Illustre
 

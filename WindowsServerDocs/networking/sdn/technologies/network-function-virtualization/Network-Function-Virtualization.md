@@ -21,9 +21,9 @@ ms.locfileid: "71355661"
 ---
 # <a name="network-function-virtualization"></a>Virtualisation de fonction réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour en savoir plus sur la virtualisation de fonction réseau, qui vous permet de déployer des appliances de réseau virtuel, telles que le pare-feu de centre de informations, la passerelle RAS mutualisée et l’équilibrage de charge logiciel \(SLB @ no__t-1 multiplexer \(MUX @ NO_ _ t-3.
+Vous pouvez utiliser cette rubrique pour en savoir plus sur la virtualisation de fonction réseau, qui vous permet de déployer des appliances de réseau virtuel, telles que le pare-feu de centre de informations, la passerelle RAS mutualisée et l’équilibrage de charge logiciel \(SLB\) multiplexeur \(multiplexeur\).
   
 >[!NOTE]  
 >En plus de cette rubrique, la documentation sur la virtualisation de fonction réseau suivante est disponible.  
@@ -36,7 +36,7 @@ Dans les centres de développement de logiciels actuels, les fonctions réseau q
 Microsoft a inclus une passerelle autonome en tant qu’appliance virtuelle à partir de Windows Server 2012 R2. Pour plus d’informations, voir [Passerelle Windows Server](https://technet.microsoft.com/library/dn313101.aspx). Désormais, avec Windows Server 2016, Microsoft continue de développer et d’investir dans le marché de la virtualisation des fonctions réseau.  
   
 ## <a name="virtual-appliance-benefits"></a>Avantages des appliances virtuelles  
-Une appliance virtuelle est dynamique et facile à modifier, car il s’agit d’une machine virtuelle prédéfinie et personnalisée. Il peut s’agir d’une ou plusieurs machines virtuelles empaquetées, mises à jour et gérées en tant qu’unité. Avec la mise en réseau SDN (Software Defined Networking), vous bénéficiez de l’agilité et de la flexibilité nécessaires dans l’infrastructure cloud d’aujourd’hui. Exemple :  
+Une appliance virtuelle est dynamique et facile à modifier, car il s’agit d’une machine virtuelle prédéfinie et personnalisée. Il peut s’agir d’une ou plusieurs machines virtuelles empaquetées, mises à jour et gérées en tant qu’unité. Avec la mise en réseau SDN (Software Defined Networking), vous bénéficiez de l’agilité et de la flexibilité nécessaires dans l’infrastructure cloud d’aujourd’hui. Par exemple :  
   
 -   SDN présente le réseau sous la forme d’une ressource regroupée et dynamique.  
   
@@ -90,7 +90,7 @@ La place de marché pour les fonctions de réseau virtualisé augmente rapidemen
 ## <a name="why-microsoft-is-a-great-platform-for-virtual-appliances"></a>Pourquoi Microsoft est une plate-forme idéale pour les appliances virtuelles  
 ![Pile de réseau virtuel](../../../media/Network-Function-Virtualization/Microsoft-Network-Function-Virtualization.png)  
   
-La plate-forme Microsoft a été conçue pour être une plate-forme idéale pour la création et le déploiement d’appliances virtuelles. Voici pourquoi:  
+La plate-forme Microsoft a été conçue pour être une plate-forme idéale pour la création et le déploiement d’appliances virtuelles. Voici pourquoi :  
   
 -   Microsoft fournit des fonctions clés de réseau virtualisé avec Windows Server 2016.  
   

@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376911"
 ---
 # <a name="fsutil-repair"></a>Fsutil Repair
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Administre et surveille les opérations de réparation d’auto-réparation NTFS.
 
@@ -39,16 +39,16 @@ fsutil repair [wait][<WaitType>] <VolumePath>
 |Paramètre|Description|
 |-------------|---------------|
 |énumérer|Énumère la totalité du journal de corruption d’un volume.|
-|@no__t 0volumepath >|Spécifie le volume en tant que nom de lecteur suivi d’un signe deux-points.|
-|@no__t 0LogName >|$Corrupt : ensemble des endommagements confirmés dans le volume.<br />$Verify : un ensemble d’altérations potentielles non vérifiées dans le volume.|
+|\<VolumePath >|Spécifie le volume en tant que nom de lecteur suivi d’un signe deux-points.|
+|\<LogName >|$Corrupt : ensemble des endommagements confirmés dans le volume.<br />$Verify : un ensemble d’altérations potentielles non vérifiées dans le volume.|
 |exécuter|Lance la réparation automatique NTFS.|
-|@no__t 0FileReference >|Spécifie l’ID de fichier NTFS spécifique au volume (numéro de référence du fichier). La référence de fichier comprend le numéro de segment du fichier.|
+|\<de la méthode FileReference >|Spécifie l’ID de fichier NTFS spécifique au volume (numéro de référence du fichier). La référence de fichier comprend le numéro de segment du fichier.|
 |requête|Interroge l’état de réparation automatique du volume NTFS.|
-|jeu|Définit l’état de réparation automatique du volume.|
-|@no__t 0Flags >|Spécifie la méthode de réparation à utiliser lors de la définition de l’état de réparation automatique du volume.<br /><br />Le paramètre **Flags** peut être défini sur trois valeurs :<br /><br />-   **0x01**: Active la réparation générale.<br />-   **0x09**: Avertit les pertes de données potentielles sans réparation.<br />-   **0x00**: Désactive les opérations de réparation d’auto-réparation NTFS.|
+|set|Définit l’état de réparation automatique du volume.|
+|Indicateurs de \<>|Spécifie la méthode de réparation à utiliser lors de la définition de l’état de réparation automatique du volume.<br /><br />Le paramètre **Flags** peut être défini sur trois valeurs :<br /><br />-   **0x01**: active la réparation générale.<br />-   **0x09**: avertit les pertes de données potentielles sans réparation.<br />-   **0x00**: désactive les opérations de réparation d’auto-réparation NTFS.|
 |Département|Interroge l’état d’altération du système ou pour un volume donné.|
-|Qu'|Attend la fin de la ou des réparations. Si NTFS a détecté un problème sur un volume sur lequel il effectue des réparations, cette option permet au système d’attendre la fin de la réparation avant d’exécuter les scripts en attente.|
-|[WaitType {0&#124;1}]|Indique s’il faut attendre la fin de la réparation en cours ou attendre la fin de toutes les réparations. *WaitType* peut être défini sur les valeurs suivantes :<br /><br />-   **0**: Attend la fin de toutes les réparations. (valeur par défaut)<br />-   **1**: Attend la fin de la réparation en cours.|
+|qu'|Attend la fin de la ou des réparations. Si NTFS a détecté un problème sur un volume sur lequel il effectue des réparations, cette option permet au système d’attendre la fin de la réparation avant d’exécuter les scripts en attente.|
+|[WaitType {0&#124;1}]|Indique s’il faut attendre la fin de la réparation en cours ou attendre la fin de toutes les réparations. *WaitType* peut être défini sur les valeurs suivantes :<br /><br />-   **0**: attend la fin de toutes les réparations. (valeur par défaut)<br />-   **1**: attend la fin de la réparation en cours.|
 
 ## <a name="remarks"></a>Notes
 

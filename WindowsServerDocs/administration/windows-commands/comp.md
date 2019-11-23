@@ -38,12 +38,12 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Data1 >|Spécifie l’emplacement et le nom du premier fichier ou ensemble de fichiers que vous souhaitez comparer. Vous pouvez utiliser des caractères génériques **&#42;** (et **?** ) pour spécifier plusieurs fichiers.|
-|@no__t 0Data2 >|Spécifie l’emplacement et le nom du deuxième fichier ou ensemble de fichiers que vous souhaitez comparer. Vous pouvez utiliser des caractères génériques **&#42;** (et **?** ) pour spécifier plusieurs fichiers.|
+|\<données1 >|Spécifie l’emplacement et le nom du premier fichier ou ensemble de fichiers que vous souhaitez comparer. Vous pouvez utiliser des caractères génériques **&#42;** (et **?** ) pour spécifier plusieurs fichiers.|
+|\<données2 >|Spécifie l’emplacement et le nom du deuxième fichier ou ensemble de fichiers que vous souhaitez comparer. Vous pouvez utiliser des caractères génériques **&#42;** (et **?** ) pour spécifier plusieurs fichiers.|
 |/d|Affiche les différences au format décimal. (Le format par défaut est hexadécimal.)|
 |/a|Affiche les différences sous forme de caractères.|
 |/l|Affiche le numéro de la ligne où une différence se produit, au lieu d’afficher l’offset d’octet.|
-|/n = \<Number >|Compare uniquement le nombre de lignes spécifiées pour chaque fichier, même si les fichiers ont des tailles différentes.|
+|/n = nombre\<>|Compare uniquement le nombre de lignes spécifiées pour chaque fichier, même si les fichiers ont des tailles différentes.|
 |/c|Effectue une comparaison qui ne respecte pas la casse.|
 |/OFF [ligne]|Traite les fichiers avec l’attribut hors connexion défini.|
 |/?|Affiche l'aide à l'invite de commandes.|
@@ -93,7 +93,7 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
 ## <a name="BKMK_examples"></a>Illustre
 
-Pour comparer le contenu du répertoire C:\Reports avec le répertoire de sauvegarde \\ @ no__t-1Sales\Backup\April, tapez :
+Pour comparer le contenu du répertoire C:\Reports avec le répertoire de sauvegarde \\\\Sales\Backup\April, tapez :
 ```
 comp c:\reports \\sales\backup\april
 ```

@@ -20,7 +20,7 @@ ms.locfileid: "71366784"
 ---
 # <a name="hyper-v-technology-overview"></a>Présentation de la technologie Hyper-V
 
->S'applique à : Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>S’applique à : Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 Hyper-V est le produit de virtualisation matérielle de Microsoft. Elle vous permet de créer et d’exécuter une version logicielle d’un ordinateur, appelée *machine virtuelle*. Chaque machine virtuelle agit comme un ordinateur complet, exécutant un système d’exploitation et des programmes. Lorsque vous avez besoin de ressources de calcul, les machines virtuelles offrent plus de flexibilité, permettent de gagner du temps et de l’argent, et constituent un moyen plus efficace d’utiliser du matériel que d’exécuter un système d’exploitation sur du matériel physique.
 
@@ -90,14 +90,14 @@ Hyper-V intègre également des outils pour la gestion et la connectivité. Vous
 
 - Gestionnaire Hyper-V
 - [Module Hyper-V pour Windows PowerShell](https://docs.microsoft.com/powershell/module/hyper-v/index)
-- [Connexion à un ordinateur virtuel](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) \(Sometimes appelée vmconnect @ no__t-2
+- [Connexion à un ordinateur virtuel](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) \(parfois appelée vmconnect\)
 - [Windows PowerShell direct](manage/Manage-Windows-virtual-machines-with-PowerShell-Direct.md)
 
 ## <a name="related-technologies"></a>Technologies associées
 
 Voici quelques-unes des technologies de Microsoft qui sont souvent utilisées avec Hyper-V :
 
-- [Clustering de basculement](../../failover-clustering/whats-new-in-failover-clustering.md)
+- [Clustering avec basculement](../../failover-clustering/whats-new-in-failover-clustering.md)
 - [Services Bureau à distance](../../remote/remote-desktop-services/Host-desktops-and-apps-in-Remote-Desktop-Services.md)
 - [System Center Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/overview)
 

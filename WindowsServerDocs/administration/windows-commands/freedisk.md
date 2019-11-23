@@ -22,7 +22,7 @@ ms.locfileid: "71377026"
 ---
 # <a name="freedisk"></a>freedisk
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vérifie si la quantité d’espace disque spécifiée est disponible avant de poursuivre un processus d’installation.
 
@@ -35,9 +35,9 @@ freedisk [/s <computer> [/u [<Domain>\]<User> [/p [<Password>]]]] [/d <Drive>] [
 |       Paramètre       |                                                                                         Description                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     /s <computer>     | Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
-| /u [<Domain> @ no__t-1] <User> |                                            Exécute le script avec les autorisations du compte d’utilisateur spécifié. La valeur par défaut est autorisations système.                                            |
+| /u [<Domain>\\]<User> |                                            Exécute le script avec les autorisations du compte d’utilisateur spécifié. La valeur par défaut est autorisations système.                                            |
 |    /p [<Password>]    |                                                           Spécifie le mot de passe du compte d’utilisateur spécifié dans **/u**.                                                            |
-|      /d <Drive>       |                              Spécifie le lecteur pour lequel vous souhaitez déterminer la disponibilité de l’espace libre. Vous devez spécifier <Drive>for un ordinateur distant.                               |
+|      /d <Drive>       |                              Spécifie le lecteur pour lequel vous souhaitez déterminer la disponibilité de l’espace libre. Vous devez spécifier <Drive>pour un ordinateur distant.                               |
 |        <Value>        |                                     Vérifie la quantité d’espace disque disponible. Vous pouvez spécifier <Value>en octets, Ko, Mo, Go, to, PB, EB, ZB ou YB.                                      |
 
 ## <a name="remarks"></a>Notes

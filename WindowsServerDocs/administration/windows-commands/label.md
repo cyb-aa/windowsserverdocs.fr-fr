@@ -39,8 +39,8 @@ label [/mp] [<Volume>] [<Label>]
 |Paramètre|Description|
 |---------|-----------|
 |/mp|Spécifie que le volume doit être traité comme un point de montage ou un nom de volume.|
-|@no__t 0Volume >|Spécifie une lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume. Si un nom de volume est spécifié, le paramètre **/MP** n’est pas nécessaire.|
-|@no__t 0Label >|Spécifie l’étiquette du volume.|
+|> du volume \<|Spécifie une lettre de lecteur (suivie d’un signe deux-points), d’un point de montage ou d’un nom de volume. Si un nom de volume est spécifié, le paramètre **/MP** n’est pas nécessaire.|
+|Étiquette \<>|Spécifie l’étiquette du volume.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

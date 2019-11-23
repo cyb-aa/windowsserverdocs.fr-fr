@@ -18,7 +18,7 @@ ms.locfileid: "71356168"
 ---
 # <a name="configure-the-cdp-and-aia-extensions-on-ca1"></a>Configurer les extensions CDP et AIA sur CA1
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour configurer le point de distribution de liste de révocation de certificats (CDP) et les paramètres d’accès aux informations de l’autorité (AIA) sur CA1.  
   
@@ -47,7 +47,7 @@ Pour effectuer cette procédure, vous devez être membre du groupe Admins du dom
   
 6.  Sous l’onglet **Extensions** , activez les cases à cocher suivantes :  
   
-    -   **Include dans les listes de révocation de certificats. Les clients l’utilisent pour trouver les emplacements des listes de révocation de certificats delta @ no__t-0  
+    -   **Inclure dans les listes CRL. les clients l’utilisent pour trouver les emplacements des listes de révocation de certificats delta**  
   
     -   **Inclure dans l’extension CDP des certificats émis**  
   

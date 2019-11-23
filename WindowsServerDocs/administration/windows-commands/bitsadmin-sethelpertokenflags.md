@@ -21,9 +21,9 @@ ms.locfileid: "71380583"
 ---
 # <a name="bitsadmin-sethelpertokenflags"></a>Bitsadmin sethelpertokenflags
 
-Définit les indicateurs d’utilisation d’un [jeton d’assistance](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)  que est associé à une tâche de transfert bits.
+Définit les indicateurs d’utilisation d’un [jeton d’assistance](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs) associé à une tâche de transfert bits.
 
-**BITS 3,0 et versions antérieures**: Non pris en charge.
+**BITS 3,0 et versions antérieures**: non pris en charge.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,7 +36,7 @@ bitsadmin /SetHelperTokenFlags <Job> <Flags>
 |Paramètre|Description|
 |---------|-----------|
 |Tâche|Nom complet ou GUID du travail.|
-|Flags|Les valeurs possibles sont les suivantes. 0x0001 @ no__t-0The jeton d’assistance permet d’ouvrir le fichier local d’un travail de chargement, de créer ou de renommer le fichier temporaire d’un travail de téléchargement, ou de créer ou de renommer le fichier de réponse d’une tâche de chargement-réponse. 0x0002 @ no__t-0The jeton d’assistance est utilisé pour ouvrir le fichier distant d’un travail de chargement ou de téléchargement SMB (Server Message Block), ou en réponse à un serveur HTTP ou à un problème de proxy pour les informations d’identification NTLM ou Kerberos implicites. Vous devez appeler @ no__t-0 @ no__t-1Pour autoriser l’envoi des informations d’identification via HTTP.|
+|Flags|Les valeurs possibles sont les suivantes. 0x0001&mdash;le jeton d’assistance permet d’ouvrir le fichier local d’un travail de chargement, de créer ou de renommer le fichier temporaire d’un travail de téléchargement, ou de créer ou de renommer le fichier de réponse d’une tâche de chargement-réponse. 0x0002&mdash;le jeton d’assistance est utilisé pour ouvrir le fichier distant d’un travail de chargement ou de téléchargement SMB (Server Message Block), ou en réponse à un serveur HTTP ou à un problème de proxy pour les informations d’identification NTLM ou Kerberos implicites. Vous devez appeler `/SetCredentialsJob TargetScheme NULL NULL` pour permettre l’envoi des informations d’identification via HTTP.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 

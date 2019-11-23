@@ -37,9 +37,9 @@ Une fois que l’administrateur de l’infrastructure a capturé les information
     > Si vous rencontrez une erreur lors de l’ajout d’un identificateur TPM concernant un certificat de clé de type EK non approuvé (EKCert), assurez-vous que les [certificats racines TPM approuvés ont été ajoutés](guarded-fabric-install-trusted-tpm-root-certificates.md) au nœud SGH.
     > En outre, certains fournisseurs de module de plateforme sécurisée n’utilisent pas EKCerts.
     > Vous pouvez vérifier si un EKCert est manquant en ouvrant le fichier XML dans un éditeur tel que le bloc-notes et en recherchant un message d’erreur indiquant qu’aucun EKCert n’a été trouvé.
-    > Si c’est le cas et que vous faites confiance à l’authenticité du module de plateforme sécurisée de votre ordinateur, vous pouvez utiliser l’indicateur `-Force` pour remplacer ce contrôle de sécurité et ajouter l’identificateur d’hôte à SGH.
+    > Si c’est le cas et que vous faites confiance à l’authenticité du module TPM de votre ordinateur, vous pouvez utiliser l’indicateur `-Force` pour remplacer ce contrôle de sécurité et ajouter l’identificateur d’hôte à SGH.
 
-2. Obtenez la stratégie d’intégrité du code que l’administrateur de l’infrastructure a créée pour les ordinateurs hôtes, au format binaire (@no__t 1/-0. p7b). Copiez-le sur un serveur SGH. Exécutez ensuite la commande suivante.
+2. Obtenez la stratégie d’intégrité du code que l’administrateur de l’infrastructure a créée pour les ordinateurs hôtes, au format binaire (\*. p7b). Copiez-le sur un serveur SGH. Exécutez ensuite la commande suivante.
 
     Pour `<PolicyName>`, spécifiez un nom pour la stratégie CI qui décrit le type d’hôte auquel elle s’applique. Une bonne pratique consiste à la nommer après la marque/le modèle de votre machine et toute configuration logicielle spéciale exécutée sur celle-ci.<br>Pour `<Path>`, spécifiez le chemin d’accès et le nom de fichier de la stratégie d’intégrité du code.
 

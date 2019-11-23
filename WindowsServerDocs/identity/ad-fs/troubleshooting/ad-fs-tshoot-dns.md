@@ -29,7 +29,7 @@ Vérifie la connectivité de niveau IP à un autre ordinateur TCP/IP en envoyant
 
 ### <a name="to-use-a-ping-test"></a>Pour utiliser un test PING
 1.  Ouvrir une invite de commandes
-2. Entrez PING <name of adfs server> a. Exemple :  PING sts.contoso.com
+2. Entrez PING <name of adfs server> a. Exemple : PING sts.contoso.com
 3. Vous devez voir une réponse du serveur
 
 ![Ping](media/ad-fs-tshoot-dns/dns1.png)
@@ -40,7 +40,7 @@ Affiche des informations que vous pouvez utiliser pour diagnostiquer l’infrast
 ### <a name="to-use-a-nslookup"></a>Pour utiliser une NSLookup
 1.  Ouvrir une invite de commandes
 2. Entrez PING <name of adfs server> a. Exemple : nslookup sts.contoso.com
-3. Vous devez voir les informations DNS pour le serveur ![NSLookup @ no__t-1
+3. Vous devez voir les informations DNS pour le serveur ![NSLookup](media/ad-fs-tshoot-dns/dns2.png)
 
 ## <a name="tracert"></a>Tracert
 Détermine le chemin d’accès à une destination en envoyant la demande d’écho ICMP (Internet Control Message Protocol) ou des messages ICMPv6 à la destination avec des valeurs de champ TTL (Time to Live) de manière incrémentielle.   Pour plus d’informations, consultez [tracert](https://technet.microsoft.com/library/ff961507.aspx).
@@ -49,7 +49,7 @@ Détermine le chemin d’accès à une destination en envoyant la demande d’é
 ### <a name="to-use-tracert"></a>Pour utiliser tracert
 1.  Ouvrir une invite de commandes
 2. Entrez tracert <name of adfs server> a. Exemple : tracert sts.contoso.com
-3. Vous devez voir le chemin d’accès de destination utilisé pour atteindre le serveur ![Tracert @ no__t-1
+3. Vous devez voir le chemin d’accès de destination utilisé pour atteindre le serveur ![tracert](media/ad-fs-tshoot-dns/dns3.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

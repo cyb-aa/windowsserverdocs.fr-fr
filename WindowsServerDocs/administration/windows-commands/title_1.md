@@ -38,7 +38,7 @@ title [<String>]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0String >|Spécifie le titre de la fenêtre d’invite de commandes.|
+|Chaîne \<>|Spécifie le titre de la fenêtre d’invite de commandes.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

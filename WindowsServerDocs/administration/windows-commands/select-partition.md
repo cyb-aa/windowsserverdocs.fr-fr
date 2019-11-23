@@ -22,7 +22,7 @@ ms.locfileid: "71371069"
 ---
 # <a name="select-partition"></a>sélectionner une partition
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 sélectionne la partition spécifiée et lui déplace le focus. Cette commande peut également être utilisée pour afficher la partition qui a actuellement le focus sur le disque sélectionné.  
   
@@ -38,7 +38,7 @@ select partition=<n>
   
 |   Paramètre    |                                                                                    Description                                                                                    |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| partition @ no__t-0 @ no__t-1 | Numéro de la partition qui doit recevoir le focus. Vous pouvez afficher les numéros de toutes les partitions sur le disque actuellement sélectionné à l’aide de la commande **List partition** dans DiskPart. |
+| partition\=<n> | Numéro de la partition qui doit recevoir le focus. Vous pouvez afficher les numéros de toutes les partitions sur le disque actuellement sélectionné à l’aide de la commande **List partition** dans DiskPart. |
   
 ## <a name="remarks"></a>Notes  
   

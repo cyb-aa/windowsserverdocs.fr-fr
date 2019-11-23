@@ -24,7 +24,7 @@ ms.locfileid: "71380280"
 
 Si le service BITS ne parvient pas à démarrer, utilisez ce commutateur pour résoudre les problèmes connus liés aux différentes versions de BITS.
 
-**BITSAdmin 1,5 et versions antérieures :**  Not pris en charge.
+**BITSAdmin 1,5 et versions antérieures :**  pas pris en charge.
 
 ## <a name="syntax"></a>Syntaxe
 

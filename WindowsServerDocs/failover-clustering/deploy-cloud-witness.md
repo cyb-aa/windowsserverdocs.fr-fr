@@ -27,7 +27,7 @@ Cloud Witness est un type de témoin de quorum de cluster de basculement qui uti
 La figure 1 illustre une configuration de quorum de cluster de basculement étiré sur plusieurs sites avec Windows Server 2016. Dans cet exemple de configuration (figure 1), il existe 2 nœuds dans 2 centres de centres (appelés sites). Notez qu’il est possible qu’un cluster s’étende sur plus de 2 centres de informations. En outre, chaque centre de informations peut avoir plus de 2 nœuds. Une configuration de quorum de cluster classique dans cette installation (contrat SLA de basculement automatique) donne à chaque nœud un vote. Un vote supplémentaire est donné au témoin de quorum pour permettre au cluster de continuer à s’exécuter même si l’un des centres de données rencontre une panne d’alimentation. La mathématique est simple : il y a 5 votes au total et vous avez besoin de 3 votes pour que le cluster reste en cours d’exécution.  
 
 ![Témoin de partage de fichiers dans un troisième site distinct avec 2 nœuds dans 2 autres sites témoin de partage de](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "fichiers")  
-**Figure 1 : Utilisation d’un témoin de partage de fichiers en tant que témoin de quorum @ no__t-0  
+**Figure 1 : utilisation d’un témoin de partage de fichiers en tant que témoin de quorum**  
 
 En cas de panne de courant dans un centre de donnes, afin d’offrir la même possibilité au cluster dans un autre centre de donnes de le maintenir en cours d’exécution, il est recommandé d’héberger le témoin de quorum dans un emplacement autre que les deux centres de donnes. Cela signifie généralement que vous avez besoin d’un troisième centre de centres (site) distinct pour héberger un serveur de fichiers qui sauvegarde le partage de fichiers utilisé comme témoin de quorum (témoin de partage de fichiers).  
 
@@ -42,12 +42,12 @@ Cette approche présente des avantages significatifs :
 4. $Cost très faible sur le compte de stockage (données très petites écrites par fichier BLOB, fichier BLOB mis à jour une seule fois lors de la modification de l’état des nœuds du cluster).  
 5. Type de ressource témoin Cloud intégré.  
 
-![Diagram illustrant un cluster étendu à plusieurs sites avec un témoin Cloud comme témoin de quorum @ no__t-1  
-**Figure 2: Clusters étirés sur plusieurs sites avec un témoin Cloud comme témoin de quorum @ no__t-0  
+Diagramme de ![illustrant un cluster étendu à plusieurs sites avec un témoin Cloud en tant que témoin de quorum](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_2.png)  
+**Figure 2 : clusters étirés sur plusieurs sites avec un témoin de Cloud en tant que témoin de quorum**  
 
 Comme illustré à la figure 2, aucun autre site distinct n’est requis. Le témoin Cloud, comme tout autre témoin de quorum, obtient un vote et peut participer aux calculs de quorum.  
 
-## <a name="CloudWitnessSupportedScenarios"></a>Témoin Cloud : Scénarios pris en charge pour un type de témoin unique
+## <a name="CloudWitnessSupportedScenarios"></a>Témoin Cloud : scénarios pris en charge pour un type de témoin unique
 Si vous avez un déploiement de cluster de basculement, où tous les nœuds peuvent accéder à Internet (par extension d’Azure), il est recommandé de configurer un témoin de cloud comme ressource de témoin de quorum.  
 
 Voici quelques-uns des scénarios pris en charge pour l’utilisation d’un témoin de Cloud en tant que témoin de quorum :  
@@ -96,8 +96,8 @@ Lorsque vous créez un compte Stockage Microsoft Azure, il est associé à deux 
 
 Dans le portail Azure, accédez à votre compte de stockage, cliquez sur **tous les paramètres** , puis cliquez sur **clés d’accès** pour afficher, copier et régénérer les clés d’accès de votre compte. Le panneau clés d’accès comprend également des chaînes de connexion préconfigurées à l’aide de vos clés primaires et secondaires que vous pouvez copier pour les utiliser dans vos applications (voir figure 4).
 
-![Snapshot de la boîte de dialogue gérer les clés d’accès dans Microsoft Azure @ no__t-1  
-**Figure 4 : Clés d’accès de stockage @ no__t-0
+![instantané de la boîte de dialogue gérer les clés d’accès dans Microsoft Azure](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_4.png)  
+**Figure 4 : clés d’accès de stockage**
 
 ### <a name="view-and-copy-endpoint-url-links"></a>Afficher et copier des liens URL de point de terminaison  
 Lorsque vous créez un compte de stockage, les URL suivantes sont générées à l’aide du format : `https://<Storage Account Name>.<Storage Type>.<Endpoint>`  
@@ -110,8 +110,8 @@ Le témoin Cloud utilise toujours l' **objet BLOB** comme type de stockage. Azur
 #### <a name="to-view-and-copy-endpoint-url-links"></a>Pour afficher et copier des liens URL de point de terminaison
 Dans le portail Azure, accédez à votre compte de stockage, cliquez sur **tous les paramètres** , puis cliquez sur **Propriétés** pour afficher et copier vos URL de point de terminaison (voir figure 5).  
 
-![Snapshot des liens de point de terminaison du témoin de Cloud @ no__t-1  
-@no__t 0Figure 5 : Liens URL du point de terminaison du témoin de Cloud @ no__t-0
+![instantané des liens du point de terminaison du témoin de Cloud](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_5.png)  
+**Figure 5 : liens URL de point de terminaison de Cloud témoin**
 
 Pour plus d’informations sur la création et la gestion des comptes de stockage Azure, consultez [à propos des comptes de stockage Azure](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
@@ -120,18 +120,18 @@ La configuration du témoin Cloud est bien intégrée dans l’Assistant Configu
 
 ### <a name="to-configure-cloud-witness-as-a-quorum-witness"></a>Pour configurer le témoin de Cloud en tant que témoin de quorum
 1. Lancez Gestionnaire du cluster de basculement.
-2. Cliquez avec le bouton droit sur le cluster-> **plus d’Actions** ->  configurer les paramètres de**quorum du cluster** (voir figure 6). Cela lance l’Assistant Configuration du quorum du cluster.  
-    ![Snapshot du chemin d’accès au menu pour configurer les paramètres de quorum du cluster dans l’interface utilisateur Gestionnaire du cluster de basculement @ no__t-1 **Figure 6. Paramètres de quorum du cluster @ no__t-0
+2. Cliquez avec le bouton droit sur le cluster-> **plus d’Actions** -> configurer les paramètres de **quorum du cluster** (voir figure 6). Cela lance l’Assistant Configuration du quorum du cluster.  
+    ![instantané du chemin d’accès du menu aux paramètres de quorum du cluster configurer dans l’interface utilisateur Gestionnaire du cluster de basculement](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_7.png) **figure 6. Paramètres de quorum du cluster**
 
 3. Dans la page **Sélectionner les configurations de quorum** , sélectionnez **Sélectionner le témoin de quorum** (voir la figure 7).  
 
-    ![Snapshot de la case d’option « Sélectionner le témoin quotrum » dans l’Assistant quorum de cluster @ no__t-1  
-    @no__t 0Figure 7. Sélectionnez la configuration de quorum @ no__t-0
+    ![instantané de la case d’option « Sélectionner le témoin quotrum » dans l’Assistant quorum du cluster](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_8.png)  
+    **Figure 7. Sélectionner la configuration de quorum**
 
 4. Dans la page **Sélectionner le témoin de quorum** , sélectionnez **configurer un témoin de Cloud** (voir figure 8).  
 
-    ![Snapshot de la case d’option appropriée pour sélectionner un témoin de Cloud @ no__t-1  
-    **Figure 8. Sélectionner le témoin de quorum @ no__t-0  
+    ![instantané de la case d’option appropriée pour sélectionner un témoin de Cloud](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_9.png)  
+    **Figure 8. Sélectionner le témoin de quorum**  
 
 5. Dans la page **configurer le témoin Cloud** , entrez les informations suivantes :  
    1. (Paramètre obligatoire) Nom du compte de stockage Azure.  
@@ -140,18 +140,18 @@ La configuration du témoin Cloud est bien intégrée dans l’Assistant Configu
        2. Lors de la rotation de la clé d’accès primaire, utilisez la clé d’accès secondaire (voir figure 5)  
    3. (Paramètre facultatif) Si vous envisagez d’utiliser un autre point de terminaison de service Azure (par exemple, le service Microsoft Azure en Chine), mettez à jour le nom du serveur de point de terminaison.  
 
-      ![Snapshot du volet de configuration du témoin de Cloud dans l’Assistant quorum de cluster @ no__t-1  
-      **Figure 9 : Configurer votre témoin de Cloud @ no__t-0
+      ![instantané du volet de configuration du témoin Cloud dans l’Assistant quorum du cluster](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
+      **Figure 9 : configurer votre témoin Cloud**
 
 6. Une fois la configuration du témoin Cloud terminée, vous pouvez afficher la ressource témoin nouvellement créée dans le composant logiciel enfichable Gestionnaire du cluster de basculement (voir figure 10).
 
-    configuration de @no__t 0Successful du témoin de Cloud @ no__t-1  
-    @no__t 0Figure 10 : Configuration réussie du témoin de Cloud @ no__t-0
+    ![de la configuration réussie du témoin de Cloud](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_11.png)  
+    **Figure 10 : configuration réussie d’un témoin Cloud**
 
 ### <a name="configuring-cloud-witness-using-powershell"></a>Configuration d’un témoin de Cloud à l’aide de PowerShell  
 La commande PowerShell Set-ClusterQuorum existante possède de nouveaux paramètres supplémentaires correspondant au témoin Cloud.  
 
-Vous pouvez configurer le témoin de Cloud à l’aide de la commande PowerShell [`Set-ClusterQuorum`](https://technet.microsoft.com/library/ee461013.aspx) suivante :  
+Vous pouvez configurer le témoin de Cloud à l’aide de la [`Set-ClusterQuorum`](https://technet.microsoft.com/library/ee461013.aspx) commande PowerShell suivante :  
 
 ```PowerShell
 Set-ClusterQuorum -CloudWitness -AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey>

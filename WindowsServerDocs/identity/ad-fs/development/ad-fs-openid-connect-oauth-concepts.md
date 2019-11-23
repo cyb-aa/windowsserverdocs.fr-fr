@@ -47,20 +47,20 @@ Chaque client OAuth (application native ou Web) ou ressource (API Web) configur�
 ## <a name="security-tokens"></a>Jetons de sécurité 
  
 L’authentification moderne utilise les types de jetons suivants : 
-- **id_token**: Un jeton JWT émis par le serveur d’autorisation (AD FS) et consommé par le client. Les revendications dans le jeton d’ID contiennent des informations sur l’utilisateur afin que ce dernier puisse l’utiliser.  
-- **access_token**: Jeton JWT émis par le serveur d’autorisation (AD FS) et destiné à être consommé par la ressource. La revendication « AUD » ou audience de ce jeton doit correspondre à l’identificateur de la ressource ou de l’API Web.  
-- **refresh_token**: Il s’agit d’un jeton émis par AD FS que le client doit utiliser pour actualiser les id_token et les access_token. Le jeton est opaque pour le client et ne peut être consommé que par AD FS.  
+- **id_token**: jeton JWT émis par le serveur d’autorisation (AD FS) et consommé par le client. Les revendications dans le jeton d’ID contiennent des informations sur l’utilisateur afin que ce dernier puisse l’utiliser.  
+- **access_token**: jeton JWT émis par le serveur d’autorisation (AD FS) et destiné à être consommé par la ressource. La revendication « AUD » ou audience de ce jeton doit correspondre à l’identificateur de la ressource ou de l’API Web.  
+- **refresh_token**: jeton émis par AD FS que le client doit utiliser pour actualiser le id_token et le access_token. Le jeton est opaque pour le client et ne peut être consommé que par AD FS.  
 
 ## <a name="scopes"></a>Étendues 
  
 Lors de l’inscription d’une ressource dans AD FS, les étendues peuvent être configurées pour permettre à AD FS d’effectuer des actions spécifiques. Outre la configuration de l’étendue, la valeur d’étendue doit également être envoyée dans la demande de AD FS pour effectuer l’action. Par exemple, l’administrateur doit configurer l’étendue comme OpenID lors de l’inscription de la ressource, et l’application (client) doit envoyer Scope = OpenID dans la demande d’authentification de AD FS pour émettre un jeton d’ID. Vous trouverez ci-dessous des informations sur les étendues disponibles dans AD FS 
  
-- aza-si vous utilisez des [extensions de protocole OAuth 2,0 pour les clients Service Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) and si le paramètre scope contient l’étendue « aza », le serveur émet un nouveau jeton d’actualisation principal et le définit dans le champ refresh_token de la réponse, ainsi que la définition de refresh_ champ token_expires_in à la durée de vie du nouveau jeton d’actualisation principal s’il est appliqué. 
+- aza-si vous utilisez des [extensions de protocole OAuth 2,0 pour les clients Service Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) et si le paramètre scope contient l’étendue « aza », le serveur émet un nouveau jeton d’actualisation principal et le définit dans le champ refresh_token de la réponse, ainsi que la définition du champ refresh_token_expires_in sur la durée de vie du nouveau jeton d’actualisation principal, le cas échéant. 
 - OpenID : permet à l’application de demander l’utilisation du protocole d’autorisation OpenID Connect. 
-- logon_cert : l’étendue logon_cert permet à une application de demander des certificats d’ouverture de session, qui peuvent être utilisés pour ouvrir une session de manière interactive sur des utilisateurs authentifiés. Le serveur AD FS omet le paramètre access_token de la réponse et fournit à la place une chaîne de certificats CMS encodée en base64 ou une réponse PKI complète CMC. Plus de détails disponibles [ici](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
-- user_impersonation : l’étendue user_impersonation est nécessaire pour demander un jeton d’accès au nom de AD FS. Pour plus d’informations sur l’utilisation de cette étendue, reportez-vous à la [page créer une application à plusieurs niveaux à l’aide de OBO (au nom de) à l’aide d’OAuth avec AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 
+- logon_cert : l’étendue des logon_cert permet à une application de demander des certificats d’ouverture de session, qui peuvent être utilisés pour ouvrir une session de manière interactive sur des utilisateurs authentifiés. Le serveur AD FS omet le paramètre access_token de la réponse et fournit à la place une chaîne de certificats CMS encodée en base64 ou une réponse PKI complète CMC. Plus de détails disponibles [ici](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
+- user_impersonation : l’étendue de la user_impersonation est nécessaire pour demander un jeton d’accès au nom de AD FS. Pour plus d’informations sur l’utilisation de cette étendue, reportez-vous à la [page créer une application à plusieurs niveaux à l’aide de OBO (au nom de) à l’aide d’OAuth avec AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 
 - allatclaims : l’étendue allatclaims permet à l’application de demander des revendications dans le jeton d’accès à ajouter également dans le jeton d’ID.   
-- vpn_cert : l’étendue vpn_cert permet à une application de demander des certificats VPN, qui peuvent être utilisés pour établir des connexions VPN à l’aide de l’authentification EAP-TLS. Cela n’est plus pris en charge. 
+- vpn_cert : l’étendue des vpn_cert permet à une application de demander des certificats VPN, qui peuvent être utilisés pour établir des connexions VPN à l’aide de l’authentification EAP-TLS. Cela n’est plus pris en charge. 
 - e-mail : permet à l’application de demander une revendication de courrier électronique pour l’utilisateur connecté.  
 - Profil : permet à l’application de demander des revendications liées au profil pour l’utilisateur de connexion.  
 
@@ -106,22 +106,22 @@ Les jetons de sécurité (jetons d’accès et d’ID) émis par AD FS contienne
 ## <a name="types-of-libraries"></a>Types de bibliothèques 
   
 Deux types de bibliothèques sont utilisés avec AD FS : 
-- **Bibliothèques clientes**: Les clients natifs et les applications serveur utilisent des bibliothèques clientes pour acquérir des jetons d’accès pour appeler une ressource telle qu’une API Web. La bibliothèque d’authentification Microsoft (MSAL) est la bibliothèque cliente la plus récente et la plus recommandée lors de l’utilisation de AD FS 2019. Bibliothèque d’authentification Active Directory (ADAL) est recommandé pour AD FS 2016.  
+- **Bibliothèques clientes**: les clients natifs et les applications serveur utilisent des bibliothèques clientes pour obtenir des jetons d’accès pour appeler une ressource telle qu’une API Web. La bibliothèque d’authentification Microsoft (MSAL) est la bibliothèque cliente la plus récente et la plus recommandée lors de l’utilisation de AD FS 2019. Bibliothèque d’authentification Active Directory (ADAL) est recommandé pour AD FS 2016.  
 
-- **Bibliothèques de middleware de serveur**: Les applications Web utilisent des bibliothèques de middleware de serveur pour la connexion des utilisateurs. Les API Web utilisent des bibliothèques de middleware de serveur pour valider les jetons envoyés par les clients natifs ou par d’autres serveurs. OWIN (Open Web interface pour .NET) est la bibliothèque middleware recommandée. 
+- **Bibliothèques de middleware de serveur**: les applications Web utilisent des bibliothèques de middleware de serveur pour la connexion des utilisateurs. Les API Web utilisent des bibliothèques de middleware de serveur pour valider les jetons envoyés par les clients natifs ou par d’autres serveurs. OWIN (Open Web interface pour .NET) est la bibliothèque middleware recommandée. 
 
 ## <a name="customize-id-token-additional-claims-in-id-token"></a>Personnaliser le jeton d’ID (revendications supplémentaires dans le jeton d’ID)
  
 Dans certains scénarios, il est possible que l’application Web (client) ait besoin de revendications supplémentaires dans un jeton d’ID pour aider à la fonctionnalité. Pour ce faire, vous pouvez utiliser l’une des options suivantes. 
 
-**Option 1 :** Doit être utilisé lors de l’utilisation d’un client public et l’application Web n’a pas de ressource à laquelle il tente d’accéder. L’option requiert 
-1.  response_mode défini en tant que form_post 
+**Option 1 :** Doit être utilisé lors de l’utilisation d’un client public et l’application Web n’a pas de ressource à laquelle il tente d’accéder. L’option requiert 
+1.  response_mode défini comme form_post 
 2.  L’identificateur de partie de confiance (identificateur d’API Web) est identique à l’identificateur de client
 
 ![AD FS option de personnalisation de jeton 1](media/adfs-modern-auth-concepts/option1.png)
 
 **Option 2 :** Doit être utilisé lorsque l’application Web a une ressource à laquelle elle tente d’accéder et qu’elle doit passer des revendications supplémentaires par le biais du jeton d’ID. Les clients publics et confidentiels peuvent être utilisés. L’option requiert 
-1.  response_mode défini en tant que form_post 
+1.  response_mode défini comme form_post 
 2.  KB4019472 est installé sur vos serveurs AD FS 
 3.  Étendue allatclaims assignée à la paire client-RP. Vous pouvez assigner l’étendue à l’aide de l’applet de commande PowerShell Grant-ADFSApplicationPermission (utilisez Set-AdfsApplicationPermission si elle a déjà été accordée une fois) comme indiqué dans l’exemple ci-dessous : 
 

@@ -21,9 +21,9 @@ ms.locfileid: "71388771"
 ---
 # <a name="step-1-configure-the-directaccess-infrastructure"></a>Étape 1 configurer l’infrastructure DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Cette rubrique décrit comment configurer l'infrastructure requise pour activer DirectAccess dans un déploiement VPN existant. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [Step 1 : Planifier l’infrastructure DirectAccess @ no__t-0.  
+Cette rubrique décrit comment configurer l'infrastructure requise pour activer DirectAccess dans un déploiement VPN existant. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [étape 1 : planifier l’infrastructure DirectAccess](Step-1-Plan-DirectAccess-Infrastructure.md).  
   
 |Tâche|Description|  
 |----|--------|  
@@ -144,7 +144,7 @@ Assurez-vous que le certificat de site web pour l'authentification IP-HTTPS est 
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>Pour installer le certificat IP-HTTPS à partir d'une autorité de certification interne  
   
-1.  Sur le serveur d'accès à distance : Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
+1.  Sur le serveur d’accès à distance : dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
@@ -179,7 +179,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 ### <a name="NLS_DNS"></a>Pour créer le serveur d’emplacement réseau et les enregistrements DNS de sonde Web  
   
-1.  Sur le serveur DNS du réseau interne : Dans l’écran d' **Accueil** , tapez * * dnsmgmt. msc * *, puis appuyez sur entrée.  
+1.  Sur le serveur DNS du réseau interne : dans l’écran d' **Accueil** , tapez * * dnsmgmt. msc * *, puis appuyez sur entrée.  
   
 2.  Dans le volet gauche de la console **Gestionnaire DNS**, développez la zone de recherche directe de votre domaine. Cliquez avec le bouton droit sur le domaine, puis cliquez sur **Nouvel hôte (A ou AAAA)** .  
   
@@ -189,7 +189,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 5.  Cliquez sur **Terminé**.  
 
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -202,7 +202,7 @@ Vous devez également configurer les entrées DNS pour les éléments suivants�
   
 -   **Le serveur IP-HTTPS**-les clients DirectAccess doivent être en mesure de résoudre le nom DNS du serveur d’accès à distance à partir d’Internet.  
   
--   **Vérification de la révocation de la liste de**révocation de certificats : DirectAccess utilise la vérification de la révocation des certificats pour la connexion IP-HTTPS entre les clients DirectAccess et le serveur d’accès à distance, ainsi que pour la connexion HTTPS entre le client DirectAccess et le réseau serveur d’emplacement. Dans les deux cas, les clients DirectAccess doivent être en mesure de résoudre le point de distribution de liste de révocation de certificats et d'y accéder.  
+-   **Vérification de la révocation**des certificats : DirectAccess utilise la vérification de la révocation des certificats pour la connexion IP-HTTPS entre les clients DirectAccess et le serveur d’accès à distance, ainsi que pour la connexion HTTPS entre le client DirectAccess et le serveur d’emplacement réseau. Dans les deux cas, les clients DirectAccess doivent être en mesure de résoudre le point de distribution de liste de révocation de certificats et d'y accéder.  
   
 ## <a name="ConfigAD"></a>Configurer Active Directory  
 Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doivent être joints à un domaine Active Directory. Les ordinateurs clients DirectAccess doivent être membres de l'un des types de domaines suivants :  
@@ -233,7 +233,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 9. Dans la boîte de dialogue **Propriétés système**, cliquez sur Fermer. Lorsque vous y êtes invité, cliquez sur **Redémarrer maintenant**.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -277,7 +277,7 @@ Les paramètres DirectAccess contenus dans l’objet stratégie de groupe de l�
   
 6.  Dans la boîte de dialogue **Sélectionner Utilisateurs, contacts, ordinateurs ou comptes de service**, sélectionnez les ordinateurs clients que vous voulez activer pour DirectAccess, puis cliquez sur **OK**.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**commandes Windows PowerShell équivalentes** @no__t 0Windows PowerShell  
+![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -307,7 +307,7 @@ Le serveur d'emplacement réseau doit être sur un serveur avec un haut niveau d
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>Pour installer le certificat du serveur Emplacement réseau à partir d'une autorité de certification interne  
   
-1.  Sur le serveur qui hébergera le site web du serveur Emplacement réseau : Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
+1.  Sur le serveur qui hébergera le site Web du serveur emplacement réseau : dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   

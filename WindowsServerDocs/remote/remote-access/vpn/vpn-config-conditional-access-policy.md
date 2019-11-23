@@ -24,20 +24,20 @@ ms.locfileid: "71404342"
 ---
 # <a name="step-73-configure-the-conditional-access-policy"></a>Étape 7.3. Configurer la stratégie d’accès conditionnel
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Premier** Étape 7.2. Créer des certificats racine pour l’authentification VPN avec Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
-- [**Situé** Étape 7.4. Déployer des certificats racine d’accès conditionnel vers AD @ no__t-0
+- [**Précédent :** Étape 7,2. Créer des certificats racines pour l’authentification VPN avec Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Ensuite :** Étape 7,4. Déployer des certificats racine d’accès conditionnel vers AD local](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
 
 Dans cette étape, vous configurez la stratégie d’accès conditionnel pour la connectivité VPN. Lorsque le premier certificat racine est créé dans le panneau « connectivité VPN », il crée automatiquement une application Cloud « serveur VPN » dans le locataire.
 
 Créer une stratégie d’accès conditionnel qui est affectée au groupe d’utilisateurs VPN et étendre l' **application Cloud** au **serveur VPN**:
 
-- **Utilisateurs** : Utilisateurs VPN
-- **Application Cloud**: Serveur VPN
-- **Grant (contrôle d’accès)** : « Exiger Multi-Factor Authentication ». D’autres contrôles peuvent être utilisés si vous le souhaitez.
+- **Utilisateurs**: utilisateurs VPN
+- **Application Cloud**: serveur VPN
+- **Grant (contrôle d’accès)** : 'require Multi-Factor Authentication'. D’autres contrôles peuvent être utilisés si vous le souhaitez.
 
-**Procédures** Cette étape couvre la création de la stratégie d’accès conditionnel la plus basique.  Si vous le souhaitez, des conditions et des contrôles supplémentaires peuvent être utilisés.
+**Procédure :** Cette étape couvre la création de la stratégie d’accès conditionnel la plus basique.  Si vous le souhaitez, des conditions et des contrôles supplémentaires peuvent être utilisés.
 
 
 1. Dans la page **accès conditionnel** , dans la barre d’outils située en haut, sélectionnez **Ajouter**.
@@ -94,4 +94,4 @@ Créer une stratégie d’accès conditionnel qui est affectée au groupe d’ut
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Étape 7.4. Déployer des certificats racine d’accès conditionnel vers AD no__t-0 : Dans cette étape, vous allez déployer le certificat racine d’accès conditionnel en tant que certificat racine approuvé pour l’authentification VPN sur votre annuaire Active Directory local.
+[Étape 7,4. Déployer des certificats racines d’accès conditionnel vers AD local](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md): au cours de cette étape, vous allez déployer le certificat racine d’accès conditionnel en tant que certificat racine approuvé pour l’authentification VPN sur votre annuaire Active Directory local.

@@ -17,7 +17,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71392764"
 ---
->S'applique à : Windows 10, Windows Server 2016, Windows Server 2019
+>S’applique à : Windows 10, Windows Server 2016, Windows Server 2019
 
 # <a name="manage-hyper-v-integration-services"></a>Gérer les Integration Services Hyper-V
 
@@ -137,7 +137,7 @@ Pour qu’un service d’intégration soit entièrement fonctionnel, son service
 
 ## <a name="start-and-stop-an-integration-service-from-a-linux-guest"></a>Démarrer et arrêter un service d’intégration à partir d’un invité Linux 
 
-Les services d’intégration Linux sont généralement fournis par le noyau Linux. Le pilote des services d’intégration Linux est appelé **hv_utils**.
+Les services d’intégration Linux sont généralement fournis par le noyau Linux. Le pilote des services d’intégration Linux est nommé **hv_utils**.
 
 1. Pour déterminer si **hv_utils** est chargé, utilisez la commande suivante :
 
@@ -190,21 +190,21 @@ Les services d’intégration Linux sont généralement fournis par le noyau Lin
     ```
   
    Les démons de service d’intégration qui peuvent être listés sont les suivants : S’ils sont manquants, ils ne sont peut-être pas pris en charge sur votre système ou ne sont peut-être pas installés. Pour en savoir plus, consultez [machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows](https://technet.microsoft.com/library/dn531030.aspx).  
-   - **hv_vss_daemon**: Ce démon est nécessaire pour créer des sauvegardes de machines virtuelles Linux en temps réel.
-   - **hv_kvp_daemon**: Ce démon permet de définir et d’interroger des paires clé-valeur intrinsèques et extrinsèques.
-   - **hv_fcopy_daemon**: Ce démon implémente un service de copie de fichiers entre l’hôte et l’invité.  
+   - **hv_vss_daemon**: ce démon est nécessaire pour créer des sauvegardes de machines virtuelles Linux en temps réel.
+   - **hv_kvp_daemon**: ce démon permet de définir et d’interroger des paires clé-valeur intrinsèques et extrinsèques.
+   - **hv_fcopy_daemon**: ce démon implémente un service de copie de fichiers entre l’hôte et l’invité.  
 
 ### <a name="examples"></a>Exemples
 
 Ces exemples montrent comment arrêter et démarrer le démon KVP, nommé `hv_kvp_daemon`.
 
-1. Utilisez l’ID de processus \(PID @ no__t-1 pour arrêter le processus du démon. Pour rechercher le PID, examinez la deuxième colonne de la sortie ou utilisez `pidof`. Les démons Hyper-V s’exécutent en tant qu’utilisateur racine. vous aurez donc besoin d’autorisations racine.
+1. Utilisez l’ID de processus \(PID\) pour arrêter le processus du démon. Pour rechercher le PID, examinez la deuxième colonne de la sortie ou utilisez `pidof`. Les démons Hyper-V s’exécutent en tant qu’utilisateur racine. vous aurez donc besoin d’autorisations racine.
 
     ``` BASH
     sudo kill -15 `pidof hv_kvp_daemon`
     ```
 
-1. Pour vérifier que tous les processus `hv_kvp_daemon` ont disparu, exécutez :
+1. Pour vérifier que tous les processus de `hv_kvp_daemon` ont disparu, exécutez :
 
     ```
     ps -ef | hv
@@ -216,7 +216,7 @@ Ces exemples montrent comment arrêter et démarrer le démon KVP, nommé `hv_kv
     sudo hv_kvp_daemon
     ``` 
 
-1. Pour vérifier que le processus `hv_kvp_daemon` est listé avec un nouvel ID de processus, exécutez :
+1. Pour vérifier que le processus de `hv_kvp_daemon` est listé avec un nouvel ID de processus, exécutez :
 
     ```
     ps -ef | hv
@@ -231,7 +231,7 @@ Nous vous recommandons de tenir à jour les services d’intégration pour obten
 > [!NOTE]
 > Le fichier image vmguest. ISO n’est pas inclus dans Hyper-V sur Windows 10, car il n’est plus nécessaire.
 
-| Invité  | Mécanisme de mise à jour | Notes |
+| Invité  | Mécanisme de mise à jour | Remarques |
 |:---------|:---------|:---------|
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Windows Update | |
@@ -254,7 +254,7 @@ Nous vous recommandons de tenir à jour les services d’intégration pour obten
 
 **Pour les machines virtuelles qui s’exécutent sur des hôtes Windows 8.1 :**
 
-| Invité  | Mécanisme de mise à jour | Notes |
+| Invité  | Mécanisme de mise à jour | Remarques |
 |:---------|:---------|:---------|
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Windows Update | |
@@ -279,7 +279,7 @@ Nous vous recommandons de tenir à jour les services d’intégration pour obten
 
 **Pour les machines virtuelles qui s’exécutent sur des hôtes Windows 8 :**
 
-| Invité  | Mécanisme de mise à jour | Notes |
+| Invité  | Mécanisme de mise à jour | Remarques |
 |:---------|:---------|:---------|
 | Windows 8.1 | Windows Update | |
 | Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |

@@ -22,7 +22,7 @@ ms.locfileid: "71371942"
 ---
 # <a name="qappsrv"></a>qappsrv
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche la liste de tous les serveurs Bureau à distance hôte de session Bureau à distance (hôte de session Bureau à distance) sur le réseau.
 
@@ -33,5 +33,6 @@ Affiche la liste de tous les serveurs Bureau à distance hôte de session Bureau
 Cette commande est identique à la commande **query termserver** .
 
 #### <a name="additional-references"></a>Références supplémentaires
-[clé de syntaxe de ligne de commande](command-line-syntax-key.md) [termserver](query-termserver.md)
- @no__t-[3 &#40;services Bureau à distance référence&#41; de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+[termserver de requête](query-termserver.md)
+la [clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+[services Bureau à distance &#40;référence de commande des services&#41; Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

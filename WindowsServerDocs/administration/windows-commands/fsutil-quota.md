@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376843"
 ---
 # <a name="fsutil-quota"></a>Fsutil quota
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Gère les quotas de disque sur les volumes NTFS pour un contrôle plus précis du stockage basé sur le réseau.
 
@@ -42,12 +42,12 @@ fsutil quota [violations]
 |    oeuvre    |                                                                   Applique l’utilisation du quota sur le volume spécifié.                                                                   |
 |    modifier     |                                                              Modifie un quota de disque existant ou crée un quota.                                                              |
 |     requête     |                                                                            Répertorie les quotas de disque existants.                                                                            |
-|     assurer     |                                                                    Effectue le suivi de l’utilisation du disque sur le volume spécifié.                                                                     |
-|  Atteintes   | Recherche dans les journaux système et d’application et affiche un message indiquant que des violations de quota ont été détectées ou qu’un utilisateur a atteint un seuil de quota ou une limite de quota. |
-| @no__t 0VolumePath > |                                  Obligatoire. Spécifie le nom du lecteur suivi d’un signe deux-points ou du GUID au format **volume {** <em>GUID</em> **}** .                                  |
-| @no__t 0Threshold >  |                            Définit la limite (en octets) à laquelle les avertissements sont émis. Ce paramètre est obligatoire pour la commande **fsutil quota Modify** .                            |
-|   @no__t 0Limit >    |                                Définit l’utilisation maximale autorisée du disque (en octets). Ce paramètre est obligatoire pour la commande **fsutil quota Modify** .                                |
-|  @no__t 0UserName >  |                                      Spécifie le nom de domaine ou d’utilisateur. Ce paramètre est obligatoire pour la commande **fsutil quota Modify** .                                       |
+|     Assurer     |                                                                    Effectue le suivi de l’utilisation du disque sur le volume spécifié.                                                                     |
+|  atteintes   | Recherche dans les journaux système et d’application et affiche un message indiquant que des violations de quota ont été détectées ou qu’un utilisateur a atteint un seuil de quota ou une limite de quota. |
+| \<VolumePath > |                                  Obligatoire. Spécifie le nom du lecteur suivi d’un signe deux-points ou du GUID au format **volume {** <em>GUID</em> **}** .                                  |
+| Seuil de \<>  |                            Définit la limite (en octets) à laquelle les avertissements sont émis. Ce paramètre est obligatoire pour la commande **fsutil quota Modify** .                            |
+|   Limite de \<>    |                                Définit l’utilisation maximale autorisée du disque (en octets). Ce paramètre est obligatoire pour la commande **fsutil quota Modify** .                                |
+|  Nom d’utilisateur \<>  |                                      Spécifie le nom de domaine ou d’utilisateur. Ce paramètre est obligatoire pour la commande **fsutil quota Modify** .                                       |
 
 ## <a name="remarks"></a>Notes
 

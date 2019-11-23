@@ -31,7 +31,7 @@ Un administrateur d’infrastructure doit confirmer que les hôtes Hyper-V peuve
 
 3. Configurez les URL de protection et d’attestation des clés de l’hôte :
 
-    - **Via Windows PowerShell**: Vous pouvez configurer les URL de protection de clé et d’attestation en exécutant la commande suivante dans une console Windows PowerShell avec élévation de privilèges. Par &lt;FQDN @ no__t-1, utilisez le nom de domaine complet (FQDN) de votre cluster SGH (par exemple, SGH. bastion. local) ou demandez à l’administrateur SGH d’exécuter l’applet de commande **« obtenir-HgsServer »** sur le serveur SGH pour récupérer les URL).
+    - **Via Windows PowerShell**: vous pouvez configurer les URL de protection de clé et d’attestation en exécutant la commande suivante dans une console Windows PowerShell avec élévation de privilèges. Pour &lt;&gt;de noms de domaine complets, utilisez le nom de domaine complet (FQDN) de votre cluster SGH (par exemple, SGH. bastion. local) ou demandez à l’administrateur SGH d’exécuter l’applet de commande de la commande **obtenir-HgsServer** sur le serveur SGH pour récupérer les URL.
 
         ```PowerShell
         Set-HgsClientConfiguration -AttestationServerUrl 'http://<FQDN>/Attestation' -KeyProtectionServerUrl 'http://<FQDN>/KeyProtection'
@@ -62,7 +62,7 @@ Un administrateur d’infrastructure doit confirmer que les hôtes Hyper-V peuve
     ```
 
     > [!IMPORTANT]
-    > Si vous utilisez Windows Server 2019 ou Windows 10, version 1809 et que vous utilisez des stratégies d’intégrité du code, `Get-HgsTrace` retourne un échec pour la **stratégie d’intégrité du code active** diagnostic.
+    > Si vous utilisez Windows Server 2019 ou Windows 10, version 1809 et utilisez des stratégies d’intégrité du code, `Get-HgsTrace` retourner un échec de la **stratégie d’intégrité du code active** diagnostic.
     > Vous pouvez ignorer ce résultat en toute sécurité lorsqu’il s’agit du seul diagnostic qui échoue.
 
 ## <a name="next-step"></a>Étape suivante
@@ -70,7 +70,7 @@ Un administrateur d’infrastructure doit confirmer que les hôtes Hyper-V peuve
 > [!div class="nextstepaction"]
 > [Déployer des machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Déployer le service Guardian hôte (SGH)](guarded-fabric-deploying-hgs-overview.md)
 - [Déployer des machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)

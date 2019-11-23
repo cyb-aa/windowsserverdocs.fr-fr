@@ -15,15 +15,15 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365689"
 ---
-# <a name="remote-direct-memory-access-rdma-and-switch-embedded-teaming-set"></a>Accès direct à la mémoire à distance \(RDMA @ no__t-1 et Switch Embedded Teaming \(SET @ no__t-3
+# <a name="remote-direct-memory-access-rdma-and-switch-embedded-teaming-set"></a>Accès direct à la mémoire à distance \(\) RDMA et Switch Embedded Association \(définir\)
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Cette rubrique fournit des informations sur la configuration de l’accès direct à la mémoire à distance \(RDMA @ no__t-1 interfaces avec Hyper-V dans Windows Server 2016, en plus des informations relatives à l’Association incorporée de commutateur \(SET @ no__t-3.  
+Cette rubrique fournit des informations sur la configuration de l’accès direct à la mémoire à distance \(les interfaces\) RDMA avec Hyper-V dans Windows Server 2016, en plus des informations relatives à l’Association incorporée de commutateur \(définir\).  
 
 > [!NOTE]
 > En plus de cette rubrique, le commutateur suivant incorporant du contenu d’association est disponible. 
-> - Téléchargement de la Galerie TechNet : [Guide de l’utilisateur de l’Association de cartes réseau et de commutateurs intégrés de Windows Server 2016](https://gallery.technet.microsoft.com/Windows-Server-2016-839cb607?redir=0)
+> - Téléchargement de la Galerie TechNet : [Guide de l’utilisateur de la carte réseau Windows Server 2016 et du commutateur incorporé](https://gallery.technet.microsoft.com/Windows-Server-2016-839cb607?redir=0)
 
 ## <a name="bkmk_rdma"></a>Configuration des interfaces RDMA avec Hyper-V  
 
@@ -38,11 +38,11 @@ L’image ci-dessous illustre les modifications apportées à l’architecture l
 
 ![Modifications architecturales](../media/RDMA-and-SET/rdma_over.jpg)
 
-Les sections suivantes fournissent des instructions sur l’utilisation des commandes Windows PowerShell pour activer Data Center Bridging (DCB), créer un commutateur virtuel Hyper-V avec une carte réseau virtuelle RDMA \(vNIC @ no__t-1, et créer un commutateur virtuel Hyper-V avec des cartes réseau virtuelles SET et RDMA.
+Les sections suivantes fournissent des instructions sur l’utilisation des commandes Windows PowerShell pour activer Data Center Bridging (DCB), créer un commutateur virtuel Hyper-V avec une carte réseau virtuelle RDMA \(carte réseau virtuelle\)et créer un commutateur virtuel Hyper-V avec des cartes réseau virtuelles SET et RDMA.
 
-### <a name="enable-data-center-bridging-dcb"></a>Activer la @no__t de pontage de centre de données-0DCB @ no__t-1
+### <a name="enable-data-center-bridging-dcb"></a>Activer le pontage Data Center \(DCB\)
 
-Avant d’utiliser une version RDMA sur RoCE \(\) Ethernet convergée de RDMA, vous devez activer DCB.  Bien qu’il ne soit pas nécessaire pour le protocole RDMA Internet \(iWARP @ no__t-1, les tests ont déterminé que toutes les technologies RDMA basées sur Ethernet fonctionnent mieux avec DCB. Pour cette raison, vous devez envisager d’utiliser DCB même pour les déploiements RDMA iWARP.
+Avant d’utiliser une version Ethernet \(RoCE\) de RDMA avec convergence, vous devez activer DCB.  Bien qu’il ne soit pas nécessaire pour le protocole RDMA Internet \(les réseaux iWARP\), les tests ont déterminé que toutes les technologies RDMA basées sur Ethernet fonctionnent mieux avec DCB. Pour cette raison, vous devez envisager d’utiliser DCB même pour les déploiements RDMA iWARP.
 
 Les exemples de commandes Windows PowerShell suivants montrent comment activer et configurer DCB pour SMB direct.
 
@@ -96,7 +96,7 @@ Vérifier les fonctionnalités RDMA :
 
 ###  <a name="bkmk_set-rdma"></a>Créer un commutateur virtuel Hyper-V avec SET et RDMA cartes réseau virtuelles
 
-Pour utiliser des capacités RDMA sur des cartes réseau virtuelles hôtes Hyper-V \(vNICs @ no__t-1 sur un commutateur virtuel Hyper-V qui prend en charge l’Association RDMA, vous pouvez utiliser ces exemples de commandes Windows PowerShell.
+Pour utiliser des capacités RDMA sur des cartes réseau virtuelles hôtes Hyper-V \(cartes réseau virtuelles\) sur un commutateur virtuel Hyper-V qui prend en charge l’Association RDMA, vous pouvez utiliser ces exemples de commandes Windows PowerShell.
 
     New-VMSwitch -Name SETswitch -NetAdapterName "SLOT 2","SLOT 3" -EnableEmbeddedTeaming $true
 
@@ -105,7 +105,7 @@ Ajouter un cartes réseau virtuelles d’hôte :
     Add-VMNetworkAdapter -SwitchName SETswitch -Name SMB_1 -managementOS
     Add-VMNetworkAdapter -SwitchName SETswitch -Name SMB_2 -managementOS
 
-De nombreux commutateurs ne transmettent pas les informations de classe de trafic sur le trafic de réseau local virtuel non balisé, donc assurez-vous que les adaptateurs hôtes pour RDMA se trouvent sur des réseaux locaux virtuels. Cet exemple affecte les deux cartes virtuelles d’hôte SMB_ * à VLAN 42.
+De nombreux commutateurs ne transmettent pas les informations de classe de trafic sur le trafic de réseau local virtuel non balisé, donc assurez-vous que les adaptateurs hôtes pour RDMA se trouvent sur des réseaux locaux virtuels. Cet exemple affecte les deux adaptateurs virtuels SMB_ * hôtes à VLAN 42.
     
     Set-VMNetworkAdapterIsolation -ManagementOS -VMNetworkAdapterName SMB_1  -IsolationMode VLAN -DefaultIsolationID 42
     Set-VMNetworkAdapterIsolation -ManagementOS -VMNetworkAdapterName SMB_2  -IsolationMode VLAN -DefaultIsolationID 42
@@ -146,7 +146,7 @@ Cette section fournit une vue d’ensemble de switch Embedded Teaming (SET) dans
 
 ## <a name="bkmk_over"></a>DÉFINIR la vue d’ensemble
 
-SET est une autre solution d’association de cartes réseau que vous pouvez utiliser dans les environnements qui incluent Hyper-V et la mise en réseau définie par le logiciel \(SDN @ no__t-1 Stack dans Windows Server 2016. SET intègre certaines fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V.
+L’ensemble est une autre solution d’association de cartes réseau que vous pouvez utiliser dans les environnements qui incluent Hyper-V et la mise en réseau définie par le logiciel \(SDN\) Stack dans Windows Server 2016. SET intègre certaines fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V.
 
 L’ensemble vous permet de grouper entre une et huit cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelles basées sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.
 
@@ -173,42 +173,42 @@ SET est disponible dans toutes les versions de Windows Server 2016 qui incluent 
 
 ## <a name="bkmk_nics"></a>Cartes réseau prises en charge pour l’ensemble
 
-Vous pouvez utiliser n’importe quelle carte réseau Ethernet qui a passé la qualification matérielle Windows et le logo \(WHQL @ no__t-1 test dans une équipe de jeu dans Windows Server 2016. SET exige que toutes les cartes réseau membres d’une équipe de jeu soient identiques \(i. e., le même fabricant, le même modèle, le même microprogramme et le même pilote @ no__t-1. La définition de prend en charge entre une et huit cartes réseau dans une équipe.
+Vous pouvez utiliser n’importe quelle carte réseau Ethernet ayant passé la qualification et le logo de matériel Windows \(test\) WHQL dans une équipe de jeu dans Windows Server 2016. L’ensemble exige que toutes les cartes réseau membres d’une équipe de jeu soient identiques \(c’est-à-dire le même fabricant, le même modèle, le même microprogramme et le même pilote\). La définition de prend en charge entre une et huit cartes réseau dans une équipe.
   
 ## <a name="bkmk_compat"></a>DÉFINIR la compatibilité avec les technologies de mise en réseau de Windows Server
 
 L’ensemble est compatible avec les technologies de mise en réseau suivantes dans Windows Server 2016.
 
-- @No__t de pontage de centre de centres-0DCB @ no__t-1
+- Pontage de centre de \(DCB\)
   
 - La virtualisation de réseau Hyper-V-NV-GRE et VxLAN sont prises en charge dans Windows Server 2016.  
-- Le déchargement de la somme de contrôle côté réception \(IPv4, IPv6, TCP @ no__t-1-ceux-ci sont pris en charge si l’un des membres de l’équipe définis les prend en charge.
+- Les déchargements de somme de contrôle côté réception \(IPv4, IPv6, TCP\)-ils sont pris en charge si l’un des membres de l’équipe de jeu les prend en charge.
 
-- Accès direct à la mémoire à distance \(RDMA @ no__t-1
+- Accès direct à la mémoire à distance \(\) RDMA
 
-- Virtualisation d’e/s d’une racine unique \(SR-IOV @ no__t-1
+- Virtualisation d’e/s d’une racine unique \(SR-IOV\)
 
-- Le déchargement de la somme de contrôle côté transmission \(IPv4, IPv6, TCP @ no__t-1-ceux-ci sont pris en charge si tous les membres de l’équipe de l’ensemble les prennent en charge.
+- Le déchargement de la somme de contrôle côté transmission \(IPv4, IPv6, TCP\)-ils sont pris en charge si tous les membres de l’équipe les prennent en charge.
 
-- Files d’attente d’ordinateurs virtuels \(VMQ @ no__t-1
+- Files d’attente d’ordinateurs virtuels \(\) d’ordinateur virtuel
 
-- @No__t de mise à l’échelle côté réception virtuelle-0RSS @ no__t-1
+- Mise à l’échelle côté réception virtuelle \(RSS\)
 
 L’ensemble n’est pas compatible avec les technologies de mise en réseau suivantes dans Windows Server 2016.
 
-- authentification 802.1 x. les paquets 802.1 @no__t x 0EAP @ no__t-1 sont automatiquement supprimés par le commutateur virtuel Hyper @ no__t-2V dans des scénarios SET.
+- authentification 802.1 x. le protocole d’authentification 802.1 x \(les paquets\) EAP sont automatiquement supprimés par le commutateur virtuel Hyper\-V dans les scénarios SET.
  
-- @No__t de déchargement de tâche IPsec-0IPsecTO @ no__t-1. Il s’agit d’une technologie héritée qui n’est pas prise en charge par la plupart des cartes réseau, et où elle existe, elle est désactivée par défaut.
+- Déchargement de tâche IPsec \(\)IPsecTO. Il s’agit d’une technologie héritée qui n’est pas prise en charge par la plupart des cartes réseau, et où elle existe, elle est désactivée par défaut.
 
-- Utilisation de QoS @no__t -0pacer. exe @ no__t-1 dans les systèmes d’exploitation hôtes ou natifs. Ces scénarios de qualité de service ne sont pas des scénarios hyper @ no__t-0V, donc les technologies ne se croisent pas. En outre, la qualité de service (QoS) est disponible mais n’est pas activée par défaut. vous devez activer intentionnellement la QoS.
+- Utilisation de QoS \(Pacer. exe\) dans les systèmes d’exploitation hôtes ou natifs. Ces scénarios de qualité de service ne sont pas des scénarios hyper\-V, donc les technologies ne se croisent pas. En outre, la qualité de service (QoS) est disponible mais n’est pas activée par défaut. vous devez activer intentionnellement la QoS.
 
-- La fusion côté réception \(RSC @ no__t-1. RSC est automatiquement désactivé par le commutateur virtuel Hyper @ no__t-0V.
+- La fusion côté réception \(\)RSC. RSC est automatiquement désactivé par le commutateur virtuel Hyper\-V.
 
-- @No__t de mise à l’échelle côté réception-0RSS @ no__t-1. Étant donné qu’Hyper-V utilise les files d’attente pour les ordinateurs virtuels et VMMQ, RSS est toujours désactivé lorsque vous créez un commutateur virtuel.
+- La mise à l’échelle côté réception \(\)RSS. Étant donné qu’Hyper-V utilise les files d’attente pour les ordinateurs virtuels et VMMQ, RSS est toujours désactivé lorsque vous créez un commutateur virtuel.
 
 - Déchargement TCP Chimney. Cette technologie est désactivée par défaut.
 
-- QoS de l’ordinateur virtuel \(VM-QoS @ no__t-1. La QoS de la machine virtuelle est disponible mais désactivée par défaut. Si vous configurez la qualité de service de la machine virtuelle dans un environnement défini, les paramètres QoS entraînent des résultats imprévisibles.
+- Ordinateur virtuel QoS \(machine virtuelle-QoS\). La QoS de la machine virtuelle est disponible mais désactivée par défaut. Si vous configurez la qualité de service de la machine virtuelle dans un environnement défini, les paramètres QoS entraînent des résultats imprévisibles.
 
 ## <a name="bkmk_modes"></a>DÉFINIR les modes et les paramètres
 
@@ -260,20 +260,20 @@ Les ordinateurs virtuels et les jeux fonctionnent bien ensemble, et vous devez a
 > [!NOTE]
 > SET affiche toujours le nombre total de files d’attente disponibles parmi tous les membres d’équipe définis. Dans l’Association de cartes réseau, il s’agit du mode « total de files d’attente ».
 
-La plupart des cartes réseau comportent des files d’attente qui peuvent être utilisées pour la mise à l’échelle côté réception \(RSS @ no__t-1 ou de l’ordinateurs virtuels, mais pas les deux à la fois.
+La plupart des cartes réseau comportent des files d’attente qui peuvent être utilisées pour la mise à l’échelle côté réception \(les\) RSS ou les ordinateurs virtuels, mais pas les deux à la fois.
   
 Certains paramètres de l’ordinateurs virtuels semblent être des paramètres pour les files d’attente RSS, mais sont en fait des paramètres sur les files d’attente génériques que les flux RSS et les ordinateurs virtuels utilisent en fonction de la fonctionnalité actuellement utilisée. Chaque carte réseau possède, dans ses propriétés avancées, des valeurs pour `*RssBaseProcNumber` et `*MaxRssProcessors`.
 
 Voici quelques paramètres d’ordinateur virtuels qui offrent de meilleures performances système.
 
-- Dans l’idéal, chaque carte réseau doit avoir le `*RssBaseProcNumber` défini sur un nombre pair supérieur ou égal à deux (2). Cela est dû au fait que le premier processeur physique, les processeurs de base 0 \(logical 0 et 1 @ no__t-1, effectue généralement la majeure partie du traitement du système, de sorte que le traitement réseau doit être à l’écart de ce processeur physique. 
+- Dans l’idéal, chaque carte réseau doit avoir le `*RssBaseProcNumber` défini sur un nombre pair supérieur ou égal à deux (2). Cela est dû au fait que le premier processeur physique, le noyau 0 \(les processeurs logiques 0 et 1\), effectue généralement la majeure partie du traitement du système, de sorte que le traitement réseau doit être destiné à s’éloigner de ce processeur physique. 
 
 >[!NOTE]
 >Certaines architectures d’ordinateur n’ont pas deux processeurs logiques par processeur physique. par conséquent, pour ces machines, le processeur de base doit être supérieur ou égal à 1. En cas de doute, supposons que votre hôte utilise un processeur logique de 2 par architecture de processeur physique.
 
-- Les processeurs des membres de l’équipe doivent être dans la mesure où ils ne se chevauchent pas. Par exemple, dans un hôte à 4 cœurs \(8 processeurs logiques @ no__t-1 avec une équipe de 2 cartes réseau 10Gbps, vous pouvez définir la première pour utiliser le processeur de base 2 et utiliser 4 cœurs. la seconde est définie pour utiliser le processeur de base 6 et utiliser 2 cœurs.
+- Les processeurs des membres de l’équipe doivent être dans la mesure où ils ne se chevauchent pas. Par exemple, dans un hôte à 4 cœurs \(8 processeurs logiques\) avec une équipe de 2 cartes réseau 10Gbps, vous pouvez définir la première pour utiliser le processeur de base 2 et utiliser 4 cœurs. la seconde est définie pour utiliser le processeur de base 6 et utiliser 2 cœurs.
 
-## <a name="bkmk_hnv"></a>DÉFINIR et la virtualisation de réseau Hyper-V \(HNV @ no__t-2
+## <a name="bkmk_hnv"></a>DÉFINIR et la virtualisation de réseau Hyper-V \(HNV\)
 
 SET est entièrement compatible avec la virtualisation de réseau Hyper-V dans Windows Server 2016. Le système de gestion HNV fournit des informations au pilote SET qui permet à de configurer de distribuer la charge du trafic réseau d’une manière optimisée pour le trafic HNV.
   
@@ -283,11 +283,11 @@ Migration dynamique est pris en charge dans Windows Server 2016.
 
 ## <a name="bkmk_mac"></a>Utilisation des adresses MAC sur les paquets transmis
 
-Quand vous configurez une équipe de jeu avec une distribution de charge dynamique, les paquets d’une seule source \(such en tant que machine virtuelle unique @ no__t-1 sont répartis simultanément entre plusieurs membres de l’équipe. 
+Quand vous configurez une équipe de jeu avec une distribution de charge dynamique, les paquets d’une seule source \(tels qu’une seule machine virtuelle\) sont répartis simultanément entre plusieurs membres de l’équipe. 
 
 Pour éviter toute confusion entre les commutateurs et pour empêcher les alarmes à ailes MAC, SET remplace l’adresse Mac source par une autre adresse MAC sur les trames transmises sur les membres de l’équipe autres que le membre de l’équipe affinité. Pour cette raison, chaque membre de l’équipe utilise une adresse MAC différente, et les conflits d’adresses MAC sont empêchés à moins qu’une défaillance ne se produise.
 
-Quand une défaillance est détectée sur la carte réseau principale, le logiciel d’association de groupe commence à utiliser l’adresse MAC de la machine virtuelle sur le membre de l’équipe qui est choisi comme membre de l’équipe affinité temporaire \(i. e., celle qui s’affiche désormais dans le commutateur comme interface de la machine virtuelle @ NO_ _ t-1.
+Quand une défaillance est détectée sur la carte réseau principale, le logiciel d’association de groupe commence à utiliser l’adresse MAC de la machine virtuelle sur le membre de l’équipe qui est choisi comme membre de l’équipe affinité temporaire \(c.-à-d., celui qui apparaîtra maintenant au commutateur comme l’interface de la machine virtuelle\).
 
 Cette modification s’applique uniquement au trafic qui devait être envoyé sur le membre de l’équipe affinité de la machine virtuelle avec la propre adresse MAC de la machine virtuelle en tant qu’adresse MAC source. D’autres trafics continuent d’être envoyés avec l’adresse MAC source qu’il aurait utilisé avant la défaillance.
 
@@ -313,7 +313,7 @@ Vous trouverez ci-dessous des listes qui décrivent le comportement de remplacem
   
 ## <a name="bkmk_manage"></a>Gestion d’une équipe de jeu
 
-Nous vous recommandons d’utiliser System Center Virtual Machine Manager \(VMM @ no__t-1 pour gérer les équipes de groupe, mais vous pouvez également utiliser Windows PowerShell pour gérer SET. Les sections suivantes fournissent les commandes Windows PowerShell que vous pouvez utiliser pour gérer SET.
+Nous vous recommandons d’utiliser System Center Virtual Machine Manager \(VMM\) pour gérer les équipes de groupe, mais vous pouvez également utiliser Windows PowerShell pour gérer SET. Les sections suivantes fournissent les commandes Windows PowerShell que vous pouvez utiliser pour gérer SET.
 
 Pour plus d’informations sur la création d’une équipe de jeu à l’aide de VMM, consultez la section « configurer un commutateur logique » dans la rubrique de la bibliothèque VMM de System Center [créer des commutateurs logiques](https://docs.microsoft.com/system-center/vmm/network-switch).
   
@@ -357,7 +357,7 @@ Remove-VMSwitch "SETvSwitch"
 
 ### <a name="changing-the-load-distribution-algorithm-for-a-set-team"></a>Modification de l’algorithme de distribution de charge pour une équipe de jeu
 
-L’applet de commande **Set-VMSwitchTeam** a une option **LoadBalancingAlgorithm** . Cette option prend l’une des deux valeurs possibles : **HyperVPort** ou **dynamique**. Pour définir ou modifier l’algorithme de distribution de charge pour une équipe Switch-Embedded, utilisez cette option. 
+L’applet de commande **Set-VMSwitchTeam** a une option **LoadBalancingAlgorithm** . Cette option prend l’une des deux valeurs possibles : **HyperVPort** ou **Dynamic**. Pour définir ou modifier l’algorithme de distribution de charge pour une équipe Switch-Embedded, utilisez cette option. 
 
 Dans l’exemple suivant, le VMSwitchTeam nommé **TeamedvSwitch** utilise l’algorithme d’équilibrage de charge **dynamique** .  
 ```  
@@ -365,9 +365,9 @@ Set-VMSwitchTeam -Name TeamedvSwitch -LoadBalancingAlgorithm Dynamic
 ```  
 ### <a name="affinitizing-virtual-interfaces-to-physical-team-members"></a>Affinage les interfaces virtuelles aux membres de l’équipe physique
 
-SET vous permet de créer une affinité entre une interface virtuelle \(i. e., le port de commutateur virtuel Hyper-V @ no__t-1 et l’une des cartes réseau physiques de l’équipe. 
+SET vous permet de créer une affinité entre une interface virtuelle \(c.-à-d., le port de commutateur virtuel Hyper-V\) et l’une des cartes réseau physiques de l’équipe. 
 
-Par exemple, si vous créez deux cartes réseau virtuelles hôtes pour SMB @ no__t-0Direct, comme dans la section [créer un commutateur virtuel Hyper-V avec des cartes réseau virtuelles Set et RDMA](#bkmk_set-rdma), vous pouvez vous assurer que les deux cartes réseau virtuelles utilisent des membres d’équipe différents. 
+Par exemple, si vous créez deux cartes réseau virtuelles hôtes pour SMB\-direct, comme dans la section [créer un commutateur virtuel Hyper-V avec set et RDMA cartes réseau virtuelles](#bkmk_set-rdma), vous pouvez vous assurer que les deux cartes réseau virtuelles utilisent des membres d’équipe différents. 
 
 Si vous ajoutez au script dans cette section, vous pouvez utiliser les commandes Windows PowerShell suivantes.
 

@@ -36,14 +36,14 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink} -size <SizeinMB>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0SizeinMB >|Indique le nombre de mégaoctets (Mo) à utiliser pour la nouvelle partition.|
+|\<SizeinMB >|Indique le nombre de mégaoctets (Mo) à utiliser pour la nouvelle partition.|
 
 ## <a name="remarks"></a>Notes
 
 Si vous ne spécifiez pas de taille, l'outil utilisera la valeur par défaut de 300 Mo La taille minimale du lecteur système est 100 Mo Si vous stockez les outils de récupération système ou d'autres outils système sur la partition système, vous devez augmenter la taille en conséquence.
 
 > [!NOTE]
-> La commande **Size** ne peut pas être combinée avec la commande \<DriveLetter > **Merge** **cible** .
+> La commande **Size** ne peut pas être combinée avec la **commande \<lettre_lecteur** > **Merge** .
 
 ## <a name="BKMK_Examples"></a>Illustre
 

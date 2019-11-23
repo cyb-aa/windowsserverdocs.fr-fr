@@ -36,7 +36,7 @@ vol [<Drive>:]
 
 |Paramètre|Description|
 |---------|-----------|
-|> @no__t 0Drive :|Spécifie le lecteur qui contient le disque pour lequel vous souhaitez afficher le nom de volume et le numéro de série.|
+|> du lecteur de \<:|Spécifie le lecteur qui contient le disque pour lequel vous souhaitez afficher le nom de volume et le numéro de série.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 #### <a name="additional-references"></a>Références supplémentaires

@@ -15,16 +15,16 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356014"
 ---
-# <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Utiliser une stratégie DNS pour le déploiement DNS split @ no__t-0Brain
+# <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Utiliser une stratégie DNS pour le déploiement du serveur DNS de fractionnement\-Brain
 
 >S’applique à : Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour apprendre à configurer une stratégie DNS dans Windows Server @ no__t-0 2016 pour les déploiements DNS de fractionnement Brain, où il existe deux versions d’une seule zone, une pour les utilisateurs internes sur l’intranet de votre organisation et une pour les utilisateurs externes, qui sont en général, les utilisateurs sur Internet.
+Vous pouvez utiliser cette rubrique pour apprendre à configurer une stratégie DNS dans Windows Server&reg; 2016 pour les déploiements DNS de fractionnement Brain, où il existe deux versions d’une seule zone, une pour les utilisateurs internes sur l’intranet de votre organisation et une pour les utilisateurs externes, qui sont généralement des utilisateurs sur Internet.
 
 >[!NOTE]
->Pour plus d’informations sur l’utilisation de la stratégie DNS pour le déploiement DNS de Split @ no__t-0brain avec Active Directory Zones DNS intégrée, consultez [utiliser une stratégie DNS pour le système DNS split-brain dans Active Directory](dns-sb-with-ad.md).
+>Pour plus d’informations sur l’utilisation de la stratégie DNS pour le déploiement du service DNS de fractionnement\-Brain avec Active Directory Zones DNS intégré, consultez [utiliser une stratégie DNS pour le système de fractionnement du cerveau dans Active Directory](dns-sb-with-ad.md).
 
-Auparavant, ce scénario nécessitait que les administrateurs DNS maintiennent deux serveurs DNS différents, chacun fournissant des services à chaque ensemble d’utilisateurs, interne et externe. Si seuls quelques enregistrements à l’intérieur de la zone étaient fractionnés @ no__t-0brained ou si les deux instances de la zone (interne et externe) ont été déléguées au même domaine parent, il s’agit d’un énigme de gestion. 
+Auparavant, ce scénario nécessitait que les administrateurs DNS maintiennent deux serveurs DNS différents, chacun fournissant des services à chaque ensemble d’utilisateurs, interne et externe. Si seuls quelques enregistrements à l’intérieur de la zone étaient fractionnés\-cerveaud ou si les deux instances de la zone (interne et externe) étaient déléguées au même domaine parent, cela devenait un énigme de gestion. 
 
 Un autre scénario de configuration pour le déploiement de Split Brain est le contrôle de récurrence sélective pour la résolution de noms DNS. Dans certains cas, les serveurs DNS de l’entreprise sont censés effectuer une résolution récursive sur Internet pour les utilisateurs internes, alors qu’ils doivent également jouer le rôle de serveurs de noms faisant autorité pour les utilisateurs externes et bloquer leur récurrence. 
 
@@ -158,7 +158,7 @@ L’illustration suivante représente ce scénario.
 
 Si une requête pour laquelle le serveur DNS contoso ne fait pas autorité est reçue, par exemple pour www.microsoft.com, la demande de résolution de nom est évaluée par rapport aux stratégies sur le serveur DNS. 
 
-Étant donné que ces requêtes ne se trouvent pas dans une zone, les stratégies de niveau zone \(AS définies dans l’exemple split-brain @ no__t-1 ne sont pas évaluées. 
+Étant donné que ces requêtes ne sont pas classées dans une zone, les stratégies de niveau zone \(telles que définies dans l’exemple split-brain\) ne sont pas évaluées. 
 
 Le serveur DNS évalue les stratégies de récurrence, et les requêtes reçues sur l’interface privée correspondent à **SplitBrainRecursionPolicy**. Cette stratégie pointe vers une étendue de récurrence où la récursivité est activée.
 
@@ -179,7 +179,7 @@ Pour configurer le contrôle de récurrence sélective DNS à l’aide de la str
 
 Les étendues de récurrence sont des instances uniques d’un groupe de paramètres qui contrôlent la récursivité sur un serveur DNS. Une étendue de récurrence contient une liste de redirecteurs et spécifie si la récursivité est activée. Un serveur DNS peut avoir de nombreuses étendues de récursivité. 
 
-Le paramètre de récurrence héritée et la liste des redirecteurs sont appelés étendue de récurrence par défaut. Vous ne pouvez pas ajouter ou supprimer l’étendue de récursivité par défaut, identifiée par le nom point \(». \).
+Le paramètre de récurrence héritée et la liste des redirecteurs sont appelés étendue de récurrence par défaut. Vous ne pouvez pas ajouter ou supprimer l’étendue de récursivité par défaut, identifiée par le nom point \(« . »\).
 
 Dans cet exemple, le paramètre de récurrence par défaut est désactivé, tandis qu’une nouvelle étendue de récurrence pour les clients internes est créée lorsque la récursivité est activée.
 

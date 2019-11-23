@@ -38,7 +38,7 @@ pushd [<Path>]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Path >|Spécifie le répertoire dans lequel créer le répertoire actif. Cette commande prend en charge les chemins d’accès relatifs.|
+|Chemin de \<>|Spécifie le répertoire dans lequel créer le répertoire actif. Cette commande prend en charge les chemins d’accès relatifs.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

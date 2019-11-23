@@ -17,7 +17,7 @@ ms.locfileid: "71405173"
 ---
 # <a name="how-qos-policy-works"></a>Fonctionnement de la stratégie QoS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Lors du démarrage ou de l’obtention de la configuration de l’utilisateur ou de l’ordinateur mis à jour stratégie de groupe paramètres pour QoS, le processus suivant se produit.
 
@@ -29,7 +29,7 @@ Lors du démarrage ou de l’obtention de la configuration de l’utilisateur ou
 
 4. Le module d’inspection QoS récupère les stratégies QoS utilisateur ou ordinateur et les stocke.
 
-Lorsqu’un nouveau point de terminaison de couche de transport @no__t la connexion 0TCP-ou le trafic UDP @ no__t-1 est créé, le processus suivant se produit.
+Lorsqu’un nouveau point de terminaison de couche de transport \(la connexion TCP ou le\) de trafic UDP est créé, le processus suivant se produit.
 
 1. Le composant couche transport de la pile TCP/IP informe le module d’inspection QoS.
 
@@ -59,7 +59,7 @@ Lorsqu’un paquet correspondant à un point de terminaison de couche de transpo
 
 7. Pacer. sys utilise le numéro de flow du paquet pour déterminer si le paquet doit être limité et, le cas échéant, planifie le paquet pour l’envoi.
 
-8. Pacer. sys transmet le paquet immédiatement \(if il n’y a pas de limitation du trafic @ no__t-1 ou comme prévu \(if il existe une limitation du trafic de @ no__t-3 à NDIS 6. x pour la transmission sur la carte réseau appropriée.
+8. Pacer. sys transmet le paquet immédiatement \(s’il n’y a pas de limitation du trafic\) ou planifiée \(s’il existe une limitation du trafic\) à NDIS 6. x pour la transmission sur la carte réseau appropriée.
 
 Ces processus de QoS basée sur la stratégie offrent les avantages suivants.
 

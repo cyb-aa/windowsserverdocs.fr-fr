@@ -21,7 +21,7 @@ ms.locfileid: "71394512"
 ---
 # <a name="directaccess"></a>DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour obtenir une vue d’ensemble de DirectAccess, y compris les systèmes d’exploitation serveur et client qui prennent en charge DirectAccess, ainsi que des liens vers d’autres documentations sur DirectAccess pour Windows Server 2016.  
   
@@ -43,7 +43,7 @@ Vous pouvez utiliser cette rubrique pour obtenir une vue d’ensemble de DirectA
 DirectAccess permet à des utilisateurs distants de se connecter à des ressources réseau sans avoir besoin de connexions de réseau privé virtuel (VPN) traditionnelles. Avec les connexions DirectAccess, les ordinateurs clients distants sont toujours connectés à votre organisation. il n’est pas nécessaire que les utilisateurs distants démarrent et arrêtent les connexions, comme c’est le cas pour les connexions VPN. En outre, vos administrateurs informatiques peuvent gérer les ordinateurs clients DirectAccess lorsqu’ils sont en cours d’exécution et connectés à Internet.
 
 >[!IMPORTANT]
->N’essayez pas de déployer l’accès à distance sur une machine virtuelle \(VM @ no__t-1 dans Microsoft Azure. L’utilisation de l’accès à distance dans Microsoft Azure n’est pas prise en charge. Vous ne pouvez pas utiliser l’accès à distance dans une machine virtuelle Azure pour déployer un VPN, DirectAccess ou une autre fonctionnalité d’accès à distance dans Windows Server 2016 ou des versions antérieures de Windows Server. Pour plus d’informations, consultez [prise en charge des logiciels serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+>N’essayez pas de déployer l’accès à distance sur une machine virtuelle \(\) de machines virtuelles dans Microsoft Azure. L’utilisation de l’accès à distance dans Microsoft Azure n’est pas prise en charge. Vous ne pouvez pas utiliser l’accès à distance dans une machine virtuelle Azure pour déployer un VPN, DirectAccess ou une autre fonctionnalité d’accès à distance dans Windows Server 2016 ou des versions antérieures de Windows Server. Pour plus d’informations, consultez [prise en charge des logiciels serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
   
 DirectAccess prend uniquement en charge les clients joints à un domaine qui incluent la prise en charge du système d’exploitation pour DirectAccess.  
   

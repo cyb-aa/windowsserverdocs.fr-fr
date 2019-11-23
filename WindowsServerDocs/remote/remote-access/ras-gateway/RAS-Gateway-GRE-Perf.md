@@ -18,21 +18,21 @@ ms.locfileid: "71404688"
 ---
 # <a name="ras-gateway-gre-tunnel-throughput-and-performance"></a>Débit et performances du Tunnel GRE de la passerelle RAS
 
->S’applique à : @No__t Windows Server-0Semi-canal annuel @ no__t-1
+>S’applique à : canal semi-annuel Windows Server \(\)
 
-Vous pouvez utiliser cette rubrique pour en savoir plus sur le serveur d’accès à distance \(RAS @ no__t-1 : encapsulation générique de routage \(GRE @ no__t-3 performances de tunnel sur Windows Server, version 1709, dans un test de mise en réseau non défini par logiciel \(SDN @ no__t-5 environnement.
+Vous pouvez utiliser cette rubrique pour en savoir plus sur le serveur d’accès à distance \(l’encapsulation générique de routage\) de passerelle RAS \(les performances de tunnel GRE\) sur Windows Server, version 1709, dans un environnement de test de mise en réseau non défini par logiciel \(SDN\).
 
 La passerelle RAS est un routeur logiciel et une passerelle que vous pouvez utiliser en mode à un seul locataire ou en mode multi-locataire. Cette rubrique traite d’un mode de locataire unique, de la configuration de haute disponibilité avec le clustering de basculement. Les statistiques de performances de tunnel GRE présentées dans cette rubrique sont valides pour la passerelle RAS dans les modes client singele et multi-locataire.
 
 >[!NOTE]
 >Le clustering de basculement est une fonctionnalité de Windows Server qui vous permet de regrouper plusieurs serveurs dans un cluster à tolérance de panne. Pour plus d’informations, consultez [clustering de basculement](../../../failover-clustering/failover-clustering-overview.md)
 
-Le mode mono-client permet aux organisations de toutes tailles de déployer la passerelle comme un @no__t réseau privé virtuel no__t-1VPN @ no__t-2 Edge et Internet @-0facing. En mode mono-locataire, vous pouvez déployer la passerelle RAS sur un serveur physique ou une machine virtuelle \(VM @ no__t-1. Cette rubrique décrit le déploiement d’une passerelle RAS sur deux machines virtuelles \(VMs @ no__t-1 configurées dans un cluster de basculement.
+Le mode mono-client permet aux organisations de toutes tailles de déployer la passerelle comme un réseau privé virtuel \(\) serveur VPN de réseau privé virtuel ou\-Internet. En mode mono-client, vous pouvez déployer la passerelle RAS sur un serveur physique ou une machine virtuelle \(\)de machine virtuelle. Cette rubrique décrit le déploiement d’une passerelle RAS sur deux machines virtuelles \(les machines virtuelles\) configurées dans un cluster de basculement.
 
 >[!IMPORTANT]
 >Étant donné que les tunnels GRE fournissent l’encapsulation mais pas le chiffrement, vous ne devez pas utiliser la passerelle RAS configurée avec GRE en tant que passerelle de périphérie d’Internet. Pour en savoir plus sur les meilleures utilisations de la passerelle RAS avec les tunnels GRE, voir [tunneling GRE dans Windows Server](gre-tunneling-windows-server.md).
 
-GRE est un protocole de tunneling léger qui peut encapsuler une grande variété de protocoles de couche réseau à l’intérieur des liens de point virtuel @ no__t-0to @ no__t-1point sur un réseau d’interconnexion de protocole Internet. L’implémentation Microsoft GRE encapsule IPv4 et IPv6.
+GRE est un protocole de tunneling léger qui peut encapsuler une grande variété de protocoles de couche réseau à l’intérieur de points virtuels\-pour\-des liens de point sur un réseau d’interconnexion de protocole Internet. L’implémentation Microsoft GRE encapsule IPv4 et IPv6.
 
 Pour plus d’informations, consultez la section scénarios de déploiement de la **passerelle RAS** dans la rubrique [passerelle RAS](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway#bkmk_deploy). 
 
@@ -44,18 +44,18 @@ Dans ce scénario de test, qui est représenté dans l’illustration suivante, 
 
 Cette section fournit des informations sur l’environnement de test et la configuration de la passerelle RAS.
 
-Dans l’environnement de test, les machines virtuelles de la passerelle RAS sont déployées sur des hôtes Hyper @ no__t-0V dans un cluster de basculement pour une haute disponibilité.
+Dans l’environnement de test, les machines virtuelles de la passerelle RAS sont déployées sur les ordinateurs hôtes Hyper\-V dans un cluster de basculement pour une haute disponibilité.
 
-### <a name="hyper-v-host-configuration"></a>Configuration de l’hôte Hyper @ no__t-0V
+### <a name="hyper-v-host-configuration"></a>Configuration de l’hôte Hyper\-V
 
-Deux hôtes Hyper @ no__t-0V sont configurés pour prendre en charge le scénario de test de la manière suivante. 
+Deux hôtes Hyper\-V sont configurés pour prendre en charge le scénario de test de la manière suivante. 
 
-- Deux ordinateurs physiques double @ no__t-0homed sont configurés avec Windows Server, version 1709
+- Deux ordinateurs physiques à double\-hébergés sont configurés avec Windows Server, version 1709
 - Les deux cartes réseau physiques de chacun des deux serveurs sont connectées à différents sous-réseaux, qui représentent tous les deux des sous-réseaux d’un intranet d’entreprise. Les réseaux et le matériel de prise en charge ont une capacité de 10 Gbits/s.
 - L’hyperthreading sur les serveurs physiques est désactivé. Cela fournit le débit maximal des cartes réseau physiques.
-- Le rôle serveur Hyper @ no__t-0V est installé sur les deux serveurs et configuré avec deux commutateurs virtuels Hyper @ no__t-1V externes, un pour chaque carte réseau physique.
+- Le rôle serveur Hyper\-V est installé sur les deux serveurs et configuré avec deux commutateurs virtuels Hyper\-V externes, un pour chaque carte réseau physique.
 - Étant donné que les deux serveurs sont connectés au même intranet, les serveurs peuvent communiquer entre eux.
-- Les ordinateurs hôtes Hyper @ no__t-0V sont configurés dans un cluster de basculement sur le réseau intranet. 
+- Les ordinateurs hôtes Hyper\-V sont configurés dans un cluster de basculement sur le réseau intranet. 
 
 >[!NOTE]
 >Pour plus d’informations, voir [Commutateur virtuel Hyper\-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch).
@@ -66,15 +66,15 @@ Deux machines virtuelles sont configurées pour prendre en charge le scénario d
 
 - Sur chaque serveur, une machine virtuelle exécutant Windows Server version 1709 est installée. Chaque machine virtuelle est configurée avec 10 cœurs et 8 Go de RAM.
 - Chaque machine virtuelle est également configurée avec deux cartes réseau virtuelles. Une carte réseau virtuelle est connectée au commutateur virtuel intranet 1, et l’autre carte réseau virtuelle est connectée au commutateur virtuel intranet 2.
-- Une passerelle RAS est installée et configurée sur chaque machine virtuelle en tant que serveur VPN GRE @ no__t-0based.
+- Une passerelle RAS est installée et configurée sur chaque machine virtuelle en tant que serveur VPN\-GRE.
 - Les machines virtuelles de passerelle sont configurées dans un cluster de basculement. En cas de cluster, une machine virtuelle est active et l’autre est passive.
 
-### <a name="workload-hyper-v-hosts-and-vms"></a>Charge de travail hyper @ no__t-0V hôtes et machines virtuelles
+### <a name="workload-hyper-v-hosts-and-vms"></a>Ordinateurs hôtes Hyper\-V et machines virtuelles de charge de travail
 
-Pour ce test, deux hôtes Hyper @ no__t-0V de charge de travail sont installés sur l’intranet, et chaque ordinateur hôte dispose d’une machine virtuelle installée. Si vous dupliquez ce test dans votre propre environnement de test, vous pouvez installer autant de serveurs de charge de travail et de machines virtuelles que nécessaire à vos besoins.
+Pour ce test, deux ordinateurs hôtes Hyper\-V de charge de travail sont installés sur l’intranet, et chaque ordinateur hôte dispose d’une machine virtuelle installée. Si vous dupliquez ce test dans votre propre environnement de test, vous pouvez installer autant de serveurs de charge de travail et de machines virtuelles que nécessaire à vos besoins.
 
-- La charge de travail hyper @ no__t-0V hosts a une carte réseau physique installée qui est connectée à l’intranet de l’organisation.
-- Dans le commutateur virtuel Hyper @ no__t-0V, un commutateur virtuel est créé sur chaque ordinateur hôte. Le commutateur est externe et est lié à l’une des cartes réseau connectées à l’intranet.
+- Les ordinateurs hôtes Hyper\-V de charge de travail ont une carte réseau physique installée qui est connectée à l’intranet de l’organisation.
+- Dans le commutateur virtuel Hyper\-V, un commutateur virtuel est créé sur chaque ordinateur hôte. Le commutateur est externe et est lié à l’une des cartes réseau connectées à l’intranet.
 - Les machines virtuelles de charge de travail sont configurées avec 2 Go de RAM et 2 cœurs.
 - Les machines virtuelles de charge de travail disposent chacune d’une carte réseau virtuelle connectée au commutateur virtuel intranet.
 
@@ -86,7 +86,7 @@ L’outil Traffic Generator utilisé dans ce test est l’outil ctsTraffic. Le r
 
 Les illustrations de cette section décrivent le gestionnaire des tâches pour afficher le débit de tunnel GRE avec plusieurs connexions TCP.
 
-Vous pouvez atteindre jusqu’à 2,0 Gbits/s de débit sur les machines virtuelles multiples @ no__t-0core qui sont configurées en tant que passerelles RAS GRE.
+Vous pouvez atteindre jusqu’à 2,0 Gbits/s de débit sur les machines virtuelles à plusieurs\-cœurs configurées en tant que passerelles RAS GRE.
 
 ### <a name="gre-tunnel-performance-with-multiple-tcp-sessions"></a>Performances du tunnel GRE avec plusieurs sessions TCP
 
