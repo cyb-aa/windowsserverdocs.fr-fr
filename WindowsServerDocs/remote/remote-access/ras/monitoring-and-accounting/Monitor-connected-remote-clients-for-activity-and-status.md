@@ -21,7 +21,7 @@ ms.locfileid: "71367259"
 ---
 # <a name="monitor-connected-remote-clients-for-activity-and-status"></a>Analyser l'activité et l'état des clients distants connectés
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 **Remarque :** Windows Server 2012 combine DirectAccess et le service d’accès à distance (RAS) dans un seul rôle d’accès à distance.  
   
@@ -40,7 +40,7 @@ Vous pouvez utiliser la console de gestion sur le serveur d’accès à distance
   
 4.  Vous verrez la liste des utilisateurs qui sont connectés au serveur d’accès à distance et des statistiques détaillées à leur sujet. Cliquez sur la première ligne de la liste qui correspond à un client. Lorsque vous sélectionnez une ligne, l’activité de l’utilisateur distant s’affiche dans le volet de visualisation.  
   
-](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -50,9 +50,9 @@ PS> Get-RemoteAccessConnectionStatistics
   
 Les statistiques utilisateur peuvent être filtrées en fonction des sélections de critères, à l’aide des champs du tableau suivant.  
   
-|Nom du champ|Value|  
+|Nom du champ|Valeur|  
 |-------|-----|  
-|Nom d'utilisateur|Nom de l’utilisateur ou alias de l’utilisateur distant. Les caractères génériques peuvent être utilisés pour sélectionner un groupe d’utilisateurs, tel que contoso @ no__t-0 * ou \* \ administrateur.|  
+|Nom d'utilisateur|Nom de l’utilisateur ou alias de l’utilisateur distant. Les caractères génériques peuvent être utilisés pour sélectionner un groupe d’utilisateurs, par exemple Contoso\\* ou \*\administrator.|  
 |Hostname|Nom du compte d’ordinateur de l’utilisateur distant. Une adresse IPv4 ou IPv6 peut également être spécifiée.|  
 |Type|DirectAccess ou VPN. Si DirectAccess est sélectionné, tous les utilisateurs distants qui sont connectés à l’aide de DirectAccess sont répertoriés. Si VPN est sélectionné, tous les utilisateurs distants qui sont connectés à l’aide d’un VPN sont répertoriés.|  
 |Adresse FAI|Adresse IPv4 ou IPv6 de l’utilisateur distant.|  

@@ -22,7 +22,7 @@ ms.locfileid: "71372118"
 ---
 # <a name="prndrvr"></a>prndrvr
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Utilisez la commande **prndrvr** pour ajouter, supprimer et répertorier les pilotes d’imprimante.
 
@@ -41,19 +41,19 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}]
 |-d|supprime un pilote.|
 |-l|répertorie tous les pilotes d’imprimante installés sur le serveur spécifié par le paramètre **-s** . Si vous ne spécifiez pas de serveur, Windows répertorie les pilotes d’imprimante installés sur l’ordinateur local.|
 |-x|supprime tous les pilotes d’imprimante et les pilotes d’imprimante supplémentaires qui ne sont pas utilisés par une imprimante logique sur le serveur spécifié par le paramètre **-s** . Si vous ne spécifiez pas de serveur à supprimer de la liste, Windows supprime tous les pilotes d’imprimante inutilisés sur l’ordinateur local.|
-|-m \<DrivermodelName @ no__t-1|Spécifie (par nom) le pilote que vous souhaitez installer. Les pilotes sont souvent nommés pour le modèle d’imprimante pris en charge. Pour plus d’informations, consultez la documentation de l’imprimante.|
+|-m \<DrivermodelName\>|Spécifie (par nom) le pilote que vous souhaitez installer. Les pilotes sont souvent nommés pour le modèle d’imprimante pris en charge. Pour plus d’informations, consultez la documentation de l’imprimante.|
 |-v {0 &#124; 1 &#124; 2 &#124; 3}|Spécifie la version du pilote que vous voulez installer. Pour plus d’informations sur les versions disponibles pour l’environnement, consultez la description du paramètre **-e**. Si vous ne spécifiez pas de version, la version du pilote correspondant à la version de Windows en cours d’exécution sur l’ordinateur sur lequel vous installez le pilote est installée.<br /><br />-la version **0** prend en charge Windows 95, Windows 98 et Windows Millennium Edition.<br />-la version **1** prend en charge Windows NT 3,51.<br />-la version **2** prend en charge Windows NT 4,0.<br />-la version **3** prend en charge les systèmes d’exploitation Windows Vista, Windows XP, Windows 2000 et windows Server 2003. Notez qu’il s’agit de la seule version du pilote d’imprimante prise en charge par Windows Vista.|
-|-e @no__t 0Environment >|Spécifie l’environnement pour le pilote que vous souhaitez installer. Si vous ne spécifiez pas d’environnement, l’environnement de l’ordinateur sur lequel vous installez le pilote est utilisé. Les paramètres d’environnement pris en charge sont les suivants :<br /><br />-    **« Windows NT x86 »**<br />-    **« Windows x64 »**<br />-    **« Windows IA64 »**|
+|-e \<> de l’environnement|Spécifie l’environnement pour le pilote que vous souhaitez installer. Si vous ne spécifiez pas d’environnement, l’environnement de l’ordinateur sur lequel vous installez le pilote est utilisé. Les paramètres d’environnement pris en charge sont les suivants :<br /><br />-    **« Windows NT x86 »**<br />-    **« Windows x64 »**<br />-    **« Windows IA64 »**|
 |-s \<ServerName >|Spécifie le nom de l’ordinateur distant qui héberge l’imprimante que vous souhaitez gérer. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est utilisé.|
-|-u \<UserName >-w \<Password >|Spécifie un compte disposant des autorisations nécessaires pour se connecter à l’ordinateur qui héberge l’imprimante que vous souhaitez gérer. Tous les membres du groupe Administrateurs local de l’ordinateur cible disposent de ces autorisations, mais les autorisations peuvent également être accordées à d’autres utilisateurs. Si vous ne spécifiez pas de compte, vous devez avoir ouvert une session sous un compte disposant de ces autorisations pour que la commande fonctionne.|
-|-h \<path >|Spécifie le chemin d’accès au fichier de pilote. Si vous ne spécifiez pas de chemin d’accès, le chemin d’accès à l’emplacement d’installation de Windows est utilisé.|
+|-u \<nom_utilisateur >-w \<mot de passe >|Spécifie un compte disposant des autorisations nécessaires pour se connecter à l’ordinateur qui héberge l’imprimante que vous souhaitez gérer. Tous les membres du groupe Administrateurs local de l’ordinateur cible disposent de ces autorisations, mais les autorisations peuvent également être accordées à d’autres utilisateurs. Si vous ne spécifiez pas de compte, vous devez avoir ouvert une session sous un compte disposant de ces autorisations pour que la commande fonctionne.|
+|-h \<chemin d’accès >|Spécifie le chemin d’accès au fichier de pilote. Si vous ne spécifiez pas de chemin d’accès, le chemin d’accès à l’emplacement d’installation de Windows est utilisé.|
 |-i \<Filename.inf>|Spécifie le chemin d’accès complet et le nom de fichier pour le pilote que vous souhaitez installer. Si vous ne spécifiez pas de nom de fichier, le script utilise l’un des fichiers Printer. inf de la boîte de réception dans le sous-répertoire INF du répertoire Windows.<br /><br />Si le chemin d’accès du pilote n’est pas spécifié, le script recherche des fichiers de pilote dans le fichier. cab du pilote.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
-- La commande **prndrvr** est un script Visual Basic situé dans le répertoire%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Pour utiliser cette commande, à l’invite de commandes, tapez **cscript** suivi du chemin d’accès complet au fichier prndrvr ou accédez au dossier approprié.
+- La commande **prndrvr** est un script Visual Basic situé dans le répertoire%windir%\system32\ printing_Admin_Scripts\\<language>. Pour utiliser cette commande, à l’invite de commandes, tapez **cscript** suivi du chemin d’accès complet au fichier prndrvr ou accédez au dossier approprié.
 
-  Exemple :
+  Par exemple :
   ```
   cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prndrvr
   ```
@@ -63,7 +63,7 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}]
 
 ## <a name="BKMK_examples"></a>Illustre
 
-Pour répertorier tous les pilotes sur le serveur \\ \ printServer1, tapez :
+Pour répertorier tous les pilotes sur le serveur \\\printServer1, tapez :
 ```
 cscript Prndrvr -l -s
 ```

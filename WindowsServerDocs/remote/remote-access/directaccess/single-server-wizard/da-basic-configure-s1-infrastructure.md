@@ -21,7 +21,7 @@ ms.locfileid: "71388574"
 ---
 # <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Étape 1 configurer l’infrastructure DirectAccess de base
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment configurer l’infrastructure requise pour un déploiement de base DirectAccess qui utilise un serveur DirectAccess unique dans un environnement mixte IPv4 et IPv6. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [planifier un déploiement de base de DirectAccess](../../../remote-access/directaccess/single-server-wizard/Plan-a-Basic-DirectAccess-Deployment.md).  
   
@@ -121,7 +121,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 5.  Cliquez sur **Terminé**.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -134,7 +134,7 @@ Vous devez également configurer les entrées DNS pour les éléments suivants�
   
 -   **Le serveur IP-HTTPS** -les clients DirectAccess doivent être en mesure de résoudre le nom DNS du serveur d’accès à distance à partir d’Internet.  
   
--   **Vérification de la révocation de la liste de** révocation de certificats : DirectAccess utilise la vérification de la révocation des certificats pour la connexion IP-HTTPS entre les clients DirectAccess et le serveur d’accès à distance, ainsi que pour la connexion HTTPS entre le client DirectAccess et le réseau serveur d’emplacement. Dans les deux cas, les clients DirectAccess doivent être en mesure de résoudre le point de distribution de liste de révocation de certificats et d'y accéder.  
+-   **Vérification de la révocation** des certificats : DirectAccess utilise la vérification de la révocation des certificats pour la connexion IP-HTTPS entre les clients DirectAccess et le serveur d’accès à distance, ainsi que pour la connexion HTTPS entre le client DirectAccess et le serveur d’emplacement réseau. Dans les deux cas, les clients DirectAccess doivent être en mesure de résoudre le point de distribution de liste de révocation de certificats et d'y accéder.  
   
 ## <a name="ConfigAD"></a>Configurer Active Directory  
 Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doivent être joints à un domaine Active Directory. Les ordinateurs clients DirectAccess doivent être membres de l'un des types de domaines suivants :  
@@ -149,7 +149,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 1.  Dans le Gestionnaire de serveur, cliquez sur **Serveur local**. Dans le volet d’informations, cliquez sur le lien en regard de **Nom de l’ordinateur**.  
   
-2.  Dans la boîte de dialogue **Propriétés système** , cliquez sur l’onglet **Nom de l’ordinateur** . Sous l’onglet **Nom de l’ordinateur**, cliquez sur **Modifier**.  
+2.  Dans la boîte de dialogue **Propriétés système** , cliquez sur l’onglet nom de l' **ordinateur** . Sous l’onglet nom de l' **ordinateur** , cliquez sur **modifier**.  
   
 3.  Dans **Nom de l’ordinateur**, tapez le nom de l’ordinateur si vous modifiez également le nom de l’ordinateur lors de la jonction du serveur au domaine. Sous **Membre de**, cliquez sur **Domaine**, et tapez le nom du domaine auquel vous voulez joindre le serveur, par exemple, corp.contoso.com, puis cliquez sur **OK**.  
   
@@ -183,7 +183,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 9. Dans la boîte de dialogue **Propriétés système**, cliquez sur Fermer. Lorsque vous y êtes invité, cliquez sur **Redémarrer maintenant**.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -227,7 +227,7 @@ Les paramètres DirectAccess contenus dans les objets de stratégie de groupe de
   
 6.  Dans la boîte de dialogue **Sélectionner Utilisateurs, contacts, ordinateurs ou comptes de service**, sélectionnez les ordinateurs clients que vous voulez activer pour DirectAccess, puis cliquez sur **OK**.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**commandes Windows PowerShell équivalentes** @no__t 0Windows PowerShell  
+![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -238,7 +238,7 @@ Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_n
   
 ## <a name="BKMK_Links"></a>Étape suivante  
   
--   [Étape 2 : Configurer le serveur DirectAccess de base](da-basic-configure-s2-server.md)  
+-   [Étape 2 : configurer le serveur DirectAccess de base](da-basic-configure-s2-server.md)  
   
 
 

@@ -17,13 +17,13 @@ ms.locfileid: "71396360"
 ---
 # <a name="configure-network-policies"></a>Configurer des stratégies réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour configurer des stratégies réseau dans NPS.
 
 ## <a name="add-a-network-policy"></a>Ajouter une stratégie réseau
 
-Network Policy Server \(NPS @ no__t-1 utilise des stratégies réseau et les propriétés de numérotation des comptes d’utilisateur pour déterminer si une demande de connexion est autorisée à se connecter au réseau.
+Le serveur de stratégie réseau \(\) NPS utilise des stratégies réseau et les propriétés de numérotation des comptes d’utilisateur pour déterminer si une demande de connexion est autorisée à se connecter au réseau.
 
 Vous pouvez utiliser cette procédure pour configurer une nouvelle stratégie réseau dans la console NPS ou la console accès à distance.
 
@@ -44,7 +44,7 @@ Lorsque vous utilisez l’Assistant Nouvelle stratégie réseau pour créer une 
 
 Sur la page **autorisation d’accès** , vous devez sélectionner **accès accordé** si vous souhaitez que la stratégie autorise les utilisateurs à se connecter à votre réseau. Si vous souhaitez que la stratégie empêche les utilisateurs de se connecter à votre réseau, sélectionnez **accès refusé**. 
 
-Si vous souhaitez que l’autorisation d’accès soit déterminée par les propriétés de connexion de compte d’utilisateur dans Active Directory les services de domaine @ no__t-0 \(AD DS @ no__t-2, vous pouvez activer la case à cocher l' **accès est déterminé par les propriétés d’accès à distance** de l’utilisateur.
+Si vous souhaitez que les autorisations d’accès soient déterminées par les propriétés d’accès à distance du compte d’utilisateur dans Active Directory Services de domaine&reg; \(AD DS\), vous pouvez activer la case à cocher l' **accès est déterminé par les propriétés d’accès à distance** de l’utilisateur.
 
 L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.
 
@@ -58,10 +58,10 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 ## <a name="create-network-policies-for-dial-up-or-vpn-with-a-wizard"></a>Créer des stratégies réseau pour l’accès à distance ou VPN à l’aide d’un Assistant
 
-Vous pouvez utiliser cette procédure pour créer les stratégies de demande de connexion et les stratégies réseau requises pour déployer des serveurs d’accès à distance ou un réseau privé virtuel \(VPN @ no__t-1 Servers en tant que protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS @ no__t-3 clients vers le serveur RADIUS NPS.
+Vous pouvez utiliser cette procédure pour créer les stratégies de demande de connexion et les stratégies réseau requises pour déployer des serveurs d’accès à distance ou un réseau privé virtuel \(des serveurs de\) VPN comme protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS\) les clients vers le serveur RADIUS NPS.
 
 >[!NOTE]
->Les ordinateurs clients, tels que les ordinateurs portables et les autres ordinateurs exécutant des systèmes d’exploitation clients, ne sont pas des clients RADIUS. Les clients RADIUS sont des serveurs d’accès réseau, tels que les points d’accès sans fil, les commutateurs d’authentification 802.1 X, les serveurs de réseau privé virtuel \(VPN @ no__t-1 et les serveurs d’accès à distance, car ces appareils utilisent le protocole RADIUS pour communiquer avec RADIUS serveurs tels que NPSs.
+>Les ordinateurs clients, tels que les ordinateurs portables et les autres ordinateurs exécutant des systèmes d’exploitation clients, ne sont pas des clients RADIUS. Les clients RADIUS sont des serveurs d’accès réseau, tels que les points d’accès sans fil, les commutateurs d’authentification 802.1 X, le réseau privé virtuel \(les serveurs de\) VPN et les serveurs d’accès à distance, car ces appareils utilisent le protocole RADIUS pour communiquer avec les serveurs RADIUS tels que NPSs.
 
 Cette procédure explique comment ouvrir l’Assistant Nouvelle connexion d’accès à distance ou de réseau privé virtuel (VPN) dans NPS.
 
@@ -78,7 +78,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 ### <a name="to-create-policies-for-dial-up-or-vpn-with-a-wizard"></a>Pour créer des stratégies d’accès à distance ou VPN à l’aide d’un Assistant
 
-1. Ouvrez la console NPS. S’il n’est pas déjà sélectionné, **cliquez \(sur\)NPS local**. Si vous souhaitez créer des stratégies sur un serveur NPS distant, sélectionnez le serveur.
+1. Ouvrez la console NPS. S’il n’est pas déjà sélectionné, cliquez sur **serveur NPS \(\)local** . Si vous souhaitez créer des stratégies sur un serveur NPS distant, sélectionnez le serveur.
 
 2. Dans **prise en main** et la **configuration standard**, sélectionnez **serveur RADIUS pour les connexions d’accès à distance ou VPN**. Le texte et les liens sous le texte changent pour refléter votre sélection.
 
@@ -107,7 +107,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 1. Sur le serveur NPS, dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur serveur NPS ( **Network Policy Server**). La console NPS s’ouvre. 
 
-2. S’il n’est pas déjà sélectionné, **cliquez \(sur\)NPS local**. Si vous souhaitez créer des stratégies sur un serveur NPS distant, sélectionnez le serveur.
+2. S’il n’est pas déjà sélectionné, cliquez sur **serveur NPS \(\)local** . Si vous souhaitez créer des stratégies sur un serveur NPS distant, sélectionnez le serveur.
 
 3. Dans **prise en main** et la **configuration standard**, sélectionnez **serveur RADIUS pour les connexions câblées ou sans fil 802.1 x**. Le texte et les liens sous le texte changent pour refléter votre sélection.
 
@@ -117,7 +117,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 ## <a name="configure-nps-to-ignore-user-account-dial-in-properties"></a>Configurer NPS pour ignorer les propriétés d’accès à distance du compte d’utilisateur
 
-Utilisez cette procédure pour configurer une stratégie de réseau NPS afin d’ignorer les propriétés de numérotation des comptes d’utilisateur dans Active Directory pendant le processus d’autorisation. Les comptes d’utilisateur dans Active Directory utilisateurs et les ordinateurs ont des propriétés de numérotation que NPS évalue pendant le processus d’autorisation, sauf si la propriété d' **autorisation d’accès réseau** du compte d’utilisateur est définie pour **contrôler l’accès via la stratégie de réseau NPS** . 
+Utilisez cette procédure pour configurer une stratégie de réseau NPS afin d’ignorer les propriétés de numérotation des comptes d’utilisateur dans Active Directory pendant le processus d’autorisation. Les comptes d’utilisateur dans Active Directory utilisateurs et ordinateurs disposent de propriétés d’accès à distance que le serveur NPS évalue pendant le processus d’autorisation, sauf si la propriété **autorisation d’accès réseau** du compte d’utilisateur est définie sur **contrôler l’accès via la stratégie de réseau NPS**. 
 
 Il existe deux cas dans lesquels vous pouvez configurer NPS pour ignorer les propriétés de numérotation des comptes d’utilisateur dans Active Directory :
 
@@ -171,7 +171,7 @@ Pour mener à bien cette procédure, il faut appartenir au groupe **Administrate
 
 6. Dans **Ajouter un attribut RADIUS standard**, dans attributs, faites défiler la liste jusqu’à et ajoutez les attributs suivants :
 
-    - **Tunnel-moyen-type**. Sélectionnez une valeur adaptée aux sélections précédentes que vous avez apportées à la stratégie. Par exemple, si la stratégie réseau que vous configurez est une stratégie sans fil, sélectionnez **Value : 802 (comprend tout le format canonique 802 Media plus Ethernet)** .
+    - **Tunnel-moyen-type**. Sélectionnez une valeur adaptée aux sélections précédentes que vous avez apportées à la stratégie. Par exemple, si la stratégie réseau que vous configurez est une stratégie sans fil, sélectionnez **valeur : 802 (comprend tous les supports 802 Media plus Ethernet)** .
 
     - **Tunnel-Pvt-Group-ID**. Entrez l’entier qui représente le nombre de réseaux locaux virtuels auxquels les membres du groupe seront affectés. 
 
@@ -194,7 +194,7 @@ Pour mener à bien cette procédure, il faut appartenir au groupe **Administrate
 
 Dans certains cas, les routeurs ou les pare-feu abandonnent les paquets, car ils sont configurés pour rejeter les paquets qui nécessitent une fragmentation.
 
-Lorsque vous déployez NPS avec des stratégies réseau qui utilisent le protocole EAP (Extensible Authentication Protocol \(EAP @ no__t-1 avec Transport Layer Security \(TLS @ no__t-3 ou EAP-TLS, comme méthode d’authentification, l’unité de transmission maximale par défaut \(MTU @ NO_ _ t-5 que NPS utilise pour les charges utiles EAP est de 1500 octets. 
+Lorsque vous déployez NPS avec des stratégies réseau qui utilisent le protocole EAP (Extensible Authentication Protocol) \(EAP\) avec Transport Layer Security \(TLS\)ou EAP-TLS, comme méthode d’authentification, l’unité de transmission maximale par défaut \(MTU\) que le serveur NPS utilise pour les charges utiles EAP est de 1500 octets. 
 
 Cette taille maximale pour la charge utile EAP peut créer des messages RADIUS qui nécessitent une fragmentation par un routeur ou un pare-feu entre le serveur NPS et un client RADIUS. Dans ce cas, un routeur ou un pare-feu placé entre le client RADIUS et le serveur NPS peut ignorer silencieusement certains fragments, provoquant ainsi l’échec de l’authentification et l’incapacité du client d’accès à se connecter au réseau.
 

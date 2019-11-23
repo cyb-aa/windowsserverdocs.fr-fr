@@ -39,8 +39,8 @@ clip < <FileName>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Command >|Spécifie une commande dont vous souhaitez envoyer la sortie dans le presse-papiers Windows.|
-|\<Nom de fichier >|Spécifie un fichier dont vous souhaitez envoyer le contenu dans le presse-papiers Windows.|
+|> de commande \<|Spécifie une commande dont vous souhaitez envoyer la sortie dans le presse-papiers Windows.|
+|Nom de fichier \<>|Spécifie un fichier dont vous souhaitez envoyer le contenu dans le presse-papiers Windows.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

@@ -21,7 +21,7 @@ ms.locfileid: "71388633"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Étape 2 configurer des serveurs DirectAccess avancés
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment configurer les paramètres de client et de serveur requis pour un déploiement avancé de l'accès à distance qui utilise un serveur d'accès à distance unique dans un environnement mixte IPv4 et IPv6. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [planifier un déploiement avancé de DirectAccess](Plan-an-Advanced-DirectAccess-Deployment.md).  
   
@@ -56,7 +56,7 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 6.  Dans la page **Progression de l'installation**, vérifiez que l'installation s'est correctement déroulée et cliquez sur **Fermer**.  
   
-réussite de la progression de la @no__t 0Installation](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***  
+![de la progression de l’installation,](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -77,7 +77,7 @@ Ce guide utilise un déploiement DirectAccess uniquement dans les procédures d'
   
 #### <a name="to-configure-the-deployment-type"></a>Pour configurer le type de déploiement  
   
-1.  Sur le serveur d'accès à distance, ouvrez la console de gestion de l'accès à distance : Dans l’écran d' **Accueil** , tapez**RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance, ouvrez la console de gestion de l’accès à distance : dans l’écran d' **Accueil** , tapez**RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
   
 2.  Dans la console de gestion de l'accès à distance, dans le volet du milieu, cliquez sur **Exécuter l'Assistant Configuration de l'accès à distance**.  
   
@@ -186,29 +186,29 @@ Dans un déploiement de l'accès à distance, la configuration de serveurs d'app
   
 3.  Pour limiter l'accès aux seuls serveurs figurant dans le groupe de sécurité des serveurs d'applications, cochez la case **Autoriser l'accès uniquement aux serveurs inclus dans les groupes de sécurité**.  
   
-4.  Pour utiliser l’authentification sans chiffrement, sélectionnez le @no__t 0Do-ne pas chiffrer le trafic. Case à cocher Utiliser uniquement l’authentification @ no__t-0.  
+4.  Pour utiliser l’authentification sans chiffrement, sélectionnez l’option **ne pas chiffrer le trafic. Case à cocher Utiliser uniquement l’authentification** .  
   
 5.  Cliquez sur **Terminer**.  
   
 ## <a name="BKMK_GPO"></a>2,7. Résumé de la configuration et autres objets de stratégie de groupe  
 Une fois la configuration de l'accès à distance terminée, la **Vérification de l'accès DirectAccess** est affichée. Vous pouvez passer en revue tous les paramètres que vous avez sélectionnés auparavant, y compris :  
   
-1.  **Paramètres des objets de stratégie de groupe** : les noms des objets de stratégie de groupe de serveur et de client DirectAccess sont répertoriés. De plus, vous pouvez cliquer sur le lien **Modifier** en regard du titre **Paramètres de l'objet de stratégie de groupe** pour modifier les paramètres des objets de stratégie de groupe.  
+1.  **Paramètres des objets Stratégie de groupe** : Le nom d’objet de stratégie de groupe du serveur DirectAccess et le nom d’objet de stratégie de groupe du client sont répertoriés. De plus, vous pouvez cliquer sur le lien **Modifier** en regard du titre **Paramètres de l'objet de stratégie de groupe** pour modifier les paramètres des objets de stratégie de groupe.  
   
-2.  **Clients distants** : la configuration des clients DirectAccess est affichée, y compris le groupe de sécurité, l'état de tunneling forcé, les vérificateurs de connectivité et le nom de la connexion à DirectAccess.  
+2.  **Clients distants** : La configuration du client DirectAccess est affichée, notamment le groupe de sécurité, l'état de tunneling forcé, les vérificateurs de connectivité et le nom de la connexion à DirectAccess.  
   
-3.  **Serveur d'accès à distance** : la configuration de DirectAccess est affichée avec le nom public/l'adresse, la configuration des cartes réseau, les informations de certificat et les informations de mot de passe à usage unique, le cas échéant.  
+3.  **Serveur d’accès à distance** : La configuration de DirectAccess est affichée avec le nom public/l’adresse, la configuration des cartes réseau, les informations de certificat et les informations de mot de passe à usage unique, le cas échéant.  
   
-4.  **Serveurs d'infrastructure** : cette liste inclut l'URL du serveur Emplacement réseau, les suffixes DNS utilisés par les clients DirectAccess et des informations sur les serveurs d'administration.  
+4.  **Serveurs d’infrastructure** : Cette liste inclut l'URL du serveur d’emplacement réseau, les suffixes DNS utilisés par les clients DirectAccess et des informations sur les serveurs d'administration.  
   
-5.  **Serveurs d'applications** : l'état de l'administration à distance DirectAccess est affiché, en plus de l'état de l'authentification de bout en bout auprès des serveurs d'applications spécifiques.  
+5.  **Serveurs d’application** : L'état de l’administration à distance DirectAccess est affiché, en plus de l’état de l’authentification de bout en bout auprès des serveurs d’applications spécifiques.  
   
 ## <a name="BKMK_PS"></a>2,8. Comment configurer le serveur d'accès à distance au moyen de Windows PowerShell  
-](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**commandes Windows PowerShell équivalentes** @no__t 0Windows PowerShell  
+![les commandes Windows PowerShell](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
-Pour effectuer une installation complète dans une topologie de périmètre de l'accès à distance pour DirectAccess uniquement dans un domaine avec la racine **corp.contoso.com** et en utilisant les paramètres suivants : objet de stratégie de groupe de serveur : **DirectAccess Server Settings**, objet de stratégie de groupe de client : Paramètres du client DirectAccess, carte réseau interne : **Corpnet**, carte réseau externe : **Internet**, adresse ConnectTto : **Edge1.contoso.com**et serveur emplacement réseau : **nls.Corp.contoso.com**:  
+Pour effectuer une installation complète dans une topologie de périmètre de l’accès à distance pour DirectAccess uniquement dans un domaine avec la racine **Corp.contoso.com** et en utilisant les paramètres suivants : serveur de stratégie de groupe : **paramètres de serveur DirectAccess**, objet de stratégie de groupe du client : paramètres du client DirectAccess, carte réseau interne : **corpnet**, carte réseau externe : **Internet**, adresse ConnectTto : **Edge1.contoso.com**et serveur emplacement réseau : **nls.Corp.contoso.com**:  
   
 ```  
 Install-RemoteAccess -Force -PassThru -ServerGpoName 'corp.contoso.com\DirectAccess Server Settings' -ClientGpoName 'corp.contoso.com\DirectAccess Client Settings' -DAInstallType 'FullInstall' -InternetInterface 'Internet' -InternalInterface 'Corpnet' -ConnectToAddress 'edge1.contoso.com' -NlsUrl 'https://nls.corp.contoso.com/'  
@@ -243,11 +243,11 @@ Set-DAClientExperienceConfiguration -FriendlyName 'Contoso DirectAccess Connecti
   
 ## <a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 1 : Configurer l’infrastructure DirectAccess avancée](da-adv-configure-s1-infrastructure.md)  
+-   [Étape 1 : configurer l’infrastructure DirectAccess avancée](da-adv-configure-s1-infrastructure.md)  
   
 ## <a name="next-step"></a>Étape suivante  
   
--   [Étape 3 : Vérifier le déploiement](Step-3-Verify-the-Deployment.md)  
+-   [Étape 3 : vérifier le déploiement](Step-3-Verify-the-Deployment.md)  
   
 
 

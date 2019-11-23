@@ -18,14 +18,14 @@ ms.locfileid: "71408368"
 ---
 # <a name="enroll-an-ssl-certificate-for-ad-fs"></a>Inscrire un certificat SSL pour AD FS
 
-Services ADFS \(AD FS @ no__t-1 nécessite un certificat pour Secure Socket Layer \(SSL @ no__t-3 Server Authentication sur chaque serveur de Fédération de votre batterie de serveurs de Fédération. Le même certificat peut être utilisé sur chaque serveur de Fédération d’une batterie de serveurs. Le certificat et sa clé privée doivent être disponibles. Par exemple, si le certificat et sa clé privée se trouvent dans un fichier .pfx, vous pouvez importer le fichier directement dans l’Assistant Configuration des services AD FS (Active Directory Federation Services). Ce certificat SSL doit contenir les éléments suivants :  
+Services ADFS \(AD FS\) requiert un certificat pour le protocole Secure Socket Layer \(l’authentification de serveur SSL\) sur chaque serveur de Fédération de votre batterie de serveurs de Fédération. Le même certificat peut être utilisé sur chaque serveur de Fédération d’une batterie de serveurs. Le certificat et sa clé privée doivent être disponibles. Par exemple, si le certificat et sa clé privée se trouvent dans un fichier .pfx, vous pouvez importer le fichier directement dans l’Assistant Configuration des services AD FS (Active Directory Federation Services). Ce certificat SSL doit contenir les éléments suivants :  
   
 1.  Le nom d’objet et l’autre nom de l’objet doivent contenir le nom de votre service de Fédération, par exemple fs.contoso.com.  
   
-2.  L’autre nom de l’objet doit contenir la valeur **enterpriseregistration** suivie du nom d’utilisateur principal \(UPN @ no__t-2 suffixe de votre organisation, par exemple **enterpriseregistration.Corp.contoso.com**.  
+2.  L’autre nom de l’objet doit contenir la valeur **enterpriseregistration** suivie du nom d’utilisateur principal \(suffixe UPN\) de votre organisation, par exemple, **enterpriseregistration.Corp.contoso.com**.  
   
     > [!WARNING]  
-    > Spécifiez l’autre nom de l’objet si vous envisagez d’activer Device Registration service \(DRS @ no__t-1 pour Workplace Join.  
+    > Spécifiez l’autre nom de l’objet si vous envisagez d’activer le service Device Registration service \(DRS\) pour Workplace Join.  
   
 > [!IMPORTANT]  
 > Si votre organisation utilise plusieurs suffixes UPN et que vous envisagez d’activer le DRS, le certificat SSL doit contenir une entrée d’autre nom de l’objet pour chaque suffixe.  

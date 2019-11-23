@@ -18,12 +18,12 @@ ms.locfileid: "71408040"
 ---
 # <a name="name-resolution-requirements-for-federation-servers"></a>Exigences relatives à la résolution de noms pour les serveurs de fédération
 
-Lorsque des ordinateurs clients sur le réseau d’entreprise tentent d’accéder à une application ou à un service Web protégé par Services ADFS \(AD FS @ no__t-1, ils doivent d’abord s’authentifier auprès d’un serveur de Fédération. L’une des façons d’authentifier est que les clients du réseau d’entreprise accèdent à un serveur de Fédération local via l’authentification intégrée de Windows.  
+Lorsque des ordinateurs clients sur le réseau d’entreprise tentent d’accéder à une application ou à un service Web protégé par Services ADFS \(AD FS\), ils doivent d’abord s’authentifier auprès d’un serveur de Fédération. L’une des façons d’authentifier est que les clients du réseau d’entreprise accèdent à un serveur de Fédération local via l’authentification intégrée de Windows.  
   
 ## <a name="configure-corporate-dns"></a>Configurer le système DNS d’entreprise  
-Pour que la résolution de noms réussie via l’authentification intégrée de Windows sur les serveurs de Fédération locaux puisse se produire, le système de noms de domaine @no__t 0DNS @ no__t-1 dans le réseau d’entreprise du partenaire de compte doit être configuré pour un nouvel hôte \(A @ no__t-3 enregistrement de ressource qui va résoudre le nom de domaine complet \(FQDN @ no__t-5 nom d’hôte du serveur de Fédération en adresse IP du cluster de serveurs de Fédération.  
+Pour que la résolution de noms réussie via l’authentification intégrée de Windows sur les serveurs de Fédération locaux puisse se produire, le système DNS (Domain Name System) \(DNS\) dans le réseau d’entreprise du partenaire de compte doit être configuré pour un nouvel hôte \(un\) enregistrement de ressource qui résout le nom de domaine complet \(nom d’hôte du serveur de Fédération en adresse IP du cluster de serveurs de\)  
   
-L’illustration suivante présente l’accomplissement de cette tâche pour un scénario donné. Dans ce scénario, l’équilibrage de charge réseau Microsoft \(NLB @ no__t-1 fournit un nom de domaine complet de cluster unique et une adresse IP de cluster unique pour une batterie de serveurs de fédération existante.  
+L’illustration suivante présente l’accomplissement de cette tâche pour un scénario donné. Dans ce scénario, l’équilibrage de charge réseau Microsoft \(NLB\) fournit un nom de domaine complet de cluster unique et une adresse IP de cluster unique pour une batterie de serveurs de fédération existante.  
   
 ![exigences relatives aux noms](media/adfs2_deploy_single_fs.gif)  
   

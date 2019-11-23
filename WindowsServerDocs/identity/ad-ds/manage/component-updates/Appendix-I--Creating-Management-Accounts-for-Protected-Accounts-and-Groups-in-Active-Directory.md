@@ -16,9 +16,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71369211"
 ---
-# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Annexe I : Création de comptes de gestion pour les comptes et les groupes protégés dans Active Directory
+# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Annexe I : Création de comptes de gestion pour les comptes protégés et les groupes dans Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’une des difficultés liées à l’implémentation d’un modèle de Active Directory qui ne repose pas sur l’appartenance permanente à des groupes à privilèges élevés est qu’il doit exister un mécanisme pour remplir ces groupes lorsque l’appartenance temporaire aux groupes est requise. Certaines solutions privilégiées de gestion des identités requièrent que les comptes de service du logiciel bénéficient d’une appartenance permanente à des groupes tels que DA ou administrateurs dans chaque domaine de la forêt. Toutefois, il n’est techniquement pas nécessaire que les solutions Privileged Identity Management (PIM) exécutent leurs services dans des contextes à privilèges élevés.  
   
@@ -42,7 +42,7 @@ La création de comptes qui peuvent être utilisés pour gérer l’appartenance
 Vous devez tester minutieusement toutes ces procédures et les modifier en fonction des besoins de votre environnement avant de les implémenter dans un environnement de production. Vous devez également vérifier que tous les paramètres fonctionnent comme prévu (certaines procédures de test sont fournies dans cette annexe) et que vous devez tester un scénario de récupération d’urgence dans lequel les comptes de gestion ne peuvent pas être utilisés pour remplir des groupes protégés pour la récupération. opérations. Pour plus d’informations sur la sauvegarde et la restauration de Active Directory, consultez le [Guide pas à pas](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx)de la AD DS de la sauvegarde et de la récupération.  
   
 > [!NOTE]  
-> En implémentant les étapes décrites dans cette annexe, vous allez créer des comptes qui seront en mesure de gérer l’appartenance de tous les groupes protégés dans chaque domaine, non seulement les groupes à privilèges élevés Active Directory comme EAs, DAs et BAs. Pour plus d’informations sur les groupes protégés dans Active Directory, consultez [Appendix C : Comptes et groupes protégés dans Active Directory @ no__t-0.  
+> En implémentant les étapes décrites dans cette annexe, vous allez créer des comptes qui seront en mesure de gérer l’appartenance de tous les groupes protégés dans chaque domaine, non seulement les groupes à privilèges élevés Active Directory comme EAs, DAs et BAs. Pour plus d’informations sur les groupes protégés dans Active Directory, consultez l' [annexe C : comptes et groupes protégés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
 ### <a name="step-by-step-instructions-for-creating-management-accounts-for-protected-groups"></a>Instructions pas à pas pour la création de comptes de gestion pour les groupes protégés  
   
@@ -60,7 +60,7 @@ Pour créer un groupe afin d’activer et de désactiver les comptes de gestion,
   
     ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_116.png)  
   
-3.  Cliquez avec le bouton droit sur le groupe que vous venez de créer, cliquez sur **Propriétés**, puis sur l’onglet **Objet**. Dans la boîte de dialogue propriété de l' **objet** du groupe, sélectionnez **protéger l’objet contre une suppression accidentelle**, ce qui empêchera les utilisateurs autorisés autrement de supprimer le groupe, mais également de le déplacer vers une autre unité d’organisation, sauf si l’attribut est en premier désélectionné.  
+3.  Cliquez avec le bouton droit sur le groupe que vous venez de créer, cliquez sur **Propriétés**, puis sur l’onglet **objet** . Dans la boîte de dialogue propriété de l' **objet** du groupe, sélectionnez **protéger l’objet contre une suppression accidentelle**, ce qui empêchera les utilisateurs autorisés autrement de supprimer le groupe, mais également de le déplacer vers une autre unité d’organisation, sauf si l’attribut est désélectionné pour la première fois.  
   
     ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_117.png)  
   
@@ -71,7 +71,7 @@ Pour créer un groupe afin d’activer et de désactiver les comptes de gestion,
   
     ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_118.png)  
   
-5.  Si vous ne l’avez pas encore fait, dans la console **utilisateurs et ordinateurs Active Directory** , cliquez sur **Afficher** , puis sélectionnez **fonctionnalités avancées**. Cliquez avec le bouton droit sur le groupe que vous venez de créer, cliquez sur **Propriétés**, puis sur l’onglet **sécurité** . Sous l’onglet **Sécurité**, cliquez sur **Avancé**.  
+5.  Si vous ne l’avez pas encore fait, dans la console **utilisateurs et ordinateurs Active Directory** , cliquez sur **Afficher** , puis sélectionnez **fonctionnalités avancées**. Cliquez avec le bouton droit sur le groupe que vous venez de créer, cliquez sur **Propriétés**, puis sur l’onglet **sécurité** . Sous l’onglet **sécurité** , cliquez sur **avancé**.  
   
     ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_119.png)  
   
@@ -135,12 +135,12 @@ Pour créer les comptes de gestion, procédez comme suit :
 
 8. Cliquez sur l’onglet **compte** .  
 
-9. Dans le **champ options de compte** , sélectionnez l’indicateur le **compte est sensible et ne peut pas être délégué** , sélectionnez l’indicateur ce compte **prend en charge le chiffrement Kerberos AES 128 bits** et/ou le **compte ce compte prend en charge le chiffrement Kerberos AES 256** . et cliquez sur **OK**.  
+9. Dans le champ **options de compte** , sélectionnez l’indicateur le **compte est sensible et ne peut pas être délégué** , sélectionnez l’indicateur ce compte **prend en charge le chiffrement AES 128 bits Kerberos** et/ou le **compte ce compte prend en charge le chiffrement Kerberos AES 256** , puis cliquez sur **OK**.  
 
    ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_124.png)  
 
    > [!NOTE]  
-   > Étant donné que ce compte, comme d’autres comptes, aura une fonction limitée, mais puissante, le compte ne doit être utilisé que sur des ordinateurs hôtes d’administration sécurisés. Pour tous les ordinateurs hôtes d’administration sécurisés dans votre environnement, vous devez envisager d’implémenter le paramètre stratégie de groupe sécurité **Network : Configurez les types de chiffrement autorisés pour Kerberos @ no__t-0 afin d’autoriser uniquement les types de chiffrement les plus sécurisés que vous pouvez implémenter pour les hôtes sécurisés.  
+   > Étant donné que ce compte, comme d’autres comptes, aura une fonction limitée, mais puissante, le compte ne doit être utilisé que sur des ordinateurs hôtes d’administration sécurisés. Pour tous les ordinateurs hôtes d’administration sécurisés dans votre environnement, vous devez envisager d’implémenter le paramètre stratégie de groupe **sécurité réseau : configurer les types de chiffrement autorisés pour Kerberos** afin d’autoriser uniquement les types de chiffrement les plus sécurisés que vous pouvez implémenter pour les hôtes sécurisés.  
    >
    > Bien que l’implémentation de types de chiffrement plus sécurisés pour les hôtes n’atténue pas les attaques par vol d’informations d’identification, l’utilisation et la configuration appropriées des hôtes sécurisés. La définition de types de chiffrement renforcés pour les hôtes qui sont utilisés uniquement par les comptes privilégiés réduit simplement la surface d’attaque globale des ordinateurs.  
    >
@@ -233,7 +233,7 @@ Vous pouvez créer des comptes de gestion supplémentaires en répétant les ét
   
 À la place, vous pouvez créer un groupe auquel vous déléguez des droits pour remplir et supprimer le remplissage des groupes protégés, mais vous devez sécuriser le groupe et les comptes qu’il contient. Comme il doit y avoir très peu de comptes dans votre annuaire qui peuvent gérer l’appartenance à des groupes protégés, la création de comptes individuels peut être l’approche la plus simple.  
   
-Quelle que soit la façon dont vous choisissez de créer un groupe dans lequel vous placez les comptes de gestion, vous devez vous assurer que chaque compte est sécurisé comme décrit précédemment. Vous devez également envisager d’implémenter des restrictions d’objet de stratégie de groupe similaires à celles décrites dans [Appendix D : Sécurisation des comptes administrateur intégrés dans Active Directory @ no__t-0.  
+Quelle que soit la façon dont vous choisissez de créer un groupe dans lequel vous placez les comptes de gestion, vous devez vous assurer que chaque compte est sécurisé comme décrit précédemment. Vous devez également envisager d’implémenter des restrictions d’objet de stratégie de groupe similaires à celles décrites dans l' [annexe D : sécurisation des comptes administrateur intégrés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
   
 ##### <a name="auditing-management-accounts"></a>Audit des comptes de gestion
 
@@ -247,7 +247,7 @@ Pour plus d’informations sur les paramètres de configuration d’audit recomm
 
 Dans cette procédure, vous allez configurer des autorisations sur l’objet AdminSDHolder du domaine pour permettre aux comptes de gestion nouvellement créés de modifier l’appartenance des groupes protégés dans le domaine. Cette procédure ne peut pas être effectuée via une interface utilisateur graphique (GUI).  
   
-Comme indiqué dans [Appendix C : Comptes et groupes protégés dans Active Directory @ no__t-0, la liste de contrôle d’accès sur l’objet AdminSDHolder d’un domaine est effectivement « copiée » sur les objets protégés lors de l’exécution de la tâche SDProp. Les groupes et les comptes protégés n’héritent pas des autorisations de l’objet AdminSDHolder ; leurs autorisations sont explicitement définies pour correspondre à celles de l’objet AdminSDHolder. Par conséquent, lorsque vous modifiez des autorisations sur l’objet AdminSDHolder, vous devez les modifier pour les attributs appropriés au type de l’objet protégé que vous ciblez.  
+Comme indiqué dans [l’annexe C : comptes et groupes protégés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md), la liste de contrôle d’accès sur l’objet AdminSDHolder d’un domaine est effectivement « copiée » sur les objets protégés lors de l’exécution de la tâche SDPROP. Les groupes et les comptes protégés n’héritent pas des autorisations de l’objet AdminSDHolder ; leurs autorisations sont explicitement définies pour correspondre à celles de l’objet AdminSDHolder. Par conséquent, lorsque vous modifiez des autorisations sur l’objet AdminSDHolder, vous devez les modifier pour les attributs appropriés au type de l’objet protégé que vous ciblez.  
   
 Dans ce cas, vous allez accorder les comptes de gestion nouvellement créés pour leur permettre de lire et d’écrire l’attribut members sur les objets de groupe. Toutefois, l’objet AdminSDHolder n’est pas un objet de groupe et les attributs de groupe ne sont pas exposés dans l’éditeur de liste de contrôle d’accès graphique. C’est pour cette raison que vous allez implémenter les modifications d’autorisations via l’utilitaire de ligne de commande dsacls. Pour accorder aux comptes de gestion (désactivés) les autorisations nécessaires pour modifier l’appartenance de groupes protégés, procédez comme suit :  
   
@@ -286,7 +286,7 @@ Dans ce cas, vous allez accorder les comptes de gestion nouvellement créés pou
   
    Pour plus d’informations sur l’utilisation de **dsacls**, tapez DSACLS sans aucun paramètre dans une invite de commandes.  
   
-   Si vous avez créé plusieurs comptes de gestion pour le domaine, vous devez exécuter la commande dsacls pour chaque compte. Lorsque vous avez terminé la configuration de la liste de contrôle d’accès sur l’objet AdminSDHolder, vous devez forcer l’exécution de SDProp ou attendre la fin de l’exécution planifiée. Pour plus d’informations sur l’exécution forcée de SDProp, consultez « exécution de SDProp manuellement » dans [Appendix C : Comptes et groupes protégés dans Active Directory @ no__t-0.  
+   Si vous avez créé plusieurs comptes de gestion pour le domaine, vous devez exécuter la commande dsacls pour chaque compte. Lorsque vous avez terminé la configuration de la liste de contrôle d’accès sur l’objet AdminSDHolder, vous devez forcer l’exécution de SDProp ou attendre la fin de l’exécution planifiée. Pour plus d’informations sur l’exécution forcée de SDProp, consultez « exécution de SDProp manuellement » dans [annexe C : comptes et groupes protégés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
    Quand SDProp a été exécuté, vous pouvez vérifier que les modifications que vous avez apportées à l’objet AdminSDHolder ont été appliquées à des groupes protégés dans le domaine. Vous ne pouvez pas vérifier cela en consultant l’ACL sur l’objet AdminSDHolder pour les raisons décrites précédemment, mais vous pouvez vérifier que les autorisations ont été appliquées en affichant les listes de contrôle d’accès sur les groupes protégés.  
   
@@ -317,7 +317,7 @@ Maintenant que vous avez créé et configuré des comptes de gestion qui peuvent
   
 ##### <a name="test-the-group-that-will-enable-and-disable-management-accounts"></a>Tester le groupe qui activera et désactivera les comptes de gestion
   
-1.  Pour tester l’activation d’un compte de gestion et la réinitialisation de son mot de passe, connectez-vous à une station de travail d’administration sécurisée à l’aide d’un compte membre du groupe que vous avez créé dans [Appendix I : Création de comptes de gestion pour les comptes et les groupes protégés dans Active Directory @ no__t-0.  
+1.  Pour tester l’activation d’un compte de gestion et la réinitialisation de son mot de passe, connectez-vous à une station de travail d’administration sécurisée à l’aide d’un compte membre du groupe que vous avez créé à l' [annexe I : création de comptes de gestion pour les comptes et les groupes protégés dans Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
     ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_142.gif)  
   

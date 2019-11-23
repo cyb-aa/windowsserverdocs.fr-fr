@@ -37,24 +37,24 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Nom de fichier >|Spécifie le fichier pour lequel afficher les DACL.|
-|@no__t 0Directory >|Spécifie le répertoire pour lequel afficher les DACL.|
+|Nom de fichier \<>|Spécifie le fichier pour lequel afficher les DACL.|
+|Répertoire \<>|Spécifie le répertoire pour lequel afficher les DACL.|
 |commutateur|Exécute l’opération sur tous les fichiers spécifiés dans le répertoire actif et ses sous-répertoires.|
 |/c|Poursuit l’opération en dépit des erreurs de fichier. Les messages d’erreur s’affichent toujours.|
 |/l|Effectue l’opération sur un lien symbolique par rapport à sa destination.|
 |/q|Supprime les messages de réussite.|
 |[/Save \<ACLfile > [/t] [/c] [/l] [/q]]|Stocke des DACL pour tous les fichiers correspondants dans *ACLfile* pour une utilisation ultérieure avec **/Restore**.|
-|[/SetOwner \<Username > [/t] [/c] [/l] [/q]]|Modifie le propriétaire de tous les fichiers correspondants à l’utilisateur spécifié.|
-|[/findSID \<Sid > [/t] [/c] [/l] [/q]]|Recherche tous les fichiers correspondants qui contiennent une liste DACL mentionnant explicitement l’identificateur de sécurité (SID) spécifié.|
+|[/SetOwner \<nom d’utilisateur > [/t] [/c] [/l] [/q]]|Modifie le propriétaire de tous les fichiers correspondants à l’utilisateur spécifié.|
+|[/findSID \<sid > [/t] [/c] [/l] [/q]]|Recherche tous les fichiers correspondants qui contiennent une liste DACL mentionnant explicitement l’identificateur de sécurité (SID) spécifié.|
 |[/verify [/t] [/c] [/l] [/q]]|Recherche tous les fichiers dont les listes de contrôle d’accès ne sont pas canoniques ou qui ont des longueurs incohérentes avec les nombres d’entrées de contrôle d’accès.|
 |[/RESET [/t] [/c] [/l] [/q]]|Remplace les ACL par des ACL héritées par défaut pour tous les fichiers correspondants.|
-|[/Grant [ : r] \<Sid >: <Perm> [...]]|Accorde les droits d’accès utilisateur spécifiés. Les autorisations remplacent les autorisations explicites précédemment accordées.</br>Sans **: r**, les autorisations sont ajoutées à toutes les autorisations explicites accordées précédemment.|
-|[/Deny \<Sid >: <Perm> [...]]|Refuse explicitement les droits d’accès utilisateur spécifiés. Une entrée de contrôle d’accès Deny explicite est ajoutée pour les autorisations indiquées et les mêmes autorisations dans toute attribution explicite sont supprimées.|
-|[/Remove [ : g @ no__t-0 : d]] \<Sid > [...]] commutateur commutateur /l /q|Supprime toutes les occurrences du SID spécifié de la liste DACL.</br>**: g** supprime toutes les occurrences des droits accordés au SID spécifié.</br>**:d** supprime toutes les occurrences des droits refusés au SID spécifié.|
-|[/setintegritylevel [(CI) (OI)] \<Level >: <Policy> [...]]|Ajoute explicitement une entrée du contrôle d’intégrité à tous les fichiers correspondants. Le *niveau* est spécifié comme suit :</br>-   **L**[apprise]</br>-   **M**[edium]</br>-   **H**[MPI]</br>Les options d’héritage pour l’ACE d’intégrité peuvent précéder le niveau et s’appliquent uniquement aux répertoires.|
+|[/Grant [ : r] \<sid >:<Perm>[...]]|Accorde les droits d’accès utilisateur spécifiés. Les autorisations remplacent les autorisations explicites précédemment accordées.</br>Sans **: r**, les autorisations sont ajoutées à toutes les autorisations explicites accordées précédemment.|
+|[/Deny \<sid >:<Perm>[...]]|Refuse explicitement les droits d’accès utilisateur spécifiés. Une entrée de contrôle d’accès Deny explicite est ajoutée pour les autorisations indiquées et les mêmes autorisations dans toute attribution explicite sont supprimées.|
+|[/Remove [ : g\|:d]] \<sid > [...]] commutateur commutateur /l /q|Supprime toutes les occurrences du SID spécifié de la liste DACL.</br>**: g** supprime toutes les occurrences des droits accordés au SID spécifié.</br>**:d** supprime toutes les occurrences des droits refusés au SID spécifié.|
+|[/setintegritylevel [(CI) (OI)]\<niveau >:<Policy>[...]]|Ajoute explicitement une entrée du contrôle d’intégrité à tous les fichiers correspondants. Le *niveau* est spécifié comme suit :</br>-   **L**[in]</br>-   **M**[edium]</br>-   **H**[MPI]</br>Les options d’héritage pour l’ACE d’intégrité peuvent précéder le niveau et s’appliquent uniquement aux répertoires.|
 |[/Substitute \<SidOld > <SidNew> [...]]|Remplace un SID existant (*SidOld*) par un nouveau sid (*SidNew*). Requiert le paramètre *Directory* .|
 |/Restore \<ACLfile > [/c] [/l] [/q]|Applique les listes DACL stockées de *ACLfile* aux fichiers dans le répertoire spécifié. Requiert le paramètre *Directory* .|
-|/InheritanceLevel : [e @ no__t-0d @ no__t-1R]|Définit le niveau d’héritage : <br>  **e** -active enheritance <br>**d** -désactive l’héritage et copie les ACE <br>**r** -supprime toutes les ACE héritées
+|/InheritanceLevel : [e\|d\|r]|Définit le niveau d’héritage : <br>  **e** -active enheritance <br>**d** -désactive l’héritage et copie les ACE <br>**r** -supprime toutes les ACE héritées
 
 ## <a name="remarks"></a>Notes
 

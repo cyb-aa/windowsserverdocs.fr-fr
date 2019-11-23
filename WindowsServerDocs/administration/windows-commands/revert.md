@@ -1,5 +1,5 @@
 ---
-title: Rétablir
+title: rétablir
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server
@@ -20,11 +20,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71371453"
 ---
-# <a name="revert"></a>Rétablir
+# <a name="revert"></a>rétablir
 
 
 
-ramène un volume à un cliché instantané spécifié. Cela est pris en charge uniquement pour les clichés instantanés dans le contexte CLIENTACCESSIBLE. Ces clichés instantanés sont persistants et peuvent être effectués uniquement par le fournisseur système. S’il est utilisé sans paramètres, l’option **rétablir** affiche l’aide à l’invite de commandes.
+Ramène un volume à un cliché instantané spécifié. Cela est pris en charge uniquement pour les clichés instantanés dans le contexte CLIENTACCESSIBLE. Ces clichés instantanés sont persistants et peuvent être effectués uniquement par le fournisseur système. S’il est utilisé sans paramètres, l’option **rétablir** affiche l’aide à l’invite de commandes.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,7 +36,7 @@ revert <ShadowCopyID>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0ShadowCopyID >|Spécifie l’ID de cliché instantané pour rétablir le volume.|
+|\<ShadowCopyID >|Spécifie l’ID de cliché instantané pour rétablir le volume.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 

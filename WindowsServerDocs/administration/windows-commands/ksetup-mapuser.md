@@ -36,8 +36,8 @@ ksetup /mapuser <Principal> <Account>
 
 |  Paramètre   |                                                   Description                                                   |
 |--------------|-----------------------------------------------------------------------------------------------------------------|
-| @no__t 0Principal > |              Nom de domaine complet d’un principal ; par exemple, mike@corp.CONTOSO.COM.              |
-|  @no__t 0Account >  | Tout nom de compte ou de groupe de sécurité existant sur cet ordinateur, par exemple un invité, un utilisateur de domaine ou un administrateur. |
+| \<> principal |              Nom de domaine complet d’un principal ; par exemple, mike@corp.CONTOSO.COM.              |
+|  > de compte \<  | Tout nom de compte ou de groupe de sécurité existant sur cet ordinateur, par exemple un invité, un utilisateur de domaine ou un administrateur. |
 
 ## <a name="remarks"></a>Notes
 

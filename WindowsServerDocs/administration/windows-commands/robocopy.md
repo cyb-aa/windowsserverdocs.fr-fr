@@ -34,10 +34,10 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 |   Paramètre    |                                                                                            Description                                                                                             |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   @no__t 0Source >    |                                                                            Spécifie le chemin d’accès au répertoire source.                                                                             |
-| @no__t 0Destination > |                                                                          Spécifie le chemin d’accès au répertoire de destination.                                                                          |
-|    @no__t 0File >     | Spécifie le ou les fichiers à copier. Si vous le souhaitez, vous **&#42;** pouvez utiliser des caractères génériques (ou **?** ). Si le paramètre de **fichier** n’est pas spécifié, **\*. \\** \* est utilisé comme valeur par défaut. |
-|   @no__t 0Options >   |                                                                    Spécifie les options à utiliser avec la commande **Robocopy** .                                                                     |
+|   \<> source    |                                                                            Spécifie le chemin d’accès au répertoire source.                                                                             |
+| > de destination \< |                                                                          Spécifie le chemin d’accès au répertoire de destination.                                                                          |
+|    Fichier de \<>     | Spécifie le ou les fichiers à copier. Si vous le souhaitez, vous **&#42;** pouvez utiliser des caractères génériques (ou **?** ). Si le paramètre de **fichier** n’est pas spécifié, **\*.\\** \* est utilisé comme valeur par défaut. |
+|   Options de \<>   |                                                                    Spécifie les options à utiliser avec la commande **Robocopy** .                                                                     |
 
 ### <a name="copy-options"></a>Options de copie
 
@@ -45,13 +45,13 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |------|-----------|
 |/s|Copie les sous-répertoires. Notez que cette option exclut les répertoires vides.|
 |/e|Copie les sous-répertoires. Notez que cette option comprend des répertoires vides. Pour plus d’informations, consultez la [section Notes](#remarks).|
-|/Lev : \<N >|Copie uniquement les *N* premiers niveaux de l’arborescence du répertoire source.|
+|/Lev :\<N >|Copie uniquement les *N* premiers niveaux de l’arborescence du répertoire source.|
 |z|Copie les fichiers en mode redémarrable.|
 |/b|Copie les fichiers en mode de sauvegarde.|
 |/ZB|Utilise le mode redémarrable. Si l’accès est refusé, cette option utilise le mode de sauvegarde.|
 |/efsraw|Copie tous les fichiers chiffrés en mode EFS RAW.|
-|/Copy : \<CopyFlags >|Spécifie les propriétés de fichier à copier. Les valeurs valides pour cette option sont les suivantes :</br>Données **D**</br>**Attributs**</br>Horodatages **T**</br>Liste de contrôle d’accès (ACL **) NTFS**</br>**O** -informations sur le propriétaire</br>Informations d’audit **U**</br>La valeur par défaut de **CopyFlags** est **dat** (données, attributs et horodatages).|
-|/DCOPY : \<copyflags @ no__t-1|Définit les éléments à copier pour les répertoires. La valeur par défaut est DA. Les options sont D = Data, A = Attributes et T = timestamps.|
+|/Copy :\<CopyFlags >|Spécifie les propriétés de fichier à copier. Les valeurs valides pour cette option sont les suivantes :</br>Données **D**</br>**Attributs**</br>Horodatages **T**</br>Liste de contrôle d’accès (ACL **) NTFS**</br>**O** -informations sur le propriétaire</br>Informations d’audit **U**</br>La valeur par défaut de **CopyFlags** est **dat** (données, attributs et horodatages).|
+|/DCOPY :\<copyflags\>|Définit les éléments à copier pour les répertoires. La valeur par défaut est DA. Les options sont D = Data, A = Attributes et T = timestamps.|
 |sec|Copie les fichiers avec sécurité (équivalent à **/Copy : DATS**).|
 |/copyall|Copie toutes les informations de fichier (équivalent à **/Copy : DATSOU**).|
 |/nocopy|Ne copie aucune information sur le fichier (utile avec **/purge**).|
@@ -66,9 +66,9 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/Create|Crée uniquement une arborescence de répertoires et des fichiers de longueur nulle.|
 |/fat|Crée des fichiers de destination en utilisant uniquement des noms de fichiers FAT de longueur 8,3 caractères.|
 |/256|Désactive la prise en charge des chemins d’accès très longs (plus de 256 caractères).|
-|/mon : \<N >|Analyse la source et s’exécute à nouveau lorsque plus de *N* modifications sont détectées.|
-|/mot : \<M >|Analyse la source et s’exécute à nouveau dans *M* minutes si des modifications sont détectées.|
-|/MT [ : N]|Crée des copies multithread avec *N* threads. *N* doit être un entier compris entre 1 et 128. La valeur par défaut de *N* est 8.</br>Le paramètre **/MT** ne peut pas être utilisé avec les paramètres **/IPG** et **/EFSRAW** .</br>Redirigez la sortie à l’aide de l’option **/log** pour obtenir de meilleures performances.</br>Remarque : Le paramètre/MT s’applique à Windows Server 2008 R2 et Windows 7.|
+|/mon :\<N >|Analyse la source et s’exécute à nouveau lorsque plus de *N* modifications sont détectées.|
+|/mot :\<M >|Analyse la source et s’exécute à nouveau dans *M* minutes si des modifications sont détectées.|
+|/MT [ : N]|Crée des copies multithread avec *N* threads. *N* doit être un entier compris entre 1 et 128. La valeur par défaut de *N* est 8.</br>Le paramètre **/MT** ne peut pas être utilisé avec les paramètres **/IPG** et **/EFSRAW** .</br>Redirigez la sortie à l’aide de l’option **/log** pour obtenir de meilleures performances.</br>Remarque : le paramètre/MT s’applique à Windows Server 2008 R2 et Windows 7.|
 |/RH : HHMM-HHMM|Spécifie les durées d’exécution lorsque de nouvelles copies peuvent être démarrées.|
 |/PF|Vérifie les durées d’exécution sur une base par fichier (et non par passe).|
 |/IPG : n|Spécifie l’intervalle entre les paquets pour libérer la bande passante sur les lignes lentes.|
@@ -80,7 +80,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 >- **/COPY : O**
 >- **/COPY : S**
 >- **/COPY : U**
->- **SEC**
+>- **Sec**
 
 ### <a name="file-selection-options"></a>Options de sélection de fichier
 
@@ -90,8 +90,8 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/m|Copie uniquement les fichiers pour lesquels l’attribut **Archive** est défini et réinitialise l’attribut **Archive** .|
 |/IA : [RASHCNETO]|Comprend uniquement les fichiers pour lesquels l’un des attributs spécifiés est défini.|
 |/xa:[RASHCNETO]|Exclut les fichiers pour lesquels l’un des attributs spécifiés est défini.|
-|/XF \<FileName > [...]|Exclut les fichiers qui correspondent aux noms ou chemins d’accès spécifiés. Notez que le *nom de fichier* peut inclure **&#42;** des caractères génériques (et **?** ).|
-|/xD \<Directory > [...]|Exclut les répertoires qui correspondent aux noms et chemins d’accès spécifiés.|
+|/XF \<nom de fichier > [...]|Exclut les fichiers qui correspondent aux noms ou chemins d’accès spécifiés. Notez que le *nom de fichier* peut inclure **&#42;** des caractères génériques (et **?** ).|
+|/xD \<> de répertoire [...]|Exclut les répertoires qui correspondent aux noms et chemins d’accès spécifiés.|
 |/xc|Exclut les fichiers modifiés.|
 |/xn|Exclut les fichiers plus récents.|
 |/xo|Exclut les fichiers plus anciens.|
@@ -99,12 +99,12 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/xl|Exclut les fichiers et répertoires « impropres ».|
 |/is|Comprend les mêmes fichiers.|
 |/IT|Comprend des fichiers « modifiés ».|
-|/Max : \<N >|Spécifie la taille de fichier maximale (pour exclure des fichiers de plus de *N* octets).|
-|/min : \<N >|Spécifie la taille de fichier minimale (pour exclure des fichiers de plus de *N* octets).|
-|/MAXAGE : \<N >|Spécifie l’âge maximal du fichier (pour exclure des fichiers de plus de *N* jours ou de la date).|
-|/minage : \<N >|Spécifie l’ancienneté minimale des fichiers (excluez les fichiers de plus de *N* jours ou date).|
-|/MAXLAD : \<N >|Spécifie la date maximale de la dernière accès (exclut les fichiers non utilisés depuis *N*).|
-|/MINLAD : \<N >|Spécifie la date de dernier accès minimale (exclut les fichiers utilisés depuis *n*) si *n* est inférieur à 1900, *n* spécifie le nombre de jours. Dans le cas contraire, *N* spécifie une date au format AAAAMMJJ.|
+|/Max :\<N >|Spécifie la taille de fichier maximale (pour exclure des fichiers de plus de *N* octets).|
+|/min :\<N >|Spécifie la taille de fichier minimale (pour exclure des fichiers de plus de *N* octets).|
+|/MAXAGE :\<N >|Spécifie l’âge maximal du fichier (pour exclure des fichiers de plus de *N* jours ou de la date).|
+|/minage :\<N >|Spécifie l’ancienneté minimale des fichiers (excluez les fichiers de plus de *N* jours ou date).|
+|/MAXLAD :\<N >|Spécifie la date maximale de la dernière accès (exclut les fichiers non utilisés depuis *N*).|
+|/MINLAD :\<N >|Spécifie la date de dernier accès minimale (exclut les fichiers utilisés depuis *n*) si *n* est inférieur à 1900, *n* spécifie le nombre de jours. Dans le cas contraire, *N* spécifie une date au format AAAAMMJJ.|
 |/xj|Exclut les points de jonction, qui sont normalement inclus par défaut.|
 |/fft|Suppose l’heure des fichiers FAT (précision de deux secondes).|
 |/DST|Compense les différences d’heure d’été d’une heure.|
@@ -115,8 +115,8 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 |Option|Description|
 |------|-----------|
-|/r : \<N >|Spécifie le nombre de nouvelles tentatives en cas d’échec de copies. La valeur par défaut de *N* est 1 million (1 million nouvelles tentatives).|
-|/w : \<N >|Spécifie le délai d’attente entre les tentatives, en secondes. La valeur par défaut de *N* est 30 (temps d’attente de 30 secondes).|
+|/r :\<N >|Spécifie le nombre de nouvelles tentatives en cas d’échec de copies. La valeur par défaut de *N* est 1 million (1 million nouvelles tentatives).|
+|/w :\<N >|Spécifie le délai d’attente entre les tentatives, en secondes. La valeur par défaut de *N* est 30 (temps d’attente de 30 secondes).|
 |/reg|Enregistre les valeurs spécifiées dans les options **/r** et **/w** comme paramètres par défaut dans le registre.|
 |/tbd|Spécifie que le système doit attendre la définition des noms de partage (erreur de nouvelle tentative 67).|
 
@@ -136,11 +136,11 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/ndl|Spécifie que les noms des répertoires ne doivent pas être journalisés.|
 |/np|Spécifie que la progression de l’opération de copie (le nombre de fichiers ou de répertoires copiés jusqu’à présent) ne s’affiche pas.|
 |/eta|Affiche l’heure d’arrivée estimée (ETA) des fichiers copiés.|
-|/log : \<LogFile >|Écrit la sortie de l’État dans le fichier journal (remplace le fichier journal existant).|
-|/log + : \<LogFile >|Écrit la sortie d’État dans le fichier journal (ajoute la sortie au fichier journal existant).|
+|/log :\<fichier journal >|Écrit la sortie de l’État dans le fichier journal (remplace le fichier journal existant).|
+|/log + :\<fichier journal >|Écrit la sortie d’État dans le fichier journal (ajoute la sortie au fichier journal existant).|
 |/Unicode|Affiche la sortie de l’État sous forme de texte Unicode.|
-|/UNILOG : \<LogFile >|Écrit la sortie d’État dans le fichier journal en tant que texte Unicode (remplace le fichier journal existant).|
-|/UNILOG + : \<LogFile >|Écrit la sortie d’État dans le fichier journal en tant que texte Unicode (ajoute la sortie au fichier journal existant).|
+|/UNILOG :\<fichier journal >|Écrit la sortie d’État dans le fichier journal en tant que texte Unicode (remplace le fichier journal existant).|
+|/UNILOG + :\<fichier journal >|Écrit la sortie d’État dans le fichier journal en tant que texte Unicode (ajoute la sortie au fichier journal existant).|
 |/tee|Écrit la sortie d’État dans la fenêtre de console, ainsi que dans le fichier journal.|
 |/njh|Spécifie qu’il n’existe aucun en-tête de tâche.|
 |/njs|Spécifie qu’il n’existe aucun Résumé de la tâche.|
@@ -149,8 +149,8 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 |Option|Description|
 |------|-----------|
-|/travail : \<JobName >|Spécifie que les paramètres doivent être dérivés du fichier de tâche nommé.|
-|/Save : \<JobName >|Spécifie que les paramètres doivent être enregistrés dans le fichier de tâche nommé.|
+|/travail :\<JobName >|Spécifie que les paramètres doivent être dérivés du fichier de tâche nommé.|
+|/Save :\<JobName >|Spécifie que les paramètres doivent être enregistrés dans le fichier de tâche nommé.|
 |/quit|Quitte après le traitement de la ligne de commande (pour afficher les paramètres).|
 |/nosd|Indique qu’aucun répertoire source n’est spécifié.|
 |/nodd|Indique qu’aucun répertoire de destination n’est spécifié.|
@@ -158,14 +158,14 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 ### <a name="exit-return-codes"></a>Codes de sortie (retour)
 
-Value | Description
+Valeur | Description
 -- | --
 0 | Aucun fichier n’a été copié. Aucune erreur n’a été rencontrée.  Aucun fichier n’a été mis en correspondance. Les fichiers existent déjà dans le répertoire de destination ; par conséquent, l’opération de copie a été ignorée.
 1 | Tous les fichiers ont été correctement copiés.
 2 | Le répertoire de destination contient des fichiers supplémentaires qui ne sont pas présents dans le répertoire source. Aucun fichier n’a été copié.
 3 | Certains fichiers ont été copiés. Des fichiers supplémentaires étaient présents. Aucune erreur n’a été rencontrée.
 5 | Certains fichiers ont été copiés. Certains fichiers sont incompatibles. Aucune erreur n’a été rencontrée.
-6\. | Des fichiers supplémentaires et des fichiers incompatibles existent. Aucun fichier n’a été copié et aucun échec n’a été rencontré. Cela signifie que les fichiers existent déjà dans le répertoire de destination.
+6 | Des fichiers supplémentaires et des fichiers incompatibles existent. Aucun fichier n’a été copié et aucun échec n’a été rencontré. Cela signifie que les fichiers existent déjà dans le répertoire de destination.
 7 | Des fichiers ont été copiés, une incompatibilité de fichiers était présente et des fichiers supplémentaires étaient présents.
 8 | Plusieurs fichiers n’ont pas été copiés.
 

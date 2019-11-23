@@ -46,8 +46,8 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
 |z|Copie les fichiers en réseau en mode redémarrable.|
 |/a|Indique un fichier texte ASCII.|
 |/b|Indique un fichier binaire.|
-|@no__t 0Source >|Obligatoire. Spécifie l’emplacement à partir duquel vous souhaitez copier un fichier ou un ensemble de fichiers. La *source* peut se composer d’une lettre de lecteur et du signe deux-points, d’un nom de répertoire, d’un nom de fichier ou d’une combinaison de ces deux.|
-|@no__t 0Destination >|Obligatoire. Spécifie l’emplacement vers lequel vous souhaitez copier un fichier ou un ensemble de fichiers. La *destination* peut se composer d’une lettre de lecteur et du signe deux-points, d’un nom de répertoire, d’un nom de fichier ou d’une combinaison de ces deux.|
+|\<> source|Obligatoire. Spécifie l’emplacement à partir duquel vous souhaitez copier un fichier ou un ensemble de fichiers. La *source* peut se composer d’une lettre de lecteur et du signe deux-points, d’un nom de répertoire, d’un nom de fichier ou d’une combinaison de ces deux.|
+|> de destination \<|Obligatoire. Spécifie l’emplacement vers lequel vous souhaitez copier un fichier ou un ensemble de fichiers. La *destination* peut se composer d’une lettre de lecteur et du signe deux-points, d’un nom de répertoire, d’un nom de fichier ou d’une combinaison de ces deux.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -77,7 +77,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
     Si **/y** est prédéfini dans la variable d’environnement COPYCMD, vous pouvez remplacer ce paramètre à l’aide de **/-y** sur la ligne de commande. Par défaut, vous êtes invité à remplacer ce paramètre, sauf si la commande de **copie** est exécutée dans un script de commandes.
 -   Ajout de fichiers
 
-    Pour ajouter des fichiers, spécifiez un seul fichier à *destination*, mais plusieurs fichiers pour la *source* (utilisez des caractères génériques ou *fichier1*+*fichier2*+*fichier3* format).
+    Pour ajouter des fichiers, spécifiez un seul fichier à *destination*, mais plusieurs fichiers pour la *source* (utilisez des caractères génériques ou *fichier1*+*fichier2*+format *fichier3* ).
 -   Utilisation de **/z**
 
     Si la connexion est perdue au cours de la phase de copie (par exemple, si le serveur en cours de mise hors connexion interrompt la connexion), **Copy/z** reprend une fois la connexion rétablie. **/z** affiche également le pourcentage de l’opération de copie qui est effectué pour chaque fichier.

@@ -39,7 +39,7 @@ graftabl /status
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0CodePage >|Spécifie une page de codes pour définir l’apparence des caractères étendus en mode graphique.</br>Les numéros d’identification de page de codes valides sont :</br>437 : États-Unis</br>850 : Multilingue (I latin)</br>852 : Slave (latin II)</br>855 : Cyrillique (russe)</br>857 : Turc</br>860 : Portugais</br>861 : Islandais</br>863 : Canada-français</br>865 : Nordique</br>866 : Russe</br>869 : Grec moderne|
+|Page de codes \<>|Spécifie une page de codes pour définir l’apparence des caractères étendus en mode graphique.</br>Les numéros d’identification de page de codes valides sont :</br>437 : États-Unis</br>850 : multilingue (I latin)</br>852 : Slave (latin II)</br>855 : cyrillique (russe)</br>857 : turc</br>860 : Portugais</br>861 : islandais</br>863 : Canada-français</br>865 : nordique</br>866 : russe</br>869 : grec moderne|
 |/status|Affiche la page de codes actuelle que **GRAFTABL** utilise.|
 |/?|Affiche l'aide à l'invite de commandes.|
 

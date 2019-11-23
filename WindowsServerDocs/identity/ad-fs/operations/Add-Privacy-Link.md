@@ -19,7 +19,7 @@ ms.locfileid: "71358422"
 # <a name="add-privacy-link"></a>Ajouter le lien de la déclaration de confidentialité 
 
 
-Pour ajouter le lien de confidentialité affiché dans la page Sign @ no__t-0in, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
+Pour ajouter le lien de confidentialité affiché dans la page Sign\-in, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
 
 ![Ajouter un lien de confidentialité](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png) 
   
@@ -28,7 +28,7 @@ Pour ajouter le lien de confidentialité affiché dans la page Sign @ no__t-0in,
  
   
 > [!IMPORTANT]  
-> Le paramètre `linkText` de cette applet de commande n'est nécessaire que si vous utilisez une valeur autre que la valeur par défaut (*Privacy*). L'avantage de l'utilisation de la valeur par défaut est que les pages sont localisées d'après tous les paramètres régionaux du client. Une fois la page Sign @ no__t-0in personnalisée, la personnalisation est prioritaire. par conséquent, vous devez personnaliser pour toutes les langues que vous souhaitez prendre en charge. Tout le contenu personnalisé prend un paramètre local. Quand vous configurez un contenu localisé, vous devez d’abord le configurer avec les paramètres régionaux Country @ no__t-0less, par exemple, « en », avant de configurer les paramètres régionaux Country et Region @ no__t-1specific, tels que « fr @ no__t-2us ».  
+> Le paramètre `linkText` de cette applet de commande n'est nécessaire que si vous utilisez une valeur autre que la valeur par défaut (*Privacy*). L'avantage de l'utilisation de la valeur par défaut est que les pages sont localisées d'après tous les paramètres régionaux du client. une fois que le\-de signature de la page est personnalisé, la personnalisation est prioritaire. par conséquent, vous devez personnaliser pour toutes les langues que vous souhaitez prendre en charge. Tout le contenu personnalisé prend un paramètre local. Quand vous configurez un contenu localisé, vous devez d’abord le configurer avec un pays\-moins de paramètres régionaux, par exemple « en », avant de configurer le pays et la région\-paramètres régionaux spécifiques, par exemple « en\-US ».  
 
 ## <a name="additional-references"></a>Références supplémentaires 
 [Personnalisation de la connexion de l’utilisateur AD FS](AD-FS-user-sign-in-customization.md)  

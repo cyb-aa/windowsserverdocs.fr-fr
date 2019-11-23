@@ -22,7 +22,7 @@ ms.locfileid: "71392302"
 ---
 # <a name="tzutil"></a>tzutil
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche l’utilitaire de fuseau horaire Windows. 
 ## <a name="syntax"></a>Syntaxe
@@ -35,7 +35,7 @@ tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 |/?|Affiche l'aide à l'invite de commandes.|
 |/g|Affiche l’ID de fuseau horaire actuel.|
 |/s \<timeZoneID > [_dstoff]|Définit le fuseau horaire actuel à l’aide de l’ID de fuseau horaire spécifié. Le suffixe **_dstoff** désactive les ajustements de l’heure d’été pour le fuseau horaire (le cas échéant).|
-|/l|répertorie tous les ID de fuseau horaire et noms d’affichage valides. La sortie est la suivante :<br /><br />-    @ no__t-1display name ><br />-    @ no__t-ID de zone 1time >|
+|/l|répertorie tous les ID de fuseau horaire et noms d’affichage valides. La sortie est la suivante :<br /><br />-   \<nom complet ><br />-   ID de fuseau horaire \<>|
 
 ## <a name="remarks"></a>Notes
 Un code de sortie de **0** indique que la commande a été exécutée avec succès.

@@ -40,7 +40,7 @@ type [<Drive>:][<Path>]<FileName>
 
 |Paramètre|Description|
 |---------|-----------|
-|[@no__t 0Drive >:] [\<Path >] \<FileName >|Spécifie l’emplacement et le nom des fichiers que vous souhaitez afficher. Séparez les noms de fichiers multiples par des espaces.|
+|[\<> de lecteur :] [\<Path >]\<nom de fichier >|Spécifie l’emplacement et le nom des fichiers que vous souhaitez afficher. Séparez les noms de fichiers multiples par des espaces.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

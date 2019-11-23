@@ -17,7 +17,7 @@ ms.locfileid: "71385228"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Utiliser un plug-in de passerelle personnalisé dans votre extension d'outil
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 Dans cet article, nous allons utiliser un plug-in de passerelle personnalisé dans une nouvelle extension d’outil vide que nous avons créée à l’aide de l’interface de commande du centre d’administration Windows.
 
@@ -61,10 +61,10 @@ export class PluginService {
 }
 ```
 
-Remplacez les références par ```Sample Uno``` et ```Sample%20Uno``` par le nom de votre fonctionnalité, si nécessaire.
+Modifiez les références à ```Sample Uno``` et ```Sample%20Uno``` en fonction de votre nom de fonctionnalité.
 
 [!WARNING]
-> Il est recommandé d’utiliser le @no__t intégré-0 pour appeler toute API définie dans le plug-in de votre passerelle personnalisée. Ainsi, si des informations d’identification sont requises dans le plug-in de votre passerelle, elles seront gérées correctement.
+> Il est recommandé d’utiliser le ```this.appContextService.node``` intégré pour appeler toute API définie dans le plug-in de votre passerelle personnalisée. Ainsi, si des informations d’identification sont requises dans le plug-in de votre passerelle, elles seront gérées correctement.
 
 ### <a name="modify-modulets"></a>Modifier le module. TS
 

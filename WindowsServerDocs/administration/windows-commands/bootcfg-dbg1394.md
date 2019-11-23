@@ -22,7 +22,7 @@ ms.locfileid: "71380089"
 ---
 # <a name="bootcfg-dbg1394"></a>bootcfg dbg1394
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Configure le débogage de port 1394 pour une entrée de système d’exploitation spécifiée.
 
@@ -34,9 +34,9 @@ bootcfg /dbg1394 {ON | OFF}[/s <computer> [/u <Domain>\<User> /p <Password>]] [/
 
 |      Paramètre       |                                                                                                                                           Description                                                                                                                                            |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   {ON &#124; OFF}    | Spécifie la valeur du débogage du port 1394.<br /><br />@no__t **-0 active** -active la prise en charge du débogage à distance en ajoutant l’option/dbg1394 à la <OSEntryLineNum> spécifiée.<br />-   **off** -désactive la prise en charge du débogage à distance en supprimant l’option/dbg1394 de l' <OSEntryLineNum> spécifiée. |
+|   {ON &#124; OFF}    | Spécifie la valeur du débogage du port 1394.<br /><br />-   **active** la prise en charge du débogage à distance en ajoutant l’option/dbg1394 au <OSEntryLineNum>spécifié.<br />-   **désactivé** -désactive la prise en charge du débogage à distance en supprimant l’option/dbg1394 de la <OSEntryLineNum>spécifiée. |
 |    /s <computer>     |                                                                                        Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                                                        |
-| /u <Domain> @ no__t-1 @ no__t-2  |                                               Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain> @ no__t-2 @ no__t-3. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.                                               |
+| /u <Domain>\\<User>  |                                               Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain>\\<User>. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.                                               |
 |    /p <Password>     |                                                                                                      Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                                                       |
 |     /ch canal      |                                                           Spécifie le canal à utiliser pour le débogage. Les valeurs valides sont des entiers compris entre 1 et 64. N’utilisez pas le paramètre **/ch** <Channel> si le débogage de port 1394 est désactivé.                                                           |
 | /ID <OSEntryLineNum> |                                  Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini auquel sont ajoutées les options de débogage du port 1394. La première ligne après l’en-tête de la section [Operating Systems] est 1.                                  |

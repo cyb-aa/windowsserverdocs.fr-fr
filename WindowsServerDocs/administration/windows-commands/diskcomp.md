@@ -36,8 +36,8 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Drive1 >|Spécifie le lecteur contenant l’une des disquettes.|
-|@no__t 0Drive2 >|Spécifie le lecteur contenant l’autre disquette.|
+|\<Lecteur1 >|Spécifie le lecteur contenant l’une des disquettes.|
+|\<lecteur2 >|Spécifie le lecteur contenant l’autre disquette.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

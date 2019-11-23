@@ -20,7 +20,7 @@ ms.locfileid: "71364248"
 ---
 # <a name="create-a-virtual-machine-in-hyper-v"></a>Créer une machine virtuelle dans Hyper-V
 
->S'applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>S’applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 Apprenez à créer une machine virtuelle à l’aide du Gestionnaire Hyper-V et de Windows PowerShell, ainsi que des options dont vous disposez lorsque vous créez une machine virtuelle dans le Gestionnaire Hyper-V.  
 
@@ -70,7 +70,7 @@ Apprenez à créer une machine virtuelle à l’aide du Gestionnaire Hyper-V et 
        New-VM -Name <Name> -MemoryStartupBytes <Memory> -BootDevice <BootDevice> -VHDPath <VHDPath> -Path <Path> -Generation <Generation> -Switch <SwitchName>  
        ```  
 
-       Exemple :  
+       Par exemple :  
 
        ```  
        New-VM -Name Win10VM -MemoryStartupBytes 4GB -BootDevice VHD -VHDPath .\VMs\Win10.vhdx -Path .\VMData -Generation 2 -Switch ExternalSwitch  
@@ -92,7 +92,7 @@ Apprenez à créer une machine virtuelle à l’aide du Gestionnaire Hyper-V et 
    Start-VM -Name <Name>  
    ```  
 
-   Exemple :  
+   Par exemple :  
 
    ```  
    Start-VM -Name Win10VM  
@@ -109,15 +109,15 @@ Le tableau suivant répertorie les options que vous pouvez choisir lorsque vous 
 
 |Page|Valeur par défaut pour Windows Server 2016 et Windows 10|Autres options|  
 |--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|  
-|**Spécifier le nom et l’emplacement**|Nom :  Nouvel ordinateur virtuel.<br /><br />Emplacement :  **C:\ProgramData\Microsoft\Windows\Hyper-V @ no__t-1**.|Vous pouvez également entrer votre propre nom et choisir un autre emplacement pour la machine virtuelle.<br /><br />Il s’agit de l’emplacement de stockage des fichiers de configuration de l’ordinateur virtuel.|  
-|**Spécifier la génération**|1e génération|Vous pouvez également choisir de créer une machine virtuelle de génération 2. Pour plus d’informations, consultez [dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?.](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|  
-|**Affecter la mémoire**|Mémoire de démarrage : 1024 MO<br /><br />Mémoire dynamique : **non sélectionnée**|Vous pouvez définir la mémoire de démarrage de 32 Mo à 5902MB.<br /><br />Vous pouvez également choisir d’utiliser Mémoire dynamique. Pour plus d’informations, consultez [vue d’ensemble d’Hyper-V mémoire dynamique](https://technet.microsoft.com/library/hh831766.aspx).|  
+|**Spécifier le nom et l’emplacement**|Nom : nouvel ordinateur virtuel.<br /><br />Emplacement : **C:\ProgramData\Microsoft\Windows\Hyper-V\\** .|Vous pouvez également entrer votre propre nom et choisir un autre emplacement pour la machine virtuelle.<br /><br />Il s’agit de l’emplacement de stockage des fichiers de configuration de l’ordinateur virtuel.|  
+|**Spécifier la génération**|Génération 1|Vous pouvez également choisir de créer une machine virtuelle de génération 2. Pour plus d’informations, consultez [dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?.](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|  
+|**Affecter la mémoire**|Mémoire de démarrage : 1024 Mo<br /><br />Mémoire dynamique : **non sélectionnée**|Vous pouvez définir la mémoire de démarrage de 32 Mo à 5902MB.<br /><br />Vous pouvez également choisir d’utiliser Mémoire dynamique. Pour plus d’informations, consultez [vue d’ensemble d’Hyper-V mémoire dynamique](https://technet.microsoft.com/library/hh831766.aspx).|  
 |**Configurer la mise en réseau**|Non connecté|Vous pouvez sélectionner une connexion réseau à utiliser par la machine virtuelle à partir d’une liste de commutateurs virtuels existants. Consultez [créer un commutateur virtuel pour les machines virtuelles Hyper-V](Create-a-virtual-switch-for-Hyper-V-virtual-machines.md).|  
-|**Connecter un disque dur virtuel**|Créer un disque dur virtuel<br /><br />Nom : <*vmname*>. vhdx<br /><br />**Emplacement** : **Disques durs C:\users\public\documents\hyper-v\virtual Hard Disks @ no__t-1**<br /><br />**Taille** : 127 GO|Vous pouvez également choisir d’utiliser un disque dur virtuel existant ou d’attendre et d’attacher un disque dur virtuel ultérieurement.|  
+|**Connecter un disque dur virtuel**|Créer un disque dur virtuel<br /><br />Nom : <*vmname*>. vhdx<br /><br />**Emplacement**: **disques durs c:\users\public\documents\hyper-v\virtual Hard Disks\\**<br /><br />**Taille**: 127 Go|Vous pouvez également choisir d’utiliser un disque dur virtuel existant ou d’attendre et d’attacher un disque dur virtuel ultérieurement.|  
 |**Options d’installation**|Installer un système d’exploitation ultérieurement|Ces options modifient l’ordre de démarrage de l’ordinateur virtuel afin que vous puissiez l’installer à partir d’un fichier. ISO, d’une disquette de démarrage ou d’un service d’installation réseau, comme les services de déploiement Windows (WDS).|  
-|**Résumé**|Affiche les options que vous avez choisies, afin que vous puissiez vérifier qu’elles sont correctes.<br /><br />-Name<br />-Génération<br />-Mémoire<br />-Réseau<br />-Disque dur<br />-Système d’exploitation|**Accélératrice** Vous pouvez copier le résumé de la page et le coller dans un message électronique ou à un autre emplacement pour vous aider à effectuer le suivi de vos machines virtuelles.|  
+|**Résumé**|Affiche les options que vous avez choisies, afin que vous puissiez vérifier qu’elles sont correctes.<br /><br />-Name<br />-Génération<br />-Mémoire<br />-Réseau<br />-Disque dur<br />-Système d’exploitation|**Conseil :** Vous pouvez copier le résumé de la page et le coller dans un message électronique ou à un autre emplacement pour vous aider à effectuer le suivi de vos machines virtuelles.|  
 
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Voir également  
 
 - [Nouvelle machine virtuelle](https://technet.microsoft.com/library/hh848537.aspx)  
 

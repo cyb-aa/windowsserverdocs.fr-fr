@@ -22,10 +22,10 @@ ms.locfileid: "71392363"
 ---
 # <a name="tscon"></a>tscon
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Se connecte à une autre session sur un serveur d’hôte de session Bureau à distance (hôte de session Bureau à distance).  
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).  
+pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).  
 
 > [!NOTE]  
 > Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.  
@@ -38,10 +38,10 @@ tscon {<SessionID> | <SessionName>} [/dest:<SessionName>] [/password:<pw> | /pas
 
 |Paramètre|Description|  
 |-------|--------|  
-|@no__t 0SessionID >|Spécifie l’ID de la session à laquelle vous souhaitez vous connecter. Si vous utilisez le paramètre facultatif **/dest :** <*nom_session*>, il s’agit de l’ID de la session à laquelle vous souhaitez vous connecter.|  
-|@no__t 0SessionName >|Spécifie le nom de la session à laquelle vous souhaitez vous connecter.|  
-|/dest : \<SessionName >|Spécifie le nom de la session active. Cette session se déconnecte lorsque vous vous connectez à la nouvelle session.|  
-|/Password : \<PW >|Spécifie le mot de passe de l’utilisateur propriétaire de la session à laquelle vous souhaitez vous connecter. Ce mot de passe est requis lorsque l’utilisateur qui se connecte n’est pas propriétaire de la session.|  
+|\<SessionID >|Spécifie l’ID de la session à laquelle vous souhaitez vous connecter. Si vous utilisez le paramètre facultatif **/dest :** <*nom_session*>, il s’agit de l’ID de la session à laquelle vous souhaitez vous connecter.|  
+|\<NomSession >|Spécifie le nom de la session à laquelle vous souhaitez vous connecter.|  
+|/dest :\<Nom_session >|Spécifie le nom de la session active. Cette session se déconnecte lorsque vous vous connectez à la nouvelle session.|  
+|/Password :\<PW >|Spécifie le mot de passe de l’utilisateur propriétaire de la session à laquelle vous souhaitez vous connecter. Ce mot de passe est requis lorsque l’utilisateur qui se connecte n’est pas propriétaire de la session.|  
 |/Password : *|demande le mot de passe de l’utilisateur propriétaire de la session à laquelle vous souhaitez vous connecter.|  
 |/v|Affiche des informations sur les actions en cours d’exécution.|  
 |/?|Affiche l'aide à l'invite de commandes.|  

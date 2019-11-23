@@ -36,8 +36,8 @@ set metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Paramètre|Description|
 |---------|-----------|
-|[@no__t 0Drive >:] [<Path>]|Spécifie l’emplacement où créer le fichier de métadonnées.|
-|@no__t -0MetaData. cab >|Spécifie le nom du fichier CAB pour stocker les métadonnées de création de clichés instantanés.|
+|[\<> de lecteur :] [<Path>]|Spécifie l’emplacement où créer le fichier de métadonnées.|
+|\<MetaData. cab >|Spécifie le nom du fichier CAB pour stocker les métadonnées de création de clichés instantanés.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 

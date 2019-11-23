@@ -100,7 +100,7 @@ En fonction des besoins de chaque scénario de déploiement particulier, une aut
 
 Vous pouvez configurer des tunnels d’appareil à l’aide d’un script Windows PowerShell et du pont Windows Management Instrumentation (WMI). Le tunnel d’appareil VPN Always On doit être configuré dans le contexte du compte **système local** . Pour ce faire, il est nécessaire d’utiliser [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec), l’un des [PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools) inclus dans la suite d’utilitaires [Sysinternals](https://docs.microsoft.com/sysinternals/) .
 
-Pour obtenir des instructions sur le déploiement d’un profil par appareil `(.\Device)` par rapport à un profil `(.\User)` utilisateur, consultez [utilisation de scripts PowerShell avec le fournisseur de pont WMI](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider).
+Pour obtenir des instructions sur le déploiement d’un `(.\Device)` par appareil ou d’un profil de `(.\User)` par utilisateur, consultez [utilisation de scripts PowerShell avec le fournisseur de pont WMI](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider).
 
 Exécutez la commande Windows PowerShell suivante pour vérifier que vous avez correctement déployé un profil d’appareil :
 
@@ -108,7 +108,7 @@ Exécutez la commande Windows PowerShell suivante pour vérifier que vous avez c
   Get-VpnConnection -AllUserConnection
   ```
 
-La sortie affiche une liste des profils VPN de l’appareil @ no__t-0wide qui sont déployés sur l’appareil.
+La sortie affiche une liste de l’appareil\-les profils VPN étendus qui sont déployés sur l’appareil.
 
 ### <a name="example-windows-powershell-script"></a>Exemple de script Windows PowerShell
 
@@ -186,5 +186,5 @@ Les ressources de passerelle du serveur d’accès à distance (RAS) sont les su
 - [Configurer l’accès à distance basé sur IKEv2](https://technet.microsoft.com/library/ff687731.aspx)
 
 >[!IMPORTANT]
->Lorsque vous utilisez un tunnel d’appareil avec une passerelle RAS Microsoft, vous devez configurer le serveur RRAS pour prendre en charge l’authentification par certificat d’ordinateur IKEv2 en activant la méthode autoriser l’authentification par **certificat d’ordinateur pour** l’authentification IKEv2 comme décrit [ici](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29). Une fois ce paramètre activé, il est fortement recommandé que l’applet de commande PowerShell **Set-VpnAuthProtocol** , avec le paramètre facultatif **RootCertificateNameToAccept** , soit utilisé pour s’assurer que les connexions IKEv2 RRAS ne sont autorisées que pour Certificats de client VPN qui sont liés à une autorité de certification racine interne/privée définie explicitement. Vous pouvez également modifier le magasin **autorités de certification racines de confiance** sur le serveur RRAS pour vous assurer qu’il ne contient pas d’autorités de certification publiques, comme indiqué [ici](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/). Vous devrez peut-être également prendre en compte les méthodes similaires pour les autres passerelles VPN.
+>Lorsque vous utilisez le tunnel d’appareil avec une passerelle RAS Microsoft, vous devez configurer le serveur RRAS pour prendre en charge l’authentification par certificat d’ordinateur IKEv2 en activant la méthode autoriser l’authentification par **certificat d’ordinateur pour** l’authentification IKEv2, comme décrit [ici](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29). Une fois ce paramètre activé, il est fortement recommandé que l’applet de commande PowerShell **Set-VpnAuthProtocol** , ainsi que le paramètre facultatif **RootCertificateNameToAccept** , permettent de s’assurer que les connexions IKEv2 RRAS sont uniquement autorisées pour les certificats clients VPN qui se lient à une autorité de certification racine interne/privée définie explicitement. Vous pouvez également modifier le magasin **autorités de certification racines de confiance** sur le serveur RRAS pour vous assurer qu’il ne contient pas d’autorités de certification publiques, comme indiqué [ici](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/). Vous devrez peut-être également prendre en compte les méthodes similaires pour les autres passerelles VPN.
 

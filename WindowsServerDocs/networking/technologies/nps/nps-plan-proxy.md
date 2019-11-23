@@ -17,9 +17,9 @@ ms.locfileid: "71396017"
 ---
 # <a name="plan-nps-as-a-radius-proxy"></a>Planifier un serveur NPS en tant que proxy RADIUS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Lorsque vous déployez un serveur NPS (Network Policy Server) en tant que protocole RADIUS (Remote Authentication Dial-In User Service) \(RADIUS @ no__t-1, NPS reçoit les demandes de connexion des clients RADIUS, tels que les serveurs d’accès réseau ou d’autres proxys RADIUS, puis les transfère. les demandes de connexion aux serveurs exécutant NPS ou d’autres serveurs RADIUS. Vous pouvez utiliser ces instructions de planification pour simplifier votre déploiement RADIUS.
+Lorsque vous déployez un serveur NPS (Network Policy Server) en tant que protocole RADIUS (Remote Authentication Dial-In User Service) \(proxy\) RADIUS, NPS reçoit les demandes de connexion des clients RADIUS, tels que les serveurs d’accès réseau ou d’autres proxys RADIUS, puis transfère ces demandes de connexion aux serveurs qui exécutent NPS ou d’autres serveurs RADIUS. Vous pouvez utiliser ces instructions de planification pour simplifier votre déploiement RADIUS.
 
 Ces instructions de planification n’incluent pas les circonstances dans lesquelles vous souhaitez déployer NPS en tant que serveur RADIUS. Lorsque vous déployez NPS en tant que serveur RADIUS, NPS effectue l’authentification, l’autorisation et la gestion des comptes pour les demandes de connexion pour le domaine local et pour les domaines qui approuvent le domaine local.
 
@@ -39,7 +39,7 @@ Avant de déployer NPS en tant que proxy RADIUS sur votre réseau, suivez les in
 
 ## <a name="plan-nps-configuration"></a>Planifier la configuration de NPS
 
-Lorsque vous utilisez NPS en tant que proxy RADIUS, NPS transfère les demandes de connexion à un serveur NPS ou à d’autres serveurs RADIUS à des fins de traitement. Pour cette raison, l’appartenance au domaine du proxy NPS n’est pas pertinente. Le proxy n’a pas besoin d’être inscrit dans Active Directory Domain Services \(AD DS @ no__t-1, car il n’a pas besoin d’accéder aux propriétés de numérotation des comptes d’utilisateur. En outre, vous n’avez pas besoin de configurer des stratégies réseau sur un proxy NPS, car le proxy n’effectue pas d’autorisation pour les demandes de connexion. Le proxy NPS peut être membre d’un domaine ou il peut être un serveur autonome sans appartenance à un domaine.
+Lorsque vous utilisez NPS en tant que proxy RADIUS, NPS transfère les demandes de connexion à un serveur NPS ou à d’autres serveurs RADIUS à des fins de traitement. Pour cette raison, l’appartenance au domaine du proxy NPS n’est pas pertinente. Le proxy n’a pas besoin d’être inscrit dans Active Directory Domain Services \(AD DS\), car il n’a pas besoin d’accéder aux propriétés de numérotation des comptes d’utilisateur. En outre, vous n’avez pas besoin de configurer des stratégies réseau sur un proxy NPS, car le proxy n’effectue pas d’autorisation pour les demandes de connexion. Le proxy NPS peut être membre d’un domaine ou il peut être un serveur autonome sans appartenance à un domaine.
 
 NPS doit être configuré pour communiquer avec les clients RADIUS, également appelés serveurs d’accès réseau, à l’aide du protocole RADIUS. En outre, vous pouvez configurer les types d’événements que le serveur NPS enregistre dans le journal des événements et vous pouvez entrer une description pour le serveur.
 
@@ -59,7 +59,7 @@ Pendant la planification de la configuration du proxy NPS, vous pouvez suivre le
 
 ## <a name="plan-radius-clients"></a>Planifier des clients RADIUS
 
-Les clients RADIUS sont des serveurs d’accès réseau, tels que des points d’accès sans fil, des serveurs VPN @no__t 0VPN @ no__t-1, des commutateurs 802.1 X et des serveurs d’accès à distance. Les proxys RADIUS, qui transfèrent les messages de demande de connexion aux serveurs RADIUS, sont également des clients RADIUS. NPS prend en charge tous les serveurs d’accès réseau et proxys RADIUS conformes au protocole RADIUS, comme décrit dans le document RFC 2865, « Remote Authentication Dial-in User Service \(RADIUS @ no__t-1 » et RFC 2866, « RADIUS Accounting ».
+Les clients RADIUS sont des serveurs d’accès réseau, tels que les points d’accès sans fil, les réseaux privés virtuels \(les serveurs\) VPN, les commutateurs 802.1 X et les serveurs d’accès à distance. Les proxys RADIUS, qui transfèrent les messages de demande de connexion aux serveurs RADIUS, sont également des clients RADIUS. NPS prend en charge tous les serveurs d’accès réseau et proxys RADIUS conformes au protocole RADIUS, comme décrit dans le document RFC 2865, « Remote Authentication Dial-in User Service \(RADIUS\)» et RFC 2866, « RADIUS Accounting ».
 
 En outre, les commutateurs et les points d’accès sans fil doivent être en charge de l’authentification 802.1 X. Si vous souhaitez déployer le protocole EAP (Extensible Authentication Protocol) ou le protocole PEAP (Protected Extensible Authentication Protocol), les points d’accès et les commutateurs doivent prendre en charge l’utilisation d’EAP.
 
@@ -155,7 +155,7 @@ Pendant la planification de la gestion des comptes NPS, vous pouvez utiliser les
 
 - Planifiez les étapes de configuration de la stratégie de demande de connexion si vous envisagez de transférer des messages de gestion vers d’autres serveurs. Si vous désactivez la gestion de comptes locale pour le proxy NPS, vous devez activer et configurer correctement chaque stratégie de demande de connexion que vous configurez sur ce proxy.
 
-- Déterminez le format de journalisation que vous souhaitez utiliser : Les fichiers journaux au format IAS, les fichiers journaux au format compatible avec la base de données ou la journalisation des SQL Server NPS.
+- Déterminez le format de journalisation que vous souhaitez utiliser : les fichiers journaux au format IAS, les fichiers journaux au format compatible avec la base de données ou la journalisation NPS SQL Server.
 
 Pour configurer l’équilibrage de charge pour NPS en tant que proxy RADIUS, consultez [équilibrage de charge du serveur proxy NPS](nps-manage-proxy-lb.md).
 

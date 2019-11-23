@@ -22,7 +22,7 @@ ms.locfileid: "71371077"
 ---
 # <a name="select-disk"></a>select disk
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 sélectionne le disque spécifié et lui déplace le focus.  
   
@@ -35,15 +35,15 @@ select disk={ <n> | <disk path> | system | next }
 ```  
   
 > [!NOTE]  
-> Les paramètres **<disk path>** , **système**et **suivant** sont uniquement disponibles dans Windows 7 et Windows Server 2008 R2.  
+> Les paramètres **<disk path>** , **System**et **Next** sont uniquement disponibles dans Windows 7 et Windows Server 2008 R2.  
   
 ## <a name="parameters"></a>Paramètres  
   
 |  Paramètre  |                                                                                                                                                                                                            Description                                                                                                                                                                                                            |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     <n>     | Spécifie le numéro du disque qui doit recevoir le focus. Vous pouvez afficher les numéros de tous les disques de l’ordinateur à l’aide de la commande **List Disk** dans DiskPart. **Remarque :** Quand vous configurez des systèmes avec plusieurs disques, n’utilisez pas **Select Disk @ no__t-10** pour spécifier le disque système. L’ordinateur peut réassigner les numéros de disque lorsque vous redémarrez, et les différents ordinateurs ayant la même configuration de disque peuvent avoir des numéros de disque différents. |
-| <disk path> |                                                                                                                 Spécifie l’emplacement du disque qui doit recevoir le focus, par exemple, **PCIROOT @ no__t-10 @ no__t-2 @ no__t-3PCI @ no__t-40F02 @ no__t-5 @ no__t-6atA @ no__t-7C00T00L00 @ no__t-8**. Pour afficher le chemin d’accès de l’emplacement d’un disque, sélectionnez-le, puis tapez **Detail Disk**.                                                                                                                  |
-|   système    |                                 Sur les ordinateurs BIOS, spécifie que le disque 0 reçoit le focus. Sur les ordinateurs EFI, le disque contenant la partition système EFI \(ESP @ no__t-1 qui est utilisé pour le démarrage actuel reçoit le focus. Sur les ordinateurs EFI, la commande échoue s’il n’y a pas de ESP, s’il y a plus d’un ESP, ou si l’ordinateur est démarré à partir de environnement de préinstallation Windows (WinPE) \(Windows PE @ no__t-1.                                  |
+|     <n>     | Spécifie le numéro du disque qui doit recevoir le focus. Vous pouvez afficher les numéros de tous les disques de l’ordinateur à l’aide de la commande **List Disk** dans DiskPart. **Remarque :** Quand vous configurez des systèmes avec plusieurs disques, n’utilisez pas l' **option select disk\=0** pour spécifier le disque système. L’ordinateur peut réassigner les numéros de disque lorsque vous redémarrez, et les différents ordinateurs ayant la même configuration de disque peuvent avoir des numéros de disque différents. |
+| <disk path> |                                                                                                                 Spécifie l’emplacement du disque qui doit recevoir le focus, par exemple, **PCIROOT\(0\)\#PCI\(0F02\)\#atA\(C00T00L00\)** . Pour afficher le chemin d’accès de l’emplacement d’un disque, sélectionnez-le, puis tapez **Detail Disk**.                                                                                                                  |
+|   système    |                                 Sur les ordinateurs BIOS, spécifie que le disque 0 reçoit le focus. Sur les ordinateurs EFI, le disque contenant la partition système EFI \(\) ESP utilisé pour le démarrage actuel reçoit le focus. Sur les ordinateurs EFI, la commande échoue s’il n’y a pas de ESP, s’il y a plus d’un ESP, ou si l’ordinateur est démarré à partir de environnement de préinstallation Windows (WinPE) \(\)Windows PE.                                  |
 |    suivant     |                                                                                                                                     Une fois qu’un disque est sélectionné, cette commande itère sur tous les disques de la liste des disques. Lorsque vous exécutez cette commande, le disque suivant de la liste recevra le focus.                                                                                                                                      |
   
 ## <a name="BKMK_examples"></a>Illustre  

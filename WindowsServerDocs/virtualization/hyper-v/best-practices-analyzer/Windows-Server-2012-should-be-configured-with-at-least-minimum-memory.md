@@ -19,7 +19,7 @@ ms.locfileid: "71393098"
 ---
 # <a name="windows-server-2012-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows Server 2012 doit être configuré avec au moins la quantité minimale de mémoire
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Error|  
+|**Va**|Erreur|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -38,7 +38,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>**Impact**  
 *Le système d’exploitation invité sur les ordinateurs virtuels suivants peut ne pas s’exécuter ou ne pas fonctionner de manière fiable :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
 *Utilisez le Gestionnaire Hyper-V pour augmenter la mémoire allouée à cette machine virtuelle à au moins 512 Mo.*  

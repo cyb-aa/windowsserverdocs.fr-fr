@@ -22,7 +22,7 @@ ms.locfileid: "71372860"
 ---
 # <a name="nslookup-set-retry"></a>nslookup set retry
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Définit le nombre de nouvelles tentatives.
 ## <a name="syntax"></a>Syntaxe

@@ -38,17 +38,17 @@ reg load KeyName FileName
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0KeyName >|Spécifie le chemin d’accès complet de la sous-clé à charger. Pour spécifier des ordinateurs distants, incluez le nom de l’ordinateur (au format \\ @ no__t-1ComputerName @ no__t-2 dans le cadre du *keyName*. Si vous omettez \\ @ no__t-1ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont les suivantes : HKLM et HKU.|
-|\<Nom de fichier >|Spécifie le nom et le chemin d’accès du fichier à charger. Ce fichier doit être créé à l’avance à l’aide de l’opération **reg save** et de l’extension. HIV.|
+|\<KeyName >|Spécifie le chemin d’accès complet de la sous-clé à charger. Pour spécifier des ordinateurs distants, incluez le nom de l’ordinateur (au format \\\\ComputerName\) dans le *nom*de l’ordinateur. Si vous omettez \\\\ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont les suivantes : HKLM et HKU.|
+|Nom de fichier \<>|Spécifie le nom et le chemin d’accès du fichier à charger. Ce fichier doit être créé à l’avance à l’aide de l’opération **reg save** et de l’extension. HIV.|
 |/?|Affiche l’aide pour **reg Load** à l’invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
 Le tableau suivant répertorie les valeurs renvoyées pour l’opération de **chargement de Reg** .
 
-|Value|Description|
+|Valeur|Description|
 |-----|-----------|
-|0|Succès|
+|0|Réussite|
 |1|Échec|
 
 ## <a name="BKMK_examples"></a>Illustre

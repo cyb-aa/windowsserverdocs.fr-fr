@@ -28,7 +28,7 @@ La déduplication des données, souvent appelée déduplication en bref, est une
 
 ## <a name="why-is-dedup-useful"></a>Pourquoi la déduplication des données est-elle utile ?
 
-La déduplication des données permet aux administrateurs du stockage de réduire les coûts associés aux données dupliquées. Les jeux de données volumineux impliquent souvent **<u>beaucoup</u>** de duplication, laquelle augmente les coûts du stockage des données. Exemple :
+La déduplication des données permet aux administrateurs du stockage de réduire les coûts associés aux données dupliquées. Les jeux de données volumineux impliquent souvent **<u>beaucoup</u>** de duplication, laquelle augmente les coûts du stockage des données. Par exemple :
 
 - Les partages de fichiers utilisateur peuvent comporter de nombreuses copies de fichiers identiques ou très similaires.
 - Les invités de virtualisation peuvent être presque identiques d’une machine virtuelle à l’autre.
@@ -48,7 +48,8 @@ L’espace que vous pouvez gagner avec la déduplication des données dépend du
     <tbody>
         <tr>
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-clustered-gpfs.png" alt="Illustration of file servers" /></td>
-            <td style="vertical-align:top">serveurs de fichiers à usage @no__t 0General @ no__t-1<br />
+            <td style="vertical-align:top">
+                <b>Serveurs de fichiers à usage général</b><br />
 Les serveurs de fichiers à usage général sont des serveurs de fichiers qui peuvent contenir l’un des types de partage suivants : <ul>
                     <li>Partages d’équipe</li>
                     <li>Dossiers de base d’utilisateur</li>
@@ -60,25 +61,28 @@ Les serveurs de fichiers à usage général conviennent parfaitement à la dédu
         </tr>
         <tr>
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-vdi.png" alt="Illustration of VDI servers" /></td>
-            <td style="vertical-align:top">déploiements de l’infrastructure @no__t 0Virtualized Desktop (VDI) @ no__t-1<br />
+            <td style="vertical-align:top">
+                <b>Déploiements de l’infrastructure VDI (Virtual Desktop Infrastructure)</b><br />
 Les serveurs VDI, comme les <a href="https://technet.microsoft.com/library/cc725560.aspx">Services Bureau à distance</a>, offrent une option allégée aux organisations qui veulent approvisionner des postes de travail pour leurs utilisateurs. Il existe de nombreuses raisons pour qu’une organisation s’appuie sur cette technologie : <ul>
-                    <li><b>Déploiement d’applications</b>: Vous pouvez rapidement déployer des applications dans votre entreprise. Cette possibilité s’avère particulièrement utile quand vous avez des applications qui sont fréquemment mises à jour, peu utilisées ou difficiles à gérer.</li>
-                    <li><b>Consolidation des applications</b>: Lorsque vous installez et exécutez des applications à partir d’un ensemble de machines virtuelles gérées de manière centralisée, vous n’avez plus besoin de mettre à jour les applications sur les ordinateurs clients. Cette option a aussi pour effet de réduire la quantité de bande passante réseau nécessaire pour accéder aux applications.</li>
-                    <li><b>Accès à distance</b>: Les utilisateurs peuvent accéder aux applications d’entreprise à partir d’appareils tels que des ordinateurs personnels, des kiosques, du matériel de faible alimentation et des systèmes d’exploitation autres que Windows.</li>
-                    <li><b>Accès aux succursales</b>: Les déploiements VDI peuvent offrir de meilleures performances aux applications pour les succursales qui ont besoin d’accéder à des magasins de données centralisés. Les applications gourmandes en données ne disposent parfois pas de protocoles client/serveur optimisés pour les connexions lentes.</li>
+                    <li><b>Déploiement d’applications</b> : vous pouvez déployer rapidement des applications dans toute votre entreprise. Cette possibilité s’avère particulièrement utile quand vous avez des applications qui sont fréquemment mises à jour, peu utilisées ou difficiles à gérer.</li>
+                    <li><b>Consolidation des applications</b> : quand vous installez et exécutez des applications à partir d’un ensemble de machines virtuelles gérées de manière centralisée, vous vous épargnez la contrainte de les mettre à jour sur les ordinateurs clients. Cette option a aussi pour effet de réduire la quantité de bande passante réseau nécessaire pour accéder aux applications.</li>
+                    <li><b>Accès à distance</b> : les utilisateurs peuvent accéder à des applications d’entreprise à partir d’appareils tels que les ordinateurs personnels et les bornes, de matériel de faible puissance et de systèmes d’exploitation autres que Windows.</li>
+                    <li><b>Accès aux filiales</b> : les déploiements VDI permettent d’obtenir de meilleures performances d’application pour les employés de filiale qui ont besoin d’accéder à des magasins de données centralisés. Les applications gourmandes en données ne disposent parfois pas de protocoles client/serveur optimisés pour les connexions lentes.</li>
                 </ul>
 Les déploiements VDI conviennent parfaitement à la déduplication des données, car les disques durs virtuels qui pilotent les postes de travail à distance pour les utilisateurs sont globalement identiques. De plus, la déduplication des données peut être utile face à aux <em>tempêtes VDI de démarrage</em>, à savoir la chute des performances de stockage au moment où un grand nombre d’utilisateurs se connectent simultanément à leur ordinateur en début de journée.
             </td>
         </tr>
         <tr>
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-backup.png" alt="Illustration of backup applications" /></td>
-            <td style="vertical-align:top">cibles @no__t 0Backup, telles que les applications de sauvegarde virtualisées @ no__t-1<br />
+            <td style="vertical-align:top">
+                <b>Cibles de sauvegarde, telles que les applications de sauvegarde virtualisées</b><br />
 Les applications de sauvegarde, telles que <a href="https://technet.microsoft.com/library/hh758173.aspx">Microsoft Data Protection Manager (DPM)</a>, constituent d’excellents candidats à la déduplication des données en raison de la duplication significative entre les instantanés de sauvegarde.
             </td>
         </tr>
         <tr>
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-other.png" alt="Illustration of other workloads" /></td>
-            <td style="vertical-align:top">charges de travail @no__t 0Other @ no__t-1<br />
+            <td style="vertical-align:top">
+                <b>Autres charges de travail</b><br />
                 <a href="install-enable.md#enable-dedup-candidate-workloads" data-raw-source="[Other workloads may also be excellent candidates for Data Deduplication](install-enable.md#enable-dedup-candidate-workloads)">D’autres charges de travail peuvent également convenir parfaitement à la déduplication des données</a>.
             </td>
         </tr>

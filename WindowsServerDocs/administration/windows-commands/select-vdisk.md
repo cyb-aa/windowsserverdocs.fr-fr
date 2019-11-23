@@ -22,9 +22,9 @@ ms.locfileid: "71384188"
 ---
 # <a name="select-vdisk"></a>sélectionner vdisk
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-sélectionne le disque dur virtuel spécifié @no__t 0VHD @ no__t-1 et lui décale le focus.  
+sélectionne le disque dur virtuel spécifié \(\) VHD et décale le focus vers celui-ci.  
   
 > [!NOTE]  
 > Cette commande s’applique uniquement à Windows 7 et Windows Server 2008 R2.  
@@ -39,7 +39,7 @@ select vdisk file=<full path> [noerr]
   
 |Paramètre|Description|  
 |-------|--------|  
-|fichier @ no__t-0 @ no__t-1|Spécifie le chemin d’accès complet et le nom de fichier d’un fichier VHD existant.|  
+|<full path> de\=de fichiers|Spécifie le chemin d’accès complet et le nom de fichier d’un fichier VHD existant.|  
 |noerr|Utilisé uniquement pour les scripts. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|  
   
 ## <a name="BKMK_examples"></a>Illustre  

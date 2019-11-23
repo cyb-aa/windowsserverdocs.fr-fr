@@ -19,7 +19,7 @@ ms.locfileid: "71365203"
 ---
 # <a name="certificate-based-authentication-is-configured-but-the-specified-certificate-is-not-installed-on-the-replica-server-or-failover-cluster-nodes"></a>L’authentification basée sur les certificats est configurée, mais le certificat spécifié n’est pas installé sur le serveur de réplication ou les nœuds de cluster de basculement
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 
   
@@ -29,7 +29,7 @@ ms.locfileid: "71365203"
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Error|  
+|**Va**|Erreur|  
 |**Catégorie**|Configuration|  
 
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.
@@ -40,11 +40,11 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 ## <a name="impact"></a>Impact  
   
-*In l’événement d’un basculement de cluster ou d’un déplacement vers un autre nœud, la réplication Hyper-V s’interrompt si le certificat approprié n’est pas installé sur le nouveau nœud. Cela a un impact sur les nœuds suivants :*  
+*En cas de basculement ou de déplacement d’un cluster vers un autre nœud, la réplication Hyper-V s’interrompt si le certificat approprié n’est pas installé sur le nouveau nœud. Cela a un impact sur les nœuds suivants :*  
   
-@no__t 0list des nœuds >  
+\<liste des nœuds >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Installez le certificat configuré sur le serveur de réplication (et tous les nœuds associés dans le cluster de basculement, le cas échéant).*  
   

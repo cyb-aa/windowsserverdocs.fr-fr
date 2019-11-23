@@ -22,7 +22,7 @@ ms.locfileid: "71384308"
 ---
 # <a name="scwcmd-transform"></a>Scwcmd: transform
 
-> S'applique à : Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server 2012 R2, Windows Server 2012
 
 Transforme un fichier de stratégie de sécurité généré à l’aide de l’Assistant Configuration de la sécurité (SCW) en un nouvel objet de stratégie de groupe (GPO) dans Active Directory Domain Services. L’opération de transformation ne modifie pas les paramètres sur le serveur sur lequel elle est exécutée. Une fois l’opération de transformation terminée, un administrateur doit lier l’objet de stratégie de groupe aux unités d’organisation souhaitées pour déployer la stratégie sur les serveurs.
 
@@ -43,8 +43,8 @@ scwcmd transform /p:<Policyfile.xml> /g:<GPODisplayName>
 
 |Paramètre|Description|
 |---------|-----------|
-|/p : @no__t -0Policyfile. Xml >|Spécifie le chemin d’accès et le nom de fichier du fichier de stratégie. XML à appliquer. Ce paramètre doit être spécifié.|
-|/g : \<GPODisplayName >|Spécifie le nom complet de l’objet de stratégie de groupe. Ce paramètre doit être spécifié.|
+|/p :\<policyFile. Xml >|Spécifie le chemin d’accès et le nom de fichier du fichier de stratégie. XML à appliquer. Ce paramètre doit être spécifié.|
+|/g :\<GPODisplayName >|Spécifie le nom complet de l’objet de stratégie de groupe. Ce paramètre doit être spécifié.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

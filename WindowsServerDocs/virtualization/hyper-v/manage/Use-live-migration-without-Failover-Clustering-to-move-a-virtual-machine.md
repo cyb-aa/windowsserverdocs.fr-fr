@@ -20,7 +20,7 @@ ms.locfileid: "71392558"
 ---
 # <a name="use-live-migration-without-failover-clustering-to-move-a-virtual-machine"></a>Utiliser la migration dynamique sans clustering de basculement pour déplacer un ordinateur virtuel
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Cet article explique comment déplacer un ordinateur virtuel en procédant à une migration dynamique sans utiliser le clustering de basculement. Une migration dynamique déplace les ordinateurs virtuels en cours d’exécution entre les hôtes Hyper-V sans temps d’arrêt perceptible.   
   
@@ -48,7 +48,7 @@ Pour pouvoir effectuer cette opération, vous avez besoin des éléments suivant
 
 ## <a name="use-windows-powershell-to-move-a-running-virtual-machine"></a>Utiliser Windows PowerShell pour déplacer un ordinateur virtuel en cours d’exécution
   
-L’exemple suivant utilise l’applet de commande Move-VM pour déplacer un ordinateur virtuel nommé *LMTest* vers un serveur de destination nommé *TestServer02* et déplace les disques durs virtuels et autre fichier, tels que les points de contrôle et les fichiers de pagination intelligente, vers le *D:\LMTest* dans le répertoire du serveur de destination.  
+L’exemple suivant utilise l’applet de commande Move-VM pour déplacer un ordinateur virtuel nommé *LMTest* vers un serveur de destination nommé *TestServer02* et déplace les disques durs virtuels et l’autre fichier, tels que les points de contrôle et les fichiers de pagination intelligente, vers le répertoire *D:\LMTest* sur le serveur de destination.  
   
 ```  
 PS C:\> Move-VM LMTest TestServer02 -IncludeStorage -DestinationStoragePath D:\LMTest  
@@ -61,7 +61,7 @@ PS C:\> Move-VM LMTest TestServer02 -IncludeStorage -DestinationStoragePath D:\L
 Si vous n’avez pas configuré la délégation avec restriction, vous devez vous connecter au serveur source avant de pouvoir déplacer un ordinateur virtuel. Si vous ne le faites pas, la tentative d’authentification échoue, une erreur se produit et le message suivant s’affiche :  
   
 «Échec de l’opération de migration d’ordinateur virtuel au niveau de la source de migration.  
-Échec de l’établissement d’une connexion avec le nom de l' *ordinateur*hôte : Aucune information d’identification n’est disponible dans le package de sécurité 0x8009030E.»
+Échec de l’établissement d’une connexion avec le nom de l' *ordinateur*hôte : aucune information d’identification n’est disponible dans le package de sécurité 0x8009030E.
   
  Pour résoudre ce problème, connectez-vous au serveur source et réessayez l’opération de déplacement. Pour éviter d’avoir à vous connecter à un serveur source avant d’effectuer une migration dynamique, configurez la délégation avec restriction. Vous aurez besoin d’informations d’identification d’administrateur de domaine pour configurer la délégation avec restriction. Pour obtenir des instructions, consultez [configurer des hôtes pour la migration dynamique](../deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md). 
  
@@ -69,7 +69,7 @@ Si vous n’avez pas configuré la délégation avec restriction, vous devez vou
  
  Si une machine virtuelle n’a pas de compatibilité avec le processeur activée et possède un ou plusieurs instantanés, le déplacement échoue si les ordinateurs hôtes ont des versions de processeur différentes. Une erreur se produit et le message suivant s’affiche :
  
-la machine virtuelle @no__t 0The ne peut pas être déplacée vers l’ordinateur de destination. Le matériel sur l’ordinateur de destination n’est pas compatible avec la configuration matérielle requise de cet ordinateur virtuel. **
+**L’ordinateur virtuel ne peut pas être déplacé vers l’ordinateur de destination. Le matériel sur l’ordinateur de destination n’est pas compatible avec la configuration matérielle requise de cet ordinateur virtuel.**
  
  Pour résoudre ce problème, arrêtez la machine virtuelle et activez le paramètre de compatibilité du processeur.
  

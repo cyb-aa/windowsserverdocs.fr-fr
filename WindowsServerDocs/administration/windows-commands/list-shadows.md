@@ -37,7 +37,7 @@ list shadows {all | set <SetID> | id <ShadowID>}
 |Paramètre|Description|
 |---------|-----------|
 |tous|Répertorie tous les clichés instantanés.|
-|définir @no__t > 0SetID|Répertorie les clichés instantanés qui appartiennent à l’ID du jeu de clichés instantanés spécifié.|
+|définir \<SetID >|Répertorie les clichés instantanés qui appartiennent à l’ID du jeu de clichés instantanés spécifié.|
 |ID \<ShadowID >|Répertorie tout cliché instantané avec l’ID de cliché instantané spécifié.|
 
 #### <a name="additional-references"></a>Références supplémentaires

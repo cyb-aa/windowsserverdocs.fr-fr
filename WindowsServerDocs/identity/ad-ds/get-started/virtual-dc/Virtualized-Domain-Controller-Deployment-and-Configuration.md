@@ -18,7 +18,7 @@ ms.locfileid: "71390697"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Déploiement et configuration des contrôleurs de domaine virtualisés
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique traite des sujets suivants :  
   
@@ -91,34 +91,34 @@ Aucune de ces opérations n'est couverte par la sémantique des ID de générati
 >   
 > Après la restauration d'une capture instantanée, les deltas des changements non répliqués précédemment en provenance de ce contrôleur de domaine et postérieurs à la capture instantanée sont définitivement perdus. La restauration sécurisée implémente une restauration automatique ne faisant pas autorité pour éviter *uniquement*le risque de mise en quarantaine du contrôleur de domaine.  
   
-Pour plus d’informations sur les bulles USN et les objets en attente, consultez [Troubleshooting Active Directory opérations qui échouent avec l’erreur 8606 : « Des attributs insuffisants ont été donnés pour créer un objet » ](https://support.microsoft.com/kb/2028495).  
+Pour plus d’informations sur les bulles USN et les objets en attente, voir l’article consacré à la [résolution des problèmes d’opérations Active Directory qui échouent avec l’erreur 8606 : « Des attributs insuffisants ont été donnés pour créer un objet. »](https://support.microsoft.com/kb/2028495).  
   
 ## <a name="BKMK_VDCCloning"></a>Clonage des contrôleurs de domaine virtualisés  
 Il existe un certain nombre de stades et d'étapes pour le clonage d'un contrôleur de domaine virtualisé, indépendamment de l'utilisation d'outils graphiques ou de Windows PowerShell. De manière générale, il existe trois stades :  
   
 **Préparer l’environnement**  
   
--   Étape 1 : vérifier que l'hyperviseur prend en charge les ID de génération d'ordinateur virtuel et donc, le clonage  
+-   Étape 1 : Vérifier que l’hyperviseur prend en charge les ID de génération de machine virtuelle et donc le clonage  
   
 -   Étape 2 : Vérifiez que le rôle d’émulateur de contrôleur de domaine principal est hébergé par un contrôleur de domaine qui exécute Windows Server 2012 et qu’il est en ligne et accessible par le contrôleur de domaine cloné lors du clonage.  
   
 **Préparer le contrôleur de domaine source**  
   
--   Étape 3 : autoriser le contrôleur de domaine source pour le clonage  
+-   Étape 3 : Autoriser le contrôleur de domaine source pour le clonage  
   
--   Étape 4 : supprimer les services ou programmes incompatibles, ou les ajouter au fichier CustomDCCloneAllowList.xml.  
+-   Étape 4 : Supprimer les services ou programmes incompatibles, ou les ajouter au fichier CustomDCCloneAllowList.xml  
   
--   Étape 5 : créer DCCloneConfig.xml  
+-   Étape 5 : Créer DCCloneConfig.xml  
   
--   Étape 6 : mettre le contrôleur de domaine source hors connexion  
+-   Étape 6 : Mettre le contrôleur de domaine source hors connexion  
   
 **Créer le contrôleur de domaine cloné**  
   
--   Étape 7 : copier ou exporter l'ordinateur virtuel source et ajouter le code XML s'il n'a pas déjà été copié  
+-   Étape 7 : Copier ou exporter la machine virtuelle source et ajouter le code XML s’il n’a pas déjà été copié  
   
--   Étape 8 : créer un ordinateur virtuel à partir de la copie  
+-   Étape 8 : Créer une machine virtuelle à partir de la copie  
   
--   Étape 9 : démarrer le nouvel ordinateur virtuel pour commencer le clonage  
+-   Étape 9 : Démarrer la nouvelle machine virtuelle pour commencer le clonage  
   
 Il n'y a pas de différences de procédure entre l'utilisation d'outils graphiques tels que la console de gestion Hyper-V ou l'utilisation d'outils en ligne de commande tels que Windows PowerShell. Ainsi, les étapes ne sont présentées qu'une seule fois pour les deux interfaces. Cette rubrique fournit des exemples Windows PowerShell pour vous permettre d'explorer l'automatisation du processus de clonage de bout en bout. Ils ne sont nécessaires pour aucune étape. Il n'existe aucun outil de gestion graphique des contrôleurs de domaine virtualisés dans Windows Server 2012.  
   
@@ -427,7 +427,7 @@ Par exemple, pour exporter un ordinateur virtuel nommé DC2-SOURCECLONE vers un 
 > Windows Server 2012 Hyper-V prend en charge de nouvelles fonctionnalités d'exportation et d'importation qui dépassent le cadre de cette formation. Pour plus d'informations, voir TechNet.  
   
 #### <a name="exporting-merged-disks-using-hyper-v"></a>Exportation de disques fusionnés, avec Hyper-V  
-La dernière possibilité consiste à utiliser les options de fusion et de conversion de disques d’Hyper-V. Elles vous permettent de faire une copie d’une structure de disque existante (même en incluant des fichiers AVHD/AVHDX de capture instantanée) vers un seul nouveau disque. Comme pour le scénario de copie manuelle de disque, cette solution est principalement destinée aux machines virtuelles plus simples qui utilisent un seul lecteur, par exemple C : \\. Son seul avantage, contrairement à la copie manuelle, est de ne pas vous obliger à supprimer d'abord les captures instantanées. Cette opération est nécessairement plus lente que la simple suppression des captures instantanées et la copie de disques.  
+La dernière possibilité consiste à utiliser les options de fusion et de conversion de disques d’Hyper-V. Elles vous permettent de faire une copie d’une structure de disque existante (même en incluant des fichiers AVHD/AVHDX de capture instantanée) vers un seul nouveau disque. Comme pour le scénario de copie manuelle de disque, cette solution est principalement destinée aux machines virtuelles plus simples qui utilisent un seul lecteur, par exemple C :\\. Son seul avantage, contrairement à la copie manuelle, est de ne pas vous obliger à supprimer d'abord les captures instantanées. Cette opération est nécessairement plus lente que la simple suppression des captures instantanées et la copie de disques.  
   
 ##### <a name="hyper-v-manager-method"></a>Méthode basée sur le Gestionnaire Hyper-V  
 Pour créer un disque fusionné avec le Gestionnaire Hyper-V :  
@@ -546,7 +546,7 @@ copy-item <xml file path><destination path>\dccloneconfig.xml
 dismount-vhd <disk path>  
 ```  
   
-Exemple :  
+Par exemple :  
   
 ![Déploiement de DC virtualisé](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
   
@@ -640,7 +640,7 @@ Get-VMSnapshot
 Remove-VMSnapshot  
 ```  
   
-Exemple :  
+Par exemple :  
   
 ![Déploiement de DC virtualisé](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
@@ -648,7 +648,7 @@ Exemple :
 > Assurez-vous que, durant l'importation de l'ordinateur, des adresses MAC statiques n'ont pas été affectées au contrôleur de domaine source. Si un ordinateur source avec une adresse MAC statique est cloné, les ordinateurs copiés n'enverront ou ne recevront pas correctement le trafic réseau. Définissez une nouvelle adresse MAC statique ou dynamique unique, le cas échéant. Vous pouvez déterminer si un ordinateur virtuel utilise des adresses MAC statiques avec la commande suivante :  
 > 
 > **Obtient-VM-VMName**   
->  ***test-machine virtuelle* | Récupération-VMNetworkAdapter | FL \\** *  
+>  ***test-machine virtuelle* | Récupération-VMNetworkAdapter | \\FL***  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>Étape 9 - Cloner le nouvel ordinateur virtuel  
 Éventuellement, avant de commencer le clonage, redémarrez le contrôleur de domaine source clone hors connexion. Assurez-vous que l'émulateur de contrôleur de domaine principal est en ligne.  
@@ -664,7 +664,7 @@ Si vous utilisez Windows PowerShell pour démarrer un ordinateur virtuel, la nou
 Start-VM  
 ```  
   
-Exemple :  
+Par exemple :  
   
 ![Déploiement de DC virtualisé](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
   

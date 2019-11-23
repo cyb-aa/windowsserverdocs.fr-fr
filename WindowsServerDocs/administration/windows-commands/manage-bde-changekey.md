@@ -36,8 +36,8 @@ manage-bde -changekey [<Drive>] [<PathToExternalKeyDirectory>] [-computername <N
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Drive >|Représente une lettre de lecteur suivie par un signe deux-points.|
-|@no__t 0PathToExternalKeyDirectory >|Représente l’emplacement du répertoire dans lequel enregistrer le fichier de clé de démarrage externe qui peut être utilisé pour déverrouiller le lecteur.|
+|Lecteur \<>|Représente une lettre de lecteur suivie par un signe deux-points.|
+|\<PathToExternalKeyDirectory >|Représente l’emplacement du répertoire dans lequel enregistrer le fichier de clé de démarrage externe qui peut être utilisé pour déverrouiller le lecteur.|
 |-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
 |\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|

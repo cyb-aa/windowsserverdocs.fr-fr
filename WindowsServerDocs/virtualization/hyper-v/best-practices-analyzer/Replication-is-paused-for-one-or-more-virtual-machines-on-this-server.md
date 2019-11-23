@@ -19,7 +19,7 @@ ms.locfileid: "71393543"
 ---
 # <a name="replication-is-paused-for-one-or-more-virtual-machines-on-this-server"></a>La réplication est suspendue pour un ou plusieurs ordinateurs virtuels sur ce serveur
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,21 +27,21 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Opérations|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
-*Replication est suspendu pour une ou plusieurs machines virtuelles. Lorsque la machine virtuelle principale est suspendue, toutes les modifications qui se produisent sont accumulées et envoyées à la machine virtuelle de réplication une fois la réplication reprise.*  
+*La réplication est suspendue pour un ou plusieurs ordinateurs virtuels. Lorsque la machine virtuelle principale est suspendue, toutes les modifications qui se produisent sont accumulées et envoyées à la machine virtuelle de réplication une fois la réplication reprise.*  
   
 ## <a name="impact"></a>Impact  
-*As tant que la réplication est suspendue, les modifications accumulées qui se produisent sur l’ordinateur virtuel principal consomment de l’espace disque disponible sur le serveur principal. Une fois la réplication reprise, il peut y avoir un grand nombre de trafic réseau vers le serveur de réplication. Cela a un impact sur les ordinateurs virtuels suivants :*  
+*Tant que la réplication est suspendue, les modifications accumulées qui se produisent sur l’ordinateur virtuel principal consomment de l’espace disque disponible sur le serveur principal. Une fois la réplication reprise, il peut y avoir un grand nombre de trafic réseau vers le serveur de réplication. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
-*Confirm que la suspension de la réplication était prévue. Si la réplication a été suspendue pour libérer de l’espace disque ou une connectivité réseau, reprenez la réplication dès que ces problèmes sont résolus.*  
+## <a name="resolution"></a>Résolution  
+*Confirmez que la suspension de la réplication était prévue. Si la réplication a été suspendue pour gérer l’espace disque insuffisant ou la connectivité réseau, reprenez la réplication dès que ces problèmes sont résolus.*  
   
 
 

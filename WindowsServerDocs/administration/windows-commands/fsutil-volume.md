@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376696"
 ---
 # <a name="fsutil-volume"></a>Fsutil volume
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Démonte un volume ou interroge le lecteur de disque dur pour déterminer la quantité d’espace libre actuellement disponible sur le lecteur de disque dur ou le fichier qui utilise un cluster particulier.
 
@@ -39,14 +39,14 @@ fsutil volume [querycluster] <VolumePath> <Cluster> [<Cluster>] … …
 |Paramètre|Description|
 |-------------|---------------|
 |allocationreport|Affiche des informations sur l’utilisation du stockage sur un volume donné.|
-|@no__t 0VolumePath >|Spécifie la lettre de lecteur (suivie d’un signe deux-points).|
+|\<VolumePath >|Spécifie la lettre de lecteur (suivie d’un signe deux-points).|
 |diskfree|Interroge le lecteur de disque dur pour déterminer la quantité d’espace disponible sur celui-ci.|
 |démonter|Démonte un volume.|
 |filelayout|Affiche les métadonnées NTFS pour le fichier donné.|
-|@no__t 0fileid >|Spécifie l’ID du fichier.|
+|\<fileid >|Spécifie l’ID du fichier.|
 |list|Répertorie tous les volumes du système.|
-|querycluster|Recherche le fichier qui utilise un cluster spécifié. Vous pouvez spécifier plusieurs clusters avec le paramètre **querycluster** .<br /><br />Ce paramètre s’applique à :  Windows Server 2008 R2 et Windows 7.|
-|@no__t 0cluster >|Spécifie le LCN (Logical cluster Number).|
+|querycluster|Recherche le fichier qui utilise un cluster spécifié. Vous pouvez spécifier plusieurs clusters avec le paramètre **querycluster** .<br /><br />Ce paramètre s’applique à : Windows Server 2008 R2 et Windows 7.|
+|> du cluster \<|Spécifie le LCN (Logical cluster Number).|
 
 ## <a name="BKMK_examples"></a>Illustre
 Pour afficher un rapport sur les clusters alloués, tapez :

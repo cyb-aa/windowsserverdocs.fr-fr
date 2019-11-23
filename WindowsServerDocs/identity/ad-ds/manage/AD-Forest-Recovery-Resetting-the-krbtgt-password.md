@@ -18,12 +18,12 @@ ms.locfileid: "71390304"
 ---
 # <a name="ad-forest-recovery---resetting-the-krbtgt-password"></a>Récupération de la forêt Active Directory-réinitialisation du mot de passe krbtgt
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Utilisez la procédure suivante pour réinitialiser le mot de passe krbtgt pour le domaine. La procédure suivante applique les contrôleurs de domaine accessibles en écriture, mais pas les contrôleurs de domaine en lecture seule (RODC).
   
 > [!IMPORTANT]
-> Si vous envisagez de récupérer des RODC en ligne pendant la récupération de la forêt, ne supprimez pas les comptes krbtgt pour les contrôleurs RODC. Le compte krbtgt pour un RODC est listé au format krbtgt_*numéro*.
+> Si vous envisagez de récupérer des RODC en ligne pendant la récupération de la forêt, ne supprimez pas les comptes krbtgt pour les contrôleurs RODC. Le compte krbtgt pour un contrôleur de domaine en lecture seule est indiqué au format krbtgt_*numéro*.
 >
 > Si vous utilisez un filtre de mot de passe personnalisé (tel que Passfilt. dll) sur un contrôleur de périphérique, vous risquez de recevoir une erreur lorsque vous essayez de réinitialiser le mot de passe krbtgt. Pour plus d’informations, y compris une solution de contournement, consultez [l’article 2549833](https://support.microsoft.com/kb/2549833) de la base de connaissances Microsoft (https://support.microsoft.com/kb/2549833).
   
@@ -33,7 +33,7 @@ Utilisez la procédure suivante pour réinitialiser le mot de passe krbtgt pour 
 2. Cliquez sur **Affichage**, puis sur **Fonctionnalités avancées**.
 3. Dans l’arborescence de la console, double-cliquez sur le conteneur de domaine, puis cliquez sur **utilisateurs**.
 4. Dans le volet d’informations, cliquez avec le bouton droit sur le compte d’utilisateur **krbtgt** , puis cliquez sur **Réinitialiser le mot de passe**.
-   ![Reset mot de passe @ no__t-1
+   ![de réinitialiser le mot de passe](media/AD-Forest-Recovery-Resetting-the-krbtgt-password/resetpass1.png)
 5. Dans **nouveau mot**de passe, tapez un nouveau mot de passe, retapez le mot de passe dans **confirmer le mot de passe**, puis cliquez sur **OK**. Le mot de passe que vous spécifiez n’est pas significatif car le système génère un mot de passe fort automatiquement indépendant du mot de passe que vous spécifiez.
   
 > [!NOTE]

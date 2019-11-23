@@ -22,7 +22,7 @@ ms.locfileid: "71379955"
 ---
 # <a name="cacls"></a>cacls
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche ou modifie les listes de contrôle d’accès discrétionnaire (DACL, Discretionary Access Control List) sur les fichiers spécifiés.  
 ## <a name="syntax"></a>Syntaxe  
@@ -40,9 +40,9 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 |         /s : SDDL         |                                       remplace les listes de contrôle d’accès par celles spécifiées dans la chaîne SDDL (non valide avec **/e**, **/g**, **/r**, **/p**ou **/d**).                                        |
 |           /e            |                                                                                 Modifiez l’ACL au lieu de le remplacer.                                                                                  |
 |           /c            |                                                                                 Continuer en cas d’erreurs de refus d’accès.                                                                                  |
-|    /g utilisateur : \<perm @ no__t-1     |   Accordez les droits d’accès utilisateur spécifiés.<br /><br />Valeurs valides pour l’autorisation :<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total   |
+|    /g utilisateur :\<Perm\>     |   Accordez les droits d’accès utilisateur spécifiés.<br /><br />Valeurs valides pour l’autorisation :<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total   |
 |      /r utilisateur [...]      |                                                                  Révoquer les droits d’accès de l’utilisateur spécifié (valide uniquement avec **/e**).                                                                   |
-| [/p utilisateur : \<perm @ no__t-1 [...] | remplacer les droits d’accès de l’utilisateur spécifié.<br /><br />Valeurs valides pour l’autorisation :<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total |
+| [/p utilisateur :\<Perm\> [...] | remplacer les droits d’accès de l’utilisateur spécifié.<br /><br />Valeurs valides pour l’autorisation :<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total |
 |     [/d utilisateur [...]      |                                                                                    Refuser l’accès utilisateur spécifié.                                                                                     |
 |           /?            |                                                                                Affiche l'aide à l'invite de commandes.                                                                                |
 
@@ -63,7 +63,7 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
   |     OI ENTRÉES      |                             Fichiers uniquement.                             |
 
 
-- Vous pouvez utiliser des caractères génériques ( **?** et **\\ @ no__t-2**) pour spécifier plusieurs fichiers.  
+- Vous pouvez utiliser des caractères génériques ( **?** et **\\\*** ) pour spécifier plusieurs fichiers.  
 - Vous pouvez spécifier plusieurs utilisateurs.  
 
 #### <a name="additional-references"></a>Références supplémentaires  

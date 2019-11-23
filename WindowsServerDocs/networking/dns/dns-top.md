@@ -17,7 +17,7 @@ ms.locfileid: "71406170"
 ---
 # <a name="domain-name-system-dns"></a>DNS (Domain Name System)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Le système DNS (Domain Name System) est l’une des gammes de protocoles standard qui composent le protocole TCP/IP, et le client DNS et le serveur DNS fournissent des services de résolution de noms de nom d’ordinateur à adresse IP aux ordinateurs et aux utilisateurs.  
   
@@ -27,7 +27,7 @@ Le système DNS (Domain Name System) est l’une des gammes de protocoles standa
 > -   [Nouveautés du client DNS](What-s-New-in-DNS-Client.md)  
 > -   [Nouveautés du serveur DNS](What-s-New-in-DNS-Server.md)  
 > -   [Guide du scénario de stratégie DNS](deploy/DNS-Policy-Scenario-Guide.md)  
-> -   Vidéo : @no__t 0Windows Server 2016 : Gestion du service DNS dans IPAM @ no__t-0  
+> -   Vidéo : [Windows Server 2016 : gestion DNS dans IPAM](https://channel9.msdn.com/Blogs/windowsserver/Windows-Server-2016-DNS-management-in-IPAM)  
   
 Dans Windows Server 2016, DNS est un rôle serveur que vous pouvez installer à l’aide de Gestionnaire de serveur ou de commandes Windows PowerShell. Si vous installez une nouvelle forêt et un nouveau domaine Active Directory, DNS est automatiquement installé avec Active Directory en tant que serveur de catalogue global pour la forêt et le domaine.  
   

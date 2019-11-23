@@ -38,7 +38,7 @@ Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0KeyName >|Spécifie le chemin d’accès complet de la sous-clé ou de l’entrée à supprimer. Pour spécifier un ordinateur distant, incluez le nom de l’ordinateur (au format \\ @ no__t-1ComputerName @ no__t-2 dans le cadre du *keyName*. Si vous omettez \\ @ no__t-1ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont les suivantes : HKLM et HKU.|
+|\<KeyName >|Spécifie le chemin d’accès complet de la sous-clé ou de l’entrée à supprimer. Pour spécifier un ordinateur distant, incluez le nom de l’ordinateur (au format \\\\ComputerName\) dans le *nom*de l’ordinateur. Si vous omettez \\\\ComputerName \, l’opération est effectuée par défaut sur l’ordinateur local. Le *keyName* doit inclure une clé racine valide. Les clés racines valides pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont les suivantes : HKLM et HKU.|
 |/v \<ValueName >|Supprime une entrée spécifique sous la sous-clé. Si aucune entrée n’est spécifiée, toutes les entrées et sous-clés sous la sous-clé seront supprimées.|
 |/ve|Spécifie que seules les entrées qui n’ont pas de valeur seront supprimées.|
 |/va|Supprime toutes les entrées sous la sous-clé spécifiée. Les sous-clés sous la sous-clé spécifiée ne sont pas supprimées.|
@@ -49,9 +49,9 @@ Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 
 Le tableau suivant répertorie les valeurs renvoyées pour l’opération **reg delete** .
 
-|Value|Description|
+|Valeur|Description|
 |-----|-----------|
-|0|Succès|
+|0|Réussite|
 |1|Échec|
 
 ## <a name="BKMK_examples"></a>Illustre

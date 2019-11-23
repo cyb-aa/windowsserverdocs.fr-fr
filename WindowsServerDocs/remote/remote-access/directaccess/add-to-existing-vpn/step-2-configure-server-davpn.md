@@ -21,7 +21,7 @@ ms.locfileid: "71388736"
 ---
 #  <a name="step-2-configure-the-directaccess-vpn-server"></a>Étape 2 : configurer le serveur DirectAccess-VPN
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit comment configurer les paramètres de client et de serveur requis pour un déploiement de l'accès à distance de base à l'aide de l'Assistant Activation de DirectAccess.
 
@@ -70,7 +70,7 @@ Pour les clients DNS, vous pouvez configurer une liste de recherche de suffixes 
 
 2. Tapez un nouveau nom de suffixe dans **nouveau suffixe** , puis cliquez sur **Ajouter**. En outre, vous pouvez modifier l’ordre de recherche et supprimer les suffixes des **suffixes de domaine à utiliser**.
 
->OBSERVE Dans un scénario d’espace de noms disjoint \(where un ou plusieurs ordinateurs de domaine ont un suffixe DNS qui ne correspond pas au domaine Active Directory auquel les ordinateurs appartiennent @ no__t-1, vous devez vous assurer que la liste de recherche est personnalisée pour inclure tous les suffixes. L'Assistant Accès à distance configurera par défaut le nom DNS Active Directory comme suffixe DNS principal sur le client. L'administrateur doit s'assurer qu'il a le suffixe DNS utilisé par les clients pour la résolution des noms.
+>OBSERVE Dans un scénario d’espace de noms disjoint \(où un ou plusieurs ordinateurs de domaine ont un suffixe DNS qui ne correspond pas au domaine Active Directory auquel les ordinateurs appartiennent\), vous devez vous assurer que la liste de recherche est personnalisée pour inclure tous les suffixes requis. L'Assistant Accès à distance configurera par défaut le nom DNS Active Directory comme suffixe DNS principal sur le client. L'administrateur doit s'assurer qu'il a le suffixe DNS utilisé par les clients pour la résolution des noms.
 
 Pour les ordinateurs et les serveurs, le comportement de recherche DNS par défaut suivant est prédéterminé et utilisé lors de l’exécution et de la résolution de noms courts et non qualifiés. Lorsque la liste de recherche de suffixes est vide ou non spécifiée, le suffixe DNS principal de l’ordinateur est ajouté aux noms non qualifiés courts, et une requête DNS est utilisée pour résoudre le nom de domaine complet (FQDN) résultant. 
 
@@ -99,6 +99,6 @@ Deux objets de stratégie de groupe sont automatiquement renseignés avec les pa
 
 2. **Objet de stratégie de groupe de serveur DirectAccess**. Cet objet de stratégie de groupe contient les paramètres de configuration DirectAccess qui sont appliqués à tout serveur configuré en tant que serveur d’accès à distance dans votre déploiement. Il contient également les règles de sécurité de connexion du Pare-feu Windows avec fonctions avancées de sécurité.
 
-## <a name="summary"></a>Récapitulatif
+## <a name="summary"></a>Résumé
 
 Une fois la configuration de l’accès à distance terminée, le **Résumé** s’affiche. Vous pouvez modifier les paramètres configurés ou cliquer sur **Terminer** pour appliquer la configuration.

@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376981"
 ---
 # <a name="fsutil-file"></a>Fichier fsutil
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Recherche un fichier par nom d’utilisateur (si les quotas de disque sont activés), interroge des plages allouées pour un fichier, définit le nom abrégé d’un fichier, définit la longueur de données valide d’un fichier, ne définit aucune donnée pour un fichier ou crée un nouveau fichier.
 
@@ -47,32 +47,32 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 |Paramètre|Description|
 |-------------|---------------|
 |CreateNew|Crée un fichier du nom et de la taille spécifiés, avec un contenu composé de zéros.|
-|@no__t 0filename >|Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.|
-|@no__t 0length >|Spécifie la longueur des données valides du fichier.|
+|nom de fichier \<>|Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.|
+|longueur de la \<>|Spécifie la longueur des données valides du fichier.|
 |findbysid|Recherche des fichiers qui appartiennent à un utilisateur spécifié sur des volumes NTFS où les quotas de disque sont activés.|
-|@no__t 0username >|Spécifie le nom d’utilisateur ou le nom d’ouverture de session de l’utilisateur.|
+|nom d’utilisateur \<>|Spécifie le nom d’utilisateur ou le nom d’ouverture de session de l’utilisateur.|
 |\<directory>|Spécifie le chemin d’accès complet au répertoire, par exemple C:\Users.|
 |optimizemetadata|Cela effectue un compactage immédiat des métadonnées pour un fichier donné.|
 |/A|Analyser les métadonnées de fichier avant et après l’optimisation.|
 |queryallocranges|Interroge les plages allouées pour un fichier sur un volume NTFS. Utile pour déterminer si un fichier a des régions éparses.|
-|offset = \<offset >|Spécifie le début de la plage qui doit être définie sur zéros.|
-|longueur = \<length >|Spécifie la longueur de la plage (en octets).|
+|offset = décalage de\<>|Spécifie le début de la plage qui doit être définie sur zéros.|
+|longueur = longueur\<>|Spécifie la longueur de la plage (en octets).|
 |queryextents|Interroge les étendues d’un fichier.|
 |/R|Si <filename> est un point d’analyse, ouvrez-le au lieu de sa cible.|
-|@no__t 0startingvcn >|Spécifie le premier VCN à interroger. En cas d’omission, commencez à VCN 0.|
-|@no__t 0numvcns >|Nombre de VCNs à interroger. En cas d’omission ou 0, interroger jusqu’à EOF.|
-|queryfileid|Interroge l’ID d’un fichier sur un volume NTFS.<br /><br />Ce paramètre s’applique à :  Windows Server 2008 R2 et Windows 7.|
-|@no__t 0volume >|Spécifie le volume en tant que nom de lecteur suivi d’un signe deux-points.|
-|queryfilenamebyid|Affiche un nom de lien aléatoire pour un ID de fichier spécifié sur un volume NTFS. Étant donné qu’un fichier peut avoir plusieurs noms de liens pointant vers ce fichier, il n’est pas garanti que le lien de fichier sera fourni à la suite de la requête pour le nom de fichier.<br /><br />Ce paramètre s’applique à :  Windows Server 2008 R2 et Windows 7.|
-|@no__t 0fileid >|Spécifie l’ID du fichier sur un volume NTFS.|
+|\<startingvcn >|Spécifie le premier VCN à interroger. En cas d’omission, commencez à VCN 0.|
+|\<numvcns >|Nombre de VCNs à interroger. En cas d’omission ou 0, interroger jusqu’à EOF.|
+|queryfileid|Interroge l’ID d’un fichier sur un volume NTFS.<br /><br />Ce paramètre s’applique à : Windows Server 2008 R2 et Windows 7.|
+|> du volume \<|Spécifie le volume en tant que nom de lecteur suivi d’un signe deux-points.|
+|queryfilenamebyid|Affiche un nom de lien aléatoire pour un ID de fichier spécifié sur un volume NTFS. Étant donné qu’un fichier peut avoir plusieurs noms de liens pointant vers ce fichier, il n’est pas garanti que le lien de fichier sera fourni à la suite de la requête pour le nom de fichier.<br /><br />Ce paramètre s’applique à : Windows Server 2008 R2 et Windows 7.|
+|\<fileid >|Spécifie l’ID du fichier sur un volume NTFS.|
 |queryoptimizemetadata|Interroge l’état des métadonnées d’un fichier.|
 |queryvaliddata|Interroge la longueur de données valide d’un fichier.|
 |/D|Affichez des informations détaillées sur les données valides.|
 |seteof|Définit la EOF du fichier donné.|
 |setshortname|Définit le nom abrégé (nom du fichier de longueur 8,3 caractères) d’un fichier sur un volume NTFS.|
-|@no__t 0shortname >|Spécifie le nom abrégé du fichier.|
+|\<ShortName >|Spécifie le nom abrégé du fichier.|
 |setvaliddata|Définit la longueur de données valide pour un fichier sur un volume NTFS.|
-|@no__t 0datalength >|Spécifie la longueur du fichier en octets.|
+|\<> DATALENGTH|Spécifie la longueur du fichier en octets.|
 |setzerodata|Définit une plage (spécifiée par le *décalage* et la *longueur*) du fichier à zéro, ce qui vide le fichier. Si le fichier est un fichier partiellement alloué, les unités d’allocation sous-jacentes sont désallouées.|
 
 ## <a name="remarks"></a>Notes

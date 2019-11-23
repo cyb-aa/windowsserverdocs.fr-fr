@@ -17,7 +17,7 @@ ms.locfileid: "71401890"
 ---
 # <a name="network-subsystem-performance-tuning"></a>Réglage des performances du sous-système réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour obtenir une vue d’ensemble du sous-système réseau et des liens vers d’autres rubriques de ce guide.
 
@@ -37,7 +37,7 @@ Le réglage des performances du sous-système réseau, en particulier pour les c
   
 3. **Pile de protocoles**. La pile de protocoles implémente des protocoles tels que TCP/IP et UDP/IP. Ces couches exposent l’interface de la couche de transport pour les couches supérieures.
   
-4. **Pilotes système**. Il s’agit généralement de clients qui utilisent une interface TDX (transport Data extension) ou Winsock kernel (WSK) pour exposer des interfaces à des applications en mode utilisateur. L’interface WSK a été introduite dans Windows Server 2008 et Windows @ no__t-0 Vista, et elle est exposée par AFD. sys. L’interface améliore les performances en éliminant le basculement entre le mode utilisateur et le mode noyau.
+4. **Pilotes système**. Il s’agit généralement de clients qui utilisent une interface TDX (transport Data extension) ou Winsock kernel (WSK) pour exposer des interfaces à des applications en mode utilisateur. L’interface WSK a été introduite dans Windows Server 2008 et Windows&reg; Vista, et elle est exposée par AFD. sys. L’interface améliore les performances en éliminant le basculement entre le mode utilisateur et le mode noyau.
   
 5. **Applications en mode utilisateur**. Il s’agit généralement de solutions Microsoft ou d’applications personnalisées.
 

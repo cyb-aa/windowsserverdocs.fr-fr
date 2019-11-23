@@ -18,7 +18,7 @@ ms.locfileid: "71383089"
 ---
 # <a name="server-performance-advisor-users-guide"></a>Guide de l’utilisateur de Server Performance Advisor
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8
 
 Ce guide de l’utilisateur pour Microsoft Server Performance Advisor (SPA) fournit des instructions sur l’utilisation de SPA pour identifier les goulots d’étranglement de performances dans les systèmes déployés dans différents rôles de serveur.
 
@@ -173,7 +173,7 @@ Vous devez également installer SQL Server 2008 R2 Express sur le même ordinate
 
 ### <a href="" id="bkmk-setupspa"></a>Configuration de SPA
 
-SPA est empaqueté sous la forme d’un fichier. cab qui comprend tous les fichiers binaires de l’infrastructure SPA, les applets de commande Windows PowerShell utilisées dans les scénarios avancés et les packs Advisor suivants : Le système d’exploitation principal, Hyper-V, Active Directory et IIS. Une fois que vous avez extrait le fichier. cab dans un dossier, aucune installation supplémentaire n’est nécessaire. Toutefois, pour exécuter SPA, vous devez activer la collecte des données à partir des serveurs cibles comme suit :
+SPA est empaqueté sous la forme d’un fichier. cab qui comprend tous les fichiers binaires de l’infrastructure SPA, les applets de commande Windows PowerShell utilisées dans les scénarios avancés et les Advisor packs suivants : système d’exploitation principal, Hyper-V, Active Directory et IIS. Une fois que vous avez extrait le fichier. cab dans un dossier, aucune installation supplémentaire n’est nécessaire. Toutefois, pour exécuter SPA, vous devez activer la collecte des données à partir des serveurs cibles comme suit :
 
 * Pour exécuter la collecte de données PLA, le compte d’utilisateur que vous utilisez pour exécuter la console du SPA doit faire partie du groupe de sécurité Administrateurs sur le serveur cible. Si le serveur cible et la console se trouvent dans le même domaine, le compte d’utilisateur de domaine doit faire partie du groupe de sécurité Administrateurs sur le serveur cible. Si le serveur cible et la console ne se trouvent pas dans le même domaine, créez un compte d’utilisateur administratif sur le serveur cible avec les mêmes nom d’utilisateur et mot de passe que le compte d’utilisateur que vous utilisez pour exécuter la console du SPA.
 
@@ -196,7 +196,7 @@ La console SPA utilise le même compte pour lire les journaux et les importer da
 
 * Activez la découverte du réseau sur la console et sur chacun des serveurs cibles.
 
-* Si le serveur cible n’est pas joint à un domaine, activez le paramètre de Registre suivant : **HKLM @ no__t-1SOFTWARE @ no__t-2Microsoft @ no__t-3Windows @ no__t-4Currentversion @ no__t-5Policies @ no__t-6System @ no__t-7LocalAccountTokenFilterPolicy**.
+* Si le serveur cible n’est pas joint à un domaine, activez le paramètre de Registre suivant : **HKLM\\SOFTWARE\\Microsoft\\Windows\\Currentversion\\Policies\\system\\LocalAccountTokenFilterPolicy**.
 
 **Remarque** Par défaut, SPA écrit les journaux de diagnostic dans le dossier où se trouve SpaConsole. exe. Si SPA est installé dans le dossier Program Files, SPA ne peut écrire le journal que lorsque SpaConsole. exe est exécuté en tant qu’administrateur.
 
@@ -222,9 +222,9 @@ Une fois que tout est configuré, vous pouvez créer votre premier projet SPA. C
 
     * Ajouter des serveurs à la liste des serveurs cibles
 
-3.  Cliquez sur **Suivant**. La page **créer une base de données de projet** vous demande de fournir le nom de l’instance de Microsoft SQL Server dans laquelle vous souhaitez créer votre base de données. Par exemple, s’il se trouve sur le même ordinateur que la console, vous pouvez utiliser **localhost @ no__t-1 @ no__t-2YOUR SQL Server Name @ no__t-3**.
+3.  Cliquez sur **Suivant**. La page **créer une base de données de projet** vous demande de fournir le nom de l’instance de Microsoft SQL Server dans laquelle vous souhaitez créer votre base de données. Par exemple, s’il se trouve sur le même ordinateur que la console, vous pouvez utiliser **localhost\\&lt;le nom de votre serveur SQL&gt;** .
 
-    **Remarque** Le nom d’instance par défaut pour une installation SQL Server 2008 R2 Express est SQLExpress. Pour une instance de SQL Server 2008 R2 Express installée sur l’ordinateur local, la base de données est généralement définie par défaut sur **localhost @ no__t-1SQLExpress**. Toutefois, il a peut-être été modifié pendant l’installation de SQL Server. vous devez donc vous assurer que vous utilisez le nom de l’instance de la SQL Server appropriée.
+    **Remarque** Le nom d’instance par défaut pour une installation SQL Server 2008 R2 Express est SQLExpress. Pour une instance de SQL Server 2008 R2 Express installée sur l’ordinateur local, la base de données est généralement définie par défaut sur **localhost\\SQLExpress**. Toutefois, il a peut-être été modifié pendant l’installation de SQL Server. vous devez donc vous assurer que vous utilisez le nom de l’instance de la SQL Server appropriée.
 
      
 
@@ -238,7 +238,7 @@ Une fois que tout est configuré, vous pouvez créer votre premier projet SPA. C
 
 6.  Sur la page **créer une base de données de projet** , cliquez sur **suivant**. L’Assistant première utilisation crée une base de données et génère le schéma de base de données, les fonctions et les procédures stockées relatives à SPA dans la base de données. Cette étape peut prendre plusieurs secondes en fonction du matériel et de la vitesse du réseau.
 
-    **Remarque** si cette étape échoue, un message d’erreur s’affiche. Voici quelques-uns des problèmes les plus courants : La console ne peut pas se connecter à l’instance SQL Server, privilèges insuffisants pour créer une base de données ou le nom de la base de données existe déjà.
+    **Remarque** si cette étape échoue, un message d’erreur s’affiche. Voici quelques-uns des problèmes courants : la console ne peut pas se connecter à l’instance SQL Server, des privilèges insuffisants pour créer une base de données ou le nom de la base de données existe déjà.
 
      
 
@@ -254,7 +254,7 @@ Une fois que tout est configuré, vous pouvez créer votre premier projet SPA. C
 
      
 
-9.  Dans la page **Ajouter des serveurs** , pour chaque serveur à ajouter à la liste de serveurs cibles, vous pouvez remplir deux champs obligatoires : **Nom du serveur** et **emplacement du partage de fichiers**.
+9.  Dans la page **Ajouter des serveurs** , pour chaque serveur à ajouter à la liste de serveurs cibles, vous pouvez remplir deux champs obligatoires : **le nom du serveur et l'** emplacement du partage de **fichiers**.
 
     **Remarque** Il y a également un champ **Remark** , qui est principalement utilisé pour classifier ou Rechercher le serveur. Dans les cas où vous disposez de nombreux serveurs, vous pouvez importer un fichier de valeurs séparées par des virgules (. csv) qui contient le nom du serveur, le dossier des résultats et le champ de Remarque facultatif. Le champ **Remark** est utilisé pour décrire le serveur et le terme peut être utilisé pour filtrer les serveurs pour la collecte de données. Si vous initialisez les serveurs par le biais du fichier. csv, une erreur d’analyse dans le fichier ne charge pas les serveurs.
 
@@ -271,7 +271,7 @@ Une fois que tout est configuré, vous pouvez créer votre premier projet SPA. C
 
 Après avoir configuré la base de données, vous pouvez exécuter l’analyse des performances sur les serveurs.
 
-Chaque fois que la console SPA démarre, le dernier projet qui a été utilisé par l’utilisateur actuel s’ouvre automatiquement. La fenêtre principale contient une liste de serveurs. Chaque serveur possède quatre propriétés : Nom du serveur, résultat de l’analyse, état actuel et remarque.
+Chaque fois que la console SPA démarre, le dernier projet qui a été utilisé par l’utilisateur actuel s’ouvre automatiquement. La fenêtre principale contient une liste de serveurs. Chaque serveur possède quatre propriétés : le nom du serveur, le résultat de l’analyse, l’état actuel et le remarquage.
 
 * **Nom du serveur** Nom du serveur, qui est l’identificateur pour le serveur. Aucun nom en double n’est autorisé.
 
@@ -302,7 +302,7 @@ Pour exécuter l’analyse des performances sur les serveurs cibles, sélectionn
 ## <a href="" id="bkmk-viewingreports"></a>Affichage des rapports
 
 
-Dans SPA, il existe trois types de rapports d’analyse des performances : Rapport unique, rapport côte à côte et graphiques de tendances et d’historique.
+Dans SPA, il existe trois types de rapports d’analyse des performances : rapport unique, rapport côte à côte et graphiques de tendances et d’historique.
 
 Après l’exécution de l’analyse des performances, un rapport est généré pour chacun des packs d’Advisor exécutés sur l’ordinateur cible. Dans la liste des serveurs de la fenêtre principale, vous pouvez développer résultats de l' **analyse** pour afficher tous les packs d’Advisor qui ont été exécutés sur le serveur concerné. Vous pouvez cliquer sur un nom de rapport pour afficher un rapport unique.
 
@@ -340,7 +340,7 @@ Un rapport unique contient une section de notification et les sections de donné
 
 La section notification se compose d’un ensemble de règles d’analyse des performances. Chaque notification contient une source de données, certaines valeurs de seuil et une certaine logique métier. Lorsque vous exécutez l’analyse des performances, la logique métier évalue les sources de données par rapport aux seuils pour déterminer si la règle réussit ou non. Si ce n’est pas le cas, un avertissement s’affiche pour vous informer de la présence d’un problème de performances potentiel. Il fournit également des recommandations pour vous aider à résoudre le problème. La section notification est toujours le premier onglet de la vue rapport unique.
 
-La section notification est divisée en deux parties : **Avertissements** et **autres notifications**.
+La section notification est divisée en deux parties : **Avertissement** et **autres notifications**.
 
 Si la source de données d’une règle répond à certaines conditions en fonction de la logique et des paramètres de seuil, un avertissement s’affiche dans la zone d' **Avertissement** . Un avertissement comprend les éléments suivants :
 
@@ -356,7 +356,7 @@ Les différents serveurs peuvent avoir des modèles de configuration et d’util
 
 La zone **autres notifications** contient toutes les autres règles, où aucun avertissement n’est déclenché ou la règle n’est pas applicable. Il contient des parties similaires à celles figurant dans la zone d' **Avertissement** . La plus grande différence est que si aucun avertissement n’est déclenché ou si la règle n’est pas applicable, généralement aucune recommandation n’est fournie.
 
-### <a name="data-sections"></a>Sections de données
+### <a name="data-sections"></a>sections de données
 
 Les sections de données contiennent les données de performances que le Pack Advisor génère en fonction des données brutes collectées sur les serveurs cibles. Les sections de données incluent un ensemble de sections de niveau supérieur et plusieurs niveaux de sous-sections. Les sections de niveau supérieur sont présentées sous forme d’onglets. Toutes les sous-sections sous les sections de niveau supérieur sont présentées dans des zones développables. Vous pouvez réduire ou développer chacune des sections pour vous concentrer sur les domaines d’intérêt, comme illustré dans la figure suivante.
 
@@ -372,7 +372,7 @@ Le pack d’conseiller du SPA de base du système d’exploitation et le pack d�
 
 * **Liste supérieure** Contient généralement les principaux consommateurs d’une ressource spécifique ou les entités les plus importantes ayant connu certains événements. Par exemple, les **10 premiers processus en termes d’utilisation moyenne du processeur** incluent les dix principaux processus avec une utilisation moyenne du processeur la plus élevée pendant la collecte des données. Étant donné que l’utilisation du processeur est également un point de données numérique dynamique, d’autres statistiques telles que la valeur maximum, minimum et 90% sont également incluses dans la liste pour fournir à l’utilisateur une image plus complète de la consommation du processeur.
 
-Comme mentionné dans les sections précédentes, SPA s’appuie sur PLA pour collecter les suivis ETW, les requêtes WMI, les compteurs de performances, les clés de Registre et les fichiers de configuration pour générer le rapport. Il est IMPORTANT de comprendre la source de données derrière chaque point de données dans le rapport. SPA fournit ces informations par le biais d’info-bulles. Vous pouvez pointer sur les colonnes ou lignes clés pour afficher l’info-bulle de la source de données. Par exemple, **WMI : Win32 @ no__t-1DisDrive : Caption** signifie que la source de données provient d’une requête WMI, que le nom de classe WMI est Win32 @ No__t-2DiskDrive et que la propriété est **Caption**.
+Comme mentionné dans les sections précédentes, SPA s’appuie sur PLA pour collecter les suivis ETW, les requêtes WMI, les compteurs de performances, les clés de Registre et les fichiers de configuration pour générer le rapport. Il est IMPORTANT de comprendre la source de données derrière chaque point de données dans le rapport. SPA fournit ces informations par le biais d’info-bulles. Vous pouvez pointer sur les colonnes ou lignes clés pour afficher l’info-bulle de la source de données. Par exemple, **WMI : Win32\_disdrive : Caption** signifie que la source de données provient d’une requête WMI, que le nom de la classe WMI est Win32\_DiskDrive et que la propriété est **Caption**.
 
 ### <a href="" id="side-by-side-report-"></a>Rapport côte à côte
 
@@ -464,7 +464,7 @@ De nouveaux Advisor packs peuvent être publiés par Microsoft ou par des dével
 
 **Pour approvisionner un nouveau conseiller Pack**
 
-1.  Copiez tout le contenu du Advisor Pack sous le répertoire *% SpaRoot%* \\APs.
+1.  Copiez tout le contenu du Advisor Pack sous le répertoire *% SpaRoot%* \\APS.
 
 2.  Dans la fenêtre principale, cliquez sur **configuration**, puis sur **configurer Advisor packs**. La boîte de dialogue **configurer les packs d’Advisor** s’ouvre.
 
@@ -557,7 +557,7 @@ SPA offre des fonctionnalités de base pour la gestion des serveurs cibles. Vous
 
      
 
-4.  Si vous souhaitez utiliser un SPA avec un grand nombre de serveurs, SPA prend en charge un format de valeurs séparées par des virgules (. csv) pour l’importation. Le fichier doit contenir au moins deux champs : Emplacement du **partage de fichiers**et du **serveur** . Le troisième champ, **Remark** est facultatif, mais il est recommandé d’organiser vos serveurs. Vous pouvez également exporter la liste de serveurs dans un fichier. csv pour déterminer le format approprié ou sauvegarder la configuration de votre serveur.
+4.  Si vous souhaitez utiliser un SPA avec un grand nombre de serveurs, SPA prend en charge un format de valeurs séparées par des virgules (. csv) pour l’importation. Le fichier doit contenir au moins deux champs : **serveur** et **emplacement du partage de fichiers**. Le troisième champ, **Remark** est facultatif, mais il est recommandé d’organiser vos serveurs. Vous pouvez également exporter la liste de serveurs dans un fichier. csv pour déterminer le format approprié ou sauvegarder la configuration de votre serveur.
 
 ### <a name="searching-and-filtering"></a>Recherche et filtrage
 
@@ -717,7 +717,7 @@ SQL Server Express a une limite de taille de 10 Go pour une base de données uti
 
 ### <a name="sql-server-express-log-size-and-disk-capacity"></a>Taille du journal SQL Server Express et capacité du disque
 
-Si vous utilisez SQL Server Express, la base de données utilisateur est limitée à 10 Go, mais le fichier journal correspondant peut dépasser 70 Go. Pour ces raisons, nous vous recommandons d’utiliser au moins 100 Go d’espace disque libre pour SQL Server Express. Cet espace disque doit être suffisant pour stocker environ 20 000 à 30 000 rapports. Ce fichier journal est nommé SPADB\_log.ldf et se trouve dans **% Program Files% \\Microsoft SQL Server @ no__t-3MSSQL10. SQLExpress @ no__t-4MSSQL @ no__t-** 5DatA.
+Si vous utilisez SQL Server Express, la base de données utilisateur est limitée à 10 Go, mais le fichier journal correspondant peut dépasser 70 Go. Pour ces raisons, nous vous recommandons d’utiliser au moins 100 Go d’espace disque libre pour SQL Server Express. Cet espace disque doit être suffisant pour stocker environ 20 000 à 30 000 rapports. Ce fichier journal est nommé SPADB\_log. ldf et se trouve dans **% Program Files%\\Microsoft SQL Server\\MSSQL10. SQLEXPRESS\\MSSQL\\données**.
 
 ### <a name="failure-to-connect-to-target-server"></a>Échec de la connexion au serveur cible
 
@@ -729,7 +729,7 @@ Si vous recevez un message Impossible de créer un jeu d’éléments de collect
 
 * Assurez-vous que le service **journaux de performances & alertes** est en cours d’exécution
 
-* Le paramètre de sécurité @no__t 0Network l’accès : N’autorisez pas le stockage des mots de passe et des informations d’identification pour l’authentification réseau @ no__t-0 est désactivé. Le paramètre de sécurité doit être désactivé, car le SPA doit utiliser les informations d’identification de l’utilisateur pour créer le jeu d’informations de collecte de données sur le serveur cible.
+* Le paramètre de sécurité **accès réseau : ne pas autoriser le stockage des mots de passe et des informations d’identification pour l’authentification réseau** est désactivé. Le paramètre de sécurité doit être désactivé, car le SPA doit utiliser les informations d’identification de l’utilisateur pour créer le jeu d’informations de collecte de données sur le serveur cible.
 
 ### <a href="" id="running-spa-against-the-console-"></a>Exécution de SPA sur la console
 

@@ -42,7 +42,7 @@ break [writable] <SetID>
 |Paramètre|Description|
 |---------|-----------|
 |inscriptible|Active l’accès en lecture/écriture sur le volume.|
-|@no__t 0SetID >|Spécifie l’ID du jeu de clichés instantanés.|
+|\<SetID >|Spécifie l’ID du jeu de clichés instantanés.|
 
 ## <a name="remarks"></a>Notes
 

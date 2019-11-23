@@ -38,7 +38,7 @@ rem [<Comment>]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Comment >|Spécifie une chaîne de caractères à inclure comme commentaire.|
+|\<le commentaire >|Spécifie une chaîne de caractères à inclure comme commentaire.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

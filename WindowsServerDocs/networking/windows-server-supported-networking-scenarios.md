@@ -18,11 +18,11 @@ ms.locfileid: "71395697"
 ---
 # <a name="windows-server-supported-networking-scenarios"></a>Scénarios de mise en réseau pris en charge par Windows Server
 
->S’applique à : Windows Server \(Semi-canal annuel @ no__t-1, Windows Server 2016
+>S’applique à :\)de canal semi-annuel Windows Server \(, Windows Server 2016
 
 Cette rubrique fournit des informations sur les scénarios pris en charge et non pris en charge que vous pouvez ou ne pouvez pas effectuer avec cette version de Windows Server 2016.  
 >[!IMPORTANT]
->Pour tous les scénarios de production, utilisez les derniers pilotes matériels signés de votre fabricant d’équipements d’origine \(OEM @ no__t-1 ou fournisseur de matériel indépendant \(IHV @ no__t-3.
+>Pour tous les scénarios de production, utilisez les derniers pilotes matériels signés de votre fabricant d’équipements d’origine \(OEM\) ou fournisseur de matériel indépendant \(\)IHV.
   
 ## <a name="bkmk_supp"></a>Scénarios de mise en réseau pris en charge
 
@@ -38,7 +38,7 @@ Cette section contient des informations sur les scénarios de mise en réseau pr
   
 -   [Scénarios d’association de cartes réseau](#bkmk_nicteam)
 
-- [Switch Embedded Teaming \(SET @ no__t-2 scénarios](#bkmk_set)
+- [Basculer l’Association incorporée \(définir des scénarios de\)](#bkmk_set)
   
 ### <a name="bkmk_sdn"></a>Scénarios de mise en réseau à définition logicielle (SDN)
  
@@ -86,7 +86,7 @@ Pour plus d’informations, consultez [Network Function Virtualization](sdn/tech
   
 ### <a name="bkmk_netp"></a>Scénarios de plateforme réseau
 
-Pour les scénarios de cette section, l’équipe de mise en réseau Windows Server prend en charge l’utilisation de n’importe quel pilote certifié Windows Server 2016. Vérifiez auprès de votre fournisseur de cartes d’interface réseau \(NIC @ no__t-1 que vous disposez des mises à jour les plus récentes du pilote.
+Pour les scénarios de cette section, l’équipe de mise en réseau Windows Server prend en charge l’utilisation de n’importe quel pilote certifié Windows Server 2016. Vérifiez auprès de votre carte d’interface réseau \(fabricant de la carte réseau\) pour vous assurer que vous disposez des mises à jour les plus récentes du pilote.
   
 Les scénarios de plateforme réseau vous permettent d’effectuer les opérations suivantes :  
   
@@ -169,7 +169,7 @@ Les scénarios d’association de cartes réseau vous permettent d’effectuer l
 
 Pour plus d’informations, consultez [Association de cartes réseau](technologies/nic-teaming/NIC-Teaming.md). 
 
-### <a name="bkmk_set"></a>Switch Embedded Teaming \(SET @ no__t-2 scénarios
+### <a name="bkmk_set"></a>Basculer l’Association incorporée \(définir des scénarios de\)
 
 SET est une autre solution d’association de cartes réseau que vous pouvez utiliser dans les environnements qui incluent Hyper-V et la pile SDN (Software Defined Networking) dans Windows Server 2016. SET intègre certaines fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V. 
 

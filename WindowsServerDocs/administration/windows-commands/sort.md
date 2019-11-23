@@ -39,13 +39,13 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
 |Paramètre|Description|
 |---------|-----------|
 |/r|Inverse l’ordre de tri (autrement dit, le tri de Z à A et de 9 à 0).|
-|/+ @ NO__T-1N >|Spécifie le numéro de position de caractère où le **Tri** commence chaque comparaison. *N* peut être n’importe quel entier valide.|
-|/m \<Kilobytes >|Spécifie la quantité de mémoire principale à utiliser pour le tri en kilo-octets (Ko).|
-|/l @no__t 0Locale >|Remplace l’ordre de tri des caractères définis par les paramètres régionaux par défaut du système (autrement dit, la langue et le pays/région sélectionnés lors de l’installation).|
-|/Rec \<Characters >|Spécifie le nombre maximal de caractères dans un enregistrement ou une ligne du fichier d’entrée (la valeur par défaut est 4 096 et la valeur maximale 65 535).|
-|[@no__t 0Drive1 >:] [\<Path1 >] \<FileName1 >|Spécifie le fichier à trier. Si aucun nom de fichier n’est spécifié, l’entrée standard est triée. La spécification du fichier d’entrée est plus rapide que la redirection du même fichier en tant qu’entrée standard.|
-|/t [\<Drive2 >:] [\<Path2 >]|Spécifie le chemin d’accès du répertoire dans lequel stocker le stockage de travail de la commande de **Tri** si les données ne tiennent pas dans la mémoire principale. Par défaut, le répertoire temporaire du système est utilisé.|
-|/o [\<Drive3 >:] [\<Path3 >] \<FileName3 >|Spécifie le fichier dans lequel l’entrée triée doit être stockée. S’il n’est pas spécifié, les données sont écrites dans la sortie standard. La spécification du fichier de sortie est plus rapide que la redirection de la sortie standard vers le même fichier.|
+|/+\<N >|Spécifie le numéro de position de caractère où le **Tri** commence chaque comparaison. *N* peut être n’importe quel entier valide.|
+|/m \<kilo-octets >|Spécifie la quantité de mémoire principale à utiliser pour le tri en kilo-octets (Ko).|
+|/l \<paramètres régionaux >|Remplace l’ordre de tri des caractères définis par les paramètres régionaux par défaut du système (autrement dit, la langue et le pays/région sélectionnés lors de l’installation).|
+|/Rec \<caractères >|Spécifie le nombre maximal de caractères dans un enregistrement ou une ligne du fichier d’entrée (la valeur par défaut est 4 096 et la valeur maximale 65 535).|
+|[\<Lecteur1 >:] [\<chemin1 >]\<Nomfichier1 >|Spécifie le fichier à trier. Si aucun nom de fichier n’est spécifié, l’entrée standard est triée. La spécification du fichier d’entrée est plus rapide que la redirection du même fichier en tant qu’entrée standard.|
+|/t [\<lecteur2 >:] [\<Chemin2 >]|Spécifie le chemin d’accès du répertoire dans lequel stocker le stockage de travail de la commande de **Tri** si les données ne tiennent pas dans la mémoire principale. Par défaut, le répertoire temporaire du système est utilisé.|
+|/o [\<Drive3 >:] [\<path3 >]\<FileName3 >|Spécifie le fichier dans lequel l’entrée triée doit être stockée. S’il n’est pas spécifié, les données sont écrites dans la sortie standard. La spécification du fichier de sortie est plus rapide que la redirection de la sortie standard vers le même fichier.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

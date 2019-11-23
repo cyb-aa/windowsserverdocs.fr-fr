@@ -17,15 +17,15 @@ ms.locfileid: "71396069"
 ---
 # <a name="configure-nps-on-a-multihomed-computer"></a>Configurer un serveur NPS sur un ordinateur multirésident
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour configurer un serveur NPS avec plusieurs cartes réseau.
 
 Lorsque vous utilisez plusieurs cartes réseau sur un serveur exécutant NPS (Network Policy Server), vous pouvez configurer les éléments suivants :
 
-- Les cartes réseau qui n’envoient et n’envoient pas et ne reçoivent pas protocole RADIUS (Remote Authentication Dial-In User Service) le trafic \(RADIUS @ no__t-1.
-- Sur la base d’une carte réseau, si NPS surveille le trafic RADIUS sur le protocole Internet version 4 \(IPv4 @ no__t-1, IPv6 ou IPv4 et IPv6.
-- Numéros de port UDP sur lesquels le trafic RADIUS est envoyé et reçu sur une base par protocole \(IPv4 ou IPv6 @ no__t-1, par carte réseau.
+- Les cartes réseau qui n’envoient et n’envoient pas et ne reçoivent pas de protocole RADIUS (Remote Authentication Dial-In User Service) \(le trafic RADIUS\).
+- Sur la base d’une carte réseau, si NPS surveille le trafic RADIUS sur le protocole Internet version 4 \(IPv4\), IPv6 ou IPv4 et IPv6.
+- Numéros de port UDP sur lesquels le trafic RADIUS est envoyé et reçu sur une base par protocole \(IPv4 ou IPv6\), par carte réseau.
 
 Par défaut, NPS écoute le trafic RADIUS sur les ports 1812, 1813, 1645 et 1646 pour IPv6 et IPv4 pour toutes les cartes réseau installées. Comme NPS utilise automatiquement toutes les cartes réseau pour le trafic RADIUS, il vous suffit de spécifier les cartes réseau que vous souhaitez que NPS utilise pour le trafic RADIUS lorsque vous souhaitez empêcher NPS d’utiliser une carte réseau spécifique.
 
@@ -42,8 +42,8 @@ Dans un autre exemple, si votre serveur NPS a trois cartes réseau installées, 
 
 Pour configurer NPS afin d’écouter et d’envoyer le trafic RADIUS sur une carte réseau, utilisez la syntaxe suivante dans la boîte de dialogue Propriétés du serveur de stratégie réseau dans la console NPS :
 
-- Syntaxe du trafic IPv4 : IPAddress : UDPport, où IPAddress est l’adresse IPv4 qui est configurée sur la carte réseau sur laquelle vous souhaitez envoyer le trafic RADIUS et UDPport est le numéro de port RADIUS que vous souhaitez utiliser pour l’authentification RADIUS ou le trafic de gestion des comptes.
-- Syntaxe du trafic IPv6 : [Adresseipv6] : UDPport, où les crochets autour de Adresseipv6 sont requis, Adresseipv6 est l’adresse IPv6 configurée sur la carte réseau sur laquelle vous souhaitez envoyer le trafic RADIUS et UDPport est le numéro de port RADIUS que vous souhaitez utiliser pour l’authentification RADIUS ou trafic de gestion des comptes.
+- Syntaxe du trafic IPv4 : IPAddress : UDPport, où IPAddress est l’adresse IPv4 qui est configurée sur la carte réseau sur laquelle vous souhaitez envoyer le trafic RADIUS et UDPport est le numéro de port RADIUS que vous souhaitez utiliser pour l’authentification ou la gestion des comptes RADIUS le trafic.
+- Syntaxe du trafic IPv6 : [Adresseipv6] : UDPport, où les crochets autour de Adresseipv6 sont requis, Adresseipv6 est l’adresse IPv6 configurée sur la carte réseau sur laquelle vous souhaitez envoyer le trafic RADIUS et UDPport est le numéro de port RADIUS que vous souhaitez à utiliser pour l’authentification RADIUS ou le trafic de gestion des comptes.
 
 Les caractères suivants peuvent être utilisés comme délimiteurs pour configurer l’adresse IP et les informations de port UDP :
 

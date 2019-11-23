@@ -38,8 +38,8 @@ add volume <Volume> [provider <ProviderID>]
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Volume >|Spécifie un volume à ajouter au jeu de clichés instantanés. Au moins un volume est requis pour la création de clichés instantanés.|
-|[@no__t du fournisseur-0ProviderID >]|Spécifie l’ID de fournisseur d’un fournisseur inscrit à utiliser pour créer le cliché instantané. Si le **fournisseur** n’est pas spécifié, le fournisseur par défaut est utilisé.|
+|> du volume \<|Spécifie un volume à ajouter au jeu de clichés instantanés. Au moins un volume est requis pour la création de clichés instantanés.|
+|[Provider \<ProviderID >]|Spécifie l’ID de fournisseur d’un fournisseur inscrit à utiliser pour créer le cliché instantané. Si le **fournisseur** n’est pas spécifié, le fournisseur par défaut est utilisé.|
 
 ## <a name="remarks"></a>Notes
 

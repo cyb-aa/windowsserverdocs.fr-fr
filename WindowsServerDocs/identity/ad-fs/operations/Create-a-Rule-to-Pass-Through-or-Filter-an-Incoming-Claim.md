@@ -18,9 +18,9 @@ ms.locfileid: "71358141"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Créer une règle pour transmettre ou filtrer une revendication entrante
 
-À l’aide du modèle de règle de transmission ou de filtrage d’une revendication entrante dans Services ADFS \(AD FS @ no__t-1, vous pouvez passer toutes les revendications entrantes avec un type de revendication sélectionné. Vous pouvez également filtrer les valeurs des revendications entrantes avec un type de revendication sélectionné. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui enverra toutes les revendications de groupe entrantes. Vous pouvez également utiliser cette règle pour envoyer uniquement les revendications de nom d’utilisateur principal \(UPN @ no__t-1 qui se terminent par @fabrikam.  
+À l’aide du modèle de règle de transmission ou de filtrage d’une revendication entrante dans Services ADFS \(AD FS\), vous pouvez passer toutes les revendications entrantes avec un type de revendication sélectionné. Vous pouvez également filtrer les valeurs des revendications entrantes avec un type de revendication sélectionné. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui enverra toutes les revendications de groupe entrantes. Vous pouvez également utiliser cette règle pour envoyer uniquement le nom d’utilisateur principal \(UPN\) les revendications qui se terminent par @fabrikam.  
   
-Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le composant logiciel\-enfichable de gestion AD FS.  
+Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le\-du composant logiciel enfichable Gestion de la AD FS dans.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
@@ -31,7 +31,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
 4.  Dans la boîte de dialogue **modifier la stratégie d’émission de revendication** , sous règles de transformation d' **émission** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle. 
@@ -62,7 +62,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **approbations de fournisseur de revendications**. 
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Dans la boîte de dialogue **modifier les règles de revendication** , sous règles de transformation d' **acceptation** , cliquez sur **Ajouter une règle** pour démarrer l’Assistant règle.
@@ -90,12 +90,12 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **relations\\d’approbation ad FSAD FS**, cliquez sur approbations de **fournisseur de revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **ad FSAD FS\\relations d’approbation**, cliquez sur approbations de **fournisseur de revendications** ou **approbations de partie de confiance**, puis cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
   
-3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
+3.  Cliquez avec le bouton droit\-sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.
 ![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)   
   
-4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles. :  
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , sélectionnez l’un des onglets suivants, en fonction de l’approbation que vous modifiez et de l’ensemble de règles dans lequel vous souhaitez créer cette règle, puis cliquez sur Ajouter une **règle** pour démarrer l’Assistant règle associé à cet ensemble de règles :  
   
     -   **Règles de transformation d’acceptation**  
   

@@ -25,7 +25,7 @@ Pour appliquer un filtre de fichiers à un volume ou un dossier, utilisez la lis
 2. Activez l’enregistrement des événements de filtrage des fichiers dans la base de données de vérification si vous prévoyez de générer des rapports de vérification du filtrage des fichiers.
 [Configurer la vérification du filtrage de fichiers](configure-file-screen-audit.md)
 
-3. Évaluez les types de fichiers stockés qui constituent des candidats aux règles de filtrage. Vous pouvez utiliser des rapports au niveau du nœud **Gestion des rapports de stockage** pour fournir des données. (Par exemple, exécutez un rapport de rapport sur les fichiers par groupe de fichiers ou un rapport rapport sur les fichiers volumineux à la demande pour identifier les fichiers qui occupent de grandes quantités d’espace disque.) [Générer des rapports à la demande](generate-reports-on-demand.md) 
+3. Évaluez les types de fichiers stockés qui constituent des candidats aux règles de filtrage. Vous pouvez utiliser des rapports au niveau du nœud **Gestion des rapports de stockage** pour fournir des données. (Par exemple, exécutez un rapport Fichiers par groupe de fichiers ou un rapport Fichiers volumineux à la demande pour identifier les fichiers qui occupent beaucoup d’espace disque.) [Générez des rapports à la demande](generate-reports-on-demand.md) 
 
 4. Passez en revue les groupes de fichiers préconfigurés ou créez un nouveau groupe de fichiers pour appliquer une stratégie de filtrage spécifique dans votre organisation. [Définir des groupes de fichiers pour le filtrage](define-file-groups-for-screening.md)  
 
@@ -44,4 +44,4 @@ Pour appliquer un filtre de fichiers à un volume ou un dossier, utilisez la lis
 
 
 > [!NOTE]
-> Pour limiter le stockage sur un volume ou un dossier, voir [Checklist : appliquer un quota à un volume ou un dossier](checklist-apply-file-screen-to-volume-or-folder.md)
+> Pour limiter le stockage sur un volume ou un dossier, voir [Liste de vérification : appliquer un quota à un volume ou un dossier](checklist-apply-file-screen-to-volume-or-folder.md)

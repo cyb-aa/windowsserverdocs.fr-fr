@@ -36,7 +36,7 @@ WDSUTIL [Options] /Update-ServerFiles [/Server:<Server name>]
 
 |Paramètre|Description|
 |---------|-----------|
-|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|[/Server :\<nom du serveur >]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
 
 ## <a name="BKMK_examples"></a>Illustre
 

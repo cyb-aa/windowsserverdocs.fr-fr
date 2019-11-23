@@ -43,7 +43,7 @@ append ;
 
 |     Paramètre     |                                                                                 Description                                                                                 |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [@no__t 0Drive >:] <Path> |                                                                 Spécifie un lecteur et un répertoire à ajouter.                                                                  |
+| [lecteur\<>:]<Path> |                                                                 Spécifie un lecteur et un répertoire à ajouter.                                                                  |
 |       /x : activé       |                                                  Applique les répertoires ajoutés aux recherches de fichiers et le lancement d’applications.                                                  |
 |      /x : désactivé       |                                     Applique les répertoires ajoutés uniquement aux demandes d’ouverture de fichiers.</br>**/x : OFF** est le paramètre par défaut.                                     |
 |     /Path : activé      |                               Applique des répertoires ajoutés aux demandes de fichier qui spécifient déjà un chemin d’accès. **/Path : on** est le paramètre par défaut.                               |

@@ -22,7 +22,7 @@ ms.locfileid: "71373058"
 ---
 # <a name="nslookup-server"></a>nslookup server
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Remplace le serveur par défaut par le domaine DNS (Domain Name System) spécifié.
 ## <a name="syntax"></a>Syntaxe
@@ -39,5 +39,5 @@ server <DNSDomain>
 ## <a name="remarks"></a>Notes
 - La commande **serveur** utilise le serveur par défaut actuel pour rechercher les informations relatives au domaine DNS spécifié. Cela diffère de la commande **lserver** , qui utilise le serveur initial.
   ## <a name="additional-references"></a>Références supplémentaires
-  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)[nslookup lserver](nslookup-lserver.md) 
-  
+  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+  [nslookup lserver](nslookup-lserver.md)

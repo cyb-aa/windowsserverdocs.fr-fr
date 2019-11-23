@@ -19,7 +19,7 @@ ms.locfileid: "71366256"
 ---
 # <a name="configure-virtual-machines-to-use-sr-iov-only-when-supported-by-the-guest-operating-system"></a>Configurer des machines virtuelles pour utiliser SR-IOV uniquement lorsqu’elles sont prises en charge par le système d’exploitation invité
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -38,9 +38,9 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>Impact  
 *Les fonctions virtuelles SR-IOV ne sont pas allouées aux ordinateurs virtuels suivants :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
 *Désactivez SR-IOV sur toutes les machines virtuelles qui exécutent des systèmes d’exploitation invités qui ne prennent pas en charge SR-IOV.*  
   
 SR-IOV est pris en charge uniquement dans certains invités Windows 64 bits. Pour plus d’informations, consultez [compatibilité des fonctionnalités Hyper-V par génération et invité](../Hyper-V-feature-compatibility-by-generation-and-guest.md).  

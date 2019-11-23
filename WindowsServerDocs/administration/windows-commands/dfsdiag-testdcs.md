@@ -22,13 +22,13 @@ ms.locfileid: "71378437"
 ---
 # <a name="dfsdiag-testdcs"></a>Dfsdiag TestDCs
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vérifie la configuration des contrôleurs de domaine en effectuant les tests suivants sur chaque contrôleur de domaine dans le domaine spécifié :  
   
--   vérifie que le service d’espace de noms système de fichiers DFS \(DFS @ no__t-1 est en cours d’exécution et que son type de démarrage est défini sur automatique.  
+-   vérifie que le système de fichiers DFS \(service d’espace de noms DFS\) est en cours d’exécution et que son type de démarrage est défini sur automatique.  
   
--   Vérifie la prise en charge des références de site @ no__t-0costed pour NETLOGon et SYSvol.  
+-   Vérifie la prise en charge des références de site\-coûtées pour NETLOGon et SYSvol.  
   
 -   vérifie la cohérence de l’Association de sites par nom d’hôte et adresse IP.  
   
@@ -44,10 +44,10 @@ dfsdiag /TestDCs [/Domain:<Domain name>]
   
 |Paramètre|Description|  
 |-------|--------|  
-|\/Domain : <Domain name>|Domaine que vous souhaitez vérifier.|  
+|Domaine de \/:<Domain name>|Domaine que vous souhaitez vérifier.|  
   
 ## <a name="remarks"></a>Notes  
-\/Domain est un paramètre facultatif. La valeur par défaut est le domaine local auquel l’hôte local est joint.  
+\/domaine est un paramètre facultatif. La valeur par défaut est le domaine local auquel l’hôte local est joint.  
   
 ## <a name="BKMK_Examples"></a>Illustre  
 Pour vérifier la configuration des contrôleurs de domaine dans le domaine Contoso.com, tapez :  

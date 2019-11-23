@@ -17,7 +17,7 @@ ms.locfileid: "71401846"
 ---
 # <a name="network-related-performance-counters"></a>Compteurs de performance liées au réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique répertorie les compteurs pertinents pour la gestion des performances réseau et contient les sections suivantes.  
   
@@ -57,7 +57,7 @@ Les compteurs de performances suivants sont pertinents pour l’utilisation des 
   
   - Longueur de la file d'attente de sortie  
   
-    Ce compteur est la longueur de la file d’attente de paquets en sortie @no__t les paquets 0in-no__t-1. Si la longueur est supérieure à 2, des retards se produisent. Vous devez trouver le goulot d’étranglement et l’éliminer si possible. Étant donné que NDIS met en file d’attente les requêtes, cette longueur doit toujours être 0.  
+    Ce compteur correspond à la longueur de la file d’attente de paquets en sortie \(dans les paquets\). Si la longueur est supérieure à 2, des retards se produisent. Vous devez trouver le goulot d’étranglement et l’éliminer si possible. Étant donné que NDIS met en file d’attente les requêtes, cette longueur doit toujours être 0.  
   
 - Informations sur le processeur  
   

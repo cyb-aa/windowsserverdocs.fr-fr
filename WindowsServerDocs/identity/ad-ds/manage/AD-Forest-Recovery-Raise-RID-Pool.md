@@ -18,7 +18,7 @@ ms.locfileid: "71369059"
 ---
 # <a name="ad-forest-recovery---raising-the-value-of-available-rid-pools"></a>Récupération de la forêt Active Directory-augmentation de la valeur des pools RID disponibles 
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Utilisez la procédure suivante pour augmenter la valeur des pools d’ID relatifs (RID) que le maître d’opérations RID allouera après la restauration de ce contrôleur de bus. En augmentant la valeur des pools RID disponibles, vous pouvez vous assurer qu’aucun contrôleur de domaine n’alloue un RID pour un principal de sécurité qui a été créé après la sauvegarde qui a été utilisée pour restaurer le domaine. 
 
@@ -39,18 +39,18 @@ Lorsque vous augmentez la valeur de l’entier long, vous augmentez la valeur de
 
 1. Ouvrez Gestionnaire de serveur, cliquez sur **Outils** , puis sur **Éditeur ADSI**.
 2. Cliquez avec le bouton droit sur, sélectionnez **se connecter à** et connectez pour faire le contexte d’appellation par défaut, puis cliquez sur **OK**.
-   @no__t-modifier 0ADSI @ no__t-1 
-3. Accédez au chemin d’accès au nom unique suivant : **CN = RID Manager $, CN = System, DC = <domain name>** .
-   @no__t-modifier 0ADSI @ no__t-1 
+   ![l’Éditeur ADSI](media/AD-Forest-Recovery-Raise-RID-Pool/adsi1.png) 
+3. Accédez au chemin d’accès du nom unique suivant : **CN = gestionnaire RID $, CN = System, DC =<domain name>** .
+   ![l’Éditeur ADSI](media/AD-Forest-Recovery-Raise-RID-Pool/adsi2.png) 
 3. Cliquez avec le bouton droit et sélectionnez les propriétés CN = RID Manager $. 
 4. Sélectionnez l’attribut **rIDAvailablePool**, cliquez sur **modifier**, puis copiez la valeur de l’entier long dans le presse-papiers.
-   @no__t-modifier 0ADSI @ no__t-1  
+   ![l’Éditeur ADSI](media/AD-Forest-Recovery-Raise-RID-Pool/adsi3.png)  
 5. Démarrez la calculatrice et, dans le menu **affichage** , sélectionnez **mode scientifique**. 
 6. Ajoutez 100 000 à la valeur actuelle.
-   @no__t-modifier 0ADSI @ no__t-1 
+   ![l’Éditeur ADSI](media/AD-Forest-Recovery-Raise-RID-Pool/adsi4.png) 
 7. À l’aide de Ctrl-c ou de la commande **copier** du menu **Edition** , copiez la valeur dans le presse-papiers. 
 8. Dans la boîte de dialogue modifier de ADSIEdit, collez cette nouvelle valeur. 
-   @no__t-modifier 0ADSI @ no__t-1 
+   ![l’Éditeur ADSI](media/AD-Forest-Recovery-Raise-RID-Pool/adsi5.png) 
 9. Cliquez sur **OK** dans la boîte de dialogue, puis **appliquez** dans la feuille de propriétés pour mettre à jour l’attribut **rIDAvailablePool** . 
   
 ### <a name="to-raise-the-value-of-available-rid-pools-using-ldp"></a>Pour augmenter la valeur des pools RID disponibles à l’aide de LDP  
@@ -58,20 +58,20 @@ Lorsque vous augmentez la valeur de l’entier long, vous augmentez la valeur de
 1. À l'invite de commandes, tapez la commande suivante et appuyez sur Entrée :  
    **LDP**  
 2. Cliquez sur **connexion**, **sur connexion**, tapez le nom du gestionnaire RID, puis cliquez sur **OK**. 
-   ![LDP @ NO__T-1
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp1.png)
 3. Cliquez sur **connexion**, sur **lier**, sélectionnez **lier avec les informations d’identification** , tapez vos informations d’identification d’administration, puis cliquez sur **OK**. 
-   ![LDP @ NO__T-1
-4. Cliquez sur **affichage**, sur **arborescence** , puis tapez le chemin d’accès de nom unique suivant :  CN = RID Manager $, CN = System, DC =*nom de domaine*  
-   ![LDP @ NO__T-1
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp2.png)
+4. Cliquez sur **affichage**, sur **arborescence** , puis tapez le chemin d’accès de nom unique suivant : CN = gestionnaire RID $, CN = System, DC =*nom de domaine*  
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp3.png)
 5. Cliquez sur **Parcourir**, puis sur **modifier**. 
 6. Ajoutez 100 000 à la valeur **rIDAvailablePool** actuelle, puis tapez la somme dans **valeurs**. 
-7. Dans **DN**, tapez `cn=RID Manager$,cn=System,dc=` *< nom de domaine @ no__t-3*. 
+7. Dans **DN**, tapez `cn=RID Manager$,cn=System,dc=` *< nom de domaine\>* . 
 8. Dans **attribut de modification d’entrée**, tapez `rIDAvailablePool`. 
 9. Sélectionnez **remplacer** comme opération, puis cliquez sur **entrée**.
-   ![LDP @ NO__T-1 
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp4.png) 
 10. Cliquez sur **exécuter** pour exécuter l’opération. Cliquez sur **Fermer**.
-11. Pour valider la modification, cliquez sur **affichage**, sur **arborescence**, puis tapez le chemin d’accès de nom unique suivant :   CN = RID Manager $, CN = System, DC =*Domain Name*.   Vérifiez l’attribut **rIDAvailablePool** . 
-   ![LDP @ NO__T-1
+11. Pour valider la modification, cliquez sur **affichage**, sur **arborescence**, puis tapez le chemin d’accès de nom unique suivant : CN = gestionnaire RID $, CN = System, DC =*nom de domaine*.   Vérifiez l’attribut **rIDAvailablePool** . 
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

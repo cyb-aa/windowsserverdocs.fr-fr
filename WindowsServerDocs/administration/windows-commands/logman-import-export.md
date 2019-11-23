@@ -22,7 +22,7 @@ ms.locfileid: "71374460"
 ---
 # <a name="logman-import--export"></a>logman Import | exporter
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 importez un ensemble de collecteurs de données à partir d’un fichier XML ou exportez un ensemble de collecteurs de données dans un fichier XML.  
 
@@ -39,13 +39,13 @@ logman export <[-n] <name>> <-xml <name>> [options]
 |   -s <computer name>    |                                                   Exécutez la commande sur l’ordinateur distant spécifié.                                                   |
 |     -config <value>     |                                                  Spécifie le fichier de paramètres contenant les options de commande.                                                  |
 |       [-n] <name>       |                                                                Nom de l’objet cible.                                                                 |
-|       -@no__t XML-0       |                                                         Nom du fichier XML à importer ou exporter.                                                         |
+|       -<name> XML       |                                                         Nom du fichier XML à importer ou exporter.                                                         |
 |          -ETS           |                                       Envoyer des commandes aux sessions de suivi d’événements directement sans enregistrement ou planification.                                        |
 | -[-] u < utilisateur [mot de passe] > | Utilisateur à exécuter en tant que. La saisie d’un \* pour le mot de passe génère une invite pour le mot de passe. Le mot de passe ne s’affiche pas lorsque vous le tapez à l’invite de mot de passe. |
 |           -y            |                                                      Répondez oui à toutes les questions sans demander confirmation.                                                       |
 
 ## <a name="BKMK_examples"></a>Illustre  
-La commande suivante importe le fichier XML c:\windows\perf_log.XML à partir de l’ordinateur serveur_1 en tant qu’ensemble de collecteurs de données nommé journal_perf.  
+La commande suivante importe le fichier XML c:\windows\ perf_log. XML à partir de l’ordinateur server_1 en tant qu’ensemble de collecteurs de données appelé perf_log.  
 ```  
 logman import perf_log -s server_1 -xml "c:\windows\perf_log.xml"  
 ```  

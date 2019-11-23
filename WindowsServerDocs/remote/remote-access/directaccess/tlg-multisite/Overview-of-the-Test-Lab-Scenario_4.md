@@ -21,7 +21,7 @@ ms.locfileid: "71388410"
 ---
 # <a name="overview-of-the-test-lab-scenario"></a>Vue d’ensemble du scénario de laboratoire de test
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans ce scénario de laboratoire de test, DirectAccess est déployé avec :  
   
@@ -41,7 +41,7 @@ Dans ce scénario de laboratoire de test, DirectAccess est déployé avec :
   
 -   **NAT1**: ordinateur client configuré en tant qu’appareil NAT (Network Address Translator) à l’aide du partage de connexion Internet.  
   
--   **CLIENT1 et client2**-deux ordinateurs clients configurés en tant que clients DirectAccess qui seront utilisés pour tester la connectivité DirectAccess lors du déplacement entre le réseau interne, l’Internet simulé et un réseau privé. **Client2** est un client Windows 7 @ no__t-1.  
+-   **CLIENT1 et client2**-deux ordinateurs clients configurés en tant que clients DirectAccess qui seront utilisés pour tester la connectivité DirectAccess lors du déplacement entre le réseau interne, l’Internet simulé et un réseau privé. **Client2** est un client de&reg; Windows 7.  
   
 Le laboratoire de test se compose de quatre sous-réseaux qui simulent les éléments suivants :  
   

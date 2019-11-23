@@ -18,7 +18,7 @@ ms.locfileid: "71390507"
 ---
 # <a name="virtualized-domain-controller-architecture"></a>Architecture des contrôleurs de domaine virtualisés
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit l'architecture du clonage et de la restauration sécurisée d'un contrôleur de domaine virtualisé. Elle illustre le processus de clonage et de restauration sécurisée à l'aide d'organigrammes, puis explique de manière détaillée chaque étape du processus.  
   
@@ -28,7 +28,7 @@ Cette rubrique décrit l'architecture du clonage et de la restauration sécuris�
   
 ## <a name="BKMK_CloneArch"></a>Architecture de clonage des contrôleurs de domaine virtualisés  
   
-### <a name="overview"></a>Vue d'ensemble  
+### <a name="overview"></a>Vue d’ensemble  
 Le clonage d'un contrôleur de domaine virtualisé repose sur la plateforme de l'hyperviseur pour exposer un identificateur appelé **ID de génération d'ordinateur virtuel** pour détecter la création d'un ordinateur virtuel. AD DS stocke d'abord la valeur de cet identifiant dans sa base de données (NTDS.DIT) durant la promotion du contrôleur de domaine. Quand l'ordinateur virtuel démarre, la valeur actuelle de l'ID de génération d'ordinateur virtuel de l'ordinateur virtuel est comparée à la valeur contenue dans la base de données. Si les deux valeurs sont différentes, le contrôleur de domaine réinitialise l'ID d'appel et supprime le pool RID, ce qui empêche ainsi la réutilisation de la valeur USN ou la création potentielle de principaux de sécurité dupliqués. Le contrôleur de domaine recherche ensuite un fichier DCCloneConfig.xml dans les emplacements décrits à l’étape 3 dans [Cloning Detailed Processing](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneProcessDetails). S'il trouve un fichier DCCloneConfig.xml, il en conclut qu'il est déployé en tant que clone. Il démarre donc le clonage pour s'approvisionner en tant que contrôleur de domaine supplémentaire en effectuant une nouvelle promotion à l'aide du contenu existant de NTDS.DIT et de SYSVOL, copié à partir du média source.  
   
 Dans un environnement mixte où seuls certains hyperviseurs prennent en charge l'ID de génération d'ordinateur virtuel, il est possible qu'un média clone soit déployé involontairement sur un hyperviseur qui ne prend pas en charge l'ID de génération d'ordinateur virtuel. La présence du fichier DCCloneConfig.xml indique l'intention administrative de cloner un contrôleur de domaine. Ainsi, si un fichier DCCloneConfig.xml est détecté au démarrage, mais qu'aucun ID de génération d'ordinateur virtuel n'est fourni par l'hôte, le contrôleur de domaine clone démarre en mode de restauration des services d'annuaire (DSRM) pour éviter tout impact sur le reste de l'environnement. Le média clone peut ensuite être déplacé vers un hyperviseur qui prend en charge l'ID de génération d'ordinateur virtuel, ce qui permet de retenter le clonage.  
@@ -112,7 +112,7 @@ Les étapes suivantes expliquent le processus de manière plus détaillée :
   
 15. L'invité force la synchronisation date/heure NT5DS (protocole Windows NTP) avec un autre contrôleur de domaine (dans une hiérarchie de service de temps Windows par défaut, cela revient à utiliser l'émulateur de contrôleur de domaine principal). L'invité contacte l'émulateur de contrôleur de domaine principal. Tous les tickets Kerberos existants sont vidés.  
   
-16. L'invité configure l'exécution automatique des services DFSR/NTFRS. L’invité supprime tous les fichiers de base de données DFSR et NTFRS existants (par défaut : c:\windows\ntfrs et c:\System volume Information\DFSR @ no__t-0 *< database_GUID >* ), afin de forcer une synchronisation ne faisant pas autorité de SYSVOL lorsque le service est suivant cours. L'invité ne supprime pas le contenu des fichiers de SYSVOL, pour prédéfinir SYSVOL quand la synchronisation démarrera plus tard.  
+16. L'invité configure l'exécution automatique des services DFSR/NTFRS. L’invité supprime tous les fichiers de base de données DFSR et NTFRS existants (par défaut : c:\windows\ntfrs et c:\System volume Information\DFSR\\ *< database_GUID >* ), afin de forcer la synchronisation ne faisant pas autorité de SYSVOL au prochain démarrage du service. L'invité ne supprime pas le contenu des fichiers de SYSVOL, pour prédéfinir SYSVOL quand la synchronisation démarrera plus tard.  
   
 17. L'invité est renommé. Le service Serveur de rôles DS sur l'invité commence la configuration d'AD DS (promotion) en utilisant le fichier de base de données existant NTDS.DIT en tant que source, au lieu de la base de données de modèle incluse dans c:\windows\system32, comme le fait normalement une promotion.  
   
@@ -144,7 +144,7 @@ Les étapes suivantes expliquent le processus de manière plus détaillée :
   
 ## <a name="BKMK_SafeRestoreArch"></a>Architecture de la restauration sécurisée des contrôleurs de domaine virtualisés  
   
-### <a name="overview"></a>Vue d'ensemble  
+### <a name="overview"></a>Vue d’ensemble  
 AD DS repose sur la plateforme de l'hyperviseur pour exposer un identificateur appelé **ID de génération d'ordinateur virtuel** pour détecter la restauration de capture instantanée d'un ordinateur virtuel. AD DS stocke d'abord la valeur de cet identifiant dans sa base de données (NTDS.DIT) durant la promotion du contrôleur de domaine. Quand un administrateur restaure l'ordinateur virtuel à partir d'une capture instantanée précédente, la valeur actuelle de l'ID de génération d'ordinateur virtuel de l'ordinateur virtuel est comparée à la valeur contenue dans la base de données. Si les deux valeurs sont différentes, le contrôleur de domaine réinitialise l'ID d'appel et supprime le pool RID, ce qui empêche ainsi la réutilisation de la valeur USN ou la création potentielle de principaux de sécurité dupliqués. Une restauration sécurisée peut se produire dans deux cas de figure :  
   
 -   quand un contrôleur de domaine virtuel a démarré après la restauration d'une capture instantanée pendant qu'il était arrêté ;  
@@ -192,7 +192,7 @@ Une fois que l'invité utilise les dispositifs de protection de virtualisation, 
   
 -   Si le service FRS est utilisé, l'invité arrête le service NTFRS et définit la valeur de Registre D2 BURFLAGS. Il démarre ensuite le service NTFRS, qui effectue une réplication ne faisant pas autorité en entrée, en réutilisant les données SYSVOL existantes inchangées quand cela est possible.  
   
--   Si vous utilisez DFSR, l’invité arrête le service DFSR et supprime les fichiers de base de données DFSR (emplacement par défaut :%systemroot%\System volume Information\DFSR @ no__t-0 *<database GUID>* ). Il démarre ensuite le service DFSR, qui effectue une réplication ne faisant pas autorité en entrée, en réutilisant les données SYSVOL existantes inchangées quand cela est possible.  
+-   Si vous utilisez DFSR, l’invité arrête le service DFSR et supprime les fichiers de base de données DFSR (emplacement par défaut :%systemroot%\System volume Information\DFSR\\ *<database GUID>* ). Il démarre ensuite le service DFSR, qui effectue une réplication ne faisant pas autorité en entrée, en réutilisant les données SYSVOL existantes inchangées quand cela est possible.  
   
 > [!NOTE]  
 > -   Si l'hyperviseur ne fournit aucun ID de génération d'ordinateur virtuel de comparaison, il ne prend pas en charge les dispositifs de protection de virtualisation et l'invité fonctionne comme un contrôleur de domaine virtualisé qui exécute Windows Server 2008 R2 ou une version antérieure. L'invité implémente la protection par mise en quarantaine de la restauration USN en cas de tentative de démarrage d'une réplication avec des valeurs USN qui ne sont pas postérieures à la dernière valeur USN la plus élevée détectée par le contrôleur de domaine partenaire. Pour plus d’informations sur la protection par mise en quarantaine de la restauration USN, voir [USN et restauration USN](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx)  

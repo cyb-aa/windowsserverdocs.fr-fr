@@ -17,11 +17,11 @@ ms.locfileid: "71396428"
 ---
 # <a name="increase-concurrent-authentications-processed-by-nps"></a>Augmenter les authentifications simultanées traitées par serveur NPS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour obtenir des instructions sur la configuration des authentifications simultanées du serveur de stratégie réseau.
 
-Si vous avez installé le serveur de stratégie réseau \(NPS @ no__t-1 sur un ordinateur autre qu’un contrôleur de domaine et que le serveur NPS reçoit un grand nombre de demandes d’authentification par seconde, vous pouvez améliorer les performances de NPS en renforçant le nombre de connexions simultanées. authentifications autorisées entre le serveur NPS et le contrôleur de domaine.
+Si vous avez installé le serveur de stratégie réseau \(\) NPS sur un ordinateur autre qu’un contrôleur de domaine et que le serveur NPS reçoit un grand nombre de demandes d’authentification par seconde, vous pouvez améliorer les performances de NPS en renforçant le nombre d’authentifications simultanées autorisées entre le serveur NPS et le contrôleur de domaine.
 
 Pour ce faire, vous devez modifier la clé de Registre suivante : 
 

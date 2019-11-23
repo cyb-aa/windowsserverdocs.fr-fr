@@ -24,7 +24,7 @@ ms.locfileid: "71380221"
 
 Définissez les paramètres de proxy à utiliser lors du transfert de fichiers à l’aide d’un compte de service.
 
-**BITSAdmin 1,5 et versions antérieures**: Non pris en charge.
+**BITSAdmin 1,5 et versions antérieures**: non pris en charge.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,13 +36,13 @@ bitsadmin /Util /SetIEProxy <Account> <Usage>[/Conn <ConnectionName>]
 
 |Paramètre|Description|
 |---------|-----------|
-|Compte|Spécifie le type de compte de service dont vous souhaitez définir les paramètres de proxy. Les valeurs possibles sont les suivantes :</br>-LOCALSYSTEM</br>-NETWORKSERVICE</br>-LOCALSERVICE|
-|Utilisation|Spécifie la forme de détection de proxy à utiliser. Les valeurs possibles sont les suivantes :</br>-NO_PROXY : n’utilise pas de serveur proxy.</br>-DÉTECTION automatique : détecte automatiquement les paramètres du proxy.</br>-MANUAL_PROXY : utilisez une liste de proxy explicite et une liste de contournement. Spécifiez la liste de proxys et la liste de contournement immédiatement après la balise d’utilisation. Par exemple, MANUAL_PROXY Proxy1, Proxy2 NULL.</br>    -La liste de proxy est une liste délimitée par des virgules de serveurs proxy à utiliser.</br>    -La liste de contournement est une liste délimitée par des espaces de noms d’hôtes ou d’adresses IP, ou les deux, pour laquelle les transferts ne sont pas acheminés via un proxy. Il peut s’agir de @no__t > 0local pour faire référence à tous les serveurs sur le même réseau local. Les valeurs NULL ou «» peuvent être utilisées pour une liste de contournement vide du proxy.</br>-Autoscript : identique à la détection automatique, sauf qu’il exécute également un script. Spécifiez l’URL de script immédiatement après la balise d’utilisation. Par exemple, Autoscript http://server/proxy.js.</br>-RESET : identique à NO_PROXY, sauf qu’elle supprime les URL de proxy manuelles (si elles sont spécifiées) et les URL découvertes à l’aide de la détection automatique.|
+|Compte|Spécifie le type de compte de service dont vous souhaitez définir les paramètres de proxy. Les valeurs possibles sont :</br>-LOCALSYSTEM</br>-NETWORKSERVICE</br>-LOCALSERVICE|
+|Utilisation|Spécifie la forme de détection de proxy à utiliser. Les valeurs possibles sont :</br>-NO_PROXY : n’utilisez pas de serveur proxy.</br>-DÉTECTION automatique : détecte automatiquement les paramètres du proxy.</br>-MANUAL_PROXY : utilisez une liste de proxy explicite et une liste de contournement. Spécifiez la liste de proxys et la liste de contournement immédiatement après la balise d’utilisation. Par exemple, MANUAL_PROXY Proxy1, Proxy2 NULL.</br>    -La liste de proxy est une liste délimitée par des virgules de serveurs proxy à utiliser.</br>    -La liste de contournement est une liste délimitée par des espaces de noms d’hôtes ou d’adresses IP, ou les deux, pour laquelle les transferts ne sont pas acheminés via un proxy. Cela peut être \<> local pour faire référence à tous les serveurs sur le même réseau local. Les valeurs NULL ou «» peuvent être utilisées pour une liste de contournement vide du proxy.</br>-Autoscript : identique à la détection automatique, sauf qu’il exécute également un script. Spécifiez l’URL de script immédiatement après la balise d’utilisation. Par exemple, Autoscript http://server/proxy.js.</br>-RESET : identique à NO_PROXY, sauf qu’elle supprime les URL de proxy manuelles (si elles sont spécifiées) et les URL découvertes à l’aide de la détection automatique.|
 |ConnectionName|Facultatif : utilisé avec le paramètre **/conn** pour spécifier la connexion par modem à utiliser. Si vous ne spécifiez pas le paramètre **/conn** , bits utilise la connexion LAN. Spécifiez le nom de connexion du modem immédiatement après le paramètre **/conn** .|
 
 ## <a name="remarks"></a>Notes
 
-Chaque appel successif à l’aide de ce commutateur remplace l’utilisation précédemment spécifiée, mais pas les paramètres de l’utilisation précédemment définie. Par exemple, si vous spécifiez NO_PROXY, AutoDetect et MANUAL_PROXY sur des appels distincts, le service BITS utilise la dernière utilisation fournie, mais conserve les paramètres de l’utilisation précédemment définie.
+Chaque appel successif à l’aide de ce commutateur remplace l’utilisation précédemment spécifiée, mais pas les paramètres de l’utilisation précédemment définie. Par exemple, si vous spécifiez NO_PROXY, détection automatique et MANUAL_PROXY sur des appels distincts, le service BITS utilise la dernière utilisation fournie, mais conserve les paramètres de l’utilisation précédemment définie.
 
 > [!IMPORTANT]
 > Vous devez exécuter cette commande à partir d’une invite de commandes avec élévation de privilèges pour qu’elle se termine correctement.

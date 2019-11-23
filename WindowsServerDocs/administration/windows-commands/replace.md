@@ -39,8 +39,8 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 
 |Paramètre|Description|
 |---------|-----------|
-|[@no__t 0Drive1 >:] [\<Path1 >] \<FileName >|Spécifie l’emplacement et le nom du fichier source ou de l’ensemble de fichiers. *Filename* est obligatoire et peut inclure des caractères génériques ( **&#42;** et **?** ).|
-|[@no__t 0Drive2 >:] [@no__t 1Path2 >]|Spécifie l’emplacement du fichier de destination. Vous ne pouvez pas spécifier un nom de fichier pour les fichiers que vous remplacez. Si vous ne spécifiez pas de lecteur ou de chemin d’accès, **Replace** utilise le lecteur et le répertoire actuels comme destination.|
+|[\<Lecteur1 >:] [\<chemin1 >]\<nom de fichier >|Spécifie l’emplacement et le nom du fichier source ou de l’ensemble de fichiers. *Filename* est obligatoire et peut inclure des caractères génériques ( **&#42;** et **?** ).|
+|[\<lecteur2 >:] [\<Chemin2 >]|Spécifie l’emplacement du fichier de destination. Vous ne pouvez pas spécifier un nom de fichier pour les fichiers que vous remplacez. Si vous ne spécifiez pas de lecteur ou de chemin d’accès, **Replace** utilise le lecteur et le répertoire actuels comme destination.|
 |/a|Ajoute de nouveaux fichiers au répertoire de destination au lieu de remplacer les fichiers existants. Vous ne pouvez pas utiliser cette option de ligne de commande avec l’option de ligne de commande **/s** ou **/u** .|
 |/p|Vous invite à confirmer le remplacement d’un fichier de destination ou l’ajout d’un fichier source.|
 |/r|Remplace les fichiers en lecture seule et non protégés. Si vous tentez de remplacer un fichier en lecture seule, mais que vous ne spécifiez pas **/r**, une erreur se produit et arrête l’opération de remplacement.|

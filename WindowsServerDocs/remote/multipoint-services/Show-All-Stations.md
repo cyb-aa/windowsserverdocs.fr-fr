@@ -21,7 +21,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71389306"
 ---
 # <a name="show-all-stations"></a>Afficher toutes les stations
-En tant qu’administrateur sur le système MultiPoint services, vous souhaiterez peut-être afficher toutes les stations connectées à votre système, y compris les stations non-no__t-0active ou les stations déconnectées. Par exemple, selon votre contrat de licence, vous devrez peut-être vérifier le nombre de stations connectées au système MultiPoint services. Vous pouvez afficher ces informations à l’aide du gestionnaire MultiPoint.  
+En tant qu’administrateur sur le système MultiPoint services, vous souhaiterez peut-être afficher toutes les stations connectées à votre système, y compris les stations non\-actives ou déconnectées. Par exemple, selon votre contrat de licence, vous devrez peut-être vérifier le nombre de stations connectées au système MultiPoint services. Vous pouvez afficher ces informations à l’aide du gestionnaire MultiPoint.  
   
 1.  En mode normal, cliquez sur l’onglet **Bureaux**.  
   

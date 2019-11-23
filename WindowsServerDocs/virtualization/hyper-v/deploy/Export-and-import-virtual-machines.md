@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71392976"
 ---
->S'applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>S’applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 # <a name="export-and-import-virtual-machines"></a>Exporter et importer des machines virtuelles
 
@@ -38,7 +38,7 @@ Une fois l’exportation terminée, vous pouvez voir tous les fichiers exportés
 
 ### <a name="using-powershell"></a>À l'aide de PowerShell
 
-Ouvrez une session en tant qu’administrateur et exécutez une commande semblable à la suivante après avoir remplacé @no__t 0vm @ no__t-1 et \<path @ no__t-3 :
+Ouvrez une session en tant qu’administrateur et exécutez une commande semblable à la suivante après avoir remplacé \<nom de la machine virtuelle\> et \<chemin\>:
 
 ```powershell
 Export-VM -Name \<vm name\> -Path \<path\>

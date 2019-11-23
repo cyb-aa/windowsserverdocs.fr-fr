@@ -21,9 +21,9 @@ ms.locfileid: "71394458"
 
 Windows Server 2012 R2, Windows Server 2012 et Windows Server 2016 incluent une fonctionnalité appelée SMB direct, qui prend en charge l’utilisation de cartes réseau dotées de la fonctionnalité d’accès direct à la mémoire à distance (RDMA). Les cartes réseau dotées de la fonction RDMA sont capables de fonctionner à pleine vitesse avec une très faible latence et une consommation minime du processeur. Pour des charges de travail de type Hyper-V ou Microsoft SQL Server, cette fonctionnalité permet à un serveur de fichiers distant d’agir comme un système de stockage local. SMB Direct présente les avantages suivants :
 
-- Débit accru : il tire parti du débit complet des réseaux à haut débit dans lesquels les cartes réseau coordonnent le transfert de grandes quantités de données à la vitesse de ligne.
-- Latence faible : il fournit des réponses extrêmement rapides aux demandes du réseau et il semble par conséquent que le stockage de fichiers étendu soit un stockage de bloc directement attaché.
-- Utilisation faible du processeur : il utilise moins de cycles processeur lors du transfert de données sur le réseau, ce qui laisse plus d’alimentation disponible pour les applications serveur.
+- Débit accru : il tire parti du débit complet des réseaux à haut débit où les cartes réseau coordonnent le transfert de grandes quantités de données à la vitesse de ligne.
+- Latence faible : il fournit des réponses extrêmement rapides aux demandes du réseau et il semble par conséquent que le stockage de fichiers étendu soit un stockage de bloc directement attaché.
+- Utilisation faible du processeur : il utilise moins de cycles processeur lors du transfert de données sur le réseau, ce qui laisse plus d’alimentation disponible pour les applications serveur.
 
 SMB direct est automatiquement configuré par Windows Server 2012 R2 et Windows Server 2012.
 
@@ -121,8 +121,8 @@ Voici comment vérifier la fonctionnalité de basculement de SMB direct :
 >[!NOTE]
 >Pour éviter les échecs d’une charge de travail qui n’utilise pas SMB Direct, vérifiez qu’aucune autre charge de travail n’utilise le chemin réseau déconnecté.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations supplémentaires
 
 - [Vue d’ensemble du bloc de message serveur](file-server-smb-overview.md)
-- @no__t 0Increasing-disponibilité du serveur, du stockage et du réseau : Vue d’ensemble du scénario](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831437(v%3dws.11)>)
+- [Amélioration de la disponibilité du serveur, du stockage et du réseau : vue d’ensemble du scénario](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831437(v%3dws.11)>)
 - [Déployer Hyper-V sur SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)

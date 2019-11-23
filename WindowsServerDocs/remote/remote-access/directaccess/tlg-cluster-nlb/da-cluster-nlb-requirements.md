@@ -21,7 +21,7 @@ ms.locfileid: "71388416"
 ---
 # <a name="directaccess-cluster-nlb-test-lab-configuration-requirements"></a>Configuration requise pour le laboratoire de test de cluster DirectAccess avec équilibrage de charge réseau
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Les composants suivants sont requis pour la configuration de DirectAccess dans le laboratoire de test :  
   
@@ -29,6 +29,6 @@ Les composants suivants sont requis pour la configuration de DirectAccess dans l
   
 -   Six ordinateurs ou machines virtuelles qui répondent à la configuration matérielle minimale requise pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 ; deux de ces ordinateurs ont deux cartes réseau installées.  
   
--   Le ou les fichiers du produit pour Windows 10 @ no__t-0 ou Windows @ no__t-1 8.  
+-   Le ou les fichiers du produit pour Windows 10&reg; ou Windows&reg; 8.  
   
--   Deux ordinateurs ou machines virtuelles qui répondent à la configuration matérielle minimale requise pour Windows 10 @ no__t-0 ou Windows @ no__t-1 8 ; deux cartes réseau sont installées sur l’un de ces ordinateurs.
+-   Deux ordinateurs ou machines virtuelles qui répondent à la configuration matérielle minimale requise pour Windows 10&reg; ou Windows&reg; 8 ; deux cartes réseau sont installées sur l’un de ces ordinateurs.

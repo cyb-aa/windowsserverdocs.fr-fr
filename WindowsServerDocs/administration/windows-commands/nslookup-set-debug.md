@@ -38,7 +38,7 @@ set [no]debug
 |-------------|--------------------------------------------------------------|
 | **nodebug** | Désactive le mode de débogage. La syntaxe par défaut est **nodebug**. |
 |  **debug**  |                   Active le mode de débogage.                   |
-|  \* @ no__t-1 {aide  |                            ?} \* @ no__t-1                            |
+|  \*\*{Help  |                            ?}\*\*                            |
 
 ## <a name="remarks"></a>Notes
 

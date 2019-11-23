@@ -21,7 +21,7 @@ ms.locfileid: "71367196"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Étape 2 configurer l’infrastructure multisite
 
->S'applique à : Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2012 R2, Windows Server 2012
 
 Pour configurer un déploiement multisite, vous devez effectuer un certain nombre d’étapes pour modifier les paramètres de l’infrastructure réseau, notamment : configurer des sites Active Directory supplémentaires et des contrôleurs de domaine, configurer des groupes de sécurité supplémentaires et configurer Stratégie de groupe les objets (GPO) si vous n’utilisez pas les objets de stratégie de groupe configurés automatiquement.  
   
@@ -60,7 +60,7 @@ Pour plus d’informations, consultez [Ajout d’un site à la forêt](https://t
   
 8.  Fermez Active Directory sites et services.  
   
-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -161,7 +161,7 @@ Un déploiement multisite requiert un groupe de sécurité supplémentaire pour 
   
 4.  Sous **étendue du groupe**, cliquez sur **universel**, sous **type de groupe**, cliquez sur **sécurité**, puis sur **OK**.  
   
-5.  Pour ajouter des ordinateurs au nouveau groupe de sécurité, double-cliquez sur le groupe de sécurité, puis dans la boîte de dialogue **Propriétés de < nom_groupe >** , cliquez sur l’onglet **membres** .  
+5.  Pour ajouter des ordinateurs au nouveau groupe de sécurité, double-cliquez sur le groupe de sécurité, puis dans la boîte de dialogue **< Group_Name propriétés du >** , cliquez sur l’onglet **membres** .  
   
 6.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
   
@@ -169,7 +169,7 @@ Un déploiement multisite requiert un groupe de sécurité supplémentaire pour 
   
 8.  Répétez cette procédure pour créer un groupe de sécurité pour chaque point d’entrée en fonction des besoins.  
   
-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
+![les commandes Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -289,7 +289,7 @@ Les informations d’association du contrôleur de domaine sont stockées dans l
   
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssoc3.png)  
   
-3.  Pour synchroniser l’Association du contrôleur de domaine pour l’objet de stratégie de groupe serveur « point d’entrée 2 » dans l’objet de stratégie de groupe serveur « point 1 », exécutez la commande pour remplacer « DC2 » par « DC3 » et spécifiez le serveur d’accès à distance dont l’objet de stratégie de groupe de serveur n’est pas synchronisé, dans le *cas présent « DA1 » Paramètre ComputerName* .  
+3.  Pour synchroniser l’Association de contrôleur de domaine pour l’objet de stratégie de groupe de serveur « point d’entrée 2 » dans l’objet de stratégie de groupe de serveur « point d’entrée 1 », exécutez la commande pour remplacer « DC2 » par « DC3 » et spécifiez le serveur d’accès à distance *dont l’objet* de stratégie de groupe de serveur n’est pas synchronisé  
   
     ```  
     Set-DAEntryPointDC "ExistingDC 'DC2' "NewDC 'DC3' "ComputerName 'DA1' "ErrorAction Continue  
@@ -300,7 +300,7 @@ Les informations d’association du contrôleur de domaine sont stockées dans l
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="ConfigDistOptimization"></a>Optimisation de la distribution de la configuration  
-Lorsque vous apportez des modifications de configuration, les modifications sont appliquées uniquement une fois que les objets de stratégie de groupe du serveur se propagent aux serveurs d’accès à distance. Pour réduire le temps de distribution de la configuration, l’accès à distance sélectionne automatiquement un contrôleur de domaine accessible en écriture qui est le lien hypertexte « <https://technet.microsoft.com/library/cc978016.aspx> » le plus proche du serveur d’accès à distance lors de la création de son objet de stratégie de groupe de serveur.  
+Lorsque vous apportez des modifications de configuration, les modifications sont appliquées uniquement une fois que les objets de stratégie de groupe du serveur se propagent aux serveurs d’accès à distance. Pour réduire la durée de distribution de la configuration, l’accès à distance sélectionne automatiquement un contrôleur de domaine accessible en écriture qui est le lien hypertexte «<https://technet.microsoft.com/library/cc978016.aspx>» le plus proche du serveur d’accès à distance lors de la création de son objet de stratégie de groupe.  
   
 Dans certains scénarios, il peut être nécessaire de modifier manuellement le contrôleur de domaine qui gère un objet de stratégie de groupe de serveur afin d’optimiser la durée de distribution de la configuration :  
   
@@ -334,6 +334,6 @@ Pour optimiser l’heure de la distribution de la configuration, effectuez l’u
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 3 : Configurer le déploiement multisite @ no__t-0  
--   [Étape 1 : Implémenter un déploiement de l’accès à distance à un seul serveur @ no__t-0  
+-   [Étape 3 : configurer le déploiement multisite](Step-3-Configure-the-Multisite-Deployment.md)  
+-   [Étape 1 : implémenter un déploiement de l’accès à distance à un serveur unique](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  
 

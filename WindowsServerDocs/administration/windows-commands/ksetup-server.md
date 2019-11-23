@@ -36,13 +36,13 @@ ksetup /server <ServerName>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0ServerName >|Nom complet de l’ordinateur sur lequel la configuration sera effective, par exemple IPops897.corp.contoso.com.</br>Si un nom d’ordinateur de domaine complet incomplet est spécifié, la commande échoue.|
+|\<ServerName >|Nom complet de l’ordinateur sur lequel la configuration sera effective, par exemple IPops897.corp.contoso.com.</br>Si un nom d’ordinateur de domaine complet incomplet est spécifié, la commande échoue.|
 
 ## <a name="remarks"></a>Notes
 
 Il n’existe aucun moyen de supprimer le nom du serveur ciblé ; vous pouvez uniquement revenir au nom de l’ordinateur local, qui est la valeur par défaut.
 
-Le nom du serveur cible est stocké dans le registre dans **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\LSA\Kerberos**. Elle n’est pas signalée à l’aide de **Ksetup**.
+Le nom du serveur cible est stocké dans le registre dans **HKEY_LOCAL_MACHINE \system\controlset001\control\lsa\kerberos**. Elle n’est pas signalée à l’aide de **Ksetup**.
 
 ## <a name="BKMK_Examples"></a>Illustre
 

@@ -36,14 +36,14 @@ eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|
 
 |Paramètre|Description|
 |---------|-----------|
-|/s \<Computer >|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.|
-|/u \<Domain \ utilisateur >|Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par \<User > ou < domaine\utilisateur >. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.|
+|/s \<> de l’ordinateur|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.|
+|/u \<domaine\utilisateur >|Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par \<utilisateur > ou < domaine\utilisateur >. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.|
 |/p \<mot de passe >|Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .|
-|/l {APPLICATION @ no__t-0SYSTEM}|Spécifie le nom du journal des événements dans lequel l’événement sera créé. Les noms de journaux valides sont APPLICATION et système.|
-|/So \<SrcName >|Spécifie la source à utiliser pour l’événement. Une source valide peut être n’importe quelle chaîne et doit représenter l’application ou le composant qui génère l’événement.|
-|/t {erreur @ no__t-0WARNING @ no__t-1INFORMATION @ no__t-2</br>SUCCESSAUDIT @ NO__T-0FAILUREAUDIT}|Spécifie le type d’événement à créer. Les types valides sont ERROR, WARNING, INFORMATION, SUCCESSAUDIT et FAILUREAUDIT.|
+|/l {APPLICATION\|système}|Spécifie le nom du journal des événements dans lequel l’événement sera créé. Les noms de journaux valides sont APPLICATION et système.|
+|/So \<NomSource >|Spécifie la source à utiliser pour l’événement. Une source valide peut être n’importe quelle chaîne et doit représenter l’application ou le composant qui génère l’événement.|
+|/t {ERROR\|WARNING\|des informations\|</br>SUCCESSAUDIT\|FAILUREAUDIT}|Spécifie le type d’événement à créer. Les types valides sont ERROR, WARNING, INFORMATION, SUCCESSAUDIT et FAILUREAUDIT.|
 |/ID \<EventID >|Spécifie l’ID d’événement de l’événement. Un ID valide est un nombre compris entre 1 et 1000.|
-|/d \<Description >|Spécifie la description à utiliser pour l’événement nouvellement créé.|
+|Description \</d >|Spécifie la description à utiliser pour l’événement nouvellement créé.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

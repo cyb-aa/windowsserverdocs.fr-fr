@@ -22,12 +22,12 @@ ms.locfileid: "71373305"
 ---
 # <a name="net-print"></a>Net print
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche des informations sur une file d’attente d’impression ou un travail d’impression spécifié, ou contrôle un travail d’impression spécifié.
 pour obtenir des exemples d’utilisation de cette commande, consultez la section [exemples](#BKMK_examples) de ce document.
 > [!NOTE]
-> Cette commande est dépréciée dans Windows 7 et Windows Server 2008 R2. Toutefois, vous pouvez effectuer la plupart des tâches en utilisant prnjobs, Windows Management Instrumentation (WMI) ou des applets de commande Windows PowerShell. Pour plus d’informations, consultez [prnjobs](prnjobs.md), [Windows Management Instrumentation](https://go.microsoft.com/fwlink/?LinkID=29991) (https://go.microsoft.com/fwlink/?LinkID=29991) , [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=128426) (https://go.microsoft.com/fwlink/?LinkID=128426) et la [galerie du centre de scripts TechNet](https://go.microsoft.com/fwlink/?LinkId=164635) (https://go.microsoft.com/fwlink/?LinkId=164635) ).
+> Cette commande est dépréciée dans Windows 7 et Windows Server 2008 R2. Toutefois, vous pouvez effectuer la plupart des tâches en utilisant prnjobs, Windows Management Instrumentation (WMI) ou des applets de commande Windows PowerShell. Pour plus d’informations, consultez [prnjobs](prnjobs.md), [Windows Management Instrumentation](https://go.microsoft.com/fwlink/?LinkID=29991) (https://go.microsoft.com/fwlink/?LinkID=29991), [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=128426) (https://go.microsoft.com/fwlink/?LinkID=128426)et la [galerie du centre de scripts TechNet](https://go.microsoft.com/fwlink/?LinkId=164635) (https://go.microsoft.com/fwlink/?LinkId=164635).
 > ## <a name="syntax"></a>Syntaxe
 > ```
 > Net print {\\<computerName>\<Sharename> | 
@@ -39,12 +39,12 @@ pour obtenir des exemples d’utilisation de cette commande, consultez la sectio
 > |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |    \\\\<computerName>\\<Sharename>     |                                                                                                                                                                            Spécifie (par nom) l’ordinateur et la file d’attente à l’impression sur lesquels vous souhaitez afficher des informations.                                                                                                                                                                             |
 > |           \\\\<computerName>           |                                                                                                                                 Spécifie (par nom) l’ordinateur qui héberge le travail d’impression que vous souhaitez contrôler. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est supposé. Requiert le paramètre <JobNumber>.                                                                                                                                  |
-> |              <JobNumber>               |                                             Spécifie le numéro du travail d’impression que vous souhaitez contrôler. Ce nombre est attribué par l’ordinateur qui héberge la file d’attente à l’impression dans laquelle le travail d’impression est envoyé. Une fois qu’un ordinateur a attribué un nombre à un travail d’impression, ce numéro n’est affecté à aucun autre travail d’impression dans une file d’attente hébergée par cet ordinateur. Obligatoire lors de l’utilisation du paramètre \\ @ no__t-1 @ no__t-2.                                             |
+> |              <JobNumber>               |                                             Spécifie le numéro du travail d’impression que vous souhaitez contrôler. Ce nombre est attribué par l’ordinateur qui héberge la file d’attente à l’impression dans laquelle le travail d’impression est envoyé. Une fois qu’un ordinateur a attribué un nombre à un travail d’impression, ce numéro n’est affecté à aucun autre travail d’impression dans une file d’attente hébergée par cet ordinateur. Obligatoire lors de l’utilisation du paramètre \\\\<computerName>.                                             |
 > | [/Hold &#124; /Release &#124; /delete] | Spécifie l’action à effectuer avec le travail d’impression.<br /><br />-Le paramètre **/Hold** retarde le travail, ce qui permet à d’autres travaux d’impression de le contourner jusqu’à ce qu’il soit libéré.<br />-Le paramètre **/Release** libère un travail d’impression qui a été retardé.<br />-Le paramètre **/Delete** supprime un travail d’impression d’une file d’attente à l’impression.<br /><br />Si vous spécifiez un numéro de travail, mais que vous ne spécifiez aucune action, les informations sur le travail d’impression s’affichent. |
 > |                  help                  |                                                                                                                                                                                                     Affiche l’aide de la commande **net print** .                                                                                                                                                                                                     |
 > 
 > ## <a name="remarks"></a>Notes
-> - **Net print** \\ @ no__t-2 @ no__t-3 affiche des informations sur les travaux d’impression dans une file d’attente d’impression partagée. Voici un exemple de rapport pour tous les travaux d’impression dans une file d’attente pour une imprimante partagée nommée LASER :
+> - **Net print** \\\\<computerName> affiche des informations sur les travaux d’impression dans une file d’attente d’impression partagée. Voici un exemple de rapport pour tous les travaux d’impression dans une file d’attente pour une imprimante partagée nommée LASER :
 >   ```
 >   printers at \\PRODUCTION
 >   Name              Job #      Size      Status
@@ -67,19 +67,19 @@ pour obtenir des exemples d’utilisation de cette commande, consultez la sectio
 >   additional info
 >   ```
 >   ## <a name="BKMK_examples"></a>Illustre
->   Cet exemple montre comment répertorier le contenu de la file d’attente à l’impression DotMatrix sur le \\ \ ordinateur de production :
+>   Cet exemple montre comment répertorier le contenu de la file d’attente à l’impression DotMatrix sur l’ordinateur \\\Production :
 >   ```
 >   Net print \\Production\Dotmatrix 
 >   ```
->   Cet exemple montre comment afficher des informations sur le numéro de travail 35 sur l’ordinateur \\ \ production :
+>   Cet exemple montre comment afficher des informations sur le numéro de travail 35 sur l’ordinateur \\\Production :
 >   ```
 >   Net print \\Production 35 
 >   ```
->   Cet exemple montre comment retarder le numéro de travail 263 sur l’ordinateur \\ \ production :
+>   Cet exemple montre comment retarder le numéro de travail 263 sur l’ordinateur \\\Production :
 >   ```
 >   Net print \\Production 263 /hold 
 >   ```
->   Cet exemple montre comment libérer le numéro de travail 263 sur l’ordinateur \\ \ production :
+>   Cet exemple montre comment libérer le numéro de travail 263 sur l’ordinateur \\\Production :
 >   ```
 >   Net print \\Production 263 /release 
 >   ```

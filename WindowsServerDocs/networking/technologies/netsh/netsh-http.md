@@ -23,7 +23,7 @@ Utilisez **netsh http** pour interroger et configurer les paramètres et paramè
 >[!TIP]
 >Si vous utilisez Windows PowerShell sur un ordinateur exécutant Windows Server 2016 ou Windows 10, tapez **netsh** , puis appuyez sur entrée. À l’invite netsh, tapez **http** , puis appuyez sur entrée pour accéder à l’invite de commandes netsh http.
 >
->&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6netsh http @ no__t-7
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;netsh http\>
 
 Les commandes netsh http disponibles sont les suivantes :
 
@@ -156,8 +156,8 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |   **url**    |                                          Spécifie le Uniform Resource Locator complet (URL).                                           | Obligatoire |
 |   **utilisateur**   |                                                      Spécifie le nom d’utilisateur ou de groupe d’utilisateurs                                                       | Obligatoire |
-|  **Journal**  | Spécifie l’une des valeurs suivantes : Oui : Autorise l’utilisateur à inscrire des URL. Valeur par défaut. º Interdit à l’utilisateur d’inscrire des URL. | Facultatif |
-| **disposer** |  Spécifie l’une des valeurs suivantes : Oui : Autoriser l’utilisateur à déléguer des URL non : Empêcher l’utilisateur de déléguer des URL. Valeur par défaut.  | Facultatif |
+|  **Journal**  | Spécifie l’une des valeurs suivantes : Oui : autoriser l’utilisateur à inscrire des URL. Valeur par défaut. non : interdire à l’utilisateur d’inscrire des URL. | Facultatif |
+| **disposer** |  Spécifie l’une des valeurs suivantes : Oui : autoriser l’utilisateur à déléguer des URL non : interdire à l’utilisateur de déléguer des URL. Valeur par défaut.  | Facultatif |
 |   **SDDL**   |                                                Spécifie une chaîne SDDL qui décrit la liste DACL.                                                 | Facultatif |
 
 ---
@@ -166,10 +166,10 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 
 Voici quatre exemples de la commande **add urlacl** .
 
-- add urlacl url = https://+:80/MyUri User = DOMAIN @ no__t-1user
-- Ajouter urlacl url = <https://www.contoso.com:80/MyUri> utilisateur = domaine @ no__t-1user écouter = Oui
-- add urlacl url = <https://www.contoso.com:80/MyUri> User = DOMAIN @ no__t-1user Delegate = no
-- Ajouter urlacl url = https://+:80/MyUri SDDL =...
+- add urlacl url =https://+:80/MyUri user = DOMAIN\\user
+- Ajouter urlacl url =<https://www.contoso.com:80/MyUri> utilisateur = domaine\\utilisateur écouter = Oui
+- add urlacl url =<https://www.contoso.com:80/MyUri> user = DOMAIN\\user Delegate = no
+- Ajouter urlacl url =https://+:80/MyUri SDDL =...
 
 ---
 
@@ -196,7 +196,7 @@ delete cache [ [ url= ] URL [ [recursive= ] yes | no ]
 
 Voici deux exemples de la commande **Delete cache** .
 
-- supprimer l’URL du cache = <https://www.contoso.com:80/myresource/> recursive = Oui
+- supprimer l’URL du cache =<https://www.contoso.com:80/myresource/> récursive = Oui
 - supprimer le cache
 
 ---
@@ -312,8 +312,8 @@ delete urlacl [ url= ] URL
 
 Voici deux exemples de la commande **Delete urlacl** .
 
-- supprimer urlacl url = https://+:80/MyUri
-- supprimer urlacl url = <https://www.contoso.com:80/MyUri>
+- supprimer urlacl url =https://+:80/MyUri
+- supprimer urlacl url =<https://www.contoso.com:80/MyUri>
 
 ---
 
@@ -352,7 +352,7 @@ show cachestate [ [url= ] URL]
 
 Voici deux exemples de la commande **Show cathoracique** :
 
-- afficher l’URL de cathorax = <https://www.contoso.com:80/myresource>
+- afficher l’URL de cathoracique =<https://www.contoso.com:80/myresource>
 - afficher le cathorax
 
 ---
@@ -462,8 +462,8 @@ show urlacl [ [url= ] URL]
 
 Voici trois exemples de la commande **Show urlacl** .
 
-- afficher urlacl url = https://+:80/MyUri
-- afficher urlacl url = <https://www.contoso.com:80/MyUri>
+- afficher urlacl url =https://+:80/MyUri
+- afficher urlacl url =<https://www.contoso.com:80/MyUri>
 - afficher urlacl
 
 ---

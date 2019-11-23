@@ -30,7 +30,7 @@ Vous pouvez également ajouter du matériel et gérer les pilotes localement, à
 
 Il existe des limitations et des conseils importants à prendre en compte lorsque vous travaillez avec Server Core :
 
-- Si vous fermez toutes les fenêtres d’invite de commandes et souhaitez ouvrir une nouvelle fenêtre d’invite de commandes, vous pouvez le faire à partir du gestionnaire des tâches. Appuyez sur **CTRL @ no__t-1ALT @ no__t-2DELETE**, cliquez sur **Démarrer le gestionnaire des tâches**, cliquez sur plus de **Détails > fichier > exécuter**, puis tapez **cmd. exe**. (Tapez **PowerShell. exe** pour ouvrir une fenêtre de commande PowerShell.) Vous pouvez également vous déconnecter, puis vous reconnecter.
+- Si vous fermez toutes les fenêtres d’invite de commandes et souhaitez ouvrir une nouvelle fenêtre d’invite de commandes, vous pouvez le faire à partir du gestionnaire des tâches. Appuyez sur **CTRL\+ALT\+supprimer**, cliquez sur **Démarrer le gestionnaire des tâches**, cliquez sur plus de **Détails > fichier > exécuter**, puis tapez **cmd. exe**. (Tapez **PowerShell. exe** pour ouvrir une fenêtre de commande PowerShell.) Vous pouvez également vous déconnecter, puis vous reconnecter.
 - Les commandes ou les outils qui essaient de démarrer l’Explorateur Windows ne fonctionnent pas. Par exemple, en exécutant **Start.** à partir d’une invite de commandes ne fonctionnera pas.
 - Il n’existe aucune prise en charge du rendu HTML ou de l’aide HTML dans Server Core.
 - Server Core prend en charge Windows Installer en mode silencieux afin que vous puissiez installer des outils et des utilitaires à partir de Windows Installer fichiers. Lorsque vous installez Windows Installer packages sur Server Core, utilisez l’option **/qb** pour afficher l’interface utilisateur de base.
@@ -149,4 +149,4 @@ Pour désactiver un pilote de périphérique, exécutez la commande suivante :
 sc delete <service_name>
 ```
 
-Où *nom_service* est le nom du service que vous avez obtenu lors de l’exécution de la **requête SC type = Driver**.
+Où *service_name* est le nom du service que vous avez obtenu lors de l’exécution de la **requête SC type = Driver**.

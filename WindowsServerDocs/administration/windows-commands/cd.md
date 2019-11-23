@@ -45,16 +45,16 @@ chdir [..]
 |Paramètre|Description|
 |---------|-----------|
 |/d|Modifie le lecteur actif, ainsi que le répertoire actif d’un lecteur.|
-|> @no__t 0Drive :|Spécifie le lecteur à afficher ou à modifier (s’il est différent du lecteur en cours).|
-|@no__t 0Path >|Spécifie le chemin d’accès au répertoire que vous souhaitez afficher ou modifier.|
+|> du lecteur de \<:|Spécifie le lecteur à afficher ou à modifier (s’il est différent du lecteur en cours).|
+|Chemin de \<>|Spécifie le chemin d’accès au répertoire que vous souhaitez afficher ou modifier.|
 |[..]|Spécifie que vous souhaitez passer au dossier parent.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
 Si les extensions de commande sont activées, les conditions suivantes s’appliquent à la commande **CD** :
-- La chaîne de répertoire active est convertie pour utiliser la même casse que les noms sur le disque. Par exemple, `cd C:\TEMP` définit le répertoire en cours sur C:\Temp si c’est le cas sur le disque.
-- Les espaces ne sont pas considérés comme des délimiteurs ; par conséquent, le *chemin d’accès* peut contenir des espaces sans guillemets. Exemple :  
+- La chaîne de répertoire active est convertie pour utiliser la même casse que les noms sur le disque. Par exemple, `cd C:\TEMP` définirait le répertoire en cours sur C:\Temp si c’est le cas sur le disque.
+- Les espaces ne sont pas considérés comme des délimiteurs ; par conséquent, le *chemin d’accès* peut contenir des espaces sans guillemets. Par exemple :  
   ```
   cd username\programs\start menu
   ```  

@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71377013"
 ---
 # <a name="fsutil-dirty"></a>Fsutil Dirty
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Interroge ou définit le bit d’intégrité d’un volume. Lorsque le bit d’intégrité d’un volume est défini, **Autochk** vérifie automatiquement si le volume ne comporte pas d’erreurs lors du prochain redémarrage de l’ordinateur.
 
@@ -34,8 +34,8 @@ fsutil dirty {query | set} <VolumePath>
 |   Paramètre   |                                                 Description                                                  |
 |---------------|--------------------------------------------------------------------------------------------------------------|
 |     requête     |                                  Interroge le bit d’intégrité du volume spécifié.                                   |
-|      jeu      |                                    Définit le bit d’intégrité du volume spécifié.                                    |
-| @no__t 0VolumePath > | Spécifie le nom du lecteur suivi d’un signe deux-points ou d’un GUID au format suivant : **Volume {** <em>GUID</em> **}** . |
+|      set      |                                    Définit le bit d’intégrité du volume spécifié.                                    |
+| \<VolumePath > | Spécifie le nom du lecteur suivi d’un signe deux-points ou d’un GUID au format suivant : **volume {** <em>GUID</em> **}** . |
 
 ## <a name="remarks"></a>Notes
 

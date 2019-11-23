@@ -22,7 +22,7 @@ ms.locfileid: "71403309"
 ---
 # <a name="security-support-provider-interface-architecture"></a>Architecture de l’interface du fournisseur SSP (Security Support Provider)
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique de référence destinée aux professionnels de l’informatique décrit les protocoles d’authentification Windows utilisés dans l’architecture SSPI (Security Support Provider Interface).
 
@@ -89,9 +89,9 @@ Ce fournisseur est inclus par défaut dans les versions désignées dans la list
 
 -   [Microsoft Kerberos (Windows)](https://msdn.microsoft.com/library/aa378747(VS.85).aspx)
 
--   [ @ NO__T-1 MS-KILE @ NO__T-2 : Extensions de protocole Kerberos @ no__t-0
+-   [\[MS-KILE\]: extensions du protocole Kerberos](https://msdn.microsoft.com/library/cc233855(PROT.10).aspx)
 
--   [ @ NO__T-1 MS-SFU-NO__T-2 : extensions du protocole Kerberos : Spécification du protocole de service pour l’utilisateur et de délégation confrontée @ no__t-0
+-   [\[MS-SFU\]: extensions du protocole Kerberos : spécification du protocole de service pour l’utilisateur et de délégation confrontée](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx)
 
 -   [SSP Kerberos/AP (Windows)](https://msdn.microsoft.com/library/aa377942(VS.85).aspx)
 
@@ -114,7 +114,7 @@ Les systèmes d’exploitation Windows pris en charge peuvent utiliser le fourni
 
 -   Service d’appel de procédure distante ou DCOM sécurisé
 
-Emplacement :%windir%\Windows\System32\msv1_0.dll
+Emplacement :%windir%\Windows\System32\ msv1_0. dll
 
 Ce fournisseur est inclus par défaut dans les versions désignées dans la liste **s’applique à** au début de cette rubrique, plus windows Server 2003 et Windows XP.
 
@@ -145,7 +145,7 @@ Ce fournisseur est inclus par défaut dans les versions désignées dans la list
 
 -   [Authentification Microsoft Digest (Windows)](https://msdn.microsoft.com/library/aa378745(VS.85).aspx)
 
--   [ @ NO__T-1 MS-DPSP @ NO__T-2 : Extensions de protocole Digest @ no__t-0
+-   [\[MS-DPSP\]: extensions de protocole Digest](https://msdn.microsoft.com/library/cc227906(PROT.13).aspx)
 
 ### <a name="BKMK_SchannelSSP"></a>Fournisseur de support de sécurité Schannel
 Le canal sécurisé (SChannel) est utilisé pour l’authentification du serveur Web, par exemple lorsqu’un utilisateur tente d’accéder à un serveur Web sécurisé.
@@ -183,7 +183,7 @@ Ce fournisseur est inclus par défaut dans les versions désignées dans la list
 
 -   [Informations techniques de référence sur TLS/SSL](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx)
 
--   [ @ NO__T-1 MS-TLSP @ NO__T-2 : Profil TLS (Transport Layer Security) @ no__t-0
+-   [\[MS-TLSP\]: profil TLS (Transport Layer Security)](https://msdn.microsoft.com/library/dd207968(PROT.13).aspx)
 
 ### <a name="BKMK_NegoSSP"></a>Fournisseur de support de sécurité Negotiate
 Le mécanisme SPNEGO (simple and Protected GSS-API Negotiation Mechanism) constitue la base du SSP Negotiate, whichcan être utilisé pour négocier un protocole d’authentification spécifique. Quand une application appelle SSPI pour se connecter à un réseau, elle peut spécifier un SSP pour traiter la demande. Si l’application spécifie le SSP Negotiate, elle analyse la demande et choisit le fournisseur approprié pour gérer la demande, en fonction des stratégies de sécurité configurées par le client.
@@ -200,9 +200,9 @@ Ce fournisseur est inclus par défaut dans les versions désignées dans la list
 
 -   [Microsoft Negotiate (Windows)](https://msdn.microsoft.com/library/aa378748(VS.85).aspx)
 
--   [ @ NO__T-1 MS-SPNG @ NO__T-2 : Extensions SPNEGO (simple and Protected GSS-API Negotiation Mechanism) @ no__t-0
+-   [\[MS-SPNG\]: extensions SPNEGO (simple and Protected GSS-API Negotiation Mechanism)](https://msdn.microsoft.com/library/cc247021(PROT.13).aspx)
 
--   [ @ NO__T-1 MS-N2HT @ NO__T-2 : Spécification du protocole d’authentification HTTP Negotiate et Nego2 @ no__t-0
+-   [\[MS-N2HT\]: Negotiate and Nego2 HTTP Authentication Protocol Specification](https://msdn.microsoft.com/library/dd303576(PROT.13).aspx)
 
 ### <a name="BKMK_CredSSP"></a>Fournisseur de support de sécurité des informations d’identification
 Le fournisseur de services de sécurité des informations d’identification (CredSSP) fournit une expérience utilisateur de l’authentification unique (SSO) lors du démarrage de nouveaux services Terminal Server et de sessions de Services Bureau à distance. CredSSP permet aux applications de déléguer les informations d’identification des utilisateurs à partir de l’ordinateur client (à l’aide du fournisseur de services partagés côté client) au serveur cible (via le fournisseur de services partagés côté serveur), en fonction des stratégies du client. Les stratégies CredSSP sont configurées à l’aide de stratégie de groupe, et la délégation des informations d’identification est désactivée par défaut.
@@ -213,7 +213,7 @@ Ce fournisseur est inclus par défaut dans les versions désignées dans la list
 
 **Ressources supplémentaires pour le fournisseur de services partagés des informations d’identification**
 
--   [ @ NO__T-1 MS-CSSP @ NO__T-2 : Spécification du protocole CredSSP (Credential Security Support Provider) @ no__t-0
+-   [\[MS-CSSP\]: spécification du protocole CredSSP (Credential Security Support Provider)](https://msdn.microsoft.com/library/cc226764(PROT.13).aspx)
 
 -   [Fournisseur de services de sécurité des informations d’identification et SSO pour la connexion aux services Terminal Server](https://technet.microsoft.com/library/cc749211(v=ws.10).aspx)
 
@@ -284,7 +284,7 @@ L’option Negotiate peut être utilisée pour permettre au client et au serveur
 
     -   Si l’ordinateur client ne prend pas en charge l’un des protocoles listés, l’échange d’authentification échoue.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 [Architecture d’authentification Windows](https://technet.microsoft.com/library/dn169024(v=ws.10).aspx)
 
 

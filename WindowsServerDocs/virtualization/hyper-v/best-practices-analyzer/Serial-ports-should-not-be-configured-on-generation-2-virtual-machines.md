@@ -19,7 +19,7 @@ ms.locfileid: "71364730"
 ---
 # <a name="serial-ports-should-not-be-configured-on-generation-2-virtual-machines"></a>Les ports série ne doivent pas être configurés sur des ordinateurs virtuels de 2e génération
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -38,10 +38,10 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="impact"></a>**Impact**  
 *Les performances peuvent être affectées aux machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
-*If cette opération est intentionnelle, aucune autre action n’est requise. Sinon, envisagez d’utiliser le Gestionnaire Hyper-V ou Windows PowerShell pour supprimer la chaîne de connexion des ports série de l’ordinateur virtuel.*  
+*Si cela est intentionnel, aucune action supplémentaire n’est requise. Sinon, envisagez d’utiliser le Gestionnaire Hyper-V ou Windows PowerShell pour supprimer la chaîne de connexion des ports série de l’ordinateur virtuel.*  
   
 
 

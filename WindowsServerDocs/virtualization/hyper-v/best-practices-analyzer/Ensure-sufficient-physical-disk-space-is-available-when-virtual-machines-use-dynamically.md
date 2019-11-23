@@ -19,7 +19,7 @@ ms.locfileid: "71393641"
 ---
 # <a name="ensure-sufficient-physical-disk-space-is-available-when-virtual-machines-use-dynamically-expanding-virtual-hard-disks"></a>Assurez-vous que l’espace disque physique est suffisant lorsque les machines virtuelles utilisent des disques durs virtuels de taille dynamique.
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -36,12 +36,12 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Une ou plusieurs machines virtuelles utilisent des disques durs virtuels de taille dynamique.*  
   
 ## <a name="impact"></a>Impact  
-*Dynamically le développement de disques durs virtuels nécessite de l’espace disponible sur le volume d’hébergement pour allouer de l’espace lors de l’écriture sur les disques durs virtuels. Si l’espace disponible est épuisé, toute machine virtuelle qui s’appuie sur le stockage physique peut être affectée. Cela a un impact sur les ordinateurs virtuels suivants :*  
+*Les disques durs virtuels de taille dynamique requièrent de l’espace disponible sur le volume hôte afin que de l’espace puisse être alloué lors de l’écriture sur les disques durs virtuels. Si l’espace disponible est épuisé, toute machine virtuelle qui s’appuie sur le stockage physique peut être affectée. Cela a un impact sur les machines virtuelles suivantes :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
-*Monitor d’espace disque disponible pour garantir que l’espace disponible est suffisant pour l’extension. Envisagez d’arrêter la machine virtuelle et d’utiliser l’Assistant modification du disque dans le Gestionnaire Hyper-V pour convertir chaque disque dur virtuel de taille dynamique de cet ordinateur virtuel en disque dur virtuel de taille fixe.*  
+## <a name="resolution"></a>Résolution  
+*Surveillez l’espace disque disponible pour vous assurer que l’espace disponible est suffisant pour l’extension. Envisagez d’arrêter la machine virtuelle et d’utiliser l’Assistant modification du disque dans le Gestionnaire Hyper-V pour convertir chaque disque dur virtuel de taille dynamique de cet ordinateur virtuel en disque dur virtuel de taille fixe.*  
   
 
 

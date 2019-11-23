@@ -38,8 +38,8 @@ add alias <AliasName> <AliasValue>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0AliasName >|Spécifie le nom de l’alias.|
-|@no__t 0AliasValue >|Spécifie la valeur de l’alias.|
+|\<AliasName >|Spécifie le nom de l’alias.|
+|\<AliasValue >|Spécifie la valeur de l’alias.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

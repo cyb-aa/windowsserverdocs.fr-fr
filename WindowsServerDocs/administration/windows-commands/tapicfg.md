@@ -22,7 +22,7 @@ ms.locfileid: "71383670"
 ---
 # <a name="tapicfg"></a>tapicfg
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Crée, supprime ou affiche une partition d’annuaire d’applications TAPI, ou définit une partition d’annuaire d’applications TAPI par défaut. Les clients TAPI 3,1 peuvent utiliser les informations de cette partition d’annuaire d’applications avec le service Localisateur de service d’annuaire pour rechercher et communiquer avec les annuaires TAPI. Vous pouvez également utiliser **Tapicfg** pour créer ou supprimer des points de connexion de service, ce qui permet aux clients TAPI de localiser efficacement les partitions d’annuaire d’applications TAPI dans un domaine. Pour plus d’informations, consultez la section Notes. Pour afficher la syntaxe de la commande, cliquez sur une commande. 
 -   [installation de tapicfg](#BKMK_install)
@@ -42,8 +42,8 @@ tapicfg install /directory:<PartitionName> [/server:<DCName>] [/forcedefault]
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|installer/répertoire : \<PartitionName >|Obligatoire. Spécifie le nom DNS de la partition d’annuaire d’applications TAPI à créer. Ce nom doit être un nom de domaine complet.|
-|/Server @no__t 0DCName >|Spécifie le nom DNS du contrôleur de domaine sur lequel la partition d’annuaire d’applications TAPI est créée. Si le nom du contrôleur de domaine n’est pas spécifié, le nom de l’ordinateur local est utilisé.|
+|installer/répertoire :\<PartitionName >|Obligatoire. Spécifie le nom DNS de la partition d’annuaire d’applications TAPI à créer. Ce nom doit être un nom de domaine complet.|
+|/Server : \<DCName >|Spécifie le nom DNS du contrôleur de domaine sur lequel la partition d’annuaire d’applications TAPI est créée. Si le nom du contrôleur de domaine n’est pas spécifié, le nom de l’ordinateur local est utilisé.|
 |/forcedefault|Spécifie que ce répertoire est la partition d’annuaire d’applications TAPI par défaut pour le domaine. Il peut y avoir plusieurs partitions d’annuaire d’applications TAPI dans un domaine.<br /><br />Si ce répertoire est la première partition de l’annuaire d’applications TAPI créée sur le domaine, elle est automatiquement définie par défaut, que vous utilisiez ou non l’option **/forcedefault** .|
 |/?|Affiche l'aide à l'invite de commandes.|
 
@@ -57,7 +57,7 @@ tapicfg remove /directory:<PartitionName>
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|supprimer/répertoire : \<PartitionName >|Obligatoire. Spécifie le nom DNS de la partition d’annuaire d’applications TAPI à supprimer. Notez que ce nom doit être un nom de domaine complet.|
+|supprimer/répertoire :\<PartitionName >|Obligatoire. Spécifie le nom DNS de la partition d’annuaire d’applications TAPI à supprimer. Notez que ce nom doit être un nom de domaine complet.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="BKMK_publishscp"></a>tapicfg publishscp
@@ -70,8 +70,8 @@ tapicfg publishscp /directory:<PartitionName> [/domain:<DomainName>] [/forcedefa
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|publishscp/répertoire : \<PartitionName >|Obligatoire. Spécifie le nom DNS de la partition d’annuaire d’applications TAPI que le point de connexion de service doit publier.|
-|/Domain : \<DomainName >|Spécifie le nom DNS du domaine dans lequel le point de connexion de service est créé. Si le nom de domaine n’est pas spécifié, le nom du domaine local est utilisé.|
+|publishscp/répertoire :\<PartitionName >|Obligatoire. Spécifie le nom DNS de la partition d’annuaire d’applications TAPI que le point de connexion de service doit publier.|
+|/Domain :\<DomainName >|Spécifie le nom DNS du domaine dans lequel le point de connexion de service est créé. Si le nom de domaine n’est pas spécifié, le nom du domaine local est utilisé.|
 |/forcedefault|Spécifie que ce répertoire est la partition d’annuaire d’applications TAPI par défaut pour le domaine. Il peut y avoir plusieurs partitions d’annuaire d’applications TAPI dans un domaine.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
@@ -85,8 +85,8 @@ tapicfg removescp /directory:<PartitionName> [/domain:<DomainName>]
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|removescp/répertoire : \<PartitionName >|Obligatoire. Spécifie le nom DNS de la partition d’annuaire d’applications TAPI pour laquelle un point de connexion de service est supprimé.|
-|/Domain @no__t 0DomainName >|Spécifie le nom DNS du domaine à partir duquel le point de connexion de service est supprimé. Si le nom de domaine n’est pas spécifié, le nom du domaine local est utilisé.|
+|removescp/répertoire :\<PartitionName >|Obligatoire. Spécifie le nom DNS de la partition d’annuaire d’applications TAPI pour laquelle un point de connexion de service est supprimé.|
+|/Domain : \<DomainName >|Spécifie le nom DNS du domaine à partir duquel le point de connexion de service est supprimé. Si le nom de domaine n’est pas spécifié, le nom du domaine local est utilisé.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="BKMK_show"></a>tapicfg afficher
@@ -100,7 +100,7 @@ tapicfg show [/defaultonly][ /domain:<DomainName>]
 |Paramètre|Description|
 |-------|--------|
 |/defaultonly|Affiche les noms et les emplacements de la partition d’annuaire d’applications TAPI par défaut dans le domaine.|
-|/Domain @no__t 0DomainName >|Spécifie le nom DNS du domaine pour lequel les partitions de l’annuaire d’applications TAPI sont affichées. Si le nom de domaine n’est pas spécifié, le nom du domaine local est utilisé.|
+|/Domain : \<DomainName >|Spécifie le nom DNS du domaine pour lequel les partitions de l’annuaire d’applications TAPI sont affichées. Si le nom de domaine n’est pas spécifié, le nom du domaine local est utilisé.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="BKMK_makedefault"></a>tapicfg MakeDefault
@@ -113,7 +113,7 @@ tapicfg makedefault /directory:<PartitionName> [/domain:<DomainName>]
 ### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|MakeDefault/répertoire : \<PartitionName >|Obligatoire. Spécifie le nom DNS du jeu de partitions de l’annuaire d’applications TAPI comme partition par défaut pour le domaine. Notez que ce nom doit être un nom de domaine complet. Spécifie le nom DNS du domaine pour lequel la partition de l’annuaire d’applications TAPI est définie par défaut. Si le nom de domaine n’est pas spécifié, le nom du domaine local est utilisé.|
+|MakeDefault/répertoire :\<PartitionName >|Obligatoire. Spécifie le nom DNS du jeu de partitions de l’annuaire d’applications TAPI comme partition par défaut pour le domaine. Notez que ce nom doit être un nom de domaine complet. Spécifie le nom DNS du domaine pour lequel la partition de l’annuaire d’applications TAPI est définie par défaut. Si le nom de domaine n’est pas spécifié, le nom du domaine local est utilisé.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

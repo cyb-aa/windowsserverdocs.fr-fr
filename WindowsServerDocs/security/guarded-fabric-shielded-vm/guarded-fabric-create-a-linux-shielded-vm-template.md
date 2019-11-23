@@ -17,11 +17,11 @@ ms.locfileid: "71386707"
 ---
 # <a name="create-a-linux-shielded-vm-template-disk"></a>Créer un disque de modèle d’ordinateur virtuel protégé Linux
 
-> S'applique à : Windows Server 2019, Windows Server (canal semi-annuel), 
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), 
 
 Cette rubrique explique comment préparer un disque de modèle pour les machines virtuelles protégées Linux qui peuvent être utilisées pour instancier une ou plusieurs machines virtuelles clientes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour préparer et tester une machine virtuelle Linux protégée, vous devez disposer des ressources suivantes :
 
@@ -72,7 +72,7 @@ Ces étapes vous guideront tout au long de la configuration minimale requise pou
 5.  À l’aide du Gestionnaire Hyper-V, [configurez un commutateur externe](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) sur votre serveur de virtualisation pour que la machine virtuelle Linux puisse accéder à Internet afin d’obtenir des mises à jour.
 
 6.  Ensuite, créez une machine virtuelle pour installer le système d’exploitation Linux sur.
-    Dans le volet Actions, cliquez sur **nouveau**@no__t**ordinateur virtuel** pour afficher l’Assistant.
+    Dans le volet Actions, cliquez sur **nouveau** > **machine virtuelle** pour afficher l’Assistant.
     Fournissez un nom convivial pour votre machine virtuelle, par exemple « Linux en préproduction », puis cliquez sur **suivant**.
 
 7.  Sur la deuxième page de l’Assistant, sélectionnez **génération 2** pour vous assurer que la machine virtuelle est configurée avec un profil de microprogramme UEFI.

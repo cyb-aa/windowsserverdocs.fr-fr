@@ -22,7 +22,7 @@ ms.locfileid: "71379553"
 ---
 # <a name="change"></a>change
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 modifications Bureau à distance paramètres de serveur de l’hôte de session (hôte de session Bureau à distance) pour les ouvertures de session, les mappages de port COM et le mode d’installation.
 > [!NOTE]
@@ -43,4 +43,4 @@ modifications Bureau à distance paramètres de serveur de l’hôte de session 
 > 
 > #### <a name="additional-references"></a>Références supplémentaires
 > [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-> [ &#40;services Bureau à distance&#41; référence des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+> [ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

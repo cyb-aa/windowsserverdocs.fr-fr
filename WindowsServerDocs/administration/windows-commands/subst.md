@@ -39,8 +39,8 @@ subst <Drive1>: /d
 
 |Paramètre|Description|
 |---------|-----------|
-|> @no__t 0Drive1 :|Spécifie le lecteur virtuel auquel vous souhaitez affecter un chemin d’accès.|
-|[\<Drive2 >:] \<Path >|Spécifie le lecteur physique et le chemin d’accès que vous souhaitez affecter à un lecteur virtuel.|
+|\<Lecteur1 >:|Spécifie le lecteur virtuel auquel vous souhaitez affecter un chemin d’accès.|
+|[\<lecteur2 >:]\<chemin d’accès >|Spécifie le lecteur physique et le chemin d’accès que vous souhaitez affecter à un lecteur virtuel.|
 |/d|Supprime un lecteur (virtuel) substitué.|
 |/?|Affiche l'aide à l'invite de commandes.|
 

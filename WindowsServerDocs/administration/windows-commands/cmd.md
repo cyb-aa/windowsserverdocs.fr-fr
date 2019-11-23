@@ -41,19 +41,19 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}]
 |/d|Désactive l’exécution des commandes d’exécution automatique.|
 |/a|Met en forme la sortie de commande interne vers un canal ou un fichier en tant que American National Standards Institute (ANSI).|
 |/u.|Met en forme la sortie de commande interne vers un canal ou un fichier au format Unicode.|
-|/t : {\<B @ no__t-1 @ no__t-2F @ no__t-3 @ no__t-4 @ no__t-5F @ no__t-6}|Définit les couleurs d’arrière-plan (*B*) et de premier plan (*F*).|
+|/t : {\<B\>\<F\>\|\<F\>}|Définit les couleurs d’arrière-plan (*B*) et de premier plan (*F*).|
 |/e : activé|Active les extensions de commande.|
 |/e : désactivé|Désactive les extensions de commandes.|
 |/f : activé|Active la saisie semi-automatique des noms de fichiers et de répertoires.|
 |/f : désactivé|Désactive la saisie semi-automatique des noms de fichiers et de répertoires.|
 |/v : activé|Active l’expansion retardée des variables d’environnement.|
 |/v : désactivé|Désactive l’expansion retardée des variables d’environnement.|
-|@no__t 0String >|Spécifie la commande que vous souhaitez exécuter.|
+|Chaîne \<>|Spécifie la commande que vous souhaitez exécuter.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouvez utiliser comme valeurs pour \<B @ no__t-1 et \<F @ no__t-3
+Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouvez utiliser comme valeurs pour \<B\> et \<F\>
 
-|Value|Color|
+|Valeur|Couleur|
 |-----|-----|
 |0|Noir|
 |1|Bleu|
@@ -61,7 +61,7 @@ Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouve
 |3|Aqua|
 |4|Rouge|
 |5|Purple|
-|6\.|Jaune|
+|6|Jaune|
 |7|Blanc|
 |8|Gris|
 |9|Bleu clair|
@@ -76,7 +76,7 @@ Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouve
 
 -   Utilisation de plusieurs commandes
 
-    Pour utiliser plusieurs commandes pour \<String >, séparez-les par le séparateur de commandes **&&** et placez-les entre guillemets. Exemple :
+    Pour utiliser plusieurs commandes pour \<> de chaîne, séparez-les par le séparateur de commandes **&&** et placez-les entre guillemets. Par exemple :
 
     ```
     "<Command>&&<Command>&&<Command>"
@@ -96,9 +96,9 @@ Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouve
 
     Si vous ne spécifiez pas **/d** dans une *chaîne*, cmd. exe recherche les sous-clés de Registre suivantes :
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\AutoRun\REG_SZ**
+    **HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\AutoRun\ REG_SZ**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun\REG_EXPAND_SZ**
+    **HKEY_CURRENT_USER \Software\Microsoft\Command Processor\AutoRun\ REG_EXPAND_SZ**
 
     Si l’une des sous-clés de registre ou les deux sont présentes, elles sont exécutées avant toutes les autres variables.
 
@@ -107,13 +107,13 @@ Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouve
 
 -   Activation et désactivation des extensions de commande
 
-    Les extensions de commande sont activées par défaut dans Windows XP. Vous pouvez les désactiver pour un processus particulier à l’aide de l' **option/e : OFF**. Vous pouvez activer ou désactiver les extensions pour toutes les options de ligne de commande **cmd** sur un ordinateur ou une session utilisateur en définissant les valeurs **REG_DWORD** suivantes :
+    Les extensions de commande sont activées par défaut dans Windows XP. Vous pouvez les désactiver pour un processus particulier à l’aide de l' **option/e : OFF**. Vous pouvez activer ou désactiver les extensions pour toutes les options de ligne de commande **cmd** sur un ordinateur ou une session utilisateur en définissant les valeurs de **REG_DWORD** suivantes :
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\EnableExtensions\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
+    **HKEY_CURRENT_USER \Software\Microsoft\Command Processor\EnableExtensions\ REG_DWORD**
 
-    Définissez la valeur **REG_DWORD** sur **0 × 1** (activé) ou sur 0 **× 0** (désactivé) dans le registre à l’aide de Regedit. exe. Les paramètres spécifiés par l’utilisateur sont prioritaires par rapport aux paramètres de l’ordinateur, et les options de ligne de commande sont prioritaires sur les paramètres du Registre.
+    Affectez à **REG_DWORD** la valeur **0 × 1** (activé) ou **0 × 0** (désactivé) dans le registre à l’aide de Regedit. exe. Les paramètres spécifiés par l’utilisateur sont prioritaires par rapport aux paramètres de l’ordinateur, et les options de ligne de commande sont prioritaires sur les paramètres du Registre.
 
 > [!CAUTION]
 > Une modification incorrecte du Registre peut endommager gravement votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
@@ -143,15 +143,15 @@ Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouve
     Si vous activez l’expansion retardée des variables d’environnement, vous pouvez utiliser le caractère point d’exclamation pour remplacer la valeur d’une variable d’environnement au moment de l’exécution.
 -   Activation de la saisie semi-automatique des noms de fichier et de répertoire
 
-    La saisie semi-automatique des noms de fichiers et de répertoires n’est pas activée par défaut. Vous pouvez activer ou désactiver la saisie semi-automatique des noms de fichiers pour un processus particulier de la commande **cmd** avec **/f :** {**on**|**off**}. Vous pouvez activer ou désactiver la saisie semi-automatique des noms de fichiers et de répertoires pour tous les processus de la commande **cmd** sur un ordinateur ou pour une ouverture de session utilisateur en définissant les valeurs **REG_DWORD** suivantes :
+    La saisie semi-automatique des noms de fichiers et de répertoires n’est pas activée par défaut. Vous pouvez activer ou désactiver la saisie semi-automatique des noms de fichiers pour un processus particulier de la commande **cmd** avec **/f :** {**on**|**off**}. Vous pouvez activer ou désactiver la saisie semi-automatique des noms de fichiers et de répertoires pour tous les processus de la commande **cmd** sur un ordinateur ou pour une ouverture de session utilisateur en définissant les valeurs de **REG_DWORD** suivantes :
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\CompletionChar\ REG_DWORD**
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\PathCompletionChar\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
+    **HKEY_CURRENT_USER \Software\Microsoft\Command Processor\CompletionChar\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
+    **HKEY_CURRENT_USER \Software\Microsoft\Command Processor\PathCompletionChar\ REG_DWORD**
 
     Pour définir la valeur **REG_DWORD** , exécutez regedit. exe et utilisez la valeur hexadécimale d’un caractère de contrôle pour une fonction particulière (par exemple, **0 × 9** est Tab et **0 × 08** est retour arrière). Les paramètres spécifiés par l’utilisateur sont prioritaires par rapport aux paramètres de l’ordinateur, et les options de ligne de commande sont prioritaires sur les paramètres du Registre.
 

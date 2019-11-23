@@ -22,7 +22,7 @@ ms.locfileid: "71372401"
 ---
 # <a name="pathping"></a>pathping
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Fournit des informations sur la latence du réseau et la perte réseau au niveau des sauts intermédiaires entre une source et une destination. **pathping** envoie plusieurs messages de demande d’écho à chaque routeur entre une source et une destination sur une période donnée, puis calcule les résultats en fonction des paquets renvoyés par chaque routeur. Comme **pathping** affiche le degré de perte de paquets au niveau d’un routeur ou d’un lien donné, vous pouvez identifier les routeurs ou sous-réseaux qui rencontrent des problèmes réseau. 
 
@@ -36,15 +36,15 @@ pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>]
 |Paramètre|Description|
 |-------|--------|
 |/n|Empêche **pathping** de tenter de résoudre les adresses IP des routeurs intermédiaires en leurs noms. Cela peut accélérer l’affichage des résultats de **pathping** .|
-|/h @no__t 0MaximumHops >|Spécifie le nombre maximal de sauts dans le chemin d’accès pour rechercher la cible (destination). La valeur par défaut est 30 tronçons.|
-|/g @no__t 0Hostlist >|Spécifie que les messages de demande d’écho utilisent l’option de route de source libre dans l’en-tête IP avec l’ensemble de destinations intermédiaires spécifié dans *hostlist*. Avec un routage source libre, les destinations intermédiaires successives peuvent être séparées par un ou plusieurs routeurs. Le nombre maximal d’adresses ou de noms dans la liste d’ordinateurs hôtes est de 9. Le *hostlist* est une série d’adresses IP (en notation décimale séparée par des points), séparées par des espaces.|
-|/p @no__t 0Period >|Spécifie le nombre de millisecondes d’attente entre les pings successifs. La valeur par défaut est 250 millisecondes (1/4 seconde).|
+|/h \<MaximumHops >|Spécifie le nombre maximal de sauts dans le chemin d’accès pour rechercher la cible (destination). La valeur par défaut est 30 tronçons.|
+|/g \<hostlist >|Spécifie que les messages de demande d’écho utilisent l’option de route de source libre dans l’en-tête IP avec l’ensemble de destinations intermédiaires spécifié dans *hostlist*. Avec un routage source libre, les destinations intermédiaires successives peuvent être séparées par un ou plusieurs routeurs. Le nombre maximal d’adresses ou de noms dans la liste d’ordinateurs hôtes est de 9. Le *hostlist* est une série d’adresses IP (en notation décimale séparée par des points), séparées par des espaces.|
+|/p \<période >|Spécifie le nombre de millisecondes d’attente entre les pings successifs. La valeur par défaut est 250 millisecondes (1/4 seconde).|
 |/q \<NumQueries >|Spécifie le nombre de messages de demande d’écho envoyés à chaque routeur dans le chemin d’accès. La valeur par défaut est 100 requêtes.|
-|/w @no__t 0timeout >|Spécifie le nombre de millisecondes à attendre pour chaque réponse. La valeur par défaut est 3000 millisecondes (3 secondes).|
+|/w \<délai d’expiration >|Spécifie le nombre de millisecondes à attendre pour chaque réponse. La valeur par défaut est 3000 millisecondes (3 secondes).|
 |/i \<IPaddress >|Spécifie l’adresse source.|
-|/4 @no__t 0IPv4 >|Spécifie que pathping utilise uniquement IPv4.|
-|/6 @no__t 0IPv6 >|Spécifie que pathping utilise uniquement IPv6.|
-|@no__t 0TargetName >|Spécifie la destination, qui est identifiée par une adresse IP ou un nom d’hôte.|
+|/4 \<> IPv4|Spécifie que pathping utilise uniquement IPv4.|
+|/6 \<> IPv6|Spécifie que pathping utilise uniquement IPv6.|
+|\<TargetName >|Spécifie la destination, qui est identifiée par une adresse IP ou un nom d’hôte.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -89,7 +89,7 @@ Lorsque **pathping** est exécuté, les premiers résultats répertorient le che
 
 Dans l’exemple de rapport ci-dessus, les colonnes **nœud/lien**, **perdu/envoyé = PCT** et **adresse** indiquent que le lien entre 172.16.87.218 et 192.168.52.1 abandonne 13% des paquets. Les routeurs situés aux tronçons 2 et 4 suppriment également les paquets qui leur sont adressés, mais cette perte n’affecte pas leur capacité à transférer le trafic qui ne leur est pas adressé.
 
-Les taux de perte affichés pour les liens, identifiés sous la forme d’une barre verticale ( **|** ) dans la colonne **adresse** , indiquent la congestion de lien qui provoque la perte de paquets transférés sur le chemin d’accès. Les taux de perte affichés pour les routeurs (identifiés par leurs adresses IP) indiquent que ces routeurs peuvent être surchargés.
+Les taux de perte affichés pour les liens, identifiés sous forme de barres verticales ( **|** ) dans la colonne **adresse** , indiquent la congestion des liens qui provoque la perte de paquets transférés sur le chemin d’accès. Les taux de perte affichés pour les routeurs (identifiés par leurs adresses IP) indiquent que ces routeurs peuvent être surchargés.
 
 ## <a name="additional-references"></a>Références supplémentaires
 -   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -58,7 +58,7 @@ Les résultats de l’exécution de la collecte de trace ne font aucune indicati
 À l’aide du paramètre `-Diagnostic`, vous pouvez limiter la collection de suivis uniquement aux suivis requis pour faire fonctionner les diagnostics spécifiés.  Cela réduit la quantité de données collectées, ainsi que les autorisations requises pour appeler les Diagnostics.
 
 ### <a name="diagnosis"></a>Constat
-Les traces collectées peuvent être diagnostiquées en fournissant `Get-HgsTrace` l’emplacement des traces via le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics`.  En outre, `Get-HgsTrace` peut effectuer une collecte et un diagnostic en une seule passe en fournissant le commutateur `-RunDiagnostics` et une liste de cibles de suivi.  Si aucune cible de trace n’est fournie, l’ordinateur actuel est utilisé comme cible implicite, avec son rôle déduit en inspectant les modules Windows PowerShell installés.
+Les suivis collectés peuvent être diagnostiqués en fournissant `Get-HgsTrace` l’emplacement des traces via le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics`.  En outre, `Get-HgsTrace` pouvez effectuer des collectes et des diagnostics en une seule passe en fournissant le commutateur `-RunDiagnostics` et une liste de cibles de suivi.  Si aucune cible de trace n’est fournie, l’ordinateur actuel est utilisé comme cible implicite, avec son rôle déduit en inspectant les modules Windows PowerShell installés.
 
 Le diagnostic fournira des résultats dans un format hiérarchique indiquant les cibles de suivi, les jeux de diagnostic et les diagnostics individuels qui sont responsables d’une défaillance particulière.  Les défaillances incluent des recommandations de correction et de résolution si une détermination peut être effectuée à la suite de l’action à entreprendre.  Par défaut, le passage et les résultats non pertinents sont masqués.  Pour voir tout ce qui a été testé par les Diagnostics, spécifiez le commutateur `-Detailed`.  Cela entraîne l’affichage de tous les résultats, quel que soit leur état.
 
@@ -69,13 +69,13 @@ Il est possible de limiter l’ensemble de diagnostics qui sont exécutés à l�
 
 ## <a name="targeting-diagnostics"></a>Ciblage des diagnostics
 
-`Get-HgsTrace` fonctionne sur les cibles de suivi.  Une cible de trace est un objet qui correspond à un nœud SGH ou un hôte service Guardian au sein d’une infrastructure protégée.  Il peut être considéré comme une extension d’un `PSSession`, qui comprend les informations requises uniquement par les diagnostics tels que le rôle de l’hôte dans l’infrastructure.  Les cibles peuvent être générées implicitement (par exemple, un diagnostic local ou manuel) ou explicitement à l’aide de la commande `New-HgsTraceTarget`.
+`Get-HgsTrace` fonctionne sur les cibles de suivi.  Une cible de trace est un objet qui correspond à un nœud SGH ou un hôte service Guardian au sein d’une infrastructure protégée.  Il peut être considéré comme une extension d’un `PSSession` qui comprend les informations requises uniquement par les diagnostics tels que le rôle de l’hôte dans l’infrastructure.  Les cibles peuvent être générées implicitement (par exemple, diagnostic local ou manuel) ou explicitement avec la commande `New-HgsTraceTarget`.
 
 ### <a name="local-diagnosis"></a>Diagnostic local
 
-Par défaut, `Get-HgsTrace` ciblera l’hôte local (c.-à-d., où l’applet de commande est appelée).  C’est ce que l’on appelle la cible locale implicite.  La cible locale implicite est utilisée uniquement quand aucune cible n’est fournie dans le paramètre `-Target` et qu’aucune trace préexistante n’est trouvée dans la `-Path`.
+Par défaut, `Get-HgsTrace` ciblera l’hôte local (par exemple, où l’applet de commande est appelée).  C’est ce que l’on appelle la cible locale implicite.  La cible locale implicite est utilisée uniquement quand aucune cible n’est fournie dans le paramètre `-Target` et qu’aucune trace préexistante n’est trouvée dans le `-Path`.
 
-La cible locale implicite utilise l’inférence de rôle pour déterminer le rôle joué par l’hôte actuel dans l’infrastructure protégée.  Cela est basé sur les modules Windows PowerShell installés qui correspondent approximativement aux fonctionnalités qui ont été installées sur le système.  La présence du module `HgsServer` fait que la cible de suivi prend le rôle `HostGuardianService` et que la présence du module `HgsClient` entraîne le rôle `GuardedHost` pour la cible de suivi.  Il est possible que les deux modules soient présents dans un hôte donné, auquel cas il sera traité à la fois comme un `HostGuardianService` et un `GuardedHost`.
+La cible locale implicite utilise l’inférence de rôle pour déterminer le rôle joué par l’hôte actuel dans l’infrastructure protégée.  Cela est basé sur les modules Windows PowerShell installés qui correspondent approximativement aux fonctionnalités qui ont été installées sur le système.  La présence du module `HgsServer` fait que la cible de suivi prend le rôle `HostGuardianService` et que la présence du module `HgsClient` entraîne le `GuardedHost`rôle de la cible de suivi.  Il est possible qu’un hôte donné ait les deux modules présents, auquel cas il sera traité à la fois comme un `HostGuardianService` et comme un `GuardedHost`.
 
 Par conséquent, l’appel par défaut des diagnostics pour la collecte locale des traces est le suivant :
 ```PowerShell
@@ -86,7 +86,7 @@ Get-HgsTrace
 New-HgsTraceTarget -Local | Get-HgsTrace
 ```
 > [!TIP]
-> `Get-HgsTrace` peut accepter des cibles via le pipeline ou directement via le paramètre `-Target`.  Il n’y a aucune différence entre les deux.
+> `Get-HgsTrace` pouvez accepter des cibles via le pipeline ou directement via le paramètre `-Target`.  Il n’y a aucune différence entre les deux.
 
 ### <a name="remote-diagnosis-using-trace-targets"></a>Diagnostic à distance à l’aide de cibles de trace
 
@@ -95,23 +95,23 @@ Il est possible de diagnostiquer à distance un hôte en générant des cibles d
 $server = New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Role HostGuardianService -Credential (Enter-Credential)
 Get-HgsTrace -RunDiagnostics -Target $server
 ```
-Cet exemple génère une invite pour collecter les informations d’identification de l’utilisateur distant, puis les Diagnostics s’exécutent à l’aide de l’hôte distant à `hgs-01.secure.contoso.com` pour terminer la collecte des traces.  Les suivis résultants sont téléchargés vers l’hôte local, puis diagnostiqués.  Les résultats du diagnostic sont présentés de la même façon que lors de l’exécution du [diagnostic local](#local-diagnosis).  De même, il n’est pas nécessaire de spécifier un rôle, car il peut être déduit en fonction des modules Windows PowerShell installés sur le système distant.
+Cet exemple génère une invite pour collecter les informations d’identification de l’utilisateur distant, puis les Diagnostics s’exécutent à l’aide de l’hôte distant sur `hgs-01.secure.contoso.com` pour terminer la collecte des traces.  Les suivis résultants sont téléchargés vers l’hôte local, puis diagnostiqués.  Les résultats du diagnostic sont présentés de la même façon que lors de l’exécution du [diagnostic local](#local-diagnosis).  De même, il n’est pas nécessaire de spécifier un rôle, car il peut être déduit en fonction des modules Windows PowerShell installés sur le système distant.
 
 Le diagnostic à distance utilise la communication à distance Windows PowerShell pour tous les accès à l’hôte distant.  Par conséquent, il est nécessaire que la cible de la trace ait activé la communication à distance Windows PowerShell (consultez [Enable PSRemoting](https://technet.microsoft.com/library/hh849694.aspx)) et que localhost soit correctement configuré pour lancer des connexions à la cible.
 
 > [!NOTE]
 > Dans la plupart des cas, il est uniquement nécessaire que l’hôte local fasse partie de la même forêt Active Directory et qu’un nom d’hôte DNS valide soit utilisé.  Si votre environnement utilise un modèle de Fédération plus complexe ou si vous souhaitez utiliser des adresses IP directes pour la connectivité, vous devrez peut-être effectuer une configuration supplémentaire telle que la définition des [hôtes approuvés](https://technet.microsoft.com/library/ff700227.aspx)WinRM.
 
-Vous pouvez vérifier qu’une cible de suivi est correctement instanciée et configurée pour accepter les connexions à l’aide de l’applet de commande `Test-HgsTraceTarget` :
+Vous pouvez vérifier qu’une cible de trace est correctement instanciée et configurée pour accepter les connexions à l’aide de l’applet de commande `Test-HgsTraceTarget` :
 ```PowerShell
 $server = New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Role HostGuardianService -Credential (Enter-Credential)
 $server | Test-HgsTraceTarget
 ```
-Cette commande retourne `$True` si et seulement si `Get-HgsTrace` est en mesure d’établir une session de diagnostic à distance avec la cible de la trace.  En cas de défaillance, cette applet de commande renvoie des informations d’État pertinentes pour la résolution des problèmes liés à la connexion à distance Windows PowerShell.
+Cette commande retourne `$True` si et seulement si `Get-HgsTrace` peut établir une session de diagnostic à distance avec la cible de trace.  En cas de défaillance, cette applet de commande renvoie des informations d’État pertinentes pour la résolution des problèmes liés à la connexion à distance Windows PowerShell.
 
 #### <a name="implicit-credentials"></a>Informations d’identification implicites
 
-Lorsque vous effectuez un diagnostic à distance à partir d’un utilisateur disposant de privilèges suffisants pour se connecter à distance à la cible de trace, il n’est pas nécessaire de fournir des informations d’identification à `New-HgsTraceTarget`.  L’applet de commande `Get-HgsTrace` réutilisera automatiquement les informations d’identification de l’utilisateur qui a appelé l’applet de commande lors de l’ouverture d’une connexion.
+Lorsque vous effectuez un diagnostic à distance à partir d’un utilisateur disposant de privilèges suffisants pour se connecter à distance à la cible de trace, il n’est pas nécessaire de fournir des informations d’identification pour `New-HgsTraceTarget`.  L’applet de commande `Get-HgsTrace` réutilisera automatiquement les informations d’identification de l’utilisateur qui a appelé l’applet de commande lors de l’ouverture d’une connexion.
 
 > [!WARNING]
 > Certaines restrictions s’appliquent à la réutilisation des informations d’identification, en particulier lors de l’exécution de ce que l’on appelle un « deuxième tronçon ».  Cela se produit lors d’une tentative de réutilisation d’informations d’identification à partir d’une session à distance sur un autre ordinateur.  Il est nécessaire d' [installer CredSSP](https://technet.microsoft.com/library/hh849872.aspx) pour prendre en charge ce scénario, mais cela n’entre pas dans le cadre de la gestion et du dépannage de la structure protégée.
@@ -128,7 +128,7 @@ New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Role HostGuardianServi
 
 #### <a name="diagnosing-multiple-hosts"></a>Diagnostic de plusieurs ordinateurs hôtes
 
-Vous pouvez passer plusieurs cibles de suivi à `Get-HgsTrace` en même temps.  Cela comprend une combinaison de cibles locales et distantes.  Chaque cible sera suivie successivement, puis les traces de chaque cible seront diagnostiquées simultanément.  L’outil de diagnostic peut utiliser la connaissance accrue de votre déploiement pour identifier les problèmes complexes de configuration inter-nœuds qui, autrement, ne seraient pas détectables.  L’utilisation de cette fonctionnalité nécessite de fournir des traces à partir de plusieurs ordinateurs hôtes simultanément (dans le cas d’un diagnostic manuel) ou en ciblant plusieurs hôtes lors de l’appel de `Get-HgsTrace` (dans le cas du diagnostic à distance).
+Vous pouvez passer plusieurs cibles de trace à `Get-HgsTrace` à la fois.  Cela comprend une combinaison de cibles locales et distantes.  Chaque cible sera suivie successivement, puis les traces de chaque cible seront diagnostiquées simultanément.  L’outil de diagnostic peut utiliser la connaissance accrue de votre déploiement pour identifier les problèmes complexes de configuration inter-nœuds qui, autrement, ne seraient pas détectables.  L’utilisation de cette fonctionnalité nécessite de fournir des traces à partir de plusieurs ordinateurs hôtes simultanément (dans le cas d’un diagnostic manuel) ou en ciblant plusieurs hôtes lors de l’appel de `Get-HgsTrace` (dans le cas du diagnostic à distance).
 
 Voici un exemple d’utilisation du diagnostic à distance pour trier une infrastructure composée de deux nœuds SGH et de deux hôtes service Guardian, où l’un des hôtes service Guardian est utilisé pour lancer `Get-HgsTrace`.
 
@@ -145,7 +145,7 @@ Get-HgsTrace -Target $hgs01,$hgs02,$gh01,$gh02 -RunDiagnostics
 
 ## <a name="manual-diagnosis-using-saved-traces"></a>Diagnostic manuel à l’aide de suivis enregistrés
 
-Parfois, vous souhaiterez peut-être réexécuter les diagnostics sans collecter à nouveau les traces, ou vous n’avez peut-être pas les informations d’identification nécessaires pour diagnostiquer à distance tous les ordinateurs hôtes de votre infrastructure simultanément.  Le diagnostic manuel est un mécanisme par lequel vous pouvez toujours effectuer un triage de structure entière à l’aide de `Get-HgsTrace`, mais sans utiliser la collecte de trace distante.
+Parfois, vous souhaiterez peut-être réexécuter les diagnostics sans collecter à nouveau les traces, ou vous n’avez peut-être pas les informations d’identification nécessaires pour diagnostiquer à distance tous les ordinateurs hôtes de votre infrastructure simultanément.  Le diagnostic manuel est un mécanisme par lequel vous pouvez toujours effectuer un triage de structure entière à l’aide de `Get-HgsTrace`, mais sans utiliser la collecte de trace à distance.
 
 Avant d’effectuer un diagnostic manuel, vous devez vous assurer que les administrateurs de chaque ordinateur hôte de l’infrastructure qui seront triés sont prêts et prêts à exécuter des commandes en votre nom.  La sortie de suivi de diagnostic n’expose pas les informations qui sont généralement considérées comme sensibles. Toutefois, il incombe à l’utilisateur de déterminer s’il est possible d’exposer ces informations à d’autres personnes en toute sécurité.
 
@@ -154,7 +154,7 @@ Avant d’effectuer un diagnostic manuel, vous devez vous assurer que les admini
 
 Les étapes à suivre pour effectuer un diagnostic manuel sont les suivantes :
 
-1. Demandez à chaque administrateur hôte d’exécuter `Get-HgsTrace` en spécifiant un @no__t connu et la liste des diagnostics que vous avez l’intention d’exécuter sur les suivis résultants.  Exemple :
+1. Demandez à chaque administrateur hôte de s’exécuter `Get-HgsTrace` spécifiant une `-Path` connue et la liste des diagnostics que vous avez l’intention d’exécuter sur les suivis résultants.  Par exemple :
 
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
@@ -179,7 +179,7 @@ Les étapes à suivre pour effectuer un diagnostic manuel sont les suivantes :
          |- [..]
       ```
 
-4. Exécutez les Diagnostics, en fournissant le chemin d’accès au dossier de trace assemblé sur le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics`, ainsi que les diagnostics pour lesquels vous avez demandé à vos administrateurs de collecter des traces.  Les diagnostics supposent qu’il ne peut pas accéder aux ordinateurs hôtes qui se trouvent dans le chemin d’accès et tente donc d’utiliser uniquement les suivis précollectés.  Si des suivis sont manquants ou endommagés, les diagnostics échouent uniquement aux tests affectés et se poursuivent normalement.  Exemple :
+4. Exécutez les Diagnostics, en fournissant le chemin d’accès au dossier des traces assemblées sur le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics` ainsi que les diagnostics pour lesquels vous avez demandé à vos administrateurs de collecter des traces.  Les diagnostics supposent qu’il ne peut pas accéder aux ordinateurs hôtes qui se trouvent dans le chemin d’accès et tente donc d’utiliser uniquement les suivis précollectés.  Si des suivis sont manquants ou endommagés, les diagnostics échouent uniquement aux tests affectés et se poursuivent normalement.  Par exemple :
 
    ```PowerShell
    Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"

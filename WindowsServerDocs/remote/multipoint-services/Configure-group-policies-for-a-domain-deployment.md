@@ -32,24 +32,24 @@ Le compte d’utilisateur WMSshell est un compte système que MultiPoint Service
 > [!NOTE]  
 > Pour savoir comment mettre à jour les stratégies de groupe, consultez [éditeur de stratégie de groupe local](https://technet.microsoft.com/library/dn265982.aspx).  
   
-**RENVOI** Configuration utilisateur > les modèles d’administration > le panneau de configuration > la **personnalisation**  
+**Stratégie :** Configuration utilisateur > les modèles d’administration > le panneau de configuration > la **personnalisation**  
   
-Affectez les valeurs suivantes:  
+Affectez les valeurs suivantes :  
   
 |Paramètre|Valeurs|  
 |-----------|----------|  
-|Activer l’économiseur d’écran|Désactivé|  
-|Dépassement du délai d'expiration de l'écran de veille|Désactivé<br /><br />Secondes: xxx|  
-|Un mot de passe protège l'écran de veille|Désactivé|  
+|Activer l’économiseur d’écran|Désactivée|  
+|Dépassement du délai d'expiration de l'écran de veille|Désactivée<br /><br />Secondes : xxx|  
+|Un mot de passe protège l'écran de veille|Désactivée|  
   
-**RENVOI** Configuration de l’ordinateur > Paramètres Windows > paramètres de sécurité > stratégies locales > attribution des droits utilisateur > **permettre l’ouverture d’une session locale**  
+**Stratégie :** Configuration de l’ordinateur > Paramètres Windows > paramètres de sécurité > stratégies locales > attribution des droits utilisateur > **permettre l’ouverture d’une session locale**  
   
 |Paramètre|Valeurs|  
 |-----------|----------|  
 |Permettre l’ouverture d’une session locale|Assurez-vous que la liste des comptes comprend le compte WMSshell.<br /><br />**Remarque :** Par défaut, le compte WMSshell est membre du groupe utilisateurs. Si le groupe utilisateurs figure dans la liste et que WMSshell est membre du groupe utilisateurs, vous n’avez pas besoin d’ajouter le compte WMSshell à la liste.|  
   
 > [!IMPORTANT]  
-> Lorsque vous définissez des stratégies de groupe, assurez-vous que les stratégies n’interfèrent pas avec les mises à jour automatiques et les erreurs de rapport d’erreurs Windows sur le serveur MultiPoint. Celles-ci sont définies par les paramètres **installer automatiquement les mises à jour** **rapport d’erreurs Windows et automatique** qui ont été sélectionnés pendant l’installation de Windows MultiPoint Server, configurés dans le gestionnaire multipoint à l’aide de l’option **modifier les paramètres du serveur**ou configuré dans les mises à jour planifiées pour la protection des disques.  
+> Lorsque vous définissez des stratégies de groupe, assurez-vous que les stratégies n’interfèrent pas avec les mises à jour automatiques et les erreurs de rapport d’erreurs Windows sur le serveur MultiPoint. Celles-ci sont définies par les paramètres **installer automatiquement les mises à jour** **rapport d’erreurs Windows et automatique** qui ont été sélectionnés pendant l’installation de Windows MultiPoint Server, configurés dans le gestionnaire multipoint à l’aide de **modifier les paramètres du serveur**ou configurés dans les mises à jour planifiées pour la protection des disques.  
   
 ## <a name="update-the-registry"></a>Mettre à jour le registre  
 Pour un déploiement de domaine de MultiPoint services, vous devez mettre à jour les sous-clés de Registre suivantes.  
@@ -61,9 +61,9 @@ Pour un déploiement de domaine de MultiPoint services, vous devez mettre à jou
   
 1.  Ouvrez l’éditeur du Registre. (À l’invite de commandes, tapez **regedit. exe**, puis appuyez sur entrée.)  
   
-2.  Dans le volet gauche, recherchez la sous-clé de Registre suivante, puis sélectionnez-la:  
+2.  Dans le volet gauche, recherchez la sous-clé de Registre suivante, puis sélectionnez-la :  
   
-    HKEY_USERS @ no__t-0SIDofWMSshell > \Software\Policies\Microsoft\Windows\Control Panel\Desktop  
+    HKEY_USERS\<SIDofWMSshell > \Software\Policies\Microsoft\Windows\Control Panel\Desktop  
   
     où «<SIDofWMSshell>» est l’identificateur de sécurité (SID) pour le compte WMSshell. Pour savoir comment identifier le SID, consultez [comment associer un nom d’utilisateur à un identificateur de sécurité (SID)](https://support.microsoft.com/kb/154599).  
   
@@ -75,7 +75,7 @@ Pour un déploiement de domaine de MultiPoint services, vous devez mettre à jou
     |ScreenSaveTimeout|REG_SZ|120|  
     |ScreenSaverIsSecure|REG_SZ|0 (zéro)|  
   
-    Pour mettre à jour une sous-clé de Registre:  
+    Pour mettre à jour une sous-clé de Registre :  
   
     1.  Une fois la clé de Registre sélectionnée dans le volet gauche, cliquez avec le bouton droit sur la sous-clé dans le volet droit, puis cliquez sur **modifier**.  
   

@@ -39,13 +39,13 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Drive >|Représente une lettre de lecteur suivie par un signe deux-points.|
+|Lecteur \<>|Représente une lettre de lecteur suivie par un signe deux-points.|
 |-RecoveryPassword|Ajoute un protecteur de mot de passe numérique. Vous pouvez également utiliser **-RP** comme version abrégée de cette commande.|
-|@no__t 0NumericalPassword >|Représente le mot de passe de récupération.|
+|\<NumericalPassword >|Représente le mot de passe de récupération.|
 |-recoverykey|Ajoute un protecteur de clé externe pour la récupération. Vous pouvez également utiliser **-RK** comme version abrégée de cette commande.|
-|@no__t 0PathToExternalDirectory >|Représente le chemin d’accès du répertoire à la clé de récupération.|
+|\<PathToExternalDirectory >|Représente le chemin d’accès du répertoire à la clé de récupération.|
 |-clé|Ajoute un protecteur de clé externe pour le démarrage. Vous pouvez également utiliser **-SK** comme version abrégée de cette commande.|
-|@no__t 0PathToExternalKeyDirectory >|Représente le chemin d’accès au répertoire de la clé de démarrage.|
+|\<PathToExternalKeyDirectory >|Représente le chemin d’accès au répertoire de la clé de démarrage.|
 |-certificat|Ajoute un protecteur de clé publique pour un lecteur de données. Vous pouvez également utiliser **-CERT** comme version abrégée de cette commande.|
 |-tpmandpin|Ajoute une Module de plateforme sécurisée (TPM) (TPM) et un protecteur de code confidentiel (PIN) pour le lecteur du système d’exploitation. Vous pouvez également utiliser **-TP** comme version abrégée de cette commande.|
 |-tpmandstartupkey|Ajoute un module de plateforme sécurisée et un protecteur de clé de démarrage pour le lecteur de système d’exploitation. Vous pouvez également utiliser **-tsk** comme version abrégée de cette commande.|
@@ -58,7 +58,7 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 |-discoveryvolumetype|Spécifie le système de fichiers à utiliser pour le lecteur de données de détection. Le lecteur de données de détection est un lecteur masqué ajouté à un lecteur de données amovibles, protégé par BitLocker et au format FAT, qui contient le Lecteur BitLocker To Go afin que les systèmes d’exploitation Windows Vista ou Windows XP puissent être utilisés pour afficher les lecteurs protégés par BitLocker.|
 |-ForceEncryptionType|Force BitLocker à utiliser un chiffrement logiciel ou matériel. Vous pouvez spécifier le type de chiffrement **matériel** ou **logiciel** . Si le paramètre **matériel** est sélectionné, mais que le lecteur ne prend pas en charge le chiffrement matériel, Manage-bde retourne une erreur. Si stratégie de groupe paramètres interdit le type de chiffrement spécifié, Manage-bde retourne une erreur. Vous pouvez également utiliser **-FET** comme version abrégée de cette commande.|
 |-RemoveVolumeShadowCopies|Forcez la deletikon des clichés instantanés de volume pour le volume. Après avoir exécuté cette commande, vous ne pourrez pas restaurer ce volume à l’aide de points de restauration système précédents. Vous pouvez également utiliser **-rvsc** comme version abrégée de cette commande.|
-|@no__t 0FileSystemType >|Spécifie les systèmes de fichiers qui peuvent être utilisés avec les lecteurs de données de découverte : FAT32, valeur par défaut ou aucune.|
+|\<FileSystemType >|Spécifie les systèmes de fichiers qui peuvent être utilisés avec les lecteurs de données de découverte : FAT32, valeur par défaut ou aucun.|
 |-ComputerName|Spécifie que Manage-bde est utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
 |\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|

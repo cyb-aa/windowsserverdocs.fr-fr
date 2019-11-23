@@ -18,18 +18,18 @@ ms.locfileid: "71389860"
 ---
 # <a name="tpm-key-attestation"></a>Attestation de clé TPM
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 **Auteur**: Justin Turner, ingénieur du support technique senior avec le groupe Windows  
   
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
-## <a name="overview"></a>Vue d'ensemble  
+## <a name="overview"></a>Vue d’ensemble  
 Bien que la prise en charge des clés protégées par le module de plateforme sécurisée ait existé depuis Windows 8, il n’existait aucun mécanisme permettant au chiffrement d’attester que la clé privée du demandeur de certificat est réellement protégée par une Module de plateforme sécurisée (TPM) (TPM). Cette mise à jour permet à une autorité de certification d’effectuer cette attestation et de refléter cette attestation dans le certificat émis.  
   
 > [!NOTE]  
-> Cet article suppose que le lecteur est familiarisé avec le concept de modèle de certificat (pour référence, consultez [modèles de certificats](https://technet.microsoft.com/library/cc730705.aspx)). Il part également du principe que le lecteur est familiarisé avec la configuration des autorités de certification d’entreprise pour émettre des certificats basés sur des modèles de certificats (pour référence, voir [Checklist : Configurez les autorités de certification pour émettre et gérer les certificats @ no__t-0).  
+> Cet article suppose que le lecteur est familiarisé avec le concept de modèle de certificat (pour référence, consultez [modèles de certificats](https://technet.microsoft.com/library/cc730705.aspx)). Il suppose également que le lecteur est familiarisé avec la configuration des autorités de certification d’entreprise pour émettre des certificats basés sur des modèles de certificats (pour référence, consultez [liste de vérification : configurer des autorités de certification pour émettre et gérer des certificats](https://technet.microsoft.com/library/cc771533.aspx)).  
   
 ### <a name="terminology"></a>Terminology  
   
@@ -41,7 +41,7 @@ Bien que la prise en charge des clés protégées par le module de plateforme s�
 |EKCert|Certificat EK. Un certificat émis par un fabricant de module de plateforme sécurisée pour EKPub. Toutes les plateforme sécurisée n’ont pas de EKCert.|  
 |TPM|Module de plateforme sécurisée (TPM). Un module de plateforme sécurisée (TPM) est conçu pour fournir des fonctions de sécurité basées sur le matériel. Une puce TPM est un processeur de chiffrement sécurisé conçu pour effectuer des opérations de chiffrement. La puce comprend plusieurs mécanismes de sécurité physique qui la protègent contre la falsification, et les logiciels malveillants ne peuvent pas falsifier les fonctions de sécurité du TPM.|  
   
-### <a name="background"></a>Présentation  
+### <a name="background"></a>Arrière-plan  
 À partir de Windows 8, un Module de plateforme sécurisée (TPM) (TPM) peut être utilisé pour sécuriser la clé privée d’un certificat. Le fournisseur de stockage de clés (KSP) du fournisseur de chiffrement de plate-forme Microsoft Active cette fonctionnalité. Il y a deux problèmes avec l’implémentation :  
 
 -   Il n’existait aucune garantie qu’une clé soit effectivement protégée par un module de plateforme sécurisée (une personne peut facilement usurper un KSP de logiciel en tant que KSP TPM avec des informations d’identification d’administrateur local).
@@ -54,7 +54,7 @@ L’attestation de clé du module de plateforme sécurisée est la capacité de 
 ### <a name="why-is-tpm-key-attestation-important"></a>Pourquoi l’attestation de clé du module de plateforme sécurisée est-elle importante ?  
 Un certificat d’utilisateur avec une clé avec attestation TPM fournit une garantie de sécurité accrue, sauvegardée par une non-exportabilité, une détection et une isolation des clés fournies par le module de plateforme sécurisée.  
   
-Avec l’attestation de clé TPM, un nouveau paradigme de gestion est désormais possible : Un administrateur peut définir l’ensemble d’appareils que les utilisateurs peuvent utiliser pour accéder aux ressources de l’entreprise (par exemple, le VPN ou le point d’accès sans fil) **et garantir qu'** aucun autre périphérique ne peut être utilisé pour y accéder. Ce nouveau paradigme de contrôle d’accès est **fort** , car il est lié à une identité d’utilisateur *liée au matériel* , ce qui est plus fort que les informations d’identification logicielles.
+Avec l’attestation de clé TPM, un nouveau paradigme de gestion est désormais possible : un administrateur peut définir l’ensemble d’appareils que les utilisateurs peuvent utiliser pour accéder aux ressources de l’entreprise (par exemple, le VPN ou le point d’accès sans fil) **et garantir qu'** aucun autre appareil ne peut être utilisé pour y accéder. Ce nouveau paradigme de contrôle d’accès est **fort** , car il est lié à une identité d’utilisateur *liée au matériel* , ce qui est plus fort que les informations d’identification logicielles.
   
 ### <a name="how-does-tpm-key-attestation-work"></a>Comment fonctionne l’attestation de clé TPM ?  
 En général, l’attestation de clé du module de plateforme sécurisée est basée sur les piliers suivants :  
@@ -84,7 +84,7 @@ Le déploiement de l’attestation de clé TPM s’exécute en trois étapes :
   
     Notez qu’il est possible de choisir une combinaison de modèles d’approbation TPM. Dans ce cas, l’autorité de certification accepte l’une des méthodes d’attestation et les OID de stratégie d’émission reflètent toutes les méthodes d’attestation qui ont été correctement exécutées.  
   
-2.  **Configurez le modèle de certificat :** La configuration du modèle de certificat est décrite dans la section [Détails du déploiement](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_DeploymentDetails) de cette rubrique. Cet article ne traite pas de la façon dont ce modèle de certificat est attribué à l’autorité de certification d’entreprise ou de l’attribution de l’accès à un groupe d’utilisateurs. Pour plus d'informations, consultez [Liste de vérification : Configurez les autorités de certification pour émettre et gérer les certificats @ no__t-0.  
+2.  **Configurez le modèle de certificat :** La configuration du modèle de certificat est décrite dans la section [Détails du déploiement](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_DeploymentDetails) de cette rubrique. Cet article ne traite pas de la façon dont ce modèle de certificat est attribué à l’autorité de certification d’entreprise ou de l’attribution de l’accès à un groupe d’utilisateurs. Pour plus d’informations, consultez [liste de vérification : configurer des autorités de certification pour émettre et gérer des certificats](https://technet.microsoft.com/library/cc771533.aspx).  
   
 3.  **Configurer l’autorité de certification pour le modèle d’approbation TPM**  
   
@@ -132,11 +132,11 @@ Pour configurer le modèle de certificat pour l’attestation de clé TPM, effec
   
     ![Attestation de clé TPM](media/TPM-Key-Attestation/GTR_ADDS_KeyModes.gif)  
   
-    -   **None** Implique que l’attestation de clé ne doit pas être utilisée  
+    -   **Aucun :** Implique que l’attestation de clé ne doit pas être utilisée  
   
     -   **Obligatoire, si le client est en capacité :** Permet aux utilisateurs sur un appareil qui ne prend pas en charge l’attestation de clé TPM de continuer à s’inscrire pour ce certificat. Les utilisateurs qui peuvent effectuer l’attestation seront distingués par un OID de stratégie d’émission spécial. Certains appareils peuvent ne pas être en mesure d’effectuer une attestation en raison d’un ancien module de plateforme sécurisée qui ne prend pas en charge l’attestation de clé, ou l’appareil n’a pas de module de plateforme sécurisée.
   
-    -   **Obligatoire:** Le client *doit* effectuer l’attestation de clé TPM. sinon, la demande de certificat échoue.  
+    -   **Obligatoire :** Le client *doit* effectuer l’attestation de clé TPM. sinon, la demande de certificat échoue.  
   
     Choisissez ensuite le modèle d’approbation TPM. Trois options s’imposent :  
   
@@ -154,9 +154,9 @@ Pour configurer le modèle de certificat pour l’attestation de clé TPM, effec
   
     |OID|Type d’attestation de clé|Description|Niveau d’assurance|  
     |-------|------------------------|---------------|-------------------|  
-    |1.3.6.1.4.1.311.21.30|EK|« EK vérifié » :   Pour la liste gérée par l’administrateur de EK|Élevé|  
-    |1.3.6.1.4.1.311.21.31|Endosser le certificat|« Certificat EK vérifié » : Lorsque la chaîne de certificats EK est validée|Moyenne|  
-    |1.3.6.1.4.1.311.21.32|Informations d’identification utilisateur|« EK approuvée à l’utilisation » : Pour les EK avec attestation utilisateur|Faible|  
+    |1.3.6.1.4.1.311.21.30|EK|« EK vérifié » : pour la liste gérée par l’administrateur de EK|Élevé|  
+    |1.3.6.1.4.1.311.21.31|Endosser le certificat|« Certificat EK vérifié » : lorsque la chaîne de certificats EK est validée|Moyen|  
+    |1.3.6.1.4.1.311.21.32|Informations d’identification utilisateur|« EK Trusted on use » : pour les EK avec attestation utilisateur|Faible|  
   
     Les OID sont insérés dans le certificat émis si l’option **inclure les stratégies d’émission** est sélectionnée (configuration par défaut).  
   
@@ -194,16 +194,16 @@ Pour configurer le modèle de certificat pour l’attestation de clé TPM, effec
   
         |Opération|Syntaxe de la commande|  
         |-------------|------------------|  
-        |Ajouter des emplacements de dossier|certutil. exe-setreg CA\EndorsementKeyListDirectories + « <folder> »|  
-        |Supprimer les emplacements de dossier|certutil. exe-setreg CA\EndorsementKeyListDirectories-« <folder> »|  
+        |Ajouter des emplacements de dossier|certutil. exe-setreg CA\EndorsementKeyListDirectories + «<folder>»|  
+        |Supprimer les emplacements de dossier|certutil. exe-setreg CA\EndorsementKeyListDirectories-«<folder>»|  
   
         La commande EndorsementKeyListDirectories dans certutil est un paramètre du Registre, comme décrit dans le tableau suivant.  
   
         |Nom de valeur|Type|Données|  
         |--------------|--------|--------|  
-        |EndorsementKeyListDirectories|REG_MULTI_SZ|< chemin d’accès LOCAL ou UNC à la ou les listes d’autorisation EKPUB ><br /><br />Exemple :<br /><br />*\\ \ blueCA. contoso. com\ekpub*<br /><br />*\\ \ bluecluster1. contoso. com\ekpub*<br /><br />D:\ekpub|  
+        |EndorsementKeyListDirectories|REG_MULTI_SZ|< chemin d’accès LOCAL ou UNC à la ou les listes d’autorisation EKPUB ><br /><br />Exemple :<br /><br />*\\\blueCA.contoso.com\ekpub*<br /><br />*\\\bluecluster1.contoso.com\ekpub*<br /><br />D:\ekpub|  
   
-        HKLM\SYSTEM\CurrentControlSet\Services\CertSvc\Configuration @ no__t-0 @ no__t-1  
+        HKLM\SYSTEM\CurrentControlSet\Services\CertSvc\Configuration\\<CA Sanitized Name>  
   
         *EndorsementKeyListDirectories* contient une liste de chemins de système de fichiers UNC ou locaux, chacun pointant vers un dossier auquel l’autorité de certification a accès en lecture. Chaque dossier peut contenir zéro, une ou plusieurs entrées de liste verte, où chaque entrée est un fichier avec un nom qui est le hachage SHA-2 d’un EKpub approuvé, sans extension de fichier. 
         La création ou la modification de cette configuration de clé de Registre nécessite un redémarrage de l’autorité de certification, tout comme les paramètres de configuration du registre de l’autorité de certification existants. Toutefois, les modifications apportées au paramètre de configuration prennent effet immédiatement et ne nécessitent pas le redémarrage de l’autorité de certification.  
@@ -225,17 +225,17 @@ Les champs d’attestation de clé ne sont pas disponibles si les paramètres de
   
 1.  Les paramètres de compatibilité ne sont pas configurés correctement. Assurez-vous qu’ils sont configurés comme suit :  
   
-    1.  **Autorité de certification** : **Windows Server 2012 R2**  
+    1.  **Autorité de certification**: **Windows Server 2012 R2**  
   
     2.  **Destinataire du certificat**: **Windows 8.1/Windows Server 2012 R2**  
   
 2.  Les paramètres de chiffrement ne sont pas configurés correctement. Assurez-vous qu’ils sont configurés comme suit :  
   
-    1.  **Catégorie de fournisseur**: **Fournisseur de stockage de clés**  
+    1.  **Catégorie de fournisseur**: **fournisseur de stockage de clés**  
   
-    2.  **Nom de l’algorithme**: **DOTÉ**  
+    2.  **Nom de l’algorithme**: **RSA**  
   
-    3.  **Fournisseurs**: **Fournisseur de chiffrement de plateforme Microsoft**  
+    3.  **Fournisseurs**: **fournisseur de chiffrement de plateforme Microsoft**  
   
 3.  Les paramètres de traitement de la demande ne sont pas configurés correctement. Assurez-vous qu’ils sont configurés comme suit :  
   
@@ -277,4 +277,4 @@ Utilisez l’applet de commande Windows PowerShell, **Confirm-CAEndorsementKeyIn
   
 ## <a name="see-also"></a>Voir aussi  
 [Présentation de la technologie Module de plateforme sécurisée (TPM)](https://technet.microsoft.com/library/jj131725.aspx)  
-@no__t-ressource 0External : Module de plateforme sécurisée (TPM) @ no__t-0  
+[Ressource externe : Module de plateforme sécurisée (TPM)](http://www.cs.unh.edu/~it666/reading_list/Hardware/tpm_fundamentals.pdf)  

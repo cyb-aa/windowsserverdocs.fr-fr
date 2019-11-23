@@ -85,7 +85,7 @@ Get-Command
 Get-HgsAttestationPolicy
 ```
 
-Tapez la commande `Exit-PSSession` ou son alias, `exit`, lorsque vous avez fini d’utiliser la session JEA. 
+Tapez la commande `Exit-PSSession` ou son alias, `exit`lorsque vous avez fini d’utiliser la session JEA. 
 
 **Ajouter une nouvelle stratégie à SGH à l’aide du rôle administrateur**
 
@@ -138,7 +138,7 @@ Cette section décrit les étapes nécessaires à la préparation d’un tel sc�
 
 Tout d’abord, il est important de comprendre ce qui est important pour la sauvegarde de SGH.
 SGH conserve plusieurs informations qui l’aident à déterminer les hôtes autorisés à exécuter des machines virtuelles dotées d’une protection maximale.
-notamment :
+Cela comprend les éléments suivants :
 1. Active Directory identificateurs de sécurité pour les groupes contenant des hôtes approuvés (lors de l’utilisation d’Active Directory attestation);
 2. Identificateurs TPM uniques pour chaque hôte de votre environnement ;
 3. Stratégies TPM pour chaque configuration unique de l’hôte ; les
@@ -201,7 +201,7 @@ Export-HgsServerState -Path C:\temp\HGSBackup.xml
 
 **Sauvegarde des certificats**
 
-La commande `Export-HgsServerState` permet de sauvegarder tous les certificats PFX ajoutés à SGH au moment de l’exécution de la commande.
+La commande `Export-HgsServerState` sauvegardera tous les certificats PFX ajoutés à SGH au moment de l’exécution de la commande.
 Si vous avez ajouté des certificats à SGH à l’aide d’une empreinte numérique (typique pour les certificats non exportables et sauvegardés sur le matériel), vous devrez sauvegarder manuellement les clés privées de vos certificats.
 Pour identifier les certificats inscrits auprès de SGH et qui doivent être sauvegardés manuellement, exécutez la commande PowerShell suivante sur n’importe quel nœud de serveur SGH opérationnel.
 
@@ -221,7 +221,7 @@ L’état du serveur SGH sauvegardé n’inclut pas le nom de votre cluster SGH,
 Ces paramètres sont importants pour des tâches de cohérence, mais ils ne sont pas essentiels pour remettre en ligne votre cluster SGH après un incident.
 
 Pour capturer le nom du service SGH, exécutez `Get-HgsServer` et notez le nom plat dans les URL d’attestation et de protection de clé.
-Par exemple, si l’URL d’attestation est « <http://hgs.contoso.com/Attestation> », « SGH » est le nom du service SGH.
+Par exemple, si l’URL d’attestation est «<http://hgs.contoso.com/Attestation>», « SGH » est le nom du service SGH.
 
 Le domaine Active Directory utilisé par SGH doit être géré comme tout autre domaine Active Directory.
 Lors de la restauration du SGH après un incident, vous n’aurez pas forcément besoin de recréer les objets exacts présents dans le domaine actuel.
@@ -355,8 +355,8 @@ Hgs_BitLockerEnabled           | Nécessite l’activation de BitLocker sur l’
 Hgs_IommuEnabled               | Requiert l’utilisation d’un appareil IOMMU par l’hôte pour empêcher les attaques d’accès direct à la mémoire. La désactivation de cette stratégie et l’utilisation d’ordinateurs hôtes sans un IOMMU activé peuvent exposer les secrets des machines virtuelles clientes pour les attaques de mémoire directe.
 Hgs_NoHibernation              | Nécessite la désactivation de la mise en veille prolongée sur l’hôte Hyper-V. La désactivation de cette stratégie peut permettre aux hôtes d’enregistrer la mémoire de machine virtuelle protégée dans un fichier de mise en veille prolongée non chiffré.
 Hgs_NoDumps                    | Nécessite la désactivation des vidages de mémoire sur l’hôte Hyper-V. Si vous désactivez cette stratégie, il est recommandé de configurer le chiffrement de vidage pour empêcher l’enregistrement de la mémoire de machine virtuelle protégée dans des fichiers de vidage sur incident non chiffrés.
-Hgs_DumpEncryption             | Requiert des vidages de mémoire, s’ils sont activés sur l’hôte Hyper-V, à chiffrer avec une clé de chiffrement approuvée par SGH. Cette stratégie ne s’applique pas si les dumps ne sont pas activés sur l’ordinateur hôte. Si cette stratégie et les paramètres *SGH @ no__t-1NoDumps* sont tous deux désactivés, la mémoire de machine virtuelle protégée peut être enregistrée dans un fichier dump non chiffré.
-Hgs_DumpEncryptionKey          | Stratégie négative pour garantir que les hôtes configurés pour autoriser les vidages de mémoire utilisent une clé de chiffrement de fichier dump définie par l’administrateur, connue de SGH. Cette stratégie ne s’applique pas lorsque *SGH @ no__t-1DumpEncryption* est désactivé.
+Hgs_DumpEncryption             | Requiert des vidages de mémoire, s’ils sont activés sur l’hôte Hyper-V, à chiffrer avec une clé de chiffrement approuvée par SGH. Cette stratégie ne s’applique pas si les dumps ne sont pas activés sur l’ordinateur hôte. Si cette stratégie et les *Novidages de\_SGH* sont désactivés, la mémoire de machine virtuelle protégée peut être enregistrée dans un fichier dump non chiffré.
+Hgs_DumpEncryptionKey          | Stratégie négative pour garantir que les hôtes configurés pour autoriser les vidages de mémoire utilisent une clé de chiffrement de fichier dump définie par l’administrateur, connue de SGH. Cette stratégie ne s’applique pas quand le *DumpEncryption\_SGH* est désactivé.
 
 ### <a name="authorizing-new-guarded-hosts"></a>Autorisation des nouveaux hôtes service Guardian
 Pour autoriser un nouvel hôte à devenir un hôte service Guardian (par exemple, attestation réussie), SGH doit approuver l’hôte et (lorsqu’il est configuré pour utiliser l’attestation de confiance TPM) le logiciel en cours d’exécution.
@@ -394,7 +394,7 @@ Add-HgsAttestationHostGroup -Name "Contoso Guarded Hosts" -Identifier "S-1-5-21-
 Des instructions sur la configuration de l’approbation entre le domaine hôte et le groupe de sécurité (SGH) sont disponibles dans le Guide de déploiement.
 
 #### <a name="tpm-trusted-attestation"></a>Attestation approuvée par le module de plateforme sécurisée
-Lorsque SGH est configuré en mode TPM, les hôtes doivent réussir toutes les stratégies verrouillées et les stratégies « activées » préfixées par « Hgs_ », ainsi qu’au moins une ligne de base du module de plateforme sécurisée, un identificateur TPM et une stratégie d’intégrité du code.
+Lorsque SGH est configuré en mode TPM, les hôtes doivent réussir toutes les stratégies verrouillées et les stratégies « activées » préfixées par le préfixe « Hgs_ », ainsi qu’au moins une ligne de base du module de plateforme sécurisée, un identificateur de module de plateforme sécurisée et une stratégie d’intégrité du code.
 Chaque fois que vous ajoutez un nouvel ordinateur hôte, vous devez inscrire le nouvel identificateur du module de plateforme sécurisée auprès de SGH.
 Tant que l’hôte exécute le même logiciel (et que la même stratégie d’intégrité du code est appliquée) et la ligne de base du module de plateforme sécurisée en tant qu’autre hôte dans votre environnement, vous n’avez pas besoin d’ajouter de nouvelles stratégies ou de nouvelles lignes de base.
 
@@ -468,7 +468,7 @@ Add-HgsAttestationCiPolicy -Name 'WS2016-Hardware01' -Path 'C:\temp\ws2016-hardw
 
 **Ajout d’une clé de chiffrement d’image mémoire**
 
-Lorsque la stratégie *SGH @ no__t-1NoDumps* est désactivée et que la stratégie *SGH @ no__t-3DumpEncryption* est activée, les hôtes service Guardian peuvent avoir des vidages de mémoire (y compris des vidages sur incident) à activer tant que ces vidages sont chiffrés. Les hôtes service Guardian ne réussissent l’attestation que s’ils ont des vidages de mémoire désactivés ou s’ils les chiffrent avec une clé connue du SGH. Par défaut, aucune clé de chiffrement de vidage n’est configurée sur SGH.
+Lorsque la stratégie de *Nodumps\_SGH* est désactivée et que la stratégie *DumpEncryption\_SGH* est activée, les hôtes service Guardian sont autorisés à avoir des vidages de mémoire (y compris des vidages sur incident) à activer tant que ces vidages sont chiffrés. Les hôtes service Guardian ne réussissent l’attestation que s’ils ont des vidages de mémoire désactivés ou s’ils les chiffrent avec une clé connue du SGH. Par défaut, aucune clé de chiffrement de vidage n’est configurée sur SGH.
 
 Pour ajouter une clé de chiffrement de vidage à SGH, utilisez l’applet de commande `Add-HgsAttestationDumpPolicy` pour fournir SGH avec le hachage de votre clé de chiffrement de vidage.
 Si vous capturez une ligne de base du module de plateforme sécurisée sur un ordinateur hôte Hyper-V configuré avec le chiffrement de vidage, le hachage est inclus dans le tcglog et peut être fourni à l’applet de commande `Add-HgsAttestationDumpPolicy`.
@@ -491,13 +491,13 @@ Pour plus d’informations sur la [configuration du chiffrement de vidage sur le
 #### <a name="check-if-the-system-passed-attestation"></a>Vérifier si l’attestation du système a réussi
 Après avoir enregistré les informations nécessaires avec SGH, vous devez vérifier si l’hôte passe l’attestation.
 Sur l’hôte Hyper-V nouvellement ajouté, exécutez `Set-HgsClientConfiguration` et fournissez les URL correctes pour votre cluster SGH.
-Ces URL peuvent être obtenues en exécutant `Get-HgsServer` sur tout nœud SGH.
+Ces URL peuvent être obtenues en exécutant `Get-HgsServer` sur n’importe quel nœud SGH.
 
 ```powershell
 Set-HgsClientConfiguration -KeyProtectionServerUrl 'http://hgs.bastion.local/KeyProtection' -AttestationServerUrl 'http://hgs.bastion.local/Attestation'
 ```
 
-Si l’état résultant n’indique pas «IsHostGuarded : True "vous devrez résoudre les problèmes de configuration.
+Si l’état résultant n’indique pas « IsHostGuarded : true », vous devez résoudre les problèmes de configuration.
 Sur l’ordinateur hôte dont l’attestation a échoué, exécutez la commande suivante pour obtenir un rapport détaillé sur les problèmes susceptibles de vous aider à résoudre l’échec de l’attestation.
 
 ```powershell
@@ -505,7 +505,7 @@ Get-HgsTrace -RunDiagnostics -Detailed
 ```
 
 > [!IMPORTANT]
-> Si vous utilisez Windows Server 2019 ou Windows 10, version 1809 et utilisez des stratégies d’intégrité du code, `Get-HgsTrace` peut retourner un échec pour la **stratégie d’intégrité du code active** diagnostic.
+> Si vous utilisez Windows Server 2019 ou Windows 10, version 1809 et que vous utilisez des stratégies d’intégrité du code, `Get-HgsTrace` pouvez retourner un échec pour la **stratégie d’intégrité du code active** diagnostic.
 > Vous pouvez ignorer ce résultat en toute sécurité lorsqu’il s’agit du seul diagnostic qui échoue.
 
 ### <a name="review-attestation-policies"></a>Examiner les stratégies d’attestation
@@ -586,7 +586,7 @@ Les deux raisons les plus courantes pour lesquelles vous ajoutez de nouvelles cl
 
 Le processus d’ajout de vos nouvelles clés diffère selon le type de certificat que vous utilisez.
 
-@no__t 0Option 1 : Ajout d’un certificat stocké dans un HSM @ no__t-0
+**Option 1 : ajout d’un certificat stocké dans un module HSM**
 
 Notre approche recommandée pour sécuriser les clés SGH consiste à utiliser des certificats créés dans un module de sécurité matériel (HSM).
 Les modules HSM garantissent l’utilisation de vos clés sont liés à un accès physique à un appareil sensible à la sécurité dans votre centre de données.
@@ -607,7 +607,7 @@ Consultez la documentation de votre fournisseur HSM pour obtenir des étapes et 
     Add-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint "99887766554433221100FFEEDDCCBBAA"
     ```
 
-@no__t 0Option 2 : Ajout de certificats de logiciel non exportables @ no__t-0
+**Option 2 : ajout de certificats logiciels non exportables**
 
 Si vous disposez d’un certificat logiciel émis par le de votre entreprise ou une autorité de certification publique disposant d’une clé privée non exportable, vous devez ajouter votre certificat à SGH à l’aide de son empreinte numérique.
 1. Installez le certificat sur votre ordinateur en fonction des instructions de votre autorité de certification.
@@ -622,7 +622,7 @@ Si vous disposez d’un certificat logiciel émis par le de votre entreprise ou 
 > Vous devez installer manuellement la clé privée et accorder l’accès en lecture au compte gMSA sur chaque nœud SGH.
 > SGH ne peut pas répliquer automatiquement des clés privées pour *un* certificat enregistré par son empreinte numérique.
 
-@no__t 0Option 3 : Ajout de certificats stockés dans des fichiers PFX @ no__t-0
+**Option 3 : ajout de certificats stockés dans des fichiers PFX**
 
 Si vous disposez d’un certificat logiciel avec une clé privée exportable qui peut être stockée au format de fichier PFX et sécurisée à l’aide d’un mot de passe, SGH peut automatiquement gérer vos certificats pour vous.
 Les certificats ajoutés aux fichiers PFX sont automatiquement répliqués sur chaque nœud de votre cluster SGH et SGH sécurise l’accès aux clés privées.
@@ -714,7 +714,7 @@ Pour chaque machine virtuelle protégée, procédez comme suit :
 
 Une fois que toutes les machines virtuelles ont été mises à jour pour autoriser les nouvelles clés Guardian, vous pouvez désactiver et supprimer les anciennes clés.
 
-13. Obtient les empreintes numériques des anciens certificats de `Get-HgsKeyProtectionCertificate -IsPrimary $false`
+13. Récupérez les empreintes des anciens certificats de `Get-HgsKeyProtectionCertificate -IsPrimary $false`
 
 14. Désactivez chaque certificat en exécutant les commandes suivantes :  
 

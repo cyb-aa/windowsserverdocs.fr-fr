@@ -18,12 +18,12 @@ ms.locfileid: "71407996"
 ---
 # <a name="planning-your-deployment"></a>Planification de votre déploiement
 
-Lorsque vous planifiez la collaboration entre @ no__t-0organizational \(federation @ no__t-2based @ no__t-3 à l’aide d’Services ADFS \(AD FS @ no__t-5, déterminez d’abord si votre organisation doit héberger une ressource Web accessible par d’autres organisations sur Internet ou si vous fournissez un accès à la ressource Web pour les employés de votre organisation. Cette détermination affecte la façon dont vous déployez AD FS, et il est fondamental dans la planification de votre infrastructure AD FS.  
+Lorsque vous envisagez de croiser les\-de la Fédération \(de l’organisation\-basées sur la\) à l’aide de services ADFS \(AD FS\), déterminez d’abord si votre organisation hébergera une ressource Web accessible par d’autres organisations via Internet ou si vous fournirez un accès à la ressource Web pour les employés de votre organisation. Cette détermination affecte la façon dont vous déployez AD FS, et il est fondamental dans la planification de votre infrastructure AD FS.  
   
 > [!NOTE]  
 > Assurez-vous que le rôle que joue l’organisation dans l’accord de fédération est clairement compris par toutes les parties.  
   
-Pour la [conception SSO de Web fédéré](Federated-Web-SSO-Design.md), AD FS utilise des termes tels que le *partenaire de compte* \(also appelé « *fournisseur d’identité* » dans le composant logiciel enfichable de gestion des AD FS de gestion @ no__t-fois WVGA @ no__t-5 et le *partenaire de ressource* \(also appelé  *partie de confiance* dans le composant logiciel enfichable de gestion de AD FS @ no__t-9in @ no__t-10 pour aider à différencier l’organisation qui héberge les comptes 1La compte partenaire @ no__t-12 de l’organisation qui héberge les ressources Web @ no__t-13based 4 ressources partenaire @ no__t-15.  
+Pour la [conception SSO de Web fédéré](Federated-Web-SSO-Design.md), AD FS utilise des termes tels que le *partenaire de compte* \(également appelé *fournisseur d’identité* dans le\-du composant logiciel enfichable de gestion AD FS dans\) et partenaire de *ressource* \(également appelé *partie de confiance* dans AD FS le composant logiciel enfichable de gestion\-dans\) pour différencier l’organisation qui héberge les comptes \(le partenaire de compte\) de l’organisation qui héberge les\)du partenaire de ressource.\-\(  
   
 Dans la [Web SSO Design](Web-SSO-Design.md), l’entreprise intervient dans les rôles de compte partenaire et de ressource partenaire, car elle fournit à ses utilisateurs l’accès aux applications.  
   

@@ -17,18 +17,18 @@ ms.locfileid: "71396451"
 ---
 # <a name="network-policy-server-management-with-administration-tools"></a>Gestion des serveurs NPS avec les Outils d'administration
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour en savoir plus sur les outils que vous pouvez utiliser pour gérer vos NPSs.
 
 Après avoir installé NPS, vous pouvez administrer NPSs :
 
-- Localement, en utilisant le composant logiciel enfichable NPS Microsoft Management Console \(MMC @ no__t-1, la console NPS statique dans outils d’administration, les commandes Windows PowerShell ou l’interpréteur de commandes réseau \(Netsh @ no__t-3 pour NPS.
+- Localement, en utilisant le composant logiciel enfichable MMC de la console de gestion Microsoft \(\) MMC, la console NPS statique dans outils d’administration, commandes Windows PowerShell ou l’interpréteur de commandes réseau \(les commandes netsh\) pour NPS.
 - À partir d’un serveur NPS distant, en utilisant le composant logiciel enfichable MMC NPS, les commandes netsh pour NPS, les commandes Windows PowerShell pour NPS ou Connexion Bureau à distance.
 - À partir d’une station de travail distante, en utilisant Connexion Bureau à distance conjointement avec d’autres outils, tels que le MMC NPS ou Windows PowerShell.
 
 >[!NOTE]
->Dans Windows Server 2016, vous pouvez gérer le serveur NPS local à l’aide de la console NPS. Pour gérer les NPSs distants et locaux, vous devez utiliser le composant logiciel enfichable MMC NPS @ no__t-0in.
+>Dans Windows Server 2016, vous pouvez gérer le serveur NPS local à l’aide de la console NPS. Pour gérer à la fois les NPSs distants et locaux, vous devez utiliser le composant logiciel enfichable MMC NPS\-dans.
 
 Les sections suivantes fournissent des instructions sur la gestion de vos NPSs locaux et distants.
 
@@ -44,32 +44,32 @@ Pour effectuer cette procédure, vous devez être membre du groupe administrateu
 
 1. Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **serveur NPS (Network Policy Server**). La console NPS s’ouvre.
 
-2. Dans la console NPS, cliquez sur @no__t NPS-0Local @ no__t-1. Dans le volet d’informations, choisissez **configuration standard** ou **Configuration avancée**, puis effectuez l’une des opérations suivantes en fonction de votre sélection :
+2. Dans la console NPS, cliquez sur serveur NPS \(\)local. Dans le volet d’informations, choisissez **configuration standard** ou **Configuration avancée**, puis effectuez l’une des opérations suivantes en fonction de votre sélection :
     - Si vous choisissez **configuration standard**, sélectionnez un scénario dans la liste, puis suivez les instructions pour démarrer un Assistant Configuration.
     - Si vous choisissez **Configuration avancée**, cliquez sur la flèche pour développer les **options de configuration avancées**, puis examinez et configurez les options disponibles en fonction de la fonctionnalité NPS souhaitée : serveur RADIUS, proxy RADIUS, ou les deux.
 
-## <a name="manage-multiple-npss-by-using-the-nps-mmc-snap-in"></a>Gérer plusieurs NPSs à l’aide du composant logiciel enfichable MMC NPS @ no__t-0in
+## <a name="manage-multiple-npss-by-using-the-nps-mmc-snap-in"></a>Gérer plusieurs NPSs à l’aide du composant logiciel enfichable MMC NPS\-dans
 
-Vous pouvez utiliser cette procédure pour gérer le serveur NPS local et plusieurs NPSs distants à l’aide du composant logiciel enfichable MMC NPS @ no__t-0in.
+Vous pouvez utiliser cette procédure pour gérer le serveur NPS local et plusieurs NPSs distants à l’aide du composant logiciel enfichable MMC NPS\-dans.
 
 Avant d’effectuer la procédure ci-dessous, vous devez installer le serveur NPS sur l’ordinateur local et sur des ordinateurs distants.
 
-En fonction des conditions du réseau et du nombre de NPSs que vous gérez à l’aide du composant logiciel enfichable MMC NPS @ no__t-0in, la réponse du Snap MMC @ no__t-1Dans peut être lente. En outre, le trafic de configuration NPS est envoyé sur le réseau au cours d’une session d’administration à distance à l’aide du composant logiciel enfichable NPS @ no__t-0in. Assurez-vous que votre réseau est physiquement sécurisé et que les utilisateurs malveillants n’ont pas accès à ce trafic réseau.
+En fonction des conditions du réseau et du nombre de NPSs que vous gérez à l’aide du composant logiciel enfichable MMC NPS\-dans, la réponse de la\-du composant logiciel enfichable MMC dans peut être lente. En outre, le trafic de configuration NPS est envoyé sur le réseau au cours d’une session d’administration à distance à l’aide de la\-du composant logiciel enfichable NPS dans. Assurez-vous que votre réseau est physiquement sécurisé et que les utilisateurs malveillants n’ont pas accès à ce trafic réseau.
 
 **Informations d’identification d’administration** 
 
 Pour effectuer cette procédure, vous devez être membre du groupe administrateurs.
 
-### <a name="to-manage-multiple-npss-by-using-the-nps-snap-in"></a>Pour gérer plusieurs NPSs à l’aide du composant logiciel enfichable NPS @ no__t-0in
+### <a name="to-manage-multiple-npss-by-using-the-nps-snap-in"></a>Pour gérer plusieurs NPSs à l’aide de la\-du composant logiciel enfichable NPS dans
 
 1. Pour ouvrir la console MMC, exécutez Windows PowerShell en tant qu’administrateur. Dans Windows PowerShell, tapez **MMC**, puis appuyez sur entrée. La console Microsoft Management Console s’ouvre.
-2. Dans la console MMC, dans le menu **fichier** , cliquez sur **Ajouter/supprimer un composant logiciel enfichable @ no__t-2in**. La boîte de dialogue **Ajouter ou supprimer un composant logiciel enfichable @ no__t-1ins** s’ouvre.
-3. Dans **Ajouter ou supprimer un composant logiciel enfichable @ no__t-1ins**, dans le **composant logiciel enfichable | No__t-3ins disponible**, faites défiler la liste, cliquez sur **serveur de stratégie réseau**, puis sur **Ajouter**. La boîte de dialogue **Sélectionner un ordinateur** s'affiche.
-4. Dans **Sélectionner un ordinateur**, vérifiez que l' **ordinateur local \(La ordinateur sur lequel cette console exécute @ no__t-3** est sélectionné, puis cliquez sur **OK**. Le composant logiciel enfichable @ no__t-0in pour le serveur NPS local est ajouté à la liste dans le **composant logiciel enfichable | no__t-2Ins sélectionné**.
-5. Dans **Ajouter ou supprimer un composant logiciel enfichable @ no__t-1ins**, dans **le composant logiciel enfichable | No__t-3ins disponible**, assurez-vous que **serveur NPS** est toujours sélectionné, puis cliquez sur **Ajouter**. La boîte de dialogue **Sélectionner un ordinateur** s’ouvre à nouveau.
-6. Dans **Sélectionner un ordinateur**, cliquez sur **un autre ordinateur**, puis tapez l’adresse IP ou le nom de domaine complet \(FQDN @ NO__T-3 du serveur NPS distant que vous souhaitez gérer à l’aide du composant logiciel enfichable NPS @ no__t-fois WVGA. Si vous le souhaitez, vous pouvez cliquer sur **Parcourir pour consulter** le répertoire de l’ordinateur que vous souhaitez ajouter. Cliquez sur **OK**.
-7. Répétez les étapes 5 et 6 pour ajouter d’autres NPSs au composant logiciel enfichable NPS @ no__t-0in. Une fois que vous avez ajouté tous les NPSs que vous souhaitez gérer, cliquez sur **OK**.
-8. Pour enregistrer le composant logiciel enfichable NPS en vue d’une utilisation ultérieure, cliquez sur **fichier**, puis sur **Enregistrer**. Dans la boîte de dialogue **Enregistrer sous** , accédez à l’emplacement du disque dur où vous souhaitez enregistrer le fichier, tapez un nom pour votre console de gestion Microsoft @no__t 1 -1. msc @ no__t-2, puis cliquez sur **Enregistrer**. 
+2. Dans la console MMC, dans le menu **fichier** , cliquez sur **Ajouter/supprimer un composant logiciel enfichable\-dans**. La boîte de dialogue **Ajouter ou supprimer un composant logiciel enfichable\-** s’ouvre.
+3. Dans **Ajouter ou supprimer un composant logiciel enfichable\-ins**, dans les **\-enfichables disponibles**, faites défiler la liste, cliquez sur **serveur NPS (Network Policy Server**), puis cliquez sur **Ajouter**. La boîte de dialogue **Sélectionner un ordinateur** s'affiche.
+4. Dans **Sélectionner un ordinateur**, vérifiez que **l’ordinateur local \(l’ordinateur sur lequel cette console s’exécute\)** est sélectionné, puis cliquez sur **OK**. Le\-d’alignement de pour le serveur NPS local est ajouté à la liste dans les **\-d’accrochage sélectionnés**.
+5. Dans **Ajouter ou supprimer un composant logiciel enfichable\-ins**, dans composants **logiciels enfichables\-disponibles**, assurez-vous que le **serveur NPS** est toujours sélectionné, puis cliquez sur **Ajouter**. La boîte de dialogue **Sélectionner un ordinateur** s’ouvre à nouveau.
+6. Dans **Sélectionner un ordinateur**, cliquez sur **un autre ordinateur**, puis tapez l’adresse IP ou le nom de domaine complet \(\) de noms de domaine complet du serveur NPS distant que vous souhaitez gérer à l’aide du composant logiciel enfichable NPS\-dans. Si vous le souhaitez, vous pouvez cliquer sur **Parcourir pour consulter** le répertoire de l’ordinateur que vous souhaitez ajouter. Cliquez sur **OK**.
+7. Répétez les étapes 5 et 6 pour ajouter d’autres NPSs à la\-du composant logiciel enfichable NPS dans. Une fois que vous avez ajouté tous les NPSs que vous souhaitez gérer, cliquez sur **OK**.
+8. Pour enregistrer le composant logiciel enfichable NPS en vue d’une utilisation ultérieure, cliquez sur **fichier**, puis sur **Enregistrer**. Dans la boîte de dialogue **Enregistrer sous** , accédez à l’emplacement du disque dur où vous souhaitez enregistrer le fichier, tapez un nom pour le fichier de\) de votre console de gestion Microsoft \(. msc, puis cliquez sur **Enregistrer**. 
 
 ## <a name="manage-an-nps-by-using-remote-desktop-connection"></a>Gérer un serveur NPS à l’aide de Connexion Bureau à distance
 
@@ -80,7 +80,7 @@ Vous pouvez utiliser cette procédure pour gérer un serveur NPS distant à l’
 Vous pouvez utiliser Bureau à distance connexion pour gérer plusieurs NPSs à l’aide de l’une des deux méthodes.
 
 1. Créez une connexion Bureau à distance à chacun de vos NPSs individuellement.
-2. Utilisez Bureau à distance pour vous connecter à un serveur NPS, puis utilisez la console MMC NPS sur ce serveur pour gérer d’autres serveurs distants. Pour plus d’informations, consultez la section précédente **gérer plusieurs NPSs à l’aide du composant logiciel enfichable MMC NPS @ no__t-1Dans**.
+2. Utilisez Bureau à distance pour vous connecter à un serveur NPS, puis utilisez la console MMC NPS sur ce serveur pour gérer d’autres serveurs distants. Pour plus d’informations, consultez la section précédente **gérer plusieurs NPSs à l’aide du composant logiciel enfichable MMC NPS\-dans**.
 
 **Informations d’identification d’administration** 
 
@@ -121,10 +121,10 @@ Pour effectuer cette procédure, vous devez être membre du groupe Administrateu
 1. Ouvrez l’invite de commandes ou Windows PowerShell.
 2. Tapez **netsh**, puis appuyez sur entrée.
 3. Tapez **NPS**, puis appuyez sur entrée.
-4. Pour afficher la liste des commandes disponibles, tapez un point d’interrogation \( ? \) et appuyez sur entrée.
+4. Pour afficher la liste des commandes disponibles, tapez un point d’interrogation \(?\) et appuyez sur entrée.
 
 
-Pour plus d’informations sur les commandes netsh NPS, consultez [commandes netsh pour le serveur NPS (Network Policy Server) dans Windows Server 2008](https://technet.microsoft.com/library/cc754428(v=ws.10).aspx)ou téléchargez la totalité de la [référence technique netsh](https://gallery.technet.microsoft.com/Netsh-Technical-Reference-c46523dc?redir=0) à partir de la Galerie technet. Ce téléchargement est la référence technique complète de Network Shell pour Windows Server 2008 et Windows Server 2008 R2. Le format est Windows Help \( *. chm @ no__t-1 dans un fichier zip. Ces commandes étant toujours présentes dans Windows Server 2016 et Windows 10, vous pouvez utiliser Netsh dans ces environnements, bien que l’utilisation de Windows PowerShell soit recommandée.
+Pour plus d’informations sur les commandes netsh NPS, consultez [commandes netsh pour le serveur NPS (Network Policy Server) dans Windows Server 2008](https://technet.microsoft.com/library/cc754428(v=ws.10).aspx)ou téléchargez la totalité de la [référence technique netsh](https://gallery.technet.microsoft.com/Netsh-Technical-Reference-c46523dc?redir=0) à partir de la Galerie technet. Ce téléchargement est la référence technique complète de Network Shell pour Windows Server 2008 et Windows Server 2008 R2. Le format est Windows Help \(*. chm\) dans un fichier zip. Ces commandes étant toujours présentes dans Windows Server 2016 et Windows 10, vous pouvez utiliser Netsh dans ces environnements, bien que l’utilisation de Windows PowerShell soit recommandée.
 
 ## <a name="use-windows-powershell-to-manage-npss"></a>Utiliser Windows PowerShell pour gérer NPSs
 

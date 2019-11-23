@@ -18,7 +18,7 @@ ms.locfileid: "71369565"
 ---
 # <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Nouveautés relatives à l’installation et à la suppression des services de domaine Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Le déploiement de Active Directory Domain Services (AD DS) dans Windows Server 2012 est plus simple et plus rapide que dans les versions précédentes de Windows Server. Le processus d’installation des services AD DS repose à présent sur Windows PowerShell et est intégré au Gestionnaire de serveur. Le nombre d’étapes requises pour introduire des contrôleurs de domaine dans un environnement Active Directory existant est en baisse, ce qui rend le processus de création d’un environnement Active Directory plus simple et plus efficace. Le nouveau processus de déploiement des services AD DS réduit au minimum le risque d’erreurs susceptibles de bloquer l’installation.  
   
@@ -43,7 +43,7 @@ L’installation des services AD DS comprend les fonctionnalités suivantes :
 > [!WARNING]  
 > Le Assistant Installation Active Directory Domain Services hérité (Dcpromo. exe) est déconseillé à partir de Windows Server 2012.  
 
-Dans [installer le &#40;niveau de&#41;Active Directory Domain Services 100](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md), les procédures de l’interface utilisateur montrent comment démarrer l’Assistant Ajout de rôles pour installer les fichiers binaires du rôle de serveur AD DS, puis exécuter l’Assistant Configuration de Active Directory Domain Services pour effectuer installation du contrôleur de domaine. Les exemples Windows PowerShell montrent comment effectuer les deux étapes à l’aide d’une applet de commande de déploiement AD DS.  
+Dans [installer le &#40;niveau de&#41;Active Directory Domain Services 100](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md), les procédures de l’interface utilisateur montrent comment démarrer l’Assistant Ajout de rôles pour installer les fichiers binaires du rôle de serveur AD DS, puis exécuter l’Assistant Configuration de Active Directory Domain Services pour terminer l’installation du contrôleur de domaine. Les exemples Windows PowerShell montrent comment effectuer les deux étapes à l’aide d’une applet de commande de déploiement AD DS.  
   
 ## <a name="BKMK_NewAdprep"></a>Intégration d’Adprep. exe
 
@@ -110,17 +110,17 @@ L’Assistant Installation des services de domaine Active Directory vérifie que
   
 Parmi les conditions préalables liées à Adprep, citons les suivantes :  
 
-- Vérification des informations d’identification Adprep : si l’exécution d’Adprep s’avère nécessaire, l’Assistant Installation vérifie que l’utilisateur dispose de droits suffisants pour exécuter les opérations Adprep requises.  
-- Vérification de la disponibilité du contrôleur de schéma : si l’Assistant Installation détermine que la commande adprep /forestprep doit être exécutée, il vérifie que le contrôleur de schéma est en ligne ; sinon, il échoue.  
-- Vérification de la disponibilité du maître d’infrastructure : si l’Assistant Installation détermine que la commande adprep /domainprep doit être exécutée, il vérifie que le maître d’infrastructure est en ligne ; sinon, il échoue.
+- Vérification des informations d’identification d’adprep : si l’exécution d’adprep s’avère nécessaire, l’Assistant Installation vérifie que l’utilisateur dispose de droits suffisants pour exécuter les opérations Adprep requises.  
+- Vérification de la disponibilité du contrôleur de schéma : si l’Assistant Installation détermine que la commande adprep /forestprep doit être exécutée, il vérifie que le contrôleur de schéma est en ligne ; sinon, il échoue.  
+- Vérification de la disponibilité du maître d’infrastructure : si l’Assistant Installation détermine que la commande adprep /domainprep doit être exécutée, il vérifie que le maître d’infrastructure est en ligne ; sinon, il échoue.
 
 Voici d’autres vérifications des conditions préalables qui sont issues de l’Assistant Installation des services de domaine Active Directory hérité (dcpromo.exe) :  
 
-- Vérification du nom de la forêt : vérifie que le nom de la forêt est valide et qu’il n’est pas déjà utilisé.  
-- Vérification du nom NetBIOS : vérifie que le nom NetBIOS fourni est valide et qu’il n’est pas en conflit avec des noms existants.  
+- Vérification du nom de la forêt : vérifie que le nom de la forêt est valide et qu’il n’est pas déjà utilisé.  
+- Vérification du nom NetBIOS : vérifie que le nom NetBIOS fourni est valide et qu’il n’est pas en conflit avec des noms existants.  
 - Vérification des chemins d’accès des composants : vérifie que les chemins d’accès pour la base de données Active Directory, les journaux et SYSVOL sont valides et que l’espace disque nécessaire pour les prendre en charge est suffisant.  
-- Vérification du nom du domaine enfant : vérifie que les noms du parent et du nouveau domaine enfant sont valides et qu’ils ne sont pas en conflit avec des domaines existants.  
-- Vérification du nom du domaine de l’arborescence : vérifie que le nom de l’arborescence spécifié est valide et qu’il n’existe pas actuellement.  
+- Vérification du nom du domaine enfant : vérifie que les noms du parent et du nouveau domaine enfant sont valides et qu’ils ne sont pas en conflit avec des domaines existants.  
+- Vérification du nom du domaine de l’arborescence : vérifie que le nom de l’arborescence spécifié est valide et qu’il n’existe pas actuellement.  
 
 ## <a name="BKMK_SystemReqs"></a>Configuration système requise
 
@@ -168,7 +168,7 @@ Cette section répertorie certains des problèmes connus qui affectent AD DS ins
 
    Le message d’erreur retourné dans ce cas est le suivant :  
 
-   Impossible de se connecter au contrôleur de domaine source de réplication *nom du contrôleur de domaine source*. (Exception : (Échec de l’ouverture de session : nom d’utilisateur inconnu ou mot de passe incorrect)  
+   Impossible de se connecter au contrôleur de domaine source de réplication *nom du contrôleur de domaine source*. (Exception : Échec de l’ouverture de session : nom d’utilisateur inconnu ou mot de passe incorrect)  
 
    Si vous joignez le serveur cible au domaine, puis effectuez l’installation à l’aide d’une carte à puce, l’installation aboutit.  
   
@@ -176,7 +176,7 @@ Cette section répertorie certains des problèmes connus qui affectent AD DS ins
 
    Dans ce cas, vous devez exécuter l’applet de commande ADDSDeployment séparément de l’applet de commande qui ne prend pas en charge les processus 64 bits natifs.  
 
-- Il existe un nouveau système de fichiers dans Windows Server 2012 nommé système de fichiers résilient. Ne stockez pas la base de données Active Directory, les fichiers journaux ou SYSVOL sur un volume de données au format ReFS. Pour plus d’informations sur ReFS, consultez [Building le système de fichiers de nouvelle génération pour Windows : ReFS @ no__t-0.  
+- Il existe un nouveau système de fichiers dans Windows Server 2012 nommé système de fichiers résilient. Ne stockez pas la base de données Active Directory, les fichiers journaux ou SYSVOL sur un volume de données au format ReFS. Pour plus d’informations sur ReFS, consultez [Génération du système de fichiers de prochaine génération pour Windows : ReFS](http://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx).  
 - Dans Gestionnaire de serveur, les serveurs qui exécutent AD DS ou d’autres rôles serveur sur une installation Server Core et ont été mis à niveau vers Windows Server 2012, le rôle de serveur peut apparaître en rouge, même si les événements et l’État sont collectés comme prévu. Les serveurs qui exécutent une installation Server Core d’une version préliminaire de Windows Server 2012 peuvent également être affectés.  
 
 ### <a name="active-directory-domain-services-installation-hangs-if-an-error-prevents-critical-replication"></a>L’installation des services de domaine Active Directory se bloque si une erreur empêche une réplication critique.

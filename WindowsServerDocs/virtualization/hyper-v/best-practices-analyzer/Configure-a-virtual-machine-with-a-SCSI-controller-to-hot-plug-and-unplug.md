@@ -19,7 +19,7 @@ ms.locfileid: "71365070"
 ---
 # <a name="configure-a-virtual-machine-with-a-scsi-controller-to-be-able-to-hot-plug-and-hot-unplug-storage"></a>Configurer un ordinateur virtuel avec un contrôleur SCSI pour pouvoir brancher et débrancher à chaud le stockage
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 
   
@@ -29,7 +29,7 @@ ms.locfileid: "71365070"
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -42,13 +42,13 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 *Vous ne serez pas en mesure de brancher ou débrancher à chaud le stockage pour les machines virtuelles suivantes :*  
   
-@no__t 0list de noms de machines virtuelles >  
+\<liste des noms de machine virtuelle >  
   
 La possibilité de brancher à chaud ou de débrancher le stockage permet de gérer plus facilement les besoins de stockage d’un ordinateur virtuel sans temps d’arrêt. Les machines virtuelles sans contrôleurs SCSI doivent être arrêtées pour que vous puissiez ajouter ou supprimer du stockage.  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
-*If vous n’avez pas besoin de brancher à chaud ou de débrancher le stockage pour cette machine virtuelle, aucune action n’est nécessaire. Dans le cas contraire, arrêtez l’ordinateur virtuel et ajoutez un contrôleur SCSI à la configuration.*  
+*Si vous n’avez pas besoin de brancher à chaud ou de débrancher le stockage pour cette machine virtuelle, aucune action n’est nécessaire. Dans le cas contraire, arrêtez l’ordinateur virtuel et ajoutez un contrôleur SCSI à la configuration.*  
   
 Pour utiliser un contrôleur SCSI pour brancher et débrancher à chaud le stockage, le système d’exploitation invité doit exécuter la version actuelle d’Integration Services.  
   

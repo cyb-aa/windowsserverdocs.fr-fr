@@ -21,7 +21,7 @@ ms.locfileid: "71388661"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Étape 1 planifier l’infrastructure DirectAccess avancée
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 La première étape de la planification d'un déploiement avancé de DirectAccess sur un serveur unique consiste à planifier l'infrastructure requise pour le déploiement. Cette rubrique décrit les étapes de planification de l’infrastructure. Vous pouvez effectuer les tâches de planification dans l'ordre qui vous convient.  
   
@@ -66,7 +66,7 @@ Cette section explique comment planifier votre réseau, y compris :
   
     ||Carte réseau externe|Carte réseau interne|Exigences en matière de routage|  
     |-|--------------|--------------|------------|  
-    |Internet IPv4 et intranet IPv4|Configurez deux adresses IPv4 publiques statiques, consécutives avec les masques de sous-réseau appropriés (requis pour Teredo uniquement).<br/><br/>Configurez également l'adresse IPv4 de la passerelle par défaut de votre pare-feu Internet ou du routeur de votre fournisseur de services Internet local. **Remarque :** Le serveur DirectAccess requiert deux adresses IPv4 publiques consécutives pour pouvoir agir comme un serveur Teredo et pour que les clients Windows puissent utiliser le serveur DirectAccess pour détecter le type de périphérique NAT derrière lequel ils se trouvent.|Configurez ce qui suit :<br/><br/>-Une adresse intranet IPv4 avec le masque de sous-réseau approprié.<br/>-Suffixe DNS spécifique à la connexion de votre espace de noms intranet. Vous devez également configurer un serveur DNS sur l'interface interne. **Attention :** Ne configurez pas de passerelle par défaut sur toutes les interfaces intranet.|Pour configurer le serveur DirectAccess afin d'atteindre tous les sous-réseaux du réseau IPv4 interne, procédez comme suit :<br/><br/>-Répertorier les espaces d’adressage IPv4 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **route Add-p** ou**netsh interface ipv4 add route** pour ajouter les espaces d’adressage IPv4 en tant qu’itinéraires statiques dans la table de routage IPv4 du serveur DirectAccess.|  
+    |Internet IPv4 et intranet IPv4|Configurez deux adresses IPv4 publiques statiques, consécutives avec les masques de sous-réseau appropriés (requis pour Teredo uniquement).<br/><br/>Configurez également l'adresse IPv4 de la passerelle par défaut de votre pare-feu Internet ou du routeur de votre fournisseur de services Internet local. **Remarque :** Le serveur DirectAccess requiert deux adresses IPv4 publiques consécutives afin qu’il puisse agir en tant que serveur Teredo et que les clients Windows puissent utiliser le serveur DirectAccess pour détecter le type de périphérique NAT derrière lequel ils se trouvent.|Configurez ce qui suit :<br/><br/>-Une adresse intranet IPv4 avec le masque de sous-réseau approprié.<br/>-Suffixe DNS spécifique à la connexion de votre espace de noms intranet. Vous devez également configurer un serveur DNS sur l'interface interne. **Attention :** Ne configurez pas de passerelle par défaut sur les interfaces intranet.|Pour configurer le serveur DirectAccess afin d'atteindre tous les sous-réseaux du réseau IPv4 interne, procédez comme suit :<br/><br/>-Répertorier les espaces d’adressage IPv4 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **route Add-p** ou**netsh interface ipv4 add route** pour ajouter les espaces d’adressage IPv4 en tant qu’itinéraires statiques dans la table de routage IPv4 du serveur DirectAccess.|  
     |Internet IPv6 et intranet IPv6|Configurez ce qui suit :<br/><br/>-Utilisez la configuration d’adresses fournie par votre fournisseur de services Internet.<br/>-Utilisez la commande **route print** pour vous assurer qu’il existe un itinéraire IPv6 par défaut et qu’il pointe vers le routeur du fournisseur de services Internet dans la table de routage IPv6.<br/>-Déterminez si le fournisseur de services Internet et les routeurs intranet utilisent les préférences de routeur par défaut décrites dans le document RFC 4191 et utilisent une préférence par défaut supérieure à celle de vos routeurs intranet locaux.<br/>    Si vous avez répondu par l'affirmative dans les deux cas, aucune autre configuration n'est requise pour l'itinéraire par défaut. Une préférence plus élevée pour le routeur ISP permet de s'assurer que l'itinéraire IPv6 par défaut actif du serveur DirectAccess pointe vers Internet IPv6.<br/><br/>Étant donné que le serveur DirectAccess est un routeur IPv6, si vous disposez d'une infrastructure IPv6 native, l'interface Internet peut également atteindre les contrôleurs de domaine sur l'intranet. Dans ce cas, ajoutez des filtres de paquets au contrôleur de domaine dans le réseau de périmètre pour empêcher la connectivité IPv6 de l'interface Internet du serveur DirectAccess.|Configurez ce qui suit :<br/><br/>-Si vous n’utilisez pas les niveaux de préférence par défaut, vous pouvez configurer vos interfaces intranet à l’aide de la commande suivante :**netsh interface ipv6 set InterfaceIndex ignoredefaultroutes = Enabled**.<br/>    Cette commande vérifie que les itinéraires par défaut supplémentaires qui pointent vers les routeurs intranet ne seront pas ajoutés à la table de routage IPv6. Vous pouvez obtenir l’index de vos interfaces intranet à l’aide de la commande suivante : **netsh interface ipv6 show interface**.|Si vous avez un intranet IPv6, procédez comme suit pour configurer le serveur DirectAccess afin d'atteindre tous les emplacements IPv6 :<br/><br/>-Répertorier les espaces d’adressage IPv6 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **netsh interface ipv6 add route** pour ajouter les espaces d’adressage IPv6 en tant qu’itinéraires statiques dans la table de routage IPv6 du serveur DirectAccess.|  
     |Internet IPv4 et intranet IPv6|Le serveur DirectAccess transfère le trafic de l'itinéraire IPv6 par défaut via la carte Microsoft 6to4 à un relais 6to4 sur Internet IPv4. Vous pouvez configurer un serveur DirectAccess pour l'adresse IPv4 de la carte Microsoft 6to4 à l'aide de la commande suivante : `netsh interface ipv6 6to4 set relay name=<ipaddress> state=enabled`.|||  
   
@@ -84,7 +84,7 @@ Pour gérer des clients DirectAccess distants, IPv6 est requis. IPv6 permet aux 
 > - L'utilisation du protocole IPv6 sur votre réseau n'est pas requise pour prendre en charge les connexions initiées par les ordinateurs clients DirectAccess aux ressources IPv4 sur le réseau de votre organisation. NAT64/DNS64 est utilisé à ces fins.  
 > - Si vous n'administrez pas de clients DirectAccess distants, vous n'avez pas besoin de déployer IPv6.  
 > - Le protocole ISATAP (Intra-Site Automatic Tunnel Addressing Protocol) n'est pas pris en charge dans les déploiements de DirectAccess.  
-> - Lorsque vous utilisez IPv6, vous pouvez activer des requêtes d'enregistrement de ressource d'hôte IPv6 (AAAA) pour DNS64 en utilisant la commande Windows PowerShell suivante :   **Set-NetDnsTransitionConfiguration -OnlySendAQuery $false**.  
+> - Lorsque vous utilisez IPv6, vous pouvez activer des requêtes d'enregistrement de ressource d'hôte IPv6 (AAAA) pour DNS64 en utilisant la commande Windows PowerShell suivante : **Set-NetDnsTransitionConfiguration -OnlySendAQuery $false**.  
   
 ### <a name="113-plan-for-force-tunneling"></a>1.1.3 Planifier le tunneling forcé
 
@@ -317,7 +317,7 @@ DNS sert à résoudre les demandes des ordinateurs clients DirectAccess qui ne s
   
 -   Si la connexion échoue, les clients sont considérés comme étant sur Internet. Les clients DirectAccess utilisent la table de stratégie de résolution de noms (NRPT) pour déterminer quel serveur DNS utiliser pour résoudre les demandes de noms.  
   
-Vous pouvez préciser que les clients doivent utiliser DirectAccess DNS64 pour résoudre les noms, ou un autre serveur DNS interne. Pendant la résolution des noms, la table NRPT est utilisée par les clients DirectAccess pour identifier la manière de traiter une demande. Les clients demandent un nom de domaine complet (FQDN) ou un nom en une partie, tel que <https://internal>. Si un nom en une partie est demandé, un suffixe DNS est ajouté pour créer un nom de domaine complet (FQDN). Si la requête DNS correspond à une entrée dans la table NRPT, et que DNS64 ou un serveur DNS sur le réseau interne est spécifié pour l'entrée, alors la requête est envoyée pour la résolution de noms à l'aide du serveur spécifié. S'il existe une correspondance alors qu'aucun serveur DNS n'est spécifié, celle-ci indique une règle d'exemption et la résolution de noms habituelle est appliquée.  
+Vous pouvez préciser que les clients doivent utiliser DirectAccess DNS64 pour résoudre les noms, ou un autre serveur DNS interne. Pendant la résolution des noms, la table NRPT est utilisée par les clients DirectAccess pour identifier la manière de traiter une demande. Les clients demandent un nom de domaine complet (FQDN) ou un nom en une partie, par exemple <https://internal>. Si un nom en une partie est demandé, un suffixe DNS est ajouté pour créer un nom de domaine complet (FQDN). Si la requête DNS correspond à une entrée dans la table NRPT, et que DNS64 ou un serveur DNS sur le réseau interne est spécifié pour l'entrée, alors la requête est envoyée pour la résolution de noms à l'aide du serveur spécifié. S'il existe une correspondance alors qu'aucun serveur DNS n'est spécifié, celle-ci indique une règle d'exemption et la résolution de noms habituelle est appliquée.  
   
 > [!NOTE]  
 > Notez que quand un nouveau suffixe est ajouté à la table NRPT dans la console de gestion de l'accès à distance, vous avez la possibilité de détecter automatiquement les serveurs DNS par défaut pour le suffixe en cliquant sur **Détecter**.  
@@ -396,7 +396,7 @@ Vous pouvez être amené à créer des règles NRPT supplémentaires dans les ca
   
 **Noms en une partie**  
   
-Les noms en une partie, tels que <https://paycheck>, sont parfois utilisés pour les serveurs intranet. Si un nom en une partie est demandé et qu'une liste de recherche de suffixe DNS est configurée, les suffixes DNS de la liste sont ajoutés au nom en une partie. Par exemple, lorsqu’un utilisateur sur un ordinateur qui est membre des types de domaine corp.contoso.com <https://paycheck> dans le navigateur Web, le nom de domaine complet qui est construit comme nom est paycheck.corp.contoso.com. Par défaut, le suffixe ajouté est basé sur le suffixe DNS principal de l'ordinateur client.  
+Les noms en une partie, tels que les <https://paycheck>, sont parfois utilisés pour les serveurs intranet. Si un nom en une partie est demandé et qu'une liste de recherche de suffixe DNS est configurée, les suffixes DNS de la liste sont ajoutés au nom en une partie. Par exemple, lorsqu’un utilisateur sur un ordinateur qui est membre du domaine corp.contoso.com types <https://paycheck> dans le navigateur Web, le nom de domaine complet qui est construit comme nom est paycheck.corp.contoso.com. Par défaut, le suffixe ajouté est basé sur le suffixe DNS principal de l'ordinateur client.  
   
 > [!NOTE]  
 > Dans un scénario d'espace de noms dissocié (où un ou plusieurs ordinateurs de domaine ont un suffixe DNS qui ne correspond pas au domaine Active Directory auquel les ordinateurs appartiennent), vous devez vous assurer que la liste de recherche est personnalisée pour inclure tous les suffixes requis. Par défaut, l'Assistant Accès à distance configurera le nom DNS Active Directory comme suffixe DNS principal sur le client. Assurez-vous d'ajouter le suffixe DNS utilisé par les clients pour la résolution de noms.  
@@ -419,7 +419,7 @@ Dans un environnement DNS non « split brain », l'espace de noms Internet est
   
 **Comportement de résolution de noms locale pour les clients DirectAccess**  
   
-Si un nom ne peut pas être résolu avec DNS, pour résoudre le nom sur le sous-réseau local, le service client DNS dans Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 8 et Windows 7 peut utiliser la résolution de noms locale, avec le nom de la multidiffusion local de lien R esolution (LLMNR) et NetBIOS sur les protocoles TCP/IP.  
+Si un nom ne peut pas être résolu avec DNS, pour résoudre le nom sur le sous-réseau local, le service client DNS dans Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 8 et Windows 7 peut utiliser la résolution de noms locale, avec les protocoles LLMNR (Link-local multicast Name Resolution) et NetBIOS sur TCP/IP.  
   
 La résolution de noms locale est généralement nécessaire pour la connectivité de réseau pair à pair lorsque l'ordinateur se trouve sur des réseaux privés, tels que des réseaux domestiques à sous-réseau unique. Lorsque le service Client DNS exécute la résolution de noms locale pour des noms de serveur intranet et que l'ordinateur est connecté sur Internet à un sous-réseau partagé, les utilisateurs malveillants peuvent capturer LLMNR et NetBIOS sur des messages TCP/IP afin de déterminer des noms de serveur intranet. Dans la page DNS de l'Assistant Installation du serveur d'infrastructure, vous configurez le comportement de résolution de noms locale en fonction des types de réponses reçus à partir des serveurs DNS intranet. Les options suivantes sont disponibles :  
   
@@ -585,10 +585,10 @@ Vous pouvez configurer les objets de stratégie de groupe de deux manières :
 > [!NOTE]  
 > Une fois que DirectAccess a été configuré pour utiliser des objets de stratégie de groupe spécifiques, il ne peut plus être configuré pour en utiliser d'autres.  
   
-Que vous utilisiez des objets de stratégie de groupe configurés automatiquement ou manuellement, vous devez ajouter une stratégie pour la détection des liaisons lentes si vos clients utilisent des réseaux 3G. Chemin d’accès pour **Policy : Configurez stratégie de groupe détection de liaison lente @ no__t-0 : **Computer configuration/Policies/Administrative Templates/System/Group Policy**.  
+Que vous utilisiez des objets de stratégie de groupe configurés automatiquement ou manuellement, vous devez ajouter une stratégie pour la détection des liaisons lentes si vos clients utilisent des réseaux 3G. Le chemin pour **Stratégie : Configurer la détection d’une liaison lente de stratégie de groupe** est : **Configuration ordinateur/Stratégies/Modèles d’administration/Système/Stratégie de groupe**.  
   
 > [!CAUTION]  
-> Utilisez la procédure suivante pour sauvegarder tous les objets de stratégie de groupe d'accès à distance avant d'exécuter des applets de commande DirectAccess : [Sauvegarder et restaurer la configuration d’Accès à distance](https://go.microsoft.com/fwlink/?LinkID=257928).  
+> Utilisez la procédure suivante pour sauvegarder tous les objets de stratégie de groupe d'accès à distance avant d'exécuter des applets de commande DirectAccess : [Back up and Restore Remote Access Configuration](https://go.microsoft.com/fwlink/?LinkID=257928).  
   
 Si les autorisations appropriées (répertoriées dans les sections suivantes) pour lier des objets de stratégie de groupe n'existent pas, un avertissement est émis. L'accès à distance continue de fonctionner mais aucune liaison ne se produit. Si cet avertissement est émis, les liens ne sont pas créés automatiquement, même si les autorisations sont ajoutées plus tard. L'administrateur doit créer les liens manuellement.  
   
@@ -675,7 +675,7 @@ Le diagramme suivant illustre cette configuration.
 ### <a name="185-recover-from-a-deleted-gpo"></a>1.8.5 Récupérer après la suppression d'un objet de stratégie de groupe  
 Si un objet de stratégie de groupe de client, de serveur DirectAccess ou de serveur d'applications est supprimé par inadvertance et qu'aucune sauvegarde n'est disponible, vous devez supprimer les paramètres de configuration et les reconfigurer. Si vous disposez d'une sauvegarde, vous pouvez restaurer l'objet de stratégie de groupe.  
   
-La console de gestion de l'accès à distance affiche le message d'erreur suivant : **Objet de stratégie de groupe (nom de l’objet de stratégie de groupe) introuvable**. Pour supprimer les paramètres de configuration, procédez comme suit :  
+La console de gestion de l’accès à distance affiche le message d’erreur suivant : le **GPO (nom de l’objet de stratégie de groupe) est introuvable**. Pour supprimer les paramètres de configuration, procédez comme suit :  
   
 1.  Exécutez l'applet de commande Windows PowerShell **Uninstall-remoteaccess**.  
   
@@ -685,7 +685,7 @@ La console de gestion de l'accès à distance affiche le message d'erreur suivan
   
 ## <a name="next-steps"></a>Étapes suivantes  
   
--   [Étape 2 : Planifier les déploiements DirectAccess @ no__t-0  
+-   [Étape 2 : planifier les déploiements DirectAccess](da-adv-plan-s2-deployments.md)  
   
 
 

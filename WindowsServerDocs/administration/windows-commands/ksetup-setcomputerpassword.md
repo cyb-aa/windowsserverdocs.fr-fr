@@ -36,7 +36,7 @@ ksetup /setcomputerpassword <Password>
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0Password >|Utilise le mot de passe fourni pour définir le compte d’ordinateur sur l’ordinateur local.</br>Le mot de passe ne peut être défini qu’à l’aide d’un compte disposant de privilèges d’administrateur. Le mot de passe peut être compris entre 1 et 156 caractères alphanumériques ou spéciaux.|
+|Mot de passe \<>|Utilise le mot de passe fourni pour définir le compte d’ordinateur sur l’ordinateur local.</br>Le mot de passe ne peut être défini qu’à l’aide d’un compte disposant de privilèges d’administrateur. Le mot de passe peut être compris entre 1 et 156 caractères alphanumériques ou spéciaux.|
 
 ## <a name="remarks"></a>Notes
 

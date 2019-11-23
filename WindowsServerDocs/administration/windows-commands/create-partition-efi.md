@@ -22,9 +22,9 @@ ms.locfileid: "71379011"
 ---
 # <a name="create-partition-efi"></a>créer une partition EFI
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sur les ordinateurs Itanium @ no__t-0based, crée une partition système Extensible Firmware Interface \(EFI @ no__t-2 sur une table de partition GUID \(gpt @ no__t-4.  
+Sur les ordinateurs Itanium\-, crée une partition système Extensible Firmware Interface \(EFI\) sur une table de partition GUID \(disque GPT\).  
   
   
   
@@ -38,9 +38,9 @@ create partition efi [size=<n>] [offset=<n>] [noerr]
   
 |  Paramètre  |                                                                                             Description                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  taille @ no__t-0 @ no__t-1  |                         Taille de la partition en mégaoctets \(MB @ no__t-1. Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la région actuelle.                         |
-| décalage @ no__t-0 @ no__t-1 |             Décalage en kilo-octets @no__t-taille 0 Ko @ no__t-1, à partir duquel la partition est créée. Si aucun décalage n’est spécifié, la partition est placée dans la première étendue de disque qui est suffisamment grande pour la contenir.              |
-|    noerr    | À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
+|  taille\=<n>  |                         Taille de la partition en mégaoctets \(Mo\). Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la région actuelle.                         |
+| décalage\=<n> |             Décalage en kilo-octets \(Ko\), à partir duquel la partition est créée. Si aucun décalage n’est spécifié, la partition est placée dans la première étendue de disque qui est suffisamment grande pour la contenir.              |
+|    noerr    | à des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
   
 ## <a name="remarks"></a>Notes  
   

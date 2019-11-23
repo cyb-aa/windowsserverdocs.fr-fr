@@ -18,7 +18,7 @@ ms.locfileid: "71390716"
 ---
 # <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Gestion avancée des services AD DS à l’aide du Centre d’administration Active Directory (niveau200)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit la mise à jour du Centre d'administration Active Directory avec la nouvelle Corbeille Active Directory, la stratégie de mot de passe affinée ainsi que la Visionneuse de l'historique Windows PowerShell. Elle aborde notamment l'architecture, des exemples de tâches courantes et les informations de résolution des problèmes. Pour une introduction, consultez [Introduction à Centre d’administration Active Directory améliorations du &#40;niveau 100&#41;](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md).  
   
@@ -98,7 +98,7 @@ La Corbeille Active Directory conserve tous les objets supprimés de la forêt. 
   
 Le conteneur **Objets supprimés** affiche tous les objets qui peuvent être restaurés dans cette partition de domaine. Les objets supprimés antérieurs à **msDS-deletedObjectLifetime** sont réputés comme étant des objets recyclés. Le Centre d'administration Active Directory n'affiche pas d'objets recyclés et vous ne pouvez pas restaurer ces objets à l'aide du Centre d'administration Active Directory.  
   
-Pour obtenir une explication plus détaillée sur l’architecture et les règles de traitement de la corbeille, voir la rubrique [The AD corbeille : Comprendre, implémenter, meilleures pratiques et dépanner @ no__t-0.  
+Pour une explication plus détaillée sur l’architecture et les règles de traitement de la Corbeille, voir [Corbeille Active Directory : présentation, implémentation, recommandations et dépannage](http://blogs.technet.com/b/askds/archive/2009/08/27/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting.aspx).  
   
 Le Centre d'administration Active Directory limite artificiellement le nombre d'objets par défaut renvoyés d'un conteneur à 20 000 objets. Vous pouvez augmenter cette limite à 100 000 objets en cliquant sur le menu **Gérer** , puis sur **Options de la liste des gestionnaires**.  
   
@@ -202,7 +202,7 @@ Filtrez sur tous les utilisateurs Ventes. Maintenez les touches CTRL et A enfonc
   
 Si l'unité d'organisation **Ventes** contenait des unités d'organisation enfants en propre, vous pouvez commencer par restaurer les unités d'organisation enfants avant de restaurer leurs enfants, et ainsi de suite.  
   
-Pour restaurer tous les objets supprimés imbriqués en spécifiant un conteneur parent supprimé, voir [Appendix B : Restaurer plusieurs objets de Active Directory supprimés (exemple de script) ](https://technet.microsoft.com/library/dd379504(WS.10).aspx).  
+Pour restaurer tous les objets supprimés imbriqués en spécifiant un conteneur parent supprimé, voir [Annexe B : Restaurer plusieurs objets Active Directory supprimés (exemple de script)](https://technet.microsoft.com/library/dd379504(WS.10).aspx).  
   
 L'applet de commande Active Directory pour Windows PowerShell qui permet de restaurer les objets supprimés est la suivante :  
 
@@ -447,7 +447,7 @@ La définition du niveau de commentaire montre également les piles .NET pour ch
 
 Les erreurs affichées quand aucune instance des services Web Active Directory ne sont disponibles sont les suivantes :  
   
-|Error|Opération|
+|Erreur|Opération|
 | --- | --- |  
 |« Impossible de se connecter à un domaine. Actualisez ou réessayez lorsque la connexion est disponible. »|Affiché au démarrage de l'application Centre d'administration Active Directory|
 |« Impossible de trouver un serveur disponible dans le domaine *<NetBIOS domain name>* qui exécute le Service Web Active Directory »|Affiché au cours d'une tentative de sélection d'un nœud de domaine dans l'application Centre d'administration Active Directory|

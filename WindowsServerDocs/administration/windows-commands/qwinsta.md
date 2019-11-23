@@ -22,7 +22,7 @@ ms.locfileid: "71371824"
 ---
 # <a name="qwinsta"></a>qwinsta
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche des informations sur les sessions sur un serveur hôte de session Bureau à distance (hôte de session Bureau à distance).
 
@@ -33,5 +33,6 @@ Affiche des informations sur les sessions sur un serveur hôte de session Bureau
 Cette commande est identique à la commande de **session de requête** .
 
 #### <a name="additional-references"></a>Références supplémentaires
-@no__t de [session de requête](query-session.md)-1 clé de syntaxe de[ligne de commande](command-line-syntax-key.md)
-[services Bureau à distance &#40;référence de commande des&#41; services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+[session de requête](query-session.md)
+[clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+[services Bureau à distance &#40;référence de commande des services&#41; Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

@@ -38,10 +38,10 @@ unexpose {<ShadowID> | <Drive:> | <Share> | <MountPoint>}
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0ShadowID >|N’expose pas le cliché instantané spécifié par l’ID d’ombre donné.|
-|\<Drive : >|N’expose pas le cliché instantané associé à la lettre de lecteur spécifiée (par exemple, le lecteur P).|
-|@no__t 0Share >|N’expose pas le cliché instantané associé au partage spécifié (par exemple, \\ @ no__t-1*MachineName*\).|
-|@no__t 0MountPoint >|N’expose pas le cliché instantané associé au point de montage spécifié (par exemple, C:\shadowcopy @ no__t-0.|
+|\<ShadowID >|N’expose pas le cliché instantané spécifié par l’ID d’ombre donné.|
+|Lecteur \<: >|N’expose pas le cliché instantané associé à la lettre de lecteur spécifiée (par exemple, le lecteur P).|
+|Partage de \<>|N’expose pas le cliché instantané associé au partage spécifié (par exemple, \\\\*MachineName*\).|
+|\<le MountPoint >|N’expose pas le cliché instantané associé au point de montage spécifié (par exemple, C:\shadowcopy\).|
 
 ## <a name="remarks"></a>Notes
 

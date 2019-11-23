@@ -36,7 +36,7 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge} 
 
 |Paramètre|Description|
 |---------|-----------|
-|@no__t 0DriveLetter >|Définit la lettre de lecteur qui sera attribuée au lecteur cible spécifié.|
+|\<lettre_lecteur >|Définit la lettre de lecteur qui sera attribuée au lecteur cible spécifié.|
 
 ## <a name="remarks"></a>Notes
 

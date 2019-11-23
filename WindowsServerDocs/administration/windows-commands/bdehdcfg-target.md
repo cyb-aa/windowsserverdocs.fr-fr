@@ -38,8 +38,8 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge}
 |---------|-----------|
 |par défaut|Indique que l'outil en ligne de commande suivra le même processus que l'Assistant d'installation BitLocker.|
 |unallocated|Crée la partition système hors de l'espace non alloué disponible sur le disque.|
-|\<DriveLetter > Shrink|Réduit le lecteur spécifié selon la quantité nécessaire pour créer une partition système active. Pour utiliser cette commande, le lecteur spécifié doit avoir au moins 5 pour cent d'espace libre.|
-|@no__t 0DriveLetter > fusionner|Utilise le lecteur spécifié comme partition système active. Le lecteur de système d'exploitation ne peut pas être une cible pour la fusion.|
+|\<lettre_lecteur > Shrink|Réduit le lecteur spécifié selon la quantité nécessaire pour créer une partition système active. Pour utiliser cette commande, le lecteur spécifié doit avoir au moins 5 pour cent d'espace libre.|
+|\<lettre_lecteur > fusion|Utilise le lecteur spécifié comme partition système active. Le lecteur de système d'exploitation ne peut pas être une cible pour la fusion.|
 
 ## <a name="BKMK_Examples"></a>Illustre
 

@@ -38,10 +38,10 @@ Les utilisateurs administratifs peuvent exécuter des tâches qui affectent tous
 Il est à noter que chaque compte d’utilisateur est doté d’une bibliothèque **Documents** dans l’Explorateur Windows qui inclut le dossier **Mes Documents**. Si les utilisateurs standard de votre système MultiPoint Services stockent les documents privés dans leur bibliothèque **Documents** dans l’Explorateur Windows, ils doivent également se connecter au système MultiPoint Services avec un nom d’utilisateur et un mot de passe uniques qu’ils sont les seuls à connaître. Pour plus d’informations sur le stockage de documents dans l’Explorateur Windows, voir la rubrique [Gérer les fichiers d’utilisateur](Manage-User-Files.md).  
   
 > [!TIP]  
-> Pour renforcer la sécurité du système, les mots de passe de tous les utilisateurs doivent être des mots de passe forts. Un mot de passe fort est un mot de passe qui ne peut pas être deviné ou fissuré facilement, contient au moins huit caractères, ne contient pas tout ou partie du nom de compte de l’utilisateur et contient au moins trois des quatre catégories de caractères suivantes : caractères en majuscules, minuscules caractères, chiffres et symboles trouvés sur un clavier (tels que !, @, #).  
+> Pour renforcer la sécurité du système, les mots de passe de tous les utilisateurs doivent être des mots de passe forts. Un mot de passe fort est un mot de passe qui ne peut pas être deviné ou fissuré facilement, contient au moins huit caractères, ne contient pas tout ou partie du nom de compte de l’utilisateur et contient au moins trois des quatre catégories de caractères suivantes : caractères en majuscules, caractères minuscules, chiffres et symboles présents sur un clavier (tels que !, @, #).  
   
 ## <a name="see-also"></a>Voir aussi  
 [Créer un compte d’utilisateur administratif](Create-an-Administrative-User-Account.md)  
 [Créer un compte d’utilisateur standard](Create-a-Standard-User-Account.md)  
-[Gérer les fichiers](Manage-User-Files.md)
-utilisateur[gérer les comptes d’utilisateur](Manage-User-Accounts.md)
+[Gérer les fichiers utilisateur](Manage-User-Files.md)
+[gérer les comptes d’utilisateur](Manage-User-Accounts.md)

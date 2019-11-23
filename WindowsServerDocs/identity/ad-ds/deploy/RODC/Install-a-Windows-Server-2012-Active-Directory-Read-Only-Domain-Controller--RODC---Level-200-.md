@@ -18,7 +18,7 @@ ms.locfileid: "71391110"
 ---
 # <a name="install-a-windows-server-2012-active-directory-read-only-domain-controller-rodc-level-200"></a>Installer un contrôleur de domaine en lecture seule Windows Server 2012 Active Directory (niveau 200)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique explique comment créer un compte de contrôleur de domaine en lecture seule intermédiaire, puis associer un serveur à ce compte pendant l'installation d'un contrôleur de domaine en lecture seule. Cette rubrique explique également comment installer un contrôleur de domaine en lecture seule sans effectuer d'installation intermédiaire.  
   
@@ -63,7 +63,7 @@ Le diagramme ci-dessous illustre le processus de configuration des services de d
   
 Vous procédez à la création intermédiaire d'un compte d'ordinateur de contrôleur de domaine en lecture seule en ouvrant le Centre d'administration Active Directory (**Dsac.exe**). Cliquez sur le nom du domaine dans le volet de navigation. Double-cliquez sur **Contrôleurs de domaine** dans la liste de gestion. Cliquez sur **Pré-créer un compte de contrôleur de domaine en lecture seule** dans le volet des tâches.  
   
-Pour plus d’informations sur la Centre d’administration Active Directory, consultez [gestion avancée des AD DS &#40;à l'&#41; aide de centre d’administration Active Directory niveau 200](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) et examen du centre d’administration de l’annuaire [Active : Prise en main @ no__t-0.  
+Pour plus d’informations sur la Centre d’administration Active Directory, consultez [gestion avancée des AD DS &#40;à l'&#41; aide de centre d’administration Active Directory niveau 200](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) et examen [Centre d’administration Active Directory : prise en main](https://technet.microsoft.com/library/dd560651(WS.10).aspx).  
   
 Si vous avez déjà créé des contrôleurs de domaine en lecture seule, vous allez découvrir que l'Assistant Installation a la même interface graphique que celle affichée avec l'ancien composant logiciel enfichable Utilisateurs et ordinateurs Active Directory de Windows Server 2008 et utilise le même code, qui comprend l'exportation de la configuration au format de fichier d'installation sans assistance employé par le processus dcpromo obsolète.  
   
@@ -173,7 +173,7 @@ L'argument Windows PowerShell ADDSDeployment équivalent est le suivant :
 -delegatedadministratoraccountname <string>  
 ```  
   
-### <a name="summary"></a>Récapitulatif  
+### <a name="summary"></a>Résumé  
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage1Summary.png)  
   
 La boîte de dialogue **Résumé** vous permet de confirmer vos paramètres. Il s'agit de la dernière possibilité d'arrêter l'installation avant que l'Assistant ne crée le compte intermédiaire. Cliquez sur **Suivant** quand vous êtes prêt à créer le compte d'ordinateur de contrôleur de domaine en lecture seule intermédiaire.  Cliquez sur **Exporter les paramètres** pour enregistrer un fichier de réponses au format de fichier d'installation sans assistance du processus dcpromo obsolète.  
@@ -229,7 +229,7 @@ Install-AddsDomainController
 ### <a name="domain-controller-options"></a>Options du contrôleur de domaine  
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2DCOptions.png)  
   
-La page **Options du contrôleur de domaine** affiche les options du contrôleur de domaine pour le nouveau contrôleur de domaine. Quand cette page est chargée, l'Assistant Configuration des services de domaine Active Directory envoie une requête LDAP à un contrôleur de domaine existant pour rechercher les comptes inoccupés. Si la requête trouve un compte d’ordinateur de contrôleur de domaine inoccupé qui partage le même nom que l’ordinateur actuel, l’Assistant affiche un message d’information en haut de la page qui indique «**A compte RODC précréé qui correspond au nom de la le serveur cible existe dans le répertoire. Choisissez d’utiliser ce compte RODC existant ou de réinstaller ce contrôleur de domaine @ no__t-0.» L'Assistant utilise l'option **Utiliser le compte RODC existant** comme configuration par défaut.  
+La page **Options du contrôleur de domaine** affiche les options du contrôleur de domaine pour le nouveau contrôleur de domaine. Quand cette page est chargée, l'Assistant Configuration des services de domaine Active Directory envoie une requête LDAP à un contrôleur de domaine existant pour rechercher les comptes inoccupés. Si la requête trouve un compte d’ordinateur de contrôleur de domaine inoccupé qui partage le même nom que l’ordinateur actuel, l’Assistant affiche un message d’information en haut de la page qui indique «**un compte RODC créé au préalable qui correspond au nom du serveur cible existe dans le répertoire. Choisissez d’utiliser ou non ce compte RODC existant ou de réinstaller ce contrôleur de domaine**.» L'Assistant utilise l'option **Utiliser le compte RODC existant** comme configuration par défaut.  
   
 > [!IMPORTANT]  
 > Vous pouvez utiliser l'option **Réinstaller ce contrôleur de domaine** quand un contrôleur de domaine a rencontré un problème physique et ne peut plus fonctionner. Vous gagnez du temps quand vous configurez le contrôleur de domaine de remplacement en laissant le compte d'ordinateur de contrôleur de domaine et les métadonnées d'objet dans Active Directory. Installez le nouvel ordinateur avec le *même nom*et promouvez-le comme contrôleur du domaine. L’option **réinstaller ce contrôleur de domaine** n’est pas disponible si vous avez supprimé les métadonnées de l’objet contrôleur de domaine Active Directory (nettoyage des métadonnées).  
@@ -278,7 +278,7 @@ Vous pouvez également fournir une chaîne sécurisée sous forme d'une variable
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Enfin, vous pouvez stocker le mot de passe obscurci dans un fichier, puis le réutiliser plus tard, sans que le mot de passe en texte clair ne s'affiche. Exemple :  
+Enfin, vous pouvez stocker le mot de passe obscurci dans un fichier, puis le réutiliser plus tard, sans que le mot de passe en texte clair ne s'affiche. Par exemple :  
   
 ```  
 $file = "c:\pw.txt"  
@@ -328,7 +328,7 @@ La page **Chemins d’accès** vous permet de remplacer les emplacements de doss
 ### <a name="review-options-and-view-script"></a>Examiner les options et Afficher le script  
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2ReviewOptions.png)  
   
-La page **Examiner les options** vous permet de valider vos paramètres et de vérifier qu’ils répondent à vos exigences avant le démarrage de l’installation. Notez que vous avez encore la possibilité d’arrêter l’installation à l’aide du Gestionnaire de serveur. Cette page vous permet simplement d’examiner et de confirmer vos paramètres avant de poursuivre la configuration. La page **Examiner les options** du Gestionnaire de serveur offre également un bouton **Afficher le script** facultatif pour créer un fichier texte Unicode qui contient la configuration ADDSDeployment actuelle sous forme d’un script Windows PowerShell unique. Vous pouvez ainsi utiliser l’interface graphique Gestionnaire de serveur sous forme d’un studio de déploiement Windows PowerShell. Utilisez l’Assistant Configuration des services de domaine Active Directory pour configurer les options, exportez la configuration, puis annulez l’Assistant. Ce processus crée un exemple valide et correct du point de vue syntaxique pour permettre des modifications ultérieures ou une utilisation directe. Exemple :  
+La page **Examiner les options** vous permet de valider vos paramètres et de vérifier qu’ils répondent à vos exigences avant le démarrage de l’installation. Notez que vous avez encore la possibilité d’arrêter l’installation à l’aide du Gestionnaire de serveur. Cette page vous permet simplement d’examiner et de confirmer vos paramètres avant de poursuivre la configuration. La page **Examiner les options** du Gestionnaire de serveur offre également un bouton **Afficher le script** facultatif pour créer un fichier texte Unicode qui contient la configuration ADDSDeployment actuelle sous forme d’un script Windows PowerShell unique. Vous pouvez ainsi utiliser l’interface graphique Gestionnaire de serveur sous forme d’un studio de déploiement Windows PowerShell. Utilisez l’Assistant Configuration des services de domaine Active Directory pour configurer les options, exportez la configuration, puis annulez l’Assistant. Ce processus crée un exemple valide et correct du point de vue syntaxique pour permettre des modifications ultérieures ou une utilisation directe. Par exemple :  
   
 ```  
 #  
@@ -495,7 +495,7 @@ Vous pouvez également fournir une chaîne sécurisée sous forme d'une variable
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Enfin, vous pouvez stocker le mot de passe obscurci dans un fichier, puis le réutiliser plus tard, sans que le mot de passe en texte clair ne s'affiche. Exemple :  
+Enfin, vous pouvez stocker le mot de passe obscurci dans un fichier, puis le réutiliser plus tard, sans que le mot de passe en texte clair ne s'affiche. Par exemple :  
   
 ```  
 $file = "c:\pw.txt"  
@@ -607,7 +607,7 @@ L’argument de l’applet de commande ADDSDeployment Options supplémentaires e
   
 La page **Examiner les options** vous permet de valider vos paramètres et de vérifier qu’ils répondent à vos exigences avant le démarrage de l’installation. Notez que vous avez encore la possibilité d’arrêter l’installation à l’aide du Gestionnaire de serveur. Cette page vous permet simplement d’examiner et de confirmer vos paramètres avant de poursuivre la configuration.  
   
-La page **Examiner les options** du Gestionnaire de serveur offre également un bouton **Afficher le script** facultatif pour créer un fichier texte Unicode qui contient la configuration ADDSDeployment actuelle sous forme d’un script Windows PowerShell unique. Vous pouvez ainsi utiliser l’interface graphique Gestionnaire de serveur sous forme d’un studio de déploiement Windows PowerShell. Utilisez l’Assistant Configuration des services de domaine Active Directory pour configurer les options, exportez la configuration, puis annulez l’Assistant. Ce processus crée un exemple valide et correct du point de vue syntaxique pour permettre des modifications ultérieures ou une utilisation directe. Exemple :  
+La page **Examiner les options** du Gestionnaire de serveur offre également un bouton **Afficher le script** facultatif pour créer un fichier texte Unicode qui contient la configuration ADDSDeployment actuelle sous forme d’un script Windows PowerShell unique. Vous pouvez ainsi utiliser l’interface graphique Gestionnaire de serveur sous forme d’un studio de déploiement Windows PowerShell. Utilisez l’Assistant Configuration des services de domaine Active Directory pour configurer les options, exportez la configuration, puis annulez l’Assistant. Ce processus crée un exemple valide et correct du point de vue syntaxique pour permettre des modifications ultérieures ou une utilisation directe. Par exemple :  
   
 ```  
 #  

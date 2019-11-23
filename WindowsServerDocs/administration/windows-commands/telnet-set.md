@@ -22,7 +22,7 @@ ms.locfileid: "71383619"
 ---
 # <a name="telnet-set"></a>Telnet : définir
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Définit les options.   
 ## <a name="syntax"></a>Syntaxe  
@@ -36,7 +36,7 @@ set [bsasdel] [crlf] [delasbs] [escape <Char>] [localecho] [logfile <FileName>] 
 |                     bsasdel                      |                                                                                                                                 Envoie le **retour arrière** en tant que **suppression**.                                                                                                                                  |
 |                       CRLF                       |                                                                                                        Envoie CR & LF (0x0D, 0x 0A) quand la touche **entrée** est enfoncée. Appelé mode nouvelle ligne.                                                                                                        |
 |                     delasbs                      |                                                                                                                                 Envoie la **suppression** comme un **retour arrière**.                                                                                                                                  |
-|                @no__t d’échappement-0                | Définit le caractère d’échappement utilisé pour accéder à l’invite du client Telnet. Le caractère d’échappement peut être un caractère unique, ou il peut s’agir d’une combinaison de la touche **CTRL** et d’un caractère. Pour définir une combinaison de touches de contrôle, maintenez la touche **CTRL** enfoncée pendant que vous tapez le caractère que vous souhaitez affecter. |
+|                <Character> d’échappement                | Définit le caractère d’échappement utilisé pour accéder à l’invite du client Telnet. Le caractère d’échappement peut être un caractère unique, ou il peut s’agir d’une combinaison de la touche **CTRL** et d’un caractère. Pour définir une combinaison de touches de contrôle, maintenez la touche **CTRL** enfoncée pendant que vous tapez le caractère que vous souhaitez affecter. |
 |                    localecho                     |                                                                                                                                         Active l’écho local.                                                                                                                                          |
 |                fichier journal <FileName>                |                                                                                               Journalise la session Telnet en cours dans le fichier local. La journalisation démarre automatiquement lorsque vous définissez cette option.                                                                                               |
 |                     logging                      |                                                                                                                  Active la journalisation. Si aucun fichier journal n’est défini, un message d’erreur s’affiche.                                                                                                                   |
@@ -47,7 +47,7 @@ set [bsasdel] [crlf] [delasbs] [escape <Char>] [localecho] [logfile <FileName>] 
 
 ## <a name="remarks"></a>Notes  
 1. Vous pouvez utiliser la commande **unset** pour désactiver une option précédemment définie.  
-2. Dans **les versions** non anglaises de Telnet, le @no__tet-1 est disponible. Le jeu de **codes @no__t-** 1 définit l’ensemble du code actuel sur une option, qui peut être l’une des suivantes : **Shift JIS**, **japonais EUC**, **JIS kanji**, **JIS kanji (78)** , **Dec kanji**, **NEC kanji**. Vous devez définir le même jeu de code sur l’ordinateur distant.  
+2. Dans les versions non anglaises de Telnet, le **<option> de** codeset est disponible. Le jeu de **codes <option> définit** l’ensemble du code actuel sur une option, qui peut être l’une des suivantes : **Shift JIS**, **japonais EUC**, **JIS kanji**, **JIS kanji (78)** , **Dec**kanji, **NEC kanji**. Vous devez définir le même jeu de code sur l’ordinateur distant.  
    ## <a name="BKMK_Examples"></a>Illustre  
    Définir le fichier journal et commencer la journalisation dans le fichier local tnlog. txt  
    ```  

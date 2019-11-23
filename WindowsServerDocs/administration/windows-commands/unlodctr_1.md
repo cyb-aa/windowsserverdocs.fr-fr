@@ -22,7 +22,7 @@ ms.locfileid: "71363903"
 ---
 # <a name="unlodctr"></a>unlodctr
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Supprime du Registre système les noms des compteurs de performances et le texte d’explication pour un service ou un pilote de périphérique.   
 
@@ -33,14 +33,14 @@ Unlodctr <DriverName>
 ### <a name="parameters"></a>Paramètres  
 |Paramètre|Description|  
 |-------|--------|  
-|@no__t 0DriverName >|supprime les paramètres de nom de compteur de performance et le texte d’explication pour le pilote ou le service <DriverName> du Registre Windows Server 2003.|  
+|\<DriverName >|supprime les paramètres de nom de compteur de performance et le texte d’explication pour le pilote ou le service <DriverName> à partir du registre de Windows Server 2003.|  
 |/?|Affiche l'aide à l'invite de commandes.|  
 
 ## <a name="remarks"></a>Notes  
 > [!WARNING]  
 > Une modification incorrecte du Registre peut endommager gravement votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.  
 
-Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, « <DriverName> »).  
+Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, «<DriverName>»).  
 
 ## <a name="BKMK_Examples"></a>Illustre  
 Pour supprimer les paramètres de registre de performances actuels et le texte d’explication du compteur pour le service SMTP (Simple Mail Transfer Protocol) :  

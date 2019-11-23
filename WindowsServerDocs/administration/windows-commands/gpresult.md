@@ -22,7 +22,7 @@ ms.locfileid: "71375658"
 ---
 # <a name="gpresult"></a>gpresult
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche les informations du jeu de stratégie résultant (RSoP) pour un utilisateur et un ordinateur distant.
 Pour utiliser les rapports RSoP pour des ordinateurs ciblés à distance via le pare-feu, vous devez disposer de règles de pare-feu qui autorisent le trafic réseau entrant sur les ports.
@@ -40,10 +40,10 @@ gpresult [/s <system> [/u <USERNAME> [/p [<PASSWOrd>]]]] [/user [<TARGETDOMAIN>\
 
 |                Paramètre                 |                                                                                                     Description                                                                                                      |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              /s \<System @ no__t-1               |                                                  Spécifie le nom ou l’adresse IP d’un ordinateur distant. N’utilisez pas de barres obliques inverses. La valeur par défaut est l'ordinateur local.                                                   |
-|             /u @no__t 0USERNAME @ no__t-1              |                                Utilise les informations d’identification de l’utilisateur spécifié pour exécuter la commande. L’utilisateur par défaut est l’utilisateur qui a ouvert une session sur l’ordinateur qui émet la commande.                                 |
-|            /p [\<PASSWOrd @ no__t-1]             |            Spécifie le mot de passe du compte d’utilisateur fourni dans le paramètre **/u** . Si **/p** est omis, **gpresult** invite à entrer le mot de passe. **/p** ne peut pas être utilisé avec **/x** ou **/h**.            |
-| /User [\<TARGETDOMAIN @ no__t-1 @ no__t-2] \<TARGETUSER @ no__t-4 |                                                                            Spécifie l’utilisateur distant dont les données RSoP doivent être affichées.                                                                             |
+|              /s \<système\>               |                                                  Spécifie le nom ou l’adresse IP d’un ordinateur distant. N’utilisez pas de barres obliques inverses. La valeur par défaut est l'ordinateur local.                                                   |
+|             /u \<nom d’utilisateur\>              |                                Utilise les informations d’identification de l’utilisateur spécifié pour exécuter la commande. L’utilisateur par défaut est l’utilisateur qui a ouvert une session sur l’ordinateur qui émet la commande.                                 |
+|            /p [\<\>de mot de passe]             |            Spécifie le mot de passe du compte d’utilisateur fourni dans le paramètre **/u** . Si **/p** est omis, **gpresult** invite à entrer le mot de passe. **/p** ne peut pas être utilisé avec **/x** ou **/h**.            |
+| /User [\<TARGETDOMAIN\>\\]\<TARGETUSER\> |                                                                            Spécifie l’utilisateur distant dont les données RSoP doivent être affichées.                                                                             |
 |      /Scope {ordinateur &#124; de l’utilisateur}       |                                Affiche les données RSoP pour l’utilisateur ou l’ordinateur. Si **/scope** est omis, **gpresult** affiche les données RSoP pour l’utilisateur et l’ordinateur.                                 |
 |        [/x &#124; /h] <FILENAME>         | Enregistre le rapport au format XML ( **/x**) ou HTML ( **/h**) à l’emplacement et avec le nom de fichier spécifié par le paramètre *filename* . Ne peut pas être utilisé avec **/u**, **/p**, **/r**, **/v**ou **/z**. |
 |                    /f                    |                                                           Force **gpresult** à remplacer le nom de fichier spécifié dans l’option **/x** ou **/h** .                                                           |
@@ -58,19 +58,19 @@ gpresult [/s <system> [/u <USERNAME> [/p [<PASSWOrd>]]]] [/user [<TARGETDOMAIN>\
 - Comme **/v** et **/z** produisent un grand nombre d’informations, il est utile de rediriger la sortie vers un fichier texte (par exemple, **gpresult/z > Policy. txt**).
 - La commande **gpresult** est disponible dans windows server 2012, windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 et Windows Vista.
   ## <a name="examples"></a>Exemples
-  L’exemple suivant récupère les données RSoP pour l’utilisateur distant **targetusername** de l’ordinateur **Srvmain**et affiche les données RSoP relatives à l’utilisateur uniquement. La commande est exécutée avec les informations d’identification de l’utilisateur **maindom\hiropln**et <strong>p@ssW23</strong> est entré en tant que mot de passe pour cet utilisateur.
+  L’exemple suivant récupère les données RSoP pour l’utilisateur distant **targetusername** de l’ordinateur **Srvmain**et affiche les données RSoP relatives à l’utilisateur uniquement. La commande est exécutée avec les informations d’identification de l’utilisateur **maindom\hiropln**, et <strong>p@ssW23</strong> est entré en tant que mot de passe pour cet utilisateur.
 
   ```
   gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /user targetusername /scope user /r
   ```
   
-L’exemple suivant enregistre toutes les informations disponibles sur stratégie de groupe pour l’utilisateur distant **targetusername** de l’ordinateur **Srvmain** dans un fichier nommé **Policy. txt**. Aucune donnée n’est incluse sur l’ordinateur. La commande est exécutée avec les informations d’identification de l’utilisateur **maindom\hiropln**et <strong>p@ssW23</strong> est entré en tant que mot de passe pour cet utilisateur.
+L’exemple suivant enregistre toutes les informations disponibles sur stratégie de groupe pour l’utilisateur distant **targetusername** de l’ordinateur **Srvmain** dans un fichier nommé **Policy. txt**. Aucune donnée n’est incluse sur l’ordinateur. La commande est exécutée avec les informations d’identification de l’utilisateur **maindom\hiropln**, et <strong>p@ssW23</strong> est entré en tant que mot de passe pour cet utilisateur.
 
   ```
   gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /user targetusername /z > policy.txt
   ```
   
-L’exemple suivant affiche les données RSoP de l’ordinateur **Srvmain** et de l’utilisateur connecté. Les données sont incluses à la fois sur l’utilisateur et sur l’ordinateur. La commande est exécutée avec les informations d’identification de l’utilisateur **maindom\hiropln**et <strong>p@ssW23</strong> est entré en tant que mot de passe pour cet utilisateur.
+L’exemple suivant affiche les données RSoP de l’ordinateur **Srvmain** et de l’utilisateur connecté. Les données sont incluses à la fois sur l’utilisateur et sur l’ordinateur. La commande est exécutée avec les informations d’identification de l’utilisateur **maindom\hiropln**, et <strong>p@ssW23</strong> est entré en tant que mot de passe pour cet utilisateur.
 
   ```
   gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /r

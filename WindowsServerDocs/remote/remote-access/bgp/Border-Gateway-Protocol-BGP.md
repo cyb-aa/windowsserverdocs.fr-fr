@@ -21,7 +21,7 @@ ms.locfileid: "71388980"
 ---
 # <a name="border-gateway-protocol-bgp"></a>Protocole BGP (Border Gateway Protocol)
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour mieux comprendre le protocole BGP (Border Gateway Protocol), notamment les topologies de déploiement BGP prises en charge, ainsi que les fonctionnalités et capacités BGP.  
   
@@ -36,13 +36,13 @@ Cette rubrique contient les sections suivantes.
   
 -   [Fonctionnalités BGP](#bkmk_features)  
   
-Lorsqu’il est configuré sur un service d’accès à distance Windows Server 2016 \(RAS @ no__t-1 Gateway en mode multi-locataire, Border Gateway Protocol (BGP) vous permet de gérer le routage du trafic réseau entre les réseaux d’ordinateurs virtuels de vos locataires et leur sites. Vous pouvez également utiliser le protocole BGP pour les déploiements de passerelle RAS à client unique et, lorsque vous déployez l’accès à distance en tant que réseau local \(LAN @ no__t-1.  
+Lorsqu’il est configuré sur un service d’accès à distance Windows Server 2016 \(passerelle RAS\) en mode multi-locataire, Border Gateway Protocol (BGP) vous permet de gérer le routage du trafic réseau entre les réseaux d’ordinateurs virtuels de vos clients et leurs sites distants. Vous pouvez également utiliser le protocole BGP pour les déploiements de passerelle RAS à client unique et lorsque vous déployez l’accès à distance en tant que réseau local \(routeur\) LAN.  
   
 Le protocole BGP réduit le besoin de configuration manuelle de routage sur les routeurs, car il s’agit d’un protocole de routage dynamique qui, de plus, découvre automatiquement les itinéraires entre les sites qui sont connectés via des connexions VPN de site à site.  
   
-Pour utiliser le routage BGP, vous devez installer le **service d’accès à distance \(RAS @ no__t-2** et/ou le service de rôle de **routage** du rôle serveur d’accès à distance sur un ordinateur ou un ordinateur virtuel \(VM @ no__t-5-le type de système que vous utilisez dépend que vous disposiez ou non d’un déploiement multi-locataire :  
+Pour utiliser le routage BGP, vous devez installer le **service d’accès à distance \(les\)RAS** et/ou le service de rôle **routage** du rôle serveur d’accès à distance sur un ordinateur ou un ordinateur virtuel \(machine virtuelle\)-le type de système que vous utilisez dépend de la présence ou non d’un déploiement multi-locataire :  
   
--   Pour un déploiement mutualisée, il est recommandé d’installer la passerelle RAS sur une ou plusieurs machines virtuelles. L’utilisation de plusieurs machines virtuelles offre une haute disponibilité. La passerelle RAS est capable de gérer plusieurs connexions à partir de plusieurs locataires, et se compose d’un hôte Hyper-V et d’une machine virtuelle qui est réellement configurée comme passerelle. Cette passerelle est configurée avec des connexions VPN de site à site en tant que routeur BGP mutualis pour échanger des itinéraires de sous-réseau \(CSP @ no__t-1.  
+-   Pour un déploiement mutualisée, il est recommandé d’installer la passerelle RAS sur une ou plusieurs machines virtuelles. L’utilisation de plusieurs machines virtuelles offre une haute disponibilité. La passerelle RAS est capable de gérer plusieurs connexions à partir de plusieurs locataires, et se compose d’un hôte Hyper-V et d’une machine virtuelle qui est réellement configurée comme passerelle. Cette passerelle est configurée avec des connexions VPN de site à site en tant que routeur BGP multilocataires pour échanger le client et le fournisseur de services Cloud \(CSP\) des itinéraires de sous-réseau.  
   
 -   Pour un déploiement de passerelle Edge à client unique ou un déploiement de routeur LAN, vous pouvez installer la passerelle RAS sur un ordinateur physique ou une machine virtuelle.  
   

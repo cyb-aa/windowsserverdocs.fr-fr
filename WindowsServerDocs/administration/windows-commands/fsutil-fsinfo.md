@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376942"
 ---
 # <a name="fsutil-fsinfo"></a>Fsutil fsinfo
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Répertorie tous les lecteurs, interroge le type de lecteur, interroge les informations sur le volume, interroge les informations de volume spécifiques à NTFS ou interroge les statistiques du système de fichiers.
 
@@ -37,11 +37,11 @@ fsutil fsinfo [volumeinfo] <RootPath>
 
 |Paramètre|Description|
 |-------------|---------------|
-|Durs|Répertorie tous les lecteurs de l’ordinateur.|
+|durs|Répertorie tous les lecteurs de l’ordinateur.|
 |DriveType|Interroge un lecteur et répertorie son type, par exemple lecteur de CD-ROM.|
 |NTFSInfo|Répertorie les informations de volume spécifiques à NTFS pour le volume spécifié, telles que le nombre de secteurs, le nombre total de clusters, les clusters libres et le début et la fin de la zone MFT.|
 |sectorinfo|Répertorie des informations sur la taille et l’alignement des secteurs du matériel.|
-|Portent|Répertorie les statistiques du système de fichiers pour le volume spécifié, telles que les métadonnées, le fichier journal et les lectures et écritures MFT.|
+|portent|Répertorie les statistiques du système de fichiers pour le volume spécifié, telles que les métadonnées, le fichier journal et les lectures et écritures MFT.|
 |volumeinfo|Répertorie des informations sur le volume spécifié, telles que le système de fichiers, et indique si le volume prend en charge les noms de fichiers sensibles à la casse, Unicode dans les noms de fichiers, les quotas de disque ou s’il s’agit d’un volume DirectAccess (DAX).|
 |< « VolumePath » >|Spécifie la lettre de lecteur (suivie d’un signe deux-points).|
 |< « RootPathname » >|Spécifie la lettre de lecteur (suivie d’un signe deux-points) du lecteur racine.|
