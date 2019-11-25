@@ -18,7 +18,7 @@ ms.locfileid: "71409088"
 ---
 # <a name="introduction-to-active-directory-replication-and-topology-management-using-windows-powershell-level-100"></a>Gestion de la topologie et de la réplication Active Directory avec Windows PowerShell (niveau 100)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Windows PowerShell pour Active Directory offre la possibilité de gérer la réplication, les sites, les domaines et forêts, les contrôleurs de domaine et les partitions. Les utilisateurs d’outils de gestion antérieurs, tels que le composant logiciel enfichable Sites et services Active Directory et repadmin.exe, noteront que des fonctions similaires sont à présent disponibles depuis le contexte Windows PowerShell pour Active Directory. En outre, les applets de commande sont compatibles avec les applets de commande Windows PowerShell pour Active Directory existantes, ce qui crée une expérience utilisateur rationalisée et permet aux clients de générer aisément des scripts d’automatisation.
 
@@ -27,10 +27,10 @@ Windows PowerShell pour Active Directory offre la possibilité de gérer la rép
 > 
 > -    Contrôleur de domaine Windows Server 2012
 > -    Windows Server 2012 avec le Outils d’administration de serveur distant pour AD DS et AD LDS installés.
-> -   Windows @ no__t-0 8 avec le Outils d’administration de serveur distant pour AD DS et AD LDS installés.
+> -   Windows&reg; 8 avec le Outils d’administration de serveur distant pour AD DS et AD LDS installé.
 
 ## <a name="installing-the-active-directory-module-for-windows-powershell"></a>Installation du module Active Directory pour Windows PowerShell
-Le module Active Directory pour Windows PowerShell est installé par défaut lorsque le rôle serveur AD DS est installé sur un serveur qui exécute Windows Server 2012. L’ajout du rôle serveur est la seule étape supplémentaire requise. Vous pouvez également installer le module Active Directory sur un serveur qui exécute Windows Server 2012 en installant le Outils d’administration de serveur distant et vous pouvez installer le module Active Directory sur un ordinateur exécutant Windows 8 en téléchargeant et en installant le [ Outils d’administration de serveur distant (RSAT)](https://www.microsoft.com/download/details.aspx?id=28972). Voir [Instructions](https://www.microsoft.com/download/details.aspx?id=28972)pour les étapes d’installation.
+Le module Active Directory pour Windows PowerShell est installé par défaut lorsque le rôle serveur AD DS est installé sur un serveur qui exécute Windows Server 2012. L’ajout du rôle serveur est la seule étape supplémentaire requise. Vous pouvez également installer le module Active Directory sur un serveur qui exécute Windows Server 2012 en installant le Outils d’administration de serveur distant et vous pouvez installer le module Active Directory sur un ordinateur exécutant Windows 8 en téléchargeant et en installant les [Outils d’administration de serveur distant (RSAT)](https://www.microsoft.com/download/details.aspx?id=28972). Voir [Instructions](https://www.microsoft.com/download/details.aspx?id=28972)pour les étapes d’installation.
 
 ## <a name="scenarios-for-testing-windows-powershell-for-active-directory-replication-and-topology-management-cmdlets"></a>Scénarios de test des applets de commande de gestion de la topologie et de la réplication Windows PowerShell pour Active Directory
 Les scénarios suivants sont destinés aux administrateurs pour qu’ils se familiarisent avec les nouvelles applets de commande de gestion :
@@ -43,7 +43,7 @@ Les scénarios suivants sont destinés aux administrateurs pour qu’ils se fami
 
 ## <a name="lab-requirements"></a>Configuration de laboratoire requise
 
--   Deux contrôleurs de domaine Windows Server 2012 : **DC1** et **DC2** qui font partie du domaine contoso.com et qui résident dans le site CORPORATE dans ce domaine.
+-   Deux contrôleurs de domaine Windows Server 2012 : **DC1** et **DC2** qui font partie du domaine contoso.com et qui résident dans le site d’entreprise au sein de ce domaine.
 
 ## <a name="view-domain-controllers-and-their-sites"></a>Afficher les contrôleurs de domaine et leurs sites
 Dans cette étape, vous allez utiliser le module Active Directory pour Windows PowerShell pour afficher les contrôleurs de domaine existants et la topologie de réplication pour le domaine.
@@ -63,9 +63,9 @@ Pour effectuer les étapes des procédures suivantes, vous devez être membre du
     > [!TIP]
     > Vous pouvez utiliser la touche Tab pour compléter automatiquement les commandes dans Windows PowerShell.
     > 
-    > Exemple : tapez `Get-ADRep` et appuyez sur Tab plusieurs fois pour parcourir les commandes correspondantes jusqu’à atteindre `Get-ADReplicationSite`. La saisie semi-automatique fonctionne également pour les noms de paramètres tels que `Filter`.
+    > Exemple : tapez `Get-ADRep` et appuyez sur Tab plusieurs fois pour parcourir les commandes correspondantes jusqu’à atteindre `Get-ADReplicationSite`. La saisie semi-automatique fonctionne également pour les noms de paramètres tels que `Filter`.
 
-    Pour mettre en forme la sortie de la commande `Get-ADReplicationSite` en tant que table et limiter l’affichage à des champs spécifiques, vous pouvez diriger la sortie vers la commande `Format-Table` (ou « `ft` » en abrégé) :
+    Pour mettre en forme la sortie de la commande `Get-ADReplicationSite` en tant que table et limiter l’affichage à des champs spécifiques, vous pouvez diriger la sortie vers la commande `Format-Table` (ou «`ft`» pour Short) :
 
     `Get-ADReplicationSite -Filter * | ft Name`
 

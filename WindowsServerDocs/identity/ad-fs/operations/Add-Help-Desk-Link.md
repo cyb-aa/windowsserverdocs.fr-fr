@@ -20,7 +20,7 @@ ms.locfileid: "71358462"
 
 
 ## <a name="to-add-a-help-desk-link"></a>Pour ajouter un lien au support technique  
-Pour ajouter le lien du support technique affiché sur la page Sign @ no__t-0in, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
+Pour ajouter le lien du support technique affiché sur la page Sign\-in, utilisez l’applet de commande Windows PowerShell et la syntaxe suivantes.  
 
 ![Ajouter le support technique](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   

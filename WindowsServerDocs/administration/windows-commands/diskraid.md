@@ -26,7 +26,7 @@ ms.locfileid: "71377797"
 
 DiskRAID est un outil de ligne de commande qui vous permet de configurer et de gérer un tableau redondant de sous-systèmes de stockage (RAID) indépendants (ou peu onéreux).
 
-RAID est une méthode utilisée pour normaliser et classer les systèmes de disques à tolérance de pannes. Les niveaux RAID offrent différents mixages de performances, de fiabilité et de coût. RAID est généralement utilisé sur les serveurs. Certains serveurs fournissent trois des niveaux RAID : Niveau 0 (entrelacement), niveau 1 (mise en miroir) et niveau 5 (entrelacement avec parité).
+RAID est une méthode utilisée pour normaliser et classer les systèmes de disques à tolérance de pannes. Les niveaux RAID offrent différents mixages de performances, de fiabilité et de coût. RAID est généralement utilisé sur les serveurs. Certains serveurs fournissent trois des niveaux RAID : le niveau 0 (entrelacement), le niveau 1 (mise en miroir) et le niveau 5 (entrelacement avec parité).
 
 Un sous-système RAID matériel distingue les unités de stockage physiquement adressables les unes des autres à l’aide d’un numéro d’unité logique (LUN). Un objet LUN doit avoir au moins un plex et peut comporter un nombre quelconque de plex supplémentaires. Chaque Plex contient une copie des données sur l’objet LUN. Les plex peuvent être ajoutés et supprimés d’un objet LUN.
 
@@ -48,7 +48,7 @@ Pour afficher la syntaxe de la commande, cliquez sur une commande :
 -   [détail](#BKMK_8)
 -   [dissocier](#BKMK_9)
 -   [exit](#BKMK_10)
--   [étendre](#BKMK_11)
+-   [extend](#BKMK_11)
 -   [flushcache](#BKMK_12)
 -   [help](#BKMK_13)
 -   [importtarget](#BKMK_14)
@@ -88,7 +88,7 @@ add tpgroup tportal=n [noerr]
 
 #### <a name="parameters"></a>Paramètres
 
-**LUN de plex n**=
+**numéro d’unité logique de plex**=*n*
 
 Spécifie le numéro de LUN à ajouter en tant que Plex au LUN actuellement sélectionné.
 
@@ -183,15 +183,15 @@ Efface les indicateurs spécifiés. Le mot clé **All** efface tous les indicate
 
 Applique les indicateurs actuels au numéro d’unité logique sélectionné.
 
-\<indicateur >
+indicateur de \<>
 
 Les indicateurs sont identifiés par des acronymes à trois lettres.
 
-|Indicateur|Description|
+|Flag|Description|
 |----|-----------|
 |FCR|Récupération rapide après incident requise|
 |FTL|À tolérance de panne|
-|CAISSE|Lire principalement|
+|Caisse|Lire principalement|
 |MXD|Nombre maximal de lecteurs|
 |MXS|Taille maximale attendue|
 |RA|Alignement optimal de la lecture|
@@ -203,7 +203,7 @@ Les indicateurs sont identifiés par des acronymes à trois lettres.
 |RBP|Reconstruire la priorité|
 |RBV|Vérification de lecture activée|
 |RMP|Remappage activé|
-|TEAM|Taille d’entrelacement|
+|Team|Taille d’entrelacement|
 |WTC|Mise en cache accessible en écriture activée|
 |YNK|Bande|
 
@@ -319,7 +319,7 @@ Crée un LUN mis en miroir.
 
 Crée un numéro d’unité logique à l’aide des indicateurs *automagic* actuellement en vigueur. Pour plus d’informations, consultez la sous-commande **automagic** .
 
-**corps**=
+**taille**=
 
 Spécifie la taille totale des LUN en mégaoctets. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé sera la plus grande taille possible autorisée par tous les lecteurs spécifiés.
 
@@ -333,7 +333,7 @@ Pour spécifier la taille à l’aide d’autres unités, utilisez l’un des su
 -   **To** pour téraoctet.
 -   **PB** pour pétaoctet.
 
-**durs**=
+**lecteurs**=
 
 Spécifie le *drive_number* pour les lecteurs à utiliser pour créer un numéro d’unité logique. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé est la plus grande taille possible autorisée par tous les lecteurs spécifiés. Si le paramètre **Size =** est spécifié, les fournisseurs sélectionnent les lecteurs dans la liste de lecteurs spécifiée pour créer le numéro d’unité logique. Les fournisseurs tentent d’utiliser les lecteurs dans l’ordre spécifié lorsque cela est possible.
 
@@ -561,7 +561,7 @@ Pour spécifier la taille à l’aide d’autres unités, utilisez l’un des su
 
 **lecteurs =**
 
-Spécifie le > @no__t 0drive_number pour les lecteurs à utiliser lors de la création d’un numéro d’unité logique. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé est la plus grande taille possible autorisée par tous les lecteurs spécifiés. Les fournisseurs utilisent les lecteurs dans l’ordre spécifié dans la mesure du possible.
+Spécifie le > de drive_number \<pour les lecteurs à utiliser lors de la création d’un numéro d’unité logique. Si le paramètre **Size =** n’est pas spécifié, le numéro d’unité logique (LUN) créé est la plus grande taille possible autorisée par tous les lecteurs spécifiés. Les fournisseurs utilisent les lecteurs dans l’ordre spécifié dans la mesure du possible.
 
 **noerr**
 
@@ -569,7 +569,7 @@ Spécifie que les échecs qui se produisent lors de l’exécution de cette opé
 
 #### <a name="remarks"></a>Notes
 
-Vous devez spécifier la taille \<ou le paramètre de > du lecteur. Elles peuvent également être utilisées ensemble.
+Vous devez spécifier la *taille* ou le paramètre de > du lecteur \<. Elles peuvent également être utilisées ensemble.
 
 ### <a name="BKMK_12"></a>flushcache
 
@@ -644,23 +644,23 @@ lbpolicy set lun paths=<path>-{primary | <weight>}[,<path>-{primary | <weight>}[
 
 Spécifie la stratégie d’équilibrage de charge. Si le type n’est pas spécifié, le paramètre **path** doit être spécifié. Le type peut être l’un des suivants :
 
-**BASCULEMENT**: Utilise un chemin d’accès principal avec d’autres chemins d’accès de sauvegarde.
+**Basculement**: utilise un chemin d’accès principal avec d’autres chemins d’accès de sauvegarde.
 
-**ROUNDROBIN**: Utilise tous les chemins d’accès en mode tourniquet (Round Robin), qui essaie chaque chemin d’accès séquentiellement.
+**RoundRobin**: utilise tous les chemins d’accès en mode tourniquet (Round Robin), qui essaie chaque chemin d’accès séquentiellement.
 
-**SUBSETROUNDROBIN**: Utilise tous les chemins d’accès principaux en mode tourniquet (Round Robin). les chemins de sauvegarde sont utilisés uniquement en cas d’échec de tous les chemins principaux.
+**SUBSETROUNDROBIN**: utilise tous les chemins d’accès principaux en mode tourniquet (Round Robin). les chemins de sauvegarde sont utilisés uniquement en cas d’échec de tous les chemins principaux.
 
-**DYNLQD**: Utilise le chemin d’accès avec le moins de demandes actives.
+**DYNLQD**: utilise le chemin d’accès avec le moins de demandes actives.
 
-**PONDÉRATION**: Utilise le chemin d’accès avec le poids le plus faible (un poids doit être affecté à chaque chemin d’accès).
+**Weighted**: utilise le chemin d’accès avec le poids le plus faible (un poids doit être affecté à chaque chemin d’accès).
 
-**LEASTBLOCKS**: Utilise le chemin d’accès avec les blocs les plus faibles.
+**LEASTBLOCKS**: utilise le chemin d’accès avec les blocs les plus faibles.
 
-**VENDORSPECIFIC**: Utilise une stratégie spécifique au fournisseur.
+**VENDORSPECIFIC**: utilise une stratégie spécifique au fournisseur.
 
 **trajet**
 
-Spécifie si un chemin d’accès est **principal** ou \<a une > de poids particulière. Les chemins d’accès non spécifiés sont implicitement définis comme sauvegarde. Tous les chemins d’accès figurant dans la liste doivent être l’un des chemins d’accès de l’unité logique actuellement sélectionnée.
+Spécifie si un chemin d’accès est **principal** ou a un > de poids \<particulier. Les chemins d’accès non spécifiés sont implicitement définis comme sauvegarde. Tous les chemins d’accès figurant dans la liste doivent être l’un des chemins d’accès de l’unité logique actuellement sélectionnée.
 
 ### <a name="BKMK_19"></a>tarifs
 
@@ -756,17 +756,17 @@ Spécifie un portail cible facultatif dans le sous-système actuellement sélect
 
 Spécifie un portail initiateur facultatif dans la carte initiatrice spécifiée à utiliser pour la connexion.
 
-\<indicateur >
+indicateur de \<>
 
 Identifié par trois caractères :
 
-**ADRESSES IP**: Exiger IPsec
+**Adresses IP**: exiger IPSec
 
-**EMP**: Activer Multipath
+**EMP**: activer Multipath
 
-**EHD**: Activer le résumé d’en-tête
+**EHD**: activer le résumé d’en-tête
 
-**EDD**: Activer le résumé des données
+**EDD**: activer le résumé des données
 
 ### <a name="BKMK_21"></a>déconnexion
 
@@ -796,11 +796,11 @@ maintenance <object operation> [count=<iteration>]
 
 #### <a name="parameters"></a>Paramètres
 
-\<> d’objets
+objet \<>
 
 Spécifie le type d’objet sur lequel effectuer l’opération. Le type d' *objet* peut être un **sous-système**, un **contrôleur**, un **port, un lecteur** ou un numéro d' **unité logique**.
 
-\<> de l’opération
+opération de \<>
 
 Spécifie l’opération de maintenance à effectuer. Le type d' *opération* peut être **spinup**, **SpinDown**, **Blink**, **Beep** ou **ping**. Une *opération* doit être spécifiée.
 
@@ -836,9 +836,9 @@ offline <object>
 
 #### <a name="parameter"></a>Paramètre
 
-\<> d’objets
+objet \<>
 
-Spécifie le type d’objet sur lequel effectuer cette opération. \<Objet >
+Spécifie le type d’objet sur lequel effectuer cette opération. Objet \<>
 
 le type peut être **sous-système**, **contrôleur**, **lecteur**, **numéro d’unité logique**ou **TPORTAL**.
 
@@ -854,9 +854,9 @@ online <object>
 
 #### <a name="parameter"></a>Paramètre
 
-\<> d’objets
+objet \<>
 
-Spécifie le type d’objet sur lequel effectuer cette opération. \<Objet >
+Spécifie le type d’objet sur lequel effectuer cette opération. Objet \<>
 
 le type peut être **HBAPORT**, **Subsystem**, **Controller**, **Drive**, **lun**ou **TPORTAL**.
 
@@ -944,7 +944,7 @@ replace drive=<drive_number>
 
 **lecteur =**
 
-Spécifie le > \<drive_number pour le lecteur à remplacer.
+Spécifie le > de drive_number \<pour le lecteur à remplacer.
 
 #### <a name="remarks"></a>Notes
 
@@ -984,59 +984,59 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 **dessin**
 
-Spécifie le type d’objet à sélectionner. Le \<type d' > d’objet peut être **Provider**, **Subsystem**, **Controller**, **Drive**ou **lun**.
+Spécifie le type d’objet à sélectionner. Le type de > objet \<peut être **Provider**, **Subsystem**, **Controller**, **Drive**ou **lun**.
 
-**HBAPORT** [\<N >]
+**HBAPORT** [\<n >]
 
 Définit le focus sur le port de l’adaptateur de bus hôte local spécifié. Si aucun port HBA n’est spécifié, la commande affiche le port HBA actuellement sélectionné (le cas échéant). Si vous spécifiez un index de port HBA non valide, le port HBA est inactif. La sélection d’un port HBA désélectionne les adaptateurs initiateurs et les portails de l’initiateur sélectionnés.
 
-**IADAPTER** [\<N >]
+**IADAPTER** [\<n >]
 
 Définit le focus sur l’adaptateur d’initiateur iSCSI local spécifié. Si aucun adaptateur d’initiateur n’est spécifié, la commande affiche la carte initiatrice actuellement sélectionnée (le cas échéant). La spécification d’un index d’adaptateur initiateur non valide entraîne l’absence d’un adaptateur initiateur en cours. La sélection d’un adaptateur d’initiateur désélectionne les ports HBA et les portails de l’initiateur sélectionnés.
 
-**IPORTAL** [\<N >]
+**IPORTAL** [\<n >]
 
 Définit le focus sur le portail de l’initiateur iSCSI local spécifié au sein de la carte de l’initiateur iSCSI sélectionnée. Si aucun portail initiateur n’est spécifié, la commande affiche le portail initiateur actuellement sélectionné (le cas échéant). Si vous spécifiez un index du portail de l’initiateur non valide, aucun portail initiateur n’est sélectionné.
 
-**fournisseur** [\<N >]
+**fournisseur** [\<n >]
 
 Définit le focus sur le fournisseur spécifié. Si aucun fournisseur n’est spécifié, la commande affiche le fournisseur actuellement sélectionné (le cas échéant). La spécification d’un index de fournisseur non valide entraîne l’absence de fournisseur en cours.
 
-**sous-système** [\<N >]
+**sous-système** [\<n >]
 
 Définit le focus sur le sous-système spécifié. Si aucun sous-système n’est spécifié, la commande affiche le sous-système avec le focus (le cas échéant). La spécification d’un index de sous-système non valide n’entraîne pas de sous-système in-focus. La sélection d’un sous-système sélectionne implicitement son fournisseur associé.
 
-**contrôleur** [\<N >]
+**contrôleur** [\<n >]
 
 Définit le focus sur le contrôleur spécifié dans le sous-système actuellement sélectionné. Si aucun contrôleur n’est spécifié, la commande affiche le contrôleur actuellement sélectionné (le cas échéant). Si vous spécifiez un index de contrôleur non valide, aucun contrôleur n’est actif. La sélection d’un contrôleur désélectionne les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**port** [\<N >]
+**port** [\<n >]
 
 Définit le focus sur le port de contrôleur spécifié au sein du contrôleur actuellement sélectionné. Si aucun port n’est spécifié, la commande affiche le port actuellement sélectionné (le cas échéant). Si vous spécifiez un index de port non valide, aucun port n’est sélectionné.
 
-**lecteur** [\<N >]
+**lecteur** [\<n >]
 
 Définit le focus sur le lecteur spécifié, ou sur l’axe physique, dans le sous-système actuellement sélectionné. Si aucun lecteur n’est spécifié, la commande affiche le lecteur actuellement sélectionné (le cas échéant). Si vous spécifiez un index de lecteur non valide, aucun lecteur n’est actif. La sélection d’un lecteur désélectionne les contrôleurs, les ports de contrôleur, les numéros d’unités logiques, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**lun** [\<N >]
+**lun** [\<n >]
 
 Définit le focus sur le numéro d’unité logique spécifié dans le sous-système actuellement sélectionné. Si aucun numéro d’unité logique n’est spécifié, la commande affiche le numéro d’unité logique actuellement sélectionné (le cas échéant). Si vous spécifiez un index de LUN non valide, aucun numéro d’unité logique n’est sélectionné. La sélection d’un numéro d’unité logique désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les portails cibles, les cibles et les groupes de portails cibles sélectionnés.
 
-**TPORTAL** [\<N >]
+**TPORTAL** [\<n >]
 
 Définit le focus sur le portail cible iSCSI spécifié dans le sous-système actuellement sélectionné. Si aucun portail cible n’est spécifié, la commande affiche le portail cible actuellement sélectionné (le cas échéant). Si vous spécifiez un index de portail cible non valide, aucun portail cible n’est sélectionné. La sélection d’un portail cible désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les cibles et les groupes de portails cibles.
 
-**cible** [\<N >]
+**cible** [\<n >]
 
 Définit le focus sur la cible iSCSI spécifiée dans le sous-système actuellement sélectionné. Si aucune cible n’est spécifiée, la commande affiche la cible actuellement sélectionnée (le cas échéant). La spécification d’un index cible non valide n’entraîne aucune cible sélectionnée. La sélection d’une cible désélectionne les contrôleurs, les ports de contrôleur, les lecteurs, les numéros d’unités logiques, les portails cibles et les groupes de portails cibles.
 
-**TPGROUP** [\<N >]
+**TPGROUP** [\<n >]
 
 Définit le focus sur le groupe de portails cibles iSCSI spécifié au sein de la cible iSCSI actuellement sélectionnée. Si aucun groupe de portails cible n’est spécifié, la commande affiche le groupe de portails cibles actuellement sélectionné (le cas échéant). Si vous spécifiez un index de groupe de portails cible non valide, aucun groupe de portails cibles n’est actif.
 
-[@no__t 0n >]
+[\<n >]
 
-Spécifie \<le numéro d’objet > à sélectionner. Si le <object number> spécifié n’est pas valide, toutes les sélections existantes pour les objets du type spécifié sont effacées. Si aucun <object number> n’est spécifié, l’objet actuel est affiché.
+Spécifie le numéro d’objet \<> à sélectionner. Si le <object number> spécifié n’est pas valide, toutes les sélections existantes pour les objets du type spécifié sont effacées. Si aucun <object number> n’est spécifié, l’objet actuel est affiché.
 
 ### <a name="BKMK_34"></a>setflag
 
@@ -1159,7 +1159,7 @@ Par défaut, DiskRAID arrête le traitement des commandes et retourne un code d�
 |4|L’un des services que DiskRAID utilise a renvoyé une erreur.|
 |5|Une erreur de syntaxe de commande s’est produite. Le script a échoué, car un objet n’a pas été correctement sélectionné ou n’était pas valide pour une utilisation avec cette commande.|
 
-## <a name="example-interactively-view-status-of-subsystem"></a>Exemple : Afficher l’état du sous-système de manière interactive
+## <a name="example-interactively-view-status-of-subsystem"></a>Exemple : affichage interactif de l’état du sous-système
 
 Si vous souhaitez afficher l’état du sous-système 0 sur votre ordinateur, tapez la commande suivante à partir de la ligne de commande :
 ```
@@ -1175,7 +1175,7 @@ Pour sélectionner le sous-système 0, tapez la commande suivante à l’invite 
 ```
 select subsystem 0
 ```
-Appuyez sur ENTRÉE. Une sortie similaire à ce qui suit s’affiche:
+Appuyez sur ENTRÉE. Une sortie similaire à ce qui suit s’affiche :
 ```
 Subsystem 0 is now the selected subsystem.
 

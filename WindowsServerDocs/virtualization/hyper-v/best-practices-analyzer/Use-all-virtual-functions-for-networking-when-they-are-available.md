@@ -19,7 +19,7 @@ ms.locfileid: "71393346"
 ---
 # <a name="use-all-virtual-functions-for-networking-when-they-are-available"></a>Utiliser toutes les fonctions virtuelles pour la mise en réseau lorsqu’elles sont disponibles
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
@@ -27,7 +27,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
@@ -36,11 +36,11 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 *Certaines fonctionnalités d’accélération matérielle ne sont pas utilisées*  
   
 ## <a name="impact"></a>Impact  
-la configuration *This peut entraîner une utilisation de l’UC globale supérieure à ce qui est nécessaire. Les performances de mise en réseau peuvent ne pas être optimales sur les ordinateurs virtuels suivants :*  
+*Cette configuration peut entraîner une utilisation de l’UC globale plus élevée que nécessaire. Les performances de mise en réseau peuvent ne pas être optimales sur les ordinateurs virtuels suivants :*  
   
-@no__t 0list de machines virtuelles >  
+\<liste des machines virtuelles >  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
 *Envisagez de configurer la carte réseau virtuelle pour SR-IOV si le matériel physique prend en charge SR-IOV et si cette configuration n’est pas en conflit avec les fonctionnalités de mise en réseau requises par la machine virtuelle.*  
   
 

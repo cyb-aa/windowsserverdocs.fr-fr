@@ -22,9 +22,9 @@ ms.locfileid: "71378912"
 ---
 # <a name="create-partition-extended"></a>création d’une partition étendue
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-crée une partition étendue sur le disque qui a le focus. Vous pouvez utiliser cette commande uniquement sur un enregistrement de démarrage principal \(MBR @ no__t-1 disques.  
+crée une partition étendue sur le disque qui a le focus. Vous pouvez utiliser cette commande uniquement sur un enregistrement de démarrage principal \(disques MBR\).  
   
   
   
@@ -38,10 +38,10 @@ create partition extended [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 |  Paramètre  |                                                                                                                             Description                                                                                                                              |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  taille @ no__t-0 @ no__t-1  |                                                  Spécifie la taille de la partition en mégaoctets \(MB @ no__t-1. Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la partition étendue.                                                  |
-| décalage @ no__t-0 @ no__t-1 |                     Spécifie l’offset en kilo-octets @no__t-taille 0 Ko @ no__t-1, à partir duquel la partition est créée. Si aucun décalage n’est spécifié, la partition démarre au début de l’espace libre sur le disque qui est suffisamment grand pour contenir la nouvelle partition.                      |
-| aligner @ no__t-0 @ no__t-1  | Aligne toutes les étendues de partition sur la limite d’alignement la plus proche. Généralement utilisé avec le numéro d’unité logique RAID matériel @no__t 0LUN @ no__t-1 pour améliorer les performances. <n> est le nombre de kilo-octets \( Ko @ no__t-2 à partir du début du disque jusqu’à la limite d’alignement la plus proche. |
-|    noerr    |                                 À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.                                 |
+|  taille\=<n>  |                                                  Spécifie la taille de la partition en mégaoctets \(Mo\). Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la partition étendue.                                                  |
+| décalage\=<n> |                     Spécifie le décalage en kilo-octets \(Ko\), à partir duquel la partition est créée. Si aucun décalage n’est spécifié, la partition démarre au début de l’espace libre sur le disque qui est suffisamment grand pour contenir la nouvelle partition.                      |
+| aligner\=<n>  | Aligne toutes les étendues de partition sur la limite d’alignement la plus proche. Généralement utilisé avec le numéro d’unité logique RAID matériel \(les groupes de LUN\) pour améliorer les performances. <n> est le nombre de kilo-octets \(Ko\) à partir du début du disque jusqu’à la limite d’alignement la plus proche. |
+|    noerr    |                                 à des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.                                 |
   
 ## <a name="remarks"></a>Notes  
   

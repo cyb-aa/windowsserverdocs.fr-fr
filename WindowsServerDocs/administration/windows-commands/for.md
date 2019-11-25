@@ -38,10 +38,10 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
 |Paramètre|Description|
 |---------|-----------|
-|{%% \|%} \<Variable >|Obligatoire. Représente un paramètre remplaçable. Utilisez un signe de pourcentage unique ( **%** ) pour exécuter la commande for à l’invite **de** commandes. Utilisez des signes de double pourcentage ( **%%** ) pour exécuter la commande for dans un fichier **de** commandes. Les variables respectent la casse et doivent être représentées par une valeur alphabétique telle que **% A**, **% B**ou **% C**.|
-|(\<Set >)|Obligatoire. Spécifie un ou plusieurs fichiers, répertoires ou chaînes de texte, ou une plage de valeurs sur laquelle exécuter la commande. Les parenthèses sont obligatoires.|
-|@no__t 0Command >|Obligatoire. Spécifie la commande que vous souhaitez exécuter sur chaque fichier, répertoire ou chaîne de texte, ou sur la plage de valeurs incluses dans l' *ensemble*.|
-|@no__t 0CommandLineOptions >|Spécifie les options de ligne de commande que vous souhaitez utiliser avec la commande spécifiée.|
+|{%%\|%}\<variable >|Obligatoire. Représente un paramètre remplaçable. Utilisez un signe de pourcentage unique ( **%** ) pour exécuter la commande for à l’invite **de** commandes. Utilisez **des signes de** double pourcentage ( **%%** ) pour exécuter la commande for dans un fichier de commandes. Les variables respectent la casse et doivent être représentées par une valeur alphabétique telle que **% A**, **% B**ou **% C**.|
+|(\<set >)|Obligatoire. Spécifie un ou plusieurs fichiers, répertoires ou chaînes de texte, ou une plage de valeurs sur laquelle exécuter la commande. Les parenthèses sont obligatoires.|
+|> de commande \<|Obligatoire. Spécifie la commande que vous souhaitez exécuter sur chaque fichier, répertoire ou chaîne de texte, ou sur la plage de valeurs incluses dans l' *ensemble*.|
+|\<CommandLineOptions >|Spécifie les options de ligne de commande que vous souhaitez utiliser avec la commande spécifiée.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -52,9 +52,9 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 - Utilisation des paramètres batch
 
   Les attributs suivants s’appliquent à la commande **for** :  
-  - La commande **for** remplace la variable **%** <em>ou la</em> variable **%%** <em>par chaque</em> chaîne de texte dans le jeu spécifié jusqu’à ce que la commande spécifiée traite tous les fichiers.
+  - La commande **for** remplace **%** <em>variable</em> ou **%%** <em>variable</em> par chaque chaîne de texte dans le jeu spécifié jusqu’à ce que la commande spécifiée traite tous les fichiers.
   - Les noms de variables respectent la casse, global et le nombre de 52 peut être actif à la fois.
-  - Pour éviter toute confusion avec les paramètres de lot **% 0** à **% 9**, vous pouvez utiliser n’importe quel caractère pour une *variable* , à l’exception des chiffres de 0 à 9. Pour les fichiers de commandes simples, un seul caractère tel que **%% f** fonctionnera.
+  - Pour éviter toute confusion avec les paramètres de lot **%0** à **%9**, vous pouvez utiliser n’importe quel caractère pour une *variable* , à l’exception des chiffres de 0 à 9. Pour les fichiers de commandes simples, un seul caractère tel que **%% f** fonctionnera.
   - Vous pouvez utiliser plusieurs valeurs pour les *variables* dans des fichiers de commandes complexes afin de distinguer différentes variables remplaçables.
 - Spécification d’un groupe de fichiers
 
@@ -76,7 +76,7 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     Si *Set* contient des caractères génériques **&#42;** (ou **?** ), la *commande* spécifiée s’exécute pour chaque répertoire (au lieu d’un ensemble de fichiers dans un répertoire spécifié) correspondant à *Set*.
 
-    La syntaxe est :  
+    La syntaxe est la suivante :  
     ```
     for /d {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>] 
     ```  
@@ -84,7 +84,7 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     Parcourt l’arborescence de répertoires qui est enracinée dans le*chemin d’accès* *lecteur*: et exécute l’instruction **for** dans chaque répertoire de l’arborescence. Si aucun répertoire n’est spécifié après **/r**, le répertoire actif est utilisé comme répertoire racine. Si *Set* n’est qu’un seul point (.), il n’énumère que l’arborescence de répertoires.
 
-    La syntaxe est :  
+    La syntaxe est la suivante :  
     ```
     for /r [[<Drive>:]<Path>] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     ```  
@@ -92,7 +92,7 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     Utilisez une variable itérative pour définir la valeur de départ (*Start*#), puis parcourez une plage définie de valeurs jusqu’à ce que la valeur dépasse la valeur de fin définie (*end*#). **/l** exécute l’instruction itérative en comparant *Start*# avec *end*#. Si *Start*# est inférieur à *end*#, la commande s’exécute. Lorsque la variable itérative dépasse la *fin*#, l’interface de commande quitte la boucle. Vous pouvez également utiliser un numéro d' *étape*négatif pour parcourir une plage de valeurs décroissantes. Par exemple, (1, 1, 5) génère la séquence 1 2 3 4 5 et (5,-1, 1) génère la séquence 5 4 3 2 1.
 
-    La syntaxe est :  
+    La syntaxe est la suivante :  
     ```
     for /l {%%|%}<Variable> in (<Start#>,<Step#>,<End#>) do <Command> [<CommandLineOptions>]
     ```  
@@ -120,11 +120,11 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     |      Mot-clé      |                                                                                                                                                                                                          Description                                                                                                                                                                                                          |
     |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |     EOL = \<c >      |                                                                                                                                                                                   Spécifie un caractère de fin de ligne (un seul caractère).                                                                                                                                                                                    |
-    |     Skip = \<N >     |                                                                                                                                                                              Spécifie le nombre de lignes à ignorer au début du fichier.                                                                                                                                                                              |
-    |   delims = \<xxx >   |                                                                                                                                                                     Spécifie un jeu de délimiteurs. Cela remplace l’ensemble de délimiteurs par défaut de l’espace et de la tabulation.                                                                                                                                                                      |
-    | Tokens = \<X, Y, M – N > | Spécifie les jetons de chaque ligne à passer à la boucle **for** pour chaque itération. Par conséquent, des noms de variables supplémentaires sont alloués. *M*–*N* spécifie une plage, entre le *m*et les *N*ième jetons. Si le dernier caractère de la chaîne **tokens =** est un astérisque ( **&#42;** ), une variable supplémentaire est allouée et reçoit le texte restant sur la ligne après le dernier jeton analysé. |
-    |     usebackq      |                                                                                             Spécifie : pour exécuter une chaîne entre guillemets en tant que commande, utilisez une chaîne entre guillemets simples comme chaîne littérale ou, pour les noms de fichiers longs qui contiennent des espaces, autorisez les noms de fichiers dans *\<set @ no__t-2*, à chacun placé entre guillemets doubles.                                                                                              |
+    |     EOL =\<c >      |                                                                                                                                                                                   Spécifie un caractère de fin de ligne (un seul caractère).                                                                                                                                                                                    |
+    |     Skip =\<N >     |                                                                                                                                                                              Spécifie le nombre de lignes à ignorer au début du fichier.                                                                                                                                                                              |
+    |   delims =\<xxx >   |                                                                                                                                                                     Spécifie un jeu de délimiteurs. Cela remplace l’ensemble de délimiteurs par défaut de l’espace et de la tabulation.                                                                                                                                                                      |
+    | Tokens =\<X, Y, M – N > | Spécifie les jetons de chaque ligne à passer à la boucle **for** pour chaque itération. Par conséquent, des noms de variables supplémentaires sont alloués. *M*–*N* spécifie une plage, entre le *m*et les *N*ième jetons. Si le dernier caractère de la chaîne **tokens =** est un astérisque ( **&#42;** ), une variable supplémentaire est allouée et reçoit le texte restant sur la ligne après le dernier jeton analysé. |
+    |     usebackq      |                                                                                             Spécifie : pour exécuter une chaîne entre guillemets en tant que commande, utilisez une chaîne entre guillemets simples comme chaîne littérale ou, pour les noms de fichiers longs qui contiennent des espaces, autorisez les noms de fichiers dans *\<jeu\>* , à chacun placé entre des guillemets doubles.                                                                                              |
 
 
   - Substitution de variable
@@ -155,15 +155,15 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     |% ~ DP $ chemin : I|Recherche dans les répertoires qui sont répertoriés dans la variable d’environnement PATH pour **% I** et s’étend sur la lettre de lecteur et le chemin d’accès du premier trouvé.|
     |% ~ ftzaI|Développe **% I** vers une ligne de sortie comme **dir**.|
 
-    Dans les exemples ci-dessus, vous pouvez remplacer **% I** et PATH par d’autres valeurs valides. Un nom **de** variable valide pour termine la syntaxe **%~** .
+    Dans les exemples ci-dessus, vous pouvez remplacer **% I** et PATH par d’autres valeurs valides. Un nom **de** variable valide pour termine la syntaxe de **%~** .
 
     En utilisant des noms de variable en majuscules tels que **% I**, vous pouvez rendre votre code plus lisible et éviter toute confusion avec les modificateurs, qui ne respectent pas la casse.
 - Analyse d’une chaîne
 
-  Vous pouvez utiliser la logique **d’analyse pour/f** sur une chaîne immédiate en encapsulant *\<LiteralString @ no__t-3* dans les guillemets doubles (*sans* « usebackq ») ou en guillemets simples (*avec* « usebackq »), par exemple (« myString ») ou («» MyString'). *\<LiteralString @ no__t-2* est traitée comme une seule ligne d’entrée à partir d’un fichier. Lors de l’analyse de *\<LiteralString @ no__t-2* par des guillemets doubles, les symboles de commande (comme **\\ \& \| \> \<** \^) sont traités comme des caractères ordinaires.
+  Vous pouvez utiliser la **logique d’analyse pour/f** sur une chaîne immédiate en encapsulant *\<nouvel literalstring\>* dans : guillemets doubles (*sans* « usebackq ») ou en guillemets simples (*avec* « usebackq »), par exemple (« myString ») ou (« myString »). *\<\>nouvel literalstring* est traité comme une seule ligne d’entrée à partir d’un fichier. Lors de l’analyse d' *\<nouvel literalstring\>* par des guillemets doubles, les symboles de commande (comme **\\ \& \|** \> \< \^) sont traités comme des caractères ordinaires.
 - Analyse de la sortie
 
-  Vous pouvez utiliser la commande **for/f** pour analyser la sortie d’une commande en plaçant un guillemet *\<command @ no__t-3* entre parenthèses. Elle est traitée comme une ligne de commande, qui est transmise à un enfant cmd. exe. La sortie est capturée en mémoire et analysée comme s’il s’agissait d’un fichier.
+  Vous pouvez utiliser la commande **for/f** pour analyser la sortie d’une commande en plaçant une *commande\<* entre guillemets\>entre les parenthèses. Elle est traitée comme une ligne de commande, qui est transmise à un enfant cmd. exe. La sortie est capturée en mémoire et analysée comme s’il s’agissait d’un fichier.
 
 ## <a name="BKMK_examples"></a>Illustre
 

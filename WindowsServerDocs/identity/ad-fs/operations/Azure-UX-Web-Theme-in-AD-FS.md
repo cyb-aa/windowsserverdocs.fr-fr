@@ -32,12 +32,12 @@ Pour activer le nouveau thème Web, procédez comme suit :
 
 ### <a name="to-enable-the-new-azure-ad-ux-web-theme-in-ad-fs"></a>Pour activer le nouveau thème Web Azure AD UX dans AD FS
 1. Démarrer PowerShell en tant qu’administrateur
-2. Créer un nouveau thème Web à l’aide de PowerShell :`New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"}`
-3. Définir le nouveau thème comme thème actif à l’aide de PowerShell :  `Set-AdfsWebConfig -ActiveThemeName custom`
+2. Créer un nouveau thème Web à l’aide de PowerShell : `New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"}`
+3. Définir le nouveau thème comme thème actif à l’aide de PowerShell : `Set-AdfsWebConfig -ActiveThemeName custom`
    ![PowerShell](media/Azure-UX-Web-Theme-in-AD-FS/two.png)
-4. Tester la connexion en accédant à https://<AD FS name.domain>/ADFS/LS/idpinitiatedsignon.htm ![Sign-On](media/Azure-UX-Web-Theme-in-AD-FS/three.png)
+4. Testez la connexion en accédant à https://<AD FS name.domain>/adfs/ls/idpinitiatedsignon.htm ![l’authentification](media/Azure-UX-Web-Theme-in-AD-FS/three.png)
 
-> ! OBSERVE Vous devez vous assurer que idpinitiatedsignon a été activé.  Elle n’est pas activée par défaut.  Pour activer idpinitiatedsignon, utilisez la commande PowerShell suivante :`Set-AdfsProperties –EnableIdpInitiatedSignonPage $True`
+> ! OBSERVE Vous devez vous assurer que idpinitiatedsignon a été activé.  Elle n’est pas activée par défaut.  Pour activer idpinitiatedsignon, utilisez la commande PowerShell suivante : `Set-AdfsProperties –EnableIdpInitiatedSignonPage $True`
 
 ## <a name="image-recommendations"></a>Recommandations relatives aux images
 L’activation de l’interface utilisateur centrée vous permet d’utiliser les mêmes images pour l’arrière-plan et le logo que vous possédez peut-être déjà pour la personnalisation de Azure Active Directory entreprise. En règle générale, les mêmes recommandations en matière de taille, de ratio et de format s’appliquent.
@@ -48,11 +48,11 @@ Description | Contraintes | Recommandations
 ------- | ------- | ----------
 Le logo s’affiche en haut du panneau de connexion. | JPG ou PNG transparent<br>Hauteur max. : 36 PX<br>Largeur maximale : 245 PX | Utilisez le logo de votre organisation ici.<br>Utilisez une image transparente. Ne partez pas du principe que l’arrière-plan sera blanc.<br>N’ajoutez pas de marge intérieure autour de votre logo dans l’image, sinon votre logo aura une petite taille disproportionnée.
 
-### <a name="background"></a>Présentation
+### <a name="background"></a>Arrière-plan
 
 Description | Contraintes | Recommandations
 ------- | ------- | ----------
-Cette option s’affiche à l’arrière-plan de la page de connexion, est ancrée au centre de l’espace affichable et met à l’échelle et rogne pour remplir la fenêtre du navigateur.    <br>Sur les écrans étroits tels que les téléphones mobiles, cette image n’est pas affichée.<br>Un masque noir avec une opacité de 0,55 est appliqué sur cette image lorsque la page est chargée. | JPG ou PNG<br>Dimensions de l’image : 1920 x 1080 PX<br>Taille du fichier : &lt;300 KO | <br>Utilisez des images qui n’ont pas de sujet fort. Le formulaire de connexion opaque apparaît au centre de cette image et peut couvrir n’importe quelle partie de l’image, en fonction de la taille de la fenêtre du navigateur.<br>Conservez une taille de fichier réduite pour garantir des temps de chargement rapides.
+Cette option s’affiche à l’arrière-plan de la page de connexion, est ancrée au centre de l’espace affichable et met à l’échelle et rogne pour remplir la fenêtre du navigateur.    <br>Sur les écrans étroits tels que les téléphones mobiles, cette image n’est pas affichée.<br>Un masque noir avec une opacité de 0,55 est appliqué sur cette image lorsque la page est chargée. | JPG ou PNG<br>Dimensions de l’image : 1920 x 1080 PX<br>Taille du fichier : &lt; 300 Ko | <br>Utilisez des images qui n’ont pas de sujet fort. Le formulaire de connexion opaque apparaît au centre de cette image et peut couvrir n’importe quelle partie de l’image, en fonction de la taille de la fenêtre du navigateur.<br>Conservez une taille de fichier réduite pour garantir des temps de chargement rapides.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Personnalisation de la AD FS dans Windows Server 2016](AD-FS-Customization-in-Windows-Server-2016.md)

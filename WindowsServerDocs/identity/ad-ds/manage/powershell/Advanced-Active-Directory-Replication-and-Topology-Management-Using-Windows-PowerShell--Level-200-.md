@@ -18,7 +18,7 @@ ms.locfileid: "71402673"
 ---
 # <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>Gestion avancée de la topologie et de la réplication Active Directory avec Windows PowerShell (Niveau 200)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit plus en détail les applets de commande de gestion de la topologie et de la réplication des services de domaine Active Directory et fournit des exemples supplémentaires. Pour une présentation, consultez [Présentation de la gestion de la topologie et de la réplication Active Directory à l’aide de Windows PowerShell &#40;Level 100&#41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md).  
   
@@ -82,7 +82,7 @@ Pour obtenir la liste complète de toutes les applets de commande Active Directo
 Get-command -module ActiveDirectory  
 ```  
   
-Pour obtenir la liste complète de tous les arguments d'applets de commande Active Directory pour Windows PowerShell, consultez l'aide. Exemple :  
+Pour obtenir la liste complète de tous les arguments d'applets de commande Active Directory pour Windows PowerShell, consultez l'aide. Par exemple :  
   
 ```  
 Get-help New-ADReplicationSite  
@@ -228,7 +228,7 @@ Repadmin.exe est performant lorsqu'il s'agit de renvoyer des informations sur la
   
 Par exemple, après une expansion rapide de nouvelles succursales, associée à la consolidation d'autres succursales, vous pouvez être amené à apporter une centaine de modifications en fonction des emplacements physiques, des changements du réseau et des besoins en termes de nouvelle capacité. Au lieu d'utiliser Dssites.msc et Adsiedit.msc pour effectuer ces modifications, vous pouvez les automatiser. Ce changement s'impose alors que vous commencez avec une feuille de calcul de données fournies par votre réseau et les équipes des sites.  
   
-Les cmdlets **obtenir-Adreplication @ no__t-1*** retournent des informations sur la topologie de réplication et sont utiles pour le traitement en pipeline dans les cmdlets **Set-Adreplication @ no__t-3*** en bloc. Les **applets** de commande d’accès ne modifient pas les données, elles affichent uniquement les données ou créent des objets de session Windows PowerShell qui peuvent être canalisés vers des applets de commande **Set-Adreplication @ no__t-2***. Les applets de commande **New** et **Remove** servent à créer et supprimer les objets de topologie Active Directory.  
+Les applets de commande **Adreplication\\** * de l’applet de commande Set-retournent des informations sur la topologie de réplication et sont utiles pour le traitement en pipeline des applets de commande **Set-Adreplication\\** * en bloc. Les **applets** de commande d’accès ne modifient pas les données, elles affichent uniquement les données ou créent des objets de session Windows PowerShell qui peuvent être canalisés vers des applets de commande **Set-Adreplication\\** *. Les applets de commande **New** et **Remove** servent à créer et supprimer les objets de topologie Active Directory.  
   
 Par exemple, vous pouvez créer de nouveaux sites à l'aide d'un fichier CSV :  
   

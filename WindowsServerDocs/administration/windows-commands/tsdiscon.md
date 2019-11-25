@@ -22,10 +22,10 @@ ms.locfileid: "71369869"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Déconnecte une session d’un serveur hôte de session Bureau à distance (hôte de session Bureau à distance).
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
+pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 
 > [!NOTE]
 > Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
@@ -39,9 +39,9 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 
 |Paramètre|Description|
 |-------|--------|
-|@no__t 0SessionId >|Spécifie l’ID de la session à déconnecter.|
-|@no__t 0SessionName >|Spécifie le nom de la session à déconnecter.|
-|/Server : \<ServerName >|Spécifie le serveur Terminal Server qui contient la session que vous souhaitez déconnecter. Dans le cas contraire, le serveur hôte de session Bureau à distance actuel est utilisé.|
+|\<SessionId >|Spécifie l’ID de la session à déconnecter.|
+|\<NomSession >|Spécifie le nom de la session à déconnecter.|
+|/Server :\<ServerName >|Spécifie le serveur Terminal Server qui contient la session que vous souhaitez déconnecter. Dans le cas contraire, le serveur hôte de session Bureau à distance actuel est utilisé.|
 |/v|Affiche des informations sur les actions en cours d’exécution.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
@@ -67,4 +67,4 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
   ```
   #### <a name="additional-references"></a>Références supplémentaires
   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [ &#40;services Bureau à distance&#41; référence des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
+  [ &#40;services Bureau à distance&#41; référence de commande des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)
