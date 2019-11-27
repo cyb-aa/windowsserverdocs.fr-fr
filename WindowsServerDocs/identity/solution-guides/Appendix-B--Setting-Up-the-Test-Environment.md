@@ -16,13 +16,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71407145"
 ---
-# <a name="appendix-b-setting-up-the-test-environment"></a>Annexe B : configuration de l'environnement de test
+# <a name="appendix-b-setting-up-the-test-environment"></a>Annexe B : configuration de l'environnement de test
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit les étapes nécessaires pour créer un laboratoire de test du contrôle d'accès dynamique. Vous devez suivre les instructions dans l'ordre indiqué car de nombreux composants ont des dépendances.  
 
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 **Configuration matérielle et logicielle requise**  
 
 Configuration requise pour la mise en place du laboratoire de test :  
@@ -104,7 +104,7 @@ Créez un ordinateur virtuel qui servira de contrôleur de domaine (DC1). Instal
 
 2. Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**.  
 
-3. Dans la page **Avant de commencer** , cliquez sur **Suivant**.  
+3. Sur la page **Before you begin**, cliquez sur **Next**.  
 
 4. Dans la page **Sélectionner le type d'installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.  
 
@@ -156,7 +156,7 @@ Créez les utilisateurs suivants à l'aide du Centre d'administration Active Dir
 3. Créez l'unité d'organisation suivante :  
 
 
-   |   Nom de l'unité d'organisation    | Computers |
+   |   Nom de l'unité d'organisation    | Ordinateurs |
    |--------------|-----------|
    | FileServerOU |   FILE1   |
 
@@ -164,7 +164,7 @@ Créez les utilisateurs suivants à l'aide du Centre d'administration Active Dir
 4. Créez les utilisateurs suivants avec les attributs indiqués :  
 
 
-   |       Utilisateur       |  Nom d'utilisateur  |     Adresse électronique      | Service |      Regrouper       | Pays/région |
+   |       Utilisateur       |  Nom d'utilisateur  |     Adresse électronique      | Service |      Group       | Pays/région |
    |------------------|------------|------------------------|------------|------------------|----------------|
    | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finance   |                  |       US       |
    |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finance   |   FinanceAdmin   |       US       |
@@ -205,7 +205,7 @@ Créez les utilisateurs suivants à l'aide du Centre d'administration Active Dir
 
 2. Connectez l'ordinateur virtuel au réseau ID_AD_Network.  
 
-3. Joignez la machine virtuelle au domaine contoso.com, puis connectez-vous à FILE1 en tant que CONTOSO\Administrateur en utilisant le mot de passe <strong>pass@word1</strong>.  
+3. Joignez la machine virtuelle au domaine contoso.com, puis connectez-vous à FILE1 en tant que CONTOSO\Administrateur à l’aide du mot de passe <strong>pass@word1</strong>.  
 
 #### <a name="install-file-services-resource-manager"></a>Installer le Gestionnaire de ressources du serveur de fichiers  
 
@@ -213,7 +213,7 @@ Créez les utilisateurs suivants à l'aide du Centre d'administration Active Dir
 
 1.  Dans le Gestionnaire de serveur, cliquez sur **Ajouter des rôles et fonctionnalités**.  
 
-2.  Dans la page **Avant de commencer** , cliquez sur **Suivant**.  
+2.  Sur la page **Before you begin**, cliquez sur **Next**.  
 
 3.  Dans la page **Sélectionner le type d'installation**, cliquez sur **Suivant**.  
 
@@ -245,7 +245,7 @@ Quand vous créez des quotas et des filtres de fichiers, vous pouvez envoyer des
 
 3. Sous l'onglet **Notifications par courrier électronique** , sous Nom ou adresse IP du serveur SMTP, tapez le nom d'hôte ou l'adresse IP du serveur SMTP qui transfèrera les notifications par courrier électronique.  
 
-4. Si vous souhaitez avertir régulièrement certains administrateurs d’événements de quota ou de filtrage de fichiers, sous **destinataires de l’administrateur par défaut**, tapez chaque adresse de messagerie, par exemple fileadmin@contoso.com. Utilisez le format account@domain et utilisez des points-virgules pour séparer plusieurs comptes.  
+4. Si vous souhaitez avertir régulièrement certains administrateurs d’événements de quota ou de filtrage de fichiers, sous **destinataires de l’administrateur par défaut**, tapez chaque adresse de messagerie, par exemple fileadmin@contoso.com. Utilisez le format account@domainet utilisez des points-virgules pour séparer plusieurs comptes.  
 
 #### <a name="create-groups-on-file1"></a>Créer des groupes sur FILE1  
 
@@ -257,25 +257,25 @@ Quand vous créez des quotas et des filtres de fichiers, vous pouvez envoyer des
 
 #### <a name="create-files-and-folders-on-file1"></a>Créer des fichiers et des dossiers sur FILE1  
 
-1.  Créez un volume NTFS sur FILE1, puis créez le dossier suivant : D:\Documents financiers.  
+1.  Créez un volume NTFS sur FILE1, puis créez le dossier suivant : D:\Documents financiers.  
 
 2.  Créez les fichiers suivants avec les détails indiqués :  
 
-    -   **Finance Memo.docx** : Ajoutez du texte de nature financière dans le document. Par exemple, «les règles d’entreprise relatives aux personnes qui peuvent accéder aux documents financiers ont changé. Ces documents sont désormais accessibles uniquement aux membres du groupe FinanceExpert. Aucun autre service ou groupe n’y a accès.» Vous devez évaluer l'impact de ce changement avant de l'implémenter dans l'environnement. Assurez-vous que ce document comporte la mention CONFIDENTIEL CONTOSO dans le pied de page de chaque page.  
+    -   **Finance Memo.docx**: Ajoutez du texte de nature financière dans le document. Par exemple, «les règles d’entreprise relatives aux personnes qui peuvent accéder aux documents financiers ont changé. Ces documents sont désormais accessibles uniquement aux membres du groupe FinanceExpert. Aucun autre service ou groupe n’y a accès.» Vous devez évaluer l'impact de ce changement avant de l'implémenter dans l'environnement. Assurez-vous que ce document comporte la mention CONFIDENTIEL CONTOSO dans le pied de page de chaque page.  
 
-    -   **Request for Approval to Hire.docx** : créez un formulaire dans ce document pour recueillir les informations relatives aux postulants à un emploi. Ce document doit comporter les champs suivants : **Nom du postulant, Numéro de sécurité sociale, Emploi, Salaire proposé, Date de début, Nom du responsable, Service**. Ajoutez une section supplémentaire au document qui comporte un formulaire pour **Signature du responsable, Salaire approuvé, Confirmation de l'offre**et **Statut de l'offre**.   
+    -   **Request for Approval to Hire.docx**: créez un formulaire dans ce document pour recueillir les informations relatives aux postulants à un emploi. Ce document doit comporter les champs suivants : **Nom du postulant, Numéro de sécurité sociale, Emploi, Salaire proposé, Date de début, Nom du responsable, Service**. Ajoutez une section supplémentaire au document qui comporte un formulaire pour **Signature du responsable, Salaire approuvé, Confirmation de l'offre**et **Statut de l'offre**.   
         Activez le document pour la gestion des droits.  
 
-    -   **Word Document1.docx** : ajoutez du contenu test à ce document.  
+    -   **Word Document1.docx**: ajoutez du contenu test à ce document.  
 
-    -   **Word Document2.docx** : ajoutez du contenu test à ce document.  
+    -   **Word Document2.docx**: ajoutez du contenu test à ce document.  
 
     -   **Workbook1. xlsx**  
 
     -   **Workbook2. xlsx**  
 
     -   Créez un dossier sur le Bureau nommé Expressions régulières. Créez un document texte sous le dossier nommé **RegEx-SSN**. Tapez le contenu suivant dans le fichier, puis enregistrez-le et fermez-le :   
-        ^(?!000)([0-7]\d{2}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$  
+        ^(?!000)([0-7]\d{4}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$  
 
 3.  Partagez le dossier D:\Documents financiers comme Documents financiers et autorisez tout le monde à accéder à ce partage en lecture et en écriture.  
 
@@ -329,7 +329,7 @@ Ajoutez les services AD RMS et toutes les fonctionnalités nécessaires à l'aid
     > [!NOTE]  
     > L'utilisation de la base de données interne de Windows est recommandée pour les environnements de test uniquement, car elle ne prend pas en charge plus d'un serveur dans le cluster AD RMS. Les déploiements de production doivent utiliser un serveur de bases de données distinct.  
 
-19. Dans l' **écran compte de service** , dans compte d’utilisateur de **domaine**, cliquez sur **spécifier** , puis spécifiez le nom d’utilisateur (**contoso\rms**) et le mot de passe (<strong>pass@word1</strong>) et cliquez sur **OK**, puis cliquez sur **suivant**.  
+19. Dans l' **écran compte de service** , dans compte d’utilisateur de **domaine**, cliquez sur **spécifier** , spécifiez le nom d’utilisateur (**contoso\rms**) et le mot de passe (<strong>pass@word1</strong>), puis cliquez sur **OK**, puis sur **suivant**.  
 
 20. Dans l'écran **Mode de chiffrement**, cliquez sur **Mode de chiffrement 2**.  
 
@@ -355,11 +355,11 @@ Ajoutez les services AD RMS et toutes les fonctionnalités nécessaires à l'aid
 
 30. Cliquez sur **Créer un modèle de stratégie de droits distribué** dans le panneau de droite, cliquez sur **Ajouter**et sélectionnez les informations suivantes :  
 
-    -   Language (Langue) : Anglais (US)  
+    -   Language (Langue) : Anglais (US)  
 
-    -   Nom : Contoso Finance Admin Only  
+    -   Nom : Contoso Finance Admin Only  
 
-    -   Description : Contoso Finance Admin Only  
+    -   Description : Contoso Finance Admin Only  
 
     Cliquez sur **Ajouter**, puis sur **Suivant**.  
 
@@ -369,7 +369,7 @@ Ajoutez les services AD RMS et toutes les fonctionnalités nécessaires à l'aid
 
 33. Parcourez les autres onglets sans rien changer, puis cliquez sur **Terminer**. Connectez-vous en tant que CONTOSO\Administrateur.  
 
-34. Accédez au dossier, C:\inetpub\wwwroot @ no__t-0_wmcs\certification, sélectionnez le fichier fichier ServerCertification. asmx, puis ajoutez des autorisations en lecture et en écriture au fichier sur les utilisateurs authentifiés.  
+34. Accédez au dossier, C:\inetpub\wwwroot\\_wmcs \Certification, sélectionnez le fichier fichier ServerCertification. asmx et ajoutez des utilisateurs authentifiés pour disposer d’autorisations en lecture et en écriture sur le fichier.  
 
 35. Ouvrez Windows PowerShell et exécutez `Get-FsrmRmsTemplate`. Vérifiez que vous pouvez voir le modèle RMS créé à l'étape précédente de cette procédure avec cette commande.  
 
@@ -475,7 +475,7 @@ Si vous le souhaitez, au lieu d'utiliser l'Assistant Ajout de rôles et de fonct
 
    Tapez « O » quand l'applet de commande vous invite à confirmer que vous souhaitez démarrer l'installation.  
 
-7. Déconnectez-vous en tant que CONTOSO\Administrateur et ouvrez une session en tant que CONTOSO\RMS à l’aide du mot de passe fourni (« pass@word1 »).  
+7. Déconnectez-vous en tant que CONTOSO\Administrateur et ouvrez une session en tant que CONTOSO\RMS à l’aide du mot de passe fourni («pass@word1»).  
 
    > [!IMPORTANT]  
    > Pour que vous puissiez gérer le serveur AD RMS, le compte sous lequel vous êtes connecté et que vous utilisez pour gérer le serveur (ici, CONTOSO\RMS) doit être membre du groupe Administrateurs local sur l'ordinateur serveur AD RMS et du groupe Administrateurs de l'entreprise dans Active Directory.  
@@ -520,19 +520,19 @@ Configurez Microsoft Exchange Server sur cet ordinateur. Pour plus d’informati
 
 3. Connectez-vous en tant que Contoso\Administrateur et utilisez les informations suivantes pour configurer Microsoft Outlook.  
 
-   - Votre nom : Administrateur de fichiers  
+   - Votre nom : Administrateur de fichiers  
 
    - Adresse de messagerie : fileadmin@contoso.com  
 
-   - Type de compte : POP3  
+   - Type de compte : POP3  
 
-   - Serveur de courrier entrant : Adresse IP statique de SRV1  
+   - Serveur de courrier entrant : Adresse IP statique de SRV1  
 
-   - Serveur de courrier sortant : Adresse IP statique de SRV1  
+   - Serveur de courrier sortant : Adresse IP statique de SRV1  
 
    - Nom d’utilisateur : fileadmin@contoso.com  
 
-   - Mémoriser le mot de passe : Sélectionner  
+   - Mémoriser le mot de passe : Sélectionner  
 
 4. Créez un raccourci vers Outlook sur le Bureau de contoso\administrateur.  
 
@@ -540,7 +540,7 @@ Configurez Microsoft Exchange Server sur cet ordinateur. Pour plus d’informati
 
 6. Supprimez les messages tests qui ont été générés.  
 
-7. Créez un nouveau raccourci sur le Bureau pour tous les utilisateurs sur la machine virtuelle cliente qui pointe vers les documents \\ \ FILE1\Finance.  
+7. Créez un nouveau raccourci sur le Bureau pour tous les utilisateurs sur la machine virtuelle cliente qui pointe vers \\documents \FILE1\Finance.  
 
 8. Redémarrez l'ordinateur si nécessaire.  
 
@@ -550,7 +550,7 @@ Configurez Microsoft Exchange Server sur cet ordinateur. Pour plus d’informati
 
     -   Affectez à **EnableShellExecuteFileStreamCheck** la valeur **1**.  
 
-    -   Valeur : DWORD  
+    -   Valeur : DWORD  
 
 ## <a name="BKMK_CF"></a>Configuration du laboratoire pour le déploiement de revendications dans les forêts  
 
@@ -575,7 +575,7 @@ Configurez Microsoft Exchange Server sur cet ordinateur. Pour plus d’informati
 
 2. Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**.  
 
-3. Dans la page **Avant de commencer** , cliquez sur **Suivant**.  
+3. Sur la page **Before you begin**, cliquez sur **Next**.  
 
 4. Dans la page **Sélectionner le type d'installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.  
 
@@ -642,7 +642,7 @@ Lors de cette étape, vous allez créer une relation d'approbation entre le site
 8.  Continuez à suivre les instructions fournies dans l’Assistant.  
 
 ### <a name="BKMK_2.4"></a>Créer des utilisateurs supplémentaires dans la forêt Adatum  
-Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>et affectez l’attribut Company avec la valeur **adatum**.  
+Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>et affectez la valeur **adatum**à l’attribut Company.  
 
 ##### <a name="to-create-a-user-with-the-company-attribute"></a>Pour créer un utilisateur avec l'attribut Company  
 
@@ -693,7 +693,7 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
 
 3.  Dans le volet gauche du Centre d'administration Active Directory, cliquez sur **Arborescence**. Dans le volet gauche, cliquez sur **Contrôle d'accès dynamique**, puis double-cliquez sur **Propriétés de ressource**.  
 
-4.  Sélectionnez **Company** dans la liste **Propriétés de ressource** , cliquez avec le bouton droit et sélectionnez **Propriétés**. Dans la section **Valeurs suggérées**, cliquez sur **Ajouter** pour ajouter les valeurs suggérées : Contoso et Adatum, puis cliquez deux fois sur **OK**.  
+4.  Sélectionnez **Company** dans la liste **Propriétés de ressource** , cliquez avec le bouton droit et sélectionnez **Propriétés**. Dans la section **Valeurs suggérées** , cliquez sur **Ajouter** pour ajouter les valeurs suggérées : Contoso et Adatum, puis cliquez deux fois sur **OK** .  
 
 5.  Sélectionnez **Company** dans la liste **Propriétés de ressource** , cliquez avec le bouton droit et sélectionnez **Activer**.  
 
@@ -752,7 +752,7 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
 
 7. Cliquez sur **OK** à trois reprises pour terminer et revenir au Centre d'administration Active Directory.  
 
-   @no__t-guides 0solution-](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+   guides de solution ![](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
    L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
 
@@ -799,7 +799,7 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
     > [!TIP]  
     > Si le paramètre **Afficher les outils d’administration** est désactivé, le dossier Outils d’administration et son contenu ne figurent pas dans les résultats Paramètres.  
 
-2.  Accédez à Contoso et sélectionnez-le comme suit : Gestion des stratégies de groupe\Forêt : contoso.com\Domaines, contoso.com.  
+2.  Accédez à Contoso et sélectionnez-le comme suit : Gestion des stratégies de groupe\Forêt : contoso.com\Domaines, contoso.com.  
 
 3.  Cliquez avec le bouton droit sur la stratégie **GPOAccèsAdatum** et sélectionnez **Modifier**.  
 
@@ -812,7 +812,7 @@ Créez l’utilisateur Jeff Low avec le mot de passe <strong>pass@word1</strong>
 7.  Fermez l’éditeur de gestion des stratégies de groupe. Vous avez maintenant ajouté la stratégie d'accès centralisée à la stratégie de groupe.  
 
 ### <a name="BKMK_2.12"></a>Créer le dossier Earnings sur le serveur de fichiers  
-Créez un volume NTFS sur FILE1 et créez le dossier suivant : D:\Earnings.  
+Créez un volume NTFS sur FILE1 et créez le dossier suivant : D:\Earnings.  
 
 > [!NOTE]  
 > Les stratégies d'accès centralisées ne sont pas activées par défaut sur le volume système ou de démarrage C:.  
@@ -829,11 +829,11 @@ Créez un volume NTFS sur FILE1 et créez le dossier suivant : D:\Earnings.
 
 4. Ouvrez l'Explorateur Windows et accédez à D:\EARNINGS. Cliquez avec le bouton droit sur le dossier **Earnings**, puis cliquez sur **Propriétés**.  
 
-5. Cliquez sur l'onglet **Classification**. Sélectionnez Company, puis sélectionnez **Adatum** dans le champ **Valeur**.  
+5. Cliquez sur l’onglet **classification** . Sélectionnez **Company**, puis sélectionnez **adatum** dans le champ **valeur** .  
 
 6. Cliquez sur **Modifier**, sélectionnez **Stratégie d'accès Adatum uniquement** dans le menu déroulant, puis cliquez sur **Appliquer**.  
 
-7. Cliquez sur l'onglet **Sécurité** , sur **Avancé**, puis sur l'onglet **Stratégie centralisée** . La règle **RègleAccèsEmployésAdatum** doit figurer dans la liste. Vous pouvez développer l'élément pour afficher toutes les autorisations que vous avez définies lors de la création de la règle dans Active Directory.  
+7. Cliquez sur l’onglet **sécurité** , sur **avancé**, puis sur l’onglet **stratégie centralisée** . Le **règle règleaccèsemployésadatum** doit apparaître dans la liste. Vous pouvez développer l'élément pour afficher toutes les autorisations que vous avez définies lors de la création de la règle dans Active Directory.  
 
 8. Cliquez sur **OK** pour revenir à Windows Explorer.  
 

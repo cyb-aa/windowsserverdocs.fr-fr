@@ -1,6 +1,6 @@
 ---
-title: Sécurité pour SDN
-description: Vous pouvez utiliser les rubriques de cette section pour en savoir plus sur la sécurité dans Software Defined Networking \(SDN @ no__t-1 dans Windows Server 2016 Datacenter.
+title: Sécurité pour la mise en réseau SDN (Software Defined Networking)
+description: Vous pouvez utiliser les rubriques de cette section pour en savoir plus sur la sécurité dans le réseau à définition logicielle \(SDN\) dans Windows Server 2016 Datacenter.
 manager: brianlic
 ms.prod: windows-server
 ms.technology: networking-sdn
@@ -15,11 +15,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71355718"
 ---
-# <a name="security-for-sdn"></a>Sécurité pour SDN
+# <a name="security-for-sdn"></a>Sécurité pour la mise en réseau SDN (Software Defined Networking)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser les rubriques de cette section pour en savoir plus sur la sécurité dans le réseau à définition logicielle \(SDN @ no__t-1.
+Vous pouvez utiliser les rubriques de cette section pour en savoir plus sur la sécurité dans le réseau à définition logicielle \(SDN\).
 
 >[!Note]
 >Pour obtenir des informations supplémentaires sur la mise en réseau, vous pouvez utiliser les sections suivantes de la bibliothèque.

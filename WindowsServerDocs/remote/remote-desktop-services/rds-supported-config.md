@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: 7d4641e2bb40a9a70264c68d0268208a30f36a69
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: e501d550e5371c668f7e243f00106a0b79f694dc
+ms.sourcegitcommit: 214847318401cebdcb7f1924a731b4439c9d8a24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812303"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74187884"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Configurations prises en charge pour les services Bureau à distance
 
@@ -55,15 +55,15 @@ Windows Server 2016 supprime la restriction relative au nombre de serveurs du s
 
 ## <a name="support-for-graphics-processing-unit-gpu-acceleration"></a>Prise en charge de l’accélération de l’unité de traitement graphique (GPU)
 
-Les services Bureau à distance prennent en charge les systèmes équipés de GPU. Les applications qui requièrent GPU peuvent être utilisées par le biais de la connexion à distance. En outre, l’encodage et le rendu accélérés par GPU peuvent être activés pour améliorer les performances et la scabilité des applications.
+Les services Bureau à distance prennent en charge les systèmes équipés de GPU. Les applications nécessitant un GPU peuvent être utilisées via la connexion à distance. En outre, l’encodage et le rendu accélérés par GPU peuvent être activés pour améliorer les performances et la scabilité des applications.
 
-Les hôtes de session des services Bureau à distance et les systèmes d’exploitation clients mono-session peuvent tirer parti d’un GPU physique ou virtuel présenté au système d’exploitation de nombreuses façons, notamment au travers des [tailles de machine virtuelle à GPU optimisé Azure](/en-us/azure/virtual-machines/windows/sizes-gpu), des GPU disponibles pour le serveur hôtes de session Bureau à distance, des vGPU RemoteFX (uniquement sur Windows Server 2016) et des GPU présentés aux machines virtuelles par des hyperviseurs pris en charge.
+Les hôtes de session des services Bureau à distance et les systèmes d’exploitation clients monosession peuvent tirer parti du GPU physique ou virtuel présenté au système d’exploitation de nombreuses façons, notamment au travers des [tailles d’ordinateur virtuel à GPU optimisé Azure](/en-us/azure/virtual-machines/windows/sizes-gpu), des GPU disponibles pour le serveur RDSH physique, des vGPU RemoteFX (uniquement sur Windows Server 2016) et des GPU présentés aux ordinateurs virtuel par des hyperviseurs pris en charge.
 
 Consultez l’article [Quelle technologie de virtualisation graphique vous convient ?](rds-graphics-virtualization.md) pour déterminer ce dont vous avez besoin. Pour plus d’informations sur l’affectation d’appareils en mode discret, consultez [Planification du déploiement de l’affectation d’appareils en mode discret](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md).
 
 Les fournisseurs de GPU peuvant avoir un schéma de licence distinct pour les scénarios d’hôte de session Bureau à distance ou limiter l’utilisation des GPU sur le système d’exploitation serveur, vérifiez les exigences auprès de votre fournisseur favori.
 
-Les GPU présentés par une plateforme cloud ou des hyperviseurs non-Microsoft doivent avoir des pilotes signés numériquement par WHQL et fournis par le fournisseur de GPU.
+Les GPU présentés par une plateforme hyperviseur non-Microsoft ou cloud doivent avoir des pilotes signés numériquement par WHQL et fournis par le fournisseur de GPU.
 
 ### <a name="remote-desktop-session-host-support-for-gpus"></a>Prise en charge de l’hôte de session Bureau à distance pour les GPU
 
