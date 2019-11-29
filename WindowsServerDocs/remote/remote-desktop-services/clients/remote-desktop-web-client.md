@@ -8,12 +8,12 @@ ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 69beba2c59617da5b501dc55e2509e41ce4ee3fd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6c37c28fded08ba68e46a10a534ee0269c714938
+ms.sourcegitcommit: 89aea00fe0e00fc8b1a6e20af36ad04df8c9fe5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404112"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74189474"
 ---
 # <a name="get-started-with-the-web-client"></a>Bien démarrer avec le client web
 
@@ -58,6 +58,10 @@ Suivez ces étapes pour imprimer à partir du client web :
 ## <a name="copy-and-paste-from-the-remote-desktop-web-client"></a>Copier et coller à partir du client web Bureau à distance
 
 Le client web prend actuellement en charge les opérations de copie et de collage de textes uniquement. Les fichiers ne peuvent pas être copiés ni collés vers et depuis le client web. En outre, vous pouvez uniquement utiliser **Ctrl + C** et **Ctrl + V** pour copier et coller du texte.
+
+## <a name="use-an-input-method-editor-ime-in-the-remote-session"></a>Utiliser un éditeur de méthode d’entrée dans la session distante
+
+Pour utiliser un éditeur de méthode d’entrée pour entrer des caractères complexes dans la session distante, sélectionnez l’icône d’engrenage dans la barre de navigation pour ouvrir la panneau latéral **Paramètres** et définir le commutateur **Activer l’éditeur de méthode d’entrée** sur **Activé**. Vous devez avoir un éditeur de méthode d’entrée installé et activé dans la session distante. 
 
 ## <a name="get-help-with-the-web-client"></a>Obtenir de l’aide concernant le client web
 

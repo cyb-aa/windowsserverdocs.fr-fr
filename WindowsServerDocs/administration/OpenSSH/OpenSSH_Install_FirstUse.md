@@ -1,46 +1,46 @@
 ---
 ms.date: 09/27/2019
 ms.topic: conceptual
-keywords: OpenSSH, SSH, SSHD, installation, installation
+keywords: OpenSSH, SSH, SSHD, installation, configuration
 contributor: maertendMSFT
 author: maertendMSFT
 title: Installation de OpenSSH pour Windows
 ms.openlocfilehash: 3c742e20432d20ea3c402af66f19a803ea1f3a56
 ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/03/2019
 ms.locfileid: "71934938"
 ---
-# <a name="installation-of-openssh-for-windows-server-2019-and-windows-10"></a>Installation de OpenSSH pour Windows Server 2019 et Windows 10 #
+# <a name="installation-of-openssh-for-windows-server-2019-and-windows-10"></a>Installation de OpenSSH pour Windows Server 2019 et Windows 10 #
 
-Le client OpenSSH et le serveur OpenSSH sont des composants installables séparément dans Windows Server 2019 et Windows 10 1809.
-Les utilisateurs disposant de ces versions de Windows doivent suivre les instructions qui suivent pour installer et configurer OpenSSH. 
+Le client OpenSSH et le serveur OpenSSH sont des composants pouvant être installés séparément dans Windows Server 2019 et Windows 10 1809.
+Les utilisateurs qui disposent de ces versions de Windows doivent utiliser les instructions suivantes pour installer et configurer OpenSSH. 
 
 > [!NOTE] 
-> Les utilisateurs qui ont acquis OpenSSH à partir du référentiel https://github.com/PowerShell/OpenSSH-Portable) PowerShell GitHub (doivent suivre les instructions de cet emplacement et __ne doivent pas__ utiliser ces instructions. 
+> Les utilisateurs qui ont obtenu OpenSSH à partir du référentiel Github de PowerShell (https://github.com/PowerShell/OpenSSH-Portable) ) doivent utiliser les instructions fournies et __ne doivent pas__ suivre celles-ci. 
 
 
-## <a name="installing-openssh-from-the-settings-ui-on-windows-server-2019-or-windows-10-1809"></a>Installation d’OpenSSH à partir de l’interface utilisateur des paramètres sur Windows Server 2019 ou Windows 10 1809
+## <a name="installing-openssh-from-the-settings-ui-on-windows-server-2019-or-windows-10-1809"></a>Installation de OpenSSH à partir de l’interface utilisateur Paramètres sur Windows Server 2019 ou Windows 10 1809
 
-Le client et le serveur OpenSSH sont des fonctionnalités installables de Windows 10 1809. 
+Le client et le serveur OpenSSH sont des fonctionnalités installables de Windows 10 1809. 
 
-Pour installer OpenSSH, démarrez paramètres, puis accédez à applications > applications et fonctionnalités > gérer les fonctionnalités facultatives. 
+Pour installer OpenSSH, à partir de Paramètres, accédez à Applications > Applications et fonctionnalités > Gérer les fonctionnalités facultatives. 
 
-Parcourez cette liste pour voir si OpenSSH client est déjà installé. Si ce n’est pas le cas, en haut de la page, sélectionnez « Ajouter une fonctionnalité », puis : 
+Parcourez cette liste pour voir si le client OpenSSH est déjà installé. Si ce n’est pas le cas, sélectionnez « Ajouter une fonctionnalité » en haut de la page, puis : 
 
-* Pour installer le client OpenSSH, recherchez « client OpenSSH », puis cliquez sur « installer ». 
-* Pour installer le serveur OpenSSH, recherchez « serveur OpenSSH », puis cliquez sur « installer ». 
+* Pour installer le client OpenSSH, recherchez « Client OpenSSH », puis cliquez sur « Installer ». 
+* Pour installer le serveur OpenSSH, recherchez « Serveur OpenSSH », puis cliquez sur « Installer ». 
 
-Une fois l’installation terminée, revenez aux applications > applications et fonctionnalités > gérer les fonctionnalités facultatives. le ou les composants OpenSSH doivent apparaître.
+Une fois l’installation terminée, revenez à Applications > Applications et fonctionnalités > Gérer les fonctionnalités facultatives pour afficher la liste des composants OpenSSH.
 
 > [!NOTE]
-> L’installation du serveur OpenSSH entraîne la création et l’activation d’une règle de pare-feu nommée « OpenSSH-Server-in-TCP ». Cela autorise le trafic SSH entrant sur le port 22. 
+> L’installation du serveur OpenSSH crée et active une règle de pare-feu appelée « OpenSSH-Server-In-TCP ». Cela autorise le trafic SSH entrant sur le port 22. 
 
-## <a name="installing-openssh-with-powershell"></a>Installation d’OpenSSH avec PowerShell 
+## <a name="installing-openssh-with-powershell"></a>Installation de OpenSSH avec PowerShell 
 
-Pour installer OpenSSH à l’aide de PowerShell, commencez par lancer PowerShell en tant qu’administrateur.
-Pour vous assurer que les fonctionnalités OpenSSH sont disponibles pour l’installation :
+Pour installer OpenSSH à l’aide de PowerShell, lancez d’abord PowerShell en tant qu’administrateur.
+Pour être sûr que les fonctionnalités OpenSSH sont disponibles pour l’installation :
 
 ```powershell
 Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
@@ -53,7 +53,7 @@ Name  : OpenSSH.Server~~~~0.0.1.0
 State : NotPresent
 ```
 
-Ensuite, installez les fonctionnalités serveur et/ou client :
+Installez ensuite les fonctionnalités du serveur et/ou client :
 
 ```powershell
 # Install the OpenSSH Client
@@ -71,7 +71,7 @@ RestartNeeded : False
 
 ## <a name="uninstalling-openssh"></a>Désinstallation de OpenSSH
 
-Pour désinstaller OpenSSH à l’aide des paramètres Windows, démarrez paramètres, puis accédez à applications > applications et fonctionnalités > gérer les fonctionnalités facultatives. Dans la liste des fonctionnalités installées, sélectionnez le composant client OpenSSH ou serveur OpenSSH, puis sélectionnez Désinstaller.
+Pour désinstaller OpenSSH à l’aide des Paramètres Windows, à partir de Paramètres, accédez à Applications > Applications et fonctionnalités > Gérer les fonctionnalités facultatives. Dans la liste des fonctionnalités installées, sélectionnez le composant Client OpenSSH ou Serveur OpenSSH, puis l’option Désinstaller.
 
 Pour désinstaller OpenSSH à l’aide de PowerShell, utilisez l’une des commandes suivantes :
 
@@ -83,7 +83,7 @@ Remove-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 Remove-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 ```
 
-Un redémarrage de Windows peut être nécessaire après la suppression d’OpenSSH, si le service est en cours d’utilisation au moment où il a été désinstallé.
+Un redémarrage de Windows peut être nécessaire après la suppression de OpenSSH, si le service est en cours d’utilisation au moment de la désinstallation.
 
 
 ## <a name="initial-configuration-of-ssh-server"></a>Configuration initiale du serveur SSH
@@ -103,13 +103,13 @@ New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled Tru
 
 ## <a name="initial-use-of-ssh"></a>Utilisation initiale de SSH
 
-Une fois que vous avez installé le serveur OpenSSH sur Windows, vous pouvez le tester rapidement à l’aide de PowerShell à partir de n’importe quel appareil Windows sur lequel le client SSH est installé. Dans PowerShell, tapez la commande suivante : 
+Une fois que vous avez installé le serveur OpenSSH sur Windows, vous pouvez le tester rapidement à l’aide de PowerShell à partir de n’importe que appareil Windows sur lequel est installé le client SSH. Dans PowerShell, entrez la commande suivante : 
 
 ```powershell
 Ssh username@servername
 ```
 
-La première connexion à un serveur se traduira par un message similaire à ce qui suit :
+La première connexion à un serveur entraîne l’apparition d’un message similaire à ceci :
 
 ```
 The authenticity of host 'servername (10.00.00.001)' can't be established.
@@ -117,15 +117,15 @@ ECDSA key fingerprint is SHA256:(<a large string>).
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-La réponse doit être « oui » ou « non ». Si vous répondez Oui, ce serveur sera ajouté à la liste des hôtes SSH connus du système local.
+La réponse doit être « oui » ou « non ». Le fait de répondre Oui ajoute ce serveur à la liste des hôtes SSH connus du système local.
 
-Vous serez invité à entrer le mot de passe à ce stade. Par mesure de sécurité, votre mot de passe ne sera pas affiché au fur et à mesure que vous tapez. 
+Vous êtes alors invité à entrer le mot de passe. Par mesure de sécurité, votre mot de passe n’est pas affiché lorsque vous l’entrez. 
 
-Une fois que vous êtes connecté, une invite de commande de l’interface de commande semblable à la suivante s’affiche :
+Une fois connecté, vous allez voir une invite de commande semblable à celle-ci :
 
 ```
 domain\username@SERVERNAME C:\Users\username>
 ```
 
-L’interpréteur de commandes par défaut utilisé par le serveur OpenSSH Windows est l’interface de commande Windows. 
+L’interpréteur de commandes utilisé par le serveur OpenSSH Windows est l’interface de commande Windows. 
 

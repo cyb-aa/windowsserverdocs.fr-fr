@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 10/18/2019
+ms.date: 11/15/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: bcbd3292bcd4653a4568492a996d53c17f465aa8
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 41f5bd7be03e61471683d5fc04df9ee10bc09e58
+ms.sourcegitcommit: 89aea00fe0e00fc8b1a6e20af36ad04df8c9fe5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591042"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74189476"
 ---
 # <a name="whats-new-in-the-web-client"></a>Nouveautés du client web
 
@@ -26,6 +26,14 @@ Nous mettons régulièrement à jour le [client web Bureau à distance](remote-d
 
 > [!NOTE]
 > Nous avons modifié le système de contrôle de version du client web. À partir de la version 1.0.18.0, toutes les versions du client web contiendront des numéros (au format « W.X.Y.Z »). Les numéros de version du client web Bureau à distance se termineront toujours par un 0 (par exemple, W.X.Y.0). À chaque version du client web Windows Virtual Desktop, le dernier chiffre changera jusqu'à la publication de la version suivante du client web Bureau à distance (par exemple, 1.0.18.1).
+
+## <a name="updates-for-version-10210"></a>Mises à jour relatives à la version 1.0.21.0
+*Date de publication : 15/11/2019*
+
+- Ajout de la prise en charge de l’utilisation d’un éditeur de méthode d’entrée dans la session distante pour entrer des caractères complexes.
+- Correction d’une régression liée à l’impossibilité pour les utilisateurs de copier et de coller dans la session distante sur des appareils macOS.
+- Correction d’une régression liée à l’envoi d’une clé Windows locale à la session distante dans Firefox.
+- Ajout d’un lien vers la modification de mot de passe RDWeb lorsque l’option est activée par l’administrateur.
 
 ## <a name="updates-for-version-10200"></a>Mises à jour relatives à la version 1.0.20.0
 *Date de publication : 18/10/2019*

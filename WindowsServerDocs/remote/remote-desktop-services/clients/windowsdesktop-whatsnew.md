@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/12/2019
+ms.date: 11/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: db9c2b64e018b41b053974b5459bd320098a6d2d
-ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
+ms.openlocfilehash: 54994aad08c2f428b429082ed450235ed8bbe7e7
+ms.sourcegitcommit: 244b89505c5131dfdb90628857cc7e31741c84c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74019596"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74265919"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -31,11 +31,22 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 |Groupe d'utilisateurs |Version  |
 |-----------|---------|
 |Public     |1.2.431  |
-|Insider    |1.2.431  |
+|Insider    |1.2.524  |
+
+## <a name="updates-for-version-12524"></a>Mises à jour relatives à la version 1.2.524
+
+*Date de publication : 20/11/2019*
+
+Télécharger : [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4e7Nj), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dZCo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dX1s)
+
+- Vous pouvez désormais accéder à ces informations relatives aux mises à jour directement à partir du bouton Autres options de la barre de commandes située en haut du client.
+- Vous pouvez désormais soumettre des commentaires à partir de la barre de commandes du client.
 
 ## <a name="updates-for-version-12431"></a>Mises à jour relatives à la version 1.2.431
 
 *Date de publication : 12/11/2019*
+
+Télécharger : [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48kow), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48koA), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48zYj)
 
 - Les versions 32 bits et ARM64 du client sont disponibles !
 - Le client enregistre désormais les changements que vous apportez à la barre de connexion (par exemple, sa position, sa taille et son état épinglé) et les applique aux différentes sessions.
@@ -55,15 +66,12 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 
 *Date de publication : 17/09/2019*
 
-- Correction d’un plantage qui se produisait lors de l’authentification pendant une connexion.
-- Correction d’un plantage qui se produisait lors de la fermeture du client.
-
-## <a name="updates-for-version-12246"></a>Mises à jour pour la version 1.2.246
-
-*Date de publication : 28/8/2019*
+Télécharger : [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3LkSa)
 
 - Amélioration des langues de base pour la version localisée. (Par exemple, FR-CA affiche bien le texte en français et non en anglais.)
 - Lors de la suppression d’un abonnement, le client supprime désormais correctement les informations d’identification enregistrées du Gestionnaire d’informations d’identification.
 - Le processus de mise à jour du client est maintenant sans assistance une fois démarré, et le client est relancé une fois l’opération terminée.
 - Le client peut désormais être utilisé sur Windows 10 en mode S.
 - Correction d’un problème qui provoquait l’échec du processus de mise à jour pour les utilisateurs dont le nom comprenait un espace.
+- Correction d’un plantage qui se produisait lors de l’authentification pendant une connexion.
+- Correction d’un plantage qui se produisait lors de la fermeture du client.

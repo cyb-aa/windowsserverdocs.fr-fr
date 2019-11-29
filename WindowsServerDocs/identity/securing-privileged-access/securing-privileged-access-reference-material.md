@@ -1,6 +1,6 @@
 ---
 title: Documentation de référence sur la sécurisation de l’accès privilégié
-description: Contrôles de sécurité opérationnelle pour les domaines de Active Directory Windows Server
+description: Contrôles de sécurité opérationnelle pour domaines Windows Server Active Directory
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 22ee9a77-4872-4c54-82d9-98fc73a378c0
@@ -11,7 +11,7 @@ manager: daveba
 ms.reviewer: mas
 ms.openlocfilehash: 56e1c028a9b18db7b23e8f04e943e4113837b66b
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71407229"
@@ -111,7 +111,7 @@ La source des logiciels doit être validée par l’un des moyens suivants :
 - Les logiciels sont obtenus à partir d’Internet et validés par des hachages de fichiers fournis par le fournisseur.
 - Les logiciels sont obtenus à partir d’Internet et validés en téléchargeant, puis en comparant deux copies indépendantes :
    - Téléchargez sur deux hôtes sans aucune relation de sécurité (ils ne sont pas dans le même domaine et ils ne sont pas gérés par les mêmes outils), de préférence à partir de connexions Internet distinctes.
-   - Comparer les fichiers téléchargés à l’aide d’un utilitaire tel que certutil : `certutil -hashfile <filename>`
+   - Comparez les fichiers téléchargés à l’aide d’un utilitaire comme certutil :  `certutil -hashfile <filename>`
 
 Si possible, tous les logiciels d’application, comme les outils et programmes d’installation d’application, doivent être signés numériquement et vérifiés à l’aide de Windows Authenticode avec l’outil [Windows Sysinternals](https://www.microsoft.com/sysinternals), *sigcheck.exe*, avec une vérification de la révocation. Certains logiciels peuvent être nécessaires si le fournisseur ne donne pas ce type de signature numérique.
 
@@ -156,7 +156,7 @@ Ces instructions s’articulent autour des sections suivantes :
 - Hypothèses
 - Comité consultatif sur les modifications
 - Pratiques opérationnelles
-   - Récapitulatif
+   - Résumé
    - Détails des normes
 
 ### <a name="assumptions"></a>Hypothèses
@@ -189,12 +189,12 @@ Chaque norme indiquée dans le présent document est classée selon sa criticit�
 
 ![Diagramme montrant la norme des niveaux donnés](../media/securing-privileged-access-reference-material/PAW_RM_Fig12.JPG)
 
-Toutes les exceptions pour les éléments obligatoires (marqués d’une octogone rouge ou d’un triangle orange dans ce document) sont considérées comme temporaires et doivent être approuvées par la cabine. Les recommandations incluent les points suivants :
+Toutes les exceptions relatives aux éléments obligatoires (signalés par un octogone rouge ou un triangle orange dans le présent document) sont considérées comme temporaires et doivent être approuvées par le comité. Les recommandations incluent les points suivants :
 
 - La demande initiale exige une justification et une acceptation du risque signées par le superviseur direct du personnel. Elle expire au bout de six mois.
 - Les renouvellements exigent une justification et une acceptation du risque signées par un responsable de division. Ils expirent au bout de six mois.
 
-Toutes les exceptions pour les éléments recommandés (signalés par un cercle jaune dans ce document) sont considérées comme temporaires et doivent être approuvées par le CAB. Les recommandations incluent les points suivants :
+Toutes les exceptions relatives aux éléments recommandés (signalés par un cercle jaune dans le présent document) sont considérées comme temporaires et doivent être approuvées par le comité. Les recommandations incluent les points suivants :
 
 - La demande initiale exige une justification et une acceptation du risque signées par le superviseur direct du personnel. Elle expire au bout de 12 mois.
 - Les renouvellements exigent une justification et une acceptation du risque signées par un responsable de division. Ils expirent au bout de 12 mois.
@@ -379,7 +379,7 @@ Des organisations de support technique et de support utilisateur assurent la pri
 
 ###### <a name="no-browsing-the-public-internet-with-admin-accounts-or-from-admin-workstations"></a>Absence de navigation sur l’Internet public avec des comptes d’administration ou des stations de travail d’administration
 
-Le personnel administratif ne peut pas naviguer sur l’Internet ouvert en étant connecté avec un compte d’administration ou en ayant ouvert une session sur une station de travail d’administration. Les seules exceptions autorisées sont l’utilisation d’un navigateur Web pour administrer un service basé sur le Cloud.
+Le personnel administratif ne peut pas naviguer sur l’Internet ouvert en étant connecté avec un compte d’administration ou en ayant ouvert une session sur une station de travail d’administration. Les seules exceptions autorisées sont l’utilisation d’un navigateur web pour administrer un service cloud.
 
 ###### <a name="no-accessing-email-with-admin-accounts-or-from-admin-workstations"></a>Absence d’accès à des e-mails avec des comptes d’administration ou à partir de stations de travail d’administration
 
@@ -439,10 +439,10 @@ Pour toute utilisation des comptes d’accès d’urgence :
   - résoudre et corriger les problèmes techniques qui empêchent l’utilisation des comptes d’administration appropriés,
   - effectuer des tâches rares, comme :
     - l’administration du schéma,
-    - Tâches à l’ensemble de la forêt nécessitant des privilèges d’administration d’entreprise
+    - Tâches à l’échelle de la forêt qui exigent des privilèges administratifs d’entreprise
 
       > [!NOTE]
-      > La gestion de la topologie, y compris Active Directory gestion des sites et sous-réseaux, est déléguée pour limiter l’utilisation de ces privilèges.
+      > La gestion de la topologie, notamment du site et du sous-réseau Active Directory, est déléguée pour limiter l’utilisation de ces privilèges.
 
 - Toute utilisation de l’un de ces comptes doit faire l’objet d’une autorisation écrite par le responsable du groupe de sécurité.
 - La procédure indiquée sur la feuille de suivi pour chaque compte d’accès d’urgence exige de modifier le mot de passe à chaque utilisation. Un membre de l’équipe de sécurité doit valider le bon déroulement de cette opération.
@@ -481,7 +481,7 @@ La conception d’une forêt d’administration doit inclure les considérations
    - Le seul inconvénient à l’utilisation de ce groupe pour octroyer des droits est qu’il n’a pas d’accès administratif aux nouveaux objets de stratégie de groupe, par défaut. Vous pouvez y remédier en suivant la procédure indiquée dans [cet article de la Base de connaissances](https://support.microsoft.com/kb/321476) pour modifier les autorisations par défaut du schéma.
    - Les comptes de la forêt d’administration utilisés pour administrer l’environnement de production ne doivent pas recevoir de privilèges d’administration pour la forêt d’administration, ni pour les domaines et les stations de travail qu’elle contient.
    - Les privilèges d’administration sur la forêt d’administration doivent être étroitement contrôlés par un processus hors connexion, afin de réduire la possibilité qu’un attaquant ou un utilisateur interne malveillant effacent les journaux d’audit. Ceci limite la possibilité que le personnel utilisant des comptes d’administration de production assouplisse les restrictions sur leurs comptes, augmentant ainsi les risques pour l’organisation.
-   - La forêt d’administration doit respecter les configurations de ligne de base de conformité de sécurité Microsoft (SCB) pour le domaine, notamment les configurations fortes pour les protocoles d’authentification.
+   - La forêt d’administration doit respecter les configurations de Microsoft Security Compliance Baseline (SCB) pour le domaine, notamment les configurations renforcées des protocoles d’authentification.
    - Tous les hôtes de la forêt d’administration doivent être automatiquement mis à jour avec les mises à jour de sécurité. Si cette configuration peut aboutir à un risque d’interruption des opérations de maintenance du contrôleur de domaine, elle permet également une limitation importante des risques de sécurité liés à des vulnérabilités non corrigées.
 
       > [!NOTE]
@@ -499,7 +499,7 @@ La conception d’une forêt d’administration doit inclure les considérations
    - Des bases de référence de sécurité doivent être utilisées comme configurations de démarrage.
 
       > [!NOTE]
-      > Les clients peuvent utiliser la SCT (Microsoft Security Compliance Toolkit) pour configurer les lignes de base sur les hôtes d’administration.
+      > Les clients peuvent utiliser Microsoft Security Compliance Toolkit (SCT) pour configurer les bases de référence sur les hôtes d’administration.
 
    - Démarrage sécurisé pour atténuer les risques face à des attaquants ou des programmes malveillants tentant de charger du code non signé dans le processus de démarrage.
 
@@ -539,7 +539,7 @@ Pour plus d’informations sur les services Microsoft de conception et déploiem
 
 ## <a name="tier-0-equivalency"></a>Équivalence du niveau 0
 
-La plupart des organisations contrôle l’appartenance aux puissants groupes Active Directory de niveau 0 comme les administrateurs, les administrateurs de domaine et les administrateurs de l’entreprise.  De nombreuses organisations négligent le risque lié aux autres groupes dont les privilèges sont pourtant équivalents dans un environnement Active Directory standard. Ces groupes offrent un chemin d’escalade relativement facile pour une personne malveillante aux mêmes privilèges explicites de niveau 0 en utilisant différentes méthodes d’attaque.
+La plupart des organisations contrôle l’appartenance aux puissants groupes Active Directory de niveau 0 comme les administrateurs, les administrateurs de domaine et les administrateurs de l’entreprise.  De nombreuses organisations négligent le risque lié aux autres groupes dont les privilèges sont pourtant équivalents dans un environnement Active Directory standard. Ces groupes représentent une voie d’escalade relativement facile pour un attaquant vers les mêmes privilèges de niveau 0 explicites grâce à diverses méthodes d’attaque.
 
 Par exemple, un opérateur de serveur peut accéder à un média de sauvegarde d’un contrôleur de domaine et extraire toutes les informations d’identification des fichiers situés sur ce média pour les utiliser à des fins d’escalade de privilèges.
 
@@ -558,7 +558,7 @@ Les organisations doivent contrôler et surveiller l’appartenance dans tous le
 - Propriétaires créateurs de la stratégie de groupe
 - Opérateurs de chiffrement
 - Utilisateurs du modèle COM distribué
-- Autres groupes délégués : groupes personnalisés qui peuvent être créés par votre organisation pour gérer les opérations d’annuaire qui peuvent également avoir un accès de niveau 0 effectif.
+- Les autres groupes délégués font référence aux groupes personnalisés susceptibles d’être créés par votre organisation pour gérer des opérations d’annuaire pouvant aussi disposer d’un accès de niveau 0 effectif.
 
 ## <a name="administrative-tools-and-logon-types"></a>Outils d’administration et types d’ouverture de session
 
@@ -575,25 +575,25 @@ Ce tableau comprend des recommandations pour les outils d’administration et le
 |RUNAS /NETWORK|NewCredentials|v|Clone la session LSA en cours pour un accès local, mais utilise de nouvelles informations d’identification pour la connexion aux ressources réseau.|
 |Bureau à distance (réussite)|RemoteInteractive|v|Si le client Bureau à distance est configuré pour partager des ressources et appareils locaux, ceux-ci peuvent être aussi compromis.|
 |Bureau à distance (échec - type d’ouverture de session refusé)|RemoteInteractive|-|Par défaut, si l’ouverture de session RDP échoue, les informations d’identification sont uniquement stockées très brièvement. Cela peut ne pas être le cas si l’ordinateur est compromis.|
-|Net use * \\\SERVER|Réseau|-||
-|Net use * \\\SERVER /u:user|Réseau|-||
-|Composants logiciels enfichables MMC sur ordinateur distant|Réseau|-|Exemple : Gestion de l’ordinateur, observateur d’événements, Device Manager, services|
-|PowerShell WinRM|Réseau|-|Exemple : Enter-PSSession Server|
+|Net use * \\\SERVER|Network (Réseau)|-||
+|Net use * \\\SERVER /u:user|Network (Réseau)|-||
+|Composants logiciels enfichables MMC sur ordinateur distant|Network (Réseau)|-|Exemple : Gestion de l’ordinateur, Observateur d’événements, Gestionnaire de périphériques, Services|
+|PowerShell WinRM|Network (Réseau)|-|Exemple : Enter-PSSession server|
 |PowerShell WinRM avec CredSSP|NetworkClearText|v|New-PSSession server<br />-Authentication Credssp<br />-Credential cred|
-|PsExec sans informations d’identification explicites|Réseau|-|Exemple : PsExec \\ \ Server cmd|
+|PsExec sans informations d’identification explicites|Network (Réseau)|-|Exemple : PsExec \\\server cmd|
 |PsExec avec informations d’identification explicites|Réseau + Interactif|v|PsExec \\\server -u user -p pwd cmd<br />Crée plusieurs sessions d’ouverture de session.|
-|Accès à distance au Registre|Réseau|-||
-|Passerelle des services Bureau à distance|Réseau|-|Authentification auprès de la passerelle des services Bureau à distance.|
+|Accès à distance au Registre|Network (Réseau)|-||
+|Passerelle des services Bureau à distance|Network (Réseau)|-|Authentification auprès de la passerelle des services Bureau à distance.|
 |Tâche planifiée|Batch (Fichier de commandes)|v|Le mot de passe est également enregistré en tant que secret LSA sur le disque.|
-|Exécuter des outils en tant que service|de diffusion en continu|v|Le mot de passe est également enregistré en tant que secret LSA sur le disque.|
-|Analyseurs de vulnérabilité|Réseau|-|La plupart des analyseurs utilisent par défaut des ouvertures de session réseau, bien que certains fournisseurs puissent implémenter des ouvertures de session non-réseau et introduire plus de risque de vol d’informations d’identification.|
+|Exécuter des outils en tant que service|Service|v|Le mot de passe est également enregistré en tant que secret LSA sur le disque.|
+|Analyseurs de vulnérabilité|Network (Réseau)|-|La plupart des analyseurs utilisent par défaut des ouvertures de session réseau, bien que certains fournisseurs puissent implémenter des ouvertures de session non-réseau et introduire plus de risque de vol d’informations d’identification.|
 
 Pour l’authentification web, utilisez la référence indiquée dans le tableau ci-dessous :
 
 |Méthode de connexion|Type d’ouverture de session|Informations d’identification réutilisables sur la destination|Commentaires|
 |-----------|-------|--------------------|------|
 |Authentification de base IIS|NetworkCleartext<br />(IIS 6.0+)<br /><br />Interactive (Interactif)<br />(avant IIS 6.0)|v||
-|Authentification Windows intégrée IIS|Réseau|-|Fournisseurs NTLM et Kerberos.|
+|Authentification Windows intégrée IIS|Network (Réseau)|-|Fournisseurs NTLM et Kerberos.|
 
 Définitions des colonnes :
 
@@ -614,18 +614,18 @@ Sur les ordinateurs Windows, toutes les authentifications sont traitées comme l
 
 |Type d’ouverture de session|#|Authentificateurs acceptés|Informations d’identification réutilisables dans une session LSA|Exemples|
 |-------|---|--------------|--------------------|------|
-|Interactif (également appelé ouverture de session locale)|2|Mot de passe, carte à puce,<br />Autre|Oui|Ouverture de session console<br />RUNAS<br />Solutions de contrôle à distance du matériel (par exemple, KVM réseau ou accès à distance/carte d’extinction dans le serveur)<br />Authentification de base IIS (avant IIS 6.0)|
-|Réseau|3|Mot de passe,<br />hachage NT,<br />ticket Kerberos|Non (sauf si une délégation est activée, alors des tickets Kerberos sont présents)|NET USE,<br />appels RPC,<br />Registre à distance,<br />authentification Windows intégrée IIS,<br />authentification Windows SQL|
+|Interactif (également appelé ouverture de session locale)|2|Mot de passe, carte à puce,<br />autre|Oui|Ouverture de session console<br />RUNAS<br />Solutions de contrôle à distance du matériel (par exemple, KVM réseau ou accès à distance/carte d’extinction dans le serveur)<br />Authentification de base IIS (avant IIS 6.0)|
+|Network (Réseau)|3|Mot de passe,<br />hachage NT,<br />ticket Kerberos|Non (sauf si une délégation est activée, alors des tickets Kerberos sont présents)|NET USE,<br />appels RPC,<br />Registre à distance,<br />authentification Windows intégrée IIS,<br />authentification Windows SQL|
 |Batch (Fichier de commandes)|4|Mot de passe (généralement stocké en tant que secret LSA)|Oui|Tâches planifiées|
-|de diffusion en continu|5|Mot de passe (généralement stocké en tant que secret LSA)|Oui|Windows Services|
+|Service|5|Mot de passe (généralement stocké en tant que secret LSA)|Oui|Windows Services|
 |NetworkCleartext|8|Mot de passe|Oui|Authentification de base IIS (IIS 6.0 et versions ultérieures)<br />Windows PowerShell avec CredSSP|
 |NewCredentials|9|Mot de passe|Oui|RUNAS /NETWORK|
-|RemoteInteractive|10|Mot de passe, carte à puce,<br />Autre|Oui|Bureau à distance (anciennement services Terminal Server)|
+|RemoteInteractive|10|Mot de passe, carte à puce,<br />autre|Oui|Bureau à distance (anciennement services Terminal Server)|
 
 Définitions des colonnes :
 
 - **Type d’ouverture de session** est le type d’ouverture de session demandé.
-- **#** est l’identificateur numérique du type d’ouverture de session signalé dans événements d’audit dans le journal des événements de sécurité.
+- **#** est l’identifiant numérique du type d’ouverture de session signalé dans les événements d’audit dans le journal des événements de sécurité.
 - **Authentificateurs acceptés** indique les types d’authentificateurs capables de lancer une ouverture de session de ce type.
 - **Informations d’identification réutilisables dans une session LSA** indique si le type d’ouverture de session entraîne la conservation des informations d’identification par la session LSA, comme les mots de passe en texte en clair, les hachages NT ou les tickets Kerberos pouvant être utilisés pour s’authentifier auprès d’autres ressources réseau.
 - **Exemples** répertorie des scénarios courants dans lesquels le type d’ouverture de session est utilisé.
