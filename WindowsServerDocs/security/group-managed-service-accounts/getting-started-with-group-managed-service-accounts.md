@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 8086ce329c532e07363fd22fe424a9a1dda04250
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 45fe605228189f49d40543e5da703f9afe0d962e
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386887"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791219"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>Getting Started with Group Managed Service Accounts
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 
 Ce guide fournit des instructions pas à pas et des informations générales sur l’activation et l’utilisation de comptes de service administrés de groupe dans Windows Server 2012.
@@ -56,14 +56,14 @@ Lorsqu'un ordinateur client se connecte à un service qui est hébergé sur une 
 
 Les principaux suivants sont disponibles pour les services, chacun avec certaines limitations.
 
-|Principaux|`Scope`|Services pris en charge|Gestion des mots de passe|
+|Principaux|Étendue|Services pris en charge|Gestion des mots de passe|
 |-------|-----|-----------|------------|
-|Compte d'ordinateur du système Windows|domaine.|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
-|Compte d'ordinateur sans système Windows|domaine.|Tout serveur joint à un domaine|Aucune|
-|Compte virtuel|Local|Limité à un serveur|Géré par l'ordinateur|
-|Compte de service administré autonome Windows 7|domaine.|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
-|Compte d’utilisateur|domaine.|Tout serveur joint à un domaine|Aucune|
-|Compte de service administré de groupe|domaine.|Tout serveur joint à un domaine Windows Server 2012|Le contrôleur de domaine gère et l'hôte récupère|
+|Compte d'ordinateur du système Windows|Domaine|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
+|Compte d'ordinateur sans système Windows|Domaine|Tout serveur joint à un domaine|Aucun(e)|
+|Compte virtuel|Locales|Limité à un serveur|Géré par l'ordinateur|
+|Compte de service administré autonome Windows 7|Domaine|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
+|Compte d’utilisateur|Domaine|Tout serveur joint à un domaine|Aucun(e)|
+|Compte de service géré de groupe|Domaine|Tout serveur joint à un domaine Windows Server 2012|Le contrôleur de domaine gère et l'hôte récupère|
 
 Un compte d'ordinateur Windows, un compte de service administré autonome (sMSA) Windows 7 ou des comptes virtuels ne peuvent pas être partagés sur plusieurs systèmes. Si vous configurez un compte à partager par les services de la batterie de serveurs, vous devrez choisir un compte d'utilisateur ou un compte d'ordinateur en dehors d'un système Windows. Dans tous les cas, ces comptes n'ont pas la capacité de gérer les mots de passe depuis un seul point de contrôle. Cette situation est problématique, car chaque organisation doit alors créer une solution coûteuse pour mettre à jour les clés du service dans Active Directory, puis les distribuer à toutes les instances de ces services.
 
@@ -84,7 +84,7 @@ Une architecture 64 bits est requise pour exécuter les commandes Windows PowerS
 
 **Configuration requise pour le système d’exploitation**
 
-|Élément|Condition requise|Système d'exploitation|
+|Élément|Condition requise|Système d’exploitation|
 |------|--------|----------|
 |Hôte d'application cliente|Client Kerberos conforme aux RFC|Au minimum Windows XP|
 |Contrôleurs de domaine du domaine du compte d’utilisateur|KDC conforme aux RFC|Au minimum Windows Server 2003|
@@ -142,7 +142,7 @@ Lors du déploiement d'une nouvelle batterie de serveurs, l'administrateur du se
 
 -   L'intervalle de modification de mot de passe (la valeur par défaut est 30 jours).
 
-### <a name="BKMK_Step1"></a>Étape 1 : Configuration des comptes de service administrés de groupe
+### <a name="BKMK_Step1"></a>Étape 1 : configuration des comptes de service administrés de groupe
 Vous pouvez créer un gMSA uniquement si le schéma de forêt a été mis à jour vers Windows Server 2012, si la clé racine principale de Active Directory a été déployée et qu’il existe au moins un contrôleur de domaine Windows Server 2012 dans le domaine dans lequel le gMSA sera créé.
 
 Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs de compte** , ou avoir la capacité de créer des objets msDS-GroupManagedServiceAccount pour réaliser les procédures suivantes.
@@ -153,7 +153,7 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
 2.  À l'invite de commandes de Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée : (Le module Active Directory sera chargé automatiquement.)
 
-    **New-ADServiceAccount [-name] <string>-DNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]-SamAccountName <string>-ServicePrincipalNames < chaîne [] >**
+    **New-ADServiceAccount [-name] <string>-DNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]-SamAccountName <string>-ServicePrincipalNames < String [] >**
 
     |Paramètre|Chaîne|Exemple|
     |-------|-----|------|
@@ -172,9 +172,8 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
     Entrez la commande sur une seule ligne, même si elle tient ici sur plusieurs lignes du fait de contraintes de mise en forme.
 
-    ```
-    New-ADServiceAccount ITFarm1 -DNSHostName ITFarm1.contoso.com -PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts -KerberosEncryptionType RC4, AES128, AES256 -ServicePrincipalNames http/ITFarm1.contoso.com/contoso.com, http/ITFarm1.contoso.com/contoso, http/ITFarm1/contoso.com, http/ITFarm1/contoso
-
+    ```Powershell
+    New-ADServiceAccount ITFarm1 -DNSHostName ITFarm1.contoso.com -PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts$ -KerberosEncryptionType RC4, AES128, AES256 -ServicePrincipalNames http/ITFarm1.contoso.com/contoso.com, http/ITFarm1.contoso.com/contoso, http/ITFarm1/contoso.com, http/ITFarm1/contoso
     ```
 
 Vous devez au minimum appartenir au groupe **Admins du domaine** ou **Opérateurs de compte**, ou avoir la capacité de créer des objets msDS-GroupManagedServiceAccount pour réaliser les procédures suivantes. Pour plus d’informations sur l’utilisation des comptes et appartenances à des groupes appropriés, voir [Groupes locaux et de domaine par défaut](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
@@ -198,12 +197,11 @@ Vous devez au minimum appartenir au groupe **Admins du domaine** ou **Opérateur
 
 **Exemple**
 
+```PowerShell
+New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts$
 ```
-New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts
 
-```
-
-### <a name="BKMK_ConfigureServiceIdentity"></a>Étape 2 : Configuration du service d'application d'identité au service
+### <a name="BKMK_ConfigureServiceIdentity"></a>Étape 2 : configuration du service d’application d’identité de service
 Pour configurer les services dans Windows Server 2012, consultez la documentation sur les fonctionnalités suivantes :
 
 -   Pool d'applications IIS
@@ -225,7 +223,7 @@ Si vous utilisez des groupes de sécurité pour la gestion des hôtes membres, a
 
 Vous devez au minimum appartenir au groupe **Admins du domaine** ou avoir la capacité d'ajouter des membres à l'objet de groupe de sécurité pour réaliser ces procédures.
 
--   Méthode 1 : Utilisateurs et ordinateurs Active Directory
+-   Méthode 1 : Utilisateurs et ordinateurs Active Directory
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Ajouter un compte d’ordinateur à un groupe](https://technet.microsoft.com/library/cc733097.aspx) et [Gérer des domaines différents dans le Centre d’administration Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
 
@@ -233,7 +231,7 @@ Vous devez au minimum appartenir au groupe **Admins du domaine** ou avoir la cap
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Ajouter un compte d’ordinateur à un groupe](https://technet.microsoft.com/library/cc733097.aspx) à l’aide de la ligne de commande.
 
--   Méthode 3 : Applet de commande Windows PowerShell Active Directory Add-ADPrincipalGroupMembership
+-   Méthode 3 : Applet de commande Windows PowerShell Active Directory Add-ADPrincipalGroupMembership
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Add-ADPrincipalGroupMembership](https://technet.microsoft.com/library/ee617203.aspx).
 
@@ -262,14 +260,12 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
 Par exemple, pour ajouter des hôtes membres, tapez les commandes suivantes et appuyez sur Entrée.
 
-```
+```PowerShell
 Get-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
-
 ```
 
-```
-Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1,Host2,Host3
-
+```PowerShell
+Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1$,Host2$,Host3$
 ```
 
 ## <a name="BKMK_Update_gMSA"></a>Mise à jour des propriétés du compte de service administré de groupe
@@ -282,10 +278,10 @@ Pour plus d’informations sur la définition de ces propriétés, voir [Set-ADS
 ## <a name="BKMK_DecommMemberHosts"></a>Désaffectation d’hôtes membres d’une batterie de serveurs existante
 Vous devez au minimum appartenir au groupe **Admins du domaine**ou avoir la capacité de supprimer des membres de l'objet de groupe de sécurité pour réaliser ces procédures.
 
-### <a name="step-1-remove-member-host-from-gmsa"></a>Étape 1 : Supprimer l'hôte membre du compte gMSA
+### <a name="step-1-remove-member-host-from-gmsa"></a>Étape 1 : Supprimer l'hôte membre du compte gMSA
 Si vous utilisez des groupes de sécurité pour la gestion des hôtes membres, supprimez le compte d’ordinateur de l’hôte membre retiré du groupe de sécurité auquel les hôtes membres de gMSA sont membres à l’aide de l’une des méthodes suivantes.
 
--   Méthode 1 : Utilisateurs et ordinateurs Active Directory
+-   Méthode 1 : Utilisateurs et ordinateurs Active Directory
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Supprimer un compte d’ordinateur](https://technet.microsoft.com/library/cc754624.aspx) à l’aide de l’interface Windows et [Gérer des domaines différents dans le Centre d’administration Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
 
@@ -293,7 +289,7 @@ Si vous utilisez des groupes de sécurité pour la gestion des hôtes membres, s
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Supprimer un compte d’ordinateur](https://technet.microsoft.com/library/cc754624.aspx) à l’aide de la ligne de commande.
 
--   Méthode 3 : Applet de commande Active Directory pour Windows PowerShell Remove-ADPrincipalGroupMembership
+-   Méthode 3 : Applet de commande Active Directory pour Windows PowerShell Remove-ADPrincipalGroupMembership
 
     Pour plus d’informations, voir  [Remove-ADPrincipalGroupMembership](https://technet.microsoft.com/library/ee617243.aspx) dans la Bibliothèque TechNet ou tapez **Get-Help Remove-ADPrincipalGroupMembership** à l’invite de commandes du module Active Directory pour Windows PowerShell et appuyez sur ENTRÉE.
 
@@ -322,17 +318,15 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
 Par exemple, pour supprimer des hôtes membres, tapez les commandes suivantes et appuyez sur Entrée.
 
-```
+```PowerShell
 Get-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
-
 ```
 
+```PowerShell
+Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1$,Host3$
 ```
-Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1,Host3
 
-```
-
-### <a name="BKMK_RemoveGMSA"></a>Étape 2 : Suppression d'un compte de service administré de groupe du système
+### <a name="BKMK_RemoveGMSA"></a>Étape 2 : suppression d’un compte de service administré de groupe du système
 Supprimez les informations d'identification de compte gMSA mises en cache de l'hôte membre à l'aide de Uninstall-ADServiceAccount ou de l'API NetRemoveServiceAccount sur le système hôte.
 
 Vous devez au minimum appartenir au groupe **Administrateurs**ou à un groupe équivalent pour réaliser ces procédures.
@@ -349,7 +343,7 @@ Vous devez au minimum appartenir au groupe **Administrateurs**ou à un groupe é
 
     Par exemple, pour supprimer les informations d'identification mises en cache pour un gMSA nommé BatterieIT1, tapez la commande suivante et appuyez sur Entrée :
 
-    ```
+    ```PowerShell
     Uninstall-ADServiceAccount ITFarm1
     ```
 
@@ -360,6 +354,3 @@ Pour plus d’informations sur l’applet de commande Uninstall-ADServiceAccount
 ## <a name="BKMK_Links"></a>Voir aussi
 
 -   [Présentation des comptes de service administrés de groupe](group-managed-service-accounts-overview.md)
-
-
-

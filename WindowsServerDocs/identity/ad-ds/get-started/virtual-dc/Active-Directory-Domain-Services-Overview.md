@@ -1,6 +1,6 @@
 ---
 ms.assetid: f052dfcd-dace-4485-8d0a-cc7df5cf3751
-title: Vue d’ensemble des services de domaine Active Directory
+title: Vue d’ensemble d’Active Directory Domain Services
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -9,21 +9,21 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 84ce4986d27884f817eb5e632ac8dc1c5a22b922
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2d5630ece940e5bd7895510c245d14b67c847a70
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390480"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791125"
 ---
-# <a name="active-directory-domain-services-overview"></a>Vue d’ensemble des services de domaine Active Directory
+# <a name="active-directory-domain-services-overview"></a>Vue d’ensemble d’Active Directory Domain Services
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 Un répertoire est une structure hiérarchique qui stocke des informations sur les objets sur le réseau. Un service d’annuaire, tel que Active Directory Domain Services (AD DS), fournit les méthodes permettant de stocker les données d’annuaire et de mettre ces données à la disposition des utilisateurs et administrateurs du réseau. Par exemple, AD DS stocke des informations sur les comptes d’utilisateur, telles que les noms, les mots de passe, les numéros de téléphone, etc., et permet à d’autres utilisateurs autorisés du même réseau d’accéder à ces informations.
 
-Active Directory stocke des informations sur les objets sur le réseau et facilite la recherche et l’utilisation de ces informations pour les administrateurs et les utilisateurs. Active Directory utilise un magasin de données structuré comme base pour une organisation hiérarchique et logique des informations d’annuaire.
+Active Directory stocke des informations relatives aux objets d’un réseau et les met à la disposition des utilisateurs et des administrateurs réseau afin qu’ils puissent les trouver et les utiliser rapidement. Active Directory utilise un magasin de données structuré comme la base de son organisation hiérarchique et logique des informations de répertoire.
 
 Ce magasin de données, également connu sous le nom d’annuaire, contient des informations sur les objets Active Directory. Ces objets incluent généralement des ressources partagées, telles que des serveurs, des volumes, des imprimantes et les comptes d’utilisateur et d’ordinateur réseau. Pour plus d’informations sur le magasin de données Active Directory, consultez la rubrique [magasin de données d’annuaire](https://technet.microsoft.com/library/cc736627(v=ws.10).aspx).
 

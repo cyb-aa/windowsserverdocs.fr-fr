@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: a0726752-0a78-472b-9667-2f91636c1b3b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4673fcf369bdb95d3aa20028ee57f78ffbcaf9c9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6128dfb4ab4f6bd29d66cf4823345817f2cb119c
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356698"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791500"
 ---
 # <a name="branchcache-network-shell-and-windows-powershell-commands"></a>Commandes d’environnement réseau et Windows PowerShell pour BranchCache
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans Windows Server 2016, vous pouvez configurer et gérer BranchCache à l’aide de Windows PowerShell ou des commandes d’environnement réseau (Netsh) pour BranchCache.  
   
@@ -31,7 +31,7 @@ Les informations de référence sur les commandes Windows PowerShell et les comm
   
 -   [Commandes netsh pour BranchCache dans Windows Server 2008 R2](https://technet.microsoft.com/library/dd979561(v=ws.10))  
   
--   [Applets de commande BranchCache dans Windows PowerShell](https://technet.microsoft.com/library/hh848392.aspx) pour windows server 2012.  
+-   [Applets de commande BranchCache dans Windows PowerShell](https://docs.microsoft.com/powershell/module/branchcache/?view=win10-ps)
   
 > [!TIP]  
 > Pour afficher la liste des commandes Windows PowerShell pour BranchCache, à l’invite Windows PowerShell tapez `Get-Command -Module BranchCache`, puis appuyez sur ENTRÉE.  

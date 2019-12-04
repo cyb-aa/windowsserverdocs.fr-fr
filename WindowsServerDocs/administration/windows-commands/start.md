@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1fb0875c972f8259b47f48ef84ed486fc678d8b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e481048c23e634869b0238188d4a0ef8b49cb3e
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370886"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781306"
 ---
 # <a name="start"></a>start
 
@@ -31,7 +31,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 ## <a name="syntax"></a>Syntaxe
 
 ```
-start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/b {<Command> | <Program>} [<Parameters>]]
+start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/elevate] [/b {<Command> | <Program>} [<Parameters>]]
 ```
 
 ## <a name="parameters"></a>Paramètres
@@ -46,9 +46,10 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 |/Low \|/normal \|/High \|/Realtime \|/AboveNormal \|/BelowNormal|Démarre une application dans la classe de priorité spécifiée. Les valeurs de classe de priorité valides sont **/Low**, **/normal**, **/High**, **/Realtime**, **/AboveNormal**et **/BelowNormal**.|
 |/Affinity \<HexAffinity >|Applique le masque d’affinité de processeur spécifié (exprimé sous forme de nombre hexadécimal) à la nouvelle application.|
 |/Wait|Démarre une application et attend qu’elle se termine.|
+|/elevate|Exécute l’application en tant qu’administrateur.|
 |/b|Démarre une application sans ouvrir une nouvelle fenêtre d’invite de commandes. La gestion CTRL + C est ignorée, sauf si l’application active le traitement CTRL + C. Utilisez CTRL + Pause pour interrompre l’application.|
-|/b \<> de commande \| programme \<>|Spécifie la commande ou le programme à démarrer.|
-|Paramètres de \<>|Spécifie les paramètres à passer à la commande ou au programme.|
+|/b \<> de commande \| programme \<|Spécifie la commande ou le programme à démarrer.|
+|Paramètres de \<|Spécifie les paramètres à passer à la commande ou au programme.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes

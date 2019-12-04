@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 7ce84c9f-fd1f-4463-8fc7-d2f33344a2c9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: db10f784f383938edb29b18d7e8febf869378abc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 831f484db8325bf9a27e9065ac5cf74913d0805c
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404570"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791159"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>Identifier et résoudre les problèmes de fonctionnement du serveur d'accès à distance
 
@@ -76,7 +76,7 @@ La désactivation du service d’assistance IP entraîne une erreur grave sur le
   
     **Résolution**  
   
-    1.  Pour vous assurer que le service est en cours d’exécution, tapez **« obtenir-service iphlpsc »** dans une invite de commandes Windows PowerShell.  
+    1.  Pour vous assurer que le service est en cours d’exécution, tapez **« obtenir-service iphlpsvc »** dans une invite de commandes Windows PowerShell.  
   
     2.  Pour activer le service, tapez **Start-Service iphlpsvc** à partir d’une invite Windows PowerShell avec élévation de privilèges.  
   
@@ -95,9 +95,6 @@ Pour restaurer le service d’assistance IP sur votre serveur d’accès à dist
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
-```  
+```PowerShell
 PS> Get-RemoteAccessHealth | Where-Object {$_.Component -eq "IP-HTTPS"} | Format-List -Property *  
-```  
-  
-
-
+```

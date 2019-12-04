@@ -8,12 +8,12 @@ ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ac717555d1ab751600527e294d32f10d1f05bfa5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4b8f10ab7b3da05fbefabb735ee2b8bb4ef1cb8a
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395877"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781346"
 ---
 # <a name="manage-qos-policy"></a>Gérer la stratégie QoS
 

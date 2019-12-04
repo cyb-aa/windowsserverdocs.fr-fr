@@ -9,12 +9,12 @@ ms.date: 11/05/2018
 ms.assetid: 8fe1c810-4599-4493-b4b8-73fa9aa18535
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ba554d4f69089d009baf7294c49c96592de50878
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ba0b3969695611385fb0a0bdc6df900eeab85254
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404275"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791141"
 ---
 # <a name="always-on-vpn-features-and-functionalities"></a>Fonctionnalités et fonctionnalités de VPN Always On
 
@@ -25,8 +25,8 @@ ms.locfileid: "71404275"
 
 Dans cette rubrique, vous allez découvrir les fonctionnalités de Always On VPN.  Le tableau ci-dessous n’est pas une liste exhaustive, mais il inclut certaines des fonctionnalités et fonctionnalités les plus courantes utilisées dans les solutions d’accès à distance. 
 
->[!TIP]
->Si vous utilisez actuellement DirectAccess, nous vous recommandons d’examiner attentivement la fonctionnalité VPN Always On pour déterminer si elle répond à tous vos besoins d’accès à distance avant de migrer DirectAccess vers Always On VPN.  
+> [!TIP]
+> Si vous utilisez actuellement DirectAccess, nous vous recommandons d’examiner attentivement la fonctionnalité VPN Always On pour déterminer si elle répond à tous vos besoins d’accès à distance avant de migrer de DirectAccess vers Always On VPN.  
 
 |                                                   Zone fonctionnelle                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                     VPN Toujours actif (AlwaysOn)                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |---------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

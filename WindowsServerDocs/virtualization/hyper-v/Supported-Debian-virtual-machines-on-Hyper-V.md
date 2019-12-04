@@ -11,16 +11,16 @@ ms.assetid: 3cc62c10-02a3-4633-960c-23bf91a45bd5
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 71b1985da522ef9ee2d7745bd19d2548e0241a2f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 60f2f3a6ed885f2da80b9beac51eeb703789ec91
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366766"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791766"
 ---
 # <a name="supported-debian-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels Debian pris en charge sur Hyper-V
 
->S'applique à : Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
+>S’applique à : Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
 La carte de distribution des fonctionnalités suivante indique les fonctionnalités qui sont présentes dans chaque version. Les problèmes connus et les solutions de contournement pour chaque distribution sont répertoriés après le tableau.
 
@@ -45,7 +45,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 | vRSS                                                                                                                                         | 2019, 2016, 2012 R2                         | &#10004;Remarque 8       | &#10004;Remarque 8       |                       |                       |
 | Segmentation TCP et déchargements de somme de contrôle                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;Remarque 8       | &#10004;Remarque 8       |                       |                       |
 | SR-IOV                                                                                                                                       | 2019, 2016                                  | &#10004;Remarque 8       | &#10004;Remarque 8       |                       |                       |
-| **[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                             |                       |                       |                       |                       |
+| **[Rangement](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                             |                       |                       |                       |                       |
 | Redimensionnement VHDX                                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;Remarque 1       | &#10004;Remarque 1       | &#10004;Remarque 1       | &#10004;Remarque 1       |
 | Fibre Channel virtuel                                                                                                                        | 2019, 2016, 2012 R2                         |                       |                       |                       |                       |
 | Sauvegarde de machine virtuelle en direct                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;Remarque 4, 5     | &#10004;Remarque 4, 5     | &#10004;Remarque 4, 5     | &#10004;Remarque 4       |
@@ -68,7 +68,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 | Passthrough/DDA PCI                                                                                                                          | 2019, 2016                                  | &#10004;Remarque 8       | &#10004;Remarque 8       |                       |                       |
 | **[Ordinateurs virtuels de 2e génération](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)** |                                             |                       |                       |                       |                       |
 | Démarrer à l’aide d’UEFI                                                                                                                              | 2019, 2016, 2012 R2                         | &#10004;Remarque 7       | &#10004;Remarque 7       | &#10004;Remarque 7       |                       |
-| Démarrage sécurisé                                                                                                                                  | 2019, 2016                                  |                       |                       |                       |                       |
+| Démarrage sécurisé                                                                                                                                  | 2019, 2016                                  | &#10004;              |                       |                       |                       |
 
 
 ## <a name="BKMK_notes"></a>Notes
@@ -93,7 +93,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
    ```
 8. Les dernières fonctionnalités de noyau en amont sont disponibles uniquement à l’aide du noyau des [ports Debian](https://wiki.debian.org/Backports)inclus.
 
-Voir aussi
+Articles associés
 
 * [Ordinateurs virtuels CentOS et Red Hat Enterprise Linux pris en charge sur Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 

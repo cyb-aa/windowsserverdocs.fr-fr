@@ -9,16 +9,16 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a24c88f5469890f12f821b9f729c7d283b687f43
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53f51d3a7a777ae378ce733ea9e66de66da5351a
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389903"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781336"
 ---
 # <a name="executive-summary"></a>Résumé
 
->S'applique à : Windows Server 2012
+>S’applique à : Windows Server 2012
 
 >[!IMPORTANT] 
 >La documentation suivante a été écrite en 2013 et est fournie à des fins d’historique uniquement.  Actuellement, nous examinons cette documentation et nous sommes susceptibles de changer.  Il peut ne pas refléter les meilleures pratiques actuelles.
@@ -56,10 +56,10 @@ Les sujets suivants sont inclus :
   
     -   Absence de pratiques de développement d’applications sécurisées  
   
--   **Comptes intéressants pour le vol d’informations d’identification** : les attaques par vol d’informations d’identification sont celles dans lesquelles une personne malveillante obtient un accès privilégié à un ordinateur sur un réseau, puis utilise les outils disponibles librement pour extraire les informations d’identification des sessions d’autres comptes connectés.   
+-   **Comptes attrayants pour le vol d’informations d’identification** : les attaques par vol d’informations d’identification sont celles dans lesquelles une personne malveillante obtient un accès privilégié à un ordinateur sur un réseau, puis utilise les outils disponibles librement pour extraire les informations d’identification des sessions d’autres comptes connectés.   
     Les éléments suivants sont inclus dans cette section :  
   
-    -   **Activités qui augmentent la probabilité de compromission** : étant donné que la cible des vols d’informations d’identification est généralement des comptes de domaine hautement privilégiés et des comptes d’adresse IP virtuelle (VIP), il est important que les administrateurs soient conscients des activités. Cela augmente la probabilité de réussite d’une attaque par vol d’informations d’identification. Ces activités sont les suivantes :  
+    -   **Activités qui augmentent la probabilité de compromission** : étant donné que la cible des vols d’informations d’identification est généralement des comptes de domaine hautement privilégiés et des comptes d’adresse IP virtuelle (VIP), il est important que les administrateurs soient conscients des activités qui augmentent la probabilité de réussite d’une attaque par vol d’informations d’identification. Ces activités sont les suivantes :  
   
         -   Connexion à des ordinateurs non sécurisés avec des comptes privilégiés  
   
@@ -114,7 +114,7 @@ Les éléments suivants sont inclus dans cette section :
   
     -   N’oubliez pas la sécurité physique lors de la conception et de l’implémentation d’ordinateurs hôtes d’administration sécurisés.  
   
--   **Sécurisation des contrôleurs de domaine contre les attaques** : si un utilisateur malveillant obtient un accès privilégié à un contrôleur de domaine, il peut modifier, corrompre et détruire la base de données Active Directory et, par extension, tous les systèmes et comptes gérés. par Active Directory.  
+-   **Sécurisation des contrôleurs de domaine contre les attaques** : si un utilisateur malveillant obtient un accès privilégié à un contrôleur de domaine, il peut modifier, corrompre et détruire la base de données Active Directory et, par extension, tous les systèmes et comptes gérés par Active Directory.  
   
 Les sujets suivants sont inclus dans cette section :  
   
@@ -131,7 +131,7 @@ Les sujets suivants sont inclus dans cette section :
   
 -   **Stratégie d’audit Windows** : les journaux des événements de sécurité Windows ont des catégories et des sous-catégories qui déterminent les événements de sécurité suivis et enregistrés.  
   
--   **Recommandations de stratégie d’audit** : cette section décrit les paramètres de stratégie d’audit par défaut de Windows, les paramètres de stratégie d’audit recommandés par Microsoft et des recommandations plus agressives pour les organisations à utiliser pour auditer les serveurs critiques et stations.  
+-   **Recommandations de stratégie d’audit** : cette section décrit les paramètres de stratégie d’audit par défaut de Windows, les paramètres de stratégie d’audit recommandés par Microsoft et des recommandations plus agressives pour les organisations à utiliser pour auditer des serveurs et des stations de travail critiques.  
   
 ## <a name="planning-for-compromise"></a>Planification des compromis  
 Cette section contient des recommandations qui aident les organisations à se préparer à un compromis avant qu’elles ne se produisent, à implémenter des contrôles capables de détecter un événement compromis avant qu’une violation complète ne se produise, et à fournir des instructions de réponse et de récupération pour les cas où une compromission complète de l’annuaire est effectuée par des attaquants. Les sujets suivants sont inclus dans cette section :  
@@ -160,7 +160,7 @@ Cette section contient des recommandations qui aident les organisations à se pr
   
         -   **Classifier tous les Active Directory les** propriétaires d’entreprise doivent fournir une classification des données dans Active Directory. Dans le modèle de classification des données, la classification des données de Active Directory suivantes doit être incluse :  
   
-            -   **Systèmes** : classification des populations de serveurs, du rôle de leur système d’exploitation, des applications qui s’y exécutent et des propriétaires de l’informatique et des professionnels de l’enregistrement.  
+            -   **Systèmes** : classification des populations de serveurs, de leur système d’exploitation, de leur rôle, des applications qui s’y exécutent et des propriétaires de l’informatique et des professionnels de l’enregistrement.  
   
             -   **Applications** : classifier les applications par fonctionnalité, base d’utilisateurs et leur système d’exploitation.  
   
@@ -179,7 +179,7 @@ Les pratiques sont répertoriées dans l’ordre de priorité approximatif, autr
 |3|Déployez et mettez rapidement à jour les logiciels antivirus et anti-programme malveillant sur tous les systèmes et surveillez les tentatives de suppression ou de désactivation.|Tactique|Les deux|  
 |4|Surveiller les objets de Active Directory sensibles pour les tentatives de modification et Windows pour les événements qui peuvent indiquer une tentative de compromission.|Tactique|Simplifié|  
 |5|Protéger et surveiller les comptes pour les utilisateurs qui ont accès à des données sensibles|Tactique|Les deux|  
-|6\.|Empêchez l’utilisation de comptes puissants sur des systèmes non autorisés.|Tactique|Intervenir|  
+|6|Empêchez l’utilisation de comptes puissants sur des systèmes non autorisés.|Tactique|Intervenir|  
 |7|Éliminez l’appartenance permanente aux groupes à privilèges élevés.|Tactique|Intervenir|  
 |8|Implémentez des contrôles pour accorder une appartenance temporaire à des groupes privilégiés si nécessaire.|Tactique|Intervenir|  
 |9|Implémentez des hôtes d’administration sécurisés.|Tactique|Intervenir|  
