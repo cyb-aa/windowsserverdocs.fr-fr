@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: ac6d9abf96348a596fbd2f886cb67b5d97f686e2
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+ms.openlocfilehash: f3b580b108677b391065ad83f61e52504fe9ac91
+ms.sourcegitcommit: 68483ee9284285f5643dd67dce06f5a102cb9469
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700152"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74823847"
 ---
 # <a name="networking"></a>Mise en réseau
 
@@ -252,7 +252,7 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
             </div>
         </div>
     </li>
-    <hr />
+   <hr />
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -263,7 +263,7 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="dns/dns-top.md">&quot;DNS (Domain Name System) &gt;</a></h3>
+                        <h3><a href="dns/dns-top.md">DNS (Domain Name System)</a></h3>
                         <hr />
                         <p>Le système DNS (Domain Name System) est l’une des gammes de protocoles standard qui composent le protocole TCP/IP, et le client DNS et le serveur DNS fournissent des services de résolution de noms de nom d’ordinateur à adresse IP aux ordinateurs et aux utilisateurs.</p>
                     </div>
@@ -382,8 +382,8 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
                         <p>Les technologies de déchargement et d’optimisation du réseau dans Windows Server 2016 incluent des fonctions et des technologies purement logicielles, des fonctions et des technologies intégrées à la fois logicielles et matérielles, ainsi que des fonctions et des technologies purement matérielles.</p>
                         <p>La documentation suivante sur les technologies de déchargement et d'optimisation est également disponible :<p>
                         <hr />
-                         
-                        <a href="technologies/conv-nic/cnic-top.md">réseau hautes performances</a><hr />
+                        <a href="technologies/conv-nic/cnic-top.md">Carte d’interface réseau (NIC) convergée</a>
+                        <hr />
                          
                         <a href="technologies/dcb/dcb-top.md">de Data Center Bridging (DCB)</a><hr />
                      

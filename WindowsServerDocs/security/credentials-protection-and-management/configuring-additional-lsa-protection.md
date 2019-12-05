@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: eaebac19119525b659c09b5506c497afdbd9a263
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 40e489089fc0c15c3e6ebf7b654377f4d6f7e482
+ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386991"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74829630"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Configuration d’une protection LSA supplémentaire
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique destinée aux professionnels de l’informatique explique comment configurer une protection supplémentaire pour le processus de l’autorité de sécurité locale (LSA) afin d’empêcher toute injection de code qui pourrait compromettre les informations d’identification.
 
@@ -66,12 +66,12 @@ En général, il n’existe aucune méthode prise en charge pour déboguer un pr
 ## <a name="how-to-identify-lsa-plug-ins-and-drivers-that-fail-to-run-as-a-protected-process"></a>Comment identifier les plug-ins et pilotes LSA dont l’exécution en tant que processus protégé échoue
 Les événements décrits dans cette section figurent dans le journal des opérations sous Journaux des applications et des services\Microsoft\Windows\CodeIntegrity. Ils peuvent vous aider à identifier les plug-ins et pilotes LSA dont le chargement échoue pour des raisons de signature. Pour gérer ces événements, vous pouvez utiliser l’outil en ligne de commande **wevtutil** . Pour plus d’informations sur cet outil, voir [Wevtutil](../../administration/windows-commands/Wevtutil.md).
 
-### <a name="before-opting-in-how-to-identify-plug-ins-and-drivers-loaded-by-the-lsassexe"></a>Avant de vous inscrire : comment identifier les plug-ins et pilotes chargés par lsass.exe
+### <a name="before-opting-in-how-to-identify-plug-ins-and-drivers-loaded-by-the-lsassexe"></a>Avant de vous inscrire : comment identifier les plug-ins et pilotes chargés par lsass.exe
 Vous pouvez utiliser le mode audit pour identifier les plug-ins et pilotes LSA dont le chargement échouera en mode de protection LSA. En mode audit, le système génère des journaux des événements qui identifient tous les plug-ins et pilotes qui ne pourront pas être chargés sous LSA si la protection LSA est activée. Les messages sont consignés sans bloquer les plug-ins ni pilotes.
 
 ##### <a name="to-enable-the-audit-mode-for-lsassexe-on-a-single-computer-by-editing-the-registry"></a>Pour activer le mode audit pour Lsass.exe sur un seul ordinateur en modifiant le Registre
 
-1.  Ouvrez l'Éditeur du Registre (RegEdit.exe) et accédez à la clé de Registre qui se trouve à l'emplacement suivant : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe.
+1.  Ouvrez l'Éditeur du Registre (RegEdit.exe) et accédez à la clé de Registre qui se trouve à l'emplacement suivant : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe.
 
 2.  Définissez **AuditLevel=dword:00000008** comme valeur de la clé de Registre.
 
@@ -81,9 +81,9 @@ Analysez les résultats de l’événement 3065 et de l’événement 3066.
 
 Après cela, vous pouvez voir ces événements dans observateur d’événements : Microsoft-Windows-CodeIntegrity/Operational :
 
--   **Événement 3065** : cet événement rapporte qu'une vérification de l'intégrité du code a déterminé qu'un processus (généralement lsass.exe) a tenté de charger un pilote spécifique qui ne répondait pas aux conditions requises en matière de sécurité pour les sections partagées. Toutefois, en raison de la stratégie système qui est définie, le chargement de l’image a été autorisé.
+-   **Événement 3065** : cet événement rapporte qu’une vérification de l’intégrité du code a déterminé qu’un processus (généralement lsass.exe) a tenté de charger un pilote spécifique qui ne répondait pas aux exigences de sécurité pour les sections partagées. Toutefois, en raison de la stratégie système qui est définie, le chargement de l’image a été autorisé.
 
--   **Événement 3066** : cet événement rapporte qu'une vérification de l'intégrité du code a déterminé qu'un processus (généralement lsass.exe) a tenté de charger un pilote spécifique qui ne répondait pas aux conditions requises en matière de niveau de signature Microsoft. Toutefois, en raison de la stratégie système qui est définie, le chargement de l’image a été autorisé.
+-   **Événement 3066** : cet événement rapporte qu’une vérification de l’intégrité du code a déterminé qu’un processus (généralement lsass.exe) a tenté de charger un pilote spécifique qui ne répondait pas aux exigences de niveau de signature Microsoft. Toutefois, en raison de la stratégie système qui est définie, le chargement de l’image a été autorisé.
 
 > [!IMPORTANT]
 > Ces événements opérationnels ne sont pas générés lorsqu’un débogueur du noyau est attaché et activé sur un système.
@@ -114,23 +114,23 @@ Pour activer le mode audit pour plusieurs ordinateurs d’un domaine, vous pouve
 
 10. Dans la zone **Données de la valeur** , tapez **00000008**.
 
-11. Cliquez sur **OK**.
+11. Cliquez sur **OK**.
 
 > [!NOTE]
 > Pour que l’objet de stratégie de groupe entre en vigueur, la modification qui lui est apportée doit être répliquée vers tous les contrôleurs du domaine.
 
 Pour vous inscrire pour une protection LSA supplémentaire sur plusieurs ordinateurs, vous pouvez utiliser l’extension de Registre côté client pour la stratégie de groupe en modifiant HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa. Pour connaître la procédure à suivre, consultez [Comment configurer une protection LSA supplémentaire des informations d’identification](#BKMK_HowToConfigure) dans cette rubrique.
 
-### <a name="after-opting-in-how-to-identify-plug-ins-and-drivers-loaded-by-the-lsassexe"></a>Après vous être inscrit : comment identifier les plug-ins et pilotes chargés par lsass.exe
+### <a name="after-opting-in-how-to-identify-plug-ins-and-drivers-loaded-by-the-lsassexe"></a>Après vous être inscrit : comment identifier les plug-ins et pilotes chargés par lsass.exe
 Vous pouvez utiliser le journal des événements pour identifier les plug-ins et pilotes LSA dont le chargement a échoué en mode de protection LSA. Lorsque le processus protégé LSA est activé, le système génère des journaux des événements qui identifient tous les plug-ins et pilotes qui n’ont pas pu être chargés sous LSA.
 
 Analysez les résultats de l’événement 3033 et de l’événement 3063.
 
 Après cela, vous pouvez voir ces événements dans observateur d’événements : Microsoft-Windows-CodeIntegrity/Operational :
 
--   **Événement 3033** : cet événement rapporte qu'une vérification de l'intégrité du code a déterminé qu'un processus (généralement lsass.exe) a tenté de charger un pilote qui ne répondait pas aux conditions requises en matière de niveau de signature Microsoft.
+-   **Événement 3033**: cet événement rapporte qu'une vérification de l'intégrité du code a déterminé qu'un processus (généralement lsass.exe) a tenté de charger un pilote qui ne répondait pas aux conditions requises en matière de niveau de signature Microsoft.
 
--   **Événement 3063** : cet événement rapporte qu'une vérification de l'intégrité du code a déterminé qu'un processus (généralement lsass.exe) a tenté de charger un pilote qui ne répondait pas aux conditions requises en matière de sécurité pour les sections partagées.
+-   **Événement 3063** : cet événement rapporte qu’une vérification de l’intégrité du code a déterminé qu’un processus (généralement lsass.exe) a tenté de charger un pilote qui ne répondait pas aux exigences de sécurité pour les sections partagées.
 
 Les sections partagées sont généralement le résultat de techniques de programmation qui permettent aux données d’instance d’interagir avec d’autres processus qui utilisent le même contexte de sécurité. Il peut en résulter des failles de sécurité.
 
@@ -138,7 +138,7 @@ Les sections partagées sont généralement le résultat de techniques de progra
 Sur les appareils exécutant Windows 8.1 (avec ou sans démarrage sécurisé ou UEFI), la configuration est possible en effectuant les procédures décrites dans cette section. Pour les appareils exécutant Windows RT 8,1, la protection lsass. exe est toujours activée et ne peut pas être désactivée.
 
 ### <a name="on-x86-based-or-x64-based-devices-using-secure-boot-and-uefi-or-not"></a>Sur les appareils x86 ou x64 avec ou sans démarrage sécurisé et UEFI
-Sur les appareils x86 ou x64 qui utilisent le démarrage sécurisé et UEFI, une variable UEFI est définie dans le microprogramme UEFI lorsque la protection LSA est activée à l’aide de la clé de Registre. Lorsque le paramètre est stocké dans le microprogramme, la variable UEFI ne peut pas être supprimée ni modifiée dans la clé de Registre. La variable UEFI doit être réinitialisée.
+Sur les appareils x86 ou x64 qui utilisent le démarrage sécurisé ou UEFI, une variable UEFI est définie dans le microprogramme UEFI lorsque la protection LSA est activée à l’aide de la clé de registre. Lorsque le paramètre est stocké dans le microprogramme, la variable UEFI ne peut pas être supprimée ni modifiée dans la clé de Registre. La variable UEFI doit être réinitialisée.
 
 Les appareils x86 ou x64 qui ne prennent pas en charge UEFI ni le démarrage sécurisé sont désactivés, ne peuvent pas stocker la configuration pour la protection LSA dans le microprogramme et comptent uniquement sur la présence de la clé de Registre. Dans ce scénario, il est possible de désactiver la protection LSA en utilisant l’accès à distance à l’appareil.
 
@@ -146,9 +146,9 @@ Vous pouvez utiliser les procédures suivantes pour activer ou désactiver la pr
 
 ##### <a name="to-enable-lsa-protection-on-a-single-computer"></a>Pour activer la protection LSA sur un seul ordinateur
 
-1.  Ouvrez l'Éditeur du Registre (RegEdit.exe) et accédez à la clé de Registre qui se trouve à l'emplacement suivant : HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa.
+1.  Ouvrez l'Éditeur du Registre (RegEdit.exe) et accédez à la clé de Registre qui se trouve à l'emplacement suivant : HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa.
 
-2.  Affectez la valeur suivante à la clé de Registre : "RunAsPPL"=dword:00000001.
+2.  Affectez la valeur suivante à la clé de Registre : "RunAsPPL"=dword:00000001.
 
 3.  Redémarrez l’ordinateur.
 
@@ -174,13 +174,13 @@ Vous pouvez utiliser les procédures suivantes pour activer ou désactiver la pr
 
 10. Dans la zone **Données de la valeur** , tapez **00000001**.
 
-11. Cliquez sur **OK**.
+11. Cliquez sur **OK**.
 
 ##### <a name="to-disable-lsa-protection"></a>Pour désactiver la protection LSA
 
-1.  Ouvrez l'Éditeur du Registre (RegEdit.exe) et accédez à la clé de Registre qui se trouve à l'emplacement suivant : HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa.
+1.  Ouvrez l'Éditeur du Registre (RegEdit.exe) et accédez à la clé de Registre qui se trouve à l'emplacement suivant : HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa.
 
-2.  Supprimez la valeur suivante dans la clé de Registre : "RunAsPPL"=dword:00000001.
+2.  Supprimez la valeur suivante dans la clé de Registre : "RunAsPPL"=dword:00000001.
 
 3.  Utilisez l'outil d'exclusion de processus protégé LSA pour supprimer la variable UEFI si l'appareil utilise le démarrage sécurisé.
 
@@ -194,7 +194,7 @@ Vous pouvez utiliser les procédures suivantes pour activer ou désactiver la pr
 ### <a name="verifying-lsa-protection"></a>Vérification de la protection LSA
 Pour déterminer si LSA a démarré en mode protégé au démarrage de Windows, recherchez l’événement WinInit suivant dans le journal **Système** sous **Journaux Windows** :
 
--   12 : LSASS.exe a démarré en tant que processus protégé avec le niveau : 4
+-   12 : LSASS.exe a démarré en tant que processus protégé avec le niveau : 4
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [Gestion et protection des informations d'identification](credentials-protection-and-management.md)
