@@ -12,42 +12,42 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ba5c0de9d8689c63c95ea3410a74fc9a7289aeab
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: df467921f8a8f5633d2b0bd792885fe2c9ae2212
+ms.sourcegitcommit: a937eb17915a4a0e444a36ddb0fac9c9771cfbfa
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435991"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74877904"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Utiliser Windows Server Essentials Log Collector
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Lorsque vous dépannez les problèmes de l’ordinateur, un représentant du support technique et Service clientèle Microsoft peut vous demander à collecter les journaux à partir de serveurs, les ordinateurs sur le réseau, ou les deux à l’aide de Windows Server Essentials Log Collector.  
+Lorsque vous résolvez des problèmes d’ordinateur, un représentant du service clientèle et du support technique Microsoft peut vous demander de collecter des journaux à partir de serveurs, d’ordinateurs sur le réseau, ou les deux, à l’aide du collecteur de journaux Windows Server Essentials.  
   
  Log Collector copie les journaux des programmes, les journaux de l'observateur d'événements et d'autres informations relatives à votre environnement dans un fichier zip unique à un emplacement spécifié. Vous pouvez exécuter Log Collector directement à partir du serveur ou d'un ordinateur réseau quelconque, ou bien à l'aide d'une connexion à distance aux ordinateurs.  
   
 > [!NOTE]
-> - Log Collector n'analyse pas les problèmes réseau et n'apporte aucune modification aux serveurs ou ordinateurs sur le réseau. Pour plus d'informations sur la résolution des problèmes réseau, voir la documentation d'aide accompagnant votre produit serveur.  
->   -   Dans ce guide, les ordinateurs sur votre réseau, à l’exception de votre serveur, sont appelés ordinateurs réseau.  
->   -   [Télécharger le package d’installation de Windows Server Essentials Log Collector](https://go.microsoft.com/fwlink/?LinkID=266341).  
+>Log Collector n'analyse pas les problèmes réseau et n'apporte aucune modification aux serveurs ou ordinateurs sur le réseau. Pour plus d'informations sur la résolution des problèmes réseau, voir la documentation d'aide accompagnant votre produit serveur.  
+>Dans ce guide, les ordinateurs sur votre réseau, à l’exception de votre serveur, sont appelés « ordinateurs réseau ».  
+>[Téléchargez le package d’installation du collecteur de journaux Windows Server Essentials](https://www.microsoft.com/download/details.aspx?id=34821).  
   
  Pour installer et exécuter Log Collector, effectuez les étapes répertoriées dans les rubriques suivantes :  
   
 
-1.  [Installer le collecteur de journaux](Install-the-Windows-Server-Essentials-Log-Collector.md)  
+1. [Installer log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
-2.  [Exécutez le collecteur de journaux](Run-the-Windows-Server-Essentials-Log-Collector.md)  
+2. [Exécuter log Collector](Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
-1.  [Installer le collecteur de journaux](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
+3. [Installer log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
-2.  [Exécutez le collecteur de journaux](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
+4. [Exécuter log Collector](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
-  
+
 ## <a name="environment-information-collected"></a>Informations collectées sur l'environnement  
  Pour chaque ordinateur réseau ou serveur que vous spécifiez, Log Collector collecte les informations suivantes sur l'environnement et les enregistre dans le fichier de collecte des journaux.  
   
--   Version du système d'exploitation  
+-   Version du système d’exploitation  
   
 -   Fabricant de l'unité centrale et description  
   
@@ -132,17 +132,17 @@ Lorsque vous dépannez les problèmes de l’ordinateur, un représentant du sup
   
 -   Clés de Registre situées aux emplacements suivants :  
   
-    -   \\\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\  
+    -   \\\ HKEY_LOCAL_MACHINE serveur \SOFTWARE\Microsoft\Windows \  
   
-    -   \\\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevicesProviderSvc  
+    -   \\\ HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\DevicesProviderSvc  
   
-    -   \\\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DomainManagerProviderSvc  
+    -   \\\ HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\DomainManagerProviderSvc  
   
 ### <a name="network-computer-logs-and-registry-information"></a>Informations sur les journaux et le Registre de l'ordinateur réseau  
   
--   Journaux de produit de l’ordinateur réseau < ProgramData\>\Microsoft\Windows Server\Logs  
+-   Journaux de produit de l’ordinateur réseau à < ProgramData\>\Microsoft\Windows Server\Logs  
   
--   Fichier d’alertes d’intégrité dans < ProgramData\>Server\Data  
+-   Fichier d’alertes d’intégrité sur < ProgramData\>\Microsoft\Windows Server\Data  
   
 -   Journaux Windows Update  
   
@@ -150,7 +150,7 @@ Lorsque vous dépannez les problèmes de l’ordinateur, un représentant du sup
   
 -   Informations sur les tâches planifiées  
   
--   Clés de Registre à partir de \\\HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Server\  
+-   Clés de registre de \\\ HKEY_LOCAL_MACHINE serveur \SOFTWARE\Microsoft\Windows \  
   
 ## <a name="logs-for-computers-that-do-not-run-a-version-of-the-windows-operating-system"></a>Journaux pour les ordinateurs qui n'exécutent pas une version du système d'exploitation Windows  
  Log Collector ne collecte pas les fichiers journaux des ordinateurs qui n'exécutent pas une version du système d'exploitation Windows. Pour les ordinateurs non-Windows, vous devez copier manuellement les fichiers journaux suivants à l'emplacement où vous stockez les fichiers Log Collector.  
@@ -159,14 +159,14 @@ Lorsque vous dépannez les problèmes de l’ordinateur, un représentant du sup
   
 -   Library/Logs/Windows Server.log  
   
--   Library/Logs/CrashReporter/LaunchPad-< nnn\> (copier tout le LaunchPad-< nnn\>fichiers .crash)  
+-   Library/Logs/CrashReporter/LaunchPad-< nnn\> (copier tous les fichiers LaunchPad-< nnn\>. crash)  
   
--   Library/Logs/DiagnosticReports/LaunchPad-< nnn\> (copier tout le LaunchPad-< nnn\>fichiers .crash)  
+-   Library/logs/DiagnosticReports/LaunchPad-< nnn\> (copier tous les fichiers LaunchPad-< nnn\>. crash)  
   
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Articles associés  
   
 
--   [Résoudre les erreurs de Log Collector](Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
+-   [Résoudre les erreurs du collecteur de journaux](Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
 
--   [Résoudre les erreurs de Log Collector](../support/Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
+-   [Résoudre les erreurs du collecteur de journaux](../support/Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
 
