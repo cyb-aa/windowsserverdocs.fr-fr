@@ -10,12 +10,12 @@ ms.date: 10/17/2019
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: 58f88dbe485860cf685e0cafc960f60af06fc911
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 829ae15495d54aca8c476909988ea5a44ea487e7
+ms.sourcegitcommit: 8a017624682fe0172076f9169a9fa17aa972907f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781580"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74852626"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Résolution des problèmes des composants Windows Server
 
@@ -73,7 +73,7 @@ Cette section contient des rubriques de dépannage avancées et des liens pour v
 ## <a name="troubleshoot-directaccess"></a>Résolution des problèmes de DirectAccess
 - [Dépannage de DirectAccess](https://docs.microsoft.com/windows-server/remote/remote-access/directaccess/troubleshooting-directaccess)
 
-## <a name="troubleshoot-disk--management"></a>Résoudre les problèmes de gestion des disques
+## <a name="troubleshoot-disk-management"></a>Résoudre les problèmes de gestion des disques
 - [Résolution des problèmes de la Gestion des disques](https://docs.microsoft.com/windows-server/storage/disk-management/troubleshooting-disk-management)
 
 ## <a name="troubleshoot-dns"></a>Résoudre les problèmes DNS
