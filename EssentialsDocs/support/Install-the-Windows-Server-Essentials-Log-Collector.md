@@ -12,25 +12,25 @@ ms.assetid: d271c54f-1ffa-464e-afa5-27b8df61854e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ade18cec590392f35e7ad6b30d9a22ccdce44dcd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a1b1a5492a6e5dbc48899b3918314676884e0454
+ms.sourcegitcommit: 39244de670f712857a5fdd56630e95d57b7001a5
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837030"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74897678"
 ---
 # <a name="install-the-windows-server-essentials-log-collector"></a>Installer Windows Server Essentials Log Collector
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-L’Assistant d’installation de Windows Server Essentials Log Collector installe Log Collector en tant qu’un Launchpad Add-in. Vous pouvez installer et utiliser Log Collector sur les ordinateurs réseau ou le serveur, ou les deux. Une fois l'installation terminée, Log Collector apparaît dans le tableau de bord.  
+L’Assistant Installation du collecteur de journaux Windows Server Essentials installe le collecteur de journaux en tant que complément launchpad. Vous pouvez installer et utiliser Log Collector sur les ordinateurs réseau ou le serveur, ou les deux. Une fois l'installation terminée, Log Collector apparaît dans le tableau de bord.  
   
-###  <a name="BKMK_ToInstall"></a> Pour installer le collecteur de journaux  
+###  <a name="BKMK_ToInstall"></a>Pour installer log Collector  
   
 1.  Téléchargez le package d'installation de Log Collector sur un serveur ou un ordinateur du réseau.  
   
     > [!NOTE]
-    >  Vous pouvez [télécharger le package d'installation de Log Collector](https://go.microsoft.com/fwlink/p/?LinkId=255470) à partir du site Microsoft.  
+    > [Téléchargez le package d’installation du collecteur de journaux Windows Server Essentials](https://www.microsoft.com/download/details.aspx?id=34821).  
   
 2.  Double-cliquez sur l'icône Log Collector.  
   
@@ -42,7 +42,7 @@ L’Assistant d’installation de Windows Server Essentials Log Collector instal
   
 6.  Cliquez sur **Installer le complément**.  
   
-###  <a name="BKMK_Reinstall"></a> Réinstallation de Log Collector  
+###  <a name="BKMK_Reinstall"></a>Réinstallation du collecteur de journaux  
  S'il est nécessaire de réinstaller Log Collector, vous devez le désinstaller et le réinstaller sur le serveur et les ordinateurs du réseau. Quand vous désinstallez Log Collector du serveur à l'aide du tableau de bord, il est désinstallé automatiquement de tous les ordinateurs réseau.  
   
 ##### <a name="to-uninstall-and-reinstall-the-log-collector"></a>Pour désinstaller et réinstaller Log Collector  
@@ -62,12 +62,12 @@ L’Assistant d’installation de Windows Server Essentials Log Collector instal
   
 ##### <a name="to-manually-install-the-log-collector"></a>Pour installer manuellement Log Collector  
   
-1.  Renommez l’extension du fichier d’installation téléchargé à partir de .wssx en .cab.  
+1.  Renommez l’extension du fichier d’installation téléchargé de. wssx en. cab.  
   
 2.  Double-cliquez sur le nom du fichier d'installation.  
   
 3.  Cliquez sur **OK** si vous y êtes invité.  
   
-4.  Double-cliquez sur le nom de fichier se terminant par ˜.msi et sélectionnez un dossier dans lequel l’extraire.  
+4.  Double-cliquez sur le nom de fichier se terminant par « . msi » et sélectionnez un dossier dans lequel l’extraire.  
   
 5.  Accédez au dossier dans lequel vous avez extrait le fichier, puis double-cliquez dessus pour terminer l'installation à l'aide de l'Assistant.

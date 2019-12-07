@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 23943c9567f371f7598c7dcda6db434760cabeab
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: c05987360256f7b7ed58911c1ded86586fc8b3aa
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567084"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903901"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problèmes connus de Windows Admin Center
 
@@ -82,7 +82,7 @@ Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé
 
 S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
 
-## <a name="role-based-access-control-rbac"></a>Access Control basée sur les rôles (RBAC)
+## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle (RBAC)
 
 - Le déploiement de RBAC échoue sur les ordinateurs configurés pour utiliser le Contrôle d'application Windows Defender (WDAC, anciennement appelé Intégrité du Code). [16568455]
 
@@ -189,9 +189,9 @@ La solution de gestion de l’ordinateur contient un sous-ensemble d'outils de l
 
 - Si vous utilisez un compte Microsoft ([MSA](https://account.microsoft.com/account/)) ou si vous utilisez Azure Active Directory (AAD) pour vous connecter à votre ordinateur Windows 10, vous devez utiliser « gérer en tant que » pour fournir les informations d’identification d’un compte d’administrateur local [16568455]
 
-- Lorsque vous essayez de gérer l’hôte local, vous êtes invité à élever le processus de passerelle. Si vous cliquez sur **non** dans la fenêtre contextuelle du Contrôle de compte d’utilisateur qui suit, Windows Admin Center ne pourra pas s’afficher de nouveau. Dans ce cas, quittez le processus de passerelle en cliquant avec le bouton droit sur l’icône Windows Admin Center dans la barre d’état système et en choisissant Quitter, puis redémarrez Windows Admin Center à partir du Menu Démarrer.
+- Lorsque vous essayez de gérer l’hôte local, vous êtes invité à élever le processus de passerelle. Si vous cliquez sur **non** dans le menu contextuel contrôle de compte d’utilisateur qui suit, vous devez annuler la tentative de connexion et recommencer.
 
-- Windows 10 n'a pas la communication à distance WinRM/PowerShell activée par défaut
+- Par défaut, Windows 10 ne dispose pas de la communication à distance WinRM/PowerShell.
   
   - Pour activer la gestion du client Windows 10, vous devez exécuter la commande ```Enable-PSRemoting``` à partir d’une invite de commandes PowerShell avec élévation de privilèges.
 
@@ -226,4 +226,4 @@ Pour mettre à jour votre application Azure Active Directory, vous pouvez effect
 Les services de gestion Azure, y compris Azure Monitor, Azure Update Management et Azure Security Center, utilisent le même agent pour un serveur local : le Microsoft Monitoring Agent. Azure Update Management dispose d’un ensemble plus limité de régions prises en charge et requiert la liaison de l’espace de travail Log Analytics à un compte Azure Automation. En raison de cette limitation, si vous souhaitez configurer plusieurs services dans le centre d’administration Windows, vous devez d’abord configurer Azure Update Management, puis Azure Security Center ou Azure Monitor. Si vous avez configuré des services de gestion Azure qui utilisent la Microsoft Monitoring Agent, puis que vous essayez de configurer Azure Update Management à l’aide du centre d’administration Windows, le centre d’administration Windows vous permet de configurer Azure Update Management uniquement si l’existant les ressources liées aux Microsoft Monitoring Agent prennent en charge Azure Update Management. Si ce n’est pas le cas, vous avez deux options :
 
 1. Accédez au panneau de configuration > Microsoft Monitoring Agent pour [déconnecter votre serveur des solutions de gestion Azure existantes](https://docs.microsoft.com/azure/azure-monitor/platform/log-faq#q-how-do-i-stop-an-agent-from-communicating-with-log-analytics) (comme Azure Monitor ou Azure Security Center). Configurez ensuite Azure Update Management dans le centre d’administration Windows. Après cela, vous pouvez revenir à la configuration de vos autres solutions de gestion Azure via le centre d’administration Windows sans problèmes.
-2. Vous pouvez [configurer manuellement les ressources Azure nécessaires pour azure Update Management](https://docs.microsoft.com/azure/automation/automation-update-management) , puis [mettre à jour manuellement les Microsoft Monitoring agent](https://docs.microsoft.com/azure/azure-monitor/platform/agent-manage#adding-or-removing-a-workspace) (en dehors du centre d’administration Windows) pour ajouter le nouvel espace de travail correspondant à la solution Update Management vous souhaitez utiliser.
+2. Vous pouvez [configurer manuellement les ressources Azure nécessaires pour azure Update Management](https://docs.microsoft.com/azure/automation/automation-update-management) , puis [mettre à jour manuellement les Microsoft Monitoring agent](https://docs.microsoft.com/azure/azure-monitor/platform/agent-manage#adding-or-removing-a-workspace) (en dehors du centre d’administration Windows) pour ajouter le nouvel espace de travail correspondant à la solution Update Management que vous souhaitez utiliser.

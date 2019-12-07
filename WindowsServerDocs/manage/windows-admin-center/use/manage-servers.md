@@ -5,25 +5,25 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 03/07/2019
+ms.date: 11/21/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: c7f436ea9b2baa00294ccef52a5d7a27c7247e4a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9a116cc9d86dfe0bb4450efa0f18580a062af722
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406788"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903718"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Gérer les serveurs à l’aide du centre d’administration Windows
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
 > Vous débutez dans Windows Admin Center ?
 > [Découvrez-en davantage sur Windows Admin Center](../understand/windows-admin-center.md) ou [téléchargez maintenant](https://aka.ms/windowsadmincenter).
 
-## <a name="managing-windows-server-machines"></a>Gestion des ordinateurs Windows Server
+## <a name="managing-windows-server-machines"></a>Gestion des machines Windows Server
 
 Vous pouvez ajouter des serveurs individuels exécutant Windows Server 2012 ou une version ultérieure au centre d’administration Windows pour gérer le serveur à l’aide d’un ensemble complet d’outils, notamment des certificats, des appareils, des événements, des processus, des rôles, des fonctionnalités, des mises à jour, des machines virtuelles, etc.
 
@@ -47,30 +47,32 @@ Le serveur sera ajouté à votre liste de connexions sur la page vue d’ensembl
 
 Les outils suivants sont disponibles pour les connexions au serveur :
 
-| Tool | Description |
+| Outil | Description |
 | ---- | ----------- |
 | [Vue d’ensemble](#overview) | Afficher les détails du serveur et contrôler l’état du serveur |
-| [Active Directory](#active-directory-preview) | Gérer les Active Directory |
+| [Active Directory](#active-directory-preview) | Gérer les Active Directory |
 | [Sauvegarde](#backup) | Afficher et configurer la sauvegarde Azure |  
-| [Certificates](#certificates) | Afficher et modifier des certificats |
-| [Recipie](#containers) | Afficher les conteneurs |
+| [Certificats](#certificates) | Afficher et modifier des certificats |
+| [Containers](#containers) | Afficher les conteneurs |
 | [Appareils](#devices) | Afficher et modifier des appareils |
 | [DHCP](#dhcp) | Afficher et gérer la configuration du serveur DHCP |
 | [DNS](#dns) | Afficher et gérer la configuration du serveur DNS |
 | [Événements](#events) | Visualiser les événements |
-| [Fichiers](#files) | Parcourir les fichiers et les dossiers |
-| [Pare](#firewall) | Afficher et modifier des règles de pare-feu |
+| [Fichiers](#files) | Parcourir des fichiers et dossiers |
+| [Firewall](#firewall) | Afficher et modifier des règles de pare-feu |
 | [Applications installées](#installed-apps) | Afficher et supprimer les applications installées |
 | [Utilisateurs et groupes locaux](#local-users-and-groups) | Afficher et modifier les utilisateurs et groupes locaux |
 | [Network](#network) | Afficher et modifier des périphériques réseau |
+| [Analyse des paquets](https://aka.ms/wac1908) | Surveiller les paquets réseau |
+| [Analyseur de performances](https://aka.ms/perfmon-blog) | Afficher les compteurs de performances et les rapports |
 | [PowerShell](#powershell) | Interagir avec le serveur via PowerShell |
 | [Processus](#processes) | Afficher et modifier les processus en cours d’exécution |
-| [Du](#registry) | Afficher et modifier des entrées de Registre |
+| [Registry](#registry) | Afficher et modifier des entrées de Registre |
 | [Bureau à distance](#remote-desktop) | Interagir avec le serveur via Bureau à distance |
 | [Rôles et fonctionnalités](#roles-and-features) | Afficher et modifier des rôles et des fonctionnalités |
 | [Tâches planifiées](#scheduled-tasks) | Afficher et modifier des tâches planifiées |
 | [Services](#services) | Afficher et modifier des services |
-| [Réglages](#settings) | Afficher et modifier des services |
+| [Paramètres](#settings) | Afficher et modifier des services |
 | [Stockage](#storage) | Afficher et modifier les périphériques de stockage |
 | [Service de migration de stockage](#storage-migration-service) | Migrer des serveurs et des partages de fichiers vers Azure ou Windows Server 2019 |
 | [Réplica de stockage](#storage-replica) | Utiliser le réplica de stockage pour gérer la réplication de stockage de serveur à serveur |
@@ -112,7 +114,7 @@ La gestion des Active Directory suivante est disponible :
 - Rechercher des utilisateurs, des ordinateurs et des groupes
 - Volet d’informations pour les utilisateurs, les ordinateurs et les groupes lorsqu’ils sont sélectionnés dans la grille
 - Actions de grille globale utilisateurs, ordinateurs et groupes (désactiver/activer, supprimer)
-- Réinitialiser le mot de passe de l’utilisateur
+- Réinitialiser le mot de passe utilisateur
 - Objets utilisateur : configurer des propriétés de base & les appartenances aux groupes
 - Objets ordinateur : configurer la délégation sur un seul ordinateur
 - Objets de groupe : gérer l’appartenance (ajouter/supprimer 1 utilisateur à la fois)  
@@ -147,14 +149,14 @@ Les fonctionnalités suivantes sont prises en charge dans les certificats :
 
 - Parcourir et Rechercher des certificats existants
 - Afficher les détails du certificat
-- Exporter des certificats
+- Exporter les certificats
 - Renouveler les certificats
 - Demander de nouveaux certificats
 - Supprimer des certificats
 
 [**Affichez les commentaires et les fonctionnalités proposées pour les certificats**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BCertificates%5D).
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Conteneurs
 
 Les **conteneurs** vous permettent d’afficher les conteneurs sur un hôte de conteneur Windows Server. Dans le cas d’un conteneur Windows Server Core en cours d’exécution, vous pouvez afficher les journaux des événements et accéder à l’interface CLI du conteneur.
 
@@ -169,7 +171,7 @@ Les **appareils** vous permettent de gérer les appareils connectés sur un ordi
 Les fonctionnalités suivantes sont prises en charge dans les appareils :
 
 - Parcourir et Rechercher des appareils
-- Afficher les détails de l’appareil
+- Afficher les détails sur l’appareil
 - Désactiver un appareil
 - Mettre à jour le pilote sur un appareil
 
@@ -202,7 +204,7 @@ Les fonctionnalités suivantes sont prises en charge dans les appareils :
 
 [**Affichez les commentaires et les fonctionnalités proposées pour DHCP**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDNS%5D).
 
-## <a name="events"></a>Events
+## <a name="events"></a>Événements
 
 Les **événements** vous permettent de gérer les journaux des événements sur un ordinateur ou un serveur.
 
@@ -211,7 +213,7 @@ Les **événements** vous permettent de gérer les journaux des événements sur
 Les fonctionnalités suivantes sont prises en charge dans les événements :
 
 - Parcourir et Rechercher des événements
-- Afficher les détails de l’événement
+- Afficher les détails des événements
 - Effacer les événements du journal
 - Exporter les événements à partir du journal
 
@@ -225,7 +227,7 @@ Les fonctionnalités suivantes sont prises en charge dans les événements :
 
 Les fonctionnalités suivantes sont prises en charge dans les fichiers :
 
-- Parcourir les fichiers et les dossiers
+- Parcourir des fichiers et dossiers
 - Rechercher un fichier ou un dossier
 - Créer un nouveau dossier
 - Supprimer un fichier ou un dossier
@@ -282,7 +284,7 @@ Les fonctionnalités suivantes sont prises en charge dans utilisateurs et groupe
 
 [**Afficher les commentaires et les fonctionnalités proposées pour les utilisateurs et les groupes locaux**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BLocal%20users%20and%20Groups%5D)
 
-## <a name="network"></a>Réseau
+## <a name="network"></a>réseau
 
 Le **réseau** vous permet de gérer les périphériques et les paramètres réseau sur un ordinateur ou un serveur.
 
@@ -432,7 +434,7 @@ Les fonctionnalités suivantes sont prises en charge dans le stockage :
 - Mettre en forme un volume
 - Redimensionner un volume
 - Modifier les propriétés du volume
-- Supprimer un volume
+- Suppression d’un volume
 - Installer la gestion de quota
 - Gérer le serveur de fichiers quotas [de gestionnaire des ressources stockage-> créer/mettre à jour le quota](https://docs.microsoft.com/windows-server/storage/fsrm/quota-management)
 
@@ -454,7 +456,7 @@ Utilisez le **réplica de stockage** pour gérer la réplication de stockage de 
 ## <a name="system-insights"></a>Insights système
 
 **System Insights** introduit une analyse prédictive en mode natif dans Windows Server pour vous permettre de mieux comprendre le fonctionnement de votre serveur.
-[Avoir une vue d’ensemble de System Insights](http://aka.ms/systeminsights)
+[Avoir une vue d’ensemble de System Insights](https://aka.ms/systeminsights)
 
 >[!NOTE]
 >System Insights requiert Windows Server 2019.
@@ -475,7 +477,7 @@ Les fonctionnalités suivantes sont prises en charge dans les mises à jour :
 
 [**Afficher les commentaires et les fonctionnalités proposées pour les mises à jour**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BUpdates%5D)
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Ordinateurs virtuels
 
 Consultez [gestion des machines virtuelles avec le centre d’administration Windows](manage-virtual-machines.md)
 
