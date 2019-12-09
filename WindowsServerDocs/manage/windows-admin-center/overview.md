@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2019
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: c914a472869f9887c83733d6aab614b5676d17d7
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: 37be666643dee4e5b9051ae29562a86b23fb71f7
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567136"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903961"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -77,6 +77,7 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
             <li><a href="configure/user-access-control.md">Autorisations et contrôle d’accès utilisateur</a>
             <li><a href="configure/shared-connections.md">Connexions partagées</a>
             <li><a href="configure/using-extensions.md">Extensions</a>
+            <li><a href="configure/use-powershell.md">Automatiser avec PowerShell</a>
             </ul>
         </td>
     </tr>

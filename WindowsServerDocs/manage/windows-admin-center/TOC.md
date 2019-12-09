@@ -23,6 +23,7 @@
 ### [Autorisations et contrôle d’accès utilisateur](configure/user-access-control.md)
 ### [Utilisation d’extensions](configure/using-extensions.md)
 ### [Connexions partagées](configure/shared-connections.md)
+### [Automatiser avec PowerShell](configure/use-powershell.md)
 
 ## Utilisez
 ### [Prise en main](use/get-started.md)
