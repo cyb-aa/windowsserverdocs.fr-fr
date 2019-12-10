@@ -1,6 +1,5 @@
 # [Sécurité et assurance](security-and-assurance.md)
 ## [Commencer à appliquer le Règlement général sur la protection des données (RGPD) pour Windows Server 2016](gdpr/gdpr-winserver-whitepaper.md)
-## [Configurer SGH pour Always Encrypted dans SQL Server](set-up-hgs-for-always-encrypted-in-sql-server.md)
 ## [Configurer SGH pour une structure protégée et des machines virtuelles dotées d’une protection maximale](guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms-top-node.md)
 ### [Vue d’ensemble](guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md)
 ### [Plan](guarded-fabric-shielded-vm/guarded-fabric-plan-overview.md)
