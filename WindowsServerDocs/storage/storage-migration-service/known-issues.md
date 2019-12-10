@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 46a1e2aa8c116f79c164448ab5644a7dda9607c8
-ms.sourcegitcommit: ac9946deb4fa70203a9b05e0386deb4244b8ca55
+ms.openlocfilehash: 9abe199399e577eb06044377c30d5a2dc0e35dd1
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310368"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945229"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -64,11 +64,11 @@ Nous avons résolu ce problème dans une version ultérieure de Windows Server.
 
 Lorsque vous utilisez le centre d’administration Windows ou PowerShell pour télécharger le journal CSV d’opérations de transfert (messages détaillés uniquement), vous recevez l’erreur suivante :
 
- >   Journal de transfert-Vérifiez que le partage de fichiers est autorisé dans votre pare-feu. : Cette opération de demande envoyée à net. TCP : biais : 28940/SMS/service/1/Transfer n’a pas reçu de réponse dans le délai d’expiration configuré (00:01:00). Le temps alloué à cette opération est peut-être une partie d’un délai d’expiration plus long. Cela peut être dû au fait que le service traite toujours l’opération ou parce que le service n’a pas pu envoyer un message de réponse. Envisagez d’incrémenter le délai d’expiration de l’opération (en convertissant le canal/proxy vers IContextChannel et en définissant la propriété OperationTimeout) et vérifiez que le service est en mesure de se connecter au client.
+ >   Journal de transfert-Vérifiez que le partage de fichiers est autorisé dans votre pare-feu. : Cette opération de demande envoyée à net. TCP : biais : 28940/SMS/service/1/Transfer n’a pas reçu de réponse dans le délai d’expiration configuré (00:01:00). Le temps alloué à cette opération fait peut-être partie d'un délai d'attente plus long. Ceci peut être dû au fait que le service est toujours en cours de traitement de l'opération ou qu'il n'a pas pu envoyer un message de réponse. Envisagez d’incrémenter le délai d’expiration de l’opération (en convertissant le canal/proxy vers IContextChannel et en définissant la propriété OperationTimeout) et vérifiez que le service est en mesure de se connecter au client.
 
 Ce problème est dû à un très grand nombre de fichiers transférés qui ne peuvent pas être filtrés dans le délai d’attente d’une minute par défaut autorisé par le service de migration de stockage. 
 
-Pour contourner ce problème :
+Pour contourner ce problème, procédez comme suit :
 
 1. Sur l’ordinateur Orchestrator, modifiez le fichier *%systemroot%\SMS\Microsoft.StorageMigration.service.exe.config* à l’aide de Notepad. exe pour remplacer la valeur par défaut « sendTimeout » par 10 minutes.
 
@@ -90,7 +90,7 @@ Pour contourner ce problème :
 7. Cliquez avec le bouton droit sur « WcfOperationTimeoutInMinutes », puis cliquez sur modifier. 
 8. Dans la zone données de base, cliquez sur « décimal ».
 9. Dans la zone données de la valeur, tapez « 10 », puis cliquez sur OK.
-10. Quittez l’éditeur du Registre.
+10. Quittez l’Éditeur du Registre.
 11. Essayez à nouveau de télécharger le fichier CSV d’erreurs uniquement. 
 
 Nous avons l’intention de modifier ce comportement dans une version ultérieure de Windows Server 2019.  
@@ -314,6 +314,13 @@ Ce problème est dû à une régression dans la mise à jour [KB4512534](https:/
   
 Dans les deux solutions de contournement, une fois la coupure terminée, vous pouvez définir une adresse IP statique sur l’ancien ordinateur source comme vous le voyez et l’arrêter à l’aide de DHCP.   
 
-## <a name="see-also"></a>Voir également
+## <a name="slower-than-expected-re-transfer-performance"></a>Ralentissement des performances de retransfert ATTENDU
+
+À l’issue d’un transfert, lors de l’exécution d’un nouveau transfert des mêmes données, vous risquez de ne pas voir une grande amélioration du temps de transfert, même si les données ont été modifiées pendant l’intervalle de temps sur le serveur source.
+
+Il s’agit du comportement attendu lors du transfert d’un très grand nombre de fichiers et de dossiers imbriqués. La taille des données n’est pas pertinente. Nous avons d’abord apporté des améliorations à ce comportement dans [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) et nous continuons à optimiser les performances de transfert. Pour affiner les performances, passez en revue [optimisation des performances d’inventaire et de transfert](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
+
+
+## <a name="see-also"></a>Articles associés
 
 - [Vue d’ensemble de Storage migration service](overview.md)

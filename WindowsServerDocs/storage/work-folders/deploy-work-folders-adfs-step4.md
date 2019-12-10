@@ -6,14 +6,14 @@ ms.topic: article
 manager: klaasl
 ms.author: jeffpatt
 author: JeffPatt24
-ms.date: 6/242017
+ms.date: 6/24/2017
 ms.assetid: 4a11ede0-b000-4188-8190-790971504e17
-ms.openlocfilehash: ff0c6d4a6e457947c063a7ea5c3ce6463e9c17bb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 17adf89d3a26767bbc736a31da7b7b2b204570a2
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365749"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945239"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>Déployer Dossiers de travail avec AD FS et le proxy d’application Web : étape 4, configurer le proxy d’application Web
 
@@ -47,7 +47,7 @@ Pour installer les certificats, procédez comme suit :
   
 2.  Tapez **MMC**.  
   
-3.  Dans le menu **Fichier** , cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
+3.  Dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
 4.  Dans la zone **Composants logiciels enfichables disponibles**, cliquez sur **Certificats**, puis sur **Ajouter**. L’assistant Composant logiciel enfichable Certificats démarre.  
   
@@ -101,9 +101,9 @@ Pour configurer le proxy d’application Web, procédez comme suit :
   
 4.  Entrez les informations d’identification d’un compte d’administrateur local sur les serveurs de fédération. N’entrez pas les informations d’identification de domaine (par exemple, contoso\administrateur), mais les informations d’identification locales (par exemple, administrateur).  
   
-5.  Dans la page **Certificats de proxy AD FS**, sélectionnez le certificat AD FS que vous avez importé précédemment. Dans l’exemple de test, il s’agit de **blueadfs.contoso.com**. Cliquer sur **Suivant**.  
+5.  Dans la page **Certificats de proxy AD FS**, sélectionnez le certificat AD FS que vous avez importé précédemment. Dans l’exemple de test, il s’agit de **blueadfs.contoso.com**. Cliquez sur **Suivant**.  
   
-6.  La page de confirmation affiche la commande Windows PowerShell qui s’exécutera pour configurer le service. Cliquez sur **configurer**.  
+6.  La page de confirmation affiche la commande Windows PowerShell qui s’exécutera pour configurer le service. Cliquez sur **Configurer**.  
   
 ## <a name="publish-the-work-folders-web-application"></a>Publier l’application web Dossiers de travail  
 L’étape suivante consiste à publier une application web qui rendra Dossiers de travail disponibles pour les clients. Pour publier l’application web Dossiers de travail, procédez comme suit :  
@@ -152,7 +152,7 @@ L’étape suivante consiste à publier une application web qui rendra Dossiers 
   
 Étape suivante : [Déployer Dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, Configurer les clients](deploy-work-folders-adfs-step5.md)  
   
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Articles associés  
 [Vue d’ensemble des dossiers de travail](Work-Folders-Overview.md)  
   
 
