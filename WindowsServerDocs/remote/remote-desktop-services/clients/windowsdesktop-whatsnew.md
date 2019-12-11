@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 54994aad08c2f428b429082ed450235ed8bbe7e7
-ms.sourcegitcommit: 244b89505c5131dfdb90628857cc7e31741c84c2
+ms.openlocfilehash: 5526d401ba26cabcaccfc0b88df9b0e69f8149a5
+ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74265919"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74829607"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -30,17 +30,21 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 
 |Groupe d'utilisateurs |Version  |
 |-----------|---------|
-|Public     |1.2.431  |
-|Insider    |1.2.524  |
+|Public     |1.2.535  |
+|Insider    |1.2.535  |
 
-## <a name="updates-for-version-12524"></a>Mises à jour relatives à la version 1.2.524
+## <a name="updates-for-version-12535"></a>Mises à jour pour la version 1.2.535
 
-*Date de publication : 20/11/2019*
+*Date de publication : 12/04/2019*
 
-Télécharger : [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4e7Nj), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dZCo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dX1s)
+Télécharger : [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jH), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k27O)
 
 - Vous pouvez désormais accéder à ces informations relatives aux mises à jour directement à partir du bouton Autres options de la barre de commandes située en haut du client.
 - Vous pouvez désormais soumettre des commentaires à partir de la barre de commandes du client.
+- L’option Commentaires s’affiche à présent uniquement si le hub de commentaires est disponible.
+- Vérifiez que la notification de mise à jour n’est pas affichée lorsque les notifications sont désactivées via la stratégie.
+- Correction d’un problème qui empêchait le lancement de certains fichiers RDP.
+- Correction d’un incident au démarrage du client causé par l’altération de certains paramètres persistants.
 
 ## <a name="updates-for-version-12431"></a>Mises à jour relatives à la version 1.2.431
 

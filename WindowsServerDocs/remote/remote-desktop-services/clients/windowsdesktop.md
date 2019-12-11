@@ -11,18 +11,18 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/12/2019
+ms.date: 11/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f786a1db0854ae89c1ceb23942793deb7f608e1
-ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
+ms.openlocfilehash: e71aa2b1cccda85e0bf6f8a80ad68013346b30d4
+ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74019600"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74829617"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Bien démarrer avec le client Windows Desktop
 
->S’applique à : Windows 10 et Windows 7
+>S’applique à : Windows 10, Windows 10 IoT Entreprise et Windows 7
 
 Vous pouvez utiliser le client Bureau à distance pour Windows Desktop afin d’accéder aux applications et aux appareils de bureau Windows à distance à partir d’un autre appareil Windows.
 
@@ -33,7 +33,7 @@ Vous pouvez utiliser le client Bureau à distance pour Windows Desktop afin d’
 
 ## <a name="install-the-client"></a>Installer le client
 
-Choisissez le client qui correspond à votre version de Windows :
+Choisissez le client qui correspond à la version de Windows. Le nouveau client Bureau à distance (MSRDC) prend en charge les appareils clients Windows 10, Windows 10 IoT Entreprise et Windows 7. 
 
 - [Windows 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
 - [Windows 32 bits](https://go.microsoft.com/fwlink/?linkid=2098960)

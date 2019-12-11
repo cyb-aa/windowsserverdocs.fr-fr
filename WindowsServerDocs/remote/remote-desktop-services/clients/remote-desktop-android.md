@@ -12,20 +12,20 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/16/2019
+ms.date: 12/02/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 829608ae1a4c6b78b3b191f248ed4a4195500669
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: a1349f1181cdf2ead51a263a3ba62c1789c76b3b
+ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940717"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74700162"
 ---
 # <a name="get-started-with-the-android-client"></a>Bien démarrer avec le client Android
 
 >S’applique à : Android version 4.1 et ultérieure
 
-Le client Bureau à distance sur Android vous permet d’utiliser des bureaux et applications Windows directement à partir de votre appareil Android ou Chromebook qui prend en charge Google Play Store.
+Le client Bureau à distance pour Android vous permet d’utiliser des bureaux et applications Windows directement à partir de votre appareil Android ou d’un Chromebook qui prend en charge Google Play Store.
 
 Aidez-vous des informations suivantes pour démarrer. Consultez le [Forum aux questions (FAQ)](remote-desktop-client-faq.md) si vous avez des questions.
 
@@ -33,7 +33,7 @@ Aidez-vous des informations suivantes pour démarrer. Consultez le [Forum aux qu
 > - Vous êtes curieux de découvrir les nouvelles versions du client Android ? Découvrez les [nouveautés du client Android](android-whatsnew.md).
 > - Le client Android prend en charge les appareils exécutant Android version 4.1 et ultérieur ainsi que les appareils Chromebook avec ChromeOS version 53 et ultérieure. Découvrez-en plus sur les applications Android sur Chrome [ici](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps).
 
-## <a name="get-the-remote-desktop-client-and-start-using-it"></a>Obtenir le client Bureau à distance et commencer à l’utiliser
+## <a name="set-up-the-remote-desktop-client-for-android"></a>Configurer le client Bureau à distance pour Android
 
 ### <a name="download-the-remote-desktop-client-from-the-google-play-store"></a>Téléchargez le client Bureau à distance à partir de Google Play Store.
 
@@ -44,7 +44,7 @@ Voici comment configurer le client Bureau à distance sur votre appareil Android
 3. Ajoutez une [connexion Bureau à distance](#add-a-remote-desktop-connection) ou des [ressources distantes](#add-remote-resources). Vous utilisez une connexion pour vous connecter directement à un PC Windows et à des ressources distantes afin d’accéder aux applications et aux postes de travail publiés par un administrateur à votre intention.
 
 > [!NOTE]
-> Si vous souhaitez essayer de nouvelles fonctionnalités décrites précédemment, nous vous recommandons de télécharger notre [client bêta du Bureau à distance Microsoft](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta) à partir de Google Play Store.
+> Si vous souhaitez tester de nouvelles fonctionnalités avant leur publication, nous vous recommandons de télécharger notre [client bêta Bureau à distance Microsoft](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta) à partir de Google Play Store.
 
 ### <a name="add-a-remote-desktop-connection"></a>Ajouter une connexion Bureau à distance
 
@@ -67,9 +67,9 @@ Pour créer une connexion Bureau à distance :
    - **Redirect local storage** (Rediriger le stockage local) active la redirection du stockage local. Ce paramètre est désactivé par défaut.
 5. Quand vous avez terminé, appuyez sur **Enregistrer**.
 
-Vous devez modifier ces paramètres ? Appuyez sur le menu de dépassement ( **...** ) à côté du nom du bureau et appuyez ensuite sur **Modifier**.
+Vous devez modifier ces paramètres ? Appuyez sur le menu **Autres options** ( **...** ) à côté du nom du bureau, puis appuyez sur **Modifier**.
 
-Vous souhaitez supprimer la connexion ? Là encore, appuyez sur le menu de dépassement ( **...** ), puis appuyez sur **Supprimer**.
+Vous souhaitez supprimer la connexion ? Là encore, appuyez sur le menu **Autres options** ( **...** ), puis appuyez sur **Supprimer**.
 
 >[!TIP]
 > Si vous obtenez l’erreur 0xf07 à cause d’un mot de passe incorrect (« Nous n’avons pas pu vous connecter à l’ordinateur distant, car le mot de passe associé au compte d’utilisateur a expiré »), changez votre mot de passe et réessayez.
@@ -78,7 +78,7 @@ Vous souhaitez supprimer la connexion ? Là encore, appuyez sur le menu de dép
 
 Les ressources distantes peuvent être des programmes RemoteApp, des bureaux basés sur une session et des bureaux virtuels publiés par votre administrateur. Le client Android prend en charge les ressources publiées à partir de **Services Bureau à distance** et des déploiements de **Windows Virtual Desktop**. Pour ajouter des ressources distantes :
 
-1. Dans le Centre de connexion, appuyez sur **+** , puis appuyez sur **Remote Resource Feed** (Flux de ressources de Bureau à distance).
+1. Dans le Centre de connexion, appuyez sur **+** , puis appuyez sur **Remote Resource Feed** (Flux de ressources distantes).
 2. Entrez la **Feed URL** (URL du flux). Il peut s’agir d’une URL ou d’une adresse e-mail :
    - L’**URL** est le serveur Accès Bureau à distance par le web, qui vous fournie par votre administrateur. Si vous accédez à des ressources à partir de Windows Virtual Desktop, vous pouvez utiliser `https://rdweb.wvd.microsoft.com`.
    - Si vous prévoyez d’utiliser **Email** (E-mail), entrez votre adresse e-mail dans ce champ. Ceci indique au client de rechercher un serveur Accès Bureau à distance par le web associé à votre adresse e-mail s’il a été configuré par votre administrateur.
@@ -97,13 +97,13 @@ Pour supprimer des ressources distantes :
 2. Appuyez sur **Supprimer**.
 3. Confirmez la suppression.
 
-### <a name="widgets--pin-a-saved-desktop-to-your-home-screen"></a>Utiliser des widgets pour épingler un bureau enregistré sur votre écran d’accueil
+### <a name="use-a-widget-to-pin-a-saved-desktop-to-your-home-screen"></a>Utiliser un widget pour épingler un bureau enregistré sur votre écran d’accueil
 
 Le client Bureau à distance prend en charge l’épinglage des connexions à votre écran d’accueil à l’aide de la fonctionnalité de widget Android. La méthode d’ajout d’un widget varie selon le type d’appareil Android utilisé et son système d’exploitation. Voici la méthode la plus courante pour ajouter un widget :
 
 1. Appuyez sur **Applications** pour lancer le menu Applications.
 2. Appuyez sur **Widgets**.
-3. Faites défiler les widgets pour trouver l’icône Bureau à distance avec la description « Épingler Bureau à distance ».
+3. Faites défiler les widgets pour trouver l’icône Bureau à distance avec la description : « Épingler Bureau à distance ».
 4. Appuyez longuement sur ce widget Bureau à distance et déplacez-le vers l’écran d’accueil.
 5. Quand vous relâchez l’icône, les bureaux à distance enregistrés s’affichent. Choisissez la connexion à enregistrer sur votre écran d’accueil.
 
@@ -114,14 +114,14 @@ Vous pouvez maintenant démarrer la connexion au bureau à distance directement 
 
 ## <a name="manage-general-app-settings"></a>Gérer les paramètres d’application généraux
 
-Pour changer les paramètres d’application généraux, appuyez sur **Paramètres**, puis sur **Général** dans le Centre de connexion.
+Pour changer les paramètres d’application généraux, accédez au Centre de connexion et appuyez sur **Paramètres**, puis sur **Général**.
 
 Vous pouvez définir les paramètres généraux suivants :
 
 - **Afficher les aperçus de bureau** vous permet d’afficher l’aperçu d’un bureau dans le Centre de connexion avant de vous y connecter. Ce paramètre est activé par défaut.
 - **Pinch to zoom remote session** (Pincer pour effectuer un zoom sur la session à distance) vous permet de faire un zoom en effectuant un mouvement de pincement. Si l’application que vous utilisez par le biais du Bureau à distance prend en charge l’interaction tactile multipoint (introduite dans Windows 8), désactivez cette fonctionnalité.
 - Activez **Use scancode input when available** (Utiliser l’entrée de code de touche enfoncée quand elle est disponible) si votre application distante ne répond pas correctement à l’entrée au clavier envoyée en tant que code de touche enfoncée. L’entrée est envoyée en unicode quand l’option est désactivée.
-- **Aidez-nous à améliorer le Bureau à distance** envoie des données anonymes à Microsoft. Nous nous servons de ces données pour améliorer le client. Vous pouvez en savoir plus sur la façon dont nous utilisons ces données personnelles anonymes en consultant la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement). Ce paramètre est activé par défaut.
+- **Help improve Remote Desktop** (Aider à améliorer Bureau à distance) envoie des données anonymes à Microsoft sur la façon dont vous utilisez Bureau à distance pour Android. Nous nous servons de ces données pour améliorer le client. Pour en savoir plus sur notre politique de confidentialité et sur les types de données que nous recueillons, consultez la [déclaration de confidentialité de Microsoft](https://privacy.microsoft.com/privacystatement). Ce paramètre est activé par défaut.
 
 ## <a name="manage-display-settings"></a>Gérer les paramètres d’affichage
 
@@ -130,28 +130,30 @@ Pour changer les paramètres d’affichage, appuyez sur **Paramètres**, puis su
 Vous pouvez définir les paramètres d’affichage suivants :
 
 - **Orientation** définit l’orientation par défaut (paysage ou portrait) pour votre session.
+  
   >[!NOTE]
-  > Si vous vous connectez à un PC avec Windows 8 ou une version antérieure de Windows, l’orientation de la session ne s’adapte pas correctement si l’orientation de l’appareil change. La meilleure solution est de vous déconnecter du PC, puis de vous y reconnecter dans l’orientation de votre choix. Mieux encore, mettez à niveau votre PC vers Windows 10.
+  > Si vous vous connectez à un PC exécutant Windows 8 ou version antérieure, l’orientation de la session ne s’adapte pas correctement si l’orientation de l’appareil change. Pour adapter correctement l’affichage client, déconnectez-vous de l’ordinateur, puis reconnectez-vous dans l’orientation que vous souhaitez utiliser. Vous pouvez également garantir une mise à l’échelle correcte en utilisant un PC avec Windows 10 à la place.
 
 - **Résolution** définit la résolution à distance à utiliser globalement pour les connexions Bureau à distance. Si vous avez déjà défini une résolution personnalisée pour une connexion individuelle, cette résolution reste inchangée.
+  
   >[!NOTE]
-  >Quand vous modifiez un paramètre d’affichage, le nouveau paramètre s’applique uniquement aux nouvelles connexions établies après le changement. Pour voir la modification appliquée dans une session à laquelle vous êtes déjà connecté, déconnectez-vous, puis reconnectez-vous.
+  >Lorsque vous modifiez les paramètres d’affichage, les modifications s’appliquent uniquement aux nouvelles connexions que vous effectuez après avoir modifié le paramétrage. Pour appliquer vos modifications à la session à laquelle vous êtes actuellement connecté, actualisez votre session en vous déconnectant et en vous reconnectant.
 
 ## <a name="manage-your-rd-gateways"></a>Gérer vos passerelles Bureau à distance
 
 Une passerelle Bureau à distance vous permet de vous connecter à un ordinateur distant sur un réseau privé à partir de n’importe où sur Internet. Vous pouvez créer et gérer les passerelles à l’aide du client Bureau à distance.
 
-Pour configurer une nouvelle passerelle :
+Pour configurer une nouvelle passerelle des services Bureau à distance :
 
 1. Dans le Centre de connexion, appuyez sur **Paramètres**, puis appuyez sur **Passerelles**.
-1. Appuyez sur **+** pour ajouter une nouvelle passerelle.
-1. Entrez les informations suivantes :
+2. Appuyez sur **+** pour ajouter une nouvelle passerelle.
+3. Entrez les informations suivantes :
    - Entrez le nom de l’ordinateur que vous souhaitez utiliser comme passerelle dans **Nom du serveur**. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple : RDGateway:443 ou 10.0.0.1:443).
    - Sélectionnez le compte d’utilisateur (**User account**) à utiliser pour accéder à la passerelle distante.
-     - Sélectionnez **Use desktop user account** (Utiliser le compte d’utilisateur de bureau) pour utiliser les mêmes informations d’identification que celles que vous spécifiez pour l’ordinateur distant.
-     - Sélectionnez **Add user account** (Ajouter un compte d’utilisateur) pour enregistrer un compte que vous utilisez fréquemment, afin de ne pas avoir à entrer les informations d’identification chaque fois que vous vous connectez. Suivez ces instructions pour [gérer vos comptes d’utilisateur](#manage-your-user-accounts).
+     - Sélectionnez **Use desktop user account** (Utiliser le compte d’utilisateur de bureau) pour utiliser les mêmes informations d’identification que celles que vous avez spécifiées pour l’ordinateur distant.
+     - Sélectionnez **Add user account** (Ajouter un compte d’utilisateur) pour enregistrer un compte que vous utilisez fréquemment, afin de ne pas avoir à entrer les informations d’identification chaque fois que vous vous connectez. Pour plus d’informations, consultez [Gérer vos comptes d’utilisateur](#manage-your-user-accounts).
 
-Pour supprimer une passerelle :
+Pour supprimer une passerelle des services Bureau à distance :
 
 1. Dans le Centre de connexion, appuyez sur **Paramètres**, puis appuyez sur **Passerelles**.
 2. Appuyez longuement sur une passerelle dans la liste pour la sélectionner. Vous pouvez sélectionner plusieurs passerelles à la fois.
@@ -159,9 +161,9 @@ Pour supprimer une passerelle :
 
 ## <a name="manage-your-user-accounts"></a>Gérer vos comptes d’utilisateur
 
-Quand vous vous connectez à un bureau ou à des ressources distantes, vous pouvez enregistrer les comptes d’utilisateur pour les resélectionner ultérieurement.
+Vous pouvez enregistrer les comptes d’utilisateur à utiliser lorsque vous vous connectez à un bureau à distance ou à des ressources distantes.
 
-Pour créer un compte d’utilisateur :
+Pour enregistrer un compte d’utilisateur :
 
 1. Dans le Centre de connexion, appuyez sur **Paramètres**, puis appuyez sur **Comptes d’utilisateur**.
 2. Appuyez sur **+** pour ajouter un nouveau compte d’utilisateur.
@@ -170,20 +172,20 @@ Pour créer un compte d’utilisateur :
    - Le **Mot de passe** associé à l’utilisateur spécifié. Chaque compte d’utilisateur que vous souhaitez enregistrer pour les connexions à distance doit avoir un mot de passe associé.
 4. Quand vous avez terminé, appuyez sur **Enregistrer**.
 
-Pour supprimer un compte d’utilisateur :
+Pour supprimer un compte d’utilisateur enregistré :
 
 1. Dans le Centre de connexion, appuyez sur **Paramètres**, puis appuyez sur **Comptes d’utilisateur**.
-2. Appuyez longuement sur un compte d’utilisateur dans la liste pour le sélectionner. Vous pouvez sélectionner plusieurs utilisateurs.
+2. Appuyez longuement sur un compte d’utilisateur dans la liste pour le sélectionner. Vous pouvez sélectionner plusieurs utilisateurs à la fois.
 3. Appuyez sur la Corbeille pour supprimer l’utilisateur sélectionné.
 
 ## <a name="navigate-the-remote-desktop-session"></a>Naviguer dans la session Bureau à distance
 
-Quand vous démarrez une connexion Bureau à distance, vous disposez d’outils utiles pour naviguer dans la session.
+Voici une brève présentation de la façon d’ouvrir et de parcourir votre session Bureau à distance.
 
 ### <a name="start-a-remote-desktop-connection"></a>Démarrer une connexion Bureau à distance
 
-1. Appuyez sur la connexion Bureau à distance pour démarrer la session.
-2. Si vous êtes invité à vérifier le certificat du bureau à distance, appuyez sur **Connexion**. Vous pouvez également sélectionner **Ne pas me redemander pour les connexions à cet ordinateur** pour accepter automatiquement le certificat.
+1. Appuyez sur **le nom de votre connexion Bureau à distance** pour démarrer la session.
+2. Si vous êtes invité à vérifier le certificat du bureau à distance, appuyez sur **Connexion**. Vous pouvez également sélectionner **Don’t ask me again for connections to this computer** (Ne pas me redemander pour les connexions à cet ordinateur) pour accepter automatiquement le certificat par défaut.
 
 ### <a name="connection-bar"></a>Barre de connexion
 
@@ -200,7 +202,7 @@ La barre de connexion vous donne accès à des contrôles de navigation supplém
 
 Il peut y avoir plusieurs connexions actives sur différents PC en même temps. Appuyez sur la barre de connexion pour afficher la barre de sélection de session sur le côté gauche de l’écran. La barre de sélection de session vous permet de voir toutes vos connexions actives et de passer d’une connexion à une autre.
 
-Une fois que vous êtes connecté aux ressources distantes, vous pouvez basculer entre les applications au sein de cette session en appuyant sur le menu de développement **>** et en choisissant l’application souhaitée dans la liste des éléments disponibles.
+Une fois que vous êtes connecté aux ressources distantes, vous pouvez basculer entre les applications au sein de cette session en appuyant sur le menu de développement ( **>** ) et en choisissant l’application souhaitée dans la liste des éléments disponibles.
 
 Pour démarrer une nouvelle session dans votre connexion active, appuyez sur **Démarrer nouveau**, puis choisissez la session dans la liste des éléments disponibles.
 

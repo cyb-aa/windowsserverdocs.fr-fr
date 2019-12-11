@@ -6,14 +6,14 @@ ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
-ms.date: 06/07/2019
+ms.date: 12/02/2019
 ms.prod: windows-server
-ms.openlocfilehash: e443616b4fcae3e84cfd00b3c20a4ebbf72749ea
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: 6d04b641c56e9461f0134bfc4734fea36955106c
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567115"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74904063"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur Windows Admin Center
 
@@ -94,7 +94,7 @@ Nous étudions ce point à la demande des clients, mais aucun plan verrouillé n
 
 ## <a name="which-web-browsers-are-supported-by-windows-admin-center"></a>Quels sont les navigateurs web pris en charge par Windows Admin Center ?
 
-Les dernières versions des navigateurs Microsoft Edge (Windows 10, version 1709 ou version ultérieure) et Google Chrome sont testées et prises en charge sur Windows 10. [Affichez les problèmes connus spécifiques au navigateur](../support/known-issues.md#browser-specific-issues). D’autres navigateurs web modernes ou d’autres plateformes ne font pas actuellement partie de notre matrice de test et ne sont donc pas *officiellement* pris en charge.
+Les dernières versions de Microsoft Edge (Windows 10, version 1709 ou ultérieure), Google Chrome et [Microsoft Edge Insider](https://microsoftedgeinsider.com) sont testées et prises en charge sur Windows 10. [Affichez les problèmes connus spécifiques au navigateur](../support/known-issues.md#browser-specific-issues). D’autres navigateurs web modernes ou d’autres plateformes ne font pas actuellement partie de notre matrice de test et ne sont donc pas *officiellement* pris en charge.
 
 ## <a name="how-does-windows-admin-center-handle-security"></a>Comment la sécurité est-elle gérée par Windows Admin Center ?
 
