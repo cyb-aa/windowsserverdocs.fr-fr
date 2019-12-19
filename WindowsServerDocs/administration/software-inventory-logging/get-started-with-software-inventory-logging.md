@@ -22,7 +22,7 @@ ms.locfileid: "71383001"
 ---
 # <a name="get-started-with-software-inventory-logging"></a>Prise en main de la journalisation de l’inventaire logiciel
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
  La journalisation de l’inventaire logiciel collecte les données d’inventaire logiciel Microsoft sur une base par serveur. Avant d’utiliser la journalisation de l’inventaire logiciel avec Windows Server 2012 R2, assurez-vous que Windows Update [kb 3000850](https://support.microsoft.com/kb/3000850) et [KB 3060681](https://support.microsoft.com/kb/3060681) sont installés sur chaque système à inventorier. Aucune Windows Update n’est requise pour Windows Server 2016. En outre, si vous souhaitez utiliser la fonctionnalité de SIL pour transférer des données vers un serveur d’agrégation, assurez-vous que les certificats SSL sont valides pour votre réseau.
 
@@ -48,6 +48,6 @@ La journalisation de l’inventaire logiciel peut aider les administrateurs des 
 [Agrégateur de journalisation de l’inventaire logiciel](https://technet.microsoft.com/library/mt572043.aspx)<br>
 [Gérer la journalisation de l’inventaire logiciel](manage-software-inventory-logging.md)<br>
 [Applets de commande de la journalisation de l’inventaire logiciel dans Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
-[Outil de gestion de l’activation en volume](http://blogs.technet.com/b/volume-licensing/) de [Microsoft Assessment and Planning Toolkit](https://www.microsoft.com/download/en/details.aspx?id=7826)
-
+[Outil de gestion de l’activation en volume de ](https://www.microsoft.com/download/en/details.aspx?id=7826)
+[Microsoft Assessment and Planning Toolkit](http://blogs.technet.com/b/volume-licensing/)
 
