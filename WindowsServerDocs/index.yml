@@ -10,12 +10,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 06/06/2019
   ms.author: lizross
-  ms.openlocfilehash: b16b9235cbcb149ec7f10ce76b0cf594e9bb2a29
-  ms.sourcegitcommit: 30de12eebeb0fc79567d6bb6ab513692ea2415d3
+  ms.openlocfilehash: 77f017388af44a0365113e890b2ae04a9185a2c8
+  ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74853574"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75351568"
 highlightedContent:
   items:
   - title: Nouveautés de Windows Server 2019
@@ -36,9 +36,9 @@ highlightedContent:
   - title: Bien démarrer avec Windows Server 2016
     itemType: how-to-guide
     url: /windows-server/get-started/server-basics
-  - title: Fin de service pour Windows Server 2008 R2 et Windows Server 2008
-    itemType: overview
-    url: /windows-server/get-started/modernize-windows-server-2008
+  - title: Utiliser les mises à jour de sécurité étendues Windows Server 2008 et 2008 R2
+    itemType: how-to-guide
+    url: /windows-server/get-started/extended-security-updates
   - title: Programme Windows Insider pour Serveur
     itemType: overview
     url: /windows-insider/at-work/
@@ -68,7 +68,7 @@ conceptualContent:
       text: Bien démarrer avec Active Directory Domain Services (AD DS)
     - url: /windows-server/identity/active-directory-federation-services
       itemType: overview
-      text: Active Directory Federation Services (AD FS)
+      text: Active Directory Federation Services (AD FS)
     - url: /windows-server/identity/securing-privileged-access/securing-privileged-access
       itemType: concept
       text: Sécurisation de l’accès privilégié
@@ -117,7 +117,7 @@ conceptualContent:
     footerLink:
       url: /windows-server/networking/networking
       text: Voir plus
-  - title: Remote
+  - title: À distance
     links:
     - url: /windows-server/remote/remote-desktop-services/welcome-to-rds
       itemType: overview
@@ -159,7 +159,7 @@ conceptualContent:
     footerLink:
       url: /windows-server/storage/storage
       text: Voir plus
-  - title: Résoudre les problèmes
+  - title: Dépannage
     links:
     - url: /windows-server/manage/windows-admin-center/support/troubleshooting
       itemType: how-to-guide

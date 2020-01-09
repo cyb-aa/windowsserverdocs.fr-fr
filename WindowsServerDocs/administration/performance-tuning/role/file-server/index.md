@@ -5,14 +5,19 @@ ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
-ms.author: NedPyle; Danlo; DKruse
-ms.date: 4/14/2017
-ms.openlocfilehash: 5f772d2333acb2d48bf27168aca42754013dd8be
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: NedPyle; Danlo; DKruse; v-tea
+ms.date: 12/12/2019
+ms.custom:
+- CI ID 111495
+- CSSTroubleshoot
+manager: dcscontentpm
+audience: Admin
+ms.openlocfilehash: 2e37282abd246c8f2da387deda5e8bf4b400a3d8
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351637"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Réglage des performances des serveurs de fichiers
 
@@ -93,10 +98,24 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
 
     La valeur par défaut est 10 secondes. Il s’agit du délai d’expiration du cache de répertoire.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Ce paramètre contrôle la mise en cache des métadonnées de répertoire en l'absence de baux de répertoire.
      
-
+     > [!NOTE]  
+     > Un problème connu dans Windows 10 version 1803 affecte la capacité de Windows 10 à mettre en cache les grands répertoires. Après avoir mis à niveau un ordinateur vers Windows 10 version 1803, vous accédez à un partage réseau qui contient des milliers de fichiers et de dossiers, puis vous ouvrez un document qui se trouve sur ce partage. Pendant ces opérations, vous rencontrez des retards importants.
+     >  
+     > Pour résoudre ce problème, installez Windows 10 version 1809 ou une version ultérieure.
+     >  
+     > Pour contourner ce problème, définissez **DirectoryCacheLifetime** sur **0**.
+     >  
+     > Ce problème affecte les éditions suivantes de Windows 10 :  
+     > - Windows 10 Entreprise version 1803
+     > - Windows 10 Professionnel pour les Stations de travail version 1803
+     > - Windows 10 Professionnel Éducation version 1803
+     > - Windows 10 Professionnel version 1803
+     > - Windows 10 Éducation version 1803
+     > - Windows 10 Famille version 1803
+   
 -   **DirectoryCacheEntrySizeMax**
 
     ```
@@ -135,7 +154,7 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
 
     S’applique à : Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Vista, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
-    La valeur par défaut est 0. Par défaut, le redirecteur SMB limite le débit sur les connexions réseau à latence élevée, dans certains cas afin d’éviter des délais d’attente liés au réseau. Définir cette valeur de Registre sur 1 désactive cette limitation, en activant un débit de transfert de fichiers plus élevé sur des connexions réseau à latence élevée.
+    La valeur par défaut est 0. Par défaut, le redirecteur SMB limite le débit sur les connexions réseau à latence élevée, dans certains cas afin d’éviter des délais d’attente liés au réseau. Définir cette valeur de Registre sur 1 désactive cette limitation, en activant un débit de transfert de fichiers plus élevé sur des connexions réseau à latence élevée.
 
 -   **DisableLargeMtu**
 
@@ -213,7 +232,7 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
 
 Les paramètres généraux pour les ordinateurs clients peuvent optimiser un ordinateur pour l’accès aux partages de fichiers distants, en particulier sur certains réseaux à latence élevée (par exemple, les succursales, les communications entre centres de données, les bureaux à domicile et le haut débit mobile). Les paramètres ne sont pas optimaux ni appropriés sur tous les ordinateurs. Vous devez évaluer l’impact de ces paramètres spécifiques avant de les appliquer.
 
-| Paramètre                   | Valeur | Default |
+| Paramètre                   | Value | Par défaut |
 |-----------------------------|-------|---------|
 | DisableBandwidthThrottling  | 1     | 0       |
 | FileInfoCacheEntriesMax     | 32768 | 64      |

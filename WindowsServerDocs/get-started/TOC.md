@@ -1,4 +1,4 @@
-# Prise en main
+# Démarrer
 ## [Prise en main de Windows Server 2016](Server-Basics.md)
 ## [Nouveautés de Windows Server](whats-new-in-windows-server.md)
 ### [Nouveautés de Windows Server 2019](../get-started-19/whats-new-19.md)
@@ -8,6 +8,7 @@
 ## [Comparaison des canaux de maintenance](..\get-started-19\servicing-channels-19.md)
 ## [Installation et mise à niveau de versions de Windows Server](Installation-and-Upgrade.md)
 ## [Mise à niveau de Windows Server 2008 et de Windows Server 2008 R2](modernize-windows-server-2008.md)
+### [Mises à jour de sécurité étendues Windows Server 2008/2008 R2](extended-security-updates.md)
 ### [Charger une image système Windows Server 2008/2008 R2 spécialisée dans Azure](uploading-specialized-WS08-image-to-azure.md)
 ## [Migration de rôles et de fonctionnalités Windows Server](Migrate-Roles-and-Features.md)
 ## [Configuration requise pour Windows Server 2016](System-Requirements.md)
