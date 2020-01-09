@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 1ae6f881e1bd4b9b317e5622f18958f25f692eec
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: 26ff5e27494e2f42a0c8e4d28e2b9820f8d19e6a
+ms.sourcegitcommit: 471464a674a53c468a2f1e28575c91245ce9badf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940802"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548189"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Machines virtuelles protégées pour les locataires-création de données de protection pour définir une machine virtuelle protégée
 
@@ -77,7 +77,7 @@ Lorsque vous créez un fichier Unattend. xml pour les machines virtuelles proté
     | Élément remplaçable | Chaîne de substitution |
     |-----------|-----------|
     | ComputerName        | @ComputerName@      |
-    | Horaires            | @TimeZone@          |
+    | Fuseau horaire            | @TimeZone@          |
     | ProductKey          | @ProductKey@        |
     | IPAddr4-1           | @IP4Addr-1@         |
     | IPAddr6-1           | @IP6Addr-1@         |
@@ -91,13 +91,13 @@ Lorsque vous créez un fichier Unattend. xml pour les machines virtuelles proté
 
     | Chaîne de substitution | Exemple de substitution |
     |---------------------|----------------------|
-    | @IP4Addr-1@         | 192.168.1.10         |
+    | @IP4Addr-1@         | 192.168.1.10/24      |
     | @MACAddr-1@         | Ethernet             |
-    | @Prefix-1-1@        | 192.168.1.0/24       |
+    | @Prefix-1-1@        | 24                   |
     | @NextHop-1-1@       | 192.168.1.254        |
-    | @IP4Addr-2@         | 10.0.20.30           |
+    | @IP4Addr-2@         | 10.0.20.30/24        |
     | @MACAddr-2@         | Ethernet 2           |
-    | @Prefix-2-1@        | 10.0.20.0/24         |
+    | @Prefix-2-1@        | 24                   |
     | @NextHop-2-1@       | 10.0.20.1            |
 
 Lors de l’utilisation de chaînes de substitution, il est important de s’assurer que les chaînes seront remplies pendant le processus d’approvisionnement de la machine virtuelle. Si une chaîne telle que @ProductKey@ n’est pas fournie au moment du déploiement, le fait de laisser le nœud &lt;ProductKey&gt; dans le fichier d’installation sans assistance n’est pas renseigné, le processus de spécialisation échoue et vous ne pouvez pas vous connecter à votre machine virtuelle.
@@ -255,7 +255,7 @@ Enfin, si vous avez d’autres fichiers qui doivent accompagner le fichier de r�
 
 Consultez la documentation sur les applets de commande [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) et [New-VolumeIDQualifier](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) pour en savoir plus sur les autres méthodes de configuration de votre fichier de données de protection.
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Articles associés
 
 - [Déployer des machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

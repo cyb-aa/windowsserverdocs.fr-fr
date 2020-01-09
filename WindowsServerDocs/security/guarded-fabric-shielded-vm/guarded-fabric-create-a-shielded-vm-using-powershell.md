@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 317da0ae3c41d142db6f5a076fd3004d9970b815
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: 6111b3fbff508c3c485f2a998bab8c0b16beaed6
+ms.sourcegitcommit: 471464a674a53c468a2f1e28575c91245ce9badf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940742"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548177"
 ---
 # <a name="create-a-shielded-vm-using-powershell"></a>Créer une machine virtuelle protégée à l’aide de PowerShell
 
@@ -22,7 +22,7 @@ En production, vous utiliseriez généralement un gestionnaire de Fabric (par ex
 
 En résumé, vous allez créer un disque de modèle, un fichier de données de protection, un fichier de réponses d’installation sans assistance et d’autres artefacts de sécurité sur n’importe quel ordinateur, puis copier ces fichiers sur un hôte service Guardian et approvisionner la machine virtuelle protégée.
 
-## <a name="create-a-signed-template-disk"></a>Créer un disque de modèle signé
+## <a name="create-a-signed-template-disk"></a>Créer un disque modèle signé
 
 Pour créer une nouvelle machine virtuelle protégée, vous avez d’abord besoin d’un disque de modèle d’ordinateur virtuel protégé qui est pré-chiffré avec le volume du système d’exploitation (ou les partitions de démarrage et racine sur Linux) signé.
 Pour plus d’informations sur la création d’un disque de modèle, suivez les liens ci-dessous.
@@ -96,9 +96,9 @@ Si votre fichier de réponses aux données de protection contient des valeurs de
 
 ```powershell
 $specializationValues = @{
-    "@IP4Addr-1@" = "192.168.1.10"
+    "@IP4Addr-1@" = "192.168.1.10/24"
     "@MacAddr-1@" = "Ethernet"
-    "@Prefix-1-1@" = "192.168.1.0/24"
+    "@Prefix-1-1@" = "24"
     "@NextHop-1-1@" = "192.168.1.254"
 }
 New-ShieldedVM -Name 'MyStaticIPVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vhdx' -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -SpecializationValues $specializationValues -Wait

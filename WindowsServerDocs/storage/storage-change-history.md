@@ -7,24 +7,33 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 08/19/2019
+ms.date: 12/20/2019
 description: Nouvelles rubriques et rubriques mises à jour dans la documentation sur le stockage local pour Windows Server pour les professionnels de l’informatique.
-ms.openlocfilehash: ce937dfb5c6c0b46c8085cbb202590567ea829d3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d50d4ca5b49b7f895fad3d3866226f95c55ae485
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352778"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Historique des modifications des rubriques de stockage dans Windows Server
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Cette rubrique répertorie les rubriques nouvelles et mises à jour de la documentation sur le [stockage](storage.md) pour Windows Server.
 
 > Si vous recherchez l’historique des mises à jour pour Windows Server, consultez historique des mises à jour Windows [10 et Windows server 2019](https://support.microsoft.com/help/4464619) ou [historique des mises à jour de Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
-## <a name="august-2019"></a>2019 août
+## <a name="december-2019"></a>Décembre 2019
+
+| Rubrique nouvelle ou modifiée                                        | Description |
+| ---                                                         | ---           |
+| [Résolution des problèmes de la Gestion des disques](disk-management/troubleshooting-disk-management.md)| Modification pour affiner les conseils, en fonction des demandes des clients.|
+| [Étendre un volume dans gestion des disques](disk-management/extend-a-basic-volume.md) | Ajout de conseils en réponse aux commentaires des clients. |
+| [Convertir un disque dynamique en disque de base](disk-management/change-a-dynamic-disk-back-to-a-basic-disk.md) | Correction d’une erreur dans la ligne de commande et ajout d’informations en fonction des commentaires des clients. |
+
+
+## <a name="august-2019"></a>Août 2019
 
 | Rubrique nouvelle ou modifiée                                        | Description |
 | ---                                                         | ---           |
@@ -45,7 +54,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Créer des volumes](storage-spaces/create-volumes.md)| Ajout de étapes et de vidéos pour la création d’un volume dans le centre d’administration Windows.|
 |[Étendre les volumes](storage-spaces/resize-volumes.md)| Ajout de étapes et de vidéo pour le redimensionnement d’un volume dans le centre d’administration Windows.|
 
-## <a name="march-2019"></a>2019 mars
+## <a name="march-2019"></a>Mars 2019
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
@@ -60,13 +69,13 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |---                                                         |---           |
 |[Problèmes connus du service de migration du stockage](storage-migration-service/known-issues.md)   | Ajout d’un problème    |
 
-## <a name="january-2019"></a>2019 janvier
+## <a name="january-2019"></a>Janvier 2019
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
 |[Comprendre et contrôler la resynchronisation du stockage](storage-spaces/understand-storage-resync.md)|Nouvelle rubrique|
 
-## <a name="december-2018"></a>2018 décembre
+## <a name="december-2018"></a>Décembre 2018
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
@@ -81,9 +90,9 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |---                                                         |---           |
 |[Résilience imbriquée](storage-spaces/nested-resiliency.md)    | Nouvelle rubrique    |
 |[Problèmes connus du service de migration du stockage](storage-migration-service/known-issues.md)   | Nouvelle rubrique    |
-|[Réplication DFS : Forum Aux Questions (FAQ)](dfs-replication/dfsr-faq.md)|Migration à partir de la bibliothèque de [versions précédente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/)|
+|[Réplication DFS : Forum aux questions (FAQ)](dfs-replication/dfsr-faq.md)|Migration à partir de la bibliothèque de [versions précédente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/)|
 |[Migrer la réplication SYSVOL vers la réplication DFS](dfs-replication/migrate-sysvol-to-dfsr.md)|Migration à partir de la bibliothèque de [versions précédente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)|
-|[SMB : le fichier et les ports de partage de l’imprimante doivent être ouverts](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|Migration à partir de la bibliothèque de [versions précédente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)|
+|[SMB : les ports de partage de fichiers et d’imprimantes doivent être ouverts](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|Migration à partir de la bibliothèque de [versions précédente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)|
 |[Service de cliché instantané de volume](file-server/volume-shadow-copy-service.md)|Migration à partir de la bibliothèque de [versions précédente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)|
 
 ## <a name="october-2018"></a>Octobre 2018
@@ -103,7 +112,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 | [Serveur cible iSCSI](iscsi/iscsi-target-server.md) | Migration à partir de la bibliothèque de [versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 | [Limites d'extensibilité du serveur cible iSCSI](iscsi/iscsi-target-server-limits.md) |Migration à partir de la bibliothèque de [versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 
-## <a name="june-2018"></a>2018 juin
+## <a name="june-2018"></a>Juin 2018
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
@@ -164,7 +173,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
 |[Changer une lettre de lecteur](disk-management/change-a-drive-letter.md)|Nouvelle rubrique.|
-|[Résolution des problèmes de la Gestion des disques](disk-management/troubleshooting-disk-management.md)|La réécriture de l' [État du disque n’est pas initialisée ou la section du disque est entièrement absente](disk-management/troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing) pour ajouter des étapes de dépannage complètes, en fonction des demandes des clients.|
+|[Résolution des problèmes de la Gestion des disques](disk-management/troubleshooting-disk-management.md)|La réécriture de l' [État du disque n’est pas initialisée ou la section du disque est entièrement absente](disk-management/troubleshooting-disk-management.md#disks-that-are-missing-or-not-initialized-plus-general-troubleshooting-steps) pour ajouter des étapes de dépannage complètes, en fonction des demandes des clients.|
 |[Initialiser les nouveaux disques](disk-management/initialize-new-disks.md)|Réécrit pour essayer de mieux comprendre et résoudre les questions des clients.|
 |[Planification des volumes dans espaces de stockage direct](storage-spaces/plan-volumes.md)|Ajout d’un tableau résumant les types de résilience disponibles sur les clusters à quatre nœuds et de plus grande taille.|
 |[Vue d’ensemble des ReFS](refs/refs-overview.md)|Clarification des charges de travail recommandées pour la parité avec accélération miroir et correction des tailles de fichiers et de volumes pris en charge pour ReFS et NTFS.|
@@ -235,7 +244,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |---|---|
 |[Mise hors connexion d’un serveur espaces de stockage direct Server pour la maintenance](storage-spaces/maintain-servers.md)|Nouvelle rubrique.|
 
-## <a name="february-2017"></a>Février 2017
+## <a name="february-2017"></a>Février 2017
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|

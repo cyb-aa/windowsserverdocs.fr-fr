@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c54fee98247b1ce0aa3ef3a2502cf18f314e763
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: edf714bc0d6b39dbe7c5e800e953d7820fe9abc5
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352611"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Activer les déplacements optimisés de dossiers redirigés
 
@@ -30,7 +30,7 @@ Le déplacement optimisé présente les exigences suivantes :
 - La redirection de dossiers doit être configurée. Pour plus d’informations, consultez [déployer la redirection de dossiers avec fichiers hors connexion](deploy-folder-redirection.md).
 - Les ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows Server (canal semi-annuel).
 
-## <a name="step-1-enable-optimized-move-in-group-policy"></a>Étape 1 : Activer le déplacement optimisé stratégie de groupe
+## <a name="step-1-enable-optimized-move-in-group-policy"></a>Étape 1 : activer le déplacement optimisé dans stratégie de groupe
 
 Pour optimiser le réadressage des données de redirection de dossiers, utilisez stratégie de groupe pour activer le paramètre de stratégie **activer le déplacement du contenu optimisé dans fichiers hors connexion cache sur le serveur redirection de dossiers** pour l’objet de stratégie de groupe (GPO) approprié. Si vous configurez ce paramètre de stratégie sur **désactivé** ou **non configuré** , le client copie tout le contenu de redirection de dossiers vers le nouvel emplacement, puis supprime le contenu de l’ancien emplacement si le chemin d’accès au serveur est modifié.
 
@@ -41,9 +41,9 @@ Voici comment activer le déplacement optimisé de dossiers redirigés :
 3. Cliquez avec le bouton droit sur **activer le déplacement du contenu optimisé dans fichiers hors connexion cache sur le chemin d’accès du serveur de redirection de dossiers**, puis sélectionnez **modifier**.
 4. Sélectionnez **activé**, puis cliquez sur **OK**.
 
-## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Étape 2 : Déplacer le partage de fichiers pour les dossiers redirigés
+## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Étape 2 : déplacer le partage de fichiers pour les dossiers redirigés
 
-Lors du déplacement du partage de fichiers qui contient les dossiers redirigés des utilisateurs, il est nécessaire de prendre des précautions pour s’assurer que les dossiers sont correctement déplacés.
+Lorsque vous déplacez le partage de fichiers qui contient les dossiers redirigés des utilisateurs, il est important de prendre des précautions pour vous assurer que les dossiers sont correctement déplacés.
 
 >[!IMPORTANT]
 >Si les fichiers des utilisateurs sont en cours d’utilisation ou si l’état complet du fichier n’est pas conservé lors du déplacement, les utilisateurs peuvent rencontrer des problèmes de performances, car les fichiers sont copiés sur le réseau, les conflits de synchronisation générés par Fichiers hors connexion, voire la perte de données.
@@ -59,7 +59,7 @@ Lors du déplacement du partage de fichiers qui contient les dossiers redirigés
 
     Les utilisateurs travaillent hors connexion à l’aide de Fichiers hors connexion jusqu’à ce que le déplacement soit terminé et qu’ils reçoivent les paramètres de redirection de dossiers mis à jour à partir de stratégie de groupe.
 
-3. À l’aide d’un compte avec des privilèges de sauvegarde, déplacez le contenu du partage de fichiers vers le nouvel emplacement à l’aide d’une méthode qui conserve les horodateurs de fichier, tels qu’un utilitaire de sauvegarde et de restauration. Pour utiliser la commande **Robocopy** , ouvrez une invite de commandes avec élévation de privilèges, puis tapez la commande suivante ```<Source>``` , où est l’emplacement actuel du partage de fichiers ```<Destination>``` et est le nouvel emplacement :
+3. À l’aide d’un compte avec des privilèges de sauvegarde, déplacez le contenu du partage de fichiers vers le nouvel emplacement à l’aide d’une méthode qui conserve les horodateurs de fichier, tels qu’un utilitaire de sauvegarde et de restauration. Pour utiliser la commande **Robocopy** , ouvrez une invite de commandes avec élévation de privilèges, puis tapez la commande suivante, où ```<Source>``` est l’emplacement actuel du partage de fichiers, et ```<Destination>``` le nouvel emplacement :
 
     ```PowerShell
     Robocopy /B <Source> <Destination> /Copyall /MIR /EFSRAW
@@ -72,7 +72,7 @@ Lors du déplacement du partage de fichiers qui contient les dossiers redirigés
 
     Les utilisateurs doivent se connecter à tous les ordinateurs au moins une fois pour s’assurer que les données sont correctement déplacées dans chaque cache de Fichiers hors connexion.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Autres informations
 
 * [Déployer la redirection de dossiers avec Fichiers hors connexion](deploy-folder-redirection.md)
 * [Déployer des profils utilisateur itinérants](deploy-roaming-user-profiles.md)

@@ -8,12 +8,12 @@ ms.date: 10/25/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 5963035846814f2ec3fd3417e629f71b146cc73e
-ms.sourcegitcommit: ac9946deb4fa70203a9b05e0386deb4244b8ca55
+ms.openlocfilehash: 968122612845a9be105ca7d3231edc0faa039e76
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310385"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352688"
 ---
 # <a name="storage-migration-service-overview"></a>Vue d’ensemble de Storage migration service
 
@@ -47,7 +47,7 @@ La migration est un processus en trois étapes :
 Capture d’écran ![montrant un serveur prêt à être analysé](media/migrate/inventory.png)
 **figure 2 : serveurs d’inventaire du service de migration du stockage**
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Conditions préalables
 
 Pour utiliser le service de migration de stockage, vous avez besoin des éléments suivants :
 
@@ -66,7 +66,7 @@ Nous recommandons vivement que les ordinateurs Orchestrator et de destination di
 - Les règles de pare-feu suivantes doivent être activées sur les ordinateurs source et de destination (même si vous les avez peut-être *déjà activés* ) :
   - Partage de fichiers et d’imprimantes (SMB-Entrée)
   - Service Netlogon (NP-in)
-  - Windows Management Instrumentation (DCOM-in)
+  - Windows Management Instrumentation (DCOM-In)
   - Windows Management Instrumentation (WMI-In)
   
   > [!TIP]
@@ -82,32 +82,32 @@ Le serveur source doit exécuter l’un des systèmes d’exploitation suivants�
 - Windows Server, canal semi-annuel
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
-- Windows Server 2012
-- Windows Server 2008 R2
-- Windows Server 2008
-- Windows Server 2003 R2
-- Windows Server 2003
-- Windows Small Business Server 2003 R2
+- R2 Windows Server 2012
+- Windows Server 2012
+- Windows Server 2008 R2
+- Windows Server 2008
+- Windows Server 2003 R2
+- Windows Server 2003
+- Windows Small Business Server 2003 R2
 - Windows Small Business Server 2008
 - Windows Small Business Server 2011
 - Windows Server 2012 Essentials
-- Windows Server 2012 R2 Essentials
-- WindowsServer2016 Essentials
+- Windows Server 2012 R2 Essentials
+- Windows Server 2016 Essentials
 - Windows Server 2019 Essentials
 - Windows Storage Server 2008
-- Windows Storage Server 2008 R2
-- Windows Storage Server 2012
+- Windows Storage Server 2008 R2
+- Windows Storage Server 2012
 - Windows Storage Server 2012 R2
-- Windows Storage Server 2016
+- Windows Storage Server 2016
 
 Remarque : Windows Small Business Server et Windows Server Essentials sont des contrôleurs de domaine. Le service de migration du stockage ne peut pas encore couper les contrôleurs de domaine, mais il peut inventorier et transférer des fichiers à partir de ces derniers.   
 
 Vous pouvez migrer les types de sources supplémentaires suivants si Orchestrator exécute Windows Server, version 1903 ou ultérieure, ou si Orchestrator exécute une version antérieure de Windows Server avec [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) installé :
 
-- Clusters de basculement
+- Clusters de basculement exécutant Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019
 - Serveurs Linux qui utilisent samba. Nous avons testé les éléments suivants :
-    - CentOS 7
+    - CentOS 7
     - Debian GNU/Linux 8
     - RedHat Enterprise Linux 7,6
     - SUSE Linux Enterprise Server (SLES) 11 SP4
@@ -121,7 +121,7 @@ Le serveur de destination doit exécuter l’un des systèmes d’exploitation s
 - Windows Server, canal semi-annuel
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
+- R2 Windows Server 2012
 
 > [!TIP]
 > Les serveurs de destination exécutant Windows Server 2019 ou Windows Server, un canal semi-annuel ou une version ultérieure ont doublement les performances de transfert des versions antérieures de Windows Server. Cette amélioration des performances est due à l’inclusion d’un service de proxy de service de migration de stockage intégré, qui ouvre également les ports de pare-feu nécessaires s’ils ne sont pas déjà ouverts.
@@ -136,7 +136,7 @@ Les nouvelles fonctionnalités suivantes sont disponibles lors de l’exécution
 - Synchroniser plus facilement des partages migrés dans Azure à l’aide d’Azure File Sync
 - Migrer vers de nouveaux réseaux comme Azure
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Articles associés
 
 - [Migrer un serveur de fichiers à l’aide du service de migration de stockage](migrate-data.md)
 - [Forum aux questions sur Storage migration services (FAQ)](faq.md)
