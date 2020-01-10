@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: ba4de2a4-f237-4b14-a8a7-0b06bfcd89ad
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2cd84949dddf75730aca6302f1244f784b5933d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b6b8ebfe0a6b42fe174d4b376b981641f043cf58
+ms.sourcegitcommit: 3d5a8357491b6bbd180d1238ea98f23bfc544ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388574"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75827676"
 ---
 # <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Étape 1 configurer l’infrastructure DirectAccess de base
 
@@ -82,11 +82,11 @@ Procédez comme suit pour configurer le routage dans le réseau d'entreprise :
 -   Configurez manuellement les itinéraires IPv4 et IPv6 de l'organisation sur les serveurs d'accès à distance. Ajoutez un itinéraire publié afin que tout le trafic ayant un préfixe IPv6 (/48) d'organisation soit transféré au réseau interne. De plus, pour le trafic IPv4, ajoutez des itinéraires explicites afin que le trafic IPv4 soit transféré au réseau interne.  
   
 ## <a name="ConfigFirewalls"></a>Configurer des pare-feu  
-Lorsque vous utilisez des pare-feu supplémentaires dans votre déploiement, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d’accès à distance lorsque le serveur d’accès à distance est sur le réseau Internet IPv4 :  
+Lorsque vous utilisez des pare-feu supplémentaires dans votre déploiement, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d'accès à distance lorsque le serveur d'accès à distance se trouve sur le réseau Internet IPv4 :  
   
 -   trafic 6to4 : protocole IP 41 entrant et sortant.  
   
--   IP-HTTPs-port TCP (Transmission Control Protocol) 443 et port TCP source 443 sortant. Lorsque le serveur d’accès à distance dispose d’une seule carte réseau et que le serveur Emplacement réseau se trouve sur le serveur d’accès à distance, le port TCP 62000 est également requis.  
+-   IP-HTTPs-port TCP (Transmission Control Protocol) 443 et port TCP source 443 sortant. Lorsque le serveur d'accès à distance dispose d'une seule carte réseau et que le serveur d'emplacement réseau se trouve sur le serveur d'accès à distance, le port TCP 62000 est également requis.  
   
     > [!NOTE]  
     > Cette exemption doit être configurée sur le serveur d’accès à distance. Toutes les autres exemptions doivent être configurées sur le pare-feu de périmètre.  
@@ -94,9 +94,9 @@ Lorsque vous utilisez des pare-feu supplémentaires dans votre déploiement, app
 > [!NOTE]  
 > Pour les trafics Teredo et 6to4, ces exceptions doivent être appliquées pour les deux adresses IPv4 publiques consécutives côté Internet sur le serveur d’accès à distance. Pour IP-HTTPS, les exceptions ne doivent être appliquées qu’à l’adresse de résolution du nom externe du serveur.  
   
-Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d’accès à distance lorsque le serveur d’accès à distance est sur le réseau Internet IPv6 :  
+Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d'accès à distance lorsque le serveur d'accès à distance est sur le réseau Internet IPv6 :  
   
--   Protocole IP 50  
+-   Protocole IP 50  
   
 -   Port UDP de destination 500 entrant et port UDP source 500 sortant.  
   
@@ -107,7 +107,7 @@ Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de
 -   TCP/UDP pour tout le trafic IPv4/IPv6  
   
 ## <a name="ConfigDNS"></a>Configurer le serveur DNS  
-Vous devez configurer manuellement une entrée DNS pour le site web du serveur Emplacement réseau du réseau interne de votre déploiement.  
+Vous devez configurer manuellement une entrée DNS pour le site web du serveur d'emplacement réseau du réseau interne de votre déploiement.  
   
 ### <a name="NLS_DNS"></a>Pour créer le serveur d’emplacement réseau et les enregistrements DNS de sonde NCSI  
   
@@ -159,7 +159,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 6.  Lorsque vous êtes invité à redémarrer l’ordinateur, cliquez sur **OK**.  
   
-7.  Dans la boîte de dialogue **Propriétés système**, cliquez sur **Fermer**.  
+7.  Dans la boîte de dialogue **Propriétés système** , cliquez sur **Fermer**.  
   
 8.  Lorsque vous êtes invité à redémarrer l’ordinateur, cliquez sur **Redémarrer maintenant**.  
   
@@ -208,7 +208,10 @@ Pour créer un objet de stratégie de groupe, consultez [créer et modifier un o
 > 4.  Si la liaison à l’unité d’organisation n’a pas été effectuée avant l’exécution de l’Assistant DirectAccess, l’administrateur peut, une fois la configuration terminée, lier les objets de stratégie de groupe DirectAccess aux unités d’organisation requises. Il est possible de supprimer le lien au domaine. Les étapes de liaison d’un objet de stratégie de groupe à une unité d’organisation sont disponibles [ici](https://technet.microsoft.com/library/cc732979.aspx)  
   
 > [!NOTE]  
-> Si un objet de stratégie de groupe a été créé manuellement, il est possible, au cours de la configuration de DirectAccess, que l’objet de stratégie de groupe ne soit pas disponible. L’objet de stratégie de groupe n’a peut-être pas été répliqué sur le contrôleur de domaine le plus proche de l’ordinateur de gestion. Dans ce cas, l'administrateur peut attendre la fin de la réplication ou forcer la réplication.  
+> Si un objet de stratégie de groupe a été créé manuellement, il est possible, au cours de la configuration de DirectAccess, que l’objet de stratégie de groupe ne soit pas disponible. L’objet de stratégie de groupe n’a peut-être pas été répliqué sur le contrôleur de domaine le plus proche de l’ordinateur de gestion. Dans ce cas, l'administrateur peut attendre la fin de la réplication ou forcer la réplication.
+
+> [!Warning]
+> N’est pas pris en charge à l’aide de l’Assistant Installation DirectAccess pour configurer DirectAccess, par exemple la modification directe des objets stratégie de groupe DirectAccess ou la modification manuelle des paramètres de stratégie par défaut sur le serveur ou le client.
   
 ## <a name="ConfigSGs"></a>Configurer des groupes de sécurité  
 Les paramètres DirectAccess contenus dans les objets de stratégie de groupe de l’ordinateur client sont appliqués uniquement aux ordinateurs qui sont membres des groupes de sécurité que vous spécifiez lors de la configuration de l’accès à distance.  
