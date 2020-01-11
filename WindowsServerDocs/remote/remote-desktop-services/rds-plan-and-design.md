@@ -7,18 +7,18 @@ ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: spatnaik
-ms.date: 09/23/2016
+ms.date: 12/06/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 047b08be-7f91-4194-a641-5b6941b92515
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: e3a70f420d841311481962040f9d9ee78c08dd6a
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 9f0758679353efebfcea85eeb082f1dbe188a7ec
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351841"
 ---
 # <a name="plan-and-design-your-remote-desktop-services-environment"></a>Planifier et concevoir votre environnement des services Bureau à distance
 
@@ -28,7 +28,7 @@ La conception visant à optimiser les performances et le scale-out est capitale.
 Utilisez les informations suivantes pour planifier et concevoir votre déploiement :
 
 - [Création n’importe où](rds-plan-build-anywhere.md)
-- [Prendre en charge différents types d’utilisateurs](rds-plan-cater-to-users.md)
+- [Guide réseau](network-guidance.md)
 - [Accès en tout lieu](rds-plan-access-from-anywhere.md)
 - [Haute disponibilité](rds-plan-high-availability.md)
 - [Authentification multifacteur](rds-plan-mfa.md)
