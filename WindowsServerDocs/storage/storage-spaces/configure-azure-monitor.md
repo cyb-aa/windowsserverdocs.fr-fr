@@ -3,20 +3,18 @@ title: Comprendre et configurer Azure Monitor
 description: Informations d’installation détaillées sur les Azure Monitor et la configuration des alertes par courrier électronique et SMS pour votre cluster d’espaces de stockage direct dans Windows Server 2016 et 2019.
 keywords: Espaces de stockage direct, Azure Monitor, notifications, e-mail, SMS
 ms.assetid: ''
-ms.prod: ''
+ms.prod: windows-server-threshold
 ms.author: adagashe
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
-ms.date: 3/26/2019
-ms.localizationpriority: ''
-ms.openlocfilehash: 4a11ad670bdd26cdc771bb5ae357db4928995bb8
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.date: 01/10/2020
+ms.openlocfilehash: 933a22dad76f80b8ff76f604089bfd7c9bf3e207
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352627"
----
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919977"
 ---
 # <a name="use-azure-monitor-to-send-emails-for-health-service-faults"></a>Utiliser Azure Monitor pour envoyer des e-mails pour les erreurs de Service de contrôle d’intégrité
 
@@ -26,6 +24,14 @@ Azure Monitor optimise la disponibilité et les performances de vos applications
 
 Cela s’avère particulièrement utile pour votre cluster hyper-convergé local. Avec Azure Monitor intégré, vous serez en mesure de configurer la messagerie électronique, le texte (SMS) et d’autres alertes en cas de problème avec votre cluster (ou lorsque vous souhaitez marquer une autre activité en fonction des données collectées). Ci-dessous, nous expliquons brièvement comment Azure Monitor fonctionne, comment installer Azure Monitor et comment le configurer pour vous envoyer des notifications.
 
+Si vous utilisez System Center, consultez le pack d' [administration espaces de stockage direct](https://www.microsoft.com/download/details.aspx?id=100782) qui surveille les clusters windows server 2019 et windows server 2016 espaces de stockage direct.
+
+Ce pack d’administration comprend les éléments suivants :
+
+* Analyse des performances et de l’intégrité du disque physique
+* Analyse des performances et de l’intégrité des nœuds de stockage
+* Analyse des performances et de l’intégrité du pool de stockage
+* État du type et de la réplication de la résilience du volume
 
 ## <a name="understanding-azure-monitor"></a>Compréhension des Azure Monitor
 
@@ -234,11 +240,11 @@ Une fois les requêtes appropriées effectuées pour les événements qui vous i
 10. Cliquez sur **OK** pour créer le groupe d’actions. 
 11. Cliquez sur **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.<br><br> ![Terminer la création d’une nouvelle règle d’alerte](media/configure-azure-monitor/alert-rule-01.png)<br> 
 
-## <a name="see-alerts"></a>Afficher les alertes
+### <a name="example-alert"></a>Exemple d’alerte
 
 Pour référence, voici à quoi ressemble un exemple d’alerte dans Azure.
 
-![GIF d’alerte dans Azure»](media/configure-azure-monitor/alert.gif)
+![GIF d’alerte dans Azure](media/configure-azure-monitor/alert.gif)
 
 Voici un exemple de l’e-mail que vous allez envoyer par Azure Monitor :
 

@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: c45ac44448326ec3a236a685387b7969d21aa607
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 04d39f222fbbc7943cc2074a857a76f38832935d
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395660"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919879"
 ---
 # <a name="windows-time-service-technical-reference"></a>Référence technique du service de temps Windows
 >S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 ou version ultérieure
@@ -31,17 +31,15 @@ Bien que conçu à l’origine pour assurer la synchronisation de l’horloge po
 Les protocoles de temps communiquent entre deux ordinateurs pour échanger des informations d’heure, puis utiliser ces informations pour synchroniser leurs horloges. Avec le protocole de temps du service de temps Windows, un client demande des informations de temps à un serveur et synchronise son horloge en fonction des informations reçues.
   
 Le service de temps Windows utilise NTP pour synchroniser l’heure sur un réseau. NTP est un protocole Internet qui comprend les algorithmes de discipline nécessaires à la synchronisation des horloges. NTP est un protocole de temps plus précis que le protocole SNTP (simple Network Time Protocol) utilisé dans certaines versions de Windows. Toutefois, W32Time continue à prendre en charge SNTP pour activer la compatibilité descendante avec les ordinateurs qui exécutent des services de temps basés sur SNTP tels que Windows 2000.
-<!-- maybe this should be its own topic under the Tech Ref section -->
 ## <a name="where-to-find-windows-time-service-configuration-related-information"></a>Où trouver des informations relatives à la configuration du service de temps Windows  
 Ce guide ne traite **pas** de la configuration du service de temps Windows. Il existe plusieurs rubriques sur Microsoft TechNet et dans la base de connaissances Microsoft qui décrivent les procédures de configuration du service de temps Windows. Si vous avez besoin d’informations de configuration, les rubriques suivantes doivent vous aider à localiser les informations appropriées.  
-<!-- should this be an if/then table -->
--   Pour configurer le service de temps Windows pour l’émulateur de contrôleur de domaine principal (PDC) racine de la forêt, consultez :  
+-   Pour configurer le service de temps Windows pour l’émulateur de contrôleur de domaine principal (PDC) racine de la forêt, consultez :
   
     -   [Configurer le service de temps Windows sur l’émulateur de contrôleur de domaine principal dans le domaine racine de forêt](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29) 
   
     -   [Configuration d’une source de temps pour la forêt](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc794823%28v%3dws.10%29) 
   
-    -   Article 816042 de la base de connaissances Microsoft, [Comment configurer un serveur de temps faisant autorité dans Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402), qui décrit les paramètres de configuration pour les ordinateurs exécutant windows Server 2008 R2, windows Server 2008, windows Server 2003 et Windows Serveur 2003 R2.  
+    -   Article 816042 de la base de connaissances Microsoft, [Comment configurer un serveur de temps faisant autorité dans Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402), qui décrit les paramètres de configuration pour les ordinateurs exécutant windows Server 2008 R2, windows Server 2008, windows Server 2003 et windows Server 2003 R2.  
   
 -   Pour configurer le service de temps Windows sur un client ou un serveur membre du domaine, ou même sur des contrôleurs de domaine qui ne sont pas configurés en tant qu’émulateur PDC racine de la forêt, consultez [configurer un ordinateur client pour la synchronisation automatique de l’heure du domaine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29).  
   
@@ -52,9 +50,9 @@ Ce guide ne traite **pas** de la configuration du service de temps Windows. Il e
   
 -   Pour configurer le service de temps Windows sur un ordinateur hôte qui exécute un environnement virtuel, consultez l’article 816042 de la base de connaissances Microsoft, [Comment configurer un serveur de temps faisant autorité dans Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402). Si vous utilisez un produit de virtualisation non-Microsoft, veillez à consulter la documentation du fournisseur de ce produit.  
   
--   Pour configurer le service de temps Windows sur un contrôleur de domaine qui s’exécute sur un ordinateur virtuel, il est recommandé de désactiver partiellement la synchronisation de l’heure entre le système hôte et le système d’exploitation invité jouant le rôle de contrôleur de domaine. Cela permet à votre contrôleur de domaine invité de synchroniser l’heure de la hiérarchie de domaine, mais le protège de l’existence d’un décalage horaire s’il est restauré à partir d’un état enregistré. Pour plus d’informations, consultez l’article 976924 de la base de connaissances Microsoft, [qui reçoit les ID d’événements du service de temps Windows 24, 29 et 38 sur un contrôleur de domaine virtualisé qui s’exécute sur un serveur hôte Windows server 2008 avec Hyper-V et le](https://go.microsoft.com/fwlink/?LinkID=192236) [déploiement Éléments à prendre en considération pour les contrôleurs de domaine virtualisés](https://go.microsoft.com/fwlink/?LinkID=192235).  
+-   Pour configurer le service de temps Windows sur un contrôleur de domaine qui s’exécute sur un ordinateur virtuel, il est recommandé de désactiver partiellement la synchronisation de l’heure entre le système hôte et le système d’exploitation invité jouant le rôle de contrôleur de domaine. Cela permet à votre contrôleur de domaine invité de synchroniser l’heure de la hiérarchie de domaine, mais le protège de l’existence d’un décalage horaire s’il est restauré à partir d’un état enregistré. Pour plus d’informations, consultez l’article 976924 de la base de connaissances Microsoft, [qui reçoit les ID d’événements du service de temps Windows 24, 29 et 38 sur un contrôleur de domaine virtualisé qui s’exécute sur un serveur hôte Windows server 2008 avec Hyper-V](https://go.microsoft.com/fwlink/?LinkID=192236) et [des considérations relatives au déploiement pour les contrôleurs de domaine virtualisés](https://go.microsoft.com/fwlink/?LinkID=192235).  
   
--   Pour configurer le service de temps Windows sur un contrôleur de domaine jouant le rôle d’émulateur de contrôleur de domaine principal racine de la forêt qui s’exécute également sur un ordinateur virtuel, suivez les mêmes instructions pour un ordinateur physique, comme décrit dans [configurer le service de temps Windows sur le contrôleur de domaine principal. émulateur dans le domaine racine de la forêt](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29).  
+-   Pour configurer le service de temps Windows sur un contrôleur de domaine jouant le rôle d’émulateur de contrôleur de domaine principal racine de la forêt qui s’exécute également sur un ordinateur virtuel, suivez les mêmes instructions pour un ordinateur physique, comme décrit dans [configurer le service de temps Windows sur l’émulateur PDC dans le domaine racine de forêt](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29).  
   
 -   Pour configurer le service de temps Windows sur un serveur membre qui exécute en tant qu’ordinateur virtuel, utilisez la hiérarchie de temps de domaine comme décrit dans [configurer un ordinateur client pour la synchronisation automatique de l’heure du domaine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29).
 
@@ -67,5 +65,5 @@ Ce guide ne traite **pas** de la configuration du service de temps Windows. Il e
 - [Améliorations de l’exactitude du temps pour Windows Server 2016](windows-server-2016-improvements.md)  
 - [Fonctionnement du service de temps Windows](How-the-Windows-Time-Service-Works.md)  
 - [Paramètres et outils du service de temps Windows](Windows-Time-Service-Tools-and-Settings.md)  
-- [Limite de support pour configurer le service de temps Windows pour les environnements à haute précision](support-boundary.md)
+- [Limites de prise en charge pour configurer le service de temps Windows pour les environnements de haute-précision](support-boundary.md)
 - [Article 902229 de la base de connaissances Microsoft](https://go.microsoft.com/fwlink/?LinkId=186066)
