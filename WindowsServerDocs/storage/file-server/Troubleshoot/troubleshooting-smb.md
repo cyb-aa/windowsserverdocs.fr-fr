@@ -7,12 +7,12 @@ audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 88f707cc02514dc13c212c6462c47e4d3a94b5f5
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 433221f9846e9e071557b5537974b5739131742b
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654580"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949693"
 ---
 # <a name="advanced-troubleshooting-server-message-block-smb"></a>Résolution avancée des problèmes liés au protocole SMB (Server Message Block)
 
@@ -158,7 +158,7 @@ Le client SMB et le serveur SMB présentent une structure détaillée des journa
 
 ## <a name="smb-related-system-files"></a>Fichiers système liés à SMB
 
-Cette section répertorie les fichiers système liés à SMB. Pour mettre à jour les fichiers système, assurez-vous que le [correctif cumulatif](https://support.microsoft.com/en-us/help/4498140/windows-10-update-history) le plus récent est installé.
+Cette section répertorie les fichiers système liés à SMB. Pour mettre à jour les fichiers système, assurez-vous que le [correctif cumulatif](https://support.microsoft.com/help/4498140/windows-10-update-history) le plus récent est installé.
 
 Fichiers binaires du client SMB répertoriés sous **% windir%\\system32\\pilotes**:
 

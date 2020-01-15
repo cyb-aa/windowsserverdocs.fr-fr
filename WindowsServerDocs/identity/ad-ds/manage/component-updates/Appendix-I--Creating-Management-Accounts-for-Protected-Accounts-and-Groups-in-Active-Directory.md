@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8880f26acd8b32a4ab8a32ede067d158f2d6aed1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 834aa2611ff2b965c9184524fa6782fb4477a4cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369211"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949133"
 ---
-# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Annexe I : Création de comptes de gestion pour les comptes protégés et les groupes dans Active Directory
+# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Annexe I : Création de comptes de gestion pour les comptes protégés et les groupes dans Active Directory
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’une des difficultés liées à l’implémentation d’un modèle de Active Directory qui ne repose pas sur l’appartenance permanente à des groupes à privilèges élevés est qu’il doit exister un mécanisme pour remplir ces groupes lorsque l’appartenance temporaire aux groupes est requise. Certaines solutions privilégiées de gestion des identités requièrent que les comptes de service du logiciel bénéficient d’une appartenance permanente à des groupes tels que DA ou administrateurs dans chaque domaine de la forêt. Toutefois, il n’est techniquement pas nécessaire que les solutions Privileged Identity Management (PIM) exécutent leurs services dans des contextes à privilèges élevés.  
   
@@ -81,9 +81,9 @@ Pour créer un groupe afin d’activer et de désactiver les comptes de gestion,
   
 7.  Sous l’onglet **sécurité** , supprimez les groupes qui ne doivent pas être autorisés à accéder à ce groupe. Par exemple, si vous ne souhaitez pas que les utilisateurs authentifiés puissent lire le nom et les propriétés générales du groupe, vous pouvez supprimer cette entrée du contrôle d’accès. Vous pouvez également supprimer des ACE, telles que celles pour les opérateurs de compte et l’accès compatible avec les serveurs antérieurs à Windows 2000. Toutefois, vous devez conserver un ensemble minimal d’autorisations sur les objets en place. Laissez les ACE suivantes intactes :  
   
-    -   RYTHME  
+    -   SELF  
   
-    -   REQUISE  
+    -   SYSTEM  
   
     -   Administrateurs du domaine  
   
@@ -133,7 +133,7 @@ Pour créer les comptes de gestion, procédez comme suit :
 
 7. Cliquez avec le bouton droit sur l’objet utilisateur que vous venez de créer, puis cliquez sur **Propriétés**.  
 
-8. Cliquez sur l’onglet **compte** .  
+8. Cliquez sur l’onglet **Compte**.  
 
 9. Dans le champ **options de compte** , sélectionnez l’indicateur le **compte est sensible et ne peut pas être délégué** , sélectionnez l’indicateur ce compte **prend en charge le chiffrement AES 128 bits Kerberos** et/ou le **compte ce compte prend en charge le chiffrement Kerberos AES 256** , puis cliquez sur **OK**.  
 
@@ -144,7 +144,7 @@ Pour créer les comptes de gestion, procédez comme suit :
    >
    > Bien que l’implémentation de types de chiffrement plus sécurisés pour les hôtes n’atténue pas les attaques par vol d’informations d’identification, l’utilisation et la configuration appropriées des hôtes sécurisés. La définition de types de chiffrement renforcés pour les hôtes qui sont utilisés uniquement par les comptes privilégiés réduit simplement la surface d’attaque globale des ordinateurs.  
    >
-   > Pour plus d’informations sur la configuration des types de chiffrement sur les systèmes et les comptes, consultez [configurations Windows pour le type de chiffrement pris en charge par Kerberos](http://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx).  
+   > Pour plus d’informations sur la configuration des types de chiffrement sur les systèmes et les comptes, consultez [configurations Windows pour le type de chiffrement pris en charge par Kerberos](https://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx).  
    >
    > Ces paramètres sont pris en charge uniquement sur les ordinateurs exécutant Windows Server 2012, Windows Server 2008 R2, Windows 8 ou Windows 7.  
   
@@ -186,7 +186,7 @@ Pour créer les comptes de gestion, procédez comme suit :
 
 19. Tapez **refuser le mot de passe RODC groupe de réplication** dans la boîte de dialogue **Sélectionner les utilisateurs, les contacts et les ordinateurs** , puis cliquez sur **vérifier les noms**. Lorsque le nom du groupe est souligné dans le sélecteur d’objets, cliquez sur **OK** et vérifiez que le compte est désormais membre des deux groupes affichés dans la capture d’écran suivante. N’ajoutez pas le compte à des groupes protégés.  
 
-20. Cliquez sur **OK**.  
+20. Cliquez sur **OK**.  
 
     ![création de comptes de gestion](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
 

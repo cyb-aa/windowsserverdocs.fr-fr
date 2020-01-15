@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 4e7f46739dd8def6ffc34c6cc50210c0e6999c79
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 924fcd8e0c981c9164c3026a58cbb41ef8c0085a
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403747"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950351"
 ---
 # <a name="group-managed-service-accounts-overview"></a>Group Managed Service Accounts Overview
 
@@ -28,7 +28,7 @@ Cette rubrique destinée aux professionnels de l’informatique présente le com
 
 
 ## <a name="BKMK_OVER"></a>Description de la fonctionnalité
-Un compte de service administré autonome (sMSA) est un compte de domaine géré qui fournit une gestion automatique des mots de passe, une gestion simplifiée des noms de principal du service (SPN) et la possibilité de déléguer la gestion à d’autres administrateurs. Ce type de compte de service administré (MSA) a été introduit dans Windows Server 2008 R2 et Windows 7.
+Un compte de service administré autonome (sMSA) est un compte de domaine géré qui fournit une gestion automatique des mots de passe, une gestion simplifiée des noms de principal du service (SPN) et la possibilité de déléguer la gestion à d’autres administrateurs. Ce type de compte de service administré est apparu pour la première fois dans Windows Server 2008 R2 et Windows 7.
 
 Le compte de service administré de groupe (gMSA) fournit les mêmes fonctionnalités dans le domaine, mais étend également cette fonctionnalité sur plusieurs serveurs. Lorsque vous vous connectez à un service hébergé sur une batterie de serveurs, telle que la solution d’équilibrage de la charge réseau, les protocoles d’authentification prenant en charge l’authentification mutuelle requièrent que toutes les instances des services utilisent le même principal. Quand un gMSA est utilisé en tant que principal du service, le système d’exploitation Windows gère le mot de passe du compte au lieu de s’appuyer sur l’administrateur pour gérer le mot de passe.
 
@@ -37,7 +37,7 @@ Le service de distribution de clés Microsoft \(kdssvc. dll\) fournit le mécani
 ## <a name="BKMK_APP"></a>Applications pratiques
 Service administrés fournissent une solution d’identité unique pour les services exécutés sur une batterie de serveurs, ou sur les systèmes se trouvant derrière le réseau Load Balancer. En fournissant une solution gMSA, les services peuvent être configurés pour le nouveau principal gMSA et la gestion des mots de passe est gérée par Windows.
 
-L’utilisation d’un gMSA, les services ou les administrateurs de service n’ont pas besoin de gérer la synchronisation de mot de passe entre les instances de service. Le gMSA prend en charge les hôtes qui sont conservés hors connexion pendant une période prolongée et la gestion des hôtes membres pour toutes les instances d’un service. Cela signifie que vous pouvez déployer une batterie de serveurs qui prend en charge une identité unique auprès de laquelle les ordinateurs clients existants peuvent s’authentifier sans savoir à quelle instance de service ils se connectent.
+Grâce aux gMSA, les services ou les administrateurs de services n’ont plus besoin de gérer la synchronisation des mots de passe entre les instances de service. Le gMSA prend en charge les hôtes qui sont conservés hors connexion pendant une période prolongée et la gestion des hôtes membres pour toutes les instances d’un service. Cela signifie que vous pouvez déployer une batterie de serveurs qui prend en charge une identité unique auprès de laquelle les ordinateurs clients existants peuvent s’authentifier sans savoir à quelle instance de service ils se connectent.
 
 Les clusters de basculement ne prennent pas en charge les comptes de service administrés de groupe (gMSA, group Managed Service Account). Toutefois, les services qui s'exécutent sur le service de cluster peuvent utiliser un compte gMSA ou un compte de service administré autonome (sMSA, standalone Managed Service Account) s'il s'agit d'un service Windows, d'un pool d'applications, d'une tâche planifiée ou s'ils prennent nativement en charge les comptes gMSA ou sMSA.
 
@@ -65,9 +65,9 @@ Le tableau ci-dessous fournit des liens vers des ressources supplémentaires rel
 |**Déploiement**|Pas encore disponible|
 |**Opérations**|[Comptes de service administrés dans Active Directory](https://technet.microsoft.com/library/dd378925(v=ws.10).aspx)|
 |**Résolution des problèmes**|Pas encore disponible|
-|**Analyse**|[Prise en main des comptes de service administrés de groupe](getting-started-with-group-managed-service-accounts.md)|
+|**Évaluation**|[Prise en main des comptes de service administrés de groupe](getting-started-with-group-managed-service-accounts.md)|
 |**Outils et paramètres**|[Comptes de service administrés dans Active Directory Domain Services](https://technet.microsoft.com/library/dd378925(v=WS.10).aspx)|
-|**Ressources de la communauté**|[Comptes de service administrés : comprendre, implémenter, meilleures pratiques et résolution des problèmes](http://blogs.technet.com/b/askds/archive/2009/09/10/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)|
+|**Ressources de la communauté**|[Comptes de service administrés : comprendre, implémenter, meilleures pratiques et résolution des problèmes](https://blogs.technet.com/b/askds/archive/2009/09/10/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)|
 |**Technologies connexes**|[Vue d’ensemble d’Active Directory Domain Services](active-directory-domain-services-overview.md)|
 
 

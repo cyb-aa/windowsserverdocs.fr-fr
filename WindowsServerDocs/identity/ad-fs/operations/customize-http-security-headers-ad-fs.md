@@ -9,19 +9,19 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0685e0935a031b2f73474d59b025b70fc735902d
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 7fd06c06a2ea7af93b87c471f77b788ac51bddac
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935045"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949213"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personnaliser les en-têtes de réponse de sécurité HTTP avec AD FS 2019 
  
-Pour vous protéger contre les failles de sécurité courantes et fournir aux administrateurs la possibilité de tirer parti des dernières avancées dans les mécanismes de protection basés sur un navigateur, AD FS 2019 a ajouté la fonctionnalité de personnalisation des en-têtes de réponse de sécurité HTTP. envoyé par AD FS. Pour ce faire, vous devez introduire deux nouvelles applets de `Get-AdfsResponseHeaders` commande `Set-AdfsResponseHeaders`: et.  
+Pour vous protéger contre les failles de sécurité courantes et fournir aux administrateurs la possibilité de tirer parti des dernières avancées dans les mécanismes de protection basés sur un navigateur, AD FS 2019 a ajouté la fonctionnalité de personnalisation des en-têtes de réponse de sécurité HTTP. envoyé par AD FS. Pour ce faire, vous devez introduire deux nouvelles applets de commande : `Get-AdfsResponseHeaders` et `Set-AdfsResponseHeaders`.  
 
 >[!NOTE]
->La fonctionnalité de personnalisation des en-têtes de réponse de sécurité http (à l’exception des en- `Get-AdfsResponseHeaders` têtes `Set-AdfsResponseHeaders` cors) à l’aide des applets de commande : et a été reportée à AD FS 2016. Vous pouvez ajouter la fonctionnalité à votre AD FS 2016 en installant [KB4493473](https://support.microsoft.com/en-us/help/4493473/windows-10-update-kb4493473) et [KB4507459](https://support.microsoft.com/en-us/help/4507459/windows-10-update-kb4507459). 
+>Les fonctionnalités permettant de personnaliser les en-têtes de réponse de sécurité HTTP (à l’exception des en-têtes CORS) à l’aide des applets de commande : `Get-AdfsResponseHeaders` et `Set-AdfsResponseHeaders` ont été reportées à AD FS 2016. Vous pouvez ajouter la fonctionnalité à votre AD FS 2016 en installant [KB4493473](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473) et [KB4507459](https://support.microsoft.com/help/4507459/windows-10-update-kb4507459). 
 
 Dans ce document, nous aborderons les en-têtes de réponse de sécurité couramment utilisés pour montrer comment personnaliser les en-têtes envoyés par AD FS 2019.   
  
@@ -40,11 +40,11 @@ Avant de discuter des en-têtes, examinons quelques scénarios qui créent la n�
 
  
 ## <a name="http-security-response-headers"></a>En-têtes de réponse de sécurité HTTP 
-Les en-têtes de réponse sont inclus dans la réponse HTTP sortante envoyée par AD FS à un navigateur Web. Les en-têtes peuvent être répertoriés `Get-AdfsResponseHeaders` à l’aide de l’applet de commande, comme indiqué ci-dessous.  
+Les en-têtes de réponse sont inclus dans la réponse HTTP sortante envoyée par AD FS à un navigateur Web. Les en-têtes peuvent être répertoriés à l’aide de l’applet de commande `Get-AdfsResponseHeaders` comme indiqué ci-dessous.  
 
 ![Réponse d’en-tête](media/customize-http-security-headers-ad-fs/header1.png)
 
-L' `ResponseHeaders` attribut dans la capture d’écran ci-dessus identifie les en-têtes de sécurité qui seront inclus par AD FS dans chaque réponse http. Les en-têtes de réponse sont envoyés uniquement `ResponseHeadersEnabled` si a `True` la valeur (valeur par défaut). La valeur peut être définie sur `False` pour empêcher AD FS y compris les en-têtes de sécurité dans la réponse http. Toutefois, cela n’est pas recommandé.  Pour ce faire, utilisez ce qui suit :
+L’attribut `ResponseHeaders` dans la capture d’écran ci-dessus identifie les en-têtes de sécurité qui seront inclus par AD FS dans chaque réponse HTTP. Les en-têtes de réponse sont envoyés uniquement si `ResponseHeadersEnabled` est défini sur `True` (valeur par défaut). La valeur peut être définie sur `False` pour empêcher AD FS y compris les en-têtes de sécurité dans la réponse HTTP. Toutefois, cela n’est pas recommandé.  Pour ce faire, utilisez ce qui suit :
 
 ```PowerShell
 Set-AdfsResponseHeaders -EnableResponseHeaders $false
@@ -55,11 +55,11 @@ HSTS est un mécanisme de stratégie de sécurité Web qui permet d’atténuer 
  
 Tous les points de terminaison de AD FS pour le trafic d’authentification Web sont ouverts exclusivement via HTTPs. Par conséquent, AD FS atténue efficacement les menaces fournies par le mécanisme de stratégie de sécurité de transport strict (par défaut, il n’y a pas de passage à HTTP, car il n’y a aucun écouteur dans HTTP). L’en-tête peut être personnalisé en définissant les paramètres suivants :
  
-- **max-age =&lt;expiration-Time&gt;**  – le délai d’expiration (en secondes) spécifie la durée pendant laquelle le site ne doit être accessible qu’à l’aide du protocole HTTPS. La valeur par défaut et la valeur recommandée est de 31536000 secondes (1 an).  
+- **max-age =&lt;expiration-temps&gt;** – le délai d’expiration (en secondes) spécifie la durée pendant laquelle le site ne doit être accessible qu’à l’aide du protocole HTTPS. La valeur par défaut et la valeur recommandée est de 31536000 secondes (1 an).  
 - **includeSubDomains** : il s’agit d’un paramètre facultatif. S’il est spécifié, la règle HSTS s’applique également à tous les sous-domaines.  
  
 #### <a name="hsts-customization"></a>Personnalisation de HSTS 
-Par défaut, l’en-tête est `max-age` activé et défini sur 1 an ; Toutefois, les administrateurs `max-age` peuvent modifier la valeur (la diminution de l’âge maximal n’est pas recommandée) ou activer HSTS `Set-AdfsResponseHeaders` pour les sous-domaines via l’applet de commande.  
+Par défaut, l’en-tête est activé et `max-age` défini sur 1 an. Toutefois, les administrateurs peuvent modifier la `max-age` (réduire la valeur de l’âge maximal n’est pas recommandé) ou activer HSTS pour les sous-domaines via l’applet de commande `Set-AdfsResponseHeaders`.  
  
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Strict-Transport-Security" -SetHeaderValue "max-age=<seconds>; includeSubDomains" 
@@ -71,7 +71,7 @@ Exemple :
 Set-AdfsResponseHeaders -SetHeaderName "Strict-Transport-Security" -SetHeaderValue "max-age=31536000; includeSubDomains" 
  ```
 
-Par défaut, l’en-tête est inclus `ResponseHeaders` dans l’attribut ; Toutefois, les administrateurs peuvent supprimer l' `Set-AdfsResponseHeaders` en-tête par le biais de l’applet de commande.  
+Par défaut, l’en-tête est inclus dans l’attribut `ResponseHeaders` ; Toutefois, les administrateurs peuvent supprimer l’en-tête par le biais de l’applet de commande `Set-AdfsResponseHeaders`.  
  
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "Strict-Transport-Security" 
@@ -82,14 +82,14 @@ AD FS par défaut n’autorise pas les applications externes à utiliser des iFr
  
 Toutefois, dans certains cas rares, vous pouvez faire confiance à une application spécifique qui nécessite une page de connexion AD FS interactive prenant en charge iFrame. L’en-tête « X-Frame-options » est utilisé à cet effet.  
  
-Cet en-tête de réponse de sécurité http est utilisé pour communiquer avec le navigateur, qu’il puisse &lt;afficher&gt;une&gt;page dans un IFRAME de cadre/&lt;. L’en-tête peut être défini sur l’une des valeurs suivantes : 
+Cet en-tête de réponse de sécurité HTTP est utilisé pour communiquer avec le navigateur, qu’il puisse restituer une page dans une &lt;Frame&gt;/&lt;iframe&gt;. L’en-tête peut être défini sur l’une des valeurs suivantes : 
  
 - **Deny** : la page dans un frame ne s’affiche pas. Il s’agit de la valeur par défaut et recommandée.  
 - **sameorigin** : la page s’affiche uniquement dans le frame si l’origine est identique à l’origine de la page Web. L’option n’est pas très utile, sauf si tous les ancêtres sont également dans la même origine.  
-- **autoriser : à <specified origin> partir** de la page s’affiche uniquement dans le frame si l’origine (par exemple https://www,.». com) correspond à l’origine spécifique dans l’en-tête. 
+- **autoriser-à partir de <specified origin>** -la page s’affiche uniquement dans le cadre si l’origine (par exemple, https://www.». com) correspond à l’origine spécifique dans l’en-tête. 
 
 #### <a name="x-frame-options-customization"></a>Personnalisation des options X-Frame  
-Par défaut, l’en-tête est défini sur Deny ; Toutefois, les administrateurs peuvent modifier la valeur par `Set-AdfsResponseHeaders` le biais de l’applet de commande.  
+Par défaut, l’en-tête est défini sur Deny ; Toutefois, les administrateurs peuvent modifier la valeur par le biais de l’applet de commande `Set-AdfsResponseHeaders`.  
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "X-Frame-Options" -SetHeaderValue "<deny/sameorigin/allow-from<specified origin>>" 
  ```
@@ -100,7 +100,7 @@ Exemple :
 Set-AdfsResponseHeaders -SetHeaderName "X-Frame-Options" -SetHeaderValue "allow-from https://www.example.com" 
  ```
 
-Par défaut, l’en-tête est inclus `ResponseHeaders` dans l’attribut ; Toutefois, les administrateurs peuvent supprimer l' `Set-AdfsResponseHeaders` en-tête par le biais de l’applet de commande.  
+Par défaut, l’en-tête est inclus dans l’attribut `ResponseHeaders` ; Toutefois, les administrateurs peuvent supprimer l’en-tête par le biais de l’applet de commande `Set-AdfsResponseHeaders`.  
 
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options" 
@@ -114,7 +114,7 @@ Cet en-tête de réponse de sécurité HTTP est utilisé pour empêcher le charg
 - **1 ; mode = bloc** : active le filtrage XSS. Si une attaque XSS est détectée, le navigateur empêchera le rendu de la page. Il s’agit de la valeur par défaut et recommandée.  
 
 #### <a name="x-xss-protection-customization"></a>Personnalisation X-XSS-protection 
-Par défaut, l’en-tête est défini sur 1 ; mode = bloc ; Toutefois, les administrateurs peuvent modifier la valeur par `Set-AdfsResponseHeaders` le biais de l’applet de commande.  
+Par défaut, l’en-tête est défini sur 1 ; mode = bloc ; Toutefois, les administrateurs peuvent modifier la valeur par le biais de l’applet de commande `Set-AdfsResponseHeaders`.  
 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "X-XSS-Protection" -SetHeaderValue "<0/1/1; mode=block/1; report=<reporting-uri>>" 
@@ -126,7 +126,7 @@ Exemple :
 Set-AdfsResponseHeaders -SetHeaderName "X-XSS-Protection" -SetHeaderValue "1" 
  ```
 
-Par défaut, l’en-tête est inclus `ResponseHeaders` dans l’attribut ; Toutefois, les administrateurs peuvent supprimer l' `Set-AdfsResponseHeaders` en-tête par le biais de l’applet de commande. 
+Par défaut, l’en-tête est inclus dans l’attribut `ResponseHeaders` ; Toutefois, les administrateurs peuvent supprimer l’en-tête par le biais de l’applet de commande `Set-AdfsResponseHeaders`. 
 
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "X-XSS-Protection" 
@@ -205,7 +205,7 @@ Les sources suivantes peuvent être définies pour la stratégie de SRC par déf
 - 'unsafe-inline' – la spécification de ce paramètre dans la stratégie permet l’utilisation de JavaScript inline et de CSS 
 - 'unsafe-eval' – la spécification de ce paramètre dans la stratégie permet l’utilisation de mécanismes de texte à JavaScript comme eval 
 - 'none' – la spécification de ce paramètre limite le contenu d’une origine à une charge 
-- Data :-spécification des données : Les URI permettent aux créateurs de contenu d’incorporer des fichiers de petite taille dans des documents. Utilisation non recommandée.  
+- Data :-spécification de données : les URI autorisent les créateurs de contenu à incorporer des fichiers de petite taille dans des documents. Utilisation non recommandée.  
  
 >[!NOTE]
 >AD FS utilise JavaScript dans le processus d’authentification et, par conséquent, active JavaScript en incluant des sources « unsafe-inline » et « unsafe-eval » dans la stratégie par défaut.  
@@ -213,7 +213,7 @@ Les sources suivantes peuvent être définies pour la stratégie de SRC par déf
 ### <a name="custom-headers"></a>En-têtes personnalisés 
 En plus des en-têtes de réponse de sécurité indiqués ci-dessus (HSTS, CSP, X-Frame-options, X-XSS-protection et CORS), AD FS 2019 permet de définir de nouveaux en-têtes.  
  
-Exemple : Pour définir un nouvel en-tête « TestHeader » avec la valeur « TestHeaderValue » 
+Exemple : pour définir un nouvel en-tête « TestHeader » avec la valeur « TestHeaderValue » 
 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderValue" 
@@ -230,8 +230,8 @@ Utilisez le tableau et les liens suivants pour déterminer les navigateurs Web c
 |-----|-----|
 |HTTP strict-transport-Security (HSTS)|[Compatibilité du navigateur HSTS](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Browser_compatibility)|
 |X-Frame-options|[Compatibilité du navigateur X-Frame-options](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)| 
-|X-XSS-protection|[Compatibilité du navigateur X-XSS-protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection#Browser_compatibility)| 
-|Partage des ressources Cross-Origin (CORS)|[Compatibilité des navigateurs CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
+|X-XSS-protection|[Compatibilité du navigateur X-XSS-protection](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection#Browser_compatibility)| 
+|Partage des ressources cross-origin (CORS)|[Compatibilité des navigateurs CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
 |Stratégie de sécurité de contenu (CSP)|[Compatibilité du navigateur CSP](https://developer.mozilla.org/docs/Web/HTTP/CSP#Browser_compatibility) 
 
 ## <a name="next"></a>Suivant

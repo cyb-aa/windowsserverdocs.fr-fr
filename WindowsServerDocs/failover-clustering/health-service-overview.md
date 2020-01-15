@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
-ms.openlocfilehash: df455dfb0d2936192a3c2d7825e2d6d031cfe892
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 158681e2038e3d8015933771d06d3bfb24d31586
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361067"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948472"
 ---
 # <a name="health-service-in-windows-server"></a>Service de contrôle d’intégrité dans Windows Server
 
@@ -92,7 +92,7 @@ Le Service de contrôle d’intégrité fournit un mécanisme de mise en œuvre 
 
 ### <a name="usage"></a>Utilisation  
 
-Le document sur les composants pris en charge utilise une syntaxe XML inspirée. Nous vous recommandons d’utiliser votre éditeur de texte préféré, tel que le [Visual Studio code](http://code.visualstudio.com/) ou le bloc-notes gratuit, pour créer un document XML que vous pouvez enregistrer et réutiliser.
+Le document sur les composants pris en charge utilise une syntaxe XML inspirée. Nous vous recommandons d’utiliser votre éditeur de texte préféré, tel que le [Visual Studio code](https://code.visualstudio.com/) ou le bloc-notes gratuit, pour créer un document XML que vous pouvez enregistrer et réutiliser.
 
 #### <a name="sections"></a>Sections
 
@@ -170,10 +170,10 @@ Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 
 Consultez [paramètres de service de contrôle d’intégrité](health-service-settings.md).
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 
 - [Rapports de Service de contrôle d’intégrité](health-service-reports.md)
 - [Erreurs de Service de contrôle d’intégrité](health-service-faults.md)
 - [Actions Service de contrôle d’intégrité](health-service-actions.md)
 - [Paramètres de Service de contrôle d’intégrité](health-service-settings.md)
-- [espaces de stockage direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)
+- [Storage Spaces Direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

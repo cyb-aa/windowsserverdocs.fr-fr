@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 02/15/2019
-ms.openlocfilehash: 1643568cd1a0cdbb693d773a8357d2c36b701fd3
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: fc8e6ffa39320cfc73bf3f5bd0a5bc765ded24b4
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903975"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950525"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Prise en main du centre d’administration Windows
 
@@ -21,7 +21,7 @@ ms.locfileid: "74903975"
 
 > [!Tip]
 > Vous débutez dans Windows Admin Center ?
-> [Découvrez-en davantage sur Windows Admin Center](../understand/windows-admin-center.md) ou [téléchargez maintenant](https://aka.ms/windowsadmincenter).
+> [Découvrez-en davantage sur Windows Admin Center](../overview.md) ou [téléchargez maintenant](https://aka.ms/windowsadmincenter).
 
 ## <a name="windows-admin-center-installed-on-windows-10"></a>Centre d’administration Windows installé sur Windows 10
 
@@ -97,7 +97,7 @@ Le centre d’administration Windows prend en charge plusieurs mécanismes d’a
 
 Vous pouvez utiliser vos informations d’identification Windows actuelles pour vous authentifier auprès du nœud géré. Il s’agit de la valeur par défaut, et le centre d’administration Windows tente d’ouvrir une session lorsque vous ajoutez un serveur. 
 
-**Authentification unique lorsqu’elle est déployée en tant que service sur Windows Server**
+**Authentification unique lors d’un déploiement en tant que service sur Windows Server**
 
 Si vous avez installé le centre d’administration Windows sur Windows Server, une configuration supplémentaire est requise pour l’authentification unique.  [Configurer votre environnement pour la délégation](../configure/user-access-control.md)
 

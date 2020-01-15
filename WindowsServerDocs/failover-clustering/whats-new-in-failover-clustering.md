@@ -8,12 +8,12 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 26417f0fdbe2c4c8c374b3a1b8955c6297865397
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 40342f43f7afbf020ba20f27586650767218fe83
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360832"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948032"
 ---
 # <a name="whats-new-in-failover-clustering"></a>Nouveautés du clustering de basculement
 
@@ -53,7 +53,7 @@ Cette rubrique décrit les fonctionnalités nouvelles et modifiées du clusterin
   - Accès Internet absent ou très médiocre en raison d’un emplacement distant empêchant l’utilisation d’un témoin Cloud. 
   - Absence de lecteurs partagés pour un témoin de disque. Il peut s’agir d’un espaces de stockage direct configuration hypervergé, d’un SQL Server Always On groupes de disponibilité (AG) ou d’un groupe de disponibilité de base de données Exchange (DAG), qui n’utilisent pas de disques partagés. 
   - Absence de connexion du contrôleur de domaine, car le cluster se trouve derrière une zone DMZ. 
-  - Un groupe de travail ou un cluster inter-domaines pour lequel il n’existe aucun objet de nom de cluster Active Directory (CNO). Pour plus d’informations sur ces améliorations, consultez le billet de blog de gestion de & de serveur suivant : Témoin de partage de fichiers de cluster de basculement et DFS.
+  - Un groupe de travail ou un cluster inter-domaines pour lequel il n’existe aucun objet de nom de cluster Active Directory (CNO). Pour plus d’informations sur ces améliorations, consultez le billet de blog de gestion de & de serveur suivant : témoin de partage de fichiers de cluster de basculement et DFS.
     
     Nous allons maintenant également bloquer explicitement l’utilisation d’un partage d’espaces de noms DFS comme emplacement. L’ajout d’un témoin de partage de fichiers à un partage DFS peut entraîner des problèmes de stabilité pour votre cluster, et cette configuration n’a jamais été prise en charge. Nous avons ajouté une logique permettant de détecter si un partage utilise des espaces de noms DFS et, si des espaces de noms DFS sont détectés, Gestionnaire du cluster de basculement bloque la création du témoin et affiche un message d’erreur indiquant qu’il n’est pas pris en charge.
 - **Renforcement de cluster**
@@ -64,7 +64,7 @@ Cette rubrique décrit les fonctionnalités nouvelles et modifiées du clusterin
     Les clusters de basculement n’utilisent plus l’authentification NTLM. Au lieu de cela, Kerberos et l’authentification basée sur les certificats sont utilisés exclusivement. Aucune modification n’est requise par l’utilisateur ou les outils de déploiement pour tirer parti de cette amélioration de la sécurité. Il permet également de déployer des clusters de basculement dans des environnements où NTLM a été désactivé. 
 
 
-## <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server 2016
+## <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server 2016
 
 ### <a name="BKMK_RollingUpgrade"></a>Mise à niveau propagée du système d’exploitation du cluster
 
@@ -72,7 +72,7 @@ La mise à niveau propagée du système d’exploitation de cluster permet à un
 
 **Quels avantages cette modification procure-t-elle ?**  
 
-La mise à niveau d’un cluster Hyper-V ou Serveur de fichiers avec montée en puissance parallèle de Windows Server 2012 R2 vers Windows Server 2016 ne nécessite plus de temps d’arrêt. Le cluster continue à fonctionner à un niveau Windows Server 2012 R2, jusqu’à ce que tous les nœuds du cluster exécutent Windows Server 2016. Le niveau fonctionnel de cluster est mis à niveau vers Windows Server 2016 à l’aide de l’applet Windows PowerShell `Update-ClusterFunctionalLevel`. 
+La mise à niveau d’un cluster Hyper-V ou Serveur de fichiers avec montée en puissance parallèle de Windows Server 2012 R2 vers Windows Server 2016 ne nécessite plus de temps d’arrêt. Le cluster continue à fonctionner à un niveau Windows Server 2012 R2, jusqu’à ce que tous les nœuds du cluster exécutent Windows Server 2016. Le niveau fonctionnel de cluster est mis à niveau vers Windows Server 2016 à l’aide de la `Update-ClusterFunctionalLevel`Windows PowerShell applet. 
 
 > [!WARNING]  
 > -   Après avoir mis à jour le niveau fonctionnel du cluster, vous ne pouvez pas revenir au niveau fonctionnel d’un cluster Windows Server 2012 R2. 
@@ -127,7 +127,7 @@ Pour plus d’informations, voir [Réplica de stockage dans Windows Server 2016
 
 
 ### <a name="BKMK_CloudWitness"></a>Témoin Cloud  
-Dans Windows Server 2016, Témoin cloud est un nouveau type de témoin de quorum de cluster avec basculement, qui utilise Microsoft Azure comme point d’arbitrage. Comme les autres témoins de quorum, Témoin cloud obtient un vote et peut prendre part à des calculs de quorum. Vous pouvez le configurer comme témoin de quorum à l’aide de l’Assistant Configuration de quorum du cluster. 
+Dans Windows Server2016, Témoin cloud est un nouveau type de témoin de quorum de cluster avec basculement, qui utilise Microsoft Azure comme point d’arbitrage. Comme les autres témoins de quorum, Témoin cloud obtient un vote et peut prendre part à des calculs de quorum. Vous pouvez le configurer comme témoin de quorum à l’aide de l’Assistant Configuration de quorum du cluster. 
 
 **Quels avantages cette modification procure-t-elle ?**  
 
@@ -158,7 +158,7 @@ Cette fonctionnalité est une nouveauté de Windows Server 2016.
 
 -   **Mise en quarantaine des nœuds défectueux :** Les nœuds défectueux sont mis en quarantaine et ne sont plus autorisés à joindre le cluster. Cela empêche les nœuds battants d’avoir un effet négatif sur les autres nœuds et le cluster global. 
 
-Pour plus d’informations sur les paramètres de mise en quarantaine du workflow et de la résilience des ordinateurs virtuels qui contrôlent la façon dont votre nœud est placé en isolation ou en quarantaine, consultez [résilience de calcul des machines virtuelles dans Windows Server 2016](http://blogs.msdn.com/b/clustering/archive/2015/06/03/10619308.aspx). 
+Pour plus d’informations sur les paramètres de mise en quarantaine du workflow et de la résilience des ordinateurs virtuels qui contrôlent la façon dont votre nœud est placé en isolation ou en quarantaine, consultez [résilience de calcul des machines virtuelles dans Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/06/03/10619308.aspx). 
 
 **Résilience du stockage** Dans Windows Server 2016, les machines virtuelles sont plus résistantes aux échecs de stockage temporaire. La résilience améliorée des machines virtuelles permet de conserver les États de session des machines virtuelles locataires en cas d’interruption du stockage. Cela est possible grâce à une réponse de l’ordinateur virtuel intelligent et rapide aux problèmes liés à l’infrastructure de stockage. 
 
@@ -169,12 +169,12 @@ Dans Windows Server 2016, la résilience du stockage d’ordinateur virtuel est 
 ### <a name="BKMK_Diagnostics"></a>Améliorations des diagnostics dans le clustering de basculement  
 Pour faciliter le diagnostic des problèmes liés aux clusters de basculement, Windows Server 2016 comprend les éléments suivants :  
 
--   Plusieurs améliorations apportées aux fichiers journaux de cluster (tels que les informations de fuseau horaire et le journal DiagnosticVerbose) facilitent la résolution des problèmes de clustering de basculement. Pour plus d’informations, consultez améliorations de la [résolution des problèmes liés au cluster de basculement Windows Server 2016-journal de cluster](http://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
+-   Plusieurs améliorations apportées aux fichiers journaux de cluster (tels que les informations de fuseau horaire et le journal DiagnosticVerbose) facilitent la résolution des problèmes de clustering de basculement. Pour plus d’informations, consultez améliorations de la [résolution des problèmes liés au cluster de basculement Windows Server 2016-journal de cluster](https://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
 
--   Nouveau type de vidage de la **mémoire active**, qui filtre la plupart des pages mémoire allouées aux ordinateurs virtuels, et rend donc la mémoire. dmp beaucoup plus petite et plus facile à enregistrer ou à copier. Pour plus d’informations, consultez améliorations de la [résolution des problèmes liés au cluster de basculement Windows Server 2016-vidage actif](http://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx). 
+-   Nouveau type de vidage de la **mémoire active**, qui filtre la plupart des pages mémoire allouées aux ordinateurs virtuels, et rend donc la mémoire. dmp beaucoup plus petite et plus facile à enregistrer ou à copier. Pour plus d’informations, consultez améliorations de la [résolution des problèmes liés au cluster de basculement Windows Server 2016-vidage actif](https://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx). 
 
 ### <a name="BKMK_SiteAware"></a>Clusters de basculement prenant en charge les sites  
-Windows Server 2016 comprend des clusters de basculement prenant en charge les sites qui permettent de regrouper des nœuds dans des clusters étendus en fonction de leur emplacement physique (site). La sensibilisation au site du cluster améliore les opérations clés pendant le cycle de vie du cluster, telles que le comportement de basculement, les stratégies de positionnement, les pulsations entre les nœuds et le comportement du quorum. Pour plus d’informations, consultez [clusters de basculement prenant en charge les sites dans Windows Server 2016](http://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
+Windows Server 2016 comprend des clusters de basculement prenant en charge les sites qui permettent de regrouper des nœuds dans des clusters étendus en fonction de leur emplacement physique (site). La sensibilisation au site du cluster améliore les opérations clés pendant le cycle de vie du cluster, telles que le comportement de basculement, les stratégies de positionnement, les pulsations entre les nœuds et le comportement du quorum. Pour plus d’informations, consultez [clusters de basculement prenant en charge les sites dans Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
 
 ### <a name="BKMK_multidomainclusters"></a>Groupes de travail et clusters à plusieurs domaines  
 Dans Windows Server 2012 R2 et les versions antérieures, un cluster peut uniquement être créé entre des nœuds membres joints au même domaine. Windows Server 2016 déjoue cet obstacle en introduisant la possibilité de créer un cluster de basculement sans dépendances Active Directory. Vous pouvez maintenant créer des clusters de basculement dans les configurations suivantes :  
@@ -185,7 +185,7 @@ Dans Windows Server 2012 R2 et les versions antérieures, un cluster peut unique
 
 -   **Clusters de groupe de travail.** Clusters avec des nœuds qui sont des serveurs membres/groupe de travail (et non joints à un domaine). 
 
-Pour plus d’informations, consultez [groupes de travail et clusters à plusieurs domaines dans Windows Server 2016](http://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx)  
+Pour plus d’informations, consultez [groupes de travail et clusters à plusieurs domaines dans Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx)  
 ### <a name="BKMK_VMLoadBalancing"></a>Équilibrage de charge de la machine virtuelle  
 L’équilibrage de charge de l’ordinateur virtuel est une nouvelle fonctionnalité du clustering de basculement qui facilite l’équilibrage de charge transparent des ordinateurs virtuels sur les nœuds d’un cluster. Les nœuds surdédiés sont identifiés en fonction de la mémoire de l’ordinateur virtuel et de l’utilisation du processeur sur le nœud. Les machines virtuelles sont ensuite déplacées (migration dynamique) d’un nœud trop sollicitée vers des nœuds avec une bande passante disponible (le cas échéant). L’intensité de l’équilibrage peut être réglée pour garantir des performances et une utilisation optimales du cluster. L’équilibrage de charge est activé par défaut dans la version d’évaluation technique de Windows Server 2016. Toutefois, l’équilibrage de charge est désactivé lorsque l’optimisation dynamique SCVMM est activée. 
 
@@ -197,6 +197,6 @@ Les réseaux de cluster de basculement ne sont plus limités à une seule carte 
 
 Pour plus d’informations, consultez la [page simplification des réseaux de clusters SMB multicanaux et à plusieurs cartes réseau](smb-multichannel.md).
 
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Articles associés  
 * [Stockage](../storage/storage.md)  
 * [Nouveautés du stockage dans Windows Server 2016](../storage/whats-new-in-storage.md)  

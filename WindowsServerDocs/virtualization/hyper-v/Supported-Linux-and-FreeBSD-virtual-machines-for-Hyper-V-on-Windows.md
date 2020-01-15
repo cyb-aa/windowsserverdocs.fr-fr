@@ -11,16 +11,16 @@ ms.assetid: 990ff94a-30fb-434b-b4a2-3804a5245ba6
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: a3b0df5065427b48bbc9c32d3e8502bfe234fe7b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8be9f8ab768478417fdd6edce5b881ce3610bc1
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366742"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947985"
 ---
 # <a name="supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows"></a>Machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows
 
->S'applique à : Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
+>S’applique à : Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
 Hyper-V prend en charge les appareils émulés et Hyper-V spécifiques pour les machines virtuelles Linux et FreeBSD. Lorsqu’il est exécuté avec des appareils émulés, aucun logiciel supplémentaire n’est requis pour l’installation. Toutefois, les appareils émulés n’offrent pas de performances élevées et ne peuvent pas tirer parti de la richesse de l’infrastructure de gestion des machines virtuelles offerte par la technologie Hyper-V. Pour tirer pleinement parti de tous les avantages offerts par Hyper-V, il est préférable d’utiliser des appareils spécifiques à Hyper-V pour Linux et FreeBSD. La collection de pilotes requis pour exécuter des appareils spécifiques à Hyper-V est appelée Linux Integration Services (LIS) ou FreeBSD Integration Services (BIS).
 
@@ -31,9 +31,9 @@ Pour les autres distributions Linux, les modifications de la LIS sont intégrée
 Pour les anciennes versions de FreeBSD (avant 10,0), Microsoft fournit des ports contenant les pilotes de BIS installables et les démons correspondants pour les machines virtuelles FreeBSD. Pour les versions plus récentes de FreeBSD, BIS est intégré au système d’exploitation FreeBSD, et aucun téléchargement ou installation distinct n’est requis, à l’exception d’un téléchargement de ports KVP requis pour FreeBSD 10,0.
 
 > [!TIP]
-> - Téléchargez [Windows Server 2019](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019) à partir du centre d’évaluation.
+> - Téléchargez [Windows Server 2019](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019) à partir du centre d’évaluation.
 
-L’objectif de ce contenu est de fournir des informations qui facilitent le déploiement de Linux ou FreeBSD sur Hyper-V. Les détails spécifiques sont les suivants:
+L’objectif de ce contenu est de fournir des informations qui facilitent le déploiement de Linux ou FreeBSD sur Hyper-V. Les détails spécifiques sont les suivants :
 
 * Distributions Linux ou versions FreeBSD qui requièrent le téléchargement et l’installation des pilotes LIS ou BIS.
 
@@ -45,7 +45,7 @@ L’objectif de ce contenu est de fournir des informations qui facilitent le dé
 
 * Description de la fonctionnalité pour chaque fonctionnalité LIS ou BIS.
 
-**Vous souhaitez faire une suggestion sur les fonctionnalités et les fonctionnalités?** Y a-t-il une meilleure amélioration? Vous pouvez utiliser le site [Windows Server User Voice](https://windowsserver.uservoice.com/forums/295062-linux-support) pour suggérer de nouvelles fonctionnalités et fonctionnalités pour les machines virtuelles Linux et FreeBSD sur Hyper-V et pour voir ce que d’autres personnes disent.
+**Vous souhaitez faire une suggestion sur les fonctionnalités et les fonctionnalités ?** Y a-t-il une meilleure amélioration ? Vous pouvez utiliser le site [Windows Server User Voice](https://windowsserver.uservoice.com/forums/295062-linux-support) pour suggérer de nouvelles fonctionnalités et fonctionnalités pour les machines virtuelles Linux et FreeBSD sur Hyper-V et pour voir ce que d’autres personnes disent.
 
 ## <a name="in-this-section"></a>Dans cette section
 

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 70014c04bbb4425fe3c3fd0379f10cf00abe00ee
-ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
+ms.openlocfilehash: 04fdd52544b69d2c41abcbee00dd00b31bf5f21c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72986443"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949784"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Créer un disque de modèle d’ordinateur virtuel protégé Windows
 
@@ -59,7 +59,7 @@ Effectuez les étapes suivantes sur un ordinateur exécutant Windows Server 2016
 
         Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
         
-    Vous pouvez également administrer le serveur à partir d’un ordinateur client sur lequel vous avez installé le [Outils d’administration de serveur distant Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+    Vous pouvez également administrer le serveur à partir d’un ordinateur client sur lequel vous avez installé le [Outils d’administration de serveur distant Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
 
 3. Obtenez ou créez un certificat pour signer le VSC pour le VHDX qui deviendra le disque de modèle pour les nouvelles machines virtuelles protégées. Les détails relatifs à ce certificat sont présentés aux locataires lorsqu’ils créent leurs fichiers de données de protection et qu’ils autorisent les disques auxquels ils font confiance. Par conséquent, il est important d’obtenir ce certificat auprès d’une autorité de certification que vous et vos locataires approuvent de façon mutuelle. Dans les scénarios d’entreprise où vous êtes à la fois l’hébergeur et le locataire, vous pouvez envisager d’émettre ce certificat à partir de votre infrastructure à clé publique.
 

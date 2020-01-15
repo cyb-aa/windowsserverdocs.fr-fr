@@ -1,6 +1,6 @@
 ---
 ms.assetid: 5728847d-dcef-4694-9080-d63bfb1fe24b
-title: Stratégies de contrôle d’accès dans ADFS
+title: Stratégies de contrôle d’accès dans AD FS
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,12 +9,12 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 517582661374c388d44362538da6933a916b0039
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7ae66fd47953017652ed1e753279e344e0a6c478
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407759"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949409"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Stratégies de Access Control dans Windows Server 2012 R2 et Windows Server 2012 AD FS
 
@@ -41,11 +41,11 @@ Pour résoudre le, mettez à jour toutes les stratégies qui refusent en fonctio
 
 Par exemple, la règle ci-dessous :
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
 
 doit être mis à jour vers :
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "(/adfs/ls/)|(/adfs/services/trust/2005/windowstransport)|(/adfs/services/trust/13/windowstransport)|(/adfs/services/trust/2005/usernamemixed)|(/adfs/services/trust/13/usernamemixed)|(/adfs/services/trust/2005/certificatemixed)|(/adfs/services/trust/13/certificatemixed)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "(/adfs/ls/)|(/adfs/services/trust/2005/windowstransport)|(/adfs/services/trust/13/windowstransport)|(/adfs/services/trust/2005/usernamemixed)|(/adfs/services/trust/13/usernamemixed)|(/adfs/services/trust/2005/certificatemixed)|(/adfs/services/trust/13/certificatemixed)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`
 
 
 
@@ -80,14 +80,14 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 4.  Dans la page **Sélectionner un modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **Envoyer des revendications à l’aide d’une règle personnalisée**, puis cliquez sur **suivant**.  
 
 5.  Dans la page **configurer la règle** , sous nom de la règle de **revendication**, tapez le nom d’affichage de cette règle, par exemple « si une revendication IP est en dehors de la plage souhaitée, refuser ». Sous **règle personnalisée**, tapez ou collez la syntaxe de langage de règle de revendication suivante (remplacez la valeur ci-dessus pour « x-ms-forwarded-client-IP » par une expression IP valide) :  
-`c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
+`c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
 6.  Cliquez sur **Terminer**. Vérifiez que la nouvelle règle apparaît dans la liste règles d’autorisation d’émission avant d’autoriser la règle par défaut **autoriser l’accès à tous les utilisateurs** (la règle de refus est prioritaire, bien qu’elle apparaisse plus haut dans la liste).  Si vous ne disposez pas de la règle d’accès autoriser par défaut, vous pouvez en ajouter une à la fin de votre liste à l’aide du langage de règle de revendication, comme suit :  </br>
 
-    `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
+    `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
 
 7.  Pour enregistrer les nouvelles règles, dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur **OK**. La liste résultante doit ressembler à ce qui suit.  
 
-     ![](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1") des règles d’authentification d’émission  
+     ![Règles d’autorisation d’émission](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
 ###  <a name="scenario2"></a>Scénario 2 : bloquer tout accès externe à Office 365, à l’exception d’Exchange ActiveSync  
  L’exemple suivant autorise l’accès à toutes les applications Office 365, y compris Exchange Online, à partir des clients internes, y compris Outlook. Il bloque l’accès à partir de clients résidant en dehors du réseau d’entreprise, comme indiqué par l’adresse IP du client, à l’exception des clients Exchange ActiveSync tels que les téléphones intelligents.  
@@ -104,7 +104,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 5.  Dans la page **configurer la règle** , sous nom de la règle de **revendication**, tapez le nom complet de cette règle, par exemple « si une revendication IP est en dehors de la plage souhaitée, émettez la revendication ipoutsiderange ». Sous **règle personnalisée**, tapez ou collez la syntaxe de langage de règle de revendication suivante (remplacez la valeur ci-dessus pour « x-ms-forwarded-client-IP » par une expression IP valide) :  
 
-    `c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
+    `c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 
 6.  Cliquez sur **Terminer**. Vérifiez que la nouvelle règle apparaît dans la liste **règles d’autorisation d’émission** .  
 
@@ -116,7 +116,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 
 ~~~
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 ~~~
 
 10. Cliquez sur **Terminer**. Vérifiez que la nouvelle règle apparaît dans la liste **règles d’autorisation d’émission** .  
@@ -128,7 +128,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 13. Dans la page **configurer la règle** , sous nom de la règle de **revendication**, tapez le nom complet de cette règle, par exemple « vérifier si la revendication d’application existe ». Sous **règle personnalisée**, tapez ou collez la syntaxe de langage de règle de revendication suivante :  
 
    ```  
-   NOT EXISTS([Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
+   NOT EXISTS([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
    ```  
 
 14. Cliquez sur **Terminer**. Vérifiez que la nouvelle règle apparaît dans la liste **règles d’autorisation d’émission** .  
@@ -139,8 +139,8 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 17. Dans la page **configurer la règle** , sous nom de la règle de **revendication**, tapez le nom complet de cette règle, par exemple « refuser aux utilisateurs avec ipoutsiderange true et l’application échouer ». Sous **règle personnalisée**, tapez ou collez la syntaxe de langage de règle de revendication suivante :  
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
-18. Cliquez sur **Terminer**. Vérifiez que la nouvelle règle s’affiche immédiatement en dessous de la règle précédente et avant d’autoriser l’accès par défaut à tous les utilisateurs dans la liste des règles d’autorisation d’émission (la règle de refus est prioritaire, bien qu’elle apparaisse plus haut dans la liste).  </br>Si vous ne disposez pas de la règle d’accès autoriser par défaut, vous pouvez en ajouter une à la fin de votre liste à l’aide du langage de règle de revendication, comme suit :</br></br>      `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
+18. Cliquez sur **Terminer**. Vérifiez que la nouvelle règle s’affiche immédiatement en dessous de la règle précédente et avant d’autoriser l’accès par défaut à tous les utilisateurs dans la liste des règles d’autorisation d’émission (la règle de refus est prioritaire, bien qu’elle apparaisse plus haut dans la liste).  </br>Si vous ne disposez pas de la règle d’accès autoriser par défaut, vous pouvez en ajouter une à la fin de votre liste à l’aide du langage de règle de revendication, comme suit :</br></br>      `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
 19. Pour enregistrer les nouvelles règles, dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur OK. La liste résultante doit ressembler à ce qui suit.  
 
     ![Règles d'autorisation d'émission](media/Access-Control-Policies-W2K12/clientaccess2.png )  
@@ -158,7 +158,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 4.  Dans la page **Sélectionner un modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **Envoyer des revendications à l’aide d’une règle personnalisée**, puis cliquez sur **suivant**.  
 
 5.  Dans la page **configurer la règle** , sous nom de la règle de **revendication**, tapez le nom complet de cette règle, par exemple « si une revendication IP est en dehors de la plage souhaitée, émettez la revendication ipoutsiderange ». Sous **règle personnalisée**, tapez ou collez la syntaxe de langage de règle de revendication suivante (remplacez la valeur ci-dessus pour « x-ms-forwarded-client-IP » par une expression IP valide) :  </br>
-`c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
+`c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
 6.  Cliquez sur **Terminer**. Vérifiez que la nouvelle règle apparaît dans la liste **règles d’autorisation d’émission** .  
 
 7.  Ensuite, dans la boîte de dialogue **modifier les règles de revendication** , sous l’onglet **règles d’autorisation d’émission** , cliquez sur **Ajouter une règle** pour redémarrer l’Assistant règle de revendication.  
@@ -169,12 +169,12 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 
 ~~~
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
 ~~~
 
 10. Cliquez sur **Terminer**. Vérifiez que la nouvelle règle apparaît dans la liste règles d’autorisation d’émission avant d’autoriser la règle par défaut **autoriser l’accès à tous les utilisateurs** (la règle de refus est prioritaire, bien qu’elle apparaisse plus haut dans la liste).  </br></br> Si vous ne disposez pas de la règle d’accès autoriser par défaut, vous pouvez en ajouter une à la fin de votre liste à l’aide du langage de règle de revendication, comme suit :  
 
-   `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
+   `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
 
 11. Pour enregistrer les nouvelles règles, dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur **OK**. La liste résultante doit ressembler à ce qui suit.  
 
@@ -197,7 +197,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 
 ~~~
-`c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
+`c1:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 ~~~
 
 6. Cliquez sur **Terminer**. Vérifiez que la nouvelle règle apparaît dans la liste **règles d’autorisation d’émission** .  
@@ -208,7 +208,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 9. Dans la page **configurer la règle** , sous nom de la règle de **revendication**, tapez le nom complet de cette règle, par exemple « vérifier le SID du groupe ». Sous **règle personnalisée**, tapez ou collez la syntaxe de langage de règle de revendication suivante (remplacez « GroupSID » par le SID réel du groupe Active Directory que vous utilisez) :  
 
-    `NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
+    `NOT EXISTS([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
 
 10. Cliquez sur **Terminer**. Vérifiez que la nouvelle règle apparaît dans la liste **règles d’autorisation d’émission** .  
 
@@ -218,11 +218,11 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
 13. Dans la page **configurer la règle** , sous nom de la règle de **revendication**, tapez le nom complet de cette règle, par exemple « refuser les utilisateurs avec ipoutsiderange true et GroupSID Fail ». Sous **règle personnalisée**, tapez ou collez la syntaxe de langage de règle de revendication suivante :  
 
-   `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
+   `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 
 14. Cliquez sur **Terminer**. Vérifiez que la nouvelle règle s’affiche immédiatement en dessous de la règle précédente et avant d’autoriser l’accès par défaut à tous les utilisateurs dans la liste des règles d’autorisation d’émission (la règle de refus est prioritaire, bien qu’elle apparaisse plus haut dans la liste).  </br></br>Si vous ne disposez pas de la règle d’accès autoriser par défaut, vous pouvez en ajouter une à la fin de votre liste à l’aide du langage de règle de revendication, comme suit :  
 
-   `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
+   `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
 
 15. Pour enregistrer les nouvelles règles, dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur OK. La liste résultante doit ressembler à ce qui suit.  
 
@@ -255,7 +255,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 
   Tout d’abord, le modèle de base qui correspondra à une seule adresse IP est le suivant : \b # # #\\. # # #\\. # # #\\. # # # \b  
 
-  Si vous étendez cela, nous pouvons faire correspondre deux adresses IP différentes avec une expression ou comme suit : \b # # #\\. # # #\\. # # #\\.&#124;# # # \b \b # # #\\. # # #\\. # # #. # # # \b\\  
+  Si vous étendez cela, nous pouvons faire correspondre deux adresses IP différentes avec une expression ou comme suit : \b # # #\\. # # #\\. # # #\\.&#124;# # # \b \b # # #\\. # # #\\. # # #. # # # \b  
 
   Par conséquent, voici un exemple qui correspond à deux adresses (telles que 192.168.1.1 ou 10.0.0.1) : \b192\\. 168\\1\\. 1 \&#124;b \b10\\0 0\\. 0\\. 1 \ b  
 
@@ -296,7 +296,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
  AD FS dans Windows Server 2012 R2 fournit des informations de contexte de requête à l’aide des types de revendications suivants :  
 
 ### <a name="x-ms-forwarded-client-ip"></a>X-MS-forwarded-client-IP  
- Type de revendication : `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
+ Type de revendication : `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
 
  Cette revendication de AD FS représente une « meilleure tentative » pour déterminer l’adresse IP de l’utilisateur (par exemple, le client Outlook) à l’origine de la demande. Cette revendication peut contenir plusieurs adresses IP, y compris l’adresse de chaque proxy qui a transféré la demande.  Cette revendication est renseignée à partir d’un HTTP. La valeur de la revendication peut être l’une des suivantes :  
 
@@ -318,7 +318,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
 >  Exchange Online ne prend actuellement en charge que les adresses IPV4. il ne prend pas en charge les adresses IPV6.  
 
 ### <a name="x-ms-client-application"></a>X-MS-client-application  
- Type de revendication : `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
+ Type de revendication : `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
 
  Cette revendication de AD FS représente le protocole utilisé par le client final, qui correspond vaguement à l’application utilisée.  Cette revendication est remplie à partir d’un en-tête HTTP qui est actuellement défini uniquement par Exchange Online, qui remplit l’en-tête lors du passage de la demande d’authentification à AD FS. Selon l’application, la valeur de cette revendication sera l’une des suivantes :  
 
@@ -345,7 +345,7 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
     -   Microsoft. Exchange. IMAP  
 
 ### <a name="x-ms-client-user-agent"></a>X-MS-client-user-agent  
- Type de revendication : `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
+ Type de revendication : `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
 
  Cette revendication de AD FS fournit une chaîne représentant le type d’appareil utilisé par le client pour accéder au service. Cela peut être utilisé lorsque les clients souhaitent empêcher l’accès à certains appareils (tels que des types particuliers de téléphones intelligents).  Voici des exemples de valeurs pour cette revendication : les valeurs ci-dessous (sans s’y limiter).  
 
@@ -368,23 +368,23 @@ Les stratégies décrites dans cet article doivent toujours être utilisées ave
   Il est également possible que cette valeur soit vide.  
 
 ### <a name="x-ms-proxy"></a>X-MS-proxy  
- Type de revendication : `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
+ Type de revendication : `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
 
  Cette revendication de AD FS indique que la demande est passée par le proxy d’application Web.  Cette revendication est remplie par le proxy d’application Web, qui remplit l’en-tête lors du passage de la demande d’authentification à l’service FS (Federation Service) back end. AD FS ensuite le convertit en revendication.  
 
  La valeur de la revendication est le nom DNS du proxy d’application Web qui a transmis la demande.  
 
 ### <a name="insidecorporatenetwork"></a>InsideCorporateNetwork  
- Type de revendication : `http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
+ Type de revendication : `https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
 
  Comme pour le type de revendication x-ms-proxy ci-dessus, ce type de revendication indique si la demande est passée par le proxy d’application Web. Contrairement à x-ms-proxy, insidecorporatenetwork est une valeur booléenne avec true indiquant une demande directement au service de Fédération à partir du réseau d’entreprise.  
 
 ### <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-Endpoint-Absolute-Path (actif/passif)  
- Type de revendication : `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
+ Type de revendication : `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
 
  Ce type de revendication peut être utilisé pour déterminer les demandes provenant de clients « actifs » (riches) par rapport aux clients « passifs » (basés sur un navigateur Web). Cela permet aux requêtes externes provenant d’applications basées sur un navigateur, telles que le Accès web Outlook, SharePoint Online ou le portail Office 365, d’être autorisées pendant que les demandes provenant de clients enrichis, telles que Microsoft Outlook, sont bloquées.  
 
  La valeur de la revendication est le nom du service AD FS qui a reçu la demande.  
 
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Articles associés  
  [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)

@@ -1,6 +1,6 @@
 ---
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
-title: Recommandations en matière de stratégie d’audit
+title: Recommandations de stratégie d'audit
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -9,14 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c902f9a438afd226dfb58dbde9f3c00d57b0ed58
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6cecf2edcb834a963c706fa4a63e7d15b13f7888
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408590"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949625"
 ---
-# <a name="audit-policy-recommendations"></a>Recommandations en matière de stratégie d’audit
+# <a name="audit-policy-recommendations"></a>Recommandations de stratégie d'audit
 
 >S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
@@ -34,17 +34,17 @@ Les paramètres de stratégie d’audit de base suivants sont recommandés pour 
 ## <a name="recommended-audit-policies-by-operating-system"></a>Stratégies d’audit recommandées par système d’exploitation  
 Cette section contient des tables qui répertorient les recommandations relatives aux paramètres d’audit qui s’appliquent aux systèmes d’exploitation suivants :  
 
--   Windows Server 2016 
+-   Windows Server 2016 
 
--   Windows Server 2012  
+-   Windows Server 2012  
 
--   Windows Server 2012 R2  
+-   R2 Windows Server 2012  
 
--   Windows Server 2008  
+-   Windows Server 2008  
 
 -   Windows 10
 
--   Windows 8.1  
+-   Windows 8.1  
 
 -   Windows 7  
 
@@ -57,7 +57,7 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |**Conventions**|**Recommandation**|  
 |OUI|Activer dans les scénarios généraux|  
 |NON|Ne **pas** activer dans les scénarios généraux|  
-|QUE|Activer si nécessaire pour un scénario spécifique, ou si un rôle ou une fonctionnalité pour lequel l’audit est souhaité est installé sur l’ordinateur|  
+|IF|Activer si nécessaire pour un scénario spécifique, ou si un rôle ou une fonctionnalité pour lequel l’audit est souhaité est installé sur l’ordinateur|  
 |DC|Activer sur les contrôleurs de domaine|  
 |Occult|Aucune recommandation|  
 
@@ -70,15 +70,15 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |**Ouverture de session de compte**||||  
 |Auditer la validation des informations d’identification|Non non|Oui non|Oui, oui|  
 |Auditer le service d’authentification Kerberos|||Oui, oui|  
-|Auditer les opérations de ticket du service Kerberos|||Oui, oui|  
+|Auditer les opérations de ticket de service Kerberos|||Oui, oui|  
 |Auditer d’autres événements d’ouverture de session|||Oui, oui|  
-|**Gestion des comptes**||||  
+|**Account management (Gestion de compte)**||||  
 |Auditer la gestion des groupes d’applications||||  
 |Auditer la gestion des comptes d’ordinateur||Oui non|Oui, oui|  
 |Auditer la gestion des groupes de distribution||||  
 |Auditer d’autres événements de gestion des comptes||Oui non|Oui, oui|  
 |Auditer la gestion des groupes de sécurité||Oui non|Oui, oui|  
-|Auditer la gestion des comptes d’utilisateur|Oui non|Oui non|Oui, oui|  
+|Auditer la gestion des comptes d’utilisateurs|Oui non|Oui non|Oui, oui|  
 |**Suivi détaillé**||||  
 |Auditer l’activité DPAPI|||Oui, oui|  
 |Auditer la création du processus||Oui non|Oui, oui|  
@@ -126,7 +126,7 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |Auditer l’utilisation de privilèges non sensibles||||  
 |Auditer d’autres événements d’utilisation de privilèges||||  
 |Auditer l’utilisation de privilèges sensibles||||  
-|**Requise**||||  
+|**Système**||||  
 |Auditer le pilote IPSEC||Oui, oui|Oui, oui|  
 |Auditer d’autres événements système|Oui, oui|||  
 |Auditer la modification de l’état de la sécurité|Oui non|Oui, oui|Oui, oui|  
@@ -148,15 +148,15 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |**Ouverture de session de compte**||||  
 |Auditer la validation des informations d’identification|Non non|Oui, oui|Oui, oui|  
 |Auditer le service d’authentification Kerberos|||Oui, oui|  
-|Auditer les opérations de ticket du service Kerberos|||Oui, oui|  
+|Auditer les opérations de ticket de service Kerberos|||Oui, oui|  
 |Auditer d’autres événements d’ouverture de session|||Oui, oui|  
-|**Gestion des comptes**||||  
+|**Account management (Gestion de compte)**||||  
 |Auditer la gestion des groupes d’applications||||  
 |Auditer la gestion des comptes d’ordinateur||Oui DC|Oui, oui|  
 |Auditer la gestion des groupes de distribution||||  
 |Auditer d’autres événements de gestion des comptes||Oui, oui|Oui, oui|  
 |Auditer la gestion des groupes de sécurité||Oui, oui|Oui, oui|  
-|Auditer la gestion des comptes d’utilisateur|Oui non|Oui, oui|Oui, oui|  
+|Auditer la gestion des comptes d’utilisateurs|Oui non|Oui, oui|Oui, oui|  
 |**Suivi détaillé**||||  
 |Auditer l’activité DPAPI|||Oui, oui|  
 |Auditer la création du processus||Oui non|Oui, oui|  
@@ -204,7 +204,7 @@ Ces tables contiennent les paramètres par défaut de Windows, les recommandatio
 |Auditer l’utilisation de privilèges non sensibles||||  
 |Auditer d’autres événements d’utilisation de privilèges||||  
 |Auditer l’utilisation de privilèges sensibles||||  
-|**Requise**||||  
+|**Système**||||  
 |Auditer le pilote IPSEC||Oui, oui|Oui, oui|  
 |Auditer d’autres événements système|Oui, oui|||  
 |Auditer la modification de l’état de la sécurité|Oui non|Oui, oui|Oui, oui|  
@@ -285,13 +285,13 @@ Reportez-vous à [L’annexe L : événements pour surveiller](../../../ad-ds/p
 ## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Informations supplémentaires pour l’analyse des Active Directory Domain Services  
 Pour plus d’informations sur la surveillance AD DS, consultez les liens suivants :  
   
--   L’audit de l' [accès global aux objets est](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) un moyen de vous fournir des informations sur la configuration et l’utilisation de la configuration avancée de la stratégie d’audit qui a été ajoutée à Windows 7 et windows Server 2008 R2.  
+-   L’audit de l' [accès global aux objets est](https://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) un moyen de vous fournir des informations sur la configuration et l’utilisation de la configuration avancée de la stratégie d’audit qui a été ajoutée à Windows 7 et windows Server 2008 R2.  
 
--   [Présentation des modifications d’audit dans windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : présente les modifications apportées à l’audit dans Windows 2008.  
+-   [Présentation des modifications d’audit dans windows 2008](https://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : présente les modifications apportées à l’audit dans Windows 2008.  
 
--   [Astuces d’audit intéressantes dans Vista et 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : présente les nouvelles fonctionnalités intéressantes d’audit dans Windows Vista et windows Server 2008 qui peuvent être utilisées pour résoudre des problèmes ou voir ce qui se passe dans votre environnement.  
+-   [Astuces d’audit intéressantes dans Vista et 2008](https://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : présente les nouvelles fonctionnalités intéressantes d’audit dans Windows Vista et windows Server 2008 qui peuvent être utilisées pour résoudre des problèmes ou voir ce qui se passe dans votre environnement.  
 
--   [One-Stop pour l’audit dans Windows server 2008 et Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contient une compilation des fonctionnalités d’audit et des informations contenues dans windows Server 2008 et Windows Vista.  
+-   [One-Stop pour l’audit dans Windows server 2008 et Windows Vista](https://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contient une compilation des fonctionnalités d’audit et des informations contenues dans windows Server 2008 et Windows Vista.  
 
 -   [Guide pas à pas d’audit de AD DS](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) : décrit la nouvelle fonctionnalité d’audit Active Directory Domain Services (AD DS) dans Windows Server 2008. Il fournit également des procédures permettant d’implémenter cette nouvelle fonctionnalité.  
 

@@ -9,26 +9,26 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 55d9c600c86b6b64efdb5c7d4437697539f887ae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e620b5597a2d25a7bb02daf80c5812d25f6a987
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402946"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950037"
 ---
 # <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster vers réplica de stockage de cluster dans la même région dans Azure
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Vous pouvez configurer un cluster pour la réplication de stockage dans la même région dans Azure. Dans les exemples ci-dessous, nous utilisons un cluster à deux nœuds, mais le réplica de stockage de cluster à cluster n’est pas limité à un cluster à deux nœuds. L’illustration ci-dessous est un cluster d’espace de stockage direct à deux nœuds qui peut communiquer entre eux, se trouvent dans le même domaine et dans la même région.
 
 Regardez les vidéos ci-dessous pour une procédure pas à pas complète du processus.
 
 Première partie
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE26f2Y]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE26f2Y]
 
 Deuxième partie
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE269Pq]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE269Pq]
 
 ![Diagramme d’architecture présentant le réplica de stockage cluster à cluster dans Azure dans la même région.](media/Cluster-to-cluster-azure-one-region/architecture.png)
 > [!IMPORTANT]
@@ -76,16 +76,16 @@ Deuxième partie
 11. Créez un [load balancer](https://ms.portal.azure.com/#create/Microsoft.LoadBalancer-ARM) de référence SKU standard interne pour chaque cluster (**azlbr1**,**azlbr2**). 
    
     Fournissez l’adresse IP de cluster comme adresse IP privée statique pour l’équilibrage de charge.
-    - azlbr1 = > adresse IP frontale : 10.3.0.100 (récupération d’une adresse IP inutilisée à partir du sous-réseau de réseau virtuel (**az2az**))
+    - azlbr1 = > IP frontend : 10.3.0.100 (récupérer une adresse IP inutilisée à partir du sous-réseau de réseau virtuel (**az2az-vnet**))
     - Créez un pool backend pour chaque équilibrage de charge. Ajoutez les nœuds de cluster associés.
     - Créer une sonde d’intégrité : port 59999
-    - Créer une règle d’équilibrage de charge : Autorisez les ports HA, avec l’adresse IP flottante activée. 
+    - Créer une règle d’équilibrage de charge : autoriser les ports haute disponibilité avec une adresse IP flottante activée. 
    
     Fournissez l’adresse IP de cluster comme adresse IP privée statique pour l’équilibrage de charge.
-    - azlbr2 = > adresse IP frontale : 10.3.0.101 (récupération d’une adresse IP inutilisée à partir du sous-réseau de réseau virtuel (**az2az**))
+    - azlbr2 = > IP frontend : 10.3.0.101 (récupérer une adresse IP inutilisée à partir du sous-réseau de réseau virtuel (**az2az-vnet**))
     - Créez un pool backend pour chaque équilibrage de charge. Ajoutez les nœuds de cluster associés.
     - Créer une sonde d’intégrité : port 59999
-    - Créer une règle d’équilibrage de charge : Autorisez les ports HA, avec l’adresse IP flottante activée. 
+    - Créer une règle d’équilibrage de charge : autoriser les ports haute disponibilité avec une adresse IP flottante activée. 
    
 12. Sur chaque nœud de cluster, ouvrez le port 59999 (sonde d’intégrité). 
    
@@ -96,7 +96,7 @@ Deuxième partie
 13. Demandez au cluster d’écouter les messages de sonde d’intégrité sur le port 59999 et de répondre à partir du nœud qui possède actuellement cette ressource. 
     Exécutez-le une seule fois à partir d’un nœud du cluster, pour chaque cluster. 
     
-    Dans notre exemple, assurez-vous de modifier la valeur « ILBIP » en fonction de vos valeurs de configuration. Exécutez la commande suivante à partir d’un nœud **az2az1**/**az2az2**:
+    Dans notre exemple, assurez-vous de modifier la valeur « ILBIP » en fonction de vos valeurs de configuration. Exécutez la commande suivante à partir de n’importe quel nœud **az2az1**/**az2az2**:
 
     ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
@@ -106,7 +106,7 @@ Deuxième partie
      Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}
     ```
 
-14. Exécutez la commande suivante à partir d’un nœud **az2az3**/**az2az4**. 
+14. Exécutez la commande suivante à partir de n’importe quel nœud **az2az3**/**az2az4**. 
 
     ```PowerShell
     $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
@@ -139,7 +139,7 @@ Deuxième partie
    
     Accordez l’accès d’un cluster à un autre dans les deux sens :
 
-    Dans notre exemple :
+    Dans notre exemple :
 
     ```PowerShell
       Grant-SRAccess -ComputerName az2az1 -Cluster SRAZC2

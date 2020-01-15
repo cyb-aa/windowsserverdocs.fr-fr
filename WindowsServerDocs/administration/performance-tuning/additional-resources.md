@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 498e72377197bd2185a518949520275c36295a77
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee14a2bd9290dbaa5653640a80528d163635142d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355076"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947213"
 ---
 # <a name="additional-performance-tuning-resources"></a>Ressources supplémentaires pour le réglage des performances
 
@@ -25,7 +25,7 @@ Utilisez les liens de cette rubrique pour en savoir plus sur les concepts abord�
 
 -   [Transaction Processing Performance Council](http://www.tpc.org/)
 
--   [Kit de déploiement et d’évaluation Windows](https://developer.microsoft.com/en-us/windows/hardware/windows-assessment-deployment-kit)
+-   [Kit de déploiement et d’évaluation Windows](https://developer.microsoft.com/windows/hardware/windows-assessment-deployment-kit)
 
 ## <a name="power-management-tuning-resources"></a>Ressources de paramétrage de la gestion de l’alimentation
 
@@ -33,25 +33,25 @@ Utilisez les liens de cette rubrique pour en savoir plus sur les concepts abord�
 
 -   [Utilisation de PowerCfg pour évaluer l’efficacité énergétique du système](https://technet.microsoft.com/library/cc748940.aspx)
 
--   [Outil de stratégie d’affinité des interruptions](https://support.microsoft.com/en-us/kb/252867)
+-   [Outil de stratégie d’affinité des interruptions](https://support.microsoft.com/kb/252867)
 
 ## <a name="networking-subsystem-tuning-resources"></a>Ressources de paramétrage du sous-système réseau
 
--   [Mise en réseau évolutive : Élimination du goulot d’étranglement du traitement des réceptions, présentation de RSS](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc)
+-   [Mise en réseau évolutive : élimination du goulot d’étranglement du traitement des réceptions, présentation de RSS](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc)
 
 -   [Plateforme de filtrage Windows](https://msdn.microsoft.com/windows/hardware/gg463267.aspx)
 
--   [Guide de déploiement de la mise en réseau : Déploiement des fonctionnalités de mise en réseau à haut débit](https://technet.microsoft.com/library/gg162681.aspx)
+-   [Guide de déploiement de la mise en réseau : déploiement des fonctionnalités de mise en réseau à haut débit](https://technet.microsoft.com/library/gg162681.aspx)
 
 ## <a name="storage-subsystem-tuning-resources"></a>Ressources de paramétrage du sous-système de stockage
 
--   [Analyse des performances du sous-système de disque pour Windows](https://download.microsoft.com/download/e/b/a/eba1050f-a31d-436b-9281-92cdfeae4b45/subsys_perf.doc) (Certaines parties de ce document sont obsolètes, mais la plupart des observations générales et des instructions capturées sont toujours exactes et pertinentes.)
+-   [Analyse des performances du sous-système de disque pour Windows](https://download.microsoft.com/download/e/b/a/eba1050f-a31d-436b-9281-92cdfeae4b45/subsys_perf.doc) (certaines parties de ce document sont obsolètes, mais la plupart des observations générales et des instructions capturées sont toujours exactes et pertinentes).
 
 ## <a name="file-server-tuning-resources"></a>Ressources de paramétrage du serveur de fichiers
 
 -   [Instructions de réglage des performances pour Microsoft Services for Network File System](https://technet.microsoft.com/library/bb463205.aspx)
 
--   [\[MS-FSSO\]: Vue d’ensemble du système des services d’accès aux fichiers](https://download.microsoft.com/download/5/0/1/501ED102-E53F-4CE0-AA6B-B0F93629DDC6/Windows/%5bMS-FSSO%5d.pdf)
+-   [\[MS-FSSO\]: vue d’ensemble du système des services d’accès aux fichiers](https://download.microsoft.com/download/5/0/1/501ED102-E53F-4CE0-AA6B-B0F93629DDC6/Windows/%5bMS-FSSO%5d.pdf)
 
 -   [Comment désactiver l’outil de diagnostic de réglage automatique TCP](https://support.microsoft.com/kb/967475)
 
@@ -65,17 +65,17 @@ Utilisez les liens de cette rubrique pour en savoir plus sur les concepts abord�
 
 -   [Guide de configuration de Mémoire dynamique Hyper-V](https://technet.microsoft.com/library/ff817651.aspx)
 
--   [Équilibrage de nœud NUMA](http://blogs.technet.com/b/winserverperformance/archive/2009/12/10/numa-node-balancing.aspx)
+-   [Équilibrage de nœud NUMA](https://blogs.technet.com/b/winserverperformance/archive/2009/12/10/numa-node-balancing.aspx)
 
 -   [Fournisseur WMI Hyper-V](https://msdn2.microsoft.com/library/cc136992(VS.85).aspx)
 
 -   [Classes WMI Hyper-V](https://msdn.microsoft.com/library/cc136986(VS.85).aspx)
 
--   [À propos des machines virtuelles et des systèmes d’exploitation invités](https://technet.microsoft.com/library/cc794868(v=ws.10))
+-   [À propos des machines virtuelles et des systèmes d'exploitation invités](https://technet.microsoft.com/library/cc794868(v=ws.10))
 
--   [Optimisation et dépannage du stockage Hyper-V](http://blogs.msdn.com/b/microsoft_press/archive/2013/07/24/new-book-optimizing-and-troubleshooting-hyper-v-storage.aspx)
+-   [Optimisation et dépannage du stockage Hyper-V](https://blogs.msdn.com/b/microsoft_press/archive/2013/07/24/new-book-optimizing-and-troubleshooting-hyper-v-storage.aspx)
 
--   [Optimisation et dépannage de la mise en réseau Hyper-V](http://blogs.msdn.com/b/microsoft_press/archive/2013/07/12/rtm-d-today-optimizing-and-troubleshooting-hyper-v-networking.aspx)
+-   [Optimisation et dépannage de la mise en réseau Hyper-V](https://blogs.msdn.com/b/microsoft_press/archive/2013/07/12/rtm-d-today-optimizing-and-troubleshooting-hyper-v-networking.aspx)
 
 ## <a name="print-server-tuning-resources"></a>Ressources de paramétrage du serveur d’impression
 
@@ -97,9 +97,9 @@ Utilisez les liens de cette rubrique pour en savoir plus sur les concepts abord�
 
 -   [Réglage des performances pour le traitement transactionnel en ligne (OLTP)](https://msdn.microsoft.com/library/windows/hardware/dn567642(v=vs.85).aspx)
 
--   [Guide pratique pour Configurer SQL Server pour utiliser soft-NUMA](https://go.microsoft.com/fwlink/?LinkId=98292)
+-   [Comment : configurer SQL Server pour utiliser soft-NUMA](https://go.microsoft.com/fwlink/?LinkId=98292)
 
--   [Guide pratique pour Mapper les ports TCP/IP aux nœuds NUMA](https://go.microsoft.com/fwlink/?LinkId=98293)
+-   [Comment : mapper des ports TCP/IP à des nœuds NUMA](https://go.microsoft.com/fwlink/?LinkId=98293)
 
 -   [MODIFIER la CONFIGURATION du serveur (Transact-SQL)](https://msdn.microsoft.com/library/ee210585.aspx)
 

@@ -8,15 +8,15 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ff76a6dffd66296a02cffcbd79bc6dfadc91c14a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b27097ac64f981343c1d455c826fa1b9004133e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407793"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949582"
 ---
-# <a name="scenario-native-app-calling-web-api"></a>Scénario : Application native appelant l’API Web 
->S'applique à : AD FS 2019 et versions ultérieures 
+# <a name="scenario-native-app-calling-web-api"></a>Scénario : application native appelant l’API Web 
+>S’applique à : AD FS 2019 et versions ultérieures 
  
 Découvrez comment créer des utilisateurs de connexion d’applications natives authentifiés par AD FS 2019 et acquérant des jetons à l’aide de la [bibliothèque MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) pour appeler des API Web.  
  
@@ -26,7 +26,7 @@ Avant de lire cet article, vous devez vous familiariser avec les [concepts de AD
  
  ![Vue d'ensemble](media/adfs-msal-native-app-web-api/native1.png)
 
-Dans ce processus, vous ajoutez l’authentification à votre application native (client public), qui peut donc connecter des utilisateurs et appeler une API Web. Pour appeler une API Web à partir d’une application native qui connecte des utilisateurs, vous pouvez utiliser la méthode d’acquisition de jetons [AcquireTokenInteractive](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.ipublicclientapplication.acquiretokeninteractive?view=azure-dotnet#Microsoft_Identity_Client_IPublicClientApplication_AcquireTokenInteractive_System_Collections_Generic_IEnumerable_System_String__) de MSAL. Pour activer cette interaction, MSAL s’appuie sur un navigateur Web. 
+Dans ce processus, vous ajoutez l’authentification à votre application native (client public), qui peut donc connecter des utilisateurs et appeler une API Web. Pour appeler une API Web à partir d’une application native qui connecte des utilisateurs, vous pouvez utiliser la méthode d’acquisition de jetons [AcquireTokenInteractive](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.ipublicclientapplication.acquiretokeninteractive?view=azure-dotnet#Microsoft_Identity_Client_IPublicClientApplication_AcquireTokenInteractive_System_Collections_Generic_IEnumerable_System_String__) de MSAL. Pour permettre cette interaction, MSAL utilise un navigateur web. 
 
  
 Pour mieux comprendre comment configurer une application native dans ADFS pour obtenir un jeton d’accès de manière interactive, nous allons utiliser un exemple disponible [ici](https://github.com/microsoft/adfs-sample-msal-dotnet-native-to-webapi) et suivre les étapes d’inscription et de configuration du code de l’application.  
@@ -37,7 +37,7 @@ Pour mieux comprendre comment configurer une application native dans ADFS pour o
 
 - Outils clients GitHub 
 - AD FS 2019 ou une version ultérieure configurée et en cours d’exécution 
-- Visual Studio 2013 ou version ultérieure 
+- Visual Studio 2013 ou une version ultérieure 
  
 
 ## <a name="app-registration-in-ad-fs"></a>Inscription d’application dans AD FS 
@@ -98,7 +98,7 @@ Cette section montre comment configurer une application native pour qu’elle se
 
 2. Ouvrir l’exemple à l’aide de Visual Studio 
 
-3. Ouvrez le fichier app. config. Modifiez les éléments suivants : 
+3. Ouvrez le fichier App.config. Modifiez les éléments suivants : 
    - Ida : Authority : entrez https://[votre AD FS nom d’hôte]/ADFS
    - Ida : ClientId : entrez la valeur de l' **identificateur du client** à partir de #3 dans inscription de l’application dans la section AD FS ci-dessus. 
    - Ida : RedirectUri : entrez la valeur de l' **URI de redirection** de #3 dans inscription de l’application dans la section AD FS ci-dessus.
@@ -109,7 +109,7 @@ Cette section montre comment configurer une application native pour qu’elle se
 
  4. Ouvrez le fichier Web. config. Modifiez les éléments suivants : 
     - Ida : audience : entrez la valeur de l' **identificateur** de #4 dans inscription de l’application dans la section AD FS ci-dessus 
-    - Ida AdfsMetadataEndpoint : entrez https://[votre AD FS nom d’hôte]/FederationMetadata/2007-06/FederationMetadata.Xml 
+    - Ida : AdfsMetadataEndpoint-entrez https://[votre AD FS nom d’hôte]/FederationMetadata/2007-06/FederationMetadata.Xml 
     
       ![configuration du code](media/adfs-msal-native-app-web-api/native13.png)
  
@@ -137,7 +137,7 @@ Cette section montre comment tester l’exemple configuré ci-dessus.
 
     Si vous ne voyez pas l’écran de l’application native, recherchez et supprimez les fichiers * msalcache. bin du dossier où le projet référentiel est enregistré sur votre système. 
 
-  6. Vous serez redirigé vers la page de connexion AD FS. Continuez et connectez-vous. 
+  6. Vous serez redirigé vers la page de connexion AD FS. Connectez-vous. 
   
       ![Test de l’application](media/adfs-msal-native-app-web-api/native18.png)
 

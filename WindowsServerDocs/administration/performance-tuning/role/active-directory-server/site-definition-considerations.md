@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ba3c9e8792b425fd24d01ab997a5f7c2ac573814
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 66c6f94f1f3fee924ba0d9a3bfa0c712d62bb095
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370249"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947100"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Positionnement approprié des contrôleurs de domaine et des considérations sur les sites
 
@@ -34,7 +34,7 @@ Les références sont la manière dont les requêtes LDAP sont redirigées lorsq
 
 ## <a name="optimization-considerations-for-trusts"></a>Considérations relatives à l’optimisation pour les approbations
 
-Dans un scénario intra-forêts, les approbations sont traitées en fonction de la hiérarchie de domaine suivante : Domaine enfant-&gt; enfant domaine-&gt; forêt domaine racine-&gt; domaine enfant-&gt; domaine enfant. Cela signifie que les canaux sécurisés au niveau de la racine de la forêt, et de chaque parent, peuvent être surchargés en raison de l’agrégation des demandes d’authentification qui transitent par les contrôleurs de l’utilisateur dans la hiérarchie d’approbation. Cela peut également entraîner des retards dans les répertoires actifs de la grande dispersion géographique lorsque l’authentification doit également transiter des liaisons très latentes pour affecter le processus ci-dessus. Des surcharges peuvent se produire dans des scénarios d’approbation de niveau inter-forêts et de niveau supérieur. Les recommandations suivantes s’appliquent à tous les scénarios :
+Dans un scénario intra-forêts, les approbations sont traitées en fonction de la hiérarchie de domaine suivante : domaine racine-enfant&gt; domaine racine&gt; domaine racine de la forêt-&gt; domaine enfant&gt; domaine enfant. Cela signifie que les canaux sécurisés au niveau de la racine de la forêt, et de chaque parent, peuvent être surchargés en raison de l’agrégation des demandes d’authentification qui transitent par les contrôleurs de l’utilisateur dans la hiérarchie d’approbation. Cela peut également entraîner des retards dans les répertoires actifs de la grande dispersion géographique lorsque l’authentification doit également transiter des liaisons très latentes pour affecter le processus ci-dessus. Des surcharges peuvent se produire dans des scénarios d’approbation de niveau inter-forêts et de niveau supérieur. Les recommandations suivantes s’appliquent à tous les scénarios :
 
 -   Réglez correctement les MaxConcurrentAPI pour prendre en charge la charge sur le canal sécurisé. Pour plus d’informations, consultez [Comment effectuer le réglage des performances pour l’authentification NTLM à l’aide du paramètre MaxConcurrentApi](https://support.microsoft.com/kb/2688798/EN-US).
 
@@ -58,7 +58,7 @@ Les scénarios d’approbation inter-domaines sont une zone qui a été constamm
 
     -   Pour plus d’informations sur le fonctionnement de du localisateur, consultez [recherche d’un contrôleur de domaine sur le site le plus proche](https://technet.microsoft.com/library/cc978016.aspx).
 
-    -   Convergez les noms de site entre les domaines de confiance et d’approbation pour refléter le contrôleur de domaine dans le même emplacement. Vérifiez que les mappages d’adresses IP et de sous-réseau sont correctement liés aux sites dans les deux forêts. Pour plus d’informations, consultez [localisateur de domaine dans une approbation de forêt](http://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx).
+    -   Convergez les noms de site entre les domaines de confiance et d’approbation pour refléter le contrôleur de domaine dans le même emplacement. Vérifiez que les mappages d’adresses IP et de sous-réseau sont correctement liés aux sites dans les deux forêts. Pour plus d’informations, consultez [localisateur de domaine dans une approbation de forêt](https://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx).
 
     -   Vérifiez que les ports sont ouverts, en fonction des besoins du localisateur, pour l’emplacement du contrôleur de domaine. S’il existe des pare-feu entre les domaines, assurez-vous que les pare-feu sont correctement configurés pour toutes les approbations. Si les pare-feu ne sont pas ouverts, le contrôleur de domaine d’approbation tente toujours d’accéder au domaine approuvé. Si la communication échoue pour une raison quelconque, le contrôleur de domaine d’approbation finit par expirer la requête auprès du contrôleur de domaine approuvé. Toutefois, ces délais peuvent durer plusieurs secondes par demande et peuvent épuiser les ports réseau sur le contrôleur de domaine autorisé à approuver si le volume de demandes entrantes est élevé. Le client peut rencontrer les attentes de délai d’attente sur le contrôleur de domaine en tant que threads bloqués, ce qui peut se traduire par des applications bloquées (si l’application exécute la demande dans le thread de premier plan). Pour plus d’informations, consultez [Comment configurer un pare-feu pour les domaines et les approbations](https://support.microsoft.com/kb/179442).
 
@@ -76,7 +76,7 @@ Pour tous les scénarios d’approbation, les informations d’identification so
 
 -   Désactivez le passage des demandes d’authentification avec un domaine NULL spécifié dans toutes les approbations disponibles. [Le processus Lsass. exe peut cesser de répondre si vous avez de nombreuses approbations externes sur un contrôleur de domaine Active Directory](https://support.microsoft.com/kb/923241/EN-US)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 - [Réglage des performances Active Directory serveurs](index.md)
 - [Considérations matérielles](hardware-considerations.md)
 - [Considérations relatives au protocole LDAP](ldap-considerations.md)

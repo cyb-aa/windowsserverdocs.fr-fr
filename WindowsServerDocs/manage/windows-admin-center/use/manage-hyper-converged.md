@@ -8,16 +8,16 @@ ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: d692251e1ba0fef43e4eeee6f259f26f4347f3c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6795464bfbadd12fc220e941ad2175eb83d0f050
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356877"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949946"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Gérer l’infrastructure hyper-convergée avec le centre d’administration Windows
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 ## <a name="what-is-hyper-converged-infrastructure"></a>Qu’est-ce que l’infrastructure hyper-convergée ?
 
@@ -27,11 +27,11 @@ L’infrastructure hyper-convergée consolide le calcul, le stockage et la mise 
 > Vous cherchez à acquérir une infrastructure hyper-convergée ? Microsoft recommande ces solutions [définies par le logiciel Windows Server](https://microsoft.com/wssd) auprès de nos partenaires. Elles sont conçues, assemblées et validées par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, ce qui vous permet d’être rapidement opérationnel.
 
 > [!IMPORTANT]
-> Certaines des fonctionnalités décrites dans cet article sont disponibles uniquement dans la version préliminaire du centre d’administration Windows. [Comment faire récupérer cette version ?](http://aka.ms/windowsadmincenter)
+> Certaines des fonctionnalités décrites dans cet article sont disponibles uniquement dans la version préliminaire du centre d’administration Windows. [Comment faire récupérer cette version ?](https://aka.ms/windowsadmincenter)
 
-## <a name="what-is-windows-admin-center"></a>Qu'est-ce que Windows Admin Center ?
+## <a name="what-is-windows-admin-center"></a>Qu’est-ce que Windows Admin Center ?
 
-Le [Centre d’administration Windows](../understand/windows-admin-center.md) est l’outil de gestion de nouvelle génération pour Windows Server, le successeur des outils « intégrés » traditionnels comme gestionnaire de serveur. Il est gratuit et peut être installé et utilisé sans connexion Internet. Vous pouvez utiliser le centre d’administration Windows pour gérer et surveiller l’infrastructure hyper-convergée exécutant Windows Server 2016 ou Windows Server 2019.
+Le [Centre d’administration Windows](../overview.md) est l’outil de gestion de nouvelle génération pour Windows Server, le successeur des outils « intégrés » traditionnels comme gestionnaire de serveur. Il est gratuit et peut être installé et utilisé sans connexion Internet. Vous pouvez utiliser le centre d’administration Windows pour gérer et surveiller l’infrastructure hyper-convergée exécutant Windows Server 2016 ou Windows Server 2019.
 
 ![Tableau de bord du cluster hyper-convergé](../media/manage-hyper-converged/hci-dashboard-v1809.png)
 
@@ -57,7 +57,7 @@ Pour gérer votre cluster en tant qu’infrastructure hyper-convergée dans le c
 
 Le centre d’administration Windows pour l’infrastructure convergée hyper-convergé dépend des API de gestion ajoutées après la sortie de Windows Server 2016. Avant de pouvoir gérer votre cluster Windows Server 2016 avec le centre d’administration Windows, vous devez effectuer les deux étapes suivantes :
 
-1. Vérifiez que chaque serveur du cluster a installé la [mise à jour Cumulative 2018-05 pour Windows server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723) ou version ultérieure. Pour télécharger et installer cette mise à jour, accédez à **paramètres** > **mettre à jour & sécurité** > **Windows Update** et sélectionnez **Rechercher en ligne les mises à jour à partir de Microsoft Update**.
+1. Vérifiez que chaque serveur du cluster a installé la [mise à jour Cumulative 2018-05 pour Windows server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723) ou version ultérieure. Pour télécharger et installer cette mise à jour, accédez à **paramètres** > **mettre à jour & sécurité** > **Windows Update** et sélectionnez **Rechercher les mises à jour en ligne à partir de Microsoft Update**.
 2. Exécutez l’applet de commande PowerShell suivante en tant qu’administrateur sur le cluster :
 
 ```powershell
@@ -76,7 +76,7 @@ Si votre cluster exécute Windows Server 2019, les étapes ci-dessus ne sont pas
 Vous pouvez configurer votre infrastructure hyper-convergée exécutant Windows Server 2016 ou 2019 pour utiliser SDN (Software Defined Networking) en procédant comme suit :
 
 1. Préparez le disque dur virtuel du système d’exploitation qui est le même que celui que vous avez installé sur les hôtes de l’infrastructure hyper-convergée. Ce disque dur virtuel sera utilisé pour toutes les machines virtuelles NC/SLB/GW.
-2. Téléchargez tous les dossiers et fichiers sous SDN Express à [https://github.com/Microsoft/SDN/tree/master/SDNExpress](https://github.com/Microsoft/SDN/tree/master/SDNExpress)partir de.
+2. Téléchargez tous les dossiers et fichiers sous SDN Express à partir [https://github.com/Microsoft/SDN/tree/master/SDNExpress](https://github.com/Microsoft/SDN/tree/master/SDNExpress).
 3. Préparez une autre machine virtuelle à l’aide de la console de déploiement. Cette machine virtuelle doit être en mesure d’accéder aux hôtes SDN. En outre, l’outil Hyper-V de la machine virtuelle doit être installé.
 4. Copiez tous les éléments que vous avez téléchargés pour SDN Express sur la machine virtuelle de la console de déploiement. Et partagez ce dossier **SDNExpress** . Assurez-vous que chaque hôte peut accéder au dossier partagé **SDNExpress** , comme défini dans le fichier de configuration ligne 8 :
    ```
@@ -147,15 +147,15 @@ En général, le terme « hyper-convergé » fait référence à l’exécutio
 
 - La **connexion de cluster de basculement** est le successeur de l’application de bureau gestionnaire du cluster de basculement. Il offre une expérience de gestion familière et à usage général pour tous les clusters prenant en charge n’importe quelle charge de travail, y compris Microsoft SQL Server. Elle est disponible pour Windows Server 2012 et versions ultérieures.
 
-- La **connexion au cluster hyper-convergé** est une expérience entièrement nouvelle et adaptée à espaces de stockage direct et Hyper-V. Il comprend le Tableau de bord et met en évidence les graphiques et les alertes de surveillance. Elle est disponible pour Windows Server 2016 et Windows Server 2019.
+- La **connexion au cluster hyper-convergé** est une expérience entièrement nouvelle et adaptée à espaces de stockage direct et Hyper-V. Il comprend le Tableau de bord et met en évidence les graphiques et les alertes de supervision. Elle est disponible pour Windows Server 2016 et Windows Server 2019.
 
 ### <a name="why-do-i-need-the-latest-cumulative-update-for-windows-server-2016"></a>Pourquoi ai-je besoin de la dernière mise à jour cumulative pour Windows Server 2016 ?
 
 Le centre d’administration Windows pour l’infrastructure convergée hyper-convergé dépend des API de gestion développées depuis la sortie de Windows Server 2016. Ces API sont ajoutées à la [mise à jour Cumulative 2018-05 pour Windows Server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723), disponible à partir du 8 mai 2018.
 
-### <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>Combien coûte l'utilisation de Windows Admin Center ?
+### <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>Combien coûte l’utilisation de Windows Admin Center ?
 
-Windows Admin Center ne donne lieu à aucun frais supplémentaire par rapport à Windows.
+Windows Admin Center n’engendre aucuns frais supplémentaires autres que Windows.
 
 Vous pouvez utiliser Windows Admin Center (disponible en téléchargement distinct) avec des licences valides de Windows Server ou Windows 10 sans coût supplémentaire : il est fourni sous licence dans un avenant au contrat CLUF de Windows.
 
@@ -169,7 +169,7 @@ Non.
 
 Bien que le centre d’administration Windows offre une intégration puissante et pratique au Cloud Microsoft Azure, l’expérience de gestion et de surveillance principale de l’infrastructure convergée est entièrement locale. Il peut être installé et utilisé sans connexion Internet.
 
-## <a name="things-to-try"></a>Éléments à essayer
+## <a name="things-to-try"></a>Solutions possibles
 
 Si vous êtes débutant, voici quelques didacticiels rapides pour vous aider à découvrir comment le centre d’administration Windows pour l’infrastructure convergée est organisé et fonctionne. N’hésitez pas à nous faire preuve d’un bon jugement et soyez vigilant avec les environnements de production. Ces vidéos ont été enregistrées avec le centre d’administration Windows version 1804 et une version préliminaire Insider de Windows Server 2019.
 
@@ -191,7 +191,7 @@ Si vous êtes débutant, voici quelques didacticiels rapides pour vous aider à 
             <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/o66etKq70N8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
         <td style="padding: 5px; border: 0;">
-            <strong>Créer un volume, parité avec accélération miroir</strong>
+            <strong>Créer un volume, parité à accélération miroir</strong>
             <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/R72QHudqWpE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
     </tr>
@@ -207,8 +207,8 @@ Si vous êtes débutant, voici quelques didacticiels rapides pour vous aider à 
     </tr>
     <tr style="border: 0;">
         <td style="padding: 5px; border: 0;">
-            <strong>Développer le volume</strong>
-            <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/hqyBzipBoTI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+            <strong>Développer</strong> le
+             du volume<iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/hqyBzipBoTI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
         <td style="padding: 5px; border: 0;">
             <strong>Supprimer le volume</strong>
@@ -217,17 +217,17 @@ Si vous êtes débutant, voici quelques didacticiels rapides pour vous aider à 
     </tr>
 </table>
 
-### <a name="create-a-new-virtual-machine"></a>Créer une machine virtuelle
+### <a name="create-a-new-virtual-machine"></a>Créer un ordinateur virtuel
 
 1. Cliquez sur l’outil **machines virtuelles** dans le volet de navigation de gauche.
 2. En haut de l’outil machines virtuelles, choisissez l’onglet **inventaire** , puis cliquez sur **nouveau** pour créer un nouvel ordinateur virtuel.
 3. Entrez le nom de l’ordinateur virtuel et choisissez entre les ordinateurs virtuels de génération 1 et 2.
 4. Conviviale peut ensuite choisir l’hôte sur lequel la machine virtuelle doit être créée initialement ou utiliser l’hôte recommandé.
-5. Choisissez un chemin d’accès pour les fichiers de l’ordinateur virtuel. Choisissez un volume dans la liste déroulante ou cliquez sur **Parcourir** pour choisir un dossier à l’aide du sélecteur de dossiers. Les fichiers de configuration d’ordinateur virtuel et le fichier de disque dur virtuel sont enregistrés dans un dossier `\Hyper-V\[virtual machine name]` unique sous le chemin d’accès du volume ou du chemin d’accès sélectionné.
+5. Choisissez un chemin d’accès pour les fichiers de l’ordinateur virtuel. Choisissez un volume dans la liste déroulante ou cliquez sur **Parcourir** pour choisir un dossier à l’aide du sélecteur de dossiers. Les fichiers de configuration d’ordinateur virtuel et le fichier de disque dur virtuel sont enregistrés dans un dossier unique sous le chemin d’accès `\Hyper-V\[virtual machine name]` du volume ou du chemin d’accès sélectionné.
 6. Choisissez le nombre de processeurs virtuels, si vous souhaitez activer la virtualisation imbriquée, configurez les paramètres de mémoire, les cartes réseau, les disques durs virtuels et indiquez si vous souhaitez installer un système d’exploitation à partir d’un fichier image. ISO ou du réseau.
 7. Cliquez sur **Créer** pour créer l’ordinateur virtuel.
 8. Une fois que l’ordinateur virtuel est créé et apparaît dans la liste des machines virtuelles, vous pouvez démarrer l’ordinateur virtuel.
-9. Une fois la machine virtuelle démarrée, vous pouvez vous connecter à la console de la machine virtuelle via VMConnect pour installer le système d’exploitation. Sélectionnez la machine virtuelle dans la liste **, puis cliquez** > sur**se connecter** pour télécharger le fichier. RDP. Ouvrez le fichier. RDP dans l’application Connexion Bureau à distance. Dans la mesure où il se connecte à la console de la machine virtuelle, vous devrez entrer les informations d’identification d’administrateur de l’hôte Hyper-V.
+9. Une fois la machine virtuelle démarrée, vous pouvez vous connecter à la console de la machine virtuelle via VMConnect pour installer le système d’exploitation. Sélectionnez l’ordinateur virtuel dans la liste, cliquez sur **plus** > **se connecter** pour télécharger le fichier. RDP. Ouvrez le fichier. RDP dans l’application Connexion Bureau à distance. Dans la mesure où il se connecte à la console de la machine virtuelle, vous devrez entrer les informations d’identification d’administrateur de l’hôte Hyper-V.
 
 [En savoir plus sur la gestion des machines virtuelles avec le centre d’administration Windows](manage-virtual-machines.md).
 
@@ -259,7 +259,7 @@ Si vous êtes débutant, voici quelques didacticiels rapides pour vous aider à 
 2. Cliquez sur **nouveau** pour créer un réseau virtuel et des sous-réseaux, ou choisissez un réseau virtuel existant, puis cliquez sur **paramètres** pour modifier sa configuration.
 3. Cliquez sur un réseau virtuel existant pour afficher les connexions de machines virtuelles aux sous-réseaux du réseau virtuel et les listes de contrôle d’accès appliquées aux sous-réseaux du réseau virtuel.
 
-![Gérer les réseaux virtuels](../media/manage-hyper-converged/manage-virtual-networks.png)
+![Gérer des réseaux virtuels](../media/manage-hyper-converged/manage-virtual-networks.png)
 
 ### <a name="connect-a-virtual-machine-to-a-virtual-network-sdn-enabled-hci-clusters-using-windows-admin-center-preview"></a>Connecter un ordinateur virtuel à un réseau virtuel (clusters HCI compatibles SDN à l’aide de la version préliminaire du centre d’administration Windows)
 
@@ -278,17 +278,17 @@ Vous pouvez également configurer le réseau virtuel lors de la création d’un
 
 ![Surveiller l’infrastructure SDN](../media/manage-hyper-converged/sdn-monitoring.png)
 
-## <a name="feedback"></a>Commentaires
+## <a name="feedback"></a>Retour d’expérience
 
 Il s’agit de vos commentaires ! L’avantage le plus important des mises à jour fréquentes est d’apprendre ce qui fonctionne et ce qui doit être amélioré. Voici quelques façons de nous dire ce que vous pensez :
 
 - [Envoyer et voter pour les demandes de fonctionnalités sur UserVoice](https://windowsserver.uservoice.com/forums/295071/category/319162?query=%5Bhci%5D)
 - [Rejoignez le Forum du centre d’administration Windows sur la communauté Microsoft Tech](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
-- Tweet à`@servermgmt`
+- Tweet à `@servermgmt`
 
-### <a name="see-also"></a>Voir aussi
+### <a name="see-also"></a>Articles associés
 
-- [Windows Admin Center](../understand/windows-admin-center.md)
-- [Espaces de stockage direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+- [Windows Admin Center](../overview.md)
+- [Espaces de stockage directs](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
 - [Mise en réseau SDN (Software Defined Networking)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)

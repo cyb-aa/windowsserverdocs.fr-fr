@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 20bc60abc747e6bab0ef59f38d0a392f18d75abe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0646922f409d4ea8abb85c927a329013e32016de
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379377"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947584"
 ---
 # <a name="cleanmgr"></a>Cleanmgr
 
@@ -33,7 +33,7 @@ cleanmgr [/d <driveletter>] [/sageset:n]  [/sagerun:n] [/TUNEUP:n] [/LOWDISK] [/
 
 |      Paramètre      |    Description     |
 | ------------------- | ------------------ |
-|  /d \<driveletter >          | Spécifie le lecteur dont vous souhaitez nettoyer le nettoyage de disque.<br>**Remarque :** L’option/d n’est pas utilisée avec/sagerun : n. |
+|  /d \<lettre_lecteur >          | Spécifie le lecteur dont vous souhaitez nettoyer le nettoyage de disque.<br>**Remarque :** L’option/d n’est pas utilisée avec/sagerun : n. |
 | /sageset : n | Affiche la boîte de dialogue Paramètres de nettoyage de disque et crée également une clé de Registre pour stocker les paramètres que vous sélectionnez. La valeur `n`, qui est stockée dans le registre, vous permet de spécifier les tâches à exécuter pour l’exécution du nettoyage de disque. La valeur `n` peut être toute valeur entière comprise entre 0 et 65535. Pour que toutes les options soient disponibles lorsque vous utilisez l’option/sageset, spécifiez le lecteur sur lequel Windows est installé.  |
 |  /sagerun : n  |  Exécute les tâches spécifiées qui sont assignées à la valeur n Si vous utilisez l’option \sageset. Tous les lecteurs de l’ordinateur sont énumérés et le profil sélectionné s’exécute sur chaque lecteur.           |
 | /TUNEUP : n    | Exécutez/sageset et/sagerun pour le même `n`. |
@@ -61,7 +61,7 @@ Les options pour les fichiers que vous pouvez spécifier pour le nettoyage de di
 
 - **Fichiers hors connexion** -les fichiers hors connexion sont des copies locales de fichiers réseau que vous souhaitez utiliser en mode hors connexion afin de pouvoir les utiliser une fois que vous vous êtes déconnecté du réseau. Un bouton afficher les fichiers ouvre le dossier Fichiers hors connexion.
 
-- **Compresser les anciens fichiers** -Windows peut compresser les fichiers que vous n’avez pas utilisés récemment. La compression de fichiers économise de l’espace disque, mais vous pouvez toujours utiliser les fichiers. Aucun fichier n’est supprimé. Étant donné que les fichiers sont compressés à des taux différents, la quantité d’espace disque que vous obtiendrez est approximative. Un bouton Options vous permet de spécifier le nombre de jours à attendre avant que le nettoyage de disque compresse un fichier inutilisé.
+- **Compresser les anciens fichiers** -Windows peut compresser les fichiers que vous n’avez pas utilisés récemment. La compression de fichiers économise de l’espace disque, mais vous pouvez toujours utiliser les fichiers. Aucun fichier n'est supprimé. Étant donné que les fichiers sont compressés à des taux différents, la quantité d’espace disque que vous obtiendrez est approximative. Un bouton Options vous permet de spécifier le nombre de jours à attendre avant que le nettoyage de disque compresse un fichier inutilisé.
 
 - **Fichiers de catalogue pour l’indexeur de contenu** : le service d’indexation accélère et améliore les recherches de fichiers en conservant un index des fichiers qui se trouvent sur le disque. Ces fichiers de catalogue sont conservés à partir d’une opération d’indexation précédente et peuvent être supprimés en toute sécurité. **Remarque :** Un fichier catalogue peut apparaître dans plusieurs lecteurs, par exemple, pas seulement dans% SystemRoot%.
 
@@ -89,4 +89,4 @@ cleanmgr /tuneup:1
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[Libérer de l’espace sur le lecteur Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
+[Libérer de l’espace sur le lecteur Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)

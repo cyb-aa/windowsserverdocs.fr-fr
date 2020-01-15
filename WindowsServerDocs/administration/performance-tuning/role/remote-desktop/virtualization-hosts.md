@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: dbdf211138ddcd553171f3c8ce9c2e915ccf0057
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 1b66f6404df5debee2a4c52ffc9166c8eabb9f81
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812272"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947126"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Réglage des performances Bureau à distance les hôtes de virtualisation
 
@@ -20,7 +20,7 @@ Serveur hôte de virtualisation des services Bureau à distance (ordinateur hôt
 
 Windows Server prend en charge deux types de bureaux virtuels : les bureaux virtuels personnels et les bureaux virtuels mis en pool.
 
-## <a name="general-considerations"></a>Considérations générales
+## <a name="general-considerations"></a>Observations générales
 
 ### <a name="storage"></a>Stockage
 
@@ -41,7 +41,7 @@ Enable-DedupVolume <volume> -UsageType HyperV
 > [!NOTE]
 > L’optimisation de la déduplication des données des fichiers ouverts est prise en charge uniquement pour les scénarios VDI avec Hyper-V utilisant un stockage distant sur SMB 3,0.
 
-### <a name="memory"></a>Mémoire
+### <a name="memory"></a>Memory
 
 L’utilisation de la mémoire du serveur est motivée par trois facteurs principaux :
 
@@ -81,7 +81,7 @@ Cette configuration de déploiement garantit des performances rentables lorsque 
 
 ### <a name="csv-cache"></a>Cache de volume partagé de cluster
 
-Le clustering de basculement dans Windows Server 2012 et versions ultérieures fournit la mise en cache sur les volumes partagés de cluster (CSV). Cela est extrêmement bénéfique pour les collections de bureaux virtuels mis en pool où la majorité des e/s de lecture proviennent du système d’exploitation de gestion. Le cache de volume partagé de cluster fournit des performances supérieures par plusieurs ordres de grandeur, car il met en cache des blocs qui sont lus plusieurs fois et les remet à partir de la mémoire système, ce qui réduit les e/s. Pour plus d’informations sur le cache de volume partagé de cluster, consultez [la rubrique activation du cache de](http://blogs.msdn.com/b/clustering/archive/2012/03/22/10286676.aspx)volume partagé de cluster.
+Le clustering de basculement dans Windows Server 2012 et versions ultérieures fournit la mise en cache sur les volumes partagés de cluster (CSV). Cela est extrêmement bénéfique pour les collections de bureaux virtuels mis en pool où la majorité des e/s de lecture proviennent du système d’exploitation de gestion. Le cache de volume partagé de cluster fournit des performances supérieures par plusieurs ordres de grandeur, car il met en cache des blocs qui sont lus plusieurs fois et les remet à partir de la mémoire système, ce qui réduit les e/s. Pour plus d’informations sur le cache de volume partagé de cluster, consultez [la rubrique activation du cache de](https://blogs.msdn.com/b/clustering/archive/2012/03/22/10286676.aspx)volume partagé de cluster.
 
 ### <a name="pooled-virtual-desktops"></a>Bureaux virtuels mis en pool
 
@@ -106,7 +106,7 @@ Chaque service spécifique doit être évalué de manière appropriée avant tou
 | Partage de connexion Internet                  | Service centré sur les consommateurs                                                                                                                                                                                  |
 | Services étendus Media Center               | Service centré sur les consommateurs                                                                                                                                                                                  |
 > [!NOTE]
-> Cette liste n’est pas censée être une liste complète, car toutes les modifications affectent les objectifs et les scénarios prévus. Pour plus d’informations, reportez-vous aux [pressages, obtenez-le maintenant, le script d’optimisation de l’infrastructure VDI de Windows 8, avec l’aimable autorisation ingénieurs PFE !](http://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
+> Cette liste n’est pas censée être une liste complète, car toutes les modifications affectent les objectifs et les scénarios prévus. Pour plus d’informations, reportez-vous aux [pressages, obtenez-le maintenant, le script d’optimisation de l’infrastructure VDI de Windows 8, avec l’aimable autorisation ingénieurs PFE !](https://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
 
 
 > [!NOTE]

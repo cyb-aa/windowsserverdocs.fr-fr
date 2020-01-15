@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: daveba
 ms.author: jgerend
-ms.date: 03/08/2019
+ms.date: 01/07/2020
 description: Nouvelles rubriques et rubriques mises à jour dans la documentation sur le clustering de basculement pour Windows Server 2016
-ms.openlocfilehash: 501ad8f63eafdeadffcf5d67646c9e85005cf329
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b29a1dd979dc5ab14684a83e549ce3e6b3c273f1
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361212"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953042"
 ---
 # <a name="change-history-for-failover-clustering-topics"></a>Historique des modifications des rubriques sur le clustering de basculement
 
@@ -24,7 +24,13 @@ Cette rubrique répertorie les nouvelles rubriques et les rubriques mises à jou
 
 > Si vous recherchez l’historique des mises à jour pour Windows Server 2016, voir [Historique des mises à jour de Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
-## <a name="march-2019"></a>2019 mars
+## <a name="january-2020"></a>Janvier 2020
+
+|Rubrique nouvelle ou modifiée                                    |Description |
+|--------------------------------------------------------|------------|
+|[Événements de cluster](system-events.md)| Nouveau     |
+
+## <a name="march-2019"></a>Mars 2019
 
 |Rubrique nouvelle ou modifiée                                    |Description |
 |--------------------------------------------------------|------------|
@@ -37,7 +43,7 @@ Cette rubrique répertorie les nouvelles rubriques et les rubriques mises à jou
 | [Mettre à jour un cluster de basculement sur le même matériel](upgrade-option-same-hardware.md)| Nouveau |
 |[Déployer un serveur de fichiers à deux nœuds](deploy-two-node-clustered-file-server.md)| Nouveau |
 
-## <a name="january-2019"></a>2019 janvier
+## <a name="january-2019"></a>Janvier 2019
 
 |Rubrique nouvelle ou modifiée                                    |Description |
 |--------------------------------------------------------|------------|
@@ -56,7 +62,7 @@ Cette rubrique répertorie les nouvelles rubriques et les rubriques mises à jou
 |---|---|
 |[Nouveautés du clustering](whats-new-in-failover-clustering.md)| Mises à jour pour Windows Server 2019|
 
-## <a name="june-2018"></a>2018 juin
+## <a name="june-2018"></a>Juin 2018
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
@@ -103,7 +109,7 @@ Cette rubrique répertorie les nouvelles rubriques et les rubriques mises à jou
 |---|---|
 |[Déployer un témoin de Cloud pour un cluster de basculement](deploy-cloud-witness.md)| Captures d’écran mises à jour pour mettre en correspondance les modifications apportées aux Microsoft Azure.|
 
-## <a name="february-2017"></a>Février 2017
+## <a name="february-2017"></a>Février 2017
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|

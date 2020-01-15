@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5449c9e96a5a9ecd08ca35e703a76927f4e27158
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9f611f61150508d9170a6fe6757844bc29759886
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356014"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950472"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Utiliser une stratégie DNS pour le déploiement du serveur DNS de fractionnement\-Brain
 
@@ -36,7 +36,7 @@ Cette rubrique contient les sections suivantes.
 ## <a name="bkmk_sbexample"></a>Exemple de déploiement de fractionnement DNS
 Vous trouverez ci-dessous un exemple de la façon dont vous pouvez utiliser la stratégie DNS pour accomplir le scénario décrit précédemment du DNS split-brain.
 
-Cette section contient les rubriques suivantes :
+Cette section contient les rubriques suivantes.
 
 - [Fonctionnement du déploiement de fractionnement DNS](#bkmk_sbhow)
 - [Comment configurer un déploiement de fractionnement DNS](#bkmk_sbconfigure)
@@ -132,7 +132,7 @@ Pour plus d’informations, consultez [Add-DnsServerQueryResolutionPolicy](https
 
 Voici un exemple de la façon dont vous pouvez utiliser la stratégie DNS pour accomplir le scénario décrit précédemment du contrôle de récurrence sélective DNS.
 
-Cette section contient les rubriques suivantes :
+Cette section contient les rubriques suivantes.
 
 - [Fonctionnement du contrôle de récurrence sélective DNS](#bkmk_recursionhow)
 - [Comment configurer le contrôle de récurrence sélective DNS](#bkmk_recursionconfigure)
@@ -156,13 +156,13 @@ L’illustration suivante représente ce scénario.
 
 ### <a name="bkmk_recursionhow"></a>Fonctionnement du contrôle de récurrence sélective DNS
 
-Si une requête pour laquelle le serveur DNS contoso ne fait pas autorité est reçue, par exemple pour www.microsoft.com, la demande de résolution de nom est évaluée par rapport aux stratégies sur le serveur DNS. 
+Si une requête pour laquelle le serveur DNS contoso ne fait pas autorité est reçue, par exemple pour https://www.microsoft.com, la demande de résolution de nom est évaluée par rapport aux stratégies sur le serveur DNS. 
 
 Étant donné que ces requêtes ne sont pas classées dans une zone, les stratégies de niveau zone \(telles que définies dans l’exemple split-brain\) ne sont pas évaluées. 
 
 Le serveur DNS évalue les stratégies de récurrence, et les requêtes reçues sur l’interface privée correspondent à **SplitBrainRecursionPolicy**. Cette stratégie pointe vers une étendue de récurrence où la récursivité est activée.
 
-Le serveur DNS effectue ensuite la récursivité pour obtenir la réponse de www.microsoft.com à partir d’Internet et met en cache la réponse localement. 
+Le serveur DNS effectue ensuite la récursivité pour obtenir la réponse à https://www.microsoft.com à partir d’Internet et met en cache la réponse localement. 
 
 Si la requête est reçue sur l’interface externe, aucune stratégie DNS ne correspond et le paramètre de récursivité par défaut, qui est **désactivé** dans le cas présent, est appliqué.
 

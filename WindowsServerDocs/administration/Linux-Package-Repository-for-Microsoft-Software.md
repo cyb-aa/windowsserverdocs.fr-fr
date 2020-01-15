@@ -11,12 +11,12 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: szarkos
 ms.author: szark
 ms.date: 10/16/2017
-ms.openlocfilehash: 0627c38f15966948dd4bea91b66a96ee59ec89e5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e32c11dac1d887ba0ae0192bb658f71ece77a42c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370455"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947247"
 ---
 # <a name="linux-software-repository-for-microsoft-products"></a>Référentiel de logiciels Linux pour les produits Microsoft
 
@@ -27,10 +27,10 @@ Le référentiel de logiciels Linux de Microsoft est constitué de plusieurs sou
 
  - Prod : le sous-dépôt de production est désigné pour les packages destinés à être utilisés en production. Ces packages sont pris en charge par Microsoft conformément aux termes du contrat de support applicable ou du programme que vous avez avec Microsoft.
 
- - MSSQL-Server : ces référentiels contiennent des packages pour Microsoft SQL Server sur Linux-voir aussi : [SQL Server sur Linux](https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux).
+ - MSSQL-Server : ces référentiels contiennent des packages pour Microsoft SQL Server sur Linux-voir aussi : [SQL Server sur Linux](https://www.microsoft.com/sql-server/sql-server-vnext-including-Linux).
 
 > [!Note]
-> Les packages dans les référentiels de logiciels Linux sont soumis aux termes du contrat de licence figurant dans les packages. Veuillez lire les termes du contrat de licence avant d’utiliser le package. L’installation et l’utilisation du package constituent votre acceptation de ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
+> Les packages dans les référentiels de logiciels Linux sont soumis aux termes du contrat de licence figurant dans les packages. Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
 
 
 ## <a name="configuring-the-repositories"></a>Configuration des référentiels
@@ -91,13 +91,13 @@ Les fichiers de configuration du référentiel sont disponibles à partir de [pa
 
 **Clé de signature de package et de dépôt**
 
- - La clé publique GPG de Microsoft peut être téléchargée ici :[https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc)
- - ID de la clé publique : Microsoft (signature de version)<gpgsecurity@microsoft.com>
- - Empreinte digitale de la clé publique :`BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF`
+ - La clé publique GPG de Microsoft peut être téléchargée ici : [https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc)
+ - ID de clé publique : Microsoft (signature de version) <gpgsecurity@microsoft.com>
+ - Empreinte digitale de la clé publique : `BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF`
 
 ### <a name="examples"></a>Exemples :
 
- - RHEL/CentOS 7
+ - RHEL/CentOS 7
 
         # Install repository configuration
         curl https://packages.microsoft.com/config/rhel/7/prod.repo > ./microsoft-prod.repo

@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a38c984b2d81fc4db980a969ef0312109950b867
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: add11bf51570e3cafa2bd03ee3585de89f3eecab
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383001"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75946968"
 ---
 # <a name="get-started-with-software-inventory-logging"></a>Prise en main de la journalisation de l’inventaire logiciel
 
@@ -27,7 +27,7 @@ ms.locfileid: "71383001"
  La journalisation de l’inventaire logiciel collecte les données d’inventaire logiciel Microsoft sur une base par serveur. Avant d’utiliser la journalisation de l’inventaire logiciel avec Windows Server 2012 R2, assurez-vous que Windows Update [kb 3000850](https://support.microsoft.com/kb/3000850) et [KB 3060681](https://support.microsoft.com/kb/3060681) sont installés sur chaque système à inventorier. Aucune Windows Update n’est requise pour Windows Server 2016. En outre, si vous souhaitez utiliser la fonctionnalité de SIL pour transférer des données vers un serveur d’agrégation, assurez-vous que les certificats SSL sont valides pour votre réseau.
 
 ## <a name="BKMK_OVER"></a>Description de la fonctionnalité
-La journalisation de l’inventaire logiciel dans Windows Server est une fonctionnalité comprenant des applets de commande PowerShell qui permettant aux administrateurs de serveurs de récupérer la liste des logiciels qui sont installés sur ces derniers. De plus, elle collecte et transmet ces données régulièrement à un serveur web cible via le réseau, à l'aide du protocole HTTPS, à des fins d'agrégation. La gestion de cette fonctionnalité, principalement pour la collecte et le transfert quotidiens, est également assurée par des commandes PowerShell.
+La journalisation de l’inventaire logiciel dans Windows Server est une fonctionnalité comprenant des applets de commande PowerShell qui permettant aux administrateurs de serveurs de récupérer la liste des logiciels Microsoft qui sont installés sur ces derniers. De plus, elle collecte et transmet ces données régulièrement à un serveur web cible via le réseau, à l’aide du protocole HTTPS, à des fins d’agrégation. La gestion de cette fonctionnalité, principalement pour la collecte et le transfert quotidiens, est également assurée par des commandes PowerShell.
 
 > [!NOTE]
 > Un serveur d’agrégation exécutant un service web peut être configuré séparément. En savoir plus sur [Agrégateur de journalisation de l’inventaire logiciel](software-inventory-logging-aggregator.md).
@@ -44,10 +44,10 @@ La journalisation de l’inventaire logiciel peut aider les administrateurs des 
 
 -   Agrégation des informations d’inventaire logiciel et serveur pour un large éventail de scénarios de gestion des actifs logiciels en activant la fonctionnalité de journalisation de l’inventaire logiciel de chaque serveur et en choisissant un URI cible de serveur Web et une empreinte numérique de certificat pour l’authentification.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 [Agrégateur de journalisation de l’inventaire logiciel](https://technet.microsoft.com/library/mt572043.aspx)<br>
 [Gérer la journalisation de l’inventaire logiciel](manage-software-inventory-logging.md)<br>
 [Applets de commande de la journalisation de l’inventaire logiciel dans Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Outil de gestion de l’activation en volume de ](https://www.microsoft.com/download/en/details.aspx?id=7826)
-[Microsoft Assessment and Planning Toolkit](http://blogs.technet.com/b/volume-licensing/)
+[Microsoft Assessment and Planning Toolkit](https://blogs.technet.com/b/volume-licensing/)
 

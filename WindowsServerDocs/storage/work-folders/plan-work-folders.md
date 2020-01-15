@@ -9,16 +9,16 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: Comment planifier un déploiement de Dossiers de travail, y compris la configuration système requise et comment préparer votre environnement réseau.
-ms.openlocfilehash: e62cd61350299461d725c5d84209230ce1cc41a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bf5cbc5a365dec3d34dcaa2c3bd6d27ad4f267bc
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365744"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950206"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Planification d’un déploiement de Dossiers de travail
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
 Cette rubrique décrit le processus de conception d’une implémentation de Dossiers de travail et part du principe que vous disposez des connaissances suivantes :  
   
@@ -30,7 +30,7 @@ Cette rubrique décrit le processus de conception d’une implémentation de Dos
   
 - notions de base sur l’utilisation du certificat SSL ;  
   
-- notions de base sur l’activation de l’accès Web aux ressources internes via un proxy inverse Web.  
+- notions de base sur l’activation de l’accès web aux ressources internes via un proxy inverse web.  
   
   Les sections suivantes vont vous aider à concevoir votre implémentation de Dossiers de travail. Le déploiement de Dossiers de travail est abordé dans la rubrique suivante, [Déploiement de Dossiers de travail](deploy-work-folders.md).  
   
@@ -56,13 +56,13 @@ Pour permettre aux utilisateurs d’effectuer la synchronisation sur Internet, i
   
 -   (Facultatif) Une infrastructure des services de fédération Active Directory (AD FS) lors de l’utilisation de l’authentification AD FS  
   
-La fonctionnalité Dossiers de travail présente la configuration logicielle requise suivante pour les ordinateurs clients :  
+La fonctionnalité Dossiers de travail nécessite la configuration logicielle suivante pour les ordinateurs clients :  
   
 -   Les ordinateurs doivent exécuter l’un des systèmes d’exploitation suivants :  
   
     -   Windows 10  
   
-    -   Windows 8.1  
+    -   Windows 8.1  
   
     -   Windows RT 8.1  
   
@@ -78,7 +78,7 @@ La fonctionnalité Dossiers de travail présente la configuration logicielle req
   
     -   Windows 7 Édition Intégrale  
   
-    -   Windows 7 Entreprise  
+    -   Windows 7 Enterprise  
   
 -   Les PC Windows 7 doivent être joints au domaine de votre organisation (ils ne peuvent pas être joints à un groupe de travail).  
   
@@ -103,12 +103,12 @@ La fonctionnalité Dossiers de travail présente la configuration logicielle req
  Dans un déploiement sur plusieurs sites, les serveurs de fichiers sont hébergés à plusieurs emplacements dans l’infrastructure du client. Cela peut représenter plusieurs centres de données ou signifier que les succursales gèrent des serveurs de fichiers individuels. Ce type de déploiement est le plus souvent utilisé dans les environnements clients plus importants ou dans les clients qui disposent de plusieurs succursales de plus grande taille et qui gèrent les ressources du serveur locales. Ce modèle de déploiement est plus difficile à administrer pour le personnel informatique et repose sur une coordination minutieuse du stockage de données et de la maintenance des services de domaine Active Directory (AD DS) pour garantir que les utilisateurs emploient le serveur de synchronisation correct pour la fonctionnalité Dossiers de travail.  
   
 ### <a name="hosted-deployment"></a>Déploiement hébergé  
- Dans un déploiement hébergé, les serveurs de synchronisation sont déployés dans une solution IAAS (Infrastructure-as-a-Service) telle que Windows Azure VM. Cette méthode de déploiement présente l’avantage de rendre la disponibilité des serveurs de fichiers moins dépendante de la connectivité au réseau étendu (WAN) dans les activités du client. Si un appareil est en mesure de se connecter à Internet, il peut accéder à son serveur de synchronisation. Toutefois, les serveurs déployés dans l’environnement hébergé doivent quand même pouvoir atteindre le domaine Active Directory de l’organisation pour authentifier les utilisateurs. Quant au client, il échange une configuration requise de l’infrastructure sur site contre une gestion plus complexe de cette connexion.  
+ Dans un déploiement hébergé, les serveurs de synchronisation sont déployés dans une solution IAAS (Infrastructure-as-a-service), telle que Microsoft Azure VM. Cette méthode de déploiement présente l’avantage de rendre la disponibilité des serveurs de fichiers moins dépendante de la connectivité au réseau étendu (WAN) dans les activités du client. Si un appareil est en mesure de se connecter à Internet, il peut accéder à son serveur de synchronisation. Toutefois, les serveurs déployés dans l’environnement hébergé doivent quand même pouvoir atteindre le domaine Active Directory de l’organisation pour authentifier les utilisateurs. Quant au client, il échange une configuration requise de l’infrastructure sur site contre une gestion plus complexe de cette connexion.  
   
 ## <a name="deployment-technologies"></a>Technologies de déploiement  
- Les déploiements de Dossiers de travail comprennent plusieurs technologies qui fonctionnent ensemble pour offrir un service aux appareils à la fois sur les réseaux internes et externes. Avant de concevoir un déploiement de Dossiers de travail, les clients doivent connaître les exigences de chacune des technologies suivantes.  
+ Les déploiements de Dossiers de travail reposent sur plusieurs technologies qui fonctionnent ensemble pour offrir un service aux appareils à la fois sur les réseaux internes et externes. Avant de concevoir un déploiement de Dossiers de travail, les clients doivent connaître les exigences de chacune des technologies suivantes.  
   
-### <a name="active-directory-domain-services"></a>Services de domaine Active Directory  
+### <a name="active-directory-domain-services"></a>services de domaine Active Directory  
  Les services AD DS fournissent deux services importants dans un déploiement de Dossiers de travail. Tout d’abord, en tant que technologie principale pour l’authentification Windows, ils offrent les services de sécurité et d’authentification utilisés pour accorder l’accès aux données utilisateur. S’il est impossible d’atteindre un contrôleur de domaine, un serveur de fichiers ne pourra pas authentifier une demande entrante et l’appareil ne pourra accéder à aucune donnée stockée dans le partage de synchronisation de ce serveur de fichiers.  
   
  Ensuite, les services AD DS (avec la mise à jour de schéma Windows Server 2012 R2) gèrent l'attribut msDS-SyncServerURL sur chaque utilisateur, qui permet de diriger automatiquement les utilisateurs vers le serveur de synchronisation approprié.  
@@ -128,7 +128,7 @@ La fonctionnalité Dossiers de travail présente la configuration logicielle req
   Vous pouvez également utiliser une stratégie de groupe pour installer de force Dossiers de travail en fonction de l’utilisateur ou de l’ordinateur, bien que cette opération provoque la synchronisation de Dossiers de travail sur chaque PC auquel un utilisateur se connecte (lors de l’utilisation du paramètre de stratégie par utilisateur) et empêche les utilisateurs de spécifier un autre emplacement pour Dossiers de travail sur leur PC (tel qu’une carte microSD pour économiser l’espace sur le lecteur principal). Nous vous conseillons d’évaluer soigneusement les besoins de l’utilisateur avant de forcer l’installation automatique.  
   
 ### <a name="windows-intune"></a>Windows Intune  
- Windows Intune fournit également une couche de sécurité et une facilité de gestion pour les appareils n’appartenant pas à un domaine qui seraient autrement absents. Vous pouvez utiliser Windows Intune pour configurer et gérer les appareils personnels des utilisateurs, tels que les tablettes qui se connectent à Dossiers de travail depuis Internet. Windows Intune peut fournir des appareils avec l’URL du serveur de synchronisation à utiliser. dans le cas contraire, les utilisateurs doivent entrer leur adresse de messagerie professionnelle pour rechercher les paramètres (si vous publiez une URL de dossiers de travail publique sous la forme https://workfolders. <em>contoso.com</em>), ou entrez l’URL du serveur de synchronisation directement.  
+ Windows Intune fournit également une couche de sécurité et une facilité de gestion pour les appareils n’appartenant pas à un domaine qui seraient autrement absents. Vous pouvez utiliser Windows Intune pour configurer et gérer les appareils personnels des utilisateurs, tels que les tablettes qui se connectent à Dossiers de travail depuis Internet. Windows Intune peut fournir des appareils avec l’URL du serveur de synchronisation à utiliser. dans le cas contraire, les utilisateurs doivent entrer leur adresse de messagerie professionnelle pour rechercher les paramètres (si vous publiez une URL de dossiers de travail publique sous la forme d' https://workfolders. <em>contoso.com</em>), ou entrez l’URL du serveur de synchronisation directement.  
   
  Sans un déploiement Windows Intune, les utilisateurs doivent configurer manuellement des appareils externes, ce qui peut augmenter le nombre de demandes auprès du personnel du support technique d’un client.  
   
@@ -149,16 +149,16 @@ La fonctionnalité Dossiers de travail prend en charge l'utilisation du proxy d�
 ### <a name="number-of-sync-servers"></a>Nombre de serveurs de synchronisation  
  Il est possible pour un client de faire fonctionner plusieurs serveurs de synchronisation dans un environnement. Cette configuration peut être souhaitable pour plusieurs raisons :  
   
-- répartition géographique des utilisateurs : par exemple des serveurs de fichiers de succursales ou des centres de données régionaux ;  
+- répartition géographique des utilisateurs : par exemple, des serveurs de fichiers de succursales ou des centres de données régionaux ;  
   
 - besoins en matière de stockage des données : certains services de l’entreprise peuvent avoir des besoins spécifiques en matière de gestion ou de stockage des données qui sont plus simples à traiter avec un serveur dédié ;  
   
 - équilibrage de la charge : dans les environnements de grande taille, le stockage des données utilisateur sur plusieurs serveurs peut augmenter le temps d’activité et les performances des serveurs.  
   
-  Pour plus d’informations sur les performances et l’adaptation du serveur Dossiers de travail, voir [Considérations sur les performances pour les déploiements de Dossiers de travail](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
+  Pour plus d’informations sur les performances et l’adaptation du serveur Dossiers de travail, voir [Considérations sur les performances pour les déploiements de Dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
   
 > [!NOTE]
->  Lors de l’utilisation de plusieurs serveurs de synchronisation, il est conseillé de configurer la découverte automatique de serveurs pour les utilisateurs. Ce processus repose sur la configuration d’un attribut sur chaque compte d’utilisateur dans les services de domaine Active Directory. Cet attribut se nomme **msDS-SyncServerURL** et devient disponible sur les comptes d'utilisateurs après l'ajout d'un contrôleur de domaine Windows Server 2012 R2 au domaine ou l'application des mises à jour du schéma Active Directory. Cet attribut doit être défini pour chaque utilisateur afin de garantir que tous se connectent au serveur de synchronisation approprié. Grâce à la détection automatique de serveur, les organisations peuvent publier des dossiers de travail en arrière-plan d’une URL « conviviale » telle que *https://workfolders.contoso.com* , quel que soit le nombre de serveurs de synchronisation en fonctionnement.  
+>  Lors de l’utilisation de plusieurs serveurs de synchronisation, il est conseillé de configurer la découverte automatique de serveurs pour les utilisateurs. Ce processus repose sur la configuration d’un attribut sur chaque compte d’utilisateur dans les services de domaine Active Directory. Cet attribut se nomme **msDS-SyncServerURL** et devient disponible sur les comptes d'utilisateurs après l'ajout d'un contrôleur de domaine Windows Server 2012 R2 au domaine ou l'application des mises à jour du schéma Active Directory. Cet attribut doit être défini pour chaque utilisateur afin de garantir que tous se connectent au serveur de synchronisation approprié. Grâce à la détection automatique des serveurs, les organisations peuvent publier des dossiers de travail derrière une URL « conviviale » telle que *https://workfolders.contoso.com* , quel que soit le nombre de serveurs de synchronisation en fonctionnement.  
   
 ### <a name="number-of-sync-shares"></a>Nombre de partages de synchronisation  
  Des serveurs de synchronisation individuels peuvent gérer plusieurs partages de synchronisation. Cela peut s’avérer utile pour les raisons suivantes :  
@@ -183,7 +183,7 @@ En outre, l’accès au dossier d’un utilisateur au sein d’un partage de syn
   
 ## <a name="design-checklist"></a>Liste de vérification de la conception  
 
-L’ensemble de questions relatives à la conception suivant est conçu pour aider les clients lors de la conception d’une implémentation de Dossiers de travail la plus utile possible à leur environnement. Les clients doivent passer cette liste de vérification en revue avant de tenter de déployer des serveurs.  
+L’ensemble suivant de questions relatives à la conception est conçu pour aider les clients lors de la conception d’une implémentation de Dossiers de travail la plus utile possible à leur environnement. Les clients doivent passer cette liste de vérification en revue avant de tenter de déployer des serveurs.  
   
 -   Utilisateurs visés  
   
@@ -201,15 +201,15 @@ L’ensemble de questions relatives à la conception suivant est conçu pour aid
   
     -   Avez-vous besoin d’interagir avec d’autres solutions de gestion des données utilisateur, telles que la redirection de dossiers, ou de migrer à partir de ces solutions ?  
   
-    -   Est-ce que les utilisateurs de plusieurs domaines ont besoin d’effectuer la synchronisation sur Internet avec un seul serveur ?  
+    -   Est-ce que les utilisateurs de plusieurs domaines doivent effectuer la synchronisation sur Internet avec un seul serveur ?  
   
-    -   Devez-vous prendre en charge des utilisateurs qui ne sont pas membres du groupe Administrateurs local sur leurs PC appartenant à un domaine ? (Si tel est le cas, vous devez exclure les domaines pertinents des stratégies de périphériques de Dossiers de travail, par exemple les stratégies de chiffrement et de mot de passe.)  
+    -   Devez-vous prendre en charge des utilisateurs qui ne sont pas membres du groupe Administrateurs local sur leur PC appartenant à un domaine ? (Si tel est le cas, vous devez exclure les domaines pertinents des stratégies de périphériques de Dossiers de travail, par exemple les stratégies de chiffrement et de mot de passe.)  
   
 -   Infrastructure et planification de la capacité  
   
     -   Sur quels sites doivent être situés les serveurs de synchronisation sur le réseau ?  
   
-    -   Est-ce que l’un des serveurs de synchronisation sera hébergé par un fournisseur IAAS (Infrastructure-as-a-Service) comme dans Azure VM ?  
+    -   Est-ce que l’un des serveurs de synchronisation sera hébergé par un fournisseur IaaS (Infrastructure-as-a-service) comme dans Azure VM ?  
   
     -   Est-ce que des serveurs dédiés seront nécessaires pour des groupes d’utilisateurs spécifiques et, si oui, combien d’utilisateurs pour chaque serveur dédié ?  
   
@@ -225,7 +225,7 @@ L’ensemble de questions relatives à la conception suivant est conçu pour aid
   
     -   Quels groupes seront utilisés pour fournir l’accès aux partages de synchronisation ?  
   
-    -   Si vous utilisez plusieurs serveurs de synchronisation, quel groupe de sécurité allez-vous créer pour déléguer la capacité à modifier la propriété msDS-SyncServerURL des objets utilisateur ?  
+    -   Si vous utilisez plusieurs serveurs de synchronisation, quel groupe de sécurité allez-vous créer pour déléguer la possibilité de modifier la propriété msDS-SyncServerURL des objets utilisateur ?  
   
     -   Existe-t-il des exigences spéciales en matière d’audit ou de sécurité pour les partages de synchronisation individuels ?  
   
@@ -237,7 +237,7 @@ L’ensemble de questions relatives à la conception suivant est conçu pour aid
   
     -   Quelle URL sera utilisée pour fournir l’accès aux appareils basés sur Internet (*l’URL par défaut qui est requise pour la découverte automatique de serveurs basée sur le courrier électronique est workfolders.domainname*) ?  
   
-    -   Comment l’URL sera publiée sur Internet ?  
+    -   Comment l’URL sera-t-elle publiée sur Internet ?  
   
     -   Est-ce que la découverte automatique de serveurs sera utilisée ?  
   
@@ -250,10 +250,10 @@ L’ensemble de questions relatives à la conception suivant est conçu pour aid
 ## <a name="next-steps"></a>Étapes suivantes  
  Après la conception de votre implémentation de Dossiers de travail, l’heure est au déploiement. Pour plus d’informations, voir [Déploiement de Dossiers de travail](deploy-work-folders.md).  
   
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Articles associés  
  Pour plus d’informations connexes, voir les ressources suivantes.  
   
 |Type de contenu|Références|  
 |------------------|----------------|  
-|**Évaluation du produit**|-   [Dossiers de travail](work-folders-overview.md)<br />[dossiers de travail -    pour Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (billet de blog)|  
-|**Déploiement**|-   [Conception d’une implémentation de dossiers de travail](plan-work-folders.md)<br />-   [déploiement de dossiers de travail](deploy-work-folders.md)<br />-   [Déploiement de dossiers de travail avec AD FS et le proxy d’application Web (WAP)](deploy-work-folders-adfs-overview.md)<br />- [déploiement de dossiers de travail avec Azure ad proxy d’application](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />-   [Considérations sur les performances pour les déploiements de dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [dossiers de travail pour Windows 7 (téléchargement de 64 bits)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [dossiers de travail pour Windows 7 (téléchargement de 32 bits)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [Dossiers de travail déploiement laboratoire de test](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (billet de blog)|
+|**Évaluation du produit**|[dossiers de travail](work-folders-overview.md) -   <br />-   [dossiers de travail pour Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (billet de blog)|  
+|**Déploiement**|-   [de la conception d’une implémentation de dossiers de travail](plan-work-folders.md)<br />-   [déploiement de dossiers de travail](deploy-work-folders.md)<br />-   le [déploiement de dossiers de travail avec AD FS et le proxy d’application Web (WAP)](deploy-work-folders-adfs-overview.md)<br />- du [déploiement de dossiers de travail avec Azure ad proxy d’application](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />-   [Considérations sur les performances pour les déploiements de dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [dossiers de travail pour Windows 7 (téléchargement de 64 bits)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [dossiers de travail pour Windows 7 (téléchargement de 32 bits)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [dossiers de travail déploiement du laboratoire de test](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (billet de blog)|

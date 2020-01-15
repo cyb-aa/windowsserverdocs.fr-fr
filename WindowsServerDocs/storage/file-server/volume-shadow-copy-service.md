@@ -1,19 +1,19 @@
 ---
-title: Service VSS (page éventuellement en anglais)
+title: Service de cliché instantané de volume
 ms.date: 01/30/2019
 ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 19e07504dad49c5e23cc49630015529e2a746aa7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f2e8d3bfb5ef907ffb522b5b7be31d1def3001c8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394449"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949682"
 ---
-# <a name="volume-shadow-copy-service"></a>Service VSS (page éventuellement en anglais)
+# <a name="volume-shadow-copy-service"></a>Service de cliché instantané de volume
 
 S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2, Windows Server 2008, Windows 10, Windows 8.1, Windows 8, Windows 7
 
@@ -39,13 +39,13 @@ VSS coordonne les actions requises pour créer un cliché instantané cohérent 
 
 Les fonctionnalités Windows et les applications qui utilisent VSS sont les suivantes :
 
-  - [Sauvegarde Windows Server](http://go.microsoft.com/fwlink/?linkid=180891) (http://go.microsoft.com/fwlink/?LinkId=180891)  
+  - [Sauvegarde Windows Server](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkId=180891)  
       
-  - [Clichés instantanés de dossiers partagés](http://go.microsoft.com/fwlink/?linkid=142874) (http://go.microsoft.com/fwlink/?LinkId=142874)  
+  - [Clichés instantanés de dossiers partagés](https://go.microsoft.com/fwlink/?linkid=142874) (https://go.microsoft.com/fwlink/?LinkId=142874)  
       
-  - [Data Protection Manager de System Center](http://go.microsoft.com/fwlink/?linkid=180892) (http://go.microsoft.com/fwlink/?LinkId=180892)  
+  - [Data Protection Manager de System Center](https://go.microsoft.com/fwlink/?linkid=180892) (https://go.microsoft.com/fwlink/?LinkId=180892)  
       
-  - [Restauration du système](http://go.microsoft.com/fwlink/?linkid=180893) (http://go.microsoft.com/fwlink/?LinkId=180893)  
+  - [Restauration du système](https://go.microsoft.com/fwlink/?linkid=180893) (https://go.microsoft.com/fwlink/?LinkId=180893)  
       
 
 ## <a name="how-volume-shadow-copy-service-works"></a>Fonctionnement de Service VSS
@@ -227,7 +227,7 @@ Un fournisseur de clichés instantanés logiciel doit conserver une vue « ponc
 
 Un fournisseur de logiciels s’applique à un plus grand nombre de plates-formes de stockage qu’un fournisseur basé sur le matériel. il doit également fonctionner avec des disques de base ou des volumes logiques. (Un volume logique est un volume créé par la combinaison de l’espace libre de deux disques ou plus.) Contrairement aux clichés instantanés matériels, les fournisseurs de logiciels consomment des ressources de système d’exploitation pour maintenir le cliché instantané.
 
-Pour plus d’informations sur les disques de base, consultez [que sont les disques et les volumes de base ?](http://go.microsoft.com/fwlink/?linkid=180894) (http://go.microsoft.com/fwlink/?LinkId=180894) sur TechNet.
+Pour plus d’informations sur les disques de base, consultez [que sont les disques et les volumes de base ?](https://go.microsoft.com/fwlink/?linkid=180894) (https://go.microsoft.com/fwlink/?LinkId=180894) sur TechNet.
 
 ### <a name="system-provider"></a>Fournisseur système
 
@@ -247,11 +247,11 @@ Le système d’exploitation Windows comprend un ensemble de Writers VSS chargé
 
 Pour plus d’informations sur ces Writers, consultez les sites Web Microsoft suivants :
 
-  - [Enregistreurs VSS en boîte](http://go.microsoft.com/fwlink/?linkid=180895) (http://go.microsoft.com/fwlink/?LinkId=180895)  
+  - [Enregistreurs VSS en boîte](https://go.microsoft.com/fwlink/?linkid=180895) (https://go.microsoft.com/fwlink/?LinkId=180895)  
       
-  - [Nouveaux enregistreurs VSS en boîte pour Windows Server 2008 et Windows Vista SP1](http://go.microsoft.com/fwlink/?linkid=180896) (http://go.microsoft.com/fwlink/?LinkId=180896)  
+  - [Nouveaux enregistreurs VSS en boîte pour Windows Server 2008 et Windows Vista SP1](https://go.microsoft.com/fwlink/?linkid=180896) (https://go.microsoft.com/fwlink/?LinkId=180896)  
       
-  - [Nouveaux enregistreurs VSS en boîte pour Windows Server 2008 R2 et Windows 7](http://go.microsoft.com/fwlink/?linkid=180897) (http://go.microsoft.com/fwlink/?LinkId=180897)  
+  - [Nouveaux enregistreurs VSS en boîte pour Windows Server 2008 R2 et Windows 7](https://go.microsoft.com/fwlink/?linkid=180897) (https://go.microsoft.com/fwlink/?LinkId=180897)  
       
 
 ## <a name="how-shadow-copies-are-used"></a>Utilisation des clichés instantanés
@@ -298,7 +298,7 @@ La resynchronisation des numéros d’unités logiques diffère de l’échange 
 
 Clichés instantanés pour dossiers partagés utilise la Service VSS pour fournir des copies ponctuelles des fichiers situés sur une ressource réseau partagée, par exemple un serveur de fichiers. Avec clichés instantanés pour dossiers partagés, les utilisateurs peuvent récupérer rapidement des fichiers supprimés ou modifiés qui sont stockés sur le réseau. Dans la mesure où ils peuvent le faire sans l’aide de l’administrateur, clichés instantanés pour dossiers partagés peut augmenter la productivité et réduire les coûts d’administration.
 
-Pour plus d’informations sur clichés instantanés pour dossiers partagés, consultez [clichés instantanés pour dossiers partagés](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898)sur TechNet.
+Pour plus d’informations sur clichés instantanés pour dossiers partagés, consultez [clichés instantanés pour dossiers partagés](https://go.microsoft.com/fwlink/?linkid=180898) (https://go.microsoft.com/fwlink/?LinkId=180898) sur TechNet.
 
 ### <a name="data-mining-by-using-transportable-shadow-copies"></a>Exploration de données à l’aide des clichés instantanés transportables
 
@@ -328,9 +328,9 @@ Les clichés instantanés sont en lecture seule. Si vous souhaitez convertir un 
 
 Service VSS transport est une solution avancée sur les ordinateurs exécutant Windows Server 2003 Enterprise Edition, Windows Server 2003 Datacenter Edition, Windows Server 2008 ou Windows Server 2008 R2. Il fonctionne uniquement s’il existe un fournisseur de matériel sur le groupe de stockage. Le transport de clichés instantanés peut être utilisé à plusieurs fins, y compris les sauvegardes sur bande, l’exploration de données et le test.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
-Ce FAQ répond à des questions sur Service VSS (VSS) pour les administrateurs système. Pour plus d’informations sur les interfaces de programmation d’applications VSS, consultez [service VSS](http://go.microsoft.com/fwlink/?linkid=180899) (http://go.microsoft.com/fwlink/?LinkId=180899) dans la bibliothèque du centre de développement Windows.
+Ce FAQ répond à des questions sur Service VSS (VSS) pour les administrateurs système. Pour plus d’informations sur les interfaces de programmation d’applications VSS, consultez [service VSS](https://go.microsoft.com/fwlink/?linkid=180899) (https://go.microsoft.com/fwlink/?LinkId=180899) dans la bibliothèque du centre de développement Windows.
 
 ### <a name="when-was-volume-shadow-copy-service-introduced-on-which-windows-operating-system-versions-is-it-available"></a>Quand la Service VSS a-t-elle été introduite ? Sur quelle version du système d’exploitation Windows est-il disponible ?
 
@@ -362,9 +362,9 @@ Il est possible de désactiver le Service VSS à l’aide de la console MMC (Mic
 
 Pour plus d’informations, consultez les sites Web Microsoft TechNet suivants :
 
-  - [Restauration du système](http://go.microsoft.com/fwlink/?linkid=157113) (http://go.microsoft.com/fwlink/?LinkID=157113)  
+  - [Restauration du système](https://go.microsoft.com/fwlink/?linkid=157113) (https://go.microsoft.com/fwlink/?LinkID=157113)  
       
-  - [Sauvegarde Windows Server](http://go.microsoft.com/fwlink/?linkid=180891) (http://go.microsoft.com/fwlink/?LinkID=180891)  
+  - [Sauvegarde Windows Server](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkID=180891)  
       
 
 ### <a name="can-i-exclude-files-from-a-shadow-copy-to-save-space"></a>Puis-je exclure des fichiers d’un cliché instantané pour économiser de l’espace ?
@@ -384,7 +384,7 @@ Pour exclure des fichiers spécifiques des clichés instantanés, utilisez la cl
 > <LI>Les fichiers sont supprimés d’un cliché instantané de manière optimale. Cela signifie qu’il n’est pas garanti qu’elles soient supprimées.<BR><BR></LI></UL>
 
 
-Pour plus d’informations, consultez [exclusion de fichiers des clichés instantanés](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) sur MSDN.
+Pour plus d’informations, consultez [exclusion de fichiers des clichés instantanés](https://go.microsoft.com/fwlink/?linkid=180904) (https://go.microsoft.com/fwlink/?LinkId=180904) sur MSDN.
 
 ### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>Mon programme de sauvegarde non-Microsoft a échoué avec une erreur VSS. Que puis-je faire ?
 
@@ -392,7 +392,7 @@ Consultez la section Support technique du site Web de la société qui a créé 
 
 Les administrateurs système peuvent utiliser les informations de dépannage VSS sur le site Web de la bibliothèque Microsoft TechNet suivante pour collecter des informations de diagnostic sur les problèmes liés à VSS.
 
-Pour plus d’informations, consultez [service VSS](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) sur TechNet.
+Pour plus d’informations, consultez [service VSS](https://go.microsoft.com/fwlink/?linkid=180905) (https://go.microsoft.com/fwlink/?LinkId=180905) sur TechNet.
 
 ### <a name="what-is-the-diff-area"></a>Qu’est-ce que la « zone diff » ?
 
@@ -431,7 +431,7 @@ Le nombre maximal de clichés instantanés logiciels pour chaque volume est de 5
 
 Tapez la commande **vssadmin Resize ShadowStorage** .
 
-Pour plus d’informations, consultez [vssadmin Resize ShadowStorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) sur TechNet.
+Pour plus d’informations, consultez [vssadmin Resize ShadowStorage](https://go.microsoft.com/fwlink/?linkid=180906) (https://go.microsoft.com/fwlink/?LinkId=180906) sur TechNet.
 
 ### <a name="what-happens-when-i-run-out-of-space"></a>Que se passe-t-il lorsque je manque d’espace ?
 
@@ -441,9 +441,9 @@ Les clichés instantanés pour le volume sont supprimés, en commençant par le 
 
 Le système d’exploitation Windows fournit les outils suivants pour l’utilisation de VSS :
 
-  - [DiskShadow](http://go.microsoft.com/fwlink/?linkid=180907) (http://go.microsoft.com/fwlink/?LinkId=180907)  
+  - [DiskShadow](https://go.microsoft.com/fwlink/?linkid=180907) (https://go.microsoft.com/fwlink/?LinkId=180907)  
       
-  - [VssAdmin](http://go.microsoft.com/fwlink/?linkid=84008) (http://go.microsoft.com/fwlink/?LinkId=84008)  
+  - [VssAdmin](https://go.microsoft.com/fwlink/?linkid=84008) (https://go.microsoft.com/fwlink/?LinkId=84008)  
       
 
 ### <a name="diskshadow"></a>DiskShadow
@@ -503,9 +503,9 @@ Cette clé est utilisée pour spécifier les utilisateurs qui ont accès aux cli
 
 Pour plus d’informations, consultez les rubriques suivantes sur le site Web MSDN :
 
-  - [Considérations sur la sécurité pour les rédacteurs](http://go.microsoft.com/fwlink/?linkid=157739) (http://go.microsoft.com/fwlink/?LinkId=157739)  
+  - [Considérations sur la sécurité pour les rédacteurs](https://go.microsoft.com/fwlink/?linkid=157739) (https://go.microsoft.com/fwlink/?LinkId=157739)  
       
-  - [Considérations sur la sécurité pour les demandeurs](http://go.microsoft.com/fwlink/?linkid=180908) (http://go.microsoft.com/fwlink/?LinkId=180908)  
+  - [Considérations sur la sécurité pour les demandeurs](https://go.microsoft.com/fwlink/?linkid=180908) (https://go.microsoft.com/fwlink/?LinkId=180908)  
       
 
 ### <a name="maxshadowcopies"></a>MaxShadowCopies
@@ -514,7 +514,7 @@ Cette clé spécifie le nombre maximal de clichés instantanés accessibles par 
 
 Pour plus d’informations, consultez l’entrée suivante sur le site Web MSDN :
 
-**MaxShadowCopies** sous [les clés de Registre pour la sauvegarde et la restauration](http://go.microsoft.com/fwlink/?linkid=180909) (http://go.microsoft.com/fwlink/?LinkId=180909)
+**MaxShadowCopies** sous [les clés de Registre pour la sauvegarde et la restauration](https://go.microsoft.com/fwlink/?linkid=180909) (https://go.microsoft.com/fwlink/?LinkId=180909)
 
 ### <a name="mindiffareafilesize"></a>MinDiffAreaFileSize
 
@@ -522,7 +522,7 @@ Cette clé spécifie la taille initiale minimale, en Mo, de la zone de stockage 
 
 Pour plus d’informations, consultez l’entrée suivante sur le site Web MSDN :
 
-**MinDiffAreaFileSize** sous [les clés de Registre pour la sauvegarde et la restauration](http://go.microsoft.com/fwlink/?linkid=180910) (http://go.microsoft.com/fwlink/?LinkId=180910)
+**MinDiffAreaFileSize** sous [les clés de Registre pour la sauvegarde et la restauration](https://go.microsoft.com/fwlink/?linkid=180910) (https://go.microsoft.com/fwlink/?LinkId=180910)
 
 Versions de système d’exploitation prises en charge par `##`# '
 
@@ -551,7 +551,7 @@ Le tableau suivant répertorie les versions de système d’exploitation minimal
 <tr class="even">
 <td><p>Clé de Registre <strong>FilesNotToSnapshot</strong></p></td>
 <td><p>Windows Vista</p></td>
-<td><p>Windows Server 2008</p></td>
+<td><p>Windows Server 2008</p></td>
 </tr>
 <tr class="odd">
 <td><p>Clichés instantanés transportables</p></td>
@@ -595,7 +595,7 @@ Le tableau suivant répertorie les versions de système d’exploitation minimal
 <p></p>
 </div></td>
 <td><p>Aucun pris en charge</p></td>
-<td><p>Windows Server 2008</p></td>
+<td><p>Windows Server 2008</p></td>
 </tr>
 <tr class="even">
 <td><p>clichés instantanés pour dossiers partagés</p></td>
@@ -605,7 +605,7 @@ Le tableau suivant répertorie les versions de système d’exploitation minimal
 <tr class="odd">
 <td><p>Clichés instantanés transportables à récupération automatique</p></td>
 <td><p>Aucun pris en charge</p></td>
-<td><p>Windows Server 2008</p></td>
+<td><p>Windows Server 2008</p></td>
 </tr>
 <tr class="even">
 <td><p>Sessions de sauvegarde simultanées (jusqu’à 64)</p></td>
@@ -620,11 +620,11 @@ Le tableau suivant répertorie les versions de système d’exploitation minimal
 <tr class="even">
 <td><p>Jusqu’à 8 sessions de restauration simultanées avec des sauvegardes</p></td>
 <td><p>Windows 7</p></td>
-<td><p>Windows Server 2003 R2</p></td>
+<td><p>Windows Server 2003 R2</p></td>
 </tr>
 </tbody>
 </table>
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Articles associés
 
 [Service VSS dans le centre de développement Windows](https://docs.microsoft.com/windows/desktop/vss/volume-shadow-copy-service-overview)

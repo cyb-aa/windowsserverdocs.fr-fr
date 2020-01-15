@@ -9,22 +9,22 @@ ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
 ms.author: pashort
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: 22dcfb318a0e60bd1694496288f3e63b2780d643
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2782419f0c3d99e7ec7f4ee3389f174df400bd55
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355503"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949923"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Résoudre les problèmes de la pile de mise en réseau SDN (Software Defined Networking) dans Windows Server
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Ce guide examine les erreurs et les scénarios d’échec SDN (Common Software Defined Networking) et décrit un flux de travail de dépannage qui tire parti des outils de diagnostic disponibles.  
 
 Pour plus d’informations sur la mise en réseau définie par les logiciels de Microsoft, consultez [mise en réseau à définition logicielle](../../sdn/Software-Defined-Networking--SDN-.md).  
 
-## <a name="error-types"></a>Types d’erreurs  
+## <a name="error-types"></a>Types d'erreurs  
 La liste suivante représente la classe des problèmes rencontrés le plus souvent avec la virtualisation de réseau Hyper-V (HNVv1) dans Windows Server 2012 R2 à partir des déploiements de production en cours et coïncide de nombreuses façons avec les mêmes types de problèmes détectés dans Windows Server 2016 HNVv2 avec la nouvelle pile SDN (Software Defined Network).  
 
 La plupart des erreurs peuvent être classées dans un petit ensemble de classes :   
@@ -67,7 +67,7 @@ Ces applets de commande sont documentées sur TechNet dans la rubrique de l' [ap
 ### <a name="hyper-v-host-diagnostics"></a>Diagnostics de l’hôte Hyper-V  
 Ces applets de commande sont documentées sur TechNet dans la rubrique de l’applet de commande [Diagnostics de la virtualisation de réseau Hyper-V (HNV)](https://docs.microsoft.com/powershell/module/hnvdiagnostics/). Ils permettent d’identifier les problèmes dans le chemin d’accès aux données entre les machines virtuelles du locataire (est/ouest) et le trafic entrant via une adresse IP virtuelle SLB (Nord/Sud). 
 
-Les _VirtualMachineQueueOperation_, les _CustomerRoute_, les PACAMapping, les, les _ProviderAddress_, les _VMNetworkAdapterPortId_, les et les  _Test-EncapOverheadSettings_ sont tous des tests locaux qui peuvent être exécutés à partir de n’importe quel ordinateur hôte Hyper-V. Les autres applets de commande appellent des tests de chemin d’accès de données via le contrôleur de réseau et, par conséquent, doivent accéder au contrôleur de réseau en tant que descried ci-dessus.
+Les tests _Debug-VirtualMachineQueueOperation_, _obten-CustomerRoute_, _PACAMapping_, obtient- _ProviderAddress_,- _VMNetworkAdapterPortId_, _obtient-VMSwitchExternalPortId_et _test-EncapOverheadSettings_ sont tous des tests locaux qui peuvent être exécutés à partir de n’importe quel hôte Hyper-V. Les autres applets de commande appellent des tests de chemin d’accès de données via le contrôleur de réseau et, par conséquent, doivent accéder au contrôleur de réseau en tant que descried ci-dessus.
 
 ### <a name="github"></a>GitHub
 Le [référentiel GitHub Microsoft/SDN](https://github.com/microsoft/sdn) contient un certain nombre d’exemples de scripts et de flux de travail qui s’appuient sur ces applets de commande intégrées. En particulier, les scripts de diagnostic se trouvent dans le dossier [Diagnostics](https://github.com/Microsoft/sdn/diagnostics) . Aidez-nous à contribuer à ces scripts en soumettant des demandes de tirage.
@@ -168,7 +168,7 @@ netstat -anp tcp |findstr 6640
   TCP    10.127.132.153:50023   10.127.132.211:6640    ESTABLISHED
 ```
 #### <a name="check-host-agent-services"></a>Vérifier les services de l’agent hôte
-Le contrôleur de réseau communique avec deux services de l’agent hôte sur les hôtes Hyper-V : Agent hôte SLB et agent hôte NC. Il est possible qu’au moins l’un de ces services ne soit pas en cours d’exécution. Vérifiez leur état et redémarrez-les s’ils ne sont pas en cours d’exécution.
+Le contrôleur de réseau communique avec deux services de l’agent hôte sur les ordinateurs hôtes Hyper-V : agent hôte SLB et agent hôte NC. Il est possible qu’au moins l’un de ces services ne soit pas en cours d’exécution. Vérifiez leur état et redémarrez-les s’ils ne sont pas en cours d’exécution.
 
 ```none
 Get-Service SlbHostAgent
@@ -237,7 +237,7 @@ Properties       : Microsoft.Windows.NetworkController.ServerProperties
 Mise à *jour* Si vous utilisez des scripts SDNExpress ou un déploiement manuel, mettez à jour la clé HostId dans le registre pour qu’elle corresponde à l’ID d’instance de la ressource de serveur. Redémarrez l’agent hôte du contrôleur de réseau sur l’hôte Hyper-V (serveur physique) si vous utilisez VMM, supprimez le serveur Hyper-V de VMM et supprimez la clé de Registre HostId. Ensuite, ajoutez de nouveau le serveur via VMM.
 
 
-Vérifiez que les empreintes numériques des certificats X. 509 utilisés par l’hôte Hyper-V (le nom d’hôte est le nom du sujet du certificat) pour la communication (SouthBound) entre l’hôte Hyper-V (service agent hôte NC) et les nœuds du contrôleur de réseau sont identiques. Vérifiez également que le certificat REST du contrôleur de réseau a le nom d’objet *CN = <FQDN or IP>* .
+Vérifiez que les empreintes numériques des certificats X. 509 utilisés par l’hôte Hyper-V (le nom d’hôte est le nom du sujet du certificat) pour la communication (SouthBound) entre l’hôte Hyper-V (service agent hôte NC) et les nœuds du contrôleur de réseau sont identiques. Vérifiez également que le certificat REST du contrôleur de réseau a le nom d’objet *CN =<FQDN or IP>* .
 
 ```  
 # On Hyper-V Host
@@ -290,7 +290,7 @@ Collecting Diagnostics data from NC Nodes
 ```
 
 >[!NOTE]
->L’emplacement de sortie par défaut est le répertoire < working_directory > \NCDiagnostics\. Le répertoire de sortie par défaut peut être modifié à l’aide du paramètre `-OutputDirectory`. 
+>L’emplacement de sortie par défaut est le < working_directory > Répertoire \NCDiagnostics\. Le répertoire de sortie par défaut peut être modifié à l’aide du paramètre `-OutputDirectory`. 
 
 Les informations sur l’état de configuration SLB se trouvent dans le fichier _Diagnostics-slbstateResults. JSON_ dans ce répertoire.
 
@@ -423,7 +423,7 @@ Par exemple, supposons que les hôtes Hyper-V 1 et 2 ont des adresses IP du four
 |-Hôte Hyper-V-|-Adresse IP PA 1|-Adresse IP PA 2|
 |---             |---            |---             |
 |Hôte 1 | 10.10.182.64 | 10.10.182.65 |
-|Hôte 2 | 10.10.182.66 | 10.10.182.67 |
+|Hôte 2 | 10.10.182.66 | 10.10.182.67 |
 
 Nous pouvons effectuer un test ping entre les deux à l’aide de la commande suivante pour vérifier la connectivité réseau logique du fournisseur HNV.
 
@@ -606,12 +606,12 @@ Interrogez l’API REST du contrôleur de réseau qui se trouve dans l’environ
     $uri = "https://sa18n30nc.sa18.nttest.microsoft.com"
     Get-NetworkControllerAccessControlList -ConnectionUri $uri 
 
-# <a name="look-at-ip-configuration-and-virtual-subnets-which-are-referencing-this-acl"></a>Examiner la configuration IP et les sous-réseaux virtuels qui référencent cette liste de contrôle d’accès
+## <a name="look-at-ip-configuration-and-virtual-subnets-which-are-referencing-this-acl"></a>Examiner la configuration IP et les sous-réseaux virtuels qui référencent cette liste de contrôle d’accès
 
-1. Hébergeur Exécutez ``Get-ProviderAddress`` sur les deux hôtes Hyper-V hébergeant les deux machines virtuelles clientes en question, puis exécutez ``Test-LogicalNetworkConnection`` ou ``ping -c <compartment>`` à partir de l’hôte Hyper-V pour valider la connectivité sur le réseau logique du fournisseur HNV
+1. Hébergeur Exécutez ``Get-ProviderAddress`` sur les hôtes Hyper-V hébergeant les deux machines virtuelles clientes en question, puis exécutez ``Test-LogicalNetworkConnection`` ou ``ping -c <compartment>`` à partir de l’hôte Hyper-V pour valider la connectivité sur le réseau logique du fournisseur HNV
 2.  Hébergeur Assurez-vous que les paramètres MTU sont corrects sur les hôtes Hyper-V et les périphériques de commutation de couche 2 entre les hôtes Hyper-V. Exécutez ``Test-EncapOverheadValue`` sur tous les ordinateurs hôtes Hyper-V en question. Vérifiez également que tous les commutateurs de couche 2 entre ont une MTU définie sur un minimum de 1674 octets pour prendre en compte une charge maximale de 160 octets.  
 3.  Hébergeur Si les adresses IP PA ne sont pas présentes et/ou si la connectivité de l’autorité de certification est interrompue, vérifiez que la stratégie réseau a été reçue. Exécutez ``Get-PACAMapping`` pour voir si les règles d’encapsulation et les mappages CA-PA requis pour la création de réseaux virtuels de superposition sont correctement établis.  
-4.  Hébergeur Vérifiez que l’agent hôte du contrôleur de réseau est connecté au contrôleur de réseau. Exécutez ``netstat -anp tcp |findstr 6640`` pour voir si   
+4.  Hébergeur Vérifiez que l’agent hôte du contrôleur de réseau est connecté au contrôleur de réseau. Exécutez ``netstat -anp tcp |findstr 6640`` pour voir si le   
 5.  Hébergeur Vérifiez que l’ID d’hôte dans HKLM/correspond à l’ID d’instance des ressources serveur qui hébergent les machines virtuelles clientes.  
 6. Hébergeur Vérifiez que l’ID de profil de port correspond à l’ID d’instance des interfaces réseau de machine virtuelle des machines virtuelles clientes.  
 
@@ -641,7 +641,7 @@ Vous pouvez modifier les paramètres de journalisation à tout moment à l’aid
 
 - **Emplacement centralisé des journaux**.  Vous pouvez modifier l’emplacement de stockage de tous les journaux, avec le paramètre ``DiagnosticLogLocation``.  
 - **Informations d’identification pour accéder à l’emplacement du journal**.  Vous pouvez modifier les informations d’identification pour accéder à l’emplacement du journal, avec le paramètre ``LogLocationCredential``.  
-- **Accédez à journalisation locale**.  Si vous avez fourni un emplacement centralisé pour stocker les journaux, vous pouvez revenir à la journalisation locale sur les nœuds du contrôleur de réseau avec le paramètre ``UseLocalLogLocation`` (non recommandé en raison d’un espace disque important requis).  
+- **Accédez à journalisation locale**.  Si vous avez fourni un emplacement centralisé pour stocker les journaux, vous pouvez revenir à la journalisation locale sur les nœuds du contrôleur de réseau avec le paramètre ``UseLocalLogLocation`` (non recommandé en raison de l’espace disque nécessaire).  
 - **Étendue de journalisation**.  Par défaut, tous les journaux sont collectés. Vous pouvez modifier l’étendue pour collecter uniquement les journaux de cluster de contrôleur de réseau.  
 - **Niveau de journalisation**.  Le niveau de journalisation par défaut est informatif. Vous pouvez le remplacer par Error, Warning ou Verbose.  
 - **Heure**de la datation des journaux.  Les journaux sont stockés de manière circulaire. Vous aurez 3 jours de données de journalisation par défaut, que vous utilisiez la journalisation locale ou la journalisation centralisée. Vous pouvez modifier cette limite de temps avec le paramètre **LogTimeLimitInDays** .  
@@ -658,7 +658,7 @@ Si aucun emplacement de fichier n’a été spécifié, la journalisation locale
 - NCApplicationLogs
 - PerfCounters
 - SDNDiagnostics
-- Traçage
+- Traces
 
 Le contrôleur de réseau utilise (Azure) Service Fabric. Les journaux de Service Fabric peuvent être nécessaires pour résoudre certains problèmes. Ces journaux se trouvent sur chaque nœud de contrôleur de réseau dans C:\ProgramData\Microsoft\Service fabric.
 
@@ -668,12 +668,12 @@ Si un utilisateur a exécuté l’applet de commande _Debug-NetworkController_ ,
 
 #### <a name="slbm-fabric-errors-hosting-service-provider-actions"></a>Erreurs d’infrastructure SLBM (actions du fournisseur de services d’hébergement)
 
-1.  Vérifiez que le gestionnaire de Load Balancer logiciel (SLBM) fonctionne et que les couches d’orchestration peuvent communiquer entre elles : Agents hôtes SLB-> SLB MUX et SLBM-> SLB. Exécutez [DumpSlbRestState](https://github.com/Microsoft/SDN/blob/master/Diagnostics/DumpSlbRestState.ps1) à partir de n’importe quel nœud ayant accès au point de terminaison REST du contrôleur de réseau.  
+1.  Vérifiez que le gestionnaire de Load Balancer logiciel (SLBM) fonctionne et que les couches d’orchestration peuvent communiquer entre elles : agents hôtes SLB > SLB MUX et SLBM-> SLB. Exécutez [DumpSlbRestState](https://github.com/Microsoft/SDN/blob/master/Diagnostics/DumpSlbRestState.ps1) à partir de n’importe quel nœud ayant accès au point de terminaison REST du contrôleur de réseau.  
 2.  Validez le *SDNSLBMPerfCounters* dans Perfmon sur l’une des machines virtuelles de nœud de contrôleur de réseau (de préférence le contrôleur de réseau principal node-to-NetworkControllerReplica) :
     1.  Le moteur Load Balancer (LB) est-il connecté à SLBM ? (*LBEngines de configuration* de la configuration de l’ensemble des configurations SLBM > 0)  
     2.  SLBM a-t-il au moins connaissance de ses propres points de terminaison ? (*Nombre total de points de terminaison VIP* > = 2)  
     3.  Les hôtes Hyper-V (DIP) sont-ils connectés à SLBM ? (*Clients HP connectés* = = Nbre de serveurs)   
-    4.  SLBM est-il connecté à multiplexeurs ? (*Multiplexeurs connected* == *multiplexeurs sain sur SLBM* == *multiplexeurs Reporting sain* = # SLB multiplexeurs machines virtuelles).  
+    4.  SLBM est-il connecté à multiplexeurs ? (*Multiplexeurs connecté* == *multiplexeurs sain sur SLBM* == *multiplexeurs Reporting sain* = # SLB multiplexeurs machines virtuelles).  
 3.  Vérifiez que le routeur BGP configuré s’apparie correctement au MULTIPLEXeur SLB.  
     1.  Si vous utilisez RRAS avec l’accès à distance (par exemple, une machine virtuelle BGP) :  
         1.  L’BgpPeer doit afficher la connexion  
@@ -682,13 +682,13 @@ Si un utilisateur a exécuté l’applet de commande _Debug-NetworkController_ ,
         1.  Par exemple : # Show BGP instance  
 4.  Valider les compteurs *SlbMuxPerfCounters* et *SLBMUX* dans Perfmon sur la machine virtuelle SLB MUX
 5.  Vérifier l’état de configuration et les plages d’adresses IP virtuelles dans la ressource Software Load Balancer Manager  
-    1.  Obtient-NetworkControllerLoadBalancerConfiguration-ConnectionUri < https://<FQDN or IP> | ConvertTo-JSON-Depth 8 (Vérifiez les plages d’adresses IP virtuelles dans les pools d’adresses IP et assurez-vous que SLBM Self-VIP (*LoadBalanacerManagerIPAddress*) et toutes les adresses IP virtuelles côté locataire se trouvent dans ces plages)  
-        1. Obtient-NetworkControllerIpPool-NetworkId « < ID de ressource de réseau logique d’adresses IP virtuelles publiques/privées > «-SubnetId » < ID de ressource de sous-réseau logique d’adresses IP virtuelles privées > « -ResourceId » <IP Pool Resource Id>»-ConnectionUri $uri | ConvertTo-JSON-Depth 8 
+    1.  Obtient-NetworkControllerLoadBalancerConfiguration-ConnectionUri < https://<FQDN or IP>| ConvertTo-JSON-Depth 8 (Vérifiez les plages d’adresses IP virtuelles dans les pools d’adresses IP et assurez-vous que SLBM Self-VIP (*LoadBalanacerManagerIPAddress*) et toutes les adresses IP virtuelles côté locataire se trouvent dans ces plages)  
+        1. Obtient-NetworkControllerIpPool-NetworkId « < ID de ressource de réseau logique d’adresses IP virtuelles publiques/privées > «-SubnetId » < ID de ressource de sous-réseau logique VIP publique/privée > « -ResourceId »<IP Pool Resource Id>»-ConnectionUri $uri | ConvertTo-JSON-Depth 8 
     2.  Débogage-NetworkControllerConfigurationState-  
 
 Si l’une des vérifications ci-dessus échoue, l’État SLB du locataire est également en mode échec.  
 
-@No__t de **Correction**-1  
+  de **Correction**  
 En fonction des informations de diagnostic présentées ci-dessous, corrigez les éléments suivants :  
 * Garantir la connexion des multiplexeurs SLB  
   * Résoudre les problèmes de certificat  
@@ -707,7 +707,7 @@ En fonction des informations de diagnostic présentées ci-dessous, corrigez les
 3.  Hébergeur Si les points de terminaison DIP ne sont pas découverts ou connectés :   
     1.  Vérifier *Debug-NetworkControllerConfigurationState*  
         1.  Vérifiez que l’agent hôte NC et SLB est correctement connecté au coordinateur d’événements du contrôleur de réseau à l’aide de ``netstat -anp tcp |findstr 6640)``  
-    2.  Vérifiez l’ID d’instance de la ressource de serveur correspondante (``Get-NCServer |convertto-json -depth 8``) dans la case à cocher *HostID* dans la RegKey du service *Nchostagent* (référence *HostNotConnected* code d’erreur dans l’annexe).  
+    2.  Vérifiez l’ID d’instance de la ressource de serveur correspondante (``Get-NCServer |convertto-json -depth 8``) dans la case à cocher *HostID* dans la RegKey du service *nchostagent* (référence du code d’erreur *HostNotConnected* de l’annexe)  
     3.  Vérifier l’ID de profil de port pour le port de l’ordinateur virtuel correspond à l’ID d’instance de la ressource de carte réseau de l’ordinateur virtuel   
 4.  [Fournisseur d’hébergement] Collecter les journaux   
 

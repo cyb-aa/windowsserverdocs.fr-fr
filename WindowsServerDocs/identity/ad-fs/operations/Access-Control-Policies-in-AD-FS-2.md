@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b0d6133a6fb43b8624dc1329db632fb5dd4aa070
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4f5d2cfa8383bcf3c0813b272f8c4828473b8df9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358454"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948606"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Stratégies de Access Control client dans AD FS 2,0
 Les stratégies d’accès client dans Services ADFS 2,0 vous permettent de restreindre ou d’accorder aux utilisateurs l’accès aux ressources.  Ce document explique comment activer les stratégies d’accès client dans AD FS 2,0 et comment configurer les scénarios les plus courants.
@@ -25,7 +25,7 @@ Pour activer la stratégie d’accès client, suivez les étapes ci-dessous.
 
 ### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Étape 1 : installer le correctif cumulatif 2 pour le package AD FS 2,0 sur vos serveurs AD FS
 
-Téléchargez le package [de correctif cumulatif 2 pour services ADFS (AD FS) 2,0](https://support.microsoft.com/en-us/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) et installez-le sur tous les serveurs proxys de Fédération et de serveur de Fédération.
+Téléchargez le package [de correctif cumulatif 2 pour services ADFS (AD FS) 2,0](https://support.microsoft.com/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) et installez-le sur tous les serveurs proxys de Fédération et de serveur de Fédération.
 
 ### <a name="step-2-add-five-claim-rules-to-the-active-directory-claims-provider-trust"></a>Étape 2 : ajouter cinq règles de revendication à l’Active Directory approbation de fournisseur de revendications
 

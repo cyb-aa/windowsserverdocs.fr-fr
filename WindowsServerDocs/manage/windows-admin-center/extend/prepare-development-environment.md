@@ -8,16 +8,16 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
 ms.prod: windows-server
-ms.openlocfilehash: 2aff8c0e43c6813c543511e643471c9cd9bcc292
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 67bd2a476cedd6d522daeaae54081b02fd893fbd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357035"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949976"
 ---
 # <a name="prepare-your-development-environment"></a>Préparer votre environnement de développement
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 Nous allons commencer à développer des extensions avec le kit de développement logiciel (SDK) du centre d’administration Windows.  Dans ce document, nous allons aborder le processus de mise en route de votre environnement pour créer et tester une extension pour le centre d’administration Windows.
 
@@ -30,8 +30,8 @@ Pour préparer votre environnement de développement, procédez comme suit :
 
 Pour commencer à développer avec le kit de développement logiciel (SDK), téléchargez et installez les composants requis suivants :
 
-* [Centre d’administration Windows](https://aka.ms/WACDownloadPage) (Version GA ou Preview)
-* Visual Studio ou [Visual Studio Code](http://code.visualstudio.com)
+* [Centre d’administration Windows](https://aka.ms/WACDownloadPage) (version GA ou Preview)
+* Visual Studio ou [Visual Studio Code](https://code.visualstudio.com)
 * [Gestionnaire de package de nœud](https://npmjs.com/get-npm) (8.12.0 ou version ultérieure)
 * [NuGet](https://www.nuget.org/downloads) (pour la publication des extensions)
 
@@ -58,7 +58,7 @@ npm install -g windows-admin-center-cli
 ```
 
 >[!NOTE]
->Vous pouvez installer une version ultérieure de @angular/cli, mais sachez que si vous installez une version supérieure à 1.6.5, vous recevrez un avertissement lors de l’étape de génération de Gulp que la version locale de l’interface de commande ne correspond pas à la version installée.
+>Vous pouvez installer une version ultérieure de @angular/cli, mais sachez que si vous installez une version supérieure à 1.6.5, vous recevrez un avertissement lors de l’étape de génération Gulp que la version locale de l’interface de commande ne correspond pas à la version installée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

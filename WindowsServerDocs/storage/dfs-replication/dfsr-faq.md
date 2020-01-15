@@ -1,32 +1,32 @@
 ---
-title: 'Réplication DFS : Forum Aux Questions (FAQ)'
+title: 'Réplication DFS : Forum aux Questions (FAQ)'
 ms.date: 06/18/2014
 ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 92fe505c3ae7d76f7a8d5bd9d2ed0ce845159fde
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: e92ada07140b88ef4178a5aecdb263b825380c2d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940756"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950284"
 ---
-# <a name="dfs-replication-frequently-asked-questions-faq"></a>Réplication DFS : Forum Aux Questions (FAQ)
+# <a name="dfs-replication-frequently-asked-questions-faq"></a>Réplication DFS : Forum aux Questions (FAQ)
 
 
 Mise à jour : 30 avril 2019
 
-S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Ce Forum aux questions répond aux questions relatives à la réplication système de fichiers DFS (DFS) (également appelée DFS-R ou DFSR) pour Windows Server.
 
-Pour plus d'informations sur les espaces de noms DFS, consultez [Espaces de noms DFS : Forum aux questions](https://technet.microsoft.com/library/ee404780).
+Pour plus d’informations sur les espaces de noms DFS, consultez [espaces de noms DFS : Forum aux questions](https://technet.microsoft.com/library/ee404780).
 
 Pour plus d’informations sur les nouveautés de réplication DFS, consultez les rubriques suivantes :
 
-  - [Vue d’ensemble des espaces de noms DFS et réplication DFS](https://technet.microsoft.com/library/jj127250) (dans Windows Server 2012)  
+  - [Vue d’ensemble des espaces de noms DFS et des réplication DFS](https://technet.microsoft.com/library/jj127250) (dans Windows Server 2012)  
       
   - [Nouveautés de système de fichiers DFS](https://technet.microsoft.com/library/ee307957) rubrique dans [modifications des fonctionnalités de Windows Server 2008 à Windows Server 2008 R2](https://technet.microsoft.com/library/dd391932)  
       
@@ -47,22 +47,22 @@ Non. Réplication DFS ne communique pas avec le service de réplication de fichi
 
 Oui, réplication DFS peut remplacer FRS pour la réplication SYSVOL sur des serveurs exécutant Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008. Les serveurs exécutant Windows Server 2003 R2 ne prennent pas en charge l’utilisation de réplication DFS pour répliquer le dossier SYSVOL.
 
-Pour plus d’informations sur la réplication de SYSVOL à l’aide [de réplication DFS, consultez le Guide de migration de la réplication SYSVOL : FRS à réplication DFS](https://technet.microsoft.com/library/dd640019).
+Pour plus d’informations sur la réplication de SYSVOL à l’aide de réplication DFS, consultez le [Guide de migration de la réplication SYSVOL : FRS vers réplication DFS](https://technet.microsoft.com/library/dd640019).
 
 ### <a name="can-i-upgrade-from-frs-to-dfs-replication-without-losing-configuration-settings"></a>Puis-je effectuer une mise à niveau de FRS vers réplication DFS sans perdre les paramètres de configuration ?
 
 Oui. Pour migrer la réplication de FRS vers réplication DFS, consultez les documents suivants :
 
-  - Pour migrer la réplication des dossiers autres que le dossier [SYSVOL, consultez le guide des opérations DFS : Migration de FRS vers réplication DFS](http://go.microsoft.com/fwlink/?linkid=192776) et [FRS2DFSR – un utilitaire de migration FRS vers DFSR](http://go.microsoft.com/fwlink/?linkid=195437) (http://go.microsoft.com/fwlink/?LinkID=195437).  
+  - Pour migrer la réplication de dossiers autres que le dossier SYSVOL, consultez [Guide des opérations DFS : migration de FRS vers réplication DFS](https://go.microsoft.com/fwlink/?linkid=192776) et [FRS2DFSR – utilitaire de migration FRS vers DFSR](https://go.microsoft.com/fwlink/?linkid=195437) (https://go.microsoft.com/fwlink/?LinkID=195437).  
       
-  - Pour migrer la réplication du dossier Sysvol vers réplication DFS [, consultez le Guide de migration de la réplication SYSVOL : FRS à réplication DFS](https://technet.microsoft.com/library/dd640019).  
+  - Pour migrer la réplication du dossier SYSVOL vers réplication DFS, consultez la page Guide de migration de la [réplication SYSVOL : FRS vers réplication DFS](https://technet.microsoft.com/library/dd640019).  
       
 
 ### <a name="can-i-use-dfs-replication-in-a-mixed-windowsunix-environment"></a>Puis-je utiliser réplication DFS dans un environnement mixte Windows/UNIX ?
 
 Oui. Même si réplication DFS prend en charge la réplication de contenu entre les serveurs exécutant Windows Server, les clients UNIX peuvent accéder aux partages de fichiers sur les serveurs Windows. Pour ce faire, installez les services pour NFS (Network File System) sur le serveur de réplication DFS.
 
-Vous pouvez également utiliser la fonctionnalité client SMB/CIFS incluse dans de nombreux clients UNIX pour accéder directement aux partages de fichiers Windows, bien que cette fonctionnalité soit souvent limitée ou nécessite des modifications de l’environnement Windows (telles que la désactivation de la signature SMB à l’aide de Stratégie de groupe).
+Vous pouvez également utiliser la fonctionnalité client SMB/CIFS incluse dans de nombreux clients UNIX pour accéder directement aux partages de fichiers Windows, bien que cette fonctionnalité soit souvent limitée ou nécessite des modifications de l’environnement Windows (telles que la désactivation de la signature SMB à l’aide de stratégie de groupe).
 
 Réplication DFS interagit avec NFS sur un serveur exécutant un système d’exploitation Windows Server, mais vous ne pouvez pas répliquer un point de montage NFS.
 
@@ -74,7 +74,7 @@ Oui. Réplication DFS est pris en charge sur les volumes Service VSS (VSS) et le
 
 Non, l’utilisation de la sauvegarde Windows (NTBackup. exe) sur un ordinateur exécutant Windows Server 2003 ou une version antérieure pour sauvegarder le contenu d’un dossier répliqué sur un ordinateur exécutant Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008 n’est pas prise en charge.
 
-Pour sauvegarder des fichiers stockés dans un dossier répliqué, utilisez Sauvegarde Windows Server ou Microsoft® System Center Data Protection Manager. Pour plus d’informations sur les fonctionnalités de sauvegarde et de récupération de Windows Server 2008 R2 et Windows Server 2008, consultez [sauvegarde et récupération](https://technet.microsoft.com/library/Cc754097). Pour plus d’informations, consultez [System Center Data Protection Manager](http://go.microsoft.com/fwlink/?linkid=182261) (http://go.microsoft.com/fwlink/?LinkId=182261).
+Pour sauvegarder des fichiers stockés dans un dossier répliqué, utilisez Sauvegarde Windows Server ou Microsoft® System Center Data Protection Manager. Pour plus d’informations sur les fonctionnalités de sauvegarde et de récupération de Windows Server 2008 R2 et Windows Server 2008, consultez [sauvegarde et récupération](https://technet.microsoft.com/library/Cc754097). Pour plus d’informations, consultez [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
 
 ### <a name="do-file-system-policies-impact-dfs-replication"></a>Les stratégies de système de fichiers affectent-elles réplication DFS ?
 
@@ -101,7 +101,7 @@ Voici les meilleures pratiques pour implémenter des filtres de fichiers ou des 
 
 ### <a name="is-dfs-replication-cluster-aware"></a>La prise en charge des clusters est-elle réplication DFS ?
 
-Oui, réplication DFS dans Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2 offre la possibilité d’ajouter un cluster de basculement en tant que membre d’un groupe de réplication. Pour plus d’informations, consultez [Ajouter un cluster de basculement à un groupe de réplication](http://go.microsoft.com/fwlink/?linkid=155085) (http://go.microsoft.com/fwlink/?LinkId=155085). Le service réplication DFS sur les versions de Windows antérieures à Windows Server 2008 R2 n’est pas conçu pour se coordonner avec un cluster de basculement et le service ne bascule pas vers un autre nœud.
+Oui, réplication DFS dans Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2 offre la possibilité d’ajouter un cluster de basculement en tant que membre d’un groupe de réplication. Pour plus d’informations, consultez [Ajouter un cluster de basculement à un groupe de réplication](https://go.microsoft.com/fwlink/?linkid=155085) (https://go.microsoft.com/fwlink/?LinkId=155085). Le service réplication DFS sur les versions de Windows antérieures à Windows Server 2008 R2 n’est pas conçu pour se coordonner avec un cluster de basculement et le service ne bascule pas vers un autre nœud.
 
 
 > [!NOTE]
@@ -121,21 +121,21 @@ Oui. Réplication DFS réplique les volumes sur lesquels SIS (Single instance St
 
 Vous pouvez utiliser réplication DFS et Fichiers hors connexion en toute sécurité dans les scénarios où il n’y a qu’un seul utilisateur à la fois qui écrit dans les fichiers. Cela est utile pour les utilisateurs qui se déplacent entre deux filiales et veulent pouvoir accéder à leurs fichiers dans l’une ou l’autre branche ou en mode hors connexion. Fichiers hors connexion met en cache les fichiers localement pour une utilisation hors connexion et réplication DFS réplique les données entre les succursales.
 
-N’utilisez pas réplication DFS avec Fichiers hors connexion dans un environnement multi-utilisateur, car réplication DFS ne fournit pas de mécanisme de verrouillage distribué ou de fonction d’extraction de fichier. Si deux utilisateurs modifient le même fichier en même temps sur des serveurs différents, réplication DFS déplace l’ancien fichier vers le\\dossier DfsrPrivate ConflictandDeleted (situé sous le chemin d’accès local du dossier répliqué) lors de la prochaine réplication.
+N’utilisez pas réplication DFS avec Fichiers hors connexion dans un environnement multi-utilisateur, car réplication DFS ne fournit pas de mécanisme de verrouillage distribué ou de fonction d’extraction de fichier. Si deux utilisateurs modifient le même fichier en même temps sur des serveurs différents, réplication DFS déplace l’ancien fichier vers le dossier DfsrPrivate\\ConflictandDeleted (situé sous le chemin d’accès local du dossier répliqué) lors de la prochaine réplication.
 
 ### <a name="what-antivirus-applications-are-compatible-with-dfs-replication"></a>Quelles sont les applications antivirus compatibles avec réplication DFS ?
 
-Les applications antivirus peuvent entraîner une réplication excessive si leurs activités d’analyse modifient les fichiers dans un dossier répliqué. Pour plus d’informations, [tester l’interopérabilité des applications antivirus avec réplication DFS](http://go.microsoft.com/fwlink/?linkid=73990) (http://go.microsoft.com/fwlink/?LinkId=73990).
+Les applications antivirus peuvent entraîner une réplication excessive si leurs activités d’analyse modifient les fichiers dans un dossier répliqué. Pour plus d’informations, [tester l’interopérabilité des applications antivirus avec réplication DFS](https://go.microsoft.com/fwlink/?linkid=73990) (https://go.microsoft.com/fwlink/?LinkId=73990).
 
 ### <a name="what-are-the-benefits-of-using-dfs-replication-instead-of-windows-sharepoint-services"></a>Quels sont les avantages de l’utilisation de réplication DFS au lieu de Windows SharePoint Services ?
 
-Windows® SharePoint® Services fournit une cohérence étroite sous la forme d’une fonctionnalité d’extraction de fichiers que réplication DFS ne fait pas. Si vous craignez que plusieurs personnes modifient le même fichier, nous vous recommandons d’utiliser Windows SharePoint Services. Windows SharePoint Services 2,0 avec Service Pack 2 est disponible dans le cadre de Windows Server 2003 R2. Windows SharePoint Services peut être téléchargé à partir du site Web de Microsoft. Il n’est pas inclus dans les versions plus récentes de Windows Server. Toutefois, si vous répliquez des données sur plusieurs sites et que les utilisateurs ne modifieront pas les mêmes fichiers en même temps, réplication DFS offre une plus grande bande passante et une gestion plus simple.
+Windows® SharePoint® Services fournit une cohérence étroite sous la forme d’une fonctionnalité d’extraction de fichiers que réplication DFS ne fait pas. Si vous craignez que plusieurs personnes modifient le même fichier, nous vous recommandons d’utiliser Windows SharePoint Services. Windows SharePoint Services 2.0 with Service Pack 2 is available as part of Windows Server 2003 R2. Windows SharePoint Services can be downloaded from the Microsoft Web site; it is not included in newer versions of Windows Server. Toutefois, si vous répliquez des données sur plusieurs sites et que les utilisateurs ne modifieront pas les mêmes fichiers en même temps, réplication DFS offre une plus grande bande passante et une gestion plus simple.
 
 ## <a name="limitations-and-requirements"></a>Limitations et exigences
 
 ### <a name="can-dfs-replication-replicate-between-branch-offices-without-a-vpn-connection"></a>Réplication DFS peut-il être répliqué entre des succursales sans connexion VPN ?
 
-Oui : en supposant qu’il existe une liaison de réseau étendu (WAN) privée (pas Internet) connectant les succursales. Toutefois, vous devez ouvrir les ports appropriés dans les pare-feu externes. Réplication DFS utilise le mappeur de point de terminaison RPC (port 135) et un port éphémère affecté de façon aléatoire au-dessus de 1024. Vous pouvez utiliser l’outil en ligne de commande **Dfsrdiag** pour spécifier un port statique au lieu du port éphémère. Pour plus d’informations sur la spécification du mappeur de point de terminaison RPC, voir l' [article 154596](http://go.microsoft.com/fwlink/?linkid=73991) de la base de connaissances Microsoft (http://go.microsoft.com/fwlink/?LinkId=73991).
+Oui : en supposant qu’il existe une liaison de réseau étendu (WAN) privée (pas Internet) connectant les succursales. Toutefois, vous devez ouvrir les ports appropriés dans les pare-feu externes. Réplication DFS utilise le mappeur de point de terminaison RPC (port 135) et un port éphémère affecté de façon aléatoire au-dessus de 1024. Vous pouvez utiliser l’outil en ligne de commande **Dfsrdiag** pour spécifier un port statique au lieu du port éphémère. Pour plus d’informations sur la spécification du mappeur de point de terminaison RPC, voir l' [article 154596](https://go.microsoft.com/fwlink/?linkid=73991) de la base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=73991).
 
 ### <a name="can-dfs-replication-replicate-files-encrypted-with-the-encrypting-file-system"></a>Peut-réplication DFS répliquer des fichiers chiffrés avec le système de fichiers EFS ?
 
@@ -145,7 +145,7 @@ Non. Réplication DFS ne réplique pas les fichiers ou dossiers qui sont chiffr�
 
 Réplication DFS pouvez répliquer en toute sécurité des fichiers de dossiers personnels Microsoft Outlook (. pst) et des fichiers Microsoft Access uniquement s’ils sont stockés à des fins d’archivage et ne sont pas accessibles sur le réseau à l’aide d’un client tel qu’Outlook ou Access (pour ouvrir le fichier. pst ou accéder à fichiers, copiez d’abord les fichiers sur un dispositif de stockage local). Les raisons sont les suivantes :
 
-  - L’ouverture de fichiers. pst sur des connexions réseau peut entraîner une altération des données dans les fichiers. pst. Pour plus d’informations sur la raison pour laquelle les fichiers. pst ne peuvent pas être accessibles en toute sécurité à partir d’un réseau, http://go.microsoft.com/fwlink/?LinkId=125363) consultez l' [article 297019](http://go.microsoft.com/fwlink/?linkid=125363) de la base de connaissances Microsoft (.  
+  - L’ouverture de fichiers. pst sur des connexions réseau peut entraîner une altération des données dans les fichiers. pst. Pour plus d’informations sur la raison pour laquelle les fichiers. pst ne peuvent pas être accessibles en toute sécurité à partir d’un réseau, consultez l' [article 297019](https://go.microsoft.com/fwlink/?linkid=125363) de la base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=125363).  
       
   - les fichiers. pst et Access ont tendance à rester ouverts pendant de longues périodes de temps tout en étant accessibles par un client tel qu’Outlook ou Office Access. Cela empêche réplication DFS de répliquer ces fichiers tant qu’ils ne sont pas fermés.  
       
@@ -156,7 +156,7 @@ Non. Réplication DFS s’appuie sur Active Directory® Services de domaine pour
 
 ### <a name="can-more-than-one-folder-be-replicated-on-a-single-server"></a>Plusieurs dossiers peuvent-ils être répliqués sur un seul serveur ?
 
-Oui. Réplication DFS pouvez répliquer de nombreux dossiers entre les serveurs. Assurez-vous que chacun des dossiers répliqués a un chemin racine unique et qu’ils ne se chevauchent pas. Par exemple, d :\\sales et d :\\Accounting peuvent être les chemins d’accès racine de deux\\dossiers répliqués, mais les rapports d\\:\\sales et d : sales ne peuvent pas être les chemins d’accès racine de deux dossiers répliqués.
+Oui. Réplication DFS pouvez répliquer de nombreux dossiers entre les serveurs. Assurez-vous que chacun des dossiers répliqués a un chemin racine unique et qu’ils ne se chevauchent pas. Par exemple, D :\\sales et D :\\Accounting peuvent être les chemins d’accès racine de deux dossiers répliqués, mais D :\\sales et D :\\Sales\\Reports ne peuvent pas être les chemins d’accès racine de deux dossiers répliqués.
 
 ### <a name="does-dfs-replication-require-dfs-namespaces"></a>Réplication DFS nécessite-t-il des espaces de noms DFS ?
 
@@ -168,7 +168,7 @@ Non. Réplication DFS n’exige pas explicitement la synchronisation de l’heur
 
 ### <a name="does-dfs-replication-support-replicating-an-entire-volume"></a>Réplication DFS prend-il en charge la réplication d’un volume entier ?
 
-Oui. Toutefois, vous devez d’abord installer Windows Server 2003 Service Pack 2 ou le correctif logiciel. Pour plus d’informations, voir l' [article 920335](http://go.microsoft.com/fwlink/?linkid=76776) de la base http://go.microsoft.com/fwlink/?LinkId=76776) de connaissances Microsoft (. En outre, la réplication d’un volume entier peut provoquer les problèmes suivants :
+Oui. Toutefois, vous devez d’abord installer Windows Server 2003 Service Pack 2 ou le correctif logiciel. Pour plus d’informations, voir l' [article 920335](https://go.microsoft.com/fwlink/?linkid=76776) de la base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=76776). En outre, la réplication d’un volume entier peut provoquer les problèmes suivants :
 
   - Si le volume contient un fichier de pagination Windows, la réplication échoue et enregistre l’événement DFSR 4312 dans le journal des événements système.  
       
@@ -197,15 +197,15 @@ Oui. Vous pouvez répliquer des fichiers partiellement alloués. L’attribut **
 
 Non. Réplication DFS est un service qui s’exécute sous le compte système local. vous n’avez donc pas besoin de vous connecter en tant qu’administrateur pour effectuer la réplication. Toutefois, vous devez être un administrateur de domaine ou un administrateur local des serveurs de fichiers concernés pour apporter des modifications à la configuration de réplication DFS.
 
-Pour plus d’informations, consultez « réplication DFS les exigences et la délégation de sécurité » dans la rubrique délégation de http://go.microsoft.com/fwlink/?LinkId=182294) [la capacité à gérer des réplication DFS](http://go.microsoft.com/fwlink/?linkid=182294) (.
+Pour plus d’informations, consultez « réplication DFS les exigences et la délégation de sécurité » dans la rubrique [délégation de la capacité à gérer des réplication DFS](https://go.microsoft.com/fwlink/?linkid=182294) (https://go.microsoft.com/fwlink/?LinkId=182294).
 
 ### <a name="how-can-i-upgrade-or-replace-a-dfs-replication-member"></a>Comment puis-je mettre à niveau ou remplacer un membre réplication DFS ?
 
-Pour mettre à niveau ou remplacer un membre réplication DFS, consultez ce billet de blog sur le blog de l’équipe Ask the Directory Services : [Remplacement du matériel ou du système d’exploitation du membre DFSR](http://blogs.technet.com/b/askds/archive/2010/09/10/series-wrap-up-and-downloads-replacing-dfsr-member-hardware-or-os.aspx).
+Pour mettre à niveau ou remplacer un membre réplication DFS, consultez ce billet de blog sur le blog de l’équipe Ask the Directory Services : [remplacement du matériel ou du système d’exploitation DFSR Member](https://blogs.technet.com/b/askds/archive/2010/09/10/series-wrap-up-and-downloads-replacing-dfsr-member-hardware-or-os.aspx).
 
 ### <a name="is-dfs-replication-suitable-for-replicating-roaming-profiles"></a>Est-réplication DFS approprié pour la réplication des profils itinérants ?
 
-Oui. Certains scénarios sont pris en charge lors de la réplication des profils utilisateur itinérants. Pour plus d’informations sur les scénarios pris en charge, consultez la [déclaration de support de Microsoft concernant les données de profil utilisateur répliquées](http://go.microsoft.com/fwlink/?linkid=201282) (http://go.microsoft.com/fwlink/?LinkId=201282).
+Oui. Certains scénarios sont pris en charge lors de la réplication des profils utilisateur itinérants. Pour plus d’informations sur les scénarios pris en charge, consultez la [déclaration de support de Microsoft concernant les données de profil utilisateur répliquées](https://go.microsoft.com/fwlink/?linkid=201282) (https://go.microsoft.com/fwlink/?LinkId=201282).
 
 ### <a name="is-there-a-file-character-limit-or-limit-to-the-folder-depth"></a>Existe-t-il une limite de caractères ou une limite à la profondeur des dossiers ?
 
@@ -223,78 +223,78 @@ La liste suivante fournit un ensemble d’instructions d’évolutivité qui ont
       
   - Nombre de fichiers répliqués sur un volume : 70 millions.  
       
-  - Taille de fichier maximale : 250 gigaoctets.  
+  - Maximum file size: 250 gigabytes.  
       
 
 
 > [!IMPORTANT]
-> Lors de la création de groupes de réplication avec un nombre ou une taille de fichiers volumineux, nous vous recommandons d’exporter un clone de base de données et d’utiliser des techniques de pré-amorçage pour réduire la durée de la réplication initiale. Pour plus d’informations, [voir réplication DFS la synchronisation initiale dans Windows Server 2012 R2 : Attaque des clones](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877). 
+> When creating replication groups with a large number or size of files we recommend exporting a database clone and using pre-seeding techniques to minimize the duration of initial replication. For more information, see [DFS Replication Initial Sync in Windows Server 2012 R2: Attack of the Clones](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877). 
 <br>
 
 
-La liste suivante fournit un ensemble d’instructions d’évolutivité qui ont été testées par Microsoft sur Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008 :
+The following list provides a set of scalability guidelines that have been tested by Microsoft on Windows Server 2012, Windows Server 2008 R2, and Windows Server 2008:
 
-  - Taille de tous les fichiers répliqués sur un serveur : 10 téraoctets.  
+  - Size of all replicated files on a server: 10 terabytes.  
       
-  - Nombre de fichiers répliqués sur un volume : 11 millions.  
+  - Number of replicated files on a volume: 11 million.  
       
-  - Taille de fichier maximale : 64 gigaoctets.  
+  - Maximum file size: 64 gigabytes.  
       
 
 
 > [!NOTE]
-> Il n’y a plus de limite au nombre de groupes de réplication, de dossiers répliqués, de connexions ou de membres du groupe de réplication. 
+> There is no longer a limit to the number of replication groups, replicated folders, connections, or replication group members. 
 <br>
 
 
-Pour obtenir la liste des recommandations d’évolutivité qui ont été testées par Microsoft pour Windows Server 2003 R2, consultez recommandations en matière http://go.microsoft.com/fwlink/?LinkId=75043) d' [évolutivité réplication DFS](http://go.microsoft.com/fwlink/?linkid=75043) (.
+For a list of scalability guidelines that have been tested by Microsoft for Windows Server 2003 R2, see [DFS Replication scalability guidelines](https://go.microsoft.com/fwlink/?linkid=75043) (https://go.microsoft.com/fwlink/?LinkId=75043).
 
-### <a name="when-should-i-not-use-dfs-replication"></a>Quand dois-je ne pas utiliser réplication DFS ?
+### <a name="when-should-i-not-use-dfs-replication"></a>When should I not use DFS Replication?
 
-N’utilisez pas réplication DFS dans un environnement où plusieurs utilisateurs mettent à jour ou modifient simultanément les mêmes fichiers sur des serveurs différents. Cela peut entraîner l’réplication DFS de déplacer des copies conflictuelles des fichiers vers le dossier masqué\\DfsrPrivate ConflictandDeleted.
+Do not use DFS Replication in an environment where multiple users update or modify the same files simultaneously on different servers. Doing so can cause DFS Replication to move conflicting copies of the files to the hidden DfsrPrivate\\ConflictandDeleted folder.
 
-Lorsque plusieurs utilisateurs doivent modifier les mêmes fichiers simultanément sur des serveurs différents, utilisez la fonctionnalité d’extraction de fichiers de Windows SharePoint Services pour vous assurer qu’un seul utilisateur travaille sur un fichier. Windows SharePoint Services 2,0 avec Service Pack 2 est disponible dans le cadre de Windows Server 2003 R2. Windows SharePoint Services peut être téléchargé à partir du site Web de Microsoft. Il n’est pas inclus dans les versions plus récentes de Windows Server.
+When multiple users need to modify the same files at the same time on different servers, use the file check-out feature of Windows SharePoint Services to ensure that only one user is working on a file. Windows SharePoint Services 2.0 with Service Pack 2 is available as part of Windows Server 2003 R2. Windows SharePoint Services can be downloaded from the Microsoft Web site; it is not included in newer versions of Windows Server.
 
-### <a name="why-is-a-schema-update-required-for-dfs-replication"></a>Pourquoi une mise à jour de schéma est-elle nécessaire pour réplication DFS ?
+### <a name="why-is-a-schema-update-required-for-dfs-replication"></a>Why is a schema update required for DFS Replication?
 
-Réplication DFS utilise de nouveaux objets dans le contexte de nommage de domaine de Active Directory Domain Services pour stocker les informations de configuration. Ces objets sont créés lorsque vous mettez à jour le schéma de Active Directory Domain Services. Pour plus d’informations, consultez [vérifier les conditions requises pour réplication DFS](http://go.microsoft.com/fwlink/?linkid=182264) (http://go.microsoft.com/fwlink/?LinkId=182264).
+DFS Replication uses new objects in the domain-naming context of Active Directory Domain Services to store configuration information. These objects are created when you update the Active Directory Domain Services schema. For more information, see [Review Requirements for DFS Replication](https://go.microsoft.com/fwlink/?linkid=182264) (https://go.microsoft.com/fwlink/?LinkId=182264).
 
-## <a name="monitoring-and-management-tools"></a>Outils de surveillance et de gestion
+## <a name="monitoring-and-management-tools"></a>Monitoring and management tools
 
-### <a name="can-i-automate-the-health-report-to-receive-warnings"></a>Puis-je automatiser le rapport d’intégrité pour recevoir des avertissements ?
+### <a name="can-i-automate-the-health-report-to-receive-warnings"></a>Can I automate the health report to receive warnings?
 
-Oui. Il existe trois façons d’automatiser les rapports d’intégrité :
+Oui. There are three ways to automate health reports:
 
-  - Utilisez le module Windows PowerShell DFSR inclus dans Windows Server 2012 R2 ou DfsrAdmin. exe conjointement aux tâches planifiées pour générer régulièrement des rapports d’intégrité. Pour plus d’informations, consultez automatisation des rapports d’intégrité http://go.microsoft.com/fwlink/?LinkId=74010) des [réplication DFS](http://go.microsoft.com/fwlink/?linkid=74010) (.  
+  - Use the DFSR Windows PowerShell module included in Windows Server 2012 R2 or DfsrAdmin.exe in conjunction with Scheduled Tasks to regularly generate health reports. For more information, see [Automating DFS Replication Health Reports](https://go.microsoft.com/fwlink/?linkid=74010) (https://go.microsoft.com/fwlink/?LinkId=74010).  
       
-  - Utilisez le pack d’administration réplication DFS pour System Center Operations Manager pour créer des alertes basées sur des conditions spécifiées.  
+  - Use the DFS Replication Management Pack for System Center Operations Manager to create alerts that are based on specified conditions.  
       
-  - Utilisez le fournisseur WMI réplication DFS pour générer des scripts d’alertes.  
+  - Use the DFS Replication WMI provider to script alerts.  
       
 
-### <a name="can-i-use-microsoft-system-center-operations-manager-to-monitor-dfs-replication"></a>Puis-je utiliser Microsoft System Center Operations Manager pour analyser réplication DFS ?
+### <a name="can-i-use-microsoft-system-center-operations-manager-to-monitor-dfs-replication"></a>Can I use Microsoft System Center Operations Manager to monitor DFS Replication?
 
-Oui. Pour plus d’informations, consultez le [Pack d’administration réplication DFS pour System Center Operations Manager 2007](http://go.microsoft.com/fwlink/?linkid=182265) dans le centre de http://go.microsoft.com/fwlink/?LinkId=182265) téléchargement Microsoft (.
+Oui. For more information, see the [DFS Replication Management Pack for System Center Operations Manager 2007](https://go.microsoft.com/fwlink/?linkid=182265) in the Microsoft Download Center (https://go.microsoft.com/fwlink/?LinkId=182265).
 
-### <a name="does-dfs-replication-support-remote-management"></a>Réplication DFS prend-il en charge la gestion à distance ?
+### <a name="does-dfs-replication-support-remote-management"></a>Does DFS Replication support remote management?
 
-Oui. Réplication DFS prend en charge la gestion à distance à l’aide de la console de gestion DFS et de la commande **Ajouter un groupe de réplication** . Par exemple, sur le serveur A, vous pouvez vous connecter à un groupe de réplication défini dans la forêt avec les serveurs A et B comme membres.
+Oui. DFS Replication supports remote management using the DFS Management console and the **Add Replication Group** command. For example, on server A, you can connect to a replication group defined in the forest with servers A and B as members.
 
-La gestion DFS est fournie avec Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 et Windows Server 2003 R2. Pour gérer les réplication DFS à partir d’autres versions de Windows, utilisez Bureau à distance ou le [Outils d’administration de serveur distant pour Windows 7](https://technet.microsoft.com/library/Ee449475).
+DFS Management is included with Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, and Windows Server 2003 R2. To manage DFS Replication from other versions of Windows, use Remote Desktop or the [Remote Server Administration Tools for Windows 7](https://technet.microsoft.com/library/Ee449475).
 
 
 > [!IMPORTANT]
-> Pour afficher ou gérer les groupes de réplication qui contiennent des dossiers répliqués en lecture seule ou des membres qui sont des clusters de basculement, vous devez utiliser la version de la gestion DFS qui est incluse dans Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, <a href="http://go.microsoft.com/fwlink/p/?linkid=238560">à distance. Outils d’administration de serveur pour Windows 8</a>ou <a href="https://technet.microsoft.com/library/ee449475">Outils d’administration de serveur distant pour Windows 7</a>. 
+> To view or manage replication groups that contain read-only replicated folders or members that are failover clusters, you must use the version of DFS Management that is included with Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, the <a href="https://go.microsoft.com/fwlink/p/?linkid=238560">Remote Server Administration Tools for Windows 8</a>, or the <a href="https://technet.microsoft.com/library/ee449475">Remote Server Administration Tools for Windows 7</a>. 
 <br>
 
 
-### <a name="do-ultrasound-and-sonar-work-with-dfs-replication"></a>Ultrasound et sonar fonctionnent-ils avec réplication DFS ?
+### <a name="do-ultrasound-and-sonar-work-with-dfs-replication"></a>Do Ultrasound and Sonar work with DFS Replication?
 
-Non. Réplication DFS dispose de son propre ensemble d’outils de surveillance et de diagnostic. Ultrasound et sonar sont uniquement en capacité à surveiller le service FRS.
+Non. DFS Replication has its own set of monitoring and diagnostics tools. Ultrasound and Sonar are only capable of monitoring FRS.
 
-### <a name="how-can-files-be-recovered-from-the-conflictanddeleted-or-preexisting-folders"></a>Comment les fichiers peuvent-ils être récupérés à partir des dossiers ConflictAndDeleted ou PreExisting ?
+### <a name="how-can-files-be-recovered-from-the-conflictanddeleted-or-preexisting-folders"></a>How can files be recovered from the ConflictAndDeleted or PreExisting folders?
 
-Pour récupérer les fichiers perdus, restaurez les fichiers à partir du dossier du système de fichiers ou du dossier partagé à l’aide de l’historique des fichiers, de la commande **restaurer les versions précédentes** dans l’Explorateur de fichiers, ou en restaurant les fichiers à partir de la sauvegarde. Pour récupérer des fichiers directement à partir du dossier ConflictAndDeleted ou PreExisting `Get-DfsrPreservedFiles` , `Restore-DfsrPreservedFiles` utilisez les applets de commande Windows PowerShell (incluses avec le module DFSR dans Windows Server 2012 R2) ou l’exemple de script [RestoreDFSR](http://code.msdn.microsoft.com/restoredfsr) à partir de MSDN Galerie de code. Ce script est destiné uniquement à la récupération d’urgence et est fourni tel quel, sans garantie.
+To recover lost files, restore the files from the file system folder or shared folder using File History, the **Restore previous versions** command in File Explorer, or by restoring the files from backup. Pour récupérer des fichiers directement à partir du dossier ConflictAndDeleted ou PreExisting, utilisez les applets de commande Windows PowerShell `Get-DfsrPreservedFiles` et `Restore-DfsrPreservedFiles` (incluses dans le module DFSR de Windows Server 2012 R2) ou l’exemple de script [RestoreDFSR](https://code.msdn.microsoft.com/restoredfsr) à partir de MSDN Code Gallery. Ce script est destiné uniquement à la récupération d’urgence et est fourni tel quel, sans garantie.
 
 ### <a name="is-there-a-way-to-know-the-state-of-replication"></a>Existe-t-il un moyen de connaître l’état de la réplication ?
 
@@ -331,7 +331,7 @@ Non. Réplication DFS utilise la topologie définie par l’administrateur, qui 
 
 ### <a name="how-can-i-improve-replication-performance"></a>Comment améliorer les performances de la réplication ?
 
-Pour en savoir plus sur les différentes méthodes de réglage des performances de réplication, consultez [réglage des performances de la réplication dans DFSR](http://blogs.technet.com/b/askds/archive/2010/03/31/tuning-replication-performance-in-dfsr-especially-on-win2008-r2.aspx) sur le blog de l' [équipe poser des services d’annuaire](http://blogs.technet.com/b/askds/).
+Pour en savoir plus sur les différentes méthodes de réglage des performances de réplication, consultez [réglage des performances de la réplication dans DFSR](https://blogs.technet.com/b/askds/archive/2010/03/31/tuning-replication-performance-in-dfsr-especially-on-win2008-r2.aspx) sur le blog de l' [équipe poser des services d’annuaire](https://blogs.technet.com/b/askds/).
 
 ### <a name="how-does-dfs-replication-avoid-saturating-a-connection"></a>Comment réplication DFS éviter de saturer une connexion ?
 
@@ -430,39 +430,39 @@ Pour utiliser la connexion inter-fichiers (RDC), un membre de la connexion de r�
 </thead>
 <tbody>
 <tr class="even">
-<td><p>Windows Server 2012 R2</p></td>
+<td><p>R2 Windows Server 2012</p></td>
 <td><p><em>Oui</p></td>
 <td><p>Non disponible</p></td>
 <td><p>Oui</em></p></td>
 </tr>
 <tr class="odd">
-<td><p>Windows Server 2012</p></td>
+<td><p>Windows Server 2012</p></td>
 <td><p>Oui</p></td>
 <td><p>Non disponible</p></td>
 <td><p>Oui</p></td>
 </tr>
 <tr class="even">
 <td><p>Windows Server 2008 R2</p></td>
-<td><p>Non</p></td>
+<td><p>non</p></td>
 <td><p>Oui</p></td>
 <td><p>Oui</p></td>
 </tr>
 <tr class="odd">
-<td><p>Windows Server 2008</p></td>
-<td><p>Non</p></td>
+<td><p>Windows Server 2008</p></td>
+<td><p>non</p></td>
 <td><p>Oui</p></td>
-<td><p>Non</p></td>
+<td><p>non</p></td>
 </tr>
 <tr class="even">
-<td><p>Windows Server 2003 R2</p></td>
-<td><p>Non</p></td>
+<td><p>Windows Server 2003 R2</p></td>
+<td><p>non</p></td>
 <td><p>Oui</p></td>
-<td><p>Non</p></td>
+<td><p>non</p></td>
 </tr>
 </tbody>
 </table>
 
-\*Vous pouvez éventuellement désactiver la connexion RDC inter-fichiers sur Windows Server 2012 R2.
+\* vous pouvez éventuellement désactiver la connexion RDC inter-fichiers sur Windows Server 2012 R2.
 
 ## <a name="replication-details"></a>Détails de la réplication
 
@@ -474,52 +474,52 @@ Non. Si vous avez besoin de modifier le chemin d’accès d’un dossier répliq
 
 Non, vous ne pouvez pas configurer les attributs de fichier que réplication DFS réplique.
 
-Pour obtenir la liste des valeurs d’attribut et leurs descriptions, consultez [attributs](http://go.microsoft.com/fwlink/?linkid=182268) de fichier http://go.microsoft.com/fwlink/?LinkId=182268) sur MSDN (.
+Pour obtenir la liste des valeurs d’attribut et leurs descriptions, consultez [attributs de fichier](https://go.microsoft.com/fwlink/?linkid=182268) sur MSDN (https://go.microsoft.com/fwlink/?LinkId=182268).
 
-Les valeurs d’attribut suivantes sont définies à l' `SetFileAttributes dwFileAttributes` aide de la fonction, et elles sont répliquées par réplication DFS. Les modifications apportées à ces valeurs d’attribut déclenchent la réplication des attributs. Le contenu du fichier n’est pas répliqué à moins que le contenu ne change également. Pour plus d’informations, consultez [fonction SetFileAttributes](http://go.microsoft.com/fwlink/?linkid=182269) dans la bibliothèque MSDN http://go.microsoft.com/fwlink/?LinkId=182269) (.
+Les valeurs d’attribut suivantes sont définies à l’aide de la fonction `SetFileAttributes dwFileAttributes`, et elles sont répliquées par réplication DFS. Les modifications apportées à ces valeurs d’attribut déclenchent la réplication des attributs. Le contenu du fichier n’est pas répliqué à moins que le contenu ne change également. Pour plus d’informations, consultez [fonction SetFileAttributes](https://go.microsoft.com/fwlink/?linkid=182269) dans MSDN library (https://go.microsoft.com/fwlink/?LinkId=182269).
 
-  - \_ATTRIBUT\_DE FICHIER MASQUÉ  
+  - ATTRIBUT de\_de fichier\_masqué  
       
-  - \_ATTRIBUT\_DE FICHIER READONLY  
+  - ATTRIBUT de\_de fichier\_en lecture seule  
       
-  - SYSTÈME\_D'\_ATTRIBUTS DE FICHIER  
+  - ATTRIBUT de\_de fichier\_système  
       
-  - ATTRIBUT\_DE\_FICHIERNON\_CONTENUINDEXÉ\_  
+  - L’attribut de\_de fichier n'\_pas\_contenu\_indexé  
       
-  - \_ATTRIBUT\_DE FICHIER HORS CONNEXION  
+  - ATTRIBUT de\_de fichier\_hors connexion  
       
 
 Les valeurs d’attribut suivantes sont répliquées par réplication DFS, mais elles ne déclenchent pas de réplication.
 
-  - ARCHIVE\_D'\_ATTRIBUT DE FICHIER  
+  - ATTRIBUT de\_de fichier\_ARCHIVE  
       
-  - \_ATTRIBUT\_DE FICHIER NORMAL  
+  - ATTRIBUT de\_de fichier\_NORMAL  
       
 
-Les valeurs d’attribut de fichier suivantes déclenchent également la réplication, bien qu’elles `SetFileAttributes` ne puissent pas être `GetFileAttributes` définies à l’aide de la fonction (utilisez la fonction pour afficher les valeurs d’attribut).
+Les valeurs d’attribut de fichier suivantes déclenchent également la réplication, bien qu’elles ne puissent pas être définies à l’aide de la fonction `SetFileAttributes` (utilisez la fonction `GetFileAttributes` pour afficher les valeurs d’attribut).
 
-  - POINT\_D'\_ANALYSE\_D’ATTRIBUT DE FICHIER  
+  - ATTRIBUT de\_de fichier\_réanalyser le POINT de\_  
       
 
 > [!NOTE]
-> Réplication DFS ne réplique pas les valeurs d’attribut de point d’analyse, sauf si la balise d’analyse est IO_REPARSE_TAG_SYMLINK. Les fichiers avec les balises d’analyse IO_REPARSE_TAG_DEDUP, IO_REPARSE_TAG_SIS ou IO_REPARSE_TAG_HSM sont répliqués en tant que fichiers normaux. Toutefois, la balise d’analyse et les tampons de données de nouvelle analyse ne sont pas répliquées vers d’autres serveurs, car le point d’analyse fonctionne uniquement sur le système local. 
+> Réplication DFS ne réplique pas les valeurs d’attribut de point d’analyse, sauf si la balise d’analyse est IO_REPARSE_TAG_SYMLINK. Les fichiers avec le IO_REPARSE_TAG_DEDUP, IO_REPARSE_TAG_SIS ou les balises d’analyse IO_REPARSE_TAG_HSM sont répliqués en tant que fichiers normaux. Toutefois, la balise d’analyse et les tampons de données de nouvelle analyse ne sont pas répliquées vers d’autres serveurs, car le point d’analyse fonctionne uniquement sur le système local. 
 <br>
 
-  - \_ATTRIBUT\_DE FICHIER COMPRESSÉ  
+  - ATTRIBUT de\_de fichier\_compressé  
       
-  - \_ATTRIBUT\_DE FICHIER CHIFFRÉ  
+  - ATTRIBUT de\_de fichier\_chiffré  
       
 
 > [!NOTE]
 > Réplication DFS ne réplique pas les fichiers qui sont chiffrés à l’aide du système de fichiers EFS (EFS). Réplication DFS réplique les fichiers qui sont chiffrés à l’aide de logiciels non-Microsoft, mais uniquement s’ils ne définissent pas la valeur de l’attribut FILE_ATTRIBUTE_ENCRYPTED sur le fichier. 
 <br>
 
-  - FICHIER\_PARTIELLEMENT\_ALLOUÉ\_AUX ATTRIBUTS DE FICHIER  
+  - ATTRIBUT de\_de fichier\_fichier de\_épars  
       
-  - RÉPERTOIRE\_DES\_ATTRIBUTS DE FICHIER  
+  - ATTRIBUT de\_de fichier\_DIRECTORY  
       
 
-Réplication DFS ne réplique pas la valeur\_temporaire\_d’attribut de fichier.
+Réplication DFS ne réplique pas le fichier\_attribut\_valeur temporaire.
 
 ### <a name="can-i-control-which-member-is-replicated"></a>Puis-je contrôler le membre à répliquer ?
 
@@ -529,11 +529,11 @@ Oui. Vous pouvez choisir une topologie lorsque vous créez un groupe de réplica
 
 Oui. Réplication DFS prend en charge la copie des fichiers vers un membre du groupe de réplication avant la réplication initiale. Cette « prédéfinition » peut réduire considérablement la quantité de données répliquées pendant la réplication initiale.
 
-La réplication initiale n’a pas besoin de répliquer le contenu lorsque les fichiers diffèrent uniquement par des attributs réels ou des horodatages. Un attribut réel est un attribut qui peut être défini par la fonction `SetFileAttributes`Win32. Pour plus d’informations, consultez [fonction SetFileAttributes](http://go.microsoft.com/fwlink/?linkid=182269) dans la bibliothèque MSDN http://go.microsoft.com/fwlink/?LinkId=182269) (. Si deux fichiers diffèrent par d’autres attributs, tels que la compression, le contenu du fichier est répliqué.
+La réplication initiale n’a pas besoin de répliquer le contenu lorsque les fichiers diffèrent uniquement par des attributs réels ou des horodatages. Un attribut réel est un attribut qui peut être défini par la fonction Win32 `SetFileAttributes`. Pour plus d’informations, consultez [fonction SetFileAttributes](https://go.microsoft.com/fwlink/?linkid=182269) dans MSDN library (https://go.microsoft.com/fwlink/?LinkId=182269). Si deux fichiers diffèrent par d’autres attributs, tels que la compression, le contenu du fichier est répliqué.
 
 Pour prédéfinir un membre du groupe de réplication, copiez les fichiers dans le dossier approprié sur le ou les serveurs de destination, créez le groupe de réplication, puis choisissez un membre principal. Choisissez le membre qui contient les fichiers les plus récents que vous souhaitez répliquer parce que le contenu du membre principal est considéré comme « faisant autorité ». Cela signifie que lors de la réplication initiale, les fichiers du membre principal remplaceront toujours les autres versions des fichiers sur les autres membres du groupe de réplication.
 
-Pour plus d’informations sur la pré-amorçage et le clonage de la [base de données DFSR, voir réplication DFS la synchronisation initiale dans Windows Server 2012 R2 : Attaque des clones](http://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx).
+Pour plus d’informations sur la pré-amorçage et le clonage de la base de données DFSR, voir [réplication DFS la synchronisation initiale dans Windows Server 2012 R2 : attaque des clones](https://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx).
 
 Pour plus d’informations sur la réplication initiale, voir [créer un groupe de réplication](https://technet.microsoft.com/library/cc725893).
 
@@ -541,11 +541,11 @@ Pour plus d’informations sur la réplication initiale, voir [créer un groupe 
 
 Oui. Réplication DFS configure trois problèmes courants liés à FRS :
 
-  - Le journal est renvoyé à la ligne : Réplication DFS récupère à la volée les retours à la ligne du journal. Chaque fichier ou dossier existant est marqué comme journalWrap et vérifié par rapport au système de fichiers avant que la réplication soit réactivée. Pendant la récupération, ce volume n’est pas disponible pour la réplication dans les deux sens.  
+  - Retour à la ligne du journal : réplication DFS récupère à la volée les retours à la ligne. Chaque fichier ou dossier existant est marqué comme journalWrap et vérifié par rapport au système de fichiers avant que la réplication soit réactivée. Pendant la récupération, ce volume n’est pas disponible pour la réplication dans les deux sens.  
       
-  - Réplication excessive : Pour éviter une réplication excessive, réplication DFS utilise un système de crédits.  
+  - Réplication excessive : pour éviter une réplication excessive, réplication DFS utilise un système de crédits.  
       
-  - Dossiers inter-courbes : Pour empêcher les noms de dossier morphed, réplication DFS stocke les données en conflit\\dans un dossier DfsrPrivate ConflictandDeleted masqué (situé sous le chemin d’accès local du dossier répliqué). Par exemple, la création simultanée de plusieurs dossiers avec des noms identiques sur des serveurs différents répliqués à l’aide du service FRS fait que le service FRS renomme le ou les dossiers les plus anciens. Réplication DFS déplace plutôt le ou les dossiers les plus anciens vers le dossier local en conflit et supprimé.  
+  - Dossiers modifiés : pour empêcher les noms de dossiers morphed, réplication DFS stocke les données en conflit dans un dossier caché DfsrPrivate\\ConflictandDeleted (situé sous le chemin d’accès local du dossier répliqué). Par exemple, la création simultanée de plusieurs dossiers avec des noms identiques sur des serveurs différents répliqués à l’aide du service FRS fait que le service FRS renomme le ou les dossiers les plus anciens. Réplication DFS déplace plutôt le ou les dossiers les plus anciens vers le dossier local en conflit et supprimé.  
       
 
 ### <a name="does-dfs-replication-replicate-files-in-chronological-order"></a>Réplication DFS répliquer les fichiers dans l’ordre chronologique ?
@@ -562,9 +562,9 @@ Si une application ouvre un fichier et crée un verrou de fichier sur celui-ci (
       
   - Microsoft ne prend pas en charge la création de liens physiques NTFS vers ou à partir de fichiers dans un dossier répliqué. cela peut entraîner des problèmes de réplication avec les fichiers affectés. Les fichiers de liens physiques sont ignorés par réplication DFS et ne sont pas répliqués. Les points de jonction ne sont pas non plus répliqués, et réplication DFS enregistre l’événement 4406 pour chaque point de jonction qu’il rencontre.  
       
-  - Les seuls points d’analyse répliqués par réplication DFS sont ceux qui utilisent la balise lien\_symbolique\_d’une balise d’analyse d’e/s\_; Toutefois, réplication DFS ne garantit pas que la cible d’un lien symbolique est également répliquée. Pour plus d’informations, consultez le [blog Ask the Directory Services Team blog](http://blogs.technet.com/b/askds/archive/2011/09/30/friday-mail-sack-super-slo-mo-edition.aspx).  
+  - Les seuls points d’analyse répliqués par réplication DFS sont ceux qui utilisent la balise d’e/s\_de réanalyse de\_balise lien symbolique\_lien symbolique ; Toutefois, réplication DFS ne garantit pas que la cible d’un lien symbolique est également répliquée. Pour plus d’informations, consultez le [blog Ask the Directory Services Team blog](https://blogs.technet.com/b/askds/archive/2011/09/30/friday-mail-sack-super-slo-mo-edition.aspx).  
       
-  - Les fichiers avec la\_déduplication\_de la balise\_\_d’analyse des\_e/s, la balise\_d’extraction d’e\_/s ou la\_balise d’analyse e/s\_sont répliquées en tant que fichiers normaux. La balise d’analyse et les tampons de données de nouvelle analyse ne sont pas répliquées vers d’autres serveurs, car le point d’analyse fonctionne uniquement sur le système local. Par conséquent, réplication DFS pouvez répliquer des dossiers sur des volumes qui utilisent la déduplication des données dans Windows Server 2012 ou SIS (Single instance Storage). Toutefois, les informations de la déduplication des données sont conservées séparément par chaque serveur sur lequel le service de rôle est activé.  
+  - Les fichiers avec la BALIse d'\_de réanalyse des e/s\_\_la déduplication, l’e/s\_la réanalyse\_la balise\_SIS, ou l’e/s\_la réanalyse\_des étiquettes de réanalyse du HSM sont répliquées comme des fichiers normaux. La balise d’analyse et les tampons de données de nouvelle analyse ne sont pas répliquées vers d’autres serveurs, car le point d’analyse fonctionne uniquement sur le système local. Par conséquent, réplication DFS pouvez répliquer des dossiers sur des volumes qui utilisent la déduplication des données dans Windows Server 2012 ou SIS (Single instance Storage). Toutefois, les informations de la déduplication des données sont conservées séparément par chaque serveur sur lequel le service de rôle est activé.  
       
 
 ### <a name="does-dfs-replication-replicate-timestamp-changes-if-no-other-changes-are-made-to-the-file"></a>Réplication DFS répliquer les modifications d’horodatage si aucune autre modification n’est apportée au fichier ?
@@ -583,7 +583,7 @@ Oui. Réplication DFS réplique les modifications des autorisations pour les fic
 
 ### <a name="does-dfs-replication-support-merging-text-files-in-the-event-of-a-conflict"></a>Ne prend-réplication DFS en charge la fusion des fichiers texte en cas de conflit ?
 
-Réplication DFS ne fusionne pas les fichiers en cas de conflit. Toutefois, il tente de conserver l’ancienne version du fichier dans le dossier DfsrPrivate\\masqué de l’ordinateur sur lequel le conflit a été détecté.
+Réplication DFS ne fusionne pas les fichiers en cas de conflit. Toutefois, il tente de conserver l’ancienne version du fichier dans le dossier DfsrPrivate masqué\\ConflictandDeleted sur l’ordinateur sur lequel le conflit a été détecté.
 
 ### <a name="does-dfs-replication-use-encryption-when-transmitting-data"></a>N’utilise-t-il réplication DFS le chiffrement lors de la transmission des données ?
 
@@ -591,15 +591,15 @@ Oui. Réplication DFS utilise des connexions d’appel de procédure distante (R
 
 ### <a name="is-it-possible-to-disable-the-use-of-encrypted-rpc"></a>Est-il possible de désactiver l’utilisation d’un RPC chiffré ?
 
-Non. Le service réplication DFS utilise des appels de procédure distante (RPC) sur TCP pour répliquer les données. Pour sécuriser les transferts de données sur Internet, le service réplication DFS est conçu pour toujours utiliser la constante `RPC_C_AUTHN_LEVEL_PKT_PRIVACY`de niveau authentification. Cela permet de s’assurer que la communication RPC sur Internet est toujours chiffrée. Par conséquent, il n’est pas possible de désactiver l’utilisation de RPC chiffré par le service réplication DFS.
+Non. Le service réplication DFS utilise des appels de procédure distante (RPC) sur TCP pour répliquer les données. Pour sécuriser les transferts de données sur Internet, le service réplication DFS est conçu pour toujours utiliser la constante de niveau authentification `RPC_C_AUTHN_LEVEL_PKT_PRIVACY`. Cela permet de s’assurer que la communication RPC sur Internet est toujours chiffrée. Par conséquent, il n’est pas possible de désactiver l’utilisation de RPC chiffré par le service réplication DFS.
 
 Pour plus d’informations, consultez les sites Web Microsoft suivants :
 
-  - [Référence technique RPC](http://go.microsoft.com/fwlink/?linkid=182278)  
+  - [Référence technique RPC](https://go.microsoft.com/fwlink/?linkid=182278)  
       
-  - [À propos de la compression différentielle à distance](http://go.microsoft.com/fwlink/?linkid=182279)  
+  - [À propos de la compression différentielle à distance](https://go.microsoft.com/fwlink/?linkid=182279)  
       
-  - [Constantes au niveau de l’authentification](http://go.microsoft.com/fwlink/?linkid=182280)  
+  - [Constantes au niveau de l’authentification](https://go.microsoft.com/fwlink/?linkid=182280)  
       
 
 ### <a name="how-are-simultaneous-replications-handled"></a>Comment les réplications simultanées sont-elles gérées ?
@@ -610,7 +610,7 @@ Par défaut, un maximum de 16 (quatre dans Windows Server 2003 R2) téléchargem
 
 ### <a name="how-do-i-force-replication-or-polling"></a>Comment faire forcer la réplication ou l’interrogation ?
 
-Vous pouvez forcer la réplication immédiatement à l’aide de la gestion DFS, comme décrit dans [modifier les planifications de réplication](https://technet.microsoft.com/library/Cc732278). Vous pouvez également forcer la réplication à `Sync-DfsReplicationGroup` l’aide de la cmdlet, incluse dans le module PowerShell DFSR introduit avec Windows Server 2012 R2, ou la commande **Dfsrdiag SyncNow** . Vous pouvez forcer l’interrogation à l' `Update-DfsrConfigurationFromAD` aide de l’applet de commande ou de la commande **Dfsrdiag pollad** .
+Vous pouvez forcer la réplication immédiatement à l’aide de la gestion DFS, comme décrit dans [modifier les planifications de réplication](https://technet.microsoft.com/library/Cc732278). Vous pouvez également forcer la réplication à l’aide de l’applet de commande `Sync-DfsReplicationGroup`, incluse dans le module PowerShell DFSR introduit avec Windows Server 2012 R2, ou la commande **Dfsrdiag SyncNow** . Vous pouvez forcer l’interrogation à l’aide de l’applet de commande `Update-DfsrConfigurationFromAD` ou de la commande **Dfsrdiag PollAD** .
 
 ### <a name="is-it-possible-to-configure-a-quiet-time-between-replications-for-files-that-change-frequently"></a>Est-il possible de configurer une période de silence entre les réplications pour les fichiers qui changent fréquemment ?
 
@@ -618,7 +618,7 @@ Non. Si la planification est ouverte, réplication DFS répliquera les modificat
 
 ### <a name="is-it-possible-to-configure-one-way-replication-with-dfs-replication"></a>Est-il possible de configurer la réplication unidirectionnelle avec réplication DFS ?
 
-Oui. Si vous utilisez Windows Server 2012 ou Windows Server 2008 R2, vous pouvez créer un dossier répliqué en lecture seule qui réplique le contenu via une connexion unidirectionnelle. Pour plus d’informations, consultez [créer un dossier répliqué en lecture seule sur un membre particulier](http://go.microsoft.com/fwlink/?linkid=156740) (http://go.microsoft.com/fwlink/?LinkId=156740).
+Oui. Si vous utilisez Windows Server 2012 ou Windows Server 2008 R2, vous pouvez créer un dossier répliqué en lecture seule qui réplique le contenu via une connexion unidirectionnelle. Pour plus d’informations, consultez [créer un dossier répliqué en lecture seule sur un membre particulier](https://go.microsoft.com/fwlink/?linkid=156740) (https://go.microsoft.com/fwlink/?LinkId=156740).
 
 Nous ne prenons pas en charge la création d’une connexion de réplication unidirectionnelle avec réplication DFS dans Windows Server 2008 ou Windows Server 2003 R2. Cela peut entraîner de nombreux problèmes, notamment des erreurs de topologie de contrôle d’intégrité, des problèmes de préproduction et des problèmes liés à la base de données réplication DFS.
 
@@ -649,13 +649,13 @@ Pour plus d’informations sur la réplication initiale, voir [créer un groupe 
 
 ### <a name="what-happens-if-the-replication-schedule-closes-while-a-file-is-being-replicated"></a>Que se passe-t-il si la planification de réplication se ferme pendant la réplication d’un fichier ?
 
-Si la compression différentielle à distance (RDC) est activée sur la connexion, la réplication entrante d’un fichier d’une taille supérieure à 64 Ko qui a commencé la réplication juste avant la fermeture de la planification (ou **la modification sans bande passante**) se poursuit lorsque la planification s’ouvre (ou modifications apportées à autre chose qu' **aucune bande passante**). La réplication se poursuit à partir de l’État où elle se trouvait lorsque la réplication s’est arrêtée.
+Si la compression différentielle à distance (RDC) est activée sur la connexion, la réplication entrante d’un fichier d’une taille supérieure à 64 Ko qui a commencé la réplication juste avant la fermeture de la planification (ou en passant à une **bande passante illimitée**) se poursuit lorsque la planification s’ouvre (ou **ne change pas de bande passante**). La réplication se poursuit à partir de l’État où elle se trouvait lorsque la réplication s’est arrêtée.
 
 Si RDC est désactivé, réplication DFS redémarre complètement le transfert de fichiers. Cela peut retarder lorsque le fichier est disponible sur le membre de réception.
 
 ### <a name="what-happens-when-two-users-simultaneously-update-the-same-file-on-different-servers"></a>Que se passe-t-il lorsque deux utilisateurs mettent à jour simultanément le même fichier sur des serveurs différents ?
 
-Lorsque réplication DFS détecte un conflit, il utilise la version du fichier qui a été enregistré en dernier. Il déplace l’autre fichier dans le dossier\\DfsrPrivate ConflictandDeleted (sous le chemin d’accès local du dossier répliqué sur l’ordinateur qui a résolu le conflit). Il reste jusqu’à ce que le nettoyage du dossier soit en conflit et supprimé, ce qui se produit lorsque le dossier des fichiers en conflit et supprimés dépasse la taille configurée ou réplication DFS rencontre une erreur d’espace disque insuffisant. Le dossier des fichiers en conflit et supprimés n’est pas répliqué, et cette méthode de résolution des conflits évite le problème des répertoires transplicas qui étaient possibles dans FRS.
+Lorsque réplication DFS détecte un conflit, il utilise la version du fichier qui a été enregistré en dernier. Il déplace l’autre fichier dans le dossier DfsrPrivate\\ConflictandDeleted (sous le chemin d’accès local du dossier répliqué sur l’ordinateur qui a résolu le conflit). Il reste jusqu’à ce que le nettoyage du dossier soit en conflit et supprimé, ce qui se produit lorsque le dossier des fichiers en conflit et supprimés dépasse la taille configurée ou réplication DFS rencontre une erreur d’espace disque insuffisant. Le dossier des fichiers en conflit et supprimés n’est pas répliqué, et cette méthode de résolution des conflits évite le problème des répertoires transplicas qui étaient possibles dans FRS.
 
 En cas de conflit, réplication DFS consigne un événement d’information dans le journal des événements réplication DFS. Cet événement ne requiert pas d’action de l’utilisateur pour les raisons suivantes :
 
@@ -666,7 +666,7 @@ En cas de conflit, réplication DFS consigne un événement d’information dans
   - Le conflit peut résider sur un serveur différent de l’origine du conflit.  
       
 
-## <a name="staging"></a>Création intermédiaire
+## <a name="staging"></a>Transfert
 
 ### <a name="does-dfs-replication-continue-staging-files-when-replication-is-disabled-by-a-schedule-or-bandwidth-throttling-quota-or-when-a-connection-is-manually-disabled"></a>Réplication DFS continue-t-il les fichiers intermédiaires lorsque la réplication est désactivée par un quota de limitation de bande passante ou de planification, ou lorsqu’une connexion est désactivée manuellement ?
 
@@ -702,8 +702,8 @@ Les fichiers sont mis en place sur le membre émetteur lorsque le membre récept
 <tbody>
 <tr class="even">
 <td><p>Membre expéditeur</p></td>
-<td><p>64 KO</p></td>
-<td><p>256 KO</p></td>
+<td><p>64 Ko</p></td>
+<td><p>256 Ko</p></td>
 </tr>
 <tr class="odd">
 <td><p>Membre de réception</p></td>
@@ -730,7 +730,7 @@ Si une partie du fichier est déjà en cours de transmission, réplication DFS c
 <tr class="header">
 <th>Date</th>
 <th>Description</th>
-<th>Reason</th>
+<th>Raison</th>
 </tr>
 </thead>
 <tbody>
@@ -752,7 +752,7 @@ Si une partie du fichier est déjà en cours de transmission, réplication DFS c
 <tr class="even">
 <td><p>31 octobre 2012</p></td>
 <td><p>Modification des limites de réplication DFS prises en charge ? entrée permettant d’augmenter le nombre testé de fichiers répliqués sur un volume.</p></td>
-<td><p>Retour d'expérience du client</p></td>
+<td><p>Retour d’expérience du client</p></td>
 </tr>
 <tr class="odd">
 <td><p>15 août 2012</p></td>
@@ -762,7 +762,7 @@ Si une partie du fichier est déjà en cours de transmission, réplication DFS c
 <tr class="even">
 <td><p>Le 13 juin 2012</p></td>
 <td><p>Modifié le ne fonctionne-t-il réplication DFS sur des volumes ReFS ou FAT ? entrée pour ajouter une discussion de références.</p></td>
-<td><p>Retour d'expérience du client</p></td>
+<td><p>Retour d’expérience du client</p></td>
 </tr>
 <tr class="odd">
 <td><p>25 avril, 2012</p></td>
@@ -778,12 +778,12 @@ Si une partie du fichier est déjà en cours de transmission, réplication DFS c
 <tr class="odd">
 <td><p>26 janvier 2011</p></td>
 <td><p>Ajout de la façon dont les fichiers peuvent être récupérés à partir des dossiers ConflictAndDeleted ou PreExisting ?</p></td>
-<td><p>Retour d'expérience du client</p></td>
+<td><p>Retour d’expérience du client</p></td>
 </tr>
 <tr class="even">
 <td><p>20 octobre, 2010</p></td>
 <td><p>Vous avez ajouté Comment puis-je mettre à niveau ou remplacer un membre réplication DFS ?</p></td>
-<td><p>Retour d'expérience du client</p></td>
+<td><p>Retour d’expérience du client</p></td>
 </tr>
 </tbody>
 </table>

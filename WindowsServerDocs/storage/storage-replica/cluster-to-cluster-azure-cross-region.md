@@ -9,21 +9,21 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 26eba76c836d1157f4d4c10d7a989a3a7dcc1538
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 806857d5de067c0f4640344ed80338b474dd758e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393829"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950060"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Réplica du stockage de cluster à cluster entre régions dans Azure
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Vous pouvez configurer un cluster pour les réplicas de stockage de cluster pour les applications inter-régions dans Azure. Dans les exemples ci-dessous, nous utilisons un cluster à deux nœuds, mais le réplica de stockage de cluster à cluster n’est pas limité à un cluster à deux nœuds. L’illustration ci-dessous est un cluster d’espace de stockage direct à deux nœuds qui peut communiquer entre eux, se trouvent dans le même domaine et sont inter-régions.
 
 Regardez la vidéo ci-dessous pour une procédure pas à pas complète du processus.
-> [!video https://www.microsoft.com/en-us/videoplayer/embed/RE26xeW]
+> [!video https://www.microsoft.com/videoplayer/embed/RE26xeW]
 
 ![Diagramme d’architecture présentant C2C SR dans Azure avec la même région.](media/Cluster-to-cluster-azure-cross-region/architecture.png)
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Regardez la vidéo ci-dessous pour une procédure pas à pas complète du proces
       - Ajoutez au moins deux disques managés à chaque ordinateur
       - Installer le clustering de basculement et la fonctionnalité réplica de stockage
 
-   Créez deux machines virtuelles (**azcross1**, **azcross2**) dans le groupe de ressources (**SR-AZCROSS**) à l’aide du réseau virtuel (**AZCROSS-VNET**) et du groupe de sécurité réseau (**AZCROSS-NSG**) dans le groupe à haute disponibilité (**AZCROSS-As**) . Affecter une adresse IP publique standard à chaque ordinateur virtuel lors de la création proprement dite
+   Créez deux machines virtuelles (**azcross1**, **azcross2**) dans le groupe de ressources (**SR-AZCROSS**) à l’aide du réseau virtuel (**AZCROSS-VNET**) et du groupe de sécurité réseau (**AZCROSS-NSG**) dans le groupe à haute disponibilité (**AZCROSS-As**). Affecter une adresse IP publique standard à chaque ordinateur virtuel lors de la création proprement dite
       - Ajoutez au moins deux disques managés à chaque ordinateur
       - Installer le clustering de basculement et la fonctionnalité réplica de stockage
 
@@ -93,16 +93,16 @@ Regardez la vidéo ci-dessous pour une procédure pas à pas complète du proces
 8. Créez un [load balancer](https://ms.portal.azure.com/#create/Microsoft.LoadBalancer-ARM) de référence SKU standard interne pour chaque cluster (**azlbr1**, **azlbazcross**).
 
    Fournissez l’adresse IP de cluster comme adresse IP privée statique pour l’équilibrage de charge.
-      - azlbr1 = > adresse IP frontale : 10.3.0.100 (récupération d’une adresse IP inutilisée à partir du sous-réseau de réseau virtuel (**az2az**))
+      - azlbr1 = > IP frontend : 10.3.0.100 (récupérer une adresse IP inutilisée à partir du sous-réseau de réseau virtuel (**az2az-vnet**))
       - Créez un pool backend pour chaque équilibrage de charge. Ajoutez les nœuds de cluster associés.
       - Créer une sonde d’intégrité : port 59999
-      - Créer une règle d’équilibrage de charge : Autorisez les ports HA, avec l’adresse IP flottante activée.
+      - Créer une règle d’équilibrage de charge : autoriser les ports haute disponibilité avec une adresse IP flottante activée.
 
    Fournissez l’adresse IP de cluster comme adresse IP privée statique pour l’équilibrage de charge. 
-      - azlbazcross = > adresse IP frontale : 10.0.0.10 (récupération d’une adresse IP inutilisée à partir du sous-réseau de réseau virtuel (**azcross**))
+      - azlbazcross = > IP frontend : 10.0.0.10 (récupérer une adresse IP inutilisée à partir du sous-réseau de réseau virtuel (**azcross-VNET**))
       - Créez un pool backend pour chaque équilibrage de charge. Ajoutez les nœuds de cluster associés.
       - Créer une sonde d’intégrité : port 59999
-      - Créer une règle d’équilibrage de charge : Autorisez les ports HA, avec l’adresse IP flottante activée. 
+      - Créer une règle d’équilibrage de charge : autoriser les ports haute disponibilité avec une adresse IP flottante activée. 
 
 9. Créer une [passerelle de réseau virtuel pour la connectivité de réseau virtuel](https://ms.portal.azure.com/#create/Microsoft.VirtualNetworkGateway-ARM) à réseau virtuel.
 
@@ -128,7 +128,7 @@ Regardez la vidéo ci-dessous pour une procédure pas à pas complète du proces
 
     Exécutez-le une seule fois à partir d’un nœud du cluster, pour chaque cluster. 
     
-    Dans notre exemple, assurez-vous de modifier la valeur « ILBIP » en fonction de vos valeurs de configuration. Exécutez la commande suivante à partir d’un nœud **az2az1**/**az2az2**
+    Dans notre exemple, assurez-vous de modifier la valeur « ILBIP » en fonction de vos valeurs de configuration. Exécutez la commande suivante à partir de n’importe quel nœud **az2az1**/**az2az2**
 
     ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
@@ -138,7 +138,7 @@ Regardez la vidéo ci-dessous pour une procédure pas à pas complète du proces
      Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
     ```
 
-12. Exécutez la commande suivante à partir d’un nœud **azcross1**/**azcross2**
+12. Exécutez la commande suivante à partir de n’importe quel nœud **azcross1**/**azcross2**
     ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
@@ -190,7 +190,7 @@ Regardez la vidéo ci-dessous pour une procédure pas à pas complète du proces
       - Emplacement du volume :-c:\ClusterStorage\DataDiskCross
       - Emplacement du journal :-g :
 
-Exécutez la commande :
+Exécutez la commande suivante :
 
 ```powershell
 PowerShell

@@ -8,19 +8,19 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7984d1c965c15f7d8c3f3abfdc99f01e3adc215f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2ab9d4afb6e4219c6e6aae23d2d58052f20d3998
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403426"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950327"
 ---
 # <a name="shielded-vms---preparing-a-vm-shielding-helper-vhd"></a>Machines virtuelles protégées-préparation d’un disque dur virtuel d’assistance de protection de machine virtuelle
 
 >S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
 
 > [!IMPORTANT]
-> Avant de commencer ces procédures, assurez-vous que vous avez installé la dernière mise à jour cumulative pour Windows Server 2016 ou que vous utilisez la dernière version de Windows 10 [Outils d’administration de serveur distant](https://www.microsoft.com/en-us/download/details.aspx?id=45520). Dans le cas contraire, les procédures ne fonctionneront pas. 
+> Avant de commencer ces procédures, assurez-vous que vous avez installé la dernière mise à jour cumulative pour Windows Server 2016 ou que vous utilisez la dernière version de Windows 10 [Outils d’administration de serveur distant](https://www.microsoft.com/download/details.aspx?id=45520). Dans le cas contraire, les procédures ne fonctionneront pas. 
 
 Cette section décrit les étapes effectuées par un fournisseur de services d’hébergement pour activer la prise en charge de la conversion de machines virtuelles existantes en machines virtuelles protégées.
 
@@ -59,7 +59,7 @@ Dans la console VMM, ouvrez le volet Paramètres, puis **hébergez paramètres d
 
 ![VMM-paramètres du service Guardian hôte](../media/Guarded-Fabric-Shielded-VM/guarded-host-vmm-hgs-settings-01.png)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 
 - [Étapes de configuration du fournisseur de services d’hébergement pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

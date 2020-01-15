@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 27d456dd274b917233f0484f055b679dc8c73214
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cce76e006272104033e1437e0ccf6cad5bc47f3f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403510"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950303"
 ---
 # <a name="passwords-overview"></a>Vue d’ensemble sur les mots de passe
 
@@ -50,11 +50,11 @@ Ce tableau répertorie des ressources supplémentaires pour les fonctionnalités
 
 |Type de contenu|Références|
 |--------|-------|
-|**Documentation du scénario**|[Protection de votre identité numérique](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)|
+|**Documentation du scénario**|[Protection de votre identité numérique](https://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)|
 |**Opérations**|[Active Directory les utilisateurs et les ordinateurs](https://technet.microsoft.com/library/cc754217.aspx)|
-|**Résolution des problèmes**|[Déterminer à quel moment votre mot de passe expire \- Active Directory blog PowerShell](http://blogs.msdn.com/b/adpowershell/archive/2010/08/09/9970198.aspx)|
+|**Résolution des problèmes**|[Déterminer à quel moment votre mot de passe expire \- Active Directory blog PowerShell](https://blogs.msdn.com/b/adpowershell/archive/2010/08/09/9970198.aspx)|
 |**Sécurité**| [Guide des menaces et des contre-mesures](https://technet.microsoft.com/library/hh125920(v=ws.10).aspx) windows Server 2008 R2 et Windows 7 : stratégies de compte<br /><br />Conseils pour [modifier et créer des mots de passe forts](https://www.microsoft.com/security/online-privacy/passwords-create.aspx)|
 |**Outils et paramètres**|[Informations de référence sur les paramètres de stratégie de groupe pour Windows et Windows Server dans le centre de téléchargement Microsoft](https://www.microsoft.com/download/en/details.aspx?amp;displaylang=en&displaylang=en&id=25250)|
-|**Ressources de la communauté**|[Protection de votre identité numérique](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<br /><br />[Connexion à Windows 8 avec un identifiant Windows Live ID](http://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<br /><br />[Connexion avec un mot de passe image](http://blogs.msdn.com/b/b8/archive/2011/12/16/signing-in-with-a-picture-password.aspx)<br /><br />[Optimisation de la sécurité des mots de passe image](http://blogs.msdn.com/b/b8/archive/2011/12/19/optimizing-picture-password-security.aspx)|
+|**Ressources de la communauté**|[Protection de votre identité numérique](https://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<br /><br />[Connexion à Windows 8 avec un identifiant Windows Live ID](https://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<br /><br />[Connexion avec un mot de passe image](https://blogs.msdn.com/b/b8/archive/2011/12/16/signing-in-with-a-picture-password.aspx)<br /><br />[Optimisation de la sécurité des mots de passe image](https://blogs.msdn.com/b/b8/archive/2011/12/19/optimizing-picture-password-security.aspx)|
 
 

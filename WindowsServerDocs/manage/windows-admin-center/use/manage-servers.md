@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 11/21/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 9a116cc9d86dfe0bb4450efa0f18580a062af722
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: ddc8eea67cde9d6677836af1201e169c911e77e0
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903718"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950481"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Gérer les serveurs à l’aide du centre d’administration Windows
 
@@ -21,7 +21,7 @@ ms.locfileid: "74903718"
 
 > [!Tip]
 > Vous débutez dans Windows Admin Center ?
-> [Découvrez-en davantage sur Windows Admin Center](../understand/windows-admin-center.md) ou [téléchargez maintenant](https://aka.ms/windowsadmincenter).
+> [Téléchargez ou apprenez-en davantage sur le centre d’administration Windows](../overview.md).
 
 ## <a name="managing-windows-server-machines"></a>Gestion des machines Windows Server
 
@@ -53,13 +53,13 @@ Les outils suivants sont disponibles pour les connexions au serveur :
 | [Active Directory](#active-directory-preview) | Gérer les Active Directory |
 | [Sauvegarde](#backup) | Afficher et configurer la sauvegarde Azure |  
 | [Certificats](#certificates) | Afficher et modifier des certificats |
-| [Containers](#containers) | Afficher les conteneurs |
+| [Conteneurs](#containers) | Afficher les conteneurs |
 | [Appareils](#devices) | Afficher et modifier des appareils |
 | [DHCP](#dhcp) | Afficher et gérer la configuration du serveur DHCP |
 | [DNS](#dns) | Afficher et gérer la configuration du serveur DNS |
 | [Événements](#events) | Visualiser les événements |
 | [Fichiers](#files) | Parcourir des fichiers et dossiers |
-| [Firewall](#firewall) | Afficher et modifier des règles de pare-feu |
+| [Pare-feu](#firewall) | Afficher et modifier des règles de pare-feu |
 | [Applications installées](#installed-apps) | Afficher et supprimer les applications installées |
 | [Utilisateurs et groupes locaux](#local-users-and-groups) | Afficher et modifier les utilisateurs et groupes locaux |
 | [Network](#network) | Afficher et modifier des périphériques réseau |
@@ -329,7 +329,7 @@ Les fonctionnalités suivantes sont prises en charge dans les processus :
 
 [**Affichez les commentaires et les fonctionnalités proposées pour les processus**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BProcesses%5D).
 
-## <a name="registry"></a>Registre
+## <a name="registry"></a>Registry
 
 Le **Registre** vous permet de gérer les clés et les valeurs de Registre sur un ordinateur ou un serveur.
 
@@ -477,7 +477,7 @@ Les fonctionnalités suivantes sont prises en charge dans les mises à jour :
 
 [**Afficher les commentaires et les fonctionnalités proposées pour les mises à jour**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BUpdates%5D)
 
-## <a name="virtual-machines"></a>Ordinateurs virtuels
+## <a name="virtual-machines"></a>Machines virtuelles
 
 Consultez [gestion des machines virtuelles avec le centre d’administration Windows](manage-virtual-machines.md)
 

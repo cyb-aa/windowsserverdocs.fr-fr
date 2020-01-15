@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ae1b23244f141cd0806ee14d3c40117ba72aeebb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a7c37638e25fc0d16447ab57bf369255dab9c859
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402054"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950258"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Vue d’ensemble de la redirection de dossiers, des fichiers hors connexion et des profils utilisateurs itinérants
 
@@ -29,13 +29,13 @@ La redirection de dossiers et les fichiers hors connexion sont utilisés ensembl
 - **Fichiers hors connexion** met les fichiers réseau à la disposition d’un utilisateur, même si la connexion réseau au serveur est indisponible ou lente. Lorsque vous travaillez en ligne, les performances d’accès aux fichiers dépendent de la vitesse du réseau et du serveur. Lorsque vous travaillez hors connexion, les fichiers sont récupérés du dossier Fichiers hors connexion aux vitesses d’accès local. Un ordinateur passe en mode hors connexion lorsque :
   - Le mode **toujours hors connexion** a été activé
   - le serveur est indisponible ;
-  - la connexion réseau est plus lente qu’un seuil configurable ;
+  - la connexion réseau est plus lente qu’un seuil configurable ;
   - l’utilisateur bascule manuellement en mode hors connexion à l’aide du bouton **Travailler hors connexion** dans l’Explorateur Windows.
 - Le **profil utilisateur itinérant** redirige les profils utilisateur vers un partage de fichiers afin que les utilisateurs reçoivent les mêmes paramètres de système d’exploitation et d’application sur plusieurs ordinateurs. Lorsqu’un utilisateur se connecte à un ordinateur à l’aide d’un compte configuré avec un partage de fichiers comme chemin d’accès au profil, le profil de l’utilisateur est téléchargé sur l’ordinateur local et fusionné avec le profil local (le cas échéant). Lorsque l’utilisateur ferme la session sur l’ordinateur, la copie locale de son profil, y compris toutes les modifications, est fusionnée avec la copie serveur du profil. En règle générale, un administrateur réseau active les profils utilisateur itinérants sur des comptes de domaine.
 
-## <a name="practical-applications"></a>Cas pratiques
+## <a name="practical-applications"></a>Applications pratiques
 
-Les administrateurs peuvent utiliser la redirection de dossiers, les fichiers hors connexion et les profils utilisateurs itinérants pour centraliser le stockage des paramètres et données utilisateur et pour fournir aux utilisateurs la capacité d’accéder à leurs données en mode hors connexion ou dans le cas d’une indisponibilité du réseau ou d’une panne du serveur. Certaines applications spécifiques incluent les fonctionnalités suivantes :
+Les administrateurs peuvent utiliser la redirection de dossiers, les fichiers hors connexion et les profils utilisateurs itinérants pour centraliser le stockage des paramètres et données utilisateur et pour fournir aux utilisateurs la capacité d’accéder à leurs données en mode hors connexion ou dans le cas d’une indisponibilité du réseau ou d’une panne du serveur. Certaines applications spécifiques incluent les fonctionnalités suivantes :
 
 - centraliser les données issues des ordinateurs clients pour les tâches administratives, telles que l’utilisation d’un outil de sauvegarde serveur pour sauvegarder les paramètres et dossiers utilisateur ;
 - permettre aux utilisateurs de continuer à accéder aux fichiers réseau, même en cas d’indisponibilité du réseau ou de panne du serveur ;
@@ -46,7 +46,7 @@ Les administrateurs peuvent utiliser la redirection de dossiers, les fichiers ho
 
 Le tableau ci-dessous décrit quelques-unes des principales modifications apportées aux fonctionnalités de redirection de dossiers, fichiers hors connexion et profils utilisateurs itinérants, disponibles dans cette version.
 
-| Fonctionnalité/fonction | Nouveauté ou mise à jour ? | Description |
+| Fonctionnalité/fonction | Nouveauté ou mise à jour ? | Description |
 | --- | --- | --- |
 | Mode Toujours hors connexion | Nouveau | Assure un accès plus rapide aux fichiers et une utilisation réduite de la bande passante en travaillant toujours hors connexion, même lors d’une connexion via une connexion réseau haut débit. |
 | Synchronisation prenant en charge les coûts | Nouveau | Aide les utilisateurs à éviter des coûts élevés d’utilisation des données de synchronisation lors de l’utilisation de connexions limitées ayant des limites d’utilisation ou lors d’une itinérance sur le réseau d’un autre fournisseur. |
@@ -60,14 +60,14 @@ Le tableau ci-dessous décrit quelques-unes des principales modifications apport
 
 Le mode Toujours hors connexion présente les avantages suivants :
 
-- les utilisateurs bénéficient d’un accès plus rapide aux fichiers figurant dans les dossiers redirigés, tels que le dossier Documents ;
+- les utilisateurs bénéficient d’un accès plus rapide aux fichiers figurant dans les dossiers redirigés, tels que le dossier Documents ;
 - la bande passante réseau est réduite, ce qui réduit les coûts des connexions WAN ou des connexions limitées onéreuses, telles qu’un réseau mobile 4G.
 
 ### <a name="how-has-always-offline-mode-changed-things"></a>Comment le mode toujours hors connexion a-t-il changé ?
 
 Avant Windows 8, Windows Server 2012, les utilisateurs migraient entre les modes en ligne et hors connexion, en fonction de la disponibilité et des conditions du réseau, même lorsque le mode de liaison lente (également appelé mode de connexion lente) était activé et défini sur 1 milliseconde. seuil de latence.
 
-Avec le mode toujours hors connexion, les ordinateurs ne passent jamais en mode en ligne lorsque le paramètre **configurer le mode de liaison lente** stratégie de groupe est configuré et que le paramètre seuil de **latence** est défini sur 1 milliseconde. Les modifications sont synchronisées en arrière-plan toutes les 120 minutes, par défaut, mais la synchronisation est configurable à l’aide du paramètre de stratégie de groupe **Configurer la synchronisation en arrière-plan**.
+Avec le mode toujours hors connexion, les ordinateurs ne passent jamais en mode en ligne lorsque le paramètre **configurer le mode de liaison lente** stratégie de groupe est configuré et que le paramètre seuil de **latence** est défini sur 1 milliseconde. Les modifications sont synchronisées en arrière-plan toutes les 120 minutes, par défaut, mais la synchronisation est configurable à l’aide du paramètre de stratégie de groupe **Configure Background Sync** .
 
 Pour plus d'informations, voir [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md).
 
@@ -92,7 +92,7 @@ Pour plus d'informations, voir [Enable Background File Synchronization on Metere
 
 ## <a name="primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Ordinateurs principaux pour la redirection de dossiers et les profils utilisateurs itinérants
 
-Vous pouvez maintenant désigner un ensemble d’ordinateurs, appelés ordinateurs principaux, pour chaque utilisateur de domaine, ce qui vous permet de contrôler quels ordinateurs utilisent la redirection de dossiers, les profils utilisateur itinérants, ou les deux. La désignation des ordinateurs principaux est une méthode simple et efficace qui permet d’associer les paramètres et les données utilisateur à des périphériques ou des ordinateurs particuliers, de simplifier la supervision de l’administrateur, d’améliorer la sécurité des données et d’aider à protéger les profils utilisateurs contre d’éventuels dommages.
+Vous pouvez maintenant désigner un ensemble d’ordinateurs, appelés ordinateurs principaux, pour chaque utilisateur de domaine, ce qui vous permet de contrôler quels ordinateurs utilisent la redirection de dossiers, les profils utilisateur itinérants, ou les deux. La désignation des ordinateurs principaux est une méthode simple et efficace qui permet d'associer les paramètres et les données utilisateur à des périphériques ou des ordinateurs particuliers, de simplifier la supervision de l'administrateur, d'améliorer la sécurité des données et d'aider à protéger les profils utilisateur contre d'éventuels dommages.
 
 ### <a name="what-value-do-primary-computers-add"></a>Quelle est la valeur ajoutée par les ordinateurs principaux ?
 
@@ -105,14 +105,14 @@ La désignation d’ordinateurs principaux pour les utilisateurs présente quatr
 
 ### <a name="how-have-primary-computers-changed-things"></a>Comment les ordinateurs principaux ont-ils changé ?
 
-Pour restreindre le téléchargement des données utilisateur privées vers les ordinateurs principaux, les technologies de redirection de dossiers et de profils utilisateurs itinérants effectuent les vérifications logiques suivantes lorsqu’un utilisateur se connecte à un ordinateur :
+Pour restreindre le téléchargement des données utilisateur privées vers les ordinateurs principaux, les technologies de redirection de dossiers et de profils utilisateurs itinérants effectuent les vérifications logiques suivantes lorsqu’un utilisateur se connecte à un ordinateur :
 
 1. Le système d’exploitation Windows vérifie les nouveaux paramètres de stratégie de groupe (**Télécharger les profils itinérants sur les ordinateurs principaux uniquement** et **Rediriger les dossiers uniquement sur les ordinateurs principaux**) pour déterminer si l’attribut **MSDS-Primary-Computer** dans Active Directory Domain Services (AD DS) doit influencer la décision d’itinérance du profil de l’utilisateur ou d’application de la redirection de dossiers.
-2. Si le paramètre de stratégie active la prise en charge des ordinateurs principaux, Windows vérifie que le schéma AD DS prend en charge l’attribut **msDS-Primary-Computer**. Si tel est le cas, Windows détermine si l’ordinateur sur lequel l’utilisateur ouvre une session est désigné comme ordinateur principal pour l’utilisateur, comme suit :
+2. Si le paramètre de stratégie active la prise en charge des ordinateurs principaux, Windows vérifie que le schéma AD DS prend en charge l’attribut **msDS-Primary-Computer** . Si tel est le cas, Windows détermine si l’ordinateur sur lequel l’utilisateur ouvre une session est désigné comme ordinateur principal pour l’utilisateur, comme suit :
     1. Si l’ordinateur est l’un des ordinateurs principaux de l’utilisateur, Windows applique les paramètres des profils utilisateur itinérants et de redirection de dossiers.
     2. Si l’ordinateur n’est pas l’un des ordinateurs principaux de l’utilisateur, Windows charge le profil local mis en cache de l’utilisateur, s’il est présent, ou crée un nouveau profil local. Windows supprime également tous les dossiers redirigés existants conformément à l’action de suppression qui a été spécifiée par le paramètre de stratégie de groupe précédemment appliqué, qui est conservé dans la configuration locale de la redirection de dossiers.
 
-Pour plus d’informations, voir [Déployer des ordinateurs principaux pour la redirection de dossiers et les profils utilisateurs itinérants](deploy-primary-computers.md)
+Pour plus d'informations, consultez [Deploy Primary Computers for Folder Redirection and Roaming User Profiles](deploy-primary-computers.md)
 
 ## <a name="hardware-requirements"></a>Configuration matérielle requise
 
@@ -120,19 +120,19 @@ La redirection de dossiers, les fichiers hors connexion et les profils utilisate
 
 ## <a name="software-requirements"></a>Configuration logicielle requise
 
-Pour désigner les ordinateurs principaux, votre environnement doit répondre aux exigences suivantes :
+Pour désigner les ordinateurs principaux, votre environnement doit répondre aux exigences suivantes :
 
 - Le schéma Active Directory Domain Services (AD DS) doit être mis à jour pour inclure le schéma et les conditions de Windows Server 2012 (l’installation d’un contrôleur de domaine Windows Server 2012 ou version ultérieure met automatiquement à jour le schéma). Pour plus d’informations sur la mise à niveau du schéma AD DS, consultez [mettre à niveau les contrôleurs de domaine vers Windows Server 2016](../../identity/ad-ds/deploy/upgrade-domain-controllers.md).
 - Les ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 et être joints au domaine Active Directory que vous gérez.
 
-## <a name="more-information"></a>Informations supplémentaires
+## <a name="more-information"></a>Autres informations
 
 Pour plus d’informations connexes, voir les ressources suivantes.
 
 | Type de contenu | Références |
 | --- | --- |
 | Évaluation du produit | [Prise en charge des travailleurs de l’information avec des services de fichiers et un stockage fiables](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Nouveautés de fichiers hors connexion](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 et windows Server 2008 R2)<br>[Nouveautés de Fichiers hors connexion pour Windows Vista](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Modifications apportées à fichiers hors connexion dans Windows Vista](<https://technet.microsoft.com/library/2007.11.offline.aspx>) (TechNet Magazine) |
-| Déploiement | [Déployer la redirection de dossiers, les Fichiers hors connexion et les profils utilisateur itinérants](deploy-folder-redirection.md)<br>[Implémentation d’une solution de centralisation des données de l’utilisateur final : redirection de dossiers et déploiement et validation de technologie Fichiers hors connexion](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Guide de déploiement des données de l’utilisateur itinérant](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Guide pas à pas de la configuration des nouvelles fonctionnalités Fichiers hors connexion pour les ordinateurs Windows 7](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Utilisation de la redirection de dossiers](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implémentation de la redirection de dossiers](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
+| Déploiement | [Déployer la redirection de dossiers, les Fichiers hors connexion et les profils utilisateur itinérants](deploy-folder-redirection.md)<br>[Implémentation d’une solution de centralisation des données de l’utilisateur final : redirection de dossiers et déploiement et validation de technologie Fichiers hors connexion](https://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Guide de déploiement des données de l’utilisateur itinérant](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Guide pas à pas de la configuration des nouvelles fonctionnalités Fichiers hors connexion pour les ordinateurs Windows 7](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Utilisation de la redirection de dossiers](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implémentation de la redirection de dossiers](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
 | Outils et paramètres | [Fichiers hors connexion sur MSDN](https://msdn.microsoft.com/library/cc296092.aspx)<br>[Référence du stratégie de groupe fichiers hors connexion](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000) |
 | Ressources de la communauté | [Forum sur les services de fichiers et le stockage](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[Hé, Scripting Guy ! Comment puis-je utiliser la fonctionnalité Fichiers hors connexion dans Windows ?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Hé, Scripting Guy ! Comment puis-je activer et désactiver des Fichiers hors connexion ?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>) |
-| Technologies associées|[Identité et accès dans Windows Server](../../identity/identity-and-access.md)<br>[Storage](../storage.md) (Stockage)<br>[Accès à distance et gestion de serveur](../../remote/index.md) |
+| Technologies connexes|[Identité et accès dans Windows Server](../../identity/identity-and-access.md)<br>[Storage](../storage.md) (Stockage)<br>[Accès à distance et gestion de serveur](../../remote/index.md) |

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 0e848260dd4ba3b37d1351fba7c24dd3cd283e69
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 11d8abfc23cb0f192ed74a1082e83c8e0c8e87e9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393937"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950094"
 ---
 # <a name="storage-quality-of-service"></a>Qualité de service de stockage
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser la qualité de service de stockage dans Windows Server 201
 
 Ce document décrit comment votre entreprise peut bénéficier de la nouvelle fonctionnalité de qualité de service de stockage. Il part du principe que vous avez déjà utilisé Windows Server, le clustering de basculement Windows Server, le serveur de fichiers avec montée en puissance parallèle, Hyper-V et Windows PowerShell.
 
-## <a name="BKMK_Overview"></a>Vue  
+## <a name="BKMK_Overview"></a>Vue d’ensemble  
 Cette section décrit la configuration requise pour l’utilisation de la qualité de service de stockage, une vue d’ensemble d’une solution définie par un logiciel à l’aide de la qualité de service de stockage et une liste de termes liés à la qualité de service de stockage.  
 
 ### <a name="BKMK_Requirements"></a>Exigences de qualité de service de stockage  
@@ -45,7 +45,7 @@ La qualité de service de stockage prend en charge deux scénarios de déploieme
 
     Pour la qualité de service de stockage, le cluster de basculement est nécessaire sur les serveurs de stockage, mais il n’est pas obligatoire que les serveurs de calcul soient dans un cluster de basculement. Tous les serveurs (utilisés à la fois pour le stockage et le calcul) doivent exécuter Windows Server 2016.  
 
-    Si aucun cluster de serveurs de fichiers avec montée en puissance parallèle n’est déployé à des fins d’évaluation, voir [Stockage Windows Server 2012 R2 : procédure pas à pas avec les espaces de stockage, la montée en puissance parallèle SMB et VHDX partagé (physique)](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx) pour obtenir des instructions étape par étape pour en créer un à l’aide des machines virtuelles ou des serveurs existants.  
+    Si aucun cluster de serveurs de fichiers avec montée en puissance parallèle n’est déployé à des fins d’évaluation, voir [Stockage Windows Server 2012 R2 : procédure pas à pas avec les espaces de stockage, la montée en puissance parallèle SMB et VHDX partagé (physique)](https://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx) pour obtenir des instructions étape par étape pour en créer un à l’aide des machines virtuelles ou des serveurs existants.  
 
 -   **Hyper-V à l’aide de volumes partagés de cluster.** Ce scénario nécessite les deux éléments suivants :  
 
@@ -122,7 +122,7 @@ La fonctionnalité facultative **RSAT-Hyper-V-Tools** inclut le module Windows P
 -   Windows PowerShell : Add-WindowsFeature RSAT-Hyper-V-Tools  
 
 #### <a name="deploy-virtual-machines-to-run-workloads-for-testing"></a>Déployer des machines virtuelles pour exécuter des charges de travail de test  
-Quelques machines virtuelles doivent être stockées sur le serveur de fichiers avec montée en puissance parallèle avec les charges de travail appropriées.  Pour obtenir des conseils sur la façon de simuler une charge et d’effectuer des tests de contrainte, voir la page suivante pour un outil recommandé (DiskSpd) et un exemple d’utilisation : [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares.](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
+Quelques machines virtuelles doivent être stockées sur le serveur de fichiers avec montée en puissance parallèle avec les charges de travail appropriées.  Pour obtenir des conseils sur la façon de simuler une charge et d’effectuer des tests de contrainte, voir la page suivante pour un outil recommandé (DiskSpd) et un exemple d’utilisation : [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares.](https://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
 
 Les exemples de scénarios présentés dans ce guide comprennent cinq machines virtuelles. BuildVM1, BuildVM2, BuildVM3 et BuildVM4 exécutent une charge de travail de bureau avec des demandes de stockage faibles à modérées. TestVm1 exécute un test d’évaluation de traitement transactionnel en ligne avec une demande de stockage élevée.  
 
@@ -812,7 +812,7 @@ while ($true)
 }  
 ```  
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions  
+## <a name="frequently-asked-questions"></a>Forum aux questions  
 
 ### <a name="how-do-i-retain-a-storage-qos-policy-being-enforced-for-my-virtual-machine-if-i-move-its-vhdvhdx-files-to-another-storage-cluster"></a>Comment faire pour qu’une stratégie de qualité de service de stockage reste appliquée pour ma machine virtuelle si je déplace ses fichiers VHD/VHDX vers un autre cluster de stockage ?  
 
@@ -885,7 +885,7 @@ IOPSNormalizationSize
 32768  
 ```    
 
-## <a name="see-also"></a>Voir aussi  
-- [Windows Server 2016](../../get-started/windows-server-2016.md)  
+## <a name="see-also"></a>Articles associés  
+- [Windows Server 2016](../../get-started/windows-server-2016.md)  
 - [Réplica de stockage dans Windows Server 2016](../storage-replica/storage-replica-overview.md)  
-- [espaces de stockage direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  
+- [Storage Spaces Direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

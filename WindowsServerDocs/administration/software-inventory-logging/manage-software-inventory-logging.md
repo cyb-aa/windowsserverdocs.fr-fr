@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd8a26d158f53121074881ac8ff204287f9a19ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a14233e01c19df650d1059e1b60cd5398b05709a
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382969"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75946991"
 ---
 # <a name="manage-software-inventory-logging"></a>Gérer la journalisation de l'inventaire logiciel
 
@@ -31,23 +31,23 @@ La fonctionnalité de journalisation de l’inventaire logiciel peut également 
 - **Windows Server 2012 (édition standard ou Datacenter)** 
 
 > [!NOTE] 
-> Assurez-vous d’avoir installé [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) avant d’appliquer le package de mise à jour ci-dessous.
+> Assurez-vous d’avoir installé [WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855) avant d’appliquer le package de mise à jour ci-dessous.
 
--  Package de mise à jour de WMF 4.0 pour Windows Server 2012 : [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
+-  Package de mise à jour de WMF 4.0 pour Windows Server 2012 : [KB 3119938](https://support.microsoft.com/kb/3119938)
 
-- **Windows Server 2008 R2 SP1**
+- **Windows Server 2008 R2 SP1**
 
 > [!NOTE] 
-> Assurez-vous d’avoir installé [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) avant d’appliquer le package de mise à jour ci-dessous.
+> Assurez-vous d’avoir installé [WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855) avant d’appliquer le package de mise à jour ci-dessous.
 
 
-- Nécessite [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
+- Nécessite [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)
 
 
-- Package de mise à jour de WMF 4.0 pour Windows Server 2008 R2 : [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
+- Package de mise à jour de WMF 4.0 pour Windows Server 2008 R2 : [KB 3109118](https://support.microsoft.com/kb/3109118)
 
 
-Il existe deux méthodes principales pour l’inventaire à l’aide de cette fonctionnalité :  
+Il existe deux méthodes principales pour l’inventaire à l’aide de cette fonctionnalité :  
   
 1.  Démarrage de la fonctionnalité de journalisation SIL pour collecter à partir de sources de données SIL et envoyer la charge sur le réseau vers une cible spécifiée (URI) toutes les heures.  
   
@@ -90,7 +90,7 @@ Les options de configuration traitées dans ce document incluent :
 -   [Utilisation de la journalisation de l’inventaire logiciel dans un environnement Hyper-V Windows Server 2012 R2 sans KB 3000850](manage-software-inventory-logging.md#BKMK_Step12)  
   
 > [!NOTE]  
-> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez Utilisation des applets de commande.
+> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d'informations, consultez Utilisation des applets de commande.
 
   
 ## <a name="BKMK_Step1"></a>Démarrage et arrêt de la journalisation de l’inventaire logiciel  
@@ -108,7 +108,7 @@ La collecte quotidienne de la journalisation de l’inventaire logiciel et sa tr
 3.  À l’invite de PowerShell, tapez **[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx)**  
   
 > [!NOTE]  
-> Il est possible de définir la cible sans définir d’empreinte de certificat, mais si vous le faites, les transferts échoueront et les données seront stockées localement pour une durée par défaut maximale de 30 jours (après quoi elles sont supprimées). Une fois qu’un hachage de certificat valide a été défini pour la cible (et qu’un certificat valide correspondant a été installé dans le magasin LocalMachine/Personal), les données stockées localement sont transmises à la cible, tant que celle-ci est configurée pour accepter ces données avec ce certificat (pour plus d’informations, voir [Software Inventory Logging Aggregator](Software-Inventory-Logging-Aggregator.md) ).  
+> Il est possible de définir la cible sans définir d’empreinte de certificat, mais si vous le faites, les transferts échoueront et les données seront stockées localement pour une durée par défaut maximale de 30 jours (après quoi elles sont supprimées). Une fois qu’un hachage de certificat valide a été défini pour la cible (et qu’un certificat valide correspondant a été installé dans le magasin LocalMachine/Personal), les données stockées localement sont transmises à la cible, tant que celle-ci est configurée pour accepter ces données avec ce certificat (pour plus d’informations, voir [Software Inventory Logging Aggregator](Software-Inventory-Logging-Aggregator.md) ).  
   
 #### <a name="to-stop-software-inventory-logging"></a>Pour arrêter la journalisation de l’inventaire logiciel  
   
@@ -119,7 +119,7 @@ La collecte quotidienne de la journalisation de l’inventaire logiciel et sa tr
 3.  À l’invite de PowerShell, tapez **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)**  
   
 ## <a name="configuring-software-inventory-logging"></a>Configuration de la journalisation de l’inventaire logiciel  
-Il existe trois étapes de configuration de la journalisation de l’inventaire logiciel pour transmettre des données à un serveur d’agrégation dans le temps :  
+Il existe trois étapes de configuration de la journalisation de l’inventaire logiciel pour transmettre des données à un serveur d’agrégation dans le temps :  
   
 1.  Utilisez **Set-SilLogging – targetUri** pour spécifier l’adresse Web de votre serveur d’agrégation (doit commencer par « https:// »).  
   
@@ -138,7 +138,7 @@ Si un administrateur a démarré la journalisation de l’inventaire logiciel, l
 > Si, à n’importe quel intervalle, l’URI cible est inaccessible ou le transfert des données sur le réseau a échoué pour une raison quelconque, les données collectées sont stockées localement pour une durée par défaut maximale de 30 jours (après quoi elles sont supprimées). Lors du transfert suivant des données au serveur cible d’agrégation, toutes les données stockées localement sont transférées et les données mises en cache locales sont supprimées.  
   
 ## <a name="BKMK_Step3"></a>Affichage des données de journalisation de l’inventaire logiciel  
-Outres les applets de commande PowerShell décrites dans la section précédente, six autres applets de commande peuvent être utilisées pour collecter des données de journalisation de l’inventaire logiciel :  
+Outres les applets de commande PowerShell décrites dans la section précédente, six autres applets de commande peuvent être utilisées pour collecter des données de journalisation de l’inventaire logiciel :  
   
 -   **[Obtenir-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** : affiche les valeurs à un moment donné pour des données spécifiques relatives au serveur et au système d’exploitation, ainsi que le nom de domaine complet ou le nom d’hôte de l’hôte physique, s’il est disponible.  
   
@@ -208,7 +208,7 @@ La journalisation de l’inventaire logiciel n’est pas destinée à être un c
   
 1. Dans PowerShell, arrêtez la journalisation de l’inventaire logiciel avec la commande **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)** .  
   
-2. Ouvrez l’Explorateur Windows.  
+2. Ouvrez l’Explorateur Windows.  
   
 3. Accédez à **\Windows\System32\Logfiles\SIL\\**  
   
@@ -229,7 +229,7 @@ Les données enregistrées par SIL, mais stockées localement (si le transfert v
 ## <a name="BKMK_Step7"></a>Sécurité de la journalisation de l’inventaire logiciel  
 Des privilèges d’administrateur sur le serveur local sont requis pour récupérer les données à partir des API WMI et PowerShell de la journalisation de l’inventaire logiciel.  
   
-Pour exploiter correctement la fonctionnalité complète de journalisation de l’inventaire logiciel afin de transférer des données vers un point d’agrégation en permanence au fil du temps (à des intervalles d’une heure), un administrateur doit utiliser des certificats clients pour garantir des sessions SSL sécurisées pour le transfert de données via le protocole HTTPS. Vous trouverez ici une vue d’ensemble de l’authentification HTTPS : [Authentification HTTPS](https://technet.microsoft.com/library/cc736680(v=WS.10).aspx).  
+Pour exploiter correctement la fonctionnalité complète de journalisation de l’inventaire logiciel afin de transférer des données vers un point d’agrégation en permanence au fil du temps (à des intervalles d’une heure), un administrateur doit utiliser des certificats clients pour garantir des sessions SSL sécurisées pour le transfert de données via le protocole HTTPS. Vous trouverez ici une vue d’ensemble de l’authentification HTTPS : [Authentification HTTPS](https://technet.microsoft.com/library/cc736680(v=WS.10).aspx).  
   
 Toutes les données stockées localement sur un serveur Windows (se produit uniquement si la fonctionnalité est démarrée mais la cible est inaccessible pour une raison quelconque) ne sont accessibles qu’avec des privilèges d’administrateur sur le serveur local.  
   
@@ -248,13 +248,13 @@ Pour prendre en charge ces utilisations, la journalisation de l’inventaire log
   
 |||||  
 |-|-|-|-|  
-|**Fonctionnalités**|**Nom de la valeur**|**Données**|**Applet de commande correspondante (disponible uniquement dans le système d’exploitation en cours d’exécution)**|  
+|**Fonction**|**Nom de la valeur**|**Données**|**Applet de commande correspondante (disponible uniquement dans le système d’exploitation en cours d’exécution)**|  
 |Fonctionnalité de démarrage/d’arrêt|CollectionState|1 ou 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
 |Spécifie le point d’agrégation cible sur le réseau|TargetUri|chaîne|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TargetURI|  
 |Spécifie l’empreinte du certificat ou le hachage du certificat utilisé pour l’authentification SSL pour le serveur web cible|CertificateThumbprint|chaîne|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
-|Spécifie la date et l’heure auxquelles la fonctionnalité débute (si la valeur définie est dans le futur selon l’heure système locale)|CollectionTime|Par défaut :  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
+|Spécifie la date et l’heure auxquelles la fonctionnalité débute (si la valeur définie est dans le futur selon l’heure système locale)|CollectionTime|Par défaut :  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
-Pour modifier ces valeurs sur un disque dur virtuel hors connexion (système d’exploitation de l’ordinateur inactif), un disque dur virtuel doit tout d’abord être monté, et ensuite les commandes suivantes peuvent être utilisées pour apporter des modifications :  
+Pour modifier ces valeurs sur un disque dur virtuel hors connexion (système d’exploitation de l’ordinateur inactif), un disque dur virtuel doit tout d’abord être monté, et ensuite les commandes suivantes peuvent être utilisées pour apporter des modifications :  
   
 -   [Reg load](https://technet.microsoft.com/library/cc742053.aspx)  
   
@@ -278,7 +278,7 @@ Les modifications suivantes des paramètres par défaut et de la fonctionnalité
 ## <a name="BKMK_Step12"></a>Utilisation de la journalisation de l’inventaire logiciel dans un environnement Hyper-V Windows Server 2012 R2 sans KB 3000850  
   
 > [!NOTE]  
-> Cette fonctionnalité est supprimée avec l’installation de la mise à jour [KB 3000850](https://support.microsoft.com/kb/3000850).  
+> Cette fonctionnalité est supprimée avec l’installation de la mise à jour [KB 3000850](https://support.microsoft.com/kb/3000850) .  
   
 Lors de l’utilisation de la journalisation de l’inventaire logiciel sur un ordinateur hôte Windows Server 2012 R2 Hyper-V, il est possible d’extraire des données SIL des invités Windows Server 2012 R2 qui s’exécutent localement, si la journalisation SIL a été démarrée dans le ou les invités. Toutefois, cela n’est possible que si vous utilisez les applets de commande PowerShell SilData et Publish-SilData, et uniquement avec WIndows Server 2012 R2 dans l’hôte et l’invité.  L’objectif de cette fonctionnalité est de permettre aux administrateurs de centre de données qui fournissent des machines virtuelles invitées à des locataires, ou à d’autres entités d’une grande entreprise, de capturer les données d’inventaire logiciel sur l’hôte hyperviseur, puis de transférer toutes ces données à un agrégateur (ou URI cible).  
   
@@ -295,7 +295,7 @@ Voici deux exemples de l’aspect de la sortie sur la console PowerShell (très 
   
 ![](../media/software-inventory-logging/SILHyper-VExample2.png)  
   
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Articles associés  
 [Prise en main de la journalisation de l’inventaire logiciel](get-started-with-software-inventory-logging.md)  
 [Agrégateur de journalisation de l’inventaire logiciel](software-inventory-logging-aggregator.md)  
 [Applets de commande de la journalisation de l’inventaire logiciel dans Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)  

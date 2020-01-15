@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 16f77e4c6f6f3253cf32d0545815623b1f7277cd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 97300b53cae3200721e8e6566da18466fce85610
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408602"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949552"
 ---
 # <a name="virtualized-domain-controller-additional-resources"></a>Ressources supplémentaires sur les contrôleurs de domaine virtualisés
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 -   [AD DS la virtualisation (clonage et améliorations sécurisées de la virtualisation)](https://go.microsoft.com/fwlink/p/?LinkID=238316)  
@@ -33,7 +33,7 @@ ms.locfileid: "71408602"
   
 -   [Hyper-V dans Windows Server 2012](https://technet.microsoft.com/library/hh831531.aspx)  
   
--   [Poser une question à l’équipe services d’annuaire (blog officiel du support technique commercial Microsoft)](http://blogs.technet.com/b/askds)  
+-   [Poser une question à l’équipe services d’annuaire (blog officiel du support technique commercial Microsoft)](https://blogs.technet.com/b/askds)  
   
 
 

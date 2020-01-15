@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 5383d16ac4c98651aa6afe996dbad88a6d60ee7a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 918d21139a068da1a46fbda1fa5034e14c8379c0
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370228"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947064"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Réglage des performances pour les serveurs de fichiers SMB
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur SMB Multichannel, consultez [déployer SMB Multic
 
 La montée en charge SMB permet à SMB 3,0 dans une configuration de cluster d’afficher un partage dans tous les nœuds d’un cluster. Cette configuration active/active permet de mettre à l’échelle les clusters de serveurs de fichiers davantage, sans une configuration complexe avec plusieurs volumes, des partages et des ressources de cluster. La bande passante de partage maximale correspond à la bande passante totale de tous les nœuds de cluster de serveurs de fichiers. La bande passante totale n’est plus limitée par la bande passante d’un seul nœud de cluster, mais dépend de la capacité du système de stockage de sauvegarde. Vous pouvez augmenter la bande passante totale en ajoutant des nœuds.
 
-Pour plus d’informations sur la montée en charge SMB, consultez [serveur de fichiers avec montée en puissance parallèle pour plus d'](https://technet.microsoft.com/library/hh831349.aspx) informations sur les données d’application et le billet [de blog pour monter en charge ou non pour monter en charge, c’est la question](http://blogs.technet.com/b/filecab/archive/2013/12/05/to-scale-out-or-not-to-scale-out-that-is-the-question.aspx).
+Pour plus d’informations sur la montée en charge SMB, consultez [serveur de fichiers avec montée en puissance parallèle pour plus d'](https://technet.microsoft.com/library/hh831349.aspx) informations sur les données d’application et le billet [de blog pour monter en charge ou non pour monter en charge, c’est la question](https://blogs.technet.com/b/filecab/archive/2013/12/05/to-scale-out-or-not-to-scale-out-that-is-the-question.aspx).
 
 ### <a name="performance-counters-for-smb-30"></a>Compteurs de performances pour SMB 3,0
 
@@ -64,7 +64,7 @@ Les compteurs de performances SMB suivants ont été introduits dans Windows Ser
 
     Ces compteurs affichent des informations sur les partages de fichiers sur le serveur qui sont accessibles par un client qui utilise SMB 2,0 ou des versions ultérieures.
 
-    Si vous êtes familiarisé avec les compteurs de disque standard dans Windows, vous remarquerez peut-être une certaine ressemblance. Ce n’est pas par accident. Le client SMB partage des compteurs de performances qui ont été conçus pour correspondre exactement aux compteurs de disque. De cette façon, vous pouvez facilement réutiliser n’importe quel guide sur le réglage des performances du disque de l’application. Pour plus d’informations sur le mappage des compteurs, consultez le blog sur les [compteurs de performances du client par partage](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
+    Si vous êtes familiarisé avec les compteurs de disque standard dans Windows, vous remarquerez peut-être une certaine ressemblance. Ce n’est pas par accident. Le client SMB partage des compteurs de performances qui ont été conçus pour correspondre exactement aux compteurs de disque. De cette façon, vous pouvez facilement réutiliser n’importe quel guide sur le réglage des performances du disque de l’application. Pour plus d’informations sur le mappage des compteurs, consultez le blog sur les [compteurs de performances du client par partage](https://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
 
 -   **Partages de serveur SMB**
 
@@ -86,7 +86,7 @@ Les compteurs de performances SMB suivants ont été introduits dans Windows Ser
 
 -   **Relations des compteurs de performance des disques physiques, SMB et CSV FS**
 
-    Pour plus d’informations sur la façon dont les compteurs de disque physique, de SMB et de système de fichiers CSV sont liés, consultez le billet de blog suivant : [volume partagé de cluster des compteurs de performances](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
+    Pour plus d’informations sur la façon dont les compteurs de disque physique, de SMB et de système de fichiers CSV sont liés, consultez le billet de blog suivant : [volume partagé de cluster des compteurs de performances](https://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
 
 ## <a name="tuning-parameters-for-smb-file-servers"></a>Paramétrage des paramètres pour les serveurs de fichiers SMB
 
@@ -142,13 +142,13 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
   HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
   ```
 
-  La valeur par défaut est 512. Ce paramètre limite le nombre de commandes SMB asynchrones simultanées autorisées sur une seule connexion. Certains cas (par exemple, lorsqu’il existe un serveur frontal avec un serveur IIS principal) requièrent une grande quantité d’accès concurrentiel (pour les demandes de notification de modification de fichier, en particulier). La valeur de cette entrée peut être augmentée pour prendre en charge ces cas.
+  La valeur par défaut est 512. Ce paramètre limite le nombre de commandes SMB asynchrones simultanées autorisées sur une seule connexion. Certains cas (par exemple, lorsqu’il existe un serveur frontal avec un serveur IIS principal) requièrent une grande quantité d’accès concurrentiel (pour les demandes de notification de modification de fichier, en particulier). La valeur de cette entrée peut être augmentée pour prendre en charge ces cas.
 
 ### <a name="smb-server-tuning-example"></a>Exemple de paramétrage de serveur SMB
 
 Les paramètres suivants peuvent optimiser un ordinateur pour les performances des serveurs de fichiers dans de nombreux cas. Les paramètres ne sont pas optimaux ni appropriés sur tous les ordinateurs. Vous devez évaluer l’impact de ces paramètres spécifiques avant de les appliquer.
 
-| Paramètre                       | Valeur | Default |
+| Paramètre                       | Value | Par défaut |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |
@@ -156,4 +156,4 @@ Les paramètres suivants peuvent optimiser un ordinateur pour les performances d
 
 ### <a name="smb-client-performance-monitor-counters"></a>Compteurs de l’analyseur de performances des clients SMB
 
-Pour plus d’informations sur les compteurs du client SMB, consultez [Astuce du serveur de fichiers Windows server 2012 : les nouveaux compteurs de performances de client SMB par partage fournissent](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx)des informations intéressantes.
+Pour plus d’informations sur les compteurs du client SMB, consultez [Astuce du serveur de fichiers Windows server 2012 : les nouveaux compteurs de performances de client SMB par partage fournissent](https://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx)des informations intéressantes.

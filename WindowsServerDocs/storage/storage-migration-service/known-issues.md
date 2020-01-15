@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 9abe199399e577eb06044377c30d5a2dc0e35dd1
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: dccbfd7d3ff6d95615e9efecf840a840b42d0d27
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945229"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949643"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -320,6 +320,35 @@ Dans les deux solutions de contournement, une fois la coupure terminée, vous po
 
 Il s’agit du comportement attendu lors du transfert d’un très grand nombre de fichiers et de dossiers imbriqués. La taille des données n’est pas pertinente. Nous avons d’abord apporté des améliorations à ce comportement dans [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) et nous continuons à optimiser les performances de transfert. Pour affiner les performances, passez en revue [optimisation des performances d’inventaire et de transfert](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
 
+## <a name="data-does-not-transfer-user-renamed-when-migrating-to-or-from-a-domain-controller"></a>Les données ne sont pas transférées, l’utilisateur a été renommé lors de la migration vers ou à partir d’un contrôleur de domaine
+
+Après le démarrage du transfert à partir de ou vers un contrôleur de domaine :
+
+ 1. Aucune donnée n’est migrée et aucun partage n’est créé sur la destination.
+ 2. Un symbole d’erreur rouge s’affiche dans le centre d’administration Windows sans message d’erreur
+ 3. Un ou plusieurs utilisateurs AD et groupes locaux de domaine ont leur nom et/ou l’attribut de connexion antérieur à Windows 2000 modifié
+ 4. Vous voyez l’événement 3509 sur SMS Orchestrator :
+ 
+ Nom du journal : Microsoft-Windows-StorageMigrationService/admin source : Microsoft-Windows-StorageMigrationService Date : 1/10/2020 2:53:48 PM ID d’événement : 3509 tâche catégorie : aucun niveau : Mots clés d’erreur :      
+ Utilisateur : ordinateur de SERVICE réseau : orc2019-rtm.corp.contoso.com Description : impossible de transférer le stockage pour un ordinateur.
+
+ Tâche : dctest3 ordinateur : dc02-2019.corp.contoso.com ordinateur de destination : dc03-2019.corp.contoso.com État : erreur échec : 53251 message d’erreur : échec de la migration des comptes locaux avec le système d’erreur. exception :-2147467259 à Microsoft. StorageMigration. service. DeviceHelper. MigrateSecurity (IDeviceRecord sourceDeviceRecord, IDeviceRecord destinationDeviceRecord, TransferConfiguration config, Guid proxyId, CancellationToken CancelToken a)
+
+Il s’agit du comportement attendu si vous tentez de migrer à partir de ou vers un contrôleur de domaine avec le service de migration de stockage et d’utiliser l’option « migrer les utilisateurs et les groupes » pour renommer ou réutiliser des comptes. au lieu de sélectionner « ne pas transférer les utilisateurs et les groupes ». La migration du contrôleur [de stockage n’est pas prise en charge avec Storage migration service](faq.md). Étant donné qu’un contrôleur de service ne possède pas de véritables utilisateurs et groupes locaux, le service de migration de stockage traite ces principaux de sécurité comme c’est le cas lors de la migration entre deux serveurs membres et tente d’ajuster les ACL comme indiqué, ce qui aboutit aux erreurs et aux comptes déformés ou copiés. 
+
+Si vous avez déjà exécuté le transfert un ou plusieurs fois :
+
+ 1. Utilisez la commande AD PowerShell suivante sur un contrôleur de domaine pour localiser les utilisateurs ou les groupes modifiés (en modifiant SearchBase pour qu’il corresponde à votre nom de dinstringuished de domaine) : 
+
+    ```PowerShell
+    Get-ADObject -Filter 'Description -like "*storage migration service renamed*"' -SearchBase 'DC=<domain>,DC=<TLD>' | ft name,distinguishedname
+    ```
+   
+ 2. Pour tous les utilisateurs retournés avec leur nom d’origine, modifiez leur « nom d’ouverture de session utilisateur (antérieur à Windows 2000) » pour supprimer le suffixe de caractère aléatoire ajouté par Storage migration service, afin que ce perdant puisse ouvrir une session.
+ 3. Pour tous les groupes retournés avec leur nom d’origine, modifiez leur nom de groupe (antérieur à Windows 2000) pour supprimer le suffixe de caractère aléatoire ajouté par Storage migration service.
+ 4. Pour tous les utilisateurs ou groupes désactivés dont le nom contient désormais un suffixe ajouté par Storage migration service, vous pouvez supprimer ces comptes. Vous pouvez vérifier que les comptes d’utilisateur ont été ajoutés ultérieurement, car ils ne contiendront que le groupe utilisateurs du domaine et auront une date/heure de création correspondant à l’heure de début du transfert du service de migration du stockage.
+ 
+ Si vous souhaitez utiliser le service de migration de stockage avec les contrôleurs de domaine à des fins de transfert, veillez à toujours sélectionner « ne pas transférer les utilisateurs et les groupes » dans la page Paramètres de transfert du centre d’administration Windows.
 
 ## <a name="see-also"></a>Articles associés
 

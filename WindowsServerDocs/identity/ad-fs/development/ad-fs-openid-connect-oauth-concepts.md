@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0e680e07ce1ee27a73791e310a71b85ad76d6318
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 26c1635d4218c7d33377b6b8a90bc96ea4ad37b3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358763"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948782"
 ---
 # <a name="ad-fs-openid-connectoauth-concepts"></a>AD FS les concepts OpenID Connect/OAuth
 S’applique à AD FS 2016 et versions ultérieures
@@ -31,14 +31,14 @@ Le diagramme suivant fournit la relation la plus simple entre les acteurs :
 
 ![Acteurs d’authentification modernes](media/adfs-modern-auth-concepts/concept1.png)
 
-## <a name="application-types"></a>Types d’applications 
+## <a name="application-types"></a>Types d'applications 
  
 
 |Type d’application|Description|Rôle|
 |-----|-----|-----|
 |Application native|Parfois appelé **client public**, il est destiné à être une application cliente qui s’exécute sur un PC ou un appareil et avec lequel l’utilisateur interagit.|Demande des jetons à partir du serveur d’autorisation (AD FS) pour l’accès des utilisateurs aux ressources. Envoie des requêtes HTTP aux ressources protégées, en utilisant les jetons en tant qu’en-têtes HTTP.| 
 |Application serveur (application Web)|Application Web qui s’exécute sur un serveur et qui est généralement accessible aux utilisateurs via un navigateur. Étant donné qu’il est en mesure de maintenir son propre « secret » client ou d’informations d’identification, il est parfois appelé **client confidentiel**. |Demande des jetons à partir du serveur d’autorisation (AD FS) pour l’accès des utilisateurs aux ressources. Avant de demander un jeton, le client (application Web) doit s’authentifier à l’aide de sa clé secrète. | 
-|API Web|Ressource de fin à laquelle l’utilisateur accède. Considérez-les comme la nouvelle représentation des « parties de confiance ».|Consomme les jetons d’accès du porteur obtenus par les clients| 
+|API web|Ressource de fin à laquelle l’utilisateur accède. Considérez-les comme la nouvelle représentation des « parties de confiance ».|Consomme les jetons d’accès du porteur obtenus par les clients| 
 
 ## <a name="application-group"></a>Groupe d’applications 
  
@@ -51,13 +51,13 @@ L’authentification moderne utilise les types de jetons suivants :
 - **access_token**: jeton JWT émis par le serveur d’autorisation (AD FS) et destiné à être consommé par la ressource. La revendication « AUD » ou audience de ce jeton doit correspondre à l’identificateur de la ressource ou de l’API Web.  
 - **refresh_token**: jeton émis par AD FS que le client doit utiliser pour actualiser le id_token et le access_token. Le jeton est opaque pour le client et ne peut être consommé que par AD FS.  
 
-## <a name="scopes"></a>Étendues 
+## <a name="scopes"></a>Portées 
  
 Lors de l’inscription d’une ressource dans AD FS, les étendues peuvent être configurées pour permettre à AD FS d’effectuer des actions spécifiques. Outre la configuration de l’étendue, la valeur d’étendue doit également être envoyée dans la demande de AD FS pour effectuer l’action. Par exemple, l’administrateur doit configurer l’étendue comme OpenID lors de l’inscription de la ressource, et l’application (client) doit envoyer Scope = OpenID dans la demande d’authentification de AD FS pour émettre un jeton d’ID. Vous trouverez ci-dessous des informations sur les étendues disponibles dans AD FS 
  
 - aza-si vous utilisez des [extensions de protocole OAuth 2,0 pour les clients Service Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) et si le paramètre scope contient l’étendue « aza », le serveur émet un nouveau jeton d’actualisation principal et le définit dans le champ refresh_token de la réponse, ainsi que la définition du champ refresh_token_expires_in sur la durée de vie du nouveau jeton d’actualisation principal, le cas échéant. 
 - OpenID : permet à l’application de demander l’utilisation du protocole d’autorisation OpenID Connect. 
-- logon_cert : l’étendue des logon_cert permet à une application de demander des certificats d’ouverture de session, qui peuvent être utilisés pour ouvrir une session de manière interactive sur des utilisateurs authentifiés. Le serveur AD FS omet le paramètre access_token de la réponse et fournit à la place une chaîne de certificats CMS encodée en base64 ou une réponse PKI complète CMC. Plus de détails disponibles [ici](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
+- logon_cert : l’étendue des logon_cert permet à une application de demander des certificats d’ouverture de session, qui peuvent être utilisés pour ouvrir une session de manière interactive sur des utilisateurs authentifiés. Le serveur AD FS omet le paramètre access_token de la réponse et fournit à la place une chaîne de certificats CMS encodée en base64 ou une réponse PKI complète CMC. Plus de détails disponibles [ici](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
 - user_impersonation : l’étendue de la user_impersonation est nécessaire pour demander un jeton d’accès au nom de AD FS. Pour plus d’informations sur l’utilisation de cette étendue, reportez-vous à la [page créer une application à plusieurs niveaux à l’aide de OBO (au nom de) à l’aide d’OAuth avec AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 
 - allatclaims : l’étendue allatclaims permet à l’application de demander des revendications dans le jeton d’accès à ajouter également dans le jeton d’ID.   
 - vpn_cert : l’étendue des vpn_cert permet à une application de demander des certificats VPN, qui peuvent être utilisés pour établir des connexions VPN à l’aide de l’authentification EAP-TLS. Cela n’est plus pris en charge. 
@@ -66,9 +66,9 @@ Lors de l’inscription d’une ressource dans AD FS, les étendues peuvent êtr
 
 ## <a name="claims"></a>Revendications 
  
-Les jetons de sécurité (jetons d’accès et d’ID) émis par AD FS contiennent des revendications ou des assertions d’informations sur le sujet qui a été authentifié. Les applications peuvent utiliser des revendications pour diverses tâches, notamment : 
+Les jetons de sécurité (jetons d’accès et d’ID) émis par AD FS contiennent des revendications ou des assertions d’informations sur le sujet qui a été authentifié. Les applications peuvent utiliser des revendications pour diverses tâches, notamment pour les actions suivantes : 
 - Valider le jeton 
-- Identifier le locataire d’annuaire du sujet 
+- Identifier le locataire du répertoire du sujet 
 - Afficher les informations utilisateur 
 - Déterminez l’autorisation du sujet dans laquelle les revendications présentes dans un jeton de sécurité donné dépendent du type de jeton, du type d’informations d’identification utilisé pour authentifier l’utilisateur et de la configuration de l’application.  
  
@@ -108,7 +108,7 @@ Les jetons de sécurité (jetons d’accès et d’ID) émis par AD FS contienne
 Deux types de bibliothèques sont utilisés avec AD FS : 
 - **Bibliothèques clientes**: les clients natifs et les applications serveur utilisent des bibliothèques clientes pour obtenir des jetons d’accès pour appeler une ressource telle qu’une API Web. La bibliothèque d’authentification Microsoft (MSAL) est la bibliothèque cliente la plus récente et la plus recommandée lors de l’utilisation de AD FS 2019. Bibliothèque d’authentification Active Directory (ADAL) est recommandé pour AD FS 2016.  
 
-- **Bibliothèques de middleware de serveur**: les applications Web utilisent des bibliothèques de middleware de serveur pour la connexion des utilisateurs. Les API Web utilisent des bibliothèques de middleware de serveur pour valider les jetons envoyés par les clients natifs ou par d’autres serveurs. OWIN (Open Web interface pour .NET) est la bibliothèque middleware recommandée. 
+- **Bibliothèques de middleware de serveur**: les applications Web utilisent des bibliothèques de middleware de serveur pour la connexion des utilisateurs. Les API web utilisent des bibliothèques de middleware de serveur pour valider les jetons qui sont envoyés par des clients natifs ou par d’autres serveurs. OWIN (Open Web interface pour .NET) est la bibliothèque middleware recommandée. 
 
 ## <a name="customize-id-token-additional-claims-in-id-token"></a>Personnaliser le jeton d’ID (revendications supplémentaires dans le jeton d’ID)
  

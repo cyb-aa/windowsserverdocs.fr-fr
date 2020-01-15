@@ -11,22 +11,22 @@ ms.topic: landing-page
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 03/08/2019
-ms.openlocfilehash: eadac31cb623a15dd308f7e33f984fe1fb46ffe5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7e7fbd6ce3fcef6b0f8da88927d83f28d3fff0a8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365932"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950225"
 ---
 # <a name="storage"></a>Stockage
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+>S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 >[!TIP]
 > Vous recherchez des informations sur des versions plus anciennes de Windows Server ? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
 
 <hr />
-Le stockage dans Windows Server propose des fonctionnalités nouvelles et améliorées pour les clients de centres de données définis par logiciel (SDDC) privilégiant les charges de travail virtualisées. Windows Server assure aussi une prise en charge étendue pour les clients d’entreprise qui utilisent des serveurs de fichiers comprenant des charges de travail existantes.
+Le stockage dans Windows Server propose des fonctionnalités nouvelles et améliorées pour les clients de centres de données définis par logiciel (SDDC) privilégiant les charges de travail virtualisées. Windows Server assure aussi une prise en charge étendue pour les clients d’entreprise qui utilisent des serveurs de fichiers comprenant des charges de travail existantes.
 
 <hr />
 <ul class="cardsF panelContent">
@@ -41,7 +41,7 @@ Le stockage dans Windows Server propose des fonctionnalités nouvelles et amél
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>Quelles sont les nouveautés ?</h2>
+                                            <h2>Quelles sont les nouveautés ?</h2>
                                             <p>Découvrez les nouveautés du stockage Windows Server</p>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@ Le stockage dans Windows Server propose des fonctionnalités nouvelles et amél
                     <div class="cardText">
                         <h3>Stockage défini par logiciel pour les charges de travail virtualisées</h3>
 <HR />
-                        <p><h3><a href="storage-spaces/storage-spaces-direct-overview.md">Espaces de stockage direct</a></h3> Stockage local directement attaché, y compris les appareils SATA et NVME, pour optimiser l’utilisation du disque après l’ajout de nouveaux disques physiques et pour accélérer la réparation des disques virtuels. Consultez également les <a href="storage-spaces/overview.md">Espaces de stockage</a> pour des informations sur les espaces de stockage SAS partagé et autonome.</p>
+                        <p><h3><a href="storage-spaces/storage-spaces-direct-overview.md">Espaces de stockage directs</a></h3> Stockage local directement attaché, y compris les appareils SATA et NVME, pour optimiser l’utilisation du disque après l’ajout de nouveaux disques physiques et pour accélérer la réparation des disques virtuels. Consultez également les <a href="storage-spaces/overview.md">Espaces de stockage</a> pour des informations sur les espaces de stockage SAS partagé et autonome.</p>
 <HR />
                         <p><h3><a href="storage-replica/storage-replica-overview.md">Réplica de stockage</a></h3> La réplication synchrone de niveau bloc et indépendante du stockage entre les clusters ou les serveurs en vue de la préparation et de la récupération d’urgence, ainsi que l’étirement d’un cluster de basculement entre sites pour une haute disponibilité. La réplication synchrone permet la mise en miroir des données dans des sites physiques avec des volumes cohérents en cas d’incident, ce qui garantit aucune perte de données au niveau du système de fichiers.</p>
 <HR />
@@ -124,7 +124,7 @@ Le stockage dans Windows Server propose des fonctionnalités nouvelles et amél
 <HR />
                         <p><h3><a href="refs/refs-overview.md">ReFS</a></h3> Système de fichiers résilient qui optimise la disponibilité des données, s’adapte efficacement aux jeux de données très volumineux dans diverses charges de travail et garantit l’intégrité des données en résilience aux dommages (quelles que soient les défaillances logicielles ou matérielles).<p>
 <HR />
-                        <p><h3><a href="file-server/file-server-smb-overview.md">Protocole SMB (Server Message Block)</a></h3> Protocole de partage de fichiers réseau qui permet aux applications sur un ordinateur de lire et d’écrire dans des fichiers et de demander des services à partir de programmes serveur sur un réseau informatique. Le protocole SMB peut être utilisé en plus du protocole TCP/IP ou d‘autres protocoles réseau. Grâce à lui, une application (ou bien l’utilisateur d’une application) peut accéder à des fichiers ou d’autres ressources sur un serveur distant. Les applications peuvent ainsi lire, créer et mettre à jour des fichiers sur le serveur distant. Il permet aussi de communiquer avec n’importe quel programme serveur configuré pour recevoir une demande de clientSMB.<p>
+                        <p><h3><a href="file-server/file-server-smb-overview.md">Protocole SMB (Server Message Block)</a></h3> Protocole de partage de fichiers réseau qui permet aux applications sur un ordinateur de lire et d’écrire dans des fichiers et de demander des services à partir de programmes serveur sur un réseau informatique. Le protocole SMB peut être utilisé en plus du protocole TCP/IP ou d‘autres protocoles réseau. Grâce à lui, une application (ou bien l’utilisateur d’une application) peut accéder à des fichiers ou d’autres ressources sur un serveur distant. Les applications peuvent ainsi lire, créer et mettre à jour des fichiers sur le serveur distant. Il permet aussi de communiquer avec n’importe quel programme serveur configuré pour recevoir une demande de client SMB.<p>
 <HR />
                         <p><h3><a href="storage-spaces/Storage-class-memory-health.md">Mémoire de classe de stockage</a></h3> Offre des performances similaires à celles de la mémoire de l’ordinateur (vraiment rapide), mais avec la persistance des données des lecteurs de stockage normaux. Windows traite la mémoire de classe stockage de la même manière que les lecteurs classiques (avec simplement plus de rapidité), mais il existe quelques différences dans la façon dont l’intégrité des appareils est gérée.<p>
 <HR />
@@ -146,4 +146,4 @@ Le stockage dans Windows Server propose des fonctionnalités nouvelles et amél
 ## <a name="in-azure"></a>Dans Azure
 
 * [Stockage Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [StorSimple Azure](https://www.microsoft.com/en-us/cloud-platform/azure-storsimple)
+* [StorSimple Azure](https://www.microsoft.com/cloud-platform/azure-storsimple)

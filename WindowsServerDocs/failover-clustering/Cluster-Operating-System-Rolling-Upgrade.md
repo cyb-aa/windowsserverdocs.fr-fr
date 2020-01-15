@@ -7,12 +7,12 @@ ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
 ms.date: 03/27/2018
-ms.openlocfilehash: f7d20a099f287d2ee05ae6e908c173e1eb3cfc66
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc1799db76f528a599ef70eec5093da0a76206a2
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361842"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948538"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Mise à niveau propagée du système d’exploitation du cluster
 
@@ -45,14 +45,14 @@ Le scénario suivant n’est pas pris en charge dans Windows Server 2016 :
 
 La mise à niveau propagée de système d’exploitation de cluster est entièrement prise en charge par System Center Virtual Machine Manager (SCVMM) 2016. Si vous utilisez SCVMM 2016, consultez [effectuer une mise à niveau propagée d’un cluster hôte Hyper-V vers Windows Server 2016 dans VMM](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade?view=sc-vmm-1807) pour obtenir des conseils sur la mise à niveau des clusters et sur l’automatisation des étapes décrites dans ce document.  
 
-## <a name="requirements"></a>Configuration requise  
+## <a name="requirements"></a>Conditions préalables  
 Avant de commencer le processus de mise à niveau propagée du système d’exploitation du cluster, complétez les conditions suivantes :
 
 - Démarrez avec un cluster de basculement exécutant Windows Server (canal semi-annuel), Windows Server 2016 ou Windows Server 2012 R2.
 - La mise à niveau d’un cluster espaces de stockage direct vers Windows Server version 1709 n’est pas prise en charge.
 - Si la charge de travail du cluster est des machines virtuelles Hyper-V ou Serveur de fichiers avec montée en puissance parallèle, vous pouvez vous attendre à une mise à niveau sans temps mort.
 - Vérifiez que les nœuds Hyper-V ont des processeurs qui prennent en charge la table d’adressage de second niveau (SLAT) à l’aide de l’une des méthodes suivantes :  
-        -Passez en revue la [compatibilité SLAT ? Article du kit de développement logiciel (SDK) WP8, tip 01](http://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) , qui décrit deux méthodes pour vérifier si un processeur prend en charge les SLAT  
+        -Passez en revue la [compatibilité SLAT ? Article du kit de développement logiciel (SDK) WP8, tip 01](https://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) , qui décrit deux méthodes pour vérifier si un processeur prend en charge les SLAT  
         -Téléchargez l’outil [Coreinfo v 3.31](https://technet.microsoft.com/sysinternals/cc835722) pour déterminer si un processeur prend en charge SLAT.
 
 ## <a name="cluster-transition-states-during-cluster-os-rolling-upgrade"></a>États de transition de cluster pendant la mise à niveau propagée du système d’exploitation
@@ -277,7 +277,7 @@ Bien que nous ciblions des scénarios de cloud privé, en particulier les cluste
 **Puis-je utiliser System Center 2016 Virtual Machine Manager (SCVMM) pour automatiser le processus de mise à niveau propagée du système d’exploitation du cluster ?**  
     Oui, vous pouvez automatiser le processus de mise à niveau propagée du système d’exploitation du cluster à l’aide de VMM dans System Center 2016.  
 
-## <a name="see-also"></a>Voir également  
+## <a name="see-also"></a>Articles associés  
 -   [Notes de publication : problèmes importants dans Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
 -   [Nouveautés de Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [Nouveautés du clustering de basculement dans Windows Server](whats-new-in-failover-clustering.md)  

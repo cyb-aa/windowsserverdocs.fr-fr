@@ -9,16 +9,16 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Comment déployer Dossiers de travail, y compris l’installation du rôle de serveur, la création des partages de synchronisation et la création d’enregistrements DNS.
-ms.openlocfilehash: 7fe39ded6d262d9310bce30239345a9f42e43c04
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b8ed2578f3f55b6540315b8744bcb72523869044
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365858"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950215"
 ---
 # <a name="deploying-work-folders"></a>Déploiement de Dossiers de travail
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
 Cette rubrique présente les étapes requises pour déployer Dossiers de travail. Elle part du principe que vous avez déjà lu [Planification d’un déploiement de Dossiers de travail](plan-work-folders.md).  
   
@@ -27,7 +27,7 @@ Cette rubrique présente les étapes requises pour déployer Dossiers de travail
 > [!TIP]
 >  Le déploiement de Dossiers de travail le plus simple est un serveur de fichiers unique (souvent appelé serveur de synchronisation) sans prise en charge de la synchronisation via Internet. Ce déploiement peut s'avérer utile pour un laboratoire de test ou en tant que solution de synchronisation pour les ordinateurs clients appartenant à un domaine. Pour créer un déploiement simple, voici la procédure minimale à suivre : 
 >  -   Étape 1 : obtenir des certificats SSL  
->  -   Étape 2 : créer des enregistrements DNS 
+>  -   Étape 2 : créer des enregistrements DNS 
 >  -   Étape 3 : installer Dossiers de travail sur des serveurs de fichiers  
 >  -   Étape 4 : lier le certificat SSL aux serveurs de synchronisation
 >  -   Étape 5 : créer des groupes de sécurité pour Dossiers de travail  
@@ -48,10 +48,10 @@ Cette rubrique présente les étapes requises pour déployer Dossiers de travail
 
   Le blog Gestion des certificats de Dossiers de travail [blog](https://blogs.technet.microsoft.com/filecab/2013/08/09/work-folders-certificate-management/) fournit des informations supplémentaires sur l’utilisation de certificats avec Dossiers de travail.
   
-## <a name="step-2-create-dns-records"></a>Étape 2 : créer des enregistrements DNS  
+## <a name="step-2-create-dns-records"></a>Étape 2 : créer des enregistrements DNS  
  Pour permettre aux utilisateurs d’effectuer la synchronisation sur Internet, vous devez créer un enregistrement d’hôte (A) dans le DNS public pour autoriser les clients Internet à résoudre votre URL de Dossiers de travail. Cet enregistrement DNS doit être résolu en interface externe du serveur proxy inverse.  
   
- Sur votre réseau interne, créez un enregistrement CNAME dans DNS nommé « dossiersTravail », qui résout les noms de domaines complets d’un serveur Dossiers de travail. Lorsque la fonctionnalité dossiers de travail clients utilise la détection automatique, l’URL utilisée pour découvrir le serveur dossiers de\/travail est https:/workfolders.domain.com. Si vous prévoyez d’utiliser la détection automatique, l’enregistrement CNAME dossiersTravail doit exister dans DNS.  
+ Sur votre réseau interne, créez un enregistrement CNAME dans DNS nommé « dossiersTravail », qui résout les noms de domaines complets d’un serveur Dossiers de travail. Lorsque la fonctionnalité dossiers de travail clients utilise la détection automatique, l’URL utilisée pour découvrir le serveur dossiers de travail est https :\//workfolders.domain.com. Si vous prévoyez d’utiliser la détection automatique, l’enregistrement CNAME dossiersTravail doit exister dans DNS.  
   
 ## <a name="step-3-install-work-folders-on-file-servers"></a>Étape 3 : installer Dossiers de travail sur des serveurs de fichiers  
  Vous pouvez installer Dossiers de travail sur un serveur appartenant à un domaine en utilisant le Gestionnaire de serveur ou Windows PowerShell, en local ou à distance sur un réseau. Cela s’avère utile si vous configurez plusieurs serveurs de synchronisation sur votre réseau.  
@@ -60,7 +60,7 @@ Pour déployer le rôle dans le Gestionnaire de serveur, procédez comme suit :
   
 1.  Démarrez l’**Assistant Ajout de rôles et de fonctionnalités**.  
   
-2.  Dans la page **Sélectionner le type d’installation**, choisissez **Installation basée sur un rôle ou une fonctionnalité**.  
+2.  Dans la page **Sélectionner le type d’installation**, choisissez **Déploiement basé sur un rôle ou une fonctionnalité**.  
   
 3.  Dans la page **Sélectionner le serveur de destination**, sélectionnez le serveur sur lequel vous voulez installer Dossiers de travail.  
   
@@ -77,13 +77,13 @@ Add-WindowsFeature FS-SyncShareService
 ```
 
 ## <a name="step-4-binding-the-ssl-certificate-on-the-sync-servers"></a>Étape 4 : lier le certificat SSL aux serveurs de synchronisation
- La fonctionnalité Dossiers de travail installe IIS Hostable Web Core, qui est un composant IIS conçu pour activer les services Web sans nécessiter une installation complète des services Internet (IIS). Après l’installation d’IIS Hostable Web Core, vous devez lier le certificat SSL pour le serveur au site Web par défaut sur le serveur de fichiers. Toutefois, IIS Hostable Web Core n’installe pas la Console de gestion IIS.
+ La fonctionnalité Dossiers de travail installe IIS Hostable Web Core, qui est un composant IIS conçu pour activer les services web sans nécessiter une installation complète des services Internet (IIS). Après l’installation d’IIS Hostable Web Core, vous devez lier le certificat SSL pour le serveur au site web par défaut sur le serveur de fichiers. Toutefois, IIS Hostable Web Core n’installe pas la Console de gestion IIS.
 
- Il existe deux possibilités pour lier le certificat à l’interface Web par défaut. Vous devez dans les deux cas avoir installé la clé privée pour le certificat dans le magasin personnel de l’ordinateur.
+ Il existe deux possibilités pour lier le certificat à l’interface web par défaut. Vous devez dans les deux cas avoir installé la clé privée pour le certificat dans le magasin personnel de l’ordinateur.
 
-- Utilisez la Console de gestion IIS sur un serveur sur lequel elle est installée. À partir de la Console, connectez-vous au serveur de fichiers à gérer, puis sélectionnez le site Web par défaut pour ce serveur. Le site Web par défaut apparaît désactivé, mais vous pouvez quand même modifier les liaisons pour le site et sélectionner le certificat pour le lier à ce site Web.
+- Utilisez la Console de gestion IIS sur un serveur sur lequel elle est installée. À partir de la Console, connectez-vous au serveur de fichiers à gérer, puis sélectionnez le site web par défaut pour ce serveur. Le site web par défaut apparaît désactivé, mais vous pouvez quand même modifier les liaisons pour le site et sélectionner le certificat pour le lier à ce site web.
 
-- Utilisez la commande netsh pour lier le certificat à l’interface https du site Web par défaut. La commande se présente comme suit :
+- Utilisez la commande netsh pour lier le certificat à l’interface https du site web par défaut. La commande se présente comme suit :
 
     ```
     netsh http add sslcert ipport=<IP address>:443 certhash=<Cert thumbprint> appid={CE66697B-3AA0-49D1-BDBD-A25C8359FD5D} certstorename=MY
@@ -104,17 +104,17 @@ Add-WindowsFeature FS-SyncShareService
 
 1. Ouvrez le Gestionnaire de serveur sur un ordinateur Windows Server 2012 R2 ou Windows Server 2016 sur lequel le Centre d'administration Active Directory est installé.
 
-2.  Dans le menu **Outils** , cliquez sur **Centre d’administration Active Directory**. Le Centre d’administration Active Directory s’affiche.
+2.  Dans le menu **Outils**, cliquez sur **Centre d’administration Active Directory**. Le Centre d’administration Active Directory s’affiche.
 
 3.  Cliquez avec le bouton droit sur le conteneur où vous voulez créer le groupe (par exemple, le conteneur Utilisateurs de l’unité d’organisation ou du domaine approprié), cliquez sur **Nouveau**, puis sur **Groupe**.
 
-4.  Dans la fenêtre **Créer un groupe**, dans la section **Groupe**, indiquez les paramètres suivants :
+4.  Dans la fenêtre **Créer un groupe** , dans la section **Groupe** , indiquez les paramètres suivants :
 
-    -   Dans **Nom du groupe**, tapez le nom du groupe de sécurité, par exemple : **Utilisateurs Partage de synchronisation RH**, ou **Administrateurs de Dossiers de travail**.  
+    -   Dans **Nom du groupe**, tapez le nom du groupe de sécurité, par exemple : **Utilisateurs Partage de synchronisation RH** ou **Administrateurs de Dossiers de travail**.  
   
     -   Dans **Étendue du groupe**, cliquez sur **Sécurité**, puis sur **Globale**.  
   
-5.  Dans la section **Membres**, cliquez sur **Ajouter**. La boîte de dialogue Sélectionnez Utilisateurs, Contacts, Ordinateurs ou Groupes s’affiche.  
+5.  Dans la section **Membres** , cliquez sur **Ajouter**. La boîte de dialogue Sélectionnez Utilisateurs, Contacts, Ordinateurs ou Groupes s’affiche.  
   
 6.  Tapez les noms des utilisateurs ou des groupes auxquels vous accordez l’accès à un partage de synchronisation spécifique (si vous créez un groupe pour contrôler l’accès à un partage de synchronisation) ou tapez les noms des administrateurs de Dossiers de travail (si vous comptez configurer des comptes d’utilisateurs pour détecter automatiquement le serveur de synchronisation approprié), cliquez sur **OK**, puis une nouvelle fois sur **OK**.
 
@@ -133,7 +133,7 @@ Set-ADGroup -Add:@{'Member'=$Members} -Identity:$GroupName -Server:$DC
 ## <a name="step-6-optionally-delegate-user-attribute-control-to-work-folders-administrators"></a>Étape 6 : déléguer éventuellement le contrôle des attributs utilisateur aux administrateurs de Dossiers de travail  
  Si vous déployez plusieurs serveurs de synchronisation et voulez diriger automatiquement les utilisateurs vers le serveur de synchronisation approprié, vous devez mettre à jour un attribut sur chaque compte d’utilisateur dans les services de domaine Active Directory. Toutefois, cette opération exige normalement de demander à un membre du groupe Admins du domaine ou Administrateurs de l’entreprise de mettre à jour les attributs, ce qui peut devenir rapidement pénible si vous devez fréquemment ajouter des utilisateurs ou les déplacer entre les serveurs de synchronisation.  
   
- Pour cette raison, un membre du groupe Admins du domaine ou Administrateurs de l’entreprise peut vouloir déléguer la capacité à modifier la propriété msDS-SyncServerURL des objets utilisateur au groupe Administrateurs de Dossiers de travail que vous avez créé à l’étape 5, comme décrit dans la procédure suivante.  
+ Pour cette raison, un membre du groupe Admins du domaine ou Administrateurs de l’entreprise peut vouloir déléguer la possibilité de modifier la propriété msDS-SyncServerURL des objets utilisateur au groupe Administrateurs de Dossiers de travail que vous avez créé à l’étape 5, comme décrit dans la procédure suivante.  
   
 #### <a name="delegate-the-ability-to-edit-the-msds-syncserverurl-property-on-user-objects-in-ad-ds"></a>Déléguer la possibilité de modifier la propriété msDS-SyncServerURL sur des objets utilisateur dans les services de domaine Active Directory  
   
@@ -147,11 +147,11 @@ Set-ADGroup -Add:@{'Member'=$Members} -Identity:$GroupName -Server:$DC
   
 5.  Dans la page **Tâches à déléguer**, cliquez sur **Créer une tâche personnalisée à déléguer**.  
   
-6.  Dans la page **Type d’objet Active Directory**, cliquez sur **Seulement des objets suivants dans le dossier**, puis activez la case à cocher **Objets utilisateur**.  
+6.  Dans la page **Type d’objet Active Directory**, cliquez sur **Seulement les objets suivants dans le dossier**, puis activez la case à cocher **Objets utilisateur**.  
   
-7.  Dans la page **Autorisations**, désactivez la case à cocher **Général**, activez la case à cocher **Spécifiques aux propriétés**, puis les cases à cocher **Read msDS-SyncServerUrl** et **Write msDS-SyncServerUrl**.
+7.  Dans la page **Autorisations**, désactivez la case à cocher **Général**, activez la case à cocher **Spécifiques aux propriétés**, puis les cases à cocher **Lire msDS-SyncServerUrl** et **Écrire msDS-SyncServerUrl**.
 
-Pour déléguer la capacité à modifier la propriété msDS-SyncServerURL sur des objets utilisateur à l’aide de Windows PowerShell, utilisez l’exemple de script suivant qui emploie la commande DsAcls.
+Pour déléguer la possibilité de modifier la propriété msDS-SyncServerURL sur des objets utilisateur à l’aide de Windows PowerShell, utilisez l’exemple de script suivant qui emploie la commande DsAcls.
   
 ```powershell  
 $GroupName = "Contoso\Work Folders Administrators"  
@@ -170,7 +170,7 @@ DsAcls $ADGroupPath /I:S /G ""$GroupName":RPWP;msDS-SyncServerUrl;user"
   
 2. Dans le Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Dossiers de travail**.  
   
-3. Une liste de tous les partages de synchronisation existants est visible en haut du volet d’informations. Pour créer un partage de synchronisation, dans le menu **Tâches**, choisissez **Nouveau partage de synchronisation…** . L’Assistant Nouveau partage de synchronisation s’affiche.  
+3. Une liste de tous les partages de synchronisation existants est visible en haut du volet d’informations. Pour créer un partage de synchronisation, dans le menu **Tâches**, choisissez **Nouveau partage de synchronisation…** L’Assistant Nouveau partage de synchronisation s’affiche.  
   
 4. Dans la page **Sélectionner le serveur et le chemin d’accès**, indiquez l’emplacement où stocker le partage de synchronisation. Si vous disposez déjà d’un partage de fichiers créé pour ces données utilisateur, vous pouvez choisir ce partage. Vous pouvez aussi créer un dossier.  
   
@@ -212,7 +212,7 @@ L’exemple ci-dessus crée un partage de synchronisation nommé *Partage01* ave
 > [!TIP]
 >  Après avoir créé des partages de synchronisation, vous pouvez utiliser la fonctionnalité Gestionnaire de ressources du serveur de fichiers pour gérer les données dans les partages. Par exemple, vous pouvez utiliser la vignette **Quota** de la page Dossiers de travail dans le Gestionnaire de serveur pour définir des quotas sur les dossiers utilisateur. Vous pouvez également utiliser [Gestion du filtrage de fichiers](https://technet.microsoft.com/library/cc732074.aspx) pour contrôler les types de fichiers qui seront synchronisés par Dossiers de travail, ou les scénarios décrits dans [Contrôle d’accès dynamique](https://technet.microsoft.com/windows-server-docs/identity/solution-guides/dynamic-access-control--scenario-overview) pour afficher des tâches de classification des fichiers plus élaborées.  
   
-## <a name="step-8-optionally-specify-a-tech-support-email-address"></a>Étape 8 : Éventuellement, vous pouvez spécifier une adresse de messagerie du support technique   
+## <a name="step-8-optionally-specify-a-tech-support-email-address"></a>Étape 8 : indiquer éventuellement une adresse de messagerie du support technique   
  Après l’installation de Dossiers de travail sur un serveur de fichiers, vous voudrez probablement spécifier une adresse de messagerie de contact administratif pour le serveur. Pour ajouter une adresse de messagerie, procédez comme suit :  
   
 #### <a name="specifying-an-administrative-contact-email"></a>Spécification d'une adresse de messagerie administrative 
@@ -223,13 +223,13 @@ L’exemple ci-dessus crée un partage de synchronisation nommé *Partage01* ave
   
 3.  Dans le volet de navigation, cliquez sur **Messagerie électronique de support**, puis tapez l’adresse ou les adresses de messagerie que les utilisateurs doivent employer lorsqu’ils demandent de l’aide sur le service Dossiers de travail par courrier électronique. Cliquez sur **OK** lorsque vous avez terminé.  
   
-     Les utilisateurs de Dossiers de travail peuvent cliquer sur un lien dans l’élément Panneau de configuration de Dossiers de travail qui envoie un message électronique contenant des informations de diagnostic sur le PC client aux adresses que vous spécifiez ici.  
+     Les utilisateurs de Dossiers de travail peuvent cliquer sur un lien dans l’élément Panneau de configuration de Dossiers de travail, qui envoie un message électronique contenant des informations de diagnostic sur le PC client aux adresses que vous spécifiez ici.  
   
 ## <a name="step-9-optionally-set-up-server-automatic-discovery"></a>Étape 9 : configurer éventuellement la découverte automatique de serveurs  
  Si vous hébergez plusieurs serveurs de synchronisation dans votre environnement, vous devez configurer la découverte automatique de serveurs en remplissant la propriété **msDS-SyncServerURL** sur les comptes d’utilisateurs dans les services de domaine Active Directory.  
   
 >[!NOTE]
->La propriété msDS-SyncServerURL dans Active Directory ne doit pas être définie pour les utilisateurs distants qui accèdent à Dossiers de travail par le biais d’une solution de proxy inverse comme le proxy d’application web ou le proxy d’application Azure AD. Si la propriété msDS-SyncServerURL est définie, le client dossiers de travail essaiera d’accéder à une URL interne qui n’est pas accessible via la solution de proxy inverse. Lorsque vous utilisez le proxy d’application web ou le proxy d’application Azure AD, vous devez créer des applications de proxy uniques pour chaque serveur Dossiers de travail. Pour plus d’informations, [consultez déploiement de dossiers de travail avec AD FS et proxy d’application Web : Vue](deploy-work-folders-adfs-overview.md) d’ensemble ou [déploiement de dossiers de travail avec Azure ad proxy d’application](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/).
+>La propriété msDS-SyncServerURL dans Active Directory ne doit pas être définie pour les utilisateurs distants qui accèdent à Dossiers de travail par le biais d’une solution de proxy inverse comme le proxy d’application web ou le proxy d’application Azure AD. Si la propriété msDS-SyncServerURL est définie, le client dossiers de travail essaiera d’accéder à une URL interne qui n’est pas accessible via la solution de proxy inverse. Lorsque vous utilisez le proxy d’application web ou le proxy d’application Azure AD, vous devez créer des applications de proxy uniques pour chaque serveur Dossiers de travail. Pour plus d’informations, voir [Déploiement de Dossiers de travail avec AD FS et le proxy d'application web : vue d’ensemble](deploy-work-folders-adfs-overview.md) ou [Déploiement de Dossiers de travail avec le proxy d’application Azure AD](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/).
 
 
  Avant cela, vous devez installer un contrôleur de domaine Windows Server 2012 R2 ou mettre à jour les schémas de la forêt et du domaine à l’aide des commandes `Adprep /forestprep` et `Adprep /domainprep`. Pour plus d’informations sur l’exécution de ces commandes en toute sécurité, voir [Exécution d’Adprep.exe](https://technet.microsoft.com/library/dd464018.aspx).  
@@ -240,7 +240,7 @@ L’exemple ci-dessus crée un partage de synchronisation nommé *Partage01* ave
   
 1.  Ouvrez le Gestionnaire de serveur sur un ordinateur sur lequel les outils d’administration Active Directory sont installés.  
   
-2.  Dans le menu **Outils** , cliquez sur **Centre d’administration Active Directory**. Le Centre d’administration Active Directory s’affiche.  
+2.  Dans le menu **Outils**, cliquez sur **Centre d’administration Active Directory**. Le Centre d’administration Active Directory s’affiche.  
   
 3.  Accédez au conteneur **Utilisateurs** dans le domaine approprié, cliquez avec le bouton droit sur l’utilisateur que vous voulez affecter à un partage de synchronisation, puis cliquez sur **Propriétés**.  
   
@@ -248,10 +248,10 @@ L’exemple ci-dessus crée un partage de synchronisation nommé *Partage01* ave
   
 5.  Cliquez sur l’onglet **Éditeur d’attributs**, sélectionnez **msDS-SyncServerUrl** et cliquez sur **Modifier**. La boîte de dialogue Éditeur de chaînes à valeurs multiples s’affiche.  
   
-6.  Dans la zone **Valeur à ajouter**, tapez l’URL du serveur de synchronisation avec lequel cet utilisateur doit se synchroniser, cliquez sur **Ajouter**, sur **OK**, puis une nouvelle fois sur **OK**.  
+6.  Dans la zone **Valeur à ajouter**, tapez l’URL du serveur de synchronisation avec lequel cet utilisateur doit se synchroniser, cliquez sur **Ajouter**, sur **OK**, puis de nouveau sur **OK**.  
   
     > [!NOTE]
-    >  L’URL du serveur de synchronisation est simplement `https://` ou `http://` (selon si vous souhaitez une connexion sécurisée) suivi du nom de domaine complet du serveur de synchronisation. Par exemple, **https :\//sync1.contoso.com**.
+    >  L’URL du serveur de synchronisation est simplement `https://` ou `http://` (selon si vous souhaitez une connexion sécurisée), suivi du nom de domaine complet du serveur de synchronisation. Par exemple, **https :\//sync1.contoso.com**.
 
 Pour remplir l’attribut pour plusieurs utilisateurs, utilisez Active Directory PowerShell. Voici un exemple qui remplit l’attribut pour tous les membres du groupe *Utilisateurs Partage de synchronisation RH*, décrit à l’étape 5.
   
@@ -264,7 +264,7 @@ Set-ADUser –Add @{"msDS-SyncServerURL"=$SyncServerURL}
   
 ```  
   
-## <a name="step-10-optionally-configure-web-application-proxy-azure-ad-application-proxy-or-another-reverse-proxy"></a>Étape 10 : Vous pouvez éventuellement configurer le proxy d’application Web, le proxy d’application Azure AD ou un autre proxy inverse  
+## <a name="step-10-optionally-configure-web-application-proxy-azure-ad-application-proxy-or-another-reverse-proxy"></a>Étape 10 : configurer éventuellement un proxy d’application web, un proxy d'application Azure AD ou un autre proxy inverse  
 
 Pour permettre aux utilisateurs distants d'accéder à leurs fichiers, vous devez publier le serveur Dossiers de travail via un proxy inverse, ce qui rend Dossiers de travail disponible en externe sur Internet. Vous pouvez utiliser le proxy d’application web, le proxy d’application Azure Active Directory ou une autre solution de proxy inverse.  
   
@@ -278,7 +278,7 @@ Si vous disposez d’un grand nombre de PC appartenant à un domaine sur lesquel
   
 - Indiquer le serveur de synchronisation avec lequel les utilisateurs doivent effectuer la synchronisation  
   
-- Forcer la configuration automatique de Dossiers de travail, en utilisant les paramètres par défaut (passez en revue la discussion sur la stratégie de groupe dans [Conception d’une implémentation de Dossiers de travail](plan-work-folders.md) avant d’effectuer cette opération)  
+- Forcez la configuration automatique de Dossiers de travail, en utilisant les paramètres par défaut (passez en revue la discussion sur la stratégie de groupe dans [Conception d’une implémentation de Dossiers de travail](plan-work-folders.md) avant d’effectuer cette opération)  
   
   Pour contrôler ces paramètres, créez un objet de stratégie de groupe pour Dossiers de travail, puis configurez les paramètres de stratégie de groupe suivants selon les besoins :  
   
@@ -287,14 +287,14 @@ Si vous disposez d’un grand nombre de PC appartenant à un domaine sur lesquel
 - Paramètre de stratégie « Forcer la configuration automatique pour tous les utilisateurs » dans Configuration ordinateur\Stratégies\Modèles d’administration\Composants Windows\Dossiers de travail  
   
 > [!NOTE]
->  Ces paramètres de stratégie ne sont disponibles que lors de la modification de la stratégie de groupe à partir d'un ordinateur exécutant la gestion des stratégies de groupe sur Windows 8.1, Windows Server 2012 R2 ou versions ultérieures. Ce paramètre n’est pas disponible dans les versions de la gestion des stratégies de groupe de systèmes d’exploitation antérieurs. Ces paramètres de stratégie s’appliquent aux PC Windows 7 sur lesquels l'application [Dossiers de travail pour Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) a été installée.  
+>  Ces paramètres de stratégie ne sont disponibles que lors de la modification de la stratégie de groupe à partir d'un ordinateur exécutant la gestion des stratégies de groupe sur Windows 8.1, Windows Server 2012 R2 ou versions ultérieures. Ce paramètre n’est pas disponible dans les versions de la gestion des stratégies de groupe de systèmes d’exploitation antérieurs. Ces paramètres de stratégie s’appliquent aux PC Windows 7 sur lesquels l'application [Dossiers de travail pour Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) a été installée.  
   
-##  <a name="BKMK_LINKS"></a>Voir aussi  
+##  <a name="BKMK_LINKS"></a> Voir aussi  
  Pour plus d’informations connexes, voir les ressources suivantes.  
   
 |Type de contenu|Références|  
 |------------------|----------------|  
-|**Appréhension**|-   [Dossiers de travail](work-folders-overview.md)|  
-|**Planification**|-   [Conception d’une implémentation de dossiers de travail](plan-work-folders.md)|
-|**Déploiement**|-   [Déploiement de dossiers de travail avec AD FS et le proxy d’application Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Dossiers de travail déploiement laboratoire de test](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (billet de blog)<br />-   [Nouvel attribut utilisateur pour l’URL du serveur dossiers de travail](http://blogs.technet.com/b/filecab/archive/2013/10/09/a-new-user-attribute-for-work-folders-server-url.aspx) (billet de blog)|  
-|**Référence technique**|-   [Ouverture de session interactive : Seuil de verrouillage du compte d’ordinateur](https://technet.microsoft.com/library/jj966264(v=ws.11).aspx)<br />-   [Applets de commande de partage de synchronisation](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)|
+|**Appréhension**|[dossiers de travail](work-folders-overview.md) -   |  
+|**Planification**|-   [de la conception d’une implémentation de dossiers de travail](plan-work-folders.md)|
+|**Déploiement**|-   le [déploiement de dossiers de travail avec AD FS et le proxy d’application Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [dossiers de travail déploiement du laboratoire de test](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (billet de blog)<br />-   [un nouvel attribut utilisateur pour l’URL du serveur dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/10/09/a-new-user-attribute-for-work-folders-server-url.aspx) (billet de blog)|  
+|**Référence technique**|-   l' [ouverture de session interactive : seuil de verrouillage du compte d’ordinateur](https://technet.microsoft.com/library/jj966264(v=ws.11).aspx)<br />[applets](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps) de commande de partage de synchronisation -   |

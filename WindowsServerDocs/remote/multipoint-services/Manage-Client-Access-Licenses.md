@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 0ca951c5e4c4fcdba06d0b475a7d7536a9c7f91f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4d809ab1bf2a18dff537bf63620623d576c0b25d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395457"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949881"
 ---
 # <a name="manage-client-access-licenses"></a>Gérer des licences d’accès client
 Chaque station qui se connecte à un système MultiPoint services, y compris l’ordinateur exécutant MultiPoint services utilisé comme station, doit avoir une *licence d’accès client (CAL)* Bureau à distance par utilisateur valide.
@@ -31,7 +31,7 @@ Si vous utilisez des bureaux virtuels de station plutôt que des stations physiq
   
 3.  Cliquez sur l’onglet dossier de **démarrage** , puis sur **Ajouter des licences d’accès client**.  L’outil de gestion du gestionnaire de licences d’accès client s’ouvre.
 
-# <a name="set-the-licensing-mode-manually"></a>Définir le mode de licence manuellement
+## <a name="set-the-licensing-mode-manually"></a>Définir le mode de licence manuellement
 Si elle n’est pas configurée correctement, la configuration de MultiPoint services demande une notification indiquant que la période de grâce a expiré. Pour définir le mode de licence, procédez comme suit :
 
 1. Lancez l' **éditeur de stratégie de groupe local** (gpedit. msc).
@@ -49,5 +49,5 @@ Si elle n’est pas configurée correctement, la configuration de MultiPoint ser
    - Sélectionnez **OK** 
 
   
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Articles associés  
 [Gérer des tâches système à l’aide du Gestionnaire MultiPoint](Manage-System-Tasks-Using-MultiPoint-Manager.md)

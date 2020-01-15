@@ -1,6 +1,6 @@
 ---
 ms.assetid: 1a443181-7ded-4912-8e40-5aa447faf00c
-title: Paramètres d’authentification unique ADFS2016
+title: Paramètres d’authentification unique AD FS 2016
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,12 +9,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 311789fdec160faeeeba0ecf26491d1e0cd6105d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 76c34dc518f4578b4ae2ead3459f1d79c191b3d7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407396"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949198"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS les paramètres d’authentification unique
 
@@ -46,7 +46,7 @@ Si l’appareil n’est pas inscrit mais qu’un utilisateur sélectionne l’op
   
  Comme indiqué ci-dessus, les utilisateurs sur les appareils inscrits obtiendront toujours une authentification unique persistante, sauf si l’authentification unique persistante est désactivée. Pour les appareils non inscrits, l’authentification unique permanente peut être obtenue en activant la fonctionnalité « maintenir la connexion » (KMSI). 
  
- Pour Windows Server 2012 R2, pour activer PSSO pour le scénario « maintenir la connexion », vous devez installer ce [correctif](https://support.microsoft.com/en-us/kb/2958298/) qui fait également partie du correctif [cumulatif de 2014 d’août pour Windows RT 8,1, Windows 8.1 et Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719).   
+ Pour Windows Server 2012 R2, pour activer PSSO pour le scénario « maintenir la connexion », vous devez installer ce [correctif](https://support.microsoft.com/kb/2958298/) qui fait également partie du correctif [cumulatif de 2014 d’août pour Windows RT 8,1, Windows 8.1 et Windows Server 2012 R2](https://support.microsoft.com/kb/2975719).   
 
 Tâche | PowerShell | Description
 ------------ | ------------- | -------------
@@ -103,7 +103,7 @@ Il est important de noter que, tout en fournissant des périodes relativement lo
 ## <a name="psso-revocation"></a>Révocation PSSO  
  Pour protéger la sécurité, AD FS rejette tout cookie SSO persistant précédemment émis lorsque les conditions suivantes sont remplies. Cela oblige l’utilisateur à fournir ses informations d’identification pour s’authentifier auprès de AD FS. 
   
-- Modification du mot de passe par l’utilisateur  
+- L’utilisateur change le mot de passe  
   
 - Le paramètre SSO persistant est désactivé dans AD FS  
   
@@ -127,18 +127,18 @@ Set-AdfsProperties -PersistentSsoCutoffTime <DateTime>
 ```
   
 ## <a name="enable-psso-for-office-365-users-to-access-sharepoint-online"></a>Autoriser PSSO pour les utilisateurs d’Office 365 à accéder à SharePoint Online  
- Une fois PSSO activé et configuré dans AD FS, AD FS écrit un cookie persistant après l’authentification d’un utilisateur. La prochaine fois que l’utilisateur arrivera, si un cookie persistant est toujours valide, un utilisateur n’a pas besoin de fournir des informations d’identification pour s’authentifier à nouveau. Vous pouvez également éviter l’invite d’authentification supplémentaire pour les utilisateurs d’Office 365 et SharePoint Online en configurant les deux règles de revendication suivantes dans AD FS pour déclencher la persistance sur Microsoft Azure AD et SharePoint Online.  Pour permettre à PSSO pour les utilisateurs d’Office 365 d’accéder à SharePoint Online, vous devez installer ce [correctif](https://support.microsoft.com/en-us/kb/2958298/) qui fait également partie du [correctif cumulatif de 2014 d’août pour Windows RT 8,1, Windows 8.1 et Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719).  
+ Une fois PSSO activé et configuré dans AD FS, AD FS écrit un cookie persistant après l’authentification d’un utilisateur. La prochaine fois que l’utilisateur arrivera, si un cookie persistant est toujours valide, un utilisateur n’a pas besoin de fournir des informations d’identification pour s’authentifier à nouveau. Vous pouvez également éviter l’invite d’authentification supplémentaire pour les utilisateurs d’Office 365 et SharePoint Online en configurant les deux règles de revendication suivantes dans AD FS pour déclencher la persistance sur Microsoft Azure AD et SharePoint Online.  Pour permettre à PSSO pour les utilisateurs d’Office 365 d’accéder à SharePoint Online, vous devez installer ce [correctif](https://support.microsoft.com/kb/2958298/) qui fait également partie du [correctif cumulatif de 2014 d’août pour Windows RT 8,1, Windows 8.1 et Windows Server 2012 R2](https://support.microsoft.com/kb/2975719).  
   
  Une règle de transformation d’émission à passer par la revendication InsideCorporateNetwork  
   
 ```  
 @RuleTemplate = "PassThroughClaims"  
 @RuleName = "Pass through claim - InsideCorporateNetwork"  
-c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"]  
+c:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"]  
 => issue(claim = c);   
 A custom Issuance Transform rule to pass through the persistent SSO claim  
 @RuleName = "Pass Through Claim - Psso"  
-c:[Type == "http://schemas.microsoft.com/2014/03/psso"]  
+c:[Type == "https://schemas.microsoft.com/2014/03/psso"]  
 => issue(claim = c);  
   
 ```
@@ -165,21 +165,21 @@ Pour résumer :
  <tr align="center">
     <td>SSO =&gt;définir le jeton d’actualisation =&gt;</td>
     <td>8 h</td>
-    <td>N/A</td>
-    <td>N/A</td>
+    <td>NON APPLICABLE</td>
+    <td>NON APPLICABLE</td>
     <th></th>
     <td>8 h</td>
-    <td>N/A</td>
-    <td>N/A</td>
+    <td>NON APPLICABLE</td>
+    <td>NON APPLICABLE</td>
   </tr>
 
  <tr align="center">
     <td>PSSO =&gt;définir le jeton d’actualisation =&gt;</td>
-    <td>N/A</td>
+    <td>NON APPLICABLE</td>
     <td>24 h</td>
-    <td>7 jours</td>
+    <td>7 jours</td>
     <th></th>
-    <td>N/A</td>
+    <td>NON APPLICABLE</td>
     <td>24 h</td>
     <td>90 jours maximum avec une fenêtre de 14 jours</td>
   </tr>

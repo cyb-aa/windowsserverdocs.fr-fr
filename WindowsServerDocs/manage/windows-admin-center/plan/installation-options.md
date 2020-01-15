@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 12/02/2019
-ms.openlocfilehash: d4046cc10a5e0fdc12cfb9587eef10d4263c2ddd
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: 503cd64cac0673829fe21bc15e8ad9d6a83bbb15
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74904021"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950514"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Quel type d’installation vous convient ?
 
@@ -33,7 +33,7 @@ Vous pouvez **installer** le centre d’administration Windows sur les systèmes
 
 | **Plateforme**                       | **Mode d’installation** |
 | -----------------------------------| --------------------- |
-| Windows 10                         | Client local |
+| Windows 10                         | Client local |
 | Canal semi-annuel Windows Server | Serveur de passerelle, serveur géré, cluster de basculement |
 | Windows Server 2016                | Serveur de passerelle, serveur géré, cluster de basculement |
 | Windows Server 2019                | Serveur de passerelle, serveur géré, cluster de basculement |
@@ -56,22 +56,22 @@ Vous pouvez **gérer** les systèmes d’exploitation Windows suivants à l’ai
 
 | Version | Gérer les *nœuds* via *Gestionnaire de serveur* | Gérer via le *Gestionnaire de cluster* |
 | ------------------------- |--------------- | ----- |
-| Windows 10 | Oui (via gestion de l’ordinateur) | N/A |
+| Windows 10 | Oui (via gestion de l’ordinateur) | NON APPLICABLE |
 | Canal semi-annuel Windows Server | Oui | Oui |
 | Windows Server 2019 | Oui | Oui |
 | Windows Server 2016 | Oui | Oui, avec la [dernière mise à jour cumulative](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
 | Microsoft Hyper-V Server 2016 | Oui | Oui |
-| Windows Server 2012 R2 | Oui | Oui |
+| R2 Windows Server 2012 | Oui | Oui |
 | Microsoft Hyper-V Server 2012 R2 | Oui | Oui |
-| Windows Server 2012 | Oui | Oui |
-| Windows Server 2008 R2 | Oui, fonctionnalités limitées | N/A |
+| Windows Server 2012 | Oui | Oui |
+| Windows Server 2008 R2 | Oui, fonctionnalités limitées | NON APPLICABLE |
 
 > [!NOTE]
 > Le centre d’administration Windows requiert des fonctionnalités PowerShell qui ne sont pas incluses dans Windows Server 2008 R2, 2012 et 2012 R2. Si vous souhaitez les gérer à l’aide du centre d’administration Windows, vous devez installer Windows Management Framework (WMF) version 5,1 ou ultérieure sur ces serveurs.
 > 
 > Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure. 
 > 
-> Si WMF n’est pas installé, vous pouvez [Télécharger wmf 5,1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+> Si WMF n’est pas installé, vous pouvez [Télécharger wmf 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ## <a name="high-availability"></a>Haute disponibilité
 

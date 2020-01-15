@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ee1416a00fc0d347b7e05cb12c83f3d3532d693f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d3d08e954b7a2a9ce58eb61dec54f2848ab68c12
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360139"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949165"
 ---
 # <a name="planning-for-compromise"></a>Planification des compromis
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 *Loi n ° 1 : personne n’estime qu’il peut y avoir des mauvaises choses, jusqu’à ce qu’elle le fasse.* - [10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
   
@@ -108,7 +108,7 @@ Dans une migration Active Directory traditionnelle d’une forêt vers une autre
   
 Toutefois, la gestion de l’historique des SID a démontré des problèmes dans certains environnements, car le remplissage des jetons d’accès des utilisateurs avec des SID actuels et historiques peut entraîner une augmentation des jetons. L’augmentation de jeton est un problème dans lequel le nombre d’identificateurs de sécurité (SID) qui doivent être stockés dans le jeton d’accès d’un utilisateur utilise ou dépasse la quantité d’espace disponible dans le jeton.  
   
-Bien que la taille des jetons puisse être augmentée dans une certaine mesure, la solution ultime de l’augmentation des jetons consiste à réduire le nombre de sid associés aux comptes d’utilisateur, qu’il s’agisse de la rationalisation des appartenances aux groupes, de l’élimination de l’historique des SID ou d’une combinaison des deux. Pour plus d’informations sur l’augmentation des jetons, consultez [MaxTokenSize et augmentation des jetons Kerberos](http://blogs.technet.com/b/shanecothran/archive/2010/07/16/maxtokensize-and-kerberos-token-bloat.aspx).  
+Bien que la taille des jetons puisse être augmentée dans une certaine mesure, la solution ultime de l’augmentation des jetons consiste à réduire le nombre de sid associés aux comptes d’utilisateur, qu’il s’agisse de la rationalisation des appartenances aux groupes, de l’élimination de l’historique des SID ou d’une combinaison des deux. Pour plus d’informations sur l’augmentation des jetons, consultez [MaxTokenSize et augmentation des jetons Kerberos](https://blogs.technet.com/b/shanecothran/archive/2010/07/16/maxtokensize-and-kerberos-token-bloat.aspx).  
   
 Plutôt que de migrer des utilisateurs à partir d’un environnement hérité (en particulier dans lequel les appartenances aux groupes et les historiques de SID peuvent être compromis) à l’aide de l’historique SID, envisagez d’exploiter les applications de méta-annuaire pour « migrer » les utilisateurs, sans les historiques d’SID. dans la nouvelle forêt. Lorsque des comptes d’utilisateurs sont créés dans la nouvelle forêt, vous pouvez utiliser une application de méta-annuaire pour mapper les comptes à leurs comptes correspondants dans la forêt héritée.  
   
@@ -144,7 +144,7 @@ Dans la plupart des organisations, les utilisateurs qui ont accès aux informati
   
 Par exemple, vous pouvez définir une stratégie dans laquelle les cadres et autres adresses IP virtuelles sont nécessaires pour utiliser des stations de travail sécurisées pour accéder à des données et des systèmes sensibles, ce qui leur permet d’utiliser leurs autres appareils pour accéder à des données moins sensibles. Il s’agit d’un simple principe que les utilisateurs doivent mémoriser, mais vous pouvez implémenter un certain nombre de contrôles principaux pour vous aider à appliquer l’approche.  
 
-Vous pouvez utiliser l' [assurance du mécanisme d’authentification](https://technet.microsoft.com/library/dd391847(v=WS.10).aspx) pour autoriser les utilisateurs à accéder aux données sensibles uniquement s’ils se connectent à leurs systèmes sécurisés à l’aide de leurs cartes à puce, et peuvent utiliser des restrictions IPSec et des droits d’utilisateur pour contrôler les systèmes à partir desquels ils peuvent se connecter à des référentiels de données sensibles. Vous pouvez utiliser [Microsoft Data classification Toolkit](https://www.microsoft.com/download/details.aspx?id=27123) pour créer une infrastructure de classification des fichiers robuste, et vous pouvez implémenter des [Access Control dynamiques](http://blogs.technet.com/b/windowsserver/archive/2012/05/22/introduction-to-windows-server-2012-dynamic-access-control.aspx) pour restreindre l’accès aux données en fonction des caractéristiques d’une tentative d’accès, en traduisant les règles d’entreprise en contrôles techniques.  
+Vous pouvez utiliser l' [assurance du mécanisme d’authentification](https://technet.microsoft.com/library/dd391847(v=WS.10).aspx) pour autoriser les utilisateurs à accéder aux données sensibles uniquement s’ils se connectent à leurs systèmes sécurisés à l’aide de leurs cartes à puce, et peuvent utiliser des restrictions IPSec et des droits d’utilisateur pour contrôler les systèmes à partir desquels ils peuvent se connecter à des référentiels de données sensibles. Vous pouvez utiliser [Microsoft Data classification Toolkit](https://www.microsoft.com/download/details.aspx?id=27123) pour créer une infrastructure de classification des fichiers robuste, et vous pouvez implémenter des [Access Control dynamiques](https://blogs.technet.com/b/windowsserver/archive/2012/05/22/introduction-to-windows-server-2012-dynamic-access-control.aspx) pour restreindre l’accès aux données en fonction des caractéristiques d’une tentative d’accès, en traduisant les règles d’entreprise en contrôles techniques.  
   
 Du point de vue de l’utilisateur, l’accès aux données sensibles à partir d’un système sécurisé fonctionne simplement et tente de le faire à partir d’un système non sécurisé. Toutefois, du point de vue de la surveillance et de la gestion de votre environnement, vous aidez à créer des modèles identifiables dans la manière dont les utilisateurs accèdent aux données et systèmes sensibles, ce qui facilite la détection des tentatives d’accès anormal.  
   

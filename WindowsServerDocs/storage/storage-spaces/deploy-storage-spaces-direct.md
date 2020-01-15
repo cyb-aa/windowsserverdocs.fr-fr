@@ -10,12 +10,12 @@ author: stevenek
 ms.date: 06/07/2019
 description: Instructions pas à pas pour déployer le stockage défini par logiciel avec espaces de stockage direct dans Windows Server en tant qu’infrastructure hyper-convergée ou en tant qu’infrastructure convergée (également appelée infrastructure désagrégée).
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ab96f737f7700e202c9d0382c06859c4ea84118
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 60b29cbebb19cd8f1ce364d1eb7e920759375285
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402818"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950022"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Déployer des espaces de stockage direct
 
@@ -102,7 +102,7 @@ Pour gérer espaces de stockage direct, vous devez joindre les serveurs à un do
 Add-Computer -NewName "Server01" -DomainName "contoso.com" -Credential "CONTOSO\User" -Restart -Force  
 ```
 
-Si votre compte d’administrateur de stockage n’est pas membre du groupe Admins du domaine, ajoutez votre compte d’administrateur de stockage au groupe Administrateurs local sur chaque nœud, ou mieux encore, ajoutez le groupe que vous utilisez pour les administrateurs du stockage. Vous pouvez utiliser la commande suivante (ou écrire une fonction Windows PowerShell pour ce faire, consultez [Utiliser PowerShell pour ajouter des utilisateurs de domaine à un groupe local](http://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) pour plus d’informations) :
+Si votre compte d’administrateur de stockage n’est pas membre du groupe Admins du domaine, ajoutez votre compte d’administrateur de stockage au groupe Administrateurs local sur chaque nœud, ou mieux encore, ajoutez le groupe que vous utilisez pour les administrateurs du stockage. Vous pouvez utiliser la commande suivante (ou écrire une fonction Windows PowerShell pour ce faire, consultez [Utiliser PowerShell pour ajouter des utilisateurs de domaine à un groupe local](https://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) pour plus d’informations) :
 
 ```
 Net localgroup Administrators <Domain\Account> /add
@@ -206,7 +206,7 @@ Count Name                          PSComputerName
 
 Dans cette étape, vous allez exécuter l’outil de validation de cluster pour vous assurer que les nœuds de serveur sont configurés correctement pour créer un cluster à l’aide de espaces de stockage direct. Lorsque la validation de cluster (`Test-Cluster`) est exécutée avant la création du cluster, elle exécute les tests qui vérifient que la configuration semble appropriée pour fonctionner correctement en tant que cluster de basculement. L’exemple ci-dessous utilise le paramètre `-Include`, puis les catégories de tests spécifiques sont spécifiées. Cela garantit que les tests spécifiques des espaces de stockage direct sont inclus dans la validation.
 
-Utilisez la commande PowerShell suivante pour valider un ensemble de serveurs à utiliser comme cluster d’espaces de stockage direct.
+Utilisez la commande PowerShell suivante pour valider un ensemble de serveurs à utiliser comme cluster d'espaces de stockage direct.
 
 ```PowerShell
 Test-Cluster –Node <MachineName1, MachineName2, MachineName3, MachineName4> –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
@@ -242,7 +242,7 @@ Après avoir créé le cluster, utilisez l’applet de commande PowerShell `Enab
 
 -   **Créer un pool :** crée un seul pool volumineux qui porte un nom semblable à « S2D sur Cluster1 ».
 
--   **Configurer les caches des espaces de stockage direct :** si plusieurs types de média (lecteur) sont disponibles pour l’utilisation des espaces de stockage direct, les plus rapides en tant que périphériques cache sont activés (en lecture et en écriture dans la plupart des cas).
+-   **Configurer les caches des espaces de stockage direct :** si plusieurs types de média (disque) sont disponibles pour l’utilisation d'espaces de stockage direct, les plus rapides en tant que périphériques cache sont activés (en lecture et en écriture dans la plupart des cas).
 
 -   **Niveaux :** Crée deux niveaux en tant que niveaux par défaut. L’un est appelé « Capacité » et l’autre est appelé « Performances ». L’applet de commande analyse les périphériques et configure chaque niveau avec une combinaison de types de périphériques et de résilience.
 
@@ -307,7 +307,7 @@ L’étape suivante de la configuration des services de cluster pour votre serve
 4. Dans la page **point d’accès client** , tapez un nom pour le serveur de fichiers avec montée en puissance parallèle.
 5. Vérifiez que le rôle a été correctement configuré en accédant à **rôles** et en confirmant que la colonne **État** indique **s’exécuter** en regard du rôle de serveur de fichiers en cluster que vous avez créé, comme illustré à la figure 1.
 
-   ![Capture d’écran de gestionnaire du cluster de basculement montrant le Serveur de fichiers avec montée en puissance parallèle](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Gestionnaire du cluster de basculement montrant les serveur de fichiers avec montée en puissance parallèle")
+   ![Capture d’écran de Gestionnaire du cluster de basculement montrant le Serveur de fichiers avec montée en puissance parallèle](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Gestionnaire du cluster de basculement de l’Serveur de fichiers avec montée en puissance parallèle")
 
     **Figure 1** Gestionnaire du cluster de basculement de l’Serveur de fichiers avec montée en puissance parallèle avec l’État en cours d’exécution
 
@@ -329,14 +329,14 @@ Add-ClusterScaleOutFileServerRole -Name SOFS -Cluster FSCLUSTER
 
 Une fois que vous avez créé vos disques virtuels et que vous les avez ajoutés à CSV, il est temps de créer des partages de fichiers sur chacun d’eux : un partage de fichiers par CSV par disque virtuel. System Center Virtual Machine Manager (VMM) est probablement le moyen handiest de le faire car il gère des autorisations pour vous, mais si vous ne l’avez pas dans votre environnement, vous pouvez utiliser Windows PowerShell pour automatiser partiellement le déploiement.
 
-Utilisez les scripts inclus dans le script [configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) , qui automatise partiellement le processus de création de groupes et de partages. Il est écrit pour les charges de travail Hyper-V. par conséquent, si vous déployez d’autres charges de travail, vous devrez peut-être modifier les paramètres ou effectuer des étapes supplémentaires après avoir créé les partages. Par exemple, si vous utilisez Microsoft SQL Server, le compte de service SQL Server doit disposer du contrôle total sur le partage et le système de fichiers.
+Utilisez les scripts inclus dans le script [configuration du partage SMB pour les charges de travail Hyper-V](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) , qui automatise partiellement le processus de création de groupes et de partages. Il est écrit pour les charges de travail Hyper-V. par conséquent, si vous déployez d’autres charges de travail, vous devrez peut-être modifier les paramètres ou effectuer des étapes supplémentaires après avoir créé les partages. Par exemple, si vous utilisez Microsoft SQL Server, le compte de service SQL Server doit disposer du contrôle total sur le partage et le système de fichiers.
 
 > [!NOTE]
 >  Vous devrez mettre à jour l’appartenance au groupe lorsque vous ajoutez des nœuds de cluster, sauf si vous utilisez System Center Virtual Machine Manager pour créer vos partages.
 
 Pour créer des partages de fichiers à l’aide de scripts PowerShell, procédez comme suit :
 
-1. Téléchargez les scripts inclus dans la [configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) vers l’un des nœuds du cluster de serveurs de fichiers.
+1. Téléchargez les scripts inclus dans la [configuration du partage SMB pour les charges de travail Hyper-V](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) vers l’un des nœuds du cluster de serveurs de fichiers.
 2. Ouvrez une session Windows PowerShell avec des informations d’identification d’administrateur de domaine sur le système de gestion, puis utilisez le script suivant pour créer un groupe de Active Directory pour les objets ordinateur Hyper-V, en modifiant les valeurs des variables en fonction de vos environnement
 
     ```PowerShell
@@ -371,7 +371,7 @@ Pour créer des partages de fichiers à l’aide de scripts PowerShell, procéde
 
 ### <a name="step-43-enable-kerberos-constrained-delegation"></a>Étape 4,3 activer la délégation Kerberos avec restriction
 
-Pour configurer la délégation Kerberos confrontée pour la gestion de scénario à distance et une sécurité accrue Migration dynamique, à partir de l’un des nœuds du cluster de stockage, utilisez le script KCDSetup. ps1 inclus dans la [configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a). Voici un petit wrapper pour le script :
+Pour configurer la délégation Kerberos confrontée pour la gestion de scénario à distance et une sécurité accrue Migration dynamique, à partir de l’un des nœuds du cluster de stockage, utilisez le script KCDSetup. ps1 inclus dans la [configuration du partage SMB pour les charges de travail Hyper-V](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a). Voici un petit wrapper pour le script :
 
 ```PowerShell
 $HyperVClusterName = "Compute01"
@@ -386,9 +386,9 @@ CD $ScriptFolder
 
 Après le déploiement de votre serveur de fichiers en cluster, nous vous recommandons de tester les performances de votre solution à l’aide de charges de travail synthétiques avant de mettre en place des charges de travail réelles. Cela vous permet de vérifier que la solution fonctionne correctement et de résoudre les problèmes en attente avant d’ajouter la complexité des charges de travail. Pour plus d’informations, consultez [tester les performances des espaces de stockage à l’aide de charges de travail synthétiques](https://technet.microsoft.com/library/dn894707.aspx).
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Articles associés
 
--   [espaces de stockage direct dans Windows Server 2016](storage-spaces-direct-overview.md)
+-   [Storage Spaces Direct dans Windows Server 2016](storage-spaces-direct-overview.md)
 -   [Comprendre le cache dans espaces de stockage direct](understand-the-cache.md)
 -   [Planification des volumes dans espaces de stockage direct](plan-volumes.md)
 -   [Tolérance aux pannes des espaces de stockage](storage-spaces-fault-tolerance.md)

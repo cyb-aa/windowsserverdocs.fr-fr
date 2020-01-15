@@ -1,5 +1,5 @@
 ---
-title: Windows Server Software-Defined Datacenter
+title: Centre de données défini par logiciel (SDDC) Windows Server
 description: Présentation du centre de données défini par logiciel (SDDC) Windows Server
 ms.prod: windows-server
 ms.reviewer: na
@@ -12,12 +12,12 @@ ms.author: coreyp
 manager: dongill
 ms.date: 06/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 75a565eb9e26e03c1aad221059b327943485c81c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6490bd9a6cb7b305ba9746a357a8c909c7b84555
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403900"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950466"
 ---
 # <a name="windows-server-software-defined-datacenter"></a>Windows Server Software-Defined Datacenter
 
@@ -33,7 +33,7 @@ L’implémentation du SDDC de Microsoft est constituée des technologies Window
 
 Les technologies intégrées à Windows Server et System Center constituent les principaux blocs de construction de l’expérience SDDC Windows Server. Toutefois, même s’il s’agit d’une plateforme virtualisée, elle requiert néanmoins le matériel sous-jacent approprié. Les partenaires Microsoft qui participent aux **solutions Windows Server (WSSD)** et les programmes **Azure Stack solutions HCI** peuvent aider votre entreprise à acquérir le matériel adéquat et à l’utiliser le jour zéro.
 
-![](media/sddc/video.png) **[regarder une vidéo pour en savoir plus sur le SDDC de Microsoft](https://mva.microsoft.com/en-US/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965)**
+![](media/sddc/video.png) **[regarder une vidéo pour en savoir plus sur le SDDC de Microsoft](https://mva.microsoft.com/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965)**
 
 ![](media/sddc/poster-ico.png) **[Télécharger un fichier de format d’affiche. pdf de cette page](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
 
@@ -47,7 +47,7 @@ Les partenaires Microsoft proposent un ensemble de solutions qui fonctionnent av
 
 ![](media/sddc/learn.png) **[en savoir plus sur les solutions Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci)**
 
-![](media/sddc/learn.png) **[en savoir plus sur les solutions WSSD](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter)**
+![](media/sddc/learn.png) **[en savoir plus sur les solutions WSSD](https://www.microsoft.com/cloud-platform/software-defined-datacenter)**
 
 ## <a name="windows-server-virtualized-technologies"></a>Technologies virtuelles Windows Server ##
 
@@ -71,7 +71,7 @@ Hyper-V est une technologie de virtualisation basée sur un hyperviseur pour Win
 
 ![](media/sddc/spacer1.png)![](media/sddc/hypervisor.png)
 
-![](media/sddc/learn.png) **[en savoir plus sur l’hyperviseur Hyper-V](https://www.microsoft.com/en-us/cloud-platform/server-virtualization)**
+![](media/sddc/learn.png) **[en savoir plus sur l’hyperviseur Hyper-V](https://www.microsoft.com/cloud-platform/server-virtualization)**
 
 ### <a name="guest-clustering-with-shared-vhdx"></a>Clustering invité avec VHDX partagé
 
@@ -102,7 +102,7 @@ Aucune autre technologie de réplication d’ordinateur virtuel n’est requise,
 
 ![](media/sddc/networking.png)
 
-### <a name="network-controller"></a>Contrôleur de réseau
+### <a name="network-controller"></a>Contrôleur réseau
 
 ![](media/sddc/networking-line.png)
 
@@ -190,7 +190,7 @@ Réplication synchrone
 4. Accusé de réception du site distant
 5. Réception de l’écriture d’application confirmée
 
-t & t1 : données vidées sur le volume, journaux toujours écrits en continu
+t & t1 : données vidées sur le volume, journaux toujours écrits en continu
 
 ![](media/sddc/learn.png) **[en savoir plus sur le réplica de stockage](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)**
 
@@ -200,7 +200,7 @@ t & t1 : données vidées sur le volume, journaux toujours écrits en continu
 
 ![](media/sddc/security-line.png)
 
-En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée se compose d’un Service Guardian hôte (HGS), généralement, un cluster de trois nœuds, d’un ou de plusieurs hôtes protégés et d’un ensemble d’ordinateurs virtuels.
+En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les machines virtuelles. Une structure protégée se compose d’un Service Guardian hôte (HGS), généralement, un cluster de trois nœuds, d’un ou de plusieurs hôtes protégés et d’un ensemble d’ordinateurs virtuels.
 
 ![](media/sddc/spacer1.png)![](media/sddc/guarded-fabric.png)
 
@@ -220,7 +220,7 @@ Les données et l’état d’un ordinateur virtuel protégé sont protégés co
 
 ![](media/sddc/learn.png) **[en savoir plus sur les machines virtuelles protégées](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)**
 
-### <a name="host-guardian-service"></a>Service Guardian hôte
+### <a name="host-guardian-service"></a>Service Guardian hôte
 
 ![](media/sddc/security-line.png)
 
@@ -247,7 +247,7 @@ Le mode de matériel sécurisé, ci-dessus, fournit le niveau d’assurance le p
 
 ![](media/sddc/management.png)
 
-### <a name="powershell-desired-state-configuration"></a>Configuration de l’état souhaité PowerShell
+### <a name="powershell-desired-state-configuration"></a>PowerShell Desired State Configuration
 
 ![](media/sddc/management-line.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de l’authentification NTLM
+title: NTLM Overview
 description: Sécurité de Windows Server
 ms.custom: na
 ms.prod: windows-server
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: b8dec2877646fd2bfe00da9d5c9047e8edfd6f1d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 74e6e05df037041b6c80239e26b39b5566474326
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386260"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949758"
 ---
-# <a name="ntlm-overview"></a>Vue d’ensemble de l’authentification NTLM
+# <a name="ntlm-overview"></a>NTLM Overview
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique destinée aux professionnels de l’informatique décrit l’authentification NTLM, les modifications apportées aux fonctionnalités et fournit des liens vers des ressources techniques sur l’authentification Windows et NTLM pour Windows Server 2012 et versions antérieures.
 
 ## <a name="BKMK_OVER"></a>Description de la fonctionnalité
-L’authentification NTLM est une famille de protocoles d’authentification qui sont inclus dans le Msv1 Windows\_0. dll. Les protocoles d’authentification NTLM comprennent les versions 1 et 2 de LAN Manager et les versions 1 et 2 de NTLM . Les protocoles d’authentification NTLM authentifient les utilisateurs et les ordinateurs en se basant sur un mécanisme de réponse\/de stimulation qui prouve à un serveur ou un contrôleur de domaine qu’un utilisateur connaît le mot de passe associé à un compte. Lorsque vous faites appel au protocole NTLM, un serveur de ressources doit entreprendre l’une des actions suivantes afin de vérifier l’identité d’un ordinateur ou d’un utilisateur dès qu’un nouveau jeton d’accès est nécessaire :
+L’authentification NTLM est une famille de protocoles d’authentification qui sont inclus dans le Msv1 Windows\_0. dll. Les protocoles d’authentification NTLM comprennent les versions 1 et 2 de LAN Manager et les versions 1 et 2 de NTLM . Les protocoles d’authentification NTLM authentifient les utilisateurs et les ordinateurs en se basant sur un mécanisme de réponse\/de stimulation qui prouve à un serveur ou un contrôleur de domaine qu’un utilisateur connaît le mot de passe associé à un compte. Lorsque vous faites appel au protocole NTLM, un serveur de ressources doit entreprendre l’une des actions suivantes afin de vérifier l’identité d’un ordinateur ou d’un utilisateur dès qu’un nouveau jeton d’accès est nécessaire :
 
 -   Contactez un service d’authentification de domaine sur le contrôleur de domaine du compte de domaine de l’ordinateur ou de l’utilisateur si le compte en question est un compte de domaine.
 
@@ -57,7 +57,7 @@ Le tableau qui suit répertorie les ressources adaptées à l’authentification
 |**Déploiement**|[protection étendue de l'authentification](https://support.microsoft.com/kb/968389)<br /><br />[Guide d’utilisation de l’audit et de la restriction de l’utilisation de NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)<br /><br />[Demandez à l’équipe des services d’annuaire : blocage NTLM et vous : méthodologies d’analyse et d’audit des applications dans Windows 7](https://blogs.technet.com/askds/archive/2009/10/08/ntlm-blocking-and-you-application-analysis-and-auditing-methodologies-in-windows-7.aspx)<br /><br />[Blog sur l’authentification Windows](https://blogs.technet.com/authentication/)<br /><br />[Configuration de MaxConcurrentAPI pour NTLM passer\-via l’authentification](https://social.technet.microsoft.com/wiki/contents/articles/9759.configuring-maxconcurrentapi-for-ntlm-pass-through-authentication.aspx)|
 |**Développement**|[Microsoft NTLM \(Windows\)](https://msdn.microsoft.com/library/aa378749(VS.85).aspx)<br /><br />[\[MS\-NLMP\]: NT LAN Manager \(spécification du protocole d’authentification\) NTLM](https://msdn.microsoft.com/library/cc236621(PROT.10).aspx)<br /><br />[\[MS\-NNTP\]: NT LAN Manager \(NTLM\) authentification : Network News Transfer Protocol \(NNTP\) extension](https://msdn.microsoft.com/library/cc236774(PROT.10).aspx)<br /><br />[\[MS\-NTHT\]: spécification du protocole NTLM sur HTTP](https://msdn.microsoft.com/library/cc237488(PROT.10).aspx)|
 |**Résolution des problèmes**|Pas encore disponible|
-|**Ressources de la communauté**|[Ce cheval est-il mort : les goulots d’étranglement NTLM et le runtime RPC](http://blogs.technet.com/b/askds/archive/2011/09/15/is-this-horse-dead-yet-ntlm-bottlenecks-and-the-rpc-runtime.aspx)|
+|**Ressources de la communauté**|[Ce cheval est-il mort : les goulots d’étranglement NTLM et le runtime RPC](https://blogs.technet.com/b/askds/archive/2011/09/15/is-this-horse-dead-yet-ntlm-bottlenecks-and-the-rpc-runtime.aspx)|
 
 
 

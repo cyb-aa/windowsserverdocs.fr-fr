@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: fcf10ee11e92a00aca8bc0589c7419690312b6b9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d3e6b698bfd799fb1975bfdd20ecc8f85c07f935
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390141"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949074"
 ---
 # <a name="how-to-configure-protected-accounts"></a>Comment configurer des comptes protégés
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Par le biais d'attaques PtH (Pass-the-Hash), une personne malveillante peut s'authentifier sur un service ou un serveur distant à l'aide du hachage NTLM sous-jacent du mot de passe d'un utilisateur (ou d'autres dérivés d'informations d'identification). Microsoft a précédemment [publié des conseils](https://www.microsoft.com/download/details.aspx?id=36036) pour prévenir les attaques PtH.  Windows Server 2012 R2 comprend de nouvelles fonctionnalités qui permettent d’atténuer de telles attaques. Pour plus d’informations sur d’autres fonctionnalités de sécurité permettant de se prémunir contre le vol d’informations d’identification, consultez [Gestion et protection des informations d’identification](https://technet.microsoft.com/library/dn408190.aspx). Cette rubrique décrit comment configurer les nouvelles fonctionnalités suivantes :
 
@@ -30,7 +30,7 @@ Par le biais d'attaques PtH (Pass-the-Hash), une personne malveillante peut s'au
 
 Windows 8.1 et Windows Server 2012 R2 présentent d'autres fonctionnalités de prévention contre le vol d'informations d'identification. Elles sont abordées dans les rubriques suivantes :
 
--   [Mode d’administration restreinte pour Bureau à distance](http://blogs.technet.com/b/kfalde/archive/2013/08/14/restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx)
+-   [Mode d’administration restreinte pour Bureau à distance](https://blogs.technet.com/b/kfalde/archive/2013/08/14/restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx)
 
 -   [Protection LSA](https://technet.microsoft.com/library/dn408187)
 
@@ -43,7 +43,7 @@ Les membres du groupe utilisateurs protégés qui sont connectés à Windows 8.1
 
 -   Windows Digest : les informations d'identification en texte brut ne sont pas mises en cache même si elles sont activées ;
 
--   NTLM : NTOWF n'est pas mis en cache ;
+-   NTLM : NTOWF n'est pas mis en cache ;
 
 -   les clés à long terme Kerberos : le ticket TGT (Ticket-Granting Ticket) Kerberos s'obtient à l'ouverture de session et ne peut pas être à nouveau obtenu automatiquement ;
 
@@ -55,16 +55,16 @@ Si le niveau fonctionnel du domaine est Windows Server 2012 R2, les membres du g
 
 -   utiliser les suites de chiffrement DES (Data Encryption Standard) ou RC4 dans la pré-authentification Kerberos ;
 
--   être délégués en utilisant la délégation non contrainte ou contrainte ;
+-   être délégués en utilisant la délégation non contrainte ou contrainte ;
 
 -   renouveler les tickets TGT utilisateur au-delà de la durée de vie initiale de 4 heures.
 
-Pour ajouter des utilisateurs au groupe, vous pouvez utiliser des [Outils d’interface utilisateur](https://technet.microsoft.com/library/cc753515.aspx) tels que centre D’ADMINISTRATION Active Directory (le centre) ou Active Directory des utilisateurs et des ordinateurs, ou un outil en ligne de commande tel que [dsmod group](https://technet.microsoft.com/library/cc732423.aspx)ou Windows PowerShell[Add-ADGroupMember](https://technet.microsoft.com/library/ee617210.aspx) PolicySchedule. Les comptes de services et d'ordinateurs *ne doivent pas* être membres du groupe Utilisateurs protégés. L'appartenance à ces comptes n'offre pas de protection locale car le mot de passe ou le certificat est toujours disponible sur l'hôte.
+Pour ajouter des utilisateurs au groupe, vous pouvez utiliser des [Outils d’interface utilisateur](https://technet.microsoft.com/library/cc753515.aspx) tels que centre D’ADMINISTRATION Active Directory (le centre) ou Active Directory des utilisateurs et des ordinateurs, ou un outil en ligne de commande tel que [dsmod group](https://technet.microsoft.com/library/cc732423.aspx)ou l’applet de commande[Add-ADGroupMember](https://technet.microsoft.com/library/ee617210.aspx) de Windows PowerShell. Les comptes de services et d'ordinateurs *ne doivent pas* être membres du groupe Utilisateurs protégés. L'appartenance à ces comptes n'offre pas de protection locale car le mot de passe ou le certificat est toujours disponible sur l'hôte.
 
 > [!WARNING]
-> Les restrictions d'authentification n'offrent pas de solutions de contournement, ce qui veut dire que les membres des groupes dotés de privilèges élevés tels que les groupes Administrateurs d'entreprise ou Admins du domaine sont soumis aux mêmes restrictions que les autres membres du groupe Utilisateurs protégés. Si tous les membres de ces groupes sont ajoutés au groupe Utilisateurs protégés, tous ces comptes peuvent être verrouillés. Vous ne devez jamais ajouter des comptes dotés de privilèges élevés au groupe Utilisateurs protégés avant d'avoir testé les éventuelles répercussions en détail.
+> Les restrictions d'authentification n'offrent pas de solutions de contournement, ce qui veut dire que les membres des groupes dotés de privilèges élevés tels que les groupes Administrateurs d'entreprise ou Admins du domaine sont soumis aux mêmes restrictions que les autres membres du groupe Utilisateurs protégés. Si tous les membres de ces groupes sont ajoutés au groupe utilisateurs protégés, il est possible que tous ces comptes soient verrouillés. Vous ne devez jamais ajouter tous les comptes dotés de privilèges élevés au groupe utilisateurs protégés tant que vous n’avez pas testé minutieusement l’impact potentiel.
 
-Les membres du groupe Utilisateurs protégés doivent être capables d'effectuer une authentification à l'aide du chiffrement Kerberos AES (Advanced Encryption Standards). Cette méthode nécessite des clés AES pour le compte dans Active Directory. L’administrateur intégré ne dispose pas d’une clé AES, sauf si le mot de passe a été modifié sur un contrôleur de domaine qui exécute Windows Server 2008 ou une version ultérieure. De plus, un compte dont le mot de passe a été modifié sur un contrôleur de domaine exécutant une version antérieure de Windows Server est verrouillé. Nous vous recommandons, par conséquent, de suivre ces meilleures pratiques :
+Les membres du groupe Utilisateurs protégés doivent être capables d'effectuer une authentification à l'aide du chiffrement Kerberos AES (Advanced Encryption Standards). Cette méthode nécessite des clés AES pour le compte dans Active Directory. L’administrateur intégré ne dispose pas d’une clé AES, sauf si le mot de passe a été modifié sur un contrôleur de domaine qui exécute Windows Server 2008 ou une version ultérieure. En outre, tout compte, dont le mot de passe a été modifié sur un contrôleur de domaine qui exécute une version antérieure de Windows Server, est verrouillé. Par conséquent, suivez ces meilleures pratiques :
 
 -   Ne Testez pas dans les domaines, sauf si **tous les contrôleurs de domaine exécutent Windows Server 2008 ou une version ultérieure**.
 
@@ -84,7 +84,7 @@ Cette section aborde de nouveaux journaux qui permettent de résoudre des probl�
 
 #### <a name="new-logs-for-protected-users"></a>Nouveaux journaux pour les utilisateurs protégés
 
-Deux nouveaux journaux d'administration opérationnels sont disponibles pour résoudre les problèmes associés aux événements concernant les utilisateurs protégés : Utilisateur protégé-Journal du client et échecs de l’utilisateur protégé-Journal du contrôleur de domaine. Ces nouveaux journaux se trouvent dans l'Observateur d'événements et sont désactivés par défaut. Pour activer un journal, cliquez sur **Journaux des applications et des services**, **Microsoft**, **Windows**, **Authentification**, puis cliquez sur le nom du journal et sur **Action** (ou cliquez avec le bouton droit sur le journal), puis sur **Activer le journal**.
+Deux nouveaux journaux d’administration opérationnels sont disponibles pour vous aider à résoudre les problèmes liés aux événements liés aux utilisateurs protégés : Journal du client protégé et échecs des utilisateurs protégés-Journal du contrôleur de domaine. Ces nouveaux journaux se trouvent dans l'Observateur d'événements et sont désactivés par défaut. Pour activer un journal, cliquez sur **Journaux des applications et des services**, **Microsoft**, **Windows**, **Authentification**, puis cliquez sur le nom du journal et sur **Action** (ou cliquez avec le bouton droit sur le journal), puis sur **Activer le journal**.
 
 Pour plus d’informations sur les événements consignés dans ces journaux, consultez [Stratégies d’authentification et silos de stratégies d’authentification](https://technet.microsoft.com/library/dn486813.aspx).
 
@@ -95,9 +95,9 @@ Généralement, le contrôleur de domaine définit la durée de vie et le renouv
 
 Dans le cas des **utilisateurs protégés**, les paramètres suivants sont codés en dur :
 
--   durée de vie maximale pour le ticket utilisateur : 240 minutes.
+-   durée de vie maximale pour le ticket utilisateur : 240 minutes.
 
--   durée de vie maximale pour le renouvellement du ticket utilisateur : 240 minutes.
+-   durée de vie maximale pour le renouvellement du ticket utilisateur : 240 minutes.
 
 #### <a name="troubleshoot-delegation-issues"></a>Résoudre les problèmes de délégation
 Auparavant, en cas d'échec d'une technologie utilisant la délégation Kerberos, le compte client était vérifié pour voir si l'option **Le compte est sensible et ne peut pas être délégué** était définie. Cependant, si le compte est membre du groupe **Utilisateurs protégés**, ce paramètre n'est peut-être pas configuré dans le Centre d'administration Active Directory (ADAC). Ainsi, vérifiez le paramètre et l'appartenance au groupe quand vous résolvez les problèmes de délégation.
@@ -105,23 +105,23 @@ Auparavant, en cas d'échec d'une technologie utilisant la délégation Kerberos
 ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_TshootDelegation.gif)
 
 ### <a name="BKMK_AuditAuthNattempts"></a>Auditer les tentatives d’authentification
-Pour vérifier les tentatives d'authentification spécifiquement pour les membres du groupe **Utilisateurs protégés**, vous pouvez continuer à collecter les événements de vérification du journal de sécurité ou rassembler les données dans les journaux d'administration opérationnels. Pour plus d’informations sur ces événements, consultez [Stratégies d’authentification et silos de stratégies d’authentification](https://technet.microsoft.com/library/dn486813.aspx).
+Pour vérifier les tentatives d'authentification spécifiquement pour les membres du groupe **Utilisateurs protégés** , vous pouvez continuer à collecter les événements de vérification du journal de sécurité ou rassembler les données dans les journaux d'administration opérationnels. Pour plus d’informations sur ces événements, consultez [Stratégies d’authentification et silos de stratégies d’authentification](https://technet.microsoft.com/library/dn486813.aspx).
 
 ### <a name="BKMK_ProvidePUdcProtections"></a>Fournir des protections côté contrôleur de service pour les services et les ordinateurs
 Les comptes de services et d'ordinateurs ne doivent pas être membres du groupe **Utilisateurs protégés**. Cette section décrit les protections basées sur le contrôleur de domaine qui peuvent être offertes pour ces comptes :
 
--   rejet de l'authentification NTLM : configurable uniquement via les [stratégies du bloc NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx) ;
+-   rejet de l'authentification NTLM : configurable uniquement via les [stratégies du bloc NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx);
 
--   rejet de la norme DES (Data Encryption Standard) dans la pré-authentification Kerberos :  Les contrôleurs de domaine Windows Server 2012 R2 n’acceptent pas DES pour les comptes d’ordinateurs, sauf s’ils sont configurés pour DES uniquement, car chaque version de Windows publiée avec Kerberos prend également en charge RC4.
+-   Rejet de Data Encryption Standard (DES) dans la pré-authentification Kerberos : les contrôleurs de domaine Windows Server 2012 R2 n’acceptent pas DES pour les comptes d’ordinateurs, sauf s’ils sont configurés pour DES uniquement, car chaque version de Windows publiée avec Kerberos prend également en charge RC4.
 
 -   rejet de RC4 dans la pré-authentification Kerberos : non configurable ;
 
     > [!NOTE]
-    > Même si vous pouvez [modifier la configuration des types de chiffrement pris en charge](http://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx), il n’est pas recommandé de changer ces paramètres pour les comptes d’ordinateur sans les tester dans l’environnement cible.
+    > Même si vous pouvez [modifier la configuration des types de chiffrement pris en charge](https://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx), il n’est pas recommandé de changer ces paramètres pour les comptes d’ordinateur sans les tester dans l’environnement cible.
 
--   restreindre les tickets utilisateur (TGT) à une durée de vie initiale de 4 heures : utiliser les stratégies d'authentification ;
+-   restreindre les tickets utilisateur (TGT) à une durée de vie initiale de 4 heures : utiliser les stratégies d'authentification ;
 
--   refuser la délégation avec délégation non contrainte ou contrainte : pour restreindre un compte, ouvrez le Centre d'administration Active Directory (ADAC), puis cochez la case **Le compte est sensible et ne peut pas être délégué**.
+-   refuser la délégation avec délégation non contrainte ou contrainte : pour restreindre un compte, ouvrez le Centre d'administration Active Directory (ADAC), puis cochez la case **Le compte est sensible et ne peut pas être délégué** .
 
     ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_TshootDelegation.gif)
 
@@ -132,7 +132,7 @@ Dans Windows Server 2012, Dynamic Access Control a introduit une classe d’obje
 
 -   Utilisateur
 
--   Computer
+-   d'Ordinateur
 
 -   Compte de service administré et compte de service administré de groupe (GMSA, Group Managed Service Account)
 
@@ -166,13 +166,13 @@ Vous pouvez restreindre l'authentification initiale ou l'échange AS en configur
 
 ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_RestrictAS.gif)
 
-Vous pouvez restreindre les demandes de ticket de service via un échange de service d'accord de tickets (TGS) en configurant :
+Vous pouvez restreindre les demandes de ticket de service via un échange de service d'accord de tickets (TGS) en configurant :
 
 -   les conditions de contrôle d'accès que le client (utilisateur, service, ordinateur) ou l'appareil d'où émane l'échange TGS doit respecter.
 
 ### <a name="BKMK_ReqForAuthnPolicies"></a>Configuration requise pour l’utilisation de stratégies d’authentification
 
-|Stratégie|Configuration requise|
+|Stratégie|Conditions préalables|
 |----------|----------------|
 |Fournir des durées de vie TGT personnalisées| Domaines de compte de niveau fonctionnel de domaine Windows Server 2012 R2|
 |Restreindre l'authentification utilisateur|-Domaines de compte de niveau fonctionnel de domaine Windows Server 2012 R2 avec prise en charge de Access Control dynamique<br />-Appareils Windows 8, Windows 8.1, Windows Server 2012 ou Windows Server 2012 R2 avec prise en charge de la Access Control dynamique|
@@ -180,7 +180,7 @@ Vous pouvez restreindre les demandes de ticket de service via un échange de ser
 |Restreindre l'émission de tickets de service en fonction des revendications d'utilisateur ou du compte d'appareil, des groupes de sécurité ou des revendications| Domaines de ressources de niveau fonctionnel de domaine Windows Server 2012 R2 avec prise en charge de Access Control dynamique|
 
 ### <a name="restrict-a-user-account-to-specific-devices-and-hosts"></a>Restreindre un compte d'utilisateur aux appareils et hôtes spécifiques
-Un compte à valeur élevée assorti d'un privilège d'administration doit être membre du groupe **Utilisateurs protégés** . Par défaut, aucun compte n'est membre du groupe **Utilisateurs protégés**. Avant d'ajouter des comptes au groupe, configurez la prise en charge du contrôleur de domaine et créez une stratégie d'audit pour vérifier qu'il n'y a aucun problème majeur.
+Un compte à valeur élevée assorti d'un privilège d'administration doit être membre du groupe **Utilisateurs protégés** . Par défaut, aucun compte n'est membre du groupe **Utilisateurs protégés** . Avant d'ajouter des comptes au groupe, configurez la prise en charge du contrôleur de domaine et créez une stratégie d'audit pour vérifier qu'il n'y a aucun problème majeur.
 
 #### <a name="configure-domain-controller-support"></a>Configurer la prise en charge du contrôleur de domaine
 
@@ -195,12 +195,12 @@ Le domaine du compte de l’utilisateur doit être au niveau fonctionnel du doma
 2.  Sous **Options**, dans la zone de liste déroulante, sélectionnez **Toujours fournir des revendications**.
 
     > [!NOTE]
-    > La **prise en charge** peut également être configurée, mais étant donné que le domaine se trouve sur Windows Server 2012 R2 DFL, le fait que les contrôleurs de domaine fournissent toujours des revendications autorise les vérifications d’accès basées sur les revendications utilisateur lors de l’utilisation d’appareils et d’ordinateurs hôtes prenant en charge les revendications et pour se connecter à la prise en charge des revendications services.
+    > La **prise en charge** peut également être configurée, mais étant donné que le domaine est au niveau de Windows Server 2012 R2 DFL, le fait que les contrôleurs de domaine fournissent toujours des revendications permet d’effectuer des vérifications d’accès basées sur les revendications d’utilisateur lors de l’utilisation d’appareils et d’ordinateurs hôtes prenant en charge les revendications.
 
     ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_AlwaysProvideClaims.png)
 
     > [!WARNING]
-    > La configuration des **demandes d’authentification non blindées échouera** en cas d’échec de l’authentification de tout système d’exploitation qui ne prend pas en charge le blindage Kerberos, tel que Windows 7 et les systèmes d’exploitation précédents, ou les systèmes d’exploitation commençant par Windows 8, qui n’ont pas été explicitement configurés pour le prendre en charge.
+    > La configuration des **demandes d’authentification non blindées échouera** en cas d’échec de l’authentification à partir de tout système d’exploitation qui ne prend pas en charge le blindage Kerberos, tel que Windows 7 et les systèmes d’exploitation précédents, ou les systèmes d’exploitation à partir de Windows 8, qui n’ont pas été explicitement configurés pour la prise en charge.
 
 #### <a name="create-a-user-account-audit-for-authentication-policy-with-adac"></a>Créer un audit de compte d'utilisateur pour la stratégie d'authentification avec ADAC
 
@@ -225,7 +225,7 @@ Le domaine du compte de l’utilisateur doit être au niveau fonctionnel du doma
 
     -   Utilisateur
 
-    -   Computer
+    -   d'Ordinateur
 
     -   Compte de service administré et compte de service administré de groupe
 
@@ -235,7 +235,7 @@ Le domaine du compte de l’utilisateur doit être au niveau fonctionnel du doma
 
     ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_TGTLifetime.gif)
 
-    Par exemple, si vous voulez une durée de vie TGT maximale de 10 heures, entrez **600** comme illustré. Si aucune durée de vie TGT n'est configurée et si le compte est membre du groupe **Protected Users**, la durée de vie et le renouvellement TGT sont de 4 heures. Sinon, la durée de vie et le renouvellement TGT dépendent de la stratégie de domaine comme le montre la fenêtre Éditeur de gestion des stratégies de groupe suivante, pour un domaine comportant des paramètres par défaut.
+    Par exemple, si vous voulez une durée de vie TGT maximale de 10 heures, entrez **600** comme illustré. Si aucune durée de vie TGT n’est configurée et que le compte est membre du groupe **Protected Users** , la durée de vie et le renouvellement TGT sont de 4 heures. Sinon, la durée de vie et le renouvellement TGT dépendent de la stratégie de domaine comme le montre la fenêtre Éditeur de gestion des stratégies de groupe suivante, pour un domaine comportant des paramètres par défaut.
 
     ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_TGTExpiration.png)
 
@@ -303,17 +303,17 @@ Supposons que vous souhaitiez restreindre l’authentification en fonction de l�
 
 ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_RestrictComputers.gif)
 
-Pour que la revendication soit disponible et que vous puissiez restreindre l'authentification de l'utilisateur sur l'appareil, cochez la case **Utilisateur**.
+Pour que la revendication soit disponible et que vous puissiez restreindre l'authentification de l'utilisateur sur l'appareil, cochez la case **Utilisateur** .
 
 ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_RestrictUsersComputers.gif)
 
 #### <a name="provision-a-user-account-with-an-authentication-policy-with-adac"></a>Déployer un compte d'utilisateur avec une stratégie d'authentification à l'aide d'ADAC
 
-1.  À partir du compte **Utilisateur**, cliquez sur **Stratégie**.
+1.  À partir du compte **Utilisateur** , cliquez sur **Stratégie**.
 
     ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_UserPolicy.gif)
 
-2.  Cochez la case **Affectez une stratégie d'authentification à ce compte**.
+2.  Cochez la case **Affectez une stratégie d'authentification à ce compte** .
 
     ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_UserPolicyAssign.gif)
 
@@ -336,35 +336,35 @@ La section des comptes de la stratégie d'authentification illustre les comptes 
 ![comptes protégés](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_AccountsAssigned.gif)
 
 #### <a name="use-the-authentication-policy-failures---domain-controller-administrative-log"></a>Utiliser les échecs de stratégie d’authentification-journal d’administration du contrôleur de domaine
-Une nouvelle **stratégie d’authentification échecs-** journal d’administration du contrôleur de domaine sous les **journaux des applications et des services** > **Microsoft** > **Windows** > **l’authentification** a été créée pour faciliter la tâche pour détecter les défaillances dues à des stratégies d’authentification. Le journal est désactivé par défaut. Pour l'activer, cliquez avec le bouton droit sur le nom du journal, puis cliquez sur **Activer le journal**. Le contenu des nouveaux événements est très semblable à celui des événements d'audit du ticket de service et de ticket TGT Kerberos. Pour plus d’informations sur ces événements, consultez [Stratégies d’authentification et silos de stratégies d’authentification](https://technet.microsoft.com/library/dn486813.aspx).
+Une nouvelle **stratégie d’authentification échecs :** journal d’administration du contrôleur de domaine sous **les journaux des applications et des services** > **l’authentification** **Microsoft** > **Windows** > a été créée pour faciliter la détection des défaillances dues aux stratégies d’authentification. Le journal est désactivé par défaut. Pour l'activer, cliquez avec le bouton droit sur le nom du journal, puis cliquez sur **Activer le journal**. Le contenu des nouveaux événements est très semblable à celui des événements d'audit du ticket de service et de ticket TGT Kerberos. Pour plus d’informations sur ces événements, consultez [Stratégies d’authentification et silos de stratégies d’authentification](https://technet.microsoft.com/library/dn486813.aspx).
 
 ### <a name="BKMK_ManageAuthnPoliciesUsingPSH"></a>Gérer les stratégies d’authentification à l’aide de Windows PowerShell
-Cette commande crée une stratégie d’authentification nommée **TestAuthenticationPolicy**. Le paramètre **UserAllowedToAuthenticateFrom** spécifie les appareils à partir desquels les utilisateurs peuvent s'authentifier par une chaîne SDDL dans le fichier « someFile.txt ».
+Cette commande crée une stratégie d’authentification nommée **TestAuthenticationPolicy**. Le paramètre **UserAllowedToAuthenticateFrom** spécifie les appareils à partir desquels les utilisateurs peuvent s’authentifier par une chaîne SDDL dans le fichier « someFile.txt ».
 
 ```
 PS C:\> New-ADAuthenticationPolicy testAuthenticationPolicy -UserAllowedToAuthenticateFrom (Get-Acl .\someFile.txt).sddl
 ```
 
-Cette commande obtient toutes les stratégies d'authentification qui correspondent au filtre spécifié par le paramètre **Filter**.
+Cette commande obtient toutes les stratégies d’authentification qui correspondent au filtre spécifié par le paramètre **Filter** .
 
 ```
 PS C:\> Get-ADAuthenticationPolicy -Filter "Name -like 'testADAuthenticationPolicy*'" -Server Server02.Contoso.com
 
 ```
 
-Cette commande modifie la description et les propriétés **UserTGTLifetimeMins** de la stratégie d'authentification spécifiée.
+Cette commande modifie la description et les propriétés **UserTGTLifetimeMins** de la stratégie d’authentification spécifiée.
 
 ```
 PS C:\> Set-ADAuthenticationPolicy -Identity ADAuthenticationPolicy1 -Description "Description" -UserTGTLifetimeMins 45
 ```
 
-Cette commande supprime la stratégie d'authentification spécifiée par le paramètre **Identity**.
+Cette commande supprime la stratégie d’authentification spécifiée par le paramètre **Identity** .
 
 ```
 PS C:\> Remove-ADAuthenticationPolicy -Identity ADAuthenticationPolicy1
 ```
 
-Cette commande utilise l’applet de commande **Get-ADAuthenticationPolicy** avec le paramètre **Filter** pour obtenir toutes les stratégies d’authentification qui ne sont pas appliquées. Le jeu de résultats est dirigé vers l'applet de commande **Remove-ADAuthenticationPolicy**.
+Cette commande utilise l’applet de commande **Get-ADAuthenticationPolicy** avec le paramètre **Filter** pour obtenir toutes les stratégies d’authentification qui ne sont pas appliquées. Le jeu de résultats est dirigé vers l’applet de commande **Remove-ADAuthenticationPolicy** .
 
 ```
 PS C:\> Get-ADAuthenticationPolicy -Filter 'Enforce -eq $false' | Remove-ADAuthenticationPolicy
@@ -397,7 +397,7 @@ L’obtention de ces informations aux contrôleurs de contrôle de la ressource 
 
     -   Le domaine de compte prend en charge le contrôle d'accès dynamique et les revendications
 
--   Appareil et/ou groupe de sécurité de l'appareil :
+-   Appareil et/ou groupe de sécurité de l'appareil :
 
     -   Clients Windows 8 et version ultérieure prenant en charge le contrôle d'accès dynamique
 

@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9563a3f3628851a0cf7b3cb79990db8c2141faa4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b86bf779a4ea9d67f959dacf125a98a8e26a729
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384948"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947134"
 ---
 # <a name="tuning-iis-100"></a>Paramétrage d’IIS 10,0
 
@@ -44,7 +44,7 @@ HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Http\Parameters
 
 **Notez**  si le service http est déjà en cours d’exécution, vous devez le redémarrer pour que les modifications prennent effet.
 
-MicrosoftÂ 
+Â 
 
 ## <a name="cache-management-settings"></a>Paramètres de gestion du cache
 
@@ -64,7 +64,7 @@ Voici quelques paramètres utiles pour le cache en mode noyau HTTP. sys :
 
     **Remarque** La spécification de la taille définit uniquement la valeur maximale et le système risque de ne pas laisser le cache atteindre la taille maximale définie.
 
-    MicrosoftÂ 
+    Â 
 
 -   **UriMaxUriBytes** Valeur par défaut : 262144 octets (256 Ko)
 
@@ -142,10 +142,10 @@ Cette section décrit les paramètres qui affectent le comportement de mise en c
 
 **System. webServer/mise en cache**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
-|Activé|Désactive le cache IIS en mode utilisateur lorsqu’il est défini sur **false**. Lorsque le taux d’accès au cache est très faible, vous pouvez désactiver complètement le cache pour éviter la surcharge associée au chemin d’accès au code du cache. La désactivation du cache du mode utilisateur ne désactive pas le cache en mode noyau.|True|
-|enableKernelCache|Désactive le cache en mode noyau lorsqu’il est défini sur **false**.|True|
+|Enabled|Désactive le cache IIS en mode utilisateur lorsqu’il est défini sur **false**. Lorsque le taux d’accès au cache est très faible, vous pouvez désactiver complètement le cache pour éviter la surcharge associée au chemin d’accès au code du cache. La désactivation du cache du mode utilisateur ne désactive pas le cache en mode noyau.|Vrai|
+|enableKernelCache|Désactive le cache en mode noyau lorsqu’il est défini sur **false**.|Vrai|
 |maxCacheSize|Limite la taille de cache du mode utilisateur IIS à la taille spécifiée en mégaoctets. IIS ajuste la valeur par défaut en fonction de la mémoire disponible. Choisissez soigneusement la valeur en fonction de la taille de l’ensemble de fichiers fréquemment utilisés par rapport à la quantité de RAM ou de l’espace d’adressage du processus IIS.|0|
 |maxResponseSize|Met en cache les fichiers jusqu’à la taille spécifiée. La valeur réelle dépend du nombre et de la taille des fichiers les plus volumineux dans le jeu de données par rapport à la quantité de mémoire disponible. La mise en cache de fichiers volumineux et fréquemment demandés peut réduire l’utilisation du processeur, l’accès au disque et les latences associées.|262144|
 
@@ -157,19 +157,19 @@ Pour désactiver complètement la compression, supprimez StaticCompressionModule
 
 **System. webServer/httpCompression**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
 |staticCompression-EnableCpuUsage<br><br>staticCompression-DisableCpuUsage<br><br>dynamicCompression-EnableCpuUsage<br><br>dynamicCompression-DisableCpuUsage|Active ou désactive la compression si l’utilisation du processeur en pourcentage passe au-dessus ou au-dessous des limites spécifiées.<br><br>Depuis IIS 7,0, la compression est automatiquement désactivée si l’UC à état stable augmente au-dessus du seuil de désactivation. La compression est activée si le processeur descend sous le seuil d’activation.|50, 100, 50 et 90 respectivement|
-|Directory|Spécifie le répertoire dans lequel les versions compressées des fichiers statiques sont temporairement stockées et mises en cache. Envisagez de déplacer ce répertoire sur le lecteur système si vous y accédez fréquemment.|Fichiers compressés temporaires%SystemDrive%\inetpub\temp\IIS|
-|doDiskSpaceLimiting|Spécifie s’il existe une limite pour la quantité d’espace disque que tous les fichiers compressés peuvent occuper. Les fichiers compressés sont stockés dans le répertoire de compression qui est spécifié par l’attribut **Directory** .|True|
+|Répertoire|Spécifie le répertoire dans lequel les versions compressées des fichiers statiques sont temporairement stockées et mises en cache. Envisagez de déplacer ce répertoire sur le lecteur système si vous y accédez fréquemment.|Fichiers compressés temporaires%SystemDrive%\inetpub\temp\IIS|
+|doDiskSpaceLimiting|Spécifie s’il existe une limite pour la quantité d’espace disque que tous les fichiers compressés peuvent occuper. Les fichiers compressés sont stockés dans le répertoire de compression qui est spécifié par l’attribut **Directory** .|Vrai|
 |maxDiskSpaceUsage|Spécifie le nombre d’octets d’espace disque que les fichiers compressés peuvent occuper dans le répertoire de compression.<br><br>Ce paramètre devra peut-être être augmenté si la taille totale de tout le contenu compressé est trop importante.|100 Mo|
 
 **System. webServer/élément urlCompression**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
-|doStaticCompression|Spécifie si le contenu statique est compressé.|True|
-|doDynamicCompression|Spécifie si le contenu dynamique est compressé.|True|
+|doStaticCompression|Spécifie si le contenu statique est compressé.|Vrai|
+|doDynamicCompression|Spécifie si le contenu dynamique est compressé.|Vrai|
 
 **Remarque** Pour les serveurs qui exécutent IIS 10,0 et dont l’utilisation moyenne du processeur est faible, envisagez d’activer la compression pour le contenu dynamique, en particulier si les réponses sont volumineuses. Cela doit d’abord être effectué dans un environnement de test pour évaluer l’impact de l’utilisation du processeur à partir de la ligne de base.
 
@@ -186,9 +186,9 @@ Pour désactiver complètement les documents par défaut, supprimez DefaultDocum
 
 **System. webServer/defaultDocument**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
-|enabled|Spécifie que les documents par défaut sont activés.|True|
+|enabled|Spécifie que les documents par défaut sont activés.|Vrai|
 |élément&gt; &lt;fichiers|Spécifie les noms de fichiers qui sont configurés en tant que documents par défaut.|La liste par défaut est default. htm, default. asp, index. htm, index. html, iisstart. htm et default. aspx.|
 
 ## <a name="central-binary-logging"></a>Journalisation centrale binaire
@@ -199,16 +199,16 @@ Vous pouvez activer la journalisation binaire centrale en affectant à l’attri
 
 **System. applicationHost/log**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
 |centralLogFileMode|Spécifie le mode de journalisation d’un serveur. Remplacez cette valeur par CentralBinary pour activer la journalisation binaire centrale.|Site|
 
 **System. applicationHost/log/centralBinaryLogFile**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
-|enabled|Spécifie si la journalisation binaire centrale est activée.|False|
-|Directory|Spécifie le répertoire dans lequel les entrées de journal sont écrites.|%SystemDrive%\inetpub\logs\LogFiles|
+|enabled|Spécifie si la journalisation binaire centrale est activée.|Faux|
+|Répertoire|Spécifie le répertoire dans lequel les entrées de journal sont écrites.|%SystemDrive%\inetpub\logs\LogFiles|
 
 
 ## <a name="application-and-site-tunings"></a>Paramétrages des applications et des sites
@@ -217,16 +217,16 @@ Les paramètres suivants sont liés aux réglages du pool d’applications et du
 
 **System. applicationHost/applicationPools/applicationPoolDefaults**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
-|queueLength|Indique à HTTP. sys combien de demandes sont mises en file d’attente pour un pool d’applications avant le rejet des demandes ultérieures. Lorsque la valeur de cette propriété est dépassée, IIS rejette les demandes suivantes avec une erreur 503.<br><br>Envisagez d’augmenter cela pour les applications qui communiquent avec les magasins de données principaux à latence élevée si des erreurs 503 sont observées.|1 000|
-|enable32BitAppOnWin64|Si la valeur est true, permet à une application 32 bits de s’exécuter sur un ordinateur doté d’un processeur 64 bits.<br><br>Envisagez d’activer le mode 32 bits si la consommation de mémoire est un problème. Étant donné que les tailles des pointeurs et des instructions sont plus petites, les applications 32 bits utilisent moins de mémoire que les applications 64 bits. L’inconvénient de l’exécution d’applications 32 bits sur un ordinateur 64 bits est que l’espace d’adressage en mode utilisateur est limité à 4 Go.|False|
+|queueLength|Indique à HTTP. sys combien de demandes sont mises en file d’attente pour un pool d’applications avant le rejet des demandes ultérieures. Lorsque la valeur de cette propriété est dépassée, IIS rejette les demandes suivantes avec une erreur 503.<br><br>Envisagez d’augmenter cela pour les applications qui communiquent avec les magasins de données principaux à latence élevée si des erreurs 503 sont observées.|1000|
+|enable32BitAppOnWin64|Si la valeur est true, permet à une application 32 bits de s’exécuter sur un ordinateur doté d’un processeur 64 bits.<br><br>Envisagez d’activer le mode 32 bits si la consommation de mémoire est un problème. Étant donné que les tailles des pointeurs et des instructions sont plus petites, les applications 32 bits utilisent moins de mémoire que les applications 64 bits. L’inconvénient de l’exécution d’applications 32 bits sur un ordinateur 64 bits est que l’espace d’adressage en mode utilisateur est limité à 4 Go.|Faux|
 
 **System. applicationHost/sites/VirtualDirectoryDefault**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
-|allowSubDirConfig|Spécifie si IIS recherche les fichiers Web. config dans les répertoires de contenu inférieurs au niveau actuel (true) ou ne recherche pas les fichiers Web. config dans les répertoires de contenu inférieurs au niveau actuel (false). En imposant une limitation simple, qui autorise uniquement la configuration dans les répertoires virtuels, IISÂ 10,0 peut savoir que, sauf si **/&lt;nom&gt;. htm** est un répertoire virtuel, il ne doit pas Rechercher un fichier de configuration. Ignorer les opérations de fichiers supplémentaires peut améliorer considérablement les performances des sites Web qui ont un très grand nombre de contenus statiques ayant un accès aléatoire.|True|
+|allowSubDirConfig|Spécifie si IIS recherche les fichiers Web. config dans les répertoires de contenu inférieurs au niveau actuel (true) ou ne recherche pas les fichiers Web. config dans les répertoires de contenu inférieurs au niveau actuel (false). En imposant une limitation simple, qui autorise uniquement la configuration dans les répertoires virtuels, IISÂ 10,0 peut savoir que, sauf si **/&lt;nom&gt;. htm** est un répertoire virtuel, il ne doit pas Rechercher un fichier de configuration. Ignorer les opérations de fichiers supplémentaires peut améliorer considérablement les performances des sites Web qui ont un très grand nombre de contenus statiques ayant un accès aléatoire.|Vrai|
 
 ## <a name="managing-iis-100-modules"></a>Gestion des modules IIS 10,0
 
@@ -244,7 +244,7 @@ Les paramètres suivants sont utilisés pour configurer le cache de modèles ASP
 
 **System. webServer/ASP/cache**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
 |diskTemplateCacheDirectory|Nom du répertoire utilisé par ASP pour stocker les modèles compilés en cas de dépassement du cache en mémoire.<br><br>Recommandation : définissez sur un répertoire qui n’est pas très utilisé, par exemple, un lecteur qui n’est pas partagé avec le système d’exploitation, le journal IIS ou tout autre contenu fréquemment utilisé.|Modèles compilés%SystemDrive%\inetpub\temp\ASP|
 |maxDiskTemplateCacheFiles|Spécifie le nombre maximal de modèles ASP compilés qui peuvent être mis en cache sur le disque.<br><br>Recommandation : définissez sur la valeur maximale de 0x7FFFFFFF.|2000|
@@ -253,20 +253,20 @@ Les paramètres suivants sont utilisés pour configurer le cache de modèles ASP
 
 **System. webServer/ASP/Limits**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
 |processorThreadMax|Spécifie le nombre maximal de threads de travail par processeur qu’ASP peut créer. Augmentez la valeur si le paramètre actuel est insuffisant pour gérer la charge, ce qui peut provoquer des erreurs lors de la fourniture des demandes ou la mise sous-utilisation des ressources du processeur.|25|
 
 **System. webServer/ASP/ComPlus**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
-|executeInMta|Affectez la valeur **true** si des erreurs ou des échecs sont détectés pendant que les services IIS servent du contenu ASP. Cela peut se produire, par exemple, lors de l’hébergement de plusieurs sites isolés dans lesquels chaque site s’exécute sous son propre processus de travail. Les erreurs sont généralement signalées à partir de COM+ dans le observateur d’événements. Ce paramètre active le modèle multithread cloisonné dans ASP.|False|
+|executeInMta|Affectez la valeur **true** si des erreurs ou des échecs sont détectés pendant que les services IIS servent du contenu ASP. Cela peut se produire, par exemple, lors de l’hébergement de plusieurs sites isolés dans lesquels chaque site s’exécute sous son propre processus de travail. Les erreurs sont généralement signalées à partir de COM+ dans le observateur d’événements. Ce paramètre active le modèle multithread cloisonné dans ASP.|Faux|
 
 
 ## <a name="aspnet-concurrency-setting"></a>Paramètre de concurrence ASP.NET
 
-### <a name="aspnet-35"></a>ASP.NET 3,5
+### <a name="aspnet-35"></a>ASP.NET 3.5
 Par défaut, ASP.NET limite la concurrence des demandes pour réduire la consommation de mémoire stable sur le serveur. Des applications à concurrence élevée peuvent avoir à ajuster certains paramètres pour améliorer les performances globales. Vous pouvez modifier ce paramètre dans le fichier Aspnet. config :
 
 ``` syntax
@@ -281,7 +281,7 @@ Le paramètre suivant est utile pour utiliser pleinement des ressources sur un s
 
     Ce paramètre limite le nombre maximal de demandes ASP.NET exécutées simultanément sur un système. La valeur par défaut est conservatrice pour réduire la consommation de mémoire des applications ASP.NET. Envisagez d’accentuer cette limite sur les systèmes qui exécutent des applications qui effectuent des opérations d’e/s longues et synchrones. Dans le cas contraire, les utilisateurs peuvent rencontrer une latence élevée en raison de la mise en file d’attente ou des échecs de demande en raison du dépassement des limites de file d’attente sous une charge élevée lorsque le paramètre par défaut est utilisé.
 
-### <a name="aspnet-46"></a>ASP.NET 4,6
+### <a name="aspnet-46"></a>ASP.NET 4.6
 Outre le paramètre maxConcurrentRequestPerCpu, ASP.NET 4,7 fournit également des paramètres pour améliorer les performances dans les applications qui s’appuient fortement sur une opération asynchrone. Le paramètre peut être modifié dans le fichier Aspnet. config.
 
 ``` syntax
@@ -301,7 +301,7 @@ Vous pouvez activer le recyclage de processus pour une application particulière
 
 **System. applicationHost/applicationPools/ApplicationPoolDefaults/Recycling/periodicRestart**
 
-|Attribut|Description|Default|
+|Attribut|Description|Par défaut|
 |--- |--- |--- |
 |memory|Activez le recyclage de processus si la consommation de mémoire virtuelle dépasse la limite spécifiée en kilo-octets. Il s’agit d’un paramètre utile pour les ordinateurs 32 bits qui ont un espace d’adressage de petite taille de 2 Go. Cela peut aider à éviter les demandes ayant échoué en raison d’erreurs de mémoire insuffisante.|0|
 |privateMemory|Activez le recyclage de processus si les allocations de mémoire privée dépassent une limite spécifiée en kilo-octets.|0|
@@ -319,7 +319,7 @@ Avant de passer à des détails spécifiques, nous devons garder à l’esprit q
 
 **Notez**  dans le cas où le site exécute du code instable, tel que du code avec une fuite de mémoire, ou instable, la définition du site pour qu’il se termine en cas d’inactivité peut être une alternative rapide et incorrecte à la résolution du bogue de code. Ce n’est pas un élément que nous encourageons, mais, en fait, il peut être préférable d’utiliser cette fonctionnalité comme mécanisme de nettoyage, tandis qu’une solution plus permanente est dans les travaux.\]
 
-MicrosoftÂ 
+Â 
 
 Un autre facteur à prendre en compte est que si le site utilise beaucoup de mémoire, le processus de suspension lui-même prend un péage, car l’ordinateur doit écrire les données utilisées par le processus de travail sur le disque. Si le processus de travail utilise un grand segment de mémoire, son interruption peut être plus coûteuse que le coût de l’attente de la sauvegarde.
 
@@ -327,16 +327,16 @@ Pour tirer le meilleur parti de la fonctionnalité de suspension des processus d
 
 Dans l’idéal, les sites que vous configurez pour la suspension ou la résiliation sont ceux qui ont des visiteurs tous les jours, mais pas suffisamment pour s’assurer qu’ils sont actifs en permanence. Il s’agit généralement de sites disposant d’environ 20 visiteurs uniques un jour ou moins. Vous pouvez analyser les modèles de trafic à l’aide des fichiers journaux du site et calculer le trafic quotidien moyen.
 
-N’oubliez pas qu’une fois qu’un utilisateur spécifique se connecte au site, il le reste généralement pendant au moins un moment, en effectuant des demandes supplémentaires et, par conséquent, le simple comptage des demandes quotidiennes peut ne pas refléter avec précision les modèles de trafic réels. Pour obtenir une lecture plus précise, vous pouvez également utiliser un outil, tel que Microsoft Excel, pour calculer le temps moyen entre les demandes. Par exemple :
+N’oubliez pas qu’une fois qu’un utilisateur spécifique se connecte au site, il le reste généralement pendant au moins un moment, en effectuant des demandes supplémentaires et, par conséquent, le simple comptage des demandes quotidiennes peut ne pas refléter avec précision les modèles de trafic réels. Pour obtenir une lecture plus précise, vous pouvez également utiliser un outil, tel que Microsoft Excel, pour calculer le temps moyen entre les demandes. Par exemple :
 
-||URL de demande|Heure de la demande|Delta|
+||URL de requête|Heure de la demande|Delta|
 |--- |--- |--- |--- |
 |1|/SourceSilverLight/Geosource.web/grosource.html|10:01||
 |2|/SourceSilverLight/Geosource.web/sliverlight.js|10:10|0:09|
 |3|/SourceSilverLight/Geosource.web/clientbin/geo/1.aspx|10:11|0:01|
 |4|/lClientAccessPolicy.xml|10:12|0:01|
 |5|/SourceSilverLight/GeosourcewebService/service. asmx|10:23|0:11|
-|6|/SourceSilverLight/géosource. Web/GeoSearchServer... ¦.|11:50|1:27|
+|6|/SourceSilverLight/géosource. Web/GeoSearchServer... ¦.|11 h 50|1:27|
 |7|/rest/Services/CachedServices/Silverlight_load_la... ¦|12:50|1:00|
 |8|/rest/Services/CachedServices/Silverlight_basemap... ¦.|12:51|0:01|
 |9|/rest/Services/DynamicService/Silverlight_basemap... ¦.|12:59|0:08|
@@ -402,6 +402,6 @@ Les problèmes suivants peuvent affecter les performances d’IIS :
 
     Pour des raisons de performances, l’utilisation d’applications CGI pour traiter les demandes n’est pas recommandée avec IIS. La création et la suppression fréquentes de processus CGI impliquent une surcharge importante. Il est préférable d’utiliser FastCGI, les scripts d’application ISAPI et les scripts ASP ou ASP.NET. L’isolation est disponible pour chacune de ces options.
 
-# <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Articles associés
 - [Réglage des performances du serveur Web](index.md) 
 - [Optimisation de HTTP 1.1/2](http-performance.md)

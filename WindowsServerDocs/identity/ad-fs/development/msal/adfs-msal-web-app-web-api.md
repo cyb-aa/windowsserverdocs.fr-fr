@@ -8,15 +8,15 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 870dbb4303d216f05bc372610f3121ff08fc8c25
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f28e5feccb7544046104658585ab3f739f659957
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407849"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949505"
 ---
-# <a name="scenario-web-app-server-app-calling-web-api"></a>Scénario : Application Web (application serveur) appelant l’API Web 
->S'applique à : AD FS 2019 et versions ultérieures 
+# <a name="scenario-web-app-server-app-calling-web-api"></a>Scénario : application Web (application serveur) appelant l’API Web 
+>S’applique à : AD FS 2019 et versions ultérieures 
  
 Découvrez comment créer des utilisateurs de connexion d’application Web authentifiés par AD FS 2019 et acquérant des jetons à l’aide de la [bibliothèque MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) pour appeler des API Web.  
  
@@ -26,12 +26,12 @@ Avant de lire cet article, vous devez vous familiariser avec les [concepts de AD
  
 ![Vue d’ensemble de l’application Web appelant l’API Web](media/adfs-msal-web-app-web-api/webapp1.png)
 
-Dans ce processus, vous ajoutez l’authentification à votre application Web (application serveur), qui peut donc connecter des utilisateurs et appeler une API Web. À partir de l’application Web, pour appeler l’API Web, utilisez la méthode d’acquisition de jeton [AcquireTokenByAuthorizationCode](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.acquiretokenbyauthorizationcodeparameterbuilder?view=azure-dotnet) de MSAL. Vous utiliserez le workflow de code d’autorisation, en stockant le jeton acquis dans le cache de jeton. Le contrôleur acquiert ensuite les jetons en mode silencieux à partir du cache, si nécessaire. MSAL actualise le jeton, si nécessaire. 
+Dans ce processus, vous ajoutez l’authentification à votre application Web (application serveur), qui peut donc connecter des utilisateurs et appeler une API Web. À partir de l’application Web, pour appeler l’API Web, utilisez la méthode d’acquisition de jeton [AcquireTokenByAuthorizationCode](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenbyauthorizationcodeparameterbuilder?view=azure-dotnet) de MSAL. Vous allez utiliser le flux de code d’autorisation, qui stocke le jeton acquis dans le cache de jeton. Le contrôleur acquiert ensuite les jetons en mode silencieux à partir du cache si nécessaire. MSAL actualise le jeton si nécessaire. 
 
 Web Apps qui appelle des API Web : 
 
 
-- sont des applications clientes confidentielles. 
+- sont des applications clientes confidentielles ; 
 - C’est pourquoi ils ont inscrit une clé secrète (secret partagé de l’application, certificat ou compte AD) avec AD FS. Ce secret est transmis lors de l’appel à AD FS pour obtenir un jeton.  
 
 Pour mieux comprendre comment inscrire une application Web dans ADFS et la configurer pour acquérir des jetons pour appeler une API Web, nous allons utiliser un exemple disponible [ici](https://github.com/microsoft/adfs-sample-msal-dotnet-webapp-to-webapi) et suivre les étapes d’inscription et de configuration du code de l’application.  
@@ -41,7 +41,7 @@ Pour mieux comprendre comment inscrire une application Web dans ADFS et la confi
 
 - Outils clients GitHub 
 - AD FS 2019 ou une version ultérieure configurée et en cours d’exécution 
-- Visual Studio 2013 ou version ultérieure 
+- Visual Studio 2013 ou une version ultérieure 
  
 ## <a name="app-registration-in-ad-fs"></a>Inscription d’application dans AD FS 
 Cette section montre comment inscrire l’application Web en tant que client confidentiel et API Web en tant que partie de confiance (RP) dans AD FS. 
@@ -51,7 +51,7 @@ Cette section montre comment inscrire l’application Web en tant que client con
   
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp2.png)
   
-  3. Copiez la valeur de l' **identificateur du client** . Il sera utilisé ultérieurement comme valeur pour **Ida : ClientID** dans le fichier **Web. config** des applications. Entrez les informations suivantes pour l' **URI de redirection :**  - . https://localhost:44326 Cliquez sur Ajouter. Cliquez sur **Suivant**. 
+  3. Copiez la valeur de l' **identificateur du client** . Il sera utilisé ultérieurement comme valeur pour **Ida : ClientID** dans le fichier **Web. config** des applications. Entrez les informations suivantes pour l' **URI de redirection :**  - https://localhost:44326. Cliquez sur Ajouter. Cliquez sur **Suivant**. 
   
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp3.png)
   
@@ -108,7 +108,7 @@ Cette section montre comment tester l’exemple configuré ci-dessus.
   
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp10.png)
 
-  4. Vous serez redirigé vers la page de connexion AD FS. Continuez et connectez-vous. 
+  4. Vous serez redirigé vers la page de connexion AD FS. Connectez-vous. 
   
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp11.png)
 

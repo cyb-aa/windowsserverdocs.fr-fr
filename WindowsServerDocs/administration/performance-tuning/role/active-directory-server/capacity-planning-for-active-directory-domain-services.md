@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: v-tea; kenbrunf
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: 8b17d7f5c7774c1c332d49962b14fe31128f1a27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c1cad3242d3abf2838a5aaf71d21c68152bc9b7f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370432"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947278"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Planification de la capacité pour Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Au cours des dernières années, les recommandations en matière de planificatio
 - Virtualisation  
 - Plus grande attention à la consommation énergétique  
 - Stockage SSD  
-- Scénarios de Cloud  
+- Scénarios cloud  
 
 En outre, l’approche passe d’un exercice de planification de la capacité basé sur un serveur à un exercice de planification de la capacité basé sur les services. Active Directory Domain Services (AD DS), un service distribué mature que de nombreux produits Microsoft et tiers utilisent comme backend, devient l’un des produits les plus importants à planifier correctement pour garantir la capacité nécessaire à l’exécution d’autres applications.
 
@@ -79,8 +79,8 @@ Avec ces considérations à l’esprit, le cycle de planification de la capacit�
 
 Pour optimiser les performances, assurez-vous que ces composants principaux sont correctement sélectionnés et réglés sur les charges de l’application :
 
-1. Mémoire
-1. Network (Réseau)
+1. Memory
+1. réseau
 1. Stockage
 1. Processeur
 1. Accès réseau
@@ -99,12 +99,12 @@ En général :
 
 #### <a name="new-environment"></a>Nouvel environnement
 
-| Component | Devis |
+| Component | Estimations |
 |-|-|
 |Taille du stockage/de la base de données|40 Ko à 60 Ko pour chaque utilisateur|
-|RAM|Taille de la base de données<br />Recommandations relatives au système d’exploitation de base<br />Applications tierces|
-|Network (Réseau)|1 Go|
-|Processeur|1000 utilisateurs simultanés pour chaque cœur|
+|Mémoire vive (RAM)|Taille de la base de données<br />Recommandations relatives au système d’exploitation de base<br />Applications tierces|
+|réseau|1 Go|
+|CPU|1000 utilisateurs simultanés pour chaque cœur|
 
 #### <a name="high-level-evaluation-criteria"></a>Critères d’évaluation de haut niveau
 
@@ -112,9 +112,9 @@ En général :
 |-|-|-|
 |Taille du stockage/de la base de données|La section intitulée « pour activer la journalisation de l’espace disque libéré par la défragmentation » dans les [limites de stockage](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10))| |
 |Performances du stockage/de la base de données|<ul><li>«Disque logique ( *\<disque de\>base de données NTDS*) \Avg disque s/lecture», «disque logique ( *\<lecteur\>de base de données NTDS*) \Avg s/écriture», «disque logique ( *\<lecteur de base de données NTDS) )\>* \Avg disque s/transfert»</li><li>«Disque logique ( *\<lecteur\>de base de données NTDS*) \ lectures/s», «disque logique ( *\<lecteur\>de base de données NTDS*) \ écritures/s», «disque logique ( *\<lecteur\>debasededonnéesNTDS)* ) \ Transferts/s»</li></ul>|<ul><li>Le stockage a deux préoccupations à résoudre<ul><li>L’espace disponible, avec la taille du stockage basé sur les disques et le disque SSD d’aujourd’hui, est sans importance pour la plupart des environnements AD.</li> <li>Opérations d’entrée/sortie (e/s) disponibles : dans de nombreux environnements, cela est souvent négligé. Toutefois, il est important d’évaluer uniquement les environnements où il n’y a pas assez de RAM pour charger l’intégralité de la base de données NTDS en mémoire.</li></ul><li>Le stockage peut être un sujet complexe et doit impliquer l’expertise du fournisseur de matériel pour le dimensionnement approprié. Notamment avec des scénarios plus complexes tels que les scénarios SAN, NAS et iSCSI. Toutefois, en général, le coût par gigaoctet de stockage est souvent en opposition directe au coût par e/s :<ul><li>RAID 5 a un coût inférieur à 1 gigaoctet par rapport à RAID 1, mais RAID 1 a un coût réduit par e/s</li><li>Les disques durs basés sur des piles ont un coût réduit par gigaoctet, mais les disques SSD ont un coût inférieur par e/s</li></ul><li>Après un redémarrage de l’ordinateur ou du service Active Directory Domain Services, le cache ESE (Extensible Storage Engine) est vide et les performances sont limitées sur le disque pendant le préchauffage du cache.</li><li>Dans la plupart des environnements, AD utilise des e/s de lecture intensives dans un modèle aléatoire sur les disques, ce qui inverse la majeure partie des avantages de la mise en cache et des stratégies d’optimisation de lecture.  En outre, Active Directory dispose d’une mémoire cache plus grande que la plupart des caches du système de stockage.</li></ul>
-|RAM|<ul><li>Taille de la base de données</li><li>Recommandations relatives au système d’exploitation de base</li><li>Applications tierces</li></ul>|<ul><li>Le stockage est le composant le plus lent d’un ordinateur. Plus il est possible de résider dans la mémoire vive, moins il est nécessaire d’accéder au disque.</li><li>Assurez-vous que la RAM est suffisante pour stocker le système d’exploitation, les agents (antivirus, sauvegarde, surveillance), la base de données NTDS et la croissance dans le temps.</li><li>Pour les environnements où l’optimisation de la quantité de RAM n’est pas rentable (par exemple, les emplacements satellites) ou non faisable (DIT trop grand), référencez la section stockage pour vous assurer que le stockage est correctement dimensionné.</li></ul>|
-|Network (Réseau)|<ul><li>« Interface réseau (\*) \Octets reçus/s »</li><li>« Interface réseau (\*) \Octets envoyés/s »|<ul><li>En général, le trafic envoyé à partir d’un contrôleur de périphérique dépasse le trafic envoyé à un contrôleur de flux de contrôle.</li><li>Comme une connexion Ethernet commutée est en duplex intégral, le trafic réseau entrant et sortant doit être dimensionné indépendamment.</li><li>La consolidation du nombre de contrôleurs de contrôle augmentera la quantité de bande passante utilisée pour renvoyer les réponses aux demandes des clients pour chaque contrôleur de groupe, mais sera suffisamment proche de linéaire pour le site dans son ensemble.</li><li>Si vous supprimez des contrôleurs de l’emplacement satellites, n’oubliez pas d’ajouter la bande passante du contrôleur de réseau satellite dans les contrôleurs de flux de concentrateur, et de l’utiliser pour évaluer la quantité de trafic WAN.</li></ul>|
-|Processeur|<ul><li>« Disque logique ( *\<lecteur de base de données NTDS\>* ) \Avg disque s/lecture »</li><li>« Processus (LSASS)\\% temps processeur »</li></ul>|<ul><li>Après avoir éliminé le stockage comme un goulot d’étranglement, corrigez la quantité de puissance de calcul nécessaire.</li><li>Bien qu’il ne soit pas parfaitement linéaire, le nombre de cœurs de processeur consommés sur tous les serveurs au sein d’une étendue spécifique (par exemple, un site) peut être utilisé pour évaluer le nombre de processeurs nécessaires pour prendre en charge la charge totale du client. Ajoutez le minimum nécessaire pour maintenir le niveau de service actuel sur tous les systèmes de l’étendue.</li><li>Modifications de la vitesse du processeur, y compris les modifications liées à la gestion de l’alimentation, les numéros d’impact dérivés de l’environnement actuel. En règle générale, il est impossible d’évaluer précisément la manière dont le passage d’un processeur de 2,5 GHz à un processeur de 3 GHz réduira le nombre de processeurs nécessaires.</li></ul>|
+|Mémoire vive (RAM)|<ul><li>Taille de la base de données</li><li>Recommandations relatives au système d’exploitation de base</li><li>Applications tierces</li></ul>|<ul><li>Le stockage est le composant le plus lent d’un ordinateur. Plus il est possible de résider dans la mémoire vive, moins il est nécessaire d’accéder au disque.</li><li>Assurez-vous que la RAM est suffisante pour stocker le système d’exploitation, les agents (antivirus, sauvegarde, surveillance), la base de données NTDS et la croissance dans le temps.</li><li>Pour les environnements où l’optimisation de la quantité de RAM n’est pas rentable (par exemple, les emplacements satellites) ou non faisable (DIT trop grand), référencez la section stockage pour vous assurer que le stockage est correctement dimensionné.</li></ul>|
+|réseau|<ul><li>« Interface réseau (\*) \Octets reçus/s »</li><li>« Interface réseau (\*) \Octets envoyés/s »|<ul><li>En général, le trafic envoyé à partir d’un contrôleur de périphérique dépasse le trafic envoyé à un contrôleur de flux de contrôle.</li><li>Comme une connexion Ethernet commutée est en duplex intégral, le trafic réseau entrant et sortant doit être dimensionné indépendamment.</li><li>La consolidation du nombre de contrôleurs de contrôle augmentera la quantité de bande passante utilisée pour renvoyer les réponses aux demandes des clients pour chaque contrôleur de groupe, mais sera suffisamment proche de linéaire pour le site dans son ensemble.</li><li>Si vous supprimez des contrôleurs de l’emplacement satellites, n’oubliez pas d’ajouter la bande passante du contrôleur de réseau satellite dans les contrôleurs de flux de concentrateur, et de l’utiliser pour évaluer la quantité de trafic WAN.</li></ul>|
+|CPU|<ul><li>« Disque logique ( *\<lecteur de base de données NTDS\>* ) \Avg disque s/lecture »</li><li>« Processus (LSASS)\\% temps processeur »</li></ul>|<ul><li>Après avoir éliminé le stockage comme un goulot d’étranglement, corrigez la quantité de puissance de calcul nécessaire.</li><li>Bien qu’il ne soit pas parfaitement linéaire, le nombre de cœurs de processeur consommés sur tous les serveurs au sein d’une étendue spécifique (par exemple, un site) peut être utilisé pour évaluer le nombre de processeurs nécessaires pour prendre en charge la charge totale du client. Ajoutez le minimum nécessaire pour maintenir le niveau de service actuel sur tous les systèmes de l’étendue.</li><li>Modifications de la vitesse du processeur, y compris les modifications liées à la gestion de l’alimentation, les numéros d’impact dérivés de l’environnement actuel. En règle générale, il est impossible d’évaluer précisément la manière dont le passage d’un processeur de 2,5 GHz à un processeur de 3 GHz réduira le nombre de processeurs nécessaires.</li></ul>|
 |Accès réseau (Netlogon)|<ul><li>« Netlogon (\*) \Semaphore acquiert »</li><li>« Netlogon (\*) \Semaphore délais d’attente »</li><li>« Netlogon (\*) \Latence la durée d’attente du sémaphore »</li></ul>|<ul><li>Le canal sécurisé Net Logon/MaxConcurrentAPI affecte uniquement les environnements avec authentifications NTLM et/ou validation PAC. La validation PAC est activée par défaut dans les versions de système d’exploitation antérieures à Windows Server 2008. Il s’agit d’un paramètre client, de sorte que les contrôleurs de contrôle sont affectés jusqu’à ce que cette option soit désactivée sur tous les systèmes clients.</li><li>Les environnements avec une authentification croisée importante, qui comprend des approbations intra-forêts, présentent un risque plus élevé si leur taille n’est pas correcte.</li><li>Les consolidations de serveur augmentent la concurrence de l’authentification inter-approbation.</li><li>Les pics doivent être pris en charge, tels que les basculements de cluster, à mesure que les utilisateurs réauthentifient en massive sur le nouveau nœud de cluster.</li><li>Les systèmes clients individuels (par exemple, un cluster) peuvent également nécessiter un réglage.</li></ul>|
 
 ## <a name="planning"></a>Planification
@@ -123,7 +123,7 @@ Pendant une longue période, la recommandation de la Communauté concernant le d
 
 Les instructions suivantes expliquent par conséquent comment déterminer et planifier les demandes de Active Directory en tant que service, qu’elles soient déployées dans un environnement physique, une combinaison virtuelle/physique ou un scénario purement virtualisé. Par conséquent, nous décomposons l’évaluation de chacun des quatre composants principaux : stockage, mémoire, réseau et processeur. En bref, afin d’optimiser les performances sur AD DS, l’objectif est de se rapprocher de la limite du processeur.
 
-## <a name="ram"></a>RAM
+## <a name="ram"></a>Mémoire vive (RAM)
 
 Plus simplement, plus il est possible de mettre en cache la RAM, moins il est nécessaire d’accéder au disque. Pour optimiser l’évolutivité du serveur, la quantité minimale de RAM doit être la somme de la taille actuelle de la base de données, de la taille totale de SYSVOL, de la quantité recommandée pour le système d’exploitation et des recommandations des fournisseurs pour les agents (antivirus, surveillance, sauvegarde, etc.). ). Une quantité supplémentaire doit être ajoutée pour tenir compte de la croissance pendant la durée de vie du serveur. Il s’agit d’un environnement subjectiv basé sur les estimations de croissance de la base de données en fonction des modifications environnementales.
 
@@ -131,7 +131,7 @@ Pour les environnements où l’optimisation de la quantité de RAM n’est pas 
 
 Un corollaire qui s’affiche dans le contexte général de la taille de la mémoire est le dimensionnement du fichier d’échange. Dans le même contexte que tout le reste de la mémoire, l’objectif est de réduire le nombre d’allers sur le disque beaucoup plus lent. Par conséquent, la question doit aller de « comment le fichier d’échange est-il dimensionné ? ». « quelle quantité de RAM est nécessaire pour réduire la pagination ? » La réponse à cette dernière question est décrite dans le reste de cette section. Cela laisse la majeure partie de la discussion pour le dimensionnement du fichier d’échange vers le domaine des recommandations générales du système d’exploitation et la nécessité de configurer le système pour les vidages de mémoire, qui ne sont pas liés aux performances de AD DS.
 
-### <a name="evaluating"></a>Évalués
+### <a name="evaluating"></a>Évaluation
 
 La quantité de mémoire vive nécessaire à un contrôleur de domaine est en fait un exercice complexe pour les raisons suivantes :
 
@@ -158,9 +158,9 @@ Pour les environnements où l’optimisation de la quantité de RAM n’est pas 
 |Component|Mémoire estimée (exemple)|
 |-|-|
 |Mémoire vive recommandée pour le système d’exploitation (Windows Server 2008)|2 Go|
-|Tâches internes LSASS|200 MO|
+|Tâches internes LSASS|200 Mo|
 |Agent de surveillance|100 Mo|
-|Antivirus|100 Mo|
+|Intégration antivirus|100 Mo|
 |Base de données (catalogue global)|8,5 Go êtes-vous sûr ???|
 |Coussin pour la sauvegarde à exécuter, les administrateurs qui se connectent sans impact|1 Go|
 |Total|12 Go|
@@ -169,13 +169,13 @@ Pour les environnements où l’optimisation de la quantité de RAM n’est pas 
 
 Au fil du temps, il peut être fait que davantage de données seront ajoutées à la base de données et que le serveur sera probablement en production pendant 3 à 5 ans. Sur la base d’une estimation de la croissance de 33%, 16 Go seraient une quantité raisonnable de RAM à placer sur un serveur physique. Sur une machine virtuelle, compte tenu de la facilité avec laquelle les paramètres peuvent être modifiés et que la RAM peut être ajoutée à la machine virtuelle, en commençant à 12 Go avec le plan à surveiller et à mettre à niveau à l’avenir est raisonnable.
 
-## <a name="network"></a>Network (Réseau)
+## <a name="network"></a>réseau
 
-### <a name="evaluating"></a>Évalués
+### <a name="evaluating"></a>Évaluation
 Cette section est moins axée sur l’évaluation des demandes relatives au trafic de réplication, qui se concentre sur le trafic qui traverse le WAN et qui est traitée en détail dans [Active Directory le trafic de réplication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/bb742457(v=technet.10)), par rapport à l’évaluation de la bande passante totale et de la capacité réseau nécessaire, des requêtes clientes, des applications stratégie de groupe, etc. Pour les environnements existants, vous pouvez les collecter à l’aide des compteurs de performance «\*interface réseau () \Octets reçus/s» et «interface(\*)réseau  \Octets envoyés/s». Intervalles d’échantillonnage des compteurs d’interface réseau en 15, 30 ou 60 minutes. Tout ce qui est moins est généralement trop volatil pour les mesures appropriées ; tout ce qui est plus important lissera les aperçus quotidiens de manière excessive.
 
 > [!NOTE]
-> En règle générale, la majeure partie du trafic réseau sur un contrôleur de réseau est sortante, car le contrôleur de réseau répond aux requêtes du client. Il s’agit de la raison pour laquelle le trafic sortant est concentré, bien qu’il soit recommandé d’évaluer chaque environnement pour le trafic entrant également. Les mêmes approches peuvent être utilisées pour résoudre et examiner les exigences en matière de trafic réseau entrant. Pour plus d’informations, consultez l’article 929851 de la base de connaissances [: la plage de ports dynamiques par défaut pour TCP/IP a changé dans Windows Vista et dans Windows Server 2008](http://support.microsoft.com/kb/929851).
+> En règle générale, la majeure partie du trafic réseau sur un contrôleur de réseau est sortante, car le contrôleur de réseau répond aux requêtes du client. Il s’agit de la raison pour laquelle le trafic sortant est concentré, bien qu’il soit recommandé d’évaluer chaque environnement pour le trafic entrant également. Les mêmes approches peuvent être utilisées pour résoudre et examiner les exigences en matière de trafic réseau entrant. Pour plus d’informations, consultez l’article 929851 de la base de connaissances [: la plage de ports dynamiques par défaut pour TCP/IP a changé dans Windows Vista et dans Windows Server 2008](https://support.microsoft.com/kb/929851).
 
 ### <a name="bandwidth-needs"></a>Besoins en bande passante
 
@@ -260,8 +260,8 @@ La seule recommandation à prendre en compte est de s’assurer que 110% de la t
 
 La première considération et la plus importante consiste à évaluer la taille de NTDS. dit et SYSVOL. Ces mesures vont entraîner le dimensionnement du disque fixe et de l’allocation de RAM. En raison du faible coût (relativement) de ces composants, les mathématiques n’ont pas besoin d’être rigoureuses et précises. Vous trouverez des informations sur la façon d’évaluer cela pour les environnements existants et nouveaux dans la série d’articles sur le [stockage de données](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961771(v=technet.10)) . Plus précisément, reportez-vous aux articles suivants :
 
-- **Pour les environnements existants &ndash;** La section intitulée « pour activer la journalisation de l’espace disque libéré par la défragmentation » dans l’article [limites de stockage](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10)).
-- **Pour les nouveaux environnements &ndash;** L’article a intitulé [estimations de croissance pour les utilisateurs Active Directory et les unités d’organisation](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc961779(v=technet.10)).
+- **Pour les environnements existants &ndash;** La section intitulée « pour activer la journalisation de l’espace disque libéré par la défragmentation » dans l’article [limites de stockage](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10)).
+- **Pour les nouveaux environnements &ndash;** L’article a intitulé [estimations de croissance pour les utilisateurs Active Directory et les unités d’organisation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961779(v=technet.10)).
 
   > [!NOTE]
   > Les articles sont basés sur les estimations de la taille des données effectuées au moment de la publication de Active Directory dans Windows 2000. Utilisez des tailles d’objet qui reflètent la taille réelle des objets dans votre environnement.
@@ -283,7 +283,7 @@ Dans un scénario où plusieurs fichiers de disque dur virtuel (VHD) sont allou�
 
 |Données collectées à partir de la phase d’évaluation| |
 |-|-|
-|Taille de NTDS. dit|35 GO|
+|Taille de NTDS. dit|35 Go|
 |Modificateur permettant la défragmentation hors connexion|2.1|
 |Stockage total requis|73,5 GO|
 
@@ -320,7 +320,7 @@ Ils doivent être échantillonnés par intervalles de 15/30/60 minutes pour éva
 #### <a name="evaluating-the-results"></a>Évaluation des résultats
 
 > [!NOTE]
-> L’accent est mis sur les lectures de la base de données, car il s’agit généralement du composant le plus exigeant, la même logique peut être appliquée aux écritures dans le fichier journal en remplaçant le disque logique ( *\<NTDS log\>* ) \Avg Disk s/Write and LogicalDisk (*Journal\<NTDS) \ écritures/s): \>*
+> L’accent est mis sur les lectures de la base de données, car il s’agit généralement du composant le plus exigeant, la même logique peut être appliquée aux écritures dans le fichier journal en remplaçant le disque logique ( *\<NTDS log\>* ) \Avg Disk s/Write and LogicalDisk (*Journal\>NTDS) \ écritures/s): \<*
 >  
 > - Disque logique *\<(\>NTDS*) \Avg s/lecture indique si le stockage actuel est correctement dimensionné.  Si les résultats sont à peu près égaux au temps d’accès au disque pour le type de disque, le disque logique ( *\<NTDS\>* ) \ lectures/s est une mesure valide.  Vérifiez les spécifications du fabricant pour le stockage sur le back end, mais les plages correctes pour disque logique ( *\<NTDS\>* ) \Avg disque s/lecture seraient à peu près :
 >   - 7200 – 9 à 12,5 millisecondes (MS)
@@ -353,15 +353,15 @@ Détermination de la quantité d’e/s nécessaires pour un système sain dans d
 
 - Disque logique ( *\<\>de lecteur de base de données NTDS* ) \ transferts/s pendant la période de pointe de 15 minutes 
 - Pour déterminer la quantité d’e/s nécessaire pour le stockage où la capacité du stockage sous-jacent est dépassée :
-  >Opérations d' *e/s par seconde nécessaires* = (disque logique ( *\<disque\>de base de données*) \Avg disque s &divide; /  *\<\>lecture cible moyenne disque s/lecture*&times;) ( *\< Lecteur\>de base de données NTDS*) \ lecture/s
+  >Opérations d' *e/s par seconde nécessaires* = (disque logique ( *\<disque\>de base de données*) \Avg disque s &times; / &divide; *\<lecture cible moyenne disque s/lecture\>* ) ( *\< Lecteur\>de base de données NTDS*) \ lecture/s
 
-|)|Valeur|
+|Counter|Value|
 |-|-|
 |Disque logique réel ( *\<lecteur de base de données NTDS\>* ) \Avg disque s/transfert|.02 secondes (20 millisecondes)|
 |Disque logique cible ( *\<\>lecteur de base de données NTDS* ) \Avg disque s/transfert|.01 secondes|
 |Multiplicateur pour la modification des e/s disponibles|0,02 &divide; 0,01 = 2|  
   
-|Nom de valeur|Valeur|
+|Nom de valeur|Value|
 |-|-|
 |Disque logique ( *\<\>de lecteur de base de données NTDS* ) \ transferts/s|400|
 |Multiplicateur pour la modification des e/s disponibles|2|
@@ -412,7 +412,7 @@ Malheureusement, en raison de l’énorme variabilité des applications clientes
 
 Comme mentionné précédemment, lors de la planification de la capacité d’un site entier, l’objectif est de cibler une conception avec une conception de capacité *N* + 1, de telle sorte que la défaillance d’un système pendant la période de pointe permettra la poursuite du service à un niveau de qualité raisonnable. Cela signifie que dans un scénario «*N*», la charge dans toutes les zones doit être inférieure à 100% (mieux encore, moins de 80%) pendant les pics d’activité.
 
-En outre, si les applications et les clients du site utilisent les meilleures pratiques pour localiser les contrôleurs de domaine (autrement dit, à l’aide de la [fonction DsGetDcName](http://msdn.microsoft.com/en-us/library/windows/desktop/ms675983(v=vs.85).aspx)), les clients doivent être distribués de manière relativement équitable avec des pics temporaires mineurs en raison d’un nombre quelconque de facteurs.
+En outre, si les applications et les clients du site utilisent les meilleures pratiques pour localiser les contrôleurs de domaine (autrement dit, à l’aide de la [fonction DsGetDcName](https://msdn.microsoft.com/library/windows/desktop/ms675983(v=vs.85).aspx)), les clients doivent être distribués de manière relativement équitable avec des pics temporaires mineurs en raison d’un nombre quelconque de facteurs.
 
 Dans l’exemple suivant, les hypothèses suivantes sont effectuées :
 
@@ -461,7 +461,7 @@ Au niveau de la charge maximale, Lsass consomme environ 485% d’un processeur, 
 
 ### <a name="when-to-tune-ldap-weights"></a>Quand régler les poids LDAP
 
-Il existe plusieurs scénarios dans lesquels le paramétrage de [LdapSrvWeight](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc957291(v=technet.10)) doit être pris en compte. Dans le cadre de la planification de la capacité, cela se fait lorsque l’application ou le chargement de l’utilisateur ne sont pas équilibrés uniformément, ou que les systèmes sous-jacents ne sont pas équilibrés uniformément en termes de capacité. La planification de la capacité n’est pas abordée dans le cadre de cet article.
+Il existe plusieurs scénarios dans lesquels le paramétrage de [LdapSrvWeight](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957291(v=technet.10)) doit être pris en compte. Dans le cadre de la planification de la capacité, cela se fait lorsque l’application ou le chargement de l’utilisateur ne sont pas équilibrés uniformément, ou que les systèmes sous-jacents ne sont pas équilibrés uniformément en termes de capacité. La planification de la capacité n’est pas abordée dans le cadre de cet article.
 
 Il existe deux raisons courantes pour régler les poids LDAP :
 
@@ -476,9 +476,9 @@ Il existe deux raisons courantes pour régler les poids LDAP :
 
 | |Utilisation avec valeurs par défaut|Nouveau LdapSrvWeight|Estimation de la nouvelle utilisation|
 |-|-|-|-|
-|DC 1 (émulateur PDC)|53%|57|40%|
-|DC 2|33%|100|40%|
-|DC 3|33%|100|40%|
+|DC 1 (émulateur PDC)|53%|57|40 %|
+|DC 2|33%|100|40 %|
+|DC 3|33%|100|40 %|
 
 Le problème est que si le rôle d’émulateur de contrôleur de domaine principal est transféré ou pris, en particulier pour un autre contrôleur de domaine dans le site, une augmentation spectaculaire du nouvel émulateur de contrôleur de domaine principal se produira.
 
@@ -488,17 +488,17 @@ Le problème est que si le rôle d’émulateur de contrôleur de domaine princi
 
 | |Informations sur le processeur\\ %utilitaire processeur &nbsp;(_Total)<br />Utilisation avec valeurs par défaut|Nouveau LdapSrvWeight|Estimation de la nouvelle utilisation|
 |-|-|-|-|
-|4 PROCESSEURS DC 1|40|100|30|
-|4 PROCESSEURS DC 2|40|100|30|
-|8 PROCESSEURS DC 3|20|200|30|
+|4 PROCESSEURS DC 1|40|100|30 %|
+|4 PROCESSEURS DC 2|40|100|30 %|
+|8 PROCESSEURS DC 3|20|200|30 %|
 
 Toutefois, soyez très vigilant avec ces scénarios. Comme vous pouvez le voir ci-dessus, la mathématique semble très intéressante et assez belle sur le papier. Mais tout au long de cet article, la planification d’un scénario «*N* + 1 » revêt une importance primordiale. L’impact de la mise hors connexion d’un contrôleur de groupe doit être calculé pour chaque scénario. Dans le scénario précédent où la distribution de la charge est même, afin de garantir une charge de 60% au cours d’un scénario «*N*», la charge étant équilibrée uniformément entre tous les serveurs, la distribution est parfaite, car les ratios restent cohérents. En examinant le scénario de paramétrage de l’émulateur de contrôleur de domaine principal et, en général, tout scénario dans lequel la charge utilisateur ou d’application est déséquilibrée, l’effet est très différent :
 
 | |Utilisation optimisée|Nouveau LdapSrvWeight|Estimation de la nouvelle utilisation|
 |-|-|-|-|
-|DC 1 (émulateur PDC)|40%|85|47%|
-|DC 2|40%|100|53%|
-|DC 3|40%|100|53%|
+|DC 1 (émulateur PDC)|40 %|85|47 %|
+|DC 2|40 %|100|53%|
+|DC 3|40 %|100|53%|
 
 ### <a name="virtualization-considerations-for-processing"></a>Considérations relatives à la virtualisation pour le traitement
 
@@ -540,7 +540,7 @@ Il existe un certain nombre d’applications qui utilisent l’authentification 
 
 Ces applications peuvent entraîner une charge importante pour l’authentification NTLM, ce qui peut entraîner une contrainte importante sur les contrôleurs de domaine, en particulier lorsque les utilisateurs et les ressources se trouvent dans des domaines différents.
 
-Il existe plusieurs approches de gestion de la charge de confiance croisée, qui sont utilisées en pratique conjointement plutôt que dans un scénario exclusif/ou. Les options possibles sont les suivantes :
+Il existe plusieurs approches de gestion de la charge de confiance croisée, qui sont utilisées en pratique conjointement plutôt que dans un scénario exclusif/ou. Les options possibles sont les suivantes :
 
 - Réduire l’authentification du client de confiance croisée en localisant les services qu’un utilisateur consomme dans le même domaine que celui dans lequel il réside.
 - Augmentez le nombre de canaux sécurisés disponibles. Cela s’applique au trafic à forêt et aux forêts et est connu sous le nom d’approbations raccourcies.
@@ -550,7 +550,7 @@ Pour le paramétrage de **MaxConcurrentApi** sur un serveur existant, l’équat
 
 > *New_MaxConcurrentApi_setting* &ge; *(semaphore_acquires*  +  *semaphore_time*) &times; *average_semaphore_hold_time* &divide; *time_collection_length*
 
-Pour plus d’informations, consultez [l’article 2688798 de la base de connaissances : comment effectuer le réglage des performances pour l’authentification NTLM à l’aide du paramètre MaxConcurrentApi](http://support.microsoft.com/kb/2688798).
+Pour plus d’informations, consultez [l’article 2688798 de la base de connaissances : comment effectuer le réglage des performances pour l’authentification NTLM à l’aide du paramètre MaxConcurrentApi](https://support.microsoft.com/kb/2688798).
 
 ## <a name="virtualization-considerations"></a>Éléments à prendre en compte en matière de virtualisation
 
@@ -558,7 +558,7 @@ Aucun, il s’agit d’un paramètre de réglage du système d’exploitation.
 
 ### <a name="calculation-summary-example"></a>Exemple de résumé du calcul
 
-|Type de données|Valeur|
+|Type de données|Value|
 |-|-|
 |Acquisitions de sémaphore (minimum)|6 161|
 |Acquisitions de sémaphore (maximum)|6 762|
@@ -574,12 +574,12 @@ Pour ce système pour cette période, les valeurs par défaut sont acceptables.
 
 Tout au long de cet article, nous avons vu que la planification et la mise à l’échelle vont vers les objectifs d’utilisation. Voici un graphique récapitulatif des seuils recommandés qui doivent être analysés pour s’assurer que les systèmes fonctionnent dans des seuils de capacité appropriés. Gardez à l’esprit qu’il ne s’agit pas de seuils de performances, mais de seuils de planification de la capacité. Un serveur fonctionnant au-delà de ces seuils fonctionnera, mais il est temps de commencer à valider que toutes les applications fonctionnent correctement. Si ces applications sont bien connues, il est temps de commencer à évaluer les mises à niveau matérielles ou d’autres modifications de configuration.
 
-|Catégorie|Compteur de performances|Intervalle/échantillonnage|Cible|Avertissement|
+|Catégorie|Compteur de performance|Intervalle/échantillonnage|Target|Warning|
 |-|-|-|-|-|
-|Processeur|Informations sur le processeur (_Total)\\% Processor Utility|60 min|40%|60 %|
-|RAM (Windows Server 2008 R2 ou version antérieure)|Mémoire \ Mo|< 100 Mo|N/A|< 100 Mo|
-|RAM (Windows Server 2012)|Durée de vie moyenne du cache en attente Memory\Long-Term|30 minutes|Doit être testé|Doit être testé|
-|Network (Réseau)|Interface réseau (\*) \Octets envoyés/s<br /><br />Interface réseau (\*) \Octets reçus/s|30 minutes|40%|60 %|
+|Processeur|Informations sur le processeur (_Total)\\% Processor Utility|60 min|40 %|60 %|
+|RAM (Windows Server 2008 R2 ou version antérieure)|Mémoire \ Mo|< 100 Mo|NON APPLICABLE|< 100 Mo|
+|RAM (Windows Server 2012)|Durée de vie moyenne du cache en attente Memory\Long-Term|30 min|Doit être testé|Doit être testé|
+|réseau|Interface réseau (\*) \Octets envoyés/s<br /><br />Interface réseau (\*) \Octets reçus/s|30 min|40 %|60 %|
 |Stockage|Disque logique ( *\<lecteur de base de données NTDS\>* ) \Avg disque s/lecture<br /><br />Disque logique ( *\<\>de lecteur de base de données NTDS* ) \Avg disque s/écriture|60 min|10 ms|15 ms|
 |Services AD|Le \Latence Netlogon (\*) a conservé le temps de blocage|60 min|0|1 seconde|
 
@@ -603,7 +603,7 @@ Cela comprend l’Hyper-Threading, un cœur sur un processeur multicœur ou un p
 
 ### <a name="thread-level-parallelism"></a>Parallélisme au niveau du thread
 
-Chaque thread est une tâche indépendante, car chaque thread possède sa propre pile et ses instructions. Étant donné que AD DS est multithread et que le nombre de threads disponibles peut être réglé à l’aide [de la procédure d’affichage et de définition d’une stratégie LDAP dans Active Directory à l’aide de Ntdsutil. exe](http://support.microsoft.com/kb/315071), il évolue bien sur plusieurs processeurs logiques.
+Chaque thread est une tâche indépendante, car chaque thread possède sa propre pile et ses instructions. Étant donné que AD DS est multithread et que le nombre de threads disponibles peut être réglé à l’aide [de la procédure d’affichage et de définition d’une stratégie LDAP dans Active Directory à l’aide de Ntdsutil. exe](https://support.microsoft.com/kb/315071), il évolue bien sur plusieurs processeurs logiques.
 
 ### <a name="data-level-parallelism"></a>Parallélisme au niveau des données
 
@@ -648,9 +648,9 @@ Retour à l’analogie de conduite utilisée plus haut dans cette section :
 C’est la raison pour laquelle les moyennes à long terme de la capacité estimée de façon figée à 40% autorisent la chambre de tête pour les pics de charge anormaux, qu’il s’agisse de pics de charge (par exemple des requêtes mal codées qui s’exécutent pendant quelques minutes) ou de pics anormaux en charge générale (le matin de premier jour après un week-end long).
 
 L’instruction ci-dessus considère que le calcul du temps processeur est identique à celui de la Loi d’utilisation. il s’agit d’une simplification de la facilité du lecteur général. Pour ceux qui sont plus mathématiquement rigoureux :  
-- Traduction du [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms901169(v=msdn.10))
-  - *B* = le nombre de threads « inactifs » de 100-ns passe sur le processeur logique. Modification de la variable «*X*» dans le calcul de la [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms901169(v=msdn.10))
-  - *T* = nombre total d’intervalles de 100-ns dans un intervalle de temps donné. Modification de la variable «*Y*» dans le calcul de la [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms901169(v=msdn.10)) .
+- Traduction du [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/previous-versions/windows/embedded/ms901169(v=msdn.10))
+  - *B* = le nombre de threads « inactifs » de 100-ns passe sur le processeur logique. Modification de la variable «*X*» dans le calcul de la [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/previous-versions/windows/embedded/ms901169(v=msdn.10))
+  - *T* = nombre total d’intervalles de 100-ns dans un intervalle de temps donné. Modification de la variable «*Y*» dans le calcul de la [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/previous-versions/windows/embedded/ms901169(v=msdn.10)) .
   - *U* k = pourcentage d’utilisation du processeur logique par le « thread inactif » ou% de la durée d’inactivité.  
 - Fonctionnement de la Math :
   - *U* k = 1 –% de temps processeur
@@ -769,10 +769,10 @@ Une fois les composants identifiés, une idée de la quantité de données pouva
   
   |E/s prises en charge par le bus SCSI par taille de bloc|taille de bloc de 2 Ko|taille de bloc de 8 Ko (AD jet) (SQL Server 7.0/SQL Server 2000)
   |-|-|-|
-  |20 Mo/s|10 000|2 500|
-  |40 Mo/s|20 000|5 000|
+  |20 Mo/s|10 000|2 500|
+  |40 Mo/s|20 000|5 000|
   |128 Mo/s|65 536|16 384|
-  |320 Mo/s|160 000|40 000|
+  |320 Mo/s|160 000|40 000|
 
   Comme vous pouvez le déterminer à partir de ce graphique, dans le scénario présenté, quelle que soit l’utilisation, le bus ne sera jamais un goulot d’étranglement, car le maximum de l’axe est de 100 e/s, bien en dessous de l’un des seuils ci-dessus.
 
@@ -822,7 +822,7 @@ Lorsque le rapport entre les lectures et le nombre d’axes est connu, l’équa
 
 > *Nombre maximal d’e/s par seconde par fuseau horaire* &times; 2 piles de disques&times; [( *%lectures*  +  *%écritures*) &divide;( *%lectures* + 2&times; *%d’écritures* )]= *nombretotald’e/sparseconde*
 
-RAID 1 + 0, se comporte exactement de la même façon que RAID 1 en ce qui concerne les dépenses de lecture et d’écriture. Toutefois, l’e/s est maintenant entrelacée sur chaque jeu en miroir. Si  
+RAID 1 + 0, se comporte exactement de la même façon que RAID 1 en ce qui concerne les dépenses de lecture et d’écriture. Toutefois, l’e/s est maintenant entrelacée sur chaque jeu en miroir. Si l’option  
 
 > *Nombre maximal d’e/s par seconde par fuseau horaire* &times; 2 piles de disques&times; [( *%lectures*  +  *%écritures*) &divide;( *%lectures* + 2&times; *%d’écritures* )]= *nombretotald’e/sparseconde*  
 
@@ -897,7 +897,7 @@ Les disques SSD sont un animal complètement différent des disques durs basés 
 - Les types d’e/s par seconde peuvent avoir des nombres très différents selon qu’ils sont en lecture ou en écriture. AD DS services, en général, principalement basés sur la lecture, seront moins affectés que d’autres scénarios d’application.
 - « Endurance d’écriture » : il s’agit du concept que les cellules SSD finiront par s’occuper. Différents fabricants traitent ce défi de manière différente. Au moins pour le lecteur de base de données, le profil d’e/s de lecture prédominante permet à downplaying de déterminer la signification de ce problème, car les données ne sont pas très volatiles.
 
-### <a name="summary"></a>Résumé
+### <a name="summary"></a>Récapitulatif
 
 L’une des façons de penser au stockage est le illustrer domestique. Imaginez que les e/s par seconde du support sur lequel les données sont stockées sont le principal drain du ménage. Lorsque cette opération est obstruée (par exemple, les racines dans le canal) ou limitée (elle est réduite ou trop petite), tous les récepteurs dans le ménage sont sauvegardés quand un trop grand volume d’eau est utilisé (trop d’invités). Cela est parfaitement similaire à un environnement partagé dans lequel un ou plusieurs systèmes tirent parti du stockage partagé sur un réseau SAN/NAS/iSCSI avec le même support sous-jacent. Différentes approches peuvent être prises pour résoudre les différents scénarios :
 

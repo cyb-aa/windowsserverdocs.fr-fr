@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ba67a5fcc127bbe6ffce9454ff98fd3bc3725e55
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e51b7ea151db1ca5d53a8cacef3b042e345175de
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367711"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949634"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Surveillance des signes de compromission d'Active Directory
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 *Numéro de loi cinq : externes vigilance est le prix de la sécurité.* - [10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
   
@@ -32,10 +32,10 @@ Ce manque de surveillance des journaux des événements actifs reste une faille 
 
 Vous trouverez ci-dessous des liens vers le blog du support Microsoft Official Enterprise. Le contenu de ces blogs fournit des conseils, des conseils et des recommandations sur l’audit qui vous aideront à améliorer la sécurité de votre infrastructure de Active Directory et vous serez une ressource précieuse lors de la conception d’une stratégie d’audit.  
   
-* [L’audit d’accès global aux objets est](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) un mécanisme de contrôle appelé configuration avancée de la stratégie d’audit qui a été ajouté à Windows 7 et windows Server 2008 R2, qui vous permet de définir les types de données que vous souhaitez auditer facilement, sans jongler avec les scripts et auditpol. exe.  
-* [Présentation des modifications d’audit dans windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : présente les modifications apportées aux audits dans windows Server 2008.  
-* [Astuces d’audit intéressantes dans Vista et 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : explique les fonctionnalités d’audit intéressantes de Windows Vista et de windows Server 2008 qui peuvent être utilisées pour résoudre des problèmes ou voir ce qui se passe dans votre environnement.  
-* [One-Stop pour l’audit dans Windows server 2008 et Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contient une compilation des fonctionnalités d’audit et des informations contenues dans windows Server 2008 et Windows Vista.  
+* [L’audit d’accès global aux objets est](https://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) un mécanisme de contrôle appelé configuration avancée de la stratégie d’audit qui a été ajouté à Windows 7 et windows Server 2008 R2, qui vous permet de définir les types de données que vous souhaitez auditer facilement, sans jongler avec les scripts et auditpol. exe.  
+* [Présentation des modifications d’audit dans windows 2008](https://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : présente les modifications apportées aux audits dans windows Server 2008.  
+* [Astuces d’audit intéressantes dans Vista et 2008](https://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : explique les fonctionnalités d’audit intéressantes de Windows Vista et de windows Server 2008 qui peuvent être utilisées pour résoudre des problèmes ou voir ce qui se passe dans votre environnement.  
+* [One-Stop pour l’audit dans Windows server 2008 et Windows Vista](https://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contient une compilation des fonctionnalités d’audit et des informations contenues dans windows Server 2008 et Windows Vista.  
   
 Les liens suivants fournissent des informations sur les améliorations apportées à l’audit Windows dans Windows 8 et Windows Server 2012, ainsi que des informations sur l’audit d’AD DS dans Windows Server 2008.  
   
@@ -51,7 +51,7 @@ Avant Windows Vista et Windows Server 2008, Windows avait seulement neuf catégo
 * Accès au service d’annuaire  
 * Événements de connexion  
 * Accès aux objets  
-* Modification de la stratégie  
+* Modification de stratégie  
 * Utilisation des privilèges  
 * Suivi des processus  
 * Événements système  
@@ -114,16 +114,16 @@ La capture d’écran suivante montre un exemple d’auditpol. exe qui répertor
 ![surveillance d’AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_5.gif)  
   
 > [!NOTE]  
-> Stratégie de groupe ne signale pas toujours avec précision l’état de toutes les stratégies d’audit activées, contrairement à auditpol. exe. Pour plus d’informations, consultez obtention d’une [stratégie d’audit efficace dans Windows 7 et 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
+> Stratégie de groupe ne signale pas toujours avec précision l’état de toutes les stratégies d’audit activées, contrairement à auditpol. exe. Pour plus d’informations, consultez obtention d’une [stratégie d’audit efficace dans Windows 7 et 2008 R2](https://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
 Chaque catégorie principale a plusieurs sous-catégories. Vous trouverez ci-dessous une liste des catégories, des sous-catégories et une description de leurs fonctions.  
   
 ### <a name="auditing-subcategories-descriptions"></a>Descriptions des sous-catégories d’audit  
 Les sous-catégories de stratégie d’audit activent les types de message de journal des événements suivants :  
   
-#### <a name="account-logon"></a>Ouverture de session de compte  
+#### <a name="account-logon"></a>Connexion de compte  
   
-##### <a name="credential-validation"></a>Validation des informations d’identification  
+##### <a name="credential-validation"></a>Validation des informations d'identification  
 Cette sous-catégorie signale les résultats des tests de validation sur les informations d’identification soumises pour une demande d’ouverture de session de compte d’utilisateur. Ces événements se produisent sur l’ordinateur qui fait autorité pour les informations d’identification. Pour les comptes de domaine, le contrôleur de domaine fait autorité, tandis que pour les comptes locaux, l’ordinateur local fait autorité.  
   
 Dans les environnements de domaine, la plupart des événements d’ouverture de session de compte sont consignés dans le journal de sécurité des contrôleurs de domaine faisant autorité pour les comptes de domaine. Toutefois, ces événements peuvent se produire sur d’autres ordinateurs de l’organisation lorsque des comptes locaux sont utilisés pour ouvrir une session.  
@@ -201,7 +201,7 @@ Cette sous-catégorie fournit des informations détaillées sur les informations
 ##### <a name="logon"></a>Ouverture de session  
 Cette sous-catégorie signale quand un utilisateur tente de se connecter au système. Ces événements se produisent sur l’ordinateur auquel vous accédez. Pour les ouvertures de session interactives, la génération de ces événements se produit sur l’ordinateur qui est connecté à. Si une ouverture de session réseau a lieu pour accéder à un partage, ces événements sont générés sur l’ordinateur qui héberge la ressource accédée. Si ce paramètre est configuré sur **aucun audit**, il est difficile, voire impossible, de déterminer quel utilisateur a accédé ou a tenté d’accéder aux ordinateurs de l’organisation.  
   
-##### <a name="network-policy-server"></a>Serveur NPS (Network Policy Server)  
+##### <a name="network-policy-server"></a>Serveur NPS \(Network Policy Server\)  
 Cette sous-catégorie signale les événements générés par les demandes d’accès utilisateur RADIUS (IAS) et protection d’accès réseau (NAP). Ces demandes peuvent être **accordées**, **refusées**, **ignorées**, **mises en quarantaine**, **verrouillées**et **déverrouillées**. L’audit de ce paramètre entraîne un volume moyen ou élevé d’enregistrements sur les serveurs NPS et IAS.  
   
 ##### <a name="ipsec-main-mode"></a>Mode principal IPsec  
@@ -225,7 +225,7 @@ Cette sous-catégorie signale les résultats du protocole IKE et AuthIP lors des
 ##### <a name="special-logon"></a>Ouverture de session spéciale  
 Cette sous-catégorie signale qu’une ouverture de session spéciale est utilisée. Une ouverture de session spéciale est une ouverture de session disposant de privilèges d’administrateur et qui peut être utilisée pour élever un processus à un niveau supérieur.  
   
-#### <a name="policy-change"></a>Modification de la stratégie  
+#### <a name="policy-change"></a>Modification de stratégie  
   
 ##### <a name="audit-policy-change"></a>Modification de la stratégie d’audit  
 Cette sous-catégorie signale les modifications apportées à la stratégie d’audit, y compris les modifications SACL.  
@@ -263,7 +263,7 @@ Cette sous-catégorie signale l’accès aux objets du système de fichiers. Seu
   
 Si le paramètre Auditer l’accès aux objets est configuré sur **succès**, une entrée d’audit est générée chaque fois qu’un utilisateur accède à un objet avec une liste SACL spécifiée. Si ce paramètre de stratégie est configuré sur **échec**, une entrée d’audit est générée chaque fois qu’un utilisateur échoue dans une tentative d’accès à un objet avec une liste SACL spécifiée.  
   
-##### <a name="registry"></a>Registre  
+##### <a name="registry"></a>Registry  
 Cette sous-catégorie signale les accès aux objets du Registre. Seuls les objets de Registre avec SACL entraînent la génération d’événements d’audit et uniquement lorsqu’ils sont accessibles de manière à correspondre à leurs entrées SACL. En soi, ce paramètre de stratégie ne provoque pas l’audit de tous les événements.  
   
 ##### <a name="kernel-object"></a>Objet de noyau  
@@ -355,7 +355,7 @@ Exemples de syntaxe d’auditpol. exe :
 
 Microsoft fournit un [exemple de script](https://support.microsoft.com/kb/921469) pour les administrateurs qui souhaitent définir une stratégie d’audit avancée à l’aide d’un script au lieu de taper manuellement chaque commande auditpol. exe.  
   
-**Remarque** Stratégie de groupe ne signale pas toujours avec précision l’état de toutes les stratégies d’audit activées, contrairement à auditpol. exe. Pour plus d’informations, consultez obtention d’une [stratégie d’audit efficace dans Windows 7 et windows 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
+**Remarque** Stratégie de groupe ne signale pas toujours avec précision l’état de toutes les stratégies d’audit activées, contrairement à auditpol. exe. Pour plus d’informations, consultez obtention d’une [stratégie d’audit efficace dans Windows 7 et windows 2008 R2](https://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
 #### <a name="other-auditpol-commands"></a>Autres commandes Auditpol
 

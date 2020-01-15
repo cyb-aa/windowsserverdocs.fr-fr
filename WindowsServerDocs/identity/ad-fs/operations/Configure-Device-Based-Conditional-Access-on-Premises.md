@@ -9,12 +9,12 @@ ms.date: 08/11/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a7646144b591fd7327f881cb54489201140e9287
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0eb0271dd27791e6f59e896e43bf79b15b89e730
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358150"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949454"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>Configurer l’accès conditionnel local à l’aide des appareils inscrits
 
@@ -26,12 +26,12 @@ Le document suivant vous guide tout au long de l’installation et de la configu
 ## <a name="infrastructure-pre-requisites"></a>Conditions préalables de l’infrastructure
 Les éléments suivants sont nécessaires pour que vous puissiez commencer à utiliser l’accès conditionnel local. 
 
-|Condition requise|Description
+|Exigence|Description
 |-----|-----
 |Un abonnement Azure AD avec Azure AD Premium | Pour activer la réécriture de l’appareil pour l’accès conditionnel local, [une version d’évaluation gratuite est correcte](https://azure.microsoft.com/trial/get-started-active-directory/)  
 |Abonnement Intune|uniquement requis pour l’intégration MDM pour les scénarios de conformité des appareils :[un essai gratuit est parfait](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0)
-|Azure AD Connect|QFE 2015 novembre ou version ultérieure.  Téléchargez la dernière version [ici](https://www.microsoft.com/en-us/download/details.aspx?id=47594).  
-|Windows Server 2016|Build 10586 ou version ultérieure pour AD FS  
+|Azure AD Connect|QFE 2015 novembre ou version ultérieure.  Téléchargez la dernière version [ici](https://www.microsoft.com/download/details.aspx?id=47594).  
+|Windows Server 2016|Build 10586 ou version ultérieure pour AD FS  
 |Schéma de Active Directory Windows Server 2016|Le niveau de schéma 85 ou une version ultérieure est requis.
 |Contrôleur de domaine Windows Server 2016|Cela est requis uniquement pour les déploiements de confiance de clé Hello entreprise.  Des informations supplémentaires sont disponibles [ici](https://aka.ms/whfbdocs).  
 |Client Windows 10|La build 10586 ou une version plus récente, jointe au domaine ci-dessus, est requise pour la jonction de domaine Windows 10 et les scénarios de Microsoft Passport for Work uniquement  
@@ -40,7 +40,7 @@ Les éléments suivants sont nécessaires pour que vous puissiez commencer à ut
 
  
 ## <a name="upgrade-your-active-directory-schema"></a>Mettre à niveau votre schéma Active Directory
-Pour utiliser l’accès conditionnel local avec des appareils inscrits, vous devez d’abord mettre à niveau votre schéma AD.  Les conditions suivantes doivent être remplies :
+Pour utiliser l’accès conditionnel local avec des appareils inscrits, vous devez d’abord mettre à niveau votre schéma AD.  Les conditions suivantes doivent être remplies :
     - Le schéma doit être version 85 ou ultérieure
     - Cela est requis uniquement pour la forêt à laquelle AD FS est joint
 
@@ -204,13 +204,13 @@ Cela vous permet d’obtenir les informations suivantes :
 3. Vérifiez que les points de terminaison corrects sont activés pour votre système AD FS et que les règles de revendication sont configurées   
 4. Configurer les paramètres de stratégie de groupe requis pour l’inscription automatique des ordinateurs joints à un domaine   
 
-### <a name="microsoft-passport-for-work"></a>Microsoft Passport for Work   
+### <a name="microsoft-passport-for-work"></a>Version professionnelle de Microsoft Passport   
 Pour plus d’informations sur l’activation de Windows 10 avec Microsoft Passport for Work, consultez [activer Microsoft Passport for Work dans votre organisation.](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)  
 
 ### <a name="automatic-mdm-enrollment"></a>Inscription automatique à MDM   
 Pour activer l’inscription automatique MDM des appareils inscrits afin que vous puissiez utiliser la revendication isCompliant dans votre stratégie de contrôle d’accès, suivez les étapes [ci-dessous.](https://blogs.technet.microsoft.com/ad/2015/08/14/windows-10-azure-ad-and-microsoft-intune-automatic-mdm-enrollment-powered-by-the-cloud/)  
 
-## <a name="troubleshooting"></a>Résolution des problèmes  
+## <a name="troubleshooting"></a>Dépannage  
 1.  Si vous recevez une erreur sur `Initialize-ADDeviceRegistration` qui se compose d’un objet déjà existant dans un état incorrect, par exemple « l’objet de service DRS a été trouvé sans tous les attributs requis », vous avez peut-être exécuté Azure AD Connect commandes PowerShell précédemment et avez une configuration partielle dans AD DS.  Essayez de supprimer manuellement les objets sous **CN = Device Registration configuration, CN = Services, CN = Configuration, DC =&lt;domaine&gt;** , puis réessayez.  
 2.  Pour les clients Windows 10 joints à un domaine  
     1. Pour vérifier que l’authentification de l’appareil fonctionne, connectez-vous au client joint au domaine en tant que compte d’utilisateur de test. Pour déclencher rapidement l’approvisionnement, verrouillez et déverrouillez le bureau au moins une fois.   
@@ -222,7 +222,7 @@ Pour activer l’inscription automatique MDM des appareils inscrits afin que vou
     4. Réessayez l’inscription ou l’inscription de l’appareil  
 
 ### <a name="related-articles"></a>Articles connexes  
-* [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)  
+* [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)  
 * [Stratégies d’appareil d’accès conditionnel pour les services Office 365](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-device-policies/)  
-* [Configuration de l’accès conditionnel local à l’aide de Azure Active Directory Device Registration](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)  
-* [Connecter des appareils joints à un domaine à des Azure AD pour les expériences Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)  
+* [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)  
+* [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)  

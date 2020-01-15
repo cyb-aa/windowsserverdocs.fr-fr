@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 826769c1405648f37c86f97b4b9134871f4d30ed
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: 227d66dafffd67b0b2e4f67158498cf43c7b59f8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791184"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950368"
 ---
 # <a name="protected-users-security-group"></a>Groupe de sécurité Utilisateurs protégés
 
@@ -26,7 +26,7 @@ ms.locfileid: "74791184"
 
 Cette rubrique destinée aux professionnels de l'informatique décrit le groupe de sécurité Active Directory nommé Utilisateurs protégés et explique son fonctionnement. Ce groupe a été introduit dans les contrôleurs de domaine Windows Server 2012 R2.
 
-## <a name="BKMK_ProtectedUsers"></a>Vue
+## <a name="BKMK_ProtectedUsers"></a>Vue d’ensemble
 
 Ce groupe de sécurité est conçu dans le cadre d’une stratégie de gestion de l’exposition des informations d’identification au sein de l’entreprise. Les membres de ce groupe disposent automatiquement de protections non configurables qui sont appliquées à leurs comptes. L'appartenance au groupe Utilisateurs protégés est censée être restrictive et sécurisée de manière proactive par défaut. La seule méthode permettant de modifier ces protections pour un compte consiste à supprimer le compte du groupe de sécurité.
 
@@ -62,7 +62,7 @@ Le groupe utilisateurs protégés peut être créé en [transférant le rôle d�
 
 Le tableau suivant spécifie les propriétés du groupe Utilisateurs protégés.
 
-|Attribut|Valeur|
+|Attribut|Value|
 |-------|-----|
 |SID/RID connu|S-1-5-21-<domain>-525|
 |Tapez|Global du domaine|
@@ -71,11 +71,11 @@ Le tableau suivant spécifie les propriétés du groupe Utilisateurs protégés.
 |Membre par défaut de|Aucun(e)|
 |Protégé par ADMINSDHOLDER ?|non|
 |Sortie du conteneur par défaut sécurisée ?|Oui|
-|Délégation de la gestion de ce groupe à des administrateurs extérieurs au service sécurisée ?|non|
+|Délégation de la gestion de ce groupe à des administrateurs extérieurs au service sécurisée ?|non|
 |Droits d’utilisateur par défaut|Aucun droit d’utilisateur par défaut|
 
 ## <a name="BKMK_HowItWorks"></a>Fonctionnement du groupe utilisateurs protégés
-Cette section décrit le fonctionnement du groupe Utilisateurs protégés quand :
+Cette section décrit le fonctionnement du groupe Utilisateurs protégés quand :
 
 - Signé sur un appareil Windows
 
@@ -89,7 +89,7 @@ Lorsque l’utilisateur connecté est membre du groupe utilisateurs protégés, 
 - À partir de Windows 8.1 et de Windows Server 2012 R2, Windows Digest ne met pas en cache les informations d’identification en texte brut de l’utilisateur, même quand Windows Digest est activé.
 
 > [!Note]
-> Après l’installation de l' [avis de sécurité Microsoft 2871997](https://technet.microsoft.com/library/security/2871997) , Windows Digest continue de mettre en cache les informations d’identification jusqu’à ce que la clé de registre soit configurée. Consultez l' [avis de sécurité Microsoft : mise à jour pour améliorer la protection et la gestion des informations d’identification : 13 mai, 2014](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) pour obtenir des instructions.
+> Après l’installation de l' [avis de sécurité Microsoft 2871997](https://technet.microsoft.com/library/security/2871997) , Windows Digest continue de mettre en cache les informations d’identification jusqu’à ce que la clé de registre soit configurée. Consultez l' [avis de sécurité Microsoft : mise à jour pour améliorer la protection et la gestion des informations d’identification : 13 mai, 2014](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) pour obtenir des instructions.
 
 - NTLM ne met pas en cache les informations d’identification en texte brut de l’utilisateur ou la fonction unidirectionnelle NT (NTOWF).
 
@@ -104,15 +104,15 @@ Les comptes qui sont membres du groupe utilisateurs protégés qui s’authentif
 
 - s'authentifier avec l'authentification NTLM ;
 
-- utiliser les types de chiffrement DES ou RC4 dans la pré-authentification Kerberos ;
+- utiliser les types de chiffrement DES ou RC4 dans la pré-authentification Kerberos ;
 
 - être délégués en utilisant la délégation non contrainte ou contrainte ;
 
 - renouveler les tickets TGT Kerberos au-delà de la durée de vie initiale de 4 heures.
 
-Des paramètres non configurables pour l'expiration des tickets TGT sont établis pour chaque compte dans le groupe Utilisateurs protégés. Normalement, le contrôleur de domaine définit la durée de vie et le renouvellement des tickets TGT en fonction des stratégies de domaine **Durée de vie maximale du ticket d'utilisateur** et **Durée de vie maximale pour le renouvellement du ticket utilisateur**. Pour le groupe Utilisateurs protégés, la valeur 600 minutes est définie pour ces stratégies de domaine.
+Des paramètres non configurables pour l'expiration des tickets TGT sont établis pour chaque compte dans le groupe Utilisateurs protégés. Normalement, le contrôleur de domaine définit la durée de vie et le renouvellement des tickets TGT en fonction des stratégies de domaine **Durée de vie maximale du ticket d'utilisateur** et **Durée de vie maximale pour le renouvellement du ticket utilisateur**. Pour le groupe Utilisateurs protégés, la valeur 600 minutes est définie pour ces stratégies de domaine.
 
-Pour plus d'informations, voir [Comment configurer des comptes protégés](how-to-configure-protected-accounts.md).
+Pour plus d'informations, voir [How to Configure Protected Accounts](how-to-configure-protected-accounts.md).
 
 ## <a name="troubleshooting"></a>Dépannage
 Deux journaux d'administration opérationnels sont disponibles pour résoudre les problèmes associés aux événements concernant les utilisateurs protégés. Ces nouveaux journaux se trouvent dans l'Observateur d'événements, sont désactivés par défaut et sont situés sous **Journaux des applications et des services\Microsoft\Windows\Microsoft\Authentification**.

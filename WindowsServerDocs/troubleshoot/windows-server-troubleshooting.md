@@ -10,19 +10,19 @@ ms.date: 10/17/2019
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: 829ae15495d54aca8c476909988ea5a44ea487e7
-ms.sourcegitcommit: 8a017624682fe0172076f9169a9fa17aa972907f
+ms.openlocfilehash: 5e6312075fffd62b599fb62f39cc94ca1f309a44
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852626"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950163"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Résolution des problèmes des composants Windows Server
 
 >- [!TIP]
 > Vous recherchez des informations sur des versions plus anciennes de Windows Server ? Consultez les autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.Microsoft.com. Vous pouvez également [effectuer des recherches sur ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) pour obtenir des informations spécifiques.
 
-Microsoft publie régulièrement les deux mises à jour pour Windows Server. Pour vous assurer que vos serveurs peuvent recevoir les futures mises à jour, notamment les mises à jour de sécurité, il est important de les maintenir à jour. Consultez [l’historique des mises à jour de Windows 10 et Windows Server 2016](https://support.microsoft.com/en-us/help/4000825/windows-10-windows-server-2016-update-history) pour obtenir une liste complète des mises à jour publiées.
+Microsoft publie régulièrement les deux mises à jour pour Windows Server. Pour vous assurer que vos serveurs peuvent recevoir les futures mises à jour, notamment les mises à jour de sécurité, il est important de les maintenir à jour. Consultez [l’historique des mises à jour de Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history) pour obtenir une liste complète des mises à jour publiées.
 
 Cette section contient des rubriques de dépannage avancées et des liens pour vous aider à résoudre les problèmes liés à Windows Server. Des rubriques supplémentaires seront ajoutées dès qu’elles seront disponibles.
 

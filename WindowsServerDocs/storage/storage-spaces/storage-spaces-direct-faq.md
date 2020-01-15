@@ -9,12 +9,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: df9dac8c761a83a13fb937a99cba3697dce95201
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 19dcc1c57fe7c7eea74b003553a0b0a6ab5508aa
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402795"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950232"
 ---
 # <a name="storage-spaces-direct---frequently-asked-questions-faq"></a>Espaces de stockage direct-Forum aux questions (FAQ)
 
@@ -22,7 +22,7 @@ Cet article répertorie certaines questions fréquentes et fréquemment posées 
 
 ## <a name="when-you-use-storage-spaces-direct-with-3-nodes-can-you-get-both-performance-and-capacity-tiers"></a>Quand vous utilisez espaces de stockage direct avec 3 nœuds, pouvez-vous bénéficier de niveaux de performances et de capacité ?
 
-Oui, vous pouvez obtenir un niveau de performances et de capacité dans une configuration espaces de stockage direct à 2 nœuds ou à 3 nœuds. Toutefois, vous devez vous assurer que vous disposez de 2 unités de capacité. Cela signifie que vous devez utiliser les trois types d’appareils : NVME, SSD et HDD.
+Oui, vous pouvez obtenir un niveau de performances et de capacité dans une configuration espaces de stockage direct à 2 nœuds ou à 3 nœuds. Toutefois, vous devez vous assurer que vous disposez de 2 unités de capacité. Cela signifie que vous devez utiliser les trois types d’appareils suivants : NVME, SSD et HDD.
  
 ## <a name="refs-file-system-provides-real-time-tiaring-with-storage-spaces-direct-does-refs-provides-the-same-functionality-with-shared-storage-spaces-in-2016"></a>Le système de fichiers REFS fournit des tiaring en temps réel avec espaces de stockage direct. REFS fournit-il la même fonctionnalité avec les espaces de stockage partagés dans 2016 ?
 
@@ -44,7 +44,7 @@ Par défaut, quand vous configurez espaces de stockage direct à l’aide de l�
 
 Non. Par défaut, si vous utilisez le type d’appareil unique pour créer le pool, il ne configure pas les disques de cache et tous les disques sont utilisés pour la capacité. Vous pouvez ajouter des disques NVME à la configuration, et les disques NVME seraient configurés pour le cache.
  
-## <a name="i-have-configured-a-2-rack-fault-domain-rack-1-has-2-fault-domains-rack-2-has-1-fault-domain-each-server-has-4-capacity-100-gb-devices-can-i-use-all-1200-gb-of-space-from-the-pool"></a>J’ai configuré un domaine d’erreur à 2 racks : Le RACK 1 comporte 2 domaines d’erreur, le RACK 2 a 1 domaine d’erreur. Chaque serveur dispose de 4 unités 100 Go de capacité. Puis-je utiliser tous les 1 200 Go d’espace du pool ?
+## <a name="i-have-configured-a-2-rack-fault-domain-rack-1-has-2-fault-domains-rack-2-has-1-fault-domain-each-server-has-4-capacity-100-gb-devices-can-i-use-all-1200-gb-of-space-from-the-pool"></a>J’ai configuré un domaine d’erreur à 2 racks : le RACK 1 a 2 domaines d’erreur, le RACK 2 a 1 domaine d’erreur. Chaque serveur dispose de 4 unités 100 Go de capacité. Puis-je utiliser tous les 1 200 Go d’espace du pool ?
 
 Non, vous ne pouvez utiliser que 800 Go. Dans un domaine d’erreur de rack, vous devez vous assurer que vous disposez d’une configuration de miroir bidirectionnel, de sorte que chaque mandrin et son terrain dupliqué dans un autre rack.
  
@@ -58,7 +58,7 @@ Utilisez l’utilitaire PerfMon intégré pour inspecter les absences dans le ca
  
 ## <a name="is-there-a-calculator-that-shows-the-exact-size-of-the-disks-that-are-being-set-aside-for-cache-capacity-and-resiliency-that-would-enable-me-to-plan-better"></a>Existe-t-il une calculatrice qui indique la taille exacte des disques qui sont mis de côté pour le cache, la capacité et la résilience qui me permettent de planifier mieux ?
 
-Vous pouvez utiliser la calculatrice des espaces de stockage pour vous aider dans votre planification. Il est disponible à http://aka.ms/s2dcalc l’adresse.
+Vous pouvez utiliser la calculatrice des espaces de stockage pour vous aider dans votre planification. Elle est disponible sur https://aka.ms/s2dcalc.
  
 ## <a name="what-is-the-best-configuration-that-you-would-recommend-when-configuring-6-servers-and-3-racks"></a>Quelle est la meilleure configuration recommandée lors de la configuration de 6 serveurs et de 3 racks ?
 
@@ -76,7 +76,7 @@ Get-PhysicalDisk -SerialNumber <SerialNumber> | Enable-StorageMaintenanceMode
 
 Nous vous recommandons de contacter votre fournisseur de matériel pour vérifier la prise en charge. Les fournisseurs de matériel testent la solution sur leur matériel et commentent s’ils sont pris en charge ou non. Par exemple, au moment de la rédaction de cet article, les serveurs tels que R730/R730xd/R630 qui possèdent plus de 8 emplacements de lecteur peuvent prendre en charge les y et sont compatibles avec espaces de stockage direct. Dell ne prend en charge que les HBA330 avec espaces de stockage direct. R620 ne prend pas en charge les SES et n’est pas compatible avec espaces de stockage direct.
 
-Pour plus d’informations sur la prise en charge du matériel, accédez au site Web suivant : Catalogue Windows Server
+Pour plus d’informations sur la prise en charge du matériel, accédez au site Web suivant : catalogue Windows Server
  
 ## <a name="how-does-storage-spaces-direct-make-use-of-ses"></a>Comment espaces de stockage direct utilise-t-il ?
 

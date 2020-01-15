@@ -7,12 +7,12 @@ ms.assetid: 392af37f-a02d-4d40-a25d-384211cbbfdd
 manager: dongill
 author: nirb-ms
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: c439a53abea07041e69e50d5d5148dae95243265
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 255429960735d70ff3a4d260bd9090b95882b6bd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386431"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949771"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-tenants"></a>Guide de planification de l’infrastructure protégée et de la machine virtuelle protégée pour les locataires
 
@@ -74,7 +74,7 @@ Lors de la création d’une machine virtuelle protégée par un chiffrement ou 
 
 **De combien de fichiers de données de protection ai-je besoin ?** Un seul fichier de données de protection peut être utilisé pour créer chaque machine virtuelle protégée. Toutefois, si une machine virtuelle protégée donnée exige que l’un des quatre éléments soit différent, un fichier de données de protection supplémentaire est nécessaire. Par exemple, vous pouvez avoir un fichier de données de protection pour votre service informatique et un autre fichier de données de protection pour le service RH, car leur mot de passe d’administrateur initial et les certificats RDP sont différents.
 
-Bien qu’il soit possible d’utiliser des fichiers de données de protection distincts pour chaque machine virtuelle protégée, ce n’est pas nécessairement le choix optimal et doit être effectué pour les bonnes raisons. Par exemple, si chaque machine virtuelle dotée d’une protection maximale doit avoir un mot de passe d’administrateur différent, utilisez plutôt un service de gestion des mots de passe ou un outil tel que [la solution de mot de passe d’administrateur local de Microsoft (laps)](https://www.microsoft.com/en-us/download/details.aspx?id=46899).
+Bien qu’il soit possible d’utiliser des fichiers de données de protection distincts pour chaque machine virtuelle protégée, ce n’est pas nécessairement le choix optimal et doit être effectué pour les bonnes raisons. Par exemple, si chaque machine virtuelle dotée d’une protection maximale doit avoir un mot de passe d’administrateur différent, utilisez plutôt un service de gestion des mots de passe ou un outil tel que [la solution de mot de passe d’administrateur local de Microsoft (laps)](https://www.microsoft.com/download/details.aspx?id=46899).
 
 ## <a name="creating-a-shielded-vm-on-a-virtualization-fabric"></a>Création d’une machine virtuelle protégée sur une structure de virtualisation
 

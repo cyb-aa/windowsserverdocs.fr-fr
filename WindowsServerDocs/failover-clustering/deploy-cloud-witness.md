@@ -9,12 +9,12 @@ ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: Comment utiliser Microsoft Azure pour héberger le témoin d’un cluster de basculement Windows Server dans le Cloud-alias comment déployer un témoin Cloud.
-ms.openlocfilehash: 1f38a1a436cfced8637b743817dc1b3d150f7fa6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad5ff47a72319fee7650d1d9c0d0616cfaaa22d3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369882"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948175"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Déployer un témoin de cloud pour un cluster de basculement
 
@@ -26,7 +26,7 @@ Cloud Witness est un type de témoin de quorum de cluster de basculement qui uti
 
 La figure 1 illustre une configuration de quorum de cluster de basculement étiré sur plusieurs sites avec Windows Server 2016. Dans cet exemple de configuration (figure 1), il existe 2 nœuds dans 2 centres de centres (appelés sites). Notez qu’il est possible qu’un cluster s’étende sur plus de 2 centres de informations. En outre, chaque centre de informations peut avoir plus de 2 nœuds. Une configuration de quorum de cluster classique dans cette installation (contrat SLA de basculement automatique) donne à chaque nœud un vote. Un vote supplémentaire est donné au témoin de quorum pour permettre au cluster de continuer à s’exécuter même si l’un des centres de données rencontre une panne d’alimentation. La mathématique est simple : il y a 5 votes au total et vous avez besoin de 3 votes pour que le cluster reste en cours d’exécution.  
 
-![Témoin de partage de fichiers dans un troisième site distinct avec 2 nœuds dans 2 autres sites témoin de partage de](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "fichiers")  
+![Témoin de partage de fichiers dans un troisième site distinct avec 2 nœuds dans 2 autres sites](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "Témoin de partage de fichiers")  
 **Figure 1 : utilisation d’un témoin de partage de fichiers en tant que témoin de quorum**  
 
 En cas de panne de courant dans un centre de donnes, afin d’offrir la même possibilité au cluster dans un autre centre de donnes de le maintenir en cours d’exécution, il est recommandé d’héberger le témoin de quorum dans un emplacement autre que les deux centres de donnes. Cela signifie généralement que vous avez besoin d’un troisième centre de centres (site) distinct pour héberger un serveur de fichiers qui sauvegarde le partage de fichiers utilisé comme témoin de quorum (témoin de partage de fichiers).  
@@ -75,15 +75,15 @@ Lorsque vous utilisez le même compte de stockage Azure pour configurer le témo
 
 ### <a name="to-create-an-azure-storage-account"></a>Pour créer un compte de stockage Azure
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com).
-2. Dans le menu Hub, sélectionnez Nouveau-> données + stockage-> compte de stockage.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Dans le menu hub, sélectionnez Nouveau -> Données + stockage -> Compte de stockage.
 3. Dans la page créer un compte de stockage, procédez comme suit :
     1. Entrez un nom pour votre compte de stockage.
-    <br>Les noms de compte de stockage doivent comporter entre 3 et 24 caractères et ne peuvent contenir que des chiffres et des lettres minuscules. Le nom du compte de stockage doit également être unique dans Azure.
+    <br>Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Le nom du compte de stockage doit également être unique dans Azure.
         
     2. Pour **type de compte**, sélectionnez **usage général**.
     <br>Vous ne pouvez pas utiliser un compte de stockage d’objets BLOB pour un témoin Cloud.
-    3. Pour **performances**, sélectionnez **standard**.
+    3. Dans **Performances**, sélectionnez **Standard**.
     <br>Vous ne pouvez pas utiliser le stockage Premium Azure pour un témoin Cloud.
     2. Pour **la réplication**, sélectionnez **stockage localement redondant (LRS)** .
     <br>Le clustering de basculement utilise le fichier BLOB comme point d’arbitrage, ce qui nécessite des garanties de cohérence lors de la lecture des données. Par conséquent, vous devez sélectionner **le stockage localement redondant** pour le type de **réplication** .
@@ -172,5 +172,5 @@ Lors de la configuration d’un témoin de Cloud en tant que témoin de quorum p
 ### <a name="proxy-considerations-with-cloud-witness"></a>Considérations relatives au proxy avec un témoin Cloud  
 Le témoin Cloud utilise le protocole HTTPs (port par défaut 443) pour établir la communication avec le service BLOB Azure. Assurez-vous que le port HTTPs est accessible via le proxy réseau.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 - [Nouveautés du clustering de basculement dans Windows Server](whats-new-in-failover-clustering.md)

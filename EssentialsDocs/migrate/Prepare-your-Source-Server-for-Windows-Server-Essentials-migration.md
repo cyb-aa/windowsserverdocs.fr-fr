@@ -1,5 +1,5 @@
 ---
-title: Préparer votre serveur Source pour Windows Server Essentials migration1
+title: Préparer votre serveur source pour Windows Server Essentials migration1
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
@@ -12,44 +12,44 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 93f5bdb615adf56b81a1c4c93f802f6da4e48c1b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d09ad4b66029c40c840ff5764fdaa2705b44bac2
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432612"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947443"
 ---
-# <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Préparer votre serveur Source pour Windows Server Essentials migration1
+# <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Préparer votre serveur source pour Windows Server Essentials migration1
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Effectuez les étapes préliminaires suivantes afin de vous assurer que les paramètres et les données sur votre serveur source migrent correctement vers le serveur de destination.  
   
 #### <a name="to-prepare-for-migration"></a>Pour préparer la migration  
   
 
-1.  [Sauvegardez votre serveur Source](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_BackUpYourSourceServerToPrepareForMigration)  
+1.  [Sauvegarder votre serveur source](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_BackUpYourSourceServerToPrepareForMigration)  
   
-2.  [Installer les service packs plus récents](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_InstallTheMostRecentServicePacksToPrepareForMigration)  
+2.  [Installer les service packs les plus récents](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_InstallTheMostRecentServicePacksToPrepareForMigration)  
   
-3.  [Évaluer l’intégrité du serveur Source](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_UseWindowsBestPracticeAnalyzer)  
+3.  [Évaluer l’intégrité du serveur source](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_UseWindowsBestPracticeAnalyzer)  
   
-4.  [Exécutez l’outil de préparation de Migration sur le serveur Source](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MPT)  
+4.  [Exécuter l’outil de préparation de la migration sur le serveur source](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MPT)  
   
-5.  [Créer un plan pour migrer les applications line-of-business](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
+5.  [Créer un plan pour migrer des applications métier](Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
 
-1.  [Sauvegardez votre serveur Source](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_BackUpYourSourceServerToPrepareForMigration)  
+1.  [Sauvegarder votre serveur source](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_BackUpYourSourceServerToPrepareForMigration)  
   
-2.  [Installer les service packs plus récents](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_InstallTheMostRecentServicePacksToPrepareForMigration)  
+2.  [Installer les service packs les plus récents](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_InstallTheMostRecentServicePacksToPrepareForMigration)  
   
-3.  [Évaluer l’intégrité du serveur Source](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_UseWindowsBestPracticeAnalyzer)  
+3.  [Évaluer l’intégrité du serveur source](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_UseWindowsBestPracticeAnalyzer)  
   
-4.  [Exécutez l’outil de préparation de Migration sur le serveur Source](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MPT)  
+4.  [Exécuter l’outil de préparation de la migration sur le serveur source](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MPT)  
   
-5.  [Créer un plan pour migrer les applications line-of-business](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
+5.  [Créer un plan pour migrer des applications métier](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
 
   
-###  <a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a> Sauvegardez votre serveur Source  
+###  <a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sauvegarder votre serveur source  
  Sauvegardez votre serveur source avant de commencer le processus de migration. L'exécution d'une sauvegarde permet de protéger vos données de toute perte accidentelle si une erreur irrécupérable survient lors de la migration.  
   
 ##### <a name="to-back-up-the-source-server"></a>Pour sauvegarder le serveur source  
@@ -58,10 +58,10 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
   
 2.  Vérifiez que la sauvegarde a été effectuée correctement. Pour tester l’intégrité de la sauvegarde, sélectionnez des fichiers aléatoires de la sauvegarde, restaurez-les à un autre emplacement, puis vérifiez que les fichiers restaurés sont identiques aux fichiers d’origine.  
   
-###  <a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a> Installer les service packs plus récents  
+###  <a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installer les service packs les plus récents  
  Vous devez installer les mises à jour et les Service Packs les plus récents sur le serveur source avant d'effectuer la migration.  
   
-###  <a name="BKMK_UseWindowsBestPracticeAnalyzer"></a> Évaluer l’intégrité du serveur Source  
+###  <a name="BKMK_UseWindowsBestPracticeAnalyzer"></a>Évaluer l’intégrité du serveur source  
  Il est important d'évaluer l'intégrité de votre serveur source avant de commencer la migration. Utilisez les procédures suivantes pour vous assurer que les mises à jour sont actuelles, pour générer un rapport d'intégrité du système et pour exécuter Windows Server Solutions Best Practice Analyzer (BPA).  
   
 #### <a name="download-and-install-critical-and-security-updates"></a>Télécharger et installer les mises à jour critiques et de sécurité  
@@ -79,7 +79,7 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
  Vous pouvez examiner l'Afficheur des alertes dans le tableau de bord pour rechercher les erreurs critiques.  
   
 #### <a name="run-the-windows-server-solutions-best-practices-analyzer"></a>Exécutez Windows Server Solutions Best Practices Analyzer  
- Vous pouvez exécuter Windows Server Solutions Best Practices Analyzer (BPA) pour vérifier qu'il n'y a aucun problème sur votre serveur, réseau ou domaine avant de commencer le processus de migration. L'analyseur BPA collecte les informations de configuration auprès des sources suivantes :  
+ Vous pouvez exécuter Windows Server Solutions Best Practices Analyzer (BPA) pour vérifier qu'il n'y a aucun problème sur votre serveur, réseau ou domaine avant de commencer le processus de migration. L'analyseur BPA collecte les informations de configuration auprès des sources suivantes :  
   
 -   WMI (Windows Management Instrumentation) Active Directory®  
   
@@ -89,7 +89,7 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
   
 ###### <a name="to-use-the-windows-server-solutions-bpa-to-analyze-your-source-server"></a>Pour utiliser l'outil BPA des solutions Windows Server afin d'analyser votre serveur source  
   
-1. Téléchargez et installez [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=15556) à partir du Centre de téléchargement Microsoft.  
+1. Téléchargez et installez [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/download/details.aspx?id=15556) à partir du Centre de téléchargement Microsoft.  
   
 2. Une fois le téléchargement terminé, cliquez sur **Démarrer**, pointez sur **Tous les programmes**, puis cliquez sur **Outil Best Practices Analyzer SBS**.  
   
@@ -102,7 +102,7 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
   
 5. Une fois l’analyse terminée, cliquez sur **Afficher un rapport de cette analyse Best Practices**.  
   
-   Une fois la collecte d'informations sur la configuration du serveur effectuée, l'outil BPA des solutions Windows Server vérifie que les informations sont correctes et présente ensuite aux administrateurs la liste des informations et des problèmes classés par niveau de gravité. La liste décrit chaque problème et fournit une recommandation ou une solution possible. Trois types de rapports sont disponibles :  
+   Une fois la collecte d'informations sur la configuration du serveur effectuée, l'outil BPA des solutions Windows Server vérifie que les informations sont correctes et présente ensuite aux administrateurs la liste des informations et des problèmes classés par niveau de gravité. La liste décrit chaque problème et fournit une recommandation ou une solution possible. Trois types de rapports sont disponibles :  
   
 |Type de rapport|Description|  
 |-----------------|-----------------|  
@@ -110,10 +110,10 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
 |Rapports d’arborescence|Affiche les rapports dans une liste hiérarchique.|  
 |Autres rapports|Affiche des rapports tels qu’un journal des exécutions.|  
   
- Pour afficher la description et les solutions relatives à un problème, cliquez sur le problème dans le rapport. Affectent tous les problèmes signalés par l’outil BPA de Windows SBS 2011 Essentials migration, mais vous devez résoudre autant de problèmes que possible pour garantir que la migration a réussi.  
+ Pour afficher la description et les solutions relatives à un problème, cliquez sur le problème dans le rapport. Tous les problèmes signalés par Windows SBS 2011 Essentials BPA n’affectent pas la migration, mais vous devez résoudre autant de problèmes que possible pour garantir la réussite de la migration.  
   
-####  <a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a> Synchroniser l’heure du serveur Source avec une source externe  
- L’heure du serveur source doit être réglée, à cinq minutes près, sur l'heure du serveur de destination, et la date et le fuseau horaire doivent être identiques sur les deux serveurs. Si le serveur source est exécuté dans une machine virtuelle, la date, l’heure et le fuseau horaire du serveur hôte doivent correspondre à ceux du serveur source et du serveur de destination. Pour garantir que Windows Server Essentials est installé avec succès, vous devez synchroniser l’heure du serveur Source sur le serveur de protocole NTP (Network Time) sur Internet.  
+####  <a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchroniser l’heure du serveur source avec une source de temps externe  
+ L’heure du serveur source doit être réglée, à cinq minutes près, sur l'heure du serveur de destination, et la date et le fuseau horaire doivent être identiques sur les deux serveurs. Si le serveur source est exécuté dans une machine virtuelle, la date, l’heure et le fuseau horaire du serveur hôte doivent correspondre à ceux du serveur source et du serveur de destination. Pour vous assurer que Windows Server Essentials est correctement installé, vous devez synchroniser l’heure du serveur source sur le serveur NTP (Network Time Protocol) sur Internet.  
   
 ###### <a name="to-synchronize-the-source-server-time-with-the-ntp-server"></a>Pour synchroniser l’heure du serveur source sur le serveur NTP  
   
@@ -121,17 +121,17 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
   
 2.  Cliquez sur **Démarrer**, sur **Exécuter**, tapez **cmd** dans la zone de texte, puis appuyez sur Entrée.  
   
-3.  À l’invite de commandes, tapez syncfromflags : domhier de w32tm /config / reliable : aucun /update et appuyez sur ENTRÉE.  
+3.  À l'invite de commandes, tapez w32tm /config /syncfromflags:domhier /reliable:no /update et appuyez sur Entrée.  
   
-4.  À l’invite de commandes, tapez net stop w32time, puis appuyez sur ENTRÉE.  
+4.  À l’invite de commandes, tapez net stop w32time et appuyez sur Entrée.  
   
-5.  À l’invite de commandes, tapez net start w32time, puis appuyez sur ENTRÉE.  
+5.  À l’invite de commandes, tapez net start w32time et appuyez sur Entrée.  
   
 > [!IMPORTANT]
->  Pendant l’installation de Windows Server Essentials, vous avez la possibilité pour vérifier l’heure sur le serveur de Destination et le modifier, si nécessaire. Vérifiez que l’heure est réglée à cinq minutes près sur l’heure réglée sur le serveur source. À la fin de l’installation, le serveur de destination est synchronisé sur le serveur NTP. Tous les ordinateurs appartenant à un domaine, y compris le serveur source, sont synchronisés sur le serveur de destination, qui prend le rôle de maître d’émulateur de contrôleur de domaine principal.  
+>  Au cours de l’installation de Windows Server Essentials, vous avez la possibilité de vérifier l’heure sur le serveur de destination et de la modifier, si nécessaire. Vérifiez que l’heure est réglée à cinq minutes près sur l’heure réglée sur le serveur source. À la fin de l’installation, le serveur de destination est synchronisé sur le serveur NTP. Tous les ordinateurs appartenant à un domaine, y compris le serveur source, sont synchronisés sur le serveur de destination, qui prend le rôle de maître d’émulateur de contrôleur de domaine principal.  
   
-###  <a name="BKMK_MPT"></a> Exécutez l’outil de préparation de Migration sur le serveur Source  
- Avant d'effectuer une installation en mode de migration, vous devez exécuter l'outil de préparation de la migration sur le serveur source. Cet outil est conçu pour préparer votre serveur Source et le domaine à migrer vers Windows Server Essentials.  
+###  <a name="BKMK_MPT"></a>Exécuter l’outil de préparation de la migration sur le serveur source  
+ Avant d'effectuer une installation en mode de migration, vous devez exécuter l'outil de préparation de la migration sur le serveur source. Cet outil est conçu pour préparer le serveur source et le domaine à migrer vers Windows Server Essentials.  
   
 > [!IMPORTANT]
 >  Sauvegardez votre serveur source avant d’exécuter l'outil de préparation de la migration. Toutes les modifications que l'outil de préparation de la migration effectue dans le schéma sont irréversibles. Si vous rencontrez des problèmes au cours de la migration, la seule manière de restaurer l’état que le serveur source avait avant l'exécution de l'outil est de restaurer le serveur depuis une sauvegarde du système.  
@@ -158,17 +158,17 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
   
    Vous pouvez utiliser la dernière version de l'Agent de mise à jour automatique Windows Update pour vous assurer que le processus de mise à jour du serveur fonctionne correctement.  
   
-   Vous pouvez installer l’Agent Windows Update sur le serveur Source, vous devez d’abord installer Windows PowerShell 2.0 et Microsoft Baseline Configuration Analyzer 2.0.  
+   Avant de pouvoir installer Windows Update Agent sur le serveur source, vous devez d’abord installer Windows PowerShell 2,0 et Microsoft Baseline Configuration Analyzer 2,0.  
   
--   Pour télécharger et installer Windows PowerShell 2.0, consultez [article 968929](https://go.microsoft.com/fwlink/p/?LinkId=241483) dans la Base de connaissances Microsoft.  
+-   Pour télécharger et installer Windows PowerShell 2,0, voir l' [article 968929](https://go.microsoft.com/fwlink/p/?LinkId=241483) de la base de connaissances Microsoft.  
   
--   Pour télécharger et installer Microsoft Baseline Configuration Analyzer 2.0, consultez le [Microsoft Baseline Configuration Analyzer 2.0](https://go.microsoft.com/fwlink/p/?LinkId=241484) à du Microsoft Download Center.  
+-   Pour télécharger et installer Microsoft Baseline Configuration Analyzer 2,0, voir [Microsoft Baseline Configuration analyzer 2,0](https://go.microsoft.com/fwlink/p/?LinkId=241484) dans le centre de téléchargement Microsoft.  
   
 -   Pour télécharger et installer la dernière version de l’Agent Windows Update, consultez l’[article 949104](https://go.microsoft.com/fwlink/p/?LinkId=237493) de la Base de connaissances Microsoft.  
   
 ##### <a name="to-install-and-run-the-migration-preparation-tool-on-the-source-server"></a>Pour installer et exécuter l'outil de préparation de la migration sur le serveur source.  
   
-1. Insérez le DVD 1 de Windows Server Essentials dans le lecteur de DVD sur le serveur Source.  
+1. Insérez Windows Server Essentials le DVD1 dans le lecteur de DVD sur le serveur source.  
   
 2. Ouvrez l'Explorateur Windows, accédez au dossier **\support\tools** du DVD, puis double-cliquez sur le fichier **sourcetool.msi**.  
   
@@ -181,30 +181,30 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
 3. Dans l'Outil de préparation de la migration, sélectionnez **J'ai une sauvegarde et suis prêt à continuer**, puis cliquez sur **Suivant**.  
   
    > [!WARNING]
-   >  Si vous recevez un message d’erreur relatif à l’installation d’un correctif, consultez la méthode 2 : Renommer le dossier Catroot2 dans [article 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) dans la Base de connaissances Microsoft.  
+   >  Si vous recevez un message d’erreur relatif à l’installation d’un correctif, reportez-vous à la rubrique méthode 2 : renommer le dossier Catroot2 de l' [article 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) de la base de connaissances Microsoft.  
   
     L'outil de préparation de la migration prépare le domaine source pour la migration en étendant le schéma Active Directory. Une fois la tâche terminée, cliquez sur **Suivant** pour continuer.  
   
 4. Une fois la préparation du domaine source effectuée, l'outil de préparation de la migration analyse le serveur source afin d'identifier deux types de problèmes potentiels.  
   
-   - **Erreurs** problèmes trouvés sur le serveur Source qui peuvent bloquer la migration ou provoquer son échec. Suivez les instructions figurant dans le message d'erreur afin de corriger les erreurs, puis cliquez sur **Relancer l'analyse**.  
+   - **Erreurs** Problèmes détectés sur le serveur source qui peuvent bloquer la migration ou provoquer l’échec de la migration. Suivez les instructions figurant dans le message d'erreur afin de corriger les erreurs, puis cliquez sur **Relancer l'analyse**.  
   
-   - **Avertissements** problèmes trouvés sur le serveur Source qui peut provoquer des problèmes fonctionnels pendant la migration. Il est fortement recommandé de suivre les instructions figurant dans le message d'erreur afin de résoudre les problèmes avant la migration.  
+   - **Avertissements** Problèmes détectés sur le serveur source qui peuvent provoquer des problèmes fonctionnels pendant la migration. Il est fortement recommandé de suivre les instructions figurant dans le message d'erreur afin de résoudre les problèmes avant la migration.  
   
      Une fois tous les problèmes reconnus et corrigés, cliquez sur **Suivant**.  
   
 5. Dans l'outil de préparation de la migration, cliquez sur **Terminer**.  
   
-6. Lorsque l’outil de préparation de Migration se termine, vous pouvez être invité à redémarrer le serveur Source avant de commencer la migration vers Windows Server Essentials.  
+6. Une fois l’exécution de l’outil de préparation de la migration terminée, vous pouvez être invité à redémarrer le serveur source avant de commencer la migration vers Windows Server Essentials.  
   
 > [!NOTE]
->  Vous devez effectuer une exécution réussie de l’outil de préparation de Migration sur le serveur Source dans les deux semaines suivant l’installation de Windows Server Essentials sur le serveur de Destination. Sinon, l’installation de Windows Server Essentials sur le serveur de Destination sera bloquée. Si tel est le cas, vous devez exécuter de nouveau l'outil de préparation de la migration sur le serveur source.  
+>  Vous devez effectuer une exécution réussie de l’outil de préparation de la migration sur le serveur source dans les deux semaines qui suivent l’installation de Windows Server Essentials sur le serveur de destination. Dans le cas contraire, l’installation de Windows Server Essentials sur le serveur de destination sera bloquée. Si tel est le cas, vous devez exécuter de nouveau l'outil de préparation de la migration sur le serveur source.  
   
-###  <a name="BKMK_PlanToMigrateLineOfBusinessApplications"></a> Créer un plan pour migrer les applications line-of-business  
+###  <a name="BKMK_PlanToMigrateLineOfBusinessApplications"></a>Créer un plan pour migrer des applications métier  
  Une application métier est une application informatique critique vitale pour l'activité d'une entreprise. Les applications métiers incluent la gestion des comptes, la gestion de la chaîne logistique, ainsi que la planification des ressources.  
   
  Lorsque vous prévoyez de migrer vos applications métiers, consultez les fournisseurs d’applications métiers afin de définir la meilleure méthode de migration de chaque application. Vous devez également rechercher le support utilisé pour réinstaller les applications métiers sur le serveur de destination.  
   
 > [!NOTE]
->  Si vous avez utilisé Windows Small Business Server 2011 Essentials SDK pour développer un contrôle d’intégrité système personnalisé ou alerte add-In et que vous souhaitez continuer à utiliser le complément avec Windows Server Essentials, vous devez également mettre à jour le complément et déployez-le sur le serveur de Destination.  
+>  Si vous avez utilisé le kit de développement logiciel (SDK) Windows Small Business Server 2011 Essentials pour développer un complément d’intégrité système ou d’alerte personnalisé et que vous souhaitez continuer à utiliser le complément avec Windows Server Essentials, vous devez également mettre à jour le complément et le déployer sur le serveur de destination.  
   

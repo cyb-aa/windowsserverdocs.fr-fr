@@ -8,16 +8,16 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: c5c87be882a32958946198eb6ff1b9d7000577e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3a93a1105862ffbf4fcbd1d23b15d9bcaa6010dc
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385292"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950499"
 ---
 # <a name="install-extension-payload-on-a-managed-node"></a>Installer la charge de l’extension sur un nœud géré
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 ## <a name="setup"></a>Installation
 > [!NOTE]
@@ -30,9 +30,9 @@ Si vous ne l’avez pas encore fait, créez une [extension d’outil](../develop
 | ```{!Company Name}``` | Nom de votre société (avec des espaces) | ```Contoso``` |
 | ```{!Tool Name}``` | Votre nom d’outil (avec des espaces) | ```InstallOnNode``` |
 
-Dans le dossier de votre extension Tool, créez un dossier ```Node``` (```{!Tool Name}\Node```). Tout ce qui est placé dans ce dossier est copié vers le nœud géré lors de l’utilisation de cette API. Ajoutez les fichiers nécessaires à votre cas d’usage. 
+Dans le dossier de votre extension Tool, créez un dossier de ```Node``` (```{!Tool Name}\Node```). Tout ce qui est placé dans ce dossier est copié vers le nœud géré lors de l’utilisation de cette API. Ajoutez les fichiers nécessaires à votre cas d’usage. 
 
-Créez également un script ```{!Tool Name}\Node\installNode.ps1```. Ce script est exécuté sur le nœud géré une fois que tous les fichiers sont copiés du dossier ```{!Tool Name}\Node``` vers le nœud géré. Ajoutez toute logique supplémentaire pour votre cas d’utilisation. Exemple de fichier ```{!Tool Name}\Node\installNode.ps1``` :
+Créez également un script de ```{!Tool Name}\Node\installNode.ps1```. Ce script est exécuté sur le nœud géré une fois que tous les fichiers sont copiés du dossier ```{!Tool Name}\Node``` vers le nœud géré. Ajoutez toute logique supplémentaire pour votre cas d’utilisation. Exemple de fichier ```{!Tool Name}\Node\installNode.ps1``` :
 
 ``` ps1
 # Add logic for installing payload on managed node
@@ -45,7 +45,7 @@ echo 'Success'
 
 ## <a name="integration-with-ui"></a>Intégration avec l’interface utilisateur
 
-Mettez à jour ```\src\app\default.component.ts``` vers ce qui suit :
+Mettez à jour ```\src\app\default.component.ts``` comme suit :
 
 ``` ts
 import { Component } from '@angular/core';
@@ -105,13 +105,13 @@ this.post('contoso.install-on-node', '1.0.0',
       );
 ```
 
-Mettez également à jour ```\src\app\default.component.html``` pour :
+Mettez également à jour ```\src\app\default.component.html``` vers :
 ``` html
 <button (click)="installOnNode()">Click to install</button>
 <sme-loading-wheel *ngIf="loading" size="large"></sme-loading-wheel>
 <p *ngIf="response">{{response}}</p>
 ```
-Et enfin ```\src\app\default.module.ts``` :
+Et enfin ```\src\app\default.module.ts```:
 ``` ts
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -138,13 +138,13 @@ La dernière étape consiste à créer un package NuGet avec les fichiers que no
 
 Si vous n’avez pas créé de package d’extension avant, suivez le guide des [extensions de publication](../publish-extensions.md) . 
 > [!IMPORTANT]
-> Dans votre fichier. NuSpec pour cette extension, il est important que la valeur ```<id>``` corresponde au nom du ```manifest.json``` de votre projet et que le ```<version>``` corresponde à ce qui a été ajouté à ```\src\app\default.component.ts```. Ajoutez également une entrée sous ```<files>``` : 
+> Dans votre fichier. NuSpec pour cette extension, il est important que la valeur ```<id>``` corresponde au nom du ```manifest.json``` de votre projet et que le ```<version>``` corresponde à ce qui a été ajouté à ```\src\app\default.component.ts```. Ajoutez également une entrée sous ```<files>```: 
 > 
-> ```<file src="Node\**\*.*" target="Node" />``` .
+> ```<file src="Node\**\*.*" target="Node" />```.
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package xmlns="https://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>contoso.install-on-node</id>
     <version>1.0.0</version>
@@ -165,4 +165,4 @@ Si vous n’avez pas créé de package d’extension avant, suivez le guide des 
 </package>
 ```
 
-Une fois ce package créé, ajoutez un chemin d’accès à ce flux. Dans le centre d’administration Windows, accédez à paramètres > Extensions > flux, puis ajoutez le chemin d’accès à l’emplacement où se trouve ce package. Une fois l’installation de votre extension terminée, vous devez être en mesure de cliquer sur le bouton ```install``` et l’API sera appelée.  
+Une fois ce package créé, ajoutez un chemin d’accès à ce flux. Dans le centre d’administration Windows, accédez à paramètres > Extensions > flux, puis ajoutez le chemin d’accès à l’emplacement où se trouve ce package. Une fois l’installation de votre extension terminée, vous devez être en mesure de cliquer sur le bouton ```install``` et l’API est appelée.  

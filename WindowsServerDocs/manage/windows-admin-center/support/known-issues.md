@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: c05987360256f7b7ed58911c1ded86586fc8b3aa
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: 59c659041c7553d8e97a3bfbefbc3bde24098ef2
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903901"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949938"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problèmes connus de Windows Admin Center
 
@@ -80,7 +80,7 @@ Les modules Bureau à distance, PowerShell et Événements dans Windows Admin Ce
 
 Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure.
 
-S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle (RBAC)
 
@@ -171,7 +171,7 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
     4. Redémarrez le service « services de chiffrement ».
     5. Répéter la configuration de Update Management à l’aide du centre d’administration Windows
 
-### <a name="virtual-machines"></a>Ordinateurs virtuels
+### <a name="virtual-machines"></a>Machines virtuelles
 
 - Lors de la gestion des ordinateurs virtuels sur un ordinateur hôte Windows Server 2012, l’outil connexion à un ordinateur virtuel dans le navigateur ne parvient pas à se connecter à la machine virtuelle. Le téléchargement du fichier. RDP pour se connecter à la machine virtuelle doit continuer à fonctionner. [20258278]
 

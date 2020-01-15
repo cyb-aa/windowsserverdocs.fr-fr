@@ -12,23 +12,23 @@ ms.topic: article
 author: Femila
 ms.author: billmath
 ms.date: 05/31/2017
-ms.openlocfilehash: e3af163855e2550383b119d504449b2b43208a78
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 064ccf80faf77bbf128351a78ea437730983bf06
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391100"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948193"
 ---
 # <a name="what39s-new-in-active-directory-domain-services"></a>Nouveautés&#39;de Active Directory Domain Services 
 
->S'applique à : Windows Server 2016
+>S’applique à : Windows Server 2016
 
-Les nouvelles fonctionnalités suivantes de Active Directory Domain Services (AD DS) améliorent la capacité des organisations à sécuriser les environnements Active Directory et à les aider à migrer vers des déploiements dans le Cloud uniquement et des déploiements hybrides, où certains services et applications sont hébergé dans le Cloud et d’autres sont hébergés localement. Les améliorations sont les suivantes :  
+Les nouvelles fonctionnalités suivantes de Active Directory Domain Services (AD DS) améliorent la capacité des organisations à sécuriser les environnements Active Directory et à les aider à migrer vers des déploiements dans le Cloud uniquement et des déploiements hybrides, où certains services et applications sont hébergé dans le Cloud et d’autres sont hébergés localement. Les améliorations incluent :  
   
 -   [Privileged Access Management](https://technet.microsoft.com/library/mt150258.aspx   
 )  
   
-- [Extension des fonctionnalités du Cloud aux appareils Windows 10 via Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)   
+- [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)   
   
 - [Connexion d’appareils joints à un domaine à des Azure AD pour les expériences Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)   
   
@@ -55,9 +55,9 @@ Privileged Access Management (PAM) permet de limiter les problèmes de sécurit�
   
 -   Nouvelles fonctionnalités de surveillance pour vous aider à identifier facilement les personnes qui ont demandé l’accès, l’accès accordé et les activités qui ont été effectuées.  
   
-**Exigences**  
+**Spécifications**  
   
--   Gestionnaire d'identité Microsoft  
+-   Gestionnaire d’identité Microsoft  
   
 -   Active Directory niveau fonctionnel de la forêt de Windows Server 2012 R2 ou version ultérieure.  
   
@@ -80,7 +80,7 @@ Avantages :
   
 -   **Authentification unique** sur Office 365 et d’autres applications organisationnelles, sites Web et ressources.  
   
--   **Sur les appareils BYOD**, ajoutez un compte professionnel (à partir d’un domaine local ou Azure AD) à un appareil personnel et profitez de l’authentification unique aux ressources de travail, via des applications et sur le Web, de manière à garantir la conformité avec les nouvelles fonctionnalités telles que le contrôle de compte conditionnel et Intégrité de l’appareil attestation.  
+-   **Sur les appareils BYOD**, ajoutez un compte professionnel (à partir d’un domaine local ou Azure AD) à un appareil personnel et profitez de l’authentification unique aux ressources de travail, via des applications et sur le Web, de manière à garantir la conformité avec les nouvelles fonctionnalités telles que le contrôle de compte conditionnel et l’attestation intégrité de l’appareil.  
   
 -   L' **intégration MDM** vous permet d’inscrire automatiquement des appareils à votre MDM (Intune ou tiers)  
   
@@ -90,7 +90,7 @@ Avantages :
   
 -   L’option d' **acquisition d’images** vous permet de choisir entre la création d’images et de permettre à vos utilisateurs de configurer des appareils d’entreprise directement lors de la première exécution.  
   
-Pour plus d’informations, [consultez Windows 10 pour l’entreprise : Méthodes d’utilisation des appareils pour](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1)le travail.  
+Pour plus d’informations, consultez [Windows 10 pour l’entreprise : manières d’utiliser des appareils pour le travail](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1).  
   
 ## <a name="BKMK_IDLocker"></a>Microsoft Passport  
 Microsoft Passport est une nouvelle approche de l’authentification basée sur les clés, qui dépasse les mots de passe. Cette forme d’authentification s’appuie sur la violation, le vol et les informations d’identification résistantes au hameçonnage.  
@@ -100,15 +100,15 @@ L’utilisateur se connecte à l’appareil avec des informations de connexion b
 Pour plus d’informations, consultez [authentification des identités sans mot de passe via Microsoft Passport](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport/)  
   
 ## <a name="BKMK_FRSDeprecation"></a>Désapprobation des niveaux fonctionnels du service de réplication de fichiers (FRS) et de Windows Server 2003  
-Bien que les niveaux fonctionnels du service de réplication de fichiers (FRS) et de Windows Server 2003 étaient déconseillés dans les versions précédentes de Windows Server, la répétition du fait que le système d’exploitation Windows Server 2003 n’est plus pris en charge. Par conséquent, tous les contrôleurs de domaine qui exécutent Windows Server 2003 doivent être supprimés du domaine. Le niveau fonctionnel du domaine et de la forêt doit atteindre au moins Windows Server 2008 pour empêcher l’ajout d’un contrôleur de domaine qui exécute une version antérieure de Windows Server à l’environnement.  
+Bien que les niveaux fonctionnels du service de réplication de fichiers (FRS) et de Windows Server 2003 étaient déconseillés dans les versions précédentes de Windows Server, la répétition du fait que le système d’exploitation Windows Server 2003 n’est plus pris en charge. Par conséquent, tous les contrôleurs de domaine qui exécutent Windows Server 2003 doivent être supprimés du domaine. Le niveau fonctionnel du domaine et de la forêt doit atteindre au moins Windows Server 2008 pour empêcher l’ajout d’un contrôleur de domaine qui exécute une version antérieure de Windows Server à l’environnement.  
   
-Au niveau fonctionnel de domaine Windows Server 2008 et versions ultérieures, la réplication DFS (Distributed file service) est utilisée pour répliquer le contenu du dossier SYSVOL entre les contrôleurs de domaine. Si vous créez un nouveau domaine au niveau fonctionnel de domaine Windows Server 2008 ou supérieur, réplication DFS est automatiquement utilisé pour répliquer SYSVOL. Si vous avez créé le domaine à un niveau fonctionnel inférieur, vous devez migrer à partir de à l’aide de FRS vers la réplication DFS pour SYSVOL. Pour les étapes de migration, vous pouvez suivre les [procédures sur TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) ou vous pouvez consulter l' [ensemble d’étapes rationalisé sur le blog de l’équipe de stockage file cabinet](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).  
+Aux niveaux fonctionnels de domaine Windows Server 2008 et supérieurs, la réplication DFS (Distributed File Service) est utilisée pour répliquer le contenu du dossier SYSVOL entre les contrôleurs de domaine. Si vous créez un domaine au niveau fonctionnel de domaine Windows Server 2008 ou supérieur, la réplication DFS est automatiquement utilisée pour répliquer SYSVOL. Si vous avez créé le domaine à un niveau fonctionnel inférieur, vous devez passer de l’utilisation de FRS à la réplication DFS pour SYSVOL. Pour connaître les étapes de migration, reportez-vous aux [procédures sur TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) ou à l’[ensemble de procédures simplifiées sur le blog Storage Team File Cabinet](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).  
   
 Les niveaux fonctionnels de domaine et de forêt de Windows Server 2003 continuent d’être pris en charge, mais les organisations doivent élever le niveau fonctionnel à Windows Server 2008 (ou une version ultérieure si possible) pour garantir la compatibilité et la prise en charge de la réplication SYSVOL à l’avenir. En outre, il existe de nombreux autres avantages et fonctionnalités disponibles à des niveaux fonctionnels plus élevés. Pour plus d'informations, consultez les ressources suivantes :  
   
 -   [Fonctionnement des niveaux fonctionnels de Active Directory Domain Services (AD DS)](ad-ds/active-directory-functional-levels.md)  
   
--   [Augmenter le niveau fonctionnel du domaine](https://technet.microsoft.com/library/cc753104.aspx)  
+-   [Augmenter le niveau fonctionnel de domaine](https://technet.microsoft.com/library/cc753104.aspx)  
   
--   [Augmenter le niveau fonctionnel de la forêt](https://technet.microsoft.com/library/cc730985.aspx)  
+-   [Augmenter le niveau fonctionnel de forêt](https://technet.microsoft.com/library/cc730985.aspx)  
   

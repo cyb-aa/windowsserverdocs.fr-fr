@@ -5,16 +5,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c27dd0602c5993fd84e6956c2f50f6e2bfec8691
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: cdf812f862534ba8cd07d4558e424faf3c56c699
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66435471"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947145"
 ---
 # <a name="server-performance-advisor-pack-development-guide"></a>Guide de développement de packs Server Performance Advisor
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 8, Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 8, Windows 10
 
 Ce guide de développement pour Microsoft Server Performance Advisor (SPA) fournit des instructions destinées à aider les développeurs et les administrateurs système à développer des packs d’Advisor pour analyser les performances du serveur.
 
@@ -25,7 +25,7 @@ Pour plus d’informations sur l’utilisation de SPA, consultez le [Guide de l�
 ## <a name="spa-advisor-pack-overview"></a>Présentation du Pack SPA Advisor
 
 
-Un Advisor Pack est généralement conçu pour un rôle serveur particulier et définit les éléments suivants:
+Un Advisor Pack est généralement conçu pour un rôle serveur particulier et définit les éléments suivants :
 
 * Données à collecter via PLA, y compris les Windows Management Instrumentation (WMI), les compteurs de performances, les paramètres de Registre, les fichiers et les Suivi d’v nements pour Windows (ETW)
 
@@ -37,7 +37,7 @@ Un Advisor Pack est généralement conçu pour un rôle serveur particulier et d
 
 * Valeurs de statistiques pouvant être tendances
 
-Un Advisor Pack comprend les éléments suivants:
+Un Advisor Pack comprend les éléments suivants :
 
 * **Métadonnées XML** (ProvisionMetadata. Xml)
 
@@ -51,7 +51,7 @@ Un Advisor Pack comprend les éléments suivants:
 
     * Objets SQL, tels que les procédures stockées et les fonctions définies par l’utilisateur
 
-* **Fichier de schéma ETW** (Schema. Man) Ceci est facultatif
+* **Fichier de schéma ETW** (Schema. Man) cette option est facultative
 
 ### <a name="advisor-pack-workflow"></a>Flux de travail Advisor Pack
 
@@ -59,13 +59,13 @@ Un Advisor Pack comprend les éléments suivants:
 
 Dans cet organigramme, les cercles verts représentent des packs d’Advisor. Tous les autres cercles représentent les phases qui s’exécutent dans le processus de l’infrastructure SPA. SPA utilise un Advisor Pack pour collecter des données, importer les données dans la base de données, initialiser l’environnement d’exécution et exécuter des scripts SQL.
 
-### <a name="collect-data"></a>Collecter les données
+### <a name="collect-data"></a>Collecte des données
 
 Quand un pack Advisor est mis en file d’attente pour un serveur particulier à l’aide de SPA, le module de collecte de données interroge le XML de l’ensemble de collecteurs de données à partir du Pack Advisor et collecte des données à partir du serveur cible. Les données brutes sont stockées dans un partage de fichiers spécifié par l’utilisateur. La collecte de données ne s’arrêtera pas tant que la durée d’exécution du SPA désignée par l’utilisateur n’est pas dépassée.
 
 ### <a name="import-data-into-the-database"></a>importer des données dans la base de données
 
-Une fois la collecte de données terminée, chaque type de données est importé dans une table correspondante de la base de données SQL Server. Par exemple, les paramètres du Registre sont importés \#dans une table appelée registryKeys.
+Une fois la collecte de données terminée, chaque type de données est importé dans une table correspondante de la base de données SQL Server. Par exemple, les paramètres du Registre sont importés dans une table nommée \#registryKeys.
 
 l’importation d’un fichier ETW requiert un fichier de schéma ETW pour le décodage du fichier. etl. Le fichier de schéma ETW est un fichier XML. Il peut être généré à l’aide de tracerpt. exe, qui est inclus avec Windows. Le fichier de schéma ETW est requis uniquement lorsque Advisor Pack doit importer des données ETW.
 
@@ -98,13 +98,13 @@ L’organigramme suivant décrit les étapes à suivre pour développer un Advis
 
 ![processus de développement Advisor Pack](../media/server-performance-advisor/spa-dev-guide-dev-flowchart.png)
 
-Un Advisor Pack est généralement structuré de la façon suivante:
+Un Advisor Pack est généralement structuré de la façon suivante :
 
 Pack Advisor
 
 ProvisionMetadata. Xml
 
-Scripts
+scripts ;
 
 main. SQL
 
@@ -123,11 +123,11 @@ Tous les scripts SQL de rapport doivent être enregistrés dans un sous-dossier 
 
 Cette section décrit certains des éléments de base qui composent un Advisor Pack, y compris ProvisionMetadata. xml et les attributs.
 
-Voici un exemple d’en-tête pour le fichier ProvisionMetadata. xml:
+Voici un exemple d’en-tête pour le fichier ProvisionMetadata. xml :
 
 ``` syntax
 <advisorPack
-xmlns="http://microsoft.com/schemas/ServerPerformanceAdvisor/ap/2010"
+xmlns="https://microsoft.com/schemas/ServerPerformanceAdvisor/ap/2010"
 name="Microsoft.ServerPerformanceAdvisor.CoreOS.V2"
 displayName="Microsoft CoreOS Advisor Pack V2"
 description="Microsoft CoreOS Advisor Pack"
@@ -141,9 +141,9 @@ reportScript="ReportScript">
 
 ### <a name="advisor-pack-version"></a>Version Advisor Pack
 
-nom de l’attribut: **version**
+nom de l’attribut : **version**
 
-Les développeurs Advisor Pack peuvent définir des versions majeures et mineures pour le Pack Advisor:
+Les développeurs Advisor Pack peuvent définir des versions majeures et mineures pour le Pack Advisor :
 
 * Une version majeure implique généralement des améliorations significatives. Les résultats générés par une ancienne version peuvent ne pas être compatibles avec le nouveau. Nous vous recommandons vivement d’inclure la version majeure dans le nom du Pack Advisor.
 
@@ -153,25 +153,25 @@ Pour plus d’informations sur le contrôle de version, consultez [Rubriques ava
 
 ### <a name="script-entry-point"></a>Point d’entrée de script
 
-nom de l’attribut: **reportScript**
+nom de l’attribut : **reportScript**
 
 L’infrastructure SPA recherche le nom de la procédure stockée principale à partir du point d’entrée de script et l’exécute de façon sécurisée.
 
 ### <a name="other-attributes"></a>Autres attributs
 
-Voici d’autres attributs qui peuvent être utilisés pour identifier un pack Advisor:
+Voici d’autres attributs qui peuvent être utilisés pour identifier un pack Advisor :
 
-* Nom complet: **DisplayName**
+* Nom complet : **DisplayName**
 
-* Description: **Description**
+* Description : **Description**
 
-* Auteur: **auteur**
+* Auteur : **auteur**
 
-* Version du Framework: **frameworkVersion** (3,0 par défaut)
+* Version du Framework : **frameworkVersion** (3,0 par défaut)
 
-* Version minimale du système d’exploitation: **minOSversion** (réservé pour une future extensibilité)
+* Version minimale du système d’exploitation : **minOSversion** (réservé pour une future extensibilité)
 
-* Notification d’événement perdue: **showEventLostWarning**
+* Notification d’événement perdue : **showEventLostWarning**
 
 ### <a href="" id="bkmk-definedatacollector"></a>Définition de l’ensemble de collecteurs de données
 
@@ -179,7 +179,7 @@ Un ensemble de collecteurs de données définit les données de performances que
 
 ``` syntax
 <advisorPack>
-<dataSourceDefinition xmlns="http://microsoft.com/schemas/ServerPerformanceAdvisor/dc/2010">
+<dataSourceDefinition xmlns="https://microsoft.com/schemas/ServerPerformanceAdvisor/dc/2010">
  <dataCollectorSet duration="10">
 <registryKeys>
  ?<registryKey>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\\</registryKey>
@@ -205,27 +205,27 @@ L’attribut **Duration** de **&lt;dataCollectorSet/&gt;** dans l’exemple pré
 
 ### <a name="collect-registry-data"></a>Collecter les données du Registre
 
-Vous pouvez collecter des données de Registre à partir des ruches de Registre suivantes:
+Vous pouvez collecter des données de Registre à partir des ruches de Registre suivantes :
 
-* RACINE\_DES\_CLASSES HKEY
+* CLASSES HKEY\_\_racine
 
-* Configuration\_de\_HKEY CURrenT
+* CONFIGURATION de la\_actuelle HKEY\_
 
-* HKEY\_CURrenT\_User
+* HKEY\_l’utilisateur actuel\_
 
-* HKEY\_LOCAL\_MACHINE
+* MACHINE\_locale HKEY\_
 
-* HKEY\_, UTILISATEURS
+* UTILISATEURS HKEY\_
 
-Pour collecter un paramètre du Registre, spécifiez le chemin d’accès complet du nom de la valeur: HKEY\_local\_machineMyKey\\MyValue\\
+Pour collecter un paramètre du Registre, spécifiez le chemin d’accès complet du nom de la valeur : HKEY\_LOCAL\_MACHINE\\MyKey\\MyValue
 
-Pour collecter tous les paramètres sous une clé de Registre, spécifiez le chemin d’accès complet à la clé de Registre: HKEY\_\_ordinateurlocal\\MyKey\\
+Pour collecter tous les paramètres sous une clé de Registre, spécifiez le chemin d’accès complet à la clé de Registre : HKEY\_LOCAL\_MACHINE\\MyKey\\
 
-Pour collecter toutes les valeurs sous une clé de Registre et ses sous-clés (PLA collecte de manière récursive les données du registre), utilisez deux barres obliques inverses pour le dernier délimiteur de chemin d’accès: HKEY\_\_ordinateurlocal\\MyKey\\\\
+Pour collecter toutes les valeurs sous une clé de Registre et ses sous-clés (PLA collecte de manière récursive les données du registre), utilisez deux barres obliques inverses pour le dernier délimiteur de chemin d’accès : HKEY\_LOCAL\_ordinateur\\MyKey\\\\
 
-Pour collecter des informations de Registre à partir d’un ordinateur distant, incluez le nom de l’ordinateur au début du chemin d’accès au registre: HKEY\_local\_machineMyKey\\MyValue\\
+Pour collecter des informations de Registre à partir d’un ordinateur distant, incluez le nom de l’ordinateur au début du chemin d’accès au registre : HKEY\_LOCAL\_MACHINE\\MyKey\\MyValue
 
-Par exemple, vous pouvez avoir une clé de Registre qui se présente comme suit:
+Par exemple, vous pouvez avoir une clé de Registre qui se présente comme suit :
 
 ``` syntax
 Windows registry editor version 5.00
@@ -242,13 +242,13 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\db31
 "DCSettingIndex"=dword:0000001e
 ```
 
-Exemple 1 : Retourne uniquement les PowerSchemes actifs et leurs valeurs:
+Exemple 1 : retourner uniquement les PowerSchemes actifs et leurs valeurs :
 
 ``` syntax
 <registryKey>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes</registryKey>
 ```
 
-Exemple 2 : Retourne toutes les paires clé/valeur sous ce chemin d’accès:
+Exemple 2 : retourne toutes les paires clé/valeur sous ce chemin d’accès :
 
 > [!NOTE]
 > PLA s’exécute sous les informations d’identification de l’utilisateur. Certaines clés de Registre requièrent des informations d’identification d’administration. L’énumération s’arrête lorsqu’elle ne parvient pas à accéder aux sous-clés.
@@ -257,7 +257,7 @@ Exemple 2 : Retourne toutes les paires clé/valeur sous ce chemin d’accès:
 <registryKey>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\\</registryKey>
 ```
 
-Toutes les données collectées seront importées dans une table temporaire appelée  **\#registryKeys** avant l’exécution d’un script de rapport SQL. Le tableau suivant présente les résultats de l’exemple 2:
+Toutes les données collectées seront importées dans une table temporaire appelée **\#registryKeys** avant l’exécution d’un script de rapport SQL. Le tableau suivant présente les résultats de l’exemple 2 :
 
 KeyName | KeytypeId | Value
 ------ | ----- | -------
@@ -267,7 +267,7 @@ HKEY_LOCAL_MACHINE. ..\PowerSchemes | 1 | db310065-829b-4671-9647-2261c00e86ef
 ...\6738e2c4-e8a5-4a42-b16a-e040e769756e\ACSettingIndex | 4 | 180
 ...\6738e2c4-e8a5-4a42-b16a-e040e769756e\DCSettingIndex | 4 | 30
 
-Le schéma de la table **#registryKeys** est le suivant:
+Le schéma de la table **#registryKeys** est le suivant :
 
 Nom de la colonne | Type de données SQL | Description
 -------- | -------- | --------
@@ -275,16 +275,16 @@ KeyName | Nvarchar (300) non NULL | Nom du chemin d’accès complet de la clé 
 KeytypeId | Smallint n’est pas NULL | ID de type interne
 Value | Nvarchar (4000) non NULL | Toutes les valeurs
 
-La colonne **KeytypeID** peut avoir l’un des types suivants:
+La colonne **KeytypeID** peut avoir l’un des types suivants :
 
-ID | type
+ID | Tapez
 --- | ---
-1 | String
+1 | Chaîne
 2 | expandString
-3 | Binary
+3 | Binaire
 4 | DWord
-5\. | DWordBigEndian
-6\. | Lien
+5 | DWordBigEndian
+6 | Lier
 7 | MultipleString
 8 | Resourcelist
 9 | FullResourceDescriptor
@@ -293,49 +293,49 @@ ID | type
 
 ### <a name="collect-wmi"></a>Collecter WMI
 
-Vous pouvez ajouter n’importe quelle requête WMI. Pour plus d’informations sur l’écriture de requêtes WMI, consultez [WQL (SQL pour WMI)](https://msdn.microsoft.com/library/windows/desktop/aa394606.aspx). L’exemple suivant interroge l’emplacement d’un fichier d’échange:
+Vous pouvez ajouter n’importe quelle requête WMI. Pour plus d’informations sur l’écriture de requêtes WMI, consultez [WQL (SQL pour WMI)](https://msdn.microsoft.com/library/windows/desktop/aa394606.aspx). L’exemple suivant interroge l’emplacement d’un fichier d’échange :
 
 ``` syntax
 <path>Root\Cimv2:select * FROM Win32_PageFileUsage</path>
 ```
 
-La requête de l’exemple ci-dessus retourne un enregistrement:
+La requête de l’exemple ci-dessus retourne un enregistrement :
 
 Caption | Nom | PeakUsage
 ----- | ----- | -----
 C:\pagefile.sys | C:\pagefile.sys | 215
 
-Étant donné que WMI retourne une table avec des colonnes différentes, lorsque les données collectées sont importées dans une base de données, SPA effectue la normalisation des données et est ajouté aux tables suivantes:
+Étant donné que WMI retourne une table avec des colonnes différentes, lorsque les données collectées sont importées dans une base de données, SPA effectue la normalisation des données et est ajouté aux tables suivantes :
 
-**\#Table WMIObjects**
+**\#table WMIObjects**
 
-SequenceID | Espace de noms | NomClasse | RelativePath | WmiqueryID
+SequenceID | Espace de noms | ClassName | RelativePath | WmiqueryID
 ----- | ----- | ----- | ----- | -----
-10 | Root\Cimv2 | Win32_PageFileUsage | Win32_PageFileUsage. Name =<br>C:\\pagefile. sys | 1
+10 | Root\Cimv2 | Win32_PageFileUsage | Win32_PageFileUsage. Name =<br>C :\\pagefile. sys | 1
 
-**\#Table WmiObjectsProperties**
-
-ID | requête
---- | ---
-1 | Root\Cimv2: SELECT * FROM Win32_PageFileUsage
-
-**\#Table WmiQueries**
+**\#table WmiObjectsProperties**
 
 ID | requête
 --- | ---
-1 | Root\Cimv2: SELECT * FROM Win32_PageFileUsage
+1 | Root\Cimv2 : SELECT * FROM Win32_PageFileUsage
 
-**\#Schéma de la table WmiObjects**
+**\#table WmiQueries**
+
+ID | requête
+--- | ---
+1 | Root\Cimv2 : SELECT * FROM Win32_PageFileUsage
+
+**\#le schéma de la table WmiObjects**
 
 Nom de la colonne | Type de données SQL | Description
 --- | --- | ---
 SequenceId | Int non NULL | Mettre en corrélation la ligne et ses propriétés
 Espace de noms | Nvarchar (200) non NULL | Espace de noms WMI
-NomClasse | Nvarchar (200) non NULL | Nom de classe WMI
+ClassName | Nvarchar (200) non NULL | Nom de classe WMI
 RelativePath | Nvarchar (500) non NULL | Chemin d’accès relatif WMI
 WmiqueryId | Int non NULL | Mettre en corrélation la clé de #WmiQueries
 
-**\#Schéma de la table WmiObjectProperties**
+**\#le schéma de la table WmiObjectProperties**
 
 Nom de la colonne | Type de données SQL | Description
 --- | --- | ---
@@ -343,7 +343,7 @@ SequenceId | Int non NULL | Mettre en corrélation la ligne et ses propriétés
 Nom | Nvarchar (1000) non NULL | Nom de la propriété
 Value | Nvarchar (4000) NULL | Valeur de la propriété actuelle
 
-**\#Schéma de la table WmiQueries**
+**\#le schéma de la table WmiQueries**
 
 Nom de la colonne | Type de données SQL | Description
 --- | --- | ---
@@ -352,7 +352,7 @@ requête | Nvarchar (4000) non NULL | Chaîne de requête d’origine dans les m
 
 ### <a name="collect-performance-counters"></a>Collecter les compteurs de performances
 
-Voici un exemple de collecte d’un compteur de performances:
+Voici un exemple de collecte d’un compteur de performances :
 
 ``` syntax
 <performanceCounters interval="1">
@@ -362,33 +362,33 @@ Voici un exemple de collecte d’un compteur de performances:
 
 L’attribut **Interval** est un paramètre global requis pour tous les compteurs de performance. Il définit l’intervalle (l’unité de temps est de secondes) de la collecte des données de performances.
 
-Dans l’exemple précédent, Counter \\PhysicalDisk (\*)\\AVG. Disque s/transfert sera interrogé chaque seconde.
+Dans l’exemple précédent, le compteur \\PhysicalDisk (\*)\\moyenne disque s/transfert est interrogé chaque seconde.
 
-Il peut y avoir deux instances: Total et 0**C:  **\_** D:** , et la sortie peut être la suivante:
+Il peut y avoir deux instances : **\_total** et **0 C : D :** , et la sortie peut être la suivante :
 
-timestamp | NomCatégorie | CounterName | Valeur de l’instance de _ total | Valeur de l’instance de 0 C: D:
+timestamp | NomCatégorie | CounterName | Valeur d’instance de _Total | Valeur de l’instance de 0 C : D :
 ---- | ---- | ---- | ---- | ----
-13:45:52.630 | PhysicalDisk | Avg. Disk sec/Transfer | 0.00100008362473995 |0.00100008362473995
-13:45:53.629 | PhysicalDisk | Avg. Disk sec/Transfer | 0.00280023414927187 | 0.00280023414927187
-13:45:54.627 | PhysicalDisk | Avg. Disk sec/Transfer | 0.00385999853230048 | 0.00385999853230048
-13:45:55.626 | PhysicalDisk | Avg. Disk sec/Transfer | 0.000933297607934224 | 0.000933297607934224
+13:45:52.630 | PhysicalDisk | Moyenne disque s/transfert | 0.00100008362473995 |0.00100008362473995
+13:45:53.629 | PhysicalDisk | Moyenne disque s/transfert | 0.00280023414927187 | 0.00280023414927187
+13:45:54.627 | PhysicalDisk | Moyenne disque s/transfert | 0.00385999853230048 | 0.00385999853230048
+13:45:55.626 | PhysicalDisk | Moyenne disque s/transfert | 0.000933297607934224 | 0.000933297607934224
 
-Pour importer les données dans la base de données, les données sont normalisées dans une table appelée  **\#PerformanceCounters**.
+Pour importer les données dans la base de données, les données sont normalisées dans une table appelée **\#PerformanceCounters**.
 
 CategoryDisplayName | InstanceName | CounterdisplayName | Value
 ---- | ---- | ---- | ----
-PhysicalDisk | _ Total | Avg. Disk sec/Transfer | 0.00100008362473995
-PhysicalDisk | 0 C: D: | Avg. Disk sec/Transfer | 0.00100008362473995
-PhysicalDisk | _ Total | Avg. Disk sec/Transfer | 0.00280023414927187
-PhysicalDisk | 0 C: D: | Avg. Disk sec/Transfer | 0.00280023414927187
-PhysicalDisk | _ Total | Avg. Disk sec/Transfer | 0.00385999853230048
-PhysicalDisk | 0 C: D: | Avg. Disk sec/Transfer | 0.00385999853230048
-PhysicalDisk | _ Total | Avg. Disk sec/Transfer | 0.000933297607934224
-PhysicalDisk | 0 C: D: | Avg. Disk sec/Transfer | 0.000933297607934224
+PhysicalDisk | _Total | Moyenne disque s/transfert | 0.00100008362473995
+PhysicalDisk | 0 C : D : | Moyenne disque s/transfert | 0.00100008362473995
+PhysicalDisk | _Total | Moyenne disque s/transfert | 0.00280023414927187
+PhysicalDisk | 0 C : D : | Moyenne disque s/transfert | 0.00280023414927187
+PhysicalDisk | _Total | Moyenne disque s/transfert | 0.00385999853230048
+PhysicalDisk | 0 C : D : | Moyenne disque s/transfert | 0.00385999853230048
+PhysicalDisk | _Total | Moyenne disque s/transfert | 0.000933297607934224
+PhysicalDisk | 0 C : D : | Moyenne disque s/transfert | 0.000933297607934224
 
 **Remarque** Les noms localisés, tels que **CategoryDisplayName** et **CounterdisplayName**, varient en fonction de la langue d’affichage utilisée sur le serveur cible. Évitez d’utiliser ces champs si vous souhaitez créer un Advisor Pack indépendant de la langue.
 
-Schéma de la table PerformanceCounters  **\#**
+**\#** le schéma de la table PerformanceCounters
 
 Nom de la colonne | Type de données SQL | Description
 ---- | ---- | ---- | ----
@@ -402,9 +402,9 @@ Value | Float NOT NULL | Valeur collectée
 
 ### <a name="collect-files"></a>Collecter des fichiers
 
-Les chemins d’accès peuvent être absolus ou relatifs. Le nom de fichier peut inclure le caractère générique\*() et le point d’interrogation (?). Par exemple, pour collecter tous les fichiers dans le dossier temporaire, vous pouvez spécifier c:\\Temp\\\*. Le caractère générique s’applique aux fichiers dans le dossier spécifié.
+Les chemins d’accès peuvent être absolus ou relatifs. Le nom de fichier peut inclure le caractère générique (\*) et le point d’interrogation ( ?). Par exemple, pour collecter tous les fichiers dans le dossier temporaire, vous pouvez spécifier c :\\Temp\\\*. Le caractère générique s’applique aux fichiers dans le dossier spécifié.
 
-Si vous souhaitez également collecter des fichiers à partir des sous-dossiers du dossier spécifié, utilisez deux barres obliques inverses pour le dernier délimiteur de dossier\\,\\par exemple, c: Temp\\.\*
+Si vous souhaitez également collecter des fichiers à partir des sous-dossiers du dossier spécifié, utilisez deux barres obliques inverses pour le dernier délimiteur de dossier, par exemple c :\\Temp\\\\\*.
 
 Voici un exemple qui interroge le fichier **ApplicationHost. config** :
 
@@ -412,13 +412,13 @@ Voici un exemple qui interroge le fichier **ApplicationHost. config** :
 <path>%windir%\System32\inetsrv\config\applicationHost.config</path>
 ```
 
-Les résultats se trouvent dans une table appelée  **\#Files**, par exemple:
+Les résultats se trouvent dans une table appelée **fichiers\#** , par exemple :
 
-querypath | FullPath | ParentPath | FileName | Contenu
+querypath | FullPath | ParentPath | FileName | Content
 ----- | ----- | ----- | ----- | -----
 % windir%\... \applicationHost.config |C:\Windows<br>\... \applicationHost.config | C:\Windows<br>\... \Config | applicationHost. confi | 0x3C3F78
 
-**\#Schéma de la table Files**
+**schéma de la table de fichiers \#**
 
 Nom de la colonne | Type de données SQL | Description
 ---- | ---- | ----
@@ -426,13 +426,13 @@ querypath | Nvarchar (300) non NULL | Instruction de la requête d’origine
 FullPath | Nvarchar (300) non NULL | Chemin d’accès et nom de fichier absolus
 ParentPath | Nvarchar (300) non NULL | Chemin d’accès au fichier
 FileName | Nvarchar (300) non NULL | Nom du fichier
-Contenu | Varbinary (MAX) NULL | Contenu de fichier en binaire
+Content | Varbinary (MAX) NULL | Contenu de fichier en binaire
 
 ### <a name="defining-rules"></a>Définition des règles
 
 Une fois que suffisamment de données ont été collectées à l’aide de PLA à partir d’un serveur cible, Advisor Pack peut utiliser ces données pour la validation et afficher un résumé rapide pour les administrateurs système.
 
-Les règles offrent une vue d’ensemble rapide des performances du serveur. Ils mettent en évidence les problèmes et fournissent des recommandations. Vous pouvez répertorier toutes les règles que vous souhaitez valider pour un Advisor Pack. Par exemple, si vous souhaitez développer un système d’exploitation principal, les règles possibles sont les suivantes:
+Les règles offrent une vue d’ensemble rapide des performances du serveur. Ils mettent en évidence les problèmes et fournissent des recommandations. Vous pouvez répertorier toutes les règles que vous souhaitez valider pour un Advisor Pack. Par exemple, si vous souhaitez développer un système d’exploitation principal, les règles possibles sont les suivantes :
 
 * Si le mode d’alimentation de l’UC est l’économie d’énergie
 
@@ -440,13 +440,13 @@ Les règles offrent une vue d’ensemble rapide des performances du serveur. Ils
 
 * Indique s’il y a une pression d’e/s disque
 
-Les règles contiennent les éléments suivants:
+Les règles contiennent les éléments suivants :
 
 * Seuil dépendant (partie configurable d’une règle)
 
 * Définition de règle (alertes et recommandations)
 
-Voici un exemple de règle simple:
+Voici un exemple de règle simple :
 
 ``` syntax
 <advisorPack>
@@ -483,7 +483,7 @@ Un seuil peut être partagé entre les règles.
 
 La définition de règle n’implique aucun calcul logique. Il définit la manière dont l’interface utilisateur peut s’afficher et la façon dont le script de rapport SQL Server communique les résultats à l’interface utilisateur.
 
-Une règle se compose de trois parties:
+Une règle se compose de trois parties :
 
 * Alerte (légende de règle)
 
@@ -491,7 +491,7 @@ Une règle se compose de trois parties:
 
 * Seuil associé (informations facultatives sur les dépendances)
 
-Voici un exemple de règle:
+Voici un exemple de règle :
 
 ``` syntax
 <rule name="freediskSize" caption="Free Disk Size on System Drive" description="This rule checks free disk size on system drive ">
@@ -508,7 +508,7 @@ Vous pouvez définir autant de conseils que vous le souhaitez, et vous définire
 
 Vous pouvez créer un lien vers autant de seuils que vous le souhaitez. Vous pouvez même établir un lien vers un seuil qui n’est pas pertinent pour la règle actuelle. La liaison permet à la console SPA de gérer facilement les seuils.
 
-Le nom de la règle et les recommandations sont des clés et sont uniques dans leur portée. Deux règles ne peuvent pas porter le même nom, et deux recommandations au sein d’une règle peuvent avoir le même nom. Ces noms sont très importants lorsque vous écrivez un rapport de script SQL. Vous pouvez appeler le \[dbo\].\[ API\] SetNotification pour définir l’état de la règle.
+Le nom de la règle et les recommandations sont des clés et sont uniques dans leur portée. Deux règles ne peuvent pas porter le même nom, et deux recommandations au sein d’une règle peuvent avoir le même nom. Ces noms sont très importants lorsque vous écrivez un rapport de script SQL. Vous pouvez appeler le \[dbo\].\[l’API SetNotification\] pour définir l’état de la règle.
 
 ### <a name="defining-ui-display-elements"></a>Définition des éléments d’affichage de l’interface utilisateur
 
@@ -530,7 +530,7 @@ Disque | Taille de disque libre (Go) | Taille totale (Go)
 
 Dans un pack Advisor, il peut y avoir de nombreuses tables (groupes de valeurs uniques et tables de valeurs de liste). Nous pouvons utiliser une section pour organiser et classer ces tables.
 
-En résumé, il existe trois types d’éléments d’interface utilisateur:
+En résumé, il existe trois types d’éléments d’interface utilisateur :
 
 * [Sections](#bkmk-ui-section)
 
@@ -538,7 +538,7 @@ En résumé, il existe trois types d’éléments d’interface utilisateur:
 
 * [tables de valeurs de liste](#bkmk-ui-lvt)
 
-Voici un exemple qui montre les éléments d’interface utilisateur:
+Voici un exemple qui montre les éléments d’interface utilisateur :
 
 ``` syntax
 <advisorPack>
@@ -574,7 +574,7 @@ Voici un exemple de section de niveau supérieur.
 
 Un nom de section doit être unique. Elle est utilisée en tant que clé qui peut être liée à d’autres sections, à des groupes à valeur unique et à des tables de valeurs de liste.
 
-L’exemple suivant a un attribut, **parent**, et pointe vers la section CPU. CPUFacts est un enfant de la section nommée UC. le **parent** doit faire référence à un nom de section précédent; dans le cas contraire, elle peut entraîner une boucle.
+L’exemple suivant a un attribut, **parent**, et pointe vers la section CPU. CPUFacts est un enfant de la section nommée UC. le **parent** doit faire référence à un nom de section précédent ; dans le cas contraire, elle peut entraîner une boucle.
 
 ``` syntax
 <section name="CPUFacts" caption="Facts" parent="CPU"/>
@@ -586,11 +586,11 @@ Le groupe à valeur unique suivant a un attribut, **section**et peut pointer ver
 <singleValue name="CPUInformation" section="CPUFacts" caption="Physical CPU Information"> </singleValue>
 ```
 
-### <a name="data-types"></a>Types de données
+### <a name="data-types"></a>Type de données
 
 Un groupe de valeurs unique et une table de valeurs de liste contiennent des types de données différents, tels que String, int et float. Étant donné que ces valeurs sont stockées dans la base de données SQL Server, vous pouvez définir un type de données SQL pour chaque propriété de données. Toutefois, la définition d’un type de données SQL est très complexe. Vous devez spécifier la longueur ou la précision, qui peut être sujette à modification.
 
-Pour définir des types de données logiques, vous pouvez utiliser le premier enfant de  **&lt;fichier ReportDefinition/&gt;** , qui vous permet de définir un mappage du type de données SQL et de votre type logique.
+Pour définir des types de données logiques, vous pouvez utiliser le premier enfant de **&lt;fichier ReportDefinition/&gt;** , où vous pouvez définir un mappage du type de données SQL et de votre type logique.
 
 L’exemple suivant définit deux types de données. L’une est **String** et l’autre est **companyCode**.
 
@@ -599,7 +599,7 @@ L’exemple suivant définit deux types de données. L’une est **String** et l
 <datatype name="companyCode" sqltype="nvarchar(100)" />
 ```
 
-Un nom de type de données peut être n’importe quelle chaîne valide. Voici une liste de types de données SQL autorisés:
+Un nom de type de données peut être n’importe quelle chaîne valide. Voici une liste de types de données SQL autorisés :
 
 * bigint
 
@@ -611,7 +611,7 @@ Un nom de type de données peut être n’importe quelle chaîne valide. Voici u
 
 * date
 
-* datetime
+* DateHeure
 
 * datetime2
 
@@ -619,9 +619,9 @@ Un nom de type de données peut être n’importe quelle chaîne valide. Voici u
 
 * décimal
 
-* float
+* flottant
 
-* int
+* entier
 
 * money
 
@@ -631,7 +631,7 @@ Un nom de type de données peut être n’importe quelle chaîne valide. Voici u
 
 * nvarchar
 
-* real
+* réels
 
 * smalldatetime
 
@@ -639,7 +639,7 @@ Un nom de type de données peut être n’importe quelle chaîne valide. Voici u
 
 * smallmoney
 
-* time
+* heure
 
 * tinyint
 
@@ -669,17 +669,17 @@ Une valeur unique doit avoir un attribut de nom unique global. Dans cet exemple,
 
 Bien que vous puissiez définir plusieurs groupes à valeur unique, deux noms à valeur unique ne peuvent pas être identiques, même s’ils se trouvent dans des groupes différents. Le nom de la valeur unique est utilisé par le rapport de script SQL pour définir la valeur en conséquence.
 
-Vous pouvez définir un type de données pour chaque valeur unique. L’entrée autorisée pour le **type** est définie dans  **&lt;DataType&gt;/** . Le rapport final peut se présenter comme suit:
+Vous pouvez définir un type de données pour chaque valeur unique. L’entrée autorisée pour le **type** est définie dans **&lt;type de données/&gt;** . Le rapport final peut se présenter comme suit :
 
-**Analytique**
+**Faits**
 
 Nom | Value
 --- | ---
 Système d’exploitation | &lt;_une valeur sera définie par le script de rapport_&gt;
-Version du SE | &lt;_une valeur sera définie par le script de rapport_&gt;
+Version du système d'exploitation | &lt;_une valeur sera définie par le script de rapport_&gt;
 Emplacement du système d’exploitation | &lt;_une valeur sera définie par le script de rapport_&gt;
 
-L’attribut **Caption** de **&lt;value/&gt;** est présenté dans la première colonne. Les valeurs de la colonne valeur sont définies à l’avenir par le rapport de \[script\]via\[ dbo. SetSingleValue\]. L’attribut **Description** de **&lt;value/&gt;** est affiché dans une info-bulle. En général, l’info-bulle montre aux utilisateurs la source des données. Pour plus d’informations sur les info-bulles, consultez [info-bulles](#bkmk-tooltips).
+L’attribut **Caption** de **&lt;valeur/&gt;** est présenté dans la première colonne. Les valeurs de la colonne valeur sont définies à l’avenir par le rapport de script via \[\]dbo.\[\]SetSingleValue. L’attribut **Description** de **&lt;valeur/&gt;** est affiché dans une info-bulle. En général, l’info-bulle montre aux utilisateurs la source des données. Pour plus d’informations sur les info-bulles, consultez [info-bulles](#bkmk-tooltips).
 
 ### <a href="" id="bkmk-ui-lvt"></a>tables de valeurs de liste
 
@@ -697,21 +697,21 @@ La définition d’une valeur de liste est identique à la définition d’une t
 
 Le nom de la valeur de liste doit être globalement unique. Ce nom devient le nom d’une table temporaire. Dans l’exemple précédent, la table nommée \#NetworkAdapterInformation est créée lors de l’étape d’initialisation de l’environnement d’exécution, qui contient toutes les colonnes décrites. Semblable à un nom de valeur unique, un nom de valeur de liste est également utilisé dans le nom de la vue personnalisée, par exemple vwNetworkAdapterInformation.
 
-@typede &lt;column/&gt; est défini par &lt;DataType/&gt;
+@type de &lt;colonne/&gt; est définie par &lt;type de données/&gt;
 
-L’interface utilisateur factice du rapport final peut se présenter comme suit:
+L’interface utilisateur factice du rapport final peut se présenter comme suit :
 
 **Informations sur la carte réseau physique**
 
-ID | Name | type | Vitesse (Mbits/s) | Adresse MAC
+ID | Nom | Tapez | Vitesse (Mbits/s) | Adresse MAC
 --- | --- | --- | --- | ---
  | <br> | | |
  | | | |
 
 
-L' **attribut caption** de &lt;column/&gt; est affiché sous la forme d’un nom de colonne et l' &lt;attribut **Description** de column/&gt; est affiché sous la forme d’une info-bulle pour l’en-tête de colonne correspondant. En général, l’info-bulle montre à l’utilisateur la source des données. Pour plus d’informations, consultez [info-bulles](#bkmk-tooltips).
+L’attribut **Caption** de &lt;column/&gt; est affiché sous la forme d’un nom de colonne, et l’attribut **Description** de &lt;Column/&gt; est affiché sous la forme d’une info-bulle pour l’en-tête de colonne correspondant. En général, l’info-bulle montre à l’utilisateur la source des données. Pour plus d’informations, consultez [info-bulles](#bkmk-tooltips).
 
-Dans certains cas, une table peut comporter un grand nombre de colonnes et seulement quelques lignes. par conséquent, le remplacement des colonnes et des lignes rendra la table plus performante. Pour permuter les colonnes et les lignes, vous pouvez ajouter l’attribut de style suivant:
+Dans certains cas, une table peut comporter un grand nombre de colonnes et seulement quelques lignes. par conséquent, le remplacement des colonnes et des lignes rendra la table plus performante. Pour permuter les colonnes et les lignes, vous pouvez ajouter l’attribut de style suivant :
 
 ``` syntax
 <listValue style="Transpose"  
@@ -719,7 +719,7 @@ Dans certains cas, une table peut comporter un grand nombre de colonnes et seule
 
 ### <a name="defining-charting-elements"></a>Définition des éléments de graphique
 
-Vous pouvez choisir n’importe quelle clé de statistiques et afficher les valeurs dans un graphique d’historique ou un graphique de tendances. Il existe deux types de statistiques:
+Vous pouvez choisir n’importe quelle clé de statistiques et afficher les valeurs dans un graphique d’historique ou un graphique de tendances. Il existe deux types de statistiques :
 
 * **Statistiques statiques** Valeur unique, connue au moment de la conception. Par exemple, l’espace disque libre sur un lecteur système serait une statistique statique.
 
@@ -731,7 +731,7 @@ SPA utilise un groupe de valeurs unique pour prendre en charge les statistiques 
 
 ### <a name="static-statistics"></a>Statistiques statiques
 
-Comme mentionné précédemment, une statistique statique est une valeur unique. Logiquement, toute valeur unique peut être définie en tant que Statistique statique. Toutefois, il est inutile d’afficher une valeur unique qui ne peut pas être convertie en un type nombre. Pour définir une statistique statique, vous pouvez simplement ajouter l’attribut **trendable** à la clé de valeur unique correspondante, comme indiqué ci-dessous:
+Comme mentionné précédemment, une statistique statique est une valeur unique. Logiquement, toute valeur unique peut être définie en tant que Statistique statique. Toutefois, il est inutile d’afficher une valeur unique qui ne peut pas être convertie en un type nombre. Pour définir une statistique statique, vous pouvez simplement ajouter l’attribut **trendable** à la clé de valeur unique correspondante, comme indiqué ci-dessous :
 
 ``` syntax
 <value name="freediskSize" type="int" trendable="true"  
@@ -756,7 +756,7 @@ Les valeurs des statistiques sont stockées dans des colonnes de **valeur** .
 
 Les colonnes d' **information** sont semblables aux colonnes ordinaires dans les tables de valeurs de liste normale. **Informatif** est le type de colonne par défaut si vous n’en spécifiez pas un. Ces colonnes n’affectent pas le nombre de clés de statistiques ou ne participent pas aux calculs relatifs aux statistiques.
 
-Dans l’exemple précédent, si un serveur a deux cœurs d’UC, le résultat dans la table peut se présenter comme suit:
+Dans l’exemple précédent, si un serveur a deux cœurs d’UC, le résultat dans la table peut se présenter comme suit :
 
 CpuId | AverageCpuUsage
 :---: | :---:
@@ -769,16 +769,16 @@ L’exemple suivant indique que plusieurs colonnes de **valeurs** avec plusieurs
 
 CounterName | InstanceName | Moyenne | Sum
 --- | :---: | :---: | :---:
-% temps processeur | _ Total | 10 | 20
+% temps processeur | _Total | 10 | 20
 % temps processeur | PROCESSEUR | 20 | 30 
 
-Dans cet exemple, vous avez deux colonnes **clés** et deux colonnes de **valeur** . SPA génère deux clés de statistiques pour la colonne moyenne et deux autres clés pour la colonne Sum. Les clés des statistiques sont les suivantes:
+Dans cet exemple, vous avez deux colonnes **clés** et deux colonnes de **valeur** . SPA génère deux clés de statistiques pour la colonne moyenne et deux autres clés pour la colonne Sum. Les clés des statistiques sont les suivantes :
 
 * CounterName (% temps processeur)/nom_instance (\_total)/moyenne
 
 * CounterName (% temps processeur)/nom_instance (CPU0)/moyenne
 
-* CounterName (% temps processeur)/nom_instance (\_total)/somme
+* CounterName (% temps processeur)/nom_instance (\_total)/Sum
 
 * CounterName (% temps processeur)/nom_instance (CPU0)/somme
 
@@ -786,7 +786,7 @@ CounterName et InstanceName sont combinés comme une clé. La clé combinée ne 
 
 SPA génère de nombreuses clés de statistiques. Certaines d’entre elles peuvent ne pas être intéressantes pour vous, et vous pouvez les masquer dans l’interface utilisateur. SPA permet aux développeurs de créer un filtre pour afficher uniquement les clés de statistiques utiles.
 
-pour l’exemple précédent, les administrateurs système peuvent uniquement être intéressés par les clés dans lesquelles InstanceName est \_total ou CPU1. Le filtre peut être défini comme suit:
+pour l’exemple précédent, les administrateurs système peuvent uniquement être intéressés par les clés dans lesquelles InstanceName est \_total ou CPU1. Le filtre peut être défini comme suit :
 
 ``` syntax
 <listValue name="CpuPerformance">
@@ -802,19 +802,19 @@ pour l’exemple précédent, les administrateurs système peuvent uniquement ê
 </listValue>
 ```
 
-**trendableKeyValues/peut&gt; être défini sous n’importe quelle colonne clé. &lt;** Si plusieurs colonnes clés ont un tel filtre configuré et que la logique est appliquée.
+**&lt;trendableKeyValues/&gt;** peut être défini sous n’importe quelle colonne clé. Si plusieurs colonnes clés ont un tel filtre configuré et que la logique est appliquée.
 
 ### <a name="developing-report-scripts"></a>Développement de scripts de rapport
 
 Une fois les métadonnées de configuration définies, nous pouvons commencer à écrire le script de rapport, qui est une procédure stockée T-SQL.
 
-Il existe des attributs **Name** et **reportScript** dans l’en-tête de métadonnées provision, comme illustré ici:
+Il existe des attributs **Name** et **reportScript** dans l’en-tête de métadonnées provision, comme illustré ici :
 
 ``` syntax
 <advisorPack name="Microsoft.ServerPerformanceAdvisor.CoreOS.V1" reportScript="ReportScript"  
 ```
 
-Le principal script de rapport est nommé en combinant les attributs **Name** et **reportScript** . Dans l’exemple suivant, il s’agira \[de Microsoft. ServerPerformanceAdvisor. coreos. v2.\[ \] ReportScript\].
+Le principal script de rapport est nommé en combinant les attributs **Name** et **reportScript** . Dans l’exemple suivant, il sera \[Microsoft. ServerPerformanceAdvisor. Coreos. v2\].\[\]ReportScript.
 
 ``` syntax
 create PROCEDURE [Microsoft.ServerPerformanceAdvisor.CoreOS.V2].[ReportScript] AS SET NOCOUNT ON
@@ -826,7 +826,7 @@ create PROCEDURE [Microsoft.ServerPerformanceAdvisor.CoreOS.V2].[ReportScript] A
 
 L’attribut **Name** sera utilisé comme nom de schéma de base de données, tel qu’un espace de noms. Cette règle s’applique à tous les autres objets de base de données qui appartiennent à l’Advisor Pack actuel, tels que la valeur de liste et les procédures stockées.
 
-Les avantages de l’utilisation de ce nom de schéma devant les objets de base de données sont les suivants:
+Les avantages de l’utilisation de ce nom de schéma devant les objets de base de données sont les suivants :
 
 * Éviter les conflits de noms pour différents packs d’Advisor
 
@@ -834,7 +834,7 @@ Les avantages de l’utilisation de ce nom de schéma devant les objets de base 
 
 Dans la base de données SQL Server, le nom de schéma par défaut est **dbo**. Les informations d’identification du propriétaire de la base de données sont généralement requises pour utiliser les objets de base de données sous **dbo**. Si nous ne créons pas de schéma pour chaque Advisor Pack, il est probable que deux packs d’Advisor définissent une valeur de liste portant le même nom. Cela ne devrait pas être sans importance, car vous pouvez introduire un nom de schéma pour résoudre ce problème. En outre, l’annulation de l’approvisionnement d’un Advisor Pack est beaucoup plus facile. Étant donné que l’objet Advisor Pack appartient à un schéma autre que **dbo**, cela permet à Spa d’utiliser un privilège utilisateur inférieur pour y accéder.
 
-Un script de rapport normal effectue les opérations suivantes:
+Un script de rapport normal effectue les opérations suivantes :
 
 * Accède aux données brutes collectées
 
@@ -848,7 +848,7 @@ Un script de rapport normal effectue les opérations suivantes:
 
 Toutes les données collectées sont importées dans les tables correspondantes suivantes. Pour plus d’informations sur le schéma de table, consultez [définition de l’ensemble de collecteurs de données](#bkmk-definedatacollector).
 
-* du
+* registry
 
     * \#registryKeys
 
@@ -860,33 +860,33 @@ Toutes les données collectées sont importées dans les tables correspondantes 
 
     * \#WmiQueries
 
-* Compteur de performances
+* Compteur de performance
 
     * \#PerformanceCounters
 
-* Fichier
+* File
 
-    * \#Fichiers
+    * Fichiers \#
 
 * ETW
 
-    * \#Événements
+    * Événements de \#
 
     * \#EventProperties
 
 ### <a name="set-rule-status"></a>Définir l’état de la règle
 
-\[Dbo.\]\[ L'\] API SetNotification définit l’état de la règle, ce qui signifie que vous pouvez voir une icône de **réussite** ou d' **Avertissement** dans l’interface utilisateur.
+\]dbo \[.\[API SetNotification\] définit l’état de la règle, de sorte que vous pouvez voir une icône de **réussite** ou d' **Avertissement** dans l’interface utilisateur.
 
-* @ruleNamenvarchar (50)
+* @ruleName nvarchar (50)
 
-* @adviceNamenvarchar (50)
+* @adviceName nvarchar (50)
 
 Les messages d’alerte et de recommandation sont stockés dans le fichier XML des métadonnées de mise en service. Cela rend le script de rapport plus facile à gérer.
 
 Initialement, chaque État de règle est N/A. Vous pouvez utiliser cette API pour définir l’état d’une règle en spécifiant un nom de Conseil. Le niveau du nom du Conseil sera utilisé comme état de la règle.
 
-Rappelez-vous que nous avons défini précédemment la règle suivante:
+Rappelez-vous que nous avons défini précédemment la règle suivante :
 
 ``` syntax
 <rule name="freediskSize" caption="Free Disk Size on System Drive" description="This rule checks free disk size on the system drive ">
@@ -895,7 +895,7 @@ Rappelez-vous que nous avons défini précédemment la règle suivante:
 </rule>
 ```
 
-En supposant que l’espace libre est inférieur à 2 Go, nous avons besoin de définir la règle sur le niveau d' **Avertissement** . Le script SQL se présente comme suit:
+En supposant que l’espace libre est inférieur à 2 Go, nous avons besoin de définir la règle sur le niveau d' **Avertissement** . Le script SQL se présente comme suit :
 
 ``` syntax
 if (@freediskSizeInGB < 2)
@@ -910,16 +910,16 @@ END
 
 ### <a name="get-threshold-value"></a>Obtient la valeur de seuil
 
-\[Dbo.\]\[ L'\] API GetThreshold obtient les seuils:
+\]dbo \[.\[API GetThreshold\] obtient les seuils :
 
-* @keynvarchar (50)
+* @key nvarchar (50)
 
-* @valuesortie à virgule flottante
+* sortie @value float
 
 > [!NOTE]
 > Les seuils sont des paires nom-valeur et peuvent être référencés dans toutes les règles. Les administrateurs système peuvent utiliser la console du SPA pour ajuster les seuils.
 
- Dans l’exemple précédent, pour un seuil, la définition se présente comme suit:
+ Dans l’exemple précédent, pour un seuil, la définition se présente comme suit :
 
 ``` syntax
 <thresholds>
@@ -935,7 +935,7 @@ Install the operating system on a larger disk.</advice>
 </rule>
 ```
 
-Le script de rapport peut être modifié comme indiqué ici:
+Le script de rapport peut être modifié comme indiqué ici :
 
 ``` syntax
 DECLARE @freediskSize FLOat
@@ -947,15 +947,15 @@ if (@freediskSizeInGB < @freediskSize)
 
 ### <a name="set-or-remove-the-single-value"></a>Définir ou supprimer la valeur unique
 
-\[Dbo.\]\[ L'\] API SetSingleValue définit la valeur unique:
+\]dbo \[.\[API SetSingleValue\] définit la valeur unique :
 
-* @keynvarchar (50)
+* @key nvarchar (50)
 
-* @valuevariante\_SQL
+* @value SQL\_variant
 
 Cette valeur peut être exécutée plusieurs fois pour la même clé de valeur unique. La dernière valeur est enregistrée.
 
-L’exemple suivant montre des valeurs uniques définies:
+L’exemple suivant montre des valeurs uniques définies :
 
 ``` syntax
 <singleValue section="Systemoverview" caption="Facts">
@@ -965,7 +965,7 @@ L’exemple suivant montre des valeurs uniques définies:
 </singleValue>
 ```
 
-Vous pouvez ensuite définir la valeur unique comme indiqué ici:
+Vous pouvez ensuite définir la valeur unique comme indiqué ici :
 
 ``` syntax
 exec dbo.SetSingleValue N OsName ,  Windows 7 
@@ -973,9 +973,9 @@ exec dbo.SetSingleValue N Osversion ,  6.1.7601
 exec dbo.SetSingleValue N OsLocation ,  c:\ 
 ```
 
-Dans de rares cas, vous souhaiterez peut-être supprimer le résultat que vous avez défini \[précédemment\]à\[ l’aide de dbo. API\] removeSingleValue.
+Dans de rares cas, vous souhaiterez peut-être supprimer le résultat que vous avez défini précédemment à l’aide de la \[dbo\]. API\[removeSingleValue\].
 
-* @keynvarchar (50)
+* @key nvarchar (50)
 
 Vous pouvez utiliser le script suivant pour supprimer la valeur précédemment définie.
 
@@ -985,22 +985,22 @@ exec dbo.removeSingleValue N Osversion
 
 ### <a name="get-data-collection-information"></a>Recevoir des informations sur la collecte de données
 
-\[Dbo.\]\[ L'\] API GetDuration obtient la durée définie par l’utilisateur, en secondes, pour la collecte de données:
+\]dbo \[.\[API GetDuration\] obtient la durée spécifiée par l’utilisateur, en secondes, pour la collecte de données :
 
-* @durationsortie int
+* sortie de @duration int
 
-Voici un exemple de script de rapport:
+Voici un exemple de script de rapport :
 
 ``` syntax
 DECLARE @duration int
 exec dbo.GetDuration @duration output
 ```
 
-\[Dbo.\]\[ L'\] API GetInternal obtient l’intervalle d’un compteur de performance. Elle peut retourner la valeur NULL si le rapport actuel ne contient pas d’informations sur les compteurs de performances.
+\]dbo \[.\[API GetInternal\] obtient l’intervalle d’un compteur de performance. Elle peut retourner la valeur NULL si le rapport actuel ne contient pas d’informations sur les compteurs de performances.
 
-* @intervalsortie int
+* sortie de @interval int
 
-Voici un exemple de script de rapport:
+Voici un exemple de script de rapport :
 
 ``` syntax
 DECLARE @interval int
@@ -1011,7 +1011,7 @@ exec dbo.GetInterval @interval output
 
 Il n’existe aucune API pour la mise à jour des tables de valeurs de liste. Toutefois, vous pouvez accéder directement aux tables de valeurs de liste. à l’étape d’initialisation, une table temporaire correspondante est créée pour chaque valeur de liste.
 
-L’exemple suivant montre une table de valeurs de liste:
+L’exemple suivant montre une table de valeurs de liste :
 
 ``` syntax
 <listValue name="NetworkAdapterInformation" section="NetworkIOFacts" caption="Physical Network Adapter Information">
@@ -1023,7 +1023,7 @@ L’exemple suivant montre une table de valeurs de liste:
 </listValue>
 ```
 
-Vous pouvez ensuite écrire un script SQL pour insérer, mettre à jour ou supprimer les résultats:
+Vous pouvez ensuite écrire un script SQL pour insérer, mettre à jour ou supprimer les résultats :
 
 ``` syntax
 INSERT INTO #NetworkAdapterInformation (
@@ -1043,7 +1043,7 @@ VALUES (
 
 ### <a name="writing-logs"></a>Écriture des journaux
 
-s’il existe d’autres informations que vous souhaitez communiquer aux administrateurs système, vous pouvez écrire des journaux. S’il existe un journal pour un rapport particulier, une bannière jaune s’affiche dans l’en-tête du rapport. L’exemple suivant montre comment vous pouvez écrire un journal:
+s’il existe d’autres informations que vous souhaitez communiquer aux administrateurs système, vous pouvez écrire des journaux. S’il existe un journal pour un rapport particulier, une bannière jaune s’affiche dans l’en-tête du rapport. L’exemple suivant montre comment vous pouvez écrire un journal :
 
 ``` syntax
 exec dbo.WriteSystemLog N'Any information you want to show to the system administrators , N Warning 
@@ -1051,17 +1051,17 @@ exec dbo.WriteSystemLog N'Any information you want to show to the system adminis
 
 Le premier paramètre est le message que vous souhaitez afficher dans le journal. Le deuxième paramètre est le niveau de journalisation. L’entrée valide pour le deuxième paramètre peut être à **titre d’information**, d' **Avertissement**ou d' **erreur**.
 
-### <a name="debug"></a>Débogage
+### <a name="debug"></a>Journal de débogage
 
-La console SPA peut s’exécuter en deux modes: Debug ou Release. Le mode de mise en sortie est la valeur par défaut et nettoie toutes les données brutes collectées une fois le rapport généré. Le mode débogage conserve toutes les données brutes dans le partage de fichiers et la base de données, afin que vous puissiez déboguer le script de rapport à l’avenir.
+La console SPA peut s’exécuter en deux modes : Debug ou Release. Le mode de mise en sortie est la valeur par défaut et nettoie toutes les données brutes collectées une fois le rapport généré. Le mode débogage conserve toutes les données brutes dans le partage de fichiers et la base de données, afin que vous puissiez déboguer le script de rapport à l’avenir.
 
 **Pour déboguer un script de rapport**
 
 1.  Installez Microsoft SQL Server Management Studio (SSMS).
 
-2.  Une fois SSMS lancé, connectez-vous\\à localhost SQLExpress. N’oubliez pas que vous devez utiliser localhost au lieu de. . Dans le cas contraire, vous ne pourrez peut-être pas démarrer le débogueur dans SQL Server.
+2.  Une fois SSMS lancé, connectez-vous à localhost\\SQLExpress. N’oubliez pas que vous devez utiliser localhost au lieu de. . Dans le cas contraire, vous ne pourrez peut-être pas démarrer le débogueur dans SQL Server.
 
-3.  Exécutez le script suivant pour activer le mode débogage:
+3.  Exécutez le script suivant pour activer le mode débogage :
 
     ``` syntax
     USE SPADB
@@ -1078,13 +1078,13 @@ La console SPA peut s’exécuter en deux modes: Debug ou Release. Le mode de mi
     select TOP 1 * FROM dbo.Tasks OrdER BY Id DESC
     ```
 
-    Par exemple, la sortie peut être:
+    Par exemple, la sortie peut être :
 
-    Id | IDsession | AdvisoryPackageId | ReportStatusId | LastUpdatetime | ThresholdversionId
+    Id | SessionId | AdvisoryPackageId | ReportStatusId | LastUpdatetime | ThresholdversionId
     :---: | :---: | :---: | :---: | :---: | :---:
     12 | 17 | 1 | 2 | 2011-05-11 05:35:24.387 | 1
 
-6.  Vous pouvez exécuter le script suivant autant de fois que vous le souhaitez pour exécuter le script de rapport pour l’ID 12:
+6.  Vous pouvez exécuter le script suivant autant de fois que vous le souhaitez pour exécuter le script de rapport pour l’ID 12 :
 
     ``` syntax
     exec dbo.DebugReportScript 12
@@ -1094,7 +1094,7 @@ La console SPA peut s’exécuter en deux modes: Debug ou Release. Le mode de mi
 
 
 
-Exécution \[de\]dbo.\[ DebugReportScript\] retourne plusieurs jeux de résultats, notamment:
+Exécution de \[dbo\].\[DebugReportScript\] retourne plusieurs jeux de résultats, notamment :
 
 1.  Messages Microsoft SQL Server et journaux Advisor Pack
 
@@ -1110,9 +1110,9 @@ Exécution \[de\]dbo.\[ DebugReportScript\] retourne plusieurs jeux de résultat
 
 ### <a name="naming-convention-and-styles"></a>Convention d’affectation de noms et styles
 
-|                                                                 Casse Pascal                                                                 |                       Casse mixte                        |             Capitale             |
+|                                                                 Casse Pascal                                                                 |                       Casse mixte                        |             Majuscules             |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------|
-| <ul><li>Noms dans ProvisionMetadata. Xml</li><li>Procédures stockées</li><li>Fonctions</li><li>Afficher les noms</li><li>Noms de tables temporaires</li></ul> | <ul><li>Noms de paramètres</li><li>Variables locales</li></ul> | À utiliser pour tous les mots clés réservés SQL |
+| <ul><li>Noms dans ProvisionMetadata. Xml</li><li>les procédures stockées ;</li><li>Fonctions</li><li>Afficher les noms</li><li>Noms de tables temporaires</li></ul> | <ul><li>Noms de paramètre</li><li>Variables locales</li></ul> | À utiliser pour tous les mots clés réservés SQL |
 
 ### <a name="other-recommendations"></a>Autres recommandations
 
@@ -1142,15 +1142,15 @@ L’exemple suivant montre le flux de travail pour l’exécution de deux packs 
 
 ![exécution de plusieurs Advisor packs](../media/server-performance-advisor/spa-dev-guide-multi-advisor-packs.png)
 
-L’ensemble de collecteurs de données de fusion concerne uniquement la collecte du compteur de performance et des sources de données ETW. Les règles de fusion suivantes s’appliquent:
+L’ensemble de collecteurs de données de fusion concerne uniquement la collecte du compteur de performance et des sources de données ETW. Les règles de fusion suivantes s’appliquent :
 
 1. SPA prend la plus grande durée en tant que nouvelle durée.
 
-2. En cas de conflits de fusion, les règles suivantes sont respectées:
+2. En cas de conflits de fusion, les règles suivantes sont respectées :
 
    1. Prenez l’intervalle le plus petit comme nouvel intervalle.
 
-   2. Prenez le super ensemble des compteurs de performances. Par exemple, avec **Process (\*)\\% Processor Time** et **Process (\*)\\\*,\\process (\*)\\\\** * retourne plus de données, de façon à ce que **process\*()\\% Processor Time** et **\*process ()\\\\** * soit supprimé de l’ensemble de collecteurs de données fusionnés.
+   2. Prenez le super ensemble des compteurs de performances. Par exemple, avec le **processus (\*)\\% temps processeur** et **processus (\*)\\\*,\\processus (\*)\\** \\* retourne plus de données, le **processus (\*)\\% temps processeur** et **processus (\*)\\** \\* est supprimé de l’ensemble de collecteurs de données fusionnés.
 
 ### <a name="collect-dynamic-data"></a>Collecter des données dynamiques
 
@@ -1158,13 +1158,13 @@ SPA a besoin d’un ensemble de collecteurs de données définis au moment de la
 
 par exemple, si vous souhaitez afficher la liste de tous les noms conviviaux des cartes réseau, vous devez d’abord interroger WMI pour énumérer toutes les cartes réseau. Chaque objet WMI retourné possède un chemin d’accès de clé de Registre, où il stocke le nom convivial. Le chemin d’accès de la clé de Registre est inconnu au moment de la conception. Dans ce cas, nous avons besoin de la prise en charge des données dynamiques.
 
-Pour énumérer toutes les cartes réseau, vous pouvez utiliser la requête WMI suivante à l’aide de Windows PowerShell:
+Pour énumérer toutes les cartes réseau, vous pouvez utiliser la requête WMI suivante à l’aide de Windows PowerShell :
 
 ``` syntax
 Get-WmiObject -Namespace Root\Cimv2 -query "select PNPDeviceID FROM Win32_NetworkAdapter" | forEach-Object { Write-Output $_.PNPDeviceID }
 ```
 
-Elle retourne une liste d’objets carte réseau. Chaque objet possède une propriété appelée **PNPDeviceID**, qui conserve un chemin d’accès de clé de registre relatif. Voici un exemple de sortie de la requête précédente:
+Elle retourne une liste d’objets carte réseau. Chaque objet possède une propriété appelée **PNPDeviceID**, qui conserve un chemin d’accès de clé de registre relatif. Voici un exemple de sortie de la requête précédente :
 
 ``` syntax
 ROOT\*ISatAP\0001
@@ -1173,13 +1173,13 @@ ROOT\*IPHTTPS\0000
 
 ```
 
-Pour trouver la valeur **FriendlyName** , ouvrez l’éditeur du Registre et accédez au paramètre du registre en combinant **\_HKEY\\local\\\_machine\\System CurrentControlSet Enum\\** chaque ligne de l’exemple précédent. , par exemple: **HKEY\_localmachine\_System\\CurrentControlSetenum\\ rootIPHTTPS0000\\.\\\\\\\***
+Pour trouver la valeur **FriendlyName** , ouvrez l’éditeur du Registre et accédez au paramètre du registre en combinant **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\enum\\** avec chaque ligne de l’exemple précédent. , par exemple : **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\enum\\ racine\\\*IPHTTPS\\0000**.
 
-Pour traduire les étapes précédentes en métadonnées de configuration de SPA, ajoutez le script dans l’exemple de code suivant:
+Pour traduire les étapes précédentes en métadonnées de configuration de SPA, ajoutez le script dans l’exemple de code suivant :
 
 ``` syntax
 <advisorPack>
-<dataSourceDefinition xmlns="http://microsoft.com/schemas/ServerPerformanceAdvisor/dc/2010">
+<dataSourceDefinition xmlns="https://microsoft.com/schemas/ServerPerformanceAdvisor/dc/2010">
  <dataCollectorSet >
 <registryKeys>
  ?<registryKey>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\$(NetworkAdapter.PNPDeviceID)\FriendlyName</registryKey>
@@ -1191,37 +1191,37 @@ Pour traduire les étapes précédentes en métadonnées de configuration de SPA
 
 Dans cet exemple, vous ajoutez d’abord une requête WMI sous managementpaths et définissez le nom de clé **NetworkAdapter**. Ensuite, vous ajoutez une clé de Registre et vous reportez-vous à **NetworkAdapter** à l’aide de la syntaxe **$ (NetworkAdapter. PNPDeviceID)** .
 
-Le tableau suivant définit si un collecteur de données dans SPA prend en charge les données dynamiques et s’il peut être référencé par d’autres collecteurs de données:
+Le tableau suivant définit si un collecteur de données dans SPA prend en charge les données dynamiques et s’il peut être référencé par d’autres collecteurs de données :
 
 Type de données | Prise en charge des données dynamiques | Peut être référencé
 --- | :---: | :---:
 clé de Registre | Oui | Oui
 WMI | Oui | Oui
-Fichier | Oui | Non
-Compteur de performances | Non | Non
-ETW | Non | Non
+File | Oui | non
+Compteur de performance | non | non
+ETW | non | non
 
-Pour un collecteur de données WMI, chaque objet WMI a de nombreux attributs attachés. Tout type d’objet WMI a toujours trois attributs: \_\_Namespace, \_ \_Class et \_ RELpath\_.
+Pour un collecteur de données WMI, chaque objet WMI a de nombreux attributs attachés. Tout type d’objet WMI a toujours trois attributs : \_\_espace de noms, \_\_classe et \_\_RELpath.
 
 Pour définir un collecteur de données qui est référencé par d’autres collecteurs de données, affectez l’attribut **Name** avec une clé unique dans le ProvisionMetadata. Xml. Cette clé est utilisée par les collecteurs de données dépendants pour générer des données dynamiques.
 
-Voici un exemple de clé de Registre:
+Voici un exemple de clé de Registre :
 
 ``` syntax
 <registryKey  name="registry">HKEY_LOCAL_MACHINE </registryKey>
 ```
 
-Et un exemple pour WMI:
+Et un exemple pour WMI :
 
 ``` syntax
 <path name="wmi">Root\Cimv2:select PNPDeviceID FROM Win32_NetworkAdapter</path>
 ```
 
-Pour définir un collecteur de données dépendantes, utilisez la syntaxe suivante: $ ( *{Name}* . *{attribut}* ).
+Pour définir un collecteur de données dépendantes, utilisez la syntaxe suivante : $ ( *{Name}* . *{attribut}* ).
 
 *{Name}* et *{attribute}* sont des espaces réservés.
 
-Lorsque Spa collecte des données à partir d’un serveur cible, il remplace de manière dynamique le\*modèle\*$ (.) par les données collectées réelles de son collecteur de données de référence (clé de Registre/WMI), par exemple:
+Lorsque SPA collecte des données à partir d’un serveur cible, il remplace de manière dynamique le modèle $ (\*.\*) par les données collectées réelles de son collecteur de données de référence (clé de Registre/WMI), par exemple :
 
 ``` syntax
 <registryKey>HKEY_LOCAL_MACHINE\$(registry.key)\ </registryKey>
@@ -1234,11 +1234,11 @@ Lorsque Spa collecte des données à partir d’un serveur cible, il remplace de
 
 ### <a name="versioning-limitations"></a>limitations relatives au contrôle de version
 
-SPA prend en charge la réinitialisation et les mises à jour de version mineures. Ces processus utilisent le même algorithme. Le processus consiste à actualiser tous les objets de base de données et les paramètres de seuil, tout en conservant les données existantes. Il peut s’agir d’une mise à niveau vers une version supérieure ou vers une version antérieure. Sélectionnez le Pack Advisor, puis cliquez sur **Réinitialiser** dans la boîte de dialogue Configurer les packs d' **Advisor** dans Spa pour réinitialiser ou appliquer les mises à jour.
+SPA prend en charge la réinitialisation et les mises à jour de version mineures. Ces processus utilisent le même algorithme. Le processus consiste à actualiser tous les objets de base de données et les paramètres de seuil, tout en conservant les données existantes. Il peut s’agir d’une mise à niveau vers une version supérieure ou vers une version antérieure. Sélectionnez le Pack Advisor, puis cliquez sur **Réinitialiser** dans la boîte de dialogue **configurer les packs d’Advisor** dans Spa pour réinitialiser ou appliquer les mises à jour.
 
 Cette fonctionnalité est principalement destinée à des mises à jour mineures. Vous ne pouvez pas modifier radicalement les éléments d’affichage de l’interface utilisateur. Si vous souhaitez apporter des modifications significatives, vous devez créer un autre conseiller. Vous devez inclure la version principale dans le nom du Pack Advisor.
 
-Les limitations des modifications de version mineure sont que vous **ne pouvez pas** effectuer les opérations suivantes:
+Les limitations des modifications de version mineure sont que vous **ne pouvez pas** effectuer les opérations suivantes :
 
 * Modifier le nom du schéma
 
@@ -1260,7 +1260,7 @@ Les limitations des modifications de version mineure sont que vous **ne pouvez p
 
 Presque tous les attributs de **Description** s’affichent sous la forme d’une info-bulle dans la console du Spa.
 
-pour une table de valeurs de liste, une info-bulle basée sur les lignes peut être obtenue en ajoutant l’attribut suivant:
+pour une table de valeurs de liste, une info-bulle basée sur les lignes peut être obtenue en ajoutant l’attribut suivant :
 
 ``` syntax
 <listValue descriptionColumn="Description">
@@ -1271,23 +1271,23 @@ pour une table de valeurs de liste, une info-bulle basée sur les lignes peut ê
 
 L’attribut **descriptionColumn** fait référence au nom de la colonne. Dans cet exemple, la colonne description ne s’affiche pas comme colonne physique. Toutefois, il s’affiche sous la forme d’une info-bulle lorsque vous placez le pointeur de la souris sur chaque ligne de la première colonne.
 
-Nous recommandons que l’info-bulle affiche la source de données à l’utilisateur. Voici les formats permettant d’illustrer les sources de données:
+Nous recommandons que l’info-bulle affiche la source de données à l’utilisateur. Voici les formats permettant d’illustrer les sources de données :
 
 Source de données | Format | Exemple
 --- | --- | ---
-WMI | WMI: &lt;champ&gt;WMIClass/&lt;&gt; | WMIC Win32_OperatingSystem/légende
-Compteur de performances | PerfCounter &lt;CategoryName&gt;nom_instance/&lt;&gt; | PerfCounter Processus/% temps processeur
-du | Registre: &lt;registerKey&gt; | du Hklm\software\microsoft.<br>\\ASP.NET\\Rootver
-Fichier de configuration | ConfigFile &lt;FilePath&gt;;\[ Expressions &lt;Expressions&gt;\]<br>**Remarque**<br>XPath est facultatif et n’est valide que si le fichier est un fichier XML. | ConfigFile: windir%\\system32\\inetsrv\config\\ApplicationHost. config<br>XPath: configuration&frasl;System. webServer<br>&frasl;httpProtocol&frasl;@allowKeepAlive
-ETW | ETW &lt;Provider/&gt;(Mots clés) | ETW Trace du noyau Windows (processus, net)
+WMI | WMI : &lt;WMIClass&gt;/champ &lt;&gt; | WMI : Win32_OperatingSystem/Caption
+Compteur de performance | PerfCounter : &lt;CategoryName&gt;/&lt;nom_instance&gt; | PerfCounter : processus/% de temps processeur
+registry | Registre : &lt;registerKey&gt; | Registre : Hklm\software\microsoft.<br>\\ASP.NET\\Rootver
+Fichier de configuration | ConfigFile : &lt;FilePath&gt;\[; XPath : &lt;&gt;XPath \]<br>**Remarque**<br>XPath est facultatif et n’est valide que si le fichier est un fichier XML. | ConfigFile : windir%\\system32\\inetsrv\config\\applicationHost. config<br>XPath : configuration&frasl;System. webServer<br>&frasl;httpProtocol&frasl;@allowKeepAlive
+ETW | ETW : &lt;fournisseur/&gt;(Mots clés) | ETW : trace du noyau Windows (processus, net)
 
 ### <a name="table-collation"></a>Classement de table
 
 Lorsqu’un Advisor Pack devient plus complexe, vous pouvez créer vos propres tables variables ou tables temporaires pour stocker les résultats intermédiaires dans le script de rapport.
 
-Le classement des colonnes de chaîne peut être problématique, car le classement de table que vous créez peut être différent de celui créé par l’infrastructure SPA. Si vous mettez en corrélation deux colonnes de chaîne dans des tables différentes, vous pouvez voir une erreur de classement. Pour éviter ce problème, vous devez toujours définir la chaîne pour un classement de colonne en tant que **\_SQL\_latin1\_\_General\_CP1 ci comme** lorsque vous définissez une table.
+Le classement des colonnes de chaîne peut être problématique, car le classement de table que vous créez peut être différent de celui créé par l’infrastructure SPA. Si vous mettez en corrélation deux colonnes de chaîne dans des tables différentes, vous pouvez voir une erreur de classement. Pour éviter ce problème, vous devez toujours définir la chaîne pour un classement de colonne en tant que **SQL\_Latin1\_général\_CP1\_CI\_comme** lorsque vous définissez une table.
 
-Voici comment définir une table de variables:
+Voici comment définir une table de variables :
 
 ``` syntax
 DECLARE @filesIO TABLE (
@@ -1300,7 +1300,7 @@ DECLARE @filesIO TABLE (
 
 ### <a name="collect-etw"></a>Collecter ETW
 
-Voici comment définir ETW dans un fichier ProvisionMetadata. xml:
+Voici comment définir ETW dans un fichier ProvisionMetadata. xml :
 
 ``` syntax
 <dataSourceDefinition>
@@ -1310,46 +1310,46 @@ Voici comment définir ETW dans un fichier ProvisionMetadata. xml:
 </dataSourceDefinition>
 ```
 
-Les attributs de fournisseur suivants peuvent être utilisés pour collecter ETW:
+Les attributs de fournisseur suivants peuvent être utilisés pour collecter ETW :
 
-Attribut | Type | Description
+Attribut | Tapez | Description
 --- | --- | ---
 GUID | GUID | GUID du fournisseur
 session | chaîne | Nom de session ETW (facultatif, requis uniquement pour les événements de noyau)
 keywordsany | Hexadécimal | N’importe quel mot clé (facultatif, pas de préfixe 0x)
 keywordsAll | Hexadécimal | Tous les mots clés (facultatif)
-properties | Hexadécimal | Propriétés (facultatif)
-niveau | Hexadécimal | Niveau (facultatif)
-Tampon | Int | Taille de la mémoire tampon (facultatif)
-flushtime | Int | Temps de vidage (facultatif)
-maxBuffer | Int | Mémoire tampon maximale (facultatif)
-minBuffer | Int | Mémoire tampon minimale (facultatif)
+propriétés | Hexadécimal | Propriétés (facultatif)
+level | Hexadécimal | Niveau (facultatif)
+Tampon | Entier | Taille de la mémoire tampon (facultatif)
+flushtime | Entier | Temps de vidage (facultatif)
+maxBuffer | Entier | Mémoire tampon maximale (facultatif)
+minBuffer | Entier | Mémoire tampon minimale (facultatif)
 
 Il existe deux tables de sortie comme indiqué ici.
 
-**\#Schéma de la table d’événements**
+**schéma de la table d’événements \#**
 
 Nom de la colonne | Type de données SQL | Description
 --- | --- | ---
 SequenceID | Int non NULL | ID de séquence de corrélation
 EventtypeId | Int non NULL | ID de type d’événement (reportez-vous à [dbo]. [ EventTypes])
-ProcessId | BigInt non NULL | ID du processus
+ProcessId | BigInt non NULL | ID de processus
 ThreadId | BigInt non NULL | ID de thread
 timestamp | datetime2 non NULL | timestamp
 Kerneltime | BigInt non NULL | Temps noyau
 Usertime | BigInt non NULL | Heure de l’utilisateur
 
-**\#Schéma de la table EventProperties**
+**\#le schéma de la table EventProperties**
 
 Nom de la colonne | Type de données SQL | Description
 --- | --- | ---
 SequenceID | Int non NULL | ID de séquence de corrélation
 Nom | Nvarchar(100) | Nom de la propriété
-Value | Nvarchar (4000) | Value
+Value | Nvarchar(4000) | Value
 
 ### <a name="etw-schema"></a>Schéma ETW
 
-Un schéma ETW peut être généré en exécutant tracerpt. exe sur le fichier. etl. Un fichier Schema. Man est généré. Étant donné que le format du fichier. etl dépend de l’ordinateur, le script suivant ne fonctionne que dans les cas suivants:
+Un schéma ETW peut être généré en exécutant tracerpt. exe sur le fichier. etl. Un fichier Schema. Man est généré. Étant donné que le format du fichier. etl dépend de l’ordinateur, le script suivant ne fonctionne que dans les cas suivants :
 
 1.  Exécutez le script sur l’ordinateur sur lequel le fichier. etl correspondant est collecté.
 
@@ -1362,7 +1362,7 @@ tracerpt *.etl -export
 ## <a name="glossary"></a>Glossaire
 
 
-Les termes suivants sont utilisés dans ce document:
+Les termes suivants sont utilisés dans ce document :
 
 **Pack Advisor**
 
@@ -1374,7 +1374,7 @@ La console SPA fait référence à SpaConsole. exe, qui est la partie centrale d
 
 **Infrastructure SPA**
 
-SPA contient deux parties principales: l’infrastructure et les packs Advisor. L’infrastructure SPA fournit toutes les interfaces utilisateur, le traitement du journal des performances, la configuration, la gestion des erreurs et les API de base de données, ainsi que les procédures de gestion.
+SPA contient deux parties principales : l’infrastructure et les packs Advisor. L’infrastructure SPA fournit toutes les interfaces utilisateur, le traitement du journal des performances, la configuration, la gestion des erreurs et les API de base de données, ainsi que les procédures de gestion.
 
 **Projet SPA**
 
@@ -1398,9 +1398,9 @@ Windows Management Instrumentation (WMI) est l’infrastructure de données et d
 
 **Compteurs de performance**
 
-Les compteurs de performances sont utilisés pour fournir des informations sur le fonctionnement du système d’exploitation ou d’une application, d’un service ou d’un pilote. Les données du compteur de performances peuvent aider à déterminer les goulots d’étranglement du système et à ajuster les performances du système et des applications. Le système d’exploitation, le réseau et les périphériques fournissent des données de compteur qu’une application peut utiliser pour fournir aux utilisateurs une vue graphique de la performance du système. SPA utilise les informations de compteur de performance et les points de données comme sources pour générer des rapports de performances.
+Les compteurs de performances sont utilisés pour fournir des informations sur la façon dont le système d’exploitation, une application, un service ou un pilote fonctionne. Les données du compteur de performances peuvent aider à déterminer les goulots d’étranglement du système et à ajuster les performances du système et des applications. Le système d’exploitation, le réseau et les périphériques fournissent des données de compteur qu’une application peut utiliser pour fournir aux utilisateurs une vue graphique de la performance du système. SPA utilise les informations de compteur de performance et les points de données comme sources pour générer des rapports de performances.
 
-**Journaux et alertes de performance**
+**Journaux et alertes de performances**
 
 Journaux et alertes de performance (PLA) est un service intégré dans le système d’exploitation Windows. Il est conçu pour collecter les journaux et les traces de performance, et il génère également des alertes de performances lorsque certains déclencheurs sont satisfaits. PLA peut être utilisé pour collecter les compteurs de performances, le suivi d’événements pour Windows (ETW), les requêtes WMI, les clés de Registre et les fichiers de configuration. PLA prend également en charge la collecte de données distantes via des appels de procédure distante (RPC). L’utilisateur définit un ensemble de collecteurs de données, qui comprend des informations sur les données à collecter, la fréquence de collecte des données, la durée de collecte des données, les filtres et un emplacement pour l’enregistrement des fichiers de résultats. SPA utilise PLA pour collecter toutes les données de performances des serveurs cibles.
 

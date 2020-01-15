@@ -1,5 +1,5 @@
 ---
-title: Structure protégée et machines virtuelles dotées d’une protection maximale
+title: Structure protégée et machines virtuelles dotées d'une protection maximale
 ms.custom: na
 ms.prod: windows-server
 ms.topic: article
@@ -9,18 +9,18 @@ author: rpsqrd
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: c06432a039341978956066344710920652187b97
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f23d0be0d860695b014f57fd55d8e321e81a70ca
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403668"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950336"
 ---
-# <a name="guarded-fabric-and-shielded-vms"></a>Structure protégée et machines virtuelles dotées d’une protection maximale
+# <a name="guarded-fabric-and-shielded-vms"></a>Structure protégée et machines virtuelles dotées d'une protection maximale
 
 >S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
 
-L’un des objectifs les plus importants de la fourniture d’un environnement hébergé est de garantir la sécurité des ordinateurs virtuels en cours d’exécution dans l’environnement. En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée se compose d’un Service Guardian hôte (HGS), généralement, un cluster de trois nœuds, d’un ou de plusieurs hôtes protégés et d’un ensemble d’ordinateurs virtuels.
+L’un des objectifs les plus importants de la fourniture d’un environnement hébergé est de garantir la sécurité des ordinateurs virtuels en cours d’exécution dans l’environnement. En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les machines virtuelles. Une structure protégée se compose d’un Service Guardian hôte (HGS), généralement, un cluster de trois nœuds, d’un ou de plusieurs hôtes protégés et d’un ensemble d’ordinateurs virtuels.
 
 > [!IMPORTANT]
 > Vérifiez que vous avez installé la dernière mise à jour cumulative avant de déployer des machines virtuelles protégées en production.
@@ -30,16 +30,16 @@ L’un des objectifs les plus importants de la fourniture d’un environnement h
 - Vidéo : [Comment protéger votre structure de virtualisation contre les menaces internes avec Windows Server 2019](https://myignite.techcommunity.microsoft.com/sessions/64690)
 - Vidéo : [Présentation des machines virtuelles protégées dans Windows Server 2016](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
 - Vidéo : [Explorez les machines virtuelles protégées avec Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
-- Vidéo : [Déploiement de machines virtuelles protégées et d’une infrastructure protégée avec Windows Server 2016](https://mva.microsoft.com/en-US/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474)
-- Récents [Blog sur la sécurité du centre de sécurité et du Cloud privé](https://blogs.technet.microsoft.com/datacentersecurity/)
-- Vue d'ensemble : [Vue d’ensemble de la structure protégée et des machines virtuelles dotées d’une protection maximale](Guarded-Fabric-and-Shielded-VMs.md)
+- Vidéo : [déploiement de machines virtuelles protégées et d’une infrastructure protégée avec Windows Server 2016](https://mva.microsoft.com/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474)
+- Blog : [blog sur la sécurité du Cloud privé et du centre de](https://blogs.technet.microsoft.com/datacentersecurity/) connaissances
+- Vue d’ensemble : [vue d’ensemble de l’infrastructure protégée et des machines virtuelles](Guarded-Fabric-and-Shielded-VMs.md) protégées
 
 ## <a name="planning-topics"></a>Rubriques de planification
 
 - [Guide de planification pour les hébergeurs](guarded-fabric-planning-for-hosters.md)
 - [Guide de planification pour les locataires](guarded-fabric-shielded-vm-planning-for-tenants.md)
 
-## <a name="deployment-topics"></a>Rubriques relatives au déploiement
+## <a name="deployment-topics"></a>Rubriques traitant du déploiement
 
 - [Guide de déploiement](guarded-fabric-deploying-hgs-overview.md)
     - [Démarrage rapide](guarded-fabric-deployment-overview.md)

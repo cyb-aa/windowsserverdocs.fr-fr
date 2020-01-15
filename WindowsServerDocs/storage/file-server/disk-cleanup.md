@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 2de3452a3528122beb26f403fb0c73d7ff13efd7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bb93ec15fd138ee65797c9d27413552c3a1759a6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402116"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949670"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>Utilisation du nettoyage de disque sur Windows Server
 
@@ -41,7 +41,7 @@ Procédez comme suit pour utiliser l’Assistant Ajout de rôles et de fonctionn
 
 1. Dans la page **Sélectionner le type d’installation** , sélectionnez installation basée sur un **rôle ou une fonctionnalité** pour installer toutes les fonctionnalités de composants sur un seul serveur. Sélectionnez **Suivant**.
 
-1. Dans la page **Sélectionner le serveur de destination**, sélectionnez un serveur dans le pool de serveurs ou sélectionnez un disque dur virtuel hors connexion. Sélectionnez **Suivant**.
+1. Dans la page **Sélectionner le serveur de destination** , sélectionnez un serveur dans le pool de serveurs ou sélectionnez un disque dur virtuel hors connexion. Sélectionnez **Suivant**.
 
 1. Dans la page **Sélectionner des rôles de serveurs** , sélectionnez **suivant**.
 
@@ -63,8 +63,8 @@ Pour utiliser Cleanmgr. exe, installez l’expérience utilisateur comme décrit
 
 | Système d’exploitation  | Architecture  | Emplacement du fichier  |
 | ----------------- | -------------- | --------------- |
-| Windows Server 2008 R2 | 64 bits | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da\cleanmgr.exe 
-| Windows Server 2008 R2 | 64 bits | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr.resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63\cleanmgr.exe.mui |
+| Windows Server 2008 R2 | 64 bits | C:\Windows\winsxs\ amd64_microsoft-Windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da \cleanmgr.exe 
+| Windows Server 2008 R2 | 64 bits | C:\Windows\winsxs\ amd64_microsoft-Windows-Cleanmgr. resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63 \cleanmgr.exe.mui |
 
 Localisez Cleanmgr. exe et déplacez le fichier vers **%systemroot%\System32**.
 
@@ -76,6 +76,6 @@ Pour que le bouton nettoyage de disque apparaisse dans la boîte de dialogue Pro
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[Libérer de l’espace sur le lecteur Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
+[Libérer de l’espace sur le lecteur Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)
 
 [cleanmgr](../../administration/windows-commands/cleanmgr.md)

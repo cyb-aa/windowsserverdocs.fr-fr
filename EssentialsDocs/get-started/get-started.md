@@ -11,18 +11,18 @@ ms.assetid: 2d0eb084-09dd-4d85-a41a-5d449cc3b504
 author: nnamuhcs
 ms.author: coreyp
 manager: jasgro
-ms.openlocfilehash: c505ddab123d3735d7f6a109fde073b344f090c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 807ea32a466b6717f61423e58d621a0050047586
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833120"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75946852"
 ---
 # <a name="get-started-with-windows-server-essentials"></a>Prise en main de Windows Server Essentials 
 
->S'applique à : Windows Server 2016 Essentials ; Windows Server 2019 Essentials
+>S’applique à : Windows Server 2016 Essentials ; Windows Server 2019 Essentials
 
-**Windows Server Essentials** edition est un serveur première connectées au cloud, conçu pour les petites entreprises recensant jusqu'à 25 utilisateurs et 50 appareils. Toutefois, si vous envisagez d’installer n’importe quelle version de Windows Server Essentials, nous vous encourage à prendre en compte **Microsoft 365**. Pour plus d’informations sur le déplacement au-delà de Windows Server Essentials à Microsoft 365, consultez [What ' s New in Windows Server Essentials 2019](what-s-new-19.md).
+L’édition **Windows Server Essentials** est un premier serveur connecté au Cloud et conçu pour les petites entreprises comptant jusqu’à 25 utilisateurs et 50 appareils. Toutefois, si vous envisagez d’installer une version de Windows Server Essentials, nous vous encourageons à prendre en compte **Microsoft 365**. Pour plus d’informations sur le passage au-delà de Windows Server Essentials vers Microsoft 365, consultez [Nouveautés de Windows server 2019 Essentials](what-s-new-19.md).
   
 ## <a name="in-this-library"></a>Dans cette bibliothèque  
  Pour plus d'informations sur l'installation, la configuration, la gestion, l'utilisation et le dépannage de Windows Server Essentials, consultez la documentation suivante :  
@@ -30,13 +30,13 @@ ms.locfileid: "59833120"
 
 -   [Installer Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)   
   
--   [Migrer des données de serveur vers Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
+-   [Migrer les données du serveur vers Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
   
 -   [Gérer Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   
 -   [Utiliser Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)  
   
--   [Prise en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)  
+-   [Prendre en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)  
   
 ## <a name="updates-and-downloads"></a>Téléchargements et mises à jour  
   
@@ -57,10 +57,10 @@ ms.locfileid: "59833120"
   
 -    Pour savoir comment collaborer en toute sécurité avec les partenaires et fournisseurs, consultez [Améliorer la collaboration dans les PME](https://technet.microsoft.com/library/dn747893.aspx).  
   
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Articles associés  
   
--   [Bibliothèque TechNet de Windows Server](https://technet.microsoft.com/library/bb625087.aspx)  
+-   [Bibliothèque TechNet Windows Server](https://technet.microsoft.com/library/bb625087.aspx)  
   
--   [Le Windows Server Essentials et le Blog de Windows Small Business Server](http://blogs.technet.com/b/sbs/)  
+-   [Blog Windows Server Essentials et Windows Small Business Server](https://blogs.technet.com/b/sbs/)  
   
--   [Bibliothèque TechNet de Windows Server Essentials (Small Business Server)](https://technet.microsoft.com/library/cc514417.aspx)
+-   [Bibliothèque TechNet Windows Server Essentials (Small Business Server)](https://technet.microsoft.com/library/cc514417.aspx)

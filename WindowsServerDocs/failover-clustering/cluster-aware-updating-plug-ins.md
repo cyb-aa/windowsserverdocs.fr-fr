@@ -9,12 +9,12 @@ author: JasonGerend
 ms.date: 04/28/2017
 ms.technology: storage-failover-clustering
 description: Comment utiliser les plug-ins pour coordonner les mises à jour lors de l’utilisation de la mise à jour adaptée aux clusters dans Windows Server pour installer des mises à jour sur un cluster.
-ms.openlocfilehash: f6c572a397530704dd91d9c67c5c1758ccc085c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5fabd55f54527a2396643cea48980077891e3281
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361291"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948074"
 ---
 # <a name="how-cluster-aware-updating-plug-ins-work"></a>Fonctionnement des plug-ins de mise à jour adaptée aux clusters
 
@@ -48,10 +48,10 @@ Par défaut, la mise à jour adaptée aux clusters sélectionne le plug\-dans **
   
 |Applet de commande|Description|  
 |----------|---------------|  
-|[Add-CauClusterRole](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/add-cauclusterrole)|Ajoute le rôle en cluster de la mise à jour adaptée aux clusters qui fournit la fonctionnalité de mise à jour de l’auto\-au cluster spécifié.|  
-|[Invoke-CauRun](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/invoke-caurun)|Effectue une analyse des nœuds de cluster à la recherche des mises à jour applicables et installe ces mises à jour via une Exécution de mise à jour sur le cluster spécifié.|  
-|[Invoke-CauScan](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/invoke-causcan)|Effectue une analyse des nœuds de cluster à la recherche des mises à jour applicables et retourne une liste de l'ensemble initial des mises à jour qui peuvent être appliquées à chaque nœud du cluster spécifié.|  
-|[Set-CauClusterRole](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/set-cauclusterrole)|Définit les propriétés de configuration du rôle en cluster de la Mise à jour adaptée aux clusters sur le cluster spécifié.|  
+|[Add-CauClusterRole](https://docs.microsoft.com/powershell/module/clusterawareupdating/add-cauclusterrole)|Ajoute le rôle en cluster de la mise à jour adaptée aux clusters qui fournit la fonctionnalité de mise à jour de l’auto\-au cluster spécifié.|  
+|[Invoke-CauRun](https://docs.microsoft.com/powershell/module/clusterawareupdating/invoke-caurun)|Effectue une analyse des nœuds de cluster à la recherche des mises à jour applicables et installe ces mises à jour via une Exécution de mise à jour sur le cluster spécifié.|  
+|[Invoke-CauScan](https://docs.microsoft.com/powershell/module/clusterawareupdating/invoke-causcan)|Effectue une analyse des nœuds de cluster à la recherche des mises à jour applicables et retourne une liste de l'ensemble initial des mises à jour qui peuvent être appliquées à chaque nœud du cluster spécifié.|  
+|[Set-CauClusterRole](https://docs.microsoft.com/powershell/module/clusterawareupdating/set-cauclusterrole)|Définit les propriétés de configuration du rôle en cluster de la Mise à jour adaptée aux clusters sur le cluster spécifié.|  
   
 Si vous ne spécifiez pas de\-de connexion de la mise à jour adaptée aux clusters à l’aide de ces applets de commande, la valeur par défaut est le\-de connexion dans **Microsoft. WindowsUpdatePlugin**.  
   
@@ -83,40 +83,40 @@ Le plug\-ins que la mise à jour adaptée aux clusters \(**Microsoft. WindowsUpd
   
 |Applet de commande|Description|  
 |----------|---------------|  
-|[CauPlugin](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/get-cauplugin)|Récupère des informations sur un ou plusieurs plug-ins de mise à jour logicielle\-s inscrits sur l’ordinateur local.|  
-|[Register-CauPlugin]((https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/register-cauplugin))|Inscrit un plug-\-in de mise à jour logicielle de la mise à jour adaptée aux clusters dans sur l’ordinateur local.|  
-|[Unregister-CauPlugin](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/unregister-cauplugin)|Supprime une\-de connexion de mise à jour logicielle dans la liste des plug-ins\-qui peuvent être utilisés par la mise à jour adaptée aux clusters. **Remarque :** Les plug-ins\-installés avec la mise à jour adaptée aux clusters \(**Microsoft. WindowsUpdatePlugin** et **microsoft. HotfixPlugin**\) ne peuvent pas être désinscrits.|  
+|[Get-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/get-cauplugin)|Retrieves information about one or more software updating plug\-ins that are registered on the local computer.|  
+|[Register-CauPlugin]((https://docs.microsoft.com/powershell/module/clusterawareupdating/register-cauplugin))|Registers a CAU software updating plug\-in on the local computer.|  
+|[Unregister-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/unregister-cauplugin)|Removes a software updating plug\-in from the list of plug\-ins that can be used by CAU. **Note:** The plug\-ins that are installed with CAU \(**Microsoft.WindowsUpdatePlugin** and the **Microsoft.HotfixPlugin**\) cannot be unregistered.|  
   
-## <a name="BKMK_WUP"></a>Utilisation de Microsoft. WindowsUpdatePlugin  
+## <a name="BKMK_WUP"></a>Using the Microsoft.WindowsUpdatePlugin  
 
-Le plug-in par défaut\-pour la mise à jour adaptée aux clusters, **Microsoft. WindowsUpdatePlugin**, effectue les actions suivantes :
+The default plug\-in for CAU, **Microsoft.WindowsUpdatePlugin**, performs the following actions:
 - Communique avec l'Agent de mise à jour automatique Windows Update sur chaque nœud de cluster de basculement pour appliquer les mises à jour nécessaires pour les produits Microsoft qui sont en cours d'exécution sur chaque nœud.
-- Installe les mises à jour de cluster directement à partir de Windows Update ou Microsoft Update, ou à partir d’un site sur\-Windows Server Update Services \(serveur WSUS\).
-- Installe uniquement les mises à jour de la distribution générale et de la version de distribution \(\) GDR. Par défaut, le plug\-dans applique uniquement les mises à jour logicielles importantes. Aucune configuration n'est demandée. La configuration par défaut télécharge et installe les mises à jour importantes relatives aux correctifs logiciels grand public sur chaque nœud. 
+- Installs cluster updates directly from Windows Update or Microsoft Update, or from an on\-premises Windows Server Update Services \(WSUS\) server.
+- Installs only selected, general distribution release \(GDR\) updates. By default, the plug\-in applies only important software updates. Aucune configuration n'est demandée. La configuration par défaut télécharge et installe les mises à jour importantes relatives aux correctifs logiciels grand public sur chaque nœud. 
 
 > [!NOTE]
-> Pour appliquer d’autres mises à jour que les mises à jour logicielles importantes sélectionnées par défaut \(par exemple, mises à jour du pilote\), vous pouvez configurer un plug-in\-facultatif dans le paramètre. Pour plus d'informations, voir [Configurer la chaîne de requête de l'Agent de mise à jour automatique Windows Update](#BKMK_QUERY).
+> To apply updates other than the important software updates that are selected by default \(for example, driver updates\), you can configure an optional plug\-in parameter. Pour plus d'informations, voir [Configurer la chaîne de requête de l'Agent de mise à jour automatique Windows Update](#BKMK_QUERY).
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Conditions préalables
 
 - Le cluster de basculement et l’ordinateur de coordinateur de mise à jour distante \(s’ils sont utilisés\) doivent remplir les conditions requises pour la mise à jour adaptée aux clusters et la configuration requise pour la gestion à distance indiquée dans la configuration [requise et les meilleures pratiques](cluster-aware-updating-requirements.md)
 - Consultez les [recommandations relatives à l'application des mises à jour Microsoft](cluster-aware-updating-requirements.md#BKMK_BP_WUA), puis effectuez les changements nécessaires dans votre configuration de la fonctionnalité Microsoft Update pour les nœuds de cluster de basculement.
-- Pour de meilleurs résultats, nous vous recommandons d’exécuter la mise à jour adaptée aux clusters Best Practices Analyzer \(BPA\) pour vous assurer que le cluster et l’environnement de mise à jour sont configurés correctement pour appliquer les mises à jour avec la mise à jour adaptée aux clusters. Pour plus d'informations, voir [Tester l'état de préparation aux mises à jour par la Mise à jour adaptée aux clusters](cluster-aware-updating-requirements.md#BKMK_BPA).
+- For best results, we recommend that you run the CAU Best Practices Analyzer \(BPA\) to ensure that the cluster and update environment are configured properly to apply updates by using CAU. Pour plus d'informations, voir [Test CAU updating readiness](cluster-aware-updating-requirements.md#BKMK_BPA).
 
 > [!NOTE]
 > Les mises à jour qui demandent l'acceptation des termes du contrat de licence Microsoft ou qui imposent une interaction de l'utilisateur sont exclues. Elles doivent être installées manuellement.
 
 ### <a name="additional-options"></a>Options supplémentaires
 
-Si vous le souhaitez, vous pouvez spécifier les\-de plug-in suivants pour augmenter ou restreindre l’ensemble des mises à jour appliquées par le plug\-dans :
-- Pour configurer le plug\-dans pour appliquer les mises à jour recommandées en plus des mises à jour importantes sur chaque nœud, dans l’interface utilisateur de la mise à jour adaptée aux clusters, dans la page **options supplémentaires** , activez la case à cocher **me procurer les mises à jour recommandées de la même façon que je reçois des mises à jour importantes** .
-<br>Vous pouvez également configurer le plug-in « **IncludeRecommendedUpdates »\=« true »** \-dans l’argument.
-- Pour configurer le plug\-dans pour filtrer les types de mises à jour GDR qui sont appliquées à chaque nœud du cluster, spécifiez une chaîne de requête de l’agent de Windows Update à l' **aide d’un plug-** in de chaîne d’interrogation\-argument in. Pour plus d'informations, voir [Configurer la chaîne de requête de l'Agent de mise à jour automatique Windows Update](#BKMK_QUERY).
+Optionally, you can specify the following plug\-in arguments to augment or restrict the set of updates that are applied by the plug\-in:
+- To configure the plug\-in to apply recommended updates in addition to important updates on each node, in the CAU UI, on the **Additional Options** page, select the **Give me recommended updates the same way that I receive important updates** check box.
+<br>Alternatively, configure the **'IncludeRecommendedUpdates'\='True'** plug\-in argument.
+- To configure the plug\-in to filter the types of GDR updates that are applied to each cluster node, specify a Windows Update Agent query string using a **QueryString** plug\-in argument. Pour plus d'informations, voir [Configurer la chaîne de requête de l'Agent de mise à jour automatique Windows Update](#BKMK_QUERY).
 
-### <a name="BKMK_QUERY"></a>Configuration de la chaîne de requête de l’agent Windows Update  
-Vous pouvez configurer un argument in\-pour le plug-in par défaut\-dans, **Microsoft. WindowsUpdatePlugin**, qui se compose d’une chaîne de requête de Windows Update Agent \(WUA\). Cette instruction utilise l'API WUA pour identifier un ou plusieurs groupes de mises à jour Microsoft à appliquer à chaque nœud, en fonction de critères de sélection spécifiques. Vous pouvez combiner plusieurs critères à l'aide d'une logique ET ou d'une logique OU. La chaîne de requête WUA est spécifiée dans un argument plug\-in comme suit :  
+### <a name="BKMK_QUERY"></a>Configure the Windows Update Agent query string  
+You can configure a plug\-in argument for the default plug\-in, **Microsoft.WindowsUpdatePlugin**, that consists of a Windows Update Agent \(WUA\) query string. Cette instruction utilise l'API WUA pour identifier un ou plusieurs groupes de mises à jour Microsoft à appliquer à chaque nœud, en fonction de critères de sélection spécifiques. Vous pouvez combiner plusieurs critères à l'aide d'une logique ET ou d'une logique OU. The WUA query string is specified in a plug\-in argument as follows:  
   
-**QueryString\=« Critère1\=value1 et\/ou Criterion2\=value2 et\/ou... »**  
+**QueryString\="Criterion1\=Value1 and\/or Criterion2\=Value2 and\/or…"**  
   
 Par exemple, **Microsoft.WindowsUpdatePlugin** sélectionne automatiquement les mises à jour importantes à l’aide d’un argument **QueryString** par défaut construit à l’aide des critères **IsInstalled**, **Type**, **IsHidden**et **IsAssigned** :  
   
@@ -124,7 +124,7 @@ Par exemple, **Microsoft.WindowsUpdatePlugin** sélectionne automatiquement les 
   
 Si vous spécifiez un argument **QueryString** , il est utilisé à la place de la **chaîne** de connexion par défaut qui est configurée pour le\-dans.  
   
-#### <a name="example-1"></a>Exemple 1
+#### <a name="example-1"></a>Exemple 1
   
 Pour configurer un argument **QueryString** qui installe une mise à jour spécifique identifiée par l’ID *f6ce46c1\-971c\-43f9\-a2aa\-783df125f003*:  
   
@@ -135,9 +135,9 @@ Pour configurer un argument **QueryString** qui installe une mise à jour spéci
 >   
 > **QueryString\=« UpdateID\=» f6ce46c1\-971C\-43f9\-a2aa\-783df125f003 « » et IsInstalled\=0 »**  
   
-#### <a name="example-2"></a>Exemple 2
+#### <a name="example-2"></a>Exemple 2
   
-Pour configurer un argument **QueryString** qui installe uniquement les pilotes :  
+Pour configurer un argument **QueryString** qui installe uniquement les pilotes :  
   
 **QueryString\=« IsInstalled\=0 et de type\=«Driver » et IsHidden\=0»**  
   
@@ -149,12 +149,12 @@ Le plug-in\-dans **Microsoft. HotfixPlugin** peut être utilisé pour appliquer 
 > [!NOTE]
 > Les correctifs logiciels sont parfois disponibles en téléchargement à partir de Microsoft dans les Articles de la base de connaissances, mais ils sont également fournis aux clients en tant que\-besoins.
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Conditions préalables
 
 - Le cluster de basculement et l’ordinateur de coordinateur de mise à jour distante \(s’ils sont utilisés\) doivent remplir les conditions requises pour la mise à jour adaptée aux clusters et la configuration requise pour la gestion à distance indiquée dans la configuration [requise et les meilleures pratiques](cluster-aware-updating-requirements.md)
 - Consultez [Recommandations pour l'utilisation de Microsoft.HotfixPlugin](cluster-aware-updating-requirements.md#BKMK_BP_HF).
-- Pour de meilleurs résultats, nous vous recommandons d’exécuter la mise à jour adaptée aux clusters Best Practices Analyzer \(\) modèle pour vous assurer que le cluster et l’environnement de mise à jour sont configurés correctement pour appliquer les mises à jour avec la mise à jour adaptée aux clusters. Pour plus d'informations, voir [Tester l'état de préparation aux mises à jour par la Mise à jour adaptée aux clusters](cluster-aware-updating-requirements.md#BKMK_BPA).
-- Obtenez les mises à jour à partir du serveur de publication, copiez-les ou extrayez-les dans un bloc de message serveur \(SMB\) partage de fichiers \(dossier racine de correctifs logiciels\) qui prend en charge au moins SMB 2,0 et qui est accessible par tous les nœuds de cluster et l’ordinateur de coordinateur de mise à jour distante \(si la mise à jour\-\) Pour plus d'informations, voir [Configurer la structure d'un dossier racine de correctifs logiciels](#BKMK_HF_ROOT) plus loin dans cette rubrique. 
+- Pour de meilleurs résultats, nous vous recommandons d’exécuter la mise à jour adaptée aux clusters Best Practices Analyzer \(\) modèle pour vous assurer que le cluster et l’environnement de mise à jour sont configurés correctement pour appliquer les mises à jour avec la mise à jour adaptée aux clusters. Pour plus d'informations, voir [Test CAU updating readiness](cluster-aware-updating-requirements.md#BKMK_BPA).
+- Obtenez les mises à jour à partir du serveur de publication, copiez-les ou extrayez-les dans un bloc de message serveur \(SMB\) partage de fichiers \(dossier racine de correctifs logiciels\) qui prend en charge au moins SMB 2,0 et qui est accessible par tous les nœuds de cluster et l’ordinateur de coordinateur de mise à jour distante \(si la mise à jour Pour plus d'informations, voir [Configurer la structure d'un dossier racine de correctifs logiciels](#BKMK_HF_ROOT) plus loin dans cette rubrique. 
 
     > [!NOTE]
     > Par défaut, ce\-plug-in installe uniquement les correctifs avec les extensions de nom de fichier suivantes :. msu,. msi et. msp.
@@ -167,7 +167,7 @@ Le plug-in\-dans **Microsoft. HotfixPlugin** peut être utilisé pour appliquer 
 ### <a name="configuration"></a>Configuration
 
 Configurez les paramètres suivants. Pour plus d'informations, voir les liens vers les sections présentes plus loin dans cette rubrique.
-- Chemin d'accès du dossier racine de correctifs logiciels partagé, qui contient les mises à jour à appliquer, ainsi que le fichier de configuration de correctifs logiciels. Vous pouvez taper ce chemin d’accès dans l’interface utilisateur de la mise à jour adaptée aux clusters ou configurer le **chemin d’accès HotfixRootFolderPath\=\<>** \-PowerShell in argument. 
+- Chemin d'accès du dossier racine de correctifs logiciels partagé, qui contient les mises à jour à appliquer, ainsi que le fichier de configuration de correctifs logiciels. Vous pouvez taper ce chemin d’accès dans l’interface utilisateur de la mise à jour adaptée aux clusters ou configurer le **chemin d’accès HotfixRootFolderPath\=\<** \-PowerShell in argument. 
 
    > [!NOTE]
    > Vous pouvez spécifier le dossier racine de correctifs logiciels en tant que chemin d’accès au dossier local ou en tant que chemin d’accès UNC sous la forme *\\\\ServerName\\Share\\RootFolderName*. Un chemin d’accès d’espace de noms DFS autonome ou basé sur un domaine\-peut être utilisé. Toutefois, le plug-in\-dans les fonctionnalités qui vérifient les autorisations d’accès dans le fichier de configuration de correctif logiciel sont incompatibles avec un chemin d’accès d’espace de noms DFS.\- **\=** par conséquent, si vous en configurez un, vous devez désactiver la case à cocher Vérifier les autorisations d’accès à l’aide de l’interface utilisateur de la mise à jour adaptée aux clusters
@@ -222,7 +222,7 @@ Pour spécifier les correctifs logiciels qui s'appliquent uniquement à un nœud
   
 #### <a name="example-3---folder-structure-used-to-apply-updates-other-than-msu-msi-and-msp-files"></a>Exemple 3-structure de dossiers utilisée pour appliquer des mises à jour autres que des fichiers. msu,. msi et. msp
   
-Par défaut, **Microsoft.HotfixPlugin** applique uniquement les mises à jour ayant l'extension .msu, .msi ou .msp. Toutefois, certaines mises à jour peuvent avoir d'autres extensions et demander des commandes d'installation distinctes. Par exemple, vous pouvez être amené à appliquer une mise à jour de microprogramme avec l'extension .exe à un nœud dans un cluster. Vous pouvez configurer le dossier racine de correctifs logiciels avec un sous-dossier qui indique qu’un type de mise à jour par défaut non\-spécifique doit être installé. Vous devez également configurer une règle d'installation de dossier correspondante qui spécifie la commande d'installation de l'élément `<FolderRules>` dans le fichier XML de configuration de correctif logiciel.  
+Par défaut, **Microsoft.HotfixPlugin** applique uniquement les mises à jour ayant l’extension .msu, .msi ou .msp. Toutefois, certaines mises à jour peuvent avoir d'autres extensions et demander des commandes d'installation distinctes. Par exemple, vous pouvez être amené à appliquer une mise à jour de microprogramme avec l'extension .exe à un nœud dans un cluster. Vous pouvez configurer le dossier racine de correctifs logiciels avec un sous-dossier qui indique qu’un type de mise à jour par défaut non\-spécifique doit être installé. Vous devez également configurer une règle d'installation de dossier correspondante qui spécifie la commande d'installation de l'élément `<FolderRules>` dans le fichier XML de configuration de correctif logiciel.  
   
 Dans l’exemple suivant, l’argument HotfixRootFolderPath du plug\--in est défini sur *\\\\MyFileServer\\correctifs\\racine* \\. Plusieurs mises à jour sont appliquées à l'ensemble des nœuds de cluster. En outre, la mise à jour de microprogramme *SpecialHotfix1.exe* est appliquée à *ContosoNode1* à l'aide de *FolderRule1*. Pour plus d’informations sur la configuration de *FolderRule1* dans le fichier de configuration de correctif logiciel, voir [Personnaliser le fichier de configuration de correctif logiciel](#BKMK_CONFIG_FILE) plus loin dans cette rubrique.  
   
@@ -255,7 +255,7 @@ Par défaut, le fichier XML de configuration de correctif logiciel définit les 
   
 -   Fichiers de correctifs logiciels avec les extensions que le plug\-dans peut installer par défaut \(les fichiers. msu,. msi et. msp\).  
   
-    Ils sont définis en tant qu'éléments `<ExtensionRules>` dans l'élément `<DefaultRules>`. Il existe un élément `<Extension>` pour chacun des types de fichier pris en charge par défaut. La structure XML générale est la suivante :  
+    Ils sont définis en tant qu'éléments `<ExtensionRules>` dans l'élément `<DefaultRules>` . Il existe un élément `<Extension>` pour chacun des types de fichier pris en charge par défaut. La structure XML générale est la suivante :  
   
     ```xml  
     <DefaultRules>  
@@ -281,7 +281,7 @@ Par défaut, le fichier XML de configuration de correctif logiciel définit les 
   
 -   Correctifs ou autres fichiers de mise à jour qui ne sont pas des fichiers. msi,. msu ou. msp, par exemple, des mises à jour de pilotes, de microprogrammes et de BIOS non\-Microsoft.  
   
-    Chaque type de fichier non\-par défaut est configuré en tant qu’élément de `<Folder>` dans l’élément `<FolderRules>`. L'attribut name de l'élément `<Folder>` doit être identique au nom d'un dossier dans le dossier racine de correctifs logiciels, qui contient les mises à jour du type correspondant. Le dossier peut se trouver dans le dossier **CAUHotfix\_All** ou dans un nœud\-dossier spécifique. Par exemple, si *FolderRule1* est configuré dans le dossier racine de correctifs logiciels, configurez l'élément suivant du fichier XML pour définir le modèle d'installation et les conditions de sortie des mises à jour dans ce dossier :  
+    Chaque type de fichier non\-par défaut est configuré en tant qu’élément de `<Folder>` dans l’élément `<FolderRules>`. L'attribut name de l'élément `<Folder>` doit être identique au nom d'un dossier dans le dossier racine de correctifs logiciels, qui contient les mises à jour du type correspondant. Le dossier peut se trouver dans le dossier **CAUHotfix\_All** ou dans un nœud\-dossier spécifique. Par exemple, si *FolderRule1* est configuré dans le dossier racine de correctifs logiciels, configurez l'élément suivant du fichier XML pour définir le modèle d'installation et les conditions de sortie des mises à jour dans ce dossier :  
   
     ```xml  
     <FolderRules>  
@@ -379,11 +379,11 @@ Si vous le souhaitez, vous pouvez désactiver les vérifications précédentes q
   
 Cependant, dans de nombreux environnements, nous vous recommandons d'utiliser la configuration par défaut pour appliquer ces vérifications.  
   
-#### <a name="step-4-configure-settings-for-smb-data-integrity"></a>Étape 4. Configurer les paramètres relatifs à l'intégrité des données SMB
+#### <a name="step-4-configure-settings-for-smb-data-integrity"></a>Étape 4. Configurer les paramètres relatifs à l'intégrité des données SMB
   
 Pour vérifier l’intégrité des données dans les connexions entre les nœuds de cluster et le partage de fichiers SMB, le\-de correctif logiciel dans exige que vous activiez les paramètres sur le partage de fichiers SMB pour la signature SMB ou le chiffrement SMB. Le chiffrement SMB, qui offre une sécurité accrue et de meilleures performances dans de nombreux environnements, est pris en charge à partir de Windows Server 2012. Vous pouvez activer l'un ou l'autre de ces paramètres, ou les deux à la fois, comme suit :  
   
--   Pour activer la signature SMB, voir la procédure décrite dans l’[article 887429](https://support.microsoft.com/kb/887429) de la Base de connaissances Microsoft.  
+-   Pour activer la signature SMB, voir la procédure décrite dans l’ [article 887429](https://support.microsoft.com/kb/887429) de la Base de connaissances Microsoft.  
   
 -   Pour activer le chiffrement SMB pour le dossier partagé SMB, exécutez l’applet de commande PowerShell suivante sur le serveur SMB :  
   
@@ -398,15 +398,15 @@ Si vous le souhaitez, pour appliquer l’utilisation du chiffrement SMB dans les
 > [!IMPORTANT]  
 > Si vous sélectionnez l'option permettant d'appliquer le chiffrement SMB, et si le dossier racine de correctifs logiciels n'est pas configuré pour les connexions qui utilisent le chiffrement SMB, l'Exécution de mise à jour échoue.  
   
-#### <a name="step-5-enable-a-windows-firewall-rule-on-the-smb-server"></a>Étape 5. Activer une règle de Pare-feu Windows sur le serveur SMB
+#### <a name="step-5-enable-a-windows-firewall-rule-on-the-smb-server"></a>Étape 5. Activer une règle de Pare-feu Windows sur le serveur SMB
   
 Vous devez activer la **gestion à distance du serveur de fichiers \(\-SMB dans\)** règle dans le pare-feu Windows sur le serveur de fichiers SMB. Cette option est activée par défaut dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012.  
   
-## <a name="see-also"></a>Voir également  
+## <a name="see-also"></a>Articles associés  
   
 -   [Vue d’ensemble de la mise à jour adaptée aux clusters](cluster-aware-updating.md)
   
--   [Applets de commande Windows PowerShell pour la mise à jour adaptée aux clusters](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating)  
+-   [Applets de commande Windows PowerShell pour la mise à jour adaptée aux clusters](https://docs.microsoft.com/powershell/module/clusterawareupdating)  
   
 -   [Référence du plug-in de mise à jour adaptée aux clusters](https://msdn.microsoft.com/library/hh418084.aspx)  
   

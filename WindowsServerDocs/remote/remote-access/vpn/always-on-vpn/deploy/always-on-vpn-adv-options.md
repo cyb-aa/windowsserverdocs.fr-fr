@@ -10,12 +10,12 @@ ms.author: pashort, v-tea
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: d186946c0d4490201b7989ba8d418f9c667aa6e4
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: 73d64cd143b7bbd13e0eb9bb5fadfbb1e7c65416
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945317"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950446"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Fonctionnalités avancées de Always On VPN
 
@@ -64,7 +64,7 @@ Après l’installation des mises à jour, le serveur RRAS peut appliquer la ré
 
 Le tableau suivant répertorie les mises en production qui contiennent les correctifs pour chaque version de Windows.
 
-|Version du système d’exploitation |Publier  |
+|Version du système d’exploitation |Release  |
 |---------|---------|
 |Windows Server, version 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server, version 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
@@ -121,7 +121,7 @@ Pour désactiver la révocation de certificat pour ces connexions VPN, définiss
    Event ID:      41  
    ...  
    Event Xml:
-   <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+   <Event xmlns="https://schemas.microsoft.com/win/2004/08/events/event">
     <UserData>  
      <CertVerifyRevocation>  
       <Certificate fileRef="C97AE73E9823E8179903E81107E089497C77A720.cer" subjectName="client01.corp.contoso.com" />  

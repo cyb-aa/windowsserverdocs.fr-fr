@@ -9,21 +9,21 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/12/2018
-ms.openlocfilehash: 5cf6a5057151c696bc1c29a1dcf6fc18c776605a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d5a4d5f06cd433fa92c617a3cb36e95d09be3b27
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405747"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950450"
 ---
-## <a name="hardware-only-ho-features-and-technologies"></a>Fonctionnalités et technologies matérielles uniquement (HO)
+# <a name="hardware-only-ho-features-and-technologies"></a>Fonctionnalités et technologies matérielles uniquement (HO)
 
 Ces accélérations matérielles améliorent les performances de mise en réseau conjointement avec le logiciel, mais ne font pas partie intégrante d’une fonctionnalité logicielle. Citons par exemple la modération des interruptions, le contrôle du trafic et le déchargement de la somme de contrôle IPv4 côté réception.
 
 >[!TIP]
 >Les fonctionnalités SH et HO sont disponibles si la carte réseau installée la prend en charge. Les descriptions de fonctionnalités ci-dessous expliquent comment savoir si votre carte réseau prend en charge la fonctionnalité.
 
-### <a name="address-checksum-offload"></a>Déchargement de somme de contrôle d’adresse
+## <a name="address-checksum-offload"></a>Déchargement de somme de contrôle d’adresse
 
 Les déchargements de somme de contrôle d’adresse sont une fonctionnalité de carte réseau qui décharge le calcul des sommes de contrôle d’adresse (IP, TCP, UDP) sur le matériel de carte réseau pour l’envoi et la réception.
 
@@ -59,7 +59,7 @@ _**Conseils sur l’utilisation des déchargements de somme de contrôle d’adr
 
 Les déchargements de somme de contrôle d’adresse doivent toujours être activés quelle que soit la charge de travail ou les circonstances. Cette fonctionnalité de base de toutes les technologies de déchargement améliore toujours les performances de votre réseau. Le déchargement de la somme de contrôle est également requis pour les autres déchargements sans État qui fonctionnent, notamment la mise à l’échelle côté réception (RSS), la fusion de segment de réception (RSC) et le déchargement d’envoi volumineux (LSO).
 
-### <a name="interrupt-moderation-im"></a>Modération des interruptions (IM)
+## <a name="interrupt-moderation-im"></a>Modération des interruptions (IM)
 
 IM met en mémoire tampon plusieurs paquets reçus avant d’interrompre le système d’exploitation. Lorsqu’une carte réseau reçoit un paquet, elle démarre un minuteur. Lorsque la mémoire tampon est saturée ou que le minuteur expire, selon la première situation, la carte d’interface réseau interrompt le système d’exploitation. 
 
@@ -67,18 +67,18 @@ De nombreuses cartes réseau prennent en charge plus que la fonction on/off pour
 
 Il y a un équilibre entre la réduction des interruptions et la retardation excessive de la remise des paquets. En règle générale, le traitement des paquets est plus efficace avec la modération des interruptions activée. Les applications hautes performances ou à faible latence peuvent avoir besoin d’évaluer l’impact de la désactivation ou de la réduction de la modération des interruptions.
 
-### <a name="jumbo-frames"></a>Trames Jumbo
+## <a name="jumbo-frames"></a>Trames Jumbo
 
 Les trames Jumbo sont une fonctionnalité de réseau et de carte réseau qui permet à une application d’envoyer des trames dont la taille est supérieure à la valeur par défaut de 1500 octets. En général, la limite sur les trames Jumbo est d’environ 9000 octets, mais elle peut être plus petite.
 
 Aucune modification n’a été apportée à la prise en charge des trames Jumbo dans Windows Server 2012 R2.
 
-Dans Windows Server 2016, il existe un nouveau déchargement : MTU_for_HNV. Ce nouveau déchargement fonctionne avec les paramètres de frame Jumbo pour garantir que le trafic encapsulé ne nécessite pas de segmentation entre l’hôte et le commutateur adjacent. Cette nouvelle fonctionnalité de la pile SDN permet à la carte réseau de calculer automatiquement la MTU à publier et la MTU à utiliser sur le câble. Ces valeurs pour MTU sont différentes si un déchargement de HNV est en cours d’utilisation. (Dans le tableau de compatibilité des fonctionnalités, le tableau 1, MTU_for_HNV aurait les mêmes interactions que les déchargements de HNVv2, car il est directement lié aux déchargements de HNVv2.)
+Dans Windows Server 2016, il existe un nouveau déchargement : MTU_for_HNV. Ce nouveau déchargement fonctionne avec les paramètres de frame Jumbo pour garantir que le trafic encapsulé ne nécessite pas de segmentation entre l’hôte et le commutateur adjacent. Cette nouvelle fonctionnalité de la pile SDN permet à la carte réseau de calculer automatiquement la MTU à publier et la MTU à utiliser sur le câble. Ces valeurs pour MTU sont différentes si un déchargement de HNV est en cours d’utilisation. (Dans le tableau de compatibilité des fonctionnalités, le tableau 1 MTU_for_HNV aurait les mêmes interactions que les déchargements de HNVv2, car il est directement lié aux déchargements de HNVv2.)
 
-### <a name="large-send-offload-lso"></a>Déchargement d’envoi important (LSO, Large Send Offload)
+## <a name="large-send-offload-lso"></a>Déchargement d’envoi important (LSO, Large Send Offload)
 
 LSO permet à une application de transmettre un grand bloc de données à la carte réseau, et la carte réseau décompose les données en paquets qui tiennent dans l’unité de transfert maximale (MTU) du réseau.
 
-### <a name="receive-segment-coalescing-rsc"></a>Receive Segment Coalescing (RSC)
+## <a name="receive-segment-coalescing-rsc"></a>RSC (Receive Segment Coalescing)
 
 La fusion de segment de réception, également connue sous le nom de déchargement de réception volumineux, est une fonctionnalité de carte réseau qui prend en charge les paquets qui font partie du même flux qui arrivent entre les interruptions du réseau et les redirige en un seul paquet avant de les transmettre au système d’exploitation. RSC n’est pas disponible sur les cartes réseau qui sont liées au commutateur virtuel Hyper-V. Pour plus d’informations, voir [Receive segment fusion (RSC)](https://docs.microsoft.com/windows-server/networking/technologies/hpn/rsc-in-the-vswitch).

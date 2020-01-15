@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c825ae9c9b52068b58b99bc6ff597304c9643d17
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ca63fa9504765b0376eb671b4decd67de7768f15
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390080"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948896"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Gestion des cookies du serveur LDAP
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans LDAP, certaines requêtes génèrent un jeu de résultats de grande taille. Ces requêtes présentent des défis pour Windows Server.  
   
@@ -126,7 +126,7 @@ Les événements 2898 et 2899 sont les seuls moyens de savoir si le serveur LDA
   
 Si vous voyez l'événement 2898 sur votre serveur de contrôleur de domaine/LDAP, nous vous recommandons de définir MaxResultSetsPerConn sur 25. Plus de 25 recherches paginées parallèles sur une seule connexion LDAP n'est pas habituel. Si vous continuez à voir l'événement 2898, analysez votre application cliente LDAP qui rencontre l'erreur. Il est probable que, d'une certaine manière, l'application reste bloquée lors de la récupération des résultats paginés supplémentaires, laisse le cookie en attente et redémarre une nouvelle requête. Déterminez donc si l'application, à un moment donné, a suffisamment de cookies pour ses besoins. Vous pouvez également augmenter la valeur de MaxResultSetsPerConn au-delà de 25 Lorsque vous voyez des événements 2899 consignés sur vos contrôleurs de domaine, l'approche est différente. Si votre serveur de contrôleur de domaine/LDAP s'exécute sur un ordinateur avec suffisamment de mémoire (plusieurs gigaoctets de mémoire disponible), nous vous recommandons de définir MaxResultsetSize sur le serveur LDAP sur une valeur supérieure ou égale à 250 Mo. Cette limite est assez grande pour contenir des volumes importants de recherches paginées LDAP même sur des répertoires très volumineux.  
   
-Si vous voyez toujours les événements 2899 avec un pool de 250 Mo ou plus, vous avez probablement de nombreux clients avec un très grand nombre d'objets retournés, interrogés de manière très fréquente. Les données que vous pouvez collecter avec l' [ensemble de collecteurs de données Active Directory](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) peuvent vous aider à trouver des requêtes paginées répétitives qui maintiennent vos serveurs LDAP occupés. Ces requêtes s’affichent avec un nombre d’entrées retournées qui correspond à la taille de la page utilisée.  
+Si vous voyez toujours les événements 2899 avec un pool de 250 Mo ou plus, vous avez probablement de nombreux clients avec un très grand nombre d'objets retournés, interrogés de manière très fréquente. Les données que vous pouvez collecter avec l' [ensemble de collecteurs de données Active Directory](https://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) peuvent vous aider à trouver des requêtes paginées répétitives qui maintiennent vos serveurs LDAP occupés. Ces requêtes s’affichent avec un nombre d’entrées retournées qui correspond à la taille de la page utilisée.  
   
 Si possible, vous devez examiner la conception de l’application et implémenter une approche différente avec une fréquence inférieure, le volume de données et/ou moins d’instances de client qui interrogent ces données. Dans le cas des applications pour lesquelles vous disposez d’un accès au code source, ce guide de [création d’applications ad efficaces](https://msdn.microsoft.com/library/ms808539.aspx) peut vous aider à comprendre la façon optimale pour les applications d’accéder à Active Directory.  
   

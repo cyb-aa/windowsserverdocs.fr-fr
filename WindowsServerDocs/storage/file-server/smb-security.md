@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7221d3ea94ff9f2d7fca8e95cee66597e2dc6270
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d7b96574dcfc2a4417aa36780d7bd87c2556f61f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402064"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950260"
 ---
 # <a name="smb-security-enhancements"></a>Améliorations en matière de sécurité SMB
 
@@ -21,14 +21,14 @@ ms.locfileid: "71402064"
 
 Cette rubrique explique les améliorations de la sécurité SMB dans Windows Server 2012 R2, Windows Server 2012 et Windows Server 2016.
 
-## <a name="smb-encryption"></a>Chiffrement SMB
+## <a name="smb-encryption"></a>Chiffrement SMB
 
 Le chiffrement SMB fournit un chiffrement de bout en bout des données SMB et protège les données contre les écoutes clandestines sur des réseaux non approuvés. Vous pouvez déployer le chiffrement SMB avec un minimum d’effort, mais cela peut nécessiter des coûts supplémentaires pour le matériel ou les logiciels spécialisés. Il n’est pas nécessaire pour la sécurité du protocole Internet (IPsec) ou les accélérateurs WAN. Le chiffrement SMB peut être configuré sur une base par partage ou pour l’ensemble du serveur de fichiers, et il peut être activé pour divers scénarios dans lesquels les données traversent des réseaux non approuvés.
 
 >[!NOTE]
 >Le chiffrement SMB ne couvre pas la sécurité au repos, qui est généralement gérée par Chiffrement de lecteur BitLocker.
 
-Le chiffrement SMB doit être pris en compte pour tout scénario dans lequel les données sensibles doivent être protégées contre les attaques de l’intercepteur. Les scénarios possibles sont :
+Le chiffrement SMB doit être pris en compte pour tout scénario dans lequel les données sensibles doivent être protégées contre les attaques de l’intercepteur. Les scénarios possibles sont :
 
 - Les données sensibles d’un travailleur de l’information sont déplacées à l’aide du protocole SMB. Le chiffrement SMB offre une assurance de la confidentialité et de l’intégrité de bout en bout entre le serveur de fichiers et le client, quels que soient les réseaux parcourus, tels que les connexions de réseau étendu (WAN) qui sont gérées par des fournisseurs non-Microsoft.
 - SMB 3,0 permet aux serveurs de fichiers de fournir un stockage disponible en continu pour les applications serveur, telles que SQL Server ou Hyper-V. L’activation du chiffrement SMB offre la possibilité de protéger ces informations contre les attaques d’espionnage. Le chiffrement SMB est plus simple à utiliser que les solutions matérielles dédiées requises pour la plupart des réseaux de zone de stockage (San).
@@ -78,7 +78,7 @@ La fonctionnalité de négociation de dialecte sécurisé décrite dans la secti
 >[!NOTE]
 >* Le chiffrement SMB utilise l’algorithme Advanced Encryption Standard (AES)-CCM pour chiffrer et déchiffrer les données. AES-CCM assure également la validation de l’intégrité des données (signature) pour les partages de fichiers chiffrés, quels que soient les paramètres de signature SMB. Si vous souhaitez activer la signature SMB sans chiffrement, vous pouvez continuer à le faire. Pour plus d’informations, consultez [les principes de base de la signature SMB](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
 >* Vous pouvez rencontrer des problèmes lorsque vous tentez d’accéder au partage de fichiers ou au serveur si votre organisation utilise des appliances d’accélération de réseau étendu (WAN).
->* Avec une configuration par défaut (où aucun accès non chiffré n’est autorisé pour les partages de fichiers chiffrés), si les clients qui ne prennent pas en charge SMB 3,0 essaient d’accéder à un partage de fichiers chiffré, l’ID d’événement 1003 est enregistré dans le journal des événements opérationnels de Microsoft-Windows-SmbServer/. et le client recevra un message d’erreur d' **accès refusé** .
+>* Avec une configuration par défaut (où aucun accès non chiffré n’est autorisé pour les partages de fichiers chiffrés), si les clients qui ne prennent pas en charge SMB 3,0 essaient d’accéder à un partage de fichiers chiffré, l’ID d’événement 1003 est enregistré dans le journal des événements opérationnels de Microsoft-Windows-SmbServer/et le client recevra un message d’erreur d' **accès refusé** .
 >* Le chiffrement SMB et le système de fichiers EFS (EFS) dans le système de fichiers NTFS ne sont pas liés, et le chiffrement SMB ne nécessite pas ou ne dépend pas de l’utilisation de EFS.
 >* Le chiffrement SMB et le Chiffrement de lecteur BitLocker ne sont pas liés, et le chiffrement SMB ne nécessite pas ou ne dépend pas de l’utilisation de Chiffrement de lecteur BitLocker.
 
@@ -86,11 +86,11 @@ La fonctionnalité de négociation de dialecte sécurisé décrite dans la secti
 
 SMB 3,0 est capable de détecter les attaques de l’intercepteur qui tentent de rétrograder le protocole SMB 2,0 ou SMB 3,0 ou les fonctionnalités négociées par le client et le serveur. Lorsqu’une telle attaque est détectée par le client ou le serveur, la connexion est déconnectée et l’ID d’événement 1005 est consigné dans le journal des événements Microsoft-Windows-SmbServer/Operational. La négociation de dialecte sécurisé ne peut pas détecter ou empêcher les rétrogradations de SMB 2,0 ou 3,0 vers SMB 1,0. Pour cette raison, et pour tirer parti des fonctionnalités complètes du chiffrement SMB, nous vous recommandons vivement de désactiver le serveur SMB 1,0. Pour plus d’informations, consultez [désactivation de SMB 1,0](#disabling-smb-10).
 
-La fonctionnalité de négociation de dialecte sécurisé décrite dans la section suivante empêche une attaque de l’intercepteur de la rétrogradation d’une connexion de SMB 3 vers SMB 2 (qui utiliserait un accès non chiffré). Toutefois, elle n’empêche pas les rétrogradations vers SMB 1, ce qui entraînerait également un accès non chiffré. Pour plus d’informations sur les problèmes potentiels liés aux implémentations antérieures à Windows de SMB, consultez la [base de connaissances Microsoft](http://support.microsoft.com/kb/2686098).
+La fonctionnalité de négociation de dialecte sécurisé décrite dans la section suivante empêche une attaque de l’intercepteur de la rétrogradation d’une connexion de SMB 3 vers SMB 2 (qui utiliserait un accès non chiffré). Toutefois, elle n’empêche pas les rétrogradations vers SMB 1, ce qui entraînerait également un accès non chiffré. Pour plus d’informations sur les problèmes potentiels liés aux implémentations antérieures à Windows de SMB, consultez la [base de connaissances Microsoft](https://support.microsoft.com/kb/2686098).
 
 ## <a name="new-signing-algorithm"></a>Nouvel algorithme de signature
 
-SMB 3,0 utilise un algorithme de chiffrement plus récent pour la signature : Advanced Encryption Standard (AES)-code d’authentification de message basé sur le chiffrement (CMAC). SMB 2,0 a utilisé l’ancien algorithme de chiffrement HMAC-SHA256. AES-CMAC et AES-CCM peuvent accélérer considérablement le chiffrement des données sur la plupart des processeurs modernes disposant d’une prise en charge des instructions AES. Pour plus d’informations, consultez [les principes de base de la signature SMB](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
+SMB 3,0 utilise un algorithme de chiffrement plus récent pour la signature Advanced Encryption Standard : CMAC (AES)-based Message Authentication Code (). SMB 2,0 a utilisé l’ancien algorithme de chiffrement HMAC-SHA256. AES-CMAC et AES-CCM peuvent accélérer considérablement le chiffrement des données sur la plupart des processeurs modernes disposant d’une prise en charge des instructions AES. Pour plus d’informations, consultez [les principes de base de la signature SMB](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
 
 ## <a name="disabling-smb-10"></a>Désactivation de SMB 1,0
 
@@ -117,7 +117,7 @@ Set-SmbServerConfiguration –EnableSMB1Protocol $false
 >[!NOTE]
 >Si une connexion client SMB est refusée parce que le serveur exécutant SMB 1,0 a été désactivé, l’ID d’événement 1001 sera consigné dans le journal des événements Microsoft-Windows-SmbServer/Operational.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Autres informations
 
 Voici quelques ressources supplémentaires sur SMB et les technologies associées dans Windows Server 2012.
 

@@ -8,25 +8,25 @@ ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 16e758f0a8746d41adcdafb2bc1be2d91a3fc29c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b7f015ac4c9906447069501bf0922b36306a51d7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406805"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950493"
 ---
 # <a name="manage-failover-clusters-with-windows-admin-center"></a>Gérer les clusters de basculement avec le centre d’administration Windows
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
 > Vous débutez dans Windows Admin Center ?
-> [Découvrez-en davantage sur Windows Admin Center](../understand/windows-admin-center.md) ou [téléchargez maintenant](https://aka.ms/windowsadmincenter).
+> [Téléchargez ou apprenez-en davantage sur le centre d’administration Windows](../overview.md).
 
 ## <a name="managing-failover-clusters"></a>Gestion des clusters de basculement
 Le [clustering de basculement](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) est une fonctionnalité de Windows Server qui vous permet de regrouper plusieurs serveurs dans un cluster à tolérance de pannes pour augmenter la disponibilité et l’extensibilité des applications et des services tels que serveur de fichiers avec montée en puissance parallèle, Hyper-V et Microsoft SQL Server.
 
-Bien que vous puissiez gérer des nœuds de cluster de basculement en tant que serveurs individuels en les ajoutant en tant que [connexions serveur](manage-servers.md) dans le centre d’administration Windows, vous pouvez également les ajouter en tant que clusters de basculement pour afficher et gérer les ressources de cluster, le stockage, le réseau, les nœuds, les rôles, la virtualisation machines et commutateurs virtuels.
+Bien que vous puissiez gérer des nœuds de cluster de basculement en tant que serveurs individuels en les ajoutant en tant que [connexions serveur](manage-servers.md) dans le centre d’administration Windows, vous pouvez également les ajouter en tant que clusters de basculement pour afficher et gérer les ressources, le stockage, le réseau, les nœuds, les ordinateurs virtuels et les commutateurs virtuels de cluster.
 
 ![Écran de présentation du cluster de basculement](../media/manage-failover-clusters/fcm-overview.png)
 
@@ -48,7 +48,7 @@ Le cluster est ajouté à votre liste de connexions dans la page vue d’ensembl
 
 Les outils suivants sont disponibles pour les connexions de cluster de basculement :
 
-| Tool | Description |
+| Outil | Description |
 | ---- | ----------- |
 | Vue d'ensemble | Afficher les détails du cluster de basculement et gérer les ressources de cluster |
 | Disques | Afficher les volumes et les disques partagés de cluster |

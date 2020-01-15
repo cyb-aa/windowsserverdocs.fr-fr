@@ -10,14 +10,14 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/04/2018
-ms.openlocfilehash: 850aa376e8cd0060992573561a0c32af563b88ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3bbb70657cb009ce760ccfe273b24c6df17d3ca7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405154"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949899"
 ---
-## <a name="resolve-vrss-issues"></a>Résolution des problèmes liés à vRSS
+# <a name="resolve-vrss-issues"></a>Résolution des problèmes liés à vRSS
 
 Si vous avez effectué toutes les étapes de préparation et que vous ne voyez toujours pas le trafic d’équilibrage de charge vRSS sur la machine virtuelle, il existe différents problèmes possibles.
 
@@ -34,7 +34,7 @@ Si vous avez effectué toutes les étapes de préparation et que vous ne voyez t
 
    **Affichez les paramètres actuels :** 
 
-   Exécutez l’applet de commande PowerShell suivante dans\(la machine virtuelle pour vrss\) dans une machine virtuelle \(ou sur l’ordinateur\)hôte pour l’hôte carte réseau virtuelle vRSS.
+   Exécutez l’applet de commande PowerShell suivante dans la machine virtuelle\(pour vRSS dans une machine virtuelle\) ou sur l’ordinateur hôte \(pour l’hôte carte réseau virtuelle vRSS\).
 
    ```PowerShell
    Get-NetAdapterRss

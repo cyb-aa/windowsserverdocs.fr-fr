@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 6895c4b5f74beb237378060f82135d6f578986b7
-ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
+ms.openlocfilehash: b7a6dd37cfc054ead153d274ffa7f0d13844305e
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973861"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953031"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur le service de migration de stockage
 
@@ -42,7 +42,7 @@ Le service de migration de stockage prend en charge la migration des utilisateur
 
 ## <a name="is-domain-controller-migration-supported"></a>La migration du contrôleur de domaine est-elle prise en charge ?
 
-Le service de migration de stockage ne migre pas actuellement les contrôleurs de domaine dans Windows Server 2019. En guise de solution de contournement, à condition que vous disposiez de plusieurs contrôleurs de domaine dans le domaine Active Directory, rétrogradez le contrôleur de domaine avant de le migrer, puis promouvez la destination une fois la coupure terminée.
+Le service de migration de stockage ne migre pas actuellement les contrôleurs de domaine dans Windows Server 2019. En guise de solution de contournement, à condition que vous disposiez de plusieurs contrôleurs de domaine dans le domaine Active Directory, rétrogradez le contrôleur de domaine avant de le migrer, puis promouvez la destination une fois la coupure terminée. Si vous choisissez de migrer une source ou une destination de contrôleur de domaine, vous ne pourrez pas le découper. Vous ne devez jamais migrer des utilisateurs et des groupes lors de la migration depuis ou vers un contrôleur de domaine.
 
 ## <a name="what-attributes-are-migrated-by-the-storage-migration-service"></a>Quels attributs sont migrés par le service de migration de stockage ?
 
@@ -63,13 +63,13 @@ Storage migration service migre tous les indicateurs, paramètres et sécurité 
     - Communication à distance des identités
     - Infrastructure
     - Nom
-    - Path
-    - Étendue
+    - Chemin d’accès
+    - Délimité
     - Nom de l'étendue
     - Descripteur de sécurité
     - Cliché instantané
-    - Special
-    - Passagère
+    - Spéciale
+    - Stockage
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Puis-je consolider plusieurs serveurs en un seul serveur ?
 
@@ -89,9 +89,9 @@ Le service de migration de stockage contient un moteur de lecture et de copie mu
 
 - **Utilisez Windows Server 2019 pour le système d’exploitation de destination.** Windows Server 2019 contient le service de proxy de service de migration de stockage. Lorsque vous installez cette fonctionnalité et migrez vers des destinations Windows Server 2019, tous les transferts fonctionnent comme une ligne de vue directe entre la source et la destination. Ce service s’exécute sur l’orchestrateur pendant le transfert si les ordinateurs de destination sont Windows Server 2012 R2 ou Windows Server 2016, ce qui signifie que les transferts double-saut et sont beaucoup plus lents. Si plusieurs tâches s’exécutent avec des destinations Windows Server 2012 R2 ou Windows Server 2016, l’orchestrateur devient un goulot d’étranglement. 
 
-- **Modifiez les threads de transfert par défaut.** Le service de proxy de migration de stockage copie 8 fichiers simultanément dans un travail donné. Vous pouvez augmenter le nombre de threads de copie simultanés en ajustant le nom de la valeur REG_DWORD du Registre suivant en décimal sur chaque nœud exécutant le proxy de service de migration de stockage :
+- **Modifiez les threads de transfert par défaut.** Le service de proxy de migration de stockage copie 8 fichiers simultanément dans un travail donné. Vous pouvez augmenter le nombre de threads de copie simultanés en ajustant le Registre suivant REG_DWORD nom de la valeur en décimal sur chaque nœud exécutant le proxy de service de migration de stockage :
 
-    HKEY_Local_Machine\Software\Microsoft\SMSProxy
+    HKEY_Local_Machine \Software\Microsoft\SMSProxy
     
     FileTransferThreadCount
 
@@ -110,7 +110,7 @@ Le service de migration de stockage contient un moteur de lecture et de copie mu
    - Une ou plusieurs cartes réseau configurées à l’aide de l’Association de cartes réseau
    - Une ou plusieurs cartes réseau prenant en charge RDMA
 
-- **Mettre à jour les pilotes.** Si nécessaire, installez le microprogramme et le microprogrammes de stockage et de boîtier du fournisseur, les derniers pilotes HBA des fournisseurs, le dernier microprogramme du fournisseur BIOS/UEFI, les derniers pilotes réseau du fournisseur et les derniers pilotes de carte mère sur la source, la destination et Orchestrator. serveurs. Redémarrez les nœuds si besoin. Consultez la documentation de votre fournisseur de matériel pour la configuration du stockage partagé et du matériel réseau.
+- **Mettre à jour les pilotes.** Le cas échéant, installez le dernier microprogramme de stockage et de boîtier du fournisseur, les derniers pilotes HBA des fournisseurs, le dernier microprogramme du fournisseur BIOS/UEFI, les derniers pilotes réseau du fournisseur et les derniers pilotes de carte mère sur les serveurs source, de destination et Orchestrator. Redémarrez les nœuds si nécessaire. Consultez la documentation de votre fournisseur de matériel pour la configuration du stockage partagé et du matériel réseau.
 
 - **Activez le traitement hautes performances.** Vérifiez que les paramètres BIOS/UEFI des serveurs permettent de hautes performances, par exemple avec la désactivation de C-State, la définition de la vitesse de QPI, l’activation de NUMA et la définition de la fréquence mémoire la plus élevée. Assurez-vous que la gestion de l’alimentation dans Windows Server est définie sur hautes performances. Redémarrez si nécessaire. N’oubliez pas de les retourner aux États appropriés une fois la migration terminée. 
 
@@ -132,9 +132,9 @@ Le service de migration de stockage utilise une base de données ESE (Extensible
 2. Appropriation du dossier `%programdata%/Microsoft/StorageMigrationService`
 3. Ajoutez votre compte d’utilisateur pour avoir un contrôle total sur ce partage et tous ses fichiers et sous-dossiers.
 4. Déplacez le dossier vers un autre lecteur sur l’ordinateur Orchestrator.
-5. Définissez la valeur de Registre REG_SZ suivante :
+5. Définissez la valeur de REG_SZ de Registre suivante :
 
-    HKEY_Local_Machine\Software\Microsoft\SMS DatabasePath = *chemin d’accès au nouveau dossier de base de données sur un autre volume* . 
+    HKEY_Local_Machine \Software\Microsoft\SMS DatabasePath = *chemin d’accès au nouveau dossier de base de données sur un autre volume* . 
 6. Vérifier que le système dispose d’un contrôle total sur tous les fichiers et sous-dossiers de ce dossier
 7. Supprimez vos propres autorisations de compte.
 8. Démarrez le service de migration de stockage.
@@ -145,7 +145,7 @@ Pour envoyer des commentaires sur le service de migration de stockage :
 
 - Utilisez l’outil Hub de commentaires inclus dans Windows 10, en cliquant sur « suggérer une fonctionnalité » et en spécifiant la catégorie « Windows Server » et la sous-catégorie « migration du stockage ».
 - Utiliser le site [Windows Server UserVoice](https://windowsserver.uservoice.com)
-- @No__t de messagerie-0
+- L’adresse e-mail smsfeed@microsoft.com
 
 Pour signaler les bogues :
 
@@ -158,6 +158,6 @@ Pour bénéficier du support technique :
  - Publication sur le [Forum TechNet de Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc) 
  - Ouvrir un dossier de support via [support Microsoft](https://support.microsoft.com)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 
 - [Vue d’ensemble de Storage migration service](overview.md)

@@ -9,19 +9,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 61c129ab8472d7e85602fa0a0244c4a925050d93
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c784c4b6dbfee7034dd9302dc87fc74b896763f5
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407302"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950144"
 ---
 # <a name="when-to-use-a-custom-claim-rule"></a>Quand utiliser une règle de revendication personnalisée
-Vous écrivez une règle de revendication personnalisée dans \(services ADFS\) AD FS à l’aide du langage de règle de revendication, qui est l’infrastructure que le moteur d’émission de revendications utilise pour générer, transformer, transmettre et filtrer par programmation légitimité. L’utilisation d’une règle personnalisée permet de créer des règles avec une logique plus complexe qu’un modèle de règle standard. Envisagez d’utiliser une règle personnalisée lorsque vous souhaitez :  
+Vous écrivez une règle de revendication personnalisée dans Services ADFS \(AD FS\) à l’aide du langage de règle de revendication, qui est l’infrastructure que le moteur d’émission de revendications utilise pour générer, transformer, transmettre et filtrer les revendications par programmation. L’utilisation d’une règle personnalisée permet de créer des règles avec une logique plus complexe qu’un modèle de règle standard. Envisagez d’utiliser une règle personnalisée lorsque vous souhaitez :  
   
--   Envoyer des revendications basées sur les valeurs extraites d’un \(magasin\) d’attributs SQL langage SQL.  
+-   Envoyer des revendications basées sur les valeurs extraites d’un magasin d’attributs de langage SQL \(SQL\).  
   
--   Envoyer des revendications en fonction des valeurs extraites d’un \(magasin d’attributs LDAP LDAP\) à l’aide d’un filtre LDAP personnalisé.  
+-   Envoyer des revendications en fonction des valeurs extraites à partir d’un protocole Lightweight Directory Access \(magasin d’attributs LDAP\) à l’aide d’un filtre LDAP personnalisé.  
   
 -   Envoyer des revendications basées sur les valeurs extraites d’un magasin d’attributs personnalisés.  
   
@@ -42,34 +42,34 @@ Le langage des règles de revendication repose sur des règles. Il est composé 
 Les sections suivantes présentent brièvement les règles de revendication. Elles indiquent également à quel moment utiliser une règle de revendication personnalisée.  
   
 ## <a name="about-claim-rules"></a>À propos des règles de revendication  
-Une règle de revendication représente une instance de logique métier qui prend une revendication entrante, lui applique une \(condition si x, alors\) y et génère une revendication sortante basée sur les paramètres de condition.  
+Une règle de revendication représente une instance de logique métier qui prend une revendication entrante, lui applique une condition \(si x, alors y\) et génère une revendication sortante en fonction des paramètres de condition.  
   
 > [!IMPORTANT]  
-> -   Dans le composant logiciel enfichable\-gestion des AD FS, les règles de revendication ne peuvent être créées qu’à l’aide de modèles de règle de revendication  
-> -   Les règles de revendication traitent les revendications entrantes soit \(directement à partir d’un fournisseur\) de revendications, par exemple Active Directory ou une autre service FS (Federation Service), soit à partir de la sortie des règles de transformation d’acceptation sur une approbation de fournisseur de revendications.  
+> -   Dans le\-du composant logiciel enfichable Gestion de l’AD FS dans, les règles de revendication peuvent être créées uniquement à l’aide de modèles de règle de revendication  
+> -   Les règles de revendication traitent les revendications entrantes soit directement à partir d’un fournisseur de revendications \(comme Active Directory ou un autre service FS (Federation Service)\), soit à partir de la sortie des règles de transformation d’acceptation sur une approbation de fournisseur de revendications.  
 > -   Les règles de revendication sont traitées par le moteur d’émission des revendications au sein d’un ensemble de règles donné et dans l’ordre chronologique. En définissant la hiérarchie des règles, vous pouvez affiner ou filtrer les revendications qui sont générées par les règles précédentes au sein d’un ensemble de règles donné.  
 > -   Les modèles de règle de revendication nécessitent toujours de spécifier un type de revendication entrante. Toutefois, vous pouvez traiter plusieurs valeurs de revendication avec le même type de revendication, en vous appuyant sur une règle unique.  
   
 Pour plus d’informations sur les règles de revendication et les ensembles de règles de revendication, consultez [rôle des règles de revendication](The-Role-of-Claim-Rules.md). Pour plus d’informations sur la façon dont les règles sont traitées, consultez [le rôle du moteur de revendications](The-Role-of-the-Claims-Engine.md). Pour plus d’informations sur le traitement des ensembles de règles de revendication, consultez [le rôle du pipeline de revendications](The-Role-of-the-Claims-Pipeline.md).  
   
 ## <a name="how-to-create-this-rule"></a>Comment créer cette règle  
-Pour créer cette règle, commencez par créer la syntaxe dont vous avez besoin pour votre opération à l’aide du langage de règle de revendication, puis collez le résultat dans la zone de texte fournie dans le modèle envoyer une revendication à l’aide d’une règle personnalisée sur les propriétés d’un fournisseur de revendications TR. UST ou une approbation de partie de confiance dans le composant logiciel\-enfichable de gestion AD FS.  
+Pour créer cette règle, commencez par créer la syntaxe dont vous avez besoin pour votre opération à l’aide du langage de règle de revendication, puis collez le résultat dans la zone de texte fournie dans le modèle envoyer une revendication à l’aide d’une règle personnalisée sur les propriétés d’une approbation de fournisseur de revendications ou de partie de confiance dans le\-du composant logiciel enfichable de gestion de AD FS.  
   
 Ce modèle de règle propose les options suivantes :  
   
--   Spécifier un nom de règle de revendication  
+-   Spécifier le nom de la règle de revendication  
   
 -   Tapez une ou plusieurs conditions facultatives et une instruction d’émission à l’aide du langage de règle de revendication AD FS  
   
 Pour plus d’instructions sur la création d’une règle personnalisée à l’aide de ce modèle, consultez [créer une règle pour envoyer des revendications à l’aide d’une règle personnalisée](https://technet.microsoft.com/library/dd807049.aspx) dans le Guide de déploiement AD FS.  
   
-Pour mieux comprendre le fonctionnement du langage de règle de revendication, consultez la syntaxe du langage de règle de revendication des autres règles qui existent déjà\-dans le composant logiciel enfichable en cliquant sur l’onglet **afficher le langage de règle** dans les propriétés de cette règle. L’utilisation des informations contenues dans cette section et des informations de syntaxe de cet onglet peuvent indiquer comment construire vos propres règles personnalisées.  
+Pour mieux comprendre le fonctionnement du langage de règle de revendication, affichez la syntaxe du langage de règle de revendication des autres règles qui existent déjà dans le\-d’accrochage dans en cliquant sur l’onglet **afficher le langage de règle** dans les propriétés de cette règle. L’utilisation des informations contenues dans cette section et des informations de syntaxe de cet onglet peuvent indiquer comment construire vos propres règles personnalisées.  
   
 Pour plus d’informations sur l’utilisation du langage de règle de revendication, consultez [le rôle du langage de règle de revendication](The-Role-of-the-Claim-Rule-Language.md).  
   
 ## <a name="using-the-claim-rule-language"></a>Utilisation du langage des règles de revendication  
   
-### <a name="example-how-to-combine-first-and-last-names-based-on-a-users-name-attribute-values"></a>Exemple : Comment combiner le prénom et le nom en fonction des valeurs d’attribut Name d’un utilisateur  
+### <a name="example-how-to-combine-first-and-last-names-based-on-a-users-name-attribute-values"></a>Exemple : comment combiner le prénom et le nom en fonction des valeurs d’attribut Name d’un utilisateur  
 La syntaxe de règle suivante combine les prénoms et les noms des valeurs d’attribut dans un magasin d’attributs donné. Le moteur de stratégie constitue un produit cartésien des correspondances pour chaque condition. Par exemple, le résultat pour le prénom {« Frank », « Alan »} et les noms {« Miller », « Shen »} est {« Frank Miller », « Frank Shen », « Alan Miller », « Alan Shen »} :  
   
 ```  
@@ -78,7 +78,7 @@ c1:[type == "http://exampleschema/firstname" ]
 => issue(type = "http://exampleschema/name", value = c1.value + “  “ + c2.value);  
 ```  
   
-### <a name="example-how-to-issue-a-manager-claim-based-on-whether-users-have-direct-reports"></a>Exemple : Comment émettre une revendication de gestionnaire basée sur le fait que des utilisateurs disposent de rapports directs  
+### <a name="example-how-to-issue-a-manager-claim-based-on-whether-users-have-direct-reports"></a>Exemple : comment émettre une revendication de gestionnaire basée sur le fait que des utilisateurs disposent de rapports directs  
 La règle suivante émet une revendication de gestionnaire uniquement si l’utilisateur a des rapports directs :  
   
 ```  
@@ -86,11 +86,11 @@ c:[type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] => add(
 count([type == “http://schemas.xmlsoap.org/claims/Reports“] ) > 0 => issue(= "http://schemas.xmlsoap.org/claims/ismanager", value = "true");  
 ```  
   
-### <a name="example-how-to-issue-a-ppid-claim-based-on-an-ldap-attribute"></a>Exemple : Comment émettre une revendication PPID (Private Personal Identifier) basée sur un attribut LDAP  
-La règle suivante émet une \(revendication PPID\) d’identificateur personnel privé basée sur les attributs **attributs WindowsAccountName** et **OriginalIssuer** des utilisateurs dans un magasin d’attributs LDAP :  
+### <a name="example-how-to-issue-a-ppid-claim-based-on-an-ldap-attribute"></a>Exemple : comment émettre une revendication PPID (Private Personal Identifier) basée sur un attribut LDAP  
+La règle suivante émet un identificateur personnel privé \(numéro PPID\) revendication en fonction des attributs **attributs WindowsAccountName** et **OriginalIssuer** des utilisateurs dans un magasin d’attributs LDAP :  
   
 ```  
-c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]  
+c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]  
  => issue(store = "_OpaqueIdStore", types = ("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier"), query = "{0};{1};{2}", param = "ppid", param = c.Value, param = c.OriginalIssuer);  
 ```  
   

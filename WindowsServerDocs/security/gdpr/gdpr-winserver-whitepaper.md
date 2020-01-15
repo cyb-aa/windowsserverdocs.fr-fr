@@ -6,20 +6,20 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: nirb
 author: nirb-ms
-ms.openlocfilehash: 506cd5cb44d93c9d7d221917505f76a2c5625baa
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 51768dc65128f27dcbf78cbfc776500ac3832615
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870548"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949834"
 ---
 # <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>Début de votre parcours Règlement général sur la protection des données (RGPD) pour Windows Server 
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cet article vous explique en quoi consiste le RGPD et présente ce qu'offrent les produits Microsoft pour vous préparer à la mise en conformité.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Le 25 mai 2018, une loi de confidentialité européenne doit entrer en vigueur. Elle fixe une nouvelle norme mondiale en matière de droits à la vie privée, de sécurité et de conformité.
 
 Le règlement général sur la protection des données (ou RGPD) concerne essentiellement la protection et l’application des droits à la vie privée des utilisateurs. Le RGPD établit des conditions strictes internationales en matière de protection de la vie privée qui régissent votre façon de gérer et de protéger les données personnelles tout en respectant les choix individuels, quel que soit l’endroit où les données sont envoyées, traitées ou stockées.
@@ -28,7 +28,7 @@ Microsoft et nos clients sont désormais en voie d'atteindre les objectifs de co
 
 Nous avons décrit notre engagement en faveur du RGPD, ainsi que notre soutien à nos clients dans le billet de blog [Devenir conforme au RGPD à l'aide du Microsoft Cloud](https://blogs.microsoft.com/on-the-issues/2017/02/15/get-gdpr-compliant-with-the-microsoft-cloud/#hv52B68OZTwhUj2c.99) de notre Responsable de la confidentialité [Brendon Lynch](https://blogs.microsoft.com/on-the-issues/author/brendonlynch/) et le billet de blog [Gagner votre confiance avec les engagements contractuels envers le règlement général sur la protection des données](https://blogs.microsoft.com/on-the-issues/2017/04/17/earning-trust-contractual-commitments-general-data-protection-regulation/#6QbqoGWXCLavGM63.99) de [Rich Sauer](https://blogs.microsoft.com/on-the-issues/author/rsauer/), vice-président du groupe Microsoft et directeur juridique adjoint.
 
-Bien que votre mise en conformité avec le RGPD puisse sembler difficile, nous sommes là pour vous aider. Pour obtenir des informations spécifiques sur le RGPD, nos engagements et comment commencer à le mettre en application, visitez la [section RGPD du Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr).
+Bien que votre mise en conformité avec le RGPD puisse sembler difficile, nous sommes là pour vous aider. Pour obtenir des informations spécifiques sur le RGPD, nos engagements et comment commencer à le mettre en application, visitez la [section RGPD du Microsoft Trust Center](https://www.microsoft.com/trustcenter/privacy/gdpr).
 
 ## <a name="gdpr-and-its-implications"></a>Le RGPD et ses implications
 Le RGPD est un règlement complexe qui peut nécessiter des modifications importantes de la façon dont vous recueillez, utilisez et gérez les données personnelles. Depuis longtemps, Microsoft aide ses clients à respecter les réglementations complexes et en ce qui concerne la préparation au RGPD, nous sommes votre partenaire dans cette démarche.
@@ -53,7 +53,7 @@ Le RGPD introduit des définitions spécifiques pour les données génétiques (
 ### <a name="examples-of-info-relating-to-an-identified-or-identifiable-natural-person-data-subject"></a>Exemples d’informations relatives à une personne physique identifiée ou identifiable (personne concernée)
 Cette liste fournit des exemples de différents types d’informations régies par le RGPD. Cette liste n’est pas exhaustive.
 
--   Name
+-   Nom
 
 -   Numéro d’identification (par exemple, SSN)
 
@@ -80,7 +80,7 @@ Cette liste fournit des exemples de différents types d’informations régies p
 
     ![Diagramme sur l'articulation des 4 principales étapes du RGPD](../media/GDPR-Windows-Server-Overview/gdpr-steps-diagram.png)
 
-Pour chacune de ces étapes, nous décrivons des exemples d'outils, de ressources et de fonctionnalités de différentes solutions Microsoft qui permettent de répondre aux exigences propres à chaque étape. Bien que cet article ne soit pas un guide de procédure complet, nous avons inclus des liens pour vous aider à en savoir plus, et d’autres informations sont disponibles dans la [section RGPD du centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr).
+Pour chacune de ces étapes, nous décrivons des exemples d'outils, de ressources et de fonctionnalités de différentes solutions Microsoft qui permettent de répondre aux exigences propres à chaque étape. Bien que cet article ne soit pas un guide de procédure complet, nous avons inclus des liens pour vous aider à en savoir plus, et d’autres informations sont disponibles dans la [section RGPD du centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/trustcenter/privacy/gdpr).
 
 ## <a name="windows-server-security-and-privacy"></a>Sécurité et confidentialité Windows Server
 Le RGPD vous oblige à implémenter des mesures de sécurité techniques et organisationnelles appropriées pour protéger les systèmes de données et de traitement personnels. Dans le contexte de RGPD, vos environnements de serveurs physiques et virtuels sont susceptibles de traiter des données personnelles et sensibles. Le traitement peut signifier toute opération ou ensemble d’opérations, telles que la collecte de données, le stockage et la récupération.
@@ -101,7 +101,7 @@ Comme nous l’avons vu avec les récentes attaques par ransomware, une fois que
 
 Deux principes clés ont guidé et continuent à guider le développement de Windows :
 
-- **Caution.** Les données de notre magasin de logiciels et de services pour le compte de nos clients doivent être protégées contre les dommages et utilisés ou modifiés uniquement de manière appropriée. Les modèles de sécurité doivent être faciles à comprendre et à intégrer dans leurs applications.
+- **Sécurité** : Les données de notre magasin de logiciels et de services pour le compte de nos clients doivent être protégées contre les dommages et utilisés ou modifiés uniquement de manière appropriée. Les modèles de sécurité doivent être faciles à comprendre et à intégrer dans leurs applications.
 
 - **Nominative.** Les utilisateurs doivent contrôler la façon dont leurs données sont utilisées. Les stratégies d’utilisation des informations doivent être claires pour l’utilisateur. Les utilisateurs doivent contrôler le moment et le moment où ils reçoivent des informations pour tirer le meilleur parti de leur temps. Il devrait être facile pour les utilisateurs de spécifier l’utilisation appropriée de leurs informations, notamment le contrôle de l’utilisation de l’e-mail qu’ils envoient.
 
@@ -135,7 +135,7 @@ Ces fonctionnalités, présentées plus en détail ci-dessous, avec des référe
 
 Une configuration de clé au sein du RGPD est la protection des données par conception et par défaut. en vous aidant de votre capacité à répondre à cette configuration, vous disposez de fonctionnalités dans Windows 10, telles que le chiffrement de l’appareil BitLocker. BitLocker utilise la technologie de Module de plateforme sécurisée (TPM) (TPM), qui fournit des fonctions matérielles liées à la sécurité. Cette puce de processeur de chiffrement comprend plusieurs mécanismes de sécurité physique pour le rendre inviolable, et les logiciels malveillants ne peuvent pas altérer les fonctions de sécurité du module de plateforme sécurisée.
 
-La puce comprend plusieurs mécanismes de sécurité physique qui la protègent contre la falsification, et les logiciels malveillants ne peuvent pas falsifier les fonctions de sécurité du TPM. Les principaux avantages de la technologie de TPM sont que vous pouvez :
+La puce comprend plusieurs mécanismes de sécurité physique qui la protègent contre la falsification, et les logiciels malveillants ne peuvent pas falsifier les fonctions de sécurité du TPM. Les principaux avantages de l’utilisation de la technologie TPM sont principalement que vous pouvez :
 
 -   générer, stocker et limiter l’utilisation des clés de chiffrement ;
 
@@ -145,7 +145,7 @@ La puce comprend plusieurs mécanismes de sécurité physique qui la protègent 
 
 Pour assurer une protection avancée des appareils supplémentaire, adaptée à votre exploitation et sans violations de données, vous pouvez notamment utiliser le démarrage sécurisé de Windows pour préserver l’intégrité du système en garantissant qu'un programme malveillant ne puisse pas démarrer avant les défenses du système.
 
-## <a name="windows-server-supporting-your-gdpr-compliance-journey"></a>Windows Server: Prise en charge de votre parcours de conformité RGPD
+## <a name="windows-server-supporting-your-gdpr-compliance-journey"></a>Windows Server : prise en charge de votre parcours de conformité RGPD
 Les fonctionnalités clés de Windows Server peuvent vous aider à mettre en œuvre efficacement et efficacement les mécanismes de sécurité et de confidentialité requis par RGPD pour la conformité. Bien que l’utilisation de ces fonctionnalités ne garantisse pas la conformité, elles prendront en charge vos efforts.
 
 Le système d’exploitation serveur repose sur une couche stratégique de l’infrastructure d’une organisation, offrant ainsi de nouvelles opportunités de créer des couches de protection contre les attaques susceptibles de voler des données et d’interrompre votre activité. Les aspects clés des RGPD tels que la confidentialité par conception, la protection des données et les Access Control doivent être traités au sein de votre infrastructure informatique au niveau du serveur.
@@ -185,17 +185,17 @@ Si l’administrateur DNS doit effectuer une mise à jour sur l’un de ses serv
 
 Imaginez ce scénario si les informations d’identification de l’administrateur DNS ont été volées. Tout d’abord, étant donné que les informations d’identification n’ont pas de privilèges d’administrateur, la personne malveillante ne peut pas accéder au serveur DNS (ou à tout autre système) pour apporter des modifications. Si l’attaquant tente de demander des privilèges pour le serveur DNS, l’authentification de second facteur leur demande de confirmer leur identité. Dans la mesure où il est peu probable que l’attaquant ait le téléphone mobile de l’administrateur DNS, l’authentification échoue. Cela verrouillerait l’attaquant en dehors du système et alertera l’organisation informatique que les informations d’identification pourraient être compromises.
 
-En outre, de nombreuses organisations utilisent la [solution de mot de passe d’administrateur local gratuite (coupe)](http://aka.ms/laps) comme un mécanisme d’administration JIT simple mais puissant pour leurs systèmes serveur et client. La fonctionnalité couvre la gestion des mots de passe de compte local des ordinateurs joints à un domaine. Les mots de passe sont stockés dans Active Directory (AD) et protégés par et Access Control liste (ACL) afin que seuls les utilisateurs éligibles puissent le lire ou demander la réinitialisation.
+En outre, de nombreuses organisations utilisent la [solution de mot de passe d’administrateur local gratuite (coupe)](https://aka.ms/laps) comme un mécanisme d’administration JIT simple mais puissant pour leurs systèmes serveur et client. La fonctionnalité couvre la gestion des mots de passe de compte local des ordinateurs joints à un domaine. Les mots de passe sont stockés dans Active Directory (AD) et protégés par et Access Control liste (ACL) afin que seuls les utilisateurs éligibles puissent le lire ou demander la réinitialisation.
 
-Comme indiqué dans le [Guide de prévention des vols d’informations d’identification Windows](https://www.microsoft.com/en-us/download/confirmation.aspx?id=54095), 
+Comme indiqué dans le [Guide de prévention des vols d’informations d’identification Windows](https://www.microsoft.com/download/confirmation.aspx?id=54095), 
 
-> «_les outils et techniques utilisés par les criminels pour effectuer des attaques de vol et de réutilisation des informations d’identification améliorent, les attaquants malveillants se trouvent plus faciles à atteindre. Les vols d’informations d’identification s’appuient souvent sur des pratiques opérationnelles ou sur l’exposition des informations d’identification de l’utilisateur. les atténuations efficaces nécessitent donc une approche holistique qui résout les personnes, les processus et la technologie. En outre, ces attaques s’appuient sur l’attaquant qui vole les informations d’identification après avoir compromis un système pour développer ou conserver l’accès, de sorte que les organisations doivent faire face aux violations rapidement en implémentant des stratégies qui empêchent les attaquants de se déplacer librement et non détectés dans un réseau compromis._ »
+> «_les outils et techniques utilisés par les criminels pour effectuer des attaques de vol et de réutilisation des informations d’identification améliorent, les attaquants malveillants se trouvent plus faciles à atteindre. Les vols d’informations d’identification s’appuient souvent sur des pratiques opérationnelles ou sur l’exposition des informations d’identification de l’utilisateur. les atténuations efficaces nécessitent donc une approche holistique qui résout les personnes, les processus et la technologie. En outre, ces attaques s’appuient sur le pirate qui vole les informations d’identification après avoir compromis un système pour développer ou conserver l’accès, de sorte que les organisations doivent faire face aux violations rapidement en implémentant des stratégies qui empêchent les attaquants de se déplacer librement et non détectées sur un réseau compromis._ »
 
 L’un des points importants à prendre en compte pour Windows Server était l’atténuation des vols d’informations d’identification, en particulier les informations d’identification dérivées. Credential Guard offre une sécurité considérablement améliorée contre le vol et la réutilisation des informations d’identification dérivées en implémentant une modification architecturale importante de Windows conçue pour aider à éliminer les attaques de l’isolation matérielle plutôt que simplement essayer de vous y défendre.
 
 Lorsque vous utilisez les informations d’identification dérivées de Windows Defender Credential Guard, NTLM et Kerberos sont protégées à l’aide de la sécurité basée sur la virtualisation, les techniques et les outils d’attaque contre le vol d’informations d’identification utilisés dans de nombreuses attaques ciblées sont bloqués. Les programmes malveillants exécutés dans le système d’exploitation avec des privilèges administratifs ne peuvent pas extraire les secrets protégés par la sécurité basée sur la virtualisation. Bien que Windows Defender Credential Guard soit une solution puissante, les attaques de menaces persistantes sont susceptibles d’être déplacées vers de nouvelles techniques d’attaque et vous devez également intégrer Device Guard, comme décrit ci-dessous, ainsi que d’autres stratégies et architectures de sécurité.
 
-#### <a name="windows-defender-credential-guard"></a>Protection des informations d’identification Windows Defender
+#### <a name="windows-defender-credential-guard"></a>Windows Defender Credential Guard
 Windows Defender Credential Guard utilise la sécurité basée sur la virtualisation pour isoler les informations d’identification, empêchant ainsi les hachages de mot de passe ou les tickets Kerberos d’être interceptés. Il utilise un processus de l’autorité de sécurité locale (LSA, Local Security Authority) entièrement nouveau, qui n’est pas accessible au reste du système d’exploitation. Tous les fichiers binaires utilisés par l’autorité de certification locale isolée sont signés avec des certificats validés avant d’être lancés dans l’environnement protégé, ce qui rend les attaques de type Pass-The-hash totalement inefficaces.
 
 Windows Defender Credential Guard utilise :
@@ -237,7 +237,7 @@ Windows Server 2016 comprend Windows Defender Device Guard pour s’assurer que 
 
 Windows Defender Device Guard est également intégré à PowerShell afin que vous puissiez autoriser les scripts qui peuvent s’exécuter sur votre système. Dans les versions antérieures de Windows Server, les administrateurs pouvaient contourner l’application de l’intégrité du code en supprimant simplement la stratégie du fichier de code. Avec Windows Server 2016, vous pouvez configurer une stratégie signée par votre organisation afin que seule une personne ayant accès au certificat qui a signé la stratégie puisse modifier la stratégie.
 
-#### <a name="control-flow-guard"></a>Protection du flux de contrôle 
+#### <a name="control-flow-guard"></a>Control Flow Guard 
 Windows Server 2016 comprend également une protection intégrée contre certaines classes d’attaques de corruption de mémoire. L’application de correctifs à vos serveurs est importante, mais il est toujours possible de développer des programmes malveillants pour une vulnérabilité qui n’a pas encore été identifiée. Certaines des méthodes les plus courantes pour exploiter ces vulnérabilités sont de fournir des données inhabituelles ou extrêmes à un programme en cours d’exécution. Par exemple, une personne malveillante peut exploiter une vulnérabilité de dépassement de mémoire tampon en fournissant plus d’entrées à un programme que prévu et en saturant la zone réservée par le programme pour contenir une réponse. Cela peut corrompre la mémoire adjacente qui peut contenir un pointeur de fonction.
 
 Lorsque le programme appelle par le biais de cette fonction, il peut accéder à un emplacement non souhaité spécifié par l’attaquant. Ces attaques sont également connues sous le nom d’attaques JOP (Jump-Oriented Programming). La protection du contrôle de workflow empêche les attaques JOP en plaçant des restrictions strictes sur le code d’application qui peut être exécuté, en particulier les instructions d’appel indirect. Elle ajoute des vérifications de sécurité légères pour identifier l’ensemble des fonctions dans l’application qui sont des cibles valides pour les appels indirects. Lorsqu’une application s’exécute, elle vérifie que ces cibles d’appel indirect sont valides.
@@ -279,7 +279,7 @@ Aujourd’hui, les entreprises virtualisent tout ce qu’elles peuvent, de SQL S
 
 Windows Server 2016 change fondamentalement la manière dont les entreprises peuvent sécuriser la virtualisation, en incluant plusieurs technologies qui vous permettent de créer des machines virtuelles qui s’exécutent uniquement sur votre propre infrastructure. aider à protéger les appareils de stockage, réseau et hôtes sur lesquels ils s’exécutent.
 
-#### <a name="shielded-virtual-machines"></a>Machines virtuelles dotées d’une protection maximale
+#### <a name="shielded-virtual-machines"></a>Machines virtuelles dotées d'une protection maximale
 Les mêmes choses qui rendent les machines virtuelles si faciles à migrer, sauvegarder et répliquer, les rendent également plus faciles à modifier et à copier. Un ordinateur virtuel est simplement un fichier, donc il n’est pas protégé sur le réseau, dans le stockage, dans les sauvegardes ou ailleurs. Un autre problème est que les administrateurs de structure, qu’il s’agisse d’un administrateur de stockage ou d’un administrateur réseau, ont accès à toutes les machines virtuelles.
 
 Un administrateur compromis sur l’infrastructure peut facilement générer des données compromises entre les machines virtuelles. Tout ce qu’il faut faire, c’est d’utiliser les informations d’identification compromises pour copier les fichiers de machine virtuelle qu’ils aiment sur un lecteur USB et de les parcourir en dehors de l’organisation, où ces fichiers sont accessibles à partir de n’importe quel autre système. Si l’une de ces machines virtuelles volées était un contrôleur de domaine Active Directory, par exemple, l’attaquant pourrait facilement afficher le contenu et utiliser des techniques de force brute facilement disponibles pour déchiffrer les mots de passe dans la base de données Active Directory, en leur donnant accès à tout le reste au sein de votre infrastructure.
@@ -302,11 +302,11 @@ Vous pouvez protéger le module de plateforme sécurisée (vTPM) virtuel à l’
 Une façon d’améliorer la protection dans les environnements virtualisés consiste à segmenter le réseau d’une manière qui permet aux machines virtuelles de communiquer uniquement avec les systèmes spécifiques requis pour fonctionner. Par exemple, si votre application n’a pas besoin de se connecter à Internet, vous pouvez la partitionner, en éliminant ces systèmes comme cibles des attaquants externes. Le SDN (Software-Defined Networking) de Windows Server 2016 comprend un pare-feu de réseau distribué qui vous permet de créer dynamiquement les stratégies de sécurité qui peuvent protéger vos applications contre les attaques provenant de l’intérieur ou de l’extérieur d’un réseau. Ce pare-feu de réseau distribué ajoute des couches à votre sécurité en vous permettant d’isoler vos applications sur le réseau. Les stratégies peuvent être appliquées n’importe où dans l’infrastructure de votre réseau virtuel, en isolant le trafic entre les machines virtuelles, les machines VIRTUELles hôtes ou les machines virtuelles sur Internet, le cas échéant, soit pour les systèmes individuels susceptibles d’avoir été compromis, soit par programmation. plusieurs sous-réseaux. Les fonctionnalités de mise en réseau définies par le logiciel Windows Server 2016 vous permettent également d’acheminer ou de mettre en miroir le trafic entrant vers des appliances virtuelles non-Microsoft. Par exemple, vous pouvez choisir d’envoyer tout le trafic de votre messagerie par le biais d’une appliance virtuelle Barracuda pour une protection supplémentaire contre le filtrage du courrier indésirable. Cela vous permet de facilement effectuer une couche de sécurité supplémentaire en local ou dans le Cloud.
 
 ### <a name="other-gdpr-considerations-for-servers"></a>Autres considérations relatives à RGPD pour les serveurs
-Le RGPD comprend des exigences explicites pour la notification de violation lorsqu’une violation de données personnelles signifie «_une violation de sécurité entraînant une destruction accidentelle ou illégale, une perte, une modification, une divulgation non autorisée ou l’accès à des données personnelles. transmis, stocké ou traité autrement._ »  Évidemment, vous ne pouvez pas commencer à répondre aux exigences strictes de notification RGPD dans un délai de 72 heures si vous ne pouvez pas détecter la violation en premier lieu.
+Le RGPD comprend des exigences explicites pour la notification de violation lorsqu’une divulgation de données personnelle signifie «_une violation de sécurité entraînant une destruction accidentelle ou illégale, une perte, une modification, une divulgation non autorisée ou l’accès à des données personnelles transmises, stockées ou traitées de manière autre._ »  Évidemment, vous ne pouvez pas commencer à répondre aux exigences strictes de notification RGPD dans un délai de 72 heures si vous ne pouvez pas détecter la violation en premier lieu.
 
-Comme indiqué dans le livre blanc Windows Security Center, [billet de blog : Gestion des menaces avancées](http://wincom.blob.core.windows.net/documents/Post_Breach_Dealing_with_Advanced_Threats_Whitepaper.pdf)
+Comme indiqué dans le livre blanc Windows Security Center, [billet de blog : gestion des menaces avancées](http://wincom.blob.core.windows.net/documents/Post_Breach_Dealing_with_Advanced_Threats_Whitepaper.pdf)
 
-> «_Contrairement à la préviolation, après une violation, une violation s’est déjà produite, agissant comme un enregistreur de vol et un investigateur de scène criminel (CSI). Après la violation, les équipes de sécurité fournissent les informations et l’ensemble d’outils nécessaires à l’identification, à l’examen et à la réponse aux attaques qui, autrement, ne restent pas détectées et sous le radar._ »
+> «_Contrairement à la préviolation, après une violation, une violation s’est déjà produite, agissant comme un enregistreur de vol et un investigateur de scène criminel (CSI). Après la violation, les équipes de sécurité fournissent les informations et l’ensemble d’outils nécessaires à l’identification, à l’examen et à la réponse aux attaques qui, autrement, ne pourront pas être détectées et inférieures au radar._ »
 
 Dans cette section, nous allons voir comment Windows Server peut vous aider à répondre à vos obligations de notification de violation RGPD. Cela commence par la compréhension des données de menace sous-jacentes disponibles pour Microsoft qui sont collectées et analysées en fonction de votre avantage et de la façon dont les données peuvent être essentielles par le biais de Windows Defender-protection avancée contre les menaces (ATP).
 
@@ -317,7 +317,7 @@ En appliquant une combinaison de processus automatisés et manuels, d'apprentiss
 
 ![Graphique de sécurité Microsoft intelligence](../media/GDPR-Windows-Server-Overview/gdpr-intelligent-security-graph.png)
 
-L’étendue de l’intelligence des menaces de Microsoft s’étend, littéralement, à des milliards de points de données : 35 milliards messages analysés tous les mois, 1 milliard clients au sein de l’entreprise et des segments de grand public accédant à plus de 200 services Cloud et 14 milliards authentifications effectuées quotidiennement. Toutes ces données sont rassemblées en votre nom par Microsoft pour créer le Intelligent Security Graph qui peut vous aider à protéger votre porte d’entrée de manière dynamique pour rester sécurisé, rester productif et répondre aux exigences du RGPD.
+L’étendue des informations sur les menaces de Microsoft s’étend, littéralement, des milliards de points de données : 35 milliards messages analysés tous les mois, 1 milliard clients dans l’entreprise et des segments de grand public accédant à plus de 200 services Cloud et 14 milliards authentifications effectuées quotidienne. Toutes ces données sont rassemblées en votre nom par Microsoft pour créer le Intelligent Security Graph qui peut vous aider à protéger votre porte d’entrée de manière dynamique pour rester sécurisé, rester productif et répondre aux exigences du RGPD.
 
 #### <a name="detecting-attacks-and-forensic-investigation"></a>Détection des attaques et enquêtes scientifiques
 Même les meilleures défenses de point de terminaison peuvent finalement présenter des failles, à mesure que les cyberattaques deviennent plus sophistiquées et plus ciblées. Deux fonctionnalités peuvent être utilisées pour faciliter la détection de violations potentielles : Windows Defender-protection avancée contre les menaces (ATP) et Microsoft Advanced Threat Analytics (ATA).
@@ -341,9 +341,9 @@ ATA est un produit local qui permet de détecter la compromission de l’identit
 
 |Type d’attaque |Description |
 |---------|---------|
-|Attaques malveillantes |Ces attaques sont détectées en recherchant des attaques à partir d’une liste connue de types d’attaques, notamment :<ul><li>Pass-the-ticket (PtT)</li><li>Pass-The-hash (PtH)</li><li>Overpass-The-hash</li><li>CLÉ PAC falsifiée (MS14-068)</li><li>Golden Ticket</li><li>Réplications malveillantes</li><li>Reconnaissance</li><li>Force brute</li><li>Exécution à distance</li></ul>Pour obtenir la liste complète des attaques malveillantes qui peuvent être détectées et leur description, consultez [Quelles sont les activités suspectes](https://docs.microsoft.com/advanced-threat-analytics/understand-explore/ata-threats)détectées par ATA ?.|
+|Attaques malveillantes |Ces attaques sont détectées en recherchant des attaques à partir d’une liste connue de types d’attaques, notamment :<ul><li>Pass-the-Ticket (PtT)</li><li>Pass-the-Hash (PtH)</li><li>Overpass-the-Hash</li><li>Faux PAC (MS14-068)</li><li>Golden Ticket</li><li>Réplications malveillantes</li><li>Reconnaissance</li><li>Force brute</li><li>Exécution distante</li></ul>Pour obtenir la liste complète des attaques malveillantes qui peuvent être détectées et leur description, consultez [Quelles sont les activités suspectes](https://docs.microsoft.com/advanced-threat-analytics/understand-explore/ata-threats)détectées par ATA ?.|
 |Comportement anormal |Ces attaques sont détectées à l’aide de l’analyse comportementale et utilisent Machine Learning pour identifier les activités douteuses, notamment :<ul><li>Connexions anormales</li><li>Menaces inconnues</li><li>Partage de mot de passe</li><li>Mouvement latéral</li></ul>|
-|Problèmes et risques liés à la sécurité |Ces attaques sont détectées en examinant la configuration actuelle du réseau et du système, notamment :<ul><li>Approbation rompue</li><li>Protocoles faibles</li><li>Vulnérabilités de protocole connues</li></ul>|
+|Problèmes et risques liés à la sécurité |Ces attaques sont détectées en examinant la configuration actuelle du réseau et du système, notamment :<ul><li>Relation de confiance rompue</li><li>Protocoles faibles</li><li>Vulnérabilités de protocole connues</li></ul>|
 
 Vous pouvez utiliser ATA pour détecter les attaquants tentant de compromettre les identités privilégiées. Pour plus d’informations sur le déploiement d’ATA, consultez les rubriques plan, conception et déploiement dans la [documentation Advanced Threat Analytics](https://docs.microsoft.com/advanced-threat-analytics/).
 
@@ -351,7 +351,7 @@ Vous pouvez utiliser ATA pour détecter les attaquants tentant de compromettre l
 
 - **Antivirus Windows Defender :** https://www.youtube.com/watch?v=P1aNEy09NaI et https://docs.microsoft.com/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10
 
-- **Protection avancée contre les menaces Windows Defender :** https://www.youtube.com/watch?v=qxeGa3pxIwg et https://docs.microsoft.com/windows/threat-protection/windows-defender-atp/configure-server-endpoints-windows-defender-advanced-threat-protection
+- **Windows Defender-protection avancée contre les menaces :** https://www.youtube.com/watch?v=qxeGa3pxIwg et https://docs.microsoft.com/windows/threat-protection/windows-defender-atp/configure-server-endpoints-windows-defender-advanced-threat-protection
 
 - **Windows Defender Device Guard :** https://www.youtube.com/watch?v=F-pTkesjkhI et https://docs.microsoft.com/windows/device-security/device-guard/device-guard-deployment-guide
 
@@ -361,7 +361,7 @@ Vous pouvez utiliser ATA pour détecter les attaquants tentant de compromettre l
 
 - **Sécurité et assurance :** https://docs.microsoft.com/windows-server/security/security-and-assurance
 
-## <a name="disclaimer"></a>Exclusion de responsabilité
+## <a name="disclaimer"></a>Clause d’exclusion de responsabilité
 Cet article est un commentaire sur le RGPD, tel que Microsoft l’interprète, à compter de la date de publication. Nous avons passé beaucoup de temps avec RGPD et aimerions que nous ayons pensé à son intention et à sa signification. Mais l’application du RGPD est propre à chaque cas et les aspects et les interprétations du RGPD ne sont pas tous bien fixés.
 
 Par conséquent, cet article est fourni à titre d’information uniquement. Il ne doit pas être considéré comme constituant un avis juridique ni servir à déterminer la façon dont le RGPD peut s’appliquer à vous et à votre organisation. Nous vous encourageons à travailler avec un professionnel juridiquement qualifié pour discuter du RGPD, de la manière dont il s’applique spécifiquement à votre organisation et des meilleures méthodes pour garantir la conformité.
