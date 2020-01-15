@@ -1,59 +1,65 @@
 ---
 title: Étendre un volume de base
-description: Cet article décrit comment ajouter de l’espace sur les partitions principales et les lecteurs logiques afin d’étendre un volume de base
-ms.date: 06/07/2019
+description: Vous pouvez ajouter de l’espace à un volume existant dans Windows. Pour cela, vous étendez le volume dans un espace vide sur le disque. Toutefois, cela n’est possible que si l’espace vide ne compte aucun volume (n’est pas alloué) et qu’il se situe immédiatement après le volume à étendre, sans aucun autre volume entre les deux. Cet article explique comment procéder.
+ms.date: 12/19/2019
 ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: a98bd3553c3223716d70ed4329bd7e265e697b73
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c72b242437c4c308da77a25e06f3d76e4c65f480
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351904"
 ---
 # <a name="extend-a-basic-volume"></a>Étendre un volume de base
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vous pouvez ajouter davantage d’espace à des partitions principales et des lecteurs logiques existants en les étendant dans un espace non alloué adjacent sur le même disque. Pour étendre un volume de base, celui-ci doit être brut (non formaté avec un système de fichiers) ou formaté avec le système de fichiers NTFS. Vous pouvez étendre un lecteur logique dans un espace libre contigu dans la partition étendue qui le contient. Si vous étendez un lecteur logique au-delà de l’espace libre disponible dans la partition étendue, la partition étendue s’agrandit pour contenir le lecteur logique.
+Vous pouvez utiliser Gestion des disques pour ajouter de l’espace à un volume existant. Pour cela, vous étendez le volume dans un espace vide sur le disque. Toutefois, cela n’est possible que si l’espace vide ne compte aucun volume (n’est pas alloué) et qu’il se situe immédiatement après le volume à étendre, sans aucun autre volume entre les deux, comme le montre l’image suivante. Le volume à étendre doit également être formaté avec le système de fichiers NTFS ou ReFS.
 
-Pour les lecteurs logiques et les volumes système ou de démarrage, vous pouvez étendre le volume dans un espace contigu uniquement et ce, uniquement si le disque peut être mis à niveau vers un disque dynamique. Pour les autres volumes, vous pouvez étendre le volume dans un espace non contigu, mais vous devrez convertir le disque en disque dynamique.
+:::image type="content" source="media/extend-volume-space-highlighted.png" alt-text="Gestion des disques indiquant l’espace libre dans lequel étendre un volume.":::
 
-## <a name="extending-a-basic-volume"></a>Extension d’un volume de base
+## <a name="to-extend-a-volume-by-using-disk-management"></a>Pour étendre un volume à l’aide de Gestion des disques
 
-#### <a name="to-extend-a-basic-volume-using-the-windows-interface"></a>Pour étendre un volume de base à l’aide de l’interface Windows
+Voici comment étendre un volume dans un espace vide immédiatement après le volume sur le lecteur :
 
-1. Dans le Gestionnaire de disque, cliquez avec le bouton droit sur le volume que vous souhaitez étendre.
+1. Ouvrez l’outil Gestion des disques avec les autorisations d’administrateur.
 
-2. Cliquez sur **Étendre le volume**.
+   Pour réaliser facilement cette opération, tapez **Gestion de l’ordinateur** dans la zone de recherche de la barre des tâches, sélectionnez **Gestion de l’ordinateur** et maintenez la sélection (ou faites un clic droit), puis sélectionnez **Exécuter en tant qu’administrateur** > **Oui**. Après l’ouverture de Gestion de l’ordinateur, accédez à **Stockage** > **Gestion des disques**.
+2. Sélectionnez le volume à étendre et maintenez la sélection (ou faites un clic droit), puis sélectionnez **Étendre le volume**.
 
-3. Suivez les instructions à l’écran.
+   Si **Étendre le volume** est grisé, vérifiez ce qui suit :
+    - Vous avez ouvert Gestion des disques ou Gestion de l’ordinateur avec des autorisations administrateur.
+    - Un espace non alloué se trouve directement après le volume (à droite de celui-ci), comme indiqué dans le graphique ci-dessus. Si un autre volume se trouve entre l’espace non alloué et le volume à étendre, vous avez le choix entre supprimer tous les fichiers qu’il contient (en veillant à sauvegarder ou à déplacer d’abord tous les fichiers importants), utiliser une application de partitionnement de disque non-Microsoft capable de déplacer des volumes sans détruire les données, et ignorer l’extension du volume et créer à la place un volume distinct dans l’espace non alloué.
+    - Le volume est formaté avec le système de fichiers NTFS ou ReFS. Les autres systèmes de fichiers ne peuvent pas être étendus. Vous devez donc déplacer ou sauvegarder les fichiers sur le volume, puis formater le volume avec le système de fichiers NTFS ou ReFS.
+    - Si le disque fait plus de 2 To, vérifiez qu’il utilise le schéma de partitionnement GPT. Pour utiliser plus de 2 To sur un disque, vous devez l’initialiser à l’aide du schéma de partitionnement GPT. Pour effectuer la conversion en GPT, consultez [Convertir un disque MBR en disque GPT](change-an-mbr-disk-into-a-gpt-disk.md).
+    - Si vous ne parvenez toujours pas à étendre le volume, essayez d’effectuer une recherche dans la [section Fichiers, dossiers et stockage du site Microsoft Community](https://answers.microsoft.com/en-us/windows/forum/windows_10-files?sort=lastreplydate&dir=desc&tab=All&status=all&mod=&modAge=&advFil=&postedAfter=&postedBefore=&threadType=all&isFilterExpanded=true&tm=1514405359639). Si ne trouvez pas de réponse, postez une question sur ce site pour que Microsoft ou d’autres membres de la communauté puissent vous aider ou [contactez le support Microsoft](https://support.microsoft.com/contactus/).
 
-#### <a name="to-extend-a-basic-volume-using-a-command-line"></a>Pour étendre un volume de base à l’aide d’une ligne de commande
+3. Sélectionnez **Suivant**, puis dans la page **Sélectionner des disques** de l’Assistant (illustrée ici), spécifiez de combien étendre le volume. Il est généralement recommandé de choisir la valeur par défaut qui utilise tout l’espace libre disponible, mais vous pouvez opter pour une valeur inférieure si vous souhaitez créer des volumes supplémentaires dans l’espace libre.
 
-1. Ouvrez une invite de commande et tapez `diskpart`.
+   :::image type="content" source="media/extend-volume-wizard.png" alt-text="Assistant Extension du volume montrant un volume étendu occupant tout l’espace disponible":::
 
-2. À l’invite **DISKPART**, tapez `list volume`. Notez le volume de base que vous souhaitez étendre.
+4. Sélectionnez **Suivant**, puis **Terminer** pour étendre le volume.
 
-3. À l’invite **DISKPART**, tapez `select volume <volumenumber>`. Cette commande sélectionne le volume de base *, numéro_de_volume,* que vous voulez étendre dans un espace vide contigu sur le même disque.
+## <a name="to-extend-a-volume-by-using-powershell"></a>Pour étendre un volume à l’aide de PowerShell
 
-4. À l’invite **DISKPART**, tapez `extend [size=<size>]`. Cette commande étend le volume sélectionné de *size* en mégaoctets (Mo).
+1. Sélectionnez le bouton Démarrer et maintenez la sélection (ou faites un clic droit), puis sélectionnez Windows PowerShell (admin).
+2. Entrez la commande suivante pour redimensionner le volume à la taille maximale en spécifiant la lettre de lecteur du volume à étendre dans la variable *$drive_letter* :
 
-| Valeur | Description |
-| --- | --- |
-| **list volume** | Affiche une liste des volumes de base et dynamiques sur tous les disques. |
-| **select volume** | Sélectionne le volume spécifié, où <em>volumenumber</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante. |
-| **extend** | <ul><li>Étend le volume sur lequel se trouve le focus dans l’espace non alloué contigu suivant. Pour les volumes de base, l’espace non alloué doit se trouver sur le même disque que la partition avec le focus et doit également suivre (être de décalage de secteur supérieur à) celle-ci. Un volume simple ou fractionné dynamique peut être étendu dans n’importe quel espace vide sur n’importe quel disque dynamique. À l’aide de cette commande, vous pouvez étendre un volume existant dans l’espace qui vient d’être créé.</li ><li>Si la partition a déjà été formatée avec le système de fichiers NTFS, le système de fichiers est automatiquement étendu de manière à occuper la plus grande partition. Cela n’entraîne aucune perte de données. Si la partition a déjà été formatée avec un format de système de fichiers autre que NTFS, la commande échoue et la partition n’est pas modifiée.</li></ul> |
-| **size=** <em>size</em> | Quantité d’espace, en mégaoctets (Mo), à ajouter à la partition actuelle. Si vous ne spécifiez pas de taille, le disque est étendu de manière à occuper tout l’espace non alloué contigu. |
+   ```PowerShell
+   # Variable specifying the drive you want to extend
+   $drive_letter = "C"
 
-## <a name="additional-considerations"></a>Considérations supplémentaires
+   # Script to get the partition sizes and then resize the volume
+   $size = (Get-PartitionSupportedSize -DriveLetter $drive_letter)
+   Resize-Partition -DriveLetter $drive_letter -Size $size.SizeMax
+   ```
 
--   Si le disque ne contient aucune partition système ou de démarrage, vous pouvez étendre le volume sur d’autres disques qui ne sont pas des disques système ou de démarrage, mais le disque sera converti en disque dynamique (s’il peut être mis à niveau).
+## <a name="see-slso"></a>Voir aussi
 
-## <a name="see-also"></a>Voir aussi
-
--   [Notation de la syntaxe de la ligne de commande](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
+- [Resize-Partition](https://docs.microsoft.com/powershell/module/storage/resize-partition)
+- [extend (Diskpart)](https://docs.microsoft.com/windows-server/administration/windows-commands/extend)

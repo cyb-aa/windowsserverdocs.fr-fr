@@ -11,18 +11,18 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/18/2019
+ms.date: 01/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e71aa2b1cccda85e0bf6f8a80ad68013346b30d4
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: 09010878e2381e8f1f00d6883a6871fcd69a48be
+ms.sourcegitcommit: 28b71d779386cd31e1511217aa1a6f3ab186bf9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829617"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75682440"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Bien démarrer avec le client Windows Desktop
 
->S’applique à : Windows 10, Windows 10 IoT Entreprise et Windows 7
+>S'applique à : Windows 10, Windows 10 IoT Entreprise et Windows 7
 
 Vous pouvez utiliser le client Bureau à distance pour Windows Desktop afin d’accéder aux applications et aux appareils de bureau Windows à distance à partir d’un autre appareil Windows.
 
@@ -33,7 +33,7 @@ Vous pouvez utiliser le client Bureau à distance pour Windows Desktop afin d’
 
 ## <a name="install-the-client"></a>Installer le client
 
-Choisissez le client qui correspond à la version de Windows. Le nouveau client Bureau à distance (MSRDC) prend en charge les appareils clients Windows 10, Windows 10 IoT Entreprise et Windows 7. 
+Choisissez le client qui correspond à la version de Windows. Le nouveau client Bureau à distance (MSRDC) prend en charge les appareils clients Windows 10, Windows 10 IoT Entreprise et Windows 7.
 
 - [Windows 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
 - [Windows 32 bits](https://go.microsoft.com/fwlink/?linkid=2098960)
@@ -118,9 +118,24 @@ Le client utilise les paramètres configurés par votre administrateur, sauf si 
 - **Changer la taille du texte et des applications** permet de spécifier la taille du contenu de la session. Ce paramètre s’applique uniquement en cas de connexion à Windows 8.1 et ultérieur ou à Windows Server 2012 R2 et ultérieur. Ce paramètre est automatiquement désactivé si la résolution est mise à jour en cas de redimensionnement.
 - **Ajuster la session à la fenêtre** détermine la façon dont la session est affichée quand la résolution du bureau à distance diffère de la taille de la fenêtre locale. Si cette option est activée, le contenu de la session est redimensionné pour tenir à l’intérieur de la fenêtre et les proportions de la session sont conservées. Si cette option est désactivée, des barres de défilement ou des zones noires apparaissent quand la résolution et la taille de la fenêtre ne correspondent pas.
 
-## <a name="provide-feedback"></a>Fournir un commentaire
+## <a name="provide-feedback"></a>Commentaires
 
-Vous souhaitez suggérer une fonctionnalité ou signaler un problème ? Dites-nous laquelle sur le [Hub de commentaires](feedback-hub://?tabid=2&contextid=883). Vous pouvez également accéder au Hub de commentaires par le biais de votre client :
+Vous souhaitez suggérer une fonctionnalité ou signaler un problème ? Dites-nous laquelle sur le [Hub de commentaires](feedback-hub://?tabid=2&contextid=883). Vous pouvez également accéder au hub de commentaires par le biais du client :
 
-1. Dans le Centre de connexion, appuyez sur le menu de dépassement ( **...** ) dans la barre de commandes en haut du client.
-2. Sélectionnez **Commentaires** dans le menu déroulant pour ouvrir le Hub de commentaires.
+1. Dans le Centre de connexion, appuyez sur l’option **Envoyer des commentaires** dans la barre de commandes en haut du client pour ouvrir l’application Hub de commentaires.
+2. Entrez les informations demandées dans les champs **Résumé** et **Détails**. Quand vous avez terminé, appuyez sur **Suivant**.
+3. Indiquez s’il s’agit d’un **Problème** ou d’une **Suggestion**.
+4. Vérifiez si la catégorie figure dans **Applications** > **Bureau à distance**. Si c’est le cas, appuyez sur **Suivant**.
+5. Passez en revue les rubriques de commentaires existantes pour voir si quelqu’un d’autre a signalé le même problème. Si ce n’est pas le cas, sélectionnez **Créer un bogue**, puis appuyez sur **Suivant**.
+6. La page suivante vous permet de donner davantage d’informations pour nous aider à résoudre le problème. Vous pouvez fournir plus de détails, envoyer des captures d’écran et même créer un enregistrement du problème pour nous montrer ce qui se passe. Pour créer un enregistrement, sélectionnez **Démarrer l’enregistrement**, puis effectuez les opérations ayant conduit au problème. Quand vous avez terminé, revenez au Hub de commentaires et sélectionnez **Arrêter l’enregistrement**.
+7. Si vous êtes satisfait des informations fournies, appuyez sur **Envoyer**.
+8. Dans la page « Merci pour vos commentaires ! », appuyez sur **Partager mes commentaires** pour générer un lien que vous pouvez partager avec d’autres utilisateurs au besoin.
+
+### <a name="access-client-logs"></a>Accéder aux journaux du client
+
+L’examen d’un problème peut vous amener à consulter les journaux du client.
+
+Pour récupérer les journaux du client :
+
+1. Ouvrez l’**Explorateur de fichiers**.
+2. Accédez au dossier **%temp%\DiagOutputDir\RdClientAutoTrace**.

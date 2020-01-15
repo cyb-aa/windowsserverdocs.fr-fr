@@ -11,18 +11,27 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 01/02/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e6d57f2feb5b21385cf247856be05f752ddee0cd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b97b7a22d59727bedd6bdbd67a19087612ebfa0
+ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404086"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75653044"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Nouveautés du client Windows Store
 
 Nous mettons régulièrement à jour le [client Windows Store](windows.md) en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
+
+## <a name="updates-for-version-1011107"></a>Mises à jour pour la version 10.1.1107
+
+*Date de publication : 04/09/2019*
+
+- Vous pouvez maintenant copier des fichiers entre PC locaux et distants.
+- Vous pouvez désormais utiliser votre adresse e-mail pour accéder aux ressources distantes (si cette option est activée par votre administrateur).
+- Vous pouvez maintenant modifier les affectations de comptes d’utilisateur pour les flux de ressources distants.
+- L’application affiche à présent l’icône appropriée pour les fichiers .rdp affectés à cette application dans l’Explorateur de fichiers (au lieu d’une icône par défaut vide).
 
 ## <a name="updates-for-version-1011098"></a>Mises à jour pour la version 10.1.1098
 

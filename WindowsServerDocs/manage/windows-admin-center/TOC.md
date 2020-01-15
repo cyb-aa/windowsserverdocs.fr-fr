@@ -1,12 +1,10 @@
 # [Windows Admin Center](overview.md)
 
 ## Comprendre
-### [Bienvenue, Windows Admin Center !](understand/windows-admin-center.md)
 ### [Qu’est-ce que Windows Admin Center ?](understand/what-is.md)
-### [FAQ](understand/faq.md)
+### [Questions fréquentes (FAQ)](understand/faq.md)
 ### [Études de cas](understand/case-studies.md)
 ### [Produits de gestion associés](understand/related-management.md)
-### [Vidéos](understand/videos.md)
 
 ## Planifier
 ### [Quel type d’installation vous convient ?](plan/installation-options.md)
@@ -18,22 +16,21 @@
 ### [Haute disponibilité](deploy/high-availability.md)
 
 
-## Configuration
+## Configurer
 ### [Paramètres de Windows Admin Center](configure/settings.md)
 ### [Autorisations et contrôle d’accès utilisateur](configure/user-access-control.md)
 ### [Utilisation d’extensions](configure/using-extensions.md)
 ### [Connexions partagées](configure/shared-connections.md)
 ### [Automatiser avec PowerShell](configure/use-powershell.md)
 
-## Utilisez
-### [Prise en main](use/get-started.md)
+## Utiliser
+### [Bien démarrer](use/get-started.md)
 ### [Gérer les serveurs](use/manage-servers.md)
 ### [Déployer une infrastructure hyperconvergée](use/deploy-hyperconverged-infrastructure.md)
 ### [Gérer l’infrastructure hyperconvergée](use/manage-hyper-converged.md)
 ### [Gérer les clusters de basculement](use/manage-failover-clusters.md)
 ### [Gérer les ordinateurs virtuels Hyper-V](use/manage-virtual-machines.md)
 ### [Journalisation](use/logging.md)
-
 
 ## Se connecter à Azure
 ### [Services hybrides Azure](azure/index.md)
@@ -46,7 +43,8 @@
 ### [Déployer Windows Admin Center dans Azure](azure/deploy-wac-in-azure.md)
 ### [Gérer les machines virtuelles Azure avec Windows Admin Center](azure/manage-azure-vms.md)
 
-## Support
+## Assistance
+### [Historique des versions](support/release-history.md)
 ### [Stratégie de support](support/index.md)
 ### [Étapes de résolution des problèmes courants](support/troubleshooting.md)
 ### [Problèmes connus](support/known-issues.md)

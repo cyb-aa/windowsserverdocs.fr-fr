@@ -10,16 +10,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/06/2019
 ms.localizationpriority: high
-ms.openlocfilehash: 116627059856f5815ec0d89ce63094a0852913ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fdb840aed4d78578edf8383e703a6786a5dc15c7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361117"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948041"
 ---
 # <a name="failover-clustering-in-windows-server"></a>Clustering de basculement dans Windows Server
 
-> S’applique à : Windows Server 2019, Windows Server 2016
+> S'applique à : Windows Server 2019, Windows Server 2016
 
 Un cluster de basculement est un groupe d’ordinateurs indépendants qui travaillent conjointement pour accroître la disponibilité et l’extensibilité des rôles en cluster (appelés précédemment « applications et services en cluster »). Les serveurs en cluster (appelés « nœuds ») sont connectés par des câbles physiques et par des logiciels. En cas de défaillance d’un ou plusieurs nœuds, d’autres nœuds prennent le relais pour fournir les services requis (processus appelé « basculement »). En outre, les rôles en cluster sont surveillés de manière proactive pour vérifier qu’ils fonctionnent correctement. S’ils ne fonctionnent pas, ils sont redémarrés ou déplacés vers un autre nœud.
 
@@ -46,6 +46,6 @@ Le clustering de basculement a de nombreuses applications pratiques, notamment 
 |**Gérer**  |  **Outils et paramètres**  |  **Ressources de la communauté**       |
 | ------------- |  -------------- | --------------------- |
 | [ Mise à jour adaptée aux clusters](cluster-aware-updating.md)    |   [Applets de commande PowerShell pour le clustering de basculement](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)      |  [Forum sur la haute disponibilité (clustering)](https://go.microsoft.com/fwlink/p/?LinkId=230641)       |
-|  [Service de contrôle d'intégrité](health-service-overview.md)   |   [Applets de commande PowerShell pour la mise à jour adaptée aux clusters](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)      | [Blog de l’équipe sur le clustering de basculement et l’équilibrage de la charge réseau](http://blogs.msdn.com/b/clustering/)        |
+|  [Service de contrôle d'intégrité](health-service-overview.md)   |   [Applets de commande PowerShell pour la mise à jour adaptée aux clusters](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)      | [Blog de l’équipe sur le clustering de basculement et l’équilibrage de la charge réseau](https://blogs.msdn.com/b/clustering/)        |
 |  [Migration de domaine en cluster](cluster-domain-migration.md)   |         |         |
 |  [Résolution des problèmes à l'aide du Rapport d'erreurs Windows](troubleshooting-using-wer-reports.md)   |         |         |

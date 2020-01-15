@@ -11,20 +11,53 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/18/2019
+ms.date: 01/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: b44f7c14dce8a8c319f9240c24ebcd8e2d4f7202
-ms.sourcegitcommit: b60fdd2efa57ff23834a324b75de8fe245a7631f
+ms.openlocfilehash: 614962cacbc29a26b0db246812ad17e24fc9859e
+ms.sourcegitcommit: fdb3412a6139ca62913606fa18036a91c093cd51
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166168"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75688114"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Nouveautés du client macOS
 
 Nous mettons régulièrement à jour le [client Bureau à distance pour macOS](remote-desktop-mac.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
 
-Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aide** > **Signaler un problème**.
+Si vous rencontrez des problèmes, vous pouvez toujours nous contacter en sélectionnant **Aide** > **Signaler un problème**.
+
+## <a name="updates-for-version-1037"></a>Mises à jour pour la version 10.3.7
+
+*Date de publication : 6/1/20*
+
+Dans notre dernière mise à jour de l’année, nous avons ajusté des sections de code et résolu les comportements suivants :
+
+- La copie d’éléments de la session à distance vers un partage réseau ou un lecteur USB ne crée plus de fichiers vides.
+- La spécification d’un mot de passe vide dans un compte d’utilisateur n’entraîne plus une invite de certificat en double.
+
+## <a name="updates-for-version-1036"></a>Mises à jour pour la version 10.3.6
+
+*Date de publication : 6/1/20*
+
+Dans cette version, nous avons résolu un problème qui entraînait la création de fichiers de longueur nulle chaque fois qu’un dossier était copié de la session à distance sur l’ordinateur local par copie-collage de fichiers.
+
+## <a name="updates-for-version-1035"></a>Mises à jour pour la version 10.3.5
+
+*Date de publication : 6/1/20*
+
+Nous avons réalisé cette mise à jour avec l’aide de tous ceux qui ont signalé des problèmes. Dans cette version, nous avons apporté les modifications suivantes :
+
+- Les dossiers redirigés peuvent désormais être marqués en lecture seule pour éviter toute modification de leur contenu dans la session à distance.
+- Nous avons résolu l’erreur 0x607 qui se produisait au moment de la connexion dans les scénarios de passerelle Bureau à distance RPC sur HTTPS.
+- Résolution des cas où les utilisateurs se voyaient demander leur informations d’identification à deux reprises.
+- Résolution des cas où les utilisateurs recevaient l’invite d’avertissement du certificat à deux reprises.
+- Ajout de l’heuristique pour améliorer le défilement basé sur trackpad.
+- Le client n’affiche plus le groupe « Bureaux enregistrés » s’il n’y a aucun groupe créé par l’utilisateur.
+- Mise à jour de l’interface utilisateur des vignettes dans la vue PC.
+- Application de correctifs pour résoudre les incidents signalés par la télémétrie de l’application.
+
+> [!NOTE]
+> Dans cette version, nous acceptons les commentaires pour le client Mac uniquement par le biais de [UserVoice](https://remotedesktop.uservoice.com/forums/287834-remote-desktop-for-mac).
 
 ## <a name="updates-for-version-1034"></a>Mises à jour relatives à la version 10.3.4
 

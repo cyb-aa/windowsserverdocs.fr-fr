@@ -1,19 +1,19 @@
 ---
 title: Initialiser de nouveaux disques
 description: Comment initialiser de nouveaux disques avec l’outil Gestion des disques, pour que ces derniers soient prêts à être utilisés. Cet article inclut également des liens vers la résolution des problèmes.
-ms.date: 06/07/2019
+ms.date: 12/20/2019
 ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b38fd0b88cea3fcc386959c08af1169302ddaa1c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c2cb88d5b30be28a8ab7709e3a3908ce82ae8408
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385898"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352358"
 ---
 # <a name="initialize-new-disks"></a>Initialiser de nouveaux disques
 
@@ -22,13 +22,13 @@ ms.locfileid: "71385898"
 Si vous ajoutez un tout nouveau disque à votre PC, et s’il n’apparaît pas dans l’Explorateur de fichiers, vous devrez peut-être [ajouter une lettre de lecteur](change-a-drive-letter.md), ou l’initialiser avant de l’utiliser. Vous pouvez uniquement initialiser un lecteur qui n’est pas encore formaté. L’initialisation d’un disque efface toutes les données présentes sur ce dernier et le prépare pour une utilisation par Windows, pour que vous puissiez le formater et stocker des fichiers dessus.
 
 > [!WARNING]
-> Si votre disque contient déjà des fichiers importants, ne l’initialisez pas ; vous allez perdre tous les fichiers. Nous vous recommandons plutôt de résoudre les problèmes du disque pour voir si vous pouvez lire les fichiers ; consultez [L’état d’un disque est Non initialisé ou le disque est manquant](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
+> Si votre disque contient déjà des fichiers importants, ne l’initialisez pas ; vous allez perdre tous les fichiers. Nous vous recommandons plutôt de résoudre les problèmes du disque pour voir si vous pouvez lire les fichiers ; consultez [L’état d’un disque est Non initialisé ou le disque est manquant](troubleshooting-disk-management.md#disks-that-are-missing-or-not-initialized-plus-general-troubleshooting-steps).
 
 ## <a name="to-initialize-new-disks"></a>Pour initialiser de nouveaux disques
 
 Voici comment initialiser un nouveau disque à l’aide de l’outil Gestion des disques. Si vous préférez utiliser PowerShell, utilisez plutôt la cmdlet [initialize-disk](https://docs.microsoft.com/powershell/module/storage/initialize-disk).
 
-1. Ouvrez l’outil Gestion des disques avec les autorisations d’administrateur. 
+1. Ouvrez l’outil Gestion des disques avec les autorisations d’administrateur.
  
     Pour ce faire, dans la zone de recherche de la barre des tâches, tapez **Gestion des disques**, sélectionnez **Gestion des disques** et maintenez la sélection (ou faites un clic droit), puis sélectionnez **Exécuter en tant qu’administrateur** > **Oui**. Si vous ne pouvez pas ouvrir la fonctionnalité en tant qu’administrateur, tapez **Gestion de l’ordinateur**, puis accédez à **Stockage** > **Gestion des disques**.
 1. Dans l’outil Gestion des disques, cliquez avec le bouton droit sur le disque à initialiser, puis cliquez sur **Initialiser le disque** (affiché ici). Si le disque est répertorié comme étant *Hors connexion*, commencez par cliquer avec le bouton droit dessus et sélectionnez **En ligne**.
@@ -38,9 +38,14 @@ Voici comment initialiser un nouveau disque à l’aide de l’outil Gestion des
     ![Outil Gestion des disques montrant un disque non formaté avec le menu contextuel Initialiser le disque affiché](media/uninitialized-disk.PNG)
 2. Dans la boîte de dialogue **Initialiser le disque** (affichée ici), vérifiez que le disque approprié est sélectionné, puis cliquez sur **OK** pour accepter le style de partition par défaut. Si vous avez besoin de modifier le style des partitions (MBR ou GPT), consultez [À propos des styles de partition - GPT et MBR](#about-partition-styles---gpt-and-mbr).
 
-     L’état du disque passe brièvement à **Initialisation**, puis à **En ligne**. Si l’initialisation échoue pour une raison quelconque, consultez [L’état d’un disque est Non initialisé ou le disque est manquant](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
+     L’état du disque passe brièvement à **Initialisation**, puis à **En ligne**. Si l’initialisation échoue pour une raison quelconque, consultez [L’état d’un disque est Non initialisé ou le disque est manquant](troubleshooting-disk-management.md#disks-that-are-missing-or-not-initialized-plus-general-troubleshooting-steps).
 
     ![La boîte de dialogue Initialiser le disque avec le style de partition GPT sélectionné](media/initialize-disk.PNG)
+
+3. Sélectionnez l’espace non alloué sur le lecteur et maintenez la sélection (ou faites un clic droit), puis sélectionnez **Nouveau volume simple**.
+4. Sélectionnez **Suivant**, spécifiez la taille du volume (vous souhaiterez probablement conserver la valeur par défaut qui utilise le lecteur entier), puis sélectionnez **Suivant**.
+5. Spécifiez la lettre de lecteur à affecter au volume, puis sélectionnez **Suivant**.
+6. Spécifiez le système de fichiers à utiliser (généralement NTFS), sélectionnez **Suivant**, puis **Terminer**.
 
 ## <a name="about-partition-styles---gpt-and-mbr"></a>À propos des styles de partition - GPT et MBR
 

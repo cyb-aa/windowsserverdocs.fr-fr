@@ -1,46 +1,42 @@
 ---
 title: Convertir un disque dynamique en disque de base
 description: Décrit comment convertir un disque dynamique en disque de base.
-ms.date: 06/07/2019
+ms.date: 12/18/2019
 ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c24935e1e1921c2a041ef307ebeb71d10e2a4fe2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8ad14225592d627b6ff88b9e2286b686aa549392
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351943"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>Convertir un disque dynamique en disque de base
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit comment supprimer le contenu d’un disque dynamique et le reconvertir en disque de base. Les disques dynamiques sont déconseillés pour Windows, et nous ne recommandons plus leur utilisation. Au lieu de cela, nous vous recommandons d’utiliser des disques de bas, ou la technologie des [espaces de stockage](https://support.microsoft.com/help/12438/windows-10-storage-spaces) la plus récente si vous voulez créer un pool de disques pour obtenir des volumes de plus grande capacité. Si vous voulez mettre en miroir le volume de démarrage de Windows, vous pouvez envisager d’utiliser un contrôleur RAID de matériel, tel que celui qui est inclus sur de nombreuses cartes mères.
 
 > [!WARNING]
 > Pour reconvertir un disque dynamique en disque de base, vous devez supprimer tous les volumes du disque, ce qui supprimera définitivement toutes les données qu’il contient. Avant de poursuivre, sauvegardez les données que vous souhaitez conserver.
 
-## <a name="changing-a-dynamic-disk-back-to-a-basic-disk"></a>Reconversion d’un disque dynamique en disque de base
-
--   [Utilisation de l’interface Windows](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface)
--   [Utilisation d’une ligne de commande](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line)
-
-> [!NOTE]
-> Vous devez au moins être membre du groupe **Opérateurs de sauvegarde** ou **Administrateurs** pour effectuer ces étapes.
-
-#### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface"></a>Pour reconvertir un disque dynamique en disque de base à l’aide de l’interface Windows
+## <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-by-using-disk-management"></a>Pour reconvertir un disque dynamique en disque de base avec Gestion des disques
 
 1.  Sauvegardez tous les volumes du disque dynamique que vous souhaitez reconvertir en disque de base.
 
-2.  Dans Gestion des disques, cliquez avec le bouton droit sur chaque volume du disque dynamique à convertir en disque de base, puis cliquez sur **Supprimer le volume** pour chaque volume du disque.
+2. Ouvrez l’outil Gestion des disques avec les autorisations d’administrateur.
+
+   Pour réaliser facilement cette opération, tapez **Gestion de l’ordinateur** dans la zone de recherche de la barre des tâches, sélectionnez **Gestion de l’ordinateur** et maintenez la sélection (ou faites un clic droit), puis sélectionnez **Exécuter en tant qu’administrateur** > **Oui**. Après l’ouverture de Gestion de l’ordinateur, accédez à **Stockage** > **Gestion des disques**.
+
+2.  Dans Gestion des disques, sélectionnez chaque volume du disque dynamique à convertir en disque de base et maintenez la sélection (ou faites un clic droit), puis cliquez sur **Supprimer le volume**.
 
 3.  Lorsque tous les volumes du disque ont été supprimés, cliquez avec le bouton droit sur le disque, puis cliquez sur **Convertir en disque de base**.
 
-#### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line"></a>Pour reconvertir un disque dynamique en disque de base à l’aide d’une ligne de commande
+## <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-by-using-a-command-line"></a>Pour reconvertir un disque dynamique en disque de base à l’aide d’une ligne de commande
 
 1.  Sauvegardez tous les volumes du disque dynamique que vous souhaitez reconvertir en disque de base.
 
@@ -50,7 +46,7 @@ Cette rubrique décrit comment supprimer le contenu d’un disque dynamique et l
 
 4.  À l’invite **DISKPART**, tapez `select disk <disknumber>`.
 
-5.  À l’invite **DISKPART**, tapez `detail disk <disknumber>`.
+5.  À l’invite **DISKPART**, tapez `detail disk`.
 
 6.  Pour chaque volume du disque, à l’invite **DISKPART**, tapez `select volume= <volumenumber>`, puis tapez `delete volume`.
 
@@ -58,8 +54,7 @@ Cette rubrique décrit comment supprimer le contenu d’un disque dynamique et l
 
 8.  À l’invite **DISKPART**, tapez `convert basic`.
 
-
-| Valeur  | Description |
+| Value  | Description |
 | --- | --- |
 | **list disk**                         | Affiche une liste des disques ainsi que des informations les concernant, notamment leur taille, la quantité d’espace libre disponible, s’il s’agit d’un disque de base ou d’un disque dynamique et si le disque utilise le style de partition d’enregistrement de démarrage principal (MBR) ou de table de partition GUID (GPT). Le disque marqué d’un astérisque (*) est celui sur lequel se trouve le focus. |
 | **select disk** <em>numéro_de_disque</em>   | Sélectionne le disque spécifié, où <em>numéro_de_disque</em> est le numéro du disque et place le focus sur celui-ci.  |
