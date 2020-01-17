@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 0ef7860250a0a3d9b14fe24224432e00ee1bba86
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 4da69087ab1df6200394b36c938cb05ec5185045
+ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949657"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124887"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Utiliser Storage migration service pour migrer un serveur
 
@@ -57,7 +57,15 @@ Au cours de cette étape, vous allez spécifier les serveurs à migrer, puis les
 Au cours de cette étape, vous allez transférer des données après avoir spécifié où les placer sur les serveurs de destination.
 
 1. Dans la page **transférer les données** > entrer les **informations d’identification** , tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs de destination vers lesquels vous souhaitez effectuer la migration, puis sélectionnez **suivant**.
-2. Sur la page **Ajouter un appareil et des mappages de destination** , le premier serveur source est listé. Tapez le nom du serveur ou du serveur de fichiers en cluster vers lequel vous souhaitez effectuer la migration, puis sélectionnez **analyser l’appareil**. Si vous migrez à partir d’un ordinateur source joint à un domaine, le serveur de destination doit être joint au même domaine.
+2. Sur la page **Ajouter un appareil et des mappages de destination** , le premier serveur source est listé. Tapez le nom du serveur ou du serveur de fichiers en cluster vers lequel vous souhaitez effectuer la migration, puis sélectionnez **analyser l’appareil**. Si vous migrez à partir d’un ordinateur source joint à un domaine, le serveur de destination doit être joint au même domaine. Vous pouvez également cliquer sur « créer une nouvelle machine virtuelle Azure », puis utiliser l’Assistant pour déployer un nouveau serveur de destination dans Azure. Cela permet de dimensionner automatiquement votre machine virtuelle, d’approvisionner le stockage, de formater des disques, de joindre le domaine et d’ajouter le proxy de service de migration de stockage à une destination Windows Server 2019. Vous pouvez choisir parmi les machines virtuelles Windows Server 2019 (recommandé), Windows Server 2016 et Windows Server 2012 R2 de toute taille et utiliser des disques gérés.   
+
+ > [!NOTE]
+   > L’utilisation de la « création d’une machine virtuelle Azure » requiert les éléments suivants :
+   > - Un abonnement Azure valide.
+   > - Un groupe de ressources Azure Compute existant dans lequel vous disposez de droits de création.
+   > - Un réseau virtuel et un sous-réseau Azure existants. 
+   > - Une solution de routage ou VPN Azure Express liée au réseau virtuel et au sous-réseau qui permet la connectivité à partir de cette machine virtuelle Azure IaaS sur vos clients locaux, les contrôleurs de domaine, l’ordinateur d’Orchestrator du service de migration de stockage, l’ordinateur du centre d’administration Windows, et l’ordinateur source à migrer.
+
 3. Mappez les volumes source aux volumes de destination, désactivez la case à cocher **inclure** pour tous les partages que vous ne souhaitez pas transférer (y compris les partages administratifs situés dans le dossier système Windows), puis sélectionnez **suivant**.
    ![capture d’écran montrant un serveur source et ses volumes et partages et l’emplacement de transfert vers le](media/migrate/transfer.png) de destination **figure 3 : un serveur source et l’endroit où son stockage sera transféré**
 4. Ajoutez un serveur de destination et des mappages pour d’autres serveurs sources, puis sélectionnez **suivant**.

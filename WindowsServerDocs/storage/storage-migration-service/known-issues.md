@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: dccbfd7d3ff6d95615e9efecf840a840b42d0d27
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0f549310d568142f819e22422d41a72d38b306e2
+ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949643"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145935"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -25,7 +25,7 @@ Par exemple, Windows Server, version 1903 comprend de nouvelles fonctionnalités
 
 ## <a name="collecting-logs"></a>Comment collecter des fichiers journaux lors de l’utilisation de Support Microsoft
 
-Le service de migration de stockage contient des journaux des événements pour le service Orchestrator et le service proxy. Le serveur urchestrator contient toujours les journaux des événements, et les serveurs de destination sur lesquels le service proxy est installé contiennent les journaux du proxy. Ces journaux se trouvent sous :
+Le service de migration de stockage contient des journaux des événements pour le service Orchestrator et le service proxy. Le serveur Orchestrator contient toujours les journaux des événements, et les serveurs de destination sur lesquels le service proxy est installé contiennent les journaux du proxy. Ces journaux se trouvent sous :
 
 - Journaux des applications et des services \ Microsoft \ Windows \ StorageMigrationService
 - Journaux des applications et des services \ Microsoft \ Windows \ StorageMigrationService-proxy

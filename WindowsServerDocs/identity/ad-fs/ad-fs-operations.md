@@ -1,6 +1,6 @@
 ---
 ms.assetid: eefcc989-8763-45ee-8a64-3a97b4397160
-title: Opérations d'AD FS
+title: Opérations d'AD FS
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,30 +9,31 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 99167850ff9ee193aca888d34d98503ea0554c30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2db9cd83ed08673835a38e443e90c5eb092f43ac
+ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408553"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76162480"
 ---
-# <a name="ad-fs-operations"></a>Opérations d'AD FS
+# <a name="ad-fs-operations"></a>Opérations d'AD FS
 
 
 
 Ce document contient une liste de toutes les opérations de documentation pour AD FS. 
 
-## <a name="service-configuration"></a>Configuration du service
+## <a name="service-configuration"></a>Configuration de service
 - [Mettre à jour des certificats SSL dans AD FS et WAP 2016](../ad-fs/operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
 - [Outil de restauration rapide AD FS](../ad-fs/operations/AD-FS-Rapid-Restore-Tool.md)
 - [Configurer une autre liaison de nom d’hôte pour l’authentification par certificat dans AD FS](../ad-fs/operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 - [Ajouter un magasin d’attributs](../ad-fs/operations/Add-an-Attribute-Store.md)
 - [Personnaliser les en-têtes de réponse de sécurité HTTP avec AD FS 2019](../ad-fs/operations/customize-http-security-headers-ad-fs.md)
 - [Déléguer l’accès aux applets de commande Powershell AD FS aux utilisateurs non-administrateurs](../ad-fs/operations/delegate-ad-fs-pshell-access.md)
-- [Ajuster la latence SQL et d’adresse](../ad-fs/operations/adfs-sql-latency.md) 
+- [Ajuster la latence SQL et d’adresse](../ad-fs/operations/adfs-sql-latency.md)
+- [Groupes de disponibilité AlwaysOn](../ad-fs/operations/ad-fs-always-on.md) 
 
 
-## <a name="authentication-configuration"></a>Configuration de l’authentification
+## <a name="authentication-configuration"></a>Configuration de l'authentification
 ### <a name="strong-authentication-mfa--password-less"></a>Authentification renforcée (MFA) & sans mot de passe
 - [Configurer les fournisseurs d’authentification externes comme principaux dans AD FS (2019 ou version ultérieure)](../ad-fs/operations/Additional-Authentication-Methods-AD-FS.md)
 - [Configurer AD FS (2016 ou version ultérieure) et Azure MFA](../ad-fs/operations/Configure-AD-FS-2016-and-Azure-MFA.md)
@@ -54,7 +55,7 @@ Ce document contient une liste de toutes les opérations de documentation pour A
 - [Configurer une autre liaison de nom d’hôte pour l’authentification par certificat dans AD FS](../ad-fs/operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 
 
-### <a name="device"></a>Appareil
+### <a name="device"></a>Périphérique
 - [Contrôles d’authentification des appareils dans AD FS](../ad-fs/operations/device-authentication-controls-in-AD-FS.md) 
 
 
@@ -82,10 +83,10 @@ Ce document contient une liste de toutes les opérations de documentation pour A
 - [Gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles](../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Gérer les risques avec le contrôle d’accès conditionnel](../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 - [Configurer un environnement de laboratoire AD FS](../ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
-- [Guide pas à pas : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
-- [Guide pas à pas : Gérer les risques avec le contrôle d’accès conditionnel](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
-- [Procédure pas à pas : Joindre un espace de travail avec un appareil Windows](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
-- [Procédure pas à pas : Joindre un espace de travail avec un appareil iOS](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+- [Guide pas à pas : gérer les risques avec des Multi-Factor Authentication supplémentaires pour les applications sensibles](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+- [Guide pas à pas : gérer les risques avec des Access Control conditionnelles](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+- [Procédure pas à pas : Workplace Join avec un appareil Windows](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+- [Procédure pas à pas : Workplace Join avec un appareil iOS](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
   
 

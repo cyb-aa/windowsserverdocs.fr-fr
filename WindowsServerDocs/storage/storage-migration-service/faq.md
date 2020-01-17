@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: b7a6dd37cfc054ead153d274ffa7f0d13844305e
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 02829919c53e3488ad7f229ad8bee0d3ead14c9a
+ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953031"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124897"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur le service de migration de stockage
 
@@ -138,6 +138,10 @@ Le service de migration de stockage utilise une base de données ESE (Extensible
 6. Vérifier que le système dispose d’un contrôle total sur tous les fichiers et sous-dossiers de ce dossier
 7. Supprimez vos propres autorisations de compte.
 8. Démarrez le service de migration de stockage.
+
+## <a name="does-the-storage-migration-service-migrate-locally-installed-applications-from-the-source-computer"></a>Le service de migration de stockage migre-t-il les applications installées localement à partir de l’ordinateur source ?
+
+Non, le service de migration de stockage ne migre pas les applications installées localement. Une fois la migration terminée, réinstallez toutes les applications sur l’ordinateur de destination qui étaient en cours d’exécution sur l’ordinateur source. Il n’est pas nécessaire de reconfigurer les utilisateurs ou leurs applications. le service de migration du stockage est conçu pour que le serveur change de façon invisible pour les clients. 
 
 ## <a name="give-feedback"></a>Quelles sont les options permettant d’envoyer des commentaires, de signaler des bogues ou d’obtenir un support ?
 

@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b5f2202313c225d57b29997753b090e10b9c2e6c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c36555a8bca7882125451b2c86a0707e3de9b2db
+ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949292"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145925"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configuration de AD FS pour l’authentification par certificat utilisateur
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur la configuration de ce pour Chrome, reportez-vous
 Ce document se concentre sur la résolution des problèmes courants lorsque AD FS est configuré pour l’authentification par certificat pour les utilisateurs. 
 
 ### <a name="check-if-certificate-trusted-issuers-is-configured-properly-in-all-the-ad-fswap-servers"></a>Vérifier si les émetteurs approuvés du certificat sont configurés correctement sur tous les serveurs AD FS/WAP
-*Symptôme commun : HTTP 204 "aucun contenu à partir de https\://certuath.adfs.contoso.com"*
+*Symptôme commun : HTTP 204 "aucun contenu à partir de https\://certauth.adfs.contoso.com"*
 
 AD FS utilise le système d’exploitation Windows sous-jacent pour prouver la possession du certificat utilisateur et s’assurer qu’il correspond à un émetteur approuvé en procédant à la validation de la chaîne d’approbation de certificat. Pour correspondre à l’émetteur approuvé, vous devez vous assurer que toutes les autorités racine et intermédiaire sont configurées en tant qu’émetteurs approuvés dans le magasin autorités de certification de l’ordinateur local. Pour valider cette valeur automatiquement, utilisez l' [outil Analyseur de Diagnostic AD FS](https://adfshelp.microsoft.com/DiagnosticsAnalyzer/Analyze). L’outil interroge tous les serveurs et s’assure que les bons certificats sont configurés correctement. 
 1)  Téléchargez et exécutez l’outil conformément aux instructions fournies dans le lien ci-dessus.
