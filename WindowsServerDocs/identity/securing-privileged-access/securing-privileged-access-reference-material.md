@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 56e1c028a9b18db7b23e8f04e943e4113837b66b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 16d711a288843163b134b0226ed4b8513d7070eb
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407229"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950053"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Modèle de niveau administratif Active Directory
 
@@ -139,7 +139,7 @@ Parce que les ressources qui dépendent de systèmes d’identité tels qu’Act
 
 ![Diagramme montrant que vous devez réduire le nombre de systèmes sur lesquels dépendent vos contrôleurs de domaine et Active Directory](../media/securing-privileged-access-reference-material/PAW_RM_Fig010.JPG)
 
-Pour plus d’informations sur la réduction des principaux risques liés à Active Directory, voir [cette page](http://aka.ms/hardenAD).
+Pour plus d’informations sur la réduction des principaux risques liés à Active Directory, voir [cette page](https://aka.ms/hardenAD).
 
 ## <a name="operational-standards-based-on-clean-source-principle"></a>Normes opérationnelles basées sur le principe de source propre
 
@@ -168,12 +168,12 @@ Les normes indiquées dans cette section supposent que l’organisation dispose 
 - Toutes les stations de travail à gérer exécutent Windows 7 ou ultérieur et ont activé le mode RestrictedAdmin du protocole RDP.
 
    > [!NOTE]
-   > Pour activer le mode RestrictedAdmin du protocole RDP, voir [cette page](http://aka.ms/RDPRA).
+   > Pour activer le mode RestrictedAdmin du protocole RDP, voir [cette page](https://aka.ms/RDPRA).
 
 - Des cartes à puce sont disponibles et délivrées à tous les comptes d’administration.
 - Le compte *Builtin\Administrator* de chaque domaine a été désigné comme compte d’accès d’urgence.
 - Une solution de gestion des identités d’entreprise est déployée.
-- [LAPS](http://aka.ms/laps) a été déployé sur les serveurs et stations de travail pour gérer le mot de passe du compte administrateur local.
+- [LAPS](https://aka.ms/laps) a été déployé sur les serveurs et stations de travail pour gérer le mot de passe du compte administrateur local.
 - Une solution de gestion de l’accès privilégié, comme Microsoft Identity Manager, est déjà en place ou en passe d’être adoptée.
 - Des membres du personnel sont désignés pour surveiller les alertes de sécurité et y répondre.
 - La capacité technique à appliquer rapidement des mises à jour de sécurité Microsoft est disponible.
@@ -314,7 +314,7 @@ Les administrateurs peuvent uniquement se connecter pour administrer des station
 > [!NOTE]
 > Cette approche est obligatoire car la connexion à un hôte de manière interactive accorde le contrôle des informations d’identification à cet hôte.
 >
-> Consultez [Outils d’administration et types d’ouverture de session](http://aka.ms/admintoolsecurity) pour plus d’informations sur les types d’ouverture de session, les outils d’administration courants et l’exposition des informations d’identification.
+> Consultez [Outils d’administration et types d’ouverture de session](https://aka.ms/admintoolsecurity) pour plus d’informations sur les types d’ouverture de session, les outils d’administration courants et l’exposition des informations d’identification.
 
 ##### <a name="use-of-approved-support-technology-and-methods"></a>Utilisation de technologies et méthodes de support approuvées
 
@@ -330,7 +330,7 @@ Les administrateurs qui prennent en charge des systèmes et utilisateurs distant
 Vérifiez que les pratiques suivantes sont appliquées pour ce scénario :
 
 - **Support de serveur distant** : lors de l’accès à distance à un serveur, les administrateurs de niveau 0 doivent suivre ces recommandations :
-  - **Option principale (outil)**  : Outils de contrôle à distance qui utilisent des ouvertures de session réseau (type 3). Pour plus d’informations, voir [Outils d’administration et types d’ouverture de session](http://aka.ms/admintoolsecurity).
+  - **Option principale (outil)**  : Outils de contrôle à distance qui utilisent des ouvertures de session réseau (type 3). Pour plus d’informations, voir [Outils d’administration et types d’ouverture de session](https://aka.ms/admintoolsecurity).
   - **Option principale (interactive)**  : Utilisez une session en mode RestrictedAdmin ou Standard du protocole RDP à partir d’une station de travail administrative avec un compte de domaine.
 
     > [!NOTE]
@@ -366,7 +366,7 @@ Des organisations de support technique et de support utilisateur assurent la pri
    - **Option principale** : Un support de type « Procuration de privilège » peut être fourni sans aucun outil.
    - **Option interdite** : L’ouverture de session avec les informations d’identification d’administration du compte de domaine n’est pas autorisée dans ce scénario. Basculez vers un support station de travail côté bureau si des privilèges administratifs sont exigés.
 - **Support utilisateur à distance** : Le personnel de support de niveau 2 est physiquement éloigné de l’utilisateur.
-   - **Option principale** : Peuvent être utilisés l’Assistance à distance, Skype Entreprise ou un partage d’écran utilisateur similaire. Pour plus d’informations, voir [Qu’est-ce que l’Assistance à distance Windows ?](https://windows.microsoft.com/en-us/windows/what-is-windows-remote-assistance)
+   - **Option principale** : Peuvent être utilisés l’Assistance à distance, Skype Entreprise ou un partage d’écran utilisateur similaire. Pour plus d’informations, voir [Qu’est-ce que l’Assistance à distance Windows ?](https://windows.microsoft.com/windows/what-is-windows-remote-assistance)
    - **Option interdite** : L’ouverture de session avec les informations d’identification d’administration du compte de domaine n’est pas autorisée dans ce scénario. Basculez vers un support station de travail si des privilèges administratifs sont exigés.
 - **Support station de travail** : Les tâches incluent des opérations de maintenance ou de dépannage d’une station de travail, qui requièrent un accès à un système permettant de consulter des journaux, d’installer des logiciels, de mettre à jour des pilotes, etc.
    - **Support station de travail sur place** : Le personnel de support de niveau 2 se trouve physiquement devant la station de travail de l’utilisateur.
@@ -489,7 +489,7 @@ La conception d’une forêt d’administration doit inclure les considérations
 
 - **Renforcement des stations de travail** : créez les stations de travail d’administration à l’aide des [stations de travail à accès privilégié](../securing-privileged-access/privileged-access-workstations.md) (par le biais de la phase 3), mais changez l’appartenance au domaine par la forêt d’administration au lieu de l’environnement de production.
 - **Renforcement des serveurs et contrôleurs de domaine** : pour tous les contrôleurs de domaine et serveurs de la forêt d’administration :
-   - Vérifiez que tous les supports sont validés en utilisant les instructions données dans [Source propre pour le support d’installation](http://aka.ms/cleansource).
+   - Vérifiez que tous les supports sont validés en utilisant les instructions données dans [Source propre pour le support d’installation](https://aka.ms/cleansource).
    - Vérifiez que les serveurs de la forêt d’administration disposent des derniers systèmes d’exploitation installés, même si cela n’est pas faisable en production.
    - Les hôtes de la forêt d’administration doivent être automatiquement mis à jour avec les mises à jour de sécurité.
 
@@ -523,7 +523,7 @@ La conception d’une forêt d’administration doit inclure les considérations
    - Analyse de la surface des attaques pour empêcher l’introduction de nouveaux vecteurs d’attaque dans Windows lors de l’installation de nouveaux logiciels.
 
       > [!NOTE]
-      > L’utilisation d’outils comme [Attack Surface Analyzer (ASA)](https://www.microsoft.com/en-us/download/details.aspx?id=24487) permet d’évaluer les paramètres de configuration sur un hôte et d’identifier les vecteurs d’attaque introduits par des modifications logicielles ou de configuration.
+      > L’utilisation d’outils comme [Attack Surface Analyzer (ASA)](https://www.microsoft.com/download/details.aspx?id=24487) permet d’évaluer les paramètres de configuration sur un hôte et d’identifier les vecteurs d’attaque introduits par des modifications logicielles ou de configuration.
 
 - Renforcement des comptes
    - Une authentification multifacteur doit être configurée pour tous les comptes de la forêt d’administration, sauf un. Au moins un compte administratif doit s’appuyer sur un mot de passe pour garantir le fonctionnement de l’accès en cas de rupture du processus d’authentification multifacteur. Ce compte doit être protégé par un processus de contrôle physique draconien.
@@ -577,10 +577,10 @@ Ce tableau comprend des recommandations pour les outils d’administration et le
 |Bureau à distance (échec - type d’ouverture de session refusé)|RemoteInteractive|-|Par défaut, si l’ouverture de session RDP échoue, les informations d’identification sont uniquement stockées très brièvement. Cela peut ne pas être le cas si l’ordinateur est compromis.|
 |Net use * \\\SERVER|Network (Réseau)|-||
 |Net use * \\\SERVER /u:user|Network (Réseau)|-||
-|Composants logiciels enfichables MMC sur ordinateur distant|Network (Réseau)|-|Exemple : Gestion de l’ordinateur, Observateur d’événements, Gestionnaire de périphériques, Services|
-|PowerShell WinRM|Network (Réseau)|-|Exemple : Enter-PSSession server|
+|Composants logiciels enfichables MMC sur ordinateur distant|Network (Réseau)|-|Exemple : Gestion de l’ordinateur, Observateur d’événements, Gestionnaire de périphériques, Services|
+|PowerShell WinRM|Network (Réseau)|-|Exemple : Enter-PSSession server|
 |PowerShell WinRM avec CredSSP|NetworkClearText|v|New-PSSession server<br />-Authentication Credssp<br />-Credential cred|
-|PsExec sans informations d’identification explicites|Network (Réseau)|-|Exemple : PsExec \\\server cmd|
+|PsExec sans informations d’identification explicites|Network (Réseau)|-|Exemple : PsExec \\\server cmd|
 |PsExec avec informations d’identification explicites|Réseau + Interactif|v|PsExec \\\server -u user -p pwd cmd<br />Crée plusieurs sessions d’ouverture de session.|
 |Accès à distance au Registre|Network (Réseau)|-||
 |Passerelle des services Bureau à distance|Network (Réseau)|-|Authentification auprès de la passerelle des services Bureau à distance.|

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0a2bbeeb459fd364db728579dc20015a2474fd25
-ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
+ms.openlocfilehash: 48d93f515a5f3e5f8ce2c3ff9a1b40f300ca57ed
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163094"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265741"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS Forum aux questions (FAQ)
 
@@ -48,7 +48,7 @@ La prise en charge de HTTP/2 a été ajoutée dans Windows Server 2016, mais HTT
 Oui, cette configuration est prise en charge, mais aucune nouvelle AD FS fonctionnalités 2016 ne serait prise en charge dans cette configuration.  Cette configuration est destinée à être temporaire au cours de la phase de migration de AD FS 2012 R2 à AD FS 2016 et ne doit pas être déployée pour de longues périodes de temps.
 
 ### <a name="is-it-possible-to-deploy-ad-fs-for-office-365-without-publishing-a-proxy-to-office-365"></a>Est-il possible de déployer AD FS pour Office 365 sans publier de proxy vers Office 365 ?
-Oui, ceci est pris en charge. Toutefois, en tant qu’effet secondaire
+Oui, cette méthode est prise en charge. Toutefois, en tant qu’effet secondaire
 
 1. Vous devrez gérer manuellement les certificats de signature de jetons de mise à jour, car Azure AD ne pourra pas accéder aux métadonnées de Fédération. Pour plus d’informations sur la mise à jour manuelle des [certificats de signature de jetons, consultez renouvellement des certificats de Fédération pour Office 365 et Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-o365-certs)
 2. Vous ne pourrez pas tirer parti des flux d’authentification hérités (par exemple, ExO proxy auth Flow)
@@ -66,7 +66,7 @@ AD FS est un système sans État. Par conséquent, l’équilibrage de charge es
 
 ### <a name="what-multi-forest-configurations-are-supported-by-ad-fs"></a>Quelles sont les configurations à plusieurs forêts prises en charge par AD FS ?
 
-AD FS prend en charge plusieurs configurations à plusieurs forêts et s’appuie sur le réseau de confiance AD DS sous-jacent pour authentifier les utilisateurs sur plusieurs domaines approuvés. Nous recommandons vivement des approbations de forêts bidirectionnelles, car il s’agit d’une configuration plus simple pour garantir que le sous-système d’approbation fonctionne correctement sans problème. En outre
+AD FS prend en charge plusieurs configurations à plusieurs forêts et s’appuie sur le réseau de confiance AD DS sous-jacent pour authentifier les utilisateurs sur plusieurs domaines approuvés. Nous recommandons vivement des approbations de forêts bidirectionnelles, car il s’agit d’une configuration plus simple pour garantir que le sous-système d’approbation fonctionne correctement sans problème. De plus,
 
 - Dans le cas d’une approbation de forêt unidirectionnelle telle qu’une forêt DMZ contenant des identités de partenaires, nous vous recommandons de déployer ADFS dans la forêt Corp et de traiter la forêt DMZ comme une autre approbation de fournisseur de revendications locale connectée via LDAP. Dans ce cas, l’authentification intégrée de Windows ne fonctionne pas pour les utilisateurs de la forêt DMZ et il est nécessaire d’effectuer l’authentification par mot de passe, car il s’agit du seul mécanisme pris en charge pour LDAP. Si vous ne pouvez pas poursuivre cette option, vous devez configurer un autre AD FS dans la forêt DMZ et l’ajouter en tant qu’approbation de fournisseur de revendications dans ADFS dans la forêt Corp. Les utilisateurs devront effectuer une découverte de domaine d’hébergement, mais l’authentification intégrée de Windows et l’authentification par mot de passe fonctionnent. Apportez les modifications appropriées dans les règles d’émission dans ADFS dans la forêt DMZ, car ADFS dans la forêt Corp ne pourra pas obtenir d’informations utilisateur supplémentaires sur l’utilisateur à partir de la forêt DMZ.
 - Bien que les approbations de niveau domaine soient prises en charge et puissent fonctionner, nous vous recommandons vivement de passer à un modèle d’approbation de niveau forêt. En outre, vous devez vous assurer que le routage UPN et la résolution de noms NETBIOS des noms doivent fonctionner correctement.
@@ -126,7 +126,7 @@ Revendication émise dans le jeton d’accès :
     "array_in_json":{"Items":[{"Name":"Apple","Price":12.3},{"Name":"Grape","Price":3.21}],"Date":"21/11/2010"}
 
 ### <a name="can-i-pass-resource-value-as-part-of-the-scope-value-like-how-requests-are-done-against-azure-ad"></a>Puis-je passer une valeur de ressource dans le cadre de la valeur d’étendue comme la façon dont les requêtes sont effectuées sur Azure AD ?
-Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Par exemple,  
+Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
 **< créer un exemple de demande valide >**
 
 ### <a name="does-ad-fs-support-pkce-extension"></a>AD FS prend-il en charge l’extension PKCE ?
@@ -307,4 +307,7 @@ Dans AD FS 2016, la liaison de jeton est automatiquement activée et provoque pl
 `Set-AdfsProperties -IgnoreTokenBinding $true`
 
 ### <a name="i-have-upgraded-my-farm-from-ad-fs-in-windows-server-2016-to-ad-fs-in-windows-server-2019-the-farm-behavior-level-for-the-ad-fs-farm-has-been-successfully-raised-to-2019-but-the-web-application-proxy-configuration-is-still-displayed-as-windows-server-2016"></a>J’ai mis à niveau ma batterie depuis AD FS dans Windows Server 2016 vers AD FS dans Windows Server 2019. Le niveau de comportement de la batterie de serveurs AD FS a été augmenté avec succès à 2019, mais la configuration du proxy d’application Web est toujours affichée en tant que Windows Server 2016 ?
-Après une mise à niveau vers Windows Server 2019, la version de configuration du proxy d’application Web continuera à s’afficher en tant que Windows Server 2016. Le proxy d’application Web ne dispose pas de nouvelles fonctionnalités spécifiques à la version de Windows Server 2019, et si le niveau de comportement de la batterie de serveurs a été correctement déclenché sur AD FS, le proxy d’application Web continue à s’afficher en tant que Windows Server 2016 par défaut. 
+Après une mise à niveau vers Windows Server 2019, la version de configuration du proxy d’application Web continuera à s’afficher en tant que Windows Server 2016. Le proxy d’application Web ne dispose pas de nouvelles fonctionnalités spécifiques à la version de Windows Server 2019, et si le niveau de comportement de la batterie de serveurs a été correctement déclenché sur AD FS, le proxy d’application Web continue à s’afficher en tant que Windows Server 2016 par défaut.
+
+### <a name="can-i-estimate-the-size-of-the-adfsartifactstore-before-enabling-esl"></a>Puis-je estimer la taille du ADFSArtifactStore avant d’activer ESL ?
+Avec ESL activé, AD FS effectue le suivi de l’activité du compte et des emplacements connus pour les utilisateurs dans la base de données ADFSArtifactStore. Cette base de données est mise à l’échelle en fonction du nombre d’utilisateurs et d’emplacements connus suivis. Lorsque vous envisagez d’activer ESL, vous pouvez estimer la taille de la base de données ADFSArtifactStore pour qu’elle augmente jusqu’à 1 Go par 100 000 utilisateurs. Si la batterie de AD FS utilise la base de données interne Windows (WID), l’emplacement par défaut des fichiers de base de données est C:\Windows\WID\Data. Pour empêcher le remplissage de ce lecteur, assurez-vous de disposer d’au moins 5 Go de stockage gratuit avant d’activer ESL. En plus du stockage sur disque, planifiez la croissance de la mémoire totale du processus après l’activation de ESL jusqu’à 1 Go de RAM supplémentaire pour les populations utilisateur de 500 000 ou moins.

@@ -8,16 +8,16 @@ ms.sitesec: library
 author: jasongerend
 ms.author: jgerend
 ms.date: 10/22/2019
-ms.openlocfilehash: 68edc1f0aaa857d0342f963e19964f5c9e389ed0
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: c3c948e447d060d1ce733778c3362d83ad116708
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812316"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948202"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1803"></a>Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server, version 1803
 
-> S’applique à : Windows Server, version 1803
+> S'applique à : Windows Server, version 1803
 
 Chaque version de Windows Server ajoute de nouvelles fonctions et fonctionnalités ; nous en supprimons aussi de temps en temps, généralement suite à l’ajout d’une meilleure option. Voici les détails des fonctions et fonctionnalités que nous avons supprimées de Windows Server, version 1803.   
 
@@ -33,7 +33,7 @@ Nous avons supprimé les fonctions et fonctionnalités suivantes de l’image de
 
 | Fonctionnalité    | À la place, vous pouvez utiliser... |
 | ----------- | -------------------- |
-| [Service de réplication de fichiers](https://support.microsoft.com/en-us/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Les Services de réplication de fichiers (FRS), introduits dans Windows Server 2003 R2, ont été remplacés par la réplication DFS. Vous devez [faire migrer tous les contrôleurs de domaine qui utilisent FRS vers la réplication DFS à l’aide de SYSVOL](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/). |
+| [Service de réplication de fichiers](https://support.microsoft.com/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Les Services de réplication de fichiers (FRS), introduits dans Windows Server 2003 R2, ont été remplacés par la réplication DFS. Vous devez [faire migrer tous les contrôleurs de domaine qui utilisent FRS vers la réplication DFS à l’aide de SYSVOL](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/). |
 | Virtualisation de réseau Hyper-V|La [Virtualisation de réseau](../networking/sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md) est désormais incluse dans Windows Server dans le cadre de la solution [SDN (Software Defined Networking)](../networking/sdn/software-defined-networking.md), qui inclut également le Contrôleur de réseau, l’équilibrage de charge logiciel, le routage défini par l’utilisateur et les listes de contrôle d’accès. |
 
 ## <a name="features-were-no-longer-developing"></a>Fonctionnalités que nous ne développons plus
@@ -55,5 +55,5 @@ Si vous avez des commentaires à propos de la proposition de suppression de cert
 | [Carte vidéo 3D RemoteFX (vGPU)](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|Nous mettons au point de nouvelles options d’accélération graphique pour les environnements virtualisés. Vous pouvez également utiliser [Discrete Device Assignment (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) en guise d’alternative. |
 | [Stratégies de restriction logicielle](../identity/software-restriction-policies/software-restriction-policies.md) dans la stratégie de groupe|Au lieu d’utiliser des stratégies de restriction logicielle par le biais de la stratégie de groupe, vous pouvez utiliser [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/applocker/applocker-overview) ou le [Contrôle d’application Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control) pour contrôler les applications auxquelles les utilisateurs peuvent accéder et quel code peut s’exécuter dans le noyau. |
 | Espaces de stockage dans une configuration partagée à l’aide d’une infrastructure de signature d’accès partagé|Déployez les [espaces de stockage direct](../storage/storage-spaces/storage-spaces-direct-overview.md) à la place. Les espaces de stockage direct prennent en charge l’utilisation de pièces jointes SAS HLK certifiées, mais dans une configuration non partagée, comme décrit dans [Configuration matérielle requise pour les espaces de stockage direct](../storage/storage-spaces/storage-spaces-direct-hardware-requirements.md). |
-| Expérience Windows Server Essentials|Nous ne développons plus le rôle Expérience Essentials pour les références Windows Server Standard ou Windows Server Datacenter. Si vous avez besoin d’une solution de serveur simple à utiliser pour de petites et moyennes entreprises, consultez notre nouvelle solution [Microsoft 365 Business](https://www.microsoft.com/microsoft-365/business) ou utilisez [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started). |
+| Expérience Windows Server Essentials|Nous ne développons plus le rôle Expérience Essentials pour les références Windows Server Standard ou Windows Server Datacenter. Si vous avez besoin d’une solution de serveur simple à utiliser pour de petites et moyennes entreprises, consultez notre nouvelle solution [Microsoft 365 Business](https://www.microsoft.com/microsoft-365/business) ou utilisez [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started). |
 

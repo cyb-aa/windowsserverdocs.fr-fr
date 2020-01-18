@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.date: 12/18/2018
-ms.openlocfilehash: bcc4bf7b3fbdbff1aed2c8dd07b90346fe9eebab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 577014f6fd7e3a3eb58567b1a644d44360f9e498
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383434"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259057"
 ---
 # <a name="administer-a-server-core-server"></a>Administrer un serveur Server Core
 
@@ -41,7 +41,7 @@ Pour définir une adresse IP statique, procédez comme suit :
    New-NetIPaddress -InterfaceIndex 12 -IPAddress 192.0.2.2 -PrefixLength 24 -DefaultGateway 192.0.2.1
    ```
 
-   où :
+   où :
    - **InterfaceIndex** est la valeur de **IfIndex** de l’étape 2. (Dans notre exemple, 12)
    - **IPAddress** est l’adresse IP statique que vous souhaitez définir. (Dans notre exemple, 191.0.2.2)
    - **PrefixLength** est la longueur de préfixe (une autre forme de masque de sous-réseau) pour l’adresse IP que vous définissez. (Pour notre exemple, 24)
@@ -52,7 +52,7 @@ Pour définir une adresse IP statique, procédez comme suit :
    Set-DNSClientServerAddress –InterfaceIndex 12 -ServerAddresses 192.0.2.4
    ```
    
-   où :
+   où :
    - **InterfaceIndex** est la valeur de IfIndex de l’étape 2.
    - **ServerAddresses** est l’adresse IP de votre serveur DNS.
 5. Pour ajouter plusieurs serveurs DNS, exécutez l’applet de commande suivante : 
@@ -124,7 +124,7 @@ Utilisez les informations de référence suivantes pour effectuer des tâches d�
 |         Renommer un ordinateur dans un groupe de travail         |                                                                                                                                                                **Netdom renamecomputer \<currentcomputername\>/NewName :\<NEWCOMPUTERNAME\>** <br>Redémarrez l’ordinateur.                                                                                                                                                                 |
 |                Désactiver la gestion des fichiers de pagination                 |                                                                                                                                                                        **WMIC ComputerSystem où name = "\<ComputerName\>" Set AutomaticManagedPagefile = false**                                                                                                                                                                         |
 |                   Configurer un fichier de pagination                   |                                                            **WMIC pagefileset où name = "\<chemin/nom de fichier\>" Set InitialSize =\<InitialSize\>, MaximumSize =\<MaxSize\>** <br>Où *chemin d’accès/nom* de fichier est le chemin d’accès et le nom du fichier d’échange, *InitialSize* est la taille de départ du fichier d’échange, en octets, et *MaxSize* est la taille maximale du fichier d’échange, en octets.                                                             |
-|                 Modifier une adresse IP statique                 | **ipconfig/all** <br>Enregistrez les informations pertinentes ou redirigez-les vers un fichier texte (**ipconfig/all > ipconfig. txt**).<br>**netsh interface IPv4 show interfaces**<br>Vérifiez l’existence d’une liste d’interfaces.<br>**netsh interface IPv4 Set Address Name \<ID à partir de la liste d’interfaces\> source = static address =\<adresse IP par défaut\> Gateway =\<adresse de passerelle\>**<br>Exécutez **ipconfig/all** pour vérifier que DHCP Enabled a la valeur **no**. |
+|                 Modifier une adresse IP statique                 | **ipconfig/all** <br>Enregistrez les informations pertinentes ou redirigez-les vers un fichier texte (**ipconfig/all > ipconfig. txt**).<br>**netsh interface IPv4 show interfaces**<br>Vérifiez l’existence d’une liste d’interfaces.<br>**netsh interface IPv4 set address \<nom ID de la liste d’interfaces\> source = static address =\<adresse IP préférée\> Gateway =\<adresse de passerelle\>**<br>Exécutez **ipconfig/all** pour vérifier que DHCP Enabled a la valeur **no**. |
 |                   Définissez une adresse DNS statique.                   |   <strong>netsh interface IPv4 Add dnsserver Name =\<nom ou ID de la carte d’interface réseau\> Address =\<adresse IP du serveur DNS principal\> index = 1 <br></strong>netsh interface IPv4 Add dnsserver Name =\<nom du serveur DNS secondaire\> Address =\<adresse IP du serveur DNS secondaire\> index = 2\*\* <br> Répétez l’opération si nécessaire pour ajouter des serveurs supplémentaires.<br>Exécutez **ipconfig/all** pour vérifier que les adresses sont correctes.   |
 | Changer une adresse IP statique en adresse IP fournie par un DHCP |                                                                                                                                      **netsh interface IPv4 Set Address Name =\<adresse IP du système local\> source = DHCP** <br>Exécutez **ipconfig/all** pour vérifier que le protocole DCHP Enabled a la valeur **Oui**.                                                                                                                                      |
 |                      Entrer une clé de produit                      |                                                                                                                                                                                                   **slmgr. vbs – IPK \<clé de produit\>**                                                                                                                                                                                                    |
@@ -140,7 +140,7 @@ Utilisez les informations de référence suivantes pour effectuer des tâches d�
 |Afficher ou modifier la configuration IPSEC|**netsh ipsec**| 
 |Afficher ou modifier la configuration NAP|**netsh nap**| 
 |Afficher ou modifier l’adresse IP à la traduction d’adresses physiques|**arp**| 
-|Afficher ou configurer la table de routage locale|**Itinéraire**| 
+|Afficher ou configurer la table de routage locale|**route**| 
 |Afficher ou configurer les paramètres du serveur DNS|**nslookup**| 
 |Afficher les statistiques du protocole et les connexions réseau TCP/IP actuelles|**netstat**| 
 |Affichage des statistiques de protocole et des connexions TCP/IP actuelles à l’aide de NetBIOS sur TCP/IP (NBT)|**nbtstat**| 

@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 54ed455955053ebb234864f827759385ecf3d3c5
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 8ab42d7781c547d516a51c89e9c8ecba0ff72ad6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935037"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950432"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Forum aux questions sur les clients Bureau à distance
 
->S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>S'applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Une fois que vous avez configuré le client Bureau à distance sur votre appareil (Android, Mac, iOS ou Windows), il peut vous rester quelques questions. Vous trouverez ici les réponses aux questions les plus fréquemment posées sur les clients Bureau à distance. 
 
@@ -67,7 +67,7 @@ Veuillez noter le nom de ce PC sous **Comment se connecter à ce PC**. Vous en a
 Vous pouvez autoriser certains utilisateurs à accéder à ce PC : pour ce faire, cliquez sur **Sélectionner les utilisateurs qui peuvent accéder à distance à ce PC**.
 Les membres du groupe Administrateurs ont automatiquement accès.
 
-Pour Windows 8.1, suivez les instructions pour autoriser les connexions à distance dans [Se connecter à un autre ordinateur à l’aide de Connexion Bureau à distance](https://support.microsoft.com/en-us/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection#1TC=windows-8).
+Pour Windows 8.1, suivez les instructions pour autoriser les connexions à distance dans [Se connecter à un autre ordinateur à l’aide de Connexion Bureau à distance](https://support.microsoft.com/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection#1TC=windows-8).
 
 
 

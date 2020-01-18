@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf813c75c83154c76d4aeb53a259495d4ad1369e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bd68defd56f5e0b910c9505d6b159d242c95e6f0
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373348"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259094"
 ---
 # <a name="mstsc"></a>mstsc
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 crée des connexions aux serveurs Bureau à distance hôte de session (hôte de session Bureau à distance) ou à d’autres ordinateurs distants, modifie un fichier de configuration Connexion Bureau à distance (. RDP) existant et migre les fichiers de connexion hérités qui ont été créés avec le gestionnaire de connexions client. vers les nouveaux fichiers de connexion. RDP.
-Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
+pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 > [!NOTE]
 > Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 
@@ -41,22 +41,22 @@ mstsc.exe /migrate
 |        Paramètre        |                                                         Description                                                         |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |    <Connection File>    |                                   Spécifie le nom d’un fichier. RDP pour la connexion.                                    |
-|   /v : < Server [ : <Port>]   |                Spécifie l’ordinateur distant et, éventuellement, le numéro de port auquel vous souhaitez vous connecter.                 |
+|  /v : < Server\>[ : < port\>] |                Spécifie l’ordinateur distant et, éventuellement, le numéro de port auquel vous souhaitez vous connecter.                 |
 |         /admin          |                                   Permet de vous connecter à une session d’administration du serveur.                                   |
-|           /f            |                                    démarre Connexion Bureau à distance en mode plein écran.                                    |
-|       /w : <Width>        |                                      Spécifie la largeur de la fenêtre de Bureau à distance.                                      |
-|       /h : <Height>       |                                     Spécifie la hauteur de la fenêtre de Bureau à distance.                                      |
+|           /f            |                                    démarre la connexion Bureau à distance en mode plein écran.                                    |
+|       /w :<Width>        |                                      Spécifie la largeur de la fenêtre de Bureau à distance.                                      |
+|       /h :<Height>       |                                     Spécifie la hauteur de la fenêtre de Bureau à distance.                                      |
 |         /public         |                  Exécute Bureau à distance en mode public. En mode public, les mots de passe et les bitmaps ne sont pas mis en cache.                  |
 |          /span          | Met en correspondance la largeur et la hauteur du Bureau à distance avec le bureau virtuel local, en répartissant sur plusieurs analyses si nécessaire. |
 | /Edit <Connection File> |                                         Ouvre le fichier. rdp spécifié pour la modification.                                          |
 |        /migrate         |       Migre les fichiers de connexion hérités qui ont été créés avec le gestionnaire de connexions client vers de nouveaux fichiers de connexion. RDP.       |
 |           /?            |                                            Affiche l'aide à l'invite de commandes.                                             |
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Remarks
 -   Default. RDP est stocké pour chaque utilisateur sous la forme d’un fichier caché dans le dossier Documents de l’utilisateur. Les fichiers. RDP créés par l’utilisateur sont enregistrés par défaut dans le dossier Documents de l’utilisateur, mais peuvent être enregistrés n’importe où.
 -   Pour s’étendre sur plusieurs moniteurs, les moniteurs doivent utiliser la même résolution et doivent être alignés horizontalement (autrement dit, côte à côte). Il n’existe actuellement aucune prise en charge pour la répartition verticale de plusieurs moniteurs sur le système client.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="BKMK_examples"></a>Exemples
 -   Pour vous connecter à une session en mode plein écran, tapez :
     ```
     mstsc /f

@@ -11,12 +11,12 @@ ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: 4b09b8e760ce716da7f5aa6abecbead52293e77b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e932a379a46675c7ae0bf34cf27d9e0eb3d40beb
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365490"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259124"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels Oracle Linux pris en charge sur Hyper-V
 
@@ -24,11 +24,11 @@ ms.locfileid: "71365490"
 
 La carte de distribution des fonctionnalités suivante indique les fonctionnalités qui sont présentes dans chaque version. Les problèmes connus et les solutions de contournement pour chaque distribution sont répertoriés après le tableau.
 
-Dans cette section :
+Dans cette section :
 
-* [Série de noyaux compatibles Red Hat](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_rhc)
+* [Fonctionnalités des versions de Oracle Linux avec le noyau compatible Red Hat](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_rhc)
 
-* [Série de noyaux d’entreprise imcassables](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_uek)
+* [Mises en production Oracle Linux avec le noyau de l’entreprise (UEK)](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_uek)
 
 * [Notes](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_notes)
 
@@ -40,9 +40,9 @@ Dans cette section :
 
 * (*vide*)-fonctionnalité non disponible
 
-* **UEK R\*x QU\*** noyau de l’entreprise (UEK), où *x* est le numéro de version et *y* , la mise à jour trimestrielle.
+* **UEK RxUy** -unbrised Enterprise kernel (UEK) où x est le numéro de version et y la mise à jour trimestrielle.
 
-## <a name="BKMK_rhc"></a>Série de noyaux compatibles Red Hat
+## <a name="BKMK_rhc"></a>Fonctionnalités des versions de Oracle Linux avec le noyau compatible Red Hat
 
 Le noyau 32 bits pour la série 6. x est compatible PAE. Il n’existe aucune prise en charge intégrée de LIS pour Oracle Linux RHCK 6.0-6.3. Oracle Linux les noyaux 7. x sont de 64 bits uniquement.
 
@@ -66,12 +66,12 @@ Le noyau 32 bits pour la série 6. x est compatible PAE. Il n’existe aucune pr
 | SUPPRIMER la prise en charge                                                                                                                                 | 2019, 2016, 2012 R2                | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 |                          |                           |                           |
 | WWN SCSI                                                                                                                                     | 2019, 2016, 2012 R2                | &#10004;           |                     | &#10004;                                                            | &#10004;                                                            |                          |                          |                          |                           |                           |
 | **[Capacité](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
-| Prise en charge du noyau PAE                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | N/A                | N/A                 | &#10004;(6. x uniquement)                                                 | &#10004;(6. x uniquement)                                                 | N/A                      | &#10004;                 | &#10004;                 | &#10004;                  | &#10004;                  |
+| Prise en charge du noyau PAE                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | NON APPLICABLE                | NON APPLICABLE                 | &#10004;(6. x uniquement)                                                 | &#10004;(6. x uniquement)                                                 | NON APPLICABLE                      | &#10004;                 | &#10004;                 | &#10004;                  | &#10004;                  |
 | Configuration de l’intervalle MMIO                                                                                                                    | 2019, 2016, 2012 R2                | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 | &#10004;                  | &#10004;                  |
 | Mémoire dynamique-ajout à chaud                                                                                                                     | 2019, 2016, 2012 R2, 2012          | &#10004;Remarque 8, 9 | &#10004;Remarque 8, 9  | &#10004;Remarque 7, 8, 9, 10 (Remarque 6 pour 6.4-6.7)                      | &#10004;Remarque 7, 8, 9, 10 (Remarque 6 pour 6.4-6.7)                      | &#10004;Remarque 6, 7, 8, 9 | &#10004;Remarque 6, 7, 8, 9 | &#10004;Remarque 6, 7, 8, 9 | &#10004;Remarque 6, 7, 8, 9  |                           |
 | Mémoire dynamique-bulles                                                                                                                  | 2019, 2016, 2012 R2, 2012          | &#10004;Remarque 8, 9 | &#10004;Remarque 8, 9  | &#10004;Remarque 7, 9, 10 (Remarque 6 pour 6.4-6.7)                         | &#10004;Remarque 7, 9, 10 (Remarque 6 pour 6.4-6.7)                         | &#10004;Remarque 6, 8, 9    | &#10004;Remarque 6, 8, 9    | &#10004;Remarque 6, 8, 9    | &#10004;Remarque 6, 8, 9     | &#10004;Remarque 6, 8, 9, 10 |
 | Redimensionnement de la mémoire d’exécution                                                                                                                        | 2019, 2016                         |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
-| **[Vidéosurveillance](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
+| **[Vidéo](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
 | Périphérique vidéo spécifique à Hyper-V                                                                                                                | 2019, 2016, 2012 R2, 2012, 2008 R2  | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 | &#10004;                  |                           |
 | **[Diverses](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**                                 |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
 | Paire clé-valeur                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;Remarque 12         | &#10004;Remarque 12         | &#10004;Remarque 12         | &#10004;Remarque 12          | &#10004;Remarque 12          |
@@ -85,11 +85,11 @@ Le noyau 32 bits pour la série 6. x est compatible PAE. Il n’existe aucune pr
 | Démarrage sécurisé                                                                                                                                  | 2019, 2016                         | &#10004;           | &#10004;            |                                                                     |                                                                     |                          |                          |                          |                           |                           |
 
 
-## <a name="BKMK_uek"></a>Série de noyaux d’entreprise imcassables
+## <a name="BKMK_uek"></a>Mises en production Oracle Linux avec le noyau de l’entreprise (UEK)
 
-Le Oracle Linux UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispose d’une prise en charge locale intégrée.
+Oracle Linux avec le noyau d’entreprise UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispose de la prise en charge LIS intégrée. 
 
-| **Fonctionnalité**                                                                                                                                  | **Version de Windows Server**         | **UEK R5**                | **UEK R4**                | **UEK R3 QU3**            | **UEK R3 QU2**            | **UEK R3 QU1**       |
+| **Fonctionnalité**                                                                                                                                  | **Version de Windows Server**         | **R5**                | **R4**                | **R3 QU3**            | **R3 QU2**            | **R3 QU1**       |
 |----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|---------------------------|---------------------------|---------------------------|---------------------------|----------------------|
 | **Disponibilité**                                                                                                                             |                                    | Intégré                  | Intégré                  | Intégré                  | Intégré                  | Intégré             |
 | **[Ebauche](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;             |
@@ -109,12 +109,12 @@ Le Oracle Linux UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispos
 | SUPPRIMER la prise en charge                                                                                                                                 | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | WWN SCSI                                                                                                                                     | 2019, 2016, 2012 R2                |                           |                           |                           |                           |                      |
 | **[Capacité](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                    |                           |                           |                           |                           |                      |
-| Prise en charge du noyau PAE                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | N/A                       | N/A                       | N/A                       | N/A                       | N/A                  |
+| Prise en charge du noyau PAE                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | NON APPLICABLE                       | NON APPLICABLE                       | NON APPLICABLE                       | NON APPLICABLE                       | NON APPLICABLE                  |
 | Configuration de l’intervalle MMIO                                                                                                                    | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;             |
 | Mémoire dynamique-ajout à chaud                                                                                                                     | 2019, 2016, 2012 R2, 2012          | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Mémoire dynamique-bulles                                                                                                                  | 2019, 2016, 2012 R2, 2012          | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Redimensionnement de la mémoire d’exécution                                                                                                                        | 2019, 2016                         |                           |                           |                           |                           |                      |
-| **[Vidéosurveillance](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                    |                           |                           |                           |                           |                      |
+| **[Vidéo](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                    |                           |                           |                           |                           |                      |
 | Périphérique vidéo spécifique à Hyper-V                                                                                                                | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  |                      |
 | **[Diverses](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**                                 |                                    |                           |                           |                           |                           |                      |
 | Paire clé-valeur                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;Remarque 11, 12      | &#10004;Remarque 11, 12      | &#10004;Remarque 11, 12      | &#10004;Remarque 11, 12      | &#10004;Remarque 11, 12 |
@@ -127,7 +127,7 @@ Le Oracle Linux UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispos
 | Démarrer à l’aide d’UEFI                                                                                                                              | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Démarrage sécurisé                                                                                                                                  | 2019, 2016                         | &#10004;                  | &#10004;                  |                           |                           |                      |
 
-## <a name="BKMK_notes"></a>Notes
+## <a name="BKMK_notes"></a>Remarques
 
 1. Pour cette version de Oracle Linux, le balisage VLAN fonctionne, mais pas le Trunking VLAN.
 
@@ -137,7 +137,7 @@ Le Oracle Linux UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispos
 
 4. Les opérations de sauvegarde en direct peuvent échouer en mode silencieux si l’ordinateur virtuel dispose d’un périphérique iSCSI attaché ou d’un stockage en attachement direct (également appelé disque direct).
 
-5. La prise en charge de la sauvegarde en direct pour Oracle Linux 6.4/6.5/UEKR3 QU2 et QU3 est disponible via [Hyper-V Backup Essentials pour Linux](https://github.com/LIS/backupessentials/tree/1.0).
+5. La prise en charge de la sauvegarde en direct pour Oracle Linux 6 Update 4 et Oracle Linux 6 Update 5 avec UEK R3Q2 et UEK R3Q3 est disponible via [Hyper-V Backup Essentials pour Linux](https://github.com/LIS/backupessentials/tree/1.0).
 
 6. La prise en charge de la mémoire dynamique est disponible uniquement sur les ordinateurs virtuels 64 bits.
 
@@ -176,7 +176,7 @@ Le Oracle Linux UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispos
 14. L’injection d’adresses IP statiques peut ne pas fonctionner si le gestionnaire de réseau a été configuré pour une carte réseau synthétique donnée sur la machine virtuelle. Pour un bon fonctionnement de l’injection d’adresses IP statiques, assurez-vous que le gestionnaire de réseau est entièrement désactivé ou a été désactivé pour une carte réseau spécifique via son fichier ifcfg-ethX.
 
 
-Voir aussi
+Articles associés
 
 * [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx)
 

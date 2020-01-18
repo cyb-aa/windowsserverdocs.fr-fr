@@ -5,14 +5,15 @@ ms.prod: windows-server
 ms.topic: article
 ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
-author: huu
+author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 6db9ce1db139558bd1a7aa731cb12c1b227ead03
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.date: 01/14/2020
+ms.openlocfilehash: c69fc70282ff61ecce25f6413244d7ba3a5ba3bc
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949760"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265821"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Résolution des problèmes à l’aide de l’outil de diagnostic de l’infrastructure protégée
 
@@ -20,21 +21,24 @@ ms.locfileid: "75949760"
 
 Cette rubrique décrit l’utilisation de l’outil de diagnostic de l’infrastructure protégée pour identifier et corriger les défaillances courantes dans le déploiement, la configuration et le fonctionnement continu de l’infrastructure de l’infrastructure protégée. Cela comprend le service de surveillance des hôtes (SGH), tous les hôtes service Guardian et les services de prise en charge tels que DNS et Active Directory. L’outil de diagnostic peut être utilisé pour effectuer une première passe au triage d’une infrastructure protégée défaillante, fournissant aux administrateurs un point de départ pour la résolution des pannes et l’identification des ressources mal configurées. L’outil ne remplace pas le bon fonctionnement d’une structure protégée et sert uniquement à vérifier rapidement les problèmes les plus courants rencontrés au cours des opérations quotidiennes.
 
-Vous trouverez la documentation des applets de commande utilisées dans cette rubrique sur [TechNet](https://technet.microsoft.com/library/mt718834.aspx).
+La documentation complète des applets de commande utilisées dans cet article est disponible dans la [Référence du module HgsDiagnostics](https://docs.microsoft.com/powershell/module/hgsdiagnostics/?view=win10-ps).
 
-[!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)] 
+[!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)]
 
 ## <a name="quick-start"></a>Démarrage rapide de la
 
 Vous pouvez diagnostiquer un hôte service Guardian ou un nœud SGH en appelant la commande suivante à partir d’une session Windows PowerShell avec des privilèges d’administrateur local :
+
 ```PowerShell
 Get-HgsTrace -RunDiagnostics -Detailed
 ```
+
 Cela permet de détecter automatiquement le rôle de l’hôte actuel et de diagnostiquer tous les problèmes pertinents qui peuvent être détectés automatiquement.  Tous les résultats générés au cours de ce processus s’affichent en raison de la présence du commutateur `-Detailed`.
 
 Le reste de cette rubrique fournit une procédure pas à pas sur l’utilisation avancée de `Get-HgsTrace` pour effectuer des opérations telles que le diagnostic de plusieurs ordinateurs hôtes à la fois et la détection d’une configuration complexe inter-nœuds.
 
 ## <a name="diagnostics-overview"></a>Vue d’ensemble des diagnostics
+
 Les diagnostics de l’infrastructure protégée sont disponibles sur tous les ordinateurs hôtes disposant d’outils et de fonctionnalités associés à une machine virtuelle protégée, y compris les ordinateurs hôtes exécutant Server Core.  Actuellement, les diagnostics sont inclus avec les fonctionnalités/packages suivants :
 
 1. Rôle du service Guardian hôte
@@ -49,6 +53,7 @@ Chaque hôte ciblé par les diagnostics est appelé « cible de suivi ».  Les
 Les administrateurs peuvent commencer toutes les tâches de diagnostic en exécutant `Get-HgsTrace`.  Cette commande exécute deux fonctions distinctes en fonction des commutateurs fournis au moment de l’exécution : la collecte de trace et le diagnostic.  Ces deux combinaisons composent l’intégralité de l’outil de diagnostic de l’infrastructure protégée.  Bien que cela ne soit pas explicitement requis, les diagnostics les plus utiles nécessitent des traces qui ne peuvent être collectées qu’avec des informations d’identification d’administrateur sur la cible de trace.  Si des privilèges insuffisants sont détenus par l’utilisateur qui exécute la collecte de trace, les traces nécessitant une élévation échoueront, tandis que les autres passeront.  Cela permet un diagnostic partiel dans le cas où un opérateur sous-privilégié effectue le triage. 
 
 ### <a name="trace-collection"></a>Collection de traces
+
 Par défaut, `Get-HgsTrace` ne collecte les traces et les enregistre dans un dossier temporaire.  Les traces prennent la forme d’un dossier, nommé d’après l’hôte ciblé, avec des fichiers spécialement mis en forme qui décrivent la manière dont l’ordinateur hôte est configuré.  Les traces contiennent également des métadonnées qui décrivent comment les diagnostics ont été appelés pour collecter les traces.  Ces données sont utilisées par les diagnostics pour réalimenter les informations relatives à l’hôte lors de l’exécution manuelle du diagnostic.
 
 Si nécessaire, les traces peuvent être révisées manuellement.  Tous les formats sont lisibles par l’utilisateur (XML) ou peuvent être inspectés facilement à l’aide d’outils standard (par exemple, certificats X509 et extensions de l’interpréteur de commandes Windows crypto).  Notez cependant que les traces ne sont pas conçues pour le diagnostic manuel et qu’il est toujours plus efficace de traiter les traces avec les fonctions de diagnostic de `Get-HgsTrace`.
@@ -58,6 +63,7 @@ Les résultats de l’exécution de la collecte de trace ne font aucune indicati
 À l’aide du paramètre `-Diagnostic`, vous pouvez limiter la collection de suivis uniquement aux suivis requis pour faire fonctionner les diagnostics spécifiés.  Cela réduit la quantité de données collectées, ainsi que les autorisations requises pour appeler les Diagnostics.
 
 ### <a name="diagnosis"></a>Diagnostic (Diagnostic)
+
 Les suivis collectés peuvent être diagnostiqués en fournissant `Get-HgsTrace` l’emplacement des traces via le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics`.  En outre, `Get-HgsTrace` pouvez effectuer des collectes et des diagnostics en une seule passe en fournissant le commutateur `-RunDiagnostics` et une liste de cibles de suivi.  Si aucune cible de trace n’est fournie, l’ordinateur actuel est utilisé comme cible implicite, avec son rôle déduit en inspectant les modules Windows PowerShell installés.
 
 Le diagnostic fournira des résultats dans un format hiérarchique indiquant les cibles de suivi, les jeux de diagnostic et les diagnostics individuels qui sont responsables d’une défaillance particulière.  Les défaillances incluent des recommandations de correction et de résolution si une détermination peut être effectuée à la suite de l’action à entreprendre.  Par défaut, le passage et les résultats non pertinents sont masqués.  Pour voir tout ce qui a été testé par les Diagnostics, spécifiez le commutateur `-Detailed`.  Cela entraîne l’affichage de tous les résultats, quel que soit leur état.
@@ -78,13 +84,17 @@ Par défaut, `Get-HgsTrace` ciblera l’hôte local (par exemple, où l’applet
 La cible locale implicite utilise l’inférence de rôle pour déterminer le rôle joué par l’hôte actuel dans l’infrastructure protégée.  Cela est basé sur les modules Windows PowerShell installés qui correspondent approximativement aux fonctionnalités qui ont été installées sur le système.  La présence du module `HgsServer` fait que la cible de suivi prend le rôle `HostGuardianService` et que la présence du module `HgsClient` entraîne le `GuardedHost`rôle de la cible de suivi.  Il est possible qu’un hôte donné ait les deux modules présents, auquel cas il sera traité à la fois comme un `HostGuardianService` et comme un `GuardedHost`.
 
 Par conséquent, l’appel par défaut des diagnostics pour la collecte locale des traces est le suivant :
+
 ```PowerShell
 Get-HgsTrace
 ```
+
 ... équivaut à ce qui suit :
+
 ```PowerShell
 New-HgsTraceTarget -Local | Get-HgsTrace
 ```
+
 > [!TIP]
 > `Get-HgsTrace` pouvez accepter des cibles via le pipeline ou directement via le paramètre `-Target`.  Il n’y a aucune différence entre les deux.
 
@@ -154,11 +164,12 @@ Avant d’effectuer un diagnostic manuel, vous devez vous assurer que les admini
 
 Les étapes à suivre pour effectuer un diagnostic manuel sont les suivantes :
 
-1. Demandez à chaque administrateur hôte de s’exécuter `Get-HgsTrace` spécifiant une `-Path` connue et la liste des diagnostics que vous avez l’intention d’exécuter sur les suivis résultants.  Par exemple :
+1. Demandez à chaque administrateur hôte de s’exécuter `Get-HgsTrace` spécifiant une `-Path` connue et la liste des diagnostics que vous avez l’intention d’exécuter sur les suivis résultants.  Exemple :
 
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
    ```
+
 2. Demandez à chaque administrateur hôte de placer le dossier traces résultant et de vous l’envoyer.  Ce processus peut être piloté par courrier électronique, via des partages de fichiers ou tout autre mécanisme basé sur les stratégies et les procédures d’exploitation établies par votre organisation.
 
 3. Fusionnez tous les suivis reçus dans un dossier unique, sans aucun autre contenu ou dossier.
@@ -179,7 +190,7 @@ Les étapes à suivre pour effectuer un diagnostic manuel sont les suivantes :
          |- [..]
       ```
 
-4. Exécutez les Diagnostics, en fournissant le chemin d’accès au dossier des traces assemblées sur le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics` ainsi que les diagnostics pour lesquels vous avez demandé à vos administrateurs de collecter des traces.  Les diagnostics supposent qu’il ne peut pas accéder aux ordinateurs hôtes qui se trouvent dans le chemin d’accès et tente donc d’utiliser uniquement les suivis précollectés.  Si des suivis sont manquants ou endommagés, les diagnostics échouent uniquement aux tests affectés et se poursuivent normalement.  Par exemple :
+4. Exécutez les Diagnostics, en fournissant le chemin d’accès au dossier des traces assemblées sur le paramètre `-Path` et en spécifiant le commutateur `-RunDiagnostics` ainsi que les diagnostics pour lesquels vous avez demandé à vos administrateurs de collecter des traces.  Les diagnostics supposent qu’il ne peut pas accéder aux ordinateurs hôtes qui se trouvent dans le chemin d’accès et tente donc d’utiliser uniquement les suivis précollectés.  Si des suivis sont manquants ou endommagés, les diagnostics échouent uniquement aux tests affectés et se poursuivent normalement.  Exemple :
 
    ```PowerShell
    Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
@@ -197,3 +208,15 @@ Get-HgsTrace -RunDiagnostics -Target $hgs03 -Path .\FabricTraces
 ``` 
 
 L’applet de commande de diagnostic identifie tous les ordinateurs hôtes précollectés, ainsi que l’hôte supplémentaire qui doit toujours être suivi et effectue le suivi nécessaire.  La somme de toutes les traces collectées au préalable et regroupées sera ensuite diagnostiquée.  Le dossier de trace résultant contient à la fois les traces anciennes et nouvelles.
+
+## <a name="known-issues"></a>Problèmes connus
+
+Le module de diagnostics de l’infrastructure protégée a des limitations connues lorsqu’il s’exécute sur Windows Server 2019 ou Windows 10, version 1809 et versions ultérieures du système d’exploitation.
+L’utilisation des fonctionnalités suivantes peut entraîner des résultats erronés :
+
+* Attestation de clé hôte
+* Configuration du SGH d’attestation uniquement (pour les scénarios de SQL Server Always Encrypted)
+* Utilisation d’artefacts de stratégie v1 sur un serveur SGH où la valeur par défaut de la stratégie d’attestation est v2
+
+Une défaillance dans `Get-HgsTrace` lors de l’utilisation de ces fonctionnalités n’indique pas nécessairement que le serveur SGH ou l’hôte service Guardian n’est pas configuré de façon incorrecte.
+Utilisez d’autres outils de diagnostic comme `Get-HgsClientConfiguration` sur un hôte service Guardian pour tester si un ordinateur hôte a passé l’attestation.

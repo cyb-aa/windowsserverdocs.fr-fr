@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3e481048c23e634869b0238188d4a0ef8b49cb3e
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 48197b1bc1d1c9f91a6a35b5fb8aad81b229eb6b
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781306"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259084"
 ---
 # <a name="start"></a>start
 
@@ -31,7 +31,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 ## <a name="syntax"></a>Syntaxe
 
 ```
-start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/elevate] [/b {<Command> | <Program>} [<Parameters>]]
+start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/elevate] [/b] [<Command> [<Parameter>... ] | <Program> [<Parameter>... ]]
 ```
 
 ## <a name="parameters"></a>Paramètres
@@ -48,23 +48,23 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 |/Wait|Démarre une application et attend qu’elle se termine.|
 |/elevate|Exécute l’application en tant qu’administrateur.|
 |/b|Démarre une application sans ouvrir une nouvelle fenêtre d’invite de commandes. La gestion CTRL + C est ignorée, sauf si l’application active le traitement CTRL + C. Utilisez CTRL + Pause pour interrompre l’application.|
-|/b \<> de commande \| programme \<|Spécifie la commande ou le programme à démarrer.|
-|Paramètres de \<|Spécifie les paramètres à passer à la commande ou au programme.|
+|\<de commande > \| programme \<|Spécifie la commande ou le programme à démarrer.|
+|\<> de paramètres...|Spécifie les paramètres à passer à la commande ou au programme.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Remarks
 
 - Vous pouvez exécuter des fichiers non exécutables par le biais de leur association de fichiers en tapant le nom du fichier sous la forme d’une commande.
 - Quand vous exécutez une commande qui contient la chaîne « CMD » comme premier jeton sans identificateur d’extension ou de chemin d’accès, « CMD » est remplacé par la valeur de la variable COMSPEC. Cela empêche les utilisateurs de choisir **cmd** dans le répertoire actif.
 - Lorsque vous exécutez une application GUI 32 bits, **cmd** n’attend pas la fermeture de l’application avant de revenir à l’invite de commandes. Ce comportement ne se produit pas si vous exécutez l’application à partir d’un script de commande.
 - Quand vous exécutez une commande qui utilise un premier jeton qui ne contient pas d’extension, cmd. exe utilise la valeur de la variable d’environnement PATHEXT pour déterminer les extensions à rechercher et dans quel ordre. La valeur par défaut de la variable PATHEXT est la suivante :  
   ```
-  .COM;.EXE;.BAT;.CMD 
+  .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC 
   ```  
   Notez que la syntaxe est la même que la variable PATH, avec des points-virgules pour séparer chaque extension.
 - Lors de la recherche d’un fichier exécutable, s’il n’existe aucune correspondance sur une extension, **Démarrez** vérifie si le nom correspond à un nom de répertoire. Si c’est le cas, **Démarrer** ouvre Explorer. exe sur ce chemin.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="BKMK_examples"></a>Exemples
 
 Pour démarrer le programme myapp à partir de l’invite de commandes et conserver l’utilisation de la fenêtre d’invite de commandes actuelle, tapez :
 ```

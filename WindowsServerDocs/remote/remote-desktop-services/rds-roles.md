@@ -7,17 +7,17 @@ ms.author: helohr
 ms.date: 07/06/2018
 ms.topic: article
 author: heidilohr
-manager: dougkim
-ms.openlocfilehash: f26f75b8ce3f5438362c15b84aeca9339b95ebbc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+manager: lizross
+ms.openlocfilehash: 44b98b485b69720a1459f052b68d15617954bffe
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387202"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949825"
 ---
 # <a name="remote-desktop-services-roles"></a>Rôles Services Bureau à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Cet article décrit les rôles au sein d’un environnement Services Bureau à distance.
 
@@ -101,4 +101,4 @@ Pour plus d’informations, consultez les articles suivants :
 * [Gérer les licences de votre déploiement Services Bureau à distance avec des licences d’accès client (CAL)](rds-client-access-license.md)
 * [Activer le serveur de licences des Services Bureau à distance](rds-activate-license-server.md)
 * [Effectuer le suivi de vos licences d’accès client des Services Bureau à distance (RDS CAL)](rds-track-cals.md)
-* [Licensing options for service providers](https://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx) (Options de gestion des licences pour les fournisseurs de services)
+* [Licensing options for service providers](https://www.microsoft.com/Licensing/licensing-programs/spla-program.aspx) (Options de gestion des licences pour les fournisseurs de services)

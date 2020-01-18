@@ -11,13 +11,13 @@ ms.date: 12/02/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: Heidilohr
-manager: daveba
-ms.openlocfilehash: 964dba2fc1a3cc1cf0e9cfe2392d40b9ea8f5ece
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+manager: lizross
+ms.openlocfilehash: 9564643e02a0b659914736c4047a8d723816976f
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700908"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919936"
 ---
 # <a name="virtual-machine-sizing-guidance"></a>Guide de dimensionnement des machines virtuelles
 
@@ -29,10 +29,10 @@ Le tableau suivant liste le nombre maximal d’utilisateurs suggérés par proce
 
 | Type de charge de travail | Nombre maximal d’utilisateurs par vCPU | Stockage minimum pour vCPU/RAM/système d’exploitation | Exemples d’instances Azure | Stockage minimum de conteneur de profil |
 | --- | --- | --- | --- | --- |
-| Maigre | 6 | 2 vCPU, 8 Go de RAM, 16 Go de stockage | D2s_v3, F2s_v2 | 30 Go |
+| Léger | 6 | 2 vCPU, 8 Go de RAM, 16 Go de stockage | D2s_v3, F2s_v2 | 30 Go |
 | Moyen | 4 | 4 vCPU, 16 Go de RAM, 32 Go de stockage | D4s_v3, F4s_v2 | 30 Go |
 | Intensif | 2 | 4 vCPU, 16 Go de RAM, 32 Go de stockage | D4s_v3, F4s_v2 | 30 Go |
-| Alimentation | 1 | 6 vCPU, 56 Go de RAM, 340 Go de stockage | D4s_v3, F4s_v2, NV6 | 30 Go |
+| Avancé | 1 | 6 vCPU, 56 Go de RAM, 340 Go de stockage | D4s_v3, F4s_v2, NV6 | 30 Go |
 
 ## <a name="single-session-recommendations"></a>Recommandations pour des scénarios monosessions
 

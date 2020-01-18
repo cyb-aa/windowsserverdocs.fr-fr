@@ -8,12 +8,12 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 785ecd4de86c06dd12eb57e41efaa1103f2afdc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5e90119066285ae8e04b392a13ab1a38488f5ee
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357812"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265751"
 ---
 # <a name="fine-tuning-sql-and-addressing-latency-issues-with-ad-fs"></a>Optimisation de SQL et résolution des problèmes de latence avec AD FS
 Dans une mise à jour de [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) , nous avons introduit les améliorations suivantes pour réduire la latence de la base de données croisée. Une prochaine mise à jour de AD FS 2019 comprendra ces améliorations.
@@ -23,10 +23,12 @@ Dans les déploiements de AoA (Always on) antérieurs, la latence existait pour 
 
 Dans la dernière mise à jour de AD FS, une réduction de la latence est ciblée via l’ajout d’un thread d’arrière-plan pour actualiser le cache de configuration AD FS et un paramètre pour définir la période d’actualisation. Le temps passé pour la recherche d’une base de données est considérablement réduit dans le thread de demande, car les mises à jour du cache de la base de données sont déplacées dans le thread d’arrière-plan.  
 
-Lorsque la `backgroundCacheRefreshEnabled` propriété a la valeur true, AD FS permet au thread d’arrière-plan d’exécuter les mises à jour du cache. La fréquence d’extraction des données à partir du cache peut être personnalisée en valeur temporelle en définissant `cacheRefreshIntervalSecs`. La valeur par défaut est définie sur 300 secondes `backgroundCacheRefreshEnabled` lorsque a la valeur true. Après la durée définie, AD FS commence à actualiser son cache et Pendant que la mise à jour est en cours, les anciennes données du cache continuent à être utilisées.  
+Lorsque la `backgroundCacheRefreshEnabled` a la valeur true, AD FS permet au thread d’arrière-plan d’exécuter les mises à jour du cache. La fréquence d’extraction des données à partir du cache peut être personnalisée en valeur temporelle en définissant `cacheRefreshIntervalSecs`. La valeur par défaut est définie sur 300 secondes lorsque `backgroundCacheRefreshEnabled` a la valeur true. Après la durée définie, AD FS commence à actualiser son cache et Pendant que la mise à jour est en cours, les anciennes données du cache continuent à être utilisées.  
+
+Lorsque AD FS reçoit une demande pour une application, AD FS récupère l’application à partir de SQL et l’ajoute au cache. À la valeur `cacheRefreshIntervalSecs`, l’application dans le cache est actualisée à l’aide du thread d’arrière-plan. Lorsqu’une entrée existe dans le cache, les demandes entrantes utilisent le cache pendant que l’actualisation en arrière-plan est en cours. Si une entrée n’est pas accessible pour 5 * `cacheRefreshIntervalSecs`, elle est supprimée du cache. L’entrée la plus ancienne peut également être supprimée du cache une fois que la valeur `maxRelyingPartyEntries` configurable est atteinte.
 
 >[!NOTE]
-> Les données du cache sont actualisées en dehors de la `cacheRefreshIntervalSecs` valeur si ADFS reçoit une notification de la part de SQL signifiant qu’une modification a été apportée dans la base de données. Cette notification déclenche l’actualisation du cache. 
+> Les données du cache sont actualisées en dehors de la valeur `cacheRefreshIntervalSecs` si ADFS reçoit une notification de la part de SQL signifiant qu’une modification a été apportée dans la base de données. Cette notification déclenche l’actualisation du cache. 
 
 ### <a name="recommendations-for-setting-the-cache-refresh"></a>Recommandations pour la définition de l’actualisation du cache 
 La valeur par défaut de l’actualisation du cache est de **cinq minutes**. Il est recommandé de définir la valeur sur **1 heure** pour réduire une actualisation des données inutile par AD FS, car les données du cache sont actualisées si des modifications SQL se produisent.  
@@ -42,8 +44,8 @@ L’exemple suivant active l’actualisation du cache en arrière-plan et défin
 
   1. Accédez au fichier de configuration AD FS et, sous la section « Microsoft. IdentityServer. service », ajoutez l’entrée ci-dessous :  
   
-  - `backgroundCacheRefreshEnabled`: Spécifie si la fonctionnalité de cache en arrière-plan est activée. valeurs « true/false ».
-  - `cacheRefreshIntervalSecs`-Valeur, en secondes, à laquelle ADFS actualise le cache. AD FS actualise le cache en cas de modification dans SQL. AD FS recevra une notification SQL et actualisera le cache.  
+  - `backgroundCacheRefreshEnabled` : spécifie si la fonctionnalité de cache en arrière-plan est activée. valeurs « true/false ».
+  - `cacheRefreshIntervalSecs`-valeur en secondes à laquelle ADFS actualise le cache. AD FS actualise le cache en cas de modification dans SQL. AD FS recevra une notification SQL et actualisera le cache.  
  
  >[!NOTE]
  > Toutes les entrées du fichier de configuration respectent la casse.  
@@ -52,7 +54,7 @@ L’exemple suivant active l’actualisation du cache en arrière-plan et défin
 Valeurs configurables supplémentaires prises en charge : 
 
    - **maxRelyingPartyEntries** : nombre maximal d’entrées de partie de confiance qui AD FS conservées en mémoire. Cette valeur est également utilisée par le cache des autorisations de l’application oAuth. S’il y a plus d’autorisations d’application que RPs et si toutes sont stockées en mémoire, cette valeur doit correspondre au nombre d’autorisations d’application. La valeur par défaut est 1000.
-   - **maxIdentityProviderEntries** : nombre maximal d’entrées de fournisseur de revendications AD FS conserver en mémoire. La valeur par défaut est 200. 
+   - **maxIdentityProviderEntries** : nombre maximal d’entrées de fournisseur de revendications AD FS conserver en mémoire. La valeur par défaut est 200. 
    - **maxClientEntries** : nombre maximal d’entrées du client OAuth AD FS conserver en mémoire. La valeur par défaut est 500. 
    - **maxClaimDescriptorEntries** : nombre maximal d’entrées du descripteur de revendication AD FS conserver en mémoire. La valeur par défaut est 500. 
    - **maxNullEntries** : utilisé comme cache négatif. Lorsque AD FS recherche une entrée dans la base de données et qu’elle est introuvable, AD FS ajoute au cache négatif. Il s’agit de la taille maximale de ce cache. Il y a un cache négatif pour chaque type d’objet, il ne s’agit pas d’un cache unique pour tous les objets. La valeur par défaut est 50, 0000. 
@@ -65,9 +67,9 @@ Les environnements hybrides sont également pris en charge avec cette configurat
 
 ### <a name="requirements"></a>Configuration requise : 
 Avant de configurer la prise en charge de plusieurs bases de données d’artefacts, exécutez une mise à jour sur tous les nœuds et mettez à jour les binaires, car les appels à plusieurs nœuds se produisent par le biais de cette fonctionnalité. 
-  1. Générez un script de déploiement pour créer la base de connaissances de l’artefact : Pour déployer plusieurs instances de base de BD d’artefacts, un administrateur doit générer le script de déploiement SQL pour la base de la base de l’artefact. Dans le cadre de cette mise à jour `Export-AdfsDeploymentSQLScript`, l’applet de commande existante a été mise à jour pour éventuellement prendre un paramètre spécifiant la base de données de AD FS pour laquelle générer un script de déploiement SQL. 
+  1. Générer un script de déploiement pour créer la base de connaissances d’artefacts : pour déployer plusieurs instances de base de connaissances d’artefacts, un administrateur doit générer le script de déploiement SQL pour la base de connaissances de l’artefact. Dans le cadre de cette mise à jour, l’applet de commande `Export-AdfsDeploymentSQLScript`existante a été mise à jour pour éventuellement prendre un paramètre spécifiant la base de données AD FS pour laquelle générer un script de déploiement SQL. 
  
- Par exemple, pour générer le script de déploiement uniquement pour la base de l’artefact `-DatabaseType` , spécifiez le paramètre et transmettez la valeur « artefact ». Le paramètre `-DatabaseType` facultatif spécifie le type de base de données AD FS et peut avoir la valeur : All (valeur par défaut), artefact ou configuration. Si aucun `-DatabaseType` paramètre n’est spécifié, le script configure à la fois les scripts d’artefact et de configuration.  
+ Par exemple, pour générer le script de déploiement uniquement pour la base de l’artefact, spécifiez le paramètre `-DatabaseType` et transmettez la valeur « artefact ». Le paramètre `-DatabaseType` facultatif spécifie le type de base de données AD FS et peut avoir la valeur : All (valeur par défaut), artefact ou configuration. Si aucun paramètre `-DatabaseType` n’est spécifié, le script configure à la fois les scripts d’artefact et de configuration.  
 
    ```PowerShell
    PS C:\> Export-AdfsDeploymentSQLScript -DestinationFolder <script folder where scripts will be created> -ServiceAccountName <domain\serviceaccount> -DatabaseType "Artifact" 

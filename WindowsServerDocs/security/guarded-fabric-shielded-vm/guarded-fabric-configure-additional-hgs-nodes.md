@@ -7,13 +7,13 @@ ms.assetid: 227f723b-acb2-42a7-bbe3-44e82f930e35
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 10/22/2018
-ms.openlocfilehash: 5277a97f7f58d9d7edb1457cb363cb6ddf1d8b59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 01/14/2020
+ms.openlocfilehash: ece005617c4a2faac41c2be15967b2f43951517e
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403700"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265861"
 ---
 # <a name="configure-additional-hgs-nodes"></a>Configurer des nœuds SGH supplémentaires
 
@@ -116,7 +116,7 @@ La réplication des certificats de chiffrement et de signature du premier serveu
 Si vous souhaitez sécuriser des points de terminaison SGH avec un certificat SSL, vous devez configurer le certificat SSL sur ce nœud, ainsi que sur tous les autres nœuds du cluster SGH.
 Les certificats SSL ne *sont pas* répliqués par SGH et n’ont pas besoin d’utiliser les mêmes clés pour chaque nœud (par exemple, vous pouvez avoir différents certificats SSL pour chaque nœud).
 
-Lorsque vous demandez un certificat SSL, assurez-vous que le nom de domaine complet du cluster ( `Get-HgsServer`comme indiqué dans la sortie de) est soit le nom commun du sujet du certificat, soit il est inclus comme autre nom DNS de l’objet.
+Lorsque vous demandez un certificat SSL, assurez-vous que le nom de domaine complet du cluster (comme indiqué dans la sortie de `Get-HgsServer`) est soit le nom commun du sujet du certificat, soit il est inclus comme autre nom DNS de l’objet.
 Une fois que vous avez obtenu un certificat auprès de votre autorité de certification, vous pouvez configurer le service SGH pour l’utiliser avec [Set-HgsServer](https://technet.microsoft.com/itpro/powershell/windows/hgsserver/set-hgsserver).
 
 ```powershell
@@ -141,16 +141,8 @@ Pour désactiver un nœud SGH :
 
    Cela permet de supprimer le nœud du cluster et de désinstaller les services d’attestation et de protection de clé. 
    S’il s’agit du dernier nœud dans le cluster,-force est nécessaire pour indiquer que vous souhaitez supprimer le dernier nœud et détruire le cluster dans Active Directory. 
-   
+
    Si SGH est déployé dans une forêt bastion (par défaut), il s’agit de la seule étape. 
    Vous pouvez éventuellement annuler la jonction de l’ordinateur au domaine et supprimer le compte gMSA de Active Directory.
 
-1. Si SGH a créé son propre domaine, vous devez également [désinstaller SGH pour supprimer](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration) la jonction au domaine et rétrograder le contrôleur de domaine.
-
-
-
-## <a name="next-step"></a>Étape suivante
-
-> [!div class="nextstepaction"]
-> [Valider la configuration SGH](guarded-fabric-verify-hgs-configuration.md)
-
+2. Si SGH a créé son propre domaine, vous devez également [désinstaller SGH pour supprimer](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration) la jonction au domaine et rétrograder le contrôleur de domaine.

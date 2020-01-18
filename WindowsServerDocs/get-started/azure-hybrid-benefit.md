@@ -8,12 +8,12 @@ ms.topic: article
 author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
-ms.openlocfilehash: 187abe06b469abe511d4bbbfb0aac9237d3c650a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 946c1266f1c2cdc78cedac6794abb9f8d26696cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868523"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947696"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 
@@ -84,7 +84,7 @@ Vous pouvez ensuite remplir les résultats dans l’**Outil de dénombrement SA 
 
 Veillez à effectuer un inventaire de chaque souscription que vous détenez afin de générer une vue complète de votre positionnement de licence.
 
-[Outil de dénombrement SA Azure Hybrid Benefit pour Windows Server](http://download.microsoft.com/download/7/1/2/712FEFF0-155C-4ABF-96C0-CE4EC4DB0516/Azure_Hybrid_Benefit_Windows_Server_SA_Count_Tool.xlsx)
+[Outil de dénombrement SA Azure Hybrid Benefit pour Windows Server](https://download.microsoft.com/download/7/1/2/712FEFF0-155C-4ABF-96C0-CE4EC4DB0516/Azure_Hybrid_Benefit_Windows_Server_SA_Count_Tool.xlsx)
 
 Si vous avez effectué l’une des actions ci-dessus et confirmé que vous disposez de toutes les licences nécessaires pour le nombre d’instances Azure Hybrid Benefit que vous exécutez, vous n’avez rien d’autre à faire. Si vous avez découvert que vous pouvez couvrir davantage de machines virtuelles avec l’avantage, vous voudrez peut-être optimiser vos coûts en basculant les instances en cours d’exécution vers le coût avec avantage plutôt que le coût plein.
 

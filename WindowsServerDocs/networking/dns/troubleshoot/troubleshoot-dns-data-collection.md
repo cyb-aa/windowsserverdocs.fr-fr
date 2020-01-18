@@ -1,19 +1,19 @@
 ---
 title: Résolution des problèmes liés au DNS (Domain Name System)
 description: Cet article explique comment collecter des données lorsque des problèmes DNS se produisent.
-manager: willchen
+manager: dcscontentpm
 ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: a86b1f34c3b21f5bcde710e2a98323492ea51b62
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 11c52b3beca3afcc0a6bfc8cecee2143dce0f023
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917776"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265831"
 ---
 # <a name="troubleshooting-domain-name-system-dns-issues"></a>Résolution des problèmes liés au DNS (Domain Name System)
  
@@ -27,23 +27,23 @@ Les problèmes de résolution de noms de domaine peuvent être décomposés en p
  
 Nous vous recommandons de collecter simultanément des données sur les côtés client et serveur lorsque le problème se produit. Toutefois, selon le problème réel, vous pouvez démarrer votre collection sur un seul jeu de données sur le client DNS ou le serveur DNS.
  
-Pour collecter un diagnostic réseau Windows à partir d’un client affecté et de son serveur DNS configuré, procédez comme suit:
+Pour collecter un diagnostic réseau Windows à partir d’un client affecté et de son serveur DNS configuré, procédez comme suit :
 
-1. Démarrer des captures réseau sur le client et le serveur:
+1. Démarrer des captures réseau sur le client et le serveur :
 
    ```cmd
    netsh trace start capture=yes tracefile=c:\%computername%_nettrace.etl
    ```
 
-2. Effacez le cache DNS sur le client DNS en exécutant la commande suivante:
+2. Effacez le cache DNS sur le client DNS en exécutant la commande suivante :
 
    ```cmd
    ipconfig /flushdns
    ```
 
-3. Reproduisez le problème.
+3. Reproduire le problème.
 
-4. Arrêter et enregistrer des traces:
+4. Arrêter et enregistrer des traces :
 
    ```cmd
    netsh trace stop

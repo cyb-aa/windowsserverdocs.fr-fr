@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: abbc9cf76056af4ac421d9a38381bd8d8f666e4c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b96a66c9e28454752fd4999fcfe74cbb15a3ae7d
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949532"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265811"
 ---
 # <a name="best-practices-for-securing-active-directory-federation-services"></a>Meilleures pratiques pour la sécurisation des Services ADFS
 
@@ -26,6 +26,9 @@ Ce document s’applique à AD FS et WAP dans Windows Server 2012 R2 et Windows 
 Pour le déploiement dans des environnements locaux, nous vous recommandons une topologie de déploiement standard composée d’un ou de plusieurs serveurs AD FS sur le réseau d’entreprise interne, avec un ou plusieurs serveurs de proxy d’application Web (WAP) dans un réseau DMZ ou extranet.  À chaque couche, AD FS et WAP, un équilibreur de charge matériel ou logiciel est placé devant la batterie de serveurs et gère le routage du trafic.  Les pare-feu sont placés comme requis devant l’adresse IP externe de l’équilibreur de charge devant chaque batterie (FS et proxy).
 
 ![Topologie de AD FS standard](media/Best-Practices-Securing-AD-FS/adfssec1.png)
+
+>[!NOTE]
+> AD FS nécessite un contrôleur de domaine accessible en écriture complet pour fonctionner par opposition à un contrôleur de domaine en lecture seule. Si une topologie planifiée comprend un contrôleur de domaine en lecture seule, le contrôleur de domaine en lecture seule peut être utilisé pour l’authentification, mais le traitement des revendications LDAP nécessite une connexion au contrôleur de domaine accessible en écriture.
 
 ## <a name="ports-required"></a>Ports requis
 Le diagramme ci-dessous représente les ports de pare-feu qui doivent être activés entre et parmi les composants de la AD FS et du déploiement WAP.  Si le déploiement n’inclut pas Azure AD/Office 365, les exigences de synchronisation peuvent être ignorées.
@@ -87,7 +90,7 @@ AD FS points de terminaison peuvent être désactivés sur le proxy à l’aide 
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath <address path> -Proxy $false
 
-Par exemple :
+Exemple :
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/13/certificatemixed -Proxy $false
     
@@ -100,7 +103,7 @@ Le paramètre peut être vérifié à l’aide de l’applet de cmdlet PowerShel
     
    `PS:\>Get-ADFSProperties`
 
-La propriété est `ExtendedProtectionTokenCheck`  Le paramètre par défaut est autoriser, afin que les avantages de sécurité puissent être atteints sans les problèmes de compatibilité avec les navigateurs qui ne prennent pas en charge la fonctionnalité.  
+La propriété est `ExtendedProtectionTokenCheck`.  Le paramètre par défaut est autoriser, afin que les avantages de sécurité puissent être atteints sans les problèmes de compatibilité avec les navigateurs qui ne prennent pas en charge la fonctionnalité.  
 
 ### <a name="congestion-control-to-protect-the-federation-service"></a>Contrôle de congestion pour protéger le service de Fédération
 Le proxy du service de Fédération (qui fait partie du WAP) fournit un contrôle de congestion pour protéger le service de AD FS des flux de requêtes.  Le proxy d’application Web rejette les demandes d’authentification du client externe si le serveur de Fédération est surchargé comme détecté par la latence entre le proxy d’application Web et le serveur de Fédération.  Cette fonctionnalité est configurée par défaut avec un niveau de seuil de latence recommandé.

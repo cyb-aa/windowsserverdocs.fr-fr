@@ -1,5 +1,5 @@
 ---
-title: Recommandations pour le passage à Windows Server2016
+title: Recommandations pour le passage à Windows Server 2016
 description: Recommandations pour le passage à Windows Server 2016.
 ms.custom: na
 ms.prod: windows-server
@@ -14,23 +14,23 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 379808e861f087bdda800ae6877c73c02d242a7b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: be63880e8a07e71aa6811f3a6979eb6e2fcd8eba
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391635"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947806"
 ---
-# <a name="recommendations-for-moving-to-windows-server-2016"></a>Recommandations pour le passage à Windows Server2016
+# <a name="recommendations-for-moving-to-windows-server-2016"></a>Recommandations pour le passage à Windows Server 2016
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 
 |Si votre ordinateur fonctionne sous :|Windows Server 2012 R2 ou Windows Server 2012|Windows Server 2008 R2 ou Windows Server 2008|  
 |-------------------|----------|--------------|--------------|---------------------------------------|  
 |**Infrastructure des rôles Windows Server**|Choisissez la mise à niveau ou la migration selon les [instructions relatives aux rôles spécifiques](https://technet.microsoft.com/windowsserver/jj554790).|- Pour tirer parti des nouvelles fonctionnalités de Windows Server 2016, déployez un nouveau matériel ou installez Windows Server 2016 dans une machine virtuelle sur un hôte existant. Certaines nouvelles fonctionnalités fonctionnent mieux sur un hôte physique Windows Server 2016 exécutant Hyper-V. <br>- Suivez les [instructions relatives aux rôles spécifiques](https://technet.microsoft.com/windowsserver/jj554790).|
-|**Charges de travail d’applications et gestion des serveurs Microsoft**|- Les mises à niveau d’application doivent inclure la *migration* vers Windows Server 2016. Voir la [liste de compatibilité](Server-Application-Compatibility.md). <br>- Les mises à niveau vers Windows Server 2016 uniquement (c’est-à-dire sans mise à niveau des applications) doivent utiliser des instructions spécifiques à l’application.|- Pour tirer parti des nouvelles fonctionnalités de Windows Server 2016, déployez un nouveau matériel ou installez Windows Server 2016 dans une machine virtuelle sur un hôte existant. Certaines nouvelles fonctionnalités fonctionnent mieux sur un hôte physique Windows Server 2016 exécutant Hyper-V. Suivez les guides de migration le cas échéant. <br>- Vous pouvez également rester sur votre système d’exploitation actuel et utiliser une machine virtuelle en cours d’exécution sur un hôte Windows Server 2016 ou Microsoft Azure. Contactez votre revendeur Accord Entreprise, responsable technique de compte ou Microsoft pour connaître les options de support étendu via la [Software Assurance](https://www.microsoft.com/en-us/Licensing/licensing-programs/software-assurance-default.aspx).|
-|**Charges de travail d’applications d’éditeurs de logiciels indépendants**|- Les mises à niveau vers Windows Server 2016 doivent utiliser des instructions spécifiques à l’application. <br>- Pour plus d’informations sur la compatibilité de Windows Server avec des applications autres que Microsoft, rendez-vous sur le [portail de certification du logo Windows Server](https://msdn.microsoft.com/enterprisecloudcertified).|- Pour tirer parti des nouvelles fonctionnalités de Windows Server 2016, déployez un nouveau matériel ou installez Windows Server 2016 dans une machine virtuelle sur un hôte existant. Certaines nouvelles fonctionnalités fonctionnent mieux sur un hôte physique Windows Server 2016 exécutant Hyper-V. Suivez les guides de migration le cas échéant. <br>- Vous pouvez également rester sur votre système d’exploitation actuel et utiliser une machine virtuelle en cours d’exécution sur un hôte Windows Server 2016 ou Microsoft Azure. Contactez votre revendeur Accord Entreprise, responsable technique de compte ou Microsoft pour connaître les options de support étendu via la [Software Assurance](https://www.microsoft.com/en-us/Licensing/licensing-programs/software-assurance-default.aspx).|
+|**Charges de travail d’applications et gestion des serveurs Microsoft**|- Les mises à niveau d’application doivent inclure la *migration* vers Windows Server 2016. Voir la [liste de compatibilité](Server-Application-Compatibility.md). <br>- Les mises à niveau vers Windows Server 2016 uniquement (c’est-à-dire sans mise à niveau des applications) doivent utiliser des instructions spécifiques à l’application.|- Pour tirer parti des nouvelles fonctionnalités de Windows Server 2016, déployez un nouveau matériel ou installez Windows Server 2016 dans une machine virtuelle sur un hôte existant. Certaines nouvelles fonctionnalités fonctionnent mieux sur un hôte physique Windows Server 2016 exécutant Hyper-V. Suivez les guides de migration le cas échéant. <br>- Vous pouvez également rester sur votre système d’exploitation actuel et utiliser une machine virtuelle en cours d’exécution sur un hôte Windows Server 2016 ou Microsoft Azure. Contactez votre revendeur Accord Entreprise, responsable technique de compte ou Microsoft pour connaître les options de support étendu via la [Software Assurance](https://www.microsoft.com/Licensing/licensing-programs/software-assurance-default.aspx).|
+|**Charges de travail d’applications d’éditeurs de logiciels indépendants**|- Les mises à niveau vers Windows Server 2016 doivent utiliser des instructions spécifiques à l’application. <br>- Pour plus d’informations sur la compatibilité de Windows Server avec des applications autres que Microsoft, rendez-vous sur le [portail de certification du logo Windows Server](https://msdn.microsoft.com/enterprisecloudcertified).|- Pour tirer parti des nouvelles fonctionnalités de Windows Server 2016, déployez un nouveau matériel ou installez Windows Server 2016 dans une machine virtuelle sur un hôte existant. Certaines nouvelles fonctionnalités fonctionnent mieux sur un hôte physique Windows Server 2016 exécutant Hyper-V. Suivez les guides de migration le cas échéant. <br>- Vous pouvez également rester sur votre système d’exploitation actuel et utiliser une machine virtuelle en cours d’exécution sur un hôte Windows Server 2016 ou Microsoft Azure. Contactez votre revendeur Accord Entreprise, responsable technique de compte ou Microsoft pour connaître les options de support étendu via la [Software Assurance](https://www.microsoft.com/Licensing/licensing-programs/software-assurance-default.aspx).|
 |**Charges de travail d’applications personnalisées**|- Renseignez-vous auprès des développeurs d’applications sur la compatibilité avec Windows Server 2016 et demandez des instructions de mise à niveau. <br>- Tirez parti de Microsoft Azure pour tester l’application sur Windows Server 2016 avant de basculer. <br>- Examinez l’ensemble des options dans la section suivante.|- Renseignez-vous auprès des développeurs d’applications sur la compatibilité avec Windows Server 2016 et demandez des instructions de mise à niveau. <br>- Tirez parti de Microsoft Azure pour tester votre application sur Windows Server 2016 avant de basculer. <br>- Pour tirer parti des nouvelles fonctionnalités de Windows Server 2016, déployez un nouveau matériel ou installez Windows Server 2016 dans une machine virtuelle sur un hôte existant. Certaines nouvelles fonctionnalités fonctionnent mieux sur un hôte physique Windows Server 2016 exécutant Hyper-V. <br>- Examinez l’ensemble des options dans la section suivante.|
 
 ## <a name="complete-options-for-moving-servers-running-custom-or-in-house-applications-on-older-versions-of-windows-server-to-windows-server-2016"></a>Ensemble des options pour la migration des serveurs exécutant des applications personnalisées ou « internes » sur des anciennes versions de Windows Server vers Windows Server 2016
@@ -49,7 +49,7 @@ Il existe plus d’options que jamais pour aider vos clients et vous-même à ti
 
     - Si vous avez déjà la Software Assurance pour Windows Server, faites des économies avec un déploiement à l’aide du programme [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). 
 
-- Le programme [Software Assurance](https://www.microsoft.com/en-us/Licensing/licensing-programs/software-assurance-default.aspx) pour Windows Server propose de nouveaux avantages en matière de droits relatifs aux versions. Entre autres avantages, vous pouvez mettre à niveau les serveurs bénéficiant de la Software Assurance avec la dernière version de Windows Server au bon moment, sans acheter de nouvelle licence. 
+- Le programme [Software Assurance](https://www.microsoft.com/Licensing/licensing-programs/software-assurance-default.aspx) pour Windows Server propose de nouveaux avantages en matière de droits relatifs aux versions. Entre autres avantages, vous pouvez mettre à niveau les serveurs bénéficiant de la Software Assurance avec la dernière version de Windows Server au bon moment, sans acheter de nouvelle licence. 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

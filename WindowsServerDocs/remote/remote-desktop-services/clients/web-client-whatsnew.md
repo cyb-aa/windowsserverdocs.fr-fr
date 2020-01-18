@@ -9,16 +9,16 @@ ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
-manager: daveba
+manager: lizross
 ms.author: helohr
 ms.date: 11/15/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 41f5bd7be03e61471683d5fc04df9ee10bc09e58
-ms.sourcegitcommit: 89aea00fe0e00fc8b1a6e20af36ad04df8c9fe5b
+ms.openlocfilehash: b5bf231b2aa3542c9cd276b29e7821bdb5dd7cfb
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74189476"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919807"
 ---
 # <a name="whats-new-in-the-web-client"></a>Nouveautés du client web
 

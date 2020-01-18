@@ -12,19 +12,19 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 80d6cdd3056d9c7e0a0815ce5856f961d79fcc34
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 434b79508dbf88a90348840573255c3084d6e989
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391785"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948452"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Développement d’applets de commande PowerShell pour Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
+> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Changements apportés à Nano Server](nano-in-semi-annual-channel.md). 
   
 ## <a name="overview"></a>Vue d’ensemble  
 Nano Server inclut PowerShell Core par défaut dans toutes les installations. PowerShell Core est une édition à encombrement réduit de PowerShell qui repose sur .NET Core et s’exécute sur des éditions à encombrement réduit de Windows, telles que Nano Server et Windows IoT Core. PowerShell Core fonctionne de la même manière que les autres éditions de PowerShell, par exemple Windows PowerShell exécuté sur Windows Server 2016. Toutefois, l’encombrement réduit de Nano Server signifie que certaines fonctionnalités PowerShell de Windows Server 2016 ne sont pas disponibles dans PowerShell Core sur Nano Server.  
@@ -138,7 +138,7 @@ En règle générale, ces applets de commande doivent pouvoir fonctionner dans N
 ### <a name="building-c-for-nano-server"></a>Génération de code C++ pour Nano Server  
 Pour faire fonctionner des DLL C++ sur Nano Server, compilez-les pour Nano Server plutôt que pour une édition spécifique.  
   
-Pour obtenir une procédure pas à pas montrant comment développer en C++ sur Nano Server et connaître les conditions préalables, voir [Developing Native Apps on Nano Server](http://blogs.technet.com/b/nanoserver/archive/2016/04/27/developing-native-apps-on-nano-server.aspx) (Développement d’applications natives sur Nano Server).  
+Pour obtenir une procédure pas à pas montrant comment développer en C++ sur Nano Server et connaître les conditions préalables, voir [Developing Native Apps on Nano Server](https://blogs.technet.com/b/nanoserver/archive/2016/04/27/developing-native-apps-on-nano-server.aspx) (Développement d’applications natives sur Nano Server).  
   
   
 ## <a name="porting-net-cmdlets"></a>Portage des applets de commande .NET  
@@ -151,7 +151,7 @@ Le module « Microsoft.PowerShell.NanoServer.SDK » est disponible dans [Power
   
 Le module SDK PowerShell Core expose les applets de commande pour configurer les assemblys de référence CoreCLR et PowerShell Core corrects, créer un projet C# dans Visual Studio 2015 ciblant ces assemblys de référence et configurer le débogueur distant sur un ordinateur Nano Server de sorte que les développeurs puissent déboguer leurs applets de commande .NET exécutées sur Nano Server à distance dans Visual Studio 2015.  
   
-Le module SDK PowerShell Core requiert Visual Studio 2015 Update 2. Si vous ne disposez pas d’une installation de Visual Studio 2015, vous pouvez installer [Visual Studio Community 2015](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx).  
+Le module SDK PowerShell Core requiert Visual Studio 2015 Update 2. Si vous ne disposez pas d’une installation de Visual Studio 2015, vous pouvez installer [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).  
   
 Le module SDK dépend également de l’installation de la fonctionnalité suivante dans Visual Studio 2015 :  
   

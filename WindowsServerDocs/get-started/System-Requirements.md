@@ -1,5 +1,5 @@
 ---
-title: Configuration système
+title: Configuration requise
 description: Configuration minimale requise pour le stockage, le processeur, le réseau, la mémoire et la RAM dans une nouvelle installation de chaque option d’installation.
 ms.custom: na
 ms.prod: windows-server
@@ -14,14 +14,14 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 155e828c77670c7c489b334ec3e7c49aa0809d4d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9e8b0c04137ff3b11cdaa7aba3c7899ca6300848
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391619"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947740"
 ---
-# <a name="system-requirements"></a>Configuration système
+# <a name="system-requirements"></a>Configuration requise
 
 >S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016 
 
@@ -55,7 +55,7 @@ Les performances du processeur dépendent non seulement de la fréquence d’hor
 
 Pour vérifier les capacités de votre processeur, vous pouvez utiliser l’outil [Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx).
 
-## <a name="ram"></a>RAM  
+## <a name="ram"></a>Mémoire vive (RAM)  
 La configuration requise en matière de mémoire vive (RAM) pour ce produit est la suivante :  
 
 **Minimum** :  
@@ -124,8 +124,8 @@ Les éléments suivants ne sont pas strictement obligatoires, mais sont nécessa
 ## <a name="installation-of-nano-server"></a>Installation de Nano Server  
 Pour obtenir des instructions détaillées sur l’installation de Windows Server 2016 en tant que serveur Nano Server, voir [Installer Nano Server](Getting-Started-with-Nano-Server.md).
 
-## <a name="additional-resources"></a>Ressources complémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 - [Configuration requise du processeur Windows](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
 - [Comparatif des éditions Standard et Datacenter de Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
 - [Configuration requise pour Windows 10](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
-- [Télécharger la feuille de données de gestion des licences de Windows Server 2016](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)
+- [Télécharger la feuille de données de gestion des licences de Windows Server 2016](https://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

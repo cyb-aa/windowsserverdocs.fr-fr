@@ -1,6 +1,6 @@
 ---
 ms.assetid: 7671e0c9-faf0-40de-808a-62f54645f891
-title: Mise à niveau vers ADFS dans Windows Server2016
+title: Mise à niveau vers AD FS dans Windows Server 2016
 description: ''
 author: billmath
 manager: femila
@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 428e35524fbcfe5177b544e1c6cc6fa32ec32056
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: ebcc679b2bc5ab3c6d7c70c9e84ba45697c80165
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791371"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265591"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers AD FS dans Windows Server 2016 à l'aide d'une base de données WID
 
@@ -101,6 +101,7 @@ Une fois l’exécution terminée `adprep/domainprep`
 ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)
 
 8. Maintenant, sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez l’applet de commande suivante :
+
 
 > [!NOTE]
 > Tous les serveurs 2012 R2 doivent être supprimés de la batterie de serveurs avant d’exécuter l’étape suivante.

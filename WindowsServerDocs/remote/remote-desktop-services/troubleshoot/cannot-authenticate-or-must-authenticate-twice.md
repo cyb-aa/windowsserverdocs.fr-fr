@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.assetid: ''
 author: kaushika-msft
-manager: ''
+manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8af2b1a171a77def2bbb74cc7301e0562cb5b92c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7dbb037e335af52dacbc56c920b1776be995e753
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870597"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265931"
 ---
 # <a name="user-cant-authenticate-or-must-authenticate-twice"></a>L’utilisateur ne peut pas s’authentifier ou doit s’authentifier deux fois
 

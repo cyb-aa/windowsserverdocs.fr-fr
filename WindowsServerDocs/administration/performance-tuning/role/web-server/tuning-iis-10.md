@@ -7,16 +7,16 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b86bf779a4ea9d67f959dacf125a98a8e26a729
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 5658a101371cf3b865dec04ac76716b536792602
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947134"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265701"
 ---
 # <a name="tuning-iis-100"></a>Paramétrage d’IIS 10,0
 
-Internet Information Services (IIS) 10,0 est inclus avec Windows ServerÂ 2016. Il utilise un modèle de processus similaire à celui d’IIS 8,5 et IIS 7,0. Un pilote Web en mode noyau (http. sys) reçoit et achemine les requêtes HTTP et satisfait les demandes provenant de son cache de réponse. Les processus de travail s’inscrivent pour les sous-espaces d’URL et http. sys achemine la requête vers le processus approprié (ou l’ensemble de processus pour les pools d’applications).
+Internet Information Services (IIS) 10,0 est inclus avec Windows Server 2016. Il utilise un modèle de processus similaire à celui d’IIS 8,5 et IIS 7,0. Un pilote Web en mode noyau (http. sys) reçoit et achemine les requêtes HTTP et satisfait les demandes provenant de son cache de réponse. Les processus de travail s’inscrivent pour les sous-espaces d’URL et http. sys achemine la requête vers le processus approprié (ou l’ensemble de processus pour les pools d’applications).
 
 HTTP. sys est responsable de la gestion des connexions et de la gestion des demandes. La demande peut être traitée à partir du cache HTTP. sys ou passée à un processus de travail pour une gestion ultérieure. Plusieurs processus de travail peuvent être configurés, ce qui permet une isolation à moindre coût. Pour plus d’informations sur le fonctionnement de la gestion des demandes, consultez la figure suivante :
 
@@ -327,7 +327,7 @@ Pour tirer le meilleur parti de la fonctionnalité de suspension des processus d
 
 Dans l’idéal, les sites que vous configurez pour la suspension ou la résiliation sont ceux qui ont des visiteurs tous les jours, mais pas suffisamment pour s’assurer qu’ils sont actifs en permanence. Il s’agit généralement de sites disposant d’environ 20 visiteurs uniques un jour ou moins. Vous pouvez analyser les modèles de trafic à l’aide des fichiers journaux du site et calculer le trafic quotidien moyen.
 
-N’oubliez pas qu’une fois qu’un utilisateur spécifique se connecte au site, il le reste généralement pendant au moins un moment, en effectuant des demandes supplémentaires et, par conséquent, le simple comptage des demandes quotidiennes peut ne pas refléter avec précision les modèles de trafic réels. Pour obtenir une lecture plus précise, vous pouvez également utiliser un outil, tel que Microsoft Excel, pour calculer le temps moyen entre les demandes. Par exemple :
+N’oubliez pas qu’une fois qu’un utilisateur spécifique se connecte au site, il le reste généralement pendant au moins un moment, en effectuant des demandes supplémentaires et, par conséquent, le simple comptage des demandes quotidiennes peut ne pas refléter avec précision les modèles de trafic réels. Pour obtenir une lecture plus précise, vous pouvez également utiliser un outil, tel que Microsoft Excel, pour calculer le temps moyen entre les demandes. Exemple :
 
 ||URL de requête|Heure de la demande|Delta|
 |--- |--- |--- |--- |

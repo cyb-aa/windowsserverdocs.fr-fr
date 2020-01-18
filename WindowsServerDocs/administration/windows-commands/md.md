@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 965a5c506535a2c52d6cc7b3557c6104182c12a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3751b185677bfee9d0519b9a617bea1df063c1e7
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373691"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259074"
 ---
 # <a name="md"></a>Md
 
@@ -43,14 +43,14 @@ mkdir [<Drive>:]<Path>
 |Paramètre|Description|
 |---------|-----------|
 |> du lecteur de \<:|Spécifie le lecteur sur lequel vous souhaitez créer le nouveau répertoire.|
-|Chemin de \<>|Obligatoire. Spécifie le nom et l’emplacement du nouveau répertoire. La longueur maximale d’un chemin d’accès unique est déterminée par le système de fichiers.|
+|Chemin de \<|Obligatoire. Spécifie le nom et l’emplacement du nouveau répertoire. La longueur maximale d’un chemin d’accès unique est déterminée par le système de fichiers.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Remarks
 
 Les extensions de commande, qui sont activées par défaut, vous permettent d’utiliser une seule commande **MD** pour créer des répertoires intermédiaires dans un chemin d’accès spécifié.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="BKMK_examples"></a>Exemples
 
 Pour créer un répertoire nommé Directory1 dans le répertoire actif, tapez :
 ```
@@ -63,10 +63,8 @@ md \Taxes\Property\Current
 Pour créer l’arborescence de répertoires Taxes\Property\Current dans le répertoire racine comme dans l’exemple précédent, mais avec les extensions de commande désactivées, tapez la séquence de commandes suivante :
 ```
 md \Taxes
-cd \Taxes 
-md Property
-cd Property
-md Current
+md \Taxes\Property
+md \Taxes\Property\Current
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires

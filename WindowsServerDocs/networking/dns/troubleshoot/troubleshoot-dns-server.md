@@ -1,19 +1,19 @@
 ---
 title: Dépannage des serveurs DNS
 description: Cet article explique comment résoudre les problèmes DNS du côté serveur.
-manager: willchen
+manager: dcscontentpm
 ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: b0547436cfa0f07ba9cbc4e3dd1825f8d33bc093
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 23e51adafa5ab6da0a9317a1b0fad88bd3901073
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917766"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265801"
 ---
 # <a name="troubleshooting-dns-servers"></a>Dépannage des serveurs DNS
 
@@ -30,18 +30,18 @@ Cet article explique comment résoudre les problèmes sur les serveurs DNS.
    ```cmd
    nslookup <name> <IP address of the DNS server>
    ```
-   Exemple : 
+   Exemple : 
    ```cmd
    nslookup app1 10.0.0.1
    ```
    Si vous obtenez une réponse d’échec ou de délai d’attente, consultez [vérification des problèmes de récurrence](#checking-for-recursion-problems).
 
-4. Videz le cache du programme de résolution. Pour ce faire, exécutez la commande suivante dans une fenêtre d’invite de commandes d’administration:
+4. Videz le cache du programme de résolution. Pour ce faire, exécutez la commande suivante dans une fenêtre d’invite de commandes d’administration :
 
    ```cmd
    dnscmd /clearcache
    ```
-   Ou, dans une fenêtre PowerShell d’administration, exécutez l’applet de commande suivante:
+   Ou, dans une fenêtre PowerShell d’administration, exécutez l’applet de commande suivante :
    ```powershell
    Clear-DnsServerCache
    ```
@@ -52,11 +52,11 @@ Cet article explique comment résoudre les problèmes sur les serveurs DNS.
 
 ### <a name="event-log"></a>Journal des événements
 
-Vérifiez les journaux suivants pour voir s’il existe des erreurs enregistrées:
+Vérifiez les journaux suivants pour voir s’il existe des erreurs enregistrées :
 
 - Application
 
-- System
+- Système
 
 - Serveur DNS
 
@@ -70,9 +70,9 @@ nslookup <client name> <server IP address>
 
 - Si le programme de résolution renvoie l’adresse IP du client, le serveur n’a aucun problème.
 
-- Si le programme de résolution renvoie une réponse «défaillance du serveur» ou «requête refusée», la zone est probablement suspendue, ou le serveur est probablement surchargé. Vous pouvez savoir si elle est suspendue en consultant l’onglet général des propriétés de la zone dans la console DNS.
+- Si le programme de résolution renvoie une réponse « défaillance du serveur » ou « requête refusée », la zone est probablement suspendue, ou le serveur est probablement surchargé. Vous pouvez savoir si elle est suspendue en consultant l’onglet général des propriétés de la zone dans la console DNS.
 
-Si le programme de résolution renvoie une réponse «requête envoyée au serveur expirée» ou «aucune réponse du serveur», cela signifie que le service DNS n’est probablement pas en cours d’exécution. Essayez de redémarrer le service serveur DNS en entrant la commande suivante à l’invite de commandes sur le serveur:
+Si le programme de résolution renvoie une réponse « requête envoyée au serveur expirée » ou « aucune réponse du serveur », cela signifie que le service DNS n’est probablement pas en cours d’exécution. Essayez de redémarrer le service serveur DNS en entrant la commande suivante à l’invite de commandes sur le serveur :
 
 ```cmd
 net start DNS
@@ -101,13 +101,13 @@ Le problème peut être causé par une erreur de l’utilisateur lorsque les uti
 
 2. Si le nom est correct sur le serveur maître, vérifiez si le numéro de série sur le serveur maître est inférieur ou égal au numéro de série sur le serveur secondaire. Si c’est le cas, modifiez le serveur maître ou le serveur secondaire de sorte que le numéro de série sur le serveur maître soit supérieur au numéro de série sur le serveur secondaire. 
   
-3. Sur le serveur secondaire, forcez un transfert de zone à partir de la console DNS ou en exécutant la commande suivante:
+3. Sur le serveur secondaire, forcez un transfert de zone à partir de la console DNS ou en exécutant la commande suivante :
   
    ```cmd
    dnscmd /zonerefresh <zone name>
    ```
   
-   Par exemple, si la zone est corp.contoso.com, entrez: `dnscmd /zonerefresh corp.contoso.com`.
+   Par exemple, si la zone est corp.contoso.com, entrez : `dnscmd /zonerefresh corp.contoso.com`.
   
 4. Examinez de nouveau le serveur secondaire pour voir si la zone a été correctement transférée. Si ce n’est pas le cas, vous avez probablement un problème de transfert de zone. Pour plus d’informations, consultez [problèmes de transfert de zone](#zone-transfer-problems).
 
@@ -115,7 +115,7 @@ Le problème peut être causé par une erreur de l’utilisateur lorsque les uti
 
 ## <a name="checking-for-recursion-problems"></a>Vérification des problèmes de récursivité
 
-Pour que la récursivité fonctionne correctement, tous les serveurs DNS utilisés dans le chemin d’accès d’une requête récursive doivent être en mesure de répondre et de transférer les données correctes. Si ce n’est pas le cas, une requête récursive peut échouer pour l’une des raisons suivantes:
+Pour que la récursivité fonctionne correctement, tous les serveurs DNS utilisés dans le chemin d’accès d’une requête récursive doivent être en mesure de répondre et de transférer les données correctes. Si ce n’est pas le cas, une requête récursive peut échouer pour l’une des raisons suivantes :
 
 - La requête expire avant de pouvoir être terminée.
 
@@ -123,7 +123,7 @@ Pour que la récursivité fonctionne correctement, tous les serveurs DNS utilis�
 
 - Un serveur qui est utilisé pendant la requête fournit des données incorrectes.
 
-Commencez la résolution des problèmes sur le serveur qui a été utilisé dans votre requête d’origine. Vérifiez si ce serveur transfère les requêtes vers un autre serveur en examinant l’onglet redirecteurs dans les propriétés du serveur dans la console DNS. Si la case à cocher **activer** les redirecteurs est activée et qu’un ou plusieurs serveurs sont répertoriés, ce serveur transfère les requêtes.
+Commencez la résolution des problèmes sur le serveur qui a été utilisé dans votre requête d’origine. Vérifiez si ce serveur transfère les requêtes vers un autre serveur en examinant l’onglet **redirecteurs** dans les propriétés du serveur dans la console DNS. Si la case à cocher **activer les redirecteurs** est activée et qu’un ou plusieurs serveurs sont répertoriés, ce serveur transfère les requêtes.
 
 Si ce serveur transfère les requêtes vers un autre serveur, recherchez les problèmes qui affectent le serveur vers lequel ce serveur transfère les requêtes. Pour vérifier la résolution des problèmes, consultez [vérifier les problèmes du serveur DNS](#check-dns-server-problems). Lorsque cette section vous indique comment effectuer une tâche sur le client, exécutez-la sur le serveur à la place.
 
@@ -139,13 +139,13 @@ set q=NS
 
 - Si le programme de résolution retourne l’adresse IP d’un serveur racine, vous avez probablement une délégation rompue entre le serveur racine et le nom ou l’adresse IP que vous essayez de résoudre. Suivez la procédure [tester une délégation rompue](#test-a-broken-delegation) pour déterminer si vous avez une délégation rompue.
 
-- Si le programme de résolution renvoie une réponse «demande au serveur expiré», vérifiez si les indications de racine pointent vers des serveurs racines en fonctionnement. Pour ce faire, utilisez le [pour afficher la procédure d’indications de racine actuelle](#to-view-the-current-root-hints) . Si les indications de racine pointent vers des serveurs racine opérationnels, vous pouvez rencontrer un problème réseau ou le serveur peut utiliser une configuration de pare-feu avancée qui empêche le programme de résolution d’interroger le serveur, comme décrit dans la section [vérifier les problèmes de serveur DNS](#check-dns-server-problems) . Il est également possible que la valeur par défaut du délai d’expiration récursif soit trop petite.
+- Si le programme de résolution renvoie une réponse « demande au serveur expiré », vérifiez si les indications de racine pointent vers des serveurs racines en fonctionnement. Pour ce faire, utilisez le [pour afficher la procédure d’indications de racine actuelle](#to-view-the-current-root-hints) . Si les indications de racine pointent vers des serveurs racine opérationnels, vous pouvez rencontrer un problème réseau ou le serveur peut utiliser une configuration de pare-feu avancée qui empêche le programme de résolution d’interroger le serveur, comme décrit dans la section [vérifier les problèmes de serveur DNS](#check-dns-server-problems) . Il est également possible que la valeur par défaut du délai d’expiration récursif soit trop petite.
 
 ### <a name="test-a-broken-delegation"></a>Tester une délégation rompue
 
 Commencez les tests de la procédure suivante en interrogeant un serveur racine valide. Le test vous guide tout au long du processus d’interrogation de tous les serveurs DNS à partir de la racine jusqu’au serveur que vous testez pour une délégation rompue.
 
-1. À l’invite de commandes sur le serveur que vous testez, entrez ce qui suit:
+1. À l’invite de commandes sur le serveur que vous testez, entrez ce qui suit :
 
    ```cmd
    nslookup
@@ -157,13 +157,13 @@ Commencez les tests de la procédure suivante en interrogeant un serveur racine 
    > [!NOTE]
    >Le type d’enregistrement de ressource est le type d’enregistrement de ressource pour lequel vous interrogez dans votre requête d’origine, et le nom de domaine complet est le nom de domaine complet pour lequel vous interrogez (terminé par un point).
  
-2. Si la réponse comprend une liste d’enregistrements de ressources «NS» et «A» pour les serveurs délégués, répétez l’étape 1 pour chaque serveur et utilisez l’adresse IP des enregistrements de ressource «A» comme adresse IP du serveur.
+2. Si la réponse comprend une liste d’enregistrements de ressources « NS » et « A » pour les serveurs délégués, répétez l’étape 1 pour chaque serveur et utilisez l’adresse IP des enregistrements de ressource « A » comme adresse IP du serveur.
 
-   - Si la réponse ne contient pas d’enregistrement de ressource «NS», vous avez une délégation rompue.
+   - Si la réponse ne contient pas d’enregistrement de ressource « NS », vous avez une délégation rompue.
    
-   - Si la réponse contient des enregistrements de ressources «NS», mais pas d’enregistrements de ressources «A», entrez **Set récursivité**, puis interrogez individuellement pour obtenir les enregistrements de ressource «a» des serveurs répertoriés dans les enregistrements «NS». Si vous ne trouvez pas au moins une adresse IP valide d’un enregistrement de ressource «A» pour chaque enregistrement de ressource NS dans une zone, vous avez une délégation rompue.
+   - Si la réponse contient des enregistrements de ressources « NS », mais pas d’enregistrements de ressources « A », entrez **Set récursivité**, puis interrogez individuellement pour obtenir les enregistrements de ressource « a » des serveurs répertoriés dans les enregistrements « NS ». Si vous ne trouvez pas au moins une adresse IP valide d’un enregistrement de ressource « A » pour chaque enregistrement de ressource NS dans une zone, vous avez une délégation rompue.
 
-3. Si vous déterminez que vous avez une délégation rompue, corrigez-la en ajoutant ou en mettant à jour un enregistrement de ressource «A» dans la zone parente à l’aide d’une adresse IP valide pour un serveur DNS correct pour la zone déléguée.
+3. Si vous déterminez que vous avez une délégation rompue, corrigez-la en ajoutant ou en mettant à jour un enregistrement de ressource « A » dans la zone parente à l’aide d’une adresse IP valide pour un serveur DNS correct pour la zone déléguée.
 
 ### <a name="to-view-the-current-root-hints"></a>Pour afficher les indications de racine actuelles
 
@@ -183,7 +183,7 @@ Vérifiez la connectivité de base aux serveurs racine.
 
 ## <a name="zone-transfer-problems"></a>Problèmes de transfert de zone
 
-Exécutez les vérifications suivantes:
+Exécutez les vérifications suivantes :
 
 - Vérifiez observateur d’événements pour le serveur DNS principal et le serveur DNS secondaire.
 
@@ -193,7 +193,7 @@ Exécutez les vérifications suivantes:
 
 - Pour en savoir plus sur le serveur maître, suivez les étapes décrites dans la section [vérifier les problèmes de serveur DNS](#check-dns-server-problems) . Lorsque vous êtes invité à effectuer une tâche sur le client, effectuez la tâche sur le serveur secondaire à la place.
 
-- Vérifiez si le serveur secondaire exécute une autre implémentation de serveur DNS, telle que la liaison. Si c’est le cas, le problème peut être dû à l’une des causes suivantes:
+- Vérifiez si le serveur secondaire exécute une autre implémentation de serveur DNS, telle que la liaison. Si c’est le cas, le problème peut être dû à l’une des causes suivantes :
 
   - Le serveur maître Windows peut être configuré pour envoyer des transferts de zone rapides, mais il est possible que le serveur secondaire tiers ne prenne pas en charge les transferts de zone rapide. Dans ce cas, désactivez les transferts de zone rapide sur le serveur maître à partir de la console DNS en activant la case à cocher **activer les liaisons secondaires** dans l’onglet **avancé** des propriétés de votre serveur.
 

@@ -8,12 +8,12 @@ ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 38f54548e8e68a0ee693c5d8ec80e67057b3d5b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 864a15d7336abb56572ddc783ce41a35d6fc13bf
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387658"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950409"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web Bureau à distance pour vos utilisateurs
 
@@ -28,7 +28,7 @@ Avant de commencer, gardez les points suivants à l'esprit :
 
 * Assurez-vous que votre [déploiement Bureau à distance](../rds-deploy-infrastructure.md) dispose d'une passerelle de services Bureau à distance, d'un service Broker pour les connexions Bureau à distance et d'un accès aux services Bureau à distance par le web sous Windows Server 2016 ou 2019.
 * Assurez-vous que votre déploiement est configuré pour utiliser des [licences d'accès client par utilisateur](../rds-client-access-license.md) et non par appareil, sinon toutes les licences seront utilisées.
-* Installez la [mise à jour KB4025334 de Windows 10](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) sur la passerelle des services Bureau à distance. Les mises à jour cumulatives ultérieures peuvent déjà contenir cette mise à jour.
+* Installez la [mise à jour KB4025334 de Windows 10](https://support.microsoft.com/help/4025334/windows-10-update-kb4025334) sur la passerelle des services Bureau à distance. Les mises à jour cumulatives ultérieures peuvent déjà contenir cette mise à jour.
 * Assurez-vous que les certificats publics approuvés sont configurés pour les rôles Passerelle des services Bureau à distance et Accès aux services Bureau à distance par le web.
 * Assurez-vous que tous les ordinateurs auxquels vos utilisateurs se connecteront exécutent l'une des versions suivantes du système d'exploitation :
   * Windows 10
@@ -300,7 +300,7 @@ Si le problème persiste, il se peut que le nom de votre serveur dans l'URL du c
 Si l'utilisateur signale qu'il ne parvient pas à se connecter au client web alors qu'il voit les ressources répertoriées, vérifiez les points suivants :
 
 * Le rôle Passerelle des services Bureau à distance est-il correctement configuré pour utiliser un certificat public approuvé ?
-* Les mises à jour requises sont-elles installées sur le serveur de passerelle Bureau à distance ? Assurez-vous que la [mise à jour KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) est installée sur votre serveur.
+* Les mises à jour requises sont-elles installées sur le serveur de passerelle Bureau à distance ? Assurez-vous que la [mise à jour KB4025334](https://support.microsoft.com/help/4025334/windows-10-update-kb4025334) est installée sur votre serveur.
 
 Si l'utilisateur reçoit le message d'erreur « Un certificat d'authentification serveur inattendu a été reçu » lorsqu'il tente de se connecter, le message contient l'empreinte du certificat. Recherchez le gestionnaire de certificat du serveur du service Broker Bureau à distance à l'aide de cette empreinte pour trouver le bon certificat. Vérifiez que le certificat est configuré pour le rôle Service Broker Bureau à distance sur la page des propriétés du déploiement Bureau à distance. Après vous être assuré que le certificat n'a pas expiré, copiez-le au format .cer sur le serveur d'accès aux services Bureau à distance par le web et exécutez la commande suivante sur le serveur d'accès aux services Bureau à distance par le web, en remplaçant la valeur entre crochets par le chemin du certificat :
 

@@ -11,17 +11,17 @@ ms.date: 07/06/2018
 ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
-manager: dougkim
-ms.openlocfilehash: 7ff88368c937890d3d5c4f650f6c4c08d404069f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+manager: lizross
+ms.openlocfilehash: cf189b15ca15fb556424b5e4931f19d4be356d4d
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387862"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919958"
 ---
 # <a name="desktop-hosting-service"></a>Service d’hébergement de postes de travail
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Cet article vous en dit plus sur les composants du service d’hébergement de bureaux.
 
@@ -31,7 +31,7 @@ Comme décrit dans l’article dédié aux [rôles Services Bureau à distance](
 
 Le service d’hébergement de bureaux du fournisseur est implémenté en tant qu’ensemble d’environnements de locataire isolés. L’environnement de chaque client se compose d’un conteneur de stockage, d’un ensemble de machines virtuelles et d’une combinaison de services Azure, qui communiquent tous sur un réseau virtuel isolé. Chaque machine virtuelle contient un ou plusieurs des composants qui constituent l’environnement de bureau hébergé du locataire. Les sous-sections suivantes décrivent les composants qui constituent l’environnement de bureau hébergé de chaque locataire.
 
-## <a name="active-directory-domain-services"></a>Services de domaine Active Directory
+## <a name="active-directory-domain-services"></a>Services de domaine Active Directory
 
 Active Directory Domain Services (AD DS) fournit les informations de domaine et de forêt, de façon que les utilisateurs de locataire puissent se connecter aux bureaux et applications pour exécuter leurs charges de travail. Cela vous permet également de configurer les bases de données et partages de fichiers nécessaires, ou de vous y connecter, comme exigé par les applications Windows.
 
