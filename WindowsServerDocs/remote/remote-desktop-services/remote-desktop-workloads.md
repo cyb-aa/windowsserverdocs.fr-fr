@@ -11,13 +11,13 @@ ms.date: 12/02/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: Heidilohr
-manager: daveba
-ms.openlocfilehash: 32781946ad2c49ec51e11dfe1e8af078425d35b0
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+manager: lizross
+ms.openlocfilehash: 693d1abd91fbfa2d44a6af42dd9f5338bd461927
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700928"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919944"
 ---
 # <a name="remote-desktop-workloads"></a>Charges de travail Bureau à distance
 
@@ -27,9 +27,9 @@ Le tableau suivant décrit chaque charge de travail. Les « exemples d’utilis
 
 | Type de charge de travail | Exemples d’utilisateurs | Exemples d’applications |
 | --- | --- | --- |
-| Maigre | Utilisateurs exécutant des tâches élémentaires de saisie de données | Applications de saisie de base de données, interfaces de ligne de commande |
+| Léger | Utilisateurs exécutant des tâches élémentaires de saisie de données | Applications de saisie de base de données, interfaces de ligne de commande |
 | Moyen | Consultants et analystes de marché | Applications de saisie de base de données, interfaces de ligne de commande, Microsoft Word, pages web statiques |
 | Intensif | Ingénieurs informaticiens, créateurs de contenu | Applications de saisie de base de données, interfaces de ligne de commande, Microsoft Word, pages web statiques, Microsoft Outlook, Microsoft PowerPoint, pages web dynamiques |
-| Alimentation | Infographistes, créateurs de modèles 3D, chercheurs en Machine Learning | Applications de saisie de base de données, interfaces de ligne de commande, Microsoft Word, pages web statiques, Microsoft Outlook, Microsoft PowerPoint, pages web dynamiques, Adobe Photoshop, Adobe Illustrator, conception assistée par ordinateur (CAO), fabrication assistée par ordinateur (FAO) |
+| Avancé | Infographistes, créateurs de modèles 3D, chercheurs en Machine Learning | Applications de saisie de base de données, interfaces de ligne de commande, Microsoft Word, pages web statiques, Microsoft Outlook, Microsoft PowerPoint, pages web dynamiques, Adobe Photoshop, Adobe Illustrator, conception assistée par ordinateur (CAO), fabrication assistée par ordinateur (FAO) |
 
 Pour obtenir des informations sur les recommandations de dimensionnement, consultez [Guide de dimensionnement des machines virtuelles](virtual-machine-recs.md).

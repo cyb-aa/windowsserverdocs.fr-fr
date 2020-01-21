@@ -14,18 +14,18 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 7d5f899964414c10350cc22a594a959c940a1514
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dcd50b287ad0f3dd49a0df3c1fe531379bd4078e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391521"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948236"
 ---
-# <a name="release-notes-important-issues-in-windows-server-version-1709"></a>Notes de publication : Problèmes importants dans Windows Server, version 1709
+# <a name="release-notes-important-issues-in-windows-server-version-1709"></a>Notes de publication : Problèmes importants dans Windows Server, version 1709
 
 >S'applique à : Canal semi-annuel Windows Server
 
-Ces notes de publication résument les problèmes les plus critiques du système d’exploitation Windows Server&reg; et expliquent, le cas échéant, comment les éviter ou les résoudre. Pour plus d’informations sur les modifications de l’interface, les nouvelles fonctionnalités et les correctifs de cette version, consultez [Nouveautés de Windows Server, version 1709](whats-new-in-windows-server-1709.md) et les annonces publiées par les équipes en charge des différentes fonctionnalités. Sauf mention contraire, chaque problème signalé s’applique à toutes les éditions et options d’installation de Windows Server2016.  
+Ces notes de publication résument les problèmes les plus critiques du système d’exploitation Windows Server&reg; et expliquent, le cas échéant, comment les éviter ou les résoudre. Pour plus d’informations sur les modifications de l’interface, les nouvelles fonctionnalités et les correctifs de cette version, consultez [Nouveautés de Windows Server, version 1709](whats-new-in-windows-server-1709.md) et les annonces publiées par les équipes en charge des différentes fonctionnalités. Sauf mention contraire, chaque problème signalé s’applique à toutes les éditions et options d’installation de Windows Server 2016.  
 
 Ce document est continuellement mis à jour. Les problèmes critiques nécessitant une solution de contournement sont ajoutés dès qu’ils sont identifiés, tout comme les solutions de contournement et les correctifs.  
   
@@ -41,4 +41,4 @@ Le canal semi-annuel de Windows Server est axé sur les conteneurs et les scéna
 
 Les espaces de stockage direct ont été introduits dans Windows Server 2016 et constituent la base de notre plateforme hyperconvergée. Nous sommes ravis de l’adoption réussie de la plateforme hyperconvergée Microsoft et nous restons dévoués à nos clients.
 
-Nous avons tenu compte de vos commentaires et nous mettons tout en œuvre pour livrer les [prochaines innovations](https://blogs.technet.microsoft.com/windowsserver/2017/09/07/sneak-peek-2-windows-server-version-1709-hyper-converged-infrastructure/) de notre plateforme hyperconvergée. Ces fonctionnalités sont disponibles dès aujourd’hui dans les builds [Windows Insiders](https://insider.windows.com/for-business/), et nous vous invitons à les tester et à partager vos commentaires. Pour les clients recherchant une solution hyperconvergée validée, nous recommandons le programme [Windows Server Software Defined](http://microsoft.com/wssd).
+Nous avons tenu compte de vos commentaires et nous mettons tout en œuvre pour livrer les [prochaines innovations](https://blogs.technet.microsoft.com/windowsserver/2017/09/07/sneak-peek-2-windows-server-version-1709-hyper-converged-infrastructure/) de notre plateforme hyperconvergée. Ces fonctionnalités sont disponibles dès aujourd’hui dans les builds [Windows Insiders](https://insider.windows.com/for-business/), et nous vous invitons à les tester et à partager vos commentaires. Pour les clients recherchant une solution hyperconvergée validée, nous recommandons le programme [Windows Server Software Defined](https://microsoft.com/wssd).

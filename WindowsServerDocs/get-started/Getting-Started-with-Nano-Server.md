@@ -1,5 +1,5 @@
 ---
-title: Installer Nano Server
+title: Installer Nano Server
 description: Nouvelle installation, mise à niveau, migration et évaluation de Nano Server
 ms.prod: windows-server
 ms.service: na
@@ -12,16 +12,16 @@ ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: d395c72a1e21cd8eda043eebf3b72bbd5c9a13e8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f94e2c083f0bc05231543c15120818481afbabb0
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391801"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947856"
 ---
-# <a name="install-nano-server"></a>Installer Nano Server
+# <a name="install-nano-server"></a>Installer Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
 > À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Changements apportés à Nano Server](nano-in-semi-annual-channel.md). 
@@ -49,7 +49,7 @@ Nano Server est idéal dans différentes situations :
 - Nano Server ne peut pas servir de contrôleur de domaine Active Directory.
 - Aucune stratégie de groupe n’est prise en charge. Toutefois, vous pouvez utiliser la [configuration d’état souhaité](https://msdn.microsoft.com/powershell/dsc/nanoDsc) pour appliquer les paramètres à l’échelle.
 - Nano Server ne peut pas être configuré pour utiliser un serveur proxy pour accéder à Internet.
-- L’association de cartes réseau (plus précisément, l’équilibrage de charge et le basculement ou LBFO) n’est pas pris en charge, contrairement à SET (Switch Embedded Teaming).
+- L’association de cartes réseau (plus précisément, l’équilibrage de charge et le basculement ou LBFO) n’est pas prise en charge, contrairement à SET (Switch Embedded Teaming).
 - System Center Configuration Manager et System Center Data Protection Manager ne sont pas pris en charge.
 - Les applets de commande BPA (Best Practices Analyzer) et l’intégration de BPA avec le Gestionnaire de serveur ne sont pas prises en charge.
 - NANO Server ne prend pas en charge les adaptateurs de bus hôte virtuels (HBA).
@@ -58,14 +58,14 @@ Nano Server est idéal dans différentes situations :
 - Nano Server est pris en charge uniquement sur le modèle de branche CBB (Current Branch for Business) : il n’existe aucune version de branche LTSB (Long Term Servicing Branch) pour Nano Server à ce stade. Pour plus d’informations, voir la sous-section suivante.
 
 ### <a name="current-branch-for-business"></a>Branche CBB
-Nano Server est mis en service avec un modèle plus actif, appelé branche CBB, pour prendre en charge les clients qui adoptent une « cadence de cloud », avec des cycles de développement rapides. Dans ce modèle, les publications des mises à jour des fonctionnalités de Nano Server sont prévues deux à trois fois par an. Ce modèle nécessite la [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) pour les serveurs Nano Server déployés et utilisés en production. Pour assurer la prise en charge, les administrateurs ne doivent pas utiliser une version CBB antérieure aux deux dernières publications. Toutefois, ces publications ne mettent pas automatiquement à jour les déploiements existants ; les administrateurs effectuent une installation manuelle d’une nouvelle version CBB à leur convenance. Pour obtenir des informations supplémentaires, voir [Windows Server 2016 new Current Branch for Business servicing option](https://blogs.technet.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/).
+Nano Server est mis en service avec un modèle plus actif, appelé branche CBB, pour prendre en charge les clients qui adoptent une « cadence de cloud », avec des cycles de développement rapides. Dans ce modèle, les publications des mises à jour des fonctionnalités de Nano Server sont prévues deux à trois fois par an. Ce modèle nécessite la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) pour les serveurs Nano Server déployés et utilisés en production. Pour assurer la prise en charge, les administrateurs ne doivent pas utiliser une version CBB antérieure aux deux dernières publications. Toutefois, ces publications ne mettent pas automatiquement à jour les déploiements existants ; les administrateurs effectuent une installation manuelle d’une nouvelle version CBB à leur convenance. Pour obtenir des informations supplémentaires, voir [Windows Server 2016 new Current Branch for Business servicing option](https://blogs.technet.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/).
 
 Les options d’installation minimale et Serveur avec Expérience utilisateur sont toujours mises en service sur le [modèle LTSB (Long Term Servicing Branch)](https://support.microsoft.com/lifecycle#gp%2Fgp_msl_policy), avec 5 ans de support standard et 5 ans de support étendu.
 
 ## <a name="installation-scenarios"></a>Scénarios d’installation
 
 ### <a name="evaluation"></a>Évaluation
-Vous pouvez obtenir une version d’évaluation, avec licence de 180jours, de Windows Server dans la page [Windows Server Evaluations (Évaluations de Windows Server)](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). Pour essayer Nano Server, choisissez **Nano Server |64-bit EXE option**, puis revenez à la rubrique [Démarrage rapide de Nano Server](Nano-Server-Quick-Start.md) ou [Déployer Nano Server](Deploy-Nano-Server.md) pour commencer.
+Vous pouvez obtenir une version d’évaluation, avec licence de 180 jours, de Windows Server dans la page [Windows Server Evaluations (Évaluations de Windows Server)](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). Pour essayer Nano Server, choisissez **Nano Server |64-bit EXE option**, puis revenez à la rubrique [Démarrage rapide de Nano Server](Nano-Server-Quick-Start.md) ou [Déployer Nano Server](Deploy-Nano-Server.md) pour commencer.
 
 ### <a name="clean-installation"></a>Nouvelle installation
 Comme vous installez Nano Server en configurant un disque dur virtuel, le mode de déploiement le plus rapide et le plus simple est une nouvelle installation.

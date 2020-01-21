@@ -10,16 +10,16 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 76cfd0f0cca18fb072883a9e14fae420516bd329
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: afcda1d3f94c5f6fa7524317ac21c5540c07895c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391359"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948265"
 ---
-# <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server2016
+# <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server 2016
 
->S’applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 ![Icône présentant un journal](media/whats-new.png) Pour en savoir plus sur les dernières fonctionnalités de Windows, consultez [Nouveautés de Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server&reg; 2016. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version.
 
@@ -57,18 +57,18 @@ Windows Server 2016 fournit une nouvelle machine virtuelle Hyper-V dotée d’u
 
 - Le service Guardian hôte prend en charge une instance Active Directory sécurisée : vous pouvez demander au service Guardian hôte d’utiliser une forêt Active Directory comme la sienne au lieu de créer sa propre instance Active Directory.
 
-Pour obtenir plus d’informations et des instructions sur l’utilisation des machines virtuelles dotées d’une protection maximale, voir [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](https://aka.ms/shieldedvms) (Guide de validation de structure protégée et de machines virtuelles dotées d’une protection maximale pour Windows Server2016 [TPM]).  
+Pour obtenir plus d’informations et des instructions sur l’utilisation des machines virtuelles dotées d’une protection maximale, voir [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](https://aka.ms/shieldedvms) (Guide de validation de structure protégée et de machines virtuelles dotées d’une protection maximale pour Windows Server 2016 [TPM]).  
 
 ## <a name="identity-and-accessidentityidentity-and-accessmd"></a>[Identité et accès](../identity/Identity-and-Access.md)  
 De nouvelles fonctionnalités d’identité améliorent la capacité des organisations à sécuriser les environnements Active Directory et leur permettent de migrer vers les déploiements de cloud uniquement et les déploiements hybrides, où certains services et applications sont hébergés dans le cloud et d’autres sont hébergés en local.  
 
-### <a name="active-directory-certificate-services"></a>Services de certificats Active Directory  
+### <a name="active-directory-certificate-services"></a>Services de certificats Active Directory  
 Les services de certificats Active Directory (AD CS) dans Windows Server 2016 améliorent la prise en charge de l’attestation de clé de module de plateforme sécurisée (TPM) : vous pouvez maintenant utiliser le fournisseur de stockage de clés de carte à puce pour l’attestation de clé, et les appareils qui ne sont pas joints au domaine peuvent maintenant utiliser l’inscription NDES pour obtenir des certificats qui peuvent être attestés pour des clés présentes dans un module de plateforme sécurisée (TPM).  
 
-### <a name="active-directory-domain-services"></a>Services de domaine Active Directory  
+### <a name="active-directory-domain-services"></a>Services de domaine Active Directory  
 Les services de domaine Active Directory comprennent des améliorations pour aider les organisations à sécuriser les environnements Active Directory et fournir de meilleures expériences de gestion des identités pour les appareils d'entreprise et personnels. Pour plus d’informations, consultez [Quelles sont les nouveautés dans Active Directory Federation Services pour Windows Server 2016](../identity/whats-new-active-directory-domain-services.md).   
 
-### <a name="active-directory-federation-services"></a>Services de fédération Active Directory (AD FS)  
+### <a name="active-directory-federation-services"></a>Services AD FS (Active Directory Federation Services)  
 Nouveautés des services de fédération Active Directory. Les services AD FS de Windows Server 2016 incluent de nouvelles fonctionnalités qui vous permettent de configurer AD FS pour authentifier les utilisateurs stockés dans les annuaires LDAP (Lightweight Directory Access Protocol). Pour plus d’informations, consultez [Nouveautés des services AD FS pour Windows Server 2016](../identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md).  
 
 ### <a name="web-application-proxy"></a>Proxy d'application web  
@@ -102,7 +102,7 @@ Pour plus d’informations, consultez [PowerShell ♥ the Blue Team](https://bl
 Cette section décrit les fonctionnalités et produits de mise en réseau que les informaticiens professionnels peuvent utiliser pour la conception, le déploiement et la maintenance de Windows Server 2016.  
 
 ### <a name="software-defined-networking"></a>Mise en réseau définie par logiciel
-Vous pouvez désormais à la fois mettre en miroir et acheminer le trafic vers des équipements virtuels nouveaux ou existants. Avec un pare-feu distribué et des groupes de sécurité réseau, cela vous permet de segmenter et sécuriser de manière dynamique les charges de travail d’une manière similaire à Azure. Ensuite, vous pouvez déployer et gérer l’intégralité de la pile de mise en réseau SDN (Software Defined Networking) à l’aide de System Center Virtual Machine Manager. Enfin, vous pouvez utiliser Docker pour gérer la mise en réseau de conteneurs Windows Server et associer des stratégies de mise en réseau SDN non seulement à des machines virtuelles, mais aussi des conteneurs. Pour plus d’informations, consultez [Planifier une mise en réseau SDN (Software Defined Networking)](../networking/sdn/plan/plan-a-software-defined-network-infrastructure.md).
+Vous pouvez désormais à la fois mettre en miroir et acheminer le trafic vers des équipements virtuels nouveaux ou existants. Avec un pare-feu distribué et des groupes de sécurité réseau, cela vous permet de segmenter et sécuriser de manière dynamique les charges de travail d’une manière similaire à Azure. Ensuite, vous pouvez déployer et gérer l’intégralité de la pile de mise en réseau SDN (Software Defined Networking) à l’aide de System Center Virtual Machine Manager. Enfin, vous pouvez utiliser Docker pour gérer la mise en réseau de conteneurs Windows Server et associer des stratégies de mise en réseau SDN non seulement à des machines virtuelles, mais aussi des conteneurs. Pour plus d’informations, consultez [Planifier une mise en réseau SDN (Software Defined Networking)](../networking/sdn/plan/plan-a-software-defined-network-infrastructure.md).
 
 ### <a name="tcp-performance-improvements"></a>Améliorations des performances de TCP
 La fenêtre de congestion initiale par défaut a été augmentée de 4 à 10 et TCP Fast Open (TFO) a été implémenté. TFO réduit le temps nécessaire pour établir une connexion TCP et la nouvelle fenêtre de congestion initiale permet de transférer des objets plus volumineux dans la rafale initiale. Cette combinaison réduit considérablement le temps nécessaire pour transférer un objet Internet entre le client et le cloud.
@@ -125,8 +125,8 @@ Protection des informations d’identification prend en charge les sessions RDP 
 Protection de périphérique assure l’intégrité du code en mode noyau (KMCI) et en mode utilisateur (UMCI), en créant des stratégies qui spécifient le code exécutable sur le serveur. Consultez [Introduction à Windows Defender Device Guard : Stratégies d’intégrité du code et de sécurité basée sur la virtualisation](https://docs.microsoft.com/windows/device-security/device-guard/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies).
 
 
-### <a name="windows-defender"></a>Windows Defender  
-[Windows Defender Overview for Windows Server 2016](../security/windows-defender/windows-defender-overview-windows-server.md) (Présentation de Windows Defender pour Windows Server 2016. Windows Server Antimalware est installé et activé par défaut dans Windows Server 2016, mais pas son interface utilisateur. Toutefois, Windows Server Antimalware va mettre à jour les définitions de logiciel anti-programme malveillant et protéger l'ordinateur sans l'interface utilisateur. Si vous avez besoin de l'interface utilisateur pour Windows Server Antimalware, vous pouvez l'installer après l'installation du système d'exploitation à l'aide de l'Assistant Ajout de rôles et de fonctionnalités.
+### <a name="windows-defender"></a>Windows Defender  
+[Windows Defender Overview for Windows Server 2016](../security/windows-defender/windows-defender-overview-windows-server.md) (Présentation de Windows Defender pour Windows Server 2016. Windows Server Antimalware est installé et activé par défaut dans Windows Server 2016, mais pas son interface utilisateur. Toutefois, Windows Server Antimalware va mettre à jour les définitions de logiciel anti-programme malveillant et protéger l'ordinateur sans l'interface utilisateur. Si vous avez besoin de l'interface utilisateur pour Windows Server Antimalware, vous pouvez l'installer après l'installation du système d'exploitation à l'aide de l'Assistant Ajout de rôles et de fonctionnalités.
 
 ### <a name="control-flow-guard"></a>Control Flow Guard
 Protection de flux de contrôle est une fonctionnalité de sécurité de plateforme qui a été créée pour lutter contre les risques de corruption de mémoire. Pour plus d’informations, consultez [Control Flow Guard](https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx) (Protection du flux de contrôle).
@@ -156,7 +156,7 @@ Pour plus d’informations, consultez [Storage Quality of Service](../storage/st
 
 ## <a name="failover-clusteringfailover-clusteringwhats-new-in-failover-clusteringmd"></a>[Clustering de basculement](../failover-clustering/whats-new-in-failover-clustering.md)
 
-Windows Server2016 inclut plusieurs nouvelles fonctionnalités et améliorations pour plusieurs serveurs regroupés dans un cluster à tolérance de panne, à l’aide de la fonctionnalité Clustering avec basculement. Certains des ajouts sont indiqués ci-dessous. Pour une liste plus complète, consultez [What’s New in Failover Clustering in Windows Server 2016](../failover-clustering/whats-new-in-failover-clustering.md) (Nouveautés du clustering avec basculement dans Windows Server 2016.
+Windows Server 2016 inclut plusieurs nouvelles fonctionnalités et améliorations pour plusieurs serveurs regroupés dans un cluster à tolérance de panne, à l’aide de la fonctionnalité Clustering avec basculement. Certains des ajouts sont indiqués ci-dessous. Pour une liste plus complète, consultez [What’s New in Failover Clustering in Windows Server 2016](../failover-clustering/whats-new-in-failover-clustering.md) (Nouveautés du clustering avec basculement dans Windows Server 2016.
 
 ### <a name="cluster-operating-system-rolling-upgrade"></a>Mise à niveau propagée de système d’exploitation de cluster
 
@@ -174,7 +174,7 @@ Pour plus d’informations, consultez [Deploy a cloud witness for a Failover Clu
 
 Le service de contrôle d’intégrité améliore la surveillance, les opérations et la maintenance quotidiennes des ressources sur un cluster d’espaces de stockage direct.
 
-Pour plus d’informations, consultez [Health Service in Windows Server 2016](../failover-clustering/health-service-overview.md) (Service de contrôle d’intégrité dans Windows Server2016).
+Pour plus d’informations, consultez [Health Service in Windows Server 2016](../failover-clustering/health-service-overview.md) (Service de contrôle d’intégrité dans Windows Server 2016).
 
 ## <a name="application-development"></a>Développement d’applications
 
@@ -195,7 +195,7 @@ Trois nouvelles fonctionnalités ont été ajoutées dans Microsoft Windows 10 
 
 - La limite des noms de source de données (DSN) a été étendue de 256 octets à 3 072 octets. Pour plus d’informations, consultez [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/library/ms686861(v=vs.85).aspx), [IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/library/ms679248(v=vs.85).aspx) ou [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/library/ms680310(v=vs.85).aspx).
 
-- Suivi amélioré, qui vous permet de définir une clé de Registre de manière à inclure un chemin de fichier image dans le nom de fichier du journal de suivi pour simplifier l’identification du journal de suivi à vérifier. Pour plus d’informations sur la configuration du suivi pour MSDTC, consultez [Guide pratique pour activer le suivi de diagnostic pour MSDTC sur un ordinateur Windows](https://support.microsoft.com/en-us/kb/926099).
+- Suivi amélioré, qui vous permet de définir une clé de Registre de manière à inclure un chemin de fichier image dans le nom de fichier du journal de suivi pour simplifier l’identification du journal de suivi à vérifier. Pour plus d’informations sur la configuration du suivi pour MSDTC, consultez [Guide pratique pour activer le suivi de diagnostic pour MSDTC sur un ordinateur Windows](https://support.microsoft.com/kb/926099).
 
 
 

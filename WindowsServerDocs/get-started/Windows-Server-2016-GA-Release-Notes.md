@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 4e2f7cbaed42dd1c1b1884438467cf59f1529f0c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 64c0daa8ecc2d6b196d4305e3246dadeebf7075a
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391539"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948340"
 ---
-# <a name="release-notes-important-issues-in-windows-server-2016"></a>Notes de publication : Principaux problèmes touchant Windows Server 2016
+# <a name="release-notes-important-issues-in-windows-server-2016"></a>Notes de publication : Principaux problèmes touchant Windows Server 2016
 
->S’applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 Ces notes de publication résument les problèmes les plus critiques du système d’exploitation Windows Server 2016 et expliquent, le cas échéant, comment les éviter ou les résoudre. Pour plus sur d’informations sur les modifications de l’interface, les nouvelles fonctionnalités et les correctifs de cette version, consultez [What’s New in Windows Server 2016](whats-new-in-windows-server-2016.md) (Nouveautés de Windows Server 2016) et les annonces publiées par les équipes en charge des différentes fonctionnalités. Sauf mention contraire, chaque problème signalé s’applique à toutes les éditions et options d’installation de Windows Server 2016.
 
@@ -42,17 +42,17 @@ Pour éviter cela, après le premier démarrage, désactivez le spouleur d’imp
 ## <a name="containers"></a>Conteneurs
 
 [comment]: # (ID : 371 ; utilisateur procédant à la soumission : taylorb ; état : validé)
-- Avant d’utiliser des conteneurs, installez [Service de mise à jour de la pile pour Windows 10 Version 1607 : le 23 août 2016](https://support.microsoft.com/en-us/kb/3176936) ou les mises à jour ultérieures disponibles. Sinon, plusieurs problèmes peuvent survenir, notamment des échecs de création, de démarrage ou d’exécution de conteneurs, ainsi que des erreurs de type « CreateProcess a échoué dans Win32: le serveur RPC n’est pas disponible. »
+- Avant d’utiliser des conteneurs, installez [Service de mise à jour de la pile pour Windows 10 Version 1607 : le 23 août 2016](https://support.microsoft.com/kb/3176936) ou les mises à jour ultérieures disponibles. Sinon, plusieurs problèmes peuvent survenir, notamment des échecs de création, de démarrage ou d’exécution de conteneurs, ainsi que des erreurs de type « CreateProcess a échoué dans Win32: le serveur RPC n’est pas disponible. »
 
 [comment]: # (ID : 373 ; utilisateur procédant à la soumission : plang ; état : validé)
 - Le fournisseur NanoServerPackage OneGet ne fonctionne pas dans les conteneurs Windows. Pour contourner ce problème, utilisez Find-NanoServerPackage et Save-NanoServerPackage sur un autre ordinateur (pas un conteneur) pour télécharger le package requis. Ensuite, copiez les packages dans le conteneur, puis installez-les.
 
-## <a name="device-guard"></a>Device Guard
+## <a name="device-guard"></a>Device Guard
 
 [comment]: # (ID : 369 ; utilisateur procédant à la soumission : nirb ; état : validé)
 Si vous utilisez la protection basée sur la virtualisation de l’intégrité du code ou des machines virtuelles dotées d’une protection maximale (qui utilisent la protection basée sur la virtualisation de l’intégrité du code), vous devez avoir conscience que ces technologies peuvent être incompatibles avec certains appareils et applications. Vous devez tester ces configurations dans votre laboratoire avant d’activer les fonctionnalités dans les systèmes de production. Dans le cas contraire, une perte de données ou un arrêt inattendus pourraient se produire.
 
-## <a name="microsoft-exchange"></a>Microsoft Exchange
+## <a name="microsoft-exchange"></a>Microsoft Exchange
 
 [comment]: # (ID : 375 ; utilisateur procédant à la soumission : wgries ; état : validé)
 Si vous essayez d’exécuter Microsoft Exchange 2016 CU3 sur Windows Server 2016, vous rencontrerez des erreurs dans le processus hôte IIS W3WP.exe. Il n’existe pas de solution de contournement à ce jour. Vous devez reporter le déploiement d’Exchange 2016 CU3 sur Windows Server 2016 jusqu’à ce qu’un correctif pris en charge soit disponible.
@@ -62,7 +62,7 @@ Si vous essayez d’exécuter Microsoft Exchange 2016 CU3 sur Windows Server 
 [comment]: # (ID : 374 ; utilisateur procédant à la soumission : ryanpu ; état : validé)
 Si vous exécutez une version de Windows 10 antérieure à la mise à jour anniversaire et que vous utilisez Hyper-V et des machines virtuelles avec un module de plateforme sécurisée (TPM) virtuel activé (comprenant des machines virtuelles dotées d’une protection maximale), puis que vous installez la version des outils d’administration de serveur distant fournie pour Windows Server 2016, les tentatives de démarrage de ces machines virtuelles échouent.
 
-Pour éviter ce problème, mettez l’ordinateur client au niveau de la Mise à jour anniversaire de Windows10 (au minimum) avant d’installer les outils d’administration de serveur distant. Si l’opération a déjà été effectuée, désinstallez les outils d’administration de serveur distant, mettez le client au niveau de la Mise à jour anniversaire de Windows 10, puis réinstallez les outils d’administration de serveur distant.
+Pour éviter ce problème, mettez l’ordinateur client au niveau de la Mise à jour anniversaire de Windows 10 (au minimum) avant d’installer les outils d’administration de serveur distant. Si l’opération a déjà été effectuée, désinstallez les outils d’administration de serveur distant, mettez le client au niveau de la Mise à jour anniversaire de Windows 10, puis réinstallez les outils d’administration de serveur distant.
 
 ## <a name="shielded-virtual-machines"></a>Machines virtuelles dotées d’une protection maximale
 
@@ -74,11 +74,11 @@ Pour éviter ce problème, mettez l’ordinateur client au niveau de la Mise à 
 ## <a name="start-menu"></a>Menu Démarrer
 
 [comment]: # (ID : 372 ; utilisateur procédant à la soumission : samli ; état : validé)
-Ce problème concerne les versions de Windows Server2016 installées avec l’option Server with Desktop Experience (Serveur avec expérience utilisateur).
+Ce problème concerne les versions de Windows Server 2016 installées avec l’option Server with Desktop Experience (Serveur avec expérience utilisateur).
 
 Si vous installez des applications qui ajoutent des raccourcis dans un dossier du menu **Démarrer**, ces raccourcis ne fonctionneront pas tant que vous n’avez pas fermé la session en cours et ouvert une nouvelle session.
 
-Revenez à la rubrique principale de [Windows Server2016](Windows-Server-2016.md).
+Revenez à la rubrique principale de [Windows Server 2016](Windows-Server-2016.md).
 
 ## <a name="storport-performance"></a>Performances Storport
 
@@ -94,6 +94,6 @@ Ce document ne vous fournit aucun droit légal de propriété intellectuelle de 
 
 Microsoft, Active Directory, Hyper-V, Windows et Windows Server sont soit des marques, soit des marques déposées de Microsoft Corporation aux États-Unis d’Amérique et/ou dans d’autres pays.  
 
-Ce produit contient un logiciel de filtrage graphique qui est basé en partie sur le travail du groupe IndependentJPEGGroup.  
+Ce produit contient un logiciel de filtrage graphique qui est basé en partie sur le travail du groupe Independent JPEG Group.  
 
 1.0

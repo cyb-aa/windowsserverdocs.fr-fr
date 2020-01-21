@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: e6ff22d0563fa11aa633004966b2cd2648ba5877
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d60ba6ffd661aeb284a2ade775e14b9108cbb6c9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357703"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950532"
 ---
 # <a name="securing-privileged-access"></a>Sécurisation de l’accès privilégié
 
@@ -76,7 +76,7 @@ Microsoft vous recommande de suivre cette feuille de route pour sécuriser l’a
 > [!NOTE]
 > La sécurisation de l’accès privilégié exige un large éventail d’éléments, notamment des composants techniques (défenses d’hôte, protections de comptes, gestion des identités, etc.), ainsi que des modifications à traiter et des pratiques et connaissances administratives. La chronologie de la feuille de route est approximative et repose sur notre expérience des implémentations de nos clients. La durée varie dans votre organisation en fonction de la complexité de votre environnement et de vos processus de gestion des modifications.
 
-## <a name="phase-1-quick-wins-with-minimal-operational-complexity"></a>Phase 1 : Gains rapides avec complexité opérationnelle minimale
+## <a name="phase-1-quick-wins-with-minimal-operational-complexity"></a>Phase 1 : Gains rapides avec complexité opérationnelle minimale
 
 La phase 1 de la feuille de route vise à atténuer rapidement les techniques d’attaque les plus souvent utilisées en matière de vol et d’abus d’informations d’identification. La phase 1, représentée dans ce diagramme, est conçue pour être implémentée dans un délai d’environ 30 jours :
 
@@ -90,7 +90,7 @@ Suivez les instructions de l’article [Gérer des comptes d’accès d’urgenc
 
 ### <a name="2-just-in-time-local-admin-passwords"></a>2. Mots de passe d’administrateur local juste-à-temps
 
-Pour éviter qu’un adversaire ne parvienne à voler un hachage de mot de passe de compte d’administrateur local à partir de la base de données SAM locale et à l’utiliser pour attaquer d’autres ordinateurs, les organisations doivent s’assurer que chaque ordinateur dispose de son propre mot de passe d’administrateur local. L’outil de solution de mot de passe d’administrateur local (LAPS) permet de configurer des mots de passe aléatoires uniques sur chaque station de travail. Chaque serveur les stocke dans Active Directory (AD), qui est protégé par une liste de contrôle d’accès. Seuls les utilisateurs autorisés éligibles peuvent lire ou demander la réinitialisation de ces mots de passe de compte d’administrateur local. Vous pouvez obtenir les LAPS pour les utiliser sur les stations de travail et les serveurs à partir du [Centre de téléchargement Microsoft](http://Aka.ms/LAPS).
+Pour éviter qu’un adversaire ne parvienne à voler un hachage de mot de passe de compte d’administrateur local à partir de la base de données SAM locale et à l’utiliser pour attaquer d’autres ordinateurs, les organisations doivent s’assurer que chaque ordinateur dispose de son propre mot de passe d’administrateur local. L’outil de solution de mot de passe d’administrateur local (LAPS) permet de configurer des mots de passe aléatoires uniques sur chaque station de travail. Chaque serveur les stocke dans Active Directory (AD), qui est protégé par une liste de contrôle d’accès. Seuls les utilisateurs autorisés éligibles peuvent lire ou demander la réinitialisation de ces mots de passe de compte d’administrateur local. Vous pouvez obtenir les LAPS pour les utiliser sur les stations de travail et les serveurs à partir du [Centre de téléchargement Microsoft](https://aka.ms/LAPS).
 
 Pour plus d’informations sur l’exploitation d’un environnement avec LAPS et PAW, consultez la section [Normes opérationnelles basées sur un principe de source propre](securing-privileged-access-reference-material.md#operational-standards-based-on-clean-source-principle).
 

@@ -11,12 +11,12 @@ ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: 7f16d58eb6c5074c75f49ba7936c4d312a3dbda4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53793fc62b1bc1444c567f92c9f18642245fded9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390976"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948183"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Niveaux fonctionnels de domaine et de forêt
 
@@ -28,7 +28,7 @@ Lorsque vous déployez AD DS, définissez les niveaux fonctionnels du domaine et
 
 Avec la fin de vie de Windows 2003, les contrôleurs de domaine Windows 2003 doivent être mis à jour vers Windows Server 2008, 2008R2, 2012, 2012R2, 2016 ou 2019. Par conséquent, tous les contrôleurs de domaine qui exécutent Windows Server 2003 doivent être supprimés du domaine.
 
-Aux niveaux fonctionnels de domaine Windows Server 2008 et supérieurs, la réplication DFS (Distributed File Service) est utilisée pour répliquer le contenu du dossier SYSVOL entre les contrôleurs de domaine. Si vous créez un domaine au niveau fonctionnel de domaine Windows Server 2008 ou supérieur, la réplication DFS est automatiquement utilisée pour répliquer SYSVOL. Si vous avez créé le domaine à un niveau fonctionnel inférieur, vous devez passer de l’utilisation de FRS à la réplication DFS pour SYSVOL. Pour connaître les étapes de migration, reportez-vous aux [procédures sur TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) ou à l’[ensemble de procédures simplifiées sur le blog Storage Team File Cabinet](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).
+Aux niveaux fonctionnels de domaine Windows Server 2008 et supérieurs, la réplication DFS (Distributed File Service) est utilisée pour répliquer le contenu du dossier SYSVOL entre les contrôleurs de domaine. Si vous créez un domaine au niveau fonctionnel de domaine Windows Server 2008 ou supérieur, la réplication DFS est automatiquement utilisée pour répliquer SYSVOL. Si vous avez créé le domaine à un niveau fonctionnel inférieur, vous devez passer de l’utilisation de FRS à la réplication DFS pour SYSVOL. Pour connaître les étapes de migration, reportez-vous aux [procédures sur TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) ou à l’[ensemble de procédures simplifiées sur le blog Storage Team File Cabinet](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 
@@ -36,12 +36,12 @@ Aucun nouveau niveau fonctionnel de domaine ou de forêt n’est ajouté dans ce
 
 La configuration requise minimale pour ajouter un contrôleur de domaine Windows Server 2019 est le niveau fonctionnel Windows Server 2008. Le domaine doit également utiliser DFS-R comme moteur pour répliquer SYSVOL.
 
-## <a name="windows-server-2016"></a>Windows Server 2016
+## <a name="windows-server-2016"></a>Windows Server 2016
 
 Système d’exploitation de contrôleur de domaine pris en charge :
 
 * Windows Server 2019
-* Windows Server 2016
+* Windows Server 2016
 
 ### <a name="windows-server-2016-forest-functional-level-features"></a>Fonctionnalités du niveau fonctionnel de forêt Windows Server 2016
 
@@ -62,8 +62,8 @@ Système d’exploitation de contrôleur de domaine pris en charge :
 Système d’exploitation de contrôleur de domaine pris en charge :
 
 * Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2012 R2
 
 ### <a name="windows-server-2012r2-forest-functional-level-features"></a>Fonctionnalités du niveau fonctionnel de forêt Windows Server 2012 R2
 
@@ -87,8 +87,8 @@ Système d’exploitation de contrôleur de domaine pris en charge :
 Système d’exploitation de contrôleur de domaine pris en charge :
 
 * Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2012 R2
 * Windows Server 2012
 
 ### <a name="windows-server-2012-forest-functional-level-features"></a>Fonctionnalités du niveau fonctionnel de forêt Windows Server 2012
@@ -105,10 +105,10 @@ Système d’exploitation de contrôleur de domaine pris en charge :
 Système d’exploitation de contrôleur de domaine pris en charge :
 
 * Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2012 R2
 * Windows Server 2012
-* Windows Server 2008 R2
+* Windows Server 2008 R2
 
 ### <a name="windows-server-2008r2-forest-functional-level-features"></a>Fonctionnalités du niveau fonctionnel de forêt Windows Server 2008 R2
 
@@ -126,11 +126,11 @@ Système d’exploitation de contrôleur de domaine pris en charge :
 Système d’exploitation de contrôleur de domaine pris en charge :
 
 * Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2012 R2
 * Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
+* Windows Server 2008 R2
+* Windows Server 2008
 
 ### <a name="windows-server-2008-forest-functional-level-features"></a>Fonctionnalités du niveau fonctionnel de forêt Windows Server 2008
 
@@ -165,10 +165,10 @@ Système d’exploitation de contrôleur de domaine pris en charge :
 
 Système d’exploitation de contrôleur de domaine pris en charge :
 
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
+* Windows Server 2008 R2
+* Windows Server 2008
 * Windows Server 2003
 
 ### <a name="windows-server-2003-forest-functional-level-features"></a>Fonctionnalités du niveau fonctionnel de forêt Windows Server 2003
@@ -193,7 +193,7 @@ Système d’exploitation de contrôleur de domaine pris en charge :
 * Toutes les fonctionnalités AD DS par défaut, toutes les fonctionnalités du niveau fonctionnel de domaine natif Windows 2000 ainsi que les fonctionnalités suivantes sont disponibles :
    * L’outil de gestion de domaine, Netdom.exe, qui vous permet de renommer les contrôleurs de domaine
    * Mises à jour relatives à l’horodatage d’ouverture de session
-      * (L’attribut **lastLogonTimestamp** est mis à jour avec l’heure de la dernière ouverture de session de l’utilisateur ou ordinateur. Cet attribut est répliqué au sein du domaine.) ;
+      * L’attribut **lastLogonTimestamp** est mis à jour avec l’heure de la dernière ouverture de session de l’utilisateur ou ordinateur. Cet attribut est répliqué au sein du domaine. ;
    * Possibilité de définir l’attribut **userPassword** comme mot de passe effectif pour l’objet **inetOrgPerson** et les objets utilisateur
    * Possibilité de rediriger les conteneurs Utilisateurs et ordinateurs
       * Par défaut, deux conteneurs connus sont fournis pour héberger les comptes d’ordinateurs et d’utilisateurs, à savoir cn=Computers,<domain root> et cn=Users,<domain root>. Cette fonctionnalité permet de définir un nouvel emplacement connu pour ces comptes.
@@ -208,8 +208,8 @@ Système d’exploitation de contrôleur de domaine pris en charge :
 
 Système d’exploitation de contrôleur de domaine pris en charge :
 
-* Windows Server 2008 R2
-* Windows Server 2008
+* Windows Server 2008 R2
+* Windows Server 2008
 * Windows Server 2003
 * Windows 2000
 

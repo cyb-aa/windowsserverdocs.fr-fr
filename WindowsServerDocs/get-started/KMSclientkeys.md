@@ -9,16 +9,16 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/12/2019
 ms.topic: get-started-article
-ms.openlocfilehash: e2879c56b1dd41b8d357959cca473dd69da77d10
-ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
+ms.openlocfilehash: f2320b80fb372a227098f952dc8e7f0758420f34
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73956080"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947826"
 ---
 # <a name="kms-client-setup-keys"></a>Clés d’installation du client KMS
 
->S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
+>S'applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
 
 Les ordinateurs qui exécutent des éditions de licence en volume de Windows Server, Windows 10, Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7, Windows Server 2008 R2, Windows Vista et Windows Server 2008 sont, par défaut, des clients KMS sans aucune configuration supplémentaire requise.
 
@@ -32,9 +32,9 @@ Si vous convertissez un ordinateur depuis un hôte KMS, une clé d’activation 
 | Si vous souhaitez...    | …utilisez ces ressources   |
 |--------------------|------------------------|
 | Activer Windows en dehors d’un scénario d’activation en volume (essayer d’activer une version commerciale de Windows), **ces clés ne fonctionneront pas**. | Utilisez ces liens pour les versions commerciales de Windows : |
-| Corriger l’erreur suivante qui s’affiche quand vous tentez d’activer un système Windows 8.1, Windows Server 2012 R2 ou un système plus récent : “Erreur : 0xC004F050 Le service de gestion de licences a signalé que la clé de produit n'est pas valide… | [Installer cette mise à jour](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) sur l’hôte KMS s’il exécute Windows 8.1, Windows Server 2012 R2, Windows 8 ou Windows Server 2012. |
+| Corriger l’erreur suivante qui s’affiche quand vous tentez d’activer un système Windows 8.1, Windows Server 2012 R2 ou un système plus récent : « Erreur : 0xC004F050 Le service de gestion de licences a signalé que la clé de produit n’est pas valide. » | [Installer cette mise à jour](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) sur l’hôte KMS s’il exécute Windows 8.1, Windows Server 2012 R2, Windows 8 ou Windows Server 2012. |
 
--   [Obtenir Windows 10](https://www.microsoft.com/en-us/windows/get-windows-10)
+-   [Obtenir Windows 10](https://www.microsoft.com/windows/get-windows-10)
 
 -   [Obtenir une nouvelle clé de produit Windows](https://support.microsoft.com/help/10749/windows-product-key)
 
@@ -61,17 +61,17 @@ Si vous convertissez un ordinateur depuis un hôte KMS, une clé d’activation 
 | Windows Server 2019 Standard   | N69G4-B89J2-4G8F4-WWYCC-J464C  |
 | Windows Server 2019 Essentials|WVDHN-86M7X-466P6-VHXV7-YY726|
 
-### <a name="windows-server-2016"></a>Windows Server 2016
+### <a name="windows-server-2016"></a>Windows Server 2016
 
 | Édition du système d’exploitation       | Clé d’installation du client KMS          |
 |--------------------------------|-------------------------------|
 | Windows Server 2016 Datacenter | CB7KF-BWN84-R7R2Y-793K2-8XDDG |
-| Windows Server 2016 Standard   | WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY |
-| WindowsServer2016 Essentials | JCKRF-N37P4-C2D82-9YXRT-4M63B |
+| Windows Server 2016 Standard   | WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY |
+| Windows Server 2016 Essentials | JCKRF-N37P4-C2D82-9YXRT-4M63B |
 
 ## <a name="windows-10-all-supported-semi-annual-channel-versions"></a>Windows 10, toutes les versions du canal semi-annuel prises en charge
 
-Consultez la [fiche d’information du cycle de vie Windows](https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet) pour plus d’informations sur les versions prises en charge et les dates de fin de service.
+Consultez la [fiche d’information du cycle de vie Windows](https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet) pour plus d’informations sur les versions prises en charge et les dates de fin de service.
 
 | Édition du système d’exploitation          | Clé d’installation du client KMS          |
 |-----------------------------------|-------------------------------|
@@ -79,11 +79,11 @@ Consultez la [fiche d’information du cycle de vie Windows](https://support.mic
 |Windows 10 Professionnel N|MH37W-N47XK-V7XM9-C7227-GCQG9|
 |Windows 10 Professionnel pour les Stations de travail|NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J|
 |Windows 10 Professionnel pour les Stations de travail N|9FNHH-K3HBT-3W4TD-6383H-6XYWF|
-|Windows 10 Professionnel Éducation|6TP4R-GNPTD-KYYHQ-7B7DP-J447Y|
+|Windows 10 Professionnel Éducation|6TP4R-GNPTD-KYYHQ-7B7DP-J447Y|
 |Windows 10 Professionnel Éducation N|YVWGF-BXNMC-HTQYQ-CPQ99-66QFC|
-|Windows 10 Éducation|NW6C2-QMPVW-D7KKK-3GKT6-VCFB2|
+|Windows 10 Éducation|NW6C2-QMPVW-D7KKK-3GKT6-VCFB2|
 |Windows 10 Éducation N |2WH4N-8QGBV-H22JP-CT43Q-MDWWJ|
-|Windows 10 Entreprise  |NPPR9-FWDCX-D2C8J-H872K-2YT43|
+|Windows 10 Entreprise  |NPPR9-FWDCX-D2C8J-H872K-2YT43|
 |Windows 10 Entreprise N    |DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4|
 |Windows 10 Entreprise G|YYVX9-NTFWV-6MDM3-9PT4T-4M68B|
 |Windows 10 Entreprise G N|44RPN-FTY23-9VTTB-MP9BX-T84FV|
@@ -127,11 +127,11 @@ Consultez la [fiche d’information du cycle de vie Windows](https://support.mic
 | Windows Server Datacenter | 6Y6KB-N82V8-D8CQV-23MJW-BWTG6  | 
 | Windows Server Standard   | DPCNP-XQFKJ-BJF7R-FRC8D-GF6G4  |
 
-### <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
+### <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
 
 | Édition du système d’exploitation               | Clé d’installation du client KMS          |
 |----------------------------------------|-------------------------------|
-| Windows Server 2012 R2 Server Standard | D2N9P-3P6X9-2R39C-7RTCD-MDVJX |
+| Windows Server 2012 R2 Server Standard | D2N9P-3P6X9-2R39C-7RTCD-MDVJX |
 | Windows Server 2012 R2 Datacenter      | W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9 |
 | Windows Server 2012 R2 Essentials      | KNC87-3J2TX-XB4WP-VCPJV-M4FWM |
 
@@ -146,10 +146,10 @@ Consultez la [fiche d’information du cycle de vie Windows](https://support.mic
 | Windows Server 2012 Server Standard     | XC9B7-NBPP2-83J2H-RHMBY-92BT4 |
 | Windows Server 2012 MultiPoint Standard | HM7DN-YVMH3-46JC3-XYTG7-CYQJJ |
 | Windows Server 2012 MultiPoint Premium  | XNH6W-2V9GX-RGJ4K-Y8X6F-QGJ2G |
-| Windows Server 2012 Datacenter          | 48HP8-DN98B-MYWDG-T2DCC-8W83P |
+| Windows Server 2012 Datacenter          | 48HP8-DN98B-MYWDG-T2DCC-8W83P |
 
 
-### <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
+### <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
 
 | Édition du système d’exploitation                         | Clé d’installation du client KMS          |
 |--------------------------------------------------|-------------------------------|
@@ -176,26 +176,26 @@ Consultez la [fiche d’information du cycle de vie Windows](https://support.mic
 
 ## <a name="earlier-versions-of-windows"></a>Versions antérieures de Windows
 
-### <a name="windows-81"></a>Windows 8.1
+### <a name="windows-81"></a>Windows 8.1
 
 | Édition du système d’exploitation               | Clé d’installation du client KMS          |
 |----------------------------------------|-------------------------------|
 | Windows 8.1 Professionnel               | GCRJD-8NW9H-F2CDX-CCM8D-9D6T9 |
 | Windows 8.1 Professionnel N             | HMCNV-VVBFX-7HMBH-CTY9B-B4FXY |
-| Windows 8.1 Entreprise                 | MHF9N-XY6XB-WVXMC-BTDCT-MKKG7 |
+| Windows 8.1 Enterprise                 | MHF9N-XY6XB-WVXMC-BTDCT-MKKG7 |
 | Windows 8.1 Entreprise N               | TT4HM-HN7YT-62K67-RGRQJ-JFFXW |
 
 ### <a name="windows-8"></a>Windows 8
 
 | Édition du système d’exploitation                | Clé d’installation du client KMS          |
 |-----------------------------------------|-------------------------------|
-| Windows 8 Pro                  | NG4HW-VH26C-733KW-K6F98-J8CK4 |
+| Windows 8 Professionnel                  | NG4HW-VH26C-733KW-K6F98-J8CK4 |
 | Windows 8 Professionnel N                | XCVCF-2NXM9-723PB-MHCB7-2RYQQ |
-| Windows 8 Entreprise                    | 32JNW-9KQ84-P47T8-D8GGY-CWCK7 |
+| Windows 8 Entreprise                    | 32JNW-9KQ84-P47T8-D8GGY-CWCK7 |
 | Windows 8 Entreprise N                  | JMNMF-RHW7P-DMY6X-RF3DR-X2BQT |
 
 
-### <a name="windows-7"></a>Windows 7 
+### <a name="windows-7"></a>Windows 7 
 
 | Édition du système d’exploitation                         | Clé d’installation du client KMS          |
 |--------------------------------------------------|-------------------------------|
@@ -207,7 +207,7 @@ Consultez la [fiche d’information du cycle de vie Windows](https://support.mic
 | Windows 7 Entreprise E                           | C29WB-22CC8-VJ326-GHFJW-H9DH4 |
 
 
-Voir également
+Voir aussi
 
 • [Planifier l’activation en volume](https://technet.microsoft.com/library/jj134042(v=ws.11).aspx)
 

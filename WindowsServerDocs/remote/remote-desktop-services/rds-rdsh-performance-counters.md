@@ -10,16 +10,16 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: b59d93d576967ee83b3efecc2630034eab919bf2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7b222104abd5b0b964bac748c3be15049075191d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403908"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950424"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Utiliser les compteurs de performance pour diagnostiquer les problèmes de performance des applications sur les hôtes de session Bureau à distance
 
-> S’applique à : Windows Server 2019, Windows 10
+> S'applique à : Windows Server 2019, Windows 10
 
 Des performances d’application médiocres, par exemple une application qui s’exécute lentement ou qui ne répond pas, représentent un des problèmes les plus difficiles à diagnostiquer. En règle générale, vous démarrez votre diagnostic par la collecte d’entrées et de sorties de disque, de mémoire, de processeur et d’autres métriques, puis vous utilisez des outils, tels que Windows Performance Analyzer, pour tenter de déterminer la cause du problème. Malheureusement, dans la plupart des cas, ces données ne vous permettent pas d’identifier l’origine, car les compteurs de consommation des ressources enregistrent des variations importantes et fréquentes. La lecture des données pour les corréler avec le problème signalé s’avère donc ardue. Pour vous aider à résoudre les problèmes de performance de vos applications rapidement, nous avons ajouté quelques nouveaux compteurs de performance (disponible [au téléchargement](#download-windows-server-insider-software) via le [Programme Windows Insider](https://insider.windows.com)) qui mesurent les flux de l’entrée utilisateur.
 
@@ -140,7 +140,7 @@ Des outils de supervision peuvent consommer ce compteur par le biais de l’[API
 
 ## <a name="download-windows-server-insider-software"></a>Télécharger le logiciel Windows Server Insider
 
-Les utilisateurs inscrits au programme Insider peuvent accéder directement à la [page de téléchargement de Windows Server Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) pour obtenir les téléchargements des logiciels Insider les plus récents.  Pour savoir comment vous inscrire en tant que membre du programme Insider, consultez [Bien démarrer avec Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
+Les utilisateurs inscrits au programme Insider peuvent accéder directement à la [page de téléchargement de Windows Server Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver) pour obtenir les téléchargements des logiciels Insider les plus récents.  Pour savoir comment vous inscrire en tant que membre du programme Insider, consultez [Bien démarrer avec Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
 
 ## <a name="share-your-feedback"></a>Partager vos commentaires
 

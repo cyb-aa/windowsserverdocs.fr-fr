@@ -8,12 +8,12 @@ ms.assetid: ''
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 3165c926c50c2f91544895e0d328f1dae7424b4a
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: 17d4dc0ce531327db21d660481386fcc56498ae3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588040"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948283"
 ---
 # <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>Instructions pour la résolution des problèmes d’activation liés à DNS
 
@@ -21,13 +21,13 @@ Vous devrez peut-être utiliser certaines de ces méthodes si une ou plusieurs d
 
 - Vous utilisez un média sous licence en volume et une&nbsp;clé de produit générique de licence en volume pour installer l’un des systèmes d’exploitation suivants :
    - Windows Server 2019
-   - Windows Server 2016
-   - Windows Server 2012 R2
+   - Windows Server 2016
+   - Windows Server 2012 R2
    - Windows Server 2012
-   - Windows Server 2008 R2
+   - Windows Server 2008 R2
    - Windows Server 2008
    - Windows 10
-   - Windows 8.1
+   - Windows 8.1
    - Windows 8
 - L’Assistant Activation ne parvient pas à se connecter à un ordinateur hôte KMS.
 
@@ -88,7 +88,7 @@ Vérifiez la connectivité IP de base au serveur DNS à l’aide de la commande 
 
 Vérifiez le Registre du serveur hôte KMS pour déterminer s’il est inscrit auprès du DNS. Par défaut, un serveur hôte KMS inscrit dynamiquement un enregistrement SRV DNS une fois toutes les 24 heures. 
 > [!IMPORTANT]
-> Suivez attentivement les étapes décrites dans cette section. De graves problèmes peuvent se produire si vous modifiez le Registre de façon incorrecte. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/en-us/help/322756) en cas de problème.  
+> Suivez attentivement les étapes décrites dans cette section. De graves problèmes peuvent se produire si vous modifiez le Registre de façon incorrecte. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/help/322756) en cas de problème.  
 
 Pour vérifier ce paramètre, procédez comme suit :
 1. Démarrez l'Éditeur du Registre. Pour ce faire, cliquez avec le bouton droit sur **Démarrer**, sélectionnez **Exécuter**, tapez **regedit**, puis appuyez sur Entrée.
@@ -143,7 +143,7 @@ Vous pouvez utiliser les commandes suivantes pour déterminer s’il s’agit d�
    - L’adresse IP du serveur DNS principal que l’ordinateur client KMS utilise
    - L’adresse IP de la passerelle par défaut que l’ordinateur client KMS utilise
    - La liste de recherche de suffixes DNS que l’ordinateur client KMS utilise
-1. Vérifiez que les enregistrements SRV de l’hôte KMS sont inscrits dans le DNS. Pour cela, procédez comme suit:  
+1. Vérifiez que les enregistrements SRV de l’hôte KMS sont inscrits dans le DNS. Pour cela, procédez comme suit :  
    1. Ouvrez une fenêtre d'invite de commandes avec privilèges élevés.
    1. À l'invite de commandes, exécutez la commande suivante :
       ```cmd
@@ -185,9 +185,9 @@ Pour créer manuellement un enregistrement SRV pour un hôte KMS qui utilise un 
 
 - Nom :&nbsp; **_vlmcs._TCP**
 - Type : &nbsp;**SRV**
-- Priorité : **0**
-- Poids : **0**
-- Port : **1688**
+- Priorité : **0**
+- Poids : **0**
+- Port : **1688**
 - Nom d’hôte : **&lt;*Nom complet ou nom de l’hôte KMS*&gt;**
 
 > [!NOTE]
@@ -245,7 +245,7 @@ Comme décrit dans [Attribuer manuellement un hôte KMS à un client KMS](#manua
 
 Par défaut, un hôte KMS inscrit ses enregistrements SRV dans la zone DNS qui correspond au domaine de l’ordinateur hôte KMS. Par exemple, supposons qu’un hôte KMS est joint au domaine contoso.com. Dans ce scénario, l’hôte KMS inscrit son enregistrement SRV _vmlcs sous la zone DNS contoso.com. Par conséquent, l’enregistrement identifie le service en tant que VLMCS._TCP.CONTOSO.COM.
 
-Si l’hôte KMS et les clients KMS utilisent des zones DNS différentes, vous devez configurer l’hôte KMS pour qu’il publie automatiquement ses enregistrements SRV dans plusieurs domaines DNS. Pour cela, procédez comme suit:
+Si l’hôte KMS et les clients KMS utilisent des zones DNS différentes, vous devez configurer l’hôte KMS pour qu’il publie automatiquement ses enregistrements SRV dans plusieurs domaines DNS. Pour cela, procédez comme suit :
 
 1. Sur l’hôte KMS, démarrez l’Éditeur du Registre. 
 1. Recherchez puis sélectionnez la sous-clé **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SL**.

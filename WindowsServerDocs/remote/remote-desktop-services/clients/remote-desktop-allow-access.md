@@ -14,21 +14,21 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a875f8bddd934ac9fb70ca9c0b86772d9fa63b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de08101ed1d4d4527242778d657778f1a16b3dad
+ms.sourcegitcommit: 5b055fc1d73375f68149c214152f1d63396dd6ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404181"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76248401"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc"></a>Accorder un accès Bureau à distance à votre PC
 
->S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>S'applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Vous pouvez utiliser Bureau à distance pour vous connecter à votre PC et le contrôler à partir d’un appareil distant avec un [client Bureau à distance Microsoft](remote-desktop-clients.md) (disponible pour Windows, iOS, macOS et Android). Lorsque vous autorisez les connexions à distance à votre PC, vous pouvez utiliser cet appareil pour accéder à l’ensemble de vos applications, fichiers et ressources réseau comme si vous étiez assis à votre bureau.  
 
 > [!NOTE]
-> Vous pouvez utiliser le Bureau à distance pour vous connecter à Windows 10 Professionnel et Entreprise, Windows 8.1 et 8 versions Enterprise et Pro, Windows 7 Professionnel, Entreprise et Édition intégrale et les versions de Windows Server plus récentes que Windows Server 2008. Vous ne pouvez pas vous connecter aux ordinateurs exécutant les éditions familiales (par exemple, Windows 10 Famille). 
+> Vous pouvez utiliser le Bureau à distance pour vous connecter à Windows 10 Professionnel et Entreprise, Windows 8.1 et 8 versions Enterprise et Pro, Windows 7 Professionnel, Entreprise et Édition intégrale et les versions de Windows Server plus récentes que Windows Server 2008. Vous ne pouvez pas vous connecter aux ordinateurs exécutant une édition familiale (par exemple, Windows 10 Famille). 
 
 Pour vous connecter à un PC distant, cet ordinateur doit être allumé, il doit avoir une connexion réseau, Bureau à distance doit être activé, vous devez avoir un accès réseau à l’ordinateur distant (par exemple via Internet) et vous devez être autorisé à vous connecter. Pour obtenir l’autorisation de vous connecter, vous devez être sur la liste des utilisateurs. Avant de démarrer la connexion, il est judicieux de rechercher le nom de l’ordinateur auquel vous vous connectez et de vous assurer que les connexions Bureau à distance sont autorisées via son pare-feu.
 
@@ -57,7 +57,7 @@ Pour activer le Bureau à distance avec les propriétés système héritées, su
 
 ## <a name="should-i-enable-remote-desktop"></a>Est-ce que je dois activer le Bureau à distance ?
 
-Si vous souhaitez uniquement accéder à votre PC lorsque vous êtes assis devant, vous n’avez pas besoin d’activer le Bureau à distance. L’activation du Bureau à distance ouvre un port sur votre PC qui le rend visible sur votre réseau local. Vous ne devez activer le Bureau à distance que sur les réseaux de confiance, par exemple votre réseau domestique. Il est également déconseillé d’activer le Bureau à distance sur les PC sur lesquels l’accès est étroitement contrôlé.
+Si vous souhaitez uniquement accéder à votre PC quand vous l’avez sous la main, vous n’avez pas besoin d’activer le Bureau à distance. L’activation du Bureau à distance ouvre un port sur votre PC qui le rend visible sur votre réseau local. Vous ne devez activer le Bureau à distance que sur les réseaux de confiance, par exemple votre réseau domestique. Il est également déconseillé d’activer le Bureau à distance sur les PC sur lesquels l’accès est étroitement contrôlé.
 
 N’oubliez pas que lorsque vous activez l’accès Bureau à distance, vous accordez à tout les membres du groupe Administrateurs, ainsi qu’aux autres utilisateurs que vous sélectionnez, la possibilité d’accéder à distance à leur compte sur l’ordinateur.
 

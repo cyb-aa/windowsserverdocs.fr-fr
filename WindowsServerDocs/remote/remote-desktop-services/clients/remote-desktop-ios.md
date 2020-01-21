@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 700d419d06c0b007ed05be4f82137828f52143e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8361d1171c2526e701a5418696761a8400c47ca3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404143"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949870"
 ---
 # <a name="get-started-with-the-ios-client"></a>Bien démarrer avec le client iOS
 
->S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>S'applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Le client Bureau à distance sur iOS vous permet d’accéder à des applications, ressources et bureaux Windows à partir de votre appareil iOS (iPhone et iPad).
 
@@ -200,9 +200,9 @@ La barre de commandes remplace la barre Utilitaire depuis la version 8.0.1. Vou
 Le client utilise les mouvements d’interaction tactile standard. Vous pouvez également utiliser les mouvements d’interaction tactile pour répliquer les actions de la souris sur le bureau à distance. Les modes souris disponibles sont décrits dans le tableau ci-dessous.
 
 > [!NOTE]
-> Sur Windows 8 ou une version ultérieure, les mouvements d’interaction tactile natifs sont pris en charge en mode d’interaction tactile directe. Pour plus d’informations sur les mouvements sur Windows 8, consultez [Interaction tactile : balayer, appuyer, etc](https://windows.microsoft.com/en-US/windows-8/touch-swipe-tap-beyond).
+> Sur Windows 8 ou une version ultérieure, les mouvements d’interaction tactile natifs sont pris en charge en mode d’interaction tactile directe. Pour plus d’informations sur les mouvements sur Windows 8, consultez [Interaction tactile : balayer, appuyer, etc](https://windows.microsoft.com/windows-8/touch-swipe-tap-beyond).
 
-| Mode souris    | Action avec la souris      | Mouvement                                                    |
+| Mode de la souris    | Action avec la souris      | Mouvement                                                    |
 |---------------|----------------------|------------------------------------------------------------|
 | Interaction tactile directe  | Clic gauche           | Appuyez avec un doigt                                               |
 | Interaction tactile directe  | Clic droit          | Appuyez longuement avec un doigt                                      |

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0f402ae3-5391-4c7d-afea-2c5c9044de46
 author: heidilohr
-manager: dougkim
-ms.openlocfilehash: 5c3b1ef044be70002918b7ef1379513bdbfb930c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+manager: lizross
+ms.openlocfilehash: 111f96e2ed0ffb20dcd3103d1c939bc678aecd27
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387959"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919970"
 ---
 # <a name="azure-services-and-considerations-for-desktop-hosting"></a>Services et considérations Azure pour l’hébergement de postes de travail
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Les sections suivantes décrivent les services d’infrastructure Azure.
   
@@ -53,7 +53,7 @@ Pour plus d’informations, consultez les articles suivants :
 - [Meilleures pratiques de sécurité pour IIS 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635855(v=ws.11))  
 - [Sécuriser Windows Server 2012 R2](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831360(v=ws.11))  
   
-## <a name="design-considerations"></a>Considérations relatives à la conception
+## <a name="design-considerations"></a>Considérations de conception
 
 Il est important de prendre en compte les contraintes des services d’infrastructure Microsoft Azure lors de la conception d’un service d’hébergement de postes de travail mutualisé. La liste suivante décrit les considérations que le fournisseur doit avoir à l’esprit pour obtenir une solution d’hébergement de postes de travail fonctionnelle et économique, basée sur cette architecture de référence.  
   

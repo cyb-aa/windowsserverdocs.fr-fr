@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.assetid: ''
 author: kaushika-msft
-manager: ''
+manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 39b11dac044c38f1ae80d4401fbb66af0317ab56
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b934a585b3058cc2eec642cdb1234c8c9a015544
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870703"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265951"
 ---
 # <a name="general-remote-desktop-connection-troubleshooting"></a>Résolution de problèmes de connexion Bureau à distance d’ordre général
 
@@ -202,7 +202,7 @@ Pour cette procédure, utilisez une instance de PowerShell qui dispose d’autor
     ```
   
     ![La commande netstat génère une liste de ports et les services qui sont à l’écoute sur ces ports.](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
-3. Recherchez une entrée pour le port TCP 3389 (ou le port RDP attribué) associé à l'état **Écoute**. 
+3. Recherchez une entrée pour le port TCP 3389 (ou le port RDP attribué) associé à l’état **Écoute**. 
     > [!NOTE]  
    > L’identificateur de processus (PID, process identifier) du processus ou service utilisant ce port apparaît sous la colonne PID.
 4. Pour déterminer quelle application utilise le port 3389 (ou le port RDP attribué), entrez la commande suivante :  

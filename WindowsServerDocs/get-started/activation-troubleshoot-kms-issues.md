@@ -9,12 +9,12 @@ author: Teresa-Motiv
 ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
-ms.openlocfilehash: dab8294837a5f9116328e59364de9beb139a4b77
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.openlocfilehash: 110e3a685293c447d03158eac57d38fedd28b0cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963005"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948314"
 ---
 # <a name="kms-activation-known-issues"></a>Activation KMS : problèmes connus
 
@@ -35,7 +35,7 @@ Sur l’ordinateur client KMS, ouvrez le Panneau de configuration **Système** e
 
 ## <a name="the-kms-client-computer-does-not-activate"></a>L’ordinateur client KMS ne s’active pas
 
-Vérifiez si le seuil d’activation KMS est atteint. Sur l’ordinateur hôte KMS, exécutez Slmgr.vbs et utilisez l’option de ligne de commande **/dli** pour déterminer le nombre actuel de clients de l’hôte. Tant que l’hôte KMS n’a pas un total de 25, les ordinateurs clients Windows 7 ne peuvent pas être activés. Les clients KMS Windows Server 2008 R2 nécessitent un nombre de clients KMS de 5 pour l’activation. Pour plus d’informations sur la configuration requise de KMS, consultez le [Guide de planification d’activation en volume](http://go.microsoft.com/fwlink/?linkid=155926). 
+Vérifiez si le seuil d’activation KMS est atteint. Sur l’ordinateur hôte KMS, exécutez Slmgr.vbs et utilisez l’option de ligne de commande **/dli** pour déterminer le nombre actuel de clients de l’hôte. Tant que l’hôte KMS n’a pas un total de 25, les ordinateurs clients Windows 7 ne peuvent pas être activés. Les clients KMS Windows Server 2008 R2 nécessitent un nombre de clients KMS de 5 pour l’activation. Pour plus d’informations sur la configuration requise de KMS, consultez le [Guide de planification d’activation en volume](https://go.microsoft.com/fwlink/?linkid=155926). 
 
 Sur l’ordinateur client KMS, recherchez l’ID d’événement 12289 dans le journal des événements d’application. Vérifiez les informations suivantes pour cet événement :
 
@@ -86,4 +86,4 @@ Les clés KMS doivent être installées seulement sur des hôtes KMS, et non pas
 
 Si un hôte KMS échoue, vous devez installer une clé d’hôte KMS sur un nouvel hôte, puis activer l’hôte. Vérifiez que le nouvel hôte KMS a un enregistrement de ressource SRV dans la base de données DNS. Si vous installez le nouvel hôte KMS en utilisant le même nom d’ordinateur et la même adresse IP que l’hôte KMS défaillant, le nouvel hôte KMS peut utiliser l’enregistrement SRV DNS de l’hôte défaillant. Si le nouvel hôte a un nom d’ordinateur différent, vous pouvez supprimer manuellement l’enregistrement de ressource SRV DNS de l’hôte défaillant ou (si le nettoyage est activé dans DNS) laisser DNS le supprimer automatiquement. Si le réseau utilise DDNS, le nouvel hôte KMS crée automatiquement un enregistrement de ressource SRV sur le serveur DNS. Le nouvel hôte KMS commence ensuite à collecter les demandes de renouvellement de client et commence à activer des clients dès que le seuil d’activation KMS est atteint.
 
-Si vos clients KMS utilisent la découverte automatique, ils sélectionnent automatiquement un autre hôte KMS si l’hôte KMS d’origine ne répond pas aux demandes de renouvellement. Si les clients n’utilisent pas la détection automatique, vous devez mettre à jour manuellement les ordinateurs clients KMS affectés à l’hôte KMS défaillant en exécutant **slmgr.vbs /skms**. Pour éviter ce scénario, configurez les clients KMS pour qu’ils utilisent la découverte automatique. Pour plus d’informations, consultez le [Guide de déploiement d’activation en volume](http://go.microsoft.com/fwlink/?linkid=150083).
+Si vos clients KMS utilisent la découverte automatique, ils sélectionnent automatiquement un autre hôte KMS si l’hôte KMS d’origine ne répond pas aux demandes de renouvellement. Si les clients n’utilisent pas la détection automatique, vous devez mettre à jour manuellement les ordinateurs clients KMS affectés à l’hôte KMS défaillant en exécutant **slmgr.vbs /skms**. Pour éviter ce scénario, configurez les clients KMS pour qu’ils utilisent la découverte automatique. Pour plus d’informations, consultez le [Guide de déploiement d’activation en volume](https://go.microsoft.com/fwlink/?linkid=150083).

@@ -8,16 +8,16 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 814bcf3e989e9aa9b83ba447d07c45ee95309a5a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3d443ff123cc041196f59d93d156415c34bdf70f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391977"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947872"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Canaux de maintenance de Windows Server : LTSC et SAC
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+>S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
 
 Deux canaux principaux de publication sont proposés aux clients de Windows Server, le canal de maintenance à long terme (TLSC, Long-Term Servicing Channel) et le canal semi-annuel (SAC, Semi-Annual Channel).
 
@@ -36,7 +36,7 @@ Le canal semi-annuel est parfait pour les clients qui innovent rapidement pour t
 
 La plupart des fonctionnalités introduites dans le canal semi-annuel sont cumulées dans la prochaine version du canal de maintenance à long terme de Windows Server. Les éditions, les fonctionnalités et le contenu de support peuvent varier d’une version à l’autre en fonction des commentaires des clients.
 
-Le canal semi-annuel est proposé aux clients détenteurs d’une licence en volume avec [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx), ainsi que dans la Place de marché Azure, via d’autres fournisseurs de services d’hébergement ou cloud et dans les programmes de fidélité comme les abonnements Visual Studio.
+Le canal semi-annuel est proposé aux clients détenteurs d’une licence en volume avec [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx), ainsi que dans la Place de marché Azure, via d’autres fournisseurs de services d’hébergement ou cloud et dans les programmes de fidélité comme les abonnements Visual Studio.
 
 > [!Note]  
 > **La version actuelle du canal semi-annuel est Windows Server, version 1903**. Si vous voulez intégrer des serveurs à ce canal, vous devez installer Windows Server, version 1903, qui peut être installé en mode Server Core ou, comme Nano Server, exécuté dans un conteneur. Les mises à niveau sur place à partir d’une version de canal de maintenance à long terme ne sont pas prises en charge parce qu’elles se trouvent dans des **canaux de distribution différents**. Les versions du canal semi-annuel ne sont pas des mises à jour. Elles sont les prochaines versions de Windows Server dans le canal semi-annuel.
@@ -57,10 +57,10 @@ Le tableau suivant résume les principales différences entre les canaux :
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | Scénarios recommandés | Serveurs de fichiers à usage général, charges de travail Microsoft et non-Microsoft, applications traditionnelles, rôles d’infrastructure, centre de données défini par logiciel et infrastructure hyperconvergée | Scénarios d’applications conteneurisées, d’hôtes de conteneur et d’application bénéficiant d’une innovation plus rapide |
 |     Nouvelles versions      |                                                                               Tous les 2 à 3 ans                                                                                |                                              Tous les 6 mois                                              |
-|        Support        |                                                       5 ans de support standard plus 5 ans de support étendu                                                        |                                                18 mois                                                 |
+|        Assistance        |                                                       5 ans de support standard plus 5 ans de support étendu                                                        |                                                18 mois                                                 |
 |       Éditions        |                                                                    Toutes les éditions disponibles de Windows Server                                                                     |                                     Éditions Standard et Datacenter                                     |
 |      Qui peut l’utiliser      |                                                                      Tous les clients par le biais de tous les canaux                                                                      |                               Clients Software Assurance et cloud uniquement                                |
-| Options d’installation  |                                                                Server Core et Serveur avec Expérience utilisateur                                                                |                 Server Core pour hôte et image de conteneur et image du conteneur Nano Server                 |
+| Options d'installation  |                                                                Server Core et Serveur avec Expérience utilisateur                                                                |                 Server Core pour hôte et image de conteneur et image du conteneur Nano Server                 |
 
 ## <a name="device-compatibility"></a>Compatibilité des appareils
 
@@ -72,7 +72,7 @@ Les versions du canal de maintenance à long terme et du canal semi-annuel seron
 
 ### <a name="servicing-tools"></a>Outils de maintenance
 
-Il existe de nombreux outils avec lesquels les professionnels de l’informatique peuvent effectuer la maintenance de Windows Server. Chaque option possède ses avantages et ses inconvénients, allant des fonctionnalités et du contrôle aux faibles exigences en termes d’administration en passant par la simplicité. Voici quelques exemples des outils de maintenance disponibles pour gérer les mises à jour de maintenance :
+Il existe de nombreux outils avec lesquels les professionnels de l’informatique peuvent effectuer la maintenance de Windows Server. Chaque option a ses avantages et ses inconvénients, allant des fonctionnalités et du contrôle aux faibles exigences en termes d’administration en passant par la simplicité. Voici quelques exemples des outils de maintenance disponibles pour gérer les mises à jour de maintenance :
 
 - **Windows Update (autonome)**  : Cette option est disponible uniquement pour les serveurs connectés à Internet pour lesquels Windows Update est activé.
 - **Windows Server Update Services (WSUS)** fournit un contrôle étendu sur les mises à jour Windows 10 et Windows Server et est disponible en mode natif dans le système d’exploitation Windows Server. Outre la possibilité de reporter les mises à jour, les organisations peuvent ajouter une couche d’approbation des mises à jour et choisir de les déployer sur des ordinateurs spécifiques ou des groupes d’ordinateurs dès qu’ils sont prêts.
@@ -84,9 +84,9 @@ Vous avez probablement déjà choisi d’utiliser au moins une de ces options en
 
 Les versions du canal semi-annuel doivent faire l’objet d’une nouvelle installation.
 
-- Centre de gestion des licences en volume (VLSC) : les clients ayant une licence en volume avec [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) peuvent obtenir cette version en accédant au [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx) et en cliquant sur **Se connecter**. Ensuite, cliquez sur **Téléchargements et clés** et recherchez cette version. 
+- Centre de gestion des licences en volume (VLSC) : les clients ayant une licence en volume avec [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) peuvent obtenir cette version en accédant au [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx) et en cliquant sur **Se connecter**. Ensuite, cliquez sur **Téléchargements et clés** et recherchez cette version. 
 
-- Les versions du canal semi-annuel sont également disponibles dans [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview).
+- Les versions du canal semi-annuel sont également disponibles dans [Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview).
 
 - Abonnements Visual Studio : Les abonnés Visual Studio peuvent obtenir des versions du canal semi-annuel en les téléchargeant à partir de la [page de téléchargement des abonnés Visual Studio](https://my.visualstudio.com/downloads?pid=2347). Si vous n’êtes pas encore abonné, accédez à la page [Abonnements Visual Studio](https://www.visualstudio.com/subscriptions/) pour vous inscrire, puis visitez la [page de téléchargement des abonnés Visual Studio](https://my.visualstudio.com/downloads?pid=2347) comme indiqué ci-dessus. Les versions obtenues via les abonnements Visual Studio sont destinées au développement et aux tests uniquement.
 
@@ -171,7 +171,7 @@ Name    :     ServerCore.AppCompatibility~~~~0.0.1.0
 State   :     Installed
 ````
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 
 [Modifications apportées à Nano Server dans le canal semi-annuel de Windows Server](../get-started/nano-in-semi-annual-channel.md)
 

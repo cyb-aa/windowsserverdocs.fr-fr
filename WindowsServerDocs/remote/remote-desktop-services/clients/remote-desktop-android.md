@@ -10,20 +10,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
-manager: daveba
+manager: lizross
 ms.author: helohr
 ms.date: 12/02/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: a1349f1181cdf2ead51a263a3ba62c1789c76b3b
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+ms.openlocfilehash: cb0fa7009c4a8fe53810f8b5f058e659c2391dc1
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700162"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919835"
 ---
 # <a name="get-started-with-the-android-client"></a>Bien démarrer avec le client Android
 
->S’applique à : Android version 4.1 et ultérieure
+>S'applique à : Android version 4.1 et ultérieure
 
 Le client Bureau à distance pour Android vous permet d’utiliser des bureaux et applications Windows directement à partir de votre appareil Android ou d’un Chromebook qui prend en charge Google Play Store.
 
@@ -219,13 +219,13 @@ Le client utilise les mouvements d’interaction tactile standard. Vous pouvez �
 > [!NOTE]
 > Les mouvements d’interaction tactile natifs sont pris en charge en mode d’interaction tactile directe dans Windows version 8 ou ultérieure.
 
-| Mode souris    | Action de la souris         | Mouvement                                                                 |
+| Mode de la souris    | Action de la souris         | Mouvement                                                                 |
 |---------------|----------------------|-------------------------------------------------------------------------|
 | Interaction tactile directe  | Clic gauche           | Appuyer avec un doigt                                                     |
-| Interaction tactile directe  | Clic droit          | Appuyer longuement avec un doigt, puis relâcher                              |
+| Interaction tactile directe  | Cliquez avec le bouton droit sur          | Appuyer longuement avec un doigt, puis relâcher                              |
 | Pointeur de souris | Zoom                 | Utilisez deux doigts et resserrez-les pour faire un zoom arrière, ou écartez-les pour faire un zoom avant. |
 | Pointeur de souris | Clic gauche           | Appuyer avec un doigt                                                     |
 | Pointeur de souris | Clic gauche et glissement  | Appuyer deux fois longuement avec un doigt, puis faire glisser                          |
-| Pointeur de souris | Clic droit          | Appuyer avec deux doigts                                                    |
+| Pointeur de souris | Cliquez avec le bouton droit sur          | Appuyer avec deux doigts                                                    |
 | Pointeur de souris | Clic droit et glissement | Appuyer deux fois longuement avec deux doigts, puis faire glisser                         |
 | Pointeur de souris | Roulette de la souris          | Appuyer longuement avec deux doigts, puis faire glisser vers le haut ou vers le bas                     |

@@ -6,12 +6,12 @@ contributor: maertendMSFT
 ms.product: w10
 author: maertendMSFT
 title: Configuration du serveur OpenSSH pour Windows
-ms.openlocfilehash: ed424c33c4cd2c19a9b5e985ab6083bcbcb9fbdc
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 5eb3d86950d169fd01512d330f0c04669beeffae
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546261"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259050"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>Configuration du serveur OpenSSH pour Windows 10 1809 et Server 2019
 
@@ -84,7 +84,7 @@ Cette directive est uniquement prise en charge avec les sessions SFTP. Une sessi
 
 ### <a name="hostkey"></a>HostKey
 
-Par défaut, il s’agit de %programdata%/ssh/ssh_host_ecdsa_key, %programdata%/ssh/ssh_host_ed25519_key et de %programdata%/ssh/ssh_host_rsa_key. Si les valeurs par défaut ne sont pas présentes, sshd les génère automatiquement au démarrage du service.
+Par défaut, il s’agit de %programdata%/ssh/ssh_host_ecdsa_key, %programdata%/ssh/ssh_host_ed25519_key, %programdata%/ssh/ssh_host_dsa_key et de %programdata%/ssh/ssh_host_rsa_key. Si les valeurs par défaut ne sont pas présentes, sshd les génère automatiquement au démarrage du service.
 
 ### <a name="match"></a>Faire correspondre
 
@@ -99,7 +99,7 @@ Non applicable dans Windows. Pour empêcher la connexion de l’administrateur, 
 Si vous avez besoin d’une journalisation basée sur des fichiers, utilisez LOCAL0. Les journaux sont générés sous %programdata%\ssh\logs.
 Toute autre valeur, y compris l’authentification par défaut de la valeur, dirige la journalisation vers ETW. Pour plus d’informations, consultez la fonction de journalisation dans Windows.
 
-### <a name="not-supported"></a>Non pris en charge 
+### <a name="not-supported"></a>Non prise en charge 
 
 Les options de configuration suivantes ne sont pas disponibles dans la version de OpenSSH fournie avec Windows Server 2019 et Windows 10 1809 :
 

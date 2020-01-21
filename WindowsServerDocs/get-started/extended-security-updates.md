@@ -9,12 +9,12 @@ ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.date: 12/16/2019
-ms.openlocfilehash: a5af1ad5a730f1dc90111734a9b8b1aacc91201b
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: 83ab3663b2c03017ba1bf613a49c394be0511002
+ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466342"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76162500"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Guide pratique pour utiliser les mises à jour de sécurité étendues Windows Server 2008 et 2008 R2
 
@@ -49,6 +49,17 @@ Pour utiliser les mises à jour de sécurité étendues, vous devez créer une c
 
 > [!NOTE]
 > Si vous exécutez des machines virtuelles Windows Server 2008 / 2008 R2 dans Azure, vous n’avez pas besoin d’effectuer les étapes suivantes. Les machines virtuelles Azure reçoivent automatiquement les mises à jour de sécurité étendues. Il est inutile de créer une ressource de mises à jour de sécurité étendues et une clé. Par ailleurs, l’utilisation de mises à jour de sécurité étendues avec les machines virtuelles Azure n’engendre pas de frais supplémentaires.
+
+> [!NOTE]
+> Avant de suivre les étapes ci-dessous, envoyez un e-mail à [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com) avec ces informations pour figurer sur liste verte :
+> * Nom du client :
+> * Abonnement Azure :
+> * Numéro de contrat EA (pour les mises à jour de sécurité étendues) :
+> * Nombre de serveurs de mises à jour de sécurité étendues :
+> 
+> L’équipe passera en revue les informations fournies et ajoutera l’utilisateur/abonnement à la liste verte.
+> 
+> Si le demandeur n’est pas sur liste verte, l’erreur suivante peut se produire : [Le type de ressource est introuvable dans l’espace de noms « Microsoft.WindowsESU »](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version).
 
 Pour inscrire des machines virtuelles non-Azure aux mises à jour de sécurité étendues et créer une clé, effectuez les étapes suivantes dans le portail Azure :
 

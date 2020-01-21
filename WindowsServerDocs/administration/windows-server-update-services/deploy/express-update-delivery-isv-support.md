@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: a4880a1a66d9c722cfda9e194c4eff38c5058674
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13568bb320a3d70bfd6a70d2b9731b460be6f346
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361722"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948489"
 ---
 # <a name="express-update-delivery-isv-support"></a>Prise en charge par les ISV de la distribution des mises à jour Express
 
@@ -53,7 +53,7 @@ Les éditeurs de logiciels indépendants peuvent utiliser WSUS et le client WU p
 3.  [**Configurer un agent client ISV pour diriger les opérations du client WU**](#BKMK_3)
 
 >[!NOTE]
->Nécessite l’installation de la mise à jour cumulative de la version 1607 de Windows 10 sortie en janvier 2017 (ou après) ([KB3213986 [build de système d’exploitation 14393.693])](https://support.microsoft.com/en-us/help/4009938/january-10-2017-kb3213986-os-build-14393-693).
+>Nécessite l’installation de la mise à jour cumulative de la version 1607 de Windows 10 sortie en janvier 2017 (ou après) ([KB3213986 [build de système d’exploitation 14393.693])](https://support.microsoft.com/help/4009938/january-10-2017-kb3213986-os-build-14393-693).
     
    - L’agent client ISV détermine quelles mises à jour doivent être approuvées et quand les télécharger et les installer.
    - Le client WU détermine les plages d’octets à télécharger et lance la demande de téléchargement

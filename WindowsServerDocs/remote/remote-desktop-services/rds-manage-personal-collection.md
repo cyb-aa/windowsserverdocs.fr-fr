@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 6bf0ad3a2cd35c9794fd13631ed29df94725685c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7be6b2bfe1105357811927f5da7092e8c16c3446
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387408"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949848"
 ---
-## <a name="manage-your-personal-desktop-session-collections"></a>Gérer vos collections de sessions de bureaux personnelles
+# <a name="manage-your-personal-desktop-session-collections"></a>Gérer vos collections de sessions de bureaux personnelles
 
 Utilisez les informations suivantes pour gérer une collection de sessions de bureaux personnels dans les services Bureau à distance.
 
-### <a name="manually-assign-a-user-to-a-personal-session-host"></a>Affectation manuelle d’un utilisateur à un hôte de session personnel
+## <a name="manually-assign-a-user-to-a-personal-session-host"></a>Affectation manuelle d’un utilisateur à un hôte de session personnel
 Utilisez l'applet de commande **Set-RDPersonalSessionDesktopAssignment** pour affecter manuellement un utilisateur à un serveur hôte de session personnel dans la collection. L’applet de commande prend en charge les paramètres suivants :
 
 -CollectionName \<chaîne\>
@@ -49,7 +49,7 @@ L'applet de commande **Import-RDPersonalSessionDesktopAssignment** importe les a
 
 **–Path** Spécifie le chemin d’accès et le nom de fichier d’un fichier à importer.
  
-### <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Suppression d'une affectation d'utilisateur à partir d'un hôte de session personnel
+## <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Suppression d'une affectation d'utilisateur à partir d'un hôte de session personnel
 Utilisez l'applet de commande **Remove-RDPersonalSessionDesktopAssignment** pour supprimer l'association entre un bureau de session personnel et un utilisateur. L’applet de commande prend en charge les paramètres suivants :
 
 -CollectionName \<chaîne\>
@@ -64,7 +64,7 @@ Utilisez l'applet de commande **Remove-RDPersonalSessionDesktopAssignment** pour
 
 **–Force** : force l’exécution de la commande sans demander la confirmation de l’utilisateur.
 
-### <a name="query-user-assignments"></a>Interroger les affectations d'utilisateur
+## <a name="query-user-assignments"></a>Interroger les affectations d'utilisateur
 Utilisez l'applet de commande **Get-RDPersonalSessionDesktopAssignment** pour obtenir la liste des bureaux de session personnels et des comptes d'utilisateurs associés. L’applet de commande prend en charge les paramètres suivants :
 
 -CollectionName \<chaîne\>
@@ -87,4 +87,4 @@ L'applet de commande **Export-RDPersonalPersonalDesktopAssignment** exporte les 
 -Path \<chaîne\>
 
 
-Les nouvelles applets de commande prennent toutes en charge les paramètres courants : -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer et -OutVariable. Pour plus d'informations, consultez [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
+Les nouvelles applets de commande prennent toutes en charge les paramètres courants : -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer et -OutVariable. Pour plus d’informations, consultez [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
