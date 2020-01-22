@@ -32,7 +32,7 @@ Dans cet exemple, contoso Gift services est en pleine expansion dans le monde en
 
 À l’instar de Amérique du Nord, la société a maintenant des serveurs Web hébergés dans des centres de centres européens.
 
-Contoso Gift services les administrateurs DNS veulent configurer l’équilibrage de charge d’application pour les centres de distribution européens de la même façon que l’implémentation de la stratégie DNS dans le États-Unis, avec le trafic d’application distribué entre les serveurs Web qui se trouvent dans Dublin, Irlande, Amsterdam, Hollande et ailleurs.
+Contoso Gift services les administrateurs DNS veulent configurer l’équilibrage de charge d’application pour les centres de distribution européens de la même façon que l’implémentation de la stratégie DNS dans le États-Unis, avec le trafic d’application distribué entre les serveurs Web qui se trouvent dans Dublin, Irlande, Amsterdam, Pays-Bas et ailleurs.
 
 Les administrateurs DNS veulent également que toutes les requêtes d’autres emplacements dans le monde soient distribuées de manière égale entre tous leurs centres de centres.
 
@@ -89,7 +89,7 @@ Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.micr
 
 À présent, vous devez ajouter les enregistrements qui représentent l’hôte du serveur Web dans les étendues de la zone.
 
-Les enregistrements pour les centres de données d’Amérique ont été ajoutés dans le scénario précédent. Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des enregistrements aux étendues de zone pour les centres de données européens.
+Les enregistrements pour les centres de données d’États-Unis d’Amérique ont été ajoutés dans le scénario précédent. Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des enregistrements aux étendues de zone pour les centres de données européens.
  
     
     Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "151.1.0.1" -ZoneScope "DublinZoneScope”
