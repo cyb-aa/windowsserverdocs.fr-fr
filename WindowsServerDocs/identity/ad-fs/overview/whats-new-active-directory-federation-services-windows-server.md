@@ -1,20 +1,20 @@
 ---
 ms.assetid: aa892a85-f95a-4bf1-acbb-e3c36ef02b0d
-title: Nouveautés des services de fédération Active Directory (AD FS) pour Windows Server 2016
+title: Nouveautés des services de fédération Active Directory (AD FS) pour Windows Server 2016
 description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 04/23/2019
+ms.date: 01/22/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6294c7b6ead0a9fa338f8b2cc8134b750f7e3e8f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: adce37d8d06399d3a00221a12f3449244720ade7
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385548"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519481"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Nouveautés des services de fédération Active Directory (AD FS)
 
@@ -87,9 +87,8 @@ Auparavant, AD FS nécessitait que la ressource et la portée souhaitées se tro
  
 Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Cela est cohérent avec la manière dont il est possible d’effectuer une authentification par rapport à Azure AD également. 
 
-Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
+Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. 
 
-**< créer un exemple de demande valide >**
 > [!NOTE]
 > Une seule ressource peut être spécifiée dans la demande d’authentification. Si plusieurs ressources sont incluses dans la demande, AD FS renvoie une erreur et l’authentification échoue. 
 
@@ -106,17 +105,17 @@ B. Le point de terminaison d’autorisation répond comme d’habitude, mais enr
 
 C. Le client envoie alors le code d’autorisation dans la demande de jeton d’accès comme d’habitude, mais il comprend le secret « code_verifier » généré à (A). 
 
-e. Le AD FS transforme « code_verifier » et le compare à « t (code_verifier) » à partir de (B).  L’accès est refusé s’ils ne sont pas égaux. 
+D. Le AD FS transforme « code_verifier » et le compare à « t (code_verifier) » à partir de (B).  L’accès est refusé s’ils ne sont pas égaux. 
 
-#### <a name="faq"></a>Questions fréquentes (FAQ) 
-**Question.** Puis-je passer une valeur de ressource dans le cadre de la valeur d’étendue comme la façon dont les requêtes sont effectuées sur Azure AD ? 
-</br>**Un.** Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
+#### <a name="faq"></a>FAQ 
+**Q.** Puis-je passer une valeur de ressource dans le cadre de la valeur d’étendue comme la façon dont les requêtes sont effectuées sur Azure AD ? 
+</br>**A.** Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
 **< créer un exemple de demande valide >**
 
-**Question.** AD FS prend-il en charge l’extension PKCE ?
-</br>**Un.** AD FS du serveur 2019 prend en charge la clé de vérification pour l’échange de code (PKCE) pour le workflow d’octroi de code d’autorisation OAuth 
+**Q.** AD FS prend-il en charge l’extension PKCE ?
+</br>**A.** AD FS du serveur 2019 prend en charge la clé de vérification pour l’échange de code (PKCE) pour le workflow d’octroi de code d’autorisation OAuth 
 
-## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Nouveautés des services de fédération Active Directory (AD FS) pour Windows Server 2016   
+## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Nouveautés des services de fédération Active Directory (AD FS) pour Windows Server 2016   
 Si vous recherchez des informations sur les versions antérieures de AD FS, consultez les articles suivants :  
  [ADFS dans Windows Server 2012 ou 2012 R2](https://technet.microsoft.com/library/hh831502.aspx) et [AD FS 2,0](https://technet.microsoft.com/library/adfs2.aspx)  
 
@@ -154,13 +153,17 @@ AD FS fournit le composant local des stratégies d’accès conditionnel dans un
 ![Nouveautés](media/whats-new-in-active-directory-federation-services-for-windows-server-2016/ADFS_ITPRO4.png)  
 
  Pour plus d’informations sur l’utilisation de l’accès conditionnel basé sur les appareils dans le Cloud   
- *  [Azure Active Directory l’accès conditionnel](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)
+ *  [Accès conditionnel Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)
 
 Pour plus d’informations sur l’utilisation de l’accès conditionnel basé sur les appareils avec AD FS
 *  [Planification de l’accès conditionnel basé sur les appareils avec AD FS](../../ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)  
 * [Stratégies de Access Control dans AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)  
 
-### <a name="sign-in-with-windows-hello-for-business"></a>Se connecter avec Windows Hello entreprise   
+### <a name="sign-in-with-windows-hello-for-business"></a>Se connecter avec Windows Hello entreprise  
+
+> [!NOTE]
+> Actuellement, Google Chrome et le [nouveau Microsoft Edge basés sur des](https://www.microsoft.com/edge?form=MB110A&OCID=MB110A) navigateurs de projet open source de chrome ne sont pas pris en charge pour l’authentification unique (SSO) basée sur un navigateur avec Microsoft Windows Hello entreprise. Utilisez Internet Explorer ou une version antérieure de Microsoft Edge.  
+
 Les appareils Windows 10 présentent Windows Hello et Windows Hello entreprise, en remplaçant les mots de passe utilisateur par des informations d’identification de l’utilisateur puissantes, protégées par le mouvement de l’utilisateur (un code confidentiel, un mouvement biométrique comme une empreinte digitale ou une reconnaissance faciale). AD FS 2016 prend en charge ces nouvelles fonctionnalités Windows 10 afin que les utilisateurs puissent se connecter à AD FS applications à partir de l’intranet ou de l’extranet sans avoir besoin de fournir un mot de passe.
 
 Pour plus d’informations sur l’utilisation de Microsoft Windows Hello entreprise dans votre organisation

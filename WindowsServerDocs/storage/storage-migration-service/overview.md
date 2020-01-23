@@ -4,16 +4,16 @@ description: Storage migration service facilite la migration du stockage vers Wi
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 10/25/2019
+ms.date: 01/17/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 968122612845a9be105ca7d3231edc0faa039e76
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: 1a98de21e91fc7bdc431e7413c44089ce750bc05
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352688"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519471"
 ---
 # <a name="storage-migration-service-overview"></a>Vue d’ensemble de Storage migration service
 
@@ -46,6 +46,10 @@ La migration est un processus en trois étapes :
 
 Capture d’écran ![montrant un serveur prêt à être analysé](media/migrate/inventory.png)
 **figure 2 : serveurs d’inventaire du service de migration du stockage**
+
+Voici une vidéo qui montre comment utiliser Storage migration service pour prendre un serveur, tel qu’un serveur Windows Server 2008 R2 qui n’est plus pris en charge, et déplacer le stockage vers un serveur plus récent.
+
+> [!VIDEO https://www.youtube.com/embed/h-Xc9j1w144]
 
 ## <a name="requirements"></a>Conditions préalables
 
@@ -97,7 +101,7 @@ Le serveur source doit exécuter l’un des systèmes d’exploitation suivants�
 - Windows Server 2019 Essentials
 - Windows Storage Server 2008
 - Windows Storage Server 2008 R2
-- Windows Storage Server 2012
+- Windows Storage Server 2012
 - Windows Storage Server 2012 R2
 - Windows Storage Server 2016
 

@@ -5,19 +5,19 @@ ms.technology: manage
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
-ms.date: 10/17/2018
+ms.date: 01/17/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 159202fcb8c6125134154094e67e862ce8eb12ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ba3cdb8dbd81ee85b0679905444f35174b8138e0
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357030"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519461"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Guide de style pour la conception et le texte de l’interface utilisateur Windows Admin Center
 
->S'applique à : Windows Admin Center
+>S’applique à : Centre d’administration Windows
 
 Cette rubrique décrit l’approche générale de la rédaction du texte de l’interface utilisateur pour Windows Admin Center, ainsi que certaines de nos conventions et méthodes spécifiques.
 
@@ -40,7 +40,7 @@ Nous suivons le style de Microsoft concernant la [mise en majuscules](https://do
 
 ## <a name="colons"></a>Virgules
 
-Utilisez les deux-points pour introduire des listes. Exemple :
+Utilisez les deux-points pour introduire des listes. Exemple :
 
     Choose one of the following:
     Cats
@@ -73,24 +73,24 @@ La première fois qu’un utilisateur visite une page, vous avez la possibilité
 
 Voici quelques conseils de notre guide de style Windows :
 
-### <a name="1-be-helpful"></a>1. Être efficace
+### <a name="1-be-helpful"></a>1. Soyez utile
 
 - Évitez le style et le langage marketing.
 - Lorsque vous faites une démonstration ou Suggérez un nom, assurez-vous que le résultat final est clair ; le fait de montrer simplement au client comment faire une action n’est pas efficace s’il ne sait pas pourquoi.
 - Ne présentez pas de conseils si le client n’en a pas besoin.
 
-### <a name="2-show-dont-tell"></a>2. Afficher, ne pas dire
+### <a name="2-show-dont-tell"></a>2. Il vaut mieux montrer que dire
 
 Gardez le texte le plus simple possible (pensez à de petites animations ou à des vidéos).
 
-### <a name="3-dont-overwhelm"></a>3. Ne vous inquiétez pas
+### <a name="3-dont-overwhelm"></a>3. Ne noyez pas l'utilisateur dans les détails
 
 - Limitez les fenêtres contextuelles et les conseils à 4 par session d’utilisation combinés, y compris les notifications système et les notifications de shell.
 - Assurez-vous que la synchronisation des fenêtres contextuelles est utile.
 - N’empêchez pas le client d’effectuer une opération.
 - Assurez-vous que les fenêtres contextuelles sont faciles à ignorer.
 
-### <a name="4-keep-it-contextual"></a>4. Rester contextuel
+### <a name="4-keep-it-contextual"></a>4. Conservez le contexte
 
 - Les enseignements sont plus efficaces lorsqu'ils sont présentés au bon moment.
 - Si vous créez des didacticiels ou des diaporamas, restez concret.
@@ -98,7 +98,7 @@ Gardez le texte le plus simple possible (pensez à de petites animations ou à d
 - Permet aux clients de revenir ultérieurement au didacticiel, si nécessaire (les gens ne conservent souvent pas les informations la première fois, mais les instructions de configuration ne sont pertinentes qu’une seule fois).
 - Un message d'état vide est l’endroit idéal pour l'information et/ou la convivialité : gardez-le simple et informatif.
 
-### <a name="5-minimize-painful-setup"></a>5. Réduire la configuration pénible
+### <a name="5-minimize-painful-setup"></a>5. Réduisez la configuration fastidieuse au minimum
 
 Lorsque vous avez besoin que le client effectue une autre action pour obtenir une valeur ajoutée complète (s'inscrire à un service en ligne, etc.), rendez-la aussi simple que possible.
 
@@ -134,9 +134,9 @@ Les développeurs Microsoft doivent utiliser un FWLink, sauf lorsqu’il s’agi
 
 - Utilisez des phrases entières.
 - N’incluez pas de ponctuation de fin, sauf pour les points d’interrogation. 
-- Vous n’avez pas besoin d’utiliser le même texte que le titre de la tâche. Utilisez du texte qui donne un sens dans le contexte de l’interface utilisateur, mais assurez-vous qu’il existe une connexion logique entre les deux. Exemple : 
+- Vous n’avez pas besoin d’utiliser le même texte que le titre de la tâche. Utilisez du texte qui donne un sens dans le contexte de l’interface utilisateur, mais assurez-vous qu’il existe une connexion logique entre les deux. Exemple : 
 - Lien d’aide : Quels sont les risques liés à l’autorisation des exceptions ? 
-- Titre de la rubrique d’aide : « Autoriser un programme à communiquer via le pare-feu Windows »
+- Titre de la rubrique d’aide : « autoriser un programme à communiquer via le pare-feu Windows »
 - Soyez aussi précis que possible sur le contenu de la rubrique d’aide. 
     - Notre style
         - Comment le pare-feu Windows contribue-t-il à protéger mon ordinateur ?
@@ -144,14 +144,14 @@ Les développeurs Microsoft doivent utiliser un FWLink, sauf lorsqu’il s’agi
     - Pas notre style
         - Plus d’informations sur le pare-feu Windows
         - En savoir plus sur la gestion des couleurs
-        - En savoir plus
+        - Pour en savoir plus
 - Utilisez la phrase entière pour le texte du lien, pas seulement les mots clés. 
     - Notre style 
         - [Quels sont les risques liés à l’autorisation des exceptions ?]()
     - Pas notre style
         - Quels sont les [risques liés à l’autorisation des exceptions]()? 
 
-## <a name="error-messages"></a>Messages d’erreur
+## <a name="error-messages"></a>Messages d'erreur
 
 Voici quelques conseils adaptés à partir du Guide de style Windows :
 
@@ -169,7 +169,7 @@ Utilisez un message par cas d’erreur.
 - Évitez d’utiliser « un problème est survenu » dans les en-têtes, sauf si vous n’avez pas d’autre choix. Soyez plus précis sur le problème.
 - Évitez d’utiliser des variables (telles que les noms de fichier, de dossier et d’application) dans les en-têtes. Placez-les dans le corps.
 
-#### <a name="body"></a>Corps
+#### <a name="body"></a>Body
 
 - Si le titre présente suffisamment d’explications sur le problème ou la solution, vous n’avez pas besoin de texte du corps.
 - Ne répétez pas le titre dans le message avec un libellé légèrement différent.
@@ -220,24 +220,24 @@ L’État null se produit lorsque des données client ou du contenu sont absente
 - Aucune ponctuation finale (points, points d’interrogation) pour des titres ou des phrases incomplètes. Une exception est dans une boîte de dialogue de confirmation dans laquelle le titre pose une question
 - Utilisez les instructions du Guide de Style Microsoft sur les [points](https://docs.microsoft.com/style-guide/punctuation/periods) et les [points d’interrogation](https://docs.microsoft.com/style-guide/punctuation/question-marks).
 
-## <a name="status-messages"></a>Messages d'état
+## <a name="status-messages"></a>Messages d’état
 
 Les messages d’état se composent de notifications et de messages contextuels (toast).
 
-|Type de chaîne         | Notes                               |
+|Type de chaîne         | Remarques                               |
 |------------        |-------------------------------------|
 |Toast               |Majuscule en début de phrase avec ponctuation de fin : de préférence avec une variable d’objet pour que les utilisateurs comprennent à quel objet le message s’applique au cas où ils seraient sortis de l’objet|
-|Titre de notification|Majuscule en début de phrase sans ponctuation finale (il s’agit d’un titre) : de préférence avec une variable d’objet|
+|Titre de notification (titre) |Majuscule sans ponctuation (il s’agit d’un titre)-idéalement avec une variable objet|
 |Détails de la notification|Phrases complètes, de préférence avec un lien vers l’interface utilisateur qui affiche l’objet|
 
 Voici quelques recommandations détaillées sur les messages de notification :
 
-|Type de chaîne         | Notes                               |
+|Type de chaîne         | Remarques                               |
 |------------        |-------------------------------------|
 |Démarré             |Omettez dans la mesure du possible : généralement vous pouvez vous contenter de passer au message en cours afin de réduire les distractions.|
-|En cours         |Commencez avec le verbe de l’action que vous effectuez et terminez par des points de suspension pour indiquer une opération en cours. Voici un exemple :<br> *Création du volume « données client »...*|
-|Succès             |Commencez par l'action que le logiciel vient d'effectuer et finissez par « réussi(e) ». Voici un exemple :<br> *Le volume « données client » a été créé.*|
-|Échec             |Démarrez avec « Impossible de » et terminez par ce que le logiciel n’a pas pu faire. Voici un exemple :<br> *Impossible de créer le volume « données client ».*|
+|En cours         |Commencez avec le verbe de l’action que vous effectuez et terminez par des points de suspension pour indiquer une opération en cours. Voici un exemple :<br> *Création du volume « données client »...* <br><br>Lorsqu’il existe plusieurs variables, utilisez ce modèle : <br>*Suppression de la machine virtuelle suivante : {0}; Hôte : {1}* |
+|Réussite             |Commencez par l'action que le logiciel vient d'effectuer et finissez par « réussi(e) ». Voici un exemple :<br> *Le volume « données client » a été créé.*|
+|Échec             |Démarrez avec « Impossible de » et terminez par ce que le logiciel n’a pas pu faire. Voici un exemple :<br> *Impossible de créer le volume « données client ».*|
 
 ## <a name="tooltips"></a>Info-bulles
 
@@ -247,7 +247,7 @@ Les info-bulles doivent être utilisées avec parcimonie ou pas du tout. Il peut
 
 |    Contexte                                 |    Comment écrire les info-bulles    |
 |    -----------------------                 |    -------------------------    |
-|Lorsqu’un contrôle ou un élément d’interface utilisateur n’est pas labellisé...|Utilisez une phrase nominale simple et descriptive. Exemple :<br> Mise en surbrillance du stylet |
+|Lorsqu’un contrôle ou un élément d’interface utilisateur n’est pas labellisé...|Utilisez une phrase nominale simple et descriptive. Exemple :<br> Mise en surbrillance du stylet |
 |Lorsqu’un élément d’interface utilisateur est étiqueté, mais que son objectif a besoin d’être clarifié...|<ul><li>Décrivez brièvement ce que vous pouvez faire avec cet élément d’interface utilisateur. </li><li>Utilisez le format de verbe impératif. Par exemple, « Rechercher le texte dans ce fichier » (et non « recherche le texte dans ce fichier »).</li><li>N’incluez pas de ponctuation finale à moins qu’il y ait plusieurs phrases complètes.</li> </ul>|
-|Quand une étiquette de texte est tronquée ou est susceptible d’être tronquée dans certaines langues...|<ul><li>Fournissez l’étiquette non tronquée dans l’info-bulle.</li><li>Facultatif : Sur une autre ligne, fournissez une description de clarification, mais uniquement si nécessaire.</li><li>Ne fournissez pas d’info-bulle si les informations non tronquées sont fournies ailleurs sur la page ou le Flow.</li></ul>|
-|Si un raccourci clavier est disponible...|<ul><li>Facultatif : Indiquez le raccourci clavier entre parenthèses à la suite de l’étiquette ou de l’expression descriptive, par exemple « Imprimer (Ctrl + P) » ou « Rechercher le texte dans ce fichier (Ctrl + F) »</li><li>Il est recommandé d’ajouter un raccourci clavier utile à une info-bulle clarify, mais d’éviter d’ajouter une info-bulle uniquement pour afficher un raccourci clavier. </li></ul>|
+|Quand une étiquette de texte est tronquée ou est susceptible d’être tronquée dans certaines langues...|<ul><li>Fournissez l’étiquette non tronquée dans l’info-bulle.</li><li>Facultatif : sur une autre ligne, fournissez une description de clarification, mais uniquement si nécessaire.</li><li>Ne fournissez pas d’info-bulle si les informations non tronquées sont fournies ailleurs sur la page ou le Flow.</li></ul>|
+|Si un raccourci clavier est disponible...|<ul><li>Facultatif : indiquez le raccourci clavier entre parenthèses suivant l’étiquette ou la phrase descriptive, par exemple « imprimer (Ctrl + P) » ou « Rechercher le texte dans ce fichier (Ctrl + F) ».</li><li>Il est recommandé d’ajouter un raccourci clavier utile à une info-bulle clarify, mais d’éviter d’ajouter une info-bulle uniquement pour afficher un raccourci clavier. </li></ul>|
