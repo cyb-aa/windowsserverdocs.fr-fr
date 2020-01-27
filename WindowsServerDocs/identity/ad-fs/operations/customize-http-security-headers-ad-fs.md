@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7fd06c06a2ea7af93b87c471f77b788ac51bddac
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b81d498c6e601fcce0a0760cb4877fcc98c8beb9
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949213"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725794"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personnaliser les en-têtes de réponse de sécurité HTTP avec AD FS 2019 
  
@@ -32,11 +32,11 @@ Dans ce document, nous aborderons les en-têtes de réponse de sécurité couram
 Avant de discuter des en-têtes, examinons quelques scénarios qui créent la nécessité pour les administrateurs de personnaliser les en-têtes de sécurité 
  
 ## <a name="scenarios"></a>Scénarios 
-1. L’administrateur a activé [**http strict-transport-Security (HSTS)** ](#http-strict-transport-security-hsts) (force toutes les connexions sur le CHIFFREment https) pour protéger les utilisateurs qui peuvent accéder à l’application Web à l’aide de http à partir d’un point d’accès Wi-Fi public qui peut être piraté. Elle souhaite renforcer la sécurité en activant HSTS pour les sous-domaines.  
-2. L’administrateur a configuré l’en-tête de réponse [**X-Frame-options**](#x-frame-options) (empêche le rendu d’une page Web dans un IFRAME) pour empêcher les pages Web d’être clickjacked. Toutefois, elle doit personnaliser la valeur d’en-tête en raison d’une nouvelle exigence commerciale pour afficher les données (dans un iFrame) à partir d’une application avec une origine différente (domaine).
-3. L’administrateur a activé la [**protection X-XSS**](#x-xss-protection) (empêchant les attaques entre scripts) d’assainir et de bloquer la page si le navigateur détecte des attaques de script croisé. Toutefois, elle doit personnaliser l’en-tête pour permettre au chargement de la page d’être nettoyée.  
+1. L’administrateur a activé [**http strict-transport-Security (HSTS)** ](#http-strict-transport-security-hsts) (force toutes les connexions sur le CHIFFREment https) pour protéger les utilisateurs qui peuvent accéder à l’application Web à l’aide de http à partir d’un point d’accès Wi-Fi public qui peut être piraté. Ils souhaitent renforcer la sécurité en activant HSTS pour les sous-domaines.  
+2. L’administrateur a configuré l’en-tête de réponse [**X-Frame-options**](#x-frame-options) (empêche le rendu d’une page Web dans un IFRAME) pour empêcher les pages Web d’être clickjacked. Toutefois, ils doivent personnaliser la valeur d’en-tête en raison d’une nouvelle exigence commerciale pour afficher les données (dans un iFrame) à partir d’une application avec une origine différente (domaine).
+3. L’administrateur a activé la [**protection X-XSS**](#x-xss-protection) (empêchant les attaques entre scripts) d’assainir et de bloquer la page si le navigateur détecte des attaques de script croisé. Toutefois, ils doivent personnaliser l’en-tête pour autoriser le chargement de la page une fois nettoyée.  
 4. L’administrateur doit activer le [**partage des ressources Cross-Origin (cors)** ](#cross-origin-resource-sharing-cors-headers) et définir l’origine (domaine) sur AD FS pour autoriser une application à page unique à accéder à une API Web avec un autre domaine.  
-5. L’administrateur a activé l’en-tête de [**stratégie de sécurité de contenu (CSP)** ](#content-security-policy-csp) pour empêcher les attaques par injection de données et de script entre sites en interdisant les demandes inter-domaines. Toutefois, en raison d’une nouvelle exigence commerciale, elle doit personnaliser l’en-tête pour permettre à la page Web de charger des images à partir de n’importe quelle origine et de restreindre le média aux fournisseurs approuvés.  
+5. L’administrateur a activé l’en-tête de [**stratégie de sécurité de contenu (CSP)** ](#content-security-policy-csp) pour empêcher les attaques par injection de données et de script entre sites en interdisant les demandes inter-domaines. Toutefois, en raison d’une nouvelle exigence métier, ils doivent personnaliser l’en-tête pour permettre à la page Web de charger des images à partir de n’importe quelle origine et de restreindre le support aux fournisseurs approuvés.  
 
  
 ## <a name="http-security-response-headers"></a>En-têtes de réponse de sécurité HTTP 
@@ -231,7 +231,7 @@ Utilisez le tableau et les liens suivants pour déterminer les navigateurs Web c
 |HTTP strict-transport-Security (HSTS)|[Compatibilité du navigateur HSTS](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Browser_compatibility)|
 |X-Frame-options|[Compatibilité du navigateur X-Frame-options](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)| 
 |X-XSS-protection|[Compatibilité du navigateur X-XSS-protection](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection#Browser_compatibility)| 
-|Partage des ressources cross-origin (CORS)|[Compatibilité des navigateurs CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
+|Partage des ressources Cross-Origin (CORS)|[Compatibilité des navigateurs CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
 |Stratégie de sécurité de contenu (CSP)|[Compatibilité du navigateur CSP](https://developer.mozilla.org/docs/Web/HTTP/CSP#Browser_compatibility) 
 
 ## <a name="next"></a>Suivant

@@ -9,15 +9,14 @@ ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 31f6c00f829569586630629d2fa18c1fb65cd1d6
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0850145c9281c769c5a2b6532ccb56615abd11b3
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949467"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725784"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>Mises à jour requises pour Services ADFS (AD FS) et proxy d’application Web (WAP)
-
 
 Depuis le 2016 octobre, toutes les mises à jour de tous les composants de Windows Server sont publiées uniquement via Windows Update (WU).  Il n’y a plus de correctifs ou de téléchargements individuels.
 Cela s’applique à Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2 SP1.
@@ -27,10 +26,10 @@ Cette page répertorie les packages cumulatifs présentant un intérêt particul
 ## <a name="updates-for-ad-fs-and-wap-in-windows-server-2016"></a>Mises à jour pour AD FS et WAP dans Windows Server 2016
 Les mises à jour pour Windows Server 2016 sont remises mensuellement via Windows Update et sont cumulatives. Le package de mise à jour ci-dessous est recommandé pour tous les serveurs AD FS et WAP 2016 et comprend toutes les mises à jour précédemment requises, ainsi que les derniers correctifs.
 
-|N° de base de connaissances |Description|Date de sortie
+|KBIT # |Description|Date de publication
 |----- | ----- |-----
-|[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Cette mise à jour de sécurité corrige une vulnérabilité dans Services ADFS (AD FS) qui pourrait permettre à une personne malveillante de contourner la stratégie de verrouillage extranet. |Juillet 2019|
-|[4489889 (version du système d’exploitation 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Résout un problème dans Services ADFS (AD FS) qui provoque l’affichage d’une approbation de partie de confiance en double dans la console de gestion AD FS. Cela se produit lorsque vous créez ou affichez des approbations de partie de confiance à l’aide de la console de gestion AD FS.</br></br> Résout un problème de latence du proxy d’application Web (WAP) élevé Services ADFS (000 MS) qui se produit lorsque le verrouillage intelligent extranet (ESL) est activé sur AD FS 2016. Cette mise à jour de sécurité corrige la vulnérabilité décrite dans [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794). |Mars 2019|
+|[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Cette mise à jour de sécurité corrige une vulnérabilité dans Services ADFS (AD FS) qui pourrait permettre à une personne malveillante de contourner la stratégie de verrouillage extranet. |2019 juillet|
+|[4489889 (version du système d’exploitation 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Résout un problème dans Services ADFS (AD FS) qui provoque l’affichage d’une approbation de partie de confiance en double dans la console de gestion AD FS. Cela se produit lorsque vous créez ou affichez des approbations de partie de confiance à l’aide de la console de gestion AD FS.</br></br> Résout un problème de latence du proxy d’application Web (WAP) élevé Services ADFS (000 MS) qui se produit lorsque le verrouillage intelligent extranet (ESL) est activé sur AD FS 2016. Cette mise à jour de sécurité corrige la vulnérabilité décrite dans [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794). |2019 mars|
 |[4487006 (version du système d’exploitation 14393,2828)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | Résout un problème qui provoque l’échec des mises à jour d’une partie de confiance lors de l’utilisation de PowerShell ou de la console de gestion Services ADFS (AD FS). Ce problème se produit si vous configurez une approbation de partie de confiance pour qu’elle utilise une URL de métadonnées en ligne qui publie plusieurs PassiveRequestorEndpoint. L’erreur est « MSIS7615 : les points de terminaison approuvés spécifiés dans une approbation de partie de confiance doivent être uniques pour cette approbation de partie de confiance. »  </br></br>Résout un problème qui affiche un message d’erreur spécifique pour les modifications de mot de passe de complexité externe en raison des stratégies de protection par mot de passe Azure. |Février 2019|
 |[4462928 (version du système d’exploitation 14393,2580)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)|Résout les problèmes d’interopérabilité Services ADFS entre le verrouillage intelligent ESL (ADFS) et l’ID de connexion de substitution. Lorsque l’ID de connexion de substitution est activé, les appels à AD FS applets de commande PowerShell, AdfsAccountActivity et Reset-AdfsAccountLockout, renvoient des erreurs « compte introuvable ». Lorsque SET-AdfsAccountActivity est appelé, une nouvelle entrée est ajoutée au lieu de modifier une entrée existante.|Octobre 2018|
 |[4343884 (version du système d’exploitation 14393,2457)](https://support.microsoft.com/help/4343884/windows-10-update-kb4343884)|Résout un problème de Services ADFS (AD FS) où Multi-Factor Authentication ne fonctionne pas correctement avec les périphériques mobiles qui utilisent des définitions de culture personnalisées. </br></br>Résout un problème dans Windows Hello entreprise qui entraîne un délai important (15 secondes) dans l’inscription d’un nouvel utilisateur. Ce problème se produit lorsqu’un module de sécurité matériel est utilisé pour stocker un certificat d’autorité d’inscription ADFS (RA).|Août 2018|
@@ -49,9 +48,9 @@ Les mises à jour pour Windows Server 2016 sont remises mensuellement via Window
 ## <a name="updates-for-ad-fs-and-wap-in-windows-server-2012-r2"></a>Mises à jour pour AD FS et WAP dans Windows Server 2012 R2
 Vous trouverez ci-dessous la liste des correctifs et des correctifs cumulatifs qui ont été publiés pour Services ADFS (AD FS) dans Windows Server 2012 R2.
 
-|N° de base de connaissances |Description|Date de sortie
+|KBIT # |Description|Date de publication
 |----- | ----- |-----
-|[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Cette mise à jour de sécurité corrige une vulnérabilité dans Services ADFS (AD FS) qui pourrait permettre à une personne malveillante de contourner la stratégie de verrouillage extranet. |Juillet 2019
+|[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Cette mise à jour de sécurité corrige une vulnérabilité dans Services ADFS (AD FS) qui pourrait permettre à une personne malveillante de contourner la stratégie de verrouillage extranet. |2019 juillet
 |[4041685](https://support.microsoft.com/kb/4041685)|A traité une AD FS problème dans lequel les cookies MSISConext dans les en-têtes de demande peuvent finir par dépasser la limite de taille des en-têtes et provoquer l’échec de l’authentification avec le code d’état HTTP 400 « incorrect-en-tête trop long ».</br></br>Résolution d’un problème où ADFS ne peut plus ignorer « prompt = login » pendant l’authentification. Une option « désactivé » a été ajoutée pour restaurer les scénarios où l’authentification sans mot de passe est utilisée.|Version préliminaire du correctif cumulatif d’octobre 2017
 |[4019217](https://support.microsoft.com/kb/4019217)|Dossiers de travail les clients utilisant le répartiteur de jetons ne fonctionnent pas lors de l’utilisation d’un serveur 2012 R2 AD FS Server|Correctif cumulatif de mai 2017 pour la version préliminaire
 |[4015550](https://support.microsoft.com/kb/4015550)|Résolution d’un problème lié au fait que AD FS n’authentifie pas les utilisateurs externes et AD FS WAP n’a pas pu transférer la requête de façon aléatoire|Correctif cumulatif de la mise à jour d’avril 2017
@@ -68,8 +67,8 @@ Vous trouverez ci-dessous la liste des correctifs et des correctifs cumulatifs q
 |[3080778](https://support.microsoft.com/kb/3080778)|AD FS n’appelle pas OnError quand l’adaptateur MFA lève une exception dans Windows Server 2012 R2|Juillet 2015
 |[3075610](https://support.microsoft.com/kb/3075610)|Les relations d’approbation sont perdues sur le serveur de AD FS secondaire après l’ajout ou la suppression d’un fournisseur de revendications dans Windows Server 2012 R2|Juillet 2015
 |[3070080](https://support.microsoft.com/kb/3070080)|La découverte du domaine d’hébergement ne fonctionne pas correctement pour l’approbation de partie de confiance ne prenant pas en charge les revendications|Juin 2015
-|[3052122](https://support.microsoft.com/kb/3052122)|La mise à jour ajoute la prise en charge des revendications d’ID composé dans AD FS jetons dans Windows Server 2012 R2|Mai 2015
-|[3045711](https://support.microsoft.com/kb/3045711)|MS15-040 : une vulnérabilité dans Services ADFS pourrait permettre la divulgation d’informations|Avril 2015
+|[3052122](https://support.microsoft.com/kb/3052122)|La mise à jour ajoute la prise en charge des revendications d’ID composé dans AD FS jetons dans Windows Server 2012 R2|2015 mai
+|[3045711](https://support.microsoft.com/kb/3045711)|MS15-040 : une vulnérabilité dans Services ADFS pourrait permettre la divulgation d’informations|2015 avril
 |[3042127](https://support.microsoft.com/kb/3042127)|Erreur « HTTP 400-demande incorrecte » lors de l’ouverture d’une boîte aux lettres partagée via WAP dans Windows Server 2012 R2|Mars 2015
 |[3042121](https://support.microsoft.com/kb/3042121)|AD FS la protection de la relecture des jetons pour les jetons d’authentification du proxy d’application Web dans Windows Server 2012 R2|Mars 2015
 |[3035025](https://support.microsoft.com/kb/3035025)|Correctif pour la fonctionnalité mettre à jour le mot de passe afin que les utilisateurs ne soient pas tenus d’utiliser l’appareil inscrit dans Windows Server 2012 R2|Janvier 2015
@@ -84,28 +83,28 @@ Vous trouverez ci-dessous la liste des correctifs et des correctifs cumulatifs q
 |[2975719](https://support.microsoft.com/kb/2975719)|Correctif cumulatif pour Windows Server 2012 R2|Août 2014
 |[2967917](https://support.microsoft.com/kb/2967917)|Correctif cumulatif pour Windows Server 2012 R2|Juillet 2014
 |[2962409](https://support.microsoft.com/kb/2962409)|Correctif cumulatif pour Windows Server 2012 R2|Juin 2014
-|[2955164](https://support.microsoft.com/kb/2955164)|Correctif cumulatif pour Windows Server 2012 R2|Mai 2014
-|[2919355](https://support.microsoft.com/kb/2919355)|Correctif cumulatif pour Windows Server 2012 R2|Avril 2014
+|[2955164](https://support.microsoft.com/kb/2955164)|Correctif cumulatif pour Windows Server 2012 R2|2014 mai
+|[2919355](https://support.microsoft.com/kb/2919355)|Correctif cumulatif pour Windows Server 2012 R2|2014 avril
 
 ## <a name="updates-for-ad-fs-in-windows-server-2012-ad-fs-21-and-ad-fs-20"></a>Mises à jour de AD FS dans Windows Server 2012 (AD FS 2,1) et AD FS 2,0
 Vous trouverez ci-dessous la liste des correctifs et des correctifs cumulatifs qui ont été publiés pour AD FS 2,0 et 2,1.
 
-|N° de base de connaissances |Description|Date de sortie|S'applique à :
+|KBIT # |Description|Date de publication|S'applique à :
 |----- | ----- |-----|-----
 |[3197878](https://support.microsoft.com/kb/3197878)|L’authentification via le proxy échoue dans Windows Server 2012 (il s’agit de la version générale du correctif logiciel 3094446)|Cumul de qualité de novembre 2016|AD FS 2,1
-|[3197869](https://support.microsoft.com/kb/3197869)|L’authentification via le proxy échoue dans Windows Server 2008 R2 SP1 (il s’agit de la version générale du correctif logiciel 3094446)|Cumul de qualité de novembre 2016|AD FS 2.0
-|[3094446](https://support.microsoft.com/kb/3094446)|L’authentification via le proxy échoue dans Windows Server 2012 ou Windows Server 2008 R2 SP1|septembre 2015|AD FS 2,0 et 2,1
+|[3197869](https://support.microsoft.com/kb/3197869)|L’authentification via le proxy échoue dans Windows Server 2008 R2 SP1 (il s’agit de la version générale du correctif logiciel 3094446)|Cumul de qualité de novembre 2016|AD FS 2,0
+|[3094446](https://support.microsoft.com/kb/3094446)|L’authentification via le proxy échoue dans Windows Server 2012 ou Windows Server 2008 R2 SP1|2015 septembre|AD FS 2,0 et 2,1
 |[3070078](https://support.microsoft.com/kb/3070078)|AD FS 2,1 lève une exception lorsque vous vous authentifiez auprès d’un certificat de chiffrement dans Windows Server 2012|Juillet 2015|AD FS 2,1
 |[3062577](https://support.microsoft.com/kb/3062577)|MS15-062 : une vulnérabilité dans Active Directory Federation Services pourrait permettre une élévation de privilèges|Juin 2015|AD FS 2,0/2,1
 |[3003381](https://support.microsoft.com/kb/3003381)|MS14-077 : une vulnérabilité dans Services ADFS pourrait permettre la divulgation d’informations : 14 avril 2015|Novembre 2014|AD FS 2,0/2,1
 |[2987843](https://support.microsoft.com/kb/2987843)|L’utilisation de la mémoire de AD FS serveur de Fédération augmente quand de nombreux utilisateurs se connectent sur une application Web dans Windows Server 2012|Juillet 2014|AD FS 2,1
-|[2957619](https://support.microsoft.com/kb/2957619)|L’approbation de la partie de confiance dans AD FS s’arrête lorsqu’une demande est effectuée pour AD FS pour un jeton délégué|Mai 2014|AD FS 2,1
+|[2957619](https://support.microsoft.com/kb/2957619)|L’approbation de la partie de confiance dans AD FS s’arrête lorsqu’une demande est effectuée pour AD FS pour un jeton délégué|2014 mai|AD FS 2,1
 |[2926658](https://support.microsoft.com/kb/2926658)|Le déploiement de la batterie de serveurs SQL ADFS échoue si vous n’avez pas d’autorisations SQL|octobre 2014|AD FS 2,1
-|[2896713](https://support.microsoft.com/kb/2896713) ou [2989956](https://support.microsoft.com/kb/2989956)|Une mise à jour est disponible pour résoudre plusieurs problèmes après l’installation de la mise à jour de sécurité 2843638 sur un serveur AD FS|novembre 2013</br></br>septembre 2014|AD FS 2,0/2,1
+|[2896713](https://support.microsoft.com/kb/2896713) ou [2989956](https://support.microsoft.com/kb/2989956)|Une mise à jour est disponible pour résoudre plusieurs problèmes après l’installation de la mise à jour de sécurité 2843638 sur un serveur AD FS|2013 novembre</br></br>2014 septembre|AD FS 2,0/2,1
 |[2877424](https://support.microsoft.com/kb/2877424)|La mise à jour vous permet d’utiliser un seul certificat pour plusieurs approbations de partie de confiance dans une batterie de serveurs AD FS 2,1|Octobre 2013|AD FS 2,1
-|[2873168](https://support.microsoft.com/kb/2873168)|CORRECTIF : une erreur se produit quand vous utilisez un fournisseur de services de chiffrement et un module de sécurité matériel tiers, puis que vous configurez une approbation de fournisseur de revendications dans le correctif cumulatif 3 pour AD FS 2,0 sur Windows Server 2008 R2 Service Pack 1|Septembre 2013|AD FS 2.0
-|[2861090](https://support.microsoft.com/kb/2861090)|Une virgule dans le nom d’objet d’un certificat de chiffrement provoque une exception dans Windows Server 2008 R2 SP1|août 2013|AD FS 2.0
-|[2843639](https://support.microsoft.com/kb/2843639)|Caution Une vulnérabilité dans Services ADFS pourrait permettre la divulgation d’informations|novembre 2013|AD FS 2,1
-|[2843638](https://support.microsoft.com/kb/2843638)|MS13-066 : description de la mise à jour de sécurité pour Services ADFS 2,0:13 août 2013|août 2013|AD FS 2.0
-|[2827748](https://support.microsoft.com/kb/2827748)|Le fichier FederationMetadata. xml ne contient pas les informations de point de terminaison MEX pour les points de terminaison WS-Trust et WS-Federation dans Windows Server 2012|Mai 2013|AD FS 2,1
-|[2790338](https://support.microsoft.com/kb/2790338)|Description du correctif cumulatif 3 pour Services ADFS (AD FS) 2,0|Mars 2013|AD FS 2.0
+|[2873168](https://support.microsoft.com/kb/2873168)|CORRECTIF : une erreur se produit quand vous utilisez un fournisseur de services de chiffrement et un module de sécurité matériel tiers, puis que vous configurez une approbation de fournisseur de revendications dans le correctif cumulatif 3 pour AD FS 2,0 sur Windows Server 2008 R2 Service Pack 1|2013 septembre|AD FS 2,0
+|[2861090](https://support.microsoft.com/kb/2861090)|Une virgule dans le nom d’objet d’un certificat de chiffrement provoque une exception dans Windows Server 2008 R2 SP1|août 2013|AD FS 2,0
+|[2843639](https://support.microsoft.com/kb/2843639)|Caution Une vulnérabilité dans Services ADFS pourrait permettre la divulgation d’informations|2013 novembre|AD FS 2,1
+|[2843638](https://support.microsoft.com/kb/2843638)|MS13-066 : description de la mise à jour de sécurité pour Services ADFS 2,0:13 août 2013|août 2013|AD FS 2,0
+|[2827748](https://support.microsoft.com/kb/2827748)|Le fichier FederationMetadata. xml ne contient pas les informations de point de terminaison MEX pour les points de terminaison WS-Trust et WS-Federation dans Windows Server 2012|2013 mai|AD FS 2,1
+|[2790338](https://support.microsoft.com/kb/2790338)|Description du correctif cumulatif 3 pour Services ADFS (AD FS) 2,0|Mars 2013|AD FS 2,0

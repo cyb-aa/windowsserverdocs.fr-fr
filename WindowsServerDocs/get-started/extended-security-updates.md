@@ -8,13 +8,13 @@ author: iainfoulds
 ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.date: 12/16/2019
-ms.openlocfilehash: 83ab3663b2c03017ba1bf613a49c394be0511002
-ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
+ms.date: 01/23/2020
+ms.openlocfilehash: 0f3ea0dacc200adaaec5064d19754ad6de0042a6
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76162500"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725774"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Guide pratique pour utiliser les mises à jour de sécurité étendues Windows Server 2008 et 2008 R2
 
@@ -43,23 +43,38 @@ Les mises à jour de sécurité étendues pour Windows Server regroupent les mis
 
 Pour plus d’informations, consultez les [questions fréquentes sur les mises à jour de sécurité étendues](https://www.microsoft.com/cloud-platform/extended-security-updates).
 
+## <a name="how-to-use-extended-security-updates"></a>Comment utiliser les mises à jour de sécurité étendues
+
+Si vous exécutez des machines virtuelles Windows Server 2008/2008 R2 dans Azure, celles-ci sont automatiquement activées pour les mises à jour de sécurité étendues. Vous n’avez pas besoin de configurer quoi que ce soit et aucun supplément ne vous est facturé si vous utilisez des mises à jour de sécurité étendues avec les machines virtuelles Azure. Les mises à jour de sécurité étendues sont automatiquement distribuées aux machines virtuelles Azure si celles-ci sont configurées pour recevoir des mises à jour.
+
+Pour d’autres environnements, comme les machines virtuelles locales ou les serveurs physiques, vous devez demander et configurer manuellement des mises à jour de sécurité étendues. Si vous avez déjà acheté des mises à jour de sécurité étendues, proposées dans les programmes de licence en volume tels que Contrat Entreprise (EA, Enterprise Agreement), Contrat Souscription Entreprise (EAS, Enterprise Agreement Subscription), EES (Enrollment for Education Solutions) ou SCE (Server and Cloud Enrollment), vous pouvez utiliser l’une des étapes suivantes pour récupérer une clé d’activation :
+
+* Connectez-vous au [Centre de gestion des licences en volume Microsoft](https://www.microsoft.com/Licensing/servicecenter/default.aspx) pour voir et obtenir les clés d’activation.
+* Inscrivez-vous aux mises à jour de sécurité étendues dans le portail Azure pour obtenir les clés d’activation Windows Server 2008/R2.
+    * Pour connaître la procédure à suivre pour effectuer ce processus, consultez les étapes suivantes de cet article.
+
 ## <a name="register-for-extended-security-updates"></a>S’inscrire aux mises à jour de sécurité étendues
 
 Pour utiliser les mises à jour de sécurité étendues, vous devez créer une clé d’activation multiple (MAK) et l’appliquer aux ordinateurs Windows Server 2008 et 2008 R2. Cette clé indique aux serveurs Windows Update que vous pouvez continuer à recevoir des mises à jour de sécurité. Utilisez le portail Azure pour vous inscrire aux mises à jour de sécurité étendues et gérer ces clés, même si vous utilisez uniquement des ordinateurs locaux.
 
 > [!NOTE]
-> Si vous exécutez des machines virtuelles Windows Server 2008 / 2008 R2 dans Azure, vous n’avez pas besoin d’effectuer les étapes suivantes. Les machines virtuelles Azure reçoivent automatiquement les mises à jour de sécurité étendues. Il est inutile de créer une ressource de mises à jour de sécurité étendues et une clé. Par ailleurs, l’utilisation de mises à jour de sécurité étendues avec les machines virtuelles Azure n’engendre pas de frais supplémentaires.
+>
+> Vous n’avez pas besoin de vous inscrire aux mises à jour de sécurité étendues si vous exécutez Windows Server 2008 et 2008 R2 sur des machines virtuelles Azure. Pour d’autres environnements, comme les machines virtuelles locales ou les serveurs physiques, [achetez des mises à jour de sécurité étendues](https://www.microsoft.com/licensing/how-to-buy/how-to-buy) avant d’essayer de vous inscrire et de les utiliser.
 
-> [!NOTE]
-> Avant de suivre les étapes ci-dessous, envoyez un e-mail à [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com) avec ces informations pour figurer sur liste verte :
+> [!IMPORTANT]
+>
+> Veillez à suivre les étapes précédentes pour acheter des mises à jour de sécurité étendues par le biais de votre programme de licence en volume. Avant de suivre les étapes ci-dessous, envoyez un e-mail à [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com) avec les informations suivantes pour obtenir l’approbation d’utiliser la fonctionnalité :
+>
 > * Nom du client :
 > * Abonnement Azure :
 > * Numéro de contrat EA (pour les mises à jour de sécurité étendues) :
 > * Nombre de serveurs de mises à jour de sécurité étendues :
-> 
-> L’équipe passera en revue les informations fournies et ajoutera l’utilisateur/abonnement à la liste verte.
-> 
-> Si le demandeur n’est pas sur liste verte, l’erreur suivante peut se produire : [Le type de ressource est introuvable dans l’espace de noms « Microsoft.WindowsESU »](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version).
+>
+> L’équipe passera en revue les informations fournies et ajoutera l’utilisateur/abonnement à la liste approuvée.
+>
+> Si le demandeur n’est pas approuvé, l’erreur suivante peut se produire :
+>
+> [Le type de ressource est introuvable dans l’espace de noms « Microsoft.WindowsESU »](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version).
 
 Pour inscrire des machines virtuelles non-Azure aux mises à jour de sécurité étendues et créer une clé, effectuez les étapes suivantes dans le portail Azure :
 
