@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: c0257b98-5633-4264-9df6-b6ffae80592c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b4e3c2f4a27652e7b28b826981d192d6a4c6c107
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0c112898217eb05ad2fd9b387f401ce129b47e54
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404557"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822692"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>Étape 2 configurer le serveur d’accès à distance
 
@@ -157,7 +157,7 @@ Pour déployer l’accès à distance, vous devez configurer le serveur qui agir
 ## <a name="BKMK_Infra"></a>Configurer les serveurs d’infrastructure  
 Pour configurer les serveurs d’infrastructure dans un déploiement de l’accès à distance, vous devez configurer les éléments suivants :  
   
--   Serveur Emplacement réseau  
+-   Serveur d'emplacement réseau  
   
 -   Paramètres DNS, y compris la liste de recherche de suffixes DNS  
   
@@ -177,7 +177,7 @@ Pour configurer les serveurs d’infrastructure dans un déploiement de l’acc�
   
 4.  Dans la page **liste de recherche de suffixes DNS** , le serveur d’accès à distance détecte automatiquement les suffixes de domaine dans le déploiement. Utilisez les boutons **Ajouter** et **supprimer** pour créer la liste des suffixes de domaine que vous souhaitez utiliser. Pour ajouter un nouveau suffixe de domaine, dans **Nouveau suffixe**, entrez le suffixe, puis cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
   
-5.  Sur la page de **gestion** , ajoutez des serveurs d’administration qui ne sont pas détectés automatiquement, puis cliquez sur **suivant**. L'accès à distance ajoute automatiquement des contrôleurs de domaine et des serveurs System Center Configuration Manager.  
+5.  Sur la page de **gestion** , ajoutez des serveurs d’administration qui ne sont pas détectés automatiquement, puis cliquez sur **suivant**. L’accès à distance ajoute automatiquement des contrôleurs de domaine et des serveurs de Configuration Manager.  
   
 6.  Cliquez sur **Terminer**.  
   

@@ -1,6 +1,6 @@
 ---
 ms.assetid: c5eb3fa0-550c-4a2f-a0bc-698b690c4199
-title: Planifier l’accès conditionnel local basé sur un périphérique
+title: Planifier l'accès conditionnel local basé sur un périphérique
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,14 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 79dfc7fbf9e2dcc753829cc53d914f374010f925
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 00a7edf9529e1f116d951fd69d3bfa381d6d413a
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408334"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822752"
 ---
-# <a name="plan-device-based-conditional-access-on-premises"></a>Planifier l’accès conditionnel local basé sur un périphérique
+# <a name="plan-device-based-conditional-access-on-premises"></a>Planifier l'accès conditionnel local basé sur un périphérique
 
 
 Ce document décrit les stratégies d’accès conditionnel basées sur les appareils dans un scénario hybride dans lequel les annuaires locaux sont connectés à Azure AD à l’aide de Azure AD Connect.     
@@ -25,7 +25,7 @@ Ce document décrit les stratégies d’accès conditionnel basées sur les appa
 
 AD FS fournit le composant local des stratégies d’accès conditionnel dans un scénario hybride.  Lorsque vous inscrivez des appareils avec Azure AD pour l’accès conditionnel aux ressources du Cloud, la fonctionnalité de réécriture de l’appareil Azure AD Connect rend les informations d’inscription de l’appareil disponibles localement pour les stratégies de AD FS à consommer et à appliquer.  De cette façon, vous disposez d’une approche cohérente pour accéder aux stratégies de contrôle des ressources locales et du Cloud.  
 
-![Accès conditionnel](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![accès conditionnel](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 ### <a name="types-of-registered-devices"></a>Types d’appareils inscrits  
 Il existe trois types d’appareils inscrits, qui sont tous représentés en tant qu’objets de périphérique dans Azure AD et peuvent être utilisés pour l’accès conditionnel avec AD FS également sur site.  
@@ -34,10 +34,10 @@ Il existe trois types d’appareils inscrits, qui sont tous représentés en tan
 | --- | --- |--- | --- |
 |Description    |  Les utilisateurs ajoutent leur compte professionnel ou scolaire à leur appareil BYOD de manière interactive.  **Remarque :** Ajouter un compte professionnel ou scolaire est le remplacement de Workplace Join dans Windows 8/8.1       | Les utilisateurs joignent leur appareil de travail Windows 10 à Azure AD.|Les appareils Windows 10 joints à un domaine s’inscrivent automatiquement auprès de Azure AD.|           
 |Comment les utilisateurs se connectent à l’appareil     |  Aucune connexion à Windows en tant que compte professionnel ou scolaire.  Connectez-vous à l’aide d’un compte Microsoft.       |   Connectez-vous à Windows en tant que compte (professionnel ou scolaire) qui a inscrit l’appareil.      |     Connectez-vous à l’aide du compte Active Directory.|      
-|Gestion des appareils    |      Stratégies MDM (avec inscription Intune supplémentaire)   | Stratégies MDM (avec inscription Intune supplémentaire)        |   Stratégie de groupe, System Center Configuration Manager (SCCM) |
+|Gestion des appareils    |      Stratégies MDM (avec inscription Intune supplémentaire)   | Stratégies MDM (avec inscription Intune supplémentaire)        |   Stratégie de groupe, Configuration Manager |
 |Type d’approbation Azure AD|Espace de travail joint|Azure AD joint|Client appartenant à un domaine  |     
 |Emplacement des paramètres W10    | Paramètres > comptes > votre compte > Ajouter un compte professionnel ou scolaire        | Paramètres > système > sur > joindre Azure AD       |   Paramètres > système > sur > joindre un domaine |       
-|Également disponible pour les appareils iOS et Android ?   |    Oui     |       Non  |   Non   |   
+|Également disponible pour les appareils iOS et Android ?   |    Oui     |       non  |   non   |   
 
   
 

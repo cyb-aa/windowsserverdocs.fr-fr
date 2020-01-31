@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c8db30d3c5512fc72648c7894d66b715850fb619
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 71a6d38b9c77b3b8c24b28f78114daa63f5bd527
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367308"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822532"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>Étape 1 planifier l’infrastructure d’accès à distance
 
@@ -54,7 +54,7 @@ Lorsque vous planifiez votre réseau, vous devez tenir compte de la topologie de
   
 2.  Identifiez vos exigences en matière d'adressage IP :  
   
-    DirectAccess utilise IPv6 avec IPsec pour créer une connexion sécurisée entre les ordinateurs clients DirectAccess et le réseau d'entreprise interne. Pourtant, DirectAccess ne requiert pas systématiquement une connectivité Internet IPv6 ni une prise en charge IPv6 native sur les réseaux internes. Au lieu de cela, il configure et utilise automatiquement des technologies de transition IPv6 pour transférer le trafic IPv6 sur Internet IPv4 (6to4, Teredo ou IP-HTTPs) et sur votre intranet IPv4 uniquement (NAT64 ou ISATAP). Pour obtenir une vue d'ensemble de ces technologies de transition, consultez les ressources suivantes :  
+    DirectAccess utilise IPv6 avec IPsec pour créer une connexion sécurisée entre les ordinateurs clients DirectAccess et le réseau d'entreprise interne. Pourtant, DirectAccess ne requiert pas systématiquement une connectivité Internet IPv6 ni une prise en charge IPv6 native sur les réseaux internes. Au lieu de cela, il configure et utilise automatiquement des technologies de transition IPv6 pour transférer le trafic IPv6 sur Internet IPv4 (6to4, Teredo ou IP-HTTPs) et sur votre intranet IPv4 uniquement (NAT64 ou ISATAP). Pour obtenir une vue d'ensemble de ces technologies de transition, consultez les ressources suivantes :  
   
     -   [Technologies de transition IPv6](https://technet.microsoft.com/library/bb726951.aspx)  
   
@@ -77,9 +77,9 @@ Lorsque vous planifiez votre réseau, vous devez tenir compte de la topologie de
 ### <a name="plan-isatap-requirements"></a>Planifier les exigences ISATAP  
 ISATAP est requis pour la gestion à distance de DirectAccessclients, de sorte que les serveurs d’administration DirectAccess puissent se connecter aux clients DirectAccess situés sur Internet. ISATAP n’est pas requis pour prendre en charge les connexions initiées par les ordinateurs clients DirectAccess aux ressources IPv4 sur le réseau d’entreprise. NAT64/DNS64 est utilisé à ces fins. Si votre déploiement requiert ISATAP, utilisez le tableau suivant pour identifier vos besoins.  
   
-|Scénario de déploiement ISATAP|Configuration requise|  
+|Scénario de déploiement ISATAP|Conditions préalables|  
 |---------------|--------|  
-|Intranet IPv6 natif existant (aucun ISATAP n’est requis)|Avec une infrastructure IPv6 native existante, vous spécifiez le préfixe de l’organisation pendant le déploiement de l’accès à distance, et le serveur d’accès à distance ne se configure pas en tant que routeur ISATAP. Procédez comme suit :<br/><br/>1. pour vous assurer que les clients DirectAccess sont accessibles à partir de l’intranet, vous devez modifier votre routage IPv6 afin que le trafic de l’itinéraire par défaut soit transféré au serveur d’accès à distance. Si l’espace d’adressage IPv6 de votre intranet utilise une adresse autre qu’un préfixe d’adresse IPv6 48 bits unique, vous devez spécifier le préfixe IPv6 de l’organisation concerné au cours du déploiement.<br/>2. Si vous êtes actuellement connecté à Internet IPv6, vous devez configurer le trafic de votre itinéraire par défaut afin qu’il soit transféré au serveur d’accès à distance, puis configurer les connexions et itinéraires appropriés sur le serveur d’accès à distance, afin que l’itinéraire par défaut le trafic est transféré à l’appareil connecté à Internet IPv6.|  
+|Intranet IPv6 natif existant (aucun ISATAP n’est requis)|Avec une infrastructure IPv6 native existante, vous spécifiez le préfixe de l’organisation pendant le déploiement de l’accès à distance, et le serveur d’accès à distance ne se configure pas en tant que routeur ISATAP. Procédez comme suit :<br/><br/>1. pour vous assurer que les clients DirectAccess sont accessibles à partir de l’intranet, vous devez modifier votre routage IPv6 afin que le trafic de l’itinéraire par défaut soit transféré au serveur d’accès à distance. Si l’espace d’adressage IPv6 de votre intranet utilise une adresse autre qu’un préfixe d’adresse IPv6 48 bits unique, vous devez spécifier le préfixe IPv6 de l’organisation concerné au cours du déploiement.<br/>2. Si vous êtes actuellement connecté à Internet IPv6, vous devez configurer le trafic de votre itinéraire par défaut afin qu’il soit transféré au serveur d’accès à distance, puis configurer les connexions et itinéraires appropriés sur le serveur d’accès à distance, afin que l’itinéraire par défaut le trafic est transféré à l’appareil connecté à Internet IPv6.|  
 |Déploiement ISATAP existant|Si vous disposez d’une infrastructure ISATAP, pendant le déploiement, vous êtes invité à fournir le préfixe 48 bits de l’organisation, et le serveur d’accès à distance ne se configure pas en tant que routeur ISATAP. Pour vous assurer que les clients DirectAccess sont accessibles à partir de l’intranet, vous devez modifier votre infrastructure de routage IPv6 afin que le trafic de l’itinéraire par défaut soit transféré au serveur d’accès à distance. Cette modification doit être effectuée sur le routeur ISATAP existant sur lequel les clients intranet doivent déjà transférer le trafic par défaut.|  
 |Aucune connectivité IPv6 existante|Lorsque l’Assistant Configuration de l’accès à distance détecte que le serveur n’a pas de connectivité IPv6 native ou ISATAP, il dérive automatiquement un préfixe 48 bits 6to4 pour l’intranet et configure le serveur d’accès à distance en tant que routeur ISATAP pour fournir IPv6. connectivité aux hôtes ISATAP sur votre intranet. (Un préfixe 6to4 est utilisé uniquement si le serveur a des adresses publiques ; sinon, le préfixe est généré automatiquement à partir d’une plage d’adresses locales unique.)<br/><br/>Pour utiliser ISATAP, procédez comme suit :<br/><br/>1. Inscrivez le nom ISATAP sur un serveur DNS pour chaque domaine sur lequel vous souhaitez activer la connectivité ISATAP, afin que le nom ISATAP puisse être résolu par le serveur DNS interne à l’adresse IPv4 interne du serveur d’accès à distance.<br/>2. par défaut, les serveurs DNS exécutant Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 ou Windows Server 2003 bloquent la résolution du nom ISATAP à l’aide de la liste rouge de requêtes globale. Pour activer ISATAP, vous devez supprimer le nom ISATAP de la liste rouge. Pour plus d'informations, consultez [Supprimer ISATAP de la liste rouge de requêtes globale DNS](https://go.microsoft.com/fwlink/p/?LinkId=168593).<br/><br/>Les hôtes ISATAP Windows qui peuvent résoudre le nom ISATAP configurent automatiquement une adresse avec le serveur d’accès à distance comme suit :<br/><br/>1. une adresse IPv6 basée sur ISATAP sur une interface de tunnel ISATAP<br/>2. un itinéraire 64 bits qui fournit la connectivité aux autres hôtes ISATAP sur l’intranet<br/>3. Itinéraire IPv6 par défaut qui pointe vers le serveur d’accès à distance. L’itinéraire par défaut garantit que les hôtes ISATAP intranet peuvent atteindre les clients DirectAccess<br/><br/>Lorsque vos hôtes ISATAP basés sur Windows obtiennent une adresse IPv6 basée sur ISATAP, ils commencent à utiliser le trafic encapsulé ISATAP pour communiquer si la destination est également un hôte ISATAP. Étant donné que ISATAP utilise un seul sous-réseau 64 bits pour l’intranet entier, votre communication passe d’un modèle IPv4 de communication segmenté à un modèle de communication de sous-réseau unique avec IPv6. Cela peut affecter le comportement de certains Active Directory Domain Services (AD DS) et les applications qui reposent sur la configuration de vos sites et services Active Directory. Par exemple, si vous avez utilisé le composant logiciel enfichable sites et services Active Directory pour configurer des sites, des sous-réseaux IPv4 et des transports intersites pour transférer des demandes aux serveurs au sein de sites, cette configuration n’est pas utilisée par les hôtes ISATAP.<br/><br/><ol><li>Pour configurer des sites et des services Active Directory pour le transfert au sein de sites pour les hôtes ISATAP, pour chaque objet de sous-réseau IPv4, vous devez configurer un objet de sous-réseau IPv6 équivalent, dans lequel le préfixe d’adresse IPv6 du sous-réseau exprime la même plage d’hôtes ISATAP. adresses en tant que sous-réseau IPv4. Par exemple, pour le sous-réseau IPv4 192.168.99.0/24 et le préfixe d’adresse ISATAP 64 bits 2002:836b : 1:8000 ::/64, le préfixe d’adresse IPv6 équivalent pour l’objet de sous-réseau IPv6 est 2002:836b : 1:8000:0 : 5efe : 192.168.99.0/120. Pour une longueur de préfixe IPv4 arbitraire (définie sur 24 dans l’exemple), vous pouvez déterminer la longueur de préfixe IPv6 correspondante à partir de la formule 96 + IPv4PrefixLength.</li><li>Pour les adresses IPv6 des clients DirectAccess, ajoutez ce qui suit :<br/><br/><ul><li>Pour les clients DirectAccess Teredo : un sous-réseau IPv6 pour la plage 2001:0 : WWXX : YYZZ ::/64, dans laquelle WWXX : YYZZ est la version hexadécimale à deux-points de la première adresse IPv4 accessible sur Internet du serveur d’accès à distance. .</li><li>Pour les clients DirectAccess IP-HTTPs : un sous-réseau IPv6 pour la plage 2002 : WWXX : YYZZ : 8100 ::/56, dans laquelle WWXX : YYZZ est la version hexadécimale à deux-points de la première adresse IPv4 accessible sur Internet (w.x.y. z) du serveur d’accès à distance. .</li><li>Pour les clients DirectAccess 6to4 : série de préfixes IPv6 basés sur 6to4 qui commencent par 2002 : et représentent les préfixes d’adresse IPv4 publics régionaux qui sont gérés par l’IANA (Internet Assigned Numbers Authority) et les registres régionaux. Le préfixe 6to4 pour un préfixe d’adresse IPv4 publique w. x. y. z/n est 2002 : WWXX : YYZZ ::/[16 + n], où WWXX : YYZZ est la version hexadécimale à deux-points de w.x.y.z.<br/><br/>        Par exemple, la plage 7.0.0.0/8 est administrée par le registre ARIN (American Registry for Internet Numbers) pour l'Amérique du Nord. Le préfixe 6to4 correspondant à cette plage d’adresses IPv6 publiques est 2002:700 ::/24. Pour plus d’informations sur l’espace d’adressage public IPv4, consultez Registre de l' [espace d’adressage IPv4 IANA](https://www.iana.org/assignments/ipv4-address-space/ipv4-address-space.xml). .</li></ul></li></ol>|  
   
@@ -107,7 +107,7 @@ Si le serveur d'accès à distance se trouve derrière un pare-feu de périmètr
   
 Les exceptions suivantes sont requises pour le trafic d’accès à distance lorsque le serveur d’accès à distance se trouve sur Internet IPv6 :  
   
--   Protocole IP 50  
+-   Protocole IP 50  
   
 -   Port UDP de destination 500 entrant et port UDP source 500 sortant.  
   
@@ -134,7 +134,7 @@ Il existe trois scénarios qui requièrent des certificats lorsque vous déploye
   
 La configuration requise de l’autorité de certification pour chacun de ces scénarios est résumée dans le tableau suivant.  
   
-|Authentification IPsec|Serveur IP-HTTPS|Serveur Emplacement réseau|  
+|Authentification IPsec|Serveur IP-HTTPS|Serveur d'emplacement réseau|  
 |------------|----------|--------------|  
 |Une autorité de certification interne est requise pour émettre des certificats d’ordinateur au serveur d’accès à distance et aux clients pour l’authentification IPsec lorsque vous n’utilisez pas le protocole Kerberos pour l’authentification.|Autorité de certification interne : vous pouvez utiliser une autorité de certification interne pour émettre le certificat IP-HTTPs. Toutefois, vous devez vous assurer que le point de distribution de liste de révocation de certificats est disponible en externe.|Autorité de certification interne : vous pouvez utiliser une autorité de certification interne pour émettre le certificat de site Web du serveur d’emplacement réseau. Assurez-vous que le point de distribution de la liste de révocation de certificats est hautement disponible à partir du réseau interne.|  
 ||Certificat auto-signé : vous pouvez utiliser un certificat auto-signé pour le serveur IP-HTTPs. Un certificat auto-signé n'est pas utilisable dans un déploiement multisite.|Certificat auto-signé : vous pouvez utiliser un certificat auto-signé pour le site Web du serveur emplacement réseau. Toutefois, vous ne pouvez pas utiliser un certificat auto-signé dans un déploiement multisite.|  
@@ -205,7 +205,7 @@ Quand un nouveau suffixe est ajouté à la table NRPT dans la console de gestion
   
 -   **Serveur emplacement réseau**  
   
-    Les clients DirectAccess essaient d'atteindre le serveur Emplacement réseau pour déterminer s'ils se situent sur le réseau interne. Les clients sur le réseau interne doivent être en mesure de résoudre le nom du serveur d’emplacement réseau, et ils ne doivent pas pouvoir résoudre le nom lorsqu’ils se trouvent sur Internet. Pour garantir cela, le nom de domaine complet (FQDN) du serveur Emplacement réseau est, par défaut, ajouté en tant que règle d'exemption à la table NRPT. De plus, quand vous configurez l'accès à distance, les règles suivantes sont automatiquement créées :  
+    Les clients DirectAccess essaient d'atteindre le serveur Emplacement réseau pour déterminer s'ils se situent sur le réseau interne. Les clients sur le réseau interne doivent être en mesure de résoudre le nom du serveur d’emplacement réseau, et ils ne doivent pas pouvoir résoudre le nom lorsqu’ils se trouvent sur Internet. Pour garantir cela, le nom de domaine complet (FQDN) du serveur Emplacement réseau est, par défaut, ajouté en tant que règle d'exemption à la table NRPT. De plus, quand vous configurez l'accès à distance, les règles suivantes sont automatiquement créées :  
   
     -   Une règle de suffixe DNS pour le domaine racine ou le nom de domaine du serveur d’accès à distance, et les adresses IPv6 qui correspondent aux serveurs DNS intranet configurés sur le serveur d’accès à distance. Par exemple, si le serveur d'accès à distance est membre du domaine corp.contoso.com, une règle est créée pour le suffixe DNS corp.contoso.com.  
   
@@ -323,9 +323,9 @@ Les clients DirectAccess initient une communication avec les serveurs d’admini
   
 -   Contrôleurs de domaine : la découverte automatique des contrôleurs de domaine est effectuée pour les domaines qui contiennent des ordinateurs clients et pour tous les domaines de la même forêt que le serveur d’accès à distance.  
   
--   Serveurs System Center Configuration Manager  
+-   Serveurs de Configuration Manager de point de terminaison Microsoft  
   
-Les contrôleurs de domaine et les serveurs de System Center Configuration Manager sont détectés automatiquement lors de la première configuration de DirectAccess. Les contrôleurs de domaine détectés ne sont pas affichés dans la console, mais les paramètres peuvent être récupérés à l’aide des applets de commande Windows PowerShell. Si le contrôleur de domaine ou les serveurs de System Center Configuration Manager sont modifiés, cliquez sur **Update Management serveurs** dans la console pour actualiser la liste des serveurs d’administration.  
+Les contrôleurs de domaine et les serveurs de Configuration Manager sont détectés automatiquement lors de la première configuration de DirectAccess. Les contrôleurs de domaine détectés ne sont pas affichés dans la console, mais les paramètres peuvent être récupérés à l’aide des applets de commande Windows PowerShell. Si le contrôleur de domaine ou les serveurs de Configuration Manager sont modifiés, cliquez sur **Update Management serveurs** dans la console pour actualiser la liste des serveurs d’administration.  
   
 **Configuration requise du serveur d’administration**  
   
@@ -350,7 +350,7 @@ Lorsque vous planifiez un environnement de Active Directory pour un déploiement
   
 -   Le serveur d’accès à distance doit être membre d’un domaine.  
   
--   Les clients DirectAccess doivent appartenir au domaine. Les clients peuvent appartenir :  
+-   Les clients DirectAccess doivent appartenir au domaine. Les clients peuvent appartenir :  
   
     -   à tout domaine inclus dans la même forêt que le serveur d'accès à distance ;  
   

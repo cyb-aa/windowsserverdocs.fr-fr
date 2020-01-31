@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 12/20/2019
+ms.date: 1/16/2019
 description: Nouvelles rubriques et rubriques mises à jour dans la documentation sur le stockage local pour Windows Server pour les professionnels de l’informatique.
-ms.openlocfilehash: d50d4ca5b49b7f895fad3d3866226f95c55ae485
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: eb0e4f5cd357718be298290930bdf6fb9f7f041f
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352778"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822602"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Historique des modifications des rubriques de stockage dans Windows Server
 
@@ -24,7 +24,13 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 
 > Si vous recherchez l’historique des mises à jour pour Windows Server, consultez historique des mises à jour Windows [10 et Windows server 2019](https://support.microsoft.com/help/4464619) ou [historique des mises à jour de Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
-## <a name="december-2019"></a>Décembre 2019
+## <a name="january-2020"></a>2020 janvier
+
+| Rubrique nouvelle ou modifiée | Description |
+| --- | --- |
+|[Comprendre et déployer la mémoire persistante](storage-spaces/deploy-pmem.md) | Un problème matériel connu a été ajouté. |
+
+## <a name="december-2019"></a>2019 décembre
 
 | Rubrique nouvelle ou modifiée                                        | Description |
 | ---                                                         | ---           |
@@ -33,7 +39,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 | [Convertir un disque dynamique en disque de base](disk-management/change-a-dynamic-disk-back-to-a-basic-disk.md) | Correction d’une erreur dans la ligne de commande et ajout d’informations en fonction des commentaires des clients. |
 
 
-## <a name="august-2019"></a>Août 2019
+## <a name="august-2019"></a>2019 août
 
 | Rubrique nouvelle ou modifiée                                        | Description |
 | ---                                                         | ---           |
@@ -54,7 +60,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Créer des volumes](storage-spaces/create-volumes.md)| Ajout de étapes et de vidéos pour la création d’un volume dans le centre d’administration Windows.|
 |[Étendre les volumes](storage-spaces/resize-volumes.md)| Ajout de étapes et de vidéo pour le redimensionnement d’un volume dans le centre d’administration Windows.|
 
-## <a name="march-2019"></a>Mars 2019
+## <a name="march-2019"></a>2019 mars
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
@@ -69,13 +75,13 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |---                                                         |---           |
 |[Problèmes connus du service de migration du stockage](storage-migration-service/known-issues.md)   | Ajout d’un problème    |
 
-## <a name="january-2019"></a>Janvier 2019
+## <a name="january-2019"></a>2019 janvier
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
 |[Comprendre et contrôler la resynchronisation du stockage](storage-spaces/understand-storage-resync.md)|Nouvelle rubrique|
 
-## <a name="december-2018"></a>Décembre 2018
+## <a name="december-2018"></a>2018 décembre
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
@@ -112,7 +118,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 | [Serveur cible iSCSI](iscsi/iscsi-target-server.md) | Migration à partir de la bibliothèque de [versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 | [Limites d'extensibilité du serveur cible iSCSI](iscsi/iscsi-target-server-limits.md) |Migration à partir de la bibliothèque de [versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 
-## <a name="june-2018"></a>Juin 2018
+## <a name="june-2018"></a>2018 juin
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|

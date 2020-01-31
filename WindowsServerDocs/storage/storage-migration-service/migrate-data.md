@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 4da69087ab1df6200394b36c938cb05ec5185045
-ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
+ms.openlocfilehash: 20aa5fbc40efc5a3a439361dadfac0f47f4b41d8
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124887"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822622"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Utiliser Storage migration service pour migrer un serveur
 
@@ -25,24 +25,25 @@ Avant de commencer, installez le service de migration de stockage et assurez-vou
 
 1. Vérifiez les [exigences du service de migration de stockage](overview.md#requirements) et installez le [Centre d’administration Windows](../../manage/windows-admin-center/understand/windows-admin-center.md) sur votre ordinateur ou un serveur d’administration si vous ne l’avez pas déjà fait. Si vous migrez des ordinateurs sources joints à un domaine, vous devez installer et exécuter le service de migration de stockage sur un serveur joint au même domaine ou à la même forêt que les ordinateurs sources.
 2. Dans le centre d’administration Windows, connectez-vous au serveur Orchestrator exécutant Windows Server 2019. <br>Il s’agit du serveur sur lequel vous allez installer le service de migration de stockage et utilisé pour gérer la migration. Si vous effectuez la migration d’un seul serveur, vous pouvez utiliser le serveur de destination tant qu’il exécute Windows Server 2019. Nous vous recommandons d’utiliser un serveur d’orchestration distinct pour les migrations de plusieurs serveurs.
-1. Accédez à **Gestionnaire de serveur** (dans le centre d’administration Windows) > **service de migration de stockage** et sélectionnez **installer** pour installer le service de migration de stockage et ses composants requis (voir figure 1).
+3. Accédez à **Gestionnaire de serveur** (dans le centre d’administration Windows) > **service de migration de stockage** et sélectionnez **installer** pour installer le service de migration de stockage et ses composants requis (voir figure 1).
     ![capture d’écran de la page service de migration du stockage montrant le bouton installer](media/migrate/install.png) **figure 1 : installation de Storage migration service**
-1. Installez le proxy service de migration de stockage sur tous les serveurs de destination exécutant Windows Server 2019. Cela double la vitesse de transfert lorsqu’elle est installée sur les serveurs de destination. <br>Pour ce faire, connectez-vous au serveur de destination dans le centre d’administration Windows, puis accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **rôles et fonctionnalités**, sélectionnez **proxy de service de migration de stockage**, puis sélectionnez **installer**.
-1. Sur tous les serveurs sources et sur les serveurs de destination exécutant Windows Server 2012 R2 ou Windows Server 2016, dans le centre d’administration Windows, connectez-vous à chaque serveur, accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **pare-feu** > **Règles entrantes**, puis vérifiez que les règles suivantes sont activées :
+4. Installez le proxy service de migration de stockage sur tous les serveurs de destination exécutant Windows Server 2019. Cela double la vitesse de transfert lorsqu’elle est installée sur les serveurs de destination. <br>Pour ce faire, connectez-vous au serveur de destination dans le centre d’administration Windows, puis accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **rôles et fonctionnalités**, > **fonctionnalités**, sélectionnez le **proxy service de migration de stockage**, puis sélectionnez **installer**. 
+5. Si vous envisagez de migrer vers ou à partir de clusters basculement Windows, installez les outils de clustering de basculement sur le serveur Orchestrator. <br>Pour ce faire, connectez-vous au serveur Orchestrator dans le centre d’administration Windows, puis accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **rôles et fonctionnalités**, > **fonctionnalités**, > **Outils d’administration de serveur distant**, > outils d' **administration de fonctionnalités**, sélectionnez **outils de clustering de basculement**, puis sélectionnez **installer**. 
+6. Sur tous les serveurs sources et sur les serveurs de destination exécutant Windows Server 2012 R2 ou Windows Server 2016, dans le centre d’administration Windows, connectez-vous à chaque serveur, accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **pare-feu** > **Règles entrantes**, puis vérifiez que les règles suivantes sont activées :
     - Partage de fichiers et d’imprimantes (SMB-Entrée)
     - Service Netlogon (NP-in)
-    - Windows Management Instrumentation (DCOM-In)
+    - Windows Management Instrumentation (DCOM-in)
     - Windows Management Instrumentation (WMI-In)
 
    Si vous utilisez des pare-feu tiers, les plages de ports entrants à ouvrir sont TCP/445 (SMB), TCP/135 (mappeur de point de terminaison RPC/DCOM) et TCP 1025-65535 (ports éphémères RPC/DCOM). Les ports de service de migration du stockage sont TCP/28940 (Orchestrator) et TCP/28941 (proxy).
 
-1. Si vous utilisez un serveur Orchestrator pour gérer la migration et que vous souhaitez télécharger des événements ou un journal des données que vous transférez, vérifiez que la règle de pare-feu partage de fichiers et d’imprimantes (SMB-in) est également activée sur ce serveur.
+7. Si vous utilisez un serveur Orchestrator pour gérer la migration et que vous souhaitez télécharger des événements ou un journal des données que vous transférez, vérifiez que la règle de pare-feu partage de fichiers et d’imprimantes (SMB-in) est également activée sur ce serveur.
 
 ## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Étape 1 : créer un travail et inventorier vos serveurs pour déterminer les éléments à migrer
 
 Au cours de cette étape, vous allez spécifier les serveurs à migrer, puis les analyser pour collecter des informations sur leurs fichiers et leurs configurations.
 
-1. Sélectionnez **nouveau travail**, nommez le travail, puis indiquez si vous souhaitez migrer les serveurs Windows et les clusters ou les serveurs Linux qui utilisent samba. Sélectionnez **OK**.
+1. Sélectionnez **nouveau travail**, nommez le travail, puis indiquez si vous souhaitez migrer les serveurs Windows et les clusters ou les serveurs Linux qui utilisent samba. Cliquez ensuite sur **OK**.
 2. Dans la page **entrer les informations d’identification** , tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs à partir desquels vous souhaitez effectuer la migration, puis sélectionnez **suivant**. <br>Si vous effectuez une migration à partir de serveurs Linux, vous devez entrer les informations d’identification dans les pages informations d’identification **samba** et **informations d’identification Linux** , y compris un mot de passe SSH ou une clé privée. 
 
 3. Sélectionnez **Ajouter un appareil**, tapez un nom de serveur source ou le nom d’un serveur de fichiers en cluster, puis sélectionnez **OK**. <br>Répétez cette opération pour tous les autres serveurs que vous souhaitez inventorier.
@@ -105,7 +106,7 @@ Au cours de cette étape, vous allez passer des serveurs sources aux serveurs de
 3. Dans la page **configurer le basculement** , spécifiez la carte réseau de la destination qui doit prendre en charge les paramètres de chaque adaptateur sur la source. Cela déplace l’adresse IP de la source vers la destination dans le cadre du basculement, donnant au serveur source une nouvelle adresse IP DHCP ou statique. Vous avez la possibilité d’ignorer toutes les migrations réseau ou certaines interfaces. 
 4. Spécifiez l’adresse IP à utiliser pour le serveur source après le déplacement de son adresse vers la destination. Vous pouvez utiliser DHCP ou une adresse statique. Si vous utilisez une adresse statique, le nouveau sous-réseau doit être le même que l’ancien sous-réseau ou le basculement échoue.
     ![capture d’écran montrant un serveur source, ses adresses IP et leurs noms d’ordinateur, ainsi que leur remplacement après le basculement](media/migrate/cutover.png) **figure 4 : un serveur source et la façon dont la configuration réseau est déplacée vers la destination**
-5. Spécifiez Comment renommer le serveur source une fois que le serveur de destination a dépassé son nom. Vous pouvez utiliser un nom généré de manière aléatoire ou un type vous-même. Puis sélectionnez **Suivant**.
+5. Spécifiez Comment renommer le serveur source une fois que le serveur de destination a dépassé son nom. Vous pouvez utiliser un nom généré de manière aléatoire ou un type vous-même. Sélectionnez ensuite **suivant**.
 6. Sélectionnez **suivant** dans la page **ajuster les paramètres de basculement** .
 7. Sélectionnez **valider** sur la page **valider l’appareil source et le périphérique de destination** , puis sélectionnez **suivant**.
 8. Lorsque vous êtes prêt à effectuer le basculement, sélectionnez **Démarrer le basculement**. <br>Les utilisateurs et les applications peuvent rencontrer une interruption pendant que l’adresse et les noms sont déplacés et que les serveurs ont été redémarrés plusieurs fois, mais ils ne seront pas affectés par la migration. La durée du basculement dépend de la vitesse à laquelle les serveurs redémarrent, ainsi que des Active Directory et des temps de réplication DNS.
@@ -114,4 +115,4 @@ Au cours de cette étape, vous allez passer des serveurs sources aux serveurs de
 
 - [Vue d’ensemble de Storage migration service](overview.md)
 - [Forum aux questions sur Storage migration services (FAQ)](faq.md)
-- [Planification d’un déploiement de synchronisation de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)
+- [Planification d’un déploiement de Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)

@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: afcda1d3f94c5f6fa7524317ac21c5540c07895c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0c140c61a5887cc63b2a9d0b468f8d1daf02cd76
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948265"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822712"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server 2016
 
@@ -86,7 +86,7 @@ Voici d’autres nouvelles fonctionnalités d’administration :
 ### <a name="powershell-desired-state-configuration-dsc-in-windows-management-framework-wmf-5"></a>Configuration d’état souhaité Windows PowerShell (DSC) dans Windows Management Framework (WMF) 5
 Windows Management Framework 5 inclut des mises à jour de configuration d’état souhaité Windows PowerShell (DSC), Windows Remote Management (WinRM) et Windows Management Instrumentation (WMI).
 
-Pour plus d’informations sur le test des fonctionnalités DSC de Windows Management Framework 5, consultez la série de billets de blog mentionnés dans [Valider les fonctionnalités de PowerShell DSC](https://blogs.msdn.microsoft.com/powershell/2015/07/06/validate-features-of-powershell-dsc/). Pour effectuer le téléchargement, consultez [Windows Management Framework 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+Pour plus d’informations sur le test des fonctionnalités DSC de Windows Management Framework 5, consultez la série de billets de blog mentionnés dans [Valider les fonctionnalités de PowerShell DSC](https://blogs.msdn.microsoft.com/powershell/2015/07/06/validate-features-of-powershell-dsc/). Pour effectuer le téléchargement, consultez [Windows Management Framework 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure).
 
 ### <a name="packagemanagement-unified-package-management-for-software-discovery-installation-and-inventory"></a>Gestion unifiée des packages PackageManagement pour la détection, l’installation et l’inventaire des logiciels
 Windows Server 2016 et Windows 10 incluent une nouvelle fonctionnalité PackageManagement (auparavant appelée OneGet) qui permet aux professionnels de l’informatique ou développeurs d’automatiser la détection, l’installation et l’inventaire des logiciels, localement ou à distance, quels que soient la technologie d’installation utilisée et l’emplacement des logiciels. 
@@ -201,4 +201,3 @@ Trois nouvelles fonctionnalités ont été ajoutées dans Microsoft Windows 10 
 
 ## <a name="see-also"></a>Voir aussi  
 -   [Notes de publication : problèmes importants sur Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
-

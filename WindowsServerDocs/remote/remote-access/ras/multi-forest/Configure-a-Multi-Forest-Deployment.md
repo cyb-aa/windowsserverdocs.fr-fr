@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 3c8feff2-cae1-4376-9dfa-21ad3e4d5d99
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 41c4de30482ff09cb0db8a113fa324b7299af43d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 08bd945bf808843286d390a089d9ac070b9a8813
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404536"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822682"
 ---
 # <a name="configure-a-multi-forest-deployment"></a>Configure a Multi-Forest Deployment
 
@@ -88,7 +88,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Voir [AD CS
   
 2.  Ajoutez tous les comptes d’ordinateurs des autorités de certification d’entreprise aux groupes de sécurité des éditeurs de certificats Active Directory dans chacune des forêts de comptes.  
   
-3.  Redémarrez tous les services certsvc sur tous les ordinateurs des autorités de certification dans toutes les forêts en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :  
+3.  Redémarrez tous les services certsvc sur tous les ordinateurs des autorités de certification dans toutes les forêts en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :  
   
     ```  
     net stop certsvc && net start certsvc  
@@ -151,7 +151,7 @@ Le script PowerShell, PKISync.ps1, est requis pour cette procédure. Voir [AD CS
     certutil -config <Computer-Name>\<Enterprise-CA-Name> -ca.cert <enterprise-ca-cert-filename.cer>  
     ```  
   
-2.  Synchronisez les autorités de certification entre les forêts depuis les forêts de comptes vers la forêt de ressources à l’aide de la commande PowerShell suivante :  
+2.  Synchronisez les autorités de certification entre les forêts depuis les forêts de comptes vers la forêt de ressources à l’aide de la commande PowerShell suivante :  
   
     ```  
     .\PKISync.ps1 -sourceforest <account forest DNS> -targetforest <resource forest DNS> -type CA -cn <enterprise CA sanitized name> -f  
@@ -177,7 +177,7 @@ La liste de recherche de suffixes DNS permet aux clients d’utiliser des noms d
   
 2.  Dans la page **Serveur Emplacement réseau** , cliquez sur **Suivant**.  
   
-3.  Dans la page **DNS**, dans la table, entrez tous les suffixes de noms supplémentaires qui font partie du réseau d’entreprise dans Forest2. Dans **Adresse du serveur DNS**, entrez l’adresse du serveur DNS manuellement ou en cliquant sur **Détecter**. Si vous n’entrez pas l’adresse, les nouvelles entrées sont appliquées en tant qu’exemptions NRPT. Ensuite, cliquez sur **Suivant**.  
+3.  Dans la page **DNS** , dans la table, entrez tous les suffixes de noms supplémentaires qui font partie du réseau d’entreprise dans Forest2. Dans **Adresse du serveur DNS**, entrez l’adresse du serveur DNS manuellement ou en cliquant sur **Détecter**. Si vous n’entrez pas l’adresse, les nouvelles entrées sont appliquées en tant qu’exemptions NRPT. Ensuite, cliquez sur **Suivant**.  
   
 4.  Facultatif : Sur la page **Liste de recherche de suffixes DNS** , ajoutez un suffixe DNS en l’entrant dans la zone **Nouveau suffixe** , puis en cliquant sur **Ajouter**. Ensuite, cliquez sur **Suivant**.  
   
@@ -187,7 +187,7 @@ La liste de recherche de suffixes DNS permet aux clients d’utiliser des noms d
   
 7.  Dans la boîte de dialogue **Vérification de l’accès DirectAccess** , cliquez sur **Appliquer**.  
   
-8.  Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance**, cliquez sur **Fermer**.  
+8.  Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance** , cliquez sur **Fermer**.  
   
 ### <a name="IPv6Prefix"></a>Ajouter un préfixe IPv6 interne  
   
@@ -198,28 +198,28 @@ L’accès à distance gère la liste des préfixes IPv6 pour les ressources d�
   
 ##### <a name="to-add-an-ipv6-prefix"></a>Pour ajouter un préfixe IPv6  
   
-1.  Dans le volet central de la console Gestion de l’accès à distance, dans la zone **Étape 2 : serveur d’accès à distance**, cliquez sur **Modifier**.  
+1.  Dans le volet central de la console Gestion de l’accès à distance, dans la zone **Étape 2 : serveur d’accès à distance** , cliquez sur **Modifier**.  
   
 2.  Dans l’Assistant Installation du serveur d’accès à distance, cliquez sur **Configuration du préfixe**.  
   
-3.  Dans la page **Configuration du préfixe**, dans **Préfixes IPv6 utilisés du réseau interne**, ajoutez tous les préfixes IPv6 supplémentaires en les séparant par des points-virgules, par exemple, 2001:db8:1::/64;2001:db8:2::/64. Ensuite, cliquez sur **Suivant**.  
+3.  Dans la page **Configuration du préfixe** , dans **Préfixes IPv6 utilisés du réseau interne**, ajoutez tous les préfixes IPv6 supplémentaires en les séparant par des points-virgules, par exemple, 2001:db8:1::/64;2001:db8:2::/64. Ensuite, cliquez sur **Suivant**.  
   
-4.  Dans la page **Authentification**, cliquez sur **Terminer**.  
+4.  Dans la page **Authentification** , cliquez sur **Terminer**.  
   
 5.  Dans le volet central de la console Gestion de l’accès à distance, cliquez sur **Terminer**.  
   
 6.  Dans la boîte de dialogue **Vérification de l’accès DirectAccess** , cliquez sur **Appliquer**.  
   
-7.  Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance**, cliquez sur **Fermer**.  
+7.  Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance** , cliquez sur **Fermer**.  
   
 ### <a name="SGs"></a>Ajouter des groupes de sécurité client  
 Pour permettre aux ordinateurs clients Windows 8 de Forest2 d’accéder aux ressources via DirectAccess, vous devez ajouter le groupe de sécurité de Forest2 au déploiement de l’accès à distance.  
   
 ##### <a name="to-add-windows-8-client-security-groups"></a>Pour ajouter des groupes de sécurité clients Windows 8  
   
-1.  Dans le volet central de la console Gestion de l’accès à distance, dans la zone **Étape 1 : clients distants**, cliquez sur **Modifier**.  
+1.  Dans le volet central de la console Gestion de l’accès à distance, dans la zone **Étape 1 : clients distants** , cliquez sur **Modifier**.  
   
-2.  Dans l’Assistant Installation des clients DirectAccess, cliquez sur **Sélectionner des groupes**, puis dans la page **Sélectionner des groupes**, cliquez sur **Ajouter**.  
+2.  Dans l’Assistant Installation des clients DirectAccess, cliquez sur **Sélectionner des groupes**, puis dans la page **Sélectionner des groupes** , cliquez sur **Ajouter**.  
   
 3.  Dans la boîte de dialogue **Sélectionner des groupes** , sélectionnez les groupes de sécurité contenant des ordinateurs clients DirectAccess. Ensuite, cliquez sur **Suivant**.  
   
@@ -229,20 +229,20 @@ Pour permettre aux ordinateurs clients Windows 8 de Forest2 d’accéder aux res
   
 6.  Dans la boîte de dialogue **Vérification de l’accès DirectAccess** , cliquez sur **Appliquer**.  
   
-7.  Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance**, cliquez sur **Fermer**.  
+7.  Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance** , cliquez sur **Fermer**.  
   
 Pour permettre aux ordinateurs clients Windows 7 de Forest2 d’accéder aux ressources via DirectAccess lorsque le multisite est activé, vous devez ajouter le groupe de sécurité de Forest2 au déploiement de l’accès à distance pour chaque point d’entrée. Pour plus d’informations sur l’ajout de groupes de sécurité Windows 7, consultez la description de la page de **support client** dans 3,6. Activez le déploiement multisite.  
   
 ### <a name="RefreshMgmtServers"></a>Actualiser la liste des serveurs d’administration  
 L’accès à distance découvre automatiquement les serveurs d’infrastructure dans toutes les forêts qui contiennent des objets de stratégie de groupe de configuration DirectAccess. Si DirectAccess a été déployé sur un serveur depuis Forest1, l’objet de stratégie de groupe du serveur est écrit sur son domaine dans Forest1. Si vous avez activé l’accès à DirectAccess pour les clients depuis Forest2, l’objet de stratégie de groupe du client est écrit sur un domaine dans Forest2.  
   
-Le processus de découverte automatique des serveurs d’infrastructure est requis pour autoriser l’accès via DirectAccess aux contrôleurs de domaine et à System Center Configuration Manager. Vous devez démarrer manuellement le processus de découverte.  
+Le processus de découverte automatique des serveurs d’infrastructure est requis pour autoriser l’accès via DirectAccess aux contrôleurs de domaine et aux Configuration Manager de point de terminaison Microsoft. Vous devez démarrer manuellement le processus de découverte.  
   
 ##### <a name="to-refresh-the-management-servers-list"></a>Pour actualiser la liste des serveurs d’administration  
   
 1.  Dans la console Gestion de l’accès à distance, cliquez sur **Configuration**, puis dans le volet **Tâches** , cliquez sur **Actualiser les serveurs d’administration**.  
   
-2.  Dans la boîte de dialogue **Actualisation des serveurs d’administration**, cliquez sur **Fermer**.  
+2.  Dans la boîte de dialogue **Actualisation des serveurs d’administration** , cliquez sur **Fermer**.  
   
 
 

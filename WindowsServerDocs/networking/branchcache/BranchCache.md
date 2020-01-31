@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: a4587cff-c086-49f1-a0bf-cd74b8a44440
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7fe8d948a5f43fdab394490f543f3583167bdfe9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 15d57d12679d7441da080ad671264ca1e5e1f42c
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406760"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822802"
 ---
 # <a name="branchcache"></a>BranchCache
 
@@ -45,7 +45,7 @@ Si vous êtes administrateur système, architecte de solutions réseau ou de sto
 
 - Les ordinateurs clients dans vos filiales exécutent Windows 10, Windows 8.1, Windows 8 ou Windows 7.
 
-Cette rubrique contient les sections suivantes :
+Cette rubrique contient les sections suivantes :
 
 -   [Qu’est-ce que BranchCache ?](#bkmk_what)
 
@@ -75,7 +75,7 @@ BranchCache est une technologie d’optimisation de la bande passante du réseau
   
 Dans les filiales, le contenu est stocké sur des serveurs configurés pour héberger le cache ou, si aucun serveur n’est disponible dans la filiale, sur les ordinateurs clients qui exécutent Windows 10, Windows 8.1, Windows 8 ou Windows 7. Lorsqu’un ordinateur client demande et reçoit du contenu à partir du siège social et que le contenu est mis en cache dans la filiale, les autres ordinateurs de la même filiale peuvent obtenir le contenu localement au lieu de télécharger le contenu à partir du serveur de contenu via une liaison de réseau étendu (WAN).
 
-Lorsque des demandes ultérieures pour le même contenu sont effectuées par des ordinateurs clients, ceux-ci téléchargent  les *informations de contenu* à partir du serveur au lieu du contenu proprement dit. Les informations de contenu se composent de hachages qui sont calculés à l’aide de segments du contenu d’origine et qui sont extrêmement petits par rapport au contenu des données d’origine. Les ordinateurs clients utilisent alors les informations de contenu pour localiser le contenu dans un cache de la filiale, que le cache se trouve sur un ordinateur client ou sur un serveur. Les ordinateurs clients et les serveurs utilisent également les informations de contenu pour sécuriser le contenu mis en cache afin qu’il ne soit pas accessible par des utilisateurs non autorisés.
+Lorsque des demandes ultérieures pour le même contenu sont effectuées par des ordinateurs clients, ceux-ci téléchargent  les *informations de contenu* à partir du serveur au lieu du contenu proprement dit. Les informations de contenu se composent de hachages qui sont calculés à l’aide de segments du contenu d’origine et qui sont extrêmement petits par rapport au contenu des données d’origine. Les ordinateurs clients utilisent alors les informations de contenu pour localiser le contenu dans un cache de la filiale, que le cache se trouve sur un ordinateur client ou sur un serveur. Les ordinateurs clients et les serveurs utilisent également les informations de contenu pour sécuriser le contenu mis en cache afin qu’il ne soit pas accessible par des utilisateurs non autorisés.
 
 BranchCache augmente la productivité de l’utilisateur final en améliorant les délais de réponse aux requêtes des clients et serveurs des filiales ; il peut également participer à l’amélioration des performances du réseau en réduisant le trafic sur les liaisons de réseau étendu (WAN).
 
@@ -115,7 +115,7 @@ Ce n’est cependant pas le cas lorsque vous effectuez le déploiement en mode d
 
 ## <a name="BKMK_3"></a>Serveurs de contenu prenant en charge BranchCache
 
-Lorsque vous déployez BranchCache, le contenu source est stocké sur des serveurs de contenu prenant en charge BranchCache dans votre siège social ou dans un centre de données Cloud. Les types de serveurs de contenu suivants sont pris en charge par BranchCache :
+Lorsque vous déployez BranchCache, le contenu source est stocké sur des serveurs de contenu prenant en charge BranchCache dans votre siège social ou dans un centre de données Cloud. Les types de serveurs de contenu suivants sont pris en charge par BranchCache :
 
 > [!NOTE]
 > Seul le contenu source, c’est-à-dire le contenu que les ordinateurs clients obtiennent initialement d’un serveur de contenu prenant en charge BranchCache, est accéléré par BranchCache. Le contenu que les ordinateurs clients obtiennent directement auprès d’autres sources, telles que des serveurs Web sur Internet ou Windows Update, n’est pas mis en cache par les ordinateurs clients ou les serveurs de cache hébergé puis partagé avec d’autres ordinateurs de la filiale. Toutefois, si vous souhaitez accélérer Windows Update contenu, vous pouvez installer un serveur d’applications Windows Server Update Services (WSUS) sur votre siège social ou centre de données Cloud et le configurer en tant que serveur de contenu BranchCache.
@@ -124,7 +124,7 @@ Lorsque vous déployez BranchCache, le contenu source est stocké sur des serveu
 
 Les serveurs Web pris en charge incluent les ordinateurs qui exécutent Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 sur lesquels le rôle serveur Web (IIS) est installé et qui utilisent le protocole HTTP (Hypertext Transfer Protocol) ou HTTP Secure ( HTTPS).
 
-De plus, la fonctionnalité BranchCache doit être installée sur le serveur Web.
+De plus, la fonctionnalité BranchCache doit être installée sur le serveur Web.
 
 ### <a name="file-servers"></a>Serveurs de fichiers
 
@@ -136,7 +136,7 @@ Ces serveurs de fichiers utilisent le protocole SMB (Server Message Block) pour 
 
 Les serveurs d’applications pris en charge incluent les ordinateurs qui exécutent Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 avec Service de transfert intelligent en arrière-plan (BITS) installé et activé. 
 
-De plus, la fonctionnalité BranchCache doit être installée sur le serveur d’applications. Comme des exemples de serveurs d’applications, vous pouvez déployer des serveurs de points de distribution de branche Microsoft Windows Server Update Services (WSUS) et Microsoft System Center Configuration Manager en tant que serveurs de contenu BranchCache.
+De plus, la fonctionnalité BranchCache doit être installée sur le serveur d’applications. Comme des exemples de serveurs d’applications, vous pouvez déployer des serveurs de points de distribution Microsoft Windows Server Update Services (WSUS) et Microsoft Endpoint Configuration Manager en tant que serveurs de contenu BranchCache.
 
 ## <a name="BKMK_3a"></a>BranchCache et le Cloud
 
@@ -157,7 +157,7 @@ Il existe deux versions des informations de contenu :
 
 - Les informations de contenu qui sont compatibles avec les ordinateurs exécutant Windows Server 2008 R2 et Windows 7 sont appelées version 1 ou v1. Avec la segmentation de fichiers BranchCache V1, les segments de fichiers sont plus grands que dans V2 et ont une taille fixe. En raison des importantes tailles de segments fixes, lorsqu’un utilisateur apporte une modification qui change la longueur du fichier, non seulement le segment avec la modification est invalidé, mais tous les segments jusqu’à la fin du fichier le sont aussi. L’appel suivant pour le fichier modifié par un autre utilisateur de la filiale aboutit donc à des économies de bande passante du réseau étendu réduites, car le contenu modifié et l’intégralité du contenu après la modification sont envoyés par la liaison de réseau étendu.
 
-- Les informations de contenu qui sont compatibles avec les ordinateurs exécutant Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012 et Windows 8 sont appelées version 2, ou v2. Les informations de contenu V2 utilisent des segments plus petits de taille variable qui sont plus tolérants aux modifications dans un fichier. Cela augmente la probabilité que des segments d’une version plus ancienne du fichier puissent être réutilisés lorsque les utilisateurs accèdent à une version mise à jour ; ils récupèrent ainsi uniquement la partie modifiée du fichier à partir du serveur de contenu et utilisent moins de bande passante du réseau étendu.
+- Les informations de contenu qui sont compatibles avec les ordinateurs exécutant Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012 et Windows 8 sont appelées version 2, ou v2. Les informations de contenu V2 utilisent des segments plus petits de taille variable qui sont plus tolérants aux modifications dans un fichier. Cela augmente la probabilité que des segments d’une version plus ancienne du fichier puissent être réutilisés lorsque les utilisateurs accèdent à une version mise à jour ; ils récupèrent ainsi uniquement la partie modifiée du fichier à partir du serveur de contenu et utilisent moins de bande passante du réseau étendu.
 
 Le tableau suivant fournit des informations sur la version des informations de contenu qui est utilisée selon les systèmes d’exploitation du client, du serveur de contenu et du serveur de cache hébergé que vous utilisez dans votre déploiement BranchCache.
 
@@ -166,9 +166,9 @@ Le tableau suivant fournit des informations sur la version des informations de c
 
 |SE du client|SE du serveur de contenu|SE du serveur de cache hébergé|Version des informations de contenu|
 |-------------|---------------------|--------------------------|-------------------------------|
-|Windows Server 2008 R2 et Windows 7 |Windows Server 2012 ou version ultérieure|Windows Server 2012 ou version ultérieure ; aucun pour le mode de cache distribué|V1|
-|Windows Server 2012 ou version ultérieure ; Windows 8 ou version ultérieure|Windows Server 2008 R2 |Windows Server 2012 ou version ultérieure ; aucun pour le mode de cache distribué|V1|
-|Windows Server 2012 ou version ultérieure ; Windows 8 ou version ultérieure| Windows Server 2012 ou version ultérieure| Windows Server 2008 R2 |V1|
+|Windows Server 2008 R2 et Windows 7 |Windows Server 2012 ou version ultérieure|Windows Server 2012 ou version ultérieure ; aucun pour le mode de cache distribué|V1|
+|Windows Server 2012 ou version ultérieure ; Windows 8 ou version ultérieure|Windows Server 2008 R2 |Windows Server 2012 ou version ultérieure ; aucun pour le mode de cache distribué|V1|
+|Windows Server 2012 ou version ultérieure ; Windows 8 ou version ultérieure| Windows Server 2012 ou version ultérieure| Windows Server 2008 R2 |V1|
 |Windows Server 2012 ou version ultérieure ; Windows 8 ou version ultérieure|Windows Server 2012 ou version ultérieure|Windows Server 2012 ou version ultérieure ; aucun pour le mode de cache distribué|V2|
 
 Lorsque vous avez des serveurs de contenu et des serveurs de cache hébergé qui exécutent Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012, ils utilisent la version des informations de contenu qui est appropriée selon le système d’exploitation du client BranchCache qui demande des informations. 
@@ -196,9 +196,9 @@ Vous pouvez utiliser Gestionnaire de serveur dans Windows Server 2016 pour insta
 |Serveur de cache hébergé|Filiale|Fonctionnalité BranchCache avec le mode de serveur de cache hébergé activé|
 |Ordinateur client prenant en charge BranchCache|Filiale|Aucune installation nécessaire ; activez simplement BranchCache et un mode BranchCache \(\) distribué ou hébergé sur le client|
 
-Pour installer le service de rôle ou la fonctionnalité, ouvrez le Gestionnaire de serveur et sélectionnez les ordinateurs sur lesquels vous voulez activer la fonctionnalité BranchCache. Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**. L’Assistant **Ajout de rôles et de fonctionnalités** s’ouvre. Lorsque vous exécutez l’Assistant, effectuez les sélections suivantes :
+Pour installer le service de rôle ou la fonctionnalité, ouvrez le Gestionnaire de serveur et sélectionnez les ordinateurs sur lesquels vous voulez activer la fonctionnalité BranchCache. Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**. L’Assistant **Ajout de rôles et de fonctionnalités** s’ouvre. Lorsque vous exécutez l’Assistant, effectuez les sélections suivantes :
 
-- Dans la page **Sélectionner le type d’installation** de l’Assistant, sélectionnez **Installation basée sur un rôle ou une fonctionnalité**.
+- Dans la page **Sélectionner le type d’installation**de l’Assistant, sélectionnez **Installation basée sur un rôle ou une fonctionnalité**.
 
 - Dans la page **Sélectionner des rôles de serveurs**de l’Assistant, si vous installez un serveur de fichiers prenant en charge BranchCache, développez Services de fichiers et de **stockage** et services de fichiers et **iSCSI**, puis sélectionnez **BranchCache pour fichiers réseau**.  Pour économiser de l’espace disque, vous pouvez également sélectionner le service de rôle **déduplication des données** , puis poursuivre l’installation et l’exécution de l’Assistant. Si vous ne souhaitez pas installer un serveur de fichiers prenant en charge BranchCache, n’installez pas le rôle Services de fichiers et de stockage avec le service de rôle BranchCache pour fichiers réseau.
 
@@ -212,15 +212,15 @@ Voici la liste des systèmes d’exploitation qui prennent en charge les différ
 
 Les systèmes d’exploitation suivants fournissent à BranchCache la prise en charge de Service de transfert intelligent en arrière-plan (BITS), du protocole HTTP (Hyper Text Transfer Protocol) et du protocole SMB (Server Message Block).
 
-- Windows 10 Entreprise
+- Windows 10 Entreprise
 
-- Windows 10 Éducation
+- Windows 10 Éducation
 
-- Windows 8.1 Entreprise
+- Windows 8.1 Enterprise
 
-- Windows 8 Entreprise
+- Windows 8 Enterprise
 
-- Windows 7 Entreprise
+- Windows 7 Enterprise
 
 - Windows 7 Édition Intégrale
 
@@ -253,7 +253,7 @@ Vous pouvez utiliser les familles de systèmes d’exploitation Windows Server 2
 
 En outre, les systèmes d’exploitation Windows Server 2008 R2 suivants peuvent être utilisés comme serveurs de cache hébergé BranchCache :
 
-- Windows Server 2008 R2 Entreprise
+- Windows Server 2008 R2 Entreprise
 
 - Windows Server 2008 R2 Entreprise avec Hyper-V
 
@@ -302,7 +302,7 @@ Ce hachage est appelé « secret de segment ». BranchCache utilise des secrets 
 
 Les informations de contenu incluent les éléments suivants :
 
-- La liste des hachages de blocs :
+- La liste des hachages de blocs :
 
     `BlockHashi = Hash(dataBlocki)   1<=i<=n`
 
@@ -320,7 +320,7 @@ De plus, BranchCache gère les informations de contenu avec le même niveau de s
 
 ## <a name="bkmk_flow"></a>Workflow et processus de contenu
 
-Le flux d’informations de contenu et de contenu réel est divisé en quatre phases :
+Le flux d’informations de contenu et de contenu réel est divisé en quatre phases :
 
 1.  [Processus BranchCache : demander du contenu](#BKMK_8)
 
@@ -388,7 +388,7 @@ Lorsque l’ordinateur client reçoit la réponse de l’hôte de contenu, le cl
 
 Si ce processus de vérification échoue et que l’ordinateur client n’a pas de message de demande correspondant dans sa liste de demandes non traitées, l’ordinateur client ignore le message.
 
-Si ce processus de vérification réussit et que l’ordinateur client a un message de demande correspondant dans sa liste de demandes non traitées, l’ordinateur client déchiffre le bloc. Le client valide alors le bloc déchiffré par rapport au hachage de bloc approprié présent dans les informations de contenu initialement obtenues par le client auprès du serveur de contenu d’origine.
+Si ce processus de vérification réussit et que l’ordinateur client a un message de demande correspondant dans sa liste de demandes non traitées, l’ordinateur client déchiffre le bloc. Le client valide alors le bloc déchiffré par rapport au hachage de bloc approprié présent dans les informations de contenu initialement obtenues par le client auprès du serveur de contenu d’origine.
 
 Si la validation du bloc réussit, le bloc déchiffré est stocké dans le cache.
 
@@ -405,19 +405,19 @@ Les serveurs et les clients ne s’échangent, ne partagent et ne s’envoient j
 
 ### <a name="security-threats"></a>Menaces pour la sécurité
 
-À ce stade, les principales menaces de sécurité sont les suivantes :
+À ce stade, les principales menaces de sécurité sont les suivantes :
 
-- Falsification des données :
+- Falsification des données :
 
   *Un client fournissant des données à un demandeur falsifie les données*. Le modèle de sécurité BranchCache utilise des hachages pour vérifier que ni le client ni le serveur n’a altéré les données.  
 
-- Divulgation d’informations :  
+- Divulgation d’informations :  
 
     *BranchCache envoie du contenu chiffré à tout client qui spécifie l’ID de segment approprié*. Étant donné que les ID de segment sont publics, tous les clients peuvent recevoir du contenu chiffré. Toutefois, si un utilisateur malveillant obtient du contenu chiffré, il doit connaître la clé de chiffrement pour le déchiffrer. Le protocole de couche supérieure effectue l’authentification, puis donne les informations de contenu au client authentifié et autorisé. La sécurité des informations de contenu est équivalente à la sécurité fournie au contenu lui-même, et BranchCache n’expose jamais les informations de contenu.  
 
-    *Un agresseur « écoute » le réseau afin d’obtenir du contenu*.  BranchCache chiffre tous les transferts entre les clients à l’aide du chiffrement AES128, où la clé secrète est Ke, ce qui empêche la détection de données sur le réseau.  Les informations de contenu qui sont téléchargées à partir du serveur de contenu sont protégées exactement de la même manière que les données elles-mêmes l’auraient été. Elles ne sont donc protégées ni plus ni moins contre la divulgation d’informations que si BranchCache n’avait pas du tout été utilisé.
+    *Un agresseur « écoute » le réseau afin d’obtenir du contenu*.  BranchCache chiffre tous les transferts entre les clients à l’aide du chiffrement AES128, où la clé secrète est Ke, ce qui empêche la détection de données sur le réseau.  Les informations de contenu qui sont téléchargées à partir du serveur de contenu sont protégées exactement de la même manière que les données elles-mêmes l’auraient été. Elles ne sont donc protégées ni plus ni moins contre la divulgation d’informations que si BranchCache n’avait pas du tout été utilisé.
 
--   Refus de service :
+-   Refus de service :
 
     *Un client est submergé de demandes de données*. Les protocoles BranchCache incorporent des compteurs de gestion des files d’attente et des minuteurs pour éviter que les clients soient surchargés.
 

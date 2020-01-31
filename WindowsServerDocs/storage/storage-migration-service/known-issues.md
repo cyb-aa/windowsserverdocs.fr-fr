@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 0f549310d568142f819e22422d41a72d38b306e2
-ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
+ms.openlocfilehash: e5832843dce05832a231ed3a4d7e20cf90f1d183
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145935"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822592"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -64,11 +64,11 @@ Nous avons résolu ce problème dans une version ultérieure de Windows Server.
 
 Lorsque vous utilisez le centre d’administration Windows ou PowerShell pour télécharger le journal CSV d’opérations de transfert (messages détaillés uniquement), vous recevez l’erreur suivante :
 
- >   Journal de transfert-Vérifiez que le partage de fichiers est autorisé dans votre pare-feu. : Cette opération de demande envoyée à net. TCP : biais : 28940/SMS/service/1/Transfer n’a pas reçu de réponse dans le délai d’expiration configuré (00:01:00). Le temps alloué à cette opération fait peut-être partie d'un délai d'attente plus long. Ceci peut être dû au fait que le service est toujours en cours de traitement de l'opération ou qu'il n'a pas pu envoyer un message de réponse. Envisagez d’incrémenter le délai d’expiration de l’opération (en convertissant le canal/proxy vers IContextChannel et en définissant la propriété OperationTimeout) et vérifiez que le service est en mesure de se connecter au client.
+ >   Journal de transfert-Vérifiez que le partage de fichiers est autorisé dans votre pare-feu. : Cette opération de demande envoyée à net. TCP : biais : 28940/SMS/service/1/Transfer n’a pas reçu de réponse dans le délai d’expiration configuré (00:01:00). Le temps alloué à cette opération est peut-être une partie d’un délai d’expiration plus long. Cela peut être dû au fait que le service traite toujours l’opération ou parce que le service n’a pas pu envoyer un message de réponse. Envisagez d’incrémenter le délai d’expiration de l’opération (en convertissant le canal/proxy vers IContextChannel et en définissant la propriété OperationTimeout) et vérifiez que le service est en mesure de se connecter au client.
 
 Ce problème est dû à un très grand nombre de fichiers transférés qui ne peuvent pas être filtrés dans le délai d’attente d’une minute par défaut autorisé par le service de migration de stockage. 
 
-Pour contourner ce problème, procédez comme suit :
+Pour contourner ce problème :
 
 1. Sur l’ordinateur Orchestrator, modifiez le fichier *%systemroot%\SMS\Microsoft.StorageMigration.service.exe.config* à l’aide de Notepad. exe pour remplacer la valeur par défaut « sendTimeout » par 10 minutes.
 
@@ -90,7 +90,7 @@ Pour contourner ce problème, procédez comme suit :
 7. Cliquez avec le bouton droit sur « WcfOperationTimeoutInMinutes », puis cliquez sur modifier. 
 8. Dans la zone données de base, cliquez sur « décimal ».
 9. Dans la zone données de la valeur, tapez « 10 », puis cliquez sur OK.
-10. Quittez l’Éditeur du Registre.
+10. Quittez l’éditeur du Registre.
 11. Essayez à nouveau de télécharger le fichier CSV d’erreurs uniquement. 
 
 Nous avons l’intention de modifier ce comportement dans une version ultérieure de Windows Server 2019.  
@@ -220,7 +220,7 @@ Une autre solution de contournement consiste à :
    ```
 ## <a name="error-dll-was-not-found-when-running-inventory-from-a-cluster-node"></a>Erreur « dll introuvable » lors de l’exécution de l’inventaire à partir d’un nœud de cluster
 
-Lorsque vous tentez d’exécuter un inventaire avec l’installation de Storage migration service Orchestrator sur un nœud de cluster de basculement Windows Server 2019 et en ciblant une source de serveur de fichiers d’utilisation générale du cluster de basculement Windows Server, vous recevez l’erreur suivante :
+Lorsque vous tentez d’exécuter un inventaire avec le service de migration de stockage et que vous ciblez une source de serveur de fichiers d’utilisation générale du cluster de basculement Windows Server, vous recevez les erreurs suivantes :
 
     DLL not found
     [Error] Failed device discovery stage VolumeInfo with error: (0x80131524) Unable to load DLL 'Microsoft.FailoverClusters.FrameworkSupport.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)   

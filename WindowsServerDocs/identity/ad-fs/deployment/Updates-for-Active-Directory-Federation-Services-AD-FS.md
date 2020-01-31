@@ -9,12 +9,12 @@ ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0850145c9281c769c5a2b6532ccb56615abd11b3
-ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
+ms.openlocfilehash: b50b1b7b43002c91ee849f352e255f520f6d96f0
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725784"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822732"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>Mises à jour requises pour Services ADFS (AD FS) et proxy d’application Web (WAP)
 
@@ -28,6 +28,7 @@ Les mises à jour pour Windows Server 2016 sont remises mensuellement via Window
 
 |KBIT # |Description|Date de publication
 |----- | ----- |-----
+|[4534271](https://support.microsoft.com/help/4534271/windows-10-update-kb4534271) | Résout un problème AD FS chrome potentiel en raison de la prise en charge de nouvelles stratégies de cookie [SameSite](https://www.chromestatus.com/feature/5088147346030592) par défaut pour la version 80 de Google Chrome. Pour plus d’informations, veuillez vous reporter [ici](https://docs.microsoft.com/office365/troubleshoot/miscellaneous/chrome-behavior-affects-applications). |2020 janvier|
 |[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Cette mise à jour de sécurité corrige une vulnérabilité dans Services ADFS (AD FS) qui pourrait permettre à une personne malveillante de contourner la stratégie de verrouillage extranet. |2019 juillet|
 |[4489889 (version du système d’exploitation 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Résout un problème dans Services ADFS (AD FS) qui provoque l’affichage d’une approbation de partie de confiance en double dans la console de gestion AD FS. Cela se produit lorsque vous créez ou affichez des approbations de partie de confiance à l’aide de la console de gestion AD FS.</br></br> Résout un problème de latence du proxy d’application Web (WAP) élevé Services ADFS (000 MS) qui se produit lorsque le verrouillage intelligent extranet (ESL) est activé sur AD FS 2016. Cette mise à jour de sécurité corrige la vulnérabilité décrite dans [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794). |2019 mars|
 |[4487006 (version du système d’exploitation 14393,2828)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | Résout un problème qui provoque l’échec des mises à jour d’une partie de confiance lors de l’utilisation de PowerShell ou de la console de gestion Services ADFS (AD FS). Ce problème se produit si vous configurez une approbation de partie de confiance pour qu’elle utilise une URL de métadonnées en ligne qui publie plusieurs PassiveRequestorEndpoint. L’erreur est « MSIS7615 : les points de terminaison approuvés spécifiés dans une approbation de partie de confiance doivent être uniques pour cette approbation de partie de confiance. »  </br></br>Résout un problème qui affiche un message d’erreur spécifique pour les modifications de mot de passe de complexité externe en raison des stratégies de protection par mot de passe Azure. |Février 2019|
@@ -50,6 +51,7 @@ Vous trouverez ci-dessous la liste des correctifs et des correctifs cumulatifs q
 
 |KBIT # |Description|Date de publication
 |----- | ----- |-----
+|[4534309](https://support.microsoft.com/help/4534309/windows-8-1-kb4534309)| Résout un problème AD FS chrome potentiel en raison de la prise en charge de nouvelles stratégies de cookie [SameSite](https://www.chromestatus.com/feature/5088147346030592) par défaut pour la version 80 de Google Chrome. Pour plus d’informations, veuillez vous reporter [ici](https://docs.microsoft.com/office365/troubleshoot/miscellaneous/chrome-behavior-affects-applications). |2020 janvier
 |[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Cette mise à jour de sécurité corrige une vulnérabilité dans Services ADFS (AD FS) qui pourrait permettre à une personne malveillante de contourner la stratégie de verrouillage extranet. |2019 juillet
 |[4041685](https://support.microsoft.com/kb/4041685)|A traité une AD FS problème dans lequel les cookies MSISConext dans les en-têtes de demande peuvent finir par dépasser la limite de taille des en-têtes et provoquer l’échec de l’authentification avec le code d’état HTTP 400 « incorrect-en-tête trop long ».</br></br>Résolution d’un problème où ADFS ne peut plus ignorer « prompt = login » pendant l’authentification. Une option « désactivé » a été ajoutée pour restaurer les scénarios où l’authentification sans mot de passe est utilisée.|Version préliminaire du correctif cumulatif d’octobre 2017
 |[4019217](https://support.microsoft.com/kb/4019217)|Dossiers de travail les clients utilisant le répartiteur de jetons ne fonctionnent pas lors de l’utilisation d’un serveur 2012 R2 AD FS Server|Correctif cumulatif de mai 2017 pour la version préliminaire

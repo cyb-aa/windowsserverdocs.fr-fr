@@ -9,12 +9,12 @@ ms.assetid: 158b7a62-2c52-448b-9467-c00d5018f65b
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: a216c490c92461e07fd5093783ec2c3049e8accb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b5be8827cee22b35fb31bf08d1c960b150dcad84
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388027"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822652"
 ---
 # <a name="configure-vpn-device-tunnels-in-windows-10"></a>Configurer des tunnels de périphériques VPN dans Windows 10
 
@@ -46,9 +46,9 @@ Set-VpnAuthProtocol -UserAuthProtocolAccepted Certificate, EAP -RootCertificateN
 
 ## <a name="vpn-device-tunnel-configuration"></a>Configuration du tunnel du périphérique VPN
 
-L’exemple de code XML ci-dessous fournit de bons conseils pour les scénarios où seules les extractions lancées par le client sont requises sur le tunnel de l’appareil.  Les filtres de trafic sont exploités pour limiter le tunnel de l’appareil au trafic de gestion uniquement.  Cette configuration fonctionne bien pour les scénarios de mise à jour Windows Update, standard stratégie de groupe (GP) et System Center Configuration Manager (SCCM), ainsi que la connectivité VPN pour la première ouverture de session sans informations d’identification mises en cache ou les scénarios de réinitialisation de mot de passe. 
+L’exemple de code XML ci-dessous fournit de bons conseils pour les scénarios où seules les extractions lancées par le client sont requises sur le tunnel de l’appareil.  Les filtres de trafic sont exploités pour limiter le tunnel de l’appareil au trafic de gestion uniquement.  Cette configuration fonctionne bien pour les scénarios de mise à jour Windows Update, standard stratégie de groupe (GP) et Microsoft Endpoint Configuration Manager, ainsi que pour la connectivité VPN pour la première ouverture de session sans informations d’identification mises en cache ou pour les scénarios de réinitialisation de mot de passe. 
 
-Pour les cas de Push initiés par le serveur, comme Windows Remote Management (WinRM), Remote GPUpdate et les scénarios de mise à jour de SCCM distants : vous devez autoriser le trafic entrant sur le tunnel de l’appareil, de sorte que les filtres de trafic ne peuvent pas être utilisés.  Si, dans le profil de tunnel d’appareil, vous activez les filtres de trafic, le tunnel d’appareil rejette le trafic entrant.  Cette limitation sera supprimée dans les versions ultérieures.
+Pour les cas de Push initiés par le serveur, comme Windows Remote Management (WinRM), Remote GPUpdate et les scénarios de mise à jour des Configuration Manager distants : vous devez autoriser le trafic entrant sur le tunnel de l’appareil, de sorte que les filtres de trafic ne peuvent pas être utilisés.  Si, dans le profil de tunnel d’appareil, vous activez les filtres de trafic, le tunnel d’appareil rejette le trafic entrant.  Cette limitation sera supprimée dans les versions ultérieures.
 
 
 ### <a name="sample-vpn-profilexml"></a>Exemple de profileXML VPN
@@ -173,7 +173,7 @@ Vous trouverez ci-dessous des ressources supplémentaires pour faciliter le dép
 
 Les ressources de configuration de client VPN sont les suivantes.
 
-- [Comment créer des profils VPN dans System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/create-vpn-profiles)
+- [Comment créer des profils VPN dans Configuration Manager](https://docs.microsoft.com/configmgr/protect/deploy-use/create-vpn-profiles)
 - [Configurer le client Windows 10 Always On les connexions VPN](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
 - [Options de profil VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options)
 

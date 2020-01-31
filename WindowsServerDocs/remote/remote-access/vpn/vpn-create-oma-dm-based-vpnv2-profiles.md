@@ -15,12 +15,12 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 016d9d2dcc26572f8d248ef2f4a922da2e456b83
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 804b7314054691fa0abc19f1cc4e4bffbd6457cf
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949897"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822442"
 ---
 # <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devices"></a>Étape 7.5. Créer des profils VPNv2 basés sur OMA-DM sur des appareils Windows 10
 
@@ -29,13 +29,13 @@ ms.locfileid: "75949897"
 - [**Précédent :** Étape 7,4. Déployer des certificats racine d’accès conditionnel vers AD local](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
 - [**Ensuite :** En savoir plus sur le fonctionnement de l’accès conditionnel pour VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access)
 
-Au cours de cette étape, vous pouvez créer des profils VPNv2 basés sur OMA-DM à l’aide d’Intune pour déployer une stratégie de configuration d’appareil VPN. Si vous souhaitez utiliser SCCM ou un script PowerShell pour créer des profils VPNv2, consultez [paramètres CSP VPNv2](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) pour plus d’informations. 
+Au cours de cette étape, vous pouvez créer des profils VPNv2 basés sur OMA-DM à l’aide d’Intune pour déployer une stratégie de configuration d’appareil VPN. Si vous souhaitez utiliser le point de terminaison Microsoft Configuration Manager ou un script PowerShell pour créer des profils VPNv2, consultez [paramètres CSP VPNv2](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) pour plus d’informations. 
 
 ## <a name="managed-deployment-using-intune"></a>Déploiement géré à l’aide d’Intune
 
 Tout ce qui est abordé dans cette section est le minimum nécessaire pour que le VPN fonctionne avec l’accès conditionnel. Il ne couvre pas le tunneling fractionné, à l’aide de WIP, en créant des profils de configuration d’appareil Intune personnalisés pour faire fonctionner le AutoVPN ou l’authentification unique. Intégrez les paramètres ci-dessous dans le profil VPN que vous avez créé précédemment à l' [étape 5. Configurez le client Windows 10 Always On les connexions VPN](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md).  Dans cet exemple, nous les intégrons à la [configuration du client VPN à l’aide](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md#configure-the-vpn-client-by-using-intune) de la stratégie Intune. 
 
-**Prérequis :**
+**Requis**
 
 L’ordinateur client Windows 10 a déjà été configuré avec une connexion VPN à l’aide d’Intune.   
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0ba2154338871827aae03936e5e39a356a43d675
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2c5fec6d9dafa350f46dfb5b2f213d628391b87f
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388633"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822782"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Étape 2 configurer des serveurs DirectAccess avancés
 
@@ -30,7 +30,7 @@ Cette rubrique décrit comment configurer les paramètres de client et de serveu
 |2.1. Installer le rôle Accès à distance|Installez le rôle Accès à distance.|  
 |2.2. Configurer le type de déploiement|Configurez le type de déploiement comme DirectAccess et VPN, DirectAccess uniquement ou VPN uniquement.|  
 |[Planifier un déploiement avancé de DirectAccess](Plan-an-Advanced-DirectAccess-Deployment.md)|Configurez le serveur d'accès à distance avec les groupes de sécurité contenant les clients DirectAccess.|  
-|2.4. Configurer le serveur d'accès à distance|Configurez les paramètres du serveur d'accès à distance.|  
+|2.4. Configurer le serveur d'accès à distance|Configurez les paramètres du serveur d'accès à distance|  
 |2.5. Configurer les serveurs d'infrastructure|Configurez les serveurs d'infrastructure utilisés dans l'organisation.|  
 |2.6. Configurer les serveurs d'applications|Configurez les serveurs d'applications afin qu'ils exigent une authentification et un chiffrement.|  
 |2.7. Résumé de la configuration et autres objets de stratégie de groupe|Consultez le résumé de la configuration de l'accès à distance et modifiez les objets de stratégie de groupe, si vous le souhaitez.|  
@@ -97,7 +97,7 @@ Pour configurer l'utilisation de DirectAccess sur un ordinateur client, ce derni
 4.  Dans la boîte de dialogue **Sélectionner des groupes**, sélectionnez les groupes de sécurité qui contiennent vos ordinateurs clients DirectAccess.  
   
     > [!NOTE]  
-    > Si le groupe de sécurité se trouve dans une autre forêt que le serveur d'accès à distance, une fois que vous avez terminé l'Assistant Configuration de l'accès à distance, cliquez sur **Actualiser les serveurs d'administration** dans le volet **Tâches** pour découvrir les contrôleurs de domaine et les serveurs System Center Configuration Manager dans la nouvelle forêt.  
+    > Si le groupe de sécurité se trouve dans une forêt différente de celle du serveur d’accès à distance, une fois que vous avez terminé l’Assistant Configuration de l’accès à distance, cliquez sur **Actualiser les serveurs d’administration** dans le volet **tâches** pour découvrir les contrôleurs de domaine et les serveurs de Configuration Manager de la nouvelle forêt.  
   
 5.  Cochez la case **Activer DirectAccess pour les ordinateurs portables uniquement** pour autoriser uniquement les ordinateurs portables à accéder au réseau interne, si nécessaire.  
   
@@ -165,10 +165,10 @@ Pour configurer les serveurs d'infrastructure dans un déploiement de l'accès �
   
 4.  Dans la page **Liste de recherche de suffixes DNS**, le serveur d'accès à distance détecte automatiquement tous les suffixes de domaine dans le déploiement. Utilisez les boutons **Ajouter** et **Supprimer** pour ajouter et supprimer des suffixes de domaine dans la liste des suffixes de domaine à utiliser. Pour ajouter un nouveau suffixe de domaine, dans **Nouveau suffixe**, entrez le suffixe, puis cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
   
-5.  Dans la page **Gestion**, ajoutez tous les serveurs d'administration qui ne sont pas détectés automatiquement, puis cliquez sur **Suivant**. L'accès à distance ajoute automatiquement des contrôleurs de domaine et des serveurs System Center Configuration Manager.  
+5.  Dans la page **Gestion**, ajoutez tous les serveurs d'administration qui ne sont pas détectés automatiquement, puis cliquez sur **Suivant**. L’accès à distance ajoute automatiquement des contrôleurs de domaine et des serveurs de Configuration Manager.  
   
     > [!NOTE]  
-    > Bien que les serveurs soient ajoutés automatiquement, ils n’apparaissent pas dans la liste. Après que vous avez appliqué la configuration pour la première fois, les serveurs System Center Configuration Manager apparaissent dans la liste.  
+    > Bien que les serveurs soient ajoutés automatiquement, ils n’apparaissent pas dans la liste. Une fois la configuration appliquée pour la première fois, les serveurs de Configuration Manager s’affichent dans la liste.  
   
 6.  Cliquez sur **Terminer**.  
   

@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 56986f2ea9f49bdfc1194ae5342798793524e86c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 241418b87fd0f1e6fa64c4b1267e6d9fcde6b0d3
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408618"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822762"
 ---
 # <a name="implementing-secure-administrative-hosts"></a>Implémentation des hôtes d’administration sécurisée
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les hôtes d’administration sécurisés sont des stations de travail ou des serveurs qui ont été configurés spécifiquement pour la création de plateformes sécurisées à partir desquelles les comptes privilégiés peuvent effectuer des tâches d’administration dans Active Directory ou sur les contrôleurs de domaine. systèmes joints à un domaine et applications s’exécutant sur des systèmes joints à un domaine. Dans ce cas, « comptes privilégiés » fait référence non seulement aux comptes membres des groupes les plus privilégiés dans Active Directory, mais aussi à tous les comptes qui ont reçu des droits et des autorisations qui permettent d’effectuer des tâches d’administration.  
   
@@ -84,7 +84,7 @@ Bien que la configuration spécifique varie en fonction de l’architecture de v
 Vous devez autoriser les ouvertures de session interactives par les utilisateurs autorisés et supprimer ou même bloquer d’autres types d’ouverture de session qui ne sont pas nécessaires pour l’accès au serveur.  
   
 ### <a name="patch-and-configuration-management"></a>Gestion des correctifs et des configurations  
-Les organisations plus petites peuvent s’appuyer sur des offres telles que Windows Update ou [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) pour gérer le déploiement des mises à jour sur les systèmes Windows, tandis que les grandes entreprises peuvent implémenter des logiciels de gestion des configurations et des correctifs d’entreprise tels que des System Center Configuration Manager. Quels que soient les mécanismes que vous utilisez pour déployer des mises à jour sur votre serveur général et votre alimentation de station de travail, vous devez envisager des déploiements distincts pour les systèmes hautement sécurisés, tels que les contrôleurs de domaine, les autorités de certification et les hôtes d’administration. En séparant ces systèmes de l’infrastructure de gestion générale, si votre logiciel de gestion ou vos comptes de service sont compromis, la compromission ne peut pas être facilement étendue aux systèmes les plus sécurisés de votre infrastructure.  
+Les organisations plus petites peuvent s’appuyer sur des offres telles que Windows Update ou [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) pour gérer le déploiement des mises à jour sur les systèmes Windows, tandis que les grandes entreprises peuvent implémenter des logiciels de gestion de configuration et de correctifs d’entreprise tels que Microsoft Endpoint Configuration Manager. Quels que soient les mécanismes que vous utilisez pour déployer des mises à jour sur votre serveur général et votre alimentation de station de travail, vous devez envisager des déploiements distincts pour les systèmes hautement sécurisés, tels que les contrôleurs de domaine, les autorités de certification et les hôtes d’administration. En séparant ces systèmes de l’infrastructure de gestion générale, si votre logiciel de gestion ou vos comptes de service sont compromis, la compromission ne peut pas être facilement étendue aux systèmes les plus sécurisés de votre infrastructure.  
   
 Même si vous ne devez pas implémenter les processus de mise à jour manuelle pour les systèmes sécurisés, vous devez configurer une infrastructure distincte pour la mise à jour des systèmes sécurisés. Même dans les grandes organisations, cette infrastructure peut généralement être implémentée via des serveurs WSUS dédiés et des objets de stratégie de groupe pour les systèmes sécurisés.  
   

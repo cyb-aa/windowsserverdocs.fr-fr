@@ -9,16 +9,16 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8ad9b00070d5daef2e5aee43cfdee2d192bddae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f61bc1ccb7d9b09a17713946b5b8c2cc352f43ac
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367731"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822092"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implémentation de modèles d’administration selon le principe des privilèges minimum
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’extrait suivant est issu du [Guide de planification de la sécurité des comptes d’administrateur](https://technet.microsoft.com/library/cc162797.aspx), publié pour la première fois le 1er avril 1999 :
 
@@ -253,7 +253,7 @@ Dans d’autres cas, vous devrez peut-être créer des groupes de sécurité et 
 3. Les utilisateurs qui doivent être membres d’un rôle.  
 4. Comment la gestion des appartenances aux rôles sera effectuée.  
 
-Dans de nombreux environnements, la création manuelle de contrôles d’accès basés sur les rôles pour l’administration d’un environnement de Active Directory peut être difficile à implémenter et à gérer. Si vous avez clairement défini des rôles et des responsabilités pour l’administration de votre infrastructure informatique, vous souhaiterez peut-être tirer parti d’outils supplémentaires pour vous aider à créer un déploiement RBAC natif gérable. Par exemple, si Forefront Identity Manager (FIM) est utilisé dans votre environnement, vous pouvez utiliser FIM pour automatiser la création et le remplissage des rôles d’administration, ce qui peut faciliter l’administration continue. Si vous utilisez System Center Configuration Manager (SCCM) et System Center Operations Manager (SCOM), vous pouvez utiliser des rôles spécifiques à l’application pour déléguer des fonctions de gestion et de surveillance, ainsi qu’appliquer une configuration et un audit cohérents entre les systèmes dans domaine. Si vous avez implémenté une infrastructure à clé publique (PKI), vous pouvez émettre et exiger des cartes à puce pour le personnel informatique chargé d’administrer l’environnement. Avec la gestion des informations d’identification FIM (FIM CM), vous pouvez même combiner la gestion des rôles et des informations d’identification pour votre personnel administratif.  
+Dans de nombreux environnements, la création manuelle de contrôles d’accès basés sur les rôles pour l’administration d’un environnement de Active Directory peut être difficile à implémenter et à gérer. Si vous avez clairement défini des rôles et des responsabilités pour l’administration de votre infrastructure informatique, vous souhaiterez peut-être tirer parti d’outils supplémentaires pour vous aider à créer un déploiement RBAC natif gérable. Par exemple, si Forefront Identity Manager (FIM) est utilisé dans votre environnement, vous pouvez utiliser FIM pour automatiser la création et le remplissage des rôles d’administration, ce qui peut faciliter l’administration continue. Si vous utilisez les Configuration Manager de point de terminaison Microsoft et System Center Operations Manager (SCOM), vous pouvez utiliser des rôles spécifiques à l’application pour déléguer des fonctions de gestion et de surveillance, ainsi qu’appliquer une configuration et un audit cohérents entre les systèmes dans domaine. Si vous avez implémenté une infrastructure à clé publique (PKI), vous pouvez émettre et exiger des cartes à puce pour le personnel informatique chargé d’administrer l’environnement. Avec la gestion des informations d’identification FIM (FIM CM), vous pouvez même combiner la gestion des rôles et des informations d’identification pour votre personnel administratif.  
 
 Dans d’autres cas, il peut être préférable pour une organisation de déployer un logiciel RBAC tiers qui offre une fonctionnalité « prête à l’emploi ». Les solutions commerciales, prêtes à l’emploi (COTS) pour RBAC pour les répertoires et systèmes d’exploitation Active Directory, Windows et autres que Windows, sont proposées par un certain nombre de fournisseurs. Lorsque vous choisissez entre des solutions natives et des produits tiers, vous devez prendre en compte les facteurs suivants :  
 

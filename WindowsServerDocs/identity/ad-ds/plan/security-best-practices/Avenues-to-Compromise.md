@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 65275f4fc2717fdf9bf85ad2aa31eb12d318cc9f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2233a638aa0a422d5792f8c949c46ac8de099ba
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367705"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822042"
 ---
 # <a name="avenues-to-compromise"></a>Voies de compromis
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 *Numéro de loi sept : le réseau le plus sécurisé est un réseau bien administré.* - [10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
   
@@ -60,7 +60,7 @@ Il est important non seulement de vous assurer que vos systèmes sont protégés
 ### <a name="incomplete-patching"></a>Mise à jour corrective incomplète  
 *Loi n ° 3 : Si vous ne suivez pas les correctifs de sécurité, votre réseau ne vous sera pas à votre la longue.* - [10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
   
-Microsoft publie les bulletins de sécurité le deuxième mardi de chaque mois, même si, dans de rares occasions, les mises à jour de sécurité sont publiées entre les mises à jour de sécurité mensuelles (celles-ci sont également appelées « mises à jour hors bande ») lorsque la vulnérabilité est déterminée à poser un risque urgent pour les systèmes clients. Si une petite entreprise configure ses ordinateurs Windows pour utiliser Windows Update pour gérer les mises à jour correctives du système et des applications, ou si une grande organisation utilise un logiciel de gestion tel que System Center Configuration Manager (SCCM) pour déployer les correctifs conformément aux plans hiérarchiques, de nombreux clients corrigent leurs infrastructures Windows de manière relativement opportune.  
+Microsoft publie les bulletins de sécurité le deuxième mardi de chaque mois, même si, dans de rares occasions, les mises à jour de sécurité sont publiées entre les mises à jour de sécurité mensuelles (celles-ci sont également appelées « mises à jour hors bande ») lorsque la vulnérabilité est déterminée à poser un risque urgent pour les systèmes clients. Qu’une petite entreprise configure ses ordinateurs Windows pour qu’elle utilise Windows Update pour gérer les mises à jour correctives du système et des applications, ou qu’une grande organisation utilise un logiciel de gestion tel que Microsoft Endpoint Configuration Manager pour déployer les correctifs en suivant les plans hiérarchiques, de nombreux clients corrigent leurs infrastructures Windows de manière relativement opportune.  
   
 Toutefois, peu d’infrastructures incluent uniquement des ordinateurs Windows et des applications Microsoft, et dans des environnements compromis, il est courant de trouver que la stratégie de gestion des correctifs de l’organisation contient des lacunes. Les systèmes Windows dans ces environnements sont corrigés de manière incohérente. Les systèmes d’exploitation autres que Windows sont corrigés de façon sporadique, si ce n’est le cas. Les applications commerciales prêtes à l’emploi (COTS) contiennent des vulnérabilités pour lesquelles des correctifs existent, mais qui n’ont pas été appliqués. Les périphériques réseau sont souvent configurés avec les informations d’identification par défaut de l’usine et aucune mise à jour du microprogramme après leur installation. Les applications et les systèmes d’exploitation qui ne sont plus pris en charge par leurs fournisseurs sont souvent maintenus en cours d’exécution, bien qu’ils ne puissent plus être corrigés contre les vulnérabilités. Chacun de ces systèmes non corrigés représente un autre point d’entrée potentiel pour les attaquants.  
   

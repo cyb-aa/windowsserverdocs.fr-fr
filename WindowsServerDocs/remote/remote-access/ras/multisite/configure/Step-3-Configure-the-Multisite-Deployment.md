@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ccfde5d13b9b2b722498e824d497a9b790875e14
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3ae66c125548e31603318a7e600c36c00df9d005
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404510"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822552"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Étape 3 configurer le déploiement multisite
 
@@ -38,7 +38,7 @@ Après avoir configuré l’infrastructure multisite, procédez comme suit pour 
 > [!NOTE]  
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_ConfigServer"></a>3,1. Configurer les serveurs d’accès à distance  
+## <a name="BKMK_ConfigServer"></a>3.1. Configurer les serveurs d’accès à distance  
 
   
 ### <a name="to-install-the-remote-access-role"></a>Pour installer le rôle Accès à distance  
@@ -77,7 +77,7 @@ L'applet ou les applets de commande Windows PowerShell suivantes remplissent la 
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Admin"></a>3,2. Accorder un accès administrateur  
+## <a name="BKMK_Admin"></a>3.2. Accorder un accès administrateur  
   
 #### <a name="to-grant-administrator-permissions"></a>Pour accorder des autorisations d’administrateur  
   
@@ -99,7 +99,7 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 9. Répétez cette procédure sur tous les serveurs d’accès à distance qui feront partie du déploiement multisite.  
   
-## <a name="BKMK_IPHTTPS"></a>3,3. Configurer IP-HTTPs pour un déploiement multisite  
+## <a name="BKMK_IPHTTPS"></a>3.3. Configurer IP-HTTPs pour un déploiement multisite  
 Sur chaque serveur d’accès à distance qui sera ajouté au déploiement multisite, un certificat SSL est requis pour vérifier la connexion HTTPs au serveur Web IP-HTTPs. L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.  
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>Pour obtenir un certificat IP-HTTPs  
@@ -338,7 +338,7 @@ Après avoir activé la multisite dans votre déploiement, vous pouvez ajouter d
 15. Dans la boîte de dialogue Ajout d’un **point d’entrée** , cliquez sur **Fermer** , puis dans l’Assistant Ajouter un point d’entrée, cliquez sur **Fermer**.  
   
     > [!NOTE]  
-    > Si le point d’entrée ajouté se trouve dans une forêt différente de celle des points d’entrée ou des ordinateurs clients existants, il est nécessaire de cliquer sur **Actualiser les serveurs d’administration** dans le volet **tâches** pour découvrir les contrôleurs de domaine et les System Center Configuration Manager de la nouvelle forêt.  
+    > Si le point d’entrée ajouté se trouve dans une forêt différente de celle des points d’entrée ou des ordinateurs clients existants, il est nécessaire de cliquer sur **Actualiser les serveurs d’administration** dans le volet **tâches** pour découvrir les contrôleurs de domaine et les Configuration Manager de la nouvelle forêt.  
   
 16. Répétez cette procédure à partir de l’étape 2 pour chaque point d’entrée que vous souhaitez ajouter à votre déploiement multisite.  
   
