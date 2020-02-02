@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ce000ec618d0c06ca938b21e9bc363250e1aa38f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b3a30c081731de97e1bdf9abe711a5ef6460be0f
+ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949614"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76918310"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Créer une application à plusieurs niveaux à l’aide de OBO (au nom de) à l’aide d’OAuth avec AD FS 2016 ou version ultérieure
 
@@ -59,7 +59,7 @@ Cette procédure pas à pas utilise Visual Studio 2015. Le projet utilise fortem
 
 L’exemple utilise également SQL Server, version 11.0. Installez la base de données locale SQL avant de travailler sur l’exemple.
 
-## <a name="setting-up-the-environment"></a>Configuration de l'environnement
+## <a name="setting-up-the-environment"></a>Configuration de l’environnement
 Nous allons travailler avec une configuration de base de :
 
 1. **DC**: contrôleur de domaine pour le domaine dans lequel AD FS sera hébergé
@@ -75,9 +75,9 @@ La configuration du contrôleur de domaine et du AD FS dépasse le cadre de cet 
 
 L’exemple est basé sur l’exemple OBO existant sur Azure créé par Vittorio Bertocci et est disponible [ici](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof). Suivez les instructions pour cloner le projet sur votre ordinateur de développement et créer une copie de l’exemple pour commencer à utiliser.
 
-## <a name="clone-or-download-this-repository"></a>Cloner ou télécharger ce dépôt
+## <a name="clone-or-download-this-repository"></a>Cloner ou télécharger ce référentiel
 
-À partir de votre interpréteur de commandes ou de votre ligne de commande :
+À partir de votre shell ou de la ligne de commande :
 
     git clone https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof.git
 
@@ -129,7 +129,7 @@ Pour permettre l’authentification pour le compte de, nous devons nous assurer 
     => issue(claim = c);
 
     @RuleName = "Issue user_impersonation scope"
-    => issue(Type = "https://schemas.microsoft.com/identity/claims/scope", Value = "user_impersonation");
+    => issue(Type = "http://schemas.microsoft.com/identity/claims/scope", Value = "user_impersonation");
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO10.PNG)
 
@@ -278,10 +278,10 @@ Poursuivez le reste de l’Assistant comme lorsque nous avons configuré le WebA
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ida : audience             | ID du ToDoListService donné à AD FS lors de la configuration du WebAPI ToDoListService, par exemple, https://localhost:44321/                                                                                         |
 | Ida : ClientID             | ID du ToDoListService donné à AD FS lors de la configuration du WebAPI ToDoListService, par exemple, <https://localhost:44321/> </br>**Il est très important que Ida : audience et Ida : ClientID correspondent** |
-| ida:ClientSecret         | Il s’agit de la clé secrète que AD FS générée lorsque vous configurez le client ToDoListService dans AD FS                                                                                                                   |
+| Ida : ClientSecret         | Il s’agit de la clé secrète que AD FS générée lorsque vous configurez le client ToDoListService dans AD FS                                                                                                                   |
 | Ida : AdfsMetadataEndpoint | Il s’agit de l’URL de vos métadonnées de AD FS, par exemple https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
 | Ida : OBOWebAPIBase        | Il s’agit de l’adresse de base que nous allons utiliser pour appeler l’API backend, par exemple https://localhost:44300                                                                                                                     |
-| ida:Authority            | Il s’agit de l’URL de votre service AD FS, par exemple https://fs.anandmsft.com/adfs/                                                                                                                                          |
+| Ida : autorité            | Il s’agit de l’URL de votre service AD FS, par exemple https://fs.anandmsft.com/adfs/                                                                                                                                          |
 
 Toutes les autres clés Ida : XXXXXXx du nœud **appSettings** peuvent être commentées ou supprimées
 
