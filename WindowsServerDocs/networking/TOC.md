@@ -253,7 +253,7 @@
 ### [Plan pour SDN](sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)
 #### [Configuration requise pour l’installation et la préparation du déploiement de contrôleur de réseau](sdn/plan/Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)
 
-### [Déployer SDN](sdn/deploy/Deploy-Software-Defined-Networking.md)
+### Déployer SDN
 #### [Déployer une infrastructure SDN](sdn/deploy/Deploy-a-Software-Defined-Network-Infrastructure.md)
 ##### [Déployer une infrastructure SDN à l’aide de scripts](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
 #### [Déployer des technologies SDN à l’aide de Windows PowerShell](sdn/deploy/Deploy-Software-Defined-Network-Technologies-using-Windows-powershell.md)
@@ -284,8 +284,8 @@
 #### [Kerberos avec un nom principal de service (SPN)](sdn/security/kerberos-with-spn.md)
 #### [Audit de pare-feu SDN](sdn/security/sdn-firewall-auditing.md)
 
-### [Homologation de réseau virtuel](sdn/vnet-peering/sdn-vnet-peering.md)
-#### [Configurer une homologation de réseau virtuel](sdn/vnet-peering/sdn-configure-vnet-peering.md)
+### [Peering de réseau virtuel](sdn/vnet-peering/sdn-vnet-peering.md)
+#### [Configurer un peering de réseau virtuel](sdn/vnet-peering/sdn-configure-vnet-peering.md)
 
 ### [Performances de la passerelle Windows Server 2019](sdn/gateway-performance.md)
 ### [Allocation de bande passante de la passerelle](sdn/gateway-allocation.md)
