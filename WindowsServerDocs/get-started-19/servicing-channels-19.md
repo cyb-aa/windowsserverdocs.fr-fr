@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 3d443ff123cc041196f59d93d156415c34bdf70f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 06f92e0a2f74ed229b42e936583a7f75d4584234
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947872"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822112"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Canaux de maintenance de Windows Server : LTSC et SAC
 
@@ -76,9 +76,9 @@ Il existe de nombreux outils avec lesquels les professionnels de l’informatiqu
 
 - **Windows Update (autonome)**  : Cette option est disponible uniquement pour les serveurs connectés à Internet pour lesquels Windows Update est activé.
 - **Windows Server Update Services (WSUS)** fournit un contrôle étendu sur les mises à jour Windows 10 et Windows Server et est disponible en mode natif dans le système d’exploitation Windows Server. Outre la possibilité de reporter les mises à jour, les organisations peuvent ajouter une couche d’approbation des mises à jour et choisir de les déployer sur des ordinateurs spécifiques ou des groupes d’ordinateurs dès qu’ils sont prêts.
-- **System Center Configuration Manager** fournit un contrôle accru sur la maintenance. Les professionnels de l’informatique peuvent reporter les mises à jour, les approuver et disposer de plusieurs options destinées au ciblage des déploiements et à la gestion des heures de déploiement et d’utilisation de la bande passante.
+- **Microsoft Endpoint Configuration Manager** fournit un contrôle accru sur la maintenance. Les professionnels de l’informatique peuvent reporter les mises à jour, les approuver et disposer de plusieurs options destinées au ciblage des déploiements et à la gestion des heures de déploiement et d’utilisation de la bande passante.
 
-Vous avez probablement déjà choisi d’utiliser au moins une de ces options en fonction de vos ressources, de votre personnel et de votre expertise. Vous pouvez continuer à utiliser le même processus pour les versions du canal semi-annuel : par exemple, si vous gérez déjà les mises à jour à l’aide de System Center Configuration Manager, vous pouvez continuer à l’utiliser. De même, vous pouvez continuer à utiliser WSUS.
+Vous avez probablement déjà choisi d’utiliser au moins une de ces options en fonction de vos ressources, de votre personnel et de votre expertise. Vous pouvez continuer à utiliser le même processus pour les versions du canal semi-annuel : par exemple, si vous gérez déjà les mises à jour avec Configuration Manager, vous pouvez continuer à l’utiliser. De même, vous pouvez continuer à utiliser WSUS.
 
 ## <a name="where-to-obtain-semi-annual-channel-releases"></a>Où obtenir les versions du canal semi-annuel
 
