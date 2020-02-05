@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: d388da2b7416543c307bd931636902b4a7543e1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7336637bd3186f885db6d94eeffd0d2311edf3ac
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403652"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001838"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>VM dotées d’une protection maximale : Le fournisseur de services d’hébergement configure Windows Azure Pack
 
@@ -48,7 +48,7 @@ Installez et configurez Windows Azure Pack (WAP) sur l’ordinateur où vous sou
 
 1.  Examen de la [Configuration requise du système WAP](https://technet.microsoft.com/library/dn296442.aspx) et installation des [logiciels requis](https://technet.microsoft.com/library/dn469335.aspx).
 
-2.  Téléchargez et installez le [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx). Si l’ordinateur n’est pas connecté à Internet, suivez les [instructions d’installation hors connexion](http://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
+2.  Téléchargez et installez le [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx). Si l’ordinateur n’est pas connecté à Internet, suivez les [instructions d’installation hors connexion](https://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
 
 3.  Ouvrez la Web Platform Installer et recherchez **Windows Azure Pack : portail et API Express** sous l’onglet **produits** . cliquez sur **Ajouter**, puis sur **installer** en bas de la fenêtre.
 
@@ -113,7 +113,7 @@ Pour permettre aux locataires de créer des machines virtuelles dans WAP, vous d
 
     À ce stade, Windows Azure Pack est configurée et les locataires peuvent s’abonner au plan que vous venez de créer et déployer des machines virtuelles protégées. Pour connaître les étapes supplémentaires que les locataires doivent effectuer, consultez [machines virtuelles protégées pour les locataires-déploiement d’une machine virtuelle protégée à l’aide de Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Articles associés
 
 - [Étapes de configuration du fournisseur de services d’hébergement pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

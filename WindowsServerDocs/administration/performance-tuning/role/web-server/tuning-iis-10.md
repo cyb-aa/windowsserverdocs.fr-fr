@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5658a101371cf3b865dec04ac76716b536792602
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 2f4d309de073e84aa0a1c568c7cfc5f31ee88d83
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265701"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001874"
 ---
 # <a name="tuning-iis-100"></a>Paramétrage d’IIS 10,0
 
@@ -44,7 +44,7 @@ HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Http\Parameters
 
 **Notez**  si le service http est déjà en cours d’exécution, vous devez le redémarrer pour que les modifications prennent effet.
 
-Â 
+MicrosoftÂ 
 
 ## <a name="cache-management-settings"></a>Paramètres de gestion du cache
 
@@ -64,7 +64,7 @@ Voici quelques paramètres utiles pour le cache en mode noyau HTTP. sys :
 
     **Remarque** La spécification de la taille définit uniquement la valeur maximale et le système risque de ne pas laisser le cache atteindre la taille maximale définie.
 
-    Â 
+    MicrosoftÂ 
 
 -   **UriMaxUriBytes** Valeur par défaut : 262144 octets (256 Ko)
 
@@ -121,7 +121,7 @@ Les paramètres de cette section affectent le comportement du processus de trava
 
 % SystemRoot%\\system32\\inetsrv\\config\\applicationHost. config
 
-Utilisez Appcmd. exe, la console de gestion IIS 10,0, les applets de commande PowerShell WebAdministration ou IISAdministration pour les modifier. La plupart des paramètres sont détectés automatiquement et ne nécessitent pas de redémarrage des processus de travail IIS 10,0 ou du serveur d’applications Web. Pour plus d’informations sur le fichier applicationHost. config, consultez [Présentation de applicationHost. config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig).
+Utilisez Appcmd. exe, la console de gestion IIS 10,0, les applets de commande PowerShell WebAdministration ou IISAdministration pour les modifier. La plupart des paramètres sont détectés automatiquement et ne nécessitent pas de redémarrage des processus de travail IIS 10,0 ou du serveur d’applications Web. Pour plus d’informations sur le fichier applicationHost. config, consultez [Présentation de applicationHost. config](https://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig).
 
 
 ## <a name="ideal-cpu-setting-for-numa-hardware"></a>Paramètre d’UC idéal pour le matériel NUMA
@@ -160,7 +160,7 @@ Pour désactiver complètement la compression, supprimez StaticCompressionModule
 |Attribut|Description|Par défaut|
 |--- |--- |--- |
 |staticCompression-EnableCpuUsage<br><br>staticCompression-DisableCpuUsage<br><br>dynamicCompression-EnableCpuUsage<br><br>dynamicCompression-DisableCpuUsage|Active ou désactive la compression si l’utilisation du processeur en pourcentage passe au-dessus ou au-dessous des limites spécifiées.<br><br>Depuis IIS 7,0, la compression est automatiquement désactivée si l’UC à état stable augmente au-dessus du seuil de désactivation. La compression est activée si le processeur descend sous le seuil d’activation.|50, 100, 50 et 90 respectivement|
-|Répertoire|Spécifie le répertoire dans lequel les versions compressées des fichiers statiques sont temporairement stockées et mises en cache. Envisagez de déplacer ce répertoire sur le lecteur système si vous y accédez fréquemment.|Fichiers compressés temporaires%SystemDrive%\inetpub\temp\IIS|
+|Directory|Spécifie le répertoire dans lequel les versions compressées des fichiers statiques sont temporairement stockées et mises en cache. Envisagez de déplacer ce répertoire sur le lecteur système si vous y accédez fréquemment.|Fichiers compressés temporaires%SystemDrive%\inetpub\temp\IIS|
 |doDiskSpaceLimiting|Spécifie s’il existe une limite pour la quantité d’espace disque que tous les fichiers compressés peuvent occuper. Les fichiers compressés sont stockés dans le répertoire de compression qui est spécifié par l’attribut **Directory** .|Vrai|
 |maxDiskSpaceUsage|Spécifie le nombre d’octets d’espace disque que les fichiers compressés peuvent occuper dans le répertoire de compression.<br><br>Ce paramètre devra peut-être être augmenté si la taille totale de tout le contenu compressé est trop importante.|100 Mo|
 
@@ -208,7 +208,7 @@ Vous pouvez activer la journalisation binaire centrale en affectant à l’attri
 |Attribut|Description|Par défaut|
 |--- |--- |--- |
 |enabled|Spécifie si la journalisation binaire centrale est activée.|Faux|
-|Répertoire|Spécifie le répertoire dans lequel les entrées de journal sont écrites.|%SystemDrive%\inetpub\logs\LogFiles|
+|Directory|Spécifie le répertoire dans lequel les entrées de journal sont écrites.|%SystemDrive%\inetpub\logs\LogFiles|
 
 
 ## <a name="application-and-site-tunings"></a>Paramétrages des applications et des sites
@@ -266,7 +266,7 @@ Les paramètres suivants sont utilisés pour configurer le cache de modèles ASP
 
 ## <a name="aspnet-concurrency-setting"></a>Paramètre de concurrence ASP.NET
 
-### <a name="aspnet-35"></a>ASP.NET 3.5
+### <a name="aspnet-35"></a>ASP.NET 3,5
 Par défaut, ASP.NET limite la concurrence des demandes pour réduire la consommation de mémoire stable sur le serveur. Des applications à concurrence élevée peuvent avoir à ajuster certains paramètres pour améliorer les performances globales. Vous pouvez modifier ce paramètre dans le fichier Aspnet. config :
 
 ``` syntax
@@ -281,7 +281,7 @@ Le paramètre suivant est utile pour utiliser pleinement des ressources sur un s
 
     Ce paramètre limite le nombre maximal de demandes ASP.NET exécutées simultanément sur un système. La valeur par défaut est conservatrice pour réduire la consommation de mémoire des applications ASP.NET. Envisagez d’accentuer cette limite sur les systèmes qui exécutent des applications qui effectuent des opérations d’e/s longues et synchrones. Dans le cas contraire, les utilisateurs peuvent rencontrer une latence élevée en raison de la mise en file d’attente ou des échecs de demande en raison du dépassement des limites de file d’attente sous une charge élevée lorsque le paramètre par défaut est utilisé.
 
-### <a name="aspnet-46"></a>ASP.NET 4.6
+### <a name="aspnet-46"></a>ASP.NET 4,6
 Outre le paramètre maxConcurrentRequestPerCpu, ASP.NET 4,7 fournit également des paramètres pour améliorer les performances dans les applications qui s’appuient fortement sur une opération asynchrone. Le paramètre peut être modifié dans le fichier Aspnet. config.
 
 ``` syntax
@@ -319,7 +319,7 @@ Avant de passer à des détails spécifiques, nous devons garder à l’esprit q
 
 **Notez**  dans le cas où le site exécute du code instable, tel que du code avec une fuite de mémoire, ou instable, la définition du site pour qu’il se termine en cas d’inactivité peut être une alternative rapide et incorrecte à la résolution du bogue de code. Ce n’est pas un élément que nous encourageons, mais, en fait, il peut être préférable d’utiliser cette fonctionnalité comme mécanisme de nettoyage, tandis qu’une solution plus permanente est dans les travaux.\]
 
-Â 
+MicrosoftÂ 
 
 Un autre facteur à prendre en compte est que si le site utilise beaucoup de mémoire, le processus de suspension lui-même prend un péage, car l’ordinateur doit écrire les données utilisées par le processus de travail sur le disque. Si le processus de travail utilise un grand segment de mémoire, son interruption peut être plus coûteuse que le coût de l’attente de la sauvegarde.
 
@@ -327,7 +327,7 @@ Pour tirer le meilleur parti de la fonctionnalité de suspension des processus d
 
 Dans l’idéal, les sites que vous configurez pour la suspension ou la résiliation sont ceux qui ont des visiteurs tous les jours, mais pas suffisamment pour s’assurer qu’ils sont actifs en permanence. Il s’agit généralement de sites disposant d’environ 20 visiteurs uniques un jour ou moins. Vous pouvez analyser les modèles de trafic à l’aide des fichiers journaux du site et calculer le trafic quotidien moyen.
 
-N’oubliez pas qu’une fois qu’un utilisateur spécifique se connecte au site, il le reste généralement pendant au moins un moment, en effectuant des demandes supplémentaires et, par conséquent, le simple comptage des demandes quotidiennes peut ne pas refléter avec précision les modèles de trafic réels. Pour obtenir une lecture plus précise, vous pouvez également utiliser un outil, tel que Microsoft Excel, pour calculer le temps moyen entre les demandes. Exemple :
+N’oubliez pas qu’une fois qu’un utilisateur spécifique se connecte au site, il le reste généralement pendant au moins un moment, en effectuant des demandes supplémentaires et, par conséquent, le simple comptage des demandes quotidiennes peut ne pas refléter avec précision les modèles de trafic réels. Pour obtenir une lecture plus précise, vous pouvez également utiliser un outil, tel que Microsoft Excel, pour calculer le temps moyen entre les demandes. Par exemple :
 
 ||URL de requête|Heure de la demande|Delta|
 |--- |--- |--- |--- |
@@ -336,7 +336,7 @@ N’oubliez pas qu’une fois qu’un utilisateur spécifique se connecte au sit
 |3|/SourceSilverLight/Geosource.web/clientbin/geo/1.aspx|10:11|0:01|
 |4|/lClientAccessPolicy.xml|10:12|0:01|
 |5|/SourceSilverLight/GeosourcewebService/service. asmx|10:23|0:11|
-|6|/SourceSilverLight/géosource. Web/GeoSearchServer... ¦.|11 h 50|1:27|
+|6|/SourceSilverLight/géosource. Web/GeoSearchServer... ¦.|11:50|1:27|
 |7|/rest/Services/CachedServices/Silverlight_load_la... ¦|12:50|1:00|
 |8|/rest/Services/CachedServices/Silverlight_basemap... ¦.|12:51|0:01|
 |9|/rest/Services/DynamicService/Silverlight_basemap... ¦.|12:59|0:08|

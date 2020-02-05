@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/06/2018
-ms.openlocfilehash: 7b25f6fe3c8a067d843fc12e9c1d1955a9606c09
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 86e170e199c7286d883f1248610c6f195add5b01
+ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373940"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013034"
 ---
 # <a name="manage-bde-protectors"></a>Manage-bde : protecteurs
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Gère les méthodes de protection utilisées pour la clé de chiffrement BitLocker. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 ## <a name="syntax"></a>Syntaxe
@@ -48,7 +48,7 @@ manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup
 
 ### <a name="BKMK_addprotectors"></a>-Ajouter une syntaxe et des paramètres
 ```
-manage-bde  protectors  add [<Drive>] [-forceupgrade] [-recoverypassword <NumericalPassword>] [-recoverykey <pathToExternalKeydirectory>]
+manage-bde  -protectors  -add [<Drive>] [-forceupgrade] [-recoverypassword <NumericalPassword>] [-recoverykey <pathToExternalKeydirectory>]
 [-startupkey <pathToExternalKeydirectory>] [-certificate {-cf <pathToCertificateFile>|-ct <CertificateThumbprint>}] [-tpm] [-tpmandpin] 
 [-tpmandstartupkey <pathToExternalKeydirectory>] [-tpmandpinandstartupkey <pathToExternalKeydirectory>] [-password][-adaccountorgroup <securityidentifier> [-computername <Name>] 
 [{-?|/?}] [{-help|-h}]
@@ -72,13 +72,13 @@ manage-bde  protectors  add [<Drive>] [-forceupgrade] [-recoverypassword <Numeri
 |      -tpmandstartupkey       |                                                                                                                    Ajoute un module de plateforme sécurisée et un protecteur de clé de démarrage pour le lecteur de système d’exploitation. Vous pouvez également utiliser **-tsk** comme version abrégée de cette commande.                                                                                                                    |
 |   -tpmandpinandstartupkey    |                                                                                                                Ajoute un protecteur de module de plateforme sécurisée, de code confidentiel et de clé de démarrage pour le lecteur de système d’exploitation. Vous pouvez également utiliser **-tpsk** comme version abrégée de cette commande.                                                                                                                 |
 |          -Password           |                                                                                                                              Ajoute un protecteur de clé de mot de passe pour le lecteur de données. Vous pouvez également utiliser **-PW** comme version abrégée de cette commande.                                                                                                                              |
-|      -adaccountorgroup       | Ajoute un protecteur d’identité basé sur un identificateur de sécurité (SID) pour le volume.  Vous pouvez également utiliser **-sid** comme version abrégée de cette commande. **IMPORTANT :** Par défaut, vous ne pouvez pas ajouter un protecteur ADAccountOrGroup à distance à l’aide de WMI ou de Manage-bde.  Si votre déploiement nécessite la possibilité d’ajouter ce protecteur à distance, vous devez activer la délégation avec restriction. |
+|      -adaccountorgroup       | Ajoute un protecteur d’identité basé sur un identificateur de sécurité (SID) pour le volume.  Vous pouvez également utiliser **-sid** comme version abrégée de cette commande. **Important :** Par défaut, vous ne pouvez pas ajouter un protecteur ADAccountOrGroup à distance à l’aide de WMI ou de Manage-bde.  Si votre déploiement nécessite la possibilité d’ajouter ce protecteur à distance, vous devez activer la délégation avec restriction. |
 |        -ComputerName         |                                                                                                       Spécifie que Manage-bde est utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.                                                                                                       |
 |            <Name>            |                                                                                                         Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.                                                                                                         |
 
 ### <a name="BKMK_deleteprotectors"></a>-supprimer la syntaxe et les paramètres
 ```
-manage-bde  protectors  delete <Drive> [-type {recoverypassword|externalkey|certificate|tpm|tpmandstartupkey|tpmandpin|tpmandpinandstartupkey|Password|Identity}] 
+manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|certificate|tpm|tpmandstartupkey|tpmandpin|tpmandpinandstartupkey|Password|Identity}] 
 [-id <KeyProtectorID>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
@@ -94,7 +94,7 @@ manage-bde  protectors  delete <Drive> [-type {recoverypassword|externalkey|cert
 |       tpmandpin        |                                    Spécifie que tous les protecteurs de clés TPM et PIN associés au lecteur doivent être supprimés.                                    |
 | tpmandpinandstartupkey |                             Spécifie que tous les protecteurs de clés de module de plateforme sécurisée, de code confidentiel et de clé de démarrage associés au lecteur doivent être supprimés.                             |
 |        password        |                                        Spécifie que tous les protecteurs de clé de mot de passe associés au lecteur doivent être supprimés.                                         |
-|        identité        |                                        Spécifie que tous les protecteurs de clés d’identité associés au lecteur doivent être supprimés.                                         |
+|        autorité        |                                        Spécifie que tous les protecteurs de clés d’identité associés au lecteur doivent être supprimés.                                         |
 |          -ID           |                Identifie le protecteur de clé à supprimer à l’aide de l’identificateur de clé. Ce paramètre est une autre option pour le paramètre **-type** .                 |
 |    <KeyProtectorID>    |        Identifie un protecteur de clé individuel sur le lecteur à supprimer. Les ID de protecteur de clé peuvent être affichés à l’aide de la commande **Manage-bde-protectors-obten** .         |
 |     -ComputerName      | Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande. |
@@ -104,7 +104,7 @@ manage-bde  protectors  delete <Drive> [-type {recoverypassword|externalkey|cert
 
 ### <a name="BKMK_disableprot"></a>-désactiver la syntaxe et les paramètres
 ```
-manage-bde  protectors  disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
 |   Paramètre   |                                                                                                                                                                                                                   Description                                                                                                                                                                                                                    |
@@ -119,23 +119,23 @@ manage-bde  protectors  disable <Drive> [-RebootCount <integer 0 - 15>] [-comput
 ## <a name="BKMK_Examples"></a>Illustre
 L’exemple suivant illustre l’utilisation de la commande **-protections** pour ajouter un protecteur de clé de certificat identifié par un fichier de certificat au lecteur E.
 ```
-manage-bde  protectors  add E: -certificate  cf "c:\File Folder\Filename.cer"
+manage-bde  -protectors  -add E: -certificate  -cf "c:\File Folder\Filename.cer"
 ```
 L’exemple suivant illustre l’utilisation de la commande **-protections** pour ajouter un protecteur de clé **adaccountorgroup** identifié par le nom de domaine et le nom d’utilisateur au lecteur E.
 ```
-manage-bde  protectors  add E: -sid DOMAIN\user
+manage-bde  -protectors  -add E: -sid DOMAIN\user
 ```
 L’exemple suivant illustre l’utilisation de la commande **Protectors** pour désactiver la protection jusqu’à ce que l’ordinateur ait redémarré 3 fois.
 ```
-manage-bde  protectors  disable C: -rc 3
+manage-bde  -protectors  -disable C: -rc 3
 ```
 L’exemple suivant illustre l’utilisation de la commande **-Protectors** pour supprimer tous les protecteurs de clés TPM et de clé de démarrage sur le lecteur C.
 ```
-manage-bde  protectors  delete C: -type tpmandstartupkey
+manage-bde  -protectors -delete C: -type tpmandstartupkey
 ```
 L’exemple suivant illustre l’utilisation de la commande **-Protectors** pour sauvegarder toutes les informations de récupération du lecteur C sur AD DS.
 ```
-manage-bde  protectors  adbackup C:
+manage-bde  -protectors  -adbackup C:
 ```
 ## <a name="additional-references"></a>Références supplémentaires
 -   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

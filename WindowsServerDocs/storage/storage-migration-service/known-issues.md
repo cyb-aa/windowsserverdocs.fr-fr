@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: e5832843dce05832a231ed3a4d7e20cf90f1d183
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: a98c560306debc0e10c2c0ac44b41e12141b6e9f
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822592"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001884"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -123,7 +123,7 @@ Pour résoudre ce problème, installez [Windows Update le 2 avril 2019 — KB449
 
 ## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Incompatibilité de hachages DFSR lors de l’utilisation du service de migration de stockage pour préamorcer des données
 
-Lorsque vous utilisez le service de migration de stockage pour transférer des fichiers vers une nouvelle destination, en configurant le réplication DFS (DFSR) pour répliquer ces données avec un serveur DFSR existant via la réplication prédéfinie ou le clonage de base de données DFSR, tous les fichiers experiemce un hachage discordance et sont à nouveau répliquées. Les flux de données, les flux de sécurité, les tailles et les attributs semblent être parfaitement mis en correspondance après l’utilisation de SMS pour les transférer. L’examen des fichiers avec ICACLS ou le journal de débogage de clonage de base de données DFSR révèle :
+Lorsque vous utilisez le service de migration de stockage pour transférer des fichiers vers une nouvelle destination, en configurant le réplication DFS (DFSR) pour répliquer ces données avec un serveur DFSR existant via la réplication prédéfinie ou le clonage de base de données DFSR, tous les fichiers rencontrent un hachage discordance et sont à nouveau répliquées. Les flux de données, les flux de sécurité, les tailles et les attributs semblent être parfaitement mis en correspondance après l’utilisation de SMS pour les transférer. L’examen des fichiers avec ICACLS ou le journal de débogage de clonage de base de données DFSR révèle :
 
 Fichier source :
 

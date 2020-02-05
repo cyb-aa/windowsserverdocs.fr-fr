@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1fcb1601169fa8f8b45a8a89b6495179092a0adc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f1d5e2f3f17c40f262b8cea98c04e3347790ba8
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370541"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001824"
 ---
 # <a name="power-and-performance-tuning"></a>Réglage de l’alimentation et des performances
 
@@ -40,7 +40,7 @@ Vous devez établir une mesure de la puissance de référence avant de régler v
 
 Si votre serveur dispose de la prise en charge nécessaire, vous pouvez utiliser les fonctionnalités de contrôle de l’alimentation et de budgétisation de Windows Server 2016 pour afficher la consommation d’énergie au niveau du système à l’aide de l’analyseur de performances.
 
-Une façon de déterminer si votre serveur prend en charge le contrôle et la budgétisation consiste à consulter le [Catalogue Windows Server](http://www.windowsservercatalog.com). Si votre modèle de serveur qualifie la nouvelle qualification de gestion de l’alimentation améliorée dans le programme de certification matérielle de Windows, il est garanti qu’il prend en charge les fonctionnalités de contrôle et de budgétisation.
+Une façon de déterminer si votre serveur prend en charge le contrôle et la budgétisation consiste à consulter le [Catalogue Windows Server](https://www.windowsservercatalog.com). Si votre modèle de serveur qualifie la nouvelle qualification de gestion de l’alimentation améliorée dans le programme de certification matérielle de Windows, il est garanti qu’il prend en charge les fonctionnalités de contrôle et de budgétisation.
 
 Une autre façon de vérifier la prise en charge du contrôle consiste à rechercher manuellement les compteurs dans l’analyseur de performances. Ouvrez l’analyseur de performances, sélectionnez **Ajouter des compteurs**, puis recherchez le groupe de compteurs de compteur **d’alimentation** .
 
@@ -71,7 +71,7 @@ Pour plus d’informations sur PowerCfg. exe, consultez [utilisation de powercfg
 
 Windows Server 2016 possède trois modes de gestion de l’alimentation intégrés conçus pour répondre à différents besoins professionnels. Ces plans offrent un moyen simple de personnaliser un serveur pour répondre aux objectifs d’alimentation ou de performances. Le tableau suivant décrit les plans, répertorie les scénarios courants d’utilisation de chaque plan et fournit des détails d’implémentation pour chaque plan.
 
-| **Planification** | **Description** | **Scénarios courants applicables** | **Principales mises en œuvre** |
+| **Plan** | **Description** | **Scénarios courants applicables** | **Principales mises en œuvre** |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Équilibré (recommandé) | Paramètre par défaut. Cible une bonne efficacité énergétique avec un impact minime sur les performances. | Calcul général | Correspond à la capacité à la demande. Les fonctionnalités d’économie d’énergie équilibrent la puissance et les performances. |
 | Hautes performances | Augmente les performances au détriment de la consommation d’énergie élevée. Les limitations d’alimentation et thermique, les dépenses d’exploitation et les considérations de fiabilité s’appliquent. | Applications à faible latence et code d’application sensible aux modifications des performances du processeur | Les processeurs sont toujours verrouillés à l’état de performances le plus élevé (y compris les fréquences « Turbo »). Tous les cœurs sont désimmobilisés. La sortie thermique peut être importante. |
@@ -112,7 +112,7 @@ Dans Windows Server 2016, la valeur par défaut du mode Boost est 3.
 
 | **Nom** | **Comportement basé sur l’État P** | **Comportement de CPPC** |
 |--------------------------|------------------------|-------------------|
-| 0 (désactivé) | Désactivé | Désactivé |
+| 0 (désactivé) | Désactivée | Désactivée |
 | 1 (activé) | Enabled | Activation efficace |
 | 2 (agressif) | Enabled | Façon |
 | 3 (activé efficacement) | Efficace | Activation efficace |
@@ -129,7 +129,7 @@ Powercfg -setactive scheme_current
 > [!Important]
 > Vous devez exécuter la commande **powercfg-SetActive** pour activer les nouveaux paramètres. Vous n’avez pas besoin de redémarrer le serveur.
 
-Pour définir cette valeur pour les modes d’alimentation autres que le plan actuellement sélectionné, vous pouvez utiliser des alias tels\_que le modèle Max (économies d'\_énergie), le schéma min (haute\_performance) et le schéma équilibré (équilibré) à la place du schéma\_.En cours. Remplacez « Scheme Current » dans les commandes powercfg-SetActive précédemment affichées par l’alias souhaité pour activer ce mode de gestion de l’alimentation.
+Pour définir cette valeur pour les modes de gestion de l’alimentation autres que le plan actuellement sélectionné, vous pouvez utiliser des alias tels que le schéma\_MAX (économies d’énergie), le schéma\_MIN (High performance) et le schéma\_équilibré (équilibré) à la place du schéma\_actuel. Remplacez « Scheme Current » dans les commandes powercfg-SetActive précédemment affichées par l’alias souhaité pour activer ce mode de gestion de l’alimentation.
 
 Par exemple, pour ajuster le mode d’amélioration dans le plan de l’économie d’énergie et faire en sorte que l’économiseur d’énergie soit le plan actuel, exécutez les commandes suivantes :
 
@@ -189,11 +189,11 @@ En règle générale, aucun thread n’est planifié pour les cœurs qui sont en
 
 Pour la plupart des serveurs, le comportement de parking central par défaut fournit un équilibre raisonnable entre le débit et l’efficacité énergétique. Sur les processeurs où le parking central ne peut pas afficher autant d’avantages sur les charges de travail génériques, il peut être désactivé par défaut.
 
-Si votre serveur a des exigences spécifiques en matière de parking, vous pouvez contrôler le nombre de cœurs disponibles pour le stationnement à l’aide du paramètre **Core performance Core maximum cores** , ou des **cœurs de processeurs minimum des performances du processeur.** dans Windows Server 2016.
+Si votre serveur a des exigences spécifiques en matière de parking, vous pouvez contrôler le nombre de cœurs disponibles pour le stationnement à l’aide du paramètre **Core performance Core maximum cœurs** ou du paramètre Core **performance Core Park minimum cores** dans Windows Server 2016.
 
 Un scénario dans lequel le parking central n’est pas toujours optimal est lorsqu’il y a un ou plusieurs threads actifs affinité à un sous-ensemble non négligeable d’UC dans un nœud NUMA (autrement dit, plus d’un processeur, mais inférieur à l’ensemble des processeurs du nœud). Lorsque l’algorithme de parking principal choisit les cœurs à déparcer (en supposant une augmentation de l’intensité de la charge de travail), il n’est pas toujours possible de choisir les cœurs au sein du sous-ensemble affinité actif (ou sous-ensembles) à désinstaller, ce qui peut finir par le désinstallation des cœurs qui ne seront pas réellement utilisé.
 
-Les valeurs de ces paramètres sont des pourcentages compris entre 0 et 100. Le paramètre **nombre maximal** de cœurs des performances du processeur gère le pourcentage maximal de cœurs pouvant être désimmobilisés (disponibles pour l’exécution des threads) à tout moment, tandis que le paramètre **processeur performance Core Park-cœurs minimum** contrôle le pourcentage minimal de cœurs qui peuvent être désimmobilisés. Pour désactiver le parking central, définissez le paramètre **Core performance Core Park minimum cœurs** sur 100 pour cent à l’aide des commandes suivantes :
+Les valeurs de ces paramètres sont des pourcentages compris entre 0 et 100. Le paramètre **nombre maximal** de cœurs de la performance du processeur gère le pourcentage maximal de cœurs pouvant être désimmobilisés (disponibles pour l’exécution des threads) à tout moment, tandis que le paramètre **performances du processeur cœurs du parking minimum** contrôle le pourcentage minimal de cœurs pouvant être désimmobilisés. Pour désactiver le parking central, définissez le paramètre **Core performance Core Park minimum cœurs** sur 100 pour cent à l’aide des commandes suivantes :
 
 ``` syntax
 Powercfg -setacvalueindex scheme_current sub_processor CPMINCORES 100
@@ -220,7 +220,7 @@ Powercfg -setacvalueindex scheme_current sub_processor DISTRIBUTEUTIL 0
 Powercfg -setactive scheme_current
 ```
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Articles associés
 - [Considérations relatives aux performances matérielles du serveur](../index.md)
 - [Considérations relatives à la puissance du matériel du serveur](../power.md)
 - [Réglage de la gestion de la puissance du processeur](processor-power-management-tuning.md)

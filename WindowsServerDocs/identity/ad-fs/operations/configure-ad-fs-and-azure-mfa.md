@@ -9,12 +9,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a4f9d8fa71671c4ad4651008729d4cee53c8ee2f
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: c3a7e7c420ef63adc906e6558ed7aff6819e983c
+ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918260"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013054"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Configurer Azure MFA en tant que fournisseur d’authentification avec AD FS
 
@@ -174,7 +174,7 @@ PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such a
 PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $newcert
 ```
 
-`$certbase64` est le nouveau certificat.  Le certificat encodé en base64 peut être obtenu en exportant le certificat (sans la clé privée) sous la forme d’un fichier encodé DER et en l’ouvrant dans Notepad. exe, puis en le copiant dans la session PowerShell et en l’affectant à la variable `$certbase64`.
+`$newcert` est le nouveau certificat. Le certificat encodé en base64 peut être obtenu en exportant le certificat (sans la clé privée) sous la forme d’un fichier encodé DER et en l’ouvrant dans Notepad. exe, puis en le copiant dans la session PowerShell et en l’affectant à la variable `$newcert`.
 
 ### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>Vérifier que le ou les nouveaux certificats seront utilisés pour l’authentification multifacteur Azure
 

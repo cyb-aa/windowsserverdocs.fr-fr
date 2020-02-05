@@ -7,19 +7,19 @@ ms.topic: article
 ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ee14a2bd9290dbaa5653640a80528d163635142d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 3c011d3c6e75fb1d5212d9b1ec3c6e6c69fac5d6
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947213"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001864"
 ---
 # <a name="additional-performance-tuning-resources"></a>Ressources supplémentaires pour le réglage des performances
 
 Utilisez les liens de cette rubrique pour en savoir plus sur les concepts abordés dans ce guide de paramétrage.
 
 ## <a name="microsoft-windows-server-websites"></a>Sites Web Microsoft Windows Server
--   [Catalogue Windows Server](http://www.windowsservercatalog.com/)
+-   [Catalogue Windows Server](https://www.windowsservercatalog.com/)
 
 -   [Windows Sysinternals](https://technet.microsoft.com/sysinternals/default.aspx)
 
@@ -71,7 +71,7 @@ Utilisez les liens de cette rubrique pour en savoir plus sur les concepts abord�
 
 -   [Classes WMI Hyper-V](https://msdn.microsoft.com/library/cc136986(VS.85).aspx)
 
--   [À propos des machines virtuelles et des systèmes d'exploitation invités](https://technet.microsoft.com/library/cc794868(v=ws.10))
+-   [À propos des machines virtuelles et des systèmes d’exploitation invités](https://technet.microsoft.com/library/cc794868(v=ws.10))
 
 -   [Optimisation et dépannage du stockage Hyper-V](https://blogs.msdn.com/b/microsoft_press/archive/2013/07/24/new-book-optimizing-and-troubleshooting-hyper-v-storage.aspx)
 
