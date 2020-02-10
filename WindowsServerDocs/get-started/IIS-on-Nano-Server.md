@@ -12,19 +12,19 @@ ms.assetid: 16984724-2d77-4d7b-9738-3dff375ed68c
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 04c2d7eab2f149505758ab21f08cd6b8bdb74b85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 96a5e5f23ad3cdfc829fd141c3c90f6c200f06c9
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360303"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001804"
 ---
 # <a name="iis-on-nano-server"></a>IIS sur Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
+> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Changements apportés à Nano Server](nano-in-semi-annual-channel.md). 
 
 Vous pouvez installer le rôle de serveur Internet Information Services (IIS) sur Nano Server, en utilisant le paramètre -Package avec Microsoft-NanoServer-IIS-Package. Pour plus d’informations sur la configuration de Nano Server, notamment sur l’installation des packages, consultez [Installer Nano Server](Getting-Started-with-Nano-Server.md).  
 
@@ -65,7 +65,7 @@ Dans cette version de Nano Server, les fonctionnalités IIS suivantes sont dispo
 |**Outils de gestion**||  
 |Module IISAdministration pour Windows PowerShell|x|  
 
-Une série d'articles sur d'autres configurations d'IIS (par exemple, à l'aide d'ASP.NET, de PHP et de Java) ainsi que d'autres contenus associés sont disponibles sur [http://iis.net/learn](http://iis.net/learn).  
+Une série d'articles sur d'autres configurations d'IIS (par exemple, à l'aide d'ASP.NET, de PHP et de Java) ainsi que d'autres contenus associés sont disponibles sur [http://iis.net/learn](https://iis.net/learn).  
 
 ## <a name="installing-iis-on-nano-server"></a>Installation d’IIS sur Nano Server  
 Vous pouvez installer ce rôle de serveur hors connexion (avec Nano Server désactivé) ou en ligne (avec Nano Server en cours d’exécution). L’option d’installation hors connexion est recommandée.  
@@ -90,7 +90,7 @@ L’exemple suivant suppose que vous lancez l’exécution à partir du réperto
 À ce stade, vous pouvez démarrer Nano Server avec IIS.  
 
 ### <a name="installing-iis-on-nano-server-online"></a>Installation d’IIS sur Nano Server en ligne  
-L’installation hors connexion du rôle de serveur est recommandée, mais vous devrez peut-être effectuer une installation en ligne (avec Nano Server en cours d’exécution) dans les scénarios avec conteneurs. Pour cela, procédez comme suit:  
+L’installation hors connexion du rôle de serveur est recommandée, mais vous devrez peut-être effectuer une installation en ligne (avec Nano Server en cours d’exécution) dans les scénarios avec conteneurs. Pour cela, procédez comme suit :  
 
 1.  Copiez le dossier Packages du support d’installation localement sur le Nano Server en cours d’exécution (par exemple, dans C:\packages).  
 
@@ -179,7 +179,7 @@ Toutes les sous-fonctionnalités d’IIS figurent dans l’annexe 1 de cette ru
 ## <a name="other-common-iis-configuration-tasks"></a>Autres tâches courantes de configuration d’IIS  
 **Création de sites web**  
 
-Utilisez cette applet de commande:  
+Utilisez cette applet de commande :  
 
 `PS D:\> New-IISSite -Name TestSite -BindingInformation "*:80:TestSite" -PhysicalPath c:\test`  
 
@@ -191,7 +191,7 @@ Exécutez `Remove-IISSite -Name TestSite -Confirm:$false`.
 
 **Création de répertoires virtuels**  
 
-Vous pouvez créer des répertoires virtuels à l’aide de l’objet IISServerManager renvoyé par Get-IISServerManager, qui affiche l’API Microsoft.Web.Administration.ServerManager.NET. Dans cet exemple, les commandes suivantes accèdent à l’élément « Site web par défaut » de la collection Sites et à l’élément d’application racine (« / ») de la section Applications. Ensuite, elles appellent la méthode Add() de la collection VirtualDirectories pour cet élément d’application afin de créer le répertoire:  
+Vous pouvez créer des répertoires virtuels à l’aide de l’objet IISServerManager renvoyé par Get-IISServerManager, qui affiche l’API Microsoft.Web.Administration.ServerManager.NET. Dans cet exemple, les commandes suivantes accèdent à l’élément « Site web par défaut » de la collection Sites et à l’élément d’application racine (« / ») de la section Applications. Ensuite, elles appellent la méthode Add() de la collection VirtualDirectories pour cet élément d’application afin de créer le répertoire :  
 
 ```  
 PS C:\> $sm = Get-IISServerManager  
@@ -211,7 +211,7 @@ PS C:\> $sm.ApplicationPools.Add("DemoAppPool")
 
 **Configuration du protocole HTTPS et de certificats**  
 
-Utilisez l’utilitaire Certoc.exe pour importer des certificats, comme dans cet exemple qui présente la configuration HTTPS d’un site Web sur un Nano Server:  
+Utilisez l’utilitaire Certoc.exe pour importer des certificats, comme dans cet exemple qui présente la configuration HTTPS d’un site Web sur un Nano Server :  
 
 1.  Sur un autre ordinateur qui n’exécute pas Nano Server, créez un certificat (à l’aide de votre propre nom et mot de passe de certificat), puis exportez-le vers c:\temp\test.pfx.  
 
@@ -223,7 +223,7 @@ Utilisez l’utilitaire Certoc.exe pour importer des certificats, comme dans cet
 
 2.  Copiez le fichier test.pfx sur l’ordinateur de Nano Server.  
 
-3.  Sur le Nano Server, importez le certificat dans le magasin «My» avec cette commande:  
+3.  Sur le Nano Server, importez le certificat dans le magasin « My » avec cette commande :  
 
     **certoc.exe -ImportPFX -p YOUR_PFX_PASSWD My c:\temp\test.pfx**  
 
@@ -242,7 +242,7 @@ Utilisez l’utilitaire Certoc.exe pour importer des certificats, comme dans cet
     $sm.CommitChanges()  
     ```  
 
-    Vous pouvez également utiliser l'Indication de nom de serveur (SNI) avec un nom d'hôte spécifique selon cette syntaxe : `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
+    Vous pouvez également utiliser l'Indication de nom de serveur (SNI) avec un nom d'hôte spécifique selon cette syntaxe : `$sm.Sites["Default Web Site"].Bindings.Add("*:443: www.foo.bar.com", $hash, "My", "Sni".`  
 
 ## <a name="appendix-1-list-of-iis-sub-features"></a>Annexe 1 : Liste des sous-fonctionnalités d'IIS
 
