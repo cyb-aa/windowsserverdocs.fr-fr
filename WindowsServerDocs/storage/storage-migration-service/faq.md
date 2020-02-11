@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 02829919c53e3488ad7f229ad8bee0d3ead14c9a
-ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
+ms.openlocfilehash: a28b25c55b9ad66cd16f3d9e370fec22ec0f2a5d
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124897"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125140"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur le service de migration de stockage
 
@@ -27,6 +27,10 @@ Le service de migration du stockage ne transfère pas les fichiers ou dossiers q
 - $Recycle. bin, recycler, recyclé, informations sur le volume système, $UpgDrv $, $SysReset, $Windows. ~ BT, $Windows. ~ LS, Windows. old, démarrage, récupération, documents et paramètres
 - pagefile. sys, Hiberfil. sys, swap. sys, winpepge. sys, config. sys, Bootsect. bak, bootmgr, bootnxt
 - Tous les fichiers ou dossiers sur le serveur source sont en conflit avec les dossiers exclus sur la destination. <br>Par exemple, s’il existe un dossier N:\Windows sur la source et qu’il est mappé à C:\ volume sur la destination, il n’est pas transféré, indépendamment de ce qu’il contient, car il interfère avec le dossier système C:\Windows sur la destination.
+
+## <a name="are-locked-files-migrated"></a>Les fichiers verrouillés ont-ils été migrés ?
+
+Le service de migration du stockage ne migre pas les fichiers que les applications verrouillent exclusivement. Le service réessaie automatiquement trois fois avec un délai de soixante secondes entre les tentatives, et vous pouvez contrôler le nombre de tentatives et le délai. Vous pouvez également réexécuter les transferts pour copier uniquement les fichiers qui ont été précédemment ignorés en raison de violations de partage.
 
 ## <a name="are-domain-migrations-supported"></a>Les migrations de domaine sont-elles prises en charge ?
 
@@ -63,13 +67,13 @@ Storage migration service migre tous les indicateurs, paramètres et sécurité 
     - Communication à distance des identités
     - Infrastructure
     - Nom
-    - Chemin d’accès
-    - Délimité
+    - Chemin d'accès
+    - Étendue
     - Nom de l'étendue
     - Descripteur de sécurité
     - Cliché instantané
     - Spéciale
-    - Stockage
+    - Passagère
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Puis-je consolider plusieurs serveurs en un seul serveur ?
 
@@ -143,13 +147,21 @@ Le service de migration de stockage utilise une base de données ESE (Extensible
 
 Non, le service de migration de stockage ne migre pas les applications installées localement. Une fois la migration terminée, réinstallez toutes les applications sur l’ordinateur de destination qui étaient en cours d’exécution sur l’ordinateur source. Il n’est pas nécessaire de reconfigurer les utilisateurs ou leurs applications. le service de migration du stockage est conçu pour que le serveur change de façon invisible pour les clients. 
 
+## <a name="what-happens-with-existing-files-on-the-destination-server"></a>Qu’advient-il des fichiers existants sur le serveur de destination ?
+
+Lorsque vous effectuez un transfert, le service de migration du stockage cherche à mettre en miroir les données du serveur source. Le serveur de destination ne doit pas contenir de données de production ou d’utilisateurs connectés, car ces données peuvent être remplacées. Par défaut, le premier transfert effectue une copie de sauvegarde de toutes les données sur le serveur de destination en tant que sauvegarde. Sur tous les transferts suivants, par défaut, le service de migration de stockage copie les données sur la destination. Cela signifie non seulement d’ajouter de nouveaux fichiers, mais également de remplacer arbitrairement tous les fichiers existants et de supprimer tous les fichiers absents de la source. Ce comportement est intentionnel et garantit une parfaite fidélité avec l’ordinateur source. 
+
+## <a name="what-do-the-error-numbers-mean-in-the-transfer-csv"></a>Que signifient les numéros d’erreur dans le CSV de transfert ?
+
+La plupart des erreurs détectées dans le fichier CSV de transfert sont des codes d’erreur système Windows. Vous pouvez déterminer ce que signifie chaque erreur en consultant la [documentation sur les codes d’erreur Win32](https://docs.microsoft.com/windows/win32/debug/system-error-codes). 
+
 ## <a name="give-feedback"></a>Quelles sont les options permettant d’envoyer des commentaires, de signaler des bogues ou d’obtenir un support ?
 
 Pour envoyer des commentaires sur le service de migration de stockage :
 
 - Utilisez l’outil Hub de commentaires inclus dans Windows 10, en cliquant sur « suggérer une fonctionnalité » et en spécifiant la catégorie « Windows Server » et la sous-catégorie « migration du stockage ».
 - Utiliser le site [Windows Server UserVoice](https://windowsserver.uservoice.com)
-- L’adresse e-mail smsfeed@microsoft.com
+- smsfeed@microsoft.com de messagerie
 
 Pour signaler les bogues :
 
@@ -162,6 +174,6 @@ Pour bénéficier du support technique :
  - Publication sur le [Forum TechNet de Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc) 
  - Ouvrir un dossier de support via [support Microsoft](https://support.microsoft.com)
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Vue d’ensemble de Storage migration service](overview.md)

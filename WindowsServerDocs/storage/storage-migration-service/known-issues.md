@@ -4,16 +4,16 @@ description: Problèmes connus et prise en charge de la résolution des problèm
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 10/09/2019
+ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a98c560306debc0e10c2c0ac44b41e12141b6e9f
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 77a23e5787283aa93d6f2f303cf45b461ccf52dd
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001884"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125110"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -40,7 +40,7 @@ Consultez le fichier Lisez-moi pour plus d’utilisation.
 
 Lorsque vous utilisez la version 1809 du centre d’administration Windows pour gérer un Windows Server 2019 Orchestrator, vous ne voyez pas l’option outil pour le service de migration de stockage. 
 
-L’extension du service de migration de stockage du centre d’administration Windows est liée à une version pour gérer uniquement les systèmes d’exploitation Windows Server 2019 version 1809 ou ultérieures. Si vous l’utilisez pour gérer des systèmes d’exploitation Windows Server plus anciens ou des versions préliminaires Insider, l’outil ne s’affiche pas. Ce comportement est normal. 
+L’extension du service de migration de stockage du centre d’administration Windows est liée à une version pour gérer uniquement les systèmes d’exploitation Windows Server 2019 version 1809 ou ultérieures. Si vous l’utilisez pour gérer des systèmes d’exploitation Windows Server plus anciens ou des versions préliminaires Insider, l’outil ne s’affiche pas. Ce comportement est lié à la conception. 
 
 Pour résoudre, utiliser ou effectuer une mise à niveau vers Windows Server 2019 Build 1809 ou version ultérieure.
 
@@ -64,7 +64,7 @@ Nous avons résolu ce problème dans une version ultérieure de Windows Server.
 
 Lorsque vous utilisez le centre d’administration Windows ou PowerShell pour télécharger le journal CSV d’opérations de transfert (messages détaillés uniquement), vous recevez l’erreur suivante :
 
- >   Journal de transfert-Vérifiez que le partage de fichiers est autorisé dans votre pare-feu. : Cette opération de demande envoyée à net. TCP : biais : 28940/SMS/service/1/Transfer n’a pas reçu de réponse dans le délai d’expiration configuré (00:01:00). Le temps alloué à cette opération est peut-être une partie d’un délai d’expiration plus long. Cela peut être dû au fait que le service traite toujours l’opération ou parce que le service n’a pas pu envoyer un message de réponse. Envisagez d’incrémenter le délai d’expiration de l’opération (en convertissant le canal/proxy vers IContextChannel et en définissant la propriété OperationTimeout) et vérifiez que le service est en mesure de se connecter au client.
+ >   Journal de transfert-Vérifiez que le partage de fichiers est autorisé dans votre pare-feu. : Cette opération de demande envoyée à net. TCP : biais : 28940/SMS/service/1/Transfer n’a pas reçu de réponse dans le délai d’expiration configuré (00:01:00). Le temps alloué à cette opération fait peut-être partie d'un délai d'attente plus long. Ceci peut être dû au fait que le service est toujours en cours de traitement de l'opération ou qu'il n'a pas pu envoyer un message de réponse. Envisagez d’incrémenter le délai d’expiration de l’opération (en convertissant le canal/proxy vers IContextChannel et en définissant la propriété OperationTimeout) et vérifiez que le service est en mesure de se connecter au client.
 
 Ce problème est dû à un très grand nombre de fichiers transférés qui ne peuvent pas être filtrés dans le délai d’attente d’une minute par défaut autorisé par le service de migration de stockage. 
 
@@ -349,7 +349,66 @@ Si vous avez déjà exécuté le transfert un ou plusieurs fois :
  4. Pour tous les utilisateurs ou groupes désactivés dont le nom contient désormais un suffixe ajouté par Storage migration service, vous pouvez supprimer ces comptes. Vous pouvez vérifier que les comptes d’utilisateur ont été ajoutés ultérieurement, car ils ne contiendront que le groupe utilisateurs du domaine et auront une date/heure de création correspondant à l’heure de début du transfert du service de migration du stockage.
  
  Si vous souhaitez utiliser le service de migration de stockage avec les contrôleurs de domaine à des fins de transfert, veillez à toujours sélectionner « ne pas transférer les utilisateurs et les groupes » dans la page Paramètres de transfert du centre d’administration Windows.
+ 
+ ## <a name="error-53-failed-to-inventory-all-specified-devices-when-running-inventory"></a>Erreur 53 « échec de l’inventaire de tous les périphériques spécifiés » lors de l’inventaire, 
 
-## <a name="see-also"></a>Articles associés
+Lorsque vous tentez d’exécuter un inventaire, vous recevez :
+
+    Failed to inventory all specified devices 
+    
+    Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+    Source:        Microsoft-Windows-StorageMigrationService
+    Date:          1/16/2020 8:31:17 AM
+    Event ID:      2516
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      ned.corp.contoso.com
+    Description:
+    Couldn't inventory files on the specified endpoint.
+    Job: ned1
+    Computer: ned.corp.contoso.com
+    Endpoint: hithere
+    State: Failed
+    File Count: 0
+    File Size in KB: 0
+    Error: 53
+    Error Message: Endpoint scan failed
+    Guidance: Check the detailed error and make sure the inventory requirements are met. This could be because of missing permissions on the source computer.
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Debug
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          1/16/2020 8:31:17 AM
+    Event ID:      10004
+    Task Category: None
+    Level:         Critical
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      ned.corp.contoso.com
+    Description:
+    01/16/2020-08:31:17.031 [Crit] Consumer Task failed with error:The network path was not found.
+    . StackTrace=   at Microsoft.Win32.RegistryKey.Win32ErrorStatic(Int32 errorCode, String str)
+       at Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(RegistryHive hKey, String machineName, RegistryView view)
+       at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetEnvironmentPathFolders(String ServerName, Boolean IsServerLocal)
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.ScanUtils.<ScanSMBEndpoint>d__3.MoveNext()
+       at Microsoft.StorageMigration.Proxy.EndpointScanOperation.Run()
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.EndpointScanRequestHandler.ProcessRequest(EndpointScanRequest scanRequest, Guid operationId)
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.EndpointScanRequestHandler.ProcessRequest(Object request)
+       at Microsoft.StorageMigration.Proxy.Common.ProducerConsumerManager`3.Consume(CancellationToken token)    
+       
+    01/16/2020-08:31:10.015 [Erro] Endpoint Scan failed. Error: (53) The network path was not found.
+    Stack trace:
+       at Microsoft.Win32.RegistryKey.Win32ErrorStatic(Int32 errorCode, String str)
+       at Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(RegistryHive hKey, String machineName, RegistryView view)
+
+À ce niveau, Storage migration service Orchestrator tente des lectures du Registre à distance pour déterminer la configuration de l’ordinateur source, mais est rejetée par le serveur source, indiquant que le chemin d’accès au registre n’existe pas. Les raisons de ce problème peuvent être les suivantes :
+
+ - Le service d’accès à distance au registre n’est pas en cours d’exécution sur l’ordinateur source.
+ - le pare-feu n’autorise pas les connexions à distance au serveur source à partir de l’orchestrateur.
+ - Le compte de migration source ne dispose pas des autorisations de Registre à distance pour se connecter à l’ordinateur source.
+ - Le compte de migration source ne dispose pas des autorisations de lecture dans le registre de l’ordinateur source, sous « HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion » ou sous «HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\ LanManServer
+
+## <a name="see-also"></a>Voir aussi
 
 - [Vue d’ensemble de Storage migration service](overview.md)

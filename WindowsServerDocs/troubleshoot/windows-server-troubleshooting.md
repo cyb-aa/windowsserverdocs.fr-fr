@@ -14,12 +14,12 @@ ms.date: 1/24/2020
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: 593fc4abbdce3ed53fa8d7ef73d529558b100bcc
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: cd4e61a9fac5b1a1f6a1b66309e514ef75b1e4db
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001794"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125130"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Résolution des problèmes des composants Windows Server
 
@@ -46,17 +46,17 @@ Cette section contient des rubriques de dépannage avancées et des liens pour v
 
 ## <a name="troubleshoot-startup-and-restart"></a>Résoudre les problèmes de démarrage et de redémarrage
 
-- [Dépannage avancé pour le démarrage de Windows](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-startup.md)
-- [Comment déterminer la taille de fichier d’échange appropriée pour les versions 64 bits de Windows](https://docs.microsoft.com/windows/client-management/determine-appropriate-page-file-size.md)
-- [Générer un noyau ou effectuer un vidage sur incident](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump.md)
-- [Présentation du fichier d’échange](https://docs.microsoft.com/windows/client-management/introduction-page-file.md)
-- [Configurer les options de défaillance du système et de récupération dans Windows](https://docs.microsoft.com/windows/client-management/system-failure-recovery-options.md)
-- [Dépannage avancé pour les problèmes de démarrage de Windows](https://docs.microsoft.com/windows/client-management/advanced-troubleshooting-boot-problems.md)
-- [Dépannage avancé pour le gel des ordinateurs basés sur Windows](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-freeze.md)
-- [Dépannage avancé pour une erreur d’arrêt ou une erreur d’écran bleu](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-errors.md)
-- [Résolution des problèmes avancés pour l’erreur Stop 7B ou Inaccessible_Boot_Device](https://docs.microsoft.com/windows/client-management/troubleshoot-inaccessible-boot-device.md)
-- [Résolution des problèmes avancés pour l’ID d’événement 41 « le système a redémarré sans s’arrêter correctement en premier »](https://docs.microsoft.com/windows/client-management/troubleshoot-event-id-41-restart.md)
-- [Une erreur d’arrêt se produit lorsque vous mettez à jour le pilote de carte réseau Broadcom intégrée](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-error-on-broadcom-driver-update.md)
+- [Dépannage avancé pour le démarrage de Windows](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-startup)
+- [Comment déterminer la taille de fichier d’échange appropriée pour les versions 64 bits de Windows](https://docs.microsoft.com/windows/client-management/determine-appropriate-page-file-size)
+- [Générer un noyau ou effectuer un vidage sur incident](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump)
+- [Présentation du fichier d’échange](https://docs.microsoft.com/windows/client-management/introduction-page-file)
+- [Configurer les options de défaillance du système et de récupération dans Windows](https://docs.microsoft.com/windows/client-management/system-failure-recovery-options)
+- [Dépannage avancé pour les problèmes de démarrage de Windows](https://docs.microsoft.com/windows/client-management/advanced-troubleshooting-boot-problems)
+- [Dépannage avancé pour le gel des ordinateurs basés sur Windows](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-freeze)
+- [Dépannage avancé pour une erreur d’arrêt ou une erreur d’écran bleu](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-errors)
+- [Résolution des problèmes avancés pour l’erreur Stop 7B ou Inaccessible_Boot_Device](https://docs.microsoft.com/windows/client-management/troubleshoot-inaccessible-boot-device)
+- [Résolution des problèmes avancés pour l’ID d’événement 41 « le système a redémarré sans s’arrêter correctement en premier »](https://docs.microsoft.com/windows/client-management/troubleshoot-event-id-41-restart)
+- [Une erreur d’arrêt se produit lorsque vous mettez à jour le pilote de carte réseau Broadcom intégrée](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-error-on-broadcom-driver-update)
 
 ## <a name="troubleshoot-ad-forest-recovery"></a>Résoudre les problèmes de récupération de forêt AD
 
