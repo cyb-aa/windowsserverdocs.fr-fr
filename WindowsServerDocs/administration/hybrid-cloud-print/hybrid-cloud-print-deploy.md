@@ -12,16 +12,16 @@ author: msjimwu
 ms.author: coreyp
 manager: dongill
 ms.date: 3/15/2018
-ms.openlocfilehash: c756aaeb293f9e6822e979e0f305f0c4f98adf72
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: 77462ab74ee63677362b779615376e831c71de00
+ms.sourcegitcommit: eca5bb75d1db20ac07232cea759b6b542626c02f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352231"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114528"
 ---
 # <a name="deploy-windows-server-hybrid-cloud-print"></a>Déployer Windows Server hybride Cloud Print
 
->S’applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Cette rubrique, destinée aux administrateurs informatiques, décrit le déploiement de bout en bout de la solution Microsoft hybride Cloud Print (HCP). Cette solution se découche sur les serveurs Windows existants qui s’exécutent en tant que serveur d’impression et permet à Azure Active Directory (Azure AD) joints et aux appareils gérés par MDM de découvrir et d’imprimer sur les imprimantes gérées par l’organisation.
 
@@ -149,7 +149,7 @@ Pour activer la communication authentifiée avec les services HCP, nous devons c
 
     ![Proxy d’application AAD 3](../media/hybrid-cloud-print/AAD-EnterpriseApp-ECP-AppProxy.png)
 
-    - Accédez à **Azure Active Directory** > **Inscriptions des applications**. Cliquez sur le service de découverte Mopria. Sous **vue d’ensemble**, Notez que l’URI de l’ID d’application a été remplacé par la valeur par défaut URL externe sous **proxy d’application**. L’URI sera utilisé lors de l’installation du serveur d’impression, dans la stratégie MDM du client et pour la publication de l’imprimante.
+    - Accédez à **Azure Active Directory** > **inscriptions d’applications**. Cliquez sur le service de découverte Mopria. Sous **vue d’ensemble**, Notez que l’URI de l’ID d’application a été remplacé par la valeur par défaut URL externe sous **proxy d’application**. L’URI sera utilisé lors de l’installation du serveur d’impression, dans la stratégie MDM du client et pour la publication de l’imprimante.
 
     ![Proxy d’application AAD 4](../media/hybrid-cloud-print/AAD-AppRegistration-Mopria-Overview.png)
 
@@ -159,7 +159,7 @@ Pour activer la communication authentifiée avec les services HCP, nous devons c
     - Répétez l’opération pour le service d’impression Cloud d’entreprise.
 
 6. Configurer l’URI de redirection dans l’application native
-    - Accédez à **Azure Active Directory** > **Inscriptions des applications**. Cliquez sur l’application native. Accédez à **vue d’ensemble** et copiez l’ID de l' **application (client)** .
+    - Accédez à **Azure Active Directory** > **inscriptions d’applications**. Cliquez sur l’application native. Accédez à **vue d’ensemble** et copiez l’ID de l' **application (client)** .
 
     ![URI de redirection AAD 1](../media/hybrid-cloud-print/AAD-AppRegistration-Native-Overview.png)
 
@@ -178,7 +178,7 @@ Pour activer la communication authentifiée avec les services HCP, nous devons c
 1. Assurez-vous que tous les Windows Update disponibles sont installés sur le serveur d’impression. Remarque : le serveur 2019 doit être corrigé pour générer 17763,165 ou version ultérieure.
     - Installez les rôles de serveur suivants :
         - Rôle serveur d’impression
-        - IIS (Internet Information Service)
+        - Internet Information Services (IIS)
     - Pour plus d’informations sur l’installation des rôles de serveur, consultez [installer des rôles, des services de rôle et des fonctionnalités à l’aide de l’Assistant Ajout de rôles et de fonctionnalités](https://docs.microsoft.com/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#BKMK_installarfw) .
 
     ![Rôles de serveur d’impression](../media/hybrid-cloud-print/PrintServer-Roles.png)
@@ -199,7 +199,7 @@ Pour activer la communication authentifiée avec les services HCP, nous devons c
 
         `"C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0"`
 
-    - Exécutez.
+    - Run
 
         `.\CloudPrintDeploy.ps1 -AzureTenant <Azure Active Directory domain name> -AzureTenantGuid <Azure Active Directory ID>`
 
@@ -215,9 +215,9 @@ Pour activer la communication authentifiée avec les services HCP, nous devons c
 
     ![Serveur d’impression-imprimer le déploiement sur le Cloud](../media/hybrid-cloud-print/PrintServer-CloudPrintDeploy.png)
 
-    - Consultez le fichier journal pour voir s’il y a une erreur : `C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0>notepad CloudPrintDeploy.log`
+    - Consultez le fichier journal pour voir s’il y a une erreur : `C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0\CloudPrintDeploy.log`
 
-4. Ouvrez RegitEdit dans une invite de commandes avec élévation de privilèges. Accéder à l’ordinateur \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\CloudPrint\EnterpriseCloudPrintService.
+4. Exécutez **RegitEdit** dans une invite de commandes avec élévation de privilèges. Accéder à l’ordinateur \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\CloudPrint\EnterpriseCloudPrintService.
     - Assurez-vous que AzureAudience est défini sur l’URI d’ID d’application de l’application d’impression Cloud d’entreprise.
     - Assurez-vous que AzureTenant est défini sur le nom de domaine Azure AD.
 
@@ -332,7 +332,7 @@ Pour activer la communication authentifiée avec les services HCP, nous devons c
     - Sur Portail Azure, accédez à **Azure Active Directory** > **applications d’entreprise** > **toutes les applications**.
     - Sélectionnez application MopriaDiscoveryService.
     - Accédez au **proxy d’application**. Remplacez la méthode de pré-authentification par **Azure Active Directory**.
-    - Accédez à **Single sign-on** (Authentification unique). Sélectionnez « authentification Windows intégrée » comme méthode d’authentification unique.
+    - Accédez à **authentification unique**. Sélectionnez « authentification Windows intégrée » comme méthode d’authentification unique.
     - Définissez **SPN d’application interne** sur le nom de principal du service de l’ordinateur du serveur d’impression.
     - Définissez l' **identité de connexion déléguée** sur « User Principle Name ».
     - Répétez l’opération pour l’application EntperiseCloudPrint.
@@ -443,19 +443,21 @@ Sur un appareil Azure AD joint avec les stratégies MDM configurées :
 
 > Remarque : Si vous utilisez l’imprimante « EcpPrintTest », vous pouvez trouver le fichier de sortie sur l’ordinateur du serveur d’impression sous « C :\\ECPTestOutput\\EcpTestPrint. Xps ».
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
-Il existe différents journaux qui peuvent vous aider à résoudre les problèmes.
-- Sur le client Windows 10.
-    - Utilisez le hub de commentaires pour ajouter un nouveau commentaire.
-        - Cliquez sur **Démarrer** et tapez « Hub de commentaires ».
-        - Sous catégorie, sélectionnez **problème**, **appareils et pilotes**, **Imprimer**.
-        - Dans la section pour ajouter plus de détails, cliquez sur le bouton **Démarrer l’enregistrement** .
-        - Recommencez le travail d’impression qui a échoué.
-        - Revenez au hub de commentaires, puis cliquez sur le bouton **arrêter l’enregistrement** .
-        - Cliquez sur **Envoyer** pour envoyer vos commentaires.
-    - Utilisez observateur d’événements pour voir le journal des opérations de Azure AD. Cliquez sur **Démarrer** et tapez « observateur d’événements ». Accédez à journaux des applications et des services > Microsoft > Windows > AAD > opération.
-- Sur le serveur de connecteur.
-    - Utilisez observateur d’événements pour afficher le journal du proxy d’application. Cliquez sur **Démarrer** et tapez « observateur d’événements ». Accédez à journaux des applications et des services > le connecteur Microsoft > AadApplicationProxy > > administrateur.
-- Sur le serveur d’impression.
-    - Les journaux de l’application de service de découverte Mopria et de l’application d’impression Cloud d’entreprise se trouvent dans C:\inetpub\logs\LogFiles\W3SVC1.
+Voici les problèmes courants lors du déploiement de HCP
+
+|Error |Étapes recommandées |
+|------|------|
+|Échec du script PowerShell CloudPrintDeploy | <ul><li>Assurez-vous que Windows Server dispose de la dernière mise à jour.</li><li>Si Windows Server Update Services (WSUS) est utilisé, consultez [Comment rendre les fonctionnalités à la demande et les modules linguistiques disponibles lorsque vous utilisez WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs).</li></ul> |
+|Échec de l’installation de SQLite avec le message : boucle de dépendance détectée pour le package’System. Data. SQLite' | Install-Package System. Data. sqlite. Core-ProviderName NuGet-SkipDependencies<br>Install-Package System. Data. sqlite. EF6-ProviderName NuGet-SkipDependencies<br>Install-Package System. Data. sqlite. Linq-ProviderName NuGet-SkipDependencies<br><br>Une fois les packages téléchargés, assurez-vous qu’ils ont la même version. Si ce n’est pas le cas, ajoutez le paramètre-requiredVersion aux commandes ci-dessus et affectez-lui la même version. |
+|Échec de la publication de l’imprimante | <ul><li>Pour la pré-authentification directe, assurez-vous que l’utilisateur qui publie l’imprimante dispose des autorisations adéquates pour la base de données de publication.</li><li>Pour Azure AD la pré-authentification, assurez-vous que l’authentification Windows est activée dans IIS. Consultez l’étape 5,3. En outre, essayez d’abord la pré-authentification PassThrough. Si la pré-authentification directe fonctionne, le problème est probablement lié au proxy d’application. Consultez [résoudre les problèmes liés au proxy d’application et aux messages d’erreur](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot). Notez que le basculement vers passthrough réinitialise le paramètre d’authentification unique ; reportez-vous à l’étape 5 pour configurer Azure AD à nouveau l’authentification.</li></ul> |
+|Les travaux d’impression restent dans l’état « envoyé à l’imprimante » | <ul><li>Vérifiez que TLS 1,2 est activé sur le serveur du connecteur. Consultez l’article lié à l’étape 2,1.</li><li>Vérifiez que HTTP2 est désactivé sur le serveur du connecteur. Consultez l’article lié à l’étape 2,1.</li></ul> |
+
+Voici les emplacements des journaux qui peuvent aider à résoudre les problèmes
+
+|Component |Emplacement du journal |
+|------|------|
+|Client Windows 10 | <ul><li>Utilisez observateur d’événements pour voir le journal des opérations de Azure AD. Cliquez sur **Démarrer** et tapez « observateur d’événements ». Accédez à journaux des applications et des services > Microsoft > Windows > AAD > opération.</li><li>Utilisez le hub de commentaires pour collecter les journaux. Consultez [Envoyer des commentaires à Microsoft avec l’application Hub de commentaires](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)</li></ul> |
+|Serveur de connecteur | Utilisez observateur d’événements pour afficher le journal du proxy d’application. Cliquez sur **Démarrer** et tapez « observateur d’événements ». Accédez à journaux des applications et des services > le connecteur Microsoft > AadApplicationProxy > > administrateur. |
+|Serveur d’impression | Les journaux de l’application de service de découverte Mopria et de l’application d’impression Cloud d’entreprise se trouvent dans C:\inetpub\logs\LogFiles\W3SVC1. |
