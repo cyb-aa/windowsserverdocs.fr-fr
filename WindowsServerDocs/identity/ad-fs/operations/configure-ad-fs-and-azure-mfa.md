@@ -9,12 +9,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c3a7e7c420ef63adc906e6558ed7aff6819e983c
-ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
+ms.openlocfilehash: b658644d1ba7cec1b02a2a51331cd7b7152efc77
+ms.sourcegitcommit: 75e611fd5de8b8aa03fc26c2a3d5dbf8211b8ce3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013054"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77145494"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Configurer Azure MFA en tant que fournisseur d’authentification avec AD FS
 
@@ -135,7 +135,7 @@ Windows Server sans la dernière Service Pack ne prend pas en charge le paramèt
 1. Ouvrez l' **éditeur du Registre** sur le serveur de AD FS.
 1. Accédez à `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ADFS`. Créez les valeurs de clé de Registre suivantes :
 
-    | Clé de Registre       | Value |
+    | Clé de Registre       | Valeur |
     |--------------------|-----------------------------------|
     | URL sasurl             | https://adnotifications.windowsazure.us/StrongAuthenticationService.svc/Connector |
     | StsUrl             | https://login.microsoftonline.us |
@@ -160,11 +160,14 @@ Sur chaque serveur AD FS, dans le magasin de l’ordinateur local, il y aura un 
 
 Si la période de validité de vos certificats est proche de sa fin, démarrez le processus de renouvellement en générant un nouveau certificat Azure MFA sur chaque serveur de AD FS. Dans une fenêtre de commande PowerShell, générez un nouveau certificat sur chaque serveur AD FS à l’aide de l’applet de commande suivante :
 
+> [!CAUTION]
+> Si votre certificat a déjà expiré, n’ajoutez pas le paramètre `-Renew $true` à la commande suivante. Dans ce scénario, le certificat arrivé à expiration existant est remplacé par un nouveau, au lieu d’être laissé en place et un certificat supplémentaire créé.
+
 ```
 PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such as contoso.onmicrosoft.com> -Renew $true
 ```
 
-À la suite de cette applet de commande, un nouveau certificat valide à partir de 2 jours dans le futur à 2 jours + 2 ans sera généré.  Les opérations AD FS et Azure MFA ne seront pas affectées par cette applet de commande ou le nouveau certificat. (Remarque : le délai de 2 jours est intentionnel et fournit le temps nécessaire pour exécuter les étapes ci-dessous pour configurer le nouveau certificat dans le locataire avant que AD FS ne commence à l’utiliser pour Azure MFA.)
+Si le certificat n’a pas encore expiré, un nouveau certificat valide à partir de 2 jours à l’avenir à 2 jours + 2 ans est généré. Les opérations AD FS et Azure MFA ne sont pas affectées par cette applet de commande ou le nouveau certificat. (Remarque : le délai de 2 jours est intentionnel et fournit le temps nécessaire pour exécuter les étapes ci-dessous pour configurer le nouveau certificat dans le locataire avant que AD FS ne commence à l’utiliser pour Azure MFA.)
 
 ### <a name="configure-each-new-ad-fs-azure-mfa-certificate-in-the-azure-ad-tenant"></a>Configurez chaque nouveau AD FS certificat Azure MFA dans le locataire Azure AD
 
@@ -174,7 +177,7 @@ PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such a
 PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $newcert
 ```
 
-`$newcert` est le nouveau certificat. Le certificat encodé en base64 peut être obtenu en exportant le certificat (sans la clé privée) sous la forme d’un fichier encodé DER et en l’ouvrant dans Notepad. exe, puis en le copiant dans la session PowerShell et en l’affectant à la variable `$newcert`.
+Si votre certificat précédent avait déjà expiré, redémarrez le service AD FS pour récupérer le nouveau certificat. Vous n’avez pas besoin de redémarrer le service AD FS si vous avez renouvelé un certificat avant qu’il n’expire.
 
 ### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>Vérifier que le ou les nouveaux certificats seront utilisés pour l’authentification multifacteur Azure
 
@@ -303,6 +306,6 @@ Voici un exemple simple, que vous pouvez étendre :
     Set-AdfsWebConfig -ActiveThemeName "ProofUp"
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 [Gérer les protocoles TLS/SSL et les suites de chiffrement utilisés par AD FS et Azure MFA](manage-ssl-protocols-in-ad-fs.md)
