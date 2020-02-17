@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/29/2020
+ms.date: 02/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: b2d5215c7089ce1aadbeae68890dca1a0ae1c294
-ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
+ms.openlocfilehash: 3f8b035eef5bb956012627b5e2c7c59adaa8cd32
+ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889443"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77155383"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -31,7 +31,20 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 |Groupe d’utilisateurs |Version  |
 |-----------|---------|
 |Public     |1.2.605  |
-|Insider    |1.2.605  |
+|Insider    |1.2.673  |
+
+## <a name="updates-for-version-12673"></a>Mises à jour pour la version 1.2.673
+
+*Date de publication : 11/02/2020*
+
+Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pPJm), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pFbw), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pN07)
+
+- Les connexions à Windows Virtual Desktop sont maintenant bloquées si le fichier RDP ne contient pas la signature ou si une des propriétés de signscope a été modifiée.
+- Quand un espace de travail est vide ou a été supprimé, le centre de connexions n’apparaît vide.
+- Ajout de l’ID d’activité et du code d’erreur dans les messages de déconnexion pour améliorer la résolution des problèmes. Vous pouvez copier le message de la boîte de dialogue avec **Ctrl+C**.
+- Correction d’un problème qui provoquait la non-détection des écrans par les paramètres de connexion au Bureau.
+- Les mises à jour du client ne redémarrent plus automatiquement le PC.
+- Les icônes sans fenêtre ne doivent normalement plus apparaître dans la barre des tâches.
 
 ## <a name="updates-for-version-12605"></a>Mises à jour pour la version 1.2.605
 
