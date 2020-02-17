@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/04/2019
+ms.date: 01/29/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: ff5e2252a71f11f2488c6bdd872fe4e2de35519c
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: 1753780474332a6d5786a5804fc1b4fe5e3d8883
+ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919697"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889433"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Bien démarrer avec le client Windows Desktop
 
@@ -103,17 +103,14 @@ Les espaces de travail peuvent contenir plusieurs ressources gérées, notamment
 
 ### <a name="desktop-settings"></a>Paramètres du bureau
 
-Vous pouvez configurer certains paramètres des ressources de bureau pour que l’expérience réponde à vos besoins. Pour accéder à la liste des paramètres disponibles :
-
-1. Dans le Centre de connexion, cliquez avec le bouton droit sur une ressource de bureau.
-2. Sélectionnez **Paramètres** dans le menu déroulant.
-3. Le panneau Paramètres s’affiche sur le côté droit du client et indique le nom du bureau.
+Vous pouvez configurer certains paramètres des ressources de bureau pour que l’expérience réponde à vos besoins. Pour accéder à la liste des paramètres disponibles, cliquez avec le bouton droit sur la ressource de bureau, puis sélectionnez **Paramètres**.
 
 Le client utilise les paramètres configurés par votre administrateur, sauf si vous désactivez l’option **Utiliser les paramètres par défaut**. Dans ce cas, vous pouvez configurer les options suivantes :
 
-- **Utiliser tous les moniteurs** vous permet d’utiliser tous les moniteurs locaux disponibles ou un seul moniteur dans la session de bureau.
-- **Démarrer en plein écran** détermine si la session est lancée en mode plein écran ou en mode fenêtré. Ce paramètre est automatiquement activé si tous les moniteurs sont utilisés.
-- **Mettre à jour la résolution en cas de redimensionnement** change le comportement quand vous redimensionnez la session en mode fenêtré. Si cette option est activée, la résolution du bureau à distance est mise à jour pour qu’elle corresponde à la taille de la fenêtre locale. Si cette option est désactivée, la session conserve la résolution spécifiée dans **Résolution** pendant toute sa durée. Ce paramètre est automatiquement activé si tous les moniteurs sont utilisés.
+- **Utiliser plusieurs écrans** permet d’afficher la session de bureau sur un seul ou plusieurs écrans.
+- **Sélectionner les écrans à utiliser pour la session** spécifie les écrans locaux à utiliser pour la session. Tous les écrans sélectionnés doivent être adjacents. Ce paramètre est automatiquement désactivé si vous n’utilisez qu’un seul écran.
+- **Démarrer en plein écran** détermine si la session est lancée en mode plein écran ou en mode fenêtré. Ce paramètre est automatiquement activé si vous utilisez plusieurs écrans.
+- **Mettre à jour la résolution en cas de redimensionnement** met automatiquement à jour la résolution du Bureau à distance quand vous redimensionnez la session en mode fenêtré. Quand cette option est désactivée, la session reste toujours à la résolution que vous spécifiez dans **Résolution**. Ce paramètre est automatiquement activé si vous utilisez plusieurs écrans.
 - **Résolution** vous permet de spécifier la résolution du bureau à distance. La session conserve cette résolution pendant toute sa durée. Ce paramètre est automatiquement désactivé si la résolution est mise à jour en cas de redimensionnement.
 - **Changer la taille du texte et des applications** permet de spécifier la taille du contenu de la session. Ce paramètre s’applique uniquement en cas de connexion à Windows 8.1 et ultérieur ou à Windows Server 2012 R2 et ultérieur. Ce paramètre est automatiquement désactivé si la résolution est mise à jour en cas de redimensionnement.
 - **Ajuster la session à la fenêtre** détermine la façon dont la session est affichée quand la résolution du bureau à distance diffère de la taille de la fenêtre locale. Si cette option est activée, le contenu de la session est redimensionné pour tenir à l’intérieur de la fenêtre et les proportions de la session sont conservées. Si cette option est désactivée, des barres de défilement ou des zones noires apparaissent quand la résolution et la taille de la fenêtre ne correspondent pas.

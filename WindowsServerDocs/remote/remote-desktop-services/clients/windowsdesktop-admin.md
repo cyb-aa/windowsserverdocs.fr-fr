@@ -13,12 +13,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 09/16/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2195c3bafaa01a1b1c16c17889d5e04d7213a5b6
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: c0a9f11aea9e24cc1a2bab275aae8dc0a81e9cba
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919703"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822360"
 ---
 # <a name="windows-desktop-client-for-admins"></a>Client Windows Desktop pour les administrateurs
 
@@ -28,7 +28,7 @@ Cette rubrique contient des informations supplémentaires sur le client Windows 
 
 ## <a name="installation-options"></a>Options d'installation
 
-Bien que les utilisateurs puissent installer le client directement après l’avoir téléchargé, si vous effectuez un déploiement sur plusieurs appareils, vous souhaiterez peut-être également y déployer le client par d’autres moyens. Le déploiement à l’aide de stratégies de groupe ou de System Center Configuration Manager vous permet d’exécuter le programme d’installation en mode silencieux à l’aide d’une ligne de commande. Exécutez les commandes suivantes pour déployer le client par appareil ou par utilisateur.
+Bien que les utilisateurs puissent installer le client directement après l’avoir téléchargé, si vous effectuez un déploiement sur plusieurs appareils, vous souhaiterez peut-être également y déployer le client par d’autres moyens. Le déploiement au moyen de stratégies de groupe ou de Microsoft Endpoint Configuration Manager vous permet d’exécuter le programme d’installation en mode silencieux à l’aide d’une ligne de commande. Exécutez les commandes suivantes pour déployer le client par appareil ou par utilisateur.
 
 ### <a name="per-device-installation"></a>Installation par appareil
 

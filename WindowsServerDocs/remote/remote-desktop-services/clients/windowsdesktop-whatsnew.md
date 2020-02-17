@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/14/2020
+ms.date: 01/29/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: f1f4d6b32b8b7d717d2d424e0a60c5edc96f4cac
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: b2d5215c7089ce1aadbeae68890dca1a0ae1c294
+ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953072"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889443"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -30,14 +30,14 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 
 |Groupe d’utilisateurs |Version  |
 |-----------|---------|
-|Public     |1.2.535  |
-|Insider    |1.2.594  |
+|Public     |1.2.605  |
+|Insider    |1.2.605  |
 
-## <a name="updates-for-version-12594"></a>Mises à jour relatives à la version 1.2.594
+## <a name="updates-for-version-12605"></a>Mises à jour pour la version 1.2.605
 
-*Date de publication : 14/01/2020*
+*Date de publication : 29/01/2020*
 
-Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4o4cC), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4o4cI), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oh9C)
+Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oHrD), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oJZs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oXhD)
 
 - Vous pouvez maintenant sélectionner les affichages à utiliser pour les connexions Bureau à distance. Pour changer ce paramètre, cliquez avec le bouton droit sur l’icône de la connexion Bureau à distance, puis sélectionnez **Paramètres**.
 - Correction d’un problème empêchant les paramètres de connexion d’afficher les facteurs de mise à l’échelle disponibles corrects.

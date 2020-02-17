@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: ''
 ms.localizationpriority: medium
-ms.openlocfilehash: cec3b81beaee7dab7259345c56e79c05739b5dad
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: e41d8fefa662120170b5e76e4f27d8f64fa538d7
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948414"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822172"
 ---
 # <a name="windows-server-2016-and-microsoft-server-application-compatibility"></a>Compatibilité des applications serveur Microsoft et Windows Server 2016
 
@@ -37,7 +37,7 @@ Les clients et les partenaires fournisseurs de logiciels souhaitant plus d’inf
 |Microsoft System Center Virtual Machine Manager 2016|  Oui|    [Nouveautés de System Center](https://technet.microsoft.com/system-center-docs/get-started/what-s-new-in-system-center)|
 |Microsoft System Center Operations Manager 2016|   Oui|    [Nouveautés de System Center](https://technet.microsoft.com/system-center-docs/get-started/what-s-new-in-system-center)|
 |Microsoft System Center Data Protection Manager 2016|  Oui|    [Nouveautés de System Center](https://technet.microsoft.com/system-center-docs/get-started/what-s-new-in-system-center)|
-|Microsoft System Center Configuration Manager (version 1606)|  Oui|    [Nouveautés de la version 1606 de System Center Configuration Manager](https://technet.microsoft.com/library/mt752488.aspx)|  
+|Configuration Manager (version 1606)|  Oui|    [Nouveautés de la version 1606 de Configuration Manager](https://technet.microsoft.com/library/mt752488.aspx)|  
 |SharePoint Server 2016|    Oui|    [Configuration matérielle et logicielle requise pour SharePoint Server 2016](https://technet.microsoft.com/library/cc262485(v=office.16).aspx)|
 |Project Server 2016|   Oui|    [Configuration logicielle requise pour Project Server 2016](https://technet.microsoft.com/library/ee683978(v=office.16).aspx)|
 |Exchange Server 2016|  Oui|    [Mises à jour pour Exchange 2016](https://technet.microsoft.com/library/jj907309(v=exchg.160).aspx)| 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 64c0daa8ecc2d6b196d4305e3246dadeebf7075a
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: f4568e1781dbe385d8abe8a96f07841391506738
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948340"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822162"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Notes de publication : Principaux problèmes touchant Windows Server 2016
 
@@ -29,7 +29,7 @@ Ce document est continuellement mis à jour. Les problèmes critiques nécessita
 
 ## <a name="express-updates-available-starting-in-november-2018-new"></a>Disponibilité des mises à jour Express à partir de novembre 2018 (NOUVEAU)
 
-À partir de la mise à jour hebdomadaire du mardi (« Update Tuesday ») en novembre 2018, Windows publiera à nouveau les [mises à jour Express](express-updates.md) pour Windows Server 2016. Si vous utilisez WSUS et System Center Configuration Manager (SCCM), vous verrez de nouveau deux packages pour la mise à jour de Windows Server 2016 : une mise à jour complète et une mise à jour Express. Si vous souhaitez utiliser Express pour vos environnements de serveur, vous devez vérifier que le serveur a appliqué une mise à jour complète depuis novembre 2017 (KB 4048953) pour vous assurer que la mise à jour Express s’installe correctement. Si vous tentez une mise à jour Express sur un serveur qui n’a pas été mis à jour depuis la mise à jour 11B de 2017 (KB 4048953), vous rencontrerez des échecs répétés qui consomment de la bande passante et des ressources processeur dans une boucle infinie. Si ce problème survient, arrêtez la transmission de la mise à jour Express. Au lieu de ça, transmettez une mise à jour complète et récente pour arrêter la boucle de défaillance.
+À partir de la mise à jour hebdomadaire du mardi (« Update Tuesday ») en novembre 2018, Windows publiera à nouveau les [mises à jour Express](express-updates.md) pour Windows Server 2016. Si vous utilisez WSUS et Configuration Manager, vous verrez de nouveau deux packages pour la mise à jour de Windows Server 2016 : une mise à jour complète et une mise à jour Express. Si vous souhaitez utiliser Express pour vos environnements de serveur, vous devez vérifier que le serveur a appliqué une mise à jour complète depuis novembre 2017 (KB 4048953) pour vous assurer que la mise à jour Express s’installe correctement. Si vous tentez une mise à jour Express sur un serveur qui n’a pas été mis à jour depuis la mise à jour 11B de 2017 (KB 4048953), vous rencontrerez des échecs répétés qui consomment de la bande passante et des ressources processeur dans une boucle infinie. Si ce problème survient, arrêtez la transmission de la mise à jour Express. Au lieu de ça, transmettez une mise à jour complète et récente pour arrêter la boucle de défaillance.
 
 ## <a name="server-core-installation-option"></a>Option d’installation minimale
 

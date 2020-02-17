@@ -12,12 +12,12 @@ ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: f94e2c083f0bc05231543c15120818481afbabb0
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 09f031c19c8f6d1105d47b9f22d52db30e9c57ef
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947856"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822152"
 ---
 # <a name="install-nano-server"></a>Installer Nano Server
 
@@ -50,7 +50,7 @@ Nano Server est idéal dans différentes situations :
 - Aucune stratégie de groupe n’est prise en charge. Toutefois, vous pouvez utiliser la [configuration d’état souhaité](https://msdn.microsoft.com/powershell/dsc/nanoDsc) pour appliquer les paramètres à l’échelle.
 - Nano Server ne peut pas être configuré pour utiliser un serveur proxy pour accéder à Internet.
 - L’association de cartes réseau (plus précisément, l’équilibrage de charge et le basculement ou LBFO) n’est pas prise en charge, contrairement à SET (Switch Embedded Teaming).
-- System Center Configuration Manager et System Center Data Protection Manager ne sont pas pris en charge.
+- Microsoft Endpoint Configuration Manager et System Center Data Protection Manager ne sont pas pris en charge.
 - Les applets de commande BPA (Best Practices Analyzer) et l’intégration de BPA avec le Gestionnaire de serveur ne sont pas prises en charge.
 - NANO Server ne prend pas en charge les adaptateurs de bus hôte virtuels (HBA).
 - NANO Server n’a pas besoin d’être activé avec une clé de produit. Quand il fonctionne en tant qu’hôte Hyper-V, Nano Server ne prend pas en charge l’[Activation automatique de machine virtuelle](https://technet.microsoft.com/library/dn303421%28v=ws.11%29.aspx) (AVMA). Vous pouvez activer les machines virtuelles qui s’exécutent sur un hôte Nano Server à l’aide du [Service de gestion de clés](https://technet.microsoft.com/library/jj612867(v=ws.11).aspx) (KMS), avec une clé de licence en volume générique ou à l’aide de l’[activation basée sur Active Directory](https://technet.microsoft.com/library/dn502534(v=ws.11).aspx).

@@ -13,12 +13,12 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 43cffc007970245ab9bd96c7cae9bb5137a8030b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a596bcd29fdb80f8b2b0fa86ee808755dd09f43
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387800"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125091"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Paramètres pris en charge du fichier RDP du Bureau à distance
 
@@ -40,6 +40,7 @@ Consultez [cette documentation](https://go.microsoft.com/fwlink/?linkid=2098243&
 | desktop size id:i:value | Spécifie les dimensions du bureau de session à distance à partir d’un ensemble d’options prédéfinies. Ce paramètre est remplacé si le paramètre desktopheight ou desktopwidth est spécifié.| \- 0 : 640×480<br>- 1 : 800×600<br>- 2 : 1024×768<br>- 3 : 1280×1024<br>- 4 : 1600×1200 | 0 | x | x | x |
 | desktopheight:i:value | Détermine la hauteur de résolution (en pixels) sur l’ordinateur distant lorsque vous vous connectez à l’aide de la connexion Bureau à distance. Ce paramètre correspond à la sélection dans le curseur Configuration de l’affichage sur l’onglet « Affichage » des options dans RDC. | Valeur numérique comprise entre 200 et 2 048 | La valeur par défaut est définie pour la résolution sur l’ordinateur local | x | x | x |
 | desktopwidth:i:value | Détermine la largeur de résolution (en pixels) sur l’ordinateur distant lorsque vous vous connectez à l’aide de la connexion Bureau à distance. Ce paramètre correspond à la sélection dans le curseur Configuration de l’affichage sur l’onglet « Affichage » des options dans RDC. | Valeur numérique comprise entre 200 et 4 096 | La valeur par défaut est définie pour la résolution sur l’ordinateur local | x | x | x |
+| devicestoredirect:s:value | Détermine les appareils sur l’ordinateur client qui seront redirigés et disponibles dans la session à distance. | - * : Rediriger tous les appareils pris en charge, y compris ceux qui sont connectés plus tard<br> - ID de matériel valide pour un ou plusieurs appareils | | x | x | x |
 | disableconnectionsharing:i:value | Détermine si le client Bureau à distance se reconnecte à toute connexion ouverte existante ou initie une nouvelle connexion lorsque RemoteApp ou un poste de travail est mis en route | - 0 : Se reconnecter à une session existante<br>- 1 : Initier une nouvelle connexion | 0 | x | x | x |
 | domain:s:value | Spécifie le nom du domaine au sein duquel se trouve le compte d’utilisateur qui sera utilisé pour ouvrir une session sur l’ordinateur distant. | Un nom de domaine valide, tel que « CONTOSO » | Pas de valeur par défaut | x | x | x |
 | drivestoredirect:s:value | Détermine les lecteurs de disque locaux sur l’ordinateur client qui seront redirigés et disponibles dans la session à distance. | - Aucune valeur spécifiée : aucun lecteur n’est redirigé<br>- * : Rediriger tous les lecteurs de disque, y compris les disques connectés plus tard<br>- DynamicDrives : rediriger tous les lecteurs qui sont connectés ultérieurement<br>- Le lecteur et les étiquettes pour un ou plusieurs disques, comme « drivestoredirect:s:C:;E:; » : rediriger le ou les lecteurs spécifiés| Aucune valeur spécifiée : aucun lecteur n’est redirigé | x | x    | |

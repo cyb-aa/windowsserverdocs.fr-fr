@@ -8,12 +8,12 @@ ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 864a15d7336abb56572ddc783ce41a35d6fc13bf
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a8521eae302ade84904e3ba09c001eac21fffd6a
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950409"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125150"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web Bureau à distance pour vos utilisateurs
 
@@ -170,10 +170,12 @@ Suivez les étapes ci-dessous pour déployer le client web sur un serveur d'acc�
 
 Suivez les instructions fournies à la section [Publier le client web Bureau à distance](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client) en remplaçant les étapes 4 et 5 par les suivantes.
 
-4. Importez le module PowerShell de gestion du client web Bureau à distance à partir du dossier local :
-    ```PowerShell
-    Import-Module -Name "C:\WebClient\"
-    ```
+4. Vous avez deux options pour récupérer le module PowerShell de gestion des clients web le plus récent :
+    - Importez le module PowerShell de gestion des clients web Bureau à distance :
+      ```PowerShell
+      Import-Module -Name RDWebClientManagement
+      ```
+    - Copiez le dossier RDWebClientManagement téléchargé dans un des dossiers de module PowerShell locaux listés sous **$env:psmodulePath**, ou ajoutez le chemin au dossier contenant les fichiers téléchargés à **$env:psmodulePath**.
 
 5. Déployez la dernière version du client web Bureau à distance à partir du dossier local (remplacez le fichier par le zip approprié) :
     ```PowerShell

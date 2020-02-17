@@ -1,6 +1,6 @@
 ---
-title: Outils d'administration de serveur distant
-description: Rubrique de niveau supérieur pour Outils d’administration de serveur distant
+title: Outils d’administration de serveur distant
+description: Rubrique de niveau supérieur pour les Outils d’administration de serveur distant
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -12,80 +12,80 @@ ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: e8e8206531e0939a1b6d6dfd17f5c5dd59947c81
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
-ms.translationtype: MT
+ms.openlocfilehash: 4e6452947af236f3021d493a42f536fed0cd110a
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259134"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822332"
 ---
-# <a name="remote-server-administration-tools"></a>Outils d'administration de serveur distant
+# <a name="remote-server-administration-tools"></a>Outils d’administration de serveur distant
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique prend en charge Outils d’administration de serveur distant pour Windows 10.
+Cette rubrique prend en charge les Outils d’administration de serveur distant pour Windows 10.
 
 > [!IMPORTANT]
-> À compter de la mise à jour 2018 de Windows 10 octobre, les outils d’aide à la demande sont inclus sous la forme d’un ensemble de **fonctionnalités à la demande** dans Windows 10. Pour obtenir des instructions d’installation, consultez **quand utiliser la version de RSAT** ci-dessous.
+> À compter de la mise à jour d’octobre 2018 de Windows 10, les Outils d’administration de serveur distant (RSAT) sont fournis sous la forme d’un ensemble de **Fonctionnalités à la demande** directement dans Windows 10. Pour obtenir des instructions d’installation, consultez **Quand utiliser les différentes versions des outils RSAT** ci-dessous.
 
-Les outils d’administration de serveur distant permettent aux administrateurs informatiques de gérer les rôles et les fonctionnalités Windows Server à partir d’un PC Windows 10.
+Les outils RSAT permettent aux administrateurs informatiques de gérer les rôles et les fonctionnalités de Windows Server à partir d’un PC Windows 10.
 
-Outils d’administration de serveur distant comprend Gestionnaire de serveur, les composants logiciels enfichables MMC (Microsoft Management Console), les consoles, les fournisseurs et les applets de commande Windows PowerShell, ainsi que certains outils en ligne de commande pour la gestion des rôles et des fonctionnalités qui s’exécutent sur Windows Server.
+Les Outils d’administration de serveur distant comprennent le Gestionnaire de serveur, des composants logiciels enfichables MMC (Microsoft Management Console), des consoles, des fournisseurs et des applets de commande Windows PowerShell, ainsi que des outils en ligne de commande pour la gestion des rôles et des fonctionnalités exécutés sur Windows Server.
 
-Outils d’administration de serveur distant comprend des modules d’applet de commande Windows PowerShell qui peuvent être utilisés pour gérer des rôles et des fonctionnalités qui s’exécutent sur des serveurs distants. Bien que la gestion à distance de Windows PowerShell soit activée par défaut sur Windows Server 2016, elle n’est pas activée par défaut sur Windows 10. Pour exécuter des applets de commande qui font partie de Outils d’administration de serveur distant sur un serveur distant, exécutez `Enable-PSremoting` dans une session Windows PowerShell qui a été ouverte avec des droits d’utilisateur élevés (c’est-à-dire, exécutez en tant qu’administrateur) sur votre ordinateur client Windows après l’installation de Outils d’administration de serveur distant.
+Les Outils d’administration de serveur distant incluent des modules d’applet de commande Windows PowerShell qui peuvent être utilisés pour gérer des rôles et des fonctionnalités s’exécutant sur des serveurs distants. La gestion à distance avec Windows PowerShell est activée par défaut sur Windows Server 2016, alors que ce n’est pas le cas sur Windows 10. Pour exécuter des applets de commande qui font partie des Outils d’administration de serveur distant sur un serveur distant, exécutez `Enable-PSremoting` dans une session Windows PowerShell qui a été ouverte avec des droits d’utilisateur avec élévation de privilèges (c’est-à-dire, Exécuter en tant qu’administrateur) sur l’ordinateur client Windows après l’installation des Outils d’administration de serveur distant.
 
-## <a name="BKMK_Thresh"></a>Outils d’administration de serveur distant pour Windows 10
-Use Remote Server Administration Tools for Windows 10 to manage specific technologies on computers that are running Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and in limited cases,  Windows Server 2012 , or  Windows Server 2008 R2 .
+## <a name="BKMK_Thresh"></a>Outils d’administration de serveur distant pour Windows 10
+Utilisez les Outils d’administration de serveur distant pour Windows 10 pour gérer des technologies spécifiques sur des ordinateurs Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et, dans certains cas, Windows Server 2012 ou Windows Server 2008 R2.
 
-Remote Server Administration Tools for Windows 10 includes support for remote management of computers that are running the Server Core installation option or the Minimal Server Interface configuration of Windows Server 2016,  Windows Server 2012 R2 , and in limited cases, the Server Core installation options of Windows Server 2012. However, Remote Server Administration Tools for Windows 10 cannot be installed on any versions of the Windows Server operating system.
+Les Outils d’administration de serveur distant pour Windows 10 incluent la prise en charge de la gestion à distance des ordinateurs qui exécutent l’option d’installation minimale ou la configuration de l’interface serveur minimale de Windows Server 2016, Windows Server 2012 R2 et, dans certains cas, les options d’installation minimale de Windows Server 2012. En revanche, il n’est pas possible d’installer les Outils d’administration de serveur distant pour Windows 10 sur une version du système d’exploitation Windows Server.
 
 ### <a name="tools-available-in-this-release"></a>Outils disponibles dans cette version
-For a list of the tools available in Remote Server Administration Tools for Windows 10, see the table in [Remote Server Administration Tools (RSAT) for Windows operating systems](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems).
+Pour obtenir la liste des outils disponibles dans les Outils d’administration de serveur distant pour Windows 10, consultez le tableau dans [Outils d’administration de serveur distant (RSAT) pour systèmes d’exploitation Windows](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems).
 
-### <a name="system-requirements"></a>Configuration requise
-Remote Server Administration Tools for Windows 10 can be installed only on computers that are running Windows 10. Remote Server Administration Tools cannot be installed on computers that are running Windows RT 8.1, or other system-on-chip devices.
+### <a name="system-requirements"></a>Configuration système requise
+Les Outils d’administration de serveur distant pour Windows 10 peuvent uniquement être installés sur des ordinateurs Windows 10. Vous ne pouvez pas installer les Outils d’administration de serveur distant sur des ordinateurs Windows RT 8.1 ou d’autres appareils de type « système sur puce ».
 
-Remote Server Administration Tools for Windows 10 runs on both x86-based and x64-based editions of Windows 10.
+Les Outils d’administration de serveur distant pour Windows 10 s’exécutent à la fois sur les éditions x86 et x64 de Windows 10.
 
 > [!IMPORTANT]
-> Remote Server Administration Tools for Windows 10 should not be installed on a computer that is running administration tools packs for Windows 8.1, Windows 8,  Windows Server 2008 R2,  Windows Server 2008, Windows Server 2003 or Windows 2000 Server. Remove all older versions of Administration Tools Pack or Remote Server Administration Tools, including earlier prerelease versions, and releases of the tools for different languages or locales from the computer before you install Remote Server Administration Tools for Windows 10.
+> Les Outils d’administration de serveur distant pour Windows 10 ne doivent pas être installés sur un ordinateur qui exécute des packs d’outils d’administration pour Windows 8.1, Windows 8, Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 ou Windows 2000 Server. Supprimez de l’ordinateur toutes les anciennes versions du Pack des outils d’administration ou des Outils d’administration de serveur distant, y compris les préversions antérieures et les versions des outils pour d’autres langues ou paramètres régionaux, avant d’installer les Outils d’administration de serveur distant pour Windows 10.
 
-To use this release of Server Manager to access and manage Remote servers that are running  Windows Server 2012 R2 ,  Windows Server 2012 , or  Windows Server 2008 R2 , you must install several updates to make the older Windows Server operating systems manageable by using Server Manager. For detailed information about how to prepare  Windows Server 2012 R2,  Windows Server 2012, and  Windows Server 2008 R2 for management by using Server Manager in Remote Server Administration Tools for Windows 10, see [Manage Multiple, Remote Servers with Server Manager](https://technet.microsoft.com/library/hh831456.aspx).
+Pour utiliser cette version du Gestionnaire de serveur pour accéder aux serveurs distants qui exécutent Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 et les gérer, vous devez installer plusieurs mises à jour qui permettront aux anciens systèmes d’exploitation Windows Server d’être gérés par le Gestionnaire de serveur. Pour plus d’informations sur la préparation de Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2 pour la gestion à l’aide du Gestionnaire de serveur dans les Outils d’administration de serveur distant pour Windows 10, consultez [Gérer plusieurs serveurs distants à l’aide du Gestionnaire de serveur](https://technet.microsoft.com/library/hh831456.aspx).
 
-Windows PowerShell and Server Manager remote management must be enabled on remote servers to manage them by using tools that are part of Remote Server Administration Tools for Windows 10. Remote management is enabled by default on servers that are running Windows Server 2016,  Windows Server 2012 R2, and  Windows Server 2012. Pour plus d’informations sur la manière d’activer la gestion à distance, si elle a été désactivée, voir [Gérer plusieurs serveurs distants avec le Gestionnaire de serveur](https://go.microsoft.com/fwlink/p/?LinkId=241358).
+Vous devez activer la gestion à distance à l’aide de Windows PowerShell et du Gestionnaire de serveur sur les serveurs distants pour pouvoir les gérer à l’aide des outils intégrés dans les Outils d’administration de serveur distant pour Windows 10. La gestion à distance est activée par défaut sur les serveurs qui exécutent Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012. Pour plus d’informations sur la manière d’activer la gestion à distance, si elle a été désactivée, voir [Gérer plusieurs serveurs distants avec le Gestionnaire de serveur](https://go.microsoft.com/fwlink/p/?LinkId=241358).
 
-## <a name="install-uninstall-and-turn-offon-rsat-tools"></a>Install, uninstall and turn off/on RSAT tools
+## <a name="install-uninstall-and-turn-offon-rsat-tools"></a>Installer, désinstaller et désactiver/activer les outils RSAT
 
-### <a name="use-features-on-demand-fod-to-install-specific-rsat-tools-on-windows-10-october-2018-update-or-later"></a>Use Features on Demand (FoD) to install specific RSAT tools on Windows 10 October 2018 Update, or later
+### <a name="use-features-on-demand-fod-to-install-specific-rsat-tools-on-windows-10-october-2018-update-or-later"></a>Utiliser Fonctionnalités à la demande pour installer des outils RSAT spécifiques sur la mise à jour d’octobre 2018 de Windows 10 ou ultérieure
 
-Starting with Windows 10 October 2018 Update, RSAT is included as a set of **Features on Demand** right from Windows 10. Now, instead of downloading an RSAT package you can just go to **Manage optional features** in **Settings** and click **Add a feature** to see the list of available RSAT tools. Select and install the specific RSAT tools you need. To see installation progress, click the **Back** button to view status on the **Manage optional features** page.
+À compter de la mise à jour d’octobre 2018 de Windows 10, les outils RSAT sont fournis sous la forme d’un ensemble de **Fonctionnalités à la demande** directement dans Windows 10. Désormais, au lieu de télécharger un package RSAT, vous pouvez simplement accéder à **Gérer les fonctionnalités facultatives** dans **Paramètres** et cliquer sur **Ajouter une fonctionnalité** pour voir la liste des outils RSAT disponibles. Sélectionnez et installez les outils RSAT spécifiques dont vous avez besoin. Pour voir la progression de l’installation, cliquez sur le bouton **Retour**. Vous revenez à la page **Gérer les fonctionnalités facultatives**.
 
-See the [list of RSAT tools available via **Features on Demand**](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). In addition to installing via the graphical **Settings** app, you can also install specific RSAT tools via command line or automation using [**DISM /Add-Capability**](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods).
+Consultez la [liste des outils RSAT disponibles dans **Fonctionnalités à la demande**](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). En plus de l’application graphique **Paramètres**, vous pouvez utiliser la ligne de commande ou l’automatisation (avec [**DISM /Add-Capability**](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods)) pour installer des outils RSAT spécifiques.
 
-One benefit of Features on Demand is that installed features persist across Windows 10 version upgrades.
+L’un des avantages de Fonctionnalités à la demande est que les fonctionnalités installées sont conservées après chaque mise à niveau de version de Windows 10.
 
-#### <a name="to-uninstall-specific-rsat-tools-on-windows-10-october-2018-update-or-later-after-installing-with-fod"></a>To uninstall specific RSAT tools on Windows 10 October 2018 Update or later (after installing with FoD)
+#### <a name="to-uninstall-specific-rsat-tools-on-windows-10-october-2018-update-or-later-after-installing-with-fod"></a>Désinstaller des outils RSAT spécifiques sur la mise à jour d’octobre 2018 de Windows 10 ou ultérieure (après une installation effectuée à l’aide de Fonctionnalités à la demande)
 
-On Windows 10, open the **Settings** app, go to **Manage optional features**, select and uninstall the specific RSAT tools you wish to remove. Note that in some cases, you will need to manually uninstall dependencies. En particulier, si l’outil RSAT a est requis par l’outil RSAT B, le choix de désinstaller l’outil RSAT échoue si l’outil RSAT B est encore installé. In this case, uninstall RSAT tool B first, and then uninstall RSAT tool A. Also note that in some cases, uninstalling an RSAT tool may appear to succeed even though the tool is still installed. In this case, restarting the PC will complete the removal of the tool.
+Sur Windows 10, ouvrez l’application **Paramètres**, accédez à **Gérer les fonctionnalités facultatives**, puis sélectionnez et désinstallez les outils RSAT spécifiques à supprimer. Notez que, dans certains cas, vous devrez désinstaller manuellement les dépendances. En particulier, si l’outil RSAT A est demandé par l’outil RSAT B, toute tentative de désinstallation de l’outil RSAT A échoue si l’outil RSAT B est encore installé. Dans ce cas, désinstallez d’abord l’outil RSAT B, puis désinstallez l’outil RSAT A. Notez également que, dans certains cas, un outil RSAT peut encore être installé après une procédure de désinstallation apparemment réussie. Dans ce cas, redémarrez le PC pour terminer le processus de suppression de l’outil.
 
-See the [list of RSAT tools including dependencies](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). In addition to uninstalling via the graphical Settings app, you can also uninstall specific RSAT tools via command line or automation using [**DISM /Remove-Capability**](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods).
+Consultez la [liste des outils RSAT, notamment les dépendances](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-non-language-fod#remote-server-administration-tools-rsat). En plus de l’application graphique Paramètres, vous pouvez utiliser la ligne de commande ou l’automatisation (avec [**DISM /Remove-Capability**](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities#using-dism-add-capability-to-add-or-remove-fods)) pour désinstaller des outils RSAT spécifiques.
 
-### <a name="when-to-use-which-rsat-version"></a>When to use which RSAT version
+### <a name="when-to-use-which-rsat-version"></a>Quand utiliser les différentes versions des outils RSAT
 
-Si vous disposez d’une version de Windows 10 antérieure à la mise à jour 2018 d’octobre (1809), vous ne pourrez pas utiliser les **fonctionnalités à la demande**. Vous devrez télécharger et installer le package RSAT.
+Si vous disposez d’une version de Windows 10 antérieure à la mise à jour d’octobre 2018 (1809), vous ne pouvez pas utiliser **Fonctionnalités à la demande**. Vous devez télécharger et installer le package RSAT.
 
-- **Installez les FODS RSAT directement à partir de Windows 10, comme indiqué ci-dessus**: lors de l’installation sur Windows 10 octobre 2018 Update (1809) ou version ultérieure, pour la gestion de windows server 2019 ou des versions antérieures.
+- **Installer les Fonctionnalités à la demande des outils RSAT directement à partir de Windows 10, comme indiqué ci-dessus** : installation sur la mise à jour d’octobre 2018 de Windows 10 (1809) ou ultérieure pour gérer Windows Server 2019 ou antérieur.
 
-- **Téléchargez et installez WS_1803 package RSAT, comme indiqué ci-dessous**: lors de l’installation de sur Windows 10 avril 2018 (1803) ou version antérieure, pour la gestion de Windows Server, version 1803 ou Windows Server, version 1709.
+- **Télécharger et installer le package RSAT WS_1803, comme indiqué ci-dessous** : installation sur la mise à jour d’avril 2018 de Windows 10 (1803) ou antérieure pour gérer Windows Server version 1803 ou 1709.
 
-- **Téléchargez et installez le package WS2016 RSAT, comme indiqué ci-dessous**: lors de l’installation de sur Windows 10 avril 2018 Update (1803) ou version antérieure, pour la gestion de windows server 2016 ou des versions antérieures.
+- **Télécharger et installer le package RSAT WS2016, comme indiqué ci-dessous** : installation sur la mise à jour d’avril 2018 de Windows 10 (1803) ou antérieure pour gérer Windows Server 2016 ou antérieur.
 
-#### <a name="BKMK_installthresh"></a>Télécharger le package RSAT pour installer Outils d’administration de serveur distant pour Windows 10
+#### <a name="BKMK_installthresh"></a>Télécharger le package RSAT pour installer les Outils d’administration de serveur distant pour Windows 10
 
-1.  Téléchargez le package Outils d’administration de serveur distant pour Windows 10 à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/?LinkID=404281). Vous pouvez exécuter le programme d’installation depuis le site web du Centre de téléchargement ou enregistrer le package de téléchargement sur un ordinateur local ou un partage.
+1.  Téléchargez le package Outils d’administration de serveur distant pour Windows 10 à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/?LinkID=404281). Vous pouvez exécuter le programme d’installation depuis le site web du Centre de téléchargement ou enregistrer le package de téléchargement sur un ordinateur local ou un partage.
 
     > [!IMPORTANT]
-    > Vous ne pouvez installer Outils d’administration de serveur distant pour Windows 10 que sur les ordinateurs qui exécutent Windows 10. Outils d’administration de serveur distant ne peut pas être installé sur les ordinateurs qui exécutent Windows RT 8,1 ou d’autres périphériques système sur puce.
+    > Vous pouvez uniquement installer les Outils d’administration de serveur distant pour Windows 10 sur des ordinateurs Windows 10. Vous ne pouvez pas installer les Outils d’administration de serveur distant sur des ordinateurs Windows RT 8.1 ou d’autres appareils de type « système sur puce ».
 
 2.  Si vous enregistrez le package de téléchargement sur un ordinateur local ou un partage, double-cliquez sur le programme d’installation, **WindowsTH-KB2693643-x64.msu** ou **WindowsTH-KB2693643-x86.msu**, selon l’architecture de l’ordinateur sur lequel vous voulez installer les outils.
 
@@ -95,7 +95,7 @@ Si vous disposez d’une version de Windows 10 antérieure à la mise à jour 20
 
 5.  L’installation prend quelques minutes.
 
-##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-after-rsat-package-install"></a>Pour désinstaller Outils d’administration de serveur distant pour Windows 10 (après l’installation du package RSAT)
+##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-after-rsat-package-install"></a>Pour désinstaller les Outils d’administration de serveur distant pour Windows 10 (après installation du package RSAT)
 
 1. Sur le Bureau, cliquez sur **Démarrer**, **Toutes les applications**, **Système Windows**, puis sur **Panneau de configuration**.
 
@@ -107,7 +107,7 @@ Si vous disposez d’une version de Windows 10 antérieure à la mise à jour 20
 
 5. Quand vous devez indiquer si vous voulez vraiment désinstaller la mise à jour, cliquez sur **Oui**.
    S
-   ##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>Pour désactiver des outils spécifiques (après l’installation du package RSAT)
+   ##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>Pour désactiver des outils spécifiques (après installation du package RSAT)
 
 6. Sur le Bureau, cliquez sur **Démarrer**, **Toutes les applications**, **Système Windows**, puis sur **Panneau de configuration**.
 
@@ -118,22 +118,22 @@ Si vous disposez d’une version de Windows 10 antérieure à la mise à jour 20
 9. Désactivez les cases à cocher des outils que vous souhaitez désactiver.
 
    > [!NOTE]
-   > Si vous désactivez Gestionnaire de serveur, l’ordinateur doit être redémarré et les outils qui étaient accessibles à partir du menu **Outils** de gestionnaire de serveur doivent être ouverts à partir du dossier **Outils d’administration** .
+   > Si vous désactivez le Gestionnaire de serveur, vous devrez redémarrer l’ordinateur et ouvrir les outils qui étaient disponibles dans le menu **Outils** du Gestionnaire de serveur à partir du dossier **Outils d’administration**.
 
 10. Quand vous avez terminé de désactiver les outils que vous ne voulez pas utilisez, cliquez sur **OK**.
 
 ### <a name="run-remote-server-administration-tools"></a>Exécuter les Outils d’administration de serveur distant
 
 > [!NOTE]
-> Après l’installation de Outils d’administration de serveur distant pour Windows 10, le dossier **Outils d’administration** s’affiche dans le menu **Démarrer** . Vous pouvez accéder aux outils à partir des emplacements suivants :
+> Au terme de l’installation des Outils d’administration de serveur distant pour Windows 10, le dossier **Outils d’administration** apparaît dans le menu **Démarrer**. Vous pouvez accéder aux outils à partir des emplacements suivants :
 >
-> -   Le menu **Outils** de la console Gestionnaire de serveur.
+> -   Le menu **Outils** dans la console Gestionnaire de serveur.
 > -   **Panneau de configuration/Système et sécurité/Outils d’administration**.
 > -   Un raccourci enregistré sur le Bureau à partir du dossier **Outils d’administration** (pour ce faire, cliquez avec le bouton droit sur le lien **Panneau de configuration\Système et sécurité \Outils d’administration** , puis cliquez sur **Créer un raccourci**).
 
-Les outils installés dans le cadre d’Outils d’administration de serveur distant pour Windows 10 ne peuvent pas être utilisés pour gérer l’ordinateur client local. Quel que soit l’outil que vous exécutez, vous devez spécifier un serveur distant ou plusieurs serveurs distants sur lesquels exécuter l’outil. Étant donné que la plupart des outils sont intégrés à Gestionnaire de serveur, vous ajoutez des serveurs distants que vous souhaitez gérer dans le pool de serveurs Gestionnaire de serveur avant de gérer le serveur à l’aide des outils du menu **Outils** . Pour plus d’informations sur la manière d’ajouter des serveurs à votre pool de serveurs et de créer des groupes personnalisés de serveurs, voir [Ajouter des serveurs au Gestionnaire de serveur](https://go.microsoft.com/fwlink/p/?LinkId=241353) et [Créer et gérer des groupes de serveurs](https://go.microsoft.com/fwlink/?LinkId=247328).
+Vous ne pouvez pas utiliser les outils installés dans le cadre des Outils d’administration de serveur distant pour Windows 10 pour gérer l’ordinateur client local. Quel que soit l’outil utilisé, vous devez spécifier un ou plusieurs serveurs distants sur lesquels exécuter l’outil. Étant donné que la plupart des outils sont intégrés au Gestionnaire de serveur, ajoutez les serveurs distants que vous voulez gérer au pool de serveurs du Gestionnaire de serveur avant de gérer le serveur à l’aide des outils du menu **Outils**. Pour plus d’informations sur la manière d’ajouter des serveurs à votre pool de serveurs et de créer des groupes personnalisés de serveurs, voir [Ajouter des serveurs au Gestionnaire de serveur](https://go.microsoft.com/fwlink/p/?LinkId=241353) et [Créer et gérer des groupes de serveurs](https://go.microsoft.com/fwlink/?LinkId=247328).
 
-Dans Outils d’administration de serveur distant pour Windows 10, tous les outils de gestion de serveur basés sur l’interface graphique utilisateur, tels que les composants logiciels enfichables MMC et les boîtes de dialogue, sont accessibles à partir du menu **Outils** de la console Gestionnaire de serveur. Bien que l’ordinateur qui exécute Outils d’administration de serveur distant pour Windows 10 exécute un système d’exploitation basé sur le client, après avoir installé les outils, Gestionnaire de serveur, inclus avec Outils d’administration de serveur distant pour Windows 10, s’ouvre automatiquement par défaut. sur l’ordinateur client. Notez qu’il n’existe pas de page **serveur local** dans la console Gestionnaire de serveur qui s’exécute sur un ordinateur client.
+Dans les Outils d’administration de serveur distant pour Windows 10, tous les outils de gestion de serveur basés sur l’interface utilisateur graphique, comme les composants logiciels enfichables MMC et les boîtes de dialogue, sont disponibles dans le menu **Outil** de la console du Gestionnaire de serveur. Même si l’ordinateur qui exécute les Outils d’administration de serveur distant pour Windows 10 exécute un système d’exploitation client, à l’issue de l’installation des outils, le Gestionnaire de serveur qui est inclus dans les Outils d’administration de serveur distant pour Windows 10 s’ouvre automatiquement par défaut sur l’ordinateur client. Notez qu’il n’existe pas de page **Serveur local** dans la console du Gestionnaire de serveur qui s’exécute sur un ordinateur client.
 
 ##### <a name="to-start-server-manager-on-a-client-computer"></a>Pour démarrer le Gestionnaire de serveur sur un ordinateur client
 
@@ -141,58 +141,58 @@ Dans Outils d’administration de serveur distant pour Windows 10, tous les outi
 
 2.  Dans le dossier **Outils d’administration** , cliquez sur **Gestionnaire de serveur**.
 
-Bien qu’ils ne soient pas répertoriés dans le menu **Outils** de la console Gestionnaire de serveur, les applets de commande Windows PowerShell et les outils de gestion d’invite de commandes sont également installés pour les rôles et les fonctionnalités dans le cadre de outils d’administration de serveur distant. Par exemple, si vous ouvrez une session Windows PowerShell avec des droits d’utilisateur élevés (exécuter en tant qu’administrateur) et que vous exécutez l’applet de commande `Get-Command -Module RDManagement`, les résultats incluent une liste des applets de commande des services Bureau à distance qui peuvent désormais être exécutées sur l’ordinateur local après l’installation de Outils d’administration de serveur distant, à condition que les applets de commande soient ciblées sur un serveur distant qui
+Bien qu’elles ne soient pas listées dans le menu **Outils** de la console du Gestionnaire de serveur, les applets de commande Windows PowerShell et les outils de gestion de l’invite de commandes sont également installés pour les rôles et les fonctionnalités dans le cadre des Outils d’administration de serveur distant. Par exemple, si vous ouvrez une session Windows PowerShell avec des droits d’utilisateur élevés (Exécuter en tant qu’administrateur), puis exécutez l’applet de commande `Get-Command -Module RDManagement`, les résultats incluent la liste des applets de commande des services Bureau à distance qui sont maintenant disponibles pour une exécution sur l’ordinateur local à l’issue de l’installation des Outils d’administration de serveur distant, et ce tant que les applets de commande ciblent un serveur distant qui exécute tout ou partie du rôle des services Bureau à distance.
 
 ##### <a name="to-start-windows-powershell-with-elevated-user-rights-run-as-administrator"></a>Pour démarrer Windows PowerShell avec des privilèges élevés (Exécuter en tant qu’administrateur)
 
 1.  Dans le menu **Démarrer** , cliquez sur **Toutes les applications**, sur **Système Windows**, puis sur **Windows PowerShell**.
 
-2.  Pour exécuter Windows PowerShell en tant qu’administrateur à partir du bureau, cliquez avec le bouton droit sur le raccourci **Windows PowerShell** , puis cliquez sur **exécuter en tant qu’administrateur**.
+2.  Pour exécuter Windows PowerShell en tant qu’administrateur à partir du Bureau, cliquez avec le bouton droit sur le raccourci de **Windows PowerShell**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 
 > [!NOTE]
-> Vous pouvez également démarrer une session Windows PowerShell ciblée sur un serveur spécifique en cliquant avec le bouton droit sur un serveur géré dans une page de rôle ou de groupe dans Gestionnaire de serveur, puis en cliquant sur **Windows PowerShell**.
+> Vous pouvez également démarrer une session Windows PowerShell ciblant un serveur spécifique. Pour cela, cliquez avec le bouton droit sur un serveur managé dans une page de rôle ou de groupe dans le Gestionnaire de serveur, puis cliquez sur **Windows PowerShell**.
 
 
 ## <a name="known-issues"></a>Problèmes connus
 
-### <a name="issue-rsat-fod-installation-fails-with-error-code-0x800f0954"></a>**Problème**: l’installation des DOM RSAT échoue avec le code d’erreur 0x800f0954
+### <a name="issue-rsat-fod-installation-fails-with-error-code-0x800f0954"></a>**Problème** : Échec de l’installation des Fonctionnalités à la demande des outils RSAT avec le code d’erreur 0x800f0954
 
-> **Impact**: RSAT FODs sur Windows 10 1809 (mise à jour d’octobre 2018) dans les environnements WSUS/SCCM
+> **Impact** : Fonctionnalités à la demande des outils RSAT sur Windows 10 1809 (mise à jour d’octobre 2018) dans les environnements WSUS/Configuration Manager
 > 
-> **Résolution**: pour installer FODs sur un PC joint à un domaine qui reçoit des mises à jour par le biais de WSUS ou de SCCM, vous devez modifier un paramètre de stratégie de groupe pour activer le téléchargement de FODs directement à partir de Windows Update ou d’un partage local. Pour plus d’informations et pour obtenir des instructions sur la façon de modifier ce paramètre, consultez [Comment rendre des fonctionnalités à la demande et modules linguistiques disponibles lorsque vous utilisez WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs).
+> **Résolution** : Pour installer des Fonctionnalités à la demande sur un PC joint à un domaine qui reçoit des mises à jour par le biais de WSUS ou de Configuration Manager, vous devez modifier un paramètre de stratégie de groupe pour autoriser le téléchargement de Fonctionnalités à la demande directement à partir de Windows Update ou d’un partage local. Pour plus d’informations et d’instructions sur la façon de changer ce paramètre, consultez [Guide pratique pour rendre des fonctionnalités à la demande et des modules linguistiques disponibles avec WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs).
 
 ---
 
-### <a name="issue-rsat-fod-installation-via-settings-app-does-not-show-statusprogress"></a>**Problème**: l’installation des DOM RSAT via les paramètres de l’application n’affiche pas l’état/la progression
+### <a name="issue-rsat-fod-installation-via-settings-app-does-not-show-statusprogress"></a>**Problème** : L’installation des Fonctionnalités à la demande des outils RSAT par le biais de l’application Paramètres n’indique pas l’état/la progression
 
-> **Impact**: RSAT FODs sur Windows 10 1809 (mise à jour d’octobre 2018)
+> **Impact** : Fonctionnalités à la demande des outils RSAT sur Windows 10 1809 (mise à jour d’octobre 2018)
 > 
-> **Résolution**: pour voir la progression de l’installation, cliquez sur le bouton **précédent** pour afficher l’État dans la page **gérer les fonctionnalités facultatives** .
+> **Résolution** : Pour voir la progression de l’installation, cliquez sur le bouton **Retour**. Vous revenez à la page **Gérer les fonctionnalités facultatives**.
 
 ---
 
-### <a name="issue-rsat-fod-uninstallation-via-settings-app-may-fail"></a>**Problème**: la désinstallation des DOM de RSAT via les paramètres de l’application peut échouer
+### <a name="issue-rsat-fod-uninstallation-via-settings-app-may-fail"></a>**Problème** : La désinstallation des Fonctionnalités à la demande des outils RSAT par le biais de l’application Paramètres peut échouer
 
-> **Impact**: RSAT FODs sur Windows 10 1809 (mise à jour d’octobre 2018)
+> **Impact** : Fonctionnalités à la demande des outils RSAT sur Windows 10 1809 (mise à jour d’octobre 2018)
 > 
-> **Résolution**: dans certains cas, les échecs de désinstallation sont dus à la nécessité de désinstaller manuellement les dépendances. En particulier, si l’outil RSAT a est requis par l’outil RSAT B, le choix de désinstaller l’outil RSAT échoue si l’outil RSAT B est encore installé. Dans ce cas, désinstallez d’abord l’outil RSAT B, puis désinstallez l’outil RSAT A. Consultez la liste des FODs RSAT, y compris les dépendances.
+> **Résolution** : Dans certains cas, les échecs de désinstallation sont dus à la présence de dépendances que vous devez désinstaller manuellement. En particulier, si l’outil RSAT A est demandé par l’outil RSAT B, toute tentative de désinstallation de l’outil RSAT A échoue si l’outil RSAT B est encore installé. Dans ce cas, désinstallez d’abord l’outil RSAT B, puis désinstallez l’outil RSAT A. Consultez la liste des Fonctionnalités à la demande des outils RSAT, notamment les dépendances.
 
 ---
 
-### <a name="issue-rsat-fod-uninstallation-appears-to-succeed-but-the-tool-is-still-installed"></a>**Problème**: la désinstallation des DOM de RSAT semble réussie, mais l’outil est toujours installé
+### <a name="issue-rsat-fod-uninstallation-appears-to-succeed-but-the-tool-is-still-installed"></a>**Problème** : La désinstallation des Fonctionnalités à la demande des outils RSAT semble aboutir, mais l’outil est toujours installé
 
-> **Impact**: RSAT FODs sur Windows 10 1809 (mise à jour d’octobre 2018)
+> **Impact** : Fonctionnalités à la demande des outils RSAT sur Windows 10 1809 (mise à jour d’octobre 2018)
 > 
-> **Résolution**: le redémarrage du PC terminera la suppression de l’outil.
+> **Résolution** : Redémarrez le PC pour terminer le processus de suppression de l’outil.
 
 ---
 
-### <a name="issue-rsat-missing-after-windows-10-upgrade"></a>**Problème**: RSAT manquant après la mise à niveau de Windows 10
+### <a name="issue-rsat-missing-after-windows-10-upgrade"></a>**Problème** : Outils RSAT manquant après la mise à niveau de Windows 10
 
-> **Impact**: n’importe quel RSAT. L’installation du package MSU (avant les FODs RSAT) n’a pas été réinstallée automatiquement
+> **Impact** : Les outils RSAT installés au moyen d’un package .MSU (avant les Fonctionnalités à la demande des outils RSAT) ne sont pas réinstallés automatiquement.
 > 
-> **Résolution**: une installation de RSAT ne peut pas être rendue persistante entre les mises à niveau du système d’exploitation en raison des RSAT. MSU remis en tant que package Windows Update. Veuillez réinstaller les outils d’installation à nouveau après la mise à niveau de Windows 10. Notez que cette limitation est l’une des raisons pour lesquelles nous avons déplacé vers FODs à partir de Windows 10 1809. Les FODs d’outils d’installation à redémarrage, qui sont installés, sont conservés dans les futures mises à niveau de version Windows 10.
+> **Résolution** : Une installation des outils RSAT ne peut pas être conservée après la mise à niveau du système d’exploitation dans la mesure où le package .MSU des outils RSAT est fourni en tant que package Windows Update. Réinstallez les outils RSAT après la mise à niveau de Windows 10. Notez que cette limitation est l’une des raisons pour lesquelles nous sommes passés aux Fonctionnalités à la demande à partir de Windows 10 1809. Les Fonctionnalités à la demande des outils RSAT qui sont installées sont conservées à chaque mise à niveau de version de Windows 10.
 
-## <a name="see-also"></a>Articles associés
->- [Outils d’administration de serveur distant pour Windows 10](https://go.microsoft.com/fwlink/?LinkID=404281)
->- [Outils d’administration de serveur distant (RSAT) pour Windows Vista, Windows 7, Windows 8, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2](https://go.microsoft.com/fwlink/p/?LinkID=221055)
+## <a name="see-also"></a>Voir aussi
+>- [Outils d’administration de serveur distant pour Windows 10](https://go.microsoft.com/fwlink/?LinkID=404281)
+>- [Outils d’administration de serveur distant (RSAT) pour Windows Vista, Windows 7, Windows 8, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2](https://go.microsoft.com/fwlink/p/?LinkID=221055)

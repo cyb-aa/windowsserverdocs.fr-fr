@@ -1,6 +1,6 @@
 ---
 title: Environnement réseau (Netsh)
-description: Cette rubrique fournit une vue d’ensemble de l’utilitaire de ligne de commande de l’environnement réseau (Netsh) dans Windows Server 2016.
+description: Cette rubrique fournit une vue d’ensemble de l’utilitaire en ligne de commande NetSh (Network Shell) dans Windows Server 2016.
 ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
@@ -11,32 +11,32 @@ author: shortpatti
 ms.date: 09/13/2018
 ms.openlocfilehash: ac440c8187424733c0636cf2013342458f08d2f4
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71405551"
 ---
-# <a name="network-shell-netsh"></a>Network Shell \(netsh\)
+# <a name="network-shell-netsh"></a>\(Netsh\) (Network Shell)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Network Shell (Netsh) est un utilitaire de ligne de commande qui vous permet de configurer et d’afficher l’état de différents rôles et composants de serveur de communications réseau après leur installation sur des ordinateurs exécutant Windows Server 2016.
+NetSh (Network Shell) est un utilitaire en ligne de commande qui vous permet de configurer et d’afficher l’état de différents composants et rôles serveurs de communication réseau une fois ceux-ci installés sur les ordinateurs exécutant Windows Server 2016.
 
-Certaines technologies clientes, telles que le protocole de configuration d’hôte dynamique \(DHCP\) client et BranchCache, fournissent également des commandes netsh qui vous permettent de configurer des ordinateurs clients qui exécutent Windows 10.
+Certaines technologies clientes, telles que le client \(DHCP\) (Dynamic Host Configuration Protocol) et BranchCache, fournissent également des commandes netsh avec lesquelles vous pouvez configurer les ordinateurs clients exécutant Windows 10.
 
-Dans la plupart des cas, les commandes netsh fournissent la même fonctionnalité que celle disponible lorsque vous utilisez la console MMC (Microsoft Management Console) \(MMC\) composant logiciel enfichable\-dans pour chaque rôle de serveur réseau ou fonctionnalité de mise en réseau. Par exemple, vous pouvez configurer le serveur de stratégie réseau \(\) NPS en utilisant le composant logiciel enfichable MMC NPS ou les commandes netsh dans le contexte **netsh nps** .
+Dans la plupart des cas, les commandes netsh fournissent les mêmes fonctionnalités que celles disponibles quand vous utilisez le composant logiciel enfichable \(MMC\) (Microsoft Management Console) pour chaque rôle de serveur réseau ou fonctionnalité réseau. Par exemple, vous pouvez configurer le serveur \(NPS\) (Network Policy Server) en utilisant le composant logiciel enfichable MMC NPS ou les commandes netsh dans le contexte de **netsh nps**.
 
-En outre, il existe des commandes netsh pour les technologies réseau, telles que pour IPv6, le pont réseau et l’appel de procédure distante \(RPC\), qui ne sont pas disponibles dans Windows Server en tant que composant logiciel enfichable MMC.
+En outre, il existe des commandes netsh pour les technologies réseau, par exemple pour IPv6, le pont réseau et \(RPC\) (appel de procédure distante), qui ne sont pas disponibles dans Windows Server en tant que composant logiciel enfichable MMC.
 
 >[!IMPORTANT]
->Il est recommandé d’utiliser Windows PowerShell pour gérer les technologies de mise en réseau dans [Windows Server 2016 et Windows 10](https://technet.microsoft.com/library/mt156917.aspx) plutôt que Network Shell. Network Shell est toutefois inclus pour la compatibilité avec vos scripts, et son utilisation est prise en charge.
+>Nous vous recommandons d’utiliser Windows PowerShell pour gérer les technologies réseau dans [Windows Server 2016 et Windows 10](https://technet.microsoft.com/library/mt156917.aspx) plutôt que Network Shell. Network Shell est toutefois inclus à des fins de compatibilité avec vos scripts, et son utilisation est prise en charge.
 
-## <a name="network-shell-netsh-technical-reference"></a>Informations techniques de référence sur l’environnement réseau (Netsh)
+## <a name="network-shell-netsh-technical-reference"></a>Informations techniques de référence sur Netsh (Network Shell)
 
-La référence technique netsh fournit une référence de commande netsh complète, y compris la syntaxe, les paramètres et des exemples pour les commandes netsh. Vous pouvez utiliser la référence technique netsh pour créer des scripts et des fichiers de commandes à l’aide des commandes netsh pour la gestion locale ou à distance des technologies réseau sur les ordinateurs exécutant Windows Server 2016 et Windows 10.  
+Les informations techniques de référence sur Netsh fournissent une référence complète des commandes netsh, notamment la syntaxe, les paramètres et des exemples de commandes netsh. Vous pouvez utiliser les informations techniques de référence sur Netsh afin de créer des scripts et des fichiers de commandes à l’aide de commandes netsh pour la gestion locale ou à distance des technologies réseau sur les ordinateurs exécutant Windows Server 2016 et Windows 10.  
   
 ### <a name="content-availability"></a>Disponibilité du contenu  
   
-La référence technique de l’interpréteur de commandes réseau est disponible au téléchargement dans l’aide Windows \(*. chm\) format de la Galerie TechNet : [référence technique netsh](https://gallery.technet.microsoft.com/Netsh-Technical-Reference-c46523dc)  
+Vous pouvez télécharger les informations techniques de référence sur Network Shell au format de l’Aide Windows \(*.chm\) à partir de la galerie TechNet : [Informations techniques de référence sur Netsh](https://gallery.technet.microsoft.com/Netsh-Technical-Reference-c46523dc)  
   
 ---
