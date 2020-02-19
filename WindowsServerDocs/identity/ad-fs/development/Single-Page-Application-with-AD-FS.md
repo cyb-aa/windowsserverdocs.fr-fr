@@ -8,18 +8,18 @@ ms.date: 06/13/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: d54c33e092204f208590bd15db0d3c7fe7f852f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f4973da0d9e0c347cff8fc910f96277055b66dec
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407895"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465543"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Générez une application Web à page unique à l’aide de OAuth et ADAL. JS avec AD FS 2016 ou version ultérieure
 
 Cette procédure pas à pas fournit des instructions pour l’authentification par rapport à AD FS à l’aide de ADAL pour la sécurisation d’une application à page unique basée sur AngularJS, implémentée avec un backend API Web ASP.NET.
 
-Dans ce scénario, quand l’utilisateur se connecte, le serveur frontal JavaScript utilise [bibliothèque d’Authentification Active Directory pour JavaScript (Adal. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) et l’octroi d’autorisation implicite pour obtenir un jeton d’ID (id_token) à partir Azure ad. Le jeton est mis en cache et le client l’attache à la demande en tant que jeton du porteur lors des appels à son API Web back end, qui est sécurisée à l’aide de l’intergiciel (middleware) OWIN.
+Dans ce scénario, quand l’utilisateur se connecte, le serveur frontal JavaScript utilise [bibliothèque d’Authentification Active Directory pour JavaScript (Adal. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) et l’octroi d’autorisation implicite pour obtenir un jeton d’ID (id_token) à partir de Azure ad. Le jeton est mis en cache et le client l’attache à la demande en tant que jeton du porteur lors des appels à son API Web back end, qui est sécurisée à l’aide de l’intergiciel (middleware) OWIN.
 
 >[!IMPORTANT]
 >L’exemple que vous pouvez générer ici est fourni à titre éducatif uniquement. Ces instructions sont destinées à l’implémentation la plus simple et la plus minimale possible pour exposer les éléments requis du modèle. L’exemple peut ne pas inclure tous les aspects de la gestion des erreurs et d’autres fonctionnalités associées.
@@ -27,7 +27,7 @@ Dans ce scénario, quand l’utilisateur se connecte, le serveur frontal JavaScr
 >[!NOTE]
 >Cette procédure pas à pas s’applique **uniquement** aux AD FS Server 2016 et versions ultérieures. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Overview
 Dans cet exemple, nous allons créer un workflow d’authentification où un client d’application à page unique s’authentifiera sur AD FS pour sécuriser l’accès aux ressources WebAPI sur le serveur principal. Voici le déroulement global de l’authentification
 
 
@@ -40,12 +40,12 @@ Si ADAL voit un déclencheur pour l’authentification, il utilise les informati
 ## <a name="setting-up-the-development-box"></a>Configuration de la zone de développement
 Cette procédure pas à pas utilise Visual Studio 2015. Le projet utilise la bibliothèque ADAL JS. Pour en savoir plus sur ADAL, consultez [bibliothèque d’Authentification Active Directory .net.](https://msdn.microsoft.com/library/azure/mt417579.aspx)
 
-## <a name="setting-up-the-environment"></a>Configuration de l’environnement
+## <a name="setting-up-the-environment"></a>Configuration de l'environnement
 Pour cette procédure pas à pas, nous allons utiliser une configuration de base de :
 
-1.  MÉTAFICHIER Contrôleur de domaine pour le domaine dans lequel AD FS sera hébergé
-2.  Serveur de AD FS : Serveur AD FS pour le domaine
-3.  Ordinateur de développement : Ordinateur sur lequel Visual Studio est installé et va développer notre exemple
+1.  DC : contrôleur de domaine pour le domaine dans lequel AD FS sera hébergé
+2.  Serveur de AD FS : serveur AD FS pour le domaine
+3.  Ordinateur de développement : ordinateur sur lequel Visual Studio est installé et qui développera notre exemple
 
 Si vous le souhaitez, vous pouvez utiliser uniquement deux ordinateurs. Une pour DC/AD FS et l’autre pour le développement de l’exemple.
 
@@ -77,7 +77,7 @@ Les fichiers de clé contenant la logique d’authentification sont les suivants
 **Startup.auth.cs** : contient la configuration de WebAPI à utiliser Active Directory Service FS (Federation Service) pour l’authentification du porteur.
 
 ## <a name="registering-the-public-client-in-ad-fs"></a>Inscription du client public dans AD FS
-Dans l’exemple, WebAPI est configuré pour écouter à https://localhost:44326/. Le navigateur Web de groupe d’applications qui **accède à une application Web** peut être utilisé pour configurer l’application d’octroi de fluide implicite.
+Dans l’exemple, WebAPI est configuré pour écouter sur https://localhost:44326/. Le navigateur Web de groupe d’applications qui **accède à une application Web** peut être utilisé pour configurer l’application d’octroi de fluide implicite.
 
 1. Ouvrez la console de gestion AD FS, puis cliquez sur **Ajouter un groupe d’applications**. Dans l' **Assistant Ajout** d’un groupe d’applications, entrez le nom de l’application, la description, puis sélectionnez le **navigateur Web accédant à un modèle d’application Web** à partir de la section **applications client-serveur** , comme indiqué ci-dessous.
 
@@ -114,7 +114,7 @@ Ouvrez le fichier **app. js** et remplacez la définition **adalProvider. init**
 |--------|--------|
 |instance|Votre URL STS, par exemple https://fs.contoso.com/|
 |tenant|Conserver « ADFS »|
-|ClientID|Il s’agit de l’ID client que vous avez spécifié lors de la configuration du client public pour votre application à page unique|
+|clientID|Il s’agit de l’ID client que vous avez spécifié lors de la configuration du client public pour votre application à page unique|
 
 ## <a name="configure-webapi-to-use-ad-fs"></a>Configurer WebAPI pour utiliser AD FS
 Ouvrez le fichier **Startup.auth.cs** dans l’exemple, puis ajoutez le code suivant au début :

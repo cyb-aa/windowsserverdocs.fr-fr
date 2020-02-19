@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 0b4e02e6759bdb91ea51b5dcf5e1d0ae307d13b4
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: 5df216d8c7b829a6c60db4e5d771824a7bacdb47
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567098"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465323"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Résolution des problèmes de Windows Admin Center
 
@@ -133,7 +133,7 @@ Pour vous connecter à un ordinateur de groupe de travail qui n’est pas sur le
     Set-NetFirewallRule -Name WINRM-HTTP-In-TCP-PUBLIC -RemoteAddress Any
     ```
 
-- **Windows 10**
+- **Windows 10**
 
     ```powershell
     Set-NetFirewallRule -Name WINRM-HTTP-In-TCP -RemoteAddress Any
@@ -165,8 +165,10 @@ Lorsque vous installez Windows Admin Center, vous avez la possibilité de laisse
 
    > [!TIP]
    > Pour définir facilement tous les TrustedHosts à la fois, vous pouvez utiliser un caractère générique.
-   > 
-   >     Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
+   >
+   > ```powershell
+   > Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
+   > ```
 
 4. Lorsque vous avez terminé le test, vous pouvez émettre la commande suivante à partir d’une session PowerShell avec élévation de privilèges pour effacer vos paramètres TrustedHosts :
 
@@ -193,7 +195,7 @@ netsh http delete urlacl url=https://+:443/
 
 Edge présente des [problèmes connus](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) liés aux zones de sécurité qui affectent la connexion à Azure dans le centre d’administration Windows. Si vous rencontrez des problèmes lors de l’utilisation des fonctionnalités Azure lors de l’utilisation de Edge, essayez d’ajouter https://login.microsoftonline.com, https://login.live.com et l’URL de votre passerelle en tant que sites approuvés et aux sites autorisés pour les paramètres du bloqueur de fenêtres publicitaires Edge sur votre navigateur côté client. 
 
-Pour cela, procédez comme suit :
+Pour effectuer cette opération :
 1. Rechercher des **Options Internet** dans le menu Démarrer de Windows
 2. Accédez à l’onglet **sécurité** .
 3. Sous l’option **sites de confiance** , cliquez sur le bouton **sites** et ajoutez les URL dans la boîte de dialogue qui s’ouvre. Vous devez ajouter votre URL de passerelle, ainsi que https://login.microsoftonline.com et https://login.live.com.

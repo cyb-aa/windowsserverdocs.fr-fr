@@ -13,16 +13,16 @@ author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: 90622fba1fc33966bd064c19056204013ff0c33b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 131fbacaab97c1c2c42920a518ce96ba1b8f5d2b
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869155"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465563"
 ---
 # <a name="understanding-capabilities"></a>Présentation des fonctionnalités
 
->S'applique à : Windows Server 2019
+>S'applique à : Windows Server 2019
 
 Cette rubrique définit le concept de fonctionnalités dans System Insights et présente les fonctionnalités par défaut disponibles dans Windows Server 2019. 
 
@@ -55,7 +55,7 @@ Dans Windows Server 2019, System Insights introduit quatre fonctionnalités par 
 - **Prévision de la consommation totale du stockage** -prévoit la consommation totale du stockage sur tous les lecteurs locaux. 
 - **Prévision de consommation de volume** -prévoit la consommation de stockage pour chaque volume.
 
-Chaque fonctionnalité analyse les données historiques passées pour prédire l’utilisation future, et **toutes les fonctionnalités de prévision sont conçues pour prévoir des tendances à long terme plutôt qu’un comportement à long terme**, aidant les administrateurs à approvisionner correctement le matériel et à le paramétrer. leurs charges de travail pour éviter les conflits de ressources futurs. Étant donné que ces fonctionnalités se concentrent sur l’utilisation à long terme, ces fonctionnalités analysent les données quotidiennes. 
+Chaque fonctionnalité analyse les données historiques passées pour prédire l’utilisation future, et **toutes les fonctionnalités de prévision sont conçues pour prévoir des tendances à long terme plutôt qu’un comportement à long terme**, aidant les administrateurs à approvisionner correctement le matériel et à ajuster leurs charges de travail pour éviter les conflits de ressources futurs. Étant donné que ces fonctionnalités se concentrent sur l’utilisation à long terme, ces fonctionnalités analysent les données quotidiennes. 
 
 ### <a name="forecasting-model"></a>Modèle de prévision
 Les fonctionnalités par défaut utilisent un modèle de prévision pour prédire l’utilisation future et, pour chaque prédiction, le modèle est formé localement sur les données de votre ordinateur. Ce modèle est conçu pour faciliter la détection des tendances à long terme, et la reformation sur chaque instance de Windows Server permet de s’adapter au comportement et aux nuances spécifiques de l’utilisation de chaque ordinateur.
@@ -76,12 +76,12 @@ Les fonctionnalités par défaut prévoient un certain nombre de jours dans le f
 Chaque fonctionnalité analyse les données quotidiennes pour prévoir l’utilisation future. Toutefois, l’utilisation de l’UC, de la mise en réseau et même du stockage peut changer fréquemment pendant la journée, en ajustant de façon dynamique les charges de travail sur l’ordinateur. Étant donné que l’utilisation n’est pas constante tout au long de la journée, il est important de représenter correctement l’utilisation quotidienne dans un point de données unique. Le tableau ci-dessous détaille les points de données spécifiques et la façon dont les données sont traitées :
 
 
-| Nom de la fonctionnalité | Source (s) de données | Logique de filtrage |
+| Nom de fonctionnalité | Source (s) de données | Logique de filtrage |
 | --------------- | -------------- | ---------------- |
  Prévision de consommation de volume          | Taille du volume                    | Utilisation maximale quotidienne              
  Prévision de la consommation totale du stockage   | Somme des tailles de volume, somme des tailles de disque              | Utilisation maximale quotidienne             
- Prévision de la capacité de l’UC                | % temps processeur  | Moyenne sur 2 heures maximum par jour   
- Prévision de la capacité réseau         | Nombre total d’octets/s         | Moyenne sur 2 heures maximum par jour  
+ Prévision de la capacité de l’UC                | % de temps processeur  | Moyenne sur 2 heures maximum par jour   
+ Prévision de la capacité réseau         | Total des octets/s         | Moyenne sur 2 heures maximum par jour  
 
 Lors de l’évaluation de la logique de filtrage ci-dessus, il est important de noter que chaque fonctionnalité cherche à informer les administrateurs lorsque l’utilisation future dépassera significativement la capacité disponible, même si le processeur atteint momentanément 100% d’utilisation, l’utilisation du processeur peut ne pas avoir a entraîné une dégradation significative des performances ou une contention des ressources. Pour le processeur et la mise en réseau, alors il doit y avoir une utilisation intensive élevée plutôt que des pics momentanés. La moyenne de l’utilisation de l’UC et de la mise en réseau tout au long de la journée, toutefois, risque de perdre des informations d’utilisation importantes, car quelques heures d’utilisation intensive du processeur ou de la mise en réseau pourraient avoir un impact significatif sur les performances de vos charges de travail critiques. La moyenne de 2 heures au maximum pour chaque jour évite ces extrêmes et produit toujours des données significatives pour chaque fonctionnalité à analyser.
 
@@ -89,11 +89,11 @@ Toutefois, pour l’utilisation du volume et du stockage total, l’utilisation 
 
 ### <a name="forecasting-statuses"></a>Prévisions d’États
 Toutes les fonctionnalités de System Insights doivent générer un état associé à chaque prédiction. Chaque fonction par défaut utilise la logique suivante pour définir chaque État de prédiction :
-- **OK**: La prévision ne dépasse pas la capacité disponible.
-- **Avertissement** : La prévision dépasse la capacité disponible dans les 30 prochains jours. 
-- **Critique** : La prévision dépasse la capacité disponible dans les 7 prochains jours. 
-- **Erreur** : La fonctionnalité a rencontré une erreur inattendue. 
-- **Aucun** : Il n’y a pas assez de données pour effectuer une prédiction. Cela peut être dû à un manque de données ou au fait qu’aucune donnée n’a été signalée récemment.
+- **OK**: la prévision ne dépasse pas la capacité disponible.
+- **Avertissement**: la prévision dépasse la capacité disponible dans les 30 prochains jours. 
+- **Critique**: la prévision dépasse la capacité disponible dans les 7 prochains jours. 
+- **Erreur**: la fonctionnalité a rencontré une erreur inattendue. 
+- **None**: il n’y a pas assez de données pour effectuer une prédiction. Cela peut être dû à un manque de données ou au fait qu’aucune donnée n’a été signalée récemment.
 
 >[!NOTE]
 >Si une capacité prévoit plusieurs instances, telles que plusieurs volumes ou cartes réseau, l’État reflète l’état le plus grave dans toutes les instances. Les États individuels de chaque volume ou carte réseau sont visibles dans le centre d’administration Windows ou dans les données contenues dans la sortie de chaque fonctionnalité. Pour obtenir des instructions sur la façon d’analyser la sortie JSON des fonctionnalités par défaut, consultez [ce blog](https://aka.ms/systeminsights-mitigationscripts). 

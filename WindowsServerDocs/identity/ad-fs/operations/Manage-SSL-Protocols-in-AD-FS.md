@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 44fb4c02421a431edb502daecaa38f00fb4dd2ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e0c581a29db92cfb73e4225c72e7e1c2bad4ca68
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407538"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465275"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>Gestion des protocoles SSL/TLS et des suites de chiffrement pour AD FS
 La documentation suivante fournit des informations sur la façon de désactiver et d’activer certains protocoles TLS/SSL et les suites de chiffrement utilisées par AD FS
@@ -26,7 +26,7 @@ Schannel est un fournisseur de service de sécurité (SSP) qui implémente les p
 
 Une suite de chiffrement est un ensemble d’algorithmes de chiffrement. L’implémentation du SSP Schannel des protocoles TLS/SSL utilise des algorithmes d’une suite de chiffrement pour créer des clés et chiffrer les informations. Une suite de chiffrement spécifie un algorithme pour chacune des tâches suivantes :
 
-- Échange de clés
+- Échange de clé
 - Chiffrement en bloc
 - Authentification de message
 
@@ -34,13 +34,13 @@ AD FS utilise Schannel. dll pour effectuer ses interactions de communications s�
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestion des protocoles TLS/SSL et des suites de chiffrement
 > [!IMPORTANT]
-> Cette section contient des étapes qui vous indiquent comment modifier le registre. Toutefois, des problèmes sérieux peuvent survenir si vous modifiez le registre de manière incorrecte. Par conséquent, veillez à suivre ces étapes avec soin. 
+> Cette section contient des étapes qui vous indiquent comment modifier le registre. Toutefois, des erreurs graves peuvent se produire si vous modifiez incorrectement le Registre. Vérifiez donc que vous suivez ces étapes avec précaution. 
 > 
 > Sachez que la modification des paramètres de sécurité par défaut pour SCHANNEL peut rompre ou empêcher les communications entre certains clients et serveurs.  Cela se produit si la communication sécurisée est requise et qu’ils n’ont pas de protocole pour négocier les communications avec.
 > 
 > Si vous appliquez ces modifications, elles doivent être appliquées à tous vos serveurs AD FS de votre batterie de serveurs.  Après avoir appliqué ces modifications, un redémarrage est nécessaire.
 
-Dans la journée et l’âge actuels, renforcer la sécurité de vos serveurs et supprimer les suites de chiffrement plus anciennes ou faibles constitue une priorité majeure pour de nombreuses organisations.  Des suites logicielles sont disponibles pour tester vos serveurs et fournir des informations détaillées sur ces protocoles et suites.  Pour rester conformes ou atteindre des évaluations sécurisées, la suppression ou la désactivation de protocoles ou de suites de chiffrement plus faibles est devenue un.  Le reste de ce document fournit des conseils sur la façon d’activer ou de désactiver certains protocoles et suites de chiffrement.
+À l’heure actuelle, renforcer la sécurité de vos serveurs et supprimer les suites de chiffrement plus anciennes ou faibles constitue une priorité majeure pour de nombreuses organisations.  Des suites logicielles sont disponibles pour tester vos serveurs et fournir des informations détaillées sur ces protocoles et suites.  Pour rester conformes ou atteindre des évaluations sécurisées, la suppression ou la désactivation de protocoles ou de suites de chiffrement plus faibles est devenue un.  Le reste de ce document fournit des conseils sur la façon d’activer ou de désactiver certains protocoles et suites de chiffrement.
 
 Les clés de Registre ci-dessous se trouvent au même emplacement : HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols.  Utilisez regedit ou PowerShell pour activer ou désactiver ces protocoles et suites de chiffrement.
 
@@ -81,7 +81,7 @@ Write-Host 'SSL 2.0 has been disabled.'
 ## <a name="enable-and-disable-ssl-30"></a>Activer et désactiver SSL 3,0
 Utilisez les clés de Registre suivantes et leurs valeurs pour activer et désactiver SSL 3,0.
 
-### <a name="enable-ssl-30"></a>Activer SSL 3.0
+### <a name="enable-ssl-30"></a>Activer SSL 3.0
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0 \ Server] "Enabled" = dword : 00000001
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0 \ Server] "DisabledByDefault" = dword : 00000000 
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0 \ client] "Enabled" = dword : 00000001
@@ -235,7 +235,7 @@ Utilisez les clés de Registre suivantes et leurs valeurs pour activer et désac
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128] "Enabled" = dword : 00000000
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128] "Enabled" = dword : 00000000 
 
-### <a name="using-powershell"></a>À l'aide de PowerShell
+### <a name="using-powershell"></a>À l’aide de PowerShell
 
 ```powershell
     ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128') 

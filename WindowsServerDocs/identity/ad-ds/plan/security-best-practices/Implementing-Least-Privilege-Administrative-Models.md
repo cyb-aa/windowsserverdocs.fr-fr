@@ -9,16 +9,16 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f61bc1ccb7d9b09a17713946b5b8c2cc352f43ac
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: a2b4bd25c50eb8e76627bb6532345f3c187e4f0e
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822092"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465533"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implémentation de modèles d’administration selon le principe des privilèges minimum
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’extrait suivant est issu du [Guide de planification de la sécurité des comptes d’administrateur](https://technet.microsoft.com/library/cc162797.aspx), publié pour la première fois le 1er avril 1999 :
 
@@ -93,9 +93,9 @@ Les comptes d’administrateur intégrés ne doivent jamais être utilisés comm
 
 Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à des unités d’organisation de station de travail et de serveur membre dans chaque domaine, ajoutez le compte d’administrateur aux droits d’utilisateur suivants dans la stratégie d' **autorisation \ paramètres système**\ stratégies d’autorisation :  
 
-- Interdire l’accès à cet ordinateur à partir du réseau
-- Interdire l’ouverture de session en tant que tâche
-- Interdire l’ouverture de session en tant que service
+- Refuser l'accès à un ordinateur à partir du réseau
+- Refuser l'ouverture de session en tant que tâche
+- Refuser l'ouverture de session en tant que service
 - Interdire l’ouverture de session par les services Bureau à distance
 
 Lorsque vous ajoutez des comptes d’administrateur à ces droits d’utilisateur, spécifiez si vous ajoutez le compte d’administrateur local ou le compte d’administrateur du domaine de la façon dont vous étiquetez le compte. Par exemple, pour ajouter le compte administrateur du domaine NWTRADERS à ces droits Deny, vous devez taper le compte **NWTRADERS\Administrateur**ou accéder au compte administrateur du domaine nwtraders. Pour vous assurer que vous limitez le compte d’administrateur local, tapez **administrateur** dans ces paramètres de droits d’utilisateur dans l’éditeur d’objets stratégie de groupe.  
@@ -139,9 +139,9 @@ Bien que la désactivation du compte administrateur dans un domaine rende le com
 
 Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à des UO de station de travail et de serveur membre dans chaque domaine, ajoutez le compte d’administrateur de chaque domaine aux droits d’utilisateur suivants dans la stratégie d’autorisation \ paramètres d’utilisateur \ **stratégies d’autorisation \ stratégies d’autorisation**:  
 
-- Interdire l’accès à cet ordinateur à partir du réseau  
-- Interdire l’ouverture de session en tant que tâche  
-- Interdire l’ouverture de session en tant que service  
+- Refuser l'accès à un ordinateur à partir du réseau  
+- Refuser l'ouverture de session en tant que tâche  
+- Refuser l'ouverture de session en tant que service  
 - Interdire l’ouverture de session par les services Bureau à distance  
 
 > [!NOTE]  
@@ -153,9 +153,9 @@ Dans un ou plusieurs objets de stratégie de groupe que vous créez et liez à d
 
 Dans chaque domaine de la forêt, la stratégie des contrôleurs de domaine par défaut ou une stratégie liée à l’unité d’organisation des contrôleurs de domaine doit être modifiée pour ajouter le compte d’administrateur de chaque domaine aux droits d’utilisateur suivants dans la stratégie d' **autorisation \ paramètres système**\ stratégies d’autorisation \ stratégies d’autorisation :  
 
-- Interdire l’accès à cet ordinateur à partir du réseau  
-- Interdire l’ouverture de session en tant que tâche  
-- Interdire l’ouverture de session en tant que service  
+- Refuser l'accès à un ordinateur à partir du réseau  
+- Refuser l'ouverture de session en tant que tâche  
+- Refuser l'ouverture de session en tant que service  
 - Interdire l’ouverture de session par les services Bureau à distance  
 
 > [!NOTE]  
@@ -177,10 +177,10 @@ Les administrateurs de l’entreprise sont, par défaut, les membres du groupe A
 
 - Comme décrit précédemment, le groupe administrateurs de l’entreprise ne doit pas contenir d’utilisateurs au quotidien, à l’exception possible du compte administrateur du domaine racine de la forêt, qui doit être sécurisé comme décrit dans l' [annexe D : sécurisation des comptes administrateur intégrés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 - Dans les objets de stratégie de groupe liés à des unités d’organisation contenant des serveurs membres et des stations de travail dans chaque domaine, le groupe EA doit être ajouté aux droits d’utilisateur suivants :  
-   - Interdire l’accès à cet ordinateur à partir du réseau  
-   - Interdire l’ouverture de session en tant que tâche  
-   - Interdire l’ouverture de session en tant que service  
-   - Interdire l’ouverture d’une session locale  
+   - Refuser l'accès à un ordinateur à partir du réseau  
+   - Refuser l'ouverture de session en tant que tâche  
+   - Refuser l'ouverture de session en tant que service  
+   - Interdire l'ouverture d'une session locale  
    - Interdire l’ouverture de session via Services Bureau à distance.  
 
 Cela empêchera les membres du groupe EA de se connecter aux serveurs et stations de travail membres. Si les serveurs de saut sont utilisés pour administrer des contrôleurs de domaine et des Active Directory, assurez-vous que les serveurs de saut se trouvent dans une UO à laquelle les objets de stratégie de groupe restrictifs ne sont pas liés.  
@@ -199,10 +199,10 @@ Pour le groupe Admins du domaine dans chaque domaine de la forêt :
 
 1. Supprimez tous les membres du groupe DA, à l’exception du compte administrateur intégré pour le domaine, à condition qu’il ait été sécurisé, comme décrit dans l' [annexe D : sécurisation des comptes administrateur intégrés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 2. Dans les objets de stratégie de groupe liés à des unités d’organisation contenant des serveurs membres et des stations de travail dans chaque domaine, le groupe DA doit être ajouté aux droits d’utilisateur suivants :  
-   - Interdire l’accès à cet ordinateur à partir du réseau  
-   - Interdire l’ouverture de session en tant que tâche  
-   - Interdire l’ouverture de session en tant que service  
-   - Interdire l’ouverture d’une session locale  
+   - Refuser l'accès à un ordinateur à partir du réseau  
+   - Refuser l'ouverture de session en tant que tâche  
+   - Refuser l'ouverture de session en tant que service  
+   - Interdire l'ouverture d'une session locale  
    - Interdire l’ouverture de session par les services Bureau à distance  
   
    Cela empêchera les membres du groupe DA de se connecter aux serveurs et stations de travail membres. Si les serveurs de saut sont utilisés pour administrer des contrôleurs de domaine et des Active Directory, assurez-vous que les serveurs de saut se trouvent dans une UO à laquelle les objets de stratégie de groupe restrictifs ne sont pas liés.  
@@ -219,22 +219,22 @@ Les administrateurs sont, par défaut, les propriétaires de la plupart des obje
 
 1. Supprimez tous les membres du groupe administrateurs, avec l’exception possible du compte d’administrateur local pour le domaine, à condition qu’il ait été sécurisé, comme décrit dans l' [annexe D : sécurisation des comptes administrateur intégrés dans Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 2. Les membres du groupe administrateurs du domaine ne doivent jamais avoir à se connecter aux serveurs membres ou aux stations de travail. Dans un ou plusieurs objets de stratégie de groupe liés à des UO de station de travail et de serveur membre dans chaque domaine, le groupe administrateurs doit être ajouté aux droits d’utilisateur suivants :  
-   - Interdire l’accès à cet ordinateur à partir du réseau  
+   - Refuser l'accès à un ordinateur à partir du réseau  
    - Interdire l’ouverture de session en tant que tâche,  
-   - Interdire l’ouverture de session en tant que service  
+   - Refuser l'ouverture de session en tant que service  
    - Cela empêchera les membres du groupe administrateurs d’être utilisés pour ouvrir une session ou se connecter à des serveurs ou des stations de travail membres (à moins que plusieurs contrôles ne soient d’abord démunis), et que leurs informations d’identification puissent être mises en cache et donc compromises. Un compte privilégié ne doit jamais être utilisé pour se connecter à un système moins privilégié et l’application de ces contrôles offre une protection contre un certain nombre d’attaques.  
 
 3. Au niveau de l’unité d’organisation contrôleurs de domaine dans chaque domaine de la forêt, le groupe administrateurs doit disposer des droits d’utilisateur suivants (s’ils ne disposent pas déjà de ces droits), ce qui permet aux membres du groupe administrateurs d’exécuter les fonctions nécessaires à un scénario de récupération d’urgence à l’ensemble de la forêt :  
    - Accéder à cet ordinateur à partir du réseau  
-   - Permettre l’ouverture d’une session locale  
-   - Autoriser l’ouverture de session via les services Bureau à distance  
+   - Permettre l'ouverture d'une session locale  
+   - Autoriser l’ouverture de session par les services Bureau à distance  
 
 4. L’audit doit être configuré pour envoyer des alertes si des modifications sont apportées aux propriétés ou à l’appartenance au groupe administrateurs. Ces alertes doivent être envoyées au minimum aux membres de l’équipe responsable de l’administration de AD DS. Les alertes doivent également être envoyées aux membres de l’équipe de sécurité, et des procédures doivent être définies pour modifier l’appartenance du groupe administrateurs. Plus précisément, ces processus doivent inclure une procédure par laquelle l’équipe de sécurité est avertie lorsque le groupe administrateurs sera modifié. ainsi, lorsque des alertes sont envoyées, elles sont attendues et aucune alarme n’est déclenchée. En outre, les processus pour notifier l’équipe de sécurité lorsque l’utilisation du groupe Administrateurs est terminée et que les comptes utilisés ont été supprimés du groupe doivent être implémentés.  
 
 > [!NOTE]  
 > Lorsque vous implémentez des restrictions sur le groupe administrateurs dans les objets de stratégie de groupe, Windows applique les paramètres aux membres du groupe Administrateurs local d’un ordinateur en plus du groupe administrateurs du domaine. Par conséquent, vous devez être prudent lors de l’implémentation de restrictions sur le groupe administrateurs. Bien qu’il soit recommandé d’interdire les ouvertures de session réseau, par lot et de service pour les membres du groupe administrateurs, chaque fois qu’il est possible de les implémenter, ne limitez pas les ouvertures de session locales ou les ouvertures de session via Services Bureau à distance. Le blocage de ces types d’ouverture de session peut bloquer l’administration légitime d’un ordinateur par les membres du groupe Administrateurs local. La capture d’écran suivante montre les paramètres de configuration qui bloquent la mauvaise utilisation des comptes d’administrateur de domaine et locaux intégrés, en plus de la mauvaise utilisation des groupes d’administrateurs de domaine ou locaux intégrés. Notez que le droit d’utilisateur **interdire l’ouverture de session via services Bureau à distance** n’inclut pas le groupe administrateurs, car son inclusion dans ce paramètre bloque également ces connexions pour les comptes qui sont membres du groupe administrateurs de l’ordinateur local. Si les services sur les ordinateurs sont configurés pour s’exécuter dans le contexte de l’un des groupes privilégiés décrits dans cette section, l’implémentation de ces paramètres peut entraîner l’échec des services et des applications. Par conséquent, comme pour toutes les recommandations de cette section, vous devez tester minutieusement les paramètres de mise en application dans votre environnement.  
 >
-> ![modèles d’administration de moindre privilège](media/Implementing-Least-Privilege-Administrative-Models/SAD_3.gif)  
+> ![modèles d’administration des privilèges minimum](media/Implementing-Least-Privilege-Administrative-Models/SAD_3.gif)  
 
 ### <a name="role-based-access-controls-rbac-for-active-directory"></a>Contrôles d’accès en fonction du rôle (RBAC) pour Active Directory
 
@@ -314,7 +314,7 @@ Bien qu’une présentation approfondie des attaques sur les infrastructures à 
 
 Lorsqu’un certificat est présenté pour l’authentification auprès d’un système joint à un domaine, le contenu de l’objet ou l’attribut de l’autre nom de l’objet dans le certificat est utilisé pour mapper le certificat à un objet utilisateur dans Active Directory. En fonction du type de certificat et de la façon dont il est construit, l’attribut subject dans un certificat contient généralement le nom commun (CN) d’un utilisateur, comme illustré dans la capture d’écran suivante.  
 
-![modèles d’administration de moindre privilège](media/Implementing-Least-Privilege-Administrative-Models/SAD_4.gif)  
+![modèles d’administration des privilèges minimum](media/Implementing-Least-Privilege-Administrative-Models/SAD_4.gif)  
 
 Par défaut, Active Directory construit le nom commun de l’utilisateur en concaténant le prénom du compte + «» + nom. Toutefois, les composants CN des objets utilisateur de Active Directory ne sont pas nécessaires ou sont uniques, et le déplacement d’un compte d’utilisateur vers un emplacement différent dans l’annuaire modifie le nom unique du compte (DN), qui est le chemin d’accès complet à l’objet dans le , comme indiqué dans le volet inférieur de la capture d’écran précédente.  
 

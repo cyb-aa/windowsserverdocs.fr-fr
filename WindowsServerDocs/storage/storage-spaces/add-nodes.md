@@ -10,12 +10,12 @@ author: cosmosdarwin
 ms.date: 11/06/2017
 description: Ajout de serveurs ou de lecteurs à un cluster espaces de stockage direct
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d5949b8fce7253371ee7ecea5118596f713f037
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f5fb9da903bb76de3a075fa7feeeaba468d802c2
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393783"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465623"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Ajout de serveurs ou de lecteurs aux espaces de stockage direct
 
@@ -121,7 +121,7 @@ Pour cela, vous devez mettre à jour vos modèles **StorageTier** pour avoir les
 
 #### <a name="option-3"></a>Option 3
 
-Vous pouvez aussi simplement supprimer le modèle de niveau existant et créer les deux nouveaux. Cela n’affecte pas les volumes existants qui ont été créés préalablement en référençant le modèle de niveau, car il s’agit seulement d’un modèle.
+Vous pouvez aussi simplement supprimer le modèle de niveau existant et créer les deux nouveaux. Cela n’affecte pas les volumes préexistants qui ont été créés en faisant référence au modèle de niveau : il s’agit simplement d’un modèle.
 
 ```PowerShell
 Remove-StorageTier -FriendlyName Capacity
@@ -130,7 +130,7 @@ New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedund
 New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedundancy 2 -ResiliencySettingName Parity -FriendlyName Capacity
 ```
 
-C’est tout ! Vous êtes maintenant prêt à créer des volumes de parité accélérée grâce à la mise en miroir, en référençant ces modèles de niveau.
+C’est tout ! Vous êtes maintenant prêt à créer des volumes de parité accélérée grâce à la mise en miroir, en référençant ces modèles de niveau.
 
 #### <a name="example"></a>Exemple
 
@@ -162,7 +162,7 @@ Si votre déploiement utilise la tolérance de panne de châssis ou de rack, vou
    Set-ClusterFaultDomain -Name <NewNode> -Parent <ParentName> 
    ```
 
-   Pour plus d’informations, consultez [Reconnaissance des domaines d’erreur dans Windows Server 2016](../../failover-clustering/fault-domains.md).
+   Pour plus d’informations, voir [Reconnaissance des domaines d’erreur dans Windows Server 2016](../../failover-clustering/fault-domains.md).
 
 3. Ajoutez le serveur au cluster, comme décrit dans [Ajout de serveurs](#adding-servers). Quand le nouveau serveur rejoint le cluster, il est automatiquement associé (par son nom) au domaine d’erreur de l’espace réservé.
 
@@ -200,7 +200,7 @@ L’optimisation utilise deux travaux : l’un nommé « *optimize* » et l’a
 Get-StorageJob
 ```
 
-Vous pouvez optimiser manuellement un pool de stockage à l’aide de l’applet de commande [optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) . Voici un exemple :
+Vous pouvez optimiser manuellement un pool de stockage à l’aide de l’applet de commande [optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) . Voici un exemple :
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool

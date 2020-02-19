@@ -9,12 +9,12 @@ ms.date: 10/16/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: manage
-ms.openlocfilehash: 6a6ccedeeb007b9d3ab32c308fae991deb526442
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3b29a7e10cc6a862873516b9adc16182d64dd926
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383089"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465463"
 ---
 # <a name="server-performance-advisor-users-guide"></a>Guide de l’utilisateur de Server Performance Advisor
 
@@ -28,7 +28,7 @@ SPA peut vous aider pour les opérations suivantes :
 
 * Fournir des rapports de données et des recommandations sur les problèmes de configuration et de performances courants.
 
-* Fournissez les meilleures recommandations Pratice en fonction des données collectées.
+* Fournir des recommandations sur les meilleures pratiques en fonction des données collectées.
 
 > [!NOTE]
 > La console du SPA n’apporte aucune modification aux serveurs.
@@ -124,17 +124,17 @@ La console du SPA peut s’exécuter sur les systèmes d’exploitation suivants
 
 * Windows 8.1
 
-* Windows 8
+* Windows 8
 
-* Windows 7
+* Windows 7
 
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 
 * Windows Server 2012
 
-* Windows Server 2008 R2
+* Windows Server 2008 R2
 
-* Windows Server 2008
+* Windows Server 2008
 
 Dans une application métier classique, il existe trois niveaux : la couche de présentation, la couche de logique métier et la couche de stockage. SPA est conçu comme un produit à deux niveaux, la console et la base de données. La console sert de couche de présentation avec une certaine logique liée au processus, et la base de données sert de couche de stockage et de couche de logique métier. La console capture les entrées d’utilisateur et contrôle les étapes de la collecte de données, du traitement des données et de la génération de rapports. SPA ne dépend pas des services système Windows.
 
@@ -436,7 +436,7 @@ Un graphique de tendances de 7 jours est très similaire au graphique de tendanc
 
 Les séries de données que vous sélectionnez dans les graphiques de tendances et historiques sont stockées en tant que préférences de l’utilisateur. Lors de la prochaine ouverture de la tendance et de la visionneuse de graphique historique pour le même conseiller Advisor Pack, le même ensemble de séries de données est répertorié comme étant la valeur par défaut.
 
-## <a name="managing-reports"></a>Gestion des rapports
+## <a name="managing-reports"></a>Gestion de rapports
 
 
 ### <a name="deleting-reports"></a>suppression de rapports

@@ -9,23 +9,23 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: c7c2de8354d067faf0dcf1787c3e178421e2ac03
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8ba413b831c7b11780113ee2ffd3cce598781a44
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872031"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465573"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Gestion des types de planificateur de l’hyperviseur Hyper-V
 
->S'applique à : Windows 10, Windows Server 2016, Windows Server, version 1709, Windows Server, version 1803, Windows Server 2019
+>S’applique à : Windows 10, Windows Server 2016, Windows Server, version 1709, Windows Server, version 1803, Windows Server 2019
 
 Cet article décrit les nouveaux modes de logique de planification de processeur virtuel introduits dans Windows Server 2016. Ces modes, ou types de planificateur, déterminent la façon dont l’hyperviseur Hyper-V alloue et gère le travail entre les processeurs virtuels invités. Un administrateur de l’hôte Hyper-V peut sélectionner des types de planificateur d’hyperviseur qui conviennent le mieux aux machines virtuelles invitées et à configurer les machines virtuelles pour tirer parti de la logique de planification.
 
 >[!NOTE]
 >Les mises à jour sont nécessaires pour utiliser les fonctionnalités du planificateur d’hyperviseur décrites dans ce document. Pour plus d’informations, consultez [mises à jour requises](#required-updates).
 
-## <a name="background"></a>Présentation
+## <a name="background"></a>Arrière-plan
 
 Avant de discuter de la logique et des contrôles de la planification du processeur virtuel Hyper-V, il est utile de passer en revue les concepts de base abordés dans cet article.
 
@@ -66,7 +66,7 @@ Avant de prendre en compte les types de planificateur d’hyperviseur, il est é
 
 Le planificateur classique a été utilisé par défaut pour toutes les versions de l’hyperviseur Windows Hyper-V depuis son commencement, y compris Windows Server 2016 Hyper-V. Le planificateur classique offre un modèle de planification à part et préemption pour les processeurs virtuels invités.
 
-Le type de planificateur classique est le plus approprié pour la grande majorité des utilisations d’Hyper-V traditionnelles (pour les clouds privés, les fournisseurs d’hébergement, etc.). Les caractéristiques de performances sont bien comprises et sont optimisées pour prendre en charge un large éventail de scénarios de virtualisation, tels que la surabonnement de VPs à la majorité des machines virtuelles et les charges de travail qui s’exécutent simultanément, à grande échelle. Machines virtuelles de performances, prenant en charge l’ensemble complet des fonctionnalités d’Hyper-V sans restrictions, et bien plus encore.
+Le type de planificateur classique est le plus approprié pour la grande majorité des utilisations d’Hyper-V traditionnelles (pour les clouds privés, les fournisseurs d’hébergement, etc.). Les caractéristiques de performances sont bien comprises et sont optimisées pour prendre en charge un large éventail de scénarios de virtualisation, tels que la surabonnement de VPs à la taille de la machine virtuelle, l’exécution simultanée de plusieurs machines virtuelles et charges de travail hétérogènes, en exécutant une plus grande échelle Machines virtuelles de performances, prenant en charge l’ensemble complet des fonctionnalités d’Hyper-V sans restrictions, et bien plus encore.
 
 ### <a name="the-core-scheduler"></a>Planificateur principal
 
@@ -148,12 +148,12 @@ Pour garantir que les ordinateurs hôtes Hyper-V sont déployés dans la configu
 >[!NOTE]
 >Les mises à jour suivantes sont requises pour utiliser les fonctionnalités du planificateur d’hyperviseur décrites dans ce document. Ces mises à jour incluent des modifications pour prendre en charge la nouvelle option « hypervisorschedulertype » BCD, qui est nécessaire pour la configuration de l’hôte.
 
-| Version | Libérer  | Mise à jour requise | Article de la base de connaissances |
+| cible | Version finale  | Mise à jour requise | Article de la base de connaissances |
 |--------------------|------|---------|-------------:|
 |Windows Server 2016 | 1607 | 2018,07 C | [KB4338822](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822) |
 |Windows Server 2016 | 1703 | 2018,07 C | [KB4338827](https://support.microsoft.com/help/4338827/windows-10-update-kb4338827) |
 |Windows Server 2016 | 1709 | 2018,07 C | [KB4338817](https://support.microsoft.com/help/4338817/windows-10-update-kb4338817) |
-|Windows Server 2019 | 1804 | Aucun | Aucun |
+|Windows Server 2019 | 1804 | Aucune | Aucune |
 
 ## <a name="selecting-the-hypervisor-scheduler-type-on-windows-server"></a>Sélection du type de planificateur de l’hyperviseur sur Windows Server
 
@@ -167,9 +167,9 @@ Pour sélectionner un type de planificateur, ouvrez une invite de commandes avec
 
 Où `type` est l’un des éléments suivants :
 
-* Classique
+* Classic
 * Standard
-* Racine
+* Root
 
 Le système doit être redémarré pour que les modifications apportées au type de planificateur de l’hyperviseur prennent effet.
 

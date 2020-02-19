@@ -9,16 +9,16 @@ ms.topic: article
 author: adagashe
 ms.date: 01/14/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 53f48421bddd416d24c5f46e53652cc89c10c785
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d271d92a14278e52a6020c60f96f48b1c8b35871
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402851"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465303"
 ---
 # <a name="understand-and-monitor-storage-resync"></a>Comprendre et contrôler la resynchronisation du stockage
 
->S’applique à : Windows Server 2019
+>S’applique à : Windows Server 2019
 
 Les alertes de resynchronisation de stockage constituent une nouvelle fonctionnalité de [espaces de stockage direct](storage-spaces-direct-overview.md) dans Windows Server 2019 qui permet aux service de contrôle d’intégrité de déclencher une erreur lors de la resynchronisation de votre stockage. L’alerte est utile pour vous avertir lorsque la resynchronisation se produit, afin que vous ne deviez pas mettre en panne un plus grand nombre de serveurs (ce qui peut entraîner l’affectation de plusieurs domaines d’erreur, entraînant la baisse de votre cluster). 
 
@@ -36,11 +36,11 @@ Asssuming que nous disposons d’une résilience en miroir triple, nous avons tr
 
 ![Impossible d’accéder au #1 de copie](media/understand-storage-resync/copy1.png)
 
-Supposons que nous mettons à jour notre chaîne de « HELLO » à « HELP ! » pour l’instant.
+Supposons que nous mettons à jour notre chaîne de « HELLO » à « HELP ! » à ce stade.
 
 ![ASCII de chaîne "Help !"](media/understand-storage-resync/help.png)
 
-Une fois la chaîne mise à jour, copiez #2 et #3 sera correctement mis à jour. Toutefois, la copie #1 toujours pas accessible car le #1 du serveur est momentanément indisponible (pour maintenance). 
+Une fois la chaîne mise à jour, copiez #2 et #3 sera correctement mise à jour. Toutefois, la copie #1 toujours pas accessible car le #1 du serveur est momentanément indisponible (pour maintenance). 
 
 ![GIF d’écriture pour copier #2 et #2»](media/understand-storage-resync/write.gif)
 

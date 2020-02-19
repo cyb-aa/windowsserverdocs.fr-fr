@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 0479309efe629d204bdc98fe11a7ccb4447a7369
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: ec885670ca6808e89c63848781c4ff3dc27799b8
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940727"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465603"
 ---
 # <a name="troubleshooting-guarded-hosts"></a>Dépannage des hôtes service Guardian
 
@@ -51,11 +51,11 @@ AttestationStatus         | Explication
 Expiré                   | L’ordinateur hôte a passé l’attestation précédemment, mais le certificat d’intégrité qu’il a été émis a expiré. Assurez-vous que l’hôte et l’heure du SGH sont synchronisés.
 InsecureHostConfiguration | L’ordinateur hôte n’a pas réussi l’attestation, car il n’est pas conforme aux stratégies d’attestation configurées sur le service SGH. Pour plus d’informations, consultez la table AttestationSubStatus.
 NotConfigured             | L’hôte n’est pas configuré pour utiliser un SGH pour l’attestation et la protection de clé. Elle est configurée pour le mode local à la place. Si cet ordinateur hôte se trouve dans une infrastructure protégée, utilisez [Set-HgsClientConfiguration](https://technet.microsoft.com/library/dn914494.aspx) pour lui fournir les URL de votre serveur SGH.
-Passe                    | L’ordinateur hôte a passé l’attestation.
+Réussite                    | L’ordinateur hôte a passé l’attestation.
 TransientError            | La dernière tentative d’attestation a échoué en raison d’une mise en réseau, d’un service ou d’une autre erreur temporaire. Réessayez votre dernière opération.
 TpmError                  | L’hôte n’a pas pu terminer sa dernière tentative d’attestation en raison d’une erreur liée à votre TPM. Pour plus d’informations, consultez les journaux du module de plateforme sécurisée.
 UnauthorizedHost          | L’ordinateur hôte n’a pas réussi l’attestation, car il n’a pas été autorisé à exécuter des machines virtuelles protégées. Assurez-vous que l’hôte appartient à un groupe de sécurité approuvé par SGH pour exécuter des machines virtuelles protégées.
-Inconnu                   | L’hôte n’a pas encore effectué d’attestation avec SGH.
+Inconnu.                   | L’hôte n’a pas encore effectué d’attestation avec SGH.
 
 Quand **AttestationStatus** est signalé comme **InsecureHostConfiguration**, une ou plusieurs raisons sont renseignées dans le champ **AttestationSubStatus** .
 Le tableau ci-dessous décrit les valeurs possibles pour AttestationSubStatus et des conseils sur la façon de résoudre le problème.
