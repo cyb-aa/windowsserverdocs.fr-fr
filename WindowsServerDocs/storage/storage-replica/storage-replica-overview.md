@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: 620ab75fc5f44af7cd754847e3e5b717eece5057
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d95feb67001dc7b5eff68a0062d5f944672bad80
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393819"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465228"
 ---
 # <a name="storage-replica-overview"></a>Vue d’ensemble du réplica de stockage
 
@@ -75,7 +75,7 @@ La configuration de **serveur à serveur** autorise la réplication synchrone et
 
 * **Synchronisation initiale hautes performances**. Le réplica de stockage prend en charge la synchronisation initiale amorcée, où il existe déjà un sous-ensemble de données sur une cible provenant de copies, de sauvegardes ou de lecteurs livrés plus anciens. La réplication initiale copie uniquement les blocs qui diffèrent, ce qui peut raccourcir le temps de synchronisation initial et empêcher les données d’utiliser une bande passante limitée. Les réplicas de stockage bloquent le calcul de la somme de contrôle et l’agrégation signifie que les performances de la synchronisation initiale sont limitées uniquement par la vitesse du réseau et du stockage.  
 
-* **Groupes de cohérence**. L’ordonnancement d’écriture garantit que les applications telles que Microsoft SQL Server peuvent écrire sur plusieurs volumes répliqués et savoir que les données sont écrites sur le serveur de destination de façon séquentielle.  
+* **Groupes de cohérence**. L’ordonnancement d’écriture garantit que les applications telles que Microsoft SQL Server peuvent écrire sur plusieurs volumes répliqués et savoir que les données sont écrites de façon séquentielle sur le serveur de destination.  
 
 * **Délégation d’utilisateur**. Des autorisations peuvent être déléguées aux utilisateurs pour gérer la réplication sans être membres du groupe Administrateurs intégré sur les nœuds répliqués, ce qui limite leur accès à des zones non liées.  
 
@@ -85,18 +85,18 @@ La configuration de **serveur à serveur** autorise la réplication synchrone et
 
 Le réplica de stockage comprend les fonctionnalités suivantes :  
 
-| Fonctionnalité | Détails |
+| Composant | Détails |
 | ----------- | ----------- |  
-| Type | Basé sur l’hôte |
-| Synchrone | Oui |
-| Asynchrone | Oui |
+| Type | les connexions basées sur l'hôte ; |
+| Synchronous | Oui |
+| Asynchronous | Oui |
 | Indépendante du matériel de stockage | Oui |
 | Unité de réplication | Volume (partition) |
 | Création d’un cluster Windows Server Stretch | Oui |
 | Réplication de serveur à serveur | Oui |
 | Réplication de cluster à cluster | Oui |
 | Transport | SMB3 |
-| Network (Réseau) | TCP/IP ou RDMA |
+| Réseau | TCP/IP ou RDMA |
 | Prise en charge de la contrainte de réseau | Oui |
 | RDMA* | iWARP, InfiniBand, RoCE v2 |
 | Configuration requise du pare-feu du port réseau de réplication | Port IANA unique (TCP 445 ou 5445) |
@@ -188,7 +188,7 @@ Ce guide utilise souvent les termes suivants :
 
 Pour obtenir la liste des nouvelles fonctionnalités du réplica de stockage dans Windows Server 2019, voir [Nouveautés du stockage](../whats-new-in-storage.md#storage-replica2019)
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 
 - [Réplication de cluster étendu à l’aide d’un stockage partagé](stretch-cluster-replication-using-shared-storage.md)  
 - [Réplication de stockage de serveur à serveur](server-to-server-storage-replication.md)  

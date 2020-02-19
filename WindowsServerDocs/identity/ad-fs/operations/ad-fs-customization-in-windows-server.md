@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4b0ea70bd9346bf8abee4e0d96a8915e29cac462
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f7402cf549a7a2fb4b112bf92b36182f882b9d73
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357780"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465243"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>Personnalisation de la AD FS dans Windows Server 2016
 
@@ -79,7 +79,7 @@ Pour affecter un thème personnalisé par RP, utilisez la procédure suivante :
 `Set-AdfsRelyingPartyWebTheme -TargetRelyingPartyName urn:app1 -SourceWebThemeName AppSpecificTheme`  
   
 ## <a name="home-realm-discovery"></a>Découverte de domaine d'accueil  
-Pour la personnalisation de la découverte du domaine d’hébergement, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
+Pour la personnalisation de la découverte de domaine d’hébergement, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
   
 ## <a name="updated-password-page"></a>Page mot de passe mis à jour  
 Pour plus d’informations sur la personnalisation de la page de mise à jour du mot de passe, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).  

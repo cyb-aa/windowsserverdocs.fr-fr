@@ -11,12 +11,12 @@ ms.assetid: a9ee931d-91fc-40cf-9a15-ed6fa6965cb6
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 1690230d326d7e32175ccde5da1e5fae421a76d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 829a3897ef54155e34ced75721ec048ba16b342a
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366797"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465173"
 ---
 # <a name="feature-descriptions-for-linux-and-freebsd-virtual-machines-on-hyper-v"></a>Descriptions des fonctionnalités pour les machines virtuelles Linux et FreeBSD sur Hyper-V
 
@@ -32,7 +32,7 @@ Cet article décrit les fonctionnalités disponibles dans les composants tels qu
 |Synchronisation de l’heure|Cette fonctionnalité garantit que la durée de conservation au sein d’une machine virtuelle reste synchronisée avec l’heure de la maintenance de l’ordinateur hôte. Pour plus d’informations, consultez synchronisation de l' [heure](https://technet.microsoft.com/library/dn798297(WS.11).aspx#BKMK_time).|
 |Heure précise de Windows Server 2016|Cette fonctionnalité permet à l’invité d’utiliser la fonctionnalité de temps précis de Windows Server 2016, ce qui améliore la synchronisation de l’heure avec l’hôte à 1 ms de précision. Pour plus d’informations, consultez l' [heure précise de Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-2016-accurate-time)|
 |Prise en charge du multitraitement|Avec cette fonctionnalité, un ordinateur virtuel peut utiliser plusieurs processeurs sur l’ordinateur hôte en configurant plusieurs processeurs virtuels.|
-|Pulsations|Avec cette fonctionnalité, l’hôte peut suivre l’état de l’ordinateur virtuel. Pour plus d’informations, consultez [pulsation](https://technet.microsoft.com/library/dn798297(WS.11).aspx#BKMK_heartbeat).|
+|Pulsation|Avec cette fonctionnalité, l’hôte peut suivre l’état de l’ordinateur virtuel. Pour plus d’informations, consultez [pulsation](https://technet.microsoft.com/library/dn798297(WS.11).aspx#BKMK_heartbeat).|
 |Prise en charge intégrée de la souris|Avec cette fonctionnalité, vous pouvez utiliser une souris sur le Bureau d’un ordinateur virtuel et utiliser la souris de manière transparente entre le bureau Windows Server et la console Hyper-V pour la machine virtuelle.|
 |Périphérique de stockage spécifique à Hyper-V|Cette fonctionnalité accorde un accès à hautes performances aux périphériques de stockage attachés à une machine virtuelle.|
 |Périphérique réseau spécifique à Hyper-V|Cette fonctionnalité accorde un accès à hautes performances aux cartes réseau attachées à une machine virtuelle.|
@@ -70,7 +70,7 @@ Cet article décrit les fonctionnalités disponibles dans les composants tels qu
 |Mémoire dynamique-bulles|L’hôte peut augmenter ou diminuer dynamiquement la quantité de mémoire disponible sur un ordinateur virtuel pendant qu’il est en cours d’exécution. Avant l’approvisionnement, l’administrateur Active Mémoire dynamique dans le panneau Paramètres de l’ordinateur virtuel et spécifier la mémoire de démarrage, la mémoire minimale et la mémoire maximale pour l’ordinateur virtuel. Lorsque la machine virtuelle est en cours d’opération Mémoire dynamique ne peut pas être désactivée et seuls les paramètres minimal et maximal peuvent être modifiés. (Il est recommandé de spécifier ces tailles de mémoire en tant que multiples de 128 Mo.)<br /><br />Lorsque la machine virtuelle est démarrée pour la première fois, la mémoire disponible est égale à la **mémoire de démarrage**. À mesure que la demande de mémoire augmente en raison des charges de travail d’application, Hyper-V peut allouer dynamiquement plus de mémoire à la machine virtuelle via le mécanisme d’ajout à chaud (ci-dessus). À mesure que la demande de mémoire diminue, Hyper-V peut annuler automatiquement la configuration de la mémoire à partir de la machine virtuelle via le mécanisme de bulle. Hyper-V n’annule pas l’approvisionnement de la mémoire sous le paramètre de **mémoire minimal** .<br /><br />L’onglet mémoire du Gestionnaire Hyper-V affiche la quantité de mémoire affectée à l’ordinateur virtuel, mais les statistiques de mémoire de l’ordinateur virtuel affichent la quantité de mémoire maximale allouée.<br /><br />Pour plus d’informations, consultez [vue d’ensemble d’Hyper-V mémoire dynamique](https://technet.microsoft.com/library/hh831766.aspx).<br /><br />|
 |Redimensionnement de la mémoire d’exécution|Un administrateur peut définir la quantité de mémoire disponible pour un ordinateur virtuel pendant qu’il est en cours d’exécution, en renforçant la mémoire (« ajout à chaud ») ou en le diminuant (« suppression à chaud »). La mémoire est retournée à Hyper-V par le biais du pilote de ballonnet (voir « Mémoire dynamique-bulles »). Le pilote de la bulle maintient une quantité minimale de mémoire disponible après la bulle, appelée « plancher », de sorte que la mémoire affectée ne peut pas être réduite en dessous de la demande actuelle plus cette quantité d’étage. L’onglet mémoire du Gestionnaire Hyper-V affiche la quantité de mémoire affectée à l’ordinateur virtuel, mais les statistiques de mémoire de l’ordinateur virtuel affichent la quantité de mémoire maximale allouée. (Il est recommandé de spécifier des valeurs de mémoire en tant que multiples de 128 Mo.)|
 
-## <a name="video"></a>Video
+## <a name="video"></a>Vidéo
 
 |**Fonctionnalité**|**Description**|
 |-|-|

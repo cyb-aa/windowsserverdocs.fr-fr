@@ -9,12 +9,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 576ec407e244485441e99ed831b4ed9a0dac198c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6223d261467f1e73b22d5035a73c37868081cef7
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358250"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465253"
 ---
 # <a name="configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Configurer des navigateurs pour utiliser l’authentification intégrée Windows (WIA) avec AD FS
 
@@ -50,15 +50,20 @@ Par défaut, une nouvelle installation de AD FS a un ensemble de correspondances
 
 La commande ci-dessus permet de s’assurer que AD FS couvre uniquement les cas d’utilisation suivants pour WIA :
 
-Agents utilisateur|Cas d’usage|
+Agents utilisateur|Cas d’utilisation|
 -----|-----|
 MSIE 6,0|IE 6,0|
 MSIE 7,0 ; Windows NT|IE 7, Internet Explorer dans la zone intranet. Le fragment « Windows NT » est envoyé par le système d’exploitation de bureau.|
 MSIE 8,0|IE 8,0 (aucun appareil ne l’envoie ; il doit donc être plus spécifique)|
 MSIE 9,0|IE 9,0 (aucun appareil ne l’envoie, il n’est donc pas nécessaire de le rendre plus spécifique)|
-MSIE 10,0 ; Windows NT 6|IE 10,0 pour Windows XP et versions plus récentes du système d’exploitation de bureau</br></br>Les appareils Windows Phone 8,0 (avec des préférences définies sur mobile) sont exclus car ils envoient</br></br>Agent utilisateur : Mozilla/5.0 (compatible ; MSIE 10,0 ; Windows Phone 8,0 ; Trident/6.0 ; IEMobile/10.0 ; CÂBLES Interface Ericsson Lumia 920)|
+MSIE 10,0 ; Windows NT 6|IE 10,0 pour Windows XP et versions plus récentes du système d’exploitation de bureau</br></br>Les appareils Windows Phone 8,0 (avec des préférences définies sur mobile) sont exclus car ils envoient</br></br>User-agent : Mozilla/5.0 (compatible ; MSIE 10,0 ; Windows Phone 8,0 ; Trident/6.0 ; IEMobile/10.0 ; CÂBLES Interface Ericsson Lumia 920)|
 Windows NT 6,3 ; Trident/7.0</br></br>Windows NT 6,3 ; Win64 64x Trident/7.0</br></br>Windows NT 6,3 ; WOW64 Trident/7.0| Windows 8.1 système d’exploitation de bureau, différentes plateformes|
 Windows NT 6,2 ; Trident/7.0</br></br>Windows NT 6,2 ; Win64 64x Trident/7.0</br></br>Windows NT 6,2 ; WOW64 Trident/7.0|Système d’exploitation Windows 8 Desktop, différentes plateformes|
 Windows NT 6,1 ; Trident/7.0</br></br>Windows NT 6,1 ; Win64 64x Trident/7.0</br></br>Windows NT 6,1 ; WOW64 Trident/7.0|Système d’exploitation Windows 7 Desktop, différentes plateformes|
+Edg/79.0.309.43 | Microsoft Edge (chrome) | 
 MSIPC| Client Microsoft Information Protection and Control|
 Client Windows Rights Management|Client Windows Rights Management|
+
+### <a name="additional-links"></a>Liens supplémentaires
+
+[Documentation Microsoft Edge](https://docs.microsoft.com/microsoft-edge/web-platform/user-agent-string)

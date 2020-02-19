@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 10/24/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 67f35e3afa8e9eafabe7b22eb60cc85c7be6cb23
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0d64e6188b24b5a1ec45242c3d99366fdde5a623
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402873"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465213"
 ---
 # <a name="collect-diagnostic-data-with-storage-spaces-direct"></a>Collecter les données de diagnostic avec espaces de stockage direct
 
@@ -27,7 +27,7 @@ Plusieurs outils de diagnostic peuvent être utilisés pour collecter les donné
 
 ## <a name="installing-get-sddcdiagnosticinfo"></a>Installation de la SDDCDiagnosticInfo
 
-Applet de commande PowerShell **SDDCDiagnosticInfo** (également appelée Vous pouvez utiliser la fonction **PCStorageDiagnosticInfo**, précédemment appelée **test-StorageHealth**) pour rassembler des journaux et effectuer des vérifications d’intégrité pour le clustering de basculement (cluster, ressources, réseaux, nœuds), espaces de stockage (disques physiques, boîtiers, Disques virtuels), volumes partagés de cluster, partages de fichiers SMB et déduplication. 
+Applet de commande PowerShell **SDDCDiagnosticInfo** (également appelée Vous pouvez utiliser la fonction **PCStorageDiagnosticInfo**, précédemment appelée **test-StorageHealth**) pour collecter des journaux et effectuer des vérifications d’intégrité pour le clustering de basculement (cluster, ressources, réseaux, nœuds), les espaces de stockage (disques physiques, boîtiers, disques virtuels), les volumes partagés de cluster, les partages de fichiers SMB et la déduplication. 
 
 Il existe deux méthodes d’installation du script : les deux sont des contours ci-dessous.
 
@@ -35,12 +35,15 @@ Il existe deux méthodes d’installation du script : les deux sont des contour
 
 Le [PowerShell Gallery](https://www.powershellgallery.com/packages/PrivateCloud.DiagnosticInfo) est un instantané du référentiel github. Notez que l’installation d’éléments à partir du PowerShell Gallery nécessite la version la plus récente du module PowerShellGet, qui est disponible dans Windows 10, dans Windows Management Framework (WMF) 5,0 ou dans le programme d’installation MSI (pour PowerShell 3 et 4).
 
+Nous installons également la dernière version des [outils de diagnostics de mise en réseau Microsoft](https://www.powershellgallery.com/packages/MSFT.Network.Diag) au cours de ce processus, car l’outil SDDCDiagnosticInfo repose sur cette méthode. Ce module de manifeste contient un outil de diagnostic et de dépannage réseau, qui est géré par le groupe de produits Microsoft Core Networking chez Microsoft.
+
 Vous pouvez installer le module en exécutant la commande suivante dans PowerShell avec des privilèges d’administrateur :
 
 ``` PowerShell
 Install-PackageProvider NuGet -Force
 Install-Module PrivateCloud.DiagnosticInfo -Force
 Import-Module PrivateCloud.DiagnosticInfo -Force
+Install-Module -Name MSFT.Network.Diag
 ```
 
 Pour mettre à jour le module, exécutez la commande suivante dans PowerShell :

@@ -1,6 +1,6 @@
 ---
 ms.assetid: 4deff06a-d0ef-4e5a-9701-5911ba667201
-title: Outil de restauration rapide AD FS
+title: Outil de restauration rapide ADFS
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,16 +9,16 @@ ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8b47cdc4770b1ed6478d1502ed5264164e99352b
-ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
+ms.openlocfilehash: 2570aae52da2925a62dd6c9262af325fb5461fff
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013044"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465263"
 ---
-# <a name="ad-fs-rapid-restore-tool"></a>Outil de restauration rapide AD FS
+# <a name="ad-fs-rapid-restore-tool"></a>Outil de restauration rapide ADFS
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Overview
 Aujourd’hui AD FS est rendu hautement disponible en configurant une batterie de serveurs AD FS. Certaines organisations souhaitent avoir un seul serveur AD FS déploiement, éliminant la nécessité de disposer de plusieurs serveurs AD FS et d’une infrastructure d’équilibrage de charge réseau, tout en ayant la garantie que le service peut être restauré rapidement en cas de problème.
 Le nouvel outil de restauration rapide AD FS offre un moyen de restaurer des données AD FS sans avoir à effectuer une sauvegarde et une restauration complètes du système d’exploitation ou de l’état du système. Vous pouvez utiliser le nouvel outil pour exporter AD FS configuration vers Azure ou vers un emplacement local.  Vous pouvez ensuite appliquer les données exportées à une nouvelle installation de AD FS, en recréant ou en dupliquant l’environnement AD FS. 
 
@@ -29,6 +29,9 @@ L’outil de restauration AD FS rapide peut être utilisé dans les scénarios s
     - Utilisez l’outil pour créer une installation de secours à froid de AD FS qui peut être déployée rapidement à la place du serveur de AD FS en ligne
 2. Déployer des environnements de test et de production identiques
     - Utilisez l’outil pour créer rapidement une copie précise du AD FS de production dans un environnement de test ou pour déployer rapidement une configuration de test validée en production.
+3. Migrer d’une configuration basée sur SQL vers WID et vice versa
+    - Utilisez l’outil pour passer d’une configuration de batterie de serveurs SQL à WID, ou vice versa. 
+
 
 >[!NOTE] 
 >Si vous utilisez la réplication de fusion SQL ou les groupes de disponibilité Always on, l’outil de restauration rapide n’est pas pris en charge. Nous vous recommandons d’utiliser des sauvegardes SQL et une sauvegarde du certificat SSL comme alternative.
@@ -70,7 +73,7 @@ L’applet de commande prend les paramètres suivants :
     
 Jeux de paramètres
 
-![Outil de restauration rapide AD FS](media/AD-FS-Rapid-Restore-Tool/parameter1.png)
+![Outil de restauration rapide ADFS](media/AD-FS-Rapid-Restore-Tool/parameter1.png)
 
 ### <a name="detailed-description"></a>Description détaillée
 
@@ -130,7 +133,7 @@ L’utilisateur doit être à la fois local et administrateur de domaine pour ex
 
 L’applet de commande prend les paramètres suivants : 
 
-![Outil de restauration rapide AD FS](media/AD-FS-Rapid-Restore-Tool/parameter2.png)
+![Outil de restauration rapide ADFS](media/AD-FS-Rapid-Restore-Tool/parameter2.png)
 
 ### <a name="detailed-description"></a>Description détaillée
 
