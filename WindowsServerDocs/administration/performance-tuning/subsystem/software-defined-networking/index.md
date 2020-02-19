@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: grcusanz; AnPaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8227c94e6785f4acf9135aac12406b6ac98a0910
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8ef8a991b8ababa13c0a7a7be605c6dbe2af17a2
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383522"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465453"
 ---
 # <a name="performance-tuning-software-defined-networks"></a>Réglage des performances des réseaux à définition logicielle
 
 La mise en réseau à définition logicielle dans Windows Server 2016 associe un contrôleur de réseau, des hôtes Hyper-V, des passerelles d’équilibreur de charge logiciel et des passerelles HNV.  Pour le réglage de chacun de ces composants, consultez les sections suivantes :
 
-## <a name="network-controller"></a>Contrôleur de réseau
+## <a name="network-controller"></a>Contrôleur réseau
 
 Le contrôleur de réseau est un rôle Windows Server qui doit être activé sur les machines virtuelles s’exécutant sur des hôtes qui sont configurés pour utiliser la mise en réseau à définition logicielle et sont contrôlés par le contrôleur de réseau.
 
@@ -73,4 +73,4 @@ Vous trouverez plus d’informations sur le réglage des passerelles HNV pour un
 
 ## <a name="software-load-balancer-slb"></a>Équilibrage de la charge logicielle
 
-Les passerelles SLB peuvent uniquement être utilisées avec le contrôleur de réseau et SDN.  Vous trouverez plus d’informations sur le réglage de la fonctionnalité SDN pour une utilisation avec des passerelles SLB dans la section [Passerelles d’équilibreur de charge logiciel](slb-gateway-performance.md).
+Les passerelles SLB peuvent uniquement être utilisées avec le contrôleur de réseau et SDN.  Vous trouverez plus d’informations sur le réglage de la fonctionnalité SDN pour l’utiliser avec des passerelles SLB dans la section [Passerelles d’équilibreur de charge logiciel](slb-gateway-performance.md).
