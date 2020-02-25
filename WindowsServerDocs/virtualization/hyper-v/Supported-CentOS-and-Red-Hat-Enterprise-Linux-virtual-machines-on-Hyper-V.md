@@ -8,14 +8,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4bf8783d-dee5-4b3e-8cce-2b11b117c189
 author: danihalfin
-ms.author: jopoulso
+ms.author: vichen
 ms.date: 06/13/2019
-ms.openlocfilehash: 32dcf65470ef997af30fc73912585ddf39175e16
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: ad56958e8c8c3401d47dcd697a4cba4070a80c23
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352417"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517484"
 ---
 # <a name="supported-centos-and-red-hat-enterprise-linux-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels CentOS et Red Hat Enterprise Linux pris en charge sur Hyper-V
 

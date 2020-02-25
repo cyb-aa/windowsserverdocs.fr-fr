@@ -1,6 +1,6 @@
 ---
 ms.assetid: 7671e0c9-faf0-40de-808a-62f54645f891
-title: Mise à niveau vers AD FS dans Windows Server 2016
+title: Mise à niveau vers ADFS dans Windows Server2016
 description: ''
 author: billmath
 manager: femila
@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: ebcc679b2bc5ab3c6d7c70c9e84ba45697c80165
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 913e45e52c5c6c137d2bf798bb5b86a65f9d1caa
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265591"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517574"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers AD FS dans Windows Server 2016 à l'aide d'une base de données WID
 
@@ -149,3 +149,16 @@ Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
 ```
 
 Cela terminera la mise à niveau des serveurs WAP.
+
+
+> [!NOTE] 
+> Un problème PRT connu existe dans AD FS 2019 si Windows Hello entreprise avec une approbation de certificat hybride est exécuté. Vous pouvez rencontrer cette erreur dans les journaux des événements d’administration ADFS : réception d’une requête OAuth non valide. Le client « nom » est interdit d’accéder à la ressource avec l’étendue « UGS ». Pour corriger cette erreur : 
+> 1. Lancez AD FS Management Console. Brose aux « services Description de l’étendue des > Services »
+> 2. Cliquez avec le bouton droit sur « Description de l’étendue », puis sélectionnez « Ajouter une description d’étendue »
+> 3. Sous Nom tapez « UGS », puis cliquez sur Appliquer > OK
+> 4. Lancer PowerShell en tant qu’administrateur
+> 5. Exécutez la commande « AdfsApplicationPermission ». Recherchez le ScopeNames : {OpenID, aza} qui contient ClientRoleIdentifier. Prenez note de la ObjectIdentifier.
+> 6. Exécutez la commande « Set-AdfsApplicationPermission-TargetIdentifier < ObjectIdentifier de l’étape 5 >-paramètre addscope «UGS ».
+> 7. Redémarrez le service ADFS.
+> 8. Sur le client : redémarrez le client. L’utilisateur doit être invité à approvisionner WHFB.
+> 9. Si la fenêtre de configuration ne s’affiche pas, vous devez collecter les journaux de suivi NGC et résoudre les problèmes.

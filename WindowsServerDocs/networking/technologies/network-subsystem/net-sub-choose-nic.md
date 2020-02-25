@@ -8,49 +8,49 @@ ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cf93e6f91f4a1c21050c7ad1cb4de43258be1a65
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9271cf4e5f50adf93f421e830a226507034ac454
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71401858"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517474"
 ---
 # <a name="choosing-a-network-adapter"></a>Choix d’une carte réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour découvrir certaines des fonctionnalités des cartes réseau qui peuvent affecter vos choix d’achat.
 
 Les applications nécessitant beaucoup de ressources réseau requièrent des cartes réseau hautes performances. Cette section explore certains points à prendre en compte pour le choix des cartes réseau, ainsi que la configuration de différents paramètres de carte réseau pour obtenir les meilleures performances réseau.
 
 > [!TIP]
->  Vous pouvez configurer les paramètres de carte réseau à l’aide de Windows PowerShell. Pour plus d’informations, consultez [applets de commande de cartes réseau dans Windows PowerShell](https://technet.microsoft.com/library/jj134956.aspx).
+>  Vous pouvez configurer les paramètres de carte réseau à l’aide de Windows PowerShell. Pour plus d’informations, consultez [applets de commande de cartes réseau dans Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter).
 
 ##  <a name="bkmk_offload"></a>Fonctionnalités de déchargement
 
-Le déchargement des tâches du processeur \(\) de l’unité de traitement centrale vers la carte réseau peut réduire l’utilisation du processeur sur le serveur, ce qui améliore les performances globales du système.
+Le déchargement des tâches à partir de l’unité centrale \(processeur\) à la carte réseau peut réduire l’utilisation du processeur sur le serveur, ce qui améliore les performances globales du système.
 
 La pile réseau des produits Microsoft peut décharger une ou plusieurs tâches sur une carte réseau si vous sélectionnez une carte réseau qui dispose des fonctionnalités de déchargement appropriées. Le tableau suivant fournit une brève présentation des différentes fonctionnalités de déchargement disponibles dans Windows Server 2016.
   
 |Type de déchargement|Description|
 |------------------|-----------------|  
-|Calcul de la somme de contrôle pour TCP|La pile réseau peut décharger le calcul et la validation des \(sommes\) de contrôle TCP du protocole de contrôle de transmission sur les chemins de code d’envoi et de réception. Il peut également décharger le calcul et la validation des sommes de contrôle IPv4 et IPv6 sur les chemins de code d’envoi et de réception.|  
-|Calcul de la somme de contrôle pour UDP |La pile réseau peut décharger le calcul et la validation des \(sommes\) de contrôle Udp du protocole UDP (User Datagram Protocol) sur les chemins de code d’envoi et de réception.|
+|Calcul de la somme de contrôle pour TCP|La pile réseau peut décharger le calcul et la validation du protocole de contrôle de transmission \(les checksums TCP\) sur les chemins de code d’envoi et de réception. Il peut également décharger le calcul et la validation des sommes de contrôle IPv4 et IPv6 sur les chemins de code d’envoi et de réception.|  
+|Calcul de la somme de contrôle pour UDP |La pile réseau peut décharger le calcul et la validation du protocole UDP (User Datagram Protocol) \(les sommes de contrôle de\) UDP sur les chemins de code d’envoi et de réception.|
 |Calcul de la somme de contrôle pour IPv4 |La pile réseau peut décharger le calcul et la validation des sommes de contrôle IPv4 sur les chemins d’accès de code d’envoi et de réception. |
 |Calcul de la somme de contrôle pour IPv6 |La pile réseau peut décharger le calcul et la validation des sommes de contrôle IPv6 sur les chemins d’accès de code d’envoi et de réception. | 
 |Segmentation de paquets TCP volumineux|La couche de transport TCP/IP prend en charge le déchargement d’envoi important v2 (LSOv2). Avec LSOv2, la couche de transport TCP/IP peut décharger la segmentation des paquets TCP volumineux vers la carte réseau.|  
-|\(RSS sur la mise à l’échelle côté réception\)|RSS est une technologie de pilote réseau qui permet de distribuer efficacement le traitement de réception réseau sur plusieurs processeurs dans des systèmes multiprocesseurs. Plus d’informations sur RSS sont fournies plus loin dans cette rubrique.|  
-|Recevoir la fusion \(de segment RSC\)|RSC est la possibilité de regrouper les paquets pour réduire le traitement d’en-tête nécessaire à l’exécution de l’hôte. Un maximum de 64 Ko de charge utile reçue peut être fusionné en un seul paquet plus grand à traiter. Plus de détails sur RSC sont fournis plus loin dans cette rubrique.|  
+|Mise à l’échelle côté réception \(RSS\)|RSS est une technologie de pilote réseau qui permet de distribuer efficacement le traitement de réception réseau sur plusieurs processeurs dans des systèmes multiprocesseurs. Plus d’informations sur RSS sont fournies plus loin dans cette rubrique.|  
+|Réception de la fusion de segment \(RSC\)|RSC est la possibilité de regrouper les paquets pour réduire le traitement d’en-tête nécessaire à l’exécution de l’hôte. Un maximum de 64 Ko de charge utile reçue peut être fusionné en un seul paquet plus grand à traiter. Plus de détails sur RSC sont fournis plus loin dans cette rubrique.|  
   
 ###  <a name="bkmk_rss"></a>Mise à l’échelle côté réception
 
-Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2 et Windows Server 2008 prennent en charge la mise à \(l'\)échelle côté réception RSS. 
+Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2 et Windows Server 2008 prennent en charge la mise à l’échelle côté réception \(les\)RSS. 
 
-Certains serveurs sont configurés avec plusieurs processeurs logiques qui \(partagent des ressources matérielles\) , telles qu’un noyau physique, et qui sont \(traitées\) comme des pairs de type SMT multithreading simultanés. La technologie Intel Hyper-Threading est un exemple. RSS dirige le traitement réseau jusqu’à un seul processeur logique par cœur. Par exemple, sur un serveur doté de l’Hyper-Threading Intel, de 4 cœurs et de 8 processeurs logiques, RSS n’utilise pas plus de 4 processeurs logiques pour le traitement réseau.  
+Certains serveurs sont configurés avec plusieurs processeurs logiques qui partagent des ressources matérielles \(tels qu’un\) de base physique et qui sont traités comme des homologues multithread \(SMT\) simultanés. La technologie Intel Hyper-Threading est un exemple. RSS dirige le traitement réseau jusqu’à un seul processeur logique par cœur. Par exemple, sur un serveur doté de l’Hyper-Threading Intel, de 4 cœurs et de 8 processeurs logiques, RSS n’utilise pas plus de 4 processeurs logiques pour le traitement réseau.  
 
 RSS distribue les paquets d’e/s réseau entrants entre les processeurs logiques afin que les paquets appartenant à la même connexion TCP soient traités sur le même processeur logique, ce qui préserve le classement. 
 
-RSS équilibre également la charge du trafic de monodiffusion et de monodiffusion UDP, \(et achemine les flux connexes qui sont déterminés par le hachage\) des adresses source et de destination sur le même processeur logique, en préservant l’ordre des arrivées associées. Cela permet d’améliorer l’évolutivité et les performances des scénarios nécessitant beaucoup de ressources de réception pour les serveurs qui ont moins de cartes réseau que les processeurs logiques éligibles. 
+RSS équilibre également la charge du trafic de monodiffusion et de monodiffusion UDP, et achemine les flux associés \(qui sont déterminés par le hachage des adresses source et de destination\) au même processeur logique, en préservant l’ordre des arrivées associées. Cela permet d’améliorer l’évolutivité et les performances des scénarios nécessitant beaucoup de ressources de réception pour les serveurs qui ont moins de cartes réseau que les processeurs logiques éligibles. 
 
 #### <a name="configuring-rss"></a>Configuration de RSS
 
@@ -65,13 +65,13 @@ Les applets de commande suivantes vous permettent de voir et de modifier les par
 >[!NOTE]
 >Pour obtenir une référence de commande détaillée pour chaque cmdlet, y compris la syntaxe et les paramètres, vous pouvez cliquer sur les liens suivants. En outre, vous pouvez passer le nom de l’applet de commande à l’aide de l’invite de commandes Windows PowerShell pour **obtenir** des détails sur chaque commande.  
 
-- [Disable-NetAdapterRss](https://technet.microsoft.com/library/jj130892). Cette commande désactive RSS sur la carte réseau que vous spécifiez.
+- [Disable-NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/Disable-NetAdapterRss). Cette commande désactive RSS sur la carte réseau que vous spécifiez.
 
-- [Enable-NetAdapterRss](https://technet.microsoft.com/library/jj130859). Cette commande active RSS sur la carte réseau que vous spécifiez.
+- [Enable-NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterRss). Cette commande active RSS sur la carte réseau que vous spécifiez.
   
-- [Accédez à NetAdapterRss](https://technet.microsoft.com/library/jj130912). Cette commande récupère les propriétés RSS de la carte réseau que vous spécifiez.
+- [Accédez à NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/Get-NetAdapterRss). Cette commande récupère les propriétés RSS de la carte réseau que vous spécifiez.
   
-- [Set-NetAdapterRss](https://technet.microsoft.com/library/jj130863). Cette commande définit les propriétés RSS sur la carte réseau que vous spécifiez.  
+- [Set-NetAdapterRss](https://docs.microsoft.com/powershell/module/netadapter/Set-NetAdapterRss). Cette commande définit les propriétés RSS sur la carte réseau que vous spécifiez.  
 
 #### <a name="rss-profiles"></a>Profils RSS
 
@@ -98,31 +98,31 @@ Voici les paramètres **Set-NetAdapterRss** supplémentaires que vous pouvez uti
 >[!NOTE]
 >Dans l’exemple de syntaxe pour chaque paramètre ci-dessous, le nom de la carte réseau **Ethernet** est utilisé comme exemple de valeur pour le paramètre **– Name** de la commande **Set-NetAdapterRss** . Lorsque vous exécutez l’applet de commande, assurez-vous que le nom de la carte réseau que vous utilisez est adapté à votre environnement.
 
-- **MaxProcessors\*** : Définit le nombre maximal de processeurs RSS à utiliser. Cela garantit que le trafic de l’application est lié à un nombre maximal de processeurs sur une interface donnée. Exemple de syntaxe :
+- **\* MaxProcessors**: définit le nombre maximal de processeurs RSS à utiliser. Cela garantit que le trafic de l’application est lié à un nombre maximal de processeurs sur une interface donnée. Exemple de syntaxe :
 
      `Set-NetAdapterRss –Name “Ethernet” –MaxProcessors <value>`
 
-- **BaseProcessorGroup\*** : Définit le groupe de processeurs de base d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Exemple de syntaxe :
+- **\* BaseProcessorGroup**: définit le groupe de processeurs de base d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Exemple de syntaxe :
 
      `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorGroup <value>`
   
-- **MaxProcessorGroup\*** : Définit le groupe de processeurs Max d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Cela limiterait un groupe de processeurs maximal pour que l’équilibrage de charge soit aligné dans un groupe k. Exemple de syntaxe :
+- **\* MaxProcessorGroup**: définit le groupe de processeurs Max d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Cela limiterait un groupe de processeurs maximal pour que l’équilibrage de charge soit aligné dans un groupe k. Exemple de syntaxe :
 
      `Set-NetAdapterRss –Name “Ethernet” –MaxProcessorGroup <value>`
 
-- **BaseProcessorNumber\*** : Définit le numéro de processeur de base d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Cela permet de partitionner les processeurs entre les cartes réseau. Il s’agit du premier processeur logique de la plage de processeurs RSS qui est affectée à chaque carte. Exemple de syntaxe :
+- **\* BaseProcessorNumber**: définit le numéro de processeur de base d’un nœud NUMA. Cela a un impact sur le groupe de processeurs utilisé par RSS. Cela permet de partitionner les processeurs entre les cartes réseau. Il s’agit du premier processeur logique de la plage de processeurs RSS qui est affectée à chaque carte. Exemple de syntaxe :
 
      `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorNumber <Byte Value>`
 
-- **NumaNode\*** : Nœud NUMA à partir duquel chaque carte réseau peut allouer de la mémoire. Cela peut se faire dans un groupe k ou dans différents groupes k. Exemple de syntaxe :
+- **\* NumaNode**: nœud NUMA à partir duquel chaque carte réseau peut allouer de la mémoire. Cela peut se faire dans un groupe k ou dans différents groupes k. Exemple de syntaxe :
 
      `Set-NetAdapterRss –Name “Ethernet” –NumaNodeID <value>`
 
-- **NumberofReceiveQueues\*** : Si vos processeurs logiques semblent être sous-utilisés pour le \(trafic de réception, par exemple, comme\)affiché dans le gestionnaire des tâches, vous pouvez essayer d’agrandir le nombre de files d’attente RSS de la valeur par défaut de 2 à la valeur maximale prise en charge par votre carte réseau. . Votre carte réseau peut avoir des options permettant de modifier le nombre de files d’attente RSS dans le cadre du pilote. Exemple de syntaxe :
+- **\* NumberofReceiveQueues**: si vos processeurs logiques semblent être sous-utilisés pour la réception du trafic \(par exemple, comme affiché dans le gestionnaire des tâches\), vous pouvez essayer d’agrandir le nombre de files d’attente RSS de la valeur par défaut de 2 à la valeur maximale prise en charge par votre carte réseau. Votre carte réseau peut avoir des options permettant de modifier le nombre de files d’attente RSS dans le cadre du pilote. Exemple de syntaxe :
 
      `Set-NetAdapterRss –Name “Ethernet” –NumberOfReceiveQueues <value>`
 
-Pour plus d’informations, cliquez sur le lien suivant [pour télécharger la mise en réseau évolutive : Élimination du goulot d’étranglement du traitement](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc) des réceptions : présentation de RSS au format Word.
+Pour plus d’informations, cliquez sur le lien suivant pour télécharger [la mise en réseau évolutive : élimination du goulot d’étranglement du traitement des réceptions, présentation de RSS](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc) au format Word.
   
 #### <a name="understanding-rss-performance"></a>Fonctionnement des performances RSS
 
@@ -160,11 +160,11 @@ RSS peut être activé sur une carte réseau qui est associée à une autre cart
   
 ###  <a name="bkmk_rsc"></a>Fusion de segment de réception (RSC)
 
-L’opération Receive \(segment\) la fusion RSC permet d’obtenir des performances en réduisant le nombre d’en-têtes IP traités pour une quantité donnée de données reçues. Elle doit être utilisée pour aider à mettre à l’échelle les performances des données \(reçues en\) regroupant ou en fusionnant les plus petits paquets en unités plus volumineuses.
+La fusion de segment de réception \(RSC\) permet d’obtenir des performances en réduisant le nombre d’en-têtes IP traités pour une quantité donnée de données reçues. Elle doit être utilisée pour aider à mettre à l’échelle les performances des données reçues en regroupant \(ou en fusionnant\) les plus petits paquets en unités plus volumineuses.
 
 Cette approche peut avoir une incidence sur la latence avec les avantages généralement constatés dans les gains de débit. RSC est recommandé pour augmenter le débit des charges de travail lourdes reçues. Envisagez de déployer des cartes réseau qui prennent en charge RSC. 
 
-Sur ces cartes réseau, assurez-vous que RSC \(est le paramètre\)par défaut, sauf si \(vous avez des charges de travail spécifiques, par exemple, une faible latence\) et une mise en réseau à faible débit qui montrent l’avantage de RSC en cours de désactivation. .
+Sur ces cartes réseau, assurez-vous que RSC est activé \(il s’agit du paramètre par défaut\), sauf si vous avez des charges de travail spécifiques \(par exemple, une faible latence, une mise en réseau à faible débit\) qui montre l’avantage de RSC en cours de désactivation.
 
 #### <a name="understanding-rsc-diagnostics"></a>Fonctionnement des diagnostics RSC
 
@@ -204,7 +204,7 @@ CoalescingExceptions : 0
 
 RSC est pris en charge uniquement dans l’hôte physique lorsque la carte réseau de l’ordinateur hôte n’est pas liée au commutateur virtuel Hyper-V. RSC est désactivé par le système d’exploitation lorsque l’ordinateur hôte est lié au commutateur virtuel Hyper-V. En outre, les machines virtuelles n’obtiennent pas l’avantage de RSC, car les cartes réseau virtuelles ne prennent pas en charge RSC.
 
-RSC peut être activé pour un ordinateur virtuel lorsque \(SR-IOV\) de virtualisation d’entrée/sortie racine unique est activé. Dans ce cas, les fonctions virtuelles prennent en charge la fonction RSC ; par conséquent, les machines virtuelles bénéficient également de l’avantage de RSC.
+RSC peut être activé pour un ordinateur virtuel lorsque la virtualisation d’entrée/sortie de racine unique \(SR-IOV\) est activée. Dans ce cas, les fonctions virtuelles prennent en charge la fonction RSC ; par conséquent, les machines virtuelles bénéficient également de l’avantage de RSC.
 
 ##  <a name="bkmk_resources"></a>Ressources de la carte réseau
 
@@ -212,28 +212,28 @@ Quelques cartes réseau gèrent activement leurs ressources pour obtenir des per
 
 La configuration des ressources de carte réseau est simplifiée par l’utilisation des applets de commande Windows PowerShell suivantes.
 
-- [NetAdapterAdvancedProperty](https://technet.microsoft.com/library/jj130901.aspx)
+- [NetAdapterAdvancedProperty](https://docs.microsoft.com/powershell/module/netadapter/Get-NetAdapterAdvancedProperty)
 
-- [Set-NetAdapterAdvancedProperty](https://technet.microsoft.com/library/jj130894.aspx)
+- [Set-NetAdapterAdvancedProperty](https://docs.microsoft.com/powershell/module/netadapter/Set-NetAdapterAdvancedProperty)
 
-- [Activer-NetAdapter](https://technet.microsoft.com/library/jj130876.aspx)
+- [Activer-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapte)
 
-- [Enable-NetAdapterBinding](https://technet.microsoft.com/library/jj130913.aspx)
+- [Enable-NetAdapterBinding](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterBinding)
 
-- [Enable-NetAdapterChecksumOffload](https://technet.microsoft.com/library/jj130918.aspx)
+- [Enable-NetAdapterChecksumOffload](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterChecksumOffload)
 
-- [Enable-NetAdapterIPSecOffload](https://technet.microsoft.com/library/jj130890.aspx)
+- [Enable-NetAdapterIPSecOffload](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterChecksumOffload)
 
-- [Enable-NetAdapterLso](https://technet.microsoft.com/library/jj130922.aspx)
+- [Enable-NetAdapterLso](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterLso)
 
-- [Enable-NetAdapterPowerManagement](https://technet.microsoft.com/library/jj130907.aspx)
+- [Enable-NetAdapterPowerManagement](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterPowerManagement)
 
-- [Enable-NetAdapterQos](https://technet.microsoft.com/library/jj130866.aspx)
+- [Enable-NetAdapterQos](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterQos)
 
-- [Enable-NetAdapterRDMA](https://technet.microsoft.com/library/jj130909.aspx)
+- [Enable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterRDMA)
 
-- [Enable-NetAdapterSriov](https://technet.microsoft.com/library/jj130899.aspx)
+- [Enable-NetAdapterSriov](https://docs.microsoft.com/powershell/module/netadapter/Enable-NetAdapterSriov)
 
-Pour plus d’informations, consultez [applets de commande de cartes réseau dans Windows PowerShell](https://technet.microsoft.com/library/jj134956.aspx).
+Pour plus d’informations, consultez [applets de commande de cartes réseau dans Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter).
 
 Pour obtenir des liens vers toutes les rubriques de ce guide, consultez [réglage des performances du sous-système réseau](net-sub-performance-top.md).

@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c36555a8bca7882125451b2c86a0707e3de9b2db
-ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
+ms.openlocfilehash: 6c8a3b30a337c164227bf344b5704cc7e782461a
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145925"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517514"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configuration de AD FS pour l’authentification par certificat utilisateur
 
@@ -23,7 +23,7 @@ L’authentification par certificat utilisateur est utilisée principalement dan
 * Les utilisateurs utilisent des certificats approvisionnés sur des appareils mobiles
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 1) Déterminez le mode de AD FS l’authentification par certificat utilisateur que vous souhaitez activer à l’aide de l’un des modes décrits dans [cet article](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md) .
 2) Assurez-vous que votre chaîne d’approbation des certificats utilisateur est installée & approuvée par tous les serveurs AD FS et WAP, y compris les autorités de certification intermédiaires. En général, cette opération est effectuée via un objet de stratégie de groupe sur des serveurs AD FS/WAP
 3)  Assurez-vous que le certificat racine de la chaîne de confiance pour vos certificats utilisateur se trouve dans le magasin NTAuth dans Active Directory
@@ -41,6 +41,8 @@ Si vous configurez AD FS pour Azure AD l’authentification par certificat, vér
 En outre, il existe quelques aspects facultatifs.
 - Si vous souhaitez utiliser des revendications basées sur les champs et les extensions de certificat en plus de l’utilisation améliorée de la valeur (type de revendication https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku), configurez des revendications supplémentaires via des règles sur l’approbation du fournisseur de revendications Active Directory.  Pour obtenir la liste complète des revendications de certificat disponibles, voir ci-dessous.  
 - Si vous devez restreindre l’accès en fonction du type de certificat, vous pouvez utiliser les propriétés supplémentaires sur le certificat dans AD FS règles d’autorisation d’émission pour l’application. Les scénarios courants sont « autoriser uniquement les certificats approvisionnés par un fournisseur MDM » ou « autoriser uniquement les certificats de carte à puce ».
+>[!IMPORTANT]
+> Les clients qui utilisent le workflow de code d’appareil pour l’authentification et l’authentification des appareils à l’aide d’un fournisseur d’identité autre que Azure AD (par exemple AD FS) ne seront pas en mesure d’appliquer l’accès basé sur les appareils (par exemple, n’autoriser que les appareils gérés à l’aide d’un service MDM tiers) pour les ressources Azure AD. Pour protéger l’accès aux ressources de votre entreprise dans Azure AD et empêcher toute fuite de données, les clients doivent configurer Azure AD accès conditionnel en fonction de l’appareil (par exemple, « exiger que l’appareil soit marqué comme réclamation » pour accorder le contrôle dans Azure AD accès conditionnel).
 - Configurez les autorités de certification émettrices autorisées pour les certificats clients en suivant les instructions de la section « gestion des émetteurs approuvés pour l’authentification du client » dans [cet article](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx).
 - Vous pouvez envisager de modifier les pages de connexion pour les adapter aux besoins de vos utilisateurs finaux lors de l’authentification par certificat. Les cas les plus courants sont le changement de la connexion avec votre certificat x509 à un utilisateur plus convivial
 
@@ -90,7 +92,7 @@ AD FS nécessite que l’appareil client (ou les navigateurs) et les équilibrag
     *   Tapez `netsh http add sslcert ipport=0.0.0.0:{your_certauth_port} certhash={your_certhash} appid={your_applicaitonGUID}`
 
 ### <a name="check-if-the-client-device-has-been-provisioned-with-the-certificate-correctly"></a>Vérifiez si le périphérique client a été approvisionné correctement avec le certificat
-Vous remarquerez peut-être que certains appareils fonctionnent correctement, mais pas les autres. Dans ce cas, cela est généralement dû au fait que le certificat utilisateur n’est pas configuré correctement sur l’appareil client. Pour ce faire, procédez comme suit. 
+Vous remarquerez peut-être que certains appareils fonctionnent correctement, mais pas les autres. Dans ce cas, cela est généralement dû au fait que le certificat utilisateur n’est pas configuré correctement sur l’appareil client. Suivez les étapes ci-dessous. 
 1)  Si le problème est spécifique à un appareil Android, le problème le plus courant est que la chaîne de certificats n’est pas entièrement fiable sur l’appareil Android.  Reportez-vous à votre fournisseur MDM pour vérifier que le certificat a été configuré correctement et que la chaîne entière est entièrement fiable sur l’appareil Android. 
 2)  Si le problème est spécifique à un appareil Windows, vérifiez si le certificat est configuré correctement en consultant le magasin de certificats Windows de l’utilisateur connecté (et non système/ordinateur).
 3)  Exportez le certificat de l’utilisateur client dans le fichier. cer et exécutez la commande « certutil-f-urlfetch-Verify certificatefilename. cer ».
@@ -106,7 +108,7 @@ De nombreuses applications Office 365 envoient prompt = Login à Azure AD. Azure
 
 Pour plus d’informations, consultez [ce lien](ad-fs-prompt-login.md). 
 
-### <a name="additional-troubleshooting"></a>Résolution de problèmes supplémentaires
+### <a name="additional-troubleshooting"></a>Résolution des problèmes supplémentaires
 Il s’agit d’occurrences rares
 1)  Si vos listes de révocation de certificats sont très longues, il se peut qu’elles atteignent un délai d’expiration lors de la tentative de téléchargement. Dans ce cas, vous devez mettre à jour le « MaxFieldLength » et le « MaxRequestByte » en fonction des https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows
 
@@ -115,7 +117,7 @@ Il s’agit d’occurrences rares
 
 ## <a name="reference-complete-list-of-user-certificate-claim-types-and-example-values"></a>Référence : liste complète des types de revendications de certificat utilisateur et des exemples de valeurs
 
-|                                         Type de revendication                                         |                              Exemple de valeur                               |
+|                                         Type de la revendication.                                         |                              Exemple de valeur                               |
 |--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
 |         https://schemas.microsoft.com/2012/12/certificatecontext/field/x509version         |                                    3                                     |
 |     https://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm      |                                sha256RSA                                 |

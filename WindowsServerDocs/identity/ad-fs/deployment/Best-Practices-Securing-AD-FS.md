@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b96a66c9e28454752fd4999fcfe74cbb15a3ae7d
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 717308a157d7f4a5f54e3aef2e829fbed9f12152
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265811"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517544"
 ---
 # <a name="best-practices-for-securing-active-directory-federation-services"></a>Meilleures pratiques pour la sécurisation des Services ADFS
 
@@ -41,30 +41,30 @@ Le diagramme ci-dessous représente les ports de pare-feu qui doivent être acti
 > Le port 808 (Windows Server 2012 R2) ou le port 1501 (Windows Server 2016 +) est le port Net. TCP AD FS utilisé par le point de terminaison WCF local pour transférer des données de configuration vers le processus de service et PowerShell. Ce port peut être consulté en exécutant la AdfsProperties Sélectionnez NetTcpPort. Il s’agit d’un port local qui n’a pas besoin d’être ouvert dans le pare-feu, mais qui sera affiché dans une analyse de port. 
 
 ### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect et serveurs de Fédération/WAP
-Ce tableau décrit les ports et les protocoles nécessaires à la communication entre le serveur Azure AD Connect et les serveurs de fédération/WAP.  
+Ce tableau décrit les ports et les protocoles requis pour la communication entre le serveur Azure AD Connect et les serveurs de Fédération/WAP.  
 
 Protocole |Ports |Description
 --------- | --------- |---------
-HTTP|80 (TCP/UDP)|Utilisé pour télécharger des listes de révocation de certificats en vue de vérifier les certificats SSL.
-HTTPS|443(TCP/UDP)|Utilisé pour établir une synchronisation avec Azure AD.
+HTTP|80 (TCP/UDP)|Utilisé pour télécharger les listes de révocation de certificats pour vérifier les certificats SSL.
+HTTPS|443 (TCP/UDP)|Utilisé pour la synchronisation avec Azure AD.
 WinRM|5985| Écouteur WinRM
 
 ### <a name="wap-and-federation-servers"></a>WAP et serveurs de Fédération
-Ce tableau décrit les ports et les protocoles nécessaires à la communication entre les serveurs de fédération et les serveurs WAP.
+Ce tableau décrit les ports et les protocoles requis pour la communication entre les serveurs de Fédération et les serveurs WAP.
 
 Protocole |Ports |Description
 --------- | --------- |---------
-HTTPS|443(TCP/UDP)|Utilisé pour l’authentification.
+HTTPS|443 (TCP/UDP)|Utilisé pour l’authentification.
 
 ### <a name="wap-and-users"></a>WAP et utilisateurs
-Ce tableau décrit les ports et les protocoles nécessaires à la communication entre les utilisateurs et les serveurs WAP.
+Ce tableau décrit les ports et les protocoles requis pour la communication entre les utilisateurs et les serveurs WAP.
 
 Protocole |Ports |Description
 --------- | --------- |--------- |
-HTTPS|443(TCP/UDP)|Utilisé pour l’authentification des appareils.
+HTTPS|443 (TCP/UDP)|Utilisé pour l’authentification de l’appareil.
 TCP|49443 (TCP)|Utilisé pour l’authentification par certificat.
 
-Pour plus d’informations sur les ports requis et les protocoles requis pour les déploiements hybrides, consultez le document [ici](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/).
+Pour plus d’informations sur les ports requis et les protocoles requis pour les déploiements hybrides, consultez le document [ici](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-ports).
 
 Pour plus d’informations sur les ports et les protocoles requis pour un déploiement Azure AD et Office 365, voir le document [ici](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 
@@ -90,7 +90,7 @@ AD FS points de terminaison peuvent être désactivés sur le proxy à l’aide 
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath <address path> -Proxy $false
 
-Exemple :
+Par exemple :
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/13/certificatemixed -Proxy $false
     
@@ -162,7 +162,7 @@ Dans sa configuration par défaut, les clés AD FS utilisées pour signer les je
 
     PS:\>Install-AdfsFarm -CertificateThumbprint <String> -DecryptionCertificateThumbprint <String> -FederationServiceName <String> -ServiceAccountCredential <PSCredential> -SigningCertificateThumbprint <String>
 
-où :
+où :
 
 
 - `CertificateThumbprint` est votre certificat SSL
