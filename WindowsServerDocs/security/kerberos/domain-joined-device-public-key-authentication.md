@@ -8,12 +8,12 @@ manager: alanth
 author: michikos
 ms.technology: security-authentication
 ms.date: 08/18/2017
-ms.openlocfilehash: 616ebf1a8e01f84618d22d535609a0dc8414d718
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c9c4342281ee2036e152c8034fa72e421487a45b
+ms.sourcegitcommit: 9bc7a0478d72944f714f8041fa4506e0d1ed0366
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403493"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77607085"
 ---
 # <a name="domain-joined-device-public-key-authentication"></a>Authentification par clé publique d'appareil joint au domaine
 
@@ -25,12 +25,12 @@ Kerberos a ajouté la prise en charge des appareils joints à un domaine pour se
 
 À compter de Windows 10 version 1507 et de Windows Server 2016, les appareils joints à un domaine approvisionnent automatiquement une clé publique liée à un contrôleur de domaine Windows Server 2016 (DC). Une fois qu’une clé est approvisionnée, Windows peut utiliser l’authentification par clé publique dans le domaine.
 
-### <a name="public-key-generation"></a>Génération de la clé publique
-Si l’appareil exécute Credential Guard, une clé publique est créée protégée par Credential Guard. 
+### <a name="key-generation"></a>Génération de clé
+Si l’appareil exécute Credential Guard, une paire de clés publique/privée est créée protégée par Credential Guard. 
 
-Si Credential Guard n’est pas disponible et qu’un module de plateforme sécurisée est, une clé publique est créée protégée par le module de plateforme sécurisée. 
+Si Credential Guard n’est pas disponible et qu’un module de plateforme sécurisée est, une paire de clés publique/privée est créée protégée par le module de plateforme sécurisée. 
 
-Si aucun n’est disponible, une clé n’est pas générée et l’appareil peut uniquement s’authentifier à l’aide d’un mot de passe.
+Si aucun n’est disponible, une paire de clés n’est pas générée et l’appareil peut uniquement s’authentifier à l’aide du mot de passe.
 
 ### <a name="provisioning-computer-account-public-key"></a>Configuration de la clé publique du compte d’ordinateur
 Lorsque Windows démarre, il vérifie si une clé publique est approvisionnée pour son compte d’ordinateur. Si ce n’est pas le cas, il génère une clé publique liée et le configure pour son compte dans Active Directory à l’aide d’un contrôleur de domaine Windows Server 2016 ou version ultérieure. Si tous les contrôleurs de service sont de niveau inférieure, aucune clé n’est approvisionnée.
