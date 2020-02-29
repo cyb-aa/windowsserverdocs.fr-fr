@@ -10,14 +10,14 @@ ms.topic: article
 ms.prod: windows-server
 ms.service: na
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
-ms.openlocfilehash: 39d57afbd8c4df78764c5975d4cc3d48848475c1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcf8109530043f5e0a6d141c484233c4364fb307
+ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392764"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78169569"
 ---
->S’applique à : Windows 10, Windows Server 2016, Windows Server 2019
+>S’applique à : Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019
 
 # <a name="manage-hyper-v-integration-services"></a>Gérer les Integration Services Hyper-V
 
@@ -226,48 +226,48 @@ Ces exemples montrent comment arrêter et démarrer le démon KVP, nommé `hv_kv
 
 Nous vous recommandons de tenir à jour les services d’intégration pour obtenir les meilleures performances et les fonctionnalités les plus récentes pour vos machines virtuelles. Cela se produit pour la plupart des invités Windows par défaut s’ils sont configurés pour obtenir des mises à jour importantes de Windows Update. Les invités Linux utilisant les noyaux actuels recevront les composants d’intégration les plus récents lors de la mise à jour du noyau.
 
-**Pour les machines virtuelles qui s’exécutent sur des hôtes Windows 10 :**
+**Pour les ordinateurs virtuels qui s’exécutent sur des hôtes Windows 10/Windows Server 2016/2019 :**
 
 > [!NOTE]
-> Le fichier image vmguest. ISO n’est pas inclus dans Hyper-V sur Windows 10, car il n’est plus nécessaire.
+> Le fichier image vmguest. ISO n’est pas inclus dans Hyper-V sur Windows 10/Windows Server 2016/2019, car il n’est plus nécessaire.
 
 | Invité  | Mécanisme de mise à jour | Remarques |
 |:---------|:---------|:---------|
-| Windows 10 | Windows Update | |
-| Windows 8.1 | Windows Update | |
-| Windows 8 | Windows Update | Nécessite le service d’intégration Échange de données.* |
-| Windows 7 | Windows Update | Nécessite le service d’intégration Échange de données.* |
-| Windows Vista (SP2) | Windows Update | Nécessite le service d’intégration Échange de données.* |
+| Windows 10 | Windows Update | |
+| Windows 8.1 | Windows Update | |
+| Windows 8 | Windows Update | Nécessite le service d’intégration Échange de données.* |
+| Windows 7 | Windows Update | Nécessite le service d’intégration Échange de données.* |
+| Windows Vista (SP2) | Windows Update | Nécessite le service d’intégration Échange de données.* |
 | - | | |
-| Windows Server 2016 | Windows Update | |
-| Windows Server, canal semi-annuel | Windows Update | |
-| Windows Server 2012 R2 | Windows Update | |
-| Windows Server 2012 | Windows Update | Nécessite le service d’intégration Échange de données.* |
-| Windows Server 2008 R2 (SP1) | Windows Update | Nécessite le service d’intégration Échange de données.* |
-| Windows Server 2008 (SP2) | Windows Update | Prise en charge étendue uniquement dans Windows Server 2016 ([en savoir plus](https://support.microsoft.com/lifecycle?p1=12925)). |
-| Windows Home Server 2011 | Windows Update | Ne sera pas pris en charge dans Windows Server 2016 ([en savoir plus](https://support.microsoft.com/lifecycle?p1=15820)). |
-| Windows Small Business Server 2011 | Windows Update | Pas de support standard ([en savoir plus](https://support.microsoft.com/lifecycle?p1=15817)). |
+| Windows Server 2016 | Windows Update | |
+| Windows Server, canal semi-annuel | Windows Update | |
+| Windows Server 2012 R2 | Windows Update | |
+| Windows Server 2012 | Windows Update | Nécessite le service d’intégration Échange de données.* |
+| Windows Server 2008 R2 (SP1) | Windows Update | Nécessite le service d’intégration Échange de données.* |
+| Windows Server 2008 (SP2) | Windows Update | Prise en charge étendue uniquement dans Windows Server 2016 ([en savoir plus](https://support.microsoft.com/lifecycle?p1=12925)). |
+| Windows Home Server 2011 | Windows Update | Ne sera pas pris en charge dans Windows Server 2016 ([en savoir plus](https://support.microsoft.com/lifecycle?p1=15820)). |
+| Windows Small Business Server 2011 | Windows Update | Pas de support standard ([en savoir plus](https://support.microsoft.com/lifecycle?p1=15817)). |
 | - | | |
 | Invités Linux | gestionnaire de package | Integration Services pour Linux est intégré à distribution, mais des mises à jour facultatives peuvent être disponibles. ******** |
 
-\* si le service d’intégration échange de données ne peut pas être activé, les services d’intégration pour ces invités sont disponibles dans le [Centre de téléchargement](https://support.microsoft.com/kb/3071740) en tant que fichier CAB. Les instructions relatives à l’application d’un fichier CAB sont disponibles dans ce billet de [blog](https://blogs.technet.com/b/virtualization/archive/2015/07/24/integration-components-available-for-virtual-machines-not-connected-to-windows-update.aspx).
+\* si le service d’intégration échange de données ne peut pas être activé, les services d’intégration pour ces invités sont disponibles dans le [Centre de téléchargement](https://support.microsoft.com/kb/3071740) en tant que fichier CAB. Les instructions relatives à l’application d’un fichier CAB sont disponibles dans ce billet de [blog](https://techcommunity.microsoft.com/t5/virtualization/integration-components-available-for-virtual-machines-not/ba-p/382247).
 
-**Pour les machines virtuelles qui s’exécutent sur des hôtes Windows 8.1 :**
+**Pour les machines virtuelles s’exécutant sur des ordinateurs hôtes Windows 8.1 2012 R2/Windows Server :**
 
 | Invité  | Mécanisme de mise à jour | Remarques |
 |:---------|:---------|:---------|
-| Windows 10 | Windows Update | |
-| Windows 8.1 | Windows Update | |
-| Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
-| Windows 7 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows 10 | Windows Update | |
+| Windows 8.1 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows 7 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Vista (SP2) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows XP (SP2, SP3) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | - | | |
-| Windows Server 2016 | Windows Update | |
-| Windows Server, canal semi-annuel | Windows Update | |
-| Windows Server 2012 R2 | Windows Update | |
+| Windows Server 2016 | Windows Update | |
+| Windows Server, canal semi-annuel | Windows Update | |
+| Windows Server 2012 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Server 2012 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
-| Windows Server 2008 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows Server 2008 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Server 2008 (SP2) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Home Server 2011 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Small Business Server 2011 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
@@ -277,19 +277,19 @@ Nous vous recommandons de tenir à jour les services d’intégration pour obten
 | Invités Linux | gestionnaire de package | Integration Services pour Linux est intégré à distribution, mais des mises à jour facultatives peuvent être disponibles. ** |
 
 
-**Pour les machines virtuelles qui s’exécutent sur des hôtes Windows 8 :**
+**Pour les machines virtuelles qui s’exécutent sur des hôtes Windows 8/Windows Server 2012 :**
 
 | Invité  | Mécanisme de mise à jour | Remarques |
 |:---------|:---------|:---------|
-| Windows 8.1 | Windows Update | |
-| Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
-| Windows 7 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows 8.1 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows 8 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
+| Windows 7 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Vista (SP2) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows XP (SP2, SP3) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | - | | |
-| Windows Server 2012 R2 | Windows Update | |
+| Windows Server 2012 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Server 2012 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
-| Windows Server 2008 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous.|
+| Windows Server 2008 R2 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous.|
 | Windows Server 2008 (SP2) | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Home Server 2011 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
 | Windows Small Business Server 2011 | Disque des services d’intégration | Consultez les [instructions](#install-or-update-integration-services)ci-dessous. |
@@ -302,14 +302,20 @@ Pour plus d’informations sur les invités Linux, consultez [machines virtuelle
 
 ## <a name="install-or-update-integration-services"></a>Installer ou mettre à jour les services d’intégration
 
-Pour les ordinateurs hôtes antérieurs à Windows Server 2016 et Windows 10, vous devez installer ou mettre à jour manuellement les services d’intégration dans les systèmes d’exploitation invités. 
-  
+> [!NOTE]
+> Pour les ordinateurs hôtes antérieurs à Windows Server 2016 et Windows 10, vous devez **installer ou mettre à jour manuellement** les services d’intégration dans les systèmes d’exploitation invités. 
+
+Procédure d’installation ou de mise à jour manuelle des services d’intégration :
+
 1.  Ouvrez le Gestionnaire Hyper-V. Dans le menu outils de Gestionnaire de serveur, cliquez sur **Gestionnaire Hyper-V**.  
   
-2.  Connectez-vous à l’ordinateur virtuel. Cliquez avec le bouton droit sur l’ordinateur virtuel, puis cliquez sur **se connecter**.  
+2.  Connectez-vous à l'ordinateur virtuel. Cliquez avec le bouton droit sur l’ordinateur virtuel, puis cliquez sur **se connecter**.  
   
 3.  Dans le menu Action de l’outil Connexion à un ordinateur virtuel, cliquez sur **Insérer le disque d’installation des services d’intégration**. Cette action charge le disque d’installation dans le lecteur de DVD virtuel. Selon le système d’exploitation invité, vous devrez peut-être démarrer manuellement l’installation.  
   
 4.  Quand l’installation est terminée, tous les services d’intégration peuvent être utilisés.
 
-Ces étapes ne peuvent pas être automatisées ou effectuées dans une session Windows PowerShell pour les machines virtuelles en ligne. Vous pouvez les appliquer à des images VHDX hors connexion ; [consultez ce](https://blogs.technet.microsoft.com/virtualization/2013/04/18/how-to-install-integration-services-when-the-virtual-machine-is-not-running/)billet de blog.
+> [!NOTE]
+> Ces étapes **ne peuvent pas être automatisées** ou effectuées dans une session Windows PowerShell pour les machines virtuelles **en ligne** .
+> Vous pouvez les appliquer à des images VHDX **hors connexion** ; consultez [procédure d’installation d’Integration Services lorsque l’ordinateur virtuel n’est pas en cours d’exécution](https://docs.microsoft.com/virtualization/community/team-blog/2013/20130418-how-to-install-integration-services-when-the-virtual-machine-is-not-running).
+> Vous pouvez également automatiser le déploiement d’Integration Services via **Configuration Manager** avec les machines virtuelles **en ligne**, mais vous devez redémarrer les machines virtuelles à la fin de l’installation. consultez [déploiement d’Integration Services Hyper-V sur des machines virtuelles à l’aide du gestionnaire de configuration et de DISM](https://docs.microsoft.com/archive/blogs/manageabilityguys/deploying-hyper-v-integration-services-to-vms-using-config-manager-and-dism)
