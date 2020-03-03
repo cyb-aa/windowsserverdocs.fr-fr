@@ -204,6 +204,7 @@
 ### [Exemple de fichier de commandes d’environnement réseau (Netsh)](technologies/netsh/netsh-wins.md)
 ### [Commandes Netsh http](technologies/netsh/netsh-http.md)
 ### [Commandes Netsh interface portproxy](technologies/netsh/netsh-interface-portproxy.md)
+### [Commandes netsh mbn](technologies/netsh/netsh-mbn.md)
 
 ## [Réglage des performances du sous-système réseau](technologies/network-subsystem/net-sub-performance-top.md)
 ### [Choix d’une carte réseau](technologies/network-subsystem/net-sub-choose-nic.md)
