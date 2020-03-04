@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 37e37e33b5d8dd571f8519aaa48251856503578d
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 2723868251f90429fb0ad5e966c9222a6a22ab0c
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953090"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520685"
 ---
 # <a name="windows-server-2016-improvements"></a>Améliorations apportées à Windows Server 2016
 
@@ -39,7 +39,7 @@ Des compteurs de l’Analyseur de performances ont été ajoutés. Ils vous perm
 |----- | ----- |
 |Décalage de temps calculé| Décalage de temps absolu entre l’horloge système et la source de temps choisie, comme calculé par le service w32time en microsecondes. Quand un nouvel échantillon valide est disponible, le temps calculé est mis à jour avec le décalage de temps indiqué par l’échantillon. Il s’agit du décalage de temps réel de l’horloge locale. w32time lance la correction de l’horloge à l’aide de ce décalage et met à jour le temps calculé entre les échantillons avec le décalage de temps restant qui doit être appliqué à l’horloge locale. La précision de l’horloge peut être suivie à l’aide de ce compteur de performances avec un intervalle d’interrogation faible (par exemple, 256 secondes ou moins) et en comptant sur le fait que la valeur du compteur soit inférieure à la limite de précision de l’horloge souhaitée.|
 |Ajustement de fréquence d’horloge| Ajustement de fréquence d’horloge absolue apporté à l’horloge du système local par le service w32time (parties par milliard). Ce compteur aide à visualiser les actions entreprises par w32time.|
-|Délai de l’aller-retour NTP| Délai du dernier aller-retour rencontré par le client NTP lors de la réception d’une réponse du serveur (en microsecondes). Il s’agit du temps écoulé sur le client NTP entre la transmission d’une demande vers le |serveur NTP et la réception d’une réponse valide de la part du serveur. Ce compteur aide à caractériser les délais expérimentés par le client NTP. Des allers-retours supérieurs ou variables peuvent ajouter du bruit aux calculs de temps NTP, ce qui peut affecter la précision de la synchronisation date/heure par le biais de NTP.|
+|Délai de l’aller-retour NTP| Délai du dernier aller-retour rencontré par le client NTP lors de la réception d’une réponse du serveur (en microsecondes). Il s’agit du temps écoulé sur le client NTP entre la transmission d’une demande au serveur NTP et la réception d’une réponse valide de la part du serveur. Ce compteur aide à caractériser les délais expérimentés par le client NTP. Des allers-retours supérieurs ou variables peuvent ajouter du bruit aux calculs de temps NTP, ce qui peut affecter la précision de la synchronisation date/heure par le biais de NTP.|
 |Nombre de sources de temps de client NTP| Nombre actif de sources de temps NTP utilisées par le client NTP. Il s’agit du nombre d’adresses IP actives distinctes des serveurs de temps qui répondent aux demandes de ce client. Ce nombre peut être supérieur ou inférieur aux pairs configurés, en fonction de la résolution DNS des noms de pair et de l’accessibilité actuelle.|
 |Requêtes entrantes de serveur NTP| Nombre de demandes reçues par le serveur NTP (demandes/s).|
 |Réponses sortantes de serveur NTP| Nombre de demandes auxquelles le serveur NTP a répondu (réponses/s).|

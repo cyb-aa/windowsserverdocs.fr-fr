@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: adce37d8d06399d3a00221a12f3449244720ade7
-ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
+ms.openlocfilehash: 8061f41dab0f02bccd59a659e0bcd209bd73a249
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519481"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517554"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Nouveautés des services de fédération Active Directory (AD FS)
 
@@ -108,6 +108,18 @@ C. Le client envoie alors le code d’autorisation dans la requête de jeton d�
 D. AD FS transforme « code_verifier » et le compare à « t(code_verifier) » obtenu à l’étape B.  L’accès est refusé s’ils ne sont pas égaux. 
 
 #### <a name="faq"></a>Forum Aux Questions 
+> [!NOTE] 
+> Vous pouvez rencontrer cette erreur dans les journaux des événements d’administration ADFS : Requête OAuth non valide reçue. Le client « NOM » n’est pas autorisé à accéder à la ressource avec l’étendue « ugs ». Pour corriger cette erreur : 
+> 1. Lancez la console de gestion AD FS. Accédez à « Services > Descriptions d’étendue ».
+> 2. Cliquez avec le bouton droit sur « Descriptions d’étendue » et sélectionnez « Ajouter une description d’étendue ».
+> 3. Sous le nom, tapez « ugs » et cliquez sur Appliquer > OK.
+> 4. Lancez PowerShell en tant qu’administrateur.
+> 5. Exécutez la commande « Get-AdfsApplicationPermission ». Recherchez l’élément ScopeNames :{openid, aza} qui contient le ClientRoleIdentifier. Notez la valeur de ObjectIdentifier.
+> 6. Exécutez la commande « Set-AdfsApplicationPermission -TargetIdentifier <ObjectIdentifier de l’étape 5> -AddScope 'ugs'
+> 7. Redémarrez le service ADFS.
+> 8. Sur le client : Redémarrez le client. L’utilisateur est invité à provisionner WHFB.
+> 9. Si la fenêtre de provisionnement ne s’affiche pas, collectez les journaux de suivi NGC pour un dépannage supplémentaire.
+
 **Q.** Puis-je transmettre une valeur de ressource dans le cadre de la valeur d’étendue, comme pour les requêtes exécutées sur Azure AD ? 
 </br>**A.** Avec AD FS sur Server 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut maintenant être organisé sous forme de liste séparée par des espaces, où chaque entrée est structurée en tant que ressource/étendue. Par exemple :  
 **< create a valid sample request>**

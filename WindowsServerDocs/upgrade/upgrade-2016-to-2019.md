@@ -7,12 +7,12 @@ ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/16/2019
-ms.openlocfilehash: 62fe4f00cef121e6241a403ee339047cda9488b5
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 8510b37c652dc7dfa95569a64dff8b1b75372a2d
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591088"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517564"
 ---
 # <a name="upgrade-windows-server-2016-to-windows-server-2019"></a>Mettre à niveau Windows Server 2016 vers Windows Server 2019
 
@@ -56,7 +56,7 @@ Une fois que vous avez collecté toutes les informations relatives à Windows Se
 
 7. Sélectionnez l’édition de Windows Server 2019 que vous voulez installer, puis sélectionnez **Suivant**.
 
-    ![Écran permettant de choisir l’édition de Windows Server 2016 à installer](media/upgrade-2016-2019/select-os-edition.png)
+    ![Écran permettant de choisir l’édition de Windows Server 2019 à installer](media/upgrade-2016-2019/select-os-edition.png)
 
 8. Sélectionnez **Accepter** pour accepter les termes de votre contrat de licence, en fonction de votre canal de distribution (comme Vente, Licence en volume, OEM, ODM, etc.).
 

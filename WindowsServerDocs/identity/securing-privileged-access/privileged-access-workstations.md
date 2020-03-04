@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 03f62fd8d9a95c4f0b83e64d672a3c1134833cae
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 86d7b2ff99debbecec930693fb93dc965fefc59e
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950556"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517594"
 ---
 # <a name="privileged-access-workstations"></a>Stations de travail à accès privilégié
 
@@ -40,7 +40,7 @@ Les contrôles de sécurité des stations de travail à accès privilégié ont 
 
 * **Attaques Internet** - La plupart des attaques proviennent de sources Internet, directement ou indirectement, et utilisent Internet pour l’exfiltration, les commandes et le contrôle (C2). Isoler le PAW de l’Internet public est un élément clé pour garantir que le PAW n’est pas compromis.
 * **Risques liés à la facilité d’utilisation** - Si un PAW est trop difficile à utiliser pour les tâches quotidiennes, les administrateurs seront encouragés créer des solutions de contournement pour faciliter leurs tâches. Fréquemment, ces solutions de contournement exposent la station de travail d’administration et les comptes à des risques de sécurité substantiels, il est donc essentiel d’impliquer et permettre aux utilisateurs du PAW et d’atténuer ces problèmes de facilité d’utilisation de façon sûre. Cela se fait en écoutant leurs commentaires, en installant les outils et les scripts requis pour leur travail et en veillant à ce que le personnel administratif comprenne pourquoi il doit utiliser une station de travail à accès privilégié, ce que c’est, et comment l’utiliser correctement et efficacement.
-* **Risques de l’environnement** - Étant donné que de nombreux autres ordinateurs et comptes de l’environnement sont exposés aux risques d’Internet directement ou indirectement, un PAW doit être protégé contre les attaques de ressources compromises dans l’environnement de production. Pour ce faire, il est nécessite de limiter l’utilisation des outils de gestion et des comptes ayant accès aux stations de travail à accès privilégié afin de sécuriser et de surveiller ces stations de travail spécialisées.
+* **Risques liés à l’environnement** – Sachant que de nombreux autres ordinateurs et comptes de l’environnement sont exposés aux risques d’Internet directement ou indirectement, un PAW doit être protégé contre les attaques de ressources compromises dans l’environnement de production. Pour ce faire, il est nécessite de limiter l’utilisation des outils de gestion et des comptes ayant accès aux stations de travail à accès privilégié afin de sécuriser et de surveiller ces stations de travail spécialisées.
 * **Falsification de la chaîne logistique** - S’il est impossible d’éliminer tous les risques possibles de falsification de la chaîne logistique pour le matériel et les logiciels, vous pouvez atténuer les vecteurs d’attaque critiques qui sont accessibles aux pirates en prenant quelques mesures essentielles. Cela comprend la validation de l’intégrité de tous les supports d’installation ([principe de source propre](https://aka.ms/cleansource)) et l’utilisation d’un fournisseur approuvé et digne de confiance pour le matériel et les logiciels.
 * **Attaques physiques** - Les PAW pouvant être physiquement mobiles et utilisés en dehors des emplacements physiquement sécurisés, ils doivent être protégés contre les attaques qui exploitent l’accès physique à l’ordinateur.
 

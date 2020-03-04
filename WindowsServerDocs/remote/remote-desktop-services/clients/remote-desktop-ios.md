@@ -14,12 +14,12 @@ manager: lizross
 ms.author: helohr
 date: 02/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 1724f24a794003aaae0ac89ee892269eed045114
-ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
+ms.openlocfilehash: ef13227a9f7b83f01786bbb11498da912c86581b
+ms.sourcegitcommit: 32211610ad9a24d282b35ed8c0aaa179497c63bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77179353"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77780818"
 ---
 # <a name="get-started-with-the-ios-client"></a>Bien démarrer avec le client iOS
 
@@ -170,7 +170,12 @@ Le client utilise les mouvements d’interaction tactile standard. Vous pouvez �
 
 ## <a name="supported-input-devices"></a>Périphériques d’entrée pris en charge
 
-Actuellement, le client iOS prend en charge seulement les souris Swiftpoint GT et ProPoint. Pour plus d’informations sur la prise en charge des appareils, consultez [Nouveautés du client iOS](ios-whatsnew.md) et l’[App Store iOS](https://aka.ms/rdios).
+La [prise en charge d’une souris Bluetooth](https://support.apple.com/HT210546) de base est disponible dans iOS 13 et iPadOS en tant que fonctionnalité d’accessibilité. Une intégration plus poussée de la souris dans le client Bureau à distance est disponible à l’aide des souris Swiftpoint GT et ProPoint. En outre, les claviers externes compatibles avec iOS et iPadOS sont également pris en charge.
+
+Pour plus d’informations sur la prise en charge des appareils, consultez [Nouveautés du client iOS](ios-whatsnew.md) et l’[App Store iOS](https://aka.ms/rdios).
+
+> [!TIP]
+> Swiftpoint offre une [remise exclusive sur la souris ProPoint](https://www.swiftpoint.com/microsoft) aux utilisateurs du client iOS.
 
 ## <a name="use-a-keyboard-in-a-remote-session"></a>Utiliser un clavier dans une session à distance
 
@@ -180,20 +185,7 @@ Sur un clavier visuel, utilisez le bouton sur le bord droit de la barre située 
 
 Si le mode Bluetooth est activé pour votre périphérique iOS, le client détecte automatiquement le clavier Bluetooth.
 
-N’oubliez pas que, en raison de certaines limitations sur le système d’exploitation, les touches spéciales comme Ctrl, Option et Fonction n’ont pas le comportement prévu avec un clavier Bluetooth. Les touches suivantes fonctionnent :
+Bien que certaines combinaisons de touches puissent ne pas fonctionner comme prévu dans une session à distance, la plupart des combinaisons de touches Windows courantes, telles que Ctrl+C, Ctrl+V et Alt+Tab, fonctionnent.
 
-- Touches alphanumériques
-- Touches de direction
-- Tab : la touche Tab fonctionne, mais pas la combinaison Maj+Tab
-- Accueil / Pos1 : Alt+Gauche = Accueil
-- Fin : Alt+Droite = Fin
-- Page précédente : Alt+Haut = Page précédente
-- Page suivante : Alt+Bas = Page suivante
-- Tout sélectionner : Commande+A = Ctrl+A (Tout sélectionner dans la plupart des programmes)
-- Couper : Commande+X = Ctrl+X (Couper dans la plupart des programmes)
-- Copier : Commande+C = Ctrl+C (Copier dans la plupart des programmes)
-- Coller : Commande+V = Ctrl+V (Coller dans la plupart des programmes)
-- Symboles : La combinaison Alt+touches alphanumériques génère des symboles différents selon la langue configurée
-
-> [!TIP]
+> [!IMPORTANT]
 > Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, merci de ne pas utiliser la fonctionnalité de commentaire qui figure à la fin de cet article pour nous envoyer une demande d’aide. Veuillez plutôt accéder au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau fil de discussion. Vous souhaitez nous suggérer une fonctionnalité ? N’hésitez pas à utiliser le [forum UserVoice pour le client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) afin de nous en faire part.

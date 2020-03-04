@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f8b035eef5bb956012627b5e2c7c59adaa8cd32
-ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
+ms.openlocfilehash: f435892f0a200056c08094cac1831c710a47a6be
+ms.sourcegitcommit: 92e0e4224563106adc9a7f1e90f27da468859d90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77155383"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77608798"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -30,14 +30,14 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 
 |Groupe d’utilisateurs |Version  |
 |-----------|---------|
-|Public     |1.2.605  |
-|Insider    |1.2.673  |
+|Public     |1.2.675  |
+|Insider    |1.2.675  |
 
-## <a name="updates-for-version-12673"></a>Mises à jour pour la version 1.2.673
+## <a name="updates-for-version-12675"></a>Mises à jour pour la version 1.2.675
 
-*Date de publication : 11/02/2020*
+*Date de publication : 25/02/2020*
 
-Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pPJm), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pFbw), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pN07)
+Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qeak), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7h), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7g)
 
 - Les connexions à Windows Virtual Desktop sont maintenant bloquées si le fichier RDP ne contient pas la signature ou si une des propriétés de signscope a été modifiée.
 - Quand un espace de travail est vide ou a été supprimé, le centre de connexions n’apparaît vide.

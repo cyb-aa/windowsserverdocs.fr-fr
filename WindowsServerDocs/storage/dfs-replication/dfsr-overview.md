@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 22f9e25763217cbbfdfd8a4ab099344f23138344
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c17fd78a2cf726ab156d3eda09b9c0e2d4ed6a75
+ms.sourcegitcommit: aaae95cb05c44232099ec46b04a127c77a3f486e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949715"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520355"
 ---
 # <a name="dfs-replication-overview"></a>Vue d’ensemble de la réplication DFS
 
@@ -51,9 +51,9 @@ Avant de pouvoir déployer la réplication DFS, vous devez configurer vos serve
 L’utilisation de la réplication DFS sur une machine virtuelle dans Azure a été testée avec Windows Server. Toutefois, vous devez respecter certaines limites et certaines conditions.
 
 - L’utilisation des captures instantanées ou des états de mise en mémoire pour restaurer un serveur exécutant la réplication DFS pour répliquer tout élément différent du dossier SYSVOL entraîne l’échec de la réplication DFS, ce qui requiert des étapes de récupération de base de données particulières. De même, n’exportez pas, ne clonez pas et ne copiez pas les machines virtuelles. Pour plus d’informations, voir l’article [2517913](https://support.microsoft.com/kb/2517913) de la Base de connaissances Microsoft et la rubrique [Virtualisation DFSR sûre](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
-- Lorsque vous sauvegardez des données dans un dossier répliqué hébergé sur une machine virtuelle, vous devez utiliser le logiciel de sauvegarde de la machine virtuelle invitée.
+- Quand vous sauvegardez des données dans un dossier répliqué hébergé sur une machine virtuelle, vous devez utiliser le logiciel de sauvegarde de la machine virtuelle invitée.
 - La réplication DFS nécessite l’accès aux contrôleurs de domaine physiques ou virtualisés. Elle ne peut pas communiquer directement avec Azure AD.
-- La réplication DFS nécessite une connexion VPN entre les membres du groupe de réplication local et tous les membres hébergés dans des machines virtuelles Azure. Vous devez également configurer le routeur local (par exemple, Forefront Threat Management Gateway) pour autoriser le mappeur de point de terminaison RPC (port 135) et un port attribué de façon aléatoire compris entre 49152 et 65535 à passer sur la connexion VPN. Vous pouvez utiliser l’applet de commande Set-DfsrMachineConfiguration ou l’outil en ligne de commande Dfsrdiag pour spécifier un port statique au lieu du port aléatoire. Pour plus d’informations sur la façon de spécifier un port statique pour la réplication DFS, voir [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Pour plus d’informations sur les ports associés à ouvrir pour la gestion de Windows Server, consultez l’article [832017](https://support.microsoft.com/kb/832017) de la Base de connaissances Microsoft.
+- La réplication DFS nécessite une connexion VPN entre les membres du groupe de réplication local et tous les membres hébergés dans des machines virtuelles Azure. Vous devez aussi configurer le routeur local (par exemple, Forefront Threat Management Gateway) pour autoriser le mappeur de point de terminaison RPC (port 135) et un port attribué de façon aléatoire compris entre 49152 et 65535 à passer sur la connexion VPN. Vous pouvez utiliser l’applet de commande Set-DfsrMachineConfiguration ou l’outil en ligne de commande Dfsrdiag pour spécifier un port statique au lieu du port aléatoire. Pour plus d’informations sur la façon de spécifier un port statique pour la réplication DFS, voir [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Pour plus d’informations sur les ports associés à ouvrir pour la gestion de Windows Server, consultez l’article [832017](https://support.microsoft.com/kb/832017) de la Base de connaissances Microsoft.
 
 Pour en savoir plus sur la prise en main des machines virtuelles Azure, visitez le [site web Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/).
 

@@ -9,12 +9,12 @@ manager: mtillman
 ms.date: 03/22/2019
 ms.technology: identity-adds
 ms.assetid: 7a3114c8-bda8-49bb-83a8-4e04340ab221
-ms.openlocfilehash: 67e35a47467b1f5f66bfd073c6f9db06094ea3f9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 25a5c2222f50b37bff2bcfe41184d6d9fa35995c
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391026"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465503"
 ---
 # <a name="safely-virtualizing-active-directory-domain-services-ad-ds"></a>Virtualisation sécurisée des services de domaine Active Directory (AD DS)
 
@@ -32,7 +32,7 @@ Par exemple, l’illustration suivante décrit la séquence des événements qui
 
 ![Séquence d’événements lorsque la restauration USN est détectée](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/ADDS_Exampleofhowreplicationcanbecomeinconsistent.png)
 
-Un ordinateur virtuel permet aux administrateurs d’hyperviseurs de restaurer les valeurs USN (l’horloge logique) d’un contrôleur de domaine, notamment en appliquant une capture instantanée sans que ce dernier ne le sache. Pour obtenir des informations sur les numéros USN et la restauration USN et consulter une autre illustration décrivant les instances de restauration USN non détectées, voir les sections [USN et Restauration USN](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx#usn_and_usn_rollback).
+Un ordinateur virtuel permet aux administrateurs d’hyperviseurs de restaurer les valeurs USN (l’horloge logique) d’un contrôleur de domaine, notamment en appliquant une capture instantanée sans que ce dernier ne le sache. Pour obtenir des informations sur les numéros USN et la restauration USN et consulter une autre illustration décrivant les instances de restauration USN non détectées, voir les sections [USN et Restauration USN](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx#usn_and_usn_rollback).
 
 Depuis Windows Server 2012, les contrôleurs de domaine virtuels AD DS hébergés sur des plateformes d’hyperviseur qui dévoilent un identificateur appelé « ID de génération d’ordinateur virtuel » peuvent détecter et employer des mesures de sécurité nécessaires à la protection de l’environnement AD DS si l’ordinateur virtuel est restauré à temps par réalisation d’une capture instantanée d’ordinateur virtuel. La structure de l’ID de génération d’ordinateur virtuel repose sur un mécanisme hyperviseur/fournisseur indépendant qui présente l’identificateur dans l’espace d’adressage de l’ordinateur virtuel invité, de sorte que l’expérience de virtualisation sécurisée reste systématiquement disponible depuis chaque hyperviseur prenant en charge les ID de génération d’ordinateur virtuel. Cet identificateur peut être testé par les services et les applications en cours d’exécution sur l’ordinateur virtuel afin de détecter si un ordinateur virtuel a été restauré à temps.
 
@@ -67,7 +67,7 @@ Sur un contrôleur de domaine, les messages d’événement qui ressemblent à c
 
 Ces événements peuvent être enregistrés dans le journal des événements du service de répertoire. Toutefois, ils peuvent être remplacés avant d’être examinés par un administrateur.
 
-Si vous pensez qu’une restauration USN a été effectuée mais que vous ne voyez aucun événement correspondant dans les journaux des événements, recherchez l’entrée DSA non accessible en écriture dans le registre. Cette entrée vous fournit la preuve qu’une restauration USN a été effectuée.
+Si vous pensez qu’une restauration USN a été effectuée mais que vous ne voyez aucun événement correspondant dans les journaux des événements, recherchez l’entrée DSA Not Writable (DSA non accessible en écriture) dans le Registre. Cette entrée vous fournit la preuve qu’une restauration USN a été effectuée.
 
 ```
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\NTDS\Parameters
@@ -103,7 +103,7 @@ La restauration d’un contrôleur de domaine par application d’une capture in
 > [!CAUTION]
 > Si un contrôleur de domaine d’un environnement de production revient accidentellement à l’état de capture instantanée, il est préférable que vous consultiez les fournisseurs d’applications et des services hébergés sur cet ordinateur virtuel pour obtenir des conseils sur la vérification de l’état de ces programmes après restauration de la capture instantanée.
 
-Pour plus d‘informations, voir [Architecture de restauration sécurisée des contrôleurs de domaine virtualisés](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch).
+Pour plus d'informations, voir [Virtualized domain controller safe restore architecture](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch).
 
 ## <a name="recovering-from-a-usn-rollback"></a>Récupération à partir d’une restauration USN
 
@@ -131,5 +131,5 @@ Vous pouvez également utiliser l’instantané comme source d’une sauvegarde.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la résolution des problèmes liés aux contrôleurs de domaine virtualisés, voir [Résolution des problèmes des contrôleurs de domaine virtualisés](../ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md).
+* Pour plus d’informations sur la résolution des problèmes liés aux contrôleurs de domaine virtualisés, voir [Virtualized Domain Controller Troubleshooting](../ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md).
 * [Informations détaillées sur le service de temps Windows (W32Time)](../../networking/windows-time-service/windows-time-service-top.md)

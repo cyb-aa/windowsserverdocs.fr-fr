@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 6287b6233306a47d71951b589b5d3cb84ac0d761
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: e7708ffe5639c80067ed0dbc2794c4d6694e6247
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950393"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517504"
 ---
 # <a name="optimizing-windows-10-version-1803-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimisation de Windows 10 version 1803 pour un rôle VDI (Virtual Desktop Infrastructure)
 
@@ -91,7 +91,7 @@ Selon l’architecture de la machine virtuelle VDI, des choses comme la préréc
 
 ### <a name="to-sysprep-or-not-sysprep"></a>Utiliser Sysprep ou pas
 
-Windows 10 a une fonctionnalité intégrée appelée [Outil de préparation du système](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) (System Preparation Tool, souvent abrégé en « Sysprep »). L’outil Sysprep est utilisé pour préparer une image Windows 10 personnalisée pour la duplication. Le processus de Sysprep garantit que le système d’exploitation qui en résulte est correctement configuré pour une exécution en production.
+Windows 10 a une fonctionnalité intégrée appelée [Outil de préparation du système](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) (System Preparation Tool, souvent abrégé en « Sysprep »). L’outil Sysprep est utilisé pour préparer une image Windows 10 personnalisée pour la duplication. Le processus de Sysprep garantit que le système d’exploitation qui en résulte est correctement configuré pour une exécution en production.
 
 Il existe des raisons pour et contre l’exécution de Sysprep. Dans le cas de VDI, vous pouvez avoir besoin de personnaliser le profil utilisateur par défaut qui doit être utilisé comme modèle de profil pour les utilisateurs suivants qui se connectent en utilisant cette image. Vous pouvez avoir des applications à installer, mais aussi vouloir contrôler les paramètres pour chaque application.
 

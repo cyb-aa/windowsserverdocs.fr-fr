@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e73511709bfbee69a6dcbaaff4341c8b067079f3
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ca68087ad238cbbd06c56e41dd65f318adae5222
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949864"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465473"
 ---
 # <a name="get-started-with-the-macos-client"></a>Bien démarrer avec le client macOS
 
@@ -40,7 +40,7 @@ Effectuez ces étapes pour bien démarrer avec le Bureau à distance sur votre a
 3. Ajoutez une connexion Bureau à distance ou une ressource distante. Utilisez une connexion pour vous connecter directement à un PC Windows, et une ressource distante pour accéder à un programme RemoteApp, un bureau basé sur une session ou un bureau virtuel publié en local à l’aide de la fonctionnalité Connexions aux programmes RemoteApp et aux services Bureau à distance. Cette fonctionnalité est généralement disponible dans les environnements d’entreprise.
 
 ## <a name="what-about-the-mac-beta-client"></a>Présentation du client de la version bêta Mac
-Nous testons de nouvelles fonctionnalités sur notre canal de préversion sur HockeyApp. Vous voulez en savoir plus ? Rendez-vous sur la page [Bureau à distance Microsoft pour Mac](https://go.microsoft.com/fwlink/?LinkID=619698) et cliquez sur **Télécharger**. Vous n’avez pas besoin de créer un compte ou de vous connecter à HockeyApp pour télécharger le client de la version bêta.
+Nous testons de nouvelles fonctionnalités sur notre canal de préversion sur AppCenter. Vous voulez en savoir plus ? Rendez-vous sur la page [Bureau à distance Microsoft pour Mac](https://aka.ms/rdmacbeta) et cliquez sur **Télécharger**. Vous n’avez pas besoin de créer un compte ou de vous connecter à AppCenter pour télécharger le client de la version bêta.
 
 Si vous avez déjà le client, vous pouvez vérifier si des mises à jour sont disponibles, pour être certain d’avoir la version la plus récente. En haut de la fenêtre du client de la version bêta, cliquez sur **Version bêta de Bureau à distance Microsoft**, puis sur **Rechercher des mises à jour**. 
 
