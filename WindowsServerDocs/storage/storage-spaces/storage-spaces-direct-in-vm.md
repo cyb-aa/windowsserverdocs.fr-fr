@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: Comment déployer des espaces de stockage direct dans un cluster invité d’ordinateur virtuel, par exemple, dans Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: ab0ce792c5a948e763a48493a78ccdac7a6fe74c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 34241183a56cdb9be4690e1edd68b56320cc01de
+ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366047"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78261918"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Utilisation de espaces de stockage direct dans les clusters d’ordinateurs virtuels invités
 
@@ -65,10 +65,6 @@ Les considérations suivantes s’appliquent lors du déploiement d’espaces de
     Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
     ```
 
--   Non pris en charge : Instantané/restauration du disque virtuel au niveau de l’hôte
-
-    Au lieu de cela, utilisez les solutions de sauvegarde de niveau invité traditionnelles pour sauvegarder et restaurer les données sur les volumes de espaces de stockage direct.
-
 -   Pour offrir une plus grande résilience à la latence de stockage VHD/VHDX/VMDK possible dans les clusters invités, augmentez la valeur du délai d’attente d’e/s des espaces de stockage :
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
@@ -76,6 +72,16 @@ Les considérations suivantes s’appliquent lors du déploiement d’espaces de
     `dword: 00007530`
 
     L’équivalent décimal de la valeur hexadécimale 7530 est 30000, ce qui correspond à 30 secondes. Notez que la valeur par défaut est 1770 hexadécimale, ou 6000 décimal, soit 6 secondes.
+
+## <a name="not-supported"></a>Non prise en charge
+
+-   Instantané/restauration du disque virtuel au niveau de l’hôte
+
+    Au lieu de cela, utilisez les solutions de sauvegarde de niveau invité traditionnelles pour sauvegarder et restaurer les données sur les volumes de espaces de stockage direct.
+
+-   Modification de la taille du disque virtuel au niveau de l’hôte
+
+    Les disques virtuels exposés via l’ordinateur virtuel doivent conserver la même taille et les mêmes caractéristiques. L’ajout d’une capacité supplémentaire au pool de stockage peut être effectué en ajoutant des disques virtuels à chacun des ordinateurs virtuels et en les ajoutant au pool. Il est fortement recommandé d’utiliser des disques virtuels de la même taille et des mêmes caractéristiques que les disques virtuels actuels.
 
 ## <a name="see-also"></a>Voir aussi
 
