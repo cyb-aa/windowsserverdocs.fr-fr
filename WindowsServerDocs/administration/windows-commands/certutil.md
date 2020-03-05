@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45c9946cc53fe3a901c3f6ee53f082a5b3d086c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 71525e4051a079eb9a3d0c8c197c8157b53e5e67
+ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379650"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78278544"
 ---
 # <a name="certutil"></a>certutil
 
 Certutil. exe est un programme de ligne de commande installé dans le cadre des services de certificats. Vous pouvez utiliser certutil. exe pour vider et afficher les informations de configuration de l’autorité de certification, configurer les services de certificats, sauvegarder et restaurer les composants de l’autorité de certification et vérifier les certificats, les paires de clés et les chaînes de certificats.
 
-Lorsque certutil est exécutée sur une autorité de certification sans paramètres supplémentaires, elle affiche la configuration de l’autorité de certification actuelle. Quand cerutil est exécuté sur une autorité de certification qui n’est pas une autorité de certification, la commande utilise par défaut le verbe certutil [-dump](#-dump) .
+Lorsque certutil est exécutée sur une autorité de certification sans paramètres supplémentaires, elle affiche la configuration de l’autorité de certification actuelle. Lorsque certutil est exécuté sur une autorité de certification qui n’est pas une autorité de certification, la commande utilise par défaut le verbe certutil [-dump](#-dump) .
 
 > [!WARNING]
 > Les versions antérieures de Certutil peuvent ne pas fournir toutes les options décrites dans ce document. Vous pouvez voir toutes les options fournies par une version spécifique de Certutil en exécutant les commandes présentées dans la section [notations de syntaxe](#syntax-notations) .
@@ -1626,7 +1626,7 @@ récupérer : récupérer et récupérer les clés privées en une seule étape
 
 SearchToken : permet de sélectionner les clés et les certificats à récupérer.
 
-Peut être l’un des éléments suivants :
+Il peut s'agir de l'un des systèmes d'exploitation suivants :
 
 1. Nom commun du certificat
 2. Numéro de série du certificat
@@ -1703,7 +1703,7 @@ Cette section définit les options que vous pouvez spécifier à l’aide de la 
 |-------|-----------|
 |-nullsign|Utiliser le hachage des données comme signature|
 |-f|Forcer le remplacement|
-|-entreprise|Utiliser le magasin de certificats du registre de l’ordinateur local de l’entreprise|
+|-enterprise|Utiliser le magasin de certificats du registre de l’ordinateur local de l’entreprise|
 |-utilisateur|Utiliser des clés de HKEY_CURRENT_USER ou un magasin de certificats|
 |-GroupPolicy|Utiliser stratégie de groupe magasin de certificats|
 |-UT|Afficher les modèles utilisateur|
@@ -1720,7 +1720,7 @@ Cette section définit les options que vous pouvez spécifier à l’aide de la 
 |-urlfetch|Récupération et vérification des certificats AIA et des listes CRL CDP|
 |-config Machine\CAName|Autorité de certification et chaîne de nom d’ordinateur|
 |-PolicyServer URLOrId|URL ou ID du serveur de stratégie. Pour la sélection U/I, utilisez-PolicyServer. Pour tous les serveurs de stratégie, utilisez-PolicyServer \*|
-|-Anonyme|Utiliser des informations d’identification SSL anonymes|
+|-Anonymous|Utiliser des informations d’identification SSL anonymes|
 |-Kerberos|Utiliser les informations d’identification Kerberos SSL|
 |-ClientCertificate ClientCertId|Utilisez les informations d’identification SSL du certificat X. 509. Pour la sélection U/I, utilisez-clientCertificate.|
 |-UserName nom_utilisateur|Utilisez le compte nommé pour les informations d’identification SSL. Pour la sélection U/I, utilisez-UserName.|
@@ -1728,7 +1728,7 @@ Cette section définit les options que vous pouvez spécifier à l’aide de la 
 |-DC DCName|Cibler un contrôleur de domaine spécifique|
 |-restreindre RestrictionList|Liste de restrictions séparée par des virgules. Chaque restriction comprend un nom de colonne, un opérateur relationnel et un entier constant, une chaîne ou une date. Un nom de colonne peut être précédé d’un signe plus ou moins pour indiquer l’ordre de tri. Exemples :</br>« RequestId = 47 »</br>« + RequesterName > = a, RequesterName < b »</br>« -RequesterName > domaine, disposition = 21 »|
 |-out ColumnList|Liste de colonnes séparées par des virgules|
-|-p mot de passe|Mot de passe|
+|-p mot de passe|Password|
 |-ProtectTo SAMNameAndSIDList|Liste des noms SAM/SID séparés par des virgules|
 |-Fournisseur CSP|Fournisseur|
 |-t délai d’expiration|Délai d’expiration de l’extraction d’URL en millisecondes|

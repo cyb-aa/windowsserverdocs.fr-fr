@@ -9,16 +9,16 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8e11883de9f89d0b95ed0fc35b4f5f3941ef82a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53af8acd7da8f9008c88ad7c6c14b00e63801847
+ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368896"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78278554"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Configuration d’un ordinateur pour la résolution des problèmes
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Avant d’utiliser des techniques de dépannage avancées pour identifier et résoudre les problèmes de Active Directory, configurez vos ordinateurs pour le dépannage. Vous devez également avoir une compréhension de base des concepts, des procédures et des outils de dépannage.
 
@@ -42,14 +42,14 @@ Le moniteur de fiabilité et de performances comprend également le moniteur de 
 
 ### <a name="set-logging-levels"></a>Définir les niveaux de journalisation
 
-Si les informations que vous recevez dans le journal du service d’annuaire observateur d’événements ne sont pas suffisantes pour la résolution des problèmes, augmentez les niveaux de journalisation à l’aide de l’entrée de registre appropriée dans **HKEY_LOCAL_ MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics**.
+Si les informations que vous recevez dans le journal du service d’annuaire observateur d’événements ne sont pas suffisantes pour la résolution des problèmes, augmentez les niveaux de journalisation à l’aide de l’entrée de registre appropriée dans **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\ntds\diagnostics**.
 
 Par défaut, les niveaux de journalisation pour toutes les entrées ont la valeur **0**, ce qui fournit la quantité minimale d’informations. Le niveau de journalisation le plus élevé est **5**. Le fait d’accroître le niveau d’une entrée entraîne la journalisation des événements supplémentaires dans le journal des événements du service d’annuaire.
 
 Utilisez la procédure suivante pour modifier le niveau de journalisation d’une entrée de diagnostic. L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.
 
 > [!WARNING]
-> Nous vous recommandons de ne pas modifier directement le Registre, sauf s’il n’y a pas d’autre solution. Les modifications apportées au registre ne sont pas validées par l’éditeur du registre ou par Windows avant d’être appliquées. par conséquent, des valeurs incorrectes peuvent être stockées. Cela peut entraîner des erreurs irrécupérables dans le système. Dans la mesure du possible, utilisez stratégie de groupe ou d’autres outils Windows, tels que les composants logiciels enfichables MMC, pour accomplir des tâches, plutôt que de modifier directement le registre. Si vous devez modifier le Registre, soyez très vigilant.
+> Nous vous recommandons de ne pas modifier directement le Registre, sauf s’il n’y a pas d’autre solution. Les modifications apportées au Registre ne sont pas validées par l’Éditeur du Registre ni par Windows avant d’être appliquées ; des valeurs incorrectes peuvent donc être stockées. Cela peut entraîner des erreurs irrécupérables dans le système. Dans la mesure du possible, utilisez stratégie de groupe ou d’autres outils Windows, tels que les composants logiciels enfichables MMC, pour accomplir des tâches, plutôt que de modifier directement le registre. Si vous devez modifier le Registre, soyez très vigilant.
 >
 
 Pour modifier le niveau de journalisation d’une entrée de diagnostic

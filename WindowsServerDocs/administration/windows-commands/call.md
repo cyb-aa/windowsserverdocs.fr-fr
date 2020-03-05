@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 0e5f9f2b0102c12ee0925bb434fdeddde85e34cd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 89097ec5d3711b3d8831f8c33b3778ed0752246f
+ms.sourcegitcommit: ee8fa8e1293f29229b5ce1b0f3d4a07ba99568f5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379719"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78280190"
 ---
 # <a name="call"></a>appel
 
@@ -78,7 +78,7 @@ Le tableau suivant montre comment combiner des modificateurs avec les paramètre
 |% ~ DP $ chemin : 1|Recherche dans les répertoires figurant dans la variable d’environnement PATH pour **%1**, puis développe la lettre de lecteur et le chemin d’accès du premier répertoire trouvé.|
 |% ~ ftza1|Développe **%1** pour afficher une sortie similaire à la commande **dir** .|
 
-Dans les exemples ci-dessus, **%1** et Path peuvent être remplacés par d’autres valeurs valides. La syntaxe de <strong>%~</strong> se termine par un numéro d’argument valide. Les modificateurs <strong>%~</strong> ne peuvent pas être utilisés avec **%\*\\** .
+Dans les exemples ci-dessus, **%1** et Path peuvent être remplacés par d’autres valeurs valides. La syntaxe de <strong>%~</strong> se termine par un numéro d’argument valide. Les modificateurs <strong>%~</strong> ne peuvent pas être utilisés avec **%\*** .
 
 ## <a name="remarks"></a>Notes
 
@@ -98,7 +98,7 @@ Dans les exemples ci-dessus, **%1** et Path peuvent être remplacés par d’aut
 
     Si les extensions de commande sont activées, **Call** accepte *étiquette* comme cible de l’appel. La syntaxe correcte est la suivante :
 
-    `call :\<Label> <Arguments>`
+    `call :<Label> <Arguments>`
 
 ## <a name="BKMK_examples"></a>Illustre
 
