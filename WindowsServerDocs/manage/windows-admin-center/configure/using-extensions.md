@@ -8,15 +8,15 @@ ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 7c1a70e36dfac9b23ded8f920ffcc8cccbfff023
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
-ms.translationtype: HT
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903944"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371117"
 ---
 # <a name="install-and-manage-extensions"></a>Installer et gérer des extensions
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 Windows Admin Center est construit comme une plateforme extensible où chaque type de connexion et chaque outil est une extension que vous pouvez installer, désinstaller et mettre à jour individuellement. Vous pouvez rechercher de nouvelles extensions publiées par Microsoft et d’autres développeurs, les installer et les mettre à jour individuellement sans avoir à mettre à jour l’ensemble de l’installation Windows Admin Center. Vous pouvez également configurer un partage de fichiers ou un flux NuGet distinct, et distribuer les extensions à utiliser en interne au sein de votre organisation.
 
@@ -86,4 +86,4 @@ La préversion de Windows Admin Center comprend un module PowerShell pour gérer
 
 [!INCLUDE [ps-extensions](../includes/ps-extensions.md)]
 
-### <a name="learn-more-about-building-an-extension-with-the-windows-admin-center-sdkextendextensibility-overviewmd"></a>[En savoir plus sur la création d’une extension avec le kit SDK de Windows Admin Center](../extend/extensibility-overview.md).
+### <a name="learn-more-about-building-an-extension-with-the-windows-admin-center-sdk"></a>[En savoir plus sur la création d’une extension avec le kit SDK de Windows Admin Center](../extend/extensibility-overview.md).
