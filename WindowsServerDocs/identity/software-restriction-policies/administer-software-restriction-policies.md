@@ -14,19 +14,19 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: c75c7813041870f79ed95250857a5c7d1576c7dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407182"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371728"
 ---
 # <a name="administer-software-restriction-policies"></a>Administrer les stratégies de restriction logicielle
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique destinée aux professionnels de l’informatique contient des procédures permettant d’administrer des stratégies de contrôle d’application à l’aide de stratégies de restriction logicielle (SRP) à partir de Windows Server 2008 et Windows Vista.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 La fonctionnalité Stratégies de restriction logicielle est une fonctionnalité fondée sur les stratégies de groupe qui identifie les programmes logiciels s’exécutant sur les ordinateurs d’un domaine et qui contrôle la capacité de ces programmes à s’exécuter. Les stratégies de restriction logicielle peuvent aussi contribuer à créer une configuration fortement restreinte pour vos ordinateurs, dans laquelle seule l’exécution d’applications clairement identifiées est autorisée. Celles-ci sont intégrées à Microsoft Active Directory Domain Services et stratégie de groupe mais peuvent également être configurées sur des ordinateurs autonomes. Pour plus d’informations sur les SRP, consultez [stratégies de restriction logicielle](software-restriction-policies.md).
 
 À compter de Windows Server 2008 R2 et Windows 7, il est possible d’utiliser Windows AppLocker à la place ou en collaboration avec les stratégies de restriction logicielle pour une partie de votre stratégie de contrôle des applications.
@@ -74,7 +74,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
     -   Paramètres de sécurité/stratégies de restriction logicielle
 
 > [!NOTE]
-> Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs sur l’ordinateur local, ou l’autorité appropriée doit vous avoir été déléguée.
+> Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs sur l'ordinateur local ou bien disposer de l'autorité appropriée.
 
 ### <a name="BKMK_2"></a>Pour un domaine, un site ou une unité d’organisation, et vous êtes sur un serveur membre ou sur une station de travail jointe à un domaine
 
@@ -128,7 +128,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 
     **Cela?**
 
-    -   Sites et services Active Directory [*Domain_Controller_Name. nom_domaine*]/sites/site
+    -   Sites et services Active Directory [*Domain_Controller_Name. domain_name*]/sites/site
 
 3.  Cliquez sur une entrée dans **stratégie de groupe des liens vers des objets** pour sélectionner un objet stratégie de groupe existant (GPO), puis cliquez sur **modifier**. Vous pouvez également cliquer sur **Nouveau** pour créer un objet de stratégie de groupe, puis cliquez sur **Modifier**.
 
@@ -141,7 +141,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
         Configuration utilisateur/Paramètres Windows/paramètres de sécurité/stratégies de restriction logicielle
 
 > [!NOTE]
-> -   Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs sur l’ordinateur local, ou l’autorité appropriée doit vous avoir été déléguée. Si l'ordinateur est joint à un domaine, les membres du groupe Admins du domaine peuvent être en mesure d'effectuer cette procédure.
+> -   Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs sur l'ordinateur local ou bien disposer de l'autorité appropriée. Si l'ordinateur est joint à un domaine, les membres du groupe Administrateurs du domaine doivent pouvoir suivre cette procédure.
 > -   Pour définir les paramètres de stratégie qui seront appliqués aux ordinateurs, quels que soient les utilisateurs qui se connectent à ceux-ci, cliquez sur Configuration de l' **ordinateur**.
 > -   Pour définir les paramètres de stratégie qui seront appliqués aux utilisateurs, quel que soit l’ordinateur sur lequel ils se connectent, cliquez sur Configuration de l' **utilisateur**.
 
@@ -154,7 +154,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > [!WARNING]
 > -   Différentes informations d’identification d’administration sont requises pour exécuter cette procédure, en fonction de votre environnement :
 > 
->     -   Si vous créez des stratégies de restriction logicielle pour votre ordinateur local : L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.
+>     -   Si vous créez des stratégies de restriction logicielle pour votre ordinateur local : l’appartenance au groupe **administrateurs** local, ou équivalent, est la condition minimale requise pour effectuer cette procédure.
 >     -   Si vous créez des stratégies de restriction logicielle pour un ordinateur joint à un domaine, les membres du groupe Administrateurs du domaine peuvent exécuter cette procédure.
 > -   Si des stratégies de restriction logicielle ont déjà été créés pour un objet de stratégie de groupe, la commande **Nouvelles stratégies de restriction logicielle** ne s’affiche pas dans le menu **Action**. Pour supprimer les stratégies de restriction logicielle appliquées à un objet de stratégie de groupe, dans l’arborescence de la console, cliquez avec le bouton droit sur **Stratégies de restriction logicielle**, puis cliquez sur **Supprimer les stratégies de restriction logicielle**. Lorsque vous supprimez des stratégies de restriction logicielle pour un objet de stratégie de groupe, vous supprimez également toutes les règles de stratégies de restriction logicielle pour cet objet de stratégie de groupe. Une fois les stratégies de restriction logicielle supprimées, vous pouvez en créer de nouvelles pour cet objet de stratégie de groupe.
 
@@ -164,7 +164,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 
 2.  Dans le volet d’informations, double-cliquez sur **Types de fichiers désignés**.
 
-3.  Faites une des actions suivantes :
+3.  Effectuez l'une des opérations suivantes :
 
     -   Pour ajouter un type de fichier, dans **Extension de nom de fichier**, tapez l’extension de nom de fichier, puis cliquez sur **Ajouter**.
 
@@ -173,7 +173,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > [!NOTE]
 > -   Différentes informations d’identification d’administration sont requises pour exécuter cette procédure, en fonction de l’environnement dans lequel vous ajoutez ou supprimez un type de fichier désigné :
 > 
->     -   Si vous ajoutez ou supprimez un type de fichier désigné pour votre ordinateur local : L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.
+>     -   Si vous ajoutez ou supprimez un type de fichier désigné pour votre ordinateur local : l’appartenance au groupe **administrateurs** local, ou équivalent, est la condition minimale requise pour effectuer cette procédure.
 >     -   Si vous créez des stratégies de restriction logicielle pour un ordinateur joint à un domaine, les membres du groupe Administrateurs du domaine peuvent exécuter cette procédure.
 > -   Il peut être nécessaire de créer un paramètre de stratégie de restriction logicielle pour l’objet de stratégie de groupe si cela n’est pas encore fait.
 > -   La liste des types de fichiers désignés est partagée par toutes les règles pour la configuration de l’ordinateur et la configuration de l’utilisateur pour un objet de stratégie de groupe.
@@ -187,7 +187,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 3.  Sous **Appliquer les stratégies de restriction logicielle aux utilisateurs suivants**, cliquez sur **Tous les utilisateurs exceptés les administrateurs locaux**.
 
 > [!WARNING]
-> -   L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.
+> -   L'appartenance au groupe **Administrateurs** local, ou à un groupe équivalent, est la condition requise minimale pour effectuer cette procédure.
 > -   Il peut être nécessaire de créer un paramètre de stratégie de restriction logicielle pour l’objet de stratégie de groupe si cela n’est pas encore fait.
 > -   Si la plupart des utilisateurs de votre organisation sont membres du groupe local Administrateurs sur leur ordinateur, il est préférable de ne pas activer cette option.
 > -   Si vous définissez une stratégie de restriction logicielle pour votre ordinateur local, utilisez cette procédure pour empêcher l’application de ces stratégies aux administrateurs locaux. Si vous définissez un paramètre de stratégie de restriction logicielle pour votre réseau, filtrez les paramètres de stratégie d’utilisateur en fonction de l’appartenance aux groupes de sécurité via stratégie de groupe.
@@ -219,7 +219,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 3.  Sous **Appliquer les stratégies de restriction logicielle aux fichiers suivants**, cliquez sur **Tous les fichiers de logiciel**.
 
 > [!NOTE]
-> -   Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs sur l’ordinateur local, ou l’autorité appropriée doit vous avoir été déléguée. Si l'ordinateur est joint à un domaine, les membres du groupe Admins du domaine peuvent être en mesure d'effectuer cette procédure.
+> -   Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs sur l'ordinateur local ou bien disposer de l'autorité appropriée. Si l'ordinateur est joint à un domaine, les membres du groupe Administrateurs du domaine doivent pouvoir suivre cette procédure.
 > -   Par défaut, les stratégies de restriction logicielle ne vérifient pas les DLL. La vérification des DLL peut impacter les performances du système, car les stratégies de restriction logicielle doivent être évaluées chaque fois qu’une DLL est chargée. Cependant, vous pouvez choisir de vérifier les DLL si vous avez peur de recevoir un virus qui cible les DLL. Si le niveau de sécurité par défaut est défini sur non **autorisé**, et que vous activez la vérification de la dll, vous devez créer des règles de stratégies de restriction logicielle qui autorisent l’exécution de chaque dll.
 
 

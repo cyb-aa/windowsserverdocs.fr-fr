@@ -13,15 +13,15 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865157"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371207"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gérer des appareils dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
  Les sections suivantes expliquent les fonctionnalités de gestion des périphériques d'un serveur et expliquent comment configurer et utiliser des périphériques sur votre réseau :  
   
@@ -38,7 +38,7 @@ ms.locfileid: "70865157"
 -   [Afficher les propriétés de l’ordinateur](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
   
 ##  <a name="BKMK_1"></a>Gérer des appareils à l’aide du tableau de bord  
- Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. La page **Périphériques** du tableau de bord fournit :  
+ Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. La page **Périphériques** du tableau de bord fournit :  
   
 -   la liste des ordinateurs réseau, qui indique :  
   
@@ -100,9 +100,9 @@ ms.locfileid: "70865157"
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à modifier.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
   
-5.  Sous l'onglet **Accès à l'ordinateur** , sélectionnez l'ordinateur auquel cet utilisateur peut accéder à distance, puis cliquez sur **OK**.  
+5.  Sous l'onglet **Accès à l'ordinateur**, sélectionnez l'ordinateur auquel cet utilisateur peut accéder à distance, puis cliquez sur **OK**.  
   
 ##  <a name="BKMK_3"></a>Supprimer un ordinateur du serveur  
  Lorsque vous supprimez un ordinateur d'un serveur qui exécute Windows Server Essentials en ayant recours au tableau de bord, il n'est plus géré par le serveur. Par conséquent, le serveur arrête de créer des sauvegardes d'ordinateur ou d'analyser son intégrité après sa suppression du réseau.  
@@ -114,7 +114,7 @@ ms.locfileid: "70865157"
   
 1.  Ouvrez le tableau de bord Windows Server Essentials.  
   
-2.  Dans la barre de navigation, cliquez sur l'onglet **Périphériques** .  
+2.  Dans la barre de navigation, cliquez sur l'onglet **Périphériques**.  
   
 3.  Dans la liste des ordinateurs, cliquez avec le bouton droit sur l'ordinateur à supprimer du réseau, puis cliquez sur **Supprimer l'ordinateur**.  
   
@@ -127,9 +127,9 @@ ms.locfileid: "70865157"
   
 2.  Dans la barre de navigation, cliquez sur **PÉRIPHÉRIQUES**.  
   
-3.  Pour Windows Server Essentials : Dans le volet **Tâches Utilisateurs**, cliquez sur **Implémenter la stratégie de groupe**.  
+3.  Pour Windows Server Essentials : dans le volet **tâches des utilisateurs** globaux, cliquez sur **implémenter stratégie de groupe**.  
   
-     Pour Windows Server Essentials : Dans le volet global **Tâches Périphériques**, cliquez sur **Implémenter la stratégie de groupe**.  
+     Pour Windows Server Essentials : dans le volet tâches globales des **appareils** , cliquez sur **implémenter stratégie de groupe**.  
   
 4.  L'Assistant Implémenter la stratégie de groupe s'ouvre.  
   
@@ -142,7 +142,7 @@ ms.locfileid: "70865157"
 ##  <a name="BKMK_7"></a>Se connecter à un ordinateur réseau à l’aide d’une session Bureau à distance  
  Pour accéder à distance à votre ordinateur réseau Windows Server Essentials lorsque vous n’êtes pas dans votre bureau, utilisez votre navigateur Web pour vous connecter au site Web Accès web distant de votre organisation et, sous l’onglet **ordinateurs** , cliquez sur le nom de l’ordinateur.  
   
- La colonne **État** vous indique si vous pouvez vous connecter à un ordinateur sur votre réseau. Elle peut contenir les valeurs suivantes :  
+ La colonne **État** vous indique si vous pouvez vous connecter à un ordinateur sur votre réseau. Elle peut contenir les valeurs suivantes :  
   
 -   **Disponible**  
   
@@ -175,7 +175,7 @@ ms.locfileid: "70865157"
   
 1.  Dans la liste des ordinateurs, sélectionnez le compte pour lequel vous voulez afficher ou modifier les propriétés.  
   
-2.  Dans le volet **tâches\> < ComputerName** , cliquez sur **afficher les propriétés de l’ordinateur**. La page **Propriétés** des ordinateurs s'affiche.  
+2.  Dans le volet **tâches < Computername\>** , cliquez sur **afficher les propriétés de l’ordinateur**. La page **Propriétés** des ordinateurs s'affiche.  
   
 3.  Cliquez sur un onglet pour afficher les propriétés pour cet ordinateur.  
   
