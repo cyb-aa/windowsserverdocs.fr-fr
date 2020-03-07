@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: b299ddc823b3fbbd5818f96202e3c01faf0762d7
-ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78169599"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371651"
 ---
 # <a name="ad-fs-requirements"></a>Configuration AD FS requise
 
@@ -104,7 +104,7 @@ Les contrôleurs de domaine de tous les domaines d’utilisateur et le domaine a
   
 Tous les domaines de comptes d’utilisateur et le domaine auquel les serveurs AD FS sont joints doivent opérer au niveau fonctionnel du domaine Windows Server 2003 ou supérieur.  
   
-La plupart des fonctionnalités de AD FS ne nécessitent pas AD DS des modifications de niveau\-fonctionnels pour fonctionner correctement. Toutefois, le niveau fonctionnel de domaine Windows Server 2008 ou supérieur est nécessaire au bon fonctionnement de l'authentification de certificat client si le certificat est mappé explicitement sur le compte d'un utilisateur dans AD DS.  
+La plupart des fonctionnalités de AD FS ne nécessitent pas AD DS des modifications de niveau\-fonctionnels pour fonctionner correctement. Toutefois, le niveau fonctionnel de domaine Windows Server 2008 ou supérieur est nécessaire au bon fonctionnement de l'authentification de certificat client si le certificat est mappé explicitement sur le compte d'un utilisateur dans AD DS.  
   
 **Exigences relatives au schéma**  
   
@@ -185,7 +185,7 @@ Plusieurs navigateurs et plateformes clés ont été validés pour le rendu et l
   
 **Internes**  
   
-AD FS crée des cookies persistants et basés sur\-de session qui doivent être stockés sur les ordinateurs clients pour fournir des\-de connexion dans, signer\-out, authentification unique\-sur \(\)SSO et d’autres fonctionnalités. Le navigateur client doit donc être configuré de manière à accepter les cookies. Les cookies utilisés pour l’authentification sont toujours sécurisés (Hypertext Transfer Protocol) \(HTTPs\) les cookies de session écrits pour le serveur d’origine. Si le navigateur client n'est pas configuré de manière à autoriser ces cookies, AD FS ne peut pas fonctionner correctement. Les cookies persistants permettent de conserver le fournisseur de revendications choisi par l'utilisateur. Vous pouvez les désactiver à l’aide d’un paramètre de configuration dans le fichier de configuration pour le AD FS\-se connecter dans les pages. La prise en charge de TLS\/SSL est requise pour des raisons de sécurité.  
+AD FS crée des cookies persistants et basés sur\-de session qui doivent être stockés sur les ordinateurs clients pour fournir des\-de connexion dans, signer\-out, authentification unique\-sur \(\)SSO et d’autres fonctionnalités. Le navigateur client doit donc être configuré de manière à accepter les cookies. Les cookies utilisés pour l’authentification sont toujours sécurisés (Hypertext Transfer Protocol) \(HTTPs\) les cookies de session écrits pour le serveur d’origine. Si le navigateur client n'est pas configuré de manière à autoriser ces cookies, AD FS ne peut pas fonctionner correctement. Les cookies persistants permettent de conserver le fournisseur de revendications choisi par l'utilisateur. Vous pouvez les désactiver à l’aide d’un paramètre de configuration dans le fichier de configuration pour le AD FS\-se connecter dans les pages. La prise en charge de TLS\/SSL est requise pour des raisons de sécurité.  
   
 ## <a name="BKMK_extranet"></a>Exigences relatives aux extranets  
 Pour fournir un accès extranet au service AD FS, vous devez déployer le service de rôle proxy d’application Web en tant que rôle accessible par l’extranet qui transmet les demandes d’authentification de manière sécurisée au service AD FS. Cela permet d’isoler les points de terminaison de service AD FS, ainsi que l’isolation de toutes les clés de sécurité \(telles que les certificats de signature de jetons\) des demandes provenant d’Internet. En outre, des fonctionnalités telles que le verrouillage de compte d’extranet souple nécessitent l’utilisation du proxy d’application Web. Pour plus d’informations sur le proxy d’application Web, voir [proxy d’application Web](https://technet.microsoft.com/library/dn584107.aspx).  

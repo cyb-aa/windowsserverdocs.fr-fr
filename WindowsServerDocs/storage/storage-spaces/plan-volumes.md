@@ -10,11 +10,11 @@ author: cosmosdarwin
 ms.date: 06/28/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 52c600068d5dd447ff9faa7c40788664e222a83a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366890"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370737"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planification des volumes dans les espaces de stockage direct
 
@@ -41,7 +41,7 @@ Nous vous recommandons de choisir comme nombre de volumes un multiple du nombre 
 
 Nous vous recommandons de limiter le nombre total de volumes à :
 
-| Windows Server 2016          | Windows Server 2019          |
+| Windows Server 2016          | Windows Server 2019          |
 |------------------------------|------------------------------|
 | Jusqu’à 32 volumes par cluster | Jusqu’à 64 volumes par cluster |
 
@@ -128,7 +128,7 @@ Dans les déploiements utilisant les trois types de disques, seuls les disques 
 
 Nous vous recommandons de limiter la taille de chaque volume à :
 
-| Windows Server 2016 | Windows Server 2019 |
+| Windows Server 2016 | Windows Server 2019 |
 | ------------------- | ------------------- |
 | Jusqu’à 32 to         | Jusqu’à 64 to         |
 
@@ -199,7 +199,7 @@ Pour simplifier, cet exemple utilise des unités décimales (base 10), c'est-à
 
 Voir [Création de volumes dans les espaces de stockage direct](create-volumes.md).
 
-### <a name="see-also"></a>Voir également
+### <a name="see-also"></a>Voir aussi
 
 - [Présentation de espaces de stockage direct](storage-spaces-direct-overview.md)
 - [Choix des lecteurs pour espaces de stockage direct](choosing-drives.md)
