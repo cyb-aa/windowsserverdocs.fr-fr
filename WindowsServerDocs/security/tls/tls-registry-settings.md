@@ -13,15 +13,15 @@ ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
 ms.openlocfilehash: 60202e537093bd21515043ba56f70f3895c91d42
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403408"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371391"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Paramètres du Registre TLS (Transport Layer Security)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10
 
 Cette rubrique de référence destinée aux professionnels de l’informatique contient des informations sur les paramètres de Registre pris en charge pour l’implémentation Windows du protocole TLS (Transport Layer Security) et du protocole protocole SSL (SSL) par le biais de la prise en charge de la sécurité Schannel. Fournisseur (SSP). Les sous-clés et les entrées de Registre abordées dans cette rubrique vous aident à administrer et à dépanner le SSP Schannel, en particulier les protocoles TLS et SSL. 
 
@@ -51,9 +51,9 @@ Par défaut, le fournisseur Schannel utilise les quatre méthodes de mappage de 
 3. Mappage un-à-un (également appelé mappage objet/émetteur)
 4. Mappage plusieurs-à-un
 
-Versions applicables : Comme indiqué dans la liste **S’applique à** qui se trouve au début de cette rubrique.
+Versions applicables : comme indiqué dans la liste **s’applique à** qui se trouve au début de cette rubrique.
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="ciphers"></a>Chiffrements
 
@@ -76,7 +76,7 @@ La première fois qu’un client se connecte à un serveur via le SSP Schannel, 
 
 À partir de Windows Server 2008 et Windows Vista, la durée de mise en cache par défaut du client est de 10 heures.
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 Heure du cache du client par défaut
 
@@ -87,14 +87,14 @@ L’agrafage du protocole OCSP (Online Certificate Status Protocol) permet à un
 Outre IIS, les services Web sur http. sys peuvent également bénéficier de ce paramètre, y compris Services ADFS (AD FS) et le proxy d’application Web (WAP). 
 
 Par défaut, la prise en charge OCSP est activée pour les sites Web IIS qui ont une liaison sécurisée (SSL/TLS) simple. Toutefois, cette prise en charge n’est pas activée par défaut si le site Web IIS utilise l’un des types suivants de liaisons sécurisées (SSL/TLS), ou les deux :
-- Exiger Indication du nom du serveur
+- Exiger l'indication de nom de serveur
 - Utiliser le magasin de certificats centralisés
 
-Dans ce cas, la réponse Hello du serveur pendant la négociation TLS n’inclut pas l’état d’agrafage OCSP par défaut. Ce comportement améliore les performances : L’implémentation de l’agrafage OCSP Windows s’adapte à des centaines de certificats de serveur. Étant donné que SNI et CCS permettent à IIS de s’adapter à des milliers de sites Web qui ont potentiellement des milliers de certificats de serveur, le fait de définir ce comportement comme étant activé par défaut peut entraîner des problèmes de performances.
+Dans ce cas, la réponse Hello du serveur pendant la négociation TLS n’inclut pas l’état d’agrafage OCSP par défaut. Ce comportement améliore les performances : l’implémentation de l’agrafage OCSP Windows s’adapte à des centaines de certificats de serveur. Étant donné que SNI et CCS permettent à IIS de s’adapter à des milliers de sites Web qui ont potentiellement des milliers de certificats de serveur, le fait de définir ce comportement comme étant activé par défaut peut entraîner des problèmes de performances.
 
-Versions applicables : Toutes les versions à partir de Windows Server 2012 et Windows 8. 
+Versions applicables : toutes les versions à partir de Windows Server 2012 et Windows 8. 
 
-Chemin d’accès au registre : [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL]
+Chemin d’accès au registre : [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL]
 
 Ajoutez la clé suivante :
 
@@ -109,13 +109,13 @@ Pour désactiver, définissez la valeur DWORD sur 0 :
 
 ## <a name="fipsalgorithmpolicy"></a>FIPSAlgorithmPolicy
 
-Cette entrée contrôle la conformité aux normes FIPS (Federal Information Processing Standard). La valeur par défaut est 0.
+Cette entrée contrôle la conformité aux normes FIPS (Federal Information Processing Standard). La valeur par défaut est 0.
 
-Versions applicables : Toutes les versions à partir de Windows Server 2012 et Windows 8. 
+Versions applicables : toutes les versions à partir de Windows Server 2012 et Windows 8. 
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\LSA
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\LSA
 
-Suites de chiffrement FIPS de Windows Server : Consultez [les suites et les protocoles de chiffrement pris en charge dans le SSP Schannel](https://technet.microsoft.com/library/dn786419.aspx).
+Suites de chiffrement FIPS de Windows Server : consultez [les suites et protocoles de chiffrement pris en charge dans le SSP Schannel](https://technet.microsoft.com/library/dn786419.aspx).
 
 ## <a name="hashes"></a>Hachages
 
@@ -125,21 +125,21 @@ Les algorithmes de hachage TLS/SSL doivent être contrôlés en configurant l’
 
 Cette entrée contrôle la taille du cache de l’émetteur. Elle est utilisée avec le mappage de l’émetteur. Le SSP Schannel tente de mapper tous les émetteurs dans la chaîne de certificats du client, et non pas seulement l’émetteur direct du certificat client. Lorsque les émetteurs ne correspondent pas à un compte, ce qui est le cas par défaut, le serveur peut tenter de mapper le même nom de l’émetteur à plusieurs reprises, des centaines de fois par seconde. 
 
-Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Cette entrée de Registre spécifie la taille du cache. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 100. 
+Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Cette entrée de Registre spécifie la taille du cache. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 100. 
 
-Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
+Versions applicables : toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="issuercachetime"></a>IssuerCacheTime
 
 Cette entrée contrôle l’intervalle de temps d’expiration du cache en millisecondes. Le SSP Schannel tente de mapper tous les émetteurs dans la chaîne de certificats du client, et non pas seulement l’émetteur direct du certificat client. Lorsque les émetteurs ne correspondent pas à un compte, ce qui est le cas par défaut, le serveur peut tenter de mapper le même nom d’émetteur à plusieurs reprises, des centaines de fois par seconde.
 
-Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Ce cache est conservé pour des raisons de performances, afin que le système ne continue pas de tente de mapper les mêmes émetteurs. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 10 minutes.
+Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Ce cache est conservé pour des raisons de performances, afin que le système ne continue pas de tente de mapper les mêmes émetteurs. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 10 minutes.
 
-Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
+Versions applicables : toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="keyexchangealgorithm---client-rsa-key-sizes"></a>KeyExchangeAlgorithm-tailles de clé RSA du client
 
@@ -175,9 +175,9 @@ Pour spécifier la longueur en bits de la clé Diffie-Helman pour le serveur TLS
 
 Cette entrée contrôle le nombre maximal d’éléments du cache. En définissant le nombre maximal d’éléments du cache sur 0, vous désactivez le cache de session côté serveur et empêchez les reconnexions. Lorsque la valeur de cette entrée est supérieure aux valeurs par défaut, Lsass.exe consomme plus de mémoire. Chaque élément du cache de session nécessite généralement 2 à 4 Ko de mémoire. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 20 000 éléments. 
 
-Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
+Versions applicables : toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="messaging--fragment-parsing"></a>Messagerie-analyse de fragments
 
@@ -211,24 +211,24 @@ Par défaut, cette entrée n’existe pas dans le Registre.
 
 Comportement de la liste envoyer un émetteur approuvé par défaut
 
-| Version de Windows | Time |
+| Version de Windows | Heure |
 |-----------------|------|
 | Windows Server 2012 et Windows 8 et versions ultérieures | FALSE |
 | Windows Server 2008 R2 et Windows 7 et versions antérieures | TRUE |
 
-Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
+Versions applicables : toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="servercachetime"></a>ServerCacheTime
 
 Cette entrée contrôle la durée en millisecondes nécessaire pour que le système d’exploitation fasse expirer les entrées de cache côté serveur. La valeur 0 désactive le cache de session côté serveur et empêche les reconnexions. Lorsque la valeur de cette entrée est supérieure aux valeurs par défaut, Lsass.exe consomme plus de mémoire. Chaque élément du cache de session nécessite généralement 2 à 4 Ko de mémoire. Par défaut, cette entrée n’existe pas dans le Registre. 
 
-Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
+Versions applicables : toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
-Heure du cache du serveur par défaut : 10 heures
+Durée du cache du serveur par défaut : 10 heures
 
 ## <a name="ssl-20"></a>SSL 2.0
 
@@ -237,7 +237,7 @@ Cette sous-clé contrôle l’utilisation de SSL 2,0.
 À partir de Windows 10, version 1607 et Windows Server 2016, SSL 2,0 a été supprimé et n’est plus pris en charge.
 Pour obtenir les paramètres par défaut SSL 2,0, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx). 
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
 Pour activer le protocole SSL 2,0, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
@@ -246,7 +246,7 @@ Table de sous-clé SSL 2,0
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de SSL 2,0 sur le client SSL. |
-| Server | Contrôle l’utilisation de SSL 2,0 sur le serveur SSL. |
+| Serveur | Contrôle l’utilisation de SSL 2,0 sur le serveur SSL. |
 
 Pour désactiver SSL 2,0 pour le client ou le serveur, remplacez la valeur DWORD par 0. Si une application SSPI demande l’utilisation de SSL 2,0, elle est refusée. 
 
@@ -263,7 +263,7 @@ Cette sous-clé contrôle l’utilisation de SSL 3,0.
 
 À partir de Windows 10, version 1607 et Windows Server 2016, SSL 3,0 a été désactivé par défaut. Pour les paramètres par défaut SSL 3,0, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx). 
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
 Pour activer le protocole SSL 3,0, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant.  
 Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
@@ -273,7 +273,7 @@ Table de sous-clé SSL 3,0
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de SSL 3,0 sur le client SSL. |
-| Server | Contrôle l’utilisation de SSL 3,0 sur le serveur SSL. |
+| Serveur | Contrôle l’utilisation de SSL 3,0 sur le serveur SSL. |
 
 Pour désactiver SSL 3,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de SSL 3,0, elle est refusée. 
@@ -290,7 +290,7 @@ Cette sous-clé contrôle l’utilisation de TLS 1,0.
 
 Pour les paramètres par défaut TLS 1,0, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
 Pour activer le protocole TLS 1,0, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
@@ -299,7 +299,7 @@ Table de sous-clé TLS 1,0
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de TLS 1,0 sur le client TLS. |
-| Server | Contrôle l’utilisation de TLS 1,0 sur le serveur TLS. |
+| Serveur | Contrôle l’utilisation de TLS 1,0 sur le serveur TLS. |
 
 Pour désactiver TLS 1,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de TLS 1,0, elle est refusée. 
@@ -316,7 +316,7 @@ Cette sous-clé contrôle l’utilisation de TLS 1,1.
 
 Pour les paramètres par défaut TLS 1,1, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
 Pour activer le protocole TLS 1,1, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
@@ -325,7 +325,7 @@ Table de sous-clé TLS 1,1
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de TLS 1,1 sur le client TLS. |
-| Server | Contrôle l’utilisation de TLS 1,1 sur le serveur TLS. |
+| Serveur | Contrôle l’utilisation de TLS 1,1 sur le serveur TLS. |
 
 Pour désactiver TLS 1,1 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de TLS 1,1, elle est refusée. 
@@ -342,7 +342,7 @@ Cette sous-clé contrôle l’utilisation de TLS 1,2.
 
 Pour les paramètres par défaut TLS 1,2, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
 Pour activer le protocole TLS 1,2, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
@@ -351,7 +351,7 @@ Table de sous-clé TLS 1,2
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de TLS 1,2 sur le client TLS. |
-| Server | Contrôle l’utilisation de TLS 1,2 sur le serveur TLS. |
+| Serveur | Contrôle l’utilisation de TLS 1,2 sur le serveur TLS. |
 
 Pour désactiver TLS 1,2 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de TLS 1,2, elle est refusée. 
@@ -368,7 +368,7 @@ Cette sous-clé contrôle l’utilisation de DTLS 1,0.
 
 Pour les paramètres par défaut de DTLS 1,0, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
 Pour activer le protocole DTLS 1,0, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
@@ -377,7 +377,7 @@ Table de sous-clé DTLS 1,0
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de DTLS 1,0 sur le client DTLS. |
-| Server | Contrôle l’utilisation de DTLS 1,0 sur le serveur DTLS. |
+| Serveur | Contrôle l’utilisation de DTLS 1,0 sur le serveur DTLS. |
 
 Pour désactiver DTLS 1,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
 Si une application SSPI demande l’utilisation de DTLS 1,0, elle est refusée. 
@@ -394,7 +394,7 @@ Cette sous-clé contrôle l’utilisation de DTLS 1,2.
 
 Pour les paramètres par défaut de DTLS 1,2, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin d’accès au registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
 Pour activer le protocole DTLS 1,2, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
@@ -403,7 +403,7 @@ Table de sous-clé DTLS 1,2
 | Sous-clé | Description |
 |--------|-------------|
 | Client | Contrôle l’utilisation de DTLS 1,2 sur le client DTLS. |
-| Server | Contrôle l’utilisation de DTLS 1,2 sur le serveur DTLS. |
+| Serveur | Contrôle l’utilisation de DTLS 1,2 sur le serveur DTLS. |
 
 
 Pour désactiver DTLS 1,2 pour le client ou le serveur, remplacez la valeur DWORD par 0.

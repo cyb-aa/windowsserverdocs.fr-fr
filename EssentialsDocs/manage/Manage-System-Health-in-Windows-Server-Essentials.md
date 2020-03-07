@@ -13,59 +13,59 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d9002a1530e114f490ddf1cfb0e5706ddec52431
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433155"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371203"
 ---
 # <a name="manage-system-health-in-windows-server-essentials"></a>Gérer l'intégrité du système dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
  Cette rubrique explique comment afficher et répondre à toutes les alertes de votre réseau à l'aide du Tableau de bord.  
   
 > [!NOTE]
->  Dans Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, les alertes d’intégrité pour le serveur et les ordinateurs clients dans le réseau ne sont plus affichées dans l’Afficheur des alertes, mais au lieu de cela, peuvent être affichés sur le  **Rapports d’intégrité** onglet de la **accueil** page.  
+>  Dans Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, les alertes d’intégrité pour le serveur et les ordinateurs clients du réseau ne sont plus affichées dans l’afficheur des alertes, mais elles peuvent être affichées à la place sous l’onglet **rapports d’intégrité** de la page d' **hébergement** .  
   
- Windows Server Essentials surveille activement chaque ordinateur qui est connecté au serveur et avertit l’administrateur pour les problèmes liés à l’intégrité du système, y compris les mises à jour critiques, manque de protection contre les programmes malveillants, les définitions de virus obsolètes sur le client les ordinateurs et autres problèmes importants qui nécessitent une action. Ces problèmes sont affichés sous forme d’alertes dans l’Afficheur des alertes, qui peut être lancé à partir du tableau de bord du serveur ou de Launchpad l’ordinateur client dans Windows Server Essentials, ou sur le **rapports d’intégrité** onglet dans Windows Server Essentials. Par défaut, les alertes sont actualisées toutes les 30 minutes, mais vous pouvez connaître l'état de votre réseau à tout moment en cliquant sur **Actualiser** dans l'Afficheur des alertes ou sous l'onglet **Rapports d'intégrité**.  
+ Windows Server Essentials surveille activement chaque ordinateur connecté au serveur et avertit l’administrateur des problèmes liés à l’état d’intégrité du système, notamment les mises à jour critiques, la protection contre les programmes malveillants, les définitions de virus obsolètes sur le client. ordinateurs et autres problèmes importants qui nécessitent une action. Ces problèmes sont affichés sous forme d’alertes dans l’afficheur des alertes, qui peut être lancé à partir du tableau de bord du serveur ou du Launchpad de l’ordinateur client dans Windows Server Essentials, ou sous l’onglet **rapports d’intégrité** dans Windows Server Essentials. Par défaut, les alertes sont actualisées toutes les 30 minutes, mais vous pouvez connaître l'état de votre réseau à tout moment en cliquant sur **Actualiser** dans l'Afficheur des alertes ou sous l'onglet **Rapports d'intégrité**.  
   
  Les rubriques suivantes vous aideront à comprendre, afficher et répondre aux alertes dans l'Afficheur des alertes et fournissent également des instructions pour configurer votre serveur de sorte de recevoir des notifications d'alerte par courrier électronique :  
   
--   [Sur l’intégrité de Add-In rapports](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_AddIn)  
+-   [À propos du complément de rapport d’intégrité](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_AddIn)  
   
--   [Afficher les alertes à l’aide de l’Afficheur des alertes](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_View)  
+-   [Afficher les alertes à l’aide de l’afficheur des alertes](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_View)  
   
--   [Organiser les alertes dans l’Afficheur des alertes](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Organize)  
+-   [Organiser les alertes dans l’afficheur des alertes](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Organize)  
   
 -   [Répondre aux alertes](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Respond)  
   
 -   [Configurer des notifications par courrier électronique pour les alertes](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Email)  
   
--   [Alertes potentielles de l’ordinateur](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Potential)  
+-   [Alertes d’ordinateur potentielles](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Potential)  
   
-##  <a name="BKMK_AddIn"></a> Sur l’intégrité de Add-In rapports  
- Le complément de rapport d'intégrité pour Windows Server Essentials vous fournit des informations consolidées sur le réseau de Windows Server Essentials et vous permet de distribuer ces informations à d'autres personnes. Ces informations peuvent être affichées sous l'onglet **Rapports** du Tableau de bord. Avec l'onglet **Rapports** , vous pouvez effectuer les opérations suivantes :  
+##  <a name="BKMK_AddIn"></a>À propos du complément de rapport d’intégrité  
+ Le complément de rapport d'intégrité pour Windows Server Essentials vous fournit des informations consolidées sur le réseau de Windows Server Essentials et vous permet de distribuer ces informations à d'autres personnes. Ces informations peuvent être affichées sous l'onglet **Rapports** du Tableau de bord. Avec l'onglet **Rapports**, vous pouvez effectuer les opérations suivantes :  
   
--   [Générer un rapport à la demande ou selon planification](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Generate)  
+-   [Générer un rapport à la demande ou selon la planification](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Generate)  
   
 -   [Personnaliser le contenu du rapport](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Customize)  
   
--   [Le rapport de messagerie](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_emailreport)  
+-   [Envoyer le rapport par courrier électronique](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_emailreport)  
   
 > [!NOTE]
->  **Windows Server Essentials :** Vous pouvez télécharger le complément de rapport d’intégrité pour Windows Server Essentials à partir de la [Microsoft Download Center](https://go.microsoft.com/fwlink/p/?LinkId=266342).  
+>  **Windows Server Essentials :** Vous pouvez télécharger le complément de rapport d’intégrité pour Windows Server Essentials à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=266342).  
 >   
->  **Windows Server Essentials :** Par défaut, le complément de rapport d’intégrité est intégré à Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, et les rapports d’intégrité sont affichés sous le **rapports d’intégrité** onglet du tableau de bord **accueil** page.  
+>  **Windows Server Essentials :** Par défaut, le complément de rapport d’intégrité est intégré à Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, et les rapports d’intégrité sont affichés sous l’onglet **rapports d’intégrité** de la page d' **espace** du tableau de bord.  
   
-###  <a name="BKMK_Generate"></a> Générer un rapport à la demande ou selon planification  
- Après avoir installé le complément de rapport d'intégrité et redémarré le Tableau de bord, un nouvel onglet, **Rapports** est ajouté au Tableau de bord. Vous pouvez générer un rapport d'intégrité à la demande à tout moment en cliquant sur la tâche **Générer un rapport d'intégrité** sous l'onglet **Rapports** .  
+###  <a name="BKMK_Generate"></a>Générer un rapport à la demande ou selon la planification  
+ Après avoir installé le complément de rapport d'intégrité et redémarré le Tableau de bord, un nouvel onglet, **Rapports** est ajouté au Tableau de bord. Vous pouvez générer un rapport d'intégrité à la demande à tout moment en cliquant sur la tâche **Générer un rapport d'intégrité** sous l'onglet **Rapports**.  
   
  Lorsqu'un rapport d'intégrité a été généré, un nouvel élément est créé dans le volet de la liste, identifié par la date et l'heure à laquelle le rapport a été généré. Pour ouvrir un élément, vous pouvez double-cliquer dessus dans le volet de la liste, ou le sélectionner puis cliquer sur **Ouvrir le rapport d'intégrité** dans le volet des tâches. Le rapport s'affiche dans une nouvelle fenêtre au format HTML.  
   
- En plus de générer manuellement un rapport, vous pouvez souhaiter que celui-ci soit généré automatiquement selon un calendrier quotidien ou haire. Pour ce faire, dans le volet des tâches, cliquez sur **Personnaliser les paramètres du rapport d'intégrité**, puis sur l'onglet **Planifier et envoyer par courrier électronique** La fonction **Planification** est désactivée par défaut mais vous pouvez l'activer en cochant la case **Générer un rapport d'intégrité à l'heure planifiée**.  
+ En plus de générer manuellement un rapport, vous pouvez souhaiter que celui-ci soit généré automatiquement selon un calendrier quotidien ou haire. Pour ce faire, dans le volet des tâches, cliquez sur **personnaliser les paramètres du rapport d’intégrité**, puis cliquez sur l’onglet **planifier et envoyer par courrier électronique** . La fonctionnalité de **planification** est désactivée par défaut et vous pouvez l’activer en cochant la case **générer un rapport d’intégrité à l’heure planifiée** .  
   
-###  <a name="BKMK_Customize"></a> Personnaliser le contenu du rapport  
+###  <a name="BKMK_Customize"></a>Personnaliser le contenu du rapport  
  Le rapport d'intégrité contient les éléments suivants :  
   
 - **Alertes critiques et avertissements** Conformes aux alertes critiques et avertissements qui apparaissent dans l'Afficheur des alertes du Tableau de bord. Les alertes d'informations ne sont pas incluses dans le rapport d'intégrité.  
@@ -80,38 +80,38 @@ ms.locfileid: "66433155"
   
 - **Stockage** La liste des lecteurs et leur capacité est présentée dans la section **Détails** .  
   
-  Dans le rapport d'intégrité, consultez d'abord le **Résumé**puis, pour les éléments signalés par une icône d'erreur rouge ou une icône d'avertissement jaune, cliquez sur le lien **Détails** sur la même ligne pour afficher les détails concernant l'élément.  
+  Dans le rapport d'intégrité, consultez d'abord le **Résumé** puis, pour les éléments signalés par une icône d'erreur rouge ou une icône d'avertissement jaune, cliquez sur le lien **Détails** sur la même ligne pour afficher les détails concernant l'élément.  
   
-  Si vous n'êtes pas intéressés par certains des points de données qui sont inclus dans le rapport par défaut, vous pouvez personnaliser le contenu du rapport en cliquant sur **Personnaliser les paramètres du rapport d'intégrité** dans le volet des tâches, puis sur l'onglet **Contenu**. Désactivez les cases à cocher pour le contenu que vous ne souhaitez pas voir apparaître dans le rapport. Par exemple, si vous avez votre propre plan de sauvegarde du serveur et que vous ne souhaitez pas voir les avertissements concernant les sauvegardes de serveur, vous pourrez exclure des sauvegardes de serveur du rapport en désactivant le **sauvegarde Server** case à cocher.  
+  Si vous n’êtes pas intéressé par certains des points de données qui sont inclus dans le rapport par défaut, vous pouvez personnaliser le contenu du rapport en cliquant sur **personnaliser les paramètres du rapport d’intégrité** dans le volet des tâches, puis sur l’onglet **contenu** . désactivez les cases à cocher du contenu que vous ne souhaitez pas voir dans le rapport. Par exemple, si vous disposez de votre propre plan de sauvegarde du serveur et que vous ne souhaitez pas voir les avertissements concernant les sauvegardes du serveur, vous pouvez exclure les sauvegardes du serveur du rapport en désactivant la case à cocher **sauvegarde** du serveur.  
   
-###  <a name="BKMK_emailreport"></a> Le rapport de messagerie  
+###  <a name="BKMK_emailreport"></a>Envoyer le rapport par courrier électronique  
  Ouvrir une session de Tableau de bord pour lire des rapports n'est pas toujours pratique pour certains administrateurs, en particulier s'ils ont plusieurs serveurs à gérer. Avec la fonctionnalité de messagerie activée, dès qu'un rapport est généré, un courrier électronique est envoyé à une liste d'adresses de messagerie spécifiée avec le contenu du rapport. L'administrateur peut facilement consulter ce rapport depuis n'importe quel périphérique ou application client et vérifier que le serveur fonctionne de manière optimale.  
   
- Dans la boîte de dialogue **Personnaliser les paramètres du rapport d'intégrité**, lorsque vous avez activé le courrier électronique, modifié les paramètres SMTP et spécifié une liste de destinataires, vous remarquerez qu'une nouvelle tâche s'affiche dans le volet des tâches: **Envoyer le rapport d'intégrité par courrier électronique**. Pour plus d'informations sur les paramètres SMTP, voir [Configurer la notification des alertes par courrier électronique](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Email).  
+ Dans la boîte de dialogue **Personnaliser les paramètres du rapport d’intégrité**, quand vous avez activé la messagerie électronique, modifié les paramètres SMTP et spécifié une liste de destinataires, vous remarquerez qu’une nouvelle tâche, **Envoyer le rapport d’intégrité par courrier électronique**, s’affiche dans le volet des tâches. Pour plus d'informations sur les paramètres SMTP, voir [Configurer la notification des alertes par courrier électronique](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Email).  
   
  Vous pouvez sélectionner un rapport existant, puis cliquer sur **Envoyer le rapport d'intégrité par courrier électronique**. Vous pouvez également générer un rapport et paramétrer son envoi automatique dans votre boîte de réception. Si vous avez configuré une planification de génération automatique du rapport, celui-ci sera déposé automatiquement dans votre boîte de réception après avoir été généré chaque jour (ou chaque heure) comme prévu.  
   
-##  <a name="BKMK_View"></a> Afficher les alertes à l’aide de l’Afficheur des alertes  
+##  <a name="BKMK_View"></a>Afficher les alertes à l’aide de l’afficheur des alertes  
  Cette section explique comment utiliser le Tableau de bord ou le Launchpad pour ouvrir l'Afficheur des alertes afin de consulter l'état d'intégrité de tous les ordinateurs du réseau du serveur.  
   
 #### <a name="to-open-the-alert-viewer-by-using-the-dashboard"></a>Pour ouvrir l'Afficheur des alertes à l'aide du Tableau de bord  
   
-1.  Ouvrez le tableau de bord.  
+1.  Ouvrez le Tableau de bord.  
   
 2.  Dans le volet de navigation, cliquez sur une des icônes d'alerte affichées (critique, avertissement ou information). L'Afficheur des alertes s'ouvre.  
   
 #### <a name="to-open-the-alert-viewer-from-the-launchpad"></a>Pour ouvrir l'Afficheur des alertes à partir du Launchpad  
   
-1.  À partir de l'ordinateur connecté au serveur, ouvrez le Launchpad. Si vous y êtes invité, connectez-vous au Launchpad avec votre nom d'utilisateur et votre mot de passe.  
+1.  À partir de l'ordinateur connecté au serveur, ouvrez le Launchpad. Si vous y êtes invité, connectez-vous à Launchpad avec votre nom d'utilisateur et votre mot de passe.  
   
 2.  Cliquez sur un des icônes d'alerte affichées (critique, avertissement ou information) en bas du Launchpad pour ouvrir l'Afficheur des alertes, puis suivez les instructions dans le volet d'informations de l'Afficheur des alertes pour résoudre l'alerte.  
   
-##  <a name="BKMK_Organize"></a> Organiser les alertes dans l’Afficheur des alertes  
+##  <a name="BKMK_Organize"></a>Organiser les alertes dans l’afficheur des alertes  
  Vous pouvez organiser des alertes dans l'Afficheur des alertes et les afficher selon leur gravité (critique, avertissement ou information) ou selon le nom de l'ordinateur.  
   
 #### <a name="to-organize-alerts-in-the-alert-viewer"></a>Pour organiser les alertes dans l'Afficheur des alertes  
   
-1.  Ouvrez le tableau de bord.  
+1.  Ouvrez le Tableau de bord.  
   
 2.  Dans le volet de navigation, cliquez sur une des icônes d'alerte affichées (critique, avertissement ou information). L'Afficheur des alertes s'ouvre.  
   
@@ -121,7 +121,7 @@ ms.locfileid: "66433155"
   
     2.  Sélectionnez **Filtrer par type d'alerte**, puis cliquez sur le type d'alerte (critique, avertissement ou information) pour lequel vous souhaitez afficher les alertes. Cela permet de n'afficher que les alertes du type sélectionné dans l'Afficheur des alertes.  
   
-##  <a name="BKMK_Respond"></a> Répondre aux alertes  
+##  <a name="BKMK_Respond"></a>Répondre aux alertes  
  Lorsque vous rencontrez une alerte, vous pouvez choisir d'effectuer l'une des opérations suivantes :  
   
 -   [Résoudre une alerte](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Resolve)  
@@ -132,10 +132,10 @@ ms.locfileid: "66433155"
   
 -   [Supprimer une alerte](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_4)  
   
-###  <a name="BKMK_Resolve"></a> Résoudre une alerte  
+###  <a name="BKMK_Resolve"></a>Résoudre une alerte  
  Suivez les instructions de résolution dans l'Afficheur des alertes pour résoudre l'alerte. Une fois qu'une alerte est résolue, elle reste affichée dans l'Afficheur des alertes jusqu'à ce qu'il soit actualisé.  
   
-###  <a name="BKMK_3"></a> Ignorer une alerte  
+###  <a name="BKMK_3"></a>Ignorer une alerte  
  Vous pouvez choisir d'ignorer une alerte si vous préférez y répondre ultérieurement. Lorsque vous ignorez une alerte, elle reste affichée dans l'Afficheur des alertes, mais apparaît désactivée et grisée. Une alerte ignorée n'est pas incluse dans l'évaluation d'intégrité globale de l'ordinateur. Pour répondre à une alerte ignorée, vous devez d'abord activer l'alerte.  
   
 ##### <a name="to-ignore-an-alert"></a>Pour ignorer une alerte  
@@ -148,7 +148,7 @@ ms.locfileid: "66433155"
   
    Pour répondre à une alerte désactivée, vous devez d'abord activer l'alerte.  
   
-###  <a name="BKMK_5"></a> Activer une alerte  
+###  <a name="BKMK_5"></a>Activer une alerte  
  Vous pouvez activer une alerte que vous avez choisi d'ignorer précédemment. Une fois que l'alerte est activée, vous pouvez la résoudre ou la supprimer selon les besoins. Une alerte apparaît désactivée quand elle est marquée comme devant être ignorée. Lorsque vous activez une alerte précédemment désactivée, elle devient active et se réintègre à l'évaluation d'intégrité globale des ordinateurs.  
   
 ##### <a name="to-enable-an-alert"></a>Pour activer une alerte  
@@ -159,7 +159,7 @@ ms.locfileid: "66433155"
   
 3.  Dans l'Afficheur des alertes, cliquez avec le bouton droit sur l'alerte que vous voulez activer, puis cliquez sur **Activer l'alerte**.  
   
-###  <a name="BKMK_4"></a> Supprimer une alerte  
+###  <a name="BKMK_4"></a>Supprimer une alerte  
  Vous pouvez supprimer une alerte si vous ne souhaitez pas la résoudre ou l'ignorer. Vous pouvez utiliser l'Afficheur des alertes dans le Launchpad pour supprimer les alertes générées pour votre ordinateur. Si vous supprimez une alerte et que le serveur détecte à nouveau le problème dans le cycle d'évaluation de l'intégrité du réseau suivant, il génère une nouvelle alerte.  
   
 ##### <a name="to-delete-an-alert"></a>Pour supprimer une alerte  
@@ -170,14 +170,14 @@ ms.locfileid: "66433155"
   
 3.  Dans l'Afficheur des alertes, cliquez avec le bouton droit sur l'alerte que vous voulez supprimer, puis cliquez sur **Supprimer l'alerte**.  
   
-##  <a name="BKMK_Email"></a> Configurer des notifications par courrier électronique pour les alertes  
+##  <a name="BKMK_Email"></a>Configurer des notifications par courrier électronique pour les alertes  
  Vous pouvez configurer votre serveur pour être averti par courrier électronique de l'occurrence des alertes. Les notifications par courrier électronique de ces alertes contiennent des informations sur les problèmes de réseau et leur résolution, qui sont identiques à celles affichées dans l'Afficheur des alertes. Certaines des évaluations d'intégrité du réseau sont effectuées par programme.  
   
  Lorsque vous configurez votre serveur pour envoyer des notifications par courrier électronique, une notification est ainsi envoyée pour les alertes détectés lors de l'évaluation de l'intégrité du réseau. Toutefois, toutes les alertes signalées dans l'Afficheur des alertes ne sont pas notifiées par courrier électronique.  
   
  Toutes les 30 minutes, la tâche d'alerte d'évaluation de messagerie s'exécute sur le serveur, qui recense les alertes actives sur le réseau. Une notification par courrier électronique est envoyée dès qu'une alerte définie pour une notification par courrier électronique se produit. Si l'alerte est toujours active lors du cycle d'évaluation suivant, un deuxième courrier électronique ne sera pas envoyé pour éviter d'encombrer votre boîte aux lettres. Toutefois, si une nouvelle alerte est détectée lors d'un cycle d'évaluation ultérieur, une notification par courrier électronique est envoyée, qui inclut à la fois les alertes anciennes et nouvelles.  
   
-###  <a name="BKMK_list"></a> Alertes qui génèrent des notifications par courrier électronique  
+###  <a name="BKMK_list"></a>Alertes qui génèrent des notifications par courrier électronique  
  Les alertes figurant dans l'Afficheur des alertes produisent des notifications par courrier électronique lorsque vous configurez votre serveur pour notifier les alertes par courrier électronique :  
   
 -   Une sauvegarde d'ordinateur de client contient des erreurs.  
@@ -214,17 +214,17 @@ ms.locfileid: "66433155"
   
 -   Impossible de mettre à jour le nom de domaine Internet.  
   
--   Erreur de licence : vérification de l'approbation de la forêt.  
+-   Erreur de licence : vérification de l’approbation de la forêt.  
   
--   Erreur de licence : vérification du contrôleur de domaine.  
+-   Erreur de licence : vérification du contrôleur de domaine.  
   
--   Erreur de licence : vérification du rôle FSMO.  
+-   Erreur de licence : vérification du rôle FSMO.  
   
--   Erreur de licence : stratégies FSMO de contrôle.  
+-   Erreur de licence : stratégies FSMO de contrôle.  
   
--   Erreur de licence : stratégies de chargement de contrôle.  
+-   Erreur de licence : stratégies de chargement de contrôle.  
   
--   Erreur de licence : services de domaine Active Directory.  
+-   Erreur de licence : services de domaine Active Directory  
   
 -   Votre abonnement Office 365 a expiré.  
   
@@ -260,11 +260,11 @@ ms.locfileid: "66433155"
   
 -   Un ou plusieurs disques durs ne fonctionnent pas et sont en mode hors-ligne.  
   
-###  <a name="BKMK_SMTP"></a> Configuration du protocole SMTP sur votre serveur pour envoyer des notifications d’alerte par courrier électronique dans Windows Server Essentials  
+###  <a name="BKMK_SMTP"></a>Configuration de SMTP sur votre serveur pour envoyer des notifications d’alerte par courrier électronique dans Windows Server Essentials  
  Cette section explique comment configurer votre serveur pour notifier les alertes par courrier électronique.  
   
 > [!NOTE]
->  Vous pouvez télécharger le complément de rapport d’intégrité pour Windows Server Essentials à partir de la [Microsoft Download Center](https://go.microsoft.com/fwlink/p/?LinkId=266342).  
+>  Vous pouvez télécharger le complément de rapport d’intégrité pour Windows Server Essentials à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=266342).  
   
 ##### <a name="to-set-up-email-notification-for-alerts"></a>Pour configurer des notifications des alertes par courrier électronique  
   
@@ -284,14 +284,14 @@ ms.locfileid: "66433155"
   
     4.  Sélectionnez **Ce serveur exige une connexion sécurisée (SSL)** si le serveur SMTP utilise le protocole SSL (voir tableau 1).  
   
-    5.  Sélectionnez **Ce serveur exige une authentification** si le serveur SMTP nécessite des informations de nom d'utilisateur et de mot de passe (voir tableau 1). Si vous cochez cette case, tapez le nom d'utilisateur et le mot de passe de l'adresse de messagerie que vous avez entrée dans le champ **Adresse de l'expéditeur** de l'étape 4a, puis cliquez sur **OK**.  
+    5.  Sélectionnez **Ce serveur exige une authentification** si le serveur SMTP nécessite des informations de nom d'utilisateur et de mot de passe (voir tableau 1). Si vous cochez cette case, tapez le nom d'utilisateur et le mot de passe de l'adresse de messagerie que vous avez entrée dans le champ **Adresse de l'expéditeur** de l'étape 4a, puis cliquez sur **OK**.  
   
     > [!NOTE]
     >  Vous pouvez obtenir les informations sur le nom du serveur SMTP, le numéro de port et l'utilisation SSL à partir de votre fournisseur de services Internet.  
   
      **Tableau 1** Exemples de conditions requises en matière de noms de serveur SMTP, d'authentification, de chiffrement SSL et de numéros de port  
   
-    |Serveur SMTP|SSL nécessaire|Authentification obligatoire|Numéro de port|Nom du compte/Nom de connexion|  
+    |SMTP Server|SSL requis|Authentification obligatoire|Numéro de port|Nom du compte/Nom de connexion|  
     |-----------------|------------------|-----------------------------|-----------------|------------------------------|  
     |smtp.gmail.com|Oui|Oui|587|Fournir une adresse de messagerie complète avec le nom de domaine et le mot de passe pour l'authentification.|  
     |smtp.live.com|Oui|Oui|587|Fournir une adresse de messagerie complète avec le nom de domaine et le mot de passe pour l'authentification.|  
@@ -309,19 +309,19 @@ ms.locfileid: "66433155"
  Cette section explique comment configurer les paramètres SMTP pour votre serveur afin de recevoir des rapports d'intégrité par courrier électronique.  
   
 > [!NOTE]
->  Par défaut, le complément de rapport d’intégrité est intégré à Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, et les rapports d’intégrité sont affichés sous le **rapports d’intégrité** onglet du tableau de bord **accueil** page.  
+>  Par défaut, le complément de rapport d’intégrité est intégré à Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, et les rapports d’intégrité sont affichés sous l’onglet **rapports d’intégrité** de la page d' **espace** du tableau de bord.  
   
 ##### <a name="to-set-up-email-notification-for-health-reports"></a>Pour configurer la notification des alertes par courrier électronique  
   
-1.  Dans le **Tableau de bord**, cliquez sur l'onglet **Rapports** .  
+1.  Dans le **Tableau de bord**, cliquez sur l'onglet **Rapports**.  
   
-2.  Dans le volet des tâches **Tâches du rapport d'intégrité** , cliquez sur **Personnaliser les paramètres du rapport d'intégrité**.  
+2.  Dans le volet des tâches **Tâches du rapport d'intégrité**, cliquez sur **Personnaliser les paramètres du rapport d'intégrité**.  
   
-3.  Dans la fenêtre **Personnaliser les paramètres du rapport d'intégrité** , cliquez sur l'onglet **Planifier et envoyer par courrier électronique** .  
+3.  Dans la fenêtre **Personnaliser les paramètres du rapport d'intégrité**, cliquez sur l'onglet **Planifier et envoyer par courrier électronique**.  
   
-4.  Dans l'onglet **Planifier et envoyer par courrier électronique** , dans la section **Courrier électronique** , procédez comme suit :  
+4.  Dans l'onglet **Planifier et envoyer par courrier électronique**, dans la section **Courrier électronique**, procédez comme suit :  
   
-    1.  Cliquez sur **Activer**, puis tapez l'adresse de messagerie que vous souhaitez utiliser pour envoyer les rapports d'intégrité. Cette adresse de messagerie s’affichera en tant qu’adresse de l’expéditeur dans les rapports d’intégrité qui sont envoyées par e-mail.  
+    1.  Cliquez sur **Activer**, puis tapez l'adresse de messagerie que vous souhaitez utiliser pour envoyer les rapports d'intégrité. Cette adresse de messagerie s’affichera en tant qu’adresse de l’expéditeur dans les rapports d’intégrité envoyés par courrier électronique.  
   
         1.  Pour **Nom du serveur SMTP**, tapez le nom du serveur SMTP. (Consultez le tableau 1 pour une liste de certains noms de serveur SMTP).  
   
@@ -329,7 +329,7 @@ ms.locfileid: "66433155"
   
         3.  Sélectionnez **Ce serveur exige une connexion sécurisée (SSL)** si le serveur SMTP utilise le protocole SSL (voir tableau 1).  
   
-        4.  Sélectionnez **Ce serveur exige une authentification** si le serveur SMTP nécessite des informations de nom d'utilisateur et de mot de passe (voir tableau 1). Si vous cochez cette case, tapez le nom d'utilisateur et le mot de passe de l'adresse de messagerie que vous avez entrée dans le champ **Adresse de l'expéditeur** de l'étape 4a, puis cliquez sur **OK**.  
+        4.  Sélectionnez **Ce serveur exige une authentification** si le serveur SMTP nécessite des informations de nom d'utilisateur et de mot de passe (voir tableau 1). Si vous cochez cette case, tapez le nom d'utilisateur et le mot de passe de l'adresse de messagerie que vous avez entrée dans le champ **Adresse de l'expéditeur** de l'étape 4a, puis cliquez sur **OK**.  
   
             > [!NOTE]
             >  Vous pouvez obtenir les informations sur le nom du serveur SMTP, le numéro de port et l'utilisation SSL à partir de votre fournisseur de services Internet.  
@@ -341,18 +341,18 @@ ms.locfileid: "66433155"
   
      **Tableau 1** Exemples de conditions requises en matière de noms de serveur SMTP, d'authentification, de chiffrement SSL et de numéros de port  
   
-    |Serveur SMTP|SSL nécessaire|Authentification obligatoire|Numéro de port|Nom du compte/Nom de connexion|  
+    |SMTP Server|SSL requis|Authentification obligatoire|Numéro de port|Nom du compte/Nom de connexion|  
     |-----------------|------------------|-----------------------------|-----------------|------------------------------|  
     |smtp.gmail.com|Oui|Oui|587|Fournir une adresse de messagerie complète avec le nom de domaine et le mot de passe pour l'authentification.|  
     |smtp.live.com|Oui|Oui|587|Fournir une adresse de messagerie complète avec le nom de domaine et le mot de passe pour l'authentification.|  
     |smtp.comcast.net|Oui|Non|587|Fournir une adresse de messagerie complète avec le nom de domaine et le mot de passe pour l'authentification.|  
     |smtp.mail.yahoo.com|Non|Oui|25|Fournir uniquement l'adresse de messagerie sans nom de domaine pour le nom d'utilisateur.|  
   
-6.  Dans **Personnaliser les paramètres du rapport d'intégrité**, pour **Envoyer automatiquement le rapport d'intégrité aux destinataires de courrier électronique suivants :** , tapez les adresses de messagerie des personnes dont vous souhaitez recevoir les rapports d'intégrité par courrier électronique. Séparez chaque adresse de messagerie par un point-virgule (;).  
+6.  Dans **Personnaliser les paramètres du rapport d'intégrité**, pour **Envoyer automatiquement le rapport d'intégrité aux destinataires de courrier électronique suivants :** , tapez les adresses de messagerie des personnes dont vous souhaitez recevoir les rapports d'intégrité par courrier électronique. Séparez chaque adresse de messagerie par un point-virgule (;).  
   
 7.  Pour vérifier que vous avez correctement configuré les paramètres de votre serveur SMTP de sorte d'envoyer les rapports d'intégrité par courrier électronique, dans l'onglet Rapport d'intégrité du Tableau de bord, sélectionnez un rapport, puis cliquez sur **Envoyer le rapport d'intégrité par courrier électronique** dans le volet des tâches.  
   
-##  <a name="BKMK_Potential"></a> Alertes potentielles de l’ordinateur  
+##  <a name="BKMK_Potential"></a>Alertes d’ordinateur potentielles  
  Cette section décrit le fonctionnement et la gestion des alertes spécifiques à votre ordinateur qui est connecté au serveur et qui apparaissent dans le Launchpad de votre ordinateur.  
   
  Le tableau suivant répertorie certaines des alertes d'ordinateur qui peuvent être générées et affichées dans l'Afficheur des alertes si elles sont applicables à votre ordinateur.  
@@ -365,13 +365,13 @@ ms.locfileid: "66433155"
 |Windows Update est désactivé.|Vous ne pourrez pas bénéficier des fonctionnalités nouvelles et corrigées des mises à jour, sauf si Windows Update est activé. Pour activer Windows Update, dans l'Afficheur des alertes, cliquez sur **Ouvrir Windows Update**.<br /><br /> Si la tâche **Ouvrir Windows Update** ne s'affiche pas, vous n'êtes pas connecté à l'ordinateur sur lequel l'alerte a été déclenchée. Vous devez être connecté à l'ordinateur sur lequel l'alerte a été déclenchée pour exécuter cette tâche dans l'Afficheur des alertes.|  
 |D'importantes mises à jour doivent être installées.|Vous ne pourrez pas bénéficier des fonctionnalités nouvelles et corrigées des mises à jour, sauf si Windows Update est activé. Pour activer Windows Update, dans l'Afficheur des alertes, cliquez sur **Ouvrir Windows Update**.<br /><br /> Si la tâche **Ouvrir Windows Update** ne s'affiche pas, vous n'êtes pas connecté à l'ordinateur sur lequel l'alerte a été déclenchée. Vous devez être connecté à l'ordinateur sur lequel l'alerte a été déclenchée pour exécuter cette tâche dans l'Afficheur des alertes.|  
 |Redémarrez l'ordinateur pour appliquer les mises à jour.|Vous ne pourrez pas bénéficier des fonctionnalités nouvelles et corrigées des mises à jour tant qu'elles ne seront pas appliquées. Enregistrez toutes vos données et redémarrez l'ordinateur pour appliquer les mises à jour.|  
-|Espace libre faible sur les disques durs.|Si de l'espace n'est pas libéré, vous ne serez pas en mesure d'enregistrer des informations supplémentaires. Pour augmenter l'espace disponible sur l'ordinateur, envisagez les options suivantes :<br /><br /> -Ajouter un nouveau disque dur.<br /><br /> -Exécutez **nettoyage de disque** pour supprimer les fichiers anciens et temporaires.<br /><br /> -Permet de déplacer vos fichiers dans un dossier partagé sur un autre ordinateur.<br /><br /> -Fichiers d’archive sur un support amovible, par exemple un CD, DVD ou un disque dur externe.|  
+|Espace libre faible sur les disques durs.|Si de l'espace n'est pas libéré, vous ne serez pas en mesure d'enregistrer des informations supplémentaires. Pour augmenter l'espace disponible sur l'ordinateur, envisagez les options suivantes :<br /><br /> -Ajoutez un nouveau disque dur.<br /><br /> -Exécuter le **nettoyage de disque** pour supprimer les fichiers anciens et temporaires.<br /><br /> -Déplacez vos fichiers vers un dossier partagé sur un autre ordinateur.<br /><br /> -Archivez les fichiers sur un support amovible, tel qu’un CD, un DVD ou un disque dur externe.|  
 |L'agent **Historique des fichiers** sur le serveur n'est pas correctement configuré pour s'exécuter sur cet ordinateur.|Impossible de créer des sauvegardes de l'historique des fichiers.|  
 |Un ou plusieurs services ne sont pas en cours d'exécution.||  
 |Modifiez votre mot de passe Windows.||  
 |Votre mot de passe Microsoft Office 365 n'est pas identique à votre mot de passe Windows.||  
   
-###  <a name="BKMK_Protect"></a> Pour protéger votre ordinateur  
+###  <a name="BKMK_Protect"></a>Pour protéger votre ordinateur  
   
 1.  Ouvrez le Centre de sécurité.  
   
