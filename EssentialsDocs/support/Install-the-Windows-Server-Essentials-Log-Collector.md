@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: a1b1a5492a6e5dbc48899b3918314676884e0454
-ms.sourcegitcommit: 39244de670f712857a5fdd56630e95d57b7001a5
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897678"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371407"
 ---
 # <a name="install-the-windows-server-essentials-log-collector"></a>Installer Windows Server Essentials Log Collector
 
@@ -38,7 +38,7 @@ L’Assistant Installation du collecteur de journaux Windows Server Essentials i
   
 4.  Acceptez les termes du contrat de licence logiciel Microsoft.  
   
-5.  Pour installer Log Collector uniquement sur le serveur, cochez la case **Uniquement sur le serveur** . Pour installer Log Collector sur tous les ordinateurs réseau, cochez la case **Sur le serveur et sur tous les ordinateurs du réseau** .  
+5.  Pour installer Log Collector uniquement sur le serveur, cochez la case **Uniquement sur le serveur**. Pour installer Log Collector sur tous les ordinateurs réseau, cochez la case **Sur le serveur et sur tous les ordinateurs du réseau**.  
   
 6.  Cliquez sur **Installer le complément**.  
   
@@ -47,14 +47,14 @@ L’Assistant Installation du collecteur de journaux Windows Server Essentials i
   
 ##### <a name="to-uninstall-and-reinstall-the-log-collector"></a>Pour désinstaller et réinstaller Log Collector  
   
-1.  Ouvrez le tableau de bord.  
+1.  Ouvrez le Tableau de bord.  
   
 2.  Cliquez sur l'onglet **Complément**, sélectionnez **Log Collector** dans la liste, puis cliquez sur **Désinstaller**.  
   
 
-3.  Téléchargez et installez Log Collector en suivant les étapes décrites de la procédure précédente, [To install the Log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall).  
+3.  Téléchargez et installez Log Collector en suivant les étapes décrites de la procédure précédente ([Pour installer Log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall)).  
 
-3.  Téléchargez et installez Log Collector en suivant les étapes décrites de la procédure précédente, [To install the Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall).  
+3.  Téléchargez et installez Log Collector en suivant les étapes décrites de la procédure précédente ([Pour installer Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall)).  
 
   
 ### <a name="manually-install-the-log-collector"></a>Installer manuellement Log Collector  
