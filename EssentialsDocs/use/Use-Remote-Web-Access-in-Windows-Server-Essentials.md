@@ -13,21 +13,21 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f6a5d6fd42c5cd7e92821e1157748054c741ef04
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914684"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371171"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Utiliser l'accès web à distance dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
   Les Accès web distantes sont une fonctionnalité de Windows Servers Essentials qui vous permet d’accéder à des fichiers/dossiers et des ordinateurs sur votre réseau via un navigateur Web, où que vous soyez. 
   
   L'accès web à distance vous permet de rester connecté à votre ordinateur Windows Server Essentials réseau lorsque vous êtes absent. Quand vous vous connectez à un Accès web distant, vous pouvez vous connecter aux ordinateurs de votre réseau Windows Server Essentials, ouvrir le tableau de bord pour gérer votre réseau Windows Server Essentials et accéder à tous les dossiers partagés et fichiers multimédias sur le serveur.  
   
- Cette rubrique contient les sections suivantes :  
+ Cette rubrique comprend les sections suivantes :  
   
 
 -   [Se connecter à un Accès web distant](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
@@ -81,7 +81,7 @@ ms.locfileid: "68914684"
   
  Lorsque vous vous connectez au tableau de bord, vous pouvez gérer Windows Server Essentials comme vous le feriez si vous étiez au bureau. Vous pouvez effectuer toutes les tâches d'administration habituelles, comme ajouter des comptes d'utilisateurs, ajouter des dossiers partagés, définir l'accès aux dossiers partagés, etc. Lorsque vous vous connectez aux ordinateurs de votre réseau, vous pouvez accéder à leurs bureaux comme si vous étiez physiquement en face d'eux au bureau.  
   
- La colonne **État** vous indique si vous pouvez vous connecter à un ordinateur de votre réseau et peut comprendre inclure les valeurs suivantes :  
+ La colonne **État** vous indique si vous pouvez vous connecter à un ordinateur de votre réseau et peut comprendre inclure les valeurs suivantes :  
   
 -   **Disponible**  
   
@@ -118,12 +118,12 @@ ms.locfileid: "68914684"
 
   
 ###  <a name="BKMK_UploadRWA"></a>Charger et télécharger des fichiers dans des Accès web distantes  
- Sous l'onglet **Dossiers partagés** de l'accès web à distance, vous pouvez procéder comme suit :  
+ Sous l'onglet **Dossiers partagés** de l'accès web à distance, vous pouvez procéder comme suit :  
   
 -   Téléchargez (envoyez) des fichiers de votre ordinateur vers Windows Server Essentials.  
   
     > [!NOTE]
-    >  Vous ne pouvez télécharger que des fichiers, pas des dossiers, vers l'accès web à distance. Si vous souhaitez conserver la même structure de fichiers et de dossiers dans les **Dossiers partagés** sur le serveur que sur votre ordinateur, vous devez créer les dossiers sur le serveur dans l'accès web à distance et puis télécharger les fichiers vers le dossier que vous avez créé. Pour plus d’informations sur la création de dossiers serveur, consultez [Add or move a server folder](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
+    >  Vous ne pouvez télécharger que des fichiers, pas des dossiers, vers l'accès web à distance. Si vous souhaitez conserver la même structure de fichiers et de dossiers dans les **Dossiers partagés** sur le serveur que sur votre ordinateur, vous devez créer les dossiers sur le serveur dans l'accès web à distance et puis télécharger les fichiers vers le dossier que vous avez créé. Pour plus d'informations sur la création de dossiers sur le serveur, voir [Ajouter ou déplacer un dossier de serveur](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
   
 -   Téléchargez (recevez) des fichiers et des dossiers de Windows Server Essentials sur votre ordinateur.  
   
@@ -135,9 +135,9 @@ ms.locfileid: "68914684"
 -   Déplacez, supprimez et renommez des fichiers et des dossiers sur Windows Server Essentials. Pour plus d’informations, consultez [créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
 
   
-#### <a name="upload-files"></a>Charger des fichiers  
+#### <a name="upload-files"></a>Télécharger des fichiers  
   
-###### <a name="to-upload-files"></a>Pour télécharger des fichiers  
+###### <a name="to-upload-files"></a>Téléchargement de fichiers  
   
 1. Dans l'accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
   
@@ -184,7 +184,7 @@ ms.locfileid: "68914684"
   
 3. Cliquez sur **Télécharger** pour commencer le téléchargement.  
   
-4. Dans la boîte de dialogue **Téléchargement de fichier** , cliquez sur **Enregistrer** pour enregistrer le fichier sur votre ordinateur.  
+4. Dans la boîte de dialogue **Téléchargement de fichier**, cliquez sur **Enregistrer** pour enregistrer le fichier sur votre ordinateur.  
   
 5. Dans la boîte de dialogue **Enregistrer sous**, sélectionnez l'emplacement d'enregistrement du fichier, puis cliquez sur **Enregistrer**. Un fichier unique n'est pas compressé avant d'être téléchargé.  
   
@@ -222,7 +222,7 @@ ms.locfileid: "68914684"
   
 4.  Dans la boîte dialogue **Sélection d'un format de téléchargement**, cliquez pour sélectionner l'option de format de téléchargement que vous préférez, puis cliquez sur **OK**. Le fichier compressé est préparé dans l'option de format que vous avez sélectionné.  
   
-5.  Dans la boîte de dialogue **Téléchargement de fichier** , cliquez sur **Enregistrer** pour enregistrer le fichier sur votre ordinateur.  
+5.  Dans la boîte de dialogue **Téléchargement de fichier**, cliquez sur **Enregistrer** pour enregistrer le fichier sur votre ordinateur.  
   
 6.  Dans la boîte de dialogue **Enregistrer sous**, sélectionnez l'emplacement d'enregistrement du fichier, puis cliquez sur **Enregistrer**.  
   
@@ -252,11 +252,11 @@ ms.locfileid: "68914684"
  Vous pouvez utiliser l'accès web à distance pour créer des dossiers dans un dossier partagé existant, renommer des fichiers et dossiers, déplacer et copier des fichiers et des dossiers et supprimer des fichiers et dossiers sur votre serveur.  
   
 > [!NOTE]
->  Pour ajouter de nouveaux dossiers partagés sur un serveur qui exécute Windows Server Essentials, vous devez utiliser le tableau de bord. Pour vous connecter à la console du serveur depuis l'accès web à distance, sous l'onglet **Ordinateurs**, cliquez sur le nom du serveur, cliquez sur **Connexion**, puis suivez les instructions pour ouvrir une session sur le serveur. Pour plus d’informations sur la création de dossiers partagés, consultez [Add or move a server folder](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
+>  Pour ajouter de nouveaux dossiers partagés sur un serveur qui exécute Windows Server Essentials, vous devez utiliser le tableau de bord. Pour vous connecter à la console du serveur depuis l'accès web à distance, sous l'onglet **Ordinateurs**, cliquez sur le nom du serveur, cliquez sur **Connexion**, puis suivez les instructions pour ouvrir une session sur le serveur. Pour plus d'informations sur la création de dossiers partagés, voir [Ajouter ou déplacer un dossier de serveur](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
   
-##### <a name="to-create-a-new-folder"></a>Pour créer un nouveau dossier  
+##### <a name="to-create-a-new-folder"></a>Pour créer un dossier  
   
-1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés** , puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
+1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
   
 2.  Dans la barre des tâches, cliquez sur **Nouveau dossier**.  
   
@@ -264,7 +264,7 @@ ms.locfileid: "68914684"
   
 ##### <a name="to-rename-a-file-or-folder"></a>Pour renommer un fichier ou un dossier  
   
-1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés** , puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
+1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
   
 2.  Cliquez avec le bouton droit sur le fichier ou dossier que vous voulez renommer, puis cliquez sur **Renommer**.  
   
@@ -272,7 +272,7 @@ ms.locfileid: "68914684"
   
 ##### <a name="to-move-files-or-folders"></a>Pour déplacer des fichiers ou des dossiers  
   
-1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés** , puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
+1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
   
 2.  Cochez la case en regard des fichiers ou dossiers que vous voulez déplacer, cliquez avec le bouton droit sur un des fichiers ou dossiers sélectionnés, puis cliquez sur **Couper**.  
   
@@ -280,7 +280,7 @@ ms.locfileid: "68914684"
   
 ##### <a name="to-delete-a-file-or-folder"></a>Pour supprimer un fichier ou un dossier  
   
-1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés** , puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
+1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
   
 2.  Cochez la case en regard des fichiers ou dossiers que vous voulez supprimer, cliquez avec le bouton droit sur un des fichiers ou dossiers sélectionnés, puis cliquez sur **Supprimer**.  
   
@@ -288,7 +288,7 @@ ms.locfileid: "68914684"
   
 ##### <a name="to-copy-files-or-folders"></a>Pour copier des fichiers ou des dossiers  
   
-1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés** , puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
+1.  Dans l'Accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
   
 2.  Cochez la case en regard des fichiers ou dossiers que vous voulez copier, cliquez avec le bouton droit sur un des fichiers ou dossiers sélectionnés, puis cliquez sur **Copier**.  
   

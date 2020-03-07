@@ -12,15 +12,15 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
 ms.openlocfilehash: 96678dfab2a3d5b6f503d8ce9d00850a3c437b35
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392933"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370603"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Mettre à niveau la version de la machine virtuelle dans Hyper-V sur Windows 10 ou Windows Server
 
->S'applique à : Windows 10, Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
+>S’applique à : Windows 10, Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Rendez les fonctionnalités Hyper-V les plus récentes disponibles sur vos machines virtuelles en effectuant une mise à niveau de la version de configuration. N’effectuez pas cette opération tant que :
 
@@ -30,7 +30,7 @@ Rendez les fonctionnalités Hyper-V les plus récentes disponibles sur vos machi
 
 Pour plus d’informations, consultez [mise à niveau propagée de système d’exploitation de cluster](../../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) et [effectuer une mise à niveau propagée d’un cluster hôte Hyper-V dans VMM](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade).
 
-## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Étape 1 : Vérifier les versions de configuration des machines virtuelles
+## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Étape 1 : vérifier les versions de configuration des machines virtuelles
 
 1. Sur le Bureau Windows, cliquez sur le bouton Démarrer et tapez une partie du nom **Windows PowerShell**.
 2. Cliquez avec le bouton droit sur Windows PowerShell, puis sélectionnez **exécuter en tant qu’administrateur**.
@@ -42,7 +42,7 @@ Get-VM * | Format-Table Name, Version
 
 Vous pouvez également voir la version de configuration dans le Gestionnaire Hyper-V en sélectionnant la machine virtuelle et en examinant l’onglet **Résumé** .
 
-## <a name="step-2-upgrade-the-virtual-machine-configuration-version"></a>Étape 2 : Mettre à niveau la version de la configuration de la machine virtuelle
+## <a name="step-2-upgrade-the-virtual-machine-configuration-version"></a>Étape 2 : mettre à niveau la version de la configuration de la machine virtuelle
 
 1. Arrêtez l’ordinateur virtuel dans le Gestionnaire Hyper-V.
 2. Sélectionnez action > mettre à niveau la version de configuration. Si cette option n’est pas disponible pour la machine virtuelle, il s’agit déjà de la version de configuration la plus élevée prise en charge par l’hôte Hyper-V.
@@ -74,21 +74,21 @@ New-VM -Name "WindowsCV5" -Version 5.0
 
 Le tableau suivant répertorie les versions de configuration de machine virtuelle qui sont prises en charge sur les ordinateurs hôtes exécutant une version de maintenance à long terme de Windows.
 
-| Version de Windows de l’hôte Hyper-V | 9,1 | 9,0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
+| Version de Windows de l’hôte Hyper-V | 9,1 | 9,0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6,2 | 5.0 |
 | --- |---|---|---|---|---|---|---|---|---|---|
 |Windows Server 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Entreprise LTSC 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows Server 2016|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows Server 2016|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Entreprise 2016 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Enterprise 2015 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|
-|Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
+|Windows 10 Entreprise 2015 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|
+|Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 |Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 
 ### <a name="supported-vm-configuration-versions-for-semi-annual-channel-hosts"></a>Versions de configuration d’ordinateur virtuel prises en charge pour les hôtes de canal semi-annuel
 
 Le tableau suivant répertorie les versions de configuration de machine virtuelle pour les hôtes qui exécutent une version de Windows Channel semi-annuelle actuellement prise en charge. Pour obtenir plus d’informations sur les versions de canal semi-annuelles de Windows, visitez les pages suivantes pour [Windows Server](../../../get-started-19/servicing-channels-19.md) et [Windows 10](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels)
 
-| Version de Windows de l’hôte Hyper-V | 9,1 | 9,0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
+| Version de Windows de l’hôte Hyper-V | 9,1 | 9,0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6,2 | 5.0 |
 | --- |---|---|---|---|---|---|---|---|---|---|
 | Mise à jour de Windows 10 mai 2019 (version 1903) |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
 | Windows Server, version 1903 |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
@@ -110,10 +110,10 @@ Le tableau suivant répertorie les descriptions, les extensions de nom de fichie
 
  |Types de fichiers de machine virtuelle | Description|
  |---|---|
-|Configuration |Informations de configuration de l’ordinateur virtuel stockées au format de fichier binaire. <br /> Extension de nom de fichier :. vmcx <br /> Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
- |État d’exécution|Informations d’état d’exécution de machine virtuelle stockées au format de fichier binaire. <br />Extension de nom de fichier :. VMRS et. vmgs <br />Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
-|Disque dur virtuel|Stocke les disques durs virtuels de la machine virtuelle. <br /> Extension de nom de fichier :. vhd ou. vhdx <br />Emplacement par défaut : Disques durs C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
- |Disque dur virtuel automatique |Fichiers de disque de différenciation utilisés pour les points de contrôle de la machine virtuelle. <br /> Extension de nom de fichier :. avhdx <br /> Emplacement par défaut : Disques durs C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
+|Configuration |Informations de configuration de l’ordinateur virtuel stockées au format de fichier binaire. <br /> Extension de nom de fichier :. vmcx <br /> Emplacement par défaut : machines C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
+ |État d’exécution|Informations d’état d’exécution de machine virtuelle stockées au format de fichier binaire. <br />Extension de nom de fichier :. VMRS et. vmgs <br />Emplacement par défaut : machines C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
+|Disque dur virtuel|Stocke les disques durs virtuels de la machine virtuelle. <br /> Extension de nom de fichier :. vhd ou. vhdx <br />Emplacement par défaut : disques durs C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
+ |Disque dur virtuel automatique |Fichiers de disque de différenciation utilisés pour les points de contrôle de la machine virtuelle. <br /> Extension de nom de fichier :. avhdx <br /> Emplacement par défaut : disques durs C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
  |Point de contrôle|Les points de contrôle sont stockés dans plusieurs fichiers de point de contrôle. Chaque point de contrôle crée un fichier de configuration et un fichier d’état d’exécution. <br /> Extensions de nom de fichier :. VMRS et. vmcx <br />Emplacement par défaut : C:\ProgramData\Microsoft\Windows\Snapshots|
 
 ## <a name="what-happens-if-i-dont-upgrade-the-virtual-machine-configuration-version"></a>Que se passe-t-il si je ne parvient pas à mettre à niveau la version de la configuration
@@ -127,13 +127,13 @@ En guise d’aide générale, nous vous recommandons de mettre à jour la versio
 
 Le tableau suivant indique la version minimale de configuration de machine virtuelle requise pour l’utilisation de certaines fonctionnalités Hyper-V.
 
-|Fonctionnalité|Version minimale de configuration de machine virtuelle|
+|Composant|Version minimale de configuration de machine virtuelle|
 |---|---|
-|Ajout/suppression de mémoire à chaud|6.2|
-|Démarrage sécurisé pour les machines virtuelles Linux|6.2|
-|Points de contrôle de production|6.2|
-|PowerShell Direct |6.2|
-|Regroupement de machines virtuelles|6.2|
+|Ajout/suppression de mémoire à chaud|6,2|
+|Démarrage sécurisé pour les machines virtuelles Linux|6,2|
+|Points de contrôle de production|6,2|
+|PowerShell Direct |6,2|
+|Regroupement de machines virtuelles|6,2|
 |Module de plateforme sécurisée virtuelle (vTPM)|7.0|
 |Plusieurs files d’attente d’ordinateurs virtuels (VMMQ)|7.1|
 |Support XSAVE|8.0|
