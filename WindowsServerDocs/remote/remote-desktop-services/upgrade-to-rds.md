@@ -1,6 +1,6 @@
 ---
 title: Mise à niveau des déploiements des services Bureau à distance vers Windows Server 2016
-description: Cet article explique comment mettre à niveau vos déploiements existants des services Bureau à distance vers Windows Server 2016.
+description: Cet article explique comment mettre à niveau vos déploiements des services Bureau à distance existants vers Windows Server 2016.
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -15,15 +15,15 @@ author: spatnaik
 manager: scottman
 notes: https://social.technet.microsoft.com/wiki/contents/articles/22069.remote-desktop-services-upgrade-guidelines-for-windows-server-2012-r2.aspx
 ms.openlocfilehash: 29648db89b61a9d22aad6d5aa814cfe7f425a970
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403879"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370672"
 ---
 # <a name="upgrading-your-remote-desktop-services-deployments-to-windows-server-2016"></a>Mise à niveau des déploiements des services Bureau à distance vers Windows Server 2016
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 ## <a name="supported-os-upgrades-with-rds-role-installed"></a>Mises à niveau des systèmes d’exploitation pris en charge avec le rôle Services Bureau à distance installé
 Les mises à niveau vers Windows Server 2016 sont uniquement prises en charge à partir de Windows Server 2012 R2 et Windows Server 2012.

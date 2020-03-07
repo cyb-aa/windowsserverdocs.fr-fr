@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: aefcd597a580de526a758c6d026c6c91d02d10c8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407468"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371661"
 ---
 # <a name="walkthrough-guide-manage-risk-with-conditional-access-control"></a>Guide pas à pas : Gérer les risques avec le contrôle d’accès conditionnel
 
@@ -102,7 +102,7 @@ Vous pouvez effectuer cette tâche à l’aide de la console de gestion AD FS ou
 ~~~
 
 
-2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante :
+2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante :
 
 
 ~~~
@@ -124,7 +124,7 @@ Au cours de cette étape, vous allez vérifier la stratégie de contrôle d’ac
 
     Vous êtes autorisé à accéder à l’application.
 
-3.  Tapez les informations d’identification d’un autre utilisateur Active Directory qui n’appartient PAS au groupe **Finance** . (Pour plus d’informations sur la création de comptes d’utilisateur dans Active Directory, consultez [https://technet.microsoft.com/library/cc7833232.aspx](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx).
+3.  Tapez les informations d’identification d’un autre utilisateur Active Directory qui n’appartient PAS au groupe **Finance**. (Pour plus d’informations sur la création de comptes d’utilisateur dans Active Directory, consultez [https://technet.microsoft.com/library/cc7833232.aspx](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx).
 
     À ce stade, en raison de la stratégie de contrôle d’accès que vous avez configurée à l’étape précédente, un message « accès refusé » s’affiche pour cet utilisateur Active Directory qui n’appartient pas au groupe **finance** . Le texte du message par défaut est **vous n’êtes pas autorisé à accéder à ce site. Cliquez ici pour vous déconnecter et vous reconnecter ou contactez votre administrateur pour obtenir des autorisations.** Toutefois, ce texte est entièrement personnalisable. Pour plus d’informations sur la façon de personnaliser l’expérience de connexion, voir [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
 
