@@ -13,15 +13,15 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 3eace9281d9fcdea5262274ac7fb20ec30d30fb4
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590569"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371205"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Gérer l'accès web à distance dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
  Les Accès web distants dans Windows Server Essentials, ou dans Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, fournissent une expérience de navigateur simplifiée et conviviale pour accéder aux applications et aux données à partir de quasiment n’importe où que vous disposiez d’une connexion Internet et que vous utilisez presque n’importe quel appareil. Pour utiliser la fonctionnalité d’accès web à distance, vous devez d’abord l’activer à l’aide de l’Assistant Configurer l’accès en tout lieu, puis configurer vos routeur et nom de domaine.  
   
@@ -38,7 +38,7 @@ ms.locfileid: "68590569"
 -   [Résoudre les problèmes de Accès web distants](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_5)  
   
 ##  <a name="BKMK_1"></a>Activez et configurez les Accès web à distance  
- Les rubriques suivantes vous aident à activer et configurer l’accès web à distance:  
+ Les rubriques suivantes vous aident à activer et configurer l’accès web à distance :  
   
 -   [Vue d’ensemble des Accès web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview)  
   
@@ -70,13 +70,13 @@ ms.locfileid: "68590569"
   
 ##### <a name="to-turn-on-remote-web-access"></a>Pour activer l’accès web à distance  
   
-1.  Ouvrez le tableau de bord.  
+1.  Ouvrez le Tableau de bord.  
   
-2.  Cliquez sur **Paramètres**, puis sur l’onglet **Accès en tout lieu** .  
+2.  Cliquez sur **Paramètres**, puis sur l’onglet **Accès en tout lieu**.  
   
-3.  Cliquez sur **configurer**. L’Assistant Configurer l’accès en tout lieu s’affiche.  
+3.  Cliquez sur **Configurer**. L’Assistant Configurer l’accès en tout lieu s’affiche.  
   
-4.  Dans la page **Choisir les fonctions d'Accès en tout lieu à activer** , cochez la case **Accès web à distance** .  
+4.  Dans la page **Choisir les fonctions d'Accès en tout lieu à activer**, cochez la case **Accès web à distance**.  
   
 5.  Suivez les instructions pour exécuter l'Assistant.  
   
@@ -89,7 +89,7 @@ ms.locfileid: "68590569"
   
 2.  Cliquez sur **Paramètres**.  
   
-3.  Sous l'onglet **Général** , cliquez sur la liste déroulante dans la section **Pays/région du serveur** .  
+3.  Sous l'onglet **Général** , cliquez sur la liste déroulante dans la section **Pays/région du serveur**.  
   
 4.  Dans la liste déroulante, sélectionnez la nouvelle région, puis cliquez sur **Appliquer** pour accepter le nouveau paramètre de région.  
   
@@ -100,11 +100,11 @@ ms.locfileid: "68590569"
   
 1. Ouvrez une session sur le tableau de bord, puis cliquez sur **Utilisateurs**.  
   
-2. Cliquez sur le compte d'utilisateur que vous voulez gérer, puis cliquez sur **Afficher les propriétés du compte** dans le volet **Tâches** .  
+2. Cliquez sur le compte d'utilisateur que vous voulez gérer, puis cliquez sur **Afficher les propriétés du compte** dans le volet **Tâches**.  
   
 3. Dans la boîte de dialogue **Propriétés**, cliquez sur l'onglet **Accès en tout lieu**.  
   
-4. Sous l'onglet **Accès en tout lieu** , cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web** pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance.  
+4. Sous l'onglet **Accès en tout lieu**, cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web** pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance.  
   
 5. Cliquez sur **Appliquer**, puis sur **OK**.  
   
@@ -121,17 +121,17 @@ ms.locfileid: "68590569"
   
 ##### <a name="to-set-vpn-and-remote-web-access-permissions-for-network-users"></a>Pour définir des autorisations VPN et d'accès web à distance pour les utilisateurs réseau  
   
-1.  Ouvrez le tableau de bord.  
+1.  Ouvrez le Tableau de bord.  
   
 2.  Dans la barre de navigation, cliquez sur **UTILISATEURS**.  
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur auquel vous voulez accorder des autorisations pour accéder au Bureau à distance.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **Propriétés**.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **Propriétés**.  
   
-5.  Dans **< propriétés du\> compte d’utilisateur**, cliquez sur l’onglet **accès en tout lieu** .  
+5.  Dans **< propriétés du\> de compte d’utilisateur**, cliquez sur l’onglet **accès en tout lieu** .  
   
-6.  Sous l'onglet **Accès en tout lieu** , procédez comme suit :  
+6.  Sous l'onglet **Accès en tout lieu**, procédez comme suit :  
   
     1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
@@ -140,7 +140,7 @@ ms.locfileid: "68590569"
 7.  Cliquez sur **Appliquer**, puis sur **OK**.  
   
 ##  <a name="BKMK_2"></a>Configurer votre routeur  
- Quand vous configurez votre serveur pour l'accès web à distance, l'Assistant Configurer l'accès en tout lieu tente de configurer le routeur. Si vous changez les routeurs ou les paramètres du routeur, vous devez exécuter à nouveau l’Assistant Configurer votre routeur. Pour plus d’informations, consultez les rubriques suivantes :  
+ Quand vous configurez votre serveur pour l'accès web à distance, l'Assistant Configurer l'accès en tout lieu tente de configurer le routeur. Si vous changez les routeurs ou les paramètres du routeur, vous devez exécuter à nouveau l’Assistant Configurer votre routeur. Pour plus d'informations, voir les rubriques suivantes :  
   
 -   [Configurer votre routeur](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SetUpRouter)  
   
@@ -165,7 +165,7 @@ ms.locfileid: "68590569"
   
 1.  Dans le tableau de bord Windows Server Essentials, cliquez sur **Paramètres**.  
   
-2.  Cliquez sur l'onglet **Accès en tout lieu** , puis dans la section **Routeur** , cliquez sur **Configurer**. L'Assistant Configuration de votre routeur démarre.  
+2.  Cliquez sur l'onglet **Accès en tout lieu**, puis dans la section **Routeur**, cliquez sur **Configurer**. L'Assistant Configuration de votre routeur démarre.  
   
 3.  Suivez les instructions de cet Assistant pour terminer la configuration de votre nouveau routeur.  
   
@@ -191,7 +191,7 @@ ms.locfileid: "68590569"
   
 1.  Dans Internet Explorer, cliquez sur **Outils**, puis sur **Options Internet**.  
   
-2.  Sous l'onglet **Sécurité** , cliquez sur **Personnaliser le niveau**.  
+2.  Sous l'onglet **Sécurité**, cliquez sur **Personnaliser le niveau**.  
   
 3.  Dans la section **Contrôles ActiveX et plug-ins**, procédez comme suit :  
   
@@ -202,7 +202,7 @@ ms.locfileid: "68590569"
 4.  Cliquez sur **OK** deux fois pour accepter les modifications et fermer la boîte de dialogue.  
   
 ##  <a name="BKMK_3"></a>Configurer votre nom de domaine  
- Une fois l'accès web à distance activé, vous pouvez configurer un nom de domaine pour votre serveur qui exécute Windows Server Essentials. Il s’agit d’une étape nécessaire si vous envisagez d’utiliser l’accès web à distance à partir d’un ordinateur distant. Pour plus d’informations, consultez les rubriques suivantes :  
+ Une fois l'accès web à distance activé, vous pouvez configurer un nom de domaine pour votre serveur qui exécute Windows Server Essentials. Il s’agit d’une étape nécessaire si vous envisagez d’utiliser l’accès web à distance à partir d’un ordinateur distant. Pour plus d'informations, voir les rubriques suivantes :  
   
 -   [Vue d’ensemble des noms de domaine](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_DNOverview)  
   
@@ -248,7 +248,7 @@ ms.locfileid: "68590569"
 >  Windows Live autorise l'utilisation de caractères spéciaux dans le mot de passe de votre compte Microsoft que le serveur ne prend pas en charge. Si vous utilisez un domaine personnalisé Microsoft, assurez-vous que le mot de passe de votre compte Microsoft contient uniquement des caractères pris en charge par le serveur. Le serveur ne prend pas en charge les caractères $, /, ' et %.  
   
 ###  <a name="BKMK_UseNewName"></a>Utiliser un nom de domaine nouveau ou existant  
- Pour configurer automatiquement votre nom de domaine sur un serveur exécutant Windows Server Essentials, vous devez utiliser un fournisseur de services de noms de domaine répertorié dans l'Assistant Configuration de votre nom de domaine. Vous pouvez choisir d'obtenir un nouveau nom de domaine ou d'utiliser un nom de domaine existant. Faites une des actions suivantes :  
+ Pour configurer automatiquement votre nom de domaine sur un serveur exécutant Windows Server Essentials, vous devez utiliser un fournisseur de services de noms de domaine répertorié dans l'Assistant Configuration de votre nom de domaine. Vous pouvez choisir d'obtenir un nouveau nom de domaine ou d'utiliser un nom de domaine existant. Effectuez l'une des opérations suivantes :  
   
 -   Si vous souhaitez obtenir un nouveau nom de domaine à partir d'un des fournisseurs de services de noms de domaine répertoriés dans l'Assistant, cliquez sur **Je souhaite configurer un nouveau nom de domaine**.  
   
@@ -261,9 +261,9 @@ ms.locfileid: "68590569"
   
 ##### <a name="to-set-up-or-manage-an-internet-domain-name"></a>Pour configurer ou gérer un nom de domaine Internet  
   
-1.  Ouvrez le tableau de bord.  
+1.  Ouvrez le Tableau de bord.  
   
-2.  Cliquez sur **Paramètres du serveur**, puis sur l'onglet **Accès en tout lieu** .  
+2.  Cliquez sur **Paramètres du serveur**, puis sur l'onglet **Accès en tout lieu**.  
   
 3.  Dans la section **Nom de domaine**, cliquez sur **Configurer**.  
   
@@ -377,14 +377,14 @@ ms.locfileid: "68590569"
   
 2. Dans la page d'accueil du site web Internic, cliquez sur **Whois**.  
   
-3. Dans la zone de **recherche**, tapez votre nom de domaine (par exemple, contoso.com).  
+3. Dans la zone de recherche**Whois**, tapez votre nom de domaine (par exemple, contoso.com).  
   
 4. Cochez l'option **Domain**, puis cliquez sur **Submit**.  
   
 5. Dans les résultats de recherche, le nom de votre fournisseur de services de noms de domaine est répertorié sous **Registrar**.  
   
 ##  <a name="BKMK_4"></a>Personnaliser le Accès web à distance  
- Vous pouvez personnaliser votre site d’accès web à distance en ajoutant un logo personnel ou une image en arrière-plan. Vous pouvez également ajouter des liens à la page d’accueil afin que ces informations soient disponibles pour l’ensemble de vos utilisateurs. Pour plus d’informations, consultez les rubriques suivantes :  
+ Vous pouvez personnaliser votre site d’accès web à distance en ajoutant un logo personnel ou une image en arrière-plan. Vous pouvez également ajouter des liens à la page d’accueil afin que ces informations soient disponibles pour l’ensemble de vos utilisateurs. Pour plus d'informations, voir les rubriques suivantes :  
   
 -   [Personnaliser le Accès web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_CustomizeRWA)  
   
@@ -397,11 +397,11 @@ ms.locfileid: "68590569"
   
 ##### <a name="to-customize-remote-web-access"></a>Pour personnaliser l'accès web à distance  
   
-1.  Ouvrez le tableau de bord.  
+1.  Ouvrez le Tableau de bord.  
   
-2.  Cliquez sur **Paramètres**, puis sur l’onglet **Accès en tout lieu** .  
+2.  Cliquez sur **Paramètres**, puis sur l’onglet **Accès en tout lieu**.  
   
-3.  Dans la section **Paramètres du site Web** , cliquez sur **Personnaliser**.  
+3.  Dans la section **Paramètres du site Web**, cliquez sur **Personnaliser**.  
   
 4.  Une fois que vous avez fini de personnaliser l'accès web à distance, cliquez sur **OK**. Testez vos modifications concernant l'accès web à distance.  
   
@@ -436,13 +436,13 @@ ms.locfileid: "68590569"
 -   Une alerte figure dans l'Afficheur des alertes.  
   
 > [!NOTE]
->  L'Assistant Réparation n'est pas disponible tant que vous n'activez pas l'accès web à distance. Pour plus d’informations sur l’activation de l’accès web à distance, consultez [Turn on Remote Web Access](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
+>  L'Assistant Réparation n'est pas disponible tant que vous n'activez pas l'accès web à distance. Pour plus d'informations sur l'activation de l'accès web à distance, consultez [Activer l'accès web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
   
 ##### <a name="to-repair-remote-web-access"></a>Pour réparer l'accès web à distance  
   
 1.  Ouvrez une session dans le tableau de bord.  
   
-2.  Cliquez sur **Paramètres**, puis sur l’onglet **Accès en tout lieu** .  
+2.  Cliquez sur **Paramètres**, puis sur l’onglet **Accès en tout lieu**.  
   
 3.  Cliquez sur **Réparer**. L'Assistant **Réparation de l'accès web à distance** démarre.  
   

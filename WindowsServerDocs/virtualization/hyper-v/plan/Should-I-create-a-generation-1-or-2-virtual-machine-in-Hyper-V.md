@@ -12,11 +12,11 @@ author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
 ms.openlocfilehash: fce9b45f538b0d506b621b888d413c99590b1362
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465553"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370623"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?
 
@@ -60,14 +60,14 @@ Le tableau suivant répertorie les versions 64 bits de Windows que vous pouvez u
 |versions 64 bits de Windows|1e génération|2e génération|  
 |-------------------------------|----------------|----------------|  
 | Windows Server 2019 |&#10004;|&#10004;|  
-| Windows Server 2016 |&#10004;|&#10004;|  
+| Windows Server 2016 |&#10004;|&#10004;|  
 | Windows Server 2012 R2 |&#10004;|&#10004;|  
 | Windows Server 2012 |&#10004;|&#10004;|  
-|Windows Server 2008 R2|&#10004;| &#10006;|  
-|Windows Server 2008|&#10004;| &#10006;|  
+|Windows Server 2008 R2|&#10004;| &#10006;|  
+|Windows Server 2008|&#10004;| &#10006;|  
 |Windows 10|&#10004;|&#10004;|  
 |Windows 8.1|&#10004;|&#10004;|  
-|Windows 8|&#10004;|&#10004;|  
+|Windows 8|&#10004;|&#10004;|  
 |Windows 7|&#10004;| &#10006;|
 
 Le tableau suivant répertorie les versions 32 bits de Windows que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et 2.
@@ -76,7 +76,7 @@ Le tableau suivant répertorie les versions 32 bits de Windows que vous pouvez u
 |-------------------------------|----------------|----------------|  
 |Windows 10|&#10004;| &#10006;|  
 |Windows 8.1|&#10004;| &#10006;|  
-|Windows 8|&#10004;| &#10006;|  
+|Windows 8|&#10004;| &#10006;|  
 |Windows 7|&#10004;| &#10006;|  
 
 ### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>Prise en charge des systèmes d’exploitation invités CentOS et Red Hat Enterprise Linux
@@ -162,7 +162,7 @@ Le tableau suivant indique les méthodes de démarrage prises en charge par les 
 
 |Méthode de démarrage|1e génération|2e génération|  
 |---------------|----------------|----------------|  
-|démarrage PXE avec une carte réseau standard ;| &#10006;|&#10004;|  
+|démarrage PXE avec une carte réseau standard ;| &#10006;|&#10004;|  
 |Démarrage PXE à l’aide d’une carte réseau héritée|&#10004;| &#10006;|  
 |Démarrez à partir d’un disque dur virtuel SCSI (. VHDX) ou DVD virtuel (. ISO| &#10006;|&#10004;|  
 |Démarrage à partir du disque dur virtuel du contrôleur IDE (. VHD) ou DVD virtuel (. ISO|&#10004;| &#10006;|  
@@ -254,5 +254,5 @@ Pour ajouter un port COM :
 ## <a name="see-also"></a>Voir aussi  
 
 - [Machines virtuelles Linux et FreeBSD sur Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
-- [Utiliser des ressources locales sur un ordinateur virtuel Hyper-V avec VMConnect](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
+- [Utiliser des ressources locales sur une machine virtuelle Hyper-V avec VMConnect](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
 - [Planifier l’extensibilité d’Hyper-V dans Windows Server 2016](Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md)

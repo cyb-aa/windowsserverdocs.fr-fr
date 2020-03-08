@@ -10,17 +10,17 @@ ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: ef38b0280a5753b0995e85d0809de6b632fa3afc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358118"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371257"
 ---
 # <a name="configure-authentication-policies"></a>Configurer des stratégies d’authentification
 
-Dans AD FS, dans Windows Server 2012 R2, le contrôle d’accès et le mécanisme d’authentification sont améliorés avec plusieurs facteurs, notamment les données d’utilisateur, de périphérique, d’emplacement et d’authentification. Ces améliorations vous permettent, par le biais de l’interface utilisateur ou de Windows PowerShell, de gérer le risque d’accorder des autorisations d'\-accès à AD FS applications\-sécurisées par le biais du contrôle d’accès multifacteur et de plusieurs\-authentification par facteur basée sur l’identité de l’utilisateur ou l’appartenance au groupe, l’emplacement réseau,\-les données de l’appareil qui sont jointes à \(l’espace de travail et l'\-état d’authentification lors de l’authentification multifacteur MFA\) a été effectué.  
+Dans AD FS, dans Windows Server 2012 R2, le contrôle d’accès et le mécanisme d’authentification sont améliorés avec plusieurs facteurs, notamment les données d’utilisateur, de périphérique, d’emplacement et d’authentification. Ces améliorations vous permettent, par le biais de l’interface utilisateur ou de Windows PowerShell, de gérer le risque d’accorder des autorisations d’accès à AD FS\-des applications sécurisées via le contrôle d’accès multifacteur\-et l’authentification multi\-, en fonction de l’identité de l’utilisateur ou de l’appartenance à un groupe, de l’emplacement réseau, des données de l’appareil\-jointe et de l'\-\(\)  
 
-Pour plus d’informations sur l’authentification\-MFA et le contrôle d' \(accès\) multifacteur dans services ADFS AD FS dans Windows Server 2012 R2, consultez les rubriques suivantes :  
+Pour plus d’informations sur l’authentification multifacteur et le contrôle d’accès à facteur multi\-dans Services ADFS \(AD FS\) dans Windows Server 2012 R2, consultez les rubriques suivantes :  
 
 
 -   [Joindre un espace de travail à partir de n’importe quel appareil en utilisant l’authentification unique et l’authentification de second facteur transparente](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
@@ -29,7 +29,7 @@ Pour plus d’informations sur l’authentification\-MFA et le contrôle d' \(ac
 
 -   [Gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 
-## <a name="configure-authentication-policies-via-the-ad-fs-management-snap-in"></a>Configurer des stratégies d’authentification via le composant\-logiciel enfichable de gestion AD FS  
+## <a name="configure-authentication-policies-via-the-ad-fs-management-snap-in"></a>Configurer des stratégies d’authentification via le\-du composant logiciel enfichable de gestion de AD FS  
 Pour effectuer ces procédures, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent sur l’ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
 Dans AD FS, dans Windows Server 2012 R2, vous pouvez spécifier une stratégie d’authentification au niveau d’une étendue globale applicable à l’ensemble des applications et services sécurisés par AD FS. Vous pouvez également définir des stratégies d’authentification pour des applications et des services spécifiques qui reposent sur des approbations de tiers et qui sont sécurisés par AD FS. La spécification d’une stratégie d’authentification pour une application particulière par approbation de partie de confiance ne remplace pas la stratégie d’authentification globale. Si la stratégie d’authentification globale ou par approbation de partie de confiance requiert l’authentification MFA, l’authentification MFA est déclenchée lorsque l’utilisateur tente de s’authentifier auprès de cette approbation de partie de confiance. La stratégie d’authentification globale est une solution de secours pour les approbations de partie de confiance pour les applications et les services qui n’ont pas de stratégie d’authentification configurée spécifique. 
@@ -38,67 +38,67 @@ Dans AD FS, dans Windows Server 2012 R2, vous pouvez spécifier une stratégie d
 
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
 
-2.  Dans AD FS composant\-logiciel enfichable, cliquez sur **stratégies d’authentification**.  
+2.  Dans AD FS\-de composant logiciel enfichable, cliquez sur **stratégies d’authentification**.  
 
-3.  Dans la section **authentification principale** , cliquez sur **modifier** en regard de **paramètres globaux**. Vous pouvez également cliquer\-avec le bouton droit sur **stratégies d’authentification**, sélectionner **modifier l’authentification principale globale**, ou, dans le volet **actions** , sélectionner **modifier l’authentification principale globale**.  
-![stratégies d’authentification](media/Configure-Authentication-Policies/authpolicy1.png)
+3.  Dans la section **authentification principale** , cliquez sur **modifier** en regard de **paramètres globaux**. Vous pouvez également cliquer avec le bouton droit\-sur **stratégies d’authentification**, sélectionner **modifier l’authentification principale globale**, ou, dans le volet **actions** , sélectionner **modifier l’authentification principale globale**.  
+stratégies d’authentification ![](media/Configure-Authentication-Policies/authpolicy1.png)
 
 4.  Dans la fenêtre **modifier la stratégie d’authentification globale** , sous l’onglet **principal** , vous pouvez configurer les paramètres suivants dans le cadre de la stratégie d’authentification globale :  
 
     -   Méthodes d’authentification à utiliser pour l’authentification principale. Vous pouvez sélectionner les méthodes d’authentification disponibles sous **extranet** et **Intranet**.  
 
-    -   Authentification de l’appareil via la case à cocher **activer l’authentification** de l’appareil. Pour plus d’informations, consultez [rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente deuxième facteur Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).  
-![stratégies d’authentification](media/Configure-Authentication-Policies/authpolicy2.png)  
+    -   Authentification de l’appareil via la case à cocher **activer l’authentification** de l’appareil. Pour plus d'informations, voir [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).  
+stratégies d’authentification ![](media/Configure-Authentication-Policies/authpolicy2.png)  
 
 ## <a name="to-configure-primary-authentication-per-relying-party-trust"></a>Pour configurer l’authentification principale par approbation de partie de confiance  
 
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
 
-2.  Dans AD FS composant\-logiciel enfichable, cliquez sur\\ **stratégies d’authentification** **par approbation de partie de confiance**, puis cliquez sur l’approbation de la partie de confiance pour laquelle vous souhaitez configurer des stratégies d’authentification.  
+2.  Dans AD FS\-de composant logiciel enfichable dans, cliquez sur **stratégies d’authentification**\\**par approbation de partie de confiance**, puis cliquez sur l’approbation de la partie de confiance pour laquelle vous souhaitez configurer des stratégies d’authentification.  
 
-3.  Cliquez avec\-le bouton droit sur l’approbation de la partie de confiance pour laquelle vous souhaitez configurer des stratégies d’authentification, puis sélectionnez **modifier l’authentification principale personnalisée**. ou bien, dans le volet **actions** , sélectionnez Modifier le serveur **principal personnalisé. Authentification**.  
-![stratégies d’authentification](media/Configure-Authentication-Policies/authpolicy5.png)   
+3.  Cliquez avec le bouton\-droit sur l’approbation de la partie de confiance pour laquelle vous souhaitez configurer des stratégies d’authentification, puis sélectionnez **modifier l’authentification principale personnalisée**. ou bien, dans le volet **actions** , sélectionnez **modifier l’authentification principale personnalisée**.  
+stratégies d’authentification ![](media/Configure-Authentication-Policies/authpolicy5.png)   
 
-4.  Dans la fenêtre **modifier la stratégie d’authentification pour\_<\_nom\_de l’approbation de partie de confiance >** , sous l’onglet **principal** , vous pouvez configurer le paramètre suivant dans le cadre de l' **approbation par partie de confiance** . stratégie d’authentification :  
+4.  Dans la fenêtre **modifier la stratégie d’authentification pour < partie de\_de confiance\_\_> nom de l’approbation de** la partie de confiance, sous l’onglet **principal** , vous pouvez configurer le paramètre suivant dans le cadre de la stratégie d’authentification **par approbation de partie de confiance** :  
 
-    -   Si les utilisateurs doivent fournir leurs informations d’identification chaque fois qu’ils\-se connectent par le biais des utilisateurs, ils doivent **fournir leurs informations d'\-identification chaque fois** que la case se connecter.  
-![stratégies d’authentification](media/Configure-Authentication-Policies/authpolicy6.png) 
+    -   Si les utilisateurs doivent fournir leurs informations d’identification à chaque fois qu’ils se connectent\-dans via, les **utilisateurs doivent fournir leurs informations d’identification à chaque fois qu'** ils se connectent\-dans la case à cocher.  
+stratégies d’authentification ![](media/Configure-Authentication-Policies/authpolicy6.png) 
 
 ## <a name="to-configure-multi-factor-authentication-globally"></a>Pour configurer l’authentification multifacteur globalement  
 
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
 
-2.  Dans AD FS composant\-logiciel enfichable, cliquez sur **stratégies d’authentification**.  
+2.  Dans AD FS\-de composant logiciel enfichable, cliquez sur **stratégies d’authentification**.  
 
-3.  Dans la **\-section authentification multifacteur** , cliquez sur **modifier** en regard de **paramètres globaux**. Vous pouvez également cliquer\-avec le bouton droit sur **stratégies d’authentification**, **\-sélectionner modifier l’authentification multifacteur globale**, ou, **\-dans le volet Actions, sélectionner modifier l’authentification multifacteur globale.** .  
-![stratégies d’authentification](media/Configure-Authentication-Policies/authpolicy8.png)   
+3.  Dans la section **authentification multi\-facteur** , cliquez sur **modifier** en regard de **paramètres globaux**. Vous pouvez également cliquer avec le bouton droit\-sur **stratégies d’authentification**, puis sélectionner **modifier l’authentification multifacteur globale multi\-** ou, dans le volet **actions** , sélectionner **modifier l’authentification multifacteur globale multi-\-** .  
+stratégies d’authentification ![](media/Configure-Authentication-Policies/authpolicy8.png)   
 
-4.  Dans la fenêtre **modifier la stratégie d’authentification globale** , sous l’onglet **\-plusieurs facteurs** , vous pouvez configurer les paramètres suivants dans le cadre de la stratégie d’authentification\-multifacteur globale :  
+4.  Dans la fenêtre **modifier la stratégie d’authentification globale** , sous l’onglet **facteur multi\-** , vous pouvez configurer les paramètres suivants dans le cadre de la stratégie globale d’authentification multi-\-:  
 
-    -   Paramètres ou conditions pour l’authentification MFA via les options disponibles dans les sections **groupes d'\/utilisateurs**, **appareils**et **emplacements** .  
+    -   Paramètres ou conditions pour MFA via les options disponibles dans les sections **utilisateurs\/groupes**, **appareils**et **emplacements** .  
 
-    -   Pour activer MFA pour l’un de ces paramètres, vous devez sélectionner au moins une méthode d’authentification supplémentaire. L' **authentification par certificat** est l’option par défaut disponible. Vous pouvez également configurer d’autres méthodes d’authentification supplémentaires personnalisées, par exemple, Windows Azure active Authentication. Pour plus d’informations, [consultez Guide pas à pas : Gérer les risques avec des Multi-Factor Authentication supplémentaires pour](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)les applications sensibles.  
+    -   Pour activer MFA pour l’un de ces paramètres, vous devez sélectionner au moins une méthode d’authentification supplémentaire. L' **authentification par certificat** est l’option par défaut disponible. Vous pouvez également configurer d’autres méthodes d’authentification supplémentaires personnalisées, par exemple, Windows Azure active Authentication. Pour plus d’informations, consultez [Guide de procédure pas à pas : gérer les risques avec des multi-Factor Authentication supplémentaires pour les applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).  
 
 > [!WARNING]  
 > Vous pouvez uniquement configurer des méthodes d’authentification supplémentaires de manière globale.  
-![stratégies d’authentification](media/Configure-Authentication-Policies/authpolicy9.png)  
+stratégies d’authentification ![](media/Configure-Authentication-Policies/authpolicy9.png)  
 
-## <a name="to-configure-multi-factor-authentication-per-relying-party-trust"></a>Pour configurer\-l’authentification multifacteur par approbation de partie de confiance  
+## <a name="to-configure-multi-factor-authentication-per-relying-party-trust"></a>Pour configurer multi\-Factor Authentication par approbation de partie de confiance  
 
 1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
 
-2.  Dans AD FS composant\-logiciel enfichable, cliquez sur\\ **stratégies d’authentification** **par approbation de partie de confiance**, puis cliquez sur l’approbation de la partie de confiance pour laquelle vous souhaitez configurer l’authentification multifacteur.  
+2.  Dans AD FS\-de composant logiciel enfichable dans, cliquez sur **stratégies d’authentification**\\**par approbation de partie de confiance**, puis cliquez sur l’approbation de la partie de confiance pour laquelle vous souhaitez configurer l’authentification multifacteur.  
 
-3.  Cliquez avec\-le bouton droit sur l’approbation de la partie de confiance pour laquelle vous souhaitez configurer l' **authentification\-multifacteur, puis sélectionnez Modifier l’authentification multifacteur personnalisée**ou, dans le volet **actions** , sélectionnez **modifier le multi\- -groupe personnalisé Authentification par facteur**.  
+3.  Cliquez avec le bouton\-droit sur l’approbation de la partie de confiance pour laquelle vous souhaitez configurer l' **authentification multifacteur, puis sélectionnez Modifier l’authentification multi-\-personnalisée**ou, dans le volet **actions** , sélectionnez **modifier l’authentification multifacteur\-personnalisée**.  
 
-4.  Dans la fenêtre **modifier la stratégie d’authentification pour\_< nom\_de l’approbation de la partie\_de confiance >** , sous l' **\-onglet multifacteur** , vous pouvez configurer les paramètres suivants dans le\-cadredustratégie d’authentification par approbation de partie de confiance :  
+4.  Dans la fenêtre **modifier la stratégie d’authentification pour < partie de\_de confiance\_de l’approbation de\_nom de l' >** , sous l’onglet **facteur multi\-** , vous pouvez configurer les paramètres suivants dans le cadre de la stratégie d’authentification d’approbation de partie de confiance par\-:  
 
-    -   Paramètres ou conditions pour l’authentification MFA via les options disponibles dans les sections **groupes d'\/utilisateurs**, **appareils**et **emplacements** .  
+    -   Paramètres ou conditions pour MFA via les options disponibles dans les sections **utilisateurs\/groupes**, **appareils**et **emplacements** .  
 
 ## <a name="configure-authentication-policies-via-windows-powershell"></a>Configurer des stratégies d’authentification via Windows PowerShell  
-Windows PowerShell offre une plus grande flexibilité dans l’utilisation de différents facteurs de contrôle d’accès et le mécanisme d’authentification disponible dans AD FS dans Windows Server 2012 R2 pour configurer les stratégies d’authentification et les règles d’autorisation nécessaires pour Implémentez un véritable accès conditionnel pour \-vos ressources AD FS sécurisées.  
+Windows PowerShell offre une plus grande flexibilité dans l’utilisation de différents facteurs de contrôle d’accès et le mécanisme d’authentification disponible dans AD FS dans Windows Server 2012 R2 pour configurer les stratégies d’authentification et les règles d’autorisation nécessaires pour implémenter un accès conditionnel réel pour votre AD FS \-des ressources sécurisées.  
 
-L’appartenance au groupe administrateurs, ou équivalent, sur l’ordinateur local est la condition minimale requise pour effectuer ces procédures.  Passez en revue les détails sur l’utilisation des comptes et des appartenances aux groupes appropriés dans les\/ \( [groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477) http :\/Go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
+Pour effectuer ces procédures, il est nécessaire d’appartenir au minimum au groupe Administrateurs ou à un groupe équivalent sur l’ordinateur local.  Passez en revue les détails sur l’utilisation des comptes et des appartenances aux groupes appropriés dans les [groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477) \(http :\/\/Go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
 
 ### <a name="to-configure-an-additional-authentication-method-via-windows-powershell"></a>Pour configurer une méthode d’authentification supplémentaire via Windows PowerShell  
 
@@ -113,7 +113,7 @@ L’appartenance au groupe administrateurs, ou équivalent, sur l’ordinateur l
 > [!WARNING]  
 > Pour vérifier que cette commande s’est correctement exécutée, vous pouvez exécuter la commande `Get-AdfsGlobalAuthenticationPolicy` .  
 
-### <a name="to-configure-mfa-per-relying-party-trust-that-is-based-on-a-users-group-membership-data"></a>Pour configurer l’authentification\-MFA par approbation de partie de confiance basée sur les données d’appartenance aux groupes d’un utilisateur  
+### <a name="to-configure-mfa-per-relying-party-trust-that-is-based-on-a-users-group-membership-data"></a>Pour configurer l’authentification MFA par\-approbation de partie de confiance basée sur les données d’appartenance aux groupes d’un utilisateur  
 
 1.  Sur votre serveur de fédération, ouvrez la fenêtre de commande Windows PowerShell et exécutez la commande suivante :  
 
@@ -124,7 +124,7 @@ L’appartenance au groupe administrateurs, ou équivalent, sur l’ordinateur l
 
 
 > [!WARNING]  
-> Veillez à remplacer *< approbation\_de\_partie de confiance >* par le nom de votre approbation de partie de confiance.  
+> Veillez à remplacer *<\_de confiance\_de confiance >* par le nom de votre approbation de partie de confiance.  
 
 2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante.  
 
@@ -137,7 +137,7 @@ Set-AdfsRelyingPartyTrust –TargetRelyingParty $rp –AdditionalAuthenticationR
 
 
 > [!NOTE]  
-> Veillez à remplacer <\_SID de groupe > par la valeur du \(sid\) de l’identificateur de sécurité \(de\) votre groupe ad Active Directory.  
+> Veillez à remplacer < groupe\_SID > par la valeur de l’identificateur de sécurité \(SID\) de votre groupe Active Directory \(AD\).  
 
 ### <a name="to-configure-mfa-globally-based-on-users-group-membership-data"></a>Pour configurer l’authentification MFA à l’échelle mondiale en fonction des données d’appartenance au groupe des utilisateurs  
 
@@ -153,7 +153,7 @@ Set-AdfsAdditionalAuthenticationRule $MfaClaimRule
 
 
 > [!NOTE]  
-> Veillez à remplacer *<\_SID de groupe >* par la valeur du SID de votre groupe Active Directory.  
+> Veillez à remplacer *< groupe\_sid >* par la valeur du SID de votre groupe Active Directory.  
 
 ### <a name="to-configure-mfa-globally-based-on-users-location"></a>Pour configurer l’authentification MFA à l’échelle mondiale en fonction de l’emplacement de l’utilisateur  
 
@@ -170,7 +170,7 @@ Set-AdfsAdditionalAuthenticationRule $MfaClaimRule
 
 
 > [!NOTE]  
-> Veillez à remplacer *<\_true\_ou false >* par `false` `true` ou. La valeur dépend de votre condition de règle spécifique qui est basée sur le fait que la demande d’accès provient de l’extranet ou de l’intranet.  
+> Veillez à remplacer *< true\_ou\_false >* par `true` ou `false`. La valeur dépend de votre condition de règle spécifique qui est basée sur le fait que la demande d’accès provient de l’extranet ou de l’intranet.  
 
 ### <a name="to-configure-mfa-globally-based-on-users-device-data"></a>Pour configurer l’authentification MFA à l’échelle mondiale en fonction des données de l’appareil de l’utilisateur  
 
@@ -186,9 +186,9 @@ Set-AdfsAdditionalAuthenticationRule $MfaClaimRule
 
 
 > [!NOTE]  
-> Veillez à remplacer *<\_true\_ou false >* par `false` `true` ou. La valeur dépend de votre condition de règle spécifique qui est basée sur le fait que l'\-appareil est joint à un espace de travail ou non.  
+> Veillez à remplacer *< true\_ou\_false >* par `true` ou `false`. La valeur dépend de votre condition de règle spécifique qui est basée sur le fait que l’appareil est un espace de travail\-joint ou non.  
 
-### <a name="to-configure-mfa-globally-if-the-access-request-comes-from-the-extranet-and-from-a-non-workplace-joined-device"></a>Pour configurer l’authentification multifacteur globalement si la demande d’accès provient de l’extranet et\-d'\-un appareil non joint à un espace de travail  
+### <a name="to-configure-mfa-globally-if-the-access-request-comes-from-the-extranet-and-from-a-non-workplace-joined-device"></a>Pour configurer l’authentification multifacteur de manière globale si la demande d’accès provient de l’extranet et à partir d’un appareil non\-Workplace\-joint  
 
 1.  Sur votre serveur de Fédération, ouvrez la fenêtre de commande Windows PowerShell et exécutez la commande suivante.  
 
@@ -199,7 +199,7 @@ Set-AdfsAdditionalAuthenticationRule $MfaClaimRule
 
 
 > [!NOTE]  
-> Veillez à remplacer les deux instances de *<\_true\_ou false >* par `true` ou `false`, ce qui dépend de vos conditions de règle spécifiques. Les conditions de règle sont basées sur si l’appareil est\-joint à un espace de travail ou non et si la demande d’accès provient de l’extranet ou de l’intranet.  
+> Veillez à remplacer les deux instances de *< true\_ou\_false >* par `true` ou `false`, ce qui dépend de vos conditions de règle spécifiques. Les conditions de règle sont basées sur le fait que l’appareil est un espace de travail\-joint ou non et si la demande d’accès provient de l’extranet ou de l’intranet.  
 
 ### <a name="to-configure-mfa-globally-if-access-comes-from-an-extranet-user-that-belongs-to-a-certain-group"></a>Pour configurer l’authentification MFA de manière globale si l’accès provient d’un utilisateur extranet appartenant à un certain groupe  
 
@@ -211,7 +211,7 @@ Set-AdfsAdditionalAuthenticationRule "c:[Type == `"https://schemas.microsoft.com
 ~~~
 
 > [!NOTE]  
-> Veillez à *remplacer <\_SID de groupe >* par la valeur du SID du groupe et à *< les > true\_ou\_false* avec `true` ou `false`, ce qui dépend de votre condition de règle spécifique. est basé sur le fait que la demande d’accès provient de l’extranet ou de l’intranet.  
+> Veillez à remplacer *< groupe\_sid >* par la valeur du SID du groupe et *< true\_ou\_false >* par `true` ou `false`, ce qui dépend de votre condition de règle spécifique selon que la demande d’accès provient de l’extranet ou de l’intranet.  
 
 ### <a name="to-grant-access-to-an-application-based-on-user-data-via-windows-powershell"></a>Pour accorder l’accès à une application en fonction des données utilisateur via Windows PowerShell  
 
@@ -223,7 +223,7 @@ Set-AdfsAdditionalAuthenticationRule "c:[Type == `"https://schemas.microsoft.com
     ```  
 
 > [!NOTE]  
-> Veillez à remplacer *< approbation\_de\_partie de confiance >* par la valeur de votre approbation de partie de confiance.  
+> Veillez à remplacer *<\_de confiance\_de confiance >* par la valeur de votre approbation de partie de confiance.  
 
 2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante.  
 
@@ -234,7 +234,7 @@ Set-AdfsAdditionalAuthenticationRule "c:[Type == `"https://schemas.microsoft.com
    ```  
 
 > [!NOTE]  
-> > Veillez à remplacer *<\_SID de groupe >* par la valeur du SID de votre groupe Active Directory.  
+> > Veillez à remplacer *< groupe\_sid >* par la valeur du SID de votre groupe Active Directory.  
 
 ### <a name="to-grant-access-to-an-application-that-is-secured-by-ad-fs-only-if-this-users-identity-was-validated-with-mfa"></a>Pour accorder l’accès à une application sécurisée par AD FS uniquement si l’identité de cet utilisateur a été validée avec MFA  
 
@@ -247,7 +247,7 @@ Set-AdfsAdditionalAuthenticationRule "c:[Type == `"https://schemas.microsoft.com
 
 
 > [!NOTE]  
-> Veillez à remplacer *< approbation\_de\_partie de confiance >* par la valeur de votre approbation de partie de confiance.  
+> Veillez à remplacer *<\_de confiance\_de confiance >* par la valeur de votre approbation de partie de confiance.  
 
 2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante.  
 
@@ -258,7 +258,7 @@ Set-AdfsAdditionalAuthenticationRule "c:[Type == `"https://schemas.microsoft.com
 
    ```  
 
-### <a name="to-grant-access-to-an-application-that-is-secured-by-ad-fs-only-if-the-access-request-comes-from-a-workplace-joined-device-that-is-registered-to-the-user"></a>Pour accorder l’accès à une application sécurisée par AD FS uniquement si la demande d’accès provient d’un\-appareil rattaché à un espace de travail qui est inscrit auprès de l’utilisateur  
+### <a name="to-grant-access-to-an-application-that-is-secured-by-ad-fs-only-if-the-access-request-comes-from-a-workplace-joined-device-that-is-registered-to-the-user"></a>Pour accorder l’accès à une application sécurisée par AD FS uniquement si la demande d’accès provient d’un espace de travail\-appareil joint qui est inscrit auprès de l’utilisateur  
 
 1.  Sur votre serveur de Fédération, ouvrez la fenêtre de commande Windows PowerShell et exécutez la commande suivante.  
 
@@ -268,7 +268,7 @@ Set-AdfsAdditionalAuthenticationRule "c:[Type == `"https://schemas.microsoft.com
     ```  
 
 > [!NOTE]  
-> Veillez à remplacer *< approbation\_de\_partie de confiance >* par la valeur de votre approbation de partie de confiance.  
+> Veillez à remplacer *<\_de confiance\_de confiance >* par la valeur de votre approbation de partie de confiance.  
 
 2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante.  
 
@@ -281,7 +281,7 @@ c:[Type == `"https://schemas.microsoft.com/2012/01/devicecontext/claims/isregist
 
 
 
-### <a name="to-grant-access-to-an-application-that-is-secured-by-ad-fs-only-if-the-access-request-comes-from-a-workplace-joined-device-that-is-registered-to-a-user-whose-identity-has-been-validated-with-mfa"></a>Pour accorder l’accès à une application sécurisée par AD FS uniquement si la demande d’accès provient d’un\-appareil rattaché à un espace de travail qui est inscrit auprès d’un utilisateur dont l’identité a été validée avec MFA  
+### <a name="to-grant-access-to-an-application-that-is-secured-by-ad-fs-only-if-the-access-request-comes-from-a-workplace-joined-device-that-is-registered-to-a-user-whose-identity-has-been-validated-with-mfa"></a>Pour accorder l’accès à une application sécurisée par AD FS uniquement si la demande d’accès provient d’un espace de travail\-appareil joint qui est inscrit auprès d’un utilisateur dont l’identité a été validée avec MFA  
 
 1.  Sur votre serveur de Fédération, ouvrez la fenêtre de commande Windows PowerShell et exécutez la commande suivante.  
 
@@ -292,7 +292,7 @@ c:[Type == `"https://schemas.microsoft.com/2012/01/devicecontext/claims/isregist
 
 
 > [!NOTE]  
-> Veillez à remplacer *< approbation\_de\_partie de confiance >* par la valeur de votre approbation de partie de confiance.  
+> Veillez à remplacer *<\_de confiance\_de confiance >* par la valeur de votre approbation de partie de confiance.  
 
 2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante.  
 
@@ -315,7 +315,7 @@ c:[Type == `"https://schemas.microsoft.com/2012/01/devicecontext/claims/isregist
 
 
 > [!NOTE]  
-> Veillez à remplacer *< approbation\_de\_partie de confiance >* par la valeur de votre approbation de partie de confiance.  
+> Veillez à remplacer *<\_de confiance\_de confiance >* par la valeur de votre approbation de partie de confiance.  
 
 2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante.  
 
