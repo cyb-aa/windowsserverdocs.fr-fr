@@ -14,11 +14,11 @@ ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: b934a585b3058cc2eec642cdb1234c8c9a015544
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265951"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370763"
 ---
 # <a name="general-remote-desktop-connection-troubleshooting"></a>Résolution de problèmes de connexion Bureau à distance d’ordre général
 
