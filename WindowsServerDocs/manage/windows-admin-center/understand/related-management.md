@@ -8,15 +8,15 @@ ms.author: harowl
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: d681e5007cd3ae3c14de774df0bc85abc23b51d7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: HT
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406836"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371684"
 ---
 # <a name="windows-admin-center-and-related-management-solutions-from-microsoft"></a>Windows Admin Center et autres solutions d’administration de Microsoft
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 [Windows Admin Center](windows-admin-center.md) est l’évolution des outils d’administration de serveur existants, fournis pour les situations où vous deviez utiliser le protocole RDP (Remote Desktop Protocol) pour vous connecter à un serveur à des fins de dépannage ou de configuration. Cette solution n’a pas vocation à remplacer les autres solutions d’administration existantes proposées par Microsoft. Elle vient en complément de ces solutions, comme cela est décrit ci-dessous.
 
@@ -45,6 +45,6 @@ Les [Outils d’administration de serveur distant (RSAT)](https://docs.microsoft
 |Gestion optimisée des clusters **individuels** **HCI** de deux à quatre nœuds ; intégration d’Hyper-V, de Storage Spaces Direct et de SDN|Déploiement et gestion de clusters Windows Server Hyper-V à l’**échelle du centre de données** à partir du **système nu** avec SCVMM|
 |**Supervision sur HCI** uniquement ; historique des magasins du service de contrôle d’intégrité des clusters. Plateforme extensible pour les première et troisième **extensions des outils d’administration** tiers|Plateforme de **supervision scalable** & **extensible** dans SCOM, avec des alertes, des notifications, une solution tierce de supervision des charges de travail ; SQL pour l’historique|
 |Voie la plus simple vers un environnement **hybride** ; intégration et utilisation de divers services Azure pour la protection des données, la réplication, les mises à jour et bien plus encore|**Intégration** de la protection des données, de la réplication et des mises à jour (DPM/VMM/SCCM). Intégration hybride avec Log Analytics et Service Map|
-|**Mise en avant des fonctionnalités de la plateforme** Windows Server : Service de migration de stockage, Réplica de stockage, Insights système, etc.|**Plateformes supplémentaires** : Automatisation dans Orchestrator/SMA. Intégrations avec SCSM et d’autres outils de gestion de service|
+|**Bloque les fonctionnalités de plateforme** de Windows Server : service de migration de stockage, réplica de stockage, System Insights, etc.|**Plateformes supplémentaires**: automatisation dans Orchestrator/SMA. Intégrations à SCSM & d’autres outils de gestion des services|
 
 #### <a name="each-delivers-targeted-value-independently-better-together-with-complementary-capabilities"></a>Chacune de ces solutions offre ses propres avantages. **Utilisez-les conjointement** pour bénéficier de capacités complémentaires.

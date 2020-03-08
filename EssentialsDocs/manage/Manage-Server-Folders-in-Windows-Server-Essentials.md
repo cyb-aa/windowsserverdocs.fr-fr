@@ -13,25 +13,25 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 0c46d19f4f172786e0ffe7f3b9dd7ac1d8f4fcf0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433206"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371170"
 ---
 # <a name="manage-server-folders-in-windows-server-essentials"></a>Gérer les dossiers serveur dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
- En tant qu’un administrateur de serveur, vous pouvez gérer l’accès aux dossiers serveur (appelé de dossiers partagés à partir du Launchpad, accès Web à distance, application My Server pour Windows Phone ou application My Server pour Windows 8) sur le serveur à l’aide de tâches sur le  **Dossiers du serveur** onglet du tableau de bord, ce qui permet aux utilisateurs différents niveaux d’accès à un large éventail de fichiers.  
+ En tant qu’administrateur de serveur, vous pouvez gérer l’accès aux dossiers de serveur (appelés dossiers partagés quand vous y accédez à partir du Launchpad, du Accès web distant, de l’application my Server pour Windows Phone ou de l’application my Server pour Windows 8) sur le serveur à l’aide des tâches de l’onglet **dossiers du serveur** du tableau de bord, ce qui permet aux utilisateurs de différents niveaux d’accès à  
   
  Les rubriques suivantes fournissent des informations qui vous aideront à comprendre, créer et gérer des dossiers serveur :  
   
--   [Gérer les dossiers de serveur à l’aide du tableau de bord](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Gérer les dossiers du serveur à l’aide du tableau de bord](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_2)  
   
 -   [Gérer l’accès aux dossiers du serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Ajouter ou déplacer un dossier serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5)  
+-   [Ajouter ou déplacer un dossier de serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5)  
   
 -   [Ajouter un dossier serveur manquant](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_9)  
   
@@ -39,7 +39,7 @@ ms.locfileid: "66433206"
   
 -   [Comprendre les clichés instantanés](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Shadow)  
   
-##  <a name="BKMK_2"></a> Gérer les dossiers de serveur à l’aide du tableau de bord  
+##  <a name="BKMK_2"></a>Gérer les dossiers du serveur à l’aide du tableau de bord  
  Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord. La page **Dossiers du serveur** du tableau de bord fournit les éléments suivants :  
   
 - Liste de dossiers serveur, qui indique les éléments suivants :  
@@ -68,11 +68,11 @@ ms.locfileid: "66433206"
 |Supprimer le dossier|Vous permet de supprimer un dossier créé par un utilisateur. Cette tâche n'est pas disponible pour les dossiers par défaut créés durant l'installation du serveur.|  
 |Déplacer le dossier|Ouvre un Assistant qui permet de déplacer un dossier serveur vers un nouvel emplacement.|  
 |Interrompre le partage du dossier|Interrompt le partage du dossier sélectionné, mais ne le supprime pas. Quand le dossier n'est plus partagé, il n'apparaît pas dans le tableau de bord. Cette tâche n'est pas disponible pour les dossiers par défaut créés durant l'installation du serveur.|  
-|Afficher les propriétés du dossier|Affiche les propriétés du dossier sélectionné et vous permet d'effectuer les actions suivantes :<br /><br /> -Modifier le nom des dossiers créés par l’utilisateur.<br /><br /> -Modifier la description d’un dossier sélectionné.<br /><br /> -Afficher la taille du dossier.<br /><br /> -Ouvrir le dossier sélectionné dans l’Explorateur de fichiers.<br /><br /> -Spécifier des autorisations d’accès de compte d’utilisateur pour un dossier sélectionné.<br /><br /> -Masquer le dossier sélectionné à partir d’applications accès Web à distance et le Service Web.<br /><br /> -Spécifiez le quota du dossier.|  
+|Afficher les propriétés du dossier|Affiche les propriétés du dossier sélectionné et vous permet d'effectuer les actions suivantes :<br /><br /> -Modifier le nom des dossiers créés par l’utilisateur.<br /><br /> -Modifier la description d’un dossier sélectionné.<br /><br /> -Afficher la taille du dossier.<br /><br /> -Ouvrir le dossier sélectionné dans l’Explorateur de fichiers.<br /><br /> -Spécifiez les autorisations d’accès au compte d’utilisateur pour un dossier sélectionné.<br /><br /> -Masquer un dossier sélectionné à partir de la Accès web distante et des applications de service Web.<br /><br /> -Spécifiez le quota du dossier.|  
 |Ajouter un dossier|Vous permet de créer un dossier serveur et d'affecter le niveau d'accès autorisé pour chaque compte d'utilisateur.|  
 |Présentation des dossiers serveur|Ouvre une rubrique d'aide sur Internet qui décrit l'utilisation et les fonctionnalités des dossiers serveur.|  
   
-##  <a name="BKMK_1"></a> Gérer l’accès aux dossiers du serveur  
+##  <a name="BKMK_1"></a>Gérer l’accès aux dossiers du serveur  
  Windows Server Essentials vous permet de stocker les fichiers qui se trouvent sur vos ordinateurs clients dans un emplacement central à l'aide de dossiers serveur. En stockant les fichiers dans des dossiers serveur, vous avez la certitude que ces fichiers se trouvent dans un emplacement constamment accessible, de manière sécurisée, depuis chaque client.  
   
  L'utilisation de dossiers serveur pour stocker vos fichiers vous permet d'effectuer les tâches suivantes :  
@@ -99,13 +99,13 @@ ms.locfileid: "66433206"
   
  Pour masquer ou définir les autorisations des dossiers serveur, ou pour changer les propriétés des dossiers serveur, consultez les procédures suivantes :  
   
--   [Masquer des dossiers du serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Hide)  
+-   [Masquer les dossiers du serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Hide)  
   
--   [Définir des autorisations aux dossiers du serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Perms)  
+-   [Définir des autorisations sur les dossiers du serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Perms)  
   
--   [Afficher ou modifier les propriétés de dossier de serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_10)  
+-   [Afficher ou modifier les propriétés du dossier du serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_10)  
   
-###  <a name="BKMK_Hide"></a> Masquer des dossiers du serveur  
+###  <a name="BKMK_Hide"></a>Masquer les dossiers du serveur  
  En tant qu'administrateur réseau, vous pouvez choisir de masquer ces dossiers serveur et les empêcher de s'afficher sur le site de l'accès web à distance ou dans les applications de services web (par exemple Mon serveur).  
   
 > [!NOTE]
@@ -119,18 +119,18 @@ ms.locfileid: "66433206"
   
 3.  Dans la liste, sélectionnez le dossier serveur dont vous souhaitez afficher ou modifier les propriétés.  
   
-4.  Dans le **< Dossierserveur\> tâches** volet, cliquez sur **afficher les propriétés du dossier**.  
+4.  Dans le volet **tâches < dossierserveur\>** , cliquez sur **afficher les propriétés du dossier**.  
   
-5.  Dans **< nom_dossier\> propriétés**, cliquez sur **partage**, sélectionnez **masquer ce dossier à partir d’applications accès Web à distance et le Service Web**, puis cliquez sur **Appliquer**.  
+5.  Dans **< propriétés nomdossier\>** , cliquez sur **partage**, sélectionnez **masquer ce dossier dans les applications de service Web et d’accès Web à distance**, puis cliquez sur **appliquer**.  
   
-###  <a name="BKMK_Perms"></a> Définir des autorisations aux dossiers du serveur  
+###  <a name="BKMK_Perms"></a>Définir des autorisations sur les dossiers du serveur  
  Pour chaque dossier serveur supplémentaires que vous ajoutez au serveur à l'aide du tableau de bord, vous pouvez choisir trois paramètres d'accès différents :  
   
--   **En lecture/écriture**  
+-   **Lecture/écriture**  
   
      Choisissez ce paramètre si vous souhaitez autoriser une personne à créer, changer et supprimer des fichiers dans le dossier serveur.  
   
--   **En lecture seule**  
+-   **Lecture seule**  
   
      Choisissez ce paramètre si vous souhaitez autoriser une personne à lire uniquement les fichiers du dossier serveur. Les utilisateurs avec accès en lecture seule ne peuvent pas créer, changer ou supprimer de fichiers dans le dossier serveur.  
   
@@ -152,21 +152,21 @@ ms.locfileid: "66433206"
   
 3.  Dans la liste, sélectionnez le dossier serveur dont vous souhaitez afficher ou modifier les propriétés.  
   
-4.  Dans le **< Dossierserveur\> tâches** volet, cliquez sur **afficher les propriétés du dossier**.  
+4.  Dans le volet **tâches < dossierserveur\>** , cliquez sur **afficher les propriétés du dossier**.  
   
-5.  Dans **< nom_dossier\> propriétés**, cliquez sur **partage**et sélectionnez le niveau d’accès utilisateur approprié pour les comptes d’utilisateur répertoriés, puis cliquez sur **appliquer**.  
+5.  Dans **< propriétés nom_dossier\>** , cliquez sur **partage**, sélectionnez le niveau d’accès utilisateur approprié pour les comptes d’utilisateurs listés, puis cliquez sur **appliquer**.  
   
 > [!NOTE]
 >  Par défaut, quand vous ajoutez un compte d'utilisateur à votre réseau, un sous-dossier est créé pour l'utilisateur sous le dossier **Utilisateurs** sur le serveur. Le sous-dossier est accessible depuis un ordinateur réseau uniquement par l'utilisateur ou l'administrateur. Les autorisations sont définies pour chaque sous-dossier situé sous **Utilisateurs**. Ainsi, il n'existe aucune autorisation d'accès générale pour le dossier de premier niveau **Utilisateurs**.  
   
 > [!NOTE]
->  Vous ne pouvez pas changer les autorisations de partage des dossiers serveur **Sauvegardes de l'Historique des fichiers**, **Redirection de dossiers**et **Utilisateurs** . Il n'y a donc pas d'onglet **Partage** dans les propriétés de dossier de ces dossiers serveur.  
+>  Vous ne pouvez pas changer les autorisations de partage des dossiers serveur **Sauvegardes de l'Historique des fichiers**, **Redirection de dossiers** et **Utilisateurs**. Il n'y a donc pas d'onglet **Partage** dans les propriétés de dossier de ces dossiers serveur.  
   
-###  <a name="BKMK_10"></a> Afficher ou modifier les propriétés de dossier de serveur  
+###  <a name="BKMK_10"></a>Afficher ou modifier les propriétés du dossier du serveur  
  Vous pouvez changer le nom du dossier serveur et sa description. En outre, vous pouvez définir les comptes d'utilisateur qui ont accès à un dossier serveur via la tâche **Afficher les propriétés du dossier** sous l'onglet **Dossiers du serveur** du tableau de bord.  
   
 > [!NOTE]
->  Dans Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, vous pouvez également modifier le quota du dossier.  
+>  Dans Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, vous pouvez également modifier le quota de dossiers.  
   
 ##### <a name="to-view-or-modify-folder-properties"></a>Pour afficher ou changer les propriétés de dossier  
   
@@ -176,14 +176,14 @@ ms.locfileid: "66433206"
   
 3.  Dans la liste, sélectionnez le dossier serveur dont vous souhaitez afficher ou modifier les propriétés.  
   
-4.  Dans le **< Dossierserveur\> tâches** volet, cliquez sur **afficher les propriétés du dossier**.  
+4.  Dans le volet **tâches < dossierserveur\>** , cliquez sur **afficher les propriétés du dossier**.  
   
-5.  Dans **< nom_dossier\> propriétés**, dans le **général** , affichez ou modifiez le nom et la description du dossier serveur.  
+5.  Dans **< propriétés nomdossier\>** , sous l’onglet **général** , affichez ou modifiez le nom et la description du dossier serveur.  
   
     > [!NOTE]
-    >  Dans Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, vous pouvez également modifier le quota du dossier qui donne un message d’avertissement lorsqu’un dossier serveur atteint la taille spécifiée.  
+    >  Dans Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, vous pouvez également modifier le quota de dossiers qui émet un message d’avertissement quand un dossier serveur atteint la taille spécifiée.  
   
-##  <a name="BKMK_5"></a> Ajouter ou déplacer un dossier serveur  
+##  <a name="BKMK_5"></a>Ajouter ou déplacer un dossier de serveur  
  Vous pouvez **ajouter d'autres dossiers serveur** pour stocker vos fichiers sur le serveur, en plus des dossiers serveur par défaut créés pendant l'installation. Vous pouvez ajouter des dossiers serveur sur le serveur principal ou sur un serveur membre exécutant Windows Server Essentials.  
   
  Vous pouvez **déplacer un dossier serveur** qui se trouve sur le serveur principal exécutant Windows Server Essentials, et qui s'affiche sous l'onglet **Dossiers du serveur** du tableau de bord vers un autre disque dur, en cas de besoin, à l'aide de l'Assistant Déplacement d'un dossier. Vous pouvez déplacer un dossier serveur vers un autre disque dur dans les situations suivantes :  
@@ -212,7 +212,7 @@ ms.locfileid: "66433206"
   
 - noms courts (noms au format 8.3) ;  
   
-- compression ;  
+- Compression  
   
 - chiffrement EFS ;  
   
@@ -226,7 +226,7 @@ ms.locfileid: "66433206"
   
 - quotas.  
   
-###  <a name="BKMK_6"></a> Où ajouter ou déplacer un dossier serveur  
+###  <a name="BKMK_6"></a>Où ajouter ou déplacer un dossier de serveur  
  En règle générale, ajoutez ou déplacez les dossiers serveur sur des disques durs disposant de la quantité maximale d'espace libre. Si possible, évitez d'ajouter ou de déplacer un dossier partagé sur le lecteur système (par exemple C:), car il risque d'empiéter sur l'espace disque nécessaire au système d'exploitation et à ses mises à jour. En outre, évitez d'ajouter ou de déplacer les dossiers serveur sur un disque dur externe, car ces derniers peuvent être facilement déconnectés, ce qui vous empêcherait d'accéder à vos fichiers. À la place, nous vous recommandons de créer le dossier sur un lecteur interne.  
   
  Un dossier serveur ne peut pas être ajouté ou déplacé dans certains emplacements. Une erreur est générée si l'un des emplacements suivants est sélectionné pour des ajouts ou des déplacements :  
@@ -241,7 +241,7 @@ ms.locfileid: "66433206"
   
 -   disque dur situé sous un **Périphérique avec stockage amovible** ;  
   
--   Un répertoire racine d’un disque dur (tel que C:\\, D:\\, E:\\)  
+-   Un répertoire racine d’un disque dur (par exemple, C :\\, D :\\, E :\\)  
   
 -   sous-dossier d'un dossier partagé existant ;  
   
@@ -254,7 +254,7 @@ ms.locfileid: "66433206"
   
 ##### <a name="to-add-a-server-folder"></a>Pour ajouter un dossier serveur  
   
-1. Ouvrez le tableau de bord.  
+1. Ouvrez le Tableau de bord.  
   
 2. Cliquez sur **STOCKAGE**, puis sur **Dossiers du serveur**.  
   
@@ -264,11 +264,11 @@ ms.locfileid: "66433206"
   
    > [!NOTE]
    > - Si vous recherchez un dossier particulier à l'aide du bouton Parcourir pour spécifier l'emplacement du dossier serveur, le dossier auquel vous avez accédé est ajouté en tant que dossier serveur.  
-   >   -   Vous pouvez définir les dossiers serveur accessibles via l'accès web à distance. Pour plus d'informations, voir [Manage access to server folders](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
+   >   -   Vous pouvez définir les dossiers serveur accessibles via l'accès web à distance. Pour plus d'informations, voir [Gérer l'accès aux dossiers serveur](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
   
 ##### <a name="to-move-a-server-folder"></a>Pour déplacer un dossier serveur  
   
-1.  Ouvrez le tableau de bord.  
+1.  Ouvrez le Tableau de bord.  
   
 2.  Cliquez sur **STOCKAGE**, puis sur **Dossiers du serveur**.  
   
@@ -278,20 +278,20 @@ ms.locfileid: "66433206"
   
 5.  Suivez les instructions pour exécuter l'Assistant.  
   
-##  <a name="BKMK_9"></a> Ajouter un dossier serveur manquant  
- Lorsque le serveur détecte qu’un dossier serveur prédéfini ? Entreprise, les utilisateurs, sauvegardes de l’ordinateur Client, la sauvegarde de l’historique des fichiers ou Redirection de dossiers ? n’est plus partagé (pour une raison quelconque ou une autre), une alerte est générée pour guider l’utilisateur pour résoudre ce problème. Il est recommandé d'essayer de restaurer le dossier à partir de la sauvegarde du serveur. Toutefois, si le serveur n'a pas été sauvegardé, sélectionnez le dossier manquant, puis cliquez sur **Recréez le dossier manquant** pour reconfigurer l'emplacement du dossier serveur.  
+##  <a name="BKMK_9"></a>Ajouter un dossier serveur manquant  
+ Quand le serveur détecte qu’un dossier serveur prédéfini ? Société, utilisateurs, sauvegardes d’ordinateurs clients, sauvegardes de l’historique des fichiers ou redirection de dossiers ? n’est plus partagé (pour une raison ou une autre), une alerte est générée pour aider l’utilisateur à résoudre ce problème. Il est recommandé d'essayer de restaurer le dossier à partir de la sauvegarde du serveur. Toutefois, si le serveur n'a pas été sauvegardé, sélectionnez le dossier manquant, puis cliquez sur **Recréez le dossier manquant** pour reconfigurer l'emplacement du dossier serveur.  
   
 > [!NOTE]
->  Uniquement les dossiers prédéfinis ? Entreprise, les utilisateurs, sauvegardes de l’ordinateur Client, la sauvegarde de l’historique des fichiers ou Redirection de dossiers ? peuvent être recréés. Les dossiers serveur créés par l'utilisateur et les dossiers serveur multimédias ne peuvent pas être recréés.  
+>  Seuls les dossiers prédéfinis ? La société, les utilisateurs, les sauvegardes d’ordinateurs clients, la sauvegarde de l’historique des fichiers ou la redirection de dossiers peuvent être recréés. Les dossiers serveur créés par l'utilisateur et les dossiers serveur multimédias ne peuvent pas être recréés.  
   
  Une fois le dossier manquant restauré ou recréé, il ne doit plus être répertorié comme étant **Manquant**.  
   
- Pour plus d’informations sur la restauration de fichiers à partir de sauvegardes de serveur, consultez la section en savoir plus sur la restauration des fichiers et dossiers dans la rubrique [Manage Backup and Restore](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
+ Pour plus d’informations sur la restauration de fichiers à partir de sauvegardes du serveur, consultez la section en savoir plus sur la restauration de fichiers et de dossiers dans la rubrique [gérer la sauvegarde et la restauration](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
   
-##  <a name="BKMK_11"></a> Comprendre les dossiers partagés  
- Il existe plusieurs manières différentes d'accéder à vos dossiers partagés sur Windows Server Essentials à partir d'un appareil connecté au serveur. Pour plus d’informations, consultez la rubrique [Use Shared Folders](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md).  
+##  <a name="BKMK_11"></a>Comprendre les dossiers partagés  
+ Il existe plusieurs manières différentes d'accéder à vos dossiers partagés sur Windows Server Essentials à partir d'un appareil connecté au serveur. Pour plus d’informations, consultez la rubrique [utiliser des dossiers partagés](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md).  
   
-##  <a name="BKMK_Shadow"></a> Comprendre les clichés instantanés  
+##  <a name="BKMK_Shadow"></a>Comprendre les clichés instantanés  
  À l'aide des clichés instantanés du serveur, les utilisateurs peuvent afficher les fichiers et les dossiers partagés tels qu'ils existaient à une date et heure spécifiques. L'accès aux versions précédentes des fichiers, ou clichés instantanés, est utile, car cela permet aux utilisateurs d'effectuer les tâches suivantes :  
   
 1. **Récupérer des fichiers accidentellement supprimés**. Si vous supprimez accidentellement un fichier, vous pouvez ouvrir une version précédente de ce dernier, et la copier dans un emplacement sûr.  
@@ -304,7 +304,7 @@ ms.locfileid: "66433206"
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Gérer le stockage serveur](Manage-Server-Storage-in-Windows-Server-Essentials.md)  
+-   [Gérer le stockage du serveur](Manage-Server-Storage-in-Windows-Server-Essentials.md)  
   
 -   [Utiliser des dossiers partagés](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md)  
   

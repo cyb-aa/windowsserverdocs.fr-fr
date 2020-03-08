@@ -10,15 +10,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: e1018d5bbff5922df5a696e5c4fad12dc9f6ec3d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408588"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371527"
 ---
 # <a name="virtualized-domain-controller-technical-reference-appendix"></a>Annexe des informations techniques de référence sur les contrôleurs de domaine virtualisés
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique traite des sujets suivants :  
   

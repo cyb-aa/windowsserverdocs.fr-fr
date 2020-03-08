@@ -10,15 +10,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 3563c30e86c53435c10cafc840a71c7b8c526943
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391200"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371561"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Descriptions des pages des Assistants Installation et Suppression des services de domaine Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit les commandes figurant sur les pages des Assistants suivants en rapport avec l’installation et la suppression du rôle serveur AD DS dans le Gestionnaire de serveur.  
   
@@ -61,7 +61,7 @@ Les options suivantes apparaissent lorsque vous créez une forêt.
   
 -   Lorsque vous créez une forêt, vous devez spécifier le nom du domaine racine de forêt. Le nom de domaine racine de la forêt ne peut pas être à étiquette unique (par exemple, il doit être « contoso.com » au lieu de « Contoso »). Il doit respecter les conventions d’affectation des noms des domaines DNS. Vous pouvez spécifier un nom de domaine international. Pour plus d’informations sur les conventions d’affectation des noms de domaine DNS, voir l’[article 909264 de la Base de connaissances Microsoft](https://support.microsoft.com/kb/909264).  
   
--   Ne créez pas de forêts Active Directory portant le même nom que votre nom DNS externe. Par exemple, si votre URL DNS Internet est http : \//contoso. com, vous devez choisir un nom différent pour votre forêt interne afin d’éviter d’éventuels problèmes de compatibilité. Ce nom doit être unique et faire l’objet d’une utilisation peu probable en termes de trafic Web, comme corp.contoso.com.  
+-   Ne créez pas de forêts Active Directory portant le même nom que votre nom DNS externe. Par exemple, si votre URL DNS Internet est http :\//contoso.com, vous devez choisir un nom différent pour votre forêt interne afin d’éviter d’éventuels problèmes de compatibilité. Ce nom doit être unique et faire l’objet d’une utilisation peu probable en termes de trafic Web, comme corp.contoso.com.  
   
 -   Vous devez être membre du groupe Administrateurs sur le serveur sur lequel vous voulez créer une forêt.  
   
@@ -160,7 +160,7 @@ Le processus d’installation tente de créer la délégation pour vérifier que
   
 Il est possible de créer et de valider des délégations entre le domaine parent et le sous-domaine qui est promu avant ou après l’installation. Il n’y a aucune raison de différer l’installation d’un nouveau contrôleur de domaine si vous ne pouvez pas créer ou mettre à jour la délégation DNS.  
   
-Pour plus d’informations sur la délégation, voir présentation de la [délégation de zone](https://go.microsoft.com/fwlink/?LinkId=164773) (https://go.microsoft.com/fwlink/?LinkId=164773). Si la délégation de zone n’est pas possible dans votre situation, vous pouvez envisager d’autres méthodes pour assurer la résolution de noms à partir d’autres domaines aux hôtes de votre domaine. Par exemple, l’administrateur DNS d’un autre domaine pourrait configurer des zones de stub de transfert conditionnel, ou des zones secondaires pour résoudre des noms dans votre domaine. Pour plus d’informations, consultez les rubriques suivantes :  
+Pour plus d’informations sur la délégation, voir présentation de la [délégation de zone](https://go.microsoft.com/fwlink/?LinkId=164773) (https://go.microsoft.com/fwlink/?LinkId=164773). Si la délégation de zone n’est pas possible dans votre situation, vous pouvez envisager d’autres méthodes pour assurer la résolution de noms à partir d’autres domaines aux hôtes de votre domaine. Par exemple, l’administrateur DNS d’un autre domaine pourrait configurer des zones de stub de transfert conditionnel, ou des zones secondaires pour résoudre des noms dans votre domaine. Pour plus d'informations, voir les rubriques suivantes :  
   
 -   [Fonctionnement des types de zone](https://go.microsoft.com/fwlink/?LinkID=157399) (https://go.microsoft.com/fwlink/?LinkID=157399)  
   
@@ -274,9 +274,9 @@ Avant de cliquer sur **Suivant** pour continuer, vous devez cliquer sur **Procé
   
 Si vous forcez la suppression d’un contrôleur de domaine, toutes les modifications apportées à un objet Active Directory qui n’ont pas été répliquées vers d’autres contrôleurs de domaine dans le domaine seront perdues. Par ailleurs, si le contrôleur de domaine héberge des rôles de maître d’opérations, le catalogue global ou le rôle Serveur DNS, des opérations critiques dans le domaine et la forêt peuvent être touchées de la manière suivante. Avant de supprimer un contrôleur de domaine qui héberge un rôle quelconque de maître d’opérations, essayez de transférer le rôle vers un autre contrôleur de domaine. S’il n’est pas possible de transférer le rôle, supprimez d’abord les services de domaine Active Directory de cet ordinateur, puis utilisez Ntdsutil.exe pour prendre le rôle. Utilisez Ntdsutil sur le contrôleur de domaine auquel vous envisagez de prendre le rôle ; si possible, utilisez un partenaire de réplication récent dans le même site que ce contrôleur de domaine. Pour plus d’informations sur le transfert et la prise des rôles de maître d’opérations, voir l’[article 255504](https://go.microsoft.com/fwlink/?LinkId=80395) de la Base de connaissances Microsoft. Si l’Assistant n’est pas en mesure de déterminer si le contrôleur de domaine héberge un rôle de maître d’opérations, exécutez la commande netdom.exe pour déterminer si ce contrôleur de domaine effectue des rôles de maître d’opérations.  
   
--   Catalogue global : Les utilisateurs peuvent rencontrer des problèmes de connexion aux domaines de la forêt. Avant de supprimer un serveur de catalogue global, assurez-vous qu’il y a suffisamment de serveurs de ce type dans cette forêt et ce site pour traiter les ouvertures de session utilisateur. Au besoin, désignez un autre serveur de catalogue global et mettez à jour les clients et les applications avec les nouvelles informations.  
+-   Catalogue global : les utilisateurs peuvent avoir des difficultés à ouvrir une session aux domaines de la forêt. Avant de supprimer un serveur de catalogue global, assurez-vous qu’il y a suffisamment de serveurs de ce type dans cette forêt et ce site pour traiter les ouvertures de session utilisateur. Au besoin, désignez un autre serveur de catalogue global et mettez à jour les clients et les applications avec les nouvelles informations.  
   
--   Serveur DNS : Toutes les données DNS stockées dans des zones intégrées à Active Directory seront perdues. Une fois les services AD DS supprimés, ce serveur DNS n’est plus en mesure d’effectuer la résolution de noms pour les zones DNS précédemment intégrées à Active Directory. Par conséquent, nous vous recommandons de mettre à jour la configuration DNS de tous les ordinateurs qui se rapportent actuellement à l’adresse IP de ce serveur DNS à des fins de résolution de noms avec l’adresse IP d’un nouveau serveur DNS.  
+-   Serveur DNS : toutes les données DNS qui sont stockées dans des zones intégrées à Active Directory seront perdues. Une fois les services AD DS supprimés, ce serveur DNS n’est plus en mesure d’effectuer la résolution de noms pour les zones DNS précédemment intégrées à Active Directory. Par conséquent, nous vous recommandons de mettre à jour la configuration DNS de tous les ordinateurs qui se rapportent actuellement à l’adresse IP de ce serveur DNS à des fins de résolution de noms avec l’adresse IP d’un nouveau serveur DNS.  
   
 -   Maître d’infrastructure : les clients du domaine peuvent avoir des difficultés à localiser des objets dans d’autres domaines. Avant de continuer, transférez le rôle de maître d’infrastructure à un contrôleur de domaine qui n’est pas un serveur de catalogue global.  
   

@@ -9,11 +9,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: 9024557dd42ede27144bf10aa5873b6bb12d585c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403483"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371448"
 ---
 # <a name="review-prerequisites-for-the-host-guardian-service"></a>Vérifier les conditions préalables pour le service Guardian hôte
 
@@ -22,17 +22,17 @@ ms.locfileid: "71403483"
 
 Cette rubrique décrit les conditions préalables du SGH et les étapes initiales à suivre pour préparer le déploiement du SGH.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Composants requis 
 
--   **Matériel**: Le SGH peut être exécuté sur des machines physiques ou virtuelles, mais les ordinateurs physiques sont recommandés.
+-   **Matériel**: SGH peut être exécuté sur des machines physiques ou virtuelles, mais les ordinateurs physiques sont recommandés.
 
     Si vous souhaitez exécuter SGH en tant que cluster physique à trois nœuds (pour la disponibilité), vous devez disposer de trois serveurs physiques. (En tant que meilleure pratique pour le clustering, les trois serveurs doivent avoir un matériel très similaire.)
   
--   **Système d’exploitation**: L’attestation de clé hôte requiert l’utilisation de Windows Server 2019 standard ou Datacenter Edition avec l' [attestation v2](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md#versioned-attestation-policies). Pour l’attestation basée sur le module de plateforme sécurisée, SGH peut exécuter Windows Server 2019 ou Windows Server 2016, standard ou Datacenter Edition.
+-   **Système d’exploitation**: l’attestation de clé hôte requiert Windows Server 2019 standard ou Datacenter Edition fonctionnant avec l' [attestation v2](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md#versioned-attestation-policies). Pour l’attestation basée sur le module de plateforme sécurisée, SGH peut exécuter Windows Server 2019 ou Windows Server 2016, standard ou Datacenter Edition.
 
--   **Rôles de serveur**: Service Guardian hôte et rôles serveur de prise en charge.
+-   **Rôles de serveur**: service Guardian hôte et rôles serveur de prise en charge.
 
--   **Autorisations/privilèges de configuration pour le domaine de l’infrastructure (hôte)** : Vous devrez configurer le transfert DNS entre le domaine de l’infrastructure (hôte) et le domaine SGH. 
+-   **Autorisations/privilèges de configuration pour le domaine de l’infrastructure (hôte)** : vous devrez configurer le transfert DNS entre le domaine de l’infrastructure (hôte) et le domaine SGH. 
     
 ## <a name="upgrading-hgs"></a>Mise à niveau de SGH
 

@@ -9,17 +9,17 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/14/2020
 ms.openlocfilehash: e66e7f365553f3aa106abbebf372492e0cc08386
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265941"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371451"
 ---
 # <a name="deploying-the-host-guardian-service"></a>Déploiement du service Guardian hôte 
 
 >S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
 
-L’un des objectifs les plus importants de la fourniture d’un environnement hébergé est de garantir la sécurité des ordinateurs virtuels en cours d’exécution dans l’environnement. En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les machines virtuelles. Une structure protégée se compose d’un Service Guardian hôte (HGS), généralement, un cluster de trois nœuds, d’un ou de plusieurs hôtes protégés et d’un ensemble d’ordinateurs virtuels.
+L’un des objectifs les plus importants de la fourniture d’un environnement hébergé est de garantir la sécurité des ordinateurs virtuels en cours d’exécution dans l’environnement. En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les machines virtuelles. Une structure Service Guardian se compose d’un Service Guardian hôte (HGS) généralement constitué d’un cluster de trois nœuds, d’un ou plusieurs hôtes protégés et d’un ensemble de machines virtuelles dotées d’une protection maximale.
 
 ## <a name="video-deploying-a-guarded-fabric"></a>Vidéo : déploiement d’une infrastructure protégée 
 
@@ -46,6 +46,6 @@ Le tableau suivant détaille les tâches de déploiement d’une infrastructure 
 | &nbsp; | &nbsp; |(14) [créer des machines virtuelles dotées d’une protection maximale à l’aide de Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md) <img src="../media/Guarded-Fabric-Shielded-VM/guarded-host-shielded-vms.png" alt="Step 14" hspace="8" align="right" /><br>[Créer des machines virtuelles protégées à l’aide de VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-vms) <img src="../media/Guarded-Fabric-Shielded-VM/guarded-host-shielded-vms.png" alt="Step 15" hspace="8" align="right" />|
 
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

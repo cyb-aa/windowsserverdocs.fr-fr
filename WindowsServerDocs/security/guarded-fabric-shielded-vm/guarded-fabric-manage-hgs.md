@@ -8,11 +8,11 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.openlocfilehash: 41912c90beacbb0c0c285ea4da8305c1afdf2a51
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386545"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370643"
 ---
 # <a name="managing-the-host-guardian-service"></a>Gestion du service Guardian hôte
 
@@ -363,7 +363,7 @@ Pour autoriser un nouvel hôte à devenir un hôte service Guardian (par exemple
 Les étapes permettant d’autoriser un nouvel hôte varient en fonction du mode d’attestation pour lequel SGH est actuellement configuré.
 Pour vérifier le mode d’attestation pour votre infrastructure protégée, exécutez `Get-HgsServer` sur tout nœud SGH.
 
-#### <a name="software-configuration"></a>Configuration du logiciel
+#### <a name="software-configuration"></a>Configuration logicielle
 Sur le nouvel ordinateur hôte Hyper-V, assurez-vous que Windows Server 2016 Datacenter Edition est installé.
 Windows Server 2016 standard ne peut pas exécuter de machines virtuelles protégées dans une infrastructure protégée.
 L’ordinateur hôte peut être installé sur l’ordinateur de bureau ou sur Server Core.

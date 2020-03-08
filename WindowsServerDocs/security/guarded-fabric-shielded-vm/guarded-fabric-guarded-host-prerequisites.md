@@ -8,11 +8,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: 8a9273eef906130b11b98148cf1e84f7e18812b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402376"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371449"
 ---
 # <a name="prerequisites-for-guarded-hosts"></a>Conditions préalables pour les hôtes service Guardian
 
@@ -24,7 +24,7 @@ Passez en revue les conditions préalables de l’ordinateur hôte pour le mode 
 
 Les hôtes service Guardian utilisant le mode TPM doivent remplir les conditions préalables suivantes :
 
--   **Matériel**: Un hôte est requis pour le déploiement initial. Pour tester la migration dynamique Hyper-V pour les machines virtuelles dotées d’une protection maximale, vous devez disposer d’au moins deux ordinateurs hôtes.
+-   **Matériel**: un ordinateur hôte est requis pour le déploiement initial. Pour tester la migration dynamique Hyper-V pour les machines virtuelles dotées d’une protection maximale, vous devez disposer d’au moins deux ordinateurs hôtes.
 
     Les hôtes doivent avoir :
     
@@ -39,7 +39,7 @@ Les hôtes service Guardian utilisant le mode TPM doivent remplir les conditions
     > [!IMPORTANT]
     > Veillez à installer la [dernière mise à jour cumulative](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).  
 
--   **Rôle et fonctionnalités**: Le rôle Hyper-V et la fonctionnalité de prise en charge d’Hyper-V Guardian hôte. La fonctionnalité de prise en charge d’Hyper-V Guardian hôte est uniquement disponible dans les éditions Datacenter de Windows Server. 
+-   **Rôle et fonctionnalités**: rôle Hyper-v et fonctionnalité de prise en charge d’Hyper-v Guardian hôte. La fonctionnalité de prise en charge d’Hyper-V Guardian hôte est uniquement disponible dans les éditions Datacenter de Windows Server. 
 
 > [!WARNING]
 > La fonctionnalité de prise en charge d’Hyper-V Guardian hôte permet une protection basée sur la virtualisation de l’intégrité du code qui peut être incompatible avec certains appareils. Nous vous recommandons vivement de tester cette configuration dans votre laboratoire avant d’activer cette fonctionnalité. Dans le cas contraire, cela risque d’entraîner des échecs inattendus pouvant aller jusqu'à la perte de données ou un écran bleu d’erreur (également appelé erreur d’arrêt). Pour plus d’informations, consultez [compatibilité matérielle avec la protection de l’intégrité du code basée sur la virtualisation Windows Server](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
@@ -52,9 +52,9 @@ Les hôtes service Guardian utilisant le mode TPM doivent remplir les conditions
 
 Les hôtes service Guardian utilisant l’attestation de clé d’hôte doivent remplir les conditions préalables suivantes :
 
-- **Matériel**: Tout serveur susceptible d’exécuter Hyper-V à compter de Windows Server 2019
-- **Système d’exploitation**: Windows Server 2019 Datacenter Edition
-- **Rôle et fonctionnalités**: Rôle Hyper-V et la fonctionnalité de prise en charge Hyper-V de Guardian hôte 
+- **Matériel**: tout serveur susceptible d’exécuter Hyper-V à compter de Windows Server 2019
+- **Système d’exploitation**: Windows Server 2019 Datacenter Edition
+- **Rôle et fonctionnalités**: rôle Hyper-v et fonctionnalité de prise en charge d’Hyper-v Guardian hôte 
 
 L’hôte peut être joint à un domaine ou à un groupe de travail. 
 
@@ -71,14 +71,14 @@ Pour l’attestation de clé hôte, SGH doit exécuter Windows Server 2019 et fo
 
 Les ordinateurs hôtes Hyper-V doivent remplir les conditions préalables suivantes pour le mode AD :
 
--   **Matériel**: Tout serveur susceptible d’exécuter Hyper-V à compter de Windows Server 2016. Un hôte est requis pour le déploiement initial. Pour tester la migration dynamique Hyper-V pour les machines virtuelles dotées d’une protection maximale, vous devez disposer d’au moins deux ordinateurs hôtes.
+-   **Matériel**: tout serveur susceptible d’exécuter Hyper-V à compter de Windows Server 2016. Un hôte est requis pour le déploiement initial. Pour tester la migration dynamique Hyper-V pour les machines virtuelles dotées d’une protection maximale, vous devez disposer d’au moins deux ordinateurs hôtes.
 
 -   **Système d’exploitation**: Windows Server 2016 Datacenter Edition
 
     > [!IMPORTANT]
     > Installez la [dernière mise à jour cumulative](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
--   **Rôle et fonctionnalités**: Le rôle Hyper-V et la fonctionnalité de prise en charge d’Hyper-V Guardian hôte, disponible uniquement dans Windows Server 2016 Datacenter Edition. 
+-   **Rôle et fonctionnalités**: rôle Hyper-v et la fonctionnalité de prise en charge d’Hyper-v Guardian hôte, disponible uniquement dans Windows Server 2016 Datacenter Edition. 
 
 > [!WARNING]
 > La fonctionnalité de prise en charge d’Hyper-V Guardian hôte permet une protection basée sur la virtualisation de l’intégrité du code qui peut être incompatible avec certains appareils. Nous vous recommandons vivement de tester cette configuration dans votre laboratoire avant d’activer cette fonctionnalité. Dans le cas contraire, cela risque d’entraîner des échecs inattendus pouvant aller jusqu'à la perte de données ou un écran bleu d’erreur (également appelé erreur d’arrêt). Pour plus d’informations, consultez [matériel compatible avec la protection de l’intégrité du code basée sur la virtualisation Windows Server 2016](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).

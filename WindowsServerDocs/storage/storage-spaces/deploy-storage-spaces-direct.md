@@ -11,11 +11,11 @@ ms.date: 06/07/2019
 description: Instructions pas à pas pour déployer le stockage défini par logiciel avec espaces de stockage direct dans Windows Server en tant qu’infrastructure hyper-convergée ou en tant qu’infrastructure convergée (également appelée infrastructure désagrégée).
 ms.localizationpriority: medium
 ms.openlocfilehash: 60b29cbebb19cd8f1ce364d1eb7e920759375285
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950022"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371771"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Déployer des espaces de stockage direct
 
@@ -206,7 +206,7 @@ Count Name                          PSComputerName
 
 Dans cette étape, vous allez exécuter l’outil de validation de cluster pour vous assurer que les nœuds de serveur sont configurés correctement pour créer un cluster à l’aide de espaces de stockage direct. Lorsque la validation de cluster (`Test-Cluster`) est exécutée avant la création du cluster, elle exécute les tests qui vérifient que la configuration semble appropriée pour fonctionner correctement en tant que cluster de basculement. L’exemple ci-dessous utilise le paramètre `-Include`, puis les catégories de tests spécifiques sont spécifiées. Cela garantit que les tests spécifiques des espaces de stockage direct sont inclus dans la validation.
 
-Utilisez la commande PowerShell suivante pour valider un ensemble de serveurs à utiliser comme cluster d'espaces de stockage direct.
+Utilisez la commande PowerShell suivante pour valider un ensemble de serveurs à utiliser comme cluster d’espaces de stockage direct.
 
 ```PowerShell
 Test-Cluster –Node <MachineName1, MachineName2, MachineName3, MachineName4> –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
@@ -216,7 +216,7 @@ Test-Cluster –Node <MachineName1, MachineName2, MachineName3, MachineName4> �
 
 Dans cette étape, vous allez créer un cluster avec les nœuds que vous avez validés pour la création du cluster à l’étape précédente à l’aide de l’applet de commande PowerShell suivante.
 
-Lorsque vous créez le cluster, vous obtenez un avertissement indiquant que des problèmes se sont produits lors de la création du rôle en cluster qui peut l’empêcher de démarrer. Pour de plus amples informations, consultez le fichier de rapport ci-dessous. » Vous pouvez ignorer cet avertissement en toute sécurité. Cela est dû au fait qu’aucun disque n’est disponible pour le quorum du cluster. Il est recommandé de configurer un témoin de partage de fichiers ou un témoin de cloud après la création du cluster.
+Lorsque vous créez le cluster, vous obtenez un avertissement indiquant que des problèmes se sont produits lors de la création du rôle en cluster qui peut l’empêcher de démarrer. Pour de plus amples informations, consultez le fichier de rapport ci-dessous. » Vous pouvez ignorer cet avertissement sans problème. Cela est dû au fait qu’aucun disque n’est disponible pour le quorum du cluster. Il est recommandé de configurer un témoin de partage de fichiers ou un témoin de cloud après la création du cluster.
 
 > [!Note]
 > Si les serveurs utilisent des adresses IP statiques, modifiez la commande suivante afin de refléter l’adresse IP statique en ajoutant le paramètre suivant et en spécifiant l’adresse IP : –StaticAddress &lt;X.X.X.X&gt;.
@@ -242,7 +242,7 @@ Après avoir créé le cluster, utilisez l’applet de commande PowerShell `Enab
 
 -   **Créer un pool :** crée un seul pool volumineux qui porte un nom semblable à « S2D sur Cluster1 ».
 
--   **Configurer les caches des espaces de stockage direct :** si plusieurs types de média (disque) sont disponibles pour l’utilisation d'espaces de stockage direct, les plus rapides en tant que périphériques cache sont activés (en lecture et en écriture dans la plupart des cas).
+-   **Configurer les caches des espaces de stockage direct :** si plusieurs types de média (lecteur) sont disponibles pour l’utilisation des espaces de stockage direct, les plus rapides en tant que périphériques cache sont activés (en lecture et en écriture dans la plupart des cas).
 
 -   **Niveaux :** Crée deux niveaux en tant que niveaux par défaut. L’un est appelé « Capacité » et l’autre est appelé « Performances ». L’applet de commande analyse les périphériques et configure chaque niveau avec une combinaison de types de périphériques et de résilience.
 
@@ -252,7 +252,7 @@ Après avoir créé le cluster, utilisez l’applet de commande PowerShell `Enab
 Enable-ClusterStorageSpacesDirect –CimSession <ClusterName>
 ```
 
-Pour activer vos espaces de stockage direct à l’aide de la commande ci-dessus, vous pouvez également utiliser le nom du nœud à la place du nom du cluster. L’utilisation du nom du nœud peut être plus fiable en raison de retards de réplication DNS qui peuvent se produire avec le nom du cluster nouvellement créé.
+Pour activer les espaces de stockage direct à l’aide de la commande ci-dessus, vous pouvez également utiliser le nom du nœud à la place du nom du cluster. L’utilisation du nom du nœud peut être plus fiable en raison de retards de réplication DNS qui peuvent se produire avec le nom du cluster nouvellement créé.
 
 Quand l’exécution de cette commande est terminée, ce qui peut prendre plusieurs minutes, le système est prêt pour la création de volumes.
 
@@ -382,13 +382,13 @@ CD $ScriptFolder
 .\KCDSetup.ps1 -HyperVClusterName $HyperVClusterName -ScaleOutFSName $ScaleOutFSName -EnableLM
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 Après le déploiement de votre serveur de fichiers en cluster, nous vous recommandons de tester les performances de votre solution à l’aide de charges de travail synthétiques avant de mettre en place des charges de travail réelles. Cela vous permet de vérifier que la solution fonctionne correctement et de résoudre les problèmes en attente avant d’ajouter la complexité des charges de travail. Pour plus d’informations, consultez [tester les performances des espaces de stockage à l’aide de charges de travail synthétiques](https://technet.microsoft.com/library/dn894707.aspx).
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
--   [Storage Spaces Direct dans Windows Server 2016](storage-spaces-direct-overview.md)
+-   [espaces de stockage direct dans Windows Server 2016](storage-spaces-direct-overview.md)
 -   [Comprendre le cache dans espaces de stockage direct](understand-the-cache.md)
 -   [Planification des volumes dans espaces de stockage direct](plan-volumes.md)
 -   [Tolérance aux pannes des espaces de stockage](storage-spaces-fault-tolerance.md)
