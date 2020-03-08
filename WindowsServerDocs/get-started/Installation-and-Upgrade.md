@@ -11,15 +11,15 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 140f67a9dab5cf1f10cdb0c5c51a031a0dfb9dd3
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443550"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371589"
 ---
 # <a name="windows-server-installation-and-upgrade"></a>Installation et mise à niveau de Windows Server
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Vous cherchez Windows Server 2019 ? Consultez [Installer, mettre à niveau ou migrer vers Windows Server 2019](../get-started-19/install-upgrade-migrate-19.md).
 
@@ -64,14 +64,14 @@ Pour plus d’informations sur les différences entre les options d’installati
 Pour plus d’informations, y compris les réserves importantes et les restrictions applicables à la mise à niveau, la conversion de licence entre éditions de Windows Server 2016 et la conversion de versions d’évaluation vers une version commerciale, consultez [Options de mise à niveau et de conversion pour Windows Server 2016](https://go.microsoft.com/fwlink/?LinkId=828602).
  
 >[!NOTE]
->Remarque: Les mises à niveau qui passent d’une installation minimale à une installation Serveur avec Expérience utilisateur (et vice versa) ne sont pas prises en charge. Si le système d’exploitation plus ancien à partir duquel vous effectuez la mise à niveau ou la conversion est une installation minimale, le résultat sera toujours une installation minimale du système d’exploitation plus récent.
+>Remarque : Les mises à niveau qui passent d’une installation minimale à une installation Serveur avec Expérience utilisateur (et vice versa) ne sont pas prises en charge. Si le système d’exploitation plus ancien à partir duquel vous effectuez la mise à niveau ou la conversion est une installation minimale, le résultat sera toujours une installation minimale du système d’exploitation plus récent.
  
 Tableau de référence rapide des chemins de mise à niveau pris en charge pour des anciennes versions commerciales de Windows Server vers des versions commerciales de Windows Server 2016 :
 
 
 |Si vous exécutez ces versions et éditions :|Vous pouvez effectuer une mise à niveau vers ces versions et éditions :|
 |--------------------------------|---------------------------------------|
-|Windows Server 2012 Standard|Windows Server 2016 Standard ou Datacenter|
+|Windows Server 2012 Standard|Windows Server 2016 Standard ou Datacenter|
 |Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard ou Datacenter|
 |Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
@@ -98,12 +98,12 @@ Tableau de référence rapide des chemins de mise à niveau pris en charge pour 
 
 |Si votre ordinateur fonctionne sous :|Vous pouvez effectuer une mise à niveau vers ces éditions :|
 |-------------------------|---------------------------|
-|Windows Server 2008 R2 Datacenter avec SP1|Windows Server2012R2 Datacenter|
+|Windows Server 2008 R2 Datacenter avec SP1|Windows Server 2012 R2 Datacenter|
 |Windows Server 2008 R2 Entreprise avec SP1|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
 |Windows Server 2008 R2 Standard avec SP1|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
 |Windows Web Server 2008 R2 avec SP1|Windows Server 2012 R2 Standard|
-|Windows Server 2012 Datacenter|Windows Server2012R2 Datacenter|
-|Windows Server 2012 Standard|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
+|Windows Server 2012 Datacenter|Windows Server 2012 R2 Datacenter|
+|Windows Server 2012 Standard|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
 |Hyper-V Server 2012|Hyper-V Server 2012 R2|
 
 ### <a name="license-conversion"></a>Conversion de licence
@@ -120,12 +120,12 @@ Tableau de référence rapide des chemins de mise à niveau pris en charge pour 
 
 |Si votre ordinateur fonctionne sous :|Vous pouvez effectuer une mise à niveau vers ces éditions :|
 |--------------------------|--------------------------|
-|Windows Server 2008 Standard avec SP2 ou Windows Server 2008 Entreprise avec SP2|Windows Server 2012 Standard, Windows Server 2012 Datacenter|
-|Windows Server 2008 Datacenter avec SP2|Windows Server 2012 Datacenter|
-|Windows Web Server 2008|Windows Server 2012 Standard|
+|Windows Server 2008 Standard avec SP2 ou Windows Server 2008 Entreprise avec SP2|Windows Server 2012 Standard, Windows Server 2012 Datacenter|
+|Windows Server 2008 Datacenter avec SP2|Windows Server 2012 Datacenter|
+|Windows Web Server 2008|Windows Server 2012 Standard|
 |Windows Server 2008 R2 Standard avec SP1 ou Windows Server 2008 R2 Entreprise avec SP1|Windows Server 2012 Standard, Windows Server 2012 Datacenter|
-|Windows Server 2008 R2 Datacenter avec SP1|Windows Server 2012 Datacenter|
-|Windows Web Server 2008 R2|Windows Server 2012 Standard|
+|Windows Server 2008 R2 Datacenter avec SP1|Windows Server 2012 Datacenter|
+|Windows Web Server 2008 R2|Windows Server 2012 Standard|
 
 ### <a name="license-conversion"></a>Conversion de licence
 Vous pouvez convertir Windows Server 2012 Standard (version commerciale) en Windows Server 2012 Datacenter (version commerciale).
