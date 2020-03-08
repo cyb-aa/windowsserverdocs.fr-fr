@@ -9,11 +9,11 @@ ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
 ms.openlocfilehash: 158681e2038e3d8015933771d06d3bfb24d31586
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948472"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78865398"
 ---
 # <a name="health-service-in-windows-server"></a>Service de contrôle d’intégrité dans Windows Server
 
@@ -21,7 +21,7 @@ ms.locfileid: "75948472"
 
 Le Service de contrôle d’intégrité est une nouvelle fonctionnalité de Windows Server 2016 qui améliore la surveillance quotidienne et l’expérience opérationnelle pour les clusters exécutant espaces de stockage direct.
 
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Composants requis  
 
 Le service de contrôle d’intégrité est activé par défaut avec les espaces de stockage direct. Aucune action supplémentaire n’est requise pour le configurer ou le démarrer. Pour en savoir plus sur les espaces de stockage direct, consultez [espaces de stockage direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
 
@@ -29,7 +29,7 @@ Le service de contrôle d’intégrité est activé par défaut avec les espaces
 
 Consultez [service de contrôle d’intégrité des rapports](health-service-reports.md).
 
-## <a name="faults"></a>Erreurs
+## <a name="faults"></a>Pannes
 
 Consultez [service de contrôle d’intégrité des erreurs](health-service-faults.md).
 
@@ -37,7 +37,7 @@ Consultez [service de contrôle d’intégrité des erreurs](health-service-faul
 
 Consultez [service de contrôle d’intégrité actions](health-service-actions.md).
 
-## <a name="automation"></a>Automatisation  
+## <a name="automation"></a>Automation  
 
 Cette section décrit les flux de travail automatisés par le service de contrôle d’intégrité pendant le cycle de vie du disque.  
 
@@ -82,7 +82,7 @@ Vous devez remplacer le disque physique mis hors service quand cela est possible
 
 Lorsque le disque de remplacement est inséré, il est vérifié par rapport au document composants pris en charge (voir la section suivante).
 
-#### <a name="pooling"></a>Mise en pool  
+#### <a name="pooling"></a>Regroupement  
 
 Sur autorisation, le disque de remplacement est automatiquement remplacé dans le pool de son prédécesseur pour entrer en utilisation. À ce stade, le système est rétabli à son état initial d’intégrité parfaite, puis l’erreur disparaît.  
 
@@ -170,10 +170,10 @@ Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 
 Consultez [paramètres de service de contrôle d’intégrité](health-service-settings.md).
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Rapports de Service de contrôle d’intégrité](health-service-reports.md)
 - [Erreurs de Service de contrôle d’intégrité](health-service-faults.md)
 - [Actions Service de contrôle d’intégrité](health-service-actions.md)
 - [Paramètres de Service de contrôle d’intégrité](health-service-settings.md)
-- [Storage Spaces Direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)
+- [espaces de stockage direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

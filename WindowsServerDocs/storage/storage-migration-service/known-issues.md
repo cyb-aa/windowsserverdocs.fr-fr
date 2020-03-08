@@ -3,17 +3,17 @@ title: Problèmes connus du service de migration du stockage
 description: Problèmes connus et prise en charge de la résolution des problèmes pour Storage migration service, tels que la collecte des journaux pour Support Microsoft.
 author: nedpyle
 ms.author: nedpyle
-manager: siroy
+manager: tiaascs
 ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 92742929e3826fca3cf87cb84341d3aecec0d55d
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: a9759f0ea8835c8e07bcd298b75024e3ee29c9ed
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517494"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78856343"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -295,13 +295,15 @@ Pour contourner ce problème, installez les outils d’administration de cluster
 
 ## <a name="error-there-are-no-more-endpoints-available-from-the-endpoint-mapper-when-running-inventory-against-a-windows-server-2003-source-computer"></a>Erreur « aucun point de terminaison n’est disponible à partir du mappeur de point de terminaison » lors de l’inventaire sur un ordinateur source Windows Server 2003
 
-Lorsque vous tentez d’exécuter un inventaire avec le serveur Orchestrator de migration de stockage corrigé avec la mise à jour cumulative [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ou une version ultérieure, vous recevez l’erreur suivante :
+Lorsque vous tentez d’exécuter un inventaire avec Storage migration service Orchestrator sur un ordinateur source Windows Server 2003, vous recevez l’erreur suivante :
 
     There are no more endpoints available from the endpoint mapper  
 
-Pour contourner ce problème, désinstallez temporairement la mise à jour cumulative KB4512534 (et toute autre priorité) à partir de l’ordinateur d’Orchestrator du service de migration du stockage. Une fois la migration terminée, réinstallez la dernière mise à jour cumulative.  
+Ce problème est résolu par la mise à jour [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) .
 
-Notez que, dans certaines circonstances, la désinstallation de KB4512534 ou de ses mises à jour de remplacement peut empêcher le démarrage du service de migration de stockage. Pour résoudre ce problème, vous pouvez sauvegarder et supprimer la base de données du service de migration de stockage :
+## <a name="uninstalling-a-cumulutative-update-prevents-storage-migration-service-from-starting"></a>La désinstallation d’une mise à jour cumulutative empêche le démarrage du service de migration de stockage
+
+La désinstallation des mises à jour cumulatives de Windows Server peut empêcher le démarrage du service de migration de stockage. Pour résoudre ce problème, vous pouvez sauvegarder et supprimer la base de données du service de migration de stockage :
 
 1.  Ouvrez une invite de commandes avec élévation de privilèges, dans laquelle vous êtes membre des administrateurs sur le serveur du service de migration de stockage, puis exécutez la commande suivante :
 
@@ -343,7 +345,7 @@ Lorsque vous tentez d’exécuter la fenêtre couper sur une source de cluster W
 
 Ce problème est dû à l’absence d’API dans les versions antérieures de Windows Server. Actuellement, il n’existe aucun moyen de migrer les clusters Windows Server 2008 et Windows Server 2003. Vous pouvez effectuer un inventaire et un transfert sans problème sur les clusters Windows Server 2008 R2, puis effectuer manuellement le basculement en modifiant manuellement l’adresse IP et le nom d’accès de la ressource du serveur de fichiers source du cluster, puis en modifiant le nom et l’adresse IP du cluster de destination. adresse qui correspond à la source d’origine. 
 
-## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Le basculement se bloque sur « 38% mappage des interfaces réseau sur l’ordinateur source... » 
+## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-dhcp"></a>Le basculement se bloque sur « 38% mappage des interfaces réseau sur l’ordinateur source... » lors de l’utilisation de DHCP 
 
 Lorsque vous tentez d’exécuter la fonction couper au-dessus d’un ordinateur source, si vous avez défini l’ordinateur source pour qu’il utilise une nouvelle adresse IP statique (non DHCP) sur une ou plusieurs interfaces réseau, la coupure est bloquée à la phase « 38% mappage des interfaces réseau sur le comnputer source... » et vous recevez l’erreur suivante dans le journal des événements SMS :
 
@@ -372,13 +374,7 @@ L’examen de l’ordinateur source montre que l’adresse IP d’origine ne peu
 
 Ce problème ne se produit pas si vous avez sélectionné l’option « utiliser DHCP » dans l’écran du centre d’administration Windows « configurer le basculement », uniquement si vous spécifiez une nouvelle adresse IP statique, un sous-réseau et une passerelle. 
 
-Ce problème est dû à une régression dans la mise à jour [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) . Il existe actuellement deux solutions de contournement pour ce problème :
-
-  - Avant le basculement : au lieu de définir une nouvelle adresse IP statique lors du basculement, sélectionnez « utiliser DHCP » et assurez-vous qu’une étendue DHCP couvre ce sous-réseau. SMS configure l’ordinateur source pour qu’il utilise DHCP sur les interfaces de l’ordinateur source et le découpage se poursuivra normalement. 
-  
-  - Si le basculement est déjà bloqué : Connectez-vous à l’ordinateur source et activez DHCP sur ses interfaces réseau, après avoir vérifié qu’une étendue DHCP couvre ce sous-réseau. Lorsque l’ordinateur source acquiert une adresse IP fournie par DHCP, SMS poursuit la découpe normalement.
-  
-Dans les deux solutions de contournement, une fois la coupure terminée, vous pouvez définir une adresse IP statique sur l’ancien ordinateur source comme vous le voyez et l’arrêter à l’aide de DHCP.   
+Ce problème est résolu par la mise à jour [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) .
 
 ## <a name="slower-than-expected-re-transfer-performance"></a>Ralentissement des performances de retransfert ATTENDU
 
@@ -489,6 +485,48 @@ Lorsque vous tentez d’exécuter un inventaire, vous recevez :
  - le pare-feu n’autorise pas les connexions à distance au serveur source à partir de l’orchestrateur.
  - Le compte de migration source ne dispose pas des autorisations de Registre à distance pour se connecter à l’ordinateur source.
  - Le compte de migration source ne dispose pas des autorisations de lecture dans le registre de l’ordinateur source, sous « HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion » ou sous «HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\ LanManServer
+ 
+ ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Le basculement se bloque sur « 38% mappage des interfaces réseau sur l’ordinateur source... » 
+
+Lorsque vous tentez d’exécuter la fonction couper sur un ordinateur source, la coupure est bloquée à la phase « 38% mappage des interfaces réseau sur le comnputer source... » et vous recevez l’erreur suivante dans le journal des événements SMS :
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          1/11/2020 8:51:14 AM
+    Event ID:      20505
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      nedwardo.contosocom
+    Description:
+    Couldn't establish a CIM session with the computer.
+
+    Computer: 172.16.10.37
+    User Name: nedwardo\MsftSmsStorMigratSvc
+    Error: 40970
+    Error Message: Unknown error (0xa00a)
+
+    Guidance: Confirm that the Netlogon service on the computer is reachable through RPC and that the credentials provided are correct.
+
+Ce problème est dû à stratégie de groupe qui définit la valeur de Registre suivante sur l’ordinateur source :
+
+ "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System LocalAccountTokenFilterPolicy = 0"
+ 
+Ce paramètre ne fait pas partie du stratégie de groupe standard, il s’agit d’un module complémentaire configuré à l’aide de [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319):
+ 
+ - Windows Server 2012 R2 : « ordinateur Configuration\Administrative Templates\SCM : transmettre les restrictions UAC Mitigations\Apply de hachage aux comptes locaux sur les ouvertures de session réseau »
+ - Serveurs veuves 2016 : « Configuration ordinateur \ sécurité Templates\MS sécurité Guide\Apply des restrictions UAC aux comptes locaux sur les ouvertures de session réseau »
+ 
+Elle peut également être définie à l’aide des préférences de stratégie de groupe avec un paramètre de Registre personnalisé. Vous pouvez utiliser l’outil GPRESULT pour déterminer quelle stratégie applique ce paramètre à l’ordinateur source.
+
+Le service de migration de stockage active temporairement le [LocalAccountTokenFilterPolicy](https://support.microsoft.com/help/951016/description-of-user-account-control-and-remote-restrictions-in-windows) dans le cadre du processus de décollage, puis le supprime une fois terminé. Lorsque stratégie de groupe applique un objet de stratégie de groupe en conflit (GPO), il remplace le service de migration de stockage et empêche les coupures.
+
+Pour contourner ce problème, utilisez l’une des options suivantes :
+
+1. Déplacez temporairement l’ordinateur source de l’unité d’organisation Active Directory qui applique cet objet de stratégie de groupe en conflit. 
+2. Désactivez temporairement l’objet de stratégie de groupe qui applique cette stratégie en conflit.
+3. Créez temporairement un nouvel objet de stratégie de groupe qui définit ce paramètre sur désactivé et s’applique à une unité d’organisation spécifique des serveurs sources, avec une priorité plus élevée que les autres objets de stratégie de groupe.
 
 ## <a name="see-also"></a>Voir aussi
 
