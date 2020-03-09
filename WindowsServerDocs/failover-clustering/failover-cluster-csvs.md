@@ -9,11 +9,11 @@ ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: da0f541c34c7f8687822bec365364fdd406fa3c3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369738"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370707"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Utiliser des volumes partagés de cluster dans un cluster de basculement
 
