@@ -14,11 +14,11 @@ ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
 ms.openlocfilehash: e501d550e5371c668f7e243f00106a0b79f694dc
-ms.sourcegitcommit: 214847318401cebdcb7f1924a731b4439c9d8a24
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187884"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370673"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Configurations prises en charge pour les services Bureau à distance
 
@@ -31,7 +31,7 @@ Dans cette optique, voici les instructions de base relatives aux configurations 
 > [!NOTE]
 > Veillez à consulter la [configuration système requise pour Windows Server 2016](../../get-started/system-requirements.md) et la [configuration système requise pour Windows Server 2019](../../get-started-19/sys-reqs-19.md).
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 - Utilisez Windows Server 2019 pour votre infrastructure de Bureau à distance (serveur d’accès web, serveur de passerelle, serveur du service Broker pour les connexions et serveur de licences). Windows Server 2019 offre une compatibilité descendante avec ces composants, ce qui signifie qu’un hôte de session Bureau à distance Windows Server 2016 ou Windows Server 2012 R2 peut se connecter à un service Broker pour les connexions Bureau à distance 2019, mais pas l’inverse.
 
@@ -49,9 +49,9 @@ Windows Server 2016 supprime la restriction relative au nombre de serveurs du s
 
 |Plus de 3 serveurs du service Broker pour les connexions en haute disponibilité|hôtes de session Bureau à distance et serveurs hôtes de virtualisation des services Bureau à distance 2019|hôtes de session Bureau à distance et serveurs hôtes de virtualisation des services Bureau à distance 2016|hôtes de session Bureau à distance et serveurs hôtes de virtualisation des services Bureau à distance 2012 R2|
 |---|---|---|---|
- |Service Broker pour les connexions Windows Server 2019|Prise en charge|Prise en charge|Prise en charge|
- |Service Broker pour les connexions Windows Server 2016|N/A|Prise en charge|Prise en charge|
- |Service Broker pour les connexions Windows Server 2012 R2|N/A|N/A|Non prise en charge|
+ |Service Broker pour les connexions Windows Server 2019|Pris en charge|Pris en charge|Pris en charge|
+ |Service Broker pour les connexions Windows Server 2016|NON APPLICABLE|Pris en charge|Pris en charge|
+ |Service Broker pour les connexions Windows Server 2012 R2|NON APPLICABLE|NON APPLICABLE|Non pris en charge|
 
 ## <a name="support-for-graphics-processing-unit-gpu-acceleration"></a>Prise en charge de l’accélération de l’unité de traitement graphique (GPU)
 
@@ -69,7 +69,7 @@ Les GPU présentés par une plateforme hyperviseur non-Microsoft ou cloud doiven
 
 Le tableau suivant présente les scénarios pris en charge par les différentes versions des hôtes de session Bureau à distance.
 
-|Fonctionnalité|Windows Server 2008 R2|Windows Server 2012 R2|Windows Server 2016|Windows Server 2019|
+|Fonctionnalité|Windows Server 2008 R2|Windows Server 2012 R2|Windows Server 2016|Windows Server 2019|
 |---|---|---|---|---|
 |Utilisation du GPU matériel pour toutes les sessions RDP|Non|Oui|Oui|Oui|
 |Encodage matériel H.264/AVC (si pris en charge par le GPU)|Non|Non|Oui|Oui|
@@ -81,7 +81,7 @@ Le tableau suivant présente les scénarios pris en charge par les différentes 
 
 Le tableau suivant indique la prise en charge des scénarios de GPU dans le système d’exploitation client.
 
-|Fonctionnalité|Windows 7 SP1|Windows 8.1|Windows 10|
+|Fonctionnalité|Windows 7 SP1|Windows 8.1|Windows 10|
 |---|---|---|---|
 |Utilisation du GPU matériel pour toutes les sessions RDP|Non|Oui|Oui|
 |Encodage matériel H.264/AVC (si pris en charge par le GPU)|Non|Non|Windows 10 1703 et versions ultérieures|
@@ -94,7 +94,7 @@ Le tableau suivant indique la prise en charge des scénarios de GPU dans le syst
 Les services Bureau à distance prennent en charge les vGPU RemoteFX quand la machine virtuelle s’exécute en tant qu’invité Hyper-V sur Windows Server 2012 R2 ou Windows Server 2016. Les systèmes d’exploitation invités suivants prennent en charge les vGPU RemoteFX :
 
 - Windows 7 SP1
-- Windows 8.1
+- Windows 8.1
 - Windows 10 1703 ou version ultérieure
 - Windows Server 2016 dans un déploiement mono-session uniquement
 - Windows Server 2019 dans un déploiement mono-session uniquement
@@ -108,8 +108,8 @@ Les services Bureau à distance prennent en charge les GPU physiques présentés
 
 Les serveurs hôtes de virtualisation des services Bureau à distance de Windows Server 2016 et Windows Server 2019 prennent en charge les OS (systèmes d’exploitation) invités suivants :
 
-- Windows 10 Entreprise
-- Windows 8.1 Entreprise
+- Windows 10 Entreprise
+- Windows 8.1 Enterprise
 - Windows 7 SP1 Entreprise
 
 > [!NOTE]

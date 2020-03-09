@@ -10,15 +10,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: ffc2849fa5e18f7984814d6187cf83d68566409b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369639"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371547"
 ---
 # <a name="simplified-administration-appendix"></a>Annexe une Administration simplifiée
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 -   [Boîte de dialogue Gestionnaire de serveur ajouter des serveurs (Active Directory)](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_AddServers)  
@@ -81,7 +81,7 @@ Get-Module -ListAvailable
   
 ```  
   
-Le cas principal d’utilisation de la commande **import-module** est lorsque vous avez besoin d’accéder au « AD : » Le lecteur virtuel Windows PowerShell et rien d’autre n’a déjà chargé le module. Par exemple, à l’aide des commandes suivantes :  
+Le cas principal de l’utilisation de la commande **import-module** est lorsque vous avez besoin d’accéder au lecteur virtuel Windows PowerShell « ad : » et que rien d’autre n’a déjà chargé le module. Par exemple, à l’aide des commandes suivantes :  
   
 ```  
 import-module activedirectory  

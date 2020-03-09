@@ -9,19 +9,19 @@ ms.localizationpriority: medium
 ms.date: 12/02/2019
 ms.prod: windows-server
 ms.openlocfilehash: 4ce42420430e9a12dd6123ec18c9ded25abc97bb
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
-ms.translationtype: HT
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949953"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371685"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur Windows Admin Center
 
-> S'applique à : Windows Admin Center, Windows Admin Center Preview
+> S’applique à : Centre d’administration Windows, version préliminaire du centre d’administration Windows
 
 Vous trouverez ici les réponses aux questions les plus fréquemment posées sur Windows Admin Center.
 
-## <a name="what-is-windows-admin-center"></a>Qu’est-ce que Windows Admin Center ?
+## <a name="what-is-windows-admin-center"></a>Qu’est-ce que Windows Admin Center ?
 
 Windows Admin Center est une plateforme d’interface graphique utilisateur légère basée sur un navigateur et un ensemble d’outils destinés aux administrateurs informatiques pour gérer Windows Server et Windows 10. Il s’agit de l’évolution d’outils d’administration intégrés familiers, comme le Gestionnaire de serveur et MMC (Microsoft Management Console), qui se présente sous la forme d’une expérience actualisée, simplifiée, intégrée et sécurisée.
 
@@ -37,7 +37,7 @@ Windows Admin Center n’engendre aucuns frais supplémentaires autres que Windo
 
 ## <a name="what-versions-of-windows-server-can-i-manage-with-windows-admin-center"></a>Quelles versions de Windows Server puis-je gérer avec Windows Admin Center ?
 
-Windows Admin Center est optimisé pour Windows Server 2019 afin de prendre en charge des thèmes clés dans la version de Windows Server 2019 : en particulier, les scénarios de cloud hybride et la gestion d’infrastructure hyperconvergée. Bien que Windows Admin Center fonctionne mieux avec Windows Server 2019, il prend en charge la gestion de plusieurs versions que les clients utilisent déjà : Windows Server 2012 et les versions plus récentes sont entièrement pris en charge. Il existe également des fonctionnalités limitées pour la gestion de Windows Server 2008 R2.
+Windows Admin Center est optimisé pour Windows Server 2019 afin de prendre en charge des thèmes clés dans la version de Windows Server 2019 : en particulier, les scénarios de cloud hybride et la gestion d’infrastructure hyperconvergée. Bien que le centre d’administration Windows fonctionne mieux avec Windows Server 2019, il prend en charge la gestion d’une variété de versions que les clients utilisent déjà : Windows Server 2012 et versions ultérieures sont entièrement pris en charge. Il existe également des fonctionnalités limitées pour la gestion de Windows Server 2008 R2.
 
 ## <a name="is-windows-admin-center-a-complete-replacement-for-all-traditional-in-box-and-rsat-tools"></a>Windows Admin Center remplace-t-il complètement l’ensemble des outils traditionnels intégrés et des outils d’administration de serveur distant ?
 

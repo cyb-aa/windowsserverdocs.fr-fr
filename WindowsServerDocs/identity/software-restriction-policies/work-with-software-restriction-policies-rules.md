@@ -14,11 +14,11 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: bb5e56fe541a06b1100de2f25fc10f4db46b8d24
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407151"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371727"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Utiliser les règles des stratégies de restriction logicielle
 
@@ -124,7 +124,7 @@ En fonction de votre environnement, différentes procédures existent pour activ
 
 #### <a name="BKMK_3"></a>Pour activer les règles de certificat pour un objet stratégie de groupe, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
 
-1.  Ouvrez le composant Utilisateurs et ordinateurs Active Directory.
+1.  Ouvrez Utilisateurs et ordinateurs Active Directory.
 
 2.  Dans l’arborescence de la console, cliquez avec le bouton droit sur l’objet de stratégie de groupe pour lequel vous voulez activer les règles de certificat.
 
@@ -180,7 +180,7 @@ Les paramètres de stratégie sous l’onglet **Éditeurs approuvés** de la str
 
 ##### <a name="to-configure-the-trusted-publishers-policy-settings-for-a-domain"></a>Pour configurer les paramètres de stratégie des éditeurs approuvés pour un domaine
 
-1.  Ouvrez la **gestion des stratégie de groupe**.
+1.  Ouvrez **Gestion des stratégies de groupe**.
 
 2.  Dans l’arborescence de la console, double-cliquez sur **stratégie de groupe objets** de la forêt et du domaine contenant l’objet de stratégie de groupe de **stratégie de domaine par défaut** que vous souhaitez modifier.
 
@@ -206,7 +206,7 @@ Les paramètres de stratégie sous l’onglet **Éditeurs approuvés** de la str
 
 ##### <a name="to-allow-only-administrators-to-manage-certificates-used-for-code-signing-for-a-domain"></a>Pour n’autoriser que les administrateurs à gérer des certificats utilisés pour la signature du code pour un domaine
 
-1.  Ouvrez la **gestion des stratégie de groupe**.
+1.  Ouvrez **Gestion des stratégies de groupe**.
 
 2.  Dans l’arborescence de la console, double-cliquez sur **stratégie de groupe objets** de la forêt et du domaine contenant l’objet de stratégie de groupe de la **stratégie de domaine par défaut** que vous souhaitez modifier.
 

@@ -9,15 +9,15 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: 2aea6c8416a0f3af04ad6056c5d09a4d07708eaa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386651"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371791"
 ---
 # <a name="create-a-host-key-and-add-it-to-hgs"></a>Créer une clé d’hôte et l’ajouter à SGH
 
->S’applique à : Windows Server 2019
+>S’applique à : Windows Server 2019
 
 
 Cette rubrique explique comment préparer des hôtes Hyper-V pour qu’ils deviennent des hôtes protégés à l’aide de l’attestation de clé hôte (mode clé). Vous allez créer une paire de clés d’hôte (ou utiliser un certificat existant) et ajouter la moitié publique de la clé à SGH.
