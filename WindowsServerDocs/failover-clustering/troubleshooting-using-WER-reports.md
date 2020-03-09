@@ -10,11 +10,11 @@ author: vpetter
 ms.date: 03/27/2018
 ms.localizationpriority: ''
 ms.openlocfilehash: 46c633af8cf82ac43d2a787a7193685d88ad0ecc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361010"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371781"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Résolution des problèmes d’un cluster de basculement à l’aide de Rapport d’erreurs Windows 
 
@@ -255,7 +255,7 @@ DynamicSig[29].Name=FailureTime
 DynamicSig[29].Value=2017//12//12-22:38:05.485
 ```
 
-Étant donné que la ressource n’a pas pu être mise en ligne, aucun vidage n’a été collecté, mais le rapport de Rapport d’erreurs Windows a collecté les journaux. Si vous ouvrez tous les fichiers **. evtx** à l’aide de l’analyseur de message Microsoft, vous verrez toutes les informations collectées à l’aide des requêtes suivantes via le canal système, le canal d’application, les canaux de diagnostic du cluster de basculement et d’autres canaux génériques.
+Étant donné que la ressource n’a pas pu être mise en ligne, aucun vidage n’a été collecté, mais le rapport de Rapport d’erreurs Windows a collecté les journaux. Si vous ouvrez tous les fichiers **. evtx** à l’aide de l’analyseur de message Microsoft, vous verrez toutes les informations collectées à l’aide des requêtes suivantes via le canal système, le canal d’application, les canaux de diagnostic du cluster de basculement et quelques autres canaux génériques.
 
 ```powershell
 PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpLogQuery
@@ -302,7 +302,7 @@ Vous pouvez également effectuer un regroupement par fournisseurs pour obtenir l
 
 ![Journaux regroupés par fournisseurs](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
 
-Pour identifier la raison de l’échec du disque, accédez aux événements sous **FailoverClustering/diagnostic** et **FailoverClustering/DiagnosticVerbose**. Exécutez ensuite la requête suivante : **EventLog. EventData ["LogString"] contient "cluster Disk 10"** .  Vous obtiendrez ainsi la sortie suivante :
+Pour identifier la raison de l’échec du disque, accédez aux événements sous **FailoverClustering/diagnostic** et **FailoverClustering/DiagnosticVerbose**. Exécutez ensuite la requête suivante : **EventLog. EventData ["LogString"] contient « cluster Disk 10 »** .  Vous obtiendrez ainsi la sortie suivante :
 
 ![Sortie de la requête de journal en cours d’exécution](media/troubleshooting-using-WER-reports/output-of-running-log-query.png)
 
@@ -398,9 +398,9 @@ DynamicSig[29].Name=HangThreadId
 DynamicSig[29].Value=10008
 ```
 
-La liste des services et processus que nous recueillons dans un vidage est contrôlée par la propriété suivante : **PS C:\Windows\system32 > (obtient-ClusterResourceType-Name "disque physique"). DumpServicesSmphost**
+La liste des services et des processus que nous recueillons dans un vidage est contrôlée par la propriété suivante : **PS C:\Windows\system32 > (obtenir-ClusterResourceType-Name "disque physique"). DumpServicesSmphost**
 
-Pour déterminer pourquoi le blocage s’est produit, ouvrez les fichiers toum. Exécutez ensuite la requête suivante : **EventLog. EventData ["LogString"] contient "cluster Disk 10"**  Vous obtiendrez ainsi la sortie suivante :
+Pour déterminer pourquoi le blocage s’est produit, ouvrez les fichiers toum. Exécutez ensuite la requête suivante : **EventLog. EventData ["LogString"] contient « cluster Disk 10 »** , ce qui vous donne la sortie suivante :
 
 ![Résultat de l’exécution de la requête de journal 2](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
 
