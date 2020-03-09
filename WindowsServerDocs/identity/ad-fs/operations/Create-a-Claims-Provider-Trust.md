@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: 4539e8abd1af1eca7bacb51971e6d355bb0aab28
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407658"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371577"
 ---
 # <a name="create-a-claims-provider-trust"></a>Créer une approbation de fournisseur de revendications
 
@@ -29,7 +29,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 2.  Sous **actions**, cliquez sur **Ajouter une approbation de fournisseur de revendications**.  
 ![l’approbation du fournisseur de revendications](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  Dans la page **Bienvenue** , cliquez sur **Démarrer**. 
+3.  Dans la page **Bienvenue**, cliquez sur **Démarrer**. 
 ![l’approbation du fournisseur de revendications](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
 4.  Dans la page **Sélectionner une source de données**, cliquez sur **Entrer les données d’approbation de fournisseur de revendications manuellement**, puis sur **Suivant**.  
@@ -50,7 +50,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 10. Dans la page **Prêt à ajouter l’approbation**, cliquez sur **Suivant** pour enregistrer les informations de votre approbation de fournisseur de revendications.  
 ![l’approbation du fournisseur de revendications](media/Create-a-Claims-Provider-Trust/addclaim8.PNG)    
 
-11. Dans la page **Terminer** , cliquez sur **Fermer**. Cette action affiche automatiquement la boîte de dialogue **Modifier les règles de revendication**. Pour plus d’informations sur la façon de procéder à l’ajout de règles de revendication pour cette approbation de fournisseur de revendications, consultez les références supplémentaires suivantes.  
+11. Dans la page **Terminer**, cliquez sur **Fermer**. Cette action affiche automatiquement la boîte de dialogue **Modifier les règles de revendication**. Pour plus d’informations sur la façon de procéder à l’ajout de règles de revendication pour cette approbation de fournisseur de revendications, consultez les références supplémentaires suivantes.  
 ![l’approbation du fournisseur de revendications](media/Create-a-Claims-Provider-Trust/addclaim9.PNG)
 
 ## <a name="to-create-a-claims-provider-trust-using-federation-metadata"></a>Pour créer une approbation de fournisseur de revendications à l’aide des métadonnées de Fédération
@@ -64,7 +64,7 @@ Pour ajouter une nouvelle approbation de fournisseur de revendications à l’ai
 2.  Sous **actions**, cliquez sur **Ajouter une approbation de fournisseur de revendications**.  
 ![l’approbation du fournisseur de revendications](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  Dans la page **Bienvenue** , cliquez sur **Démarrer**. 
+3.  Dans la page **Bienvenue**, cliquez sur **Démarrer**. 
 ![l’approbation du fournisseur de revendications](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
 4.  Dans la page **Sélectionner une source de données**, cliquez sur **Importer les données publiées en ligne ou sur un réseau local concernant le fournisseur de revendications**. Dans adresse des métadonnées de Fédération (nom d’hôte ou URL), tapez l' **URL des métadonnées de Fédération** ou le nom d’hôte du partenaire, puis cliquez sur **suivant**.
