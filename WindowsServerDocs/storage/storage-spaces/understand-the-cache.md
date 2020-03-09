@@ -10,11 +10,11 @@ author: cosmosdarwin
 ms.date: 07/17/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: f2c2e0435d06c18dbacab4e85db770ba86e654b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366003"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78865418"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>Fonctionnement du cache dans les espaces de stockage direct
 
@@ -109,7 +109,7 @@ Par conséquent, les caractéristiques d'écriture, comme la latence, sont dict�
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>Mise en cache en lecture/écriture pour les déploiements hybrides
 
-Si vous créez un cache pour des disques HDD, les écritures *et* les lectures sont mises en cache. Dans les deux cas, la latence est équivalente à celle des lecteurs Flash (souvent env. 10x meilleure). Le cache de lecture stocke les données lues récemment et fréquemment pour un accès rapide et pour réduire au maximum le trafic aléatoire vers les disques durs. (En raison de retards de recherche et de rotation, la latence et le temps perdu engendrés par l’accès aléatoire à un disque dur sont significatifs.) Les écritures sont mises en cache pour absorber les pics et, comme auparavant, pour fusionner les écritures et réécriture et réduire le trafic cumulé sur les lecteurs de capacité.
+Si vous créez un cache pour des disques HDD, les écritures *et* les lectures sont mises en cache. Dans les deux cas, la latence est équivalente à celle des lecteurs Flash (souvent env. 10x meilleure). Le cache de lecture stocke les données lues récemment et fréquemment pour un accès rapide et pour réduire au maximum le trafic aléatoire vers les disques durs. (En raison des délais de recherche et de rotation, la latence et le temps perdu causés par l'accès aléatoire à un disque dur sont considérables.) Les écritures sont mises en cache pour absorber les pics de trafic, et comme précédemment, vous pouvez regrouper les écritures et réécritures afin de réduire au maximum le trafic cumulatif sur les lecteurs de capacité.
 
 Les espaces de stockage direct font appel à un algorithme qui annule l'aspect aléatoire des écritures avant de les déstocker du cache. Cela permet d'émuler un schéma d'E/S d'apparence séquentielle au niveau du lecteur, même quand les E/S réelles provenant de la charge de travail (par exemple, des machines virtuelles) sont aléatoires. Les E/S par seconde et le débit au niveau des disques durs sont ainsi optimisés.
 
@@ -117,7 +117,7 @@ Les espaces de stockage direct font appel à un algorithme qui annule l'aspect a
 
 Lorsque les trois types de lecteurs sont présents, les lecteurs NVMe fournissent le cache pour les disques SSD et HDD. Le comportement est celui décrit ci-dessus : seules les écritures sont mises en cache pour les SSD. Pour les HDD, les lectures et les écritures sont mises en cache. Le fardeau de la mise en cache pour les HDD est réparti équitablement entre les lecteurs de cache. 
 
-## <a name="summary"></a>Récapitulatif
+## <a name="summary"></a>Résumé
 
 Ce tableau récapitule les lecteurs utilisés pour la mise en cache et la capacité, et rappelle les comportements de cache associés à chaque déploiement.
 
@@ -190,7 +190,7 @@ Pour utiliser les lecteurs les plus endurants pour la mise en cache et les lecte
 
 ####  <a name="example"></a>Exemple
 
-Tout d’abord, récupérez la liste des disques physiques:
+Tout d’abord, récupérez la liste des disques physiques :
 
 ```PowerShell
 Get-PhysicalDisk | Group Model -NoElement
@@ -205,7 +205,7 @@ Count Name
    16 CONTOSO NVME-1520
 ```
 
-Entrez ensuite la commande suivante, en spécifiant le modèle de périphérique de cache:
+Entrez ensuite la commande suivante, en spécifiant le modèle de périphérique de cache :
 
 ```PowerShell
 Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
@@ -229,7 +229,7 @@ Vous pouvez utiliser la **ClusterStorageSpacesDirect** pour vérifier que le com
 
 #### <a name="example"></a>Exemple
 
-Tout d’abord, récupérez les paramètres de espaces de stockage direct:
+Tout d’abord, récupérez les paramètres de espaces de stockage direct :
 
 ```PowerShell
 Get-ClusterStorageSpacesDirect
@@ -242,7 +242,7 @@ CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
 ```
 
-Ensuite, procédez comme suit:
+Effectuez ensuite les opérations suivantes :
 
 ```PowerShell
 Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite
