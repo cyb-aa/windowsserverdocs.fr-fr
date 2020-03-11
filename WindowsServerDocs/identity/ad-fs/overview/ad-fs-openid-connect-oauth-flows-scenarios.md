@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e1e0235e50945fadd09fe9dd5ffeaf6d7119e482
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 875edcf191596d181ec0d70a83f9f3c20f5d5f4a
+ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385602"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78261938"
 ---
 # <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>Flux OpenID Connect/OAuth avec AD FS et scénarios d’application
 S’applique à AD FS 2016 et versions ultérieures
@@ -292,7 +292,7 @@ Les étapes qui suivent constituent le flux OBO et sont expliquées avec l’aid
 
   1. L’application cliente envoie une requête à l’API A avec le jeton A.  
   Remarque : Lors de la configuration du flux OBO dans AD FS, assurez-vous que l’étendue `user_impersonation` est sélectionnée et que le client demande bien l’étendue `user_impersonation` dans la requête. 
-  2. L’API A s’authentifie auprès du point de terminaison d’émission de jetons AD FS et demande un jeton pour accéder à l’API B. Remarque : Lors de la configuration de ce flux dans AD FS, assurez-vous que l’API A est également inscrite en tant qu’application serveur avec un clientID ayant la même valeur que l’ID de ressource dans l’API A. Pour plus d’informations, consultez l’exemple On-Behalf Of.  
+  2. L’API A s’authentifie auprès du point de terminaison d’émission de jetons AD FS et demande un jeton pour accéder à l’API B. Remarque : Lors de la configuration de ce flux dans AD FS, veillez à ce que l’API A soit également inscrite en tant qu’application serveur avec un clientID ayant la même valeur que l’ID de ressource dans l’API A.
   3. Le point de terminaison d’émission de jetons AD FS valide les informations d’identification de l’API A avec le jeton A, et émet le jeton d’accès pour l’API B (jeton B). 
   4. Le jeton B est défini dans l’en-tête d’autorisation de la requête à l’API B. 
   5. Les données de la ressource sécurisée sont retournées par l’API B. 
