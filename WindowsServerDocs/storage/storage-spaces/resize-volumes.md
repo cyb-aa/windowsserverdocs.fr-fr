@@ -7,18 +7,21 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 05/07/2019
-ms.openlocfilehash: 20482fe1728b12d4fe56dcfa397352fbb4b4f981
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 03/10/2020
+ms.openlocfilehash: 4ce41da1da3dc90f698008902170d7cc1541619c
+ms.sourcegitcommit: bb2eb0b12f2a32113899a59aa5644bc6e8cab3d2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366090"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79089350"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Extension des volumes dans les espaces de stockage direct
 > S’applique à : Windows Server 2019, Windows Server 2016
 
 Cette rubrique fournit des instructions pour le redimensionnement des volumes sur un cluster [espaces de stockage direct](storage-spaces-direct-overview.md) à l’aide du centre d’administration Windows.
+
+> [!WARNING]
+> **Non pris en charge : redimensionnement du stockage sous-jacent utilisé par espaces de stockage direct.** Si vous exécutez espaces de stockage direct dans un environnement de stockage virtualisé, y compris dans Azure, le redimensionnement ou la modification des caractéristiques des périphériques de stockage utilisés par les ordinateurs virtuels n’est pas pris en charge et entraînent l’inaccessibilité des données. Au lieu de cela, suivez les instructions de la section [Ajouter des serveurs ou des lecteurs](add-nodes.md) pour ajouter de la capacité supplémentaire avant d’étendre les volumes.
 
 Regardez une vidéo rapide sur la façon de redimensionner un volume.
 
@@ -50,7 +53,7 @@ Dans les espaces de stockage direct, chaque volume se compose de plusieurs objet
 
 Pour vous familiariser avec ces objets, exécutez la commande **Get -** associée au nom correspondant dans PowerShell.
 
-Exemple :
+Par exemple :
 
 ```PowerShell
 Get-VirtualDisk
