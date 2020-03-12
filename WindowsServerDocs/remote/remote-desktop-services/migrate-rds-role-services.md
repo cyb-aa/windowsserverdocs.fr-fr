@@ -24,7 +24,7 @@ ms.locfileid: "71387604"
 
 Si vous utilisez actuellement des services Bureau à distance dans Windows Server 2012 R2, vous pouvez passer à Windows Server 2016 pour tirer parti des nouvelles fonctionnalités comme la prise en charge de SQL Azure et des espaces de stockage Direct.
 
-La migration pour un déploiement Services Bureau à distance est prise en charge à partir de serveurs sources exécutant Windows Server 2013 sur des serveurs de destination exécutant Windows Server 2016. En d’autres termes, il n’existe aucune migration directe à partir des services Bureau à distance dans Windows Server 2012 R2 vers Windows Server 2016. Au lieu de cela, pour la plupart des composants des services Bureau à distance, vous devez d’abord effectuer une mise à niveau vers Windows Server 2016 et migrer les données et les licences. Les seuls composants avec une migration directe sont RD Web, RD Gateway et le serveur de licences.
+La migration pour un déploiement Services Bureau à distance est prise en charge à partir de serveurs sources exécutant Windows Server 2016 sur des serveurs de destination exécutant Windows Server 2016. En d’autres termes, il n’existe aucune migration directe à partir des services Bureau à distance dans Windows Server 2012 R2 vers Windows Server 2016. Au lieu de cela, pour la plupart des composants des services Bureau à distance, vous devez d’abord effectuer une mise à niveau vers Windows Server 2016 et migrer les données et les licences. Les seuls composants avec une migration directe sont RD Web, RD Gateway et le serveur de licences.
 
 Pour plus d’informations sur la mise à niveau et la configuration requise, consultez [Mise à niveau de vos déploiements de services Bureau à distance vers Windows Server 2016](upgrade-to-rds-2016.md).
 
