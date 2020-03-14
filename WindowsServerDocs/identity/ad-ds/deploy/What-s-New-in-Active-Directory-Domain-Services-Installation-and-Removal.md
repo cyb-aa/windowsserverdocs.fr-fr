@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 1f24615491391d932609d7f80549985818ced8c1
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371560"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323201"
 ---
 # <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Nouveautés relatives à l’installation et à la suppression des services de domaine Active Directory
 

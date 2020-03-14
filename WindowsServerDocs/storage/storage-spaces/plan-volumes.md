@@ -10,11 +10,11 @@ author: cosmosdarwin
 ms.date: 06/28/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 52c600068d5dd447ff9faa7c40788664e222a83a
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370737"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322781"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planification des volumes dans les espaces de stockage direct
 

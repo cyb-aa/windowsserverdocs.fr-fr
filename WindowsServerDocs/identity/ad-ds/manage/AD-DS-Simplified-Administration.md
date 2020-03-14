@@ -10,15 +10,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369448"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323161"
 ---
 # <a name="ad-ds-simplified-administration"></a>Administration simplifiée AD DS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit les fonctionnalités et les avantages du déploiement et de l’administration d’un contrôleur de domaine Windows Server 2012, ainsi que les différences entre le déploiement de contrôleur de domaine du système d’exploitation précédent et la nouvelle implémentation de Windows Server 2012.  
   
@@ -114,7 +114,7 @@ Pour plus d’informations sur la topologie et la réplication de site AD DS, vo
 
 Active Directory Windows 2000 a introduit le maître RID, qui émet des pools d'identificateurs relatifs vers les contrôleurs de domaine pour créer des identificateurs de sécurité (SID, Security Identifier) de clients approuvés de sécurité, tels que les utilisateurs, groupes et ordinateurs.  Par défaut, cet espace RID global est limité à 2<sup>30</sup> (ou 1 073 741 823) identificateurs SID au total créés dans un domaine. Les identificateurs SID ne peuvent pas retourner au pool ni être émis à nouveau. Au fil du temps, un domaine de grande taille peut commencer à manquer d'identificateurs RID, ou des accidents peuvent aboutir à une diminution et un épuisement final des identificateurs RID inutiles.  
   
-Windows Server 2012 traite un certain nombre des problèmes de gestion et d'émission RID non abordés par les clients ni par le support technique Microsoft, car les services de domaine Active Directory ont évolué depuis la création des premiers domaines Active Directory en 1999. Elles incluent notamment :  
+Windows Server 2012 traite un certain nombre des problèmes de gestion et d'émission RID non abordés par les clients ni par le support technique Microsoft, car les services de domaine Active Directory ont évolué depuis la création des premiers domaines Active Directory en 1999. Par exemple :  
 
 - Des avertissements liés à la consommation d'identificateurs RID périodiques sont écrits dans le journal des événements.  
 - Des événements sont consignés quand un administrateur invalide un pool RID.  
@@ -195,11 +195,11 @@ D'ordinaire, il n'est pas nécessaire d'exécuter ces applets de commande ; elle
 
 ||||  
 |-|-|-|  
-|Nom du test|Protocoles<br /><br />utilisés|Description et remarques|  
+|Nom du test|Protocoles<br /><br />used|Description et remarques|  
 |VerifyAdminTrusted<br /><br />ForDelegationProvider|LDAP|Valide que vous disposez du privilège « Permettre à l'ordinateur et aux comptes d'utilisateurs d'être approuvés pour la délégation » (SeEnableDelegationPrivilege) sur le contrôleur de domaine partenaire existant. L'accès à votre attribut tokenGroups construit est requis.<br /><br />Ce test n'est pas utilisé pour les communications avec les contrôleurs de domaine Windows Server 2003. Vous devez manuellement confirmer ce privilège avant la promotion|  
 |VerifyADPrep<br /><br />Conditions préalables (forêt)|LDAP|Détecte et contacte le contrôleur de schéma à l'aide de l'attribut namingContexts rootDSE et de l'attribut fsmoRoleOwner du contexte de nommage de schéma. Identifie les opérations préparatoires (forestprep, domainprep ou rodcprep) requises pour l'installation des services AD DS. Valide que l'attribut objectVersion du schéma est prévu et vérifie si une extension supplémentaire est requise.|  
 |VerifyADPrep<br /><br />Conditions préalables (domaine et contrôleur de domaine en lecture seule)|LDAP|Détecte et contacte le maître d'infrastructure à l'aide de l'attribut namingContexts rootDSE et de l'attribut fsmoRoleOwner du conteneur d'infrastructure. Dans le cas de l'installation d'un contrôleur de domaine en lecture seule, ce test détecte le maître d'opérations des noms de domaine et s'assure qu'il est en ligne.|  
-|CheckGroup<br /><br />Membership|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Admins du domaine ou Administrateurs de l'entreprise, en fonction de l'opération (Admins du domaine pour l'ajout ou la rétrogradation d'un contrôleur de domaine, Administrateurs de l'entreprise pour l'ajout ou la suppression d'un domaine)|  
+|CheckGroup<br /><br />Appartenance|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Admins du domaine ou Administrateurs de l'entreprise, en fonction de l'opération (Admins du domaine pour l'ajout ou la rétrogradation d'un contrôleur de domaine, Administrateurs de l'entreprise pour l'ajout ou la suppression d'un domaine)|  
 |CheckForestPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre des groupes Administrateurs de l'entreprise et Administrateurs du schéma, et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
 |CheckDomainPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Admins du domaine et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
 |CheckRODCPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Administrateurs de l'entreprise et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
@@ -209,5 +209,5 @@ D'ordinaire, il n'est pas nécessaire d'exécuter ces applets de commande ; elle
 |VerifyWin2KSchema<br /><br />Consistency|LDAP|Valide que le schéma de la forêt existant a des attributs et classes de base cohérents (qui ne sont pas modifiés de façon incorrecte par un tiers).|  
 |DCPromo|DRSR sur RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC sur SMB (SAMR)|Valide la syntaxe de ligne de commande passée au code de promotion et à la promotion de test. Valide que la forêt ou le domaine n'existe pas déjà si vous en créez un.|  
 |VerifyOutbound<br /><br />ReplicationEnabled|LDAP, DRSR sur SMB, RPC sur SMB (LSARPC)|Valide que la réplication sortante du contrôleur de domaine existant spécifié comme partenaire de réplication est activée en vérifiant l'attribut des options de l'objet Paramètres NTDS pour NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004)|  
-|VerifyMachineAdmin<br /><br />Mot de passe|DRSR sur RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC sur SMB (SAMR)|Valide que le mot de passe du mode sans échec défini pour DSRM répond aux exigences de complexité pour les domaines.|  
+|VerifyMachineAdmin<br /><br />Password|DRSR sur RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC sur SMB (SAMR)|Valide que le mot de passe du mode sans échec défini pour DSRM répond aux exigences de complexité pour les domaines.|  
 |VerifySafeModePassword|*N/A*|Valide que le mot de passe d'administrateur local défini répond aux exigences de complexité de la stratégie de sécurité de l'ordinateur.|  

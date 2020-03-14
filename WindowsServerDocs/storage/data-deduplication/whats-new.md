@@ -9,15 +9,15 @@ manager: klaasl
 ms.author: wgries
 ms.date: 04/17/2019
 ms.openlocfilehash: 577926035840fbd571c8a1157f1da0c2e1b4851b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403171"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322621"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Nouveautés de la déduplication des données
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 La [déduplication des données](overview.md) dans Windows Server a été optimisée pour être hautement performante, flexible et gérable à l’échelle du Cloud privé. Pour plus d’informations sur la pile de stockage définie par logiciel dans Windows Server, voir [Nouveautés du stockage dans Windows Server](../whats-new-in-storage.md).
 

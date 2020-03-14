@@ -14,11 +14,11 @@ ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
 ms.openlocfilehash: e501d550e5371c668f7e243f00106a0b79f694dc
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370673"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323351"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Configurations prises en charge pour les services Bureau à distance
 

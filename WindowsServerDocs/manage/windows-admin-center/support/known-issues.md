@@ -9,11 +9,11 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
 ms.openlocfilehash: 4a91d09d6824795a21a9a7cdc7695c407aa70756
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822702"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322921"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problèmes connus de Windows Admin Center
 
@@ -53,7 +53,7 @@ Si vous rencontrez un problème non décrit dans cette page, veuillez [nous en f
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
-- Si vous avez déployé le centre d’administration Windows en tant que service et que vous utilisez Microsoft Edge comme navigateur, la connexion de votre passerelle à Azure peut échouer après la génération d’une nouvelle fenêtre de navigateur. Essayez de contourner ce problème en ajoutant https://login.microsoftonline.com , https://login.live.com et l’URL de votre passerelle en tant que sites approuvés et sites autorisés pour les paramètres du bloqueur de fenêtres publicitaires dans le navigateur côté client. Pour plus d’informations sur la résolution de ce problème, dans le [Guide de résolution des problèmes](troubleshooting.md#azure-features-dont-work-properly-in-edge). [17990376]
+- Si vous avez déployé le centre d’administration Windows en tant que service et que vous utilisez Microsoft Edge comme navigateur, la connexion de votre passerelle à Azure peut échouer après la génération d’une nouvelle fenêtre de navigateur. Essayez de contourner ce problème en ajoutant https://login.microsoftonline.com, https://login.live.comet l’URL de votre passerelle en tant que sites approuvés et sites autorisés pour les paramètres du bloqueur de fenêtres publicitaires dans le navigateur côté client. Pour plus d’informations sur la résolution de ce problème, dans le [Guide de résolution des problèmes](troubleshooting.md#azure-features-dont-work-properly-in-edge). [17990376]
 
 ### <a name="google-chrome"></a>Google Chrome
 
@@ -78,7 +78,7 @@ Les modules Bureau à distance, PowerShell et Événements dans Windows Admin Ce
 > [!NOTE]
 > Le centre d’administration Windows requiert des fonctionnalités PowerShell qui ne sont pas incluses dans Windows Server 2012 R2, 2012 ou 2008 R2. Si vous souhaitez gérer Windows Server à l’aide du centre d’administration Windows, vous devez installer WMF version 5,1 ou ultérieure sur ces serveurs.
 
-Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure.
+Tapez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure.
 
 S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
@@ -104,7 +104,7 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
 
   - Pour résoudre ce cas, utilisez la commande suivante dans une invite de commandes avec élévation de privilèges sur l’ordinateur de la passerelle : ```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
 
-### <a name="files"></a>Fichiers
+### <a name="files"></a>Files
 
 - Le chargement ou téléchargement de fichiers volumineux n’est pas encore pris en charge. (\~limite de 100 Mo) [12524234]
 
@@ -171,7 +171,7 @@ S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](
     4. Redémarrez le service « services de chiffrement ».
     5. Répéter la configuration de Update Management à l’aide du centre d’administration Windows
 
-### <a name="virtual-machines"></a>Machines virtuelles
+### <a name="virtual-machines"></a>Ordinateurs virtuels
 
 - Lors de la gestion des ordinateurs virtuels sur un ordinateur hôte Windows Server 2012, l’outil connexion à un ordinateur virtuel dans le navigateur ne parvient pas à se connecter à la machine virtuelle. Le téléchargement du fichier. RDP pour se connecter à la machine virtuelle doit continuer à fonctionner. [20258278]
 

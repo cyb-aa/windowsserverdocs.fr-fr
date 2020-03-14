@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 0c46d19f4f172786e0ffe7f3b9dd7ac1d8f4fcf0
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371170"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322231"
 ---
 # <a name="manage-server-folders-in-windows-server-essentials"></a>Gérer les dossiers serveur dans Windows Server Essentials
 

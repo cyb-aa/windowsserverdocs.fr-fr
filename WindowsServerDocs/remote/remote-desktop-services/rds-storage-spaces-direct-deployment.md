@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 2d82379dfbc03d28ec174e66862f130f2a3c50a6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e320f0eb04e81d80f7288d4d7b20b5369e209932
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387135"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79319983"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>Déployer un serveur de fichiers scale-out avec des espaces de stockage direct à deux nœuds pour le stockage UPD dans Azure
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Les services Bureau à distance nécessitent un serveur de fichiers appartenant à un domaine pour les UPD (disques de profil utilisateur). Pour déployer sur Azure un SOFS (serveur de fichiers scale-out) à haute disponibilité appartenant à un domaine, utilisez les espaces de stockage direct avec Windows Server 2016. Si vous n’avez pas l’habitude d’utiliser les UPD ou les services Bureau à distance, consultez [Bienvenue dans les services Bureau à distance](welcome-to-rds.md).
 
@@ -131,8 +131,8 @@ Suivez les étapes ci-après pour créer un contrôleur de domaine (nous l’avo
     7. Créez un partage de fichiers SMB sur le cluster SOFS.
 
        ```powershell
-       New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
-       New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
+       New-Item -Path C:\ClusterStorage\VDisk01\Data -ItemType Directory
+       New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\VDisk01\Data
        ```
 
 Vous disposez maintenant d’un partage sur `\\my-sofs1\UpdStorage`, que vous pouvez utiliser pour le stockage UPD quand vous [activez UPD](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx) pour vos utilisateurs. 

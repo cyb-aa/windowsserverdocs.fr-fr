@@ -12,11 +12,11 @@ author: KBDAzure
 ms.author: kathydav
 ms.date: 09/21/2017
 ms.openlocfilehash: 195d78ff8de75ca9e3a88d4300bb2f52cd45632f
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371761"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322301"
 ---
 # <a name="whats-new-in-hyper-v-on-windows-server"></a>Nouveautés d’Hyper-V sur Windows Server
 

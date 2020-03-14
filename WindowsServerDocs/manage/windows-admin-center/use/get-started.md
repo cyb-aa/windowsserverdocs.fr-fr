@@ -1,6 +1,6 @@
 ---
-title: Prise en main de Windows Admin Center
-description: Prise en main de Windows Admin Center
+title: Prise en main du centre d’administration Windows
+description: Prise en main du centre d’administration Windows
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,11 +9,11 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 02/15/2019
 ms.openlocfilehash: fc8e6ffa39320cfc73bf3f5bd0a5bc765ded24b4
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950525"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322871"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Prise en main du centre d’administration Windows
 

@@ -9,11 +9,11 @@ ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 6795464bfbadd12fc220e941ad2175eb83d0f050
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949946"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322861"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Gérer l’infrastructure hyper-convergée avec le centre d’administration Windows
 
@@ -131,7 +131,7 @@ Le cluster est ajouté à votre liste de connexions. Cliquez dessus pour lancer 
 > [!Important]
 > Les environnements SDN avec l’authentification Kerberos pour la communication Northbound ne sont actuellement pas pris en charge.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="are-there-differences-between-managing-windows-server-2016-and-windows-server-2019"></a>Existe-t-il des différences entre la gestion de Windows Server 2016 et celle de Windows Server 2019 ?
 
@@ -169,7 +169,7 @@ Non.
 
 Bien que le centre d’administration Windows offre une intégration puissante et pratique au Cloud Microsoft Azure, l’expérience de gestion et de surveillance principale de l’infrastructure convergée est entièrement locale. Il peut être installé et utilisé sans connexion Internet.
 
-## <a name="things-to-try"></a>Solutions possibles
+## <a name="things-to-try"></a>Éléments à essayer
 
 Si vous êtes débutant, voici quelques didacticiels rapides pour vous aider à découvrir comment le centre d’administration Windows pour l’infrastructure convergée est organisé et fonctionne. N’hésitez pas à nous faire preuve d’un bon jugement et soyez vigilant avec les environnements de production. Ces vidéos ont été enregistrées avec le centre d’administration Windows version 1804 et une version préliminaire Insider de Windows Server 2019.
 
@@ -217,7 +217,7 @@ Si vous êtes débutant, voici quelques didacticiels rapides pour vous aider à 
     </tr>
 </table>
 
-### <a name="create-a-new-virtual-machine"></a>Créer un ordinateur virtuel
+### <a name="create-a-new-virtual-machine"></a>Créer un nouvel ordinateur virtuel
 
 1. Cliquez sur l’outil **machines virtuelles** dans le volet de navigation de gauche.
 2. En haut de l’outil machines virtuelles, choisissez l’onglet **inventaire** , puis cliquez sur **nouveau** pour créer un nouvel ordinateur virtuel.
@@ -259,7 +259,7 @@ Si vous êtes débutant, voici quelques didacticiels rapides pour vous aider à 
 2. Cliquez sur **nouveau** pour créer un réseau virtuel et des sous-réseaux, ou choisissez un réseau virtuel existant, puis cliquez sur **paramètres** pour modifier sa configuration.
 3. Cliquez sur un réseau virtuel existant pour afficher les connexions de machines virtuelles aux sous-réseaux du réseau virtuel et les listes de contrôle d’accès appliquées aux sous-réseaux du réseau virtuel.
 
-![Gérer des réseaux virtuels](../media/manage-hyper-converged/manage-virtual-networks.png)
+![Gérer les réseaux virtuels](../media/manage-hyper-converged/manage-virtual-networks.png)
 
 ### <a name="connect-a-virtual-machine-to-a-virtual-network-sdn-enabled-hci-clusters-using-windows-admin-center-preview"></a>Connecter un ordinateur virtuel à un réseau virtuel (clusters HCI compatibles SDN à l’aide de la version préliminaire du centre d’administration Windows)
 
@@ -278,7 +278,7 @@ Vous pouvez également configurer le réseau virtuel lors de la création d’un
 
 ![Surveiller l’infrastructure SDN](../media/manage-hyper-converged/sdn-monitoring.png)
 
-## <a name="feedback"></a>Retour d’expérience
+## <a name="feedback"></a>Commentaires
 
 Il s’agit de vos commentaires ! L’avantage le plus important des mises à jour fréquentes est d’apprendre ce qui fonctionne et ce qui doit être amélioré. Voici quelques façons de nous dire ce que vous pensez :
 
@@ -286,9 +286,9 @@ Il s’agit de vos commentaires ! L’avantage le plus important des mises à j
 - [Rejoignez le Forum du centre d’administration Windows sur la communauté Microsoft Tech](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
 - Tweet à `@servermgmt`
 
-### <a name="see-also"></a>Articles associés
+### <a name="see-also"></a>Voir aussi
 
 - [Windows Admin Center](../overview.md)
-- [Espaces de stockage directs](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+- [Espaces de stockage direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
 - [Mise en réseau SDN (Software Defined Networking)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)

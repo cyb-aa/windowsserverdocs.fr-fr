@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b073b0557cd011f6742a8a8e532165f53b0a6974
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8aeb2b3b7d62ae62ba9b8fa70988cf64060673ca
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377877"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79320013"
 ---
 # <a name="dir"></a>dir
 
@@ -64,7 +64,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
   **Astérisque (\*) :** Utilisez l’astérisque comme substitut pour toute chaîne de caractères, par exemple :  
   - **dir \*. txt** répertorie tous les fichiers du répertoire actif avec les extensions qui commencent par. txt, par exemple. txt,. txt1,. txt_old.
   - **dir read\*. txt** répertorie tous les fichiers du répertoire actif qui commencent par « Read » et les extensions qui commencent par. txt, telles que. txt,. txt1 ou. txt_old.
-  - **dir read\*.\\** * répertorie tous les fichiers du répertoire actif qui commencent par « Read », avec n’importe quelle extension.
+  - Répertoire de **lecture\*.\*** répertorie tous les fichiers du répertoire actif qui commencent par « lecture » avec une extension.
 
   Le caractère générique astérisque utilise toujours le mappage de noms de fichiers courts. vous risquez donc d’obtenir des résultats inattendus. Par exemple, le répertoire suivant contient deux fichiers (t. txt2 et T97. txt) : 
  

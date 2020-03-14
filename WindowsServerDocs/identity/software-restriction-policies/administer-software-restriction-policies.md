@@ -14,11 +14,11 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: c75c7813041870f79ed95250857a5c7d1576c7dc
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371728"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322981"
 ---
 # <a name="administer-software-restriction-policies"></a>Administrer les stratégies de restriction logicielle
 

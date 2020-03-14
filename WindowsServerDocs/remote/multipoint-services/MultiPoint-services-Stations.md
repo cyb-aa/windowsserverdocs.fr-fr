@@ -14,11 +14,11 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 7b8f757d552bf54cd7f4eed0783ba8e0062b9d30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405080"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322801"
 ---
 # <a name="multipoint--stations"></a>Stations MultiPoint
 Dans un environnement de système MultiPoint services, les *stations* sont les points de terminaison utilisateur pour la connexion à l’ordinateur qui exécute multipoint services. Chaque station fournit à l’utilisateur une expérience Windows 10 indépendante. Les types de stations suivants sont pris en charge :  

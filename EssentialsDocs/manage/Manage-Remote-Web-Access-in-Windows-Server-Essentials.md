@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 3eace9281d9fcdea5262274ac7fb20ec30d30fb4
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371205"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322281"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Gérer l'accès web à distance dans Windows Server Essentials
 

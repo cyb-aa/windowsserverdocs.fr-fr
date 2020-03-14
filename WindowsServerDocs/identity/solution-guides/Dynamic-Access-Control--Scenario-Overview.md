@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: e53b267f1319681f4a1914b16aaed149134054a8
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371417"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322971"
 ---
 # <a name="dynamic-access-control-scenario-overview"></a>Contrôle d'accès dynamique : Vue d’ensemble du scénario
 

@@ -14,11 +14,11 @@ ms.author: helohr
 ms.date: 09/16/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: c0a9f11aea9e24cc1a2bab275aae8dc0a81e9cba
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371811"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323661"
 ---
 # <a name="windows-desktop-client-for-admins"></a>Client Windows Desktop pour les administrateurs
 

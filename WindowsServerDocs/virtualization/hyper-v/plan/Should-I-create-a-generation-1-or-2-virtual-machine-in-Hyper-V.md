@@ -12,11 +12,11 @@ author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
 ms.openlocfilehash: fce9b45f538b0d506b621b888d413c99590b1362
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370623"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322701"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?
 

@@ -12,11 +12,11 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
 ms.openlocfilehash: 96678dfab2a3d5b6f503d8ce9d00850a3c437b35
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370603"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322721"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Mettre à niveau la version de la machine virtuelle dans Hyper-V sur Windows 10 ou Windows Server
 
@@ -94,7 +94,7 @@ Le tableau suivant répertorie les versions de configuration de machine virtuell
 | Windows Server, version 1903 |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
 |Windows Server, version 1809|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Mise à jour 2018 de Windows 10 octobre (version 1809)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows Server, version 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows Server, version 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Mise à jour 2018 de Windows 10 avril (version 1803)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Mise à jour des créateurs de automne Windows 10 (version 1709)|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Creators Update (version 1703)|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|

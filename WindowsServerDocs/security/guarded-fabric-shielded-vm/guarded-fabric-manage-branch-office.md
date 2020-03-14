@@ -7,11 +7,11 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.openlocfilehash: 5a07553e6662fd79230d566ba2049c5e8997f4d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403574"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322501"
 ---
 # <a name="branch-office-considerations"></a>Éléments à prendre en compte en matière de filiale
 
@@ -24,7 +24,7 @@ Cet article décrit les meilleures pratiques pour l’exécution de machines vir
 À compter de la version 1709 de Windows Server, vous pouvez configurer un ensemble supplémentaire d’URL de service Guardian hôte sur les hôtes Hyper-V à utiliser lorsque le SGH principal ne répond pas.
 Cela vous permet d’exécuter un cluster SGH local qui est utilisé en tant que serveur principal pour de meilleures performances avec la possibilité de revenir au SGH de votre centre de résultats d’entreprise si les serveurs locaux sont en défaillance.
 
-Pour utiliser l’option de secours, vous devez configurer deux serveurs SGH. Ils peuvent exécuter Windows Server 2019 ou Windows Server 2016 et faire partie de clusters identiques ou différents. S’il s’agit de clusters différents, vous pouvez établir des pratiques opérationnelles pour vous assurer que les stratégies d’attestation sont synchronisées entre les deux serveurs. Ils doivent tous deux être en mesure d’autoriser correctement l’hôte Hyper-V à exécuter des machines virtuelles dotées d’une protection maximale et de disposer du matériel de clé nécessaire pour démarrer les machines virtuelles protégées. Vous pouvez choisir d’avoir une paire de certificats de chiffrement partagés et de certificats de signature entre les deux clusters, ou utiliser des certificats distincts et configurer la machine virtuelle dotée d’une protection maximale pour autoriser les deux gardiens (paires de certificats de chiffrement/signature) dans les données de protection. txt.
+Pour utiliser l’option de secours, vous devez configurer deux serveurs SGH. Ils peuvent exécuter Windows Server 2019 ou Windows Server 2016 et faire partie de clusters identiques ou différents. S’il s’agit de clusters différents, vous pouvez établir des pratiques opérationnelles pour vous assurer que les stratégies d’attestation sont synchronisées entre les deux serveurs. Ils doivent tous deux être en mesure d’autoriser correctement l’hôte Hyper-V à exécuter des machines virtuelles dotées d’une protection maximale et de disposer du matériel de clé nécessaire pour démarrer les machines virtuelles protégées. Vous pouvez choisir de disposer d’une paire de certificats de chiffrement partagés et de certificats de signature entre les deux clusters, ou d’utiliser des certificats distincts et de configurer la machine virtuelle dotée d’une protection maximale pour autoriser les deux gardiens (paires de certificats de chiffrement/signature) dans le fichier de données de protection.
 
 Ensuite, mettez à niveau vos ordinateurs hôtes Hyper-V vers Windows Server version 1709 ou Windows Server 2019, puis exécutez la commande suivante :
 ```powershell
@@ -61,4 +61,4 @@ Set-HgsKeyProtectionConfiguration -AllowKeyMaterialCaching:$true
 ```
 
 Étant donné que les protecteurs de clés pouvant être mis en cache sont uniques à chaque machine virtuelle protégée, vous devez arrêter complètement (sans redémarrer) et démarrer vos machines virtuelles protégées pour obtenir un protecteur de clé pouvant être mis en cache une fois ce paramètre activé sur SGH.
-Si votre machine virtuelle protégée est migrée vers un hôte Hyper-V exécutant une version antérieure de Windows Server, ou si vous obtenez un nouveau protecteur de clé à partir d’une version antérieure de SGH, il ne pourra pas démarrer lui-même en mode hors connexion, mais peut continuer à s’exécuter en mode en ligne quand l’accès à SGH est disponible. se.
+Si votre machine virtuelle protégée est migrée vers un hôte Hyper-V exécutant une version antérieure de Windows Server, ou si vous obtenez un nouveau protecteur de clé à partir d’une version antérieure de SGH, il ne pourra pas démarrer lui-même en mode hors connexion, mais peut continuer à s’exécuter en mode en ligne quand l’accès à SGH est Téléchargé.

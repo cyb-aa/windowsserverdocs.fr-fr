@@ -14,11 +14,11 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 744e49f47f7144dac82dbe68c885060b0c08490d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389598"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322791"
 ---
 # <a name="multipoint-services-site-planning"></a>Planification de site MultiPoint Services
 Vous devez prendre en compte l’emplacement où un ou plusieurs ordinateurs exécutant MultiPoint services et les stations qui leur sont associées seront déployés.  
@@ -126,9 +126,9 @@ Le nombre de stations dont vous aurez besoin dépend du nombre de personnes qui 
 ## <a name="power-considerations"></a>Considérations relatives à l’alimentation  
 Les composants suivants requièrent l’accès à une bande ou à une prise d’alimentation :  
   
--   Server  
+-   Serveur  
 -   Moniteurs
--   Concentrateurs \(intermédiaires, s’ils sont utilisés\) 
+-   Les concentrateurs intermédiaires \(s’ils sont utilisés\) 
 -   Certains clients USB à zéro  
 -   Périphériques USB alimentés, tels que certains périphériques de stockage externes et lecteurs de DVD  
   
@@ -154,6 +154,6 @@ Selon les meubles disponibles, la taille de la salle, le nombre d’ordinateurs 
   
 ![Centre d’activités MultiPoint services](./media/WMSActivityCenter.gif)  
   
-**Petite entreprise** Dans ce programme d’installation, l’ordinateur qui exécute multipoint services est placé dans un emplacement central et les utilisateurs au sein de l’entreprise se connectent à ce \(dernier\)à l’aide d’un réseau local LAN.  
+**Petite entreprise** Dans ce programme d’installation, l’ordinateur qui exécute MultiPoint services est placé dans un emplacement central et les utilisateurs au sein de l’entreprise se connectent à ce dernier à l’aide d’un réseau local \(\)LAN.  
   
 ![Station connectée USB zéro client](./media/Diagram1.gif)

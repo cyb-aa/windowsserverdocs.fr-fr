@@ -10,11 +10,11 @@ ms.author: wgries
 ms.date: 05/09/2017
 description: Comment installer la déduplication des données sur Windows Server, déterminer si une charge de travail est un bon candidat à la déduplication et activer la déduplication sur des volumes.
 ms.openlocfilehash: 36c9894fd8916643340134698f36af3bd50c34d8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402329"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322421"
 ---
 # <a name="install-and-enable-data-deduplication"></a>Installer et activer la déduplication des données
 > S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
@@ -77,7 +77,7 @@ Pour déterminer si une charge de travail fonctionne correctement avec la dédup
 1. **Mon jeu de données de charge de travail a-t-il suffisamment de duplication pour tirer parti de l’activation de la déduplication ?**  
     Avant d’activer la déduplication des données d’une charge de travail, déterminez le niveau de duplication du jeu de données de votre charge de travail à l’aide de l’outil d’évaluation des gains de la déduplication des données, appelé DDPEval. Après avoir installé la déduplication des données, cet outil est disponible à l’emplacement suivant : `C:\Windows\System32\DDPEval.exe`. DDPEval peut évaluer le potentiel d’optimisation par rapport aux volumes connectés directement (notamment les lecteurs locaux ou les volumes partagés du cluster) et aux partages réseau mappés ou non mappés.  
     &nbsp;   
-    L’exécution de DDPEval.exe retourne une sortie semblable à ce qui suit:  
+    L’exécution de DDPEval.exe retourne une sortie semblable à ce qui suit :  
     &nbsp;  
     `Data Deduplication Savings Evaluation Tool`  
     `Copyright 2011-2012 Microsoft Corporation.  All Rights Reserved.`    
@@ -157,7 +157,7 @@ Dans Windows Server 2012 et Windows Server 2012 R2, la taille des volumes dev
 Non, les [types d’utilisation](understand.md#usage-type) fournis ont été créés pour fournir des valeurs par défaut raisonnables pour les charges de travail recommandées.
 
 **Quelles sont les besoins en mémoire pour la déduplication des données ?**  
-Au minimum, la déduplication des données doit disposer de 300Mo + 50Mo pour chaqueTo de données logiques. Par exemple, si vous optimisez un volume de 10 To, vous devez disposer d’au moins 800 Mo de mémoire allouée à la déduplication (`300 MB + 50 MB * 10 = 300 MB + 500 MB = 800 MB`). Même si la déduplication des données peut optimiser un volume avec cette faible quantité de mémoire, le fait d’avoir des ressources restreintes ralentit les tâches de déduplication des données.
+Au minimum, la déduplication des données doit disposer de 300 Mo + 50 Mo pour chaque To de données logiques. Par exemple, si vous optimisez un volume de 10 To, vous devez disposer d’au moins 800 Mo de mémoire allouée à la déduplication (`300 MB + 50 MB * 10 = 300 MB + 500 MB = 800 MB`). Même si la déduplication des données peut optimiser un volume avec cette faible quantité de mémoire, le fait d’avoir des ressources restreintes ralentit les tâches de déduplication des données.
 
 Dans le meilleur des cas, la déduplication des données doit avoir 1 Go de mémoire pour chaque To de données logique. Par exemple, si vous optimisez un volume de 10To, vous devez idéalement disposer de 10Go de mémoire allouée à la déduplication de données (`1 GB * 10`). Ce rapport garantit des performances maximales pour les tâches de déduplication des données.
 

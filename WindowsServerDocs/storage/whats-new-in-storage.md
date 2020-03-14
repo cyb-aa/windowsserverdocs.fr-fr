@@ -9,15 +9,15 @@ ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
 ms.openlocfilehash: ffcff036a7e30018e523def055ce3aeb8d30c225
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365840"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322331"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Nouveautés du stockage dans Windows Server
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
+>S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Cette rubrique décrit les fonctionnalités nouvelles et modifiées du stockage dans Windows Server 2019, Windows Server 2016 et les versions de canal semi-annuel de Windows Server.
 
@@ -63,7 +63,7 @@ Pour être honnête, le centre d’administration Windows est un téléchargemen
 
 ### <a name="storage-migration-service"></a>Service de migration du stockage
 
-Le Service de migration du stockage est une nouvelle technologie qui facilite la migration des serveurs vers une version plus récente de Windows Server. Il offre un outil graphique qui répertorie les données sur les serveurs, transfère les données et la configuration vers les nouveaux serveurs puis, de manière facultative, fait passer les identités des anciens serveurs sur les nouveaux serveurs afin que les applications et les utilisateurs n’aient rien à modifier. Pour plus d’informations, consultez la section [Service de migration du stockage](storage-migration-service/overview.md).
+Le Service de migration du stockage est une nouvelle technologie qui facilite la migration des serveurs vers une version plus récente de Windows Server. Il offre un outil graphique qui répertorie les données sur les serveurs, transfère les données et la configuration vers les nouveaux serveurs puis, de manière facultative, fait passer les identités des anciens serveurs sur les nouveaux serveurs afin que les applications et les utilisateurs n’aient rien à modifier. Pour plus d’informations, consultez [Service de migration du stockage](storage-migration-service/overview.md).
 
 ### <a id="storage-spaces-direct"></a>Espaces de stockage direct (Windows Server 2019 uniquement)
 
@@ -128,7 +128,7 @@ Pour obtenir des performances accrues, tous les membres du groupe de réplicatio
 
 #### <a name="test-failover"></a>Test de basculement
 
-Vous pouvez maintenant monter temporairement un instantané du stockage répliqué sur un serveur de destination à des fins de test ou de sauvegarde. Pour plus d'informations, consultez le [Forum Aux Questions sur le réplica de stockage](https://aka.ms/srfaq).
+Vous pouvez maintenant monter temporairement un instantané du stockage répliqué sur un serveur de destination à des fins de test ou de sauvegarde. Pour plus d’informations, consultez le [Forum aux questions sur le réplica de stockage](https://aka.ms/srfaq).
 
 #### <a name="windows-admin-center-support"></a>Prise en charge de Windows Admin Center
 
@@ -143,24 +143,24 @@ Le réplica de stockage contient également les améliorations suivantes :
 
 ### <a name="smb"></a>SMB
 
-- **SMB1 et suppression de l’authentification d’invité** : Windows Server n’installe plus le client et le serveur SMB1 par défaut. En outre, la possibilité d’authentification en tant qu’invité dans SMB2 et versions ultérieures est désactivée par défaut. Pour plus d’informations, consultez [SMBv1 n’est pas installé par défaut dans Windows 10, version 1709 et Windows Server, version 1709](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+- **Suppression de l’authentification SMB1 et invité**: Windows Server n’installe plus le client et le serveur SMB1 par défaut. En outre, la possibilité d’authentification en tant qu’invité dans SMB2 et versions ultérieures est désactivée par défaut. Pour plus d’informations, consultez [SMBv1 n’est pas installé par défaut dans Windows 10, version 1709 et Windows Server, version 1709](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
 
 - **Sécurité et compatibilité SMB2/SMB3** : des options supplémentaires ont été ajoutées pour la sécurité et la compatibilité des applications, notamment la possibilité de désactiver les verrouillages opportunistes (oplocks) dans SMB2+ pour les applications héritées, ainsi que l’obligation de signature ou de chiffrement par connexion pour un client. Pour plus d’informations, consultez l’aide du module SMBShare PowerShell.
 
 ### <a name="data-deduplication"></a>Déduplication des données
 
-- **La déduplication des données prend désormais en charge ReFS** : il n’est plus nécessaire de choisir entre les avantages d’un système de fichiers moderne avec ReFS et la déduplication des données. Vous pouvez désormais activer la déduplication des données partout où vous pouvez activer ReFS. Augmentez l’efficacité du stockage de plus de 95 % avec ReFS.
+- **La déduplication des données prend désormais en charge ReFS** : il n’est plus nécessaire de choisir entre les avantages d’un système de fichiers moderne avec ReFS et la déduplication des données ; vous pouvez désormais activer la déduplication des données partout où vous pouvez activer ReFS. Augmentez l’efficacité du stockage de plus de 95 % avec ReFS.
 - **API DataPort pour des entrées/sorties optimisées pour les volumes dédupliqués** : les développeurs peuvent désormais tirer parti des connaissances de la déduplication des données en matière de stockage efficace des données pour déplacer des données entre les volumes, les serveurs et les clusters de manière optimale.
 
 ### <a name="file-server-resource-manager"></a>Outils de gestion de ressources pour serveur de fichiers
 
-Windows Server 2019 offre la possibilité d’empêcher le service de Gestionnaire des ressources de serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur tous les volumes au démarrage du service. Cela permet d'économiser de l’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel. Pour plus d’informations, voir [Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md).
+Windows Server 2019 offre la possibilité d’empêcher le service de Gestionnaire des ressources de serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur tous les volumes au démarrage du service. Cela permet d’économiser de l’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel. Pour plus d’informations, consultez [Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-version-1803"></a>Nouveautés du stockage dans Windows Server, version 1803
 
 ### <a name="file-server-resource-manager"></a>Outils de gestion de ressources pour serveur de fichiers
 
-Windows Server, version 1803, offre la possibilité d’empêcher le service de Gestionnaire des ressources du serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur tous les volumes au démarrage du service. Cela permet d'économiser de l’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel. Pour plus d’informations, voir [Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md).
+Windows Server, version 1803, offre la possibilité d’empêcher le service de Gestionnaire des ressources du serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur tous les volumes au démarrage du service. Cela permet d’économiser de l’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel. Pour plus d’informations, consultez [Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-version-1709"></a>Nouveautés du stockage dans Windows Server, version 1709
 
@@ -172,8 +172,8 @@ Pour plus d’informations, voir la [Présentation du canal semi-annuel de Windo
 
 La protection de récupération d’urgence ajoutée par le réplica de stockage est maintenant développée pour inclure les éléments suivants :
 
-- **Test de basculement** : le montage du stockage de destination est maintenant possible grâce à la fonctionnalité de test de basculement. Vous pouvez monter une capture instantanée du stockage répliqué sur les nœuds de destination de manière temporaire à des fins de test ou de sauvegarde. Pour plus d'informations, consultez le [Forum Aux Questions sur le réplica de stockage](https://aka.ms/srfaq).
-- **Support du centre d’administration Windows**: La prise en charge de la gestion graphique de la réplication est désormais disponible dans le centre d’administration Windows via l’outil Gestionnaire de serveur. Cela comprend la réplication de serveur à serveur, le cluster à cluster, ainsi que la réplication de cluster étendu.
+- **Test de basculement** : le montage du stockage de destination est maintenant possible grâce à la fonctionnalité de test de basculement. Vous pouvez monter une capture instantanée du stockage répliqué sur les nœuds de destination de manière temporaire à des fins de test ou de sauvegarde. Pour plus d’informations, consultez le [Forum aux questions sur le réplica de stockage](https://aka.ms/srfaq).
+- **Prise en charge du centre d’administration Windows**: la prise en charge de la gestion graphique de la réplication est désormais disponible dans le centre d’administration Windows via l’outil Gestionnaire de serveur. Cela comprend la réplication de serveur à serveur, le cluster à cluster, ainsi que la réplication de cluster étendu.
 
 Le réplica de stockage contient également les améliorations suivantes :
 
@@ -188,7 +188,7 @@ Le réplica de stockage contient également les améliorations suivantes :
 
 ### <a name="data-deduplication"></a>Déduplication des données
 
-- **La déduplication des données prend désormais en charge ReFS** : il n’est plus nécessaire de choisir entre les avantages d’un système de fichiers moderne avec ReFS et la déduplication des données. Vous pouvez désormais activer la déduplication des données partout où vous pouvez activer ReFS. Augmentez l’efficacité du stockage de plus de 95 % avec ReFS.
+- **La déduplication des données prend désormais en charge ReFS** : il n’est plus nécessaire de choisir entre les avantages d’un système de fichiers moderne avec ReFS et la déduplication des données ; vous pouvez désormais activer la déduplication des données partout où vous pouvez activer ReFS. Augmentez l’efficacité du stockage de plus de 95 % avec ReFS.
 - **API DataPort pour des entrées/sorties optimisées pour les volumes dédupliqués** : les développeurs peuvent désormais tirer parti des connaissances de la déduplication des données en matière de stockage efficace des données pour déplacer des données entre les volumes, les serveurs et les clusters de manière optimale.
 
 ## <a name="whats-new-in-storage-in-windows-server-2016"></a>Nouveautés du stockage dans Windows Server 2016
@@ -269,7 +269,7 @@ Si la signature SMB et l’authentification mutuelle ne sont pas disponibles, un
 > [!NOTE]  
 > Les valeurs de Registre pour ces paramètres ne sont pas présentes par défaut, mais les règles de sécurisation renforcée s’appliquent jusqu’à ce qu’elles soient remplacées par une stratégie de groupe ou d’autres valeurs de Registre.  
 
-Pour plus d’informations sur ces améliorations de sécurité (également appelées sécurisation renforcée UNC), consultez l'article [3000483](https://support.microsoft.com/kb/3000483) de la base de connaissances Microsoft et [MS15-011 & MS15-014 : Sécurisation renforcée des stratégie de groupe](https://blogs.technet.microsoft.com/srd/2015/02/10/ms15-011-ms15-014-hardening-group-policy).  
+Pour plus d’informations sur ces améliorations de la sécurité (ou sécurisation renforcée UNC), voir l’article de la Base de connaissances Microsoft [3000483](https://support.microsoft.com/kb/3000483) et [MS15-011 & MS15-014: Hardening Group Policy](https://blogs.technet.microsoft.com/srd/2015/02/10/ms15-011-ms15-014-hardening-group-policy).  
 
 ### <a name="work-folders"></a>Dossiers de travail
 Notification de modification améliorée quand le serveur dossiers de travail exécute Windows Server 2016 et que le client dossiers de travail est Windows 10.

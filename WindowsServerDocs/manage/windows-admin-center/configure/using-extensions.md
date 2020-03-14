@@ -8,15 +8,15 @@ ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 7c1a70e36dfac9b23ded8f920ffcc8cccbfff023
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
-ms.translationtype: MT
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371117"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323581"
 ---
 # <a name="install-and-manage-extensions"></a>Installer et gérer des extensions
 
->S’applique à : Windows Admin Center, Windows Admin Center Preview
+>S'applique à : Windows Admin Center, Windows Admin Center Preview
 
 Windows Admin Center est construit comme une plateforme extensible où chaque type de connexion et chaque outil est une extension que vous pouvez installer, désinstaller et mettre à jour individuellement. Vous pouvez rechercher de nouvelles extensions publiées par Microsoft et d’autres développeurs, les installer et les mettre à jour individuellement sans avoir à mettre à jour l’ensemble de l’installation Windows Admin Center. Vous pouvez également configurer un partage de fichiers ou un flux NuGet distinct, et distribuer les extensions à utiliser en interne au sein de votre organisation.
 

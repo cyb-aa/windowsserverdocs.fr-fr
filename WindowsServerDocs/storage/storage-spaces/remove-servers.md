@@ -11,11 +11,11 @@ description: Comment supprimer des serveurs d’un cluster d'espaces de stockage
 ms.date: 2/5/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: ce8caef2b51279c97cc012045750b7a73d97a4ba
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402807"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322311"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>Suppression de serveurs dans les espaces de stockage direct
 

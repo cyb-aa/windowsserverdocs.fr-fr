@@ -11,11 +11,11 @@ ms.date: 06/07/2019
 description: Instructions pas à pas pour déployer le stockage défini par logiciel avec espaces de stockage direct dans Windows Server en tant qu’infrastructure hyper-convergée ou en tant qu’infrastructure convergée (également appelée infrastructure désagrégée).
 ms.localizationpriority: medium
 ms.openlocfilehash: 60b29cbebb19cd8f1ce364d1eb7e920759375285
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371771"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323291"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Déployer des espaces de stockage direct
 

@@ -14,11 +14,11 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 284131028b308ee86389f25102d934390ba2f16d
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371869"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322081"
 ---
 # <a name="hardware-requirements-and-performance-recommendations"></a>Configuration matérielle requise et recommandations relatives aux performances
 Cette rubrique décrit le matériel requis pour exécuter un système MultiPoint services et prendre en charge les scénarios d’application utilisateur. Le scénario utilisateur affecte directement les besoins en bande passante du processeur, de la RAM et du réseau.  

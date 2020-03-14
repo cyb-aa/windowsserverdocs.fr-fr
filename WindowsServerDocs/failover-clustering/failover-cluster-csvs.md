@@ -9,11 +9,11 @@ ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: da0f541c34c7f8687822bec365364fdd406fa3c3
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370707"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322691"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Utiliser des volumes partagés de cluster dans un cluster de basculement
 
@@ -79,7 +79,7 @@ Le serveur utilise l'un des modes de redirection d'E/S suivants, qui varie selon
 - **Redirection du système de fichiers** : la redirection se fait par volume, par exemple, quand une application de sauvegarde prend des captures instantanées de volume partagé de cluster au moment où un volume partagé de cluster est mis manuellement en mode E/S redirigé.
 - **Redirection de bloc** : la redirection intervient au niveau du bloc de fichier, par exemple, en cas de perte de connectivité entre le stockage et un volume. Le redirection de bloc est nettement plus rapide que la redirection du système de fichiers.
 
-Dans Windows Server 2012 R2, vous pouvez afficher l’état d’un volume partagé de cluster par nœud. Par exemple, vous pouvez voir si les E/S sont directes ou redirigées ou si le volume partagé de cluster est indisponible. Si un volume partagé de cluster est en mode E/S redirigé, vous pouvez aussi en voir la raison. Utilisez l’applet de commande Windows PowerShell **Get-ClusterSharedVolumeState** pour afficher ces informations.
+Dans Windows Server 2012 R2, vous pouvez afficher l’état d’un volume partagé de cluster par nœud. Par exemple, vous pouvez voir si les E/S sont directes ou redirigées ou si le volume partagé de cluster est indisponible. Si un volume partagé de cluster est en mode E/S redirigé, vous pouvez aussi en voir la raison. Utilisez l'applet de commande Windows PowerShell **Get-ClusterSharedVolumeState** pour afficher ces informations.
 
 > [!NOTE]
 > * Dans Windows Server 2012, en raison des améliorations apportées à la conception des volumes partagés de cluster, le volume partagé de cluster effectue plus d’opérations en mode e/s directes que dans Windows Server 2008 R2.
@@ -103,14 +103,14 @@ Pour utiliser des volumes partagés de cluster, votre stockage et vos disques do
 - **Choix de disques de volume partagé de cluster ou d'autres disques dans un stockage de cluster**. Au moment de choisir un ou plusieurs disques pour un ordinateur virtuel en cluster, tenez compte de l'utilisation qui sera faite de chaque disque. Si un disque doit servir à stocker les fichiers créés par Hyper-V, tels que des fichiers VHD ou des fichiers de configuration, vous pouvez faire un choix parmi les disques de volume partagé de cluster ou les autres disques disponibles dans le stockage de cluster. Si un disque est destiné à être un disque physique directement attaché à l'ordinateur virtuel (aussi appelé « disque pass-through » ou « relais »), votre choix ne peut pas se porter sur un disque de volume partagé de cluster, mais nécessairement sur l'un des autres disques disponibles dans le stockage de cluster.
 - **Nom de chemin d'accès pour l'identification des disques**. Les disques de volume partagé de cluster sont identifiés à l'aide d'un nom de chemin d'accès. Chaque chemin d’accès apparaît sur le lecteur système du nœud sous la forme d’un volume numéroté sous le dossier **\\ClusterStorage** . Ce chemin d'accès s'affiche à l'identique sur n'importe quel un nœud du cluster. Vous pouvez renommer les volumes, si nécessaire.
 
-Pour connaître les exigences imposées par les volumes partagés de cluster, reportez-vous aux conseils fournis par votre fournisseur de stockage. Vous découvrirez d’autres éléments à prendre en considération pour la planification du stockage pour les volumes partagés de cluster dans la section [Planifier l'utilisation de volumes partagés de cluster dans un cluster de basculement](#plan-to-use-csv-in-a-failover-cluster) , plus loin dans cette rubrique.
+Pour connaître les exigences imposées par les volumes partagés de cluster, reportez-vous aux conseils fournis par votre fournisseur de stockage. Vous découvrirez d'autres éléments à prendre en considération pour la planification du stockage pour les volumes partagés de cluster dans la section [Planifier l'utilisation de volumes partagés de cluster dans un cluster de basculement](#plan-to-use-csv-in-a-failover-cluster), plus loin dans cette rubrique.
 
 ### <a name="node-requirements"></a>Configuration requise des nœuds
 
 Pour utiliser des volumes partagés de cluster, vos nœuds doivent répondre aux exigences suivantes :
 
 - **Lettre de lecteur du disque système**. Sur tous les nœuds, la lettre de lecteur du disque système doit être la même.
-- **Protocole d’authentification**. Le protocole NTLM doit être activé sur tous les nœuds. Ceci est activé par défaut.
+- **Protocole d’authentification**. Le protocole NTLM doit être activé sur tous les nœuds. Option activée par défaut.
 
 ## <a name="plan-to-use-csv-in-a-failover-cluster"></a>Planifier l'utilisation de volumes partagés de cluster dans un cluster de basculement
 
@@ -163,9 +163,9 @@ La fonctionnalité de volume partagé de cluster est activée par défaut dans l
 
 #### <a name="windows-powershell-equivalent-commands-add-a-disk-to-available-storage"></a>Commandes Windows PowerShell équivalentes (ajouter un disque au stockage disponible)
 
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.
 
-L'exemple suivant identifie les disques prêts à être ajoutés au cluster avant d'être ajoutés au groupe **Stockage disponible** .
+L'exemple suivant identifie les disques prêts à être ajoutés au cluster avant d'être ajoutés au groupe **Stockage disponible**.
 
 ```PowerShell
 Get-ClusterAvailableDisk | Add-ClusterDisk
@@ -183,7 +183,7 @@ Get-ClusterAvailableDisk | Add-ClusterDisk
 
 #### <a name="windows-powershell-equivalent-commands-add-a-disk-to-csv"></a>Commandes Windows PowerShell équivalentes (ajouter un disque au fichier CSV)
 
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.
 
 L'exemple suivant ajoute *Cluster Disk 1* présent dans **Stockage disponible** au volume partagé de cluster du cluster local.
 
@@ -212,7 +212,7 @@ Vous pouvez analyser le cache de volume partagé de cluster dans l'Analyseur de 
 #### <a name="configure-the-csv-cache"></a>Configurer le cache de volume partagé de cluster
 
 1. Démarrez Windows PowerShell en tant qu’administrateur.
-2. Pour définir un cache de *512* Mo à réserver sur chaque nœud, tapez ce qui suit :
+2. Pour définir un cache de *512* Mo à réserver sur chaque nœud, tapez ce qui suit :
 
     - Pour Windows Server 2012 R2 et versions ultérieures :
 

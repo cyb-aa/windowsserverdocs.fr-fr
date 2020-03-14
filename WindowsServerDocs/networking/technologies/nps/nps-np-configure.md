@@ -9,11 +9,11 @@ ms.assetid: fe77655a-e2be-4949-92e1-aaaa215d86ea
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: a2bde42ba9b9489ddcd8fb3673ec5ddf1fd4d970
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396360"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322561"
 ---
 # <a name="configure-network-policies"></a>Configurer des stratégies réseau
 

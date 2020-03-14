@@ -9,15 +9,15 @@ ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 39af45506ff7023cebe437992e90f6d4ec051333
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
-ms.translationtype: MT
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371711"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323591"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Configurer les autorisations et le contrôle d’accès utilisateur
 
-> S’applique à : Centre d’administration Windows, version préliminaire du centre d’administration Windows
+> S'applique à : Windows Admin Center, Windows Admin Center Preview
 
 Si vous ne l’avez pas encore fait, familiarisez-vous avec les [options de contrôle d’accès utilisateur dans Windows Admin Center](../plan/user-access-options.md).
 
@@ -111,7 +111,7 @@ L’un des avantages de l’utilisation d’Azure AD comme couche de sécurité 
 
 Lorsque vous installez Windows Admin Center sur Windows 10, il est prêt à utiliser l’authentification unique. Toutefois, si vous envisagez d’utiliser Windows Admin Center sur Windows Server, vous devez configurer une certaine forme de délégation Kerberos dans votre environnement avant de pouvoir utiliser l’authentification unique. La délégation configure l’ordinateur passerelle comme approuvé pour déléguer au nœud cible. 
 
-Pour configurer la [délégation contrainte basée sur les ressources](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) dans votre environnement, utilisez l’exemple PowerShell suivant. Cet exemple montre comment configurer un serveur Windows Server [node01.contoso.com] pour accepter la délégation de votre passerelle du centre d’administration Windows [wac.contoso.com] dans le domaine contoso.com.
+Pour configurer la [délégation contrainte basée sur les ressources](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) dans votre environnement, utilisez l’exemple PowerShell suivant. Cet exemple montre comment configurer un serveur Windows Server [node01.contoso.com] pour accepter la délégation à partir de votre passerelle Windows Admin Center [wac.contoso.com] dans le domaine contoso.com.
 
 ```powershell
 Set-ADComputer -Identity (Get-ADComputer node01) -PrincipalsAllowedToDelegateToAccount (Get-ADComputer wac)

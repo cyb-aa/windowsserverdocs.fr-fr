@@ -8,11 +8,11 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.openlocfilehash: 41912c90beacbb0c0c285ea4da8305c1afdf2a51
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370643"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322601"
 ---
 # <a name="managing-the-host-guardian-service"></a>Gestion du service Guardian hôte
 

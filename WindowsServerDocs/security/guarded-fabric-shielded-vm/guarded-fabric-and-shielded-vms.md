@@ -8,11 +8,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: ace6eb30ae6df2dc29aacc05eb7852e03145df4f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386860"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79321991"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Vue d’ensemble de la structure protégée et des machines virtuelles dotées d’une protection maximale
 
@@ -34,7 +34,7 @@ Quand un locataire crée des machines virtuelles dotées d’une protection maxi
 
 ![Structure d’hôte Service Guardian](../media/Guarded-Fabric-Shielded-VM/Guarded-Host-Overview-Diagram.png)
 
-## <a name="video-introduction-to-shielded-virtual-machines"></a>Vidéo : Présentation des machines virtuelles protégées 
+## <a name="video-introduction-to-shielded-virtual-machines"></a>Vidéo : présentation des machines virtuelles protégées 
 
 <iframe src="https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016/player" width="650" height="440" allowFullScreen frameBorder="0"></iframe>
 
@@ -49,7 +49,7 @@ L’attestation approuvée par le module de plateforme sécurisée (TPM) est rec
 
 | **Mode d’attestation que vous choisissez pour les ordinateurs hôtes**                                            | **Host assurance** |
 |-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**Attestation approuvée par le module de plateforme sécurisée :** Offre les protections les plus fortes possibles, mais nécessite également d’autres étapes de configuration. Le matériel et le microprogramme de l’ordinateur hôte doivent inclure TPM 2,0 et UEFI 2.3.1 avec le démarrage sécurisé activé. | Les hôtes service Guardian sont approuvés en fonction de leur identité TPM, de la séquence de démarrage mesurée et des stratégies d’intégrité du code pour s’assurer qu’elles n’exécutent que du code approuvé.| 
+|**Attestation approuvée par le module de plateforme sécurisée (TPM) :** offre les protections les plus renforcées possible, mais nécessite également des étapes de configuration supplémentaires. Le matériel et le microprogramme de l’ordinateur hôte doivent inclure TPM 2,0 et UEFI 2.3.1 avec le démarrage sécurisé activé. | Les hôtes service Guardian sont approuvés en fonction de leur identité TPM, de la séquence de démarrage mesurée et des stratégies d’intégrité du code pour s’assurer qu’elles n’exécutent que du code approuvé.| 
 | **Attestation de clé hôte :** Destiné à prendre en charge le matériel hôte existant où le module de plateforme sécurisée 2,0 n’est pas disponible. Nécessite moins d’étapes de configuration et est compatible avec le matériel courant. | Les hôtes service Guardian sont approuvés sur la base de la clé. | 
 
 Un autre mode nommé **attestation approuvée** par l’administrateur est déconseillé à partir de Windows Server 2019. Ce mode était basé sur l’appartenance à un hôte service Guardian dans un groupe de sécurité Active Directory Domain Services (AD DS) désigné. L’attestation de clé hôte fournit une identification d’hôte similaire et est plus facile à configurer. 
@@ -99,7 +99,7 @@ Les machines virtuelles dotées d’une protection maximale sont destinées à �
 
 Le tableau suivant résume les différences entre les machines virtuelles prises en charge par le chiffrement et les machines virtuelles protégées.
 
-| Fonctionnalité        | Génération 2 prise en charge par le chiffrement     | Génération 2 dotée d’une protection maximale         |
+| Capability        | Génération 2 prise en charge par le chiffrement     | Génération 2 dotée d’une protection maximale         |
 |----------|--------------------|----------------|
 |Démarrage sécurisé        | Oui, obligatoire mais configurable        | Oui, obligatoire et appliqué    |
 |Module de plateforme sécurisée virtuelle (vTPM)               | Oui, obligatoire mais configurable        | Oui, obligatoire et appliqué    |
@@ -113,7 +113,7 @@ Le tableau suivant résume les différences entre les machines virtuelles prises
 
 Les machines virtuelles dotées d’une protection maximale et les machines virtuelles prises en charge par le chiffrement continuent à prendre en charge les fonctionnalités de gestion de structure courantes, telles que la migration dynamique, le réplica Hyper-V, les points de contrôle de la machine virtuelle, etc.
 
-## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Le service Guardian hôte en action : Mode de mise sous tension d’une machine virtuelle dotée d’une protection maximale
+## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Le Service Guardian hôte en action : comment une machine virtuelle dotée d’une protection maximale est mise sous tension
 
 ![Fichier de données de protection](../media/Guarded-Fabric-Shielded-VM/shielded-vms-how-a-shielded-vm-is-powered-on.png)
 
@@ -125,7 +125,7 @@ Les machines virtuelles dotées d’une protection maximale et les machines virt
 
     L’hôte Service Guardian demande une attestation. Le mode d’attestation est dicté par le Service Guardian hôte :
 
-    **Attestation approuvée par le module de plateforme sécurisée**: L’hôte Hyper-V envoie des informations qui incluent :
+    **Attestation approuvée par le module de plateforme sécurisée**: l’hôte Hyper-V envoie des informations qui incluent :
 
        - Informations d’identification du module de plateforme sécurisée (TPM) (sa paire de clés de type EK (Endorsement Key))
        - Informations sur les processus qui ont été démarrés pendant la séquence de démarrage la plus récente (le journal TCG)
@@ -133,9 +133,9 @@ Les machines virtuelles dotées d’une protection maximale et les machines virt
 
        Attestation happens when the host starts and every 8 hours thereafter. If for some reason a host doesn't have an attestation certificate when a VM tries to start, this also triggers attestation.
 
-    **Attestation de clé hôte**: L’hôte Hyper-V envoie la moitié publique de la paire de clés. SGH valide la clé d’hôte est inscrite. 
+    **Attestation de clé hôte**: l’hôte Hyper-V envoie la moitié publique de la paire de clés. SGH valide la clé d’hôte est inscrite. 
     
-    **Attestation approuvée par l’administrateur**: L’hôte Hyper-V envoie un ticket Kerberos, qui identifie les groupes de sécurité dans lesquels se trouve l’hôte. SGH valide le fait que l’hôte appartient à un groupe de sécurité qui a été précédemment configuré par l’administrateur SGH approuvé.
+    **Attestation approuvée par l’administrateur** : L’hôte Hyper-V envoie un ticket Kerberos, qui identifie les groupes de sécurité dans lesquels se trouve l’hôte. SGH valide le fait que l’hôte appartient à un groupe de sécurité qui a été précédemment configuré par l’administrateur SGH approuvé.
 
 3. L’attestation réussit (ou échoue).
 
@@ -179,6 +179,6 @@ Les machines virtuelles dotées d’une protection maximale et les machines virt
 ## <a name="see-also"></a>Voir aussi
 
 - [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)
-- Récents [Blog sur la sécurité du centre de sécurité et du Cloud privé](https://blogs.technet.microsoft.com/datacentersecurity/)
+- Blog : [blog sur la sécurité du Cloud privé et du centre de](https://blogs.technet.microsoft.com/datacentersecurity/) connaissances
 - Vidéo : [Présentation des machines virtuelles protégées](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
 - Vidéo : [Explorez les machines virtuelles protégées avec Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)

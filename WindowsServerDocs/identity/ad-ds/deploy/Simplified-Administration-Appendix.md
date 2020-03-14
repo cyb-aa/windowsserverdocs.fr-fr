@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: ffc2849fa5e18f7984814d6187cf83d68566409b
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371547"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323241"
 ---
 # <a name="simplified-administration-appendix"></a>Annexe une Administration simplifiée
 
