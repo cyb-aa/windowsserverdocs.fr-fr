@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 01/07/2020
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: 7b3a75258086a73fbd618c2e8221454d7e616556
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bb2f6d7fcbf18ef9bc67534982d1a98fdc5172a1
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949980"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79320033"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -37,7 +37,7 @@ Voici quelques-unes des tâches que vous pouvez accomplir avec Windows Admin Cen
 
 |     |     |
 | --- | --- |
-| ![](media/simple-icon.png)| **Simplifier la gestion des serveurs** <br/> Gérez vos serveurs et clusters avec des versions modernisées d’outils familiers tels que le Gestionnaire de serveur. Effectuez une installation en moins de cinq minutes et gérez les serveurs de votre environnement immédiatement, sans configuration cible requise. Pour plus d’informations, consultez [Qu’est-ce que Windows Admin Center ?](understand/what-is.md). |
+| ![](media/simple-icon.png)| **Simplifier la gestion des serveurs** <br/> Gérez vos serveurs et clusters avec des versions modernisées d’outils familiers tels que le Gestionnaire de serveur. Effectuez une installation en moins de cinq minutes et gérez les serveurs de votre environnement immédiatement, sans configuration supplémentaire requise. Pour plus d’informations, consultez [Qu’est-ce que Windows Admin Center ?](understand/what-is.md). |
 | ![](media/future-icon.png)| **Utiliser des solutions hybrides** <br/> L’intégration à Azure vous permet de connecter éventuellement vos serveurs locaux à des services cloud appropriés. Pour plus d’informations, consultez [Services hybrides Azure](azure/index.md). |
 | ![](media/secure-icon.png)| **Simplifier la gestion hyperconvergée** <br/> Simplifiez la gestion des clusters hyperconvergés Azure Stack HCI ou Windows Server. Utilisez des charges de travail simplifiées pour créer et gérer des machines virtuelles, des volumes Espaces de stockage direct, des solutions SDN (Software-Defined Networking), etc. Pour plus d’informations, consultez [Gérer une infrastructure hyperconvergée avec Windows Admin Center](use/manage-hyper-converged.md).|
 

@@ -13,15 +13,15 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 069cbbdf499ce86586390b1031b6fea71f4f2b2a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865224"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322221"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Gérer les comptes d'utilisateur dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 La page Utilisateurs du tableau de bord Windows Server Essentials centralise les informations et les tâches qui vous aident à gérer les comptes d'utilisateur sur votre réseau de petite entreprise. Pour obtenir une vue d’ensemble du tableau de bord utilisateurs, consultez [vue d’ensemble du tableau de bord](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md).  
   
@@ -90,7 +90,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à supprimer.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
   
 5.  Dans la page **voulez-vous conserver les fichiers ?** de l’Assistant, vous pouvez choisir de supprimer les fichiers de l’utilisateur, y compris les sauvegardes de l’historique des fichiers et le dossier redirigé du compte d’utilisateur. Pour conserver les fichiers de l’utilisateur, laissez la case à cocher vide. Après avoir effectué votre sélection, cliquez sur **Suivant**.  
   
@@ -116,7 +116,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 1.  Dans la liste des comptes d'utilisateur, sélectionnez le compte dont vous voulez afficher ou changer les propriétés.  
   
-2.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
+2.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
   
 3.  Cliquez sur un onglet pour afficher les propriétés de cette fonctionnalité de compte.  
   
@@ -133,7 +133,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à modifier.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
   
 5.  Sous l'onglet **Général**, tapez un nouveau **Prénom** et **Nom** pour le compte d'utilisateur, puis cliquez sur **OK**.  
   
@@ -153,7 +153,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  En mode Liste, sélectionnez le compte d'utilisateur à activer.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **activer le compte d’utilisateur**.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **activer le compte d’utilisateur**.  
   
 5.  Dans la fenêtre de confirmation, cliquez sur **Oui** pour confirmer votre action.  
   
@@ -178,7 +178,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  En mode Liste, sélectionnez le compte d'utilisateur à désactiver.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **désactiver le compte d’utilisateur**.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **désactiver le compte d’utilisateur**.  
   
 5.  Dans la fenêtre de confirmation, cliquez sur **Oui** pour confirmer votre action.  
   
@@ -197,7 +197,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
 -   Les comptes**Administrateur** fournissent le contrôle le plus important possible sur un réseau d'ordinateurs. Vous devez affecter le type de compte Administrateur uniquement quand cela est nécessaire.  
   
 ###  <a name="BKMK_Manage8"></a>Gérer les comptes d’utilisateur à l’aide du tableau de bord  
- Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. Par défaut, la page **utilisateurs** du tableau de bord comprend deux onglets : **Utilisateurs** et **groupes d’utilisateurs**.  
+ Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. Par défaut, la page **utilisateurs** du tableau de bord comprend deux onglets : **utilisateurs** et **groupes d’utilisateurs**.  
   
 > [!NOTE]
 > - Si vous intégrez votre serveur qui exécute Windows Server Essentials à Office 365, un nouvel onglet appelé **groupes de distribution** est également ajouté à la page **utilisateurs** du tableau de bord.  
@@ -217,7 +217,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
   -   Le niveau d'accès affecté au compte d'utilisateur. Vous pouvez affecter l'accès **Utilisateur standard** ou **Administrateur** à un compte d'utilisateur.  
   
-  -   L'état du compte d'utilisateur. Un compte d'utilisateur peut être **Actif**, **Inactif**ou **Incomplet**.  
+  -   L'état du compte d'utilisateur. Un compte d'utilisateur peut être **Actif**, **Inactif** ou **Incomplet**.  
   
   -   Dans Windows Server Essentials, si le serveur est intégré à Office 365 ou à Windows Intune, le compte en ligne Microsoft s’affiche.  
   
@@ -231,7 +231,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
   -   les tâches qui vous permettent de définir ou changer globalement les paramètres de tous les comptes d'utilisateur du réseau.  
   
-  Le tableau suivant décrit les différentes tâches de compte d'utilisateur disponibles sous l'onglet **Utilisateurs** . Certaines tâches sont spécifiques aux comptes d'utilisateur. Elles ne sont visibles que si vous sélectionnez un compte d'utilisateur dans la liste.  
+  Le tableau suivant décrit les différentes tâches de compte d’utilisateur disponibles sous l’onglet **utilisateurs** . Certaines tâches sont spécifiques aux comptes d’utilisateur et ne sont visibles que lorsque vous sélectionnez un compte d’utilisateur dans la liste.  
   
 > [!NOTE]
 >  Si vous intégrez Office 365 à Windows Server Essentials, des tâches supplémentaires sont disponibles. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
@@ -292,7 +292,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3. Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à réinitialiser.  
   
-4. Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **modifier le mot de passe du compte d’utilisateur**. L'Assistant permettant de changer le mot de passe du compte d'utilisateur s'affiche.  
+4. Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **modifier le mot de passe du compte d’utilisateur**. L'Assistant permettant de changer le mot de passe du compte d'utilisateur s'affiche.  
   
 5. Tapez le nouveau mot de passe du compte d'utilisateur, puis retapez le mot de passe pour le confirmer.  
   
@@ -379,7 +379,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3. Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à supprimer.  
   
-4. Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
+4. Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
   
 5. Dans la page **Voulez-vous conserver les fichiers ?** , assurez-vous que la case **Supprimer les fichiers inclus dans les sauvegardes Historique des fichiers et le dossier redirigé pour ce compte d'utilisateur** n'est pas cochée, puis cliquez sur **Suivant**.  
   
@@ -393,7 +393,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 1.  Ouvrez le tableau de bord Windows Server Essentials.  
   
-2.  Dans la barre de navigation, cliquez sur **Stockage**, puis sur l'onglet **Dossiers du serveur** .  
+2.  Dans la barre de navigation, cliquez sur **Stockage**, puis sur l'onglet **Dossiers du serveur**.  
   
 3.  Dans la liste des dossiers, sélectionnez le dossier **Utilisateurs**.  
   
@@ -401,7 +401,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 5.  Cliquez avec le bouton droit sur le compte d'utilisateur à partager, puis cliquez sur **Propriétés**.  
   
-6.  Dans **< propriétés du\> compte d’utilisateur**, cliquez sur l’onglet **partage** , puis sur **partager**.  
+6.  Dans **< propriétés du\> de compte d’utilisateur**, cliquez sur l’onglet **partage** , puis sur **partager**.  
   
 7.  Dans la fenêtre **Partage de fichiers**, tapez ou sélectionnez le nom du compte d'utilisateur avec lequel vous souhaitez partager le dossier, puis cliquez sur **Ajouter**.  
   
@@ -420,7 +420,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3. Pour synchroniser le mot de passe DSRM sur un contrôleur de domaine avec le compte de l’administrateur réseau actuel, tapez :  
   
-    **synchroniser à partir du compte de domaine** *< > current_network_administrator_account*, puis appuyez sur entrée.  
+    **synchronisez à partir du compte de domaine** *< current_network_administrator_account >* , puis appuyez sur entrée.  
   
    Comme vous allez changer régulièrement le mot de passe du compte d'administrateur réseau, nous vous recommandons de créer une tâche planifiée pour synchroniser automatiquement et quotidiennement le mot de passe DSRM au mot de passe d'administrateur réseau. Cela permet de garantir que le mot de passe DSRM est toujours identique au mot de passe actif de l'administrateur réseau.  
   
@@ -430,18 +430,18 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 2.  Dans le volet **Actions** du Planificateur de tâches, cliquez sur **Créer une tâche**.  
   
-3.  Dans la zone de texte **Nom** , tapez un nom pour la tâche, par exemple **Synchronisation automatique de mot de passe DSRM**, puis sélectionnez l'option **Exécuter avec les autorisations maximales** .  
+3.  Dans la zone de texte **Nom**, tapez un nom pour la tâche, par exemple **Synchronisation automatique de mot de passe DSRM**, puis sélectionnez l'option **Exécuter avec les autorisations maximales**.  
   
 4.  Définissez le moment où la tâche doit s'exécuter :  
   
     1.  Dans la boîte de dialogue **Créer une tâche**, cliquez sur l'onglet **Déclencheurs**, puis sur **Nouveau**.  
   
-    2.  Dans la boîte de dialogue **Nouveau déclencheur** , sélectionnez votre option de périodicité, spécifiez l'intervalle de périodicité, puis choisissez une heure de début.  
+    2.  Dans la boîte de dialogue **Nouveau déclencheur**, sélectionnez votre option de périodicité, spécifiez l'intervalle de périodicité, puis choisissez une heure de début.  
   
         > [!NOTE]
         >  Il est recommandé de définir la tâche pour qu'elle s'exécute tous les jours en dehors des horaires de travail.  
   
-    3.  Cliquez sur **OK** pour enregistrer vos changements et revenir à la boîte de dialogue **Créer une tâche** .  
+    3.  Cliquez sur **OK** pour enregistrer vos changements et revenir à la boîte de dialogue **Créer une tâche**.  
   
 5.  Définissez les actions de la tâche :  
   
@@ -449,7 +449,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
     2.  Dans la liste **Action**, cliquez sur **Démarrer un programme**, puis accédez à **C:\WINDOWS\SYSTEM32\ntdsutil.exe**.  
   
-    3.  Dans la zone de texte **Ajouter des arguments**(facultatif), tapez ce qui suit (vous devez inclure les guillemets) : **définir la synchronisation du mot de passe DSRM à partir du compte de domaine SBS_network_administrator_account q q** , où *SBS_network_administrator_account* est nom du compte de l’administrateur réseau actuel.  
+    3.  Dans la zone de texte **Ajouter des arguments**(facultatif), tapez ce qui suit (vous devez inclure les guillemets) : **définir la synchronisation du mot de passe DSRM à partir du compte de domaine SBS_network_administrator_account q q** , où *SBS_network_administrator_account* correspond au nom du compte de l’administrateur réseau actuel.  
   
 6.  Cliquez sur **OK** à deux reprises pour enregistrer la tâche et fermer la boîte de dialogue **Créer une tâche**. La nouvelle tâche apparaît dans la section **Tâches actives** du **Planificateur de tâches**.  
   
@@ -462,7 +462,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 - réseau privé virtuel (VPN) ;  
   
-- Accès web à distance  
+- accès Web distant  
   
   Quand vous exécutez l'Assistant, vous pouvez également choisir d'autoriser l'Accès en tout lieu pour tous les comptes d'utilisateur, qu'ils soient actifs ou récemment ajoutés.  
   
@@ -477,7 +477,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
  Pour chaque compte d'utilisateur créé, vous pouvez définir l'accès aux éléments suivants à l'aide des propriétés de compte d'utilisateur :  
   
--   **Dossiers partagés**.  Par défaut, les comptes administrateur réseau ont une autorisation d'accès en **Lecture/écriture** à tous les dossiers partagés, alors que les comptes d'utilisateur standard ont une autorisation d'accès en **Lecture seule** au dossier Société. Si la diffusion de contenu multimédia est activée, vous pouvez affecter aux comptes d'utilisateur standard des autorisations d'accès aux dossiers partagés suivants : **Musique**, **Images**, **TV enregistrée** et **Vidéos**. Vous pouvez définir les autorisations qui permettent aux comptes d'utilisateur d'accéder aux dossiers partagés sous l'onglet **Dossiers partagés** des propriétés de compte d'utilisateur.  
+-   **Dossiers partagés**.  Par défaut, les comptes administrateur réseau ont une autorisation d'accès en **Lecture/écriture** à tous les dossiers partagés, alors que les comptes d'utilisateur standard ont une autorisation d'accès en **Lecture seule** au dossier Société. Si la diffusion de contenu multimédia est activée, vous pouvez affecter aux comptes d'utilisateur standard des autorisations d'accès aux dossiers partagés suivants : **Musique**, **Images**, **TV enregistrée**et **Vidéos**. Vous pouvez définir les autorisations qui permettent aux comptes d'utilisateur d'accéder aux dossiers partagés sous l'onglet **Dossiers partagés** des propriétés de compte d'utilisateur.  
   
 -   **Accès en tout lieu**.  Par défaut, les administrateurs réseau peuvent utiliser le réseau VPN ou l'accès web à distance pour accéder aux ressources du serveur. Pour les comptes d'utilisateur standard, vous devez définir les autorisations du compte d'utilisateur sous l'onglet **Accès en tout lieu**.  
   
@@ -491,19 +491,19 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur que vous souhaitez modifier.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **afficher les propriétés du compte**.  
   
-5.  Dans les **Propriétés du compte\> d’utilisateur <** , procédez comme suit :  
+5.  Dans les **Propriétés du compte d’utilisateur <\>** , procédez comme suit :  
   
-    1.  Sous l'onglet **Dossiers partagés** , définissez les autorisations de dossier appropriées pour chaque dossier partagé en fonction des besoins.  
+    1.  Sous l'onglet **Dossiers partagés**, définissez les autorisations de dossier appropriées pour chaque dossier partagé en fonction des besoins.  
   
-    2.  Sous l'onglet **Accès en tout lieu** :  
+    2.  Sous l'onglet **Accès en tout lieu** :  
   
         1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
         2.  Pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance, cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web**.  
   
-    3.  Sous l'onglet **Accès à l'ordinateur** , sélectionnez les ordinateurs réseau auxquels vous voulez que l'utilisateur puisse accéder.  
+    3.  Sous l'onglet **Accès à l'ordinateur**, sélectionnez les ordinateurs réseau auxquels vous voulez que l'utilisateur puisse accéder.  
   
 ##### <a name="to-edit-user-account-properties-in-windows-server-essentials-2012"></a>Pour modifier les propriétés de compte d'utilisateur dans Windows Server Essentials 2012  
   
@@ -513,21 +513,21 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur que vous souhaitez modifier.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **Propriétés**.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **Propriétés**.  
   
-5.  Dans les **Propriétés du compte\> d’utilisateur <** , procédez comme suit :  
+5.  Dans les **Propriétés du compte d’utilisateur <\>** , procédez comme suit :  
   
     1.  Sous l'onglet **Général**, sélectionnez **L'utilisateur peut afficher les alertes de santé du réseau**, si le compte d'utilisateur a besoin d'accéder aux rapports d'intégrité du réseau.  
   
-    2.  Sous l'onglet **Dossiers partagés** , définissez les autorisations de dossier appropriées pour chaque dossier partagé en fonction des besoins.  
+    2.  Sous l'onglet **Dossiers partagés**, définissez les autorisations de dossier appropriées pour chaque dossier partagé en fonction des besoins.  
   
-    3.  Sous l'onglet **Accès en tout lieu** :  
+    3.  Sous l'onglet **Accès en tout lieu** :  
   
         1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
         2.  Pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance, cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web**.  
   
-    4.  Sous l'onglet **Accès à l'ordinateur** , sélectionnez les ordinateurs réseau auxquels vous voulez que l'utilisateur puisse accéder.  
+    4.  Sous l'onglet **Accès à l'ordinateur**, sélectionnez les ordinateurs réseau auxquels vous voulez que l'utilisateur puisse accéder.  
   
 ###  <a name="BKMK_Access10"></a>Modifier les autorisations d’accès à distance pour un compte d’utilisateur  
  Un utilisateur peut accéder aux ressources situées sur le serveur à partir d'un emplacement distant à l'aide d'un réseau privé virtuel (VPN), de l'accès web à distance ou d'autres applications de services web. Par défaut, les autorisations d'accès à distance sont activées pour les utilisateurs réseau quand vous configurez l'Accès en tout lieu dans Windows Server Essentials à l'aide du tableau de bord.  
@@ -540,9 +540,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à modifier.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
   
-5.  Sous l'onglet **Accès en tout lieu** , procédez comme suit :  
+5.  Sous l'onglet **Accès en tout lieu**, procédez comme suit :  
   
     -   Cochez la case **Autoriser le réseau privé virtuel (VPN)** pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN.  
   
@@ -561,9 +561,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez celui auquel vous voulez accorder des autorisations d'accès au Bureau à distance.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **Propriétés**.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **Propriétés**.  
   
-5.  Dans la **< propriétés du\> compte d’utilisateur**, cliquez sur l’onglet **accès en tout lieu** .  
+5.  Dans les **Propriétés du compte d’utilisateur <\>** , cliquez sur l’onglet **accès en tout lieu** .  
   
 6.  Sous l'onglet **Accès en tout lieu**, pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
@@ -600,10 +600,10 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 4.  Dans le volet des tâches, cliquez sur **Afficher les propriétés du dossier**.  
   
-5.  Dans **< propriétés\> NomDossier**, cliquez sur **partage**et sélectionnez le niveau d’accès utilisateur approprié pour les comptes d’utilisateurs listés, puis cliquez sur **appliquer**.  
+5.  Dans **< propriétés nom_dossier\>** , cliquez sur **partage**, sélectionnez le niveau d’accès utilisateur approprié pour les comptes d’utilisateurs listés, puis cliquez sur **appliquer**.  
   
     > [!NOTE]
-    >  Vous ne pouvez pas changer les autorisations de partage des dossiers serveur **Sauvegardes de l'Historique des fichiers**, **Redirection de dossiers**et **Utilisateurs** . Il n'y a donc pas d'onglet **Partage** dans les propriétés de dossier de ces dossiers serveur.  
+    >  Vous ne pouvez pas changer les autorisations de partage des dossiers serveur **Sauvegardes de l'Historique des fichiers**, **Redirection de dossiers** et **Utilisateurs**. Il n'y a donc pas d'onglet **Partage** dans les propriétés de dossier de ces dossiers serveur.  
   
 ###  <a name="BKMK_Access13"></a>Autoriser les comptes d’utilisateur à établir une session Bureau à distance sur leur ordinateur  
   Cette section s’applique à un serveur exécutant Windows Server Essentials ou Windows Server Essentials, ou à un serveur exécutant Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter avec le rôle expérience Windows Server Essentials installé.  
@@ -618,9 +618,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez celui auquel vous voulez accorder des autorisations d'accès au Bureau à distance.  
   
-4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **Propriétés**.  
+4.  Dans le volet **tâches < compte d’utilisateur\>** , cliquez sur **Propriétés**.  
   
-5.  Dans la **< propriétés du\> compte d’utilisateur**, cliquez sur l’onglet **accès à l’ordinateur** .  
+5.  Dans les **Propriétés du compte d’utilisateur <\>** , cliquez sur l’onglet **accès à l’ordinateur** .  
   
 6.  Sélectionnez les ordinateurs auxquels ce compte d'utilisateur peut accéder à distance, puis cliquez sur **OK**.  
   

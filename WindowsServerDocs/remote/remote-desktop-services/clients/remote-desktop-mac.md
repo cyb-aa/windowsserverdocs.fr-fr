@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: ca68087ad238cbbd06c56e41dd65f318adae5222
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 1b2ea23e95796f6cce90a1dc90de896c2242084a
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465473"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79319993"
 ---
 # <a name="get-started-with-the-macos-client"></a>Bien démarrer avec le client macOS
 
@@ -164,7 +164,7 @@ Par défaut, la session à distance utilisera les mêmes paramètres régionaux 
 
 ## <a name="support-for-remote-desktop-gateway-pluggable-authentication-and-authorization"></a>Prise en charge de l’autorisation et de l’authentification enfichables de la passerelle des services Bureau à distance
 
-Windows Server 2012 R2 a introduit la prise en charge d’une nouvelle méthode d’authentification, l’autorisation et l’authentification enfichables de la passerelle des services Bureau à distance, qui offre plus de souplesse pour les routines d’authentification personnalisée. Vous pouvez maintenant utiliser ce modèle d’authentification avec le client Mac. 
+Windows Server 2012 R2 a introduit la prise en charge d’une nouvelle méthode d’authentification, l’autorisation et l’authentification enfichables de la passerelle des services Bureau à distance, qui offre plus de souplesse pour les routines d’authentification personnalisée. Vous pouvez maintenant essayer ce modèle d’authentification avec le client Mac. 
 
 > [!IMPORTANT]
 > Les modèles d’authentification et d’autorisation personnalisés avant Windows 8.1 ne sont pas pris en charge, bien que l’article ci-dessus les évoque.
@@ -174,4 +174,3 @@ Pour en savoir plus sur cette fonctionnalité, veuillez consulter la page [https
 
 > [!TIP]
 > Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, merci de ne pas utiliser la fonctionnalité de commentaire qui figure à la fin de cet article pour nous envoyer une demande d’aide. Veuillez plutôt accéder au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau fil de discussion. Vous souhaitez nous suggérer une fonctionnalité ? N’hésitez pas à utiliser le [forum UserVoice pour le client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) afin de nous en faire part.
-

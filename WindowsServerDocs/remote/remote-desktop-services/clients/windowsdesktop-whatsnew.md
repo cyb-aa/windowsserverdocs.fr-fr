@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 02/25/2020
+ms.date: 03/10/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: f435892f0a200056c08094cac1831c710a47a6be
-ms.sourcegitcommit: 92e0e4224563106adc9a7f1e90f27da468859d90
+ms.openlocfilehash: 981a9071b3f5daf1ca97dcde8a8b32b2a2588d99
+ms.sourcegitcommit: fc900eb19ac26c3d6bc2de179cc4b2c1e971043e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77608798"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79038062"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -31,7 +31,21 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 |Groupe d’utilisateurs |Version  |
 |-----------|---------|
 |Public     |1.2.675  |
-|Insider    |1.2.675  |
+|Insider    |1.2.787  |
+
+## <a name="updates-for-version-12787"></a>Mises à jour pour la version 1.2.787
+
+*Date de publication : 10/03/2020*
+
+Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qZVh), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qXhC), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qRVA)
+
+- Renommage de l’action « Mettre à jour » pour les espaces de travail en « Actualiser » afin d’assurer la cohérence avec d’autres clients Bureau à distance.
+- Vous pouvez maintenant actualiser un espace de travail directement à partir de son menu contextuel.
+- L’actualisation manuelle d’un espace de travail garantit désormais que tout le contenu local est mis à jour.
+- Vous pouvez maintenant réinitialiser les données utilisateur du client à partir de la page À propos de sans avoir besoin de désinstaller l’application.
+- Vous pouvez également réinitialiser les données utilisateur du client à l’aide de msrdcw.exe /reset avec un paramètre /f facultatif pour ignorer l’invite.
+- Nous recherchons désormais automatiquement une mise à jour du client lors de l’accès à la page À propos de.
+- Mise à jour de la couleur des boutons pour des raisons de cohérence.
 
 ## <a name="updates-for-version-12675"></a>Mises à jour pour la version 1.2.675
 

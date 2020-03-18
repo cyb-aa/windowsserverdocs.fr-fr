@@ -12,14 +12,14 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 12/02/2019
+ms.date: 03/12/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: cb0fa7009c4a8fe53810f8b5f058e659c2391dc1
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.openlocfilehash: d4ef08107c816aebf6563e57e5e76b12b793d472
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370675"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323421"
 ---
 # <a name="get-started-with-the-android-client"></a>Bien démarrer avec le client Android
 
@@ -185,7 +185,7 @@ Voici une brève présentation de la façon d’ouvrir et de parcourir votre ses
 ### <a name="start-a-remote-desktop-connection"></a>Démarrer une connexion Bureau à distance
 
 1. Appuyez sur **le nom de votre connexion Bureau à distance** pour démarrer la session.
-2. Si vous êtes invité à vérifier le certificat du bureau à distance, appuyez sur **Connexion**. Vous pouvez également sélectionner **Don’t ask me again for connections to this computer** (Ne pas me redemander pour les connexions à cet ordinateur) pour accepter automatiquement le certificat par défaut.
+2. Si vous êtes invité à vérifier le certificat du bureau à distance, appuyez sur **Connexion**. Vous pouvez également sélectionner **Ne pas me redemander pour les connexions à cet ordinateur** pour toujours accepter le certificat par défaut.
 
 ### <a name="connection-bar"></a>Barre de connexion
 
@@ -229,3 +229,11 @@ Le client utilise les mouvements d’interaction tactile standard. Vous pouvez �
 | Pointeur de souris | Cliquez avec le bouton droit sur          | Appuyer avec deux doigts                                                    |
 | Pointeur de souris | Clic droit et glissement | Appuyer deux fois longuement avec deux doigts, puis faire glisser                         |
 | Pointeur de souris | Roulette de la souris          | Appuyer longuement avec deux doigts, puis faire glisser vers le haut ou vers le bas                     |
+
+## <a name="join-the-beta-channel"></a>Adhérer au canal Bêta
+
+Si vous voulez être le premier à accéder aux fonctionnalités les plus récentes ou souhaitez mieux identifier les problèmes avant la publication de nouvelles versions, le canal Bêta s’adresse à vous. Le canal Bêta constitue également un excellent moyen pour les administrateurs de l’entreprise de valider les nouvelles versions du client Android pour les utilisateurs dans leur environnement.
+
+Pour adhérer au canal Bêta, indiquez simplement votre consentement pour accéder aux préversions, puis téléchargez le client. Vous recevrez les préversions directement via le Google Play Store.
+
+[Adhérer au canal Bêta](https://play.google.com/apps/testing/com.microsoft.rdc.androidx)
