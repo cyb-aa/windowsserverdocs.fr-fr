@@ -8,16 +8,16 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 11d8abfc23cb0f192ed74a1082e83c8e0c8e87e9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ed7d7ca4f41784f2ae12220eb2e30077e2467175
+ms.sourcegitcommit: 056d355516f199e8a505c32b9aa685d0cde89e44
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950094"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79518744"
 ---
 # <a name="storage-quality-of-service"></a>Qualité de service de stockage
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 La qualité de service (QoS) de stockage dans Windows Server 2016 permet d’analyser et de gérer de manière centralisée les performances de stockage pour les machines virtuelles à l’aide d’Hyper-V et des rôles de serveur de fichiers avec montée en puissance parallèle. La fonctionnalité améliore automatiquement l’équité des ressources de stockage entre plusieurs machines virtuelles avec le même cluster de serveurs de fichiers et permet la configuration en unités d’E/S par seconde normalisées des objectifs de performances minimales et maximales basés sur des stratégies.  
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser la qualité de service de stockage dans Windows Server 201
 
 Ce document décrit comment votre entreprise peut bénéficier de la nouvelle fonctionnalité de qualité de service de stockage. Il part du principe que vous avez déjà utilisé Windows Server, le clustering de basculement Windows Server, le serveur de fichiers avec montée en puissance parallèle, Hyper-V et Windows PowerShell.
 
-## <a name="BKMK_Overview"></a>Vue d’ensemble  
+## <a name="BKMK_Overview"></a>Vue  
 Cette section décrit la configuration requise pour l’utilisation de la qualité de service de stockage, une vue d’ensemble d’une solution définie par un logiciel à l’aide de la qualité de service de stockage et une liste de termes liés à la qualité de service de stockage.  
 
 ### <a name="BKMK_Requirements"></a>Exigences de qualité de service de stockage  
@@ -79,7 +79,7 @@ Quand des modifications sont apportées aux stratégies de qualité de service d
 |MinimumIOPS|Nombre minimal d’opérations d’E/S par seconde normalisées qui sera fourni par une stratégie.  Le terme « réserve » est également employé.|  
 |MaximumIOPS|Nombre maximal d’opérations d’E/S par seconde normalisées qui sera limité par une stratégie.  Le terme « limite » est également employé.|  
 |Aggregated |Type de stratégie où les propriétés MinimumIOPS, MaximumIOPS et Bandwidth spécifiées sont partagées entre tous les flux affectés à la stratégie. Tous les disques durs virtuels auxquels la stratégie est appliquée sur ce système de stockage ont une seule allocation de bande passante d’E/S qu’ils doivent partager.|  
-|Dedicated|Type de stratégie où les propriétés MinimumIOPS, MaximumIOPS et Bandwidth spécifiées sont gérées pour les VHD/VHDX individuels.|  
+|Dédié|Type de stratégie où les propriétés MinimumIOPS, MaximumIOPS et Bandwidth spécifiées sont gérées pour les VHD/VHDX individuels.|  
 
 ## <a name="BKMK_SetUpQoS"></a>Comment configurer la qualité de service de stockage et surveiller les performances de base  
 Cette section décrit comment activer la nouvelle fonctionnalité de qualité de service de stockage et analyser les performances de stockage sans appliquer de stratégies personnalisées.  
@@ -127,7 +127,7 @@ Quelques machines virtuelles doivent être stockées sur le serveur de fichiers 
 Les exemples de scénarios présentés dans ce guide comprennent cinq machines virtuelles. BuildVM1, BuildVM2, BuildVM3 et BuildVM4 exécutent une charge de travail de bureau avec des demandes de stockage faibles à modérées. TestVm1 exécute un test d’évaluation de traitement transactionnel en ligne avec une demande de stockage élevée.  
 
 ### <a name="view-current-storage-performance-metrics"></a>Afficher les mesures de performances du stockage actuel  
-Cette section comprend :  
+Cette section inclut les éléments suivants :  
 
 -   Comment interroger les flux en utilisant l’applet de commande `Get-StorageQosFlow`.  
 
@@ -812,7 +812,7 @@ while ($true)
 }  
 ```  
 
-## <a name="frequently-asked-questions"></a>Forum aux questions  
+## <a name="frequently-asked-questions"></a>Forum Aux Questions  
 
 ### <a name="how-do-i-retain-a-storage-qos-policy-being-enforced-for-my-virtual-machine-if-i-move-its-vhdvhdx-files-to-another-storage-cluster"></a>Comment faire pour qu’une stratégie de qualité de service de stockage reste appliquée pour ma machine virtuelle si je déplace ses fichiers VHD/VHDX vers un autre cluster de stockage ?  
 
@@ -885,7 +885,7 @@ IOPSNormalizationSize
 32768  
 ```    
 
-## <a name="see-also"></a>Articles associés  
-- [Windows Server 2016](../../get-started/windows-server-2016.md)  
+## <a name="see-also"></a>Voir aussi  
+- [Windows Server 2016](../../get-started/windows-server-2016.md)  
 - [Réplica de stockage dans Windows Server 2016](../storage-replica/storage-replica-overview.md)  
-- [Storage Spaces Direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  
+- [espaces de stockage direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  
