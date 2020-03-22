@@ -9,12 +9,12 @@ manager: jgerend
 ms.date: 01/28/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 1a31fac97a6697909774a084045ad5746b7241f3
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: 08135ed3454bb22db1c2b0fa3a14a8342fbc2dab
+ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918270"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80110662"
 ---
 # <a name="deploy-azure-virtual-machines-from-within-windows-admin-center"></a>Déployer des machines virtuelles Azure à partir du centre d’administration Windows
 
@@ -32,7 +32,7 @@ Le centre d’administration Windows version 1910 le déploiement de machines vi
 - [Réplica de stockage](../../../storage/storage-replica/storage-replica-overview.md)
 - [Nouveau serveur autonome (sans rôles)](index.md#extend-on-premises-capacity-with-azure)
 
-## <a name="requirements"></a>Conditions préalables
+## <a name="requirements"></a>Configuration requise
 
 Pour créer une nouvelle machine virtuelle Azure à partir du centre d’administration Windows, vous devez disposer des éléments suivants :
 
@@ -60,7 +60,15 @@ Cela démarre un outil de création étape par étape qui sélectionne une machi
 Cela démarre un processus qui sélectionne automatiquement une machine virtuelle Windows Server 2016 ou Windows Server 2019 Azure comme destination de la source de migration. Storage Migration Service recommande que les tailles de machine virtuelle correspondent à votre source, mais vous pouvez la remplacer en sélectionnant **afficher toutes les tailles**. Les données d’inventaire sont utilisées pour configurer automatiquement vos disques gérés et leurs systèmes de fichiers, ainsi que pour joindre votre nouvelle machine virtuelle Azure à votre domaine Active Directory. 
 3. Une fois que le centre d’administration Windows a créé la machine virtuelle Azure, fournissez un nom de groupe de réplication, puis sélectionnez **créer**. Le centre d’administration Windows lance ensuite le processus normal de synchronisation du réplica de stockage pour commencer à protéger vos données.
 
+Voici une vidéo qui montre comment utiliser le réplica de stockage pour migrer vers des machines virtuelles Azure.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/_VqD7HjTewQ] 
+
 ### <a name="deploying-a-new-standalone-azure-vm"></a>Déploiement d’une nouvelle machine virtuelle Azure autonome
 
 1. Dans la page *toutes les connexions* du centre d’administration Windows, sélectionnez **Ajouter**.
 2. Dans la section *machine virtuelle Azure* , sélectionnez **créer**.<br><br> Cela démarre un outil de création étape par étape qui vous permet de sélectionner une machine virtuelle Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019 Azure, de choisir une taille, d’ajouter des disques gérés et éventuellement de joindre votre domaine Active Directory.
+
+Voici une vidéo qui montre comment utiliser le centre d’administration Windows pour créer des machines virtuelles Azure.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/__A8J9aC_Jk] 

@@ -8,12 +8,12 @@ ms.date: 01/17/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 1a98de21e91fc7bdc431e7413c44089ce750bc05
-ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
+ms.openlocfilehash: 70ce4ebca35e071cf6e27fe429d3c4e6f67d342c
+ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519471"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80110672"
 ---
 # <a name="storage-migration-service-overview"></a>Vue d’ensemble de Storage migration service
 
@@ -51,7 +51,7 @@ Voici une vidéo qui montre comment utiliser Storage migration service pour pren
 
 > [!VIDEO https://www.youtube.com/embed/h-Xc9j1w144]
 
-## <a name="requirements"></a>Conditions préalables
+## <a name="requirements"></a>Configuration requise
 
 Pour utiliser le service de migration de stockage, vous avez besoin des éléments suivants :
 
@@ -86,24 +86,24 @@ Le serveur source doit exécuter l’un des systèmes d’exploitation suivants�
 - Windows Server, canal semi-annuel
 - Windows Server 2019
 - Windows Server 2016
-- R2 Windows Server 2012
-- Windows Server 2012
-- Windows Server 2008 R2
-- Windows Server 2008
-- Windows Server 2003 R2
-- Windows Server 2003
-- Windows Small Business Server 2003 R2
+- Windows Server 2012 R2
+- Windows Server 2012
+- Windows Server 2008 R2
+- Windows Server 2008
+- Windows Server 2003 R2
+- Windows Server 2003
+- Windows Small Business Server 2003 R2
 - Windows Small Business Server 2008
 - Windows Small Business Server 2011
-- Windows Server 2012 Essentials
-- Windows Server 2012 R2 Essentials
-- Windows Server 2016 Essentials
+- Windows Server 2012 Essentials
+- Windows Server 2012 R2 Essentials
+- WindowsServer2016 Essentials
 - Windows Server 2019 Essentials
 - Windows Storage Server 2008
-- Windows Storage Server 2008 R2
+- Windows Storage Server 2008 R2
 - Windows Storage Server 2012
 - Windows Storage Server 2012 R2
-- Windows Storage Server 2016
+- Windows Storage Server 2016
 
 Remarque : Windows Small Business Server et Windows Server Essentials sont des contrôleurs de domaine. Le service de migration du stockage ne peut pas encore couper les contrôleurs de domaine, mais il peut inventorier et transférer des fichiers à partir de ces derniers.   
 
@@ -111,7 +111,7 @@ Vous pouvez migrer les types de sources supplémentaires suivants si Orchestrato
 
 - Clusters de basculement exécutant Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019
 - Serveurs Linux qui utilisent samba. Nous avons testé les éléments suivants :
-    - CentOS 7
+    - CentOS 7
     - Debian GNU/Linux 8
     - RedHat Enterprise Linux 7,6
     - SUSE Linux Enterprise Server (SLES) 11 SP4
@@ -125,10 +125,14 @@ Le serveur de destination doit exécuter l’un des systèmes d’exploitation s
 - Windows Server, canal semi-annuel
 - Windows Server 2019
 - Windows Server 2016
-- R2 Windows Server 2012
+- Windows Server 2012 R2
 
 > [!TIP]
 > Les serveurs de destination exécutant Windows Server 2019 ou Windows Server, un canal semi-annuel ou une version ultérieure ont doublement les performances de transfert des versions antérieures de Windows Server. Cette amélioration des performances est due à l’inclusion d’un service de proxy de service de migration de stockage intégré, qui ouvre également les ports de pare-feu nécessaires s’ils ne sont pas déjà ouverts.
+
+## <a name="azure-vm-migration"></a>Migration de machines virtuelles Azure
+
+Le centre d’administration Windows version 1910 vous permet de déployer des machines virtuelles Azure. Cela intègre le déploiement de machines virtuelles dans le service de migration de stockage. Au lieu de créer des serveurs et des machines virtuelles dans le portail Azure manuellement avant de déployer votre charge de travail, et éventuellement des étapes et des configurations requises, le centre d’administration Windows peut déployer la machine virtuelle Azure, configurer son stockage, la joindre à votre domaine, installer des rôles et Configurez ensuite votre système distribué. 
 
 ## <a name="whats-new-in-storage-migration-service"></a>Nouveautés du service de migration de stockage
 
@@ -140,7 +144,7 @@ Les nouvelles fonctionnalités suivantes sont disponibles lors de l’exécution
 - Synchroniser plus facilement des partages migrés dans Azure à l’aide d’Azure File Sync
 - Migrer vers de nouveaux réseaux comme Azure
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Migrer un serveur de fichiers à l’aide du service de migration de stockage](migrate-data.md)
 - [Forum aux questions sur Storage migration services (FAQ)](faq.md)
