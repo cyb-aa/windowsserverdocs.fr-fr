@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/29/2020
+ms.date: 03/04/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 1753780474332a6d5786a5804fc1b4fe5e3d8883
-ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
+ms.openlocfilehash: 8b7aefa169fe2121c5a2da1f913714d23d989d16
+ms.sourcegitcommit: 056d355516f199e8a505c32b9aa685d0cde89e44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889433"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79518734"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Bien démarrer avec le client Windows Desktop
 
@@ -134,5 +134,6 @@ L’examen d’un problème peut vous amener à consulter les journaux du client
 
 Pour récupérer les journaux du client :
 
-1. Ouvrez l’**Explorateur de fichiers**.
-2. Accédez au dossier **%temp%\DiagOutputDir\RdClientAutoTrace**.
+1. Assurez-vous qu’aucune session n’est active et que le processus client ne s’exécute pas en arrière-plan en cliquant avec le bouton droit sur l’icône **Bureau à distance** dans la barre d’état système et en sélectionnant **Déconnecter toutes les sessions**.
+2. Ouvrez l’**Explorateur de fichiers**.
+3. Accédez au dossier **%temp%\DiagOutputDir\RdClientAutoTrace**.
