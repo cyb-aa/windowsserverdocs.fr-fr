@@ -9,25 +9,25 @@ ms.date: 09/12/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 7098e81f486a5b0b4974c19b47e2d48c6f98832b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bca603344047ea5cc890bf9976ca5a6c79514136
+ms.sourcegitcommit: 9feb093a0acb8834c9ef3c066667c7062d85e6e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355366"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80289794"
 ---
-# <a name="insider-preview"></a>Insider Preview
+# <a name="new-hpn-features-in-windows-server-2019"></a>Nouvelles fonctionnalités HPN dans Windows Server 2019
 
 
 ## <a name="dynamic-vrss-and-vmmq"></a>VRSS et VMMQ dynamiques
 
->S’applique à : Windows Server 2019
+>S’applique à : Windows Server 2019
 
 Dans le passé, les files d’attente de machines virtuelles et les files d’attente de plusieurs machines virtuelles permettaient un débit nettement plus élevé pour les machines virtuelles individuelles, car les débits du réseau atteignaient d’abord la marque 10 GbE. Malheureusement, la planification, la planification, le paramétrage et la surveillance nécessaires à la réussite sont devenues une entreprise de grande taille ; souvent plus que l’administrateur informatique est censé passer. 
 
 Windows Server 2019 améliore ces optimisations en répartissant et en ajustant de façon dynamique le traitement des charges de travail réseau, selon les besoins. Windows Server 2019 garantit une efficacité optimale et supprime la charge de configuration pour les administrateurs informatiques.
 
-Pour plus d'informations, voir :
+Pour plus d’informations, consultez :
 
 -   [Blog d’annonce](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
 
@@ -43,7 +43,7 @@ Auparavant, il s’agissait d’un déchargement implémenté par la carte rése
 
 Par défaut, RSC dans le vSwitch est activé sur les commutateurs virtuels externes.
 
-Pour plus d'informations, voir :
+Pour plus d’informations, consultez :
 
 -  [Blog d’annonce](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
 
