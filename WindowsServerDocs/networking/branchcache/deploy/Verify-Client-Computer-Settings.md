@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 31ea58b0-d407-4f62-8ec6-6a1b19174042
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6d0adbf0db2d7888ca12ca49f50fc37baa8cbc16
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e4bd3c4d4b2998f5c4faea22887bdef8663587cb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356511"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319176"
 ---
 # <a name="verify-client-computer-settings"></a>Vérifier les paramètres de l’ordinateur client
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour vérifier que l’ordinateur client est correctement configuré pour BranchCache.  
   
@@ -48,7 +48,7 @@ Vous devez être membre des **administrateurs**ou équivalent pour effectuer cet
   
     Dans **ClientSettings**, la valeur de **CurrentClientMode** doit être **DistributedClient** ou **HostedCacheClient**, selon le mode que vous avez configuré à l’aide de ce guide.  
   
-    Dans **ClientSettings**, si vous avez configuré le mode de cache hébergé et fourni les noms de vos serveurs de cache hébergé pendant la configuration, ou si le client a localisé automatiquement les serveurs de cache hébergé à l’aide de points de connexion de service,  **HostedCacheServerList** doit avoir une valeur identique au nom ou aux noms de vos serveurs de cache hébergé. Par exemple, si votre serveur de cache hébergé est nommé HCS1 et que votre domaine est corp.contoso.com, la valeur de **HostedCacheServerList** est **HCS1.Corp.contoso.com**.  
+    Dans **ClientSettings**, si vous avez configuré le mode de cache hébergé et fourni les noms de vos serveurs de cache hébergé pendant la configuration, ou si le client a localisé automatiquement les serveurs de cache hébergé à l’aide de points de connexion de service, **HostedCacheServerList** doit avoir une valeur identique au nom ou aux noms de vos serveurs de cache hébergé. Par exemple, si votre serveur de cache hébergé est nommé HCS1 et que votre domaine est corp.contoso.com, la valeur de **HostedCacheServerList** est **HCS1.Corp.contoso.com**.  
   
 5.  Si l’un des paramètres BranchCache répertoriés ci-dessus n’a pas les valeurs correctes, suivez les étapes de ce guide pour vérifier les paramètres de stratégie de stratégie de groupe ou de l’ordinateur local, ainsi que les exceptions de pare-feu que vous avez configurées et vérifiez qu’elles sont correctes. En outre, redémarrez l’ordinateur ou suivez les étapes de cette procédure pour actualiser stratégie de groupe et redémarrer le service BranchCache.  
   

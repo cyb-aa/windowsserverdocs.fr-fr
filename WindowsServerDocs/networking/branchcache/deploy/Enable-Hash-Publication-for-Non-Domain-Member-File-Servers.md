@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 11584b73-f9e2-4530-afa5-b8df970e6b24
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e870863b497c17b4b56265d99d91274e34690767
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 223ffd17f1e623f974e97c787fb8b18a806e5d0c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356535"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319266"
 ---
 # <a name="enable-hash-publication-for-non-domain-member-file-servers"></a>Activer la publication de hachages pour les serveurs de fichiers n’appartenant pas au domaine
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour configurer la publication de hachages pour BranchCache à l’aide de l’ordinateur local stratégie de groupe sur un serveur de fichiers qui exécute Windows Server 2016 avec le service de rôle **BranchCache pour fichiers réseau** du rôle de serveur services de fichiers installé.  
   
@@ -30,13 +30,13 @@ Pour exécuter cette procédure, il est nécessaire d'appartenir au minimum au g
   
 ### <a name="to-enable-hash-publication-for-one-file-server"></a>Pour activer la publication de hachages pour un serveur de fichiers  
   
-1.  Ouvrez Windows PowerShell, saisissez **mmc**, puis appuyez sur ENTRÉE. La console MMC s'affiche.  
+1.  Ouvrez Windows PowerShell, tapez **mmc**, puis appuyez sur Entrée. La console MMC s'affiche.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**. La boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** s'ouvre.  
   
 3.  Dans **Ajouter ou supprimer des composants logiciels enfichables**, dans **Composants logiciels enfichables disponibles**, double-cliquez sur **Éditeur d'objets de stratégie de groupe**. L'Assistant Stratégie de groupe s'ouvre avec l'objet Ordinateur local sélectionné. Cliquez sur **Terminer**, puis sur **OK**.  
   
-4.  Dans la console MMC de l'Éditeur d'objets de stratégie de groupe, développez le chemin suivant : **Stratégie de l’ordinateur local**, **Configuration ordinateur**, **modèles d’administration**, **réseau**, **Serveur LanMan**. Cliquez sur **Serveur Lanman**.  
+4.  Dans la console MMC de l’éditeur de stratégie de groupe local, développez le chemin suivant : stratégie de l' **ordinateur local**, **Configuration ordinateur**, **modèles d’administration**, **réseau**, **Serveur LanMan**. Cliquez sur **Serveur Lanman**.  
   
 5.  Dans le volet d'informations, double-cliquez sur **Publication de hachages pour BranchCache**. La boîte de dialogue **Publication de hachages pour BranchCache** s'ouvre.  
   

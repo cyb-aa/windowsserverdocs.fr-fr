@@ -7,16 +7,16 @@ ms.technology: networking-ras
 ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 41e98648ab963347f8370233c320f5e38b5d4d96
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: def4c0d7437dd297460d0a863cd2568325825ca9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388009"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319034"
 ---
 # <a name="step-72-create-conditional-access-root-certificates-for-vpn-authentication-with-azure-ad"></a>Étape 7.2. Créer des certificats racines d’accès conditionnel pour l’authentification VPN avec Azure AD
 
@@ -51,6 +51,6 @@ Le client VPN envoie ensuite les problèmes de certificat en Azure AD au VPN pou
 6. Sur la page **nouveau** , procédez comme suit : a. Pour **Sélectionner une durée**, sélectionnez 1, 2 ou 3 ans.
    b. Sélectionnez **Créer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 [Étape 7,3. Configurer la stratégie d’accès conditionnel](vpn-config-conditional-access-policy.md): dans cette étape, vous configurez la stratégie d’accès conditionnel pour la connectivité VPN.

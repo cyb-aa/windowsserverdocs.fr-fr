@@ -7,14 +7,14 @@ ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 6de4232d-b0b3-4e43-8735-ebae35ae4f9f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f338ddf0a7d3a4fe41277ddbf49b0c3db34ae11b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e2e59b70b102e7ca942e2aafb8b216fecd62fc32
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395697"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315156"
 ---
 # <a name="windows-server-supported-networking-scenarios"></a>Scénarios de mise en réseau pris en charge par Windows Server
 
@@ -24,7 +24,7 @@ Cette rubrique fournit des informations sur les scénarios pris en charge et non
 >[!IMPORTANT]
 >Pour tous les scénarios de production, utilisez les derniers pilotes matériels signés de votre fabricant d’équipements d’origine \(OEM\) ou fournisseur de matériel indépendant \(\)IHV.
   
-## <a name="bkmk_supp"></a>Scénarios de mise en réseau pris en charge
+## <a name="supported-networking-scenarios"></a><a name="bkmk_supp"></a>Scénarios de mise en réseau pris en charge
 
 Cette section contient des informations sur les scénarios de mise en réseau pris en charge pour Windows Server 2016 et comprend les catégories de scénarios suivantes.  
   
@@ -40,7 +40,7 @@ Cette section contient des informations sur les scénarios de mise en réseau pr
 
 - [Basculer l’Association incorporée \(définir des scénarios de\)](#bkmk_set)
   
-### <a name="bkmk_sdn"></a>Scénarios de mise en réseau à définition logicielle (SDN)
+### <a name="software-defined-networking-sdn-scenarios"></a><a name="bkmk_sdn"></a>Scénarios de mise en réseau à définition logicielle (SDN)
  
 Vous pouvez utiliser la documentation suivante pour déployer des scénarios SDN avec Windows Server 2016.  
   
@@ -49,7 +49,7 @@ Vous pouvez utiliser la documentation suivante pour déployer des scénarios SDN
   
 Pour plus d’informations, voir [Software Defined &#40;Networking SDN&#41;](sdn/software-defined-networking.md).  
   
-#### <a name="bkmk_netc"></a>Scénarios de contrôleur de réseau
+#### <a name="network-controller-scenarios"></a><a name="bkmk_netc"></a>Scénarios de contrôleur de réseau
 
 Les scénarios de contrôleur de réseau vous permettent d’effectuer les opérations suivantes :  
   
@@ -61,7 +61,7 @@ Les scénarios de contrôleur de réseau vous permettent d’effectuer les opér
   
 Pour plus d’informations, voir [Contrôleur de réseau](sdn/technologies/network-controller/Network-Controller.md).  
   
-#### <a name="bkmk_netf"></a>Scénarios de virtualisation de fonction réseau (NFV)  
+#### <a name="network-function-virtualization-nfv-scenarios"></a><a name="bkmk_netf"></a>Scénarios de virtualisation de fonction réseau (NFV)  
 Les scénarios NFV vous permettent d’effectuer les opérations suivantes :  
   
 -   Déployez et utilisez un équilibreur de charge logiciel pour distribuer le trafic Northbound et Southbound.  
@@ -84,7 +84,7 @@ Les scénarios NFV vous permettent d’effectuer les opérations suivantes :
   
 Pour plus d’informations, consultez [Network Function Virtualization](sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md).  
   
-### <a name="bkmk_netp"></a>Scénarios de plateforme réseau
+### <a name="network-platform-scenarios"></a><a name="bkmk_netp"></a>Scénarios de plateforme réseau
 
 Pour les scénarios de cette section, l’équipe de mise en réseau Windows Server prend en charge l’utilisation de n’importe quel pilote certifié Windows Server 2016. Vérifiez auprès de votre carte d’interface réseau \(fabricant de la carte réseau\) pour vous assurer que vous disposez des mises à jour les plus récentes du pilote.
   
@@ -98,7 +98,7 @@ Les scénarios de plateforme réseau vous permettent d’effectuer les opératio
   
 Pour plus d’informations, [ &#40;consultez accès direct à la&#41; mémoire à distance RDMA et &#40;Switch&#41;Embedded Teaming Set](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
-#### <a name="bkmk_switch"></a>Scénarios de commutateur virtuel Hyper-V
+#### <a name="hyper-v-virtual-switch-scenarios"></a><a name="bkmk_switch"></a>Scénarios de commutateur virtuel Hyper-V
 
 Les scénarios de commutateur virtuel Hyper-V vous permettent d’effectuer les opérations suivantes :  
   
@@ -112,7 +112,7 @@ Les scénarios de commutateur virtuel Hyper-V vous permettent d’effectuer les 
   
 Pour plus d’informations, [ &#40;consultez accès direct à la&#41; mémoire à distance RDMA et &#40;Switch&#41; Embedded Teaming Set](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)  
   
-### <a name="bkmk_dns"></a>Scénarios de serveur DNS
+### <a name="dns-server-scenarios"></a><a name="bkmk_dns"></a>Scénarios de serveur DNS
 
 Les scénarios de serveur DNS vous permettent d’effectuer les opérations suivantes :  
   
@@ -138,7 +138,7 @@ Les scénarios de serveur DNS vous permettent d’effectuer les opérations suiv
   
 Pour plus d’informations, consultez les rubriques [Nouveautés du client DNS dans Windows server 2016](dns/What-s-New-in-DNS-Client.md) et [Nouveautés du serveur DNS dans Windows Server 2016](dns/What-s-New-in-DNS-Server.md).  
   
-### <a name="bkmk_ipam"></a>Scénarios IPAM avec DHCP et DNS
+### <a name="ipam-scenarios-with-dhcp-and-dns"></a><a name="bkmk_ipam"></a>Scénarios IPAM avec DHCP et DNS
 
 Les scénarios IPAM vous permettent d’effectuer les opérations suivantes :  
   
@@ -152,7 +152,7 @@ Les scénarios IPAM vous permettent d’effectuer les opérations suivantes :
   
     Pour plus d’informations, consultez [gérer IPAM](technologies/ipam/Manage-IPAM.md).  
   
-### <a name="bkmk_nicteam"></a>Scénarios d’association de cartes réseau
+### <a name="nic-teaming-scenarios"></a><a name="bkmk_nicteam"></a>Scénarios d’association de cartes réseau
 
 Les scénarios d’association de cartes réseau vous permettent d’effectuer les opérations suivantes :  
   
@@ -169,7 +169,7 @@ Les scénarios d’association de cartes réseau vous permettent d’effectuer l
 
 Pour plus d’informations, consultez [Association de cartes réseau](technologies/nic-teaming/NIC-Teaming.md). 
 
-### <a name="bkmk_set"></a>Basculer l’Association incorporée \(définir des scénarios de\)
+### <a name="switch-embedded-teaming-set-scenarios"></a><a name="bkmk_set"></a>Basculer l’Association incorporée \(définir des scénarios de\)
 
 SET est une autre solution d’association de cartes réseau que vous pouvez utiliser dans les environnements qui incluent Hyper-V et la pile SDN (Software Defined Networking) dans Windows Server 2016. SET intègre certaines fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V. 
 
@@ -177,7 +177,7 @@ Pour plus d’informations, consultez [accès direct à la mémoire à distance 
   
  
   
-## <a name="bkmk_unsupp"></a>Scénarios de mise en réseau non pris en charge  
+## <a name="unsupported-networking-scenarios"></a><a name="bkmk_unsupp"></a>Scénarios de mise en réseau non pris en charge  
 Les scénarios de mise en réseau suivants ne sont pas pris en charge dans Windows Server 2016.  
   
 -   Réseaux virtuels locataires basés sur un réseau local virtuel.  

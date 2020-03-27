@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 56c915ec-edb1-43b0-8ad2-c93841bb566f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ad297e25f258140fce4af3f825e362f62748c77d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 045764f9ed7cb7eef5a996748e293b48ec6018fb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356533"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319203"
 ---
 # <a name="move-file-servers-to-the-branchcache-file-servers-organizational-unit"></a>Déplacer des serveurs de fichiers vers l’unité d’organisation Serveurs de fichiers BranchCache
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour ajouter des serveurs de fichiers BranchCache à une unité d’organisation (UO) dans Active Directory Domain Services (AD DS).  
   

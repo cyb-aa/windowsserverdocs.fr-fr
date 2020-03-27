@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 2cda192f-6b45-4e6c-88d9-70ca179ddb94
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f058dbec42997f22106666b014508191a8861694
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 40e871c25e31bbb15964d856da0f83cdaf50c48b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406486"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319318"
 ---
 # <a name="create-the-branchcache-file-servers-organizational-unit"></a>Créer l’unité d’organisation Serveurs de fichiers BranchCache
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour créer une unité d’organisation (UO) dans Active Directory Domain Services (AD DS) pour les serveurs de fichiers BranchCache.  
   

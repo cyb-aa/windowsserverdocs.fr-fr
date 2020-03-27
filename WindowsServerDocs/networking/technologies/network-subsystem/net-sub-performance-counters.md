@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7ebff972d670f3fd0b8d12959d161bce03ac487e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e62b92fbb78dc267dbd9cd09927bf54c62d8245f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71401846"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316603"
 ---
 # <a name="network-related-performance-counters"></a>Compteurs de performance liées au réseau
 
@@ -27,7 +27,7 @@ Cette rubrique répertorie les compteurs pertinents pour la gestion des performa
   
 -   [Performances de la fusion côté réception (RSC)](#bkmk_rsc)  
   
-##  <a name="bkmk_ru"></a>Utilisation des ressources  
+##  <a name="resource-utilization"></a><a name="bkmk_ru"></a>Utilisation des ressources  
 
 Les compteurs de performances suivants sont pertinents pour l’utilisation des ressources réseau.  
   
@@ -61,7 +61,7 @@ Les compteurs de performances suivants sont pertinents pour l’utilisation des 
   
 - Informations sur le processeur  
   
-  - % Processor Time  
+  - % de temps processeur  
   
   - Interruptions/s  
   
@@ -69,7 +69,7 @@ Les compteurs de performances suivants sont pertinents pour l’utilisation des 
   
     Ce compteur est une vitesse moyenne à laquelle les appels DPC ont été ajoutés à la file d’attente DPC du processeur logique. Chaque processeur logique a sa propre file d’attente DPC. Ce compteur mesure la vitesse à laquelle les DPC sont ajoutés à la file d’attente, et non le nombre de DPC dans la file d’attente. Il affiche la différence entre les valeurs observées dans les deux derniers échantillons, divisée par la durée de l’intervalle échantillon.  
   
-##  <a name="bkmk_np"></a>Problèmes potentiels liés au réseau  
+##  <a name="potential-network-problems"></a><a name="bkmk_np"></a>Problèmes potentiels liés au réseau  
 
 Les compteurs de performances suivants sont pertinents pour les problèmes réseau potentiels.  
   
@@ -119,7 +119,7 @@ Les compteurs de performances suivants sont pertinents pour les problèmes rése
   
     -   Connexions rejetées/s  
   
-##  <a name="bkmk_rsc"></a>Performances de la fusion côté réception (RSC)  
+##  <a name="receive-side-coalescing-rsc-performance"></a><a name="bkmk_rsc"></a>Performances de la fusion côté réception (RSC)  
 
 Les compteurs de performances suivants sont pertinents pour les performances de RSC.  
   
