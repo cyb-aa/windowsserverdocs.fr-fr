@@ -7,17 +7,17 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 10/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: a07b30517f0d45b7e6f4f41f0ef9a6549e6e2117
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.prod: windows-server
+ms.openlocfilehash: 5324f782ea3c02ed24968d4b3ef58ab8b6ac9d32
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71952770"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319355"
 ---
 # <a name="cluster-connection-type-changes-in-windows-admin-center-v1909"></a>Modifications du type de connexion au cluster dans le centre d’administration Windows v1909
 
->S'applique à : Windows Admin Center, Windows Admin Center Preview
+>S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 > [!IMPORTANT]
 > Ce document décrit les modifications requises par les développeurs d’extensions du centre d’administration Windows qui développent des outils du centre d’administration Windows pour le cluster de basculement et des solutions HCI (Hyper-Converged cluster). Il s’agit d’une modification obligatoire requise pour que votre extension soit compatible avec le centre d’administration Windows v1909 version préliminaire et les futures versions GA.
@@ -85,7 +85,7 @@ Dans le centre d’administration Windows 1909 et versions ultérieures, les deu
 Il s’agit du seul type solutionIds et connectionTypes de cluster pris en charge à partir de maintenant. Si votre outil est défini uniquement avec ce type solutionIds et connectionTypes, il sera chargé pour toute connexion de cluster de basculement, qu’il s’agisse ou non d’un cluster HCI. Si vous souhaitez limiter votre outil pour qu’il ne soit disponible que pour les clusters HCI ou non-HCI, vous devez en outre utiliser les nouvelles propriétés d’inventaire décrites dans la section suivante.
 
 ## <a name="manifestjson--inventory-properties"></a>Manifest. JSON – propriétés d’inventaire
-Lors de la connexion à un serveur ou à un cluster, le centre d’administration Windows interroge un ensemble de propriétés d’inventaire que vous pouvez utiliser pour déterminer si votre outil doit être disponible ou non (voir la section « Propriétés de l’inventaire » dans le [contrôle de l’outil ](dynamic-tool-display.md)document de visibilité pour plus d’informations). Dans le centre d’administration Windows v1909, nous avons ajouté deux nouvelles propriétés à cette liste qui peuvent être utilisées pour déterminer si un cluster est un cluster hyper-convergé. 
+Lors de la connexion à un serveur ou à un cluster, le centre d’administration Windows interroge un ensemble de propriétés d’inventaire que vous pouvez utiliser pour créer des conditions afin de déterminer quand votre outil doit être disponible ou non (consultez la section « Propriétés de l’inventaire » dans le document [contrôler la visibilité de votre outil](dynamic-tool-display.md) pour plus d’informations). Dans le centre d’administration Windows v1909, nous avons ajouté deux nouvelles propriétés à cette liste qui peuvent être utilisées pour déterminer si un cluster est un cluster hyper-convergé. 
 
 ### <a name="iss2denabled"></a>isS2dEnabled
 Techniquement, un cluster hyper-convergé est défini en tant que cluster de basculement avec espaces de stockage direct (S2D) activé. Si vous souhaitez que votre outil soit disponible uniquement pour les clusters hyper-convergents, par exemple, lorsque S2D est activé, ajoutez la condition d’inventaire suivante :
@@ -169,7 +169,7 @@ Pour vous assurer que votre extension continue de fonctionner avec des versions 
 ```
 
 ## <a name="known-issue-appcontextserviceactiveconnectionishyperconvergedclusterisfailovercluster-is-not-set-properly-in-windows-admin-center-v1909"></a>Problème connu : AppContextService. activeConnection. isHyperConvergedCluster/isFailoverCluster n’est pas défini correctement dans le centre d’administration Windows v1909
-Une régression des modifications récentes est que les propriétés ```AppContextService.activeConnection.isHyperConvergedCluster/isFailoverCluster``` ne sont pas définies correctement dans le centre d’administration Windows v1909 et qu’elles ont toujours la valeur false. Ce problème sera résolu dans la prochaine version, V1910, mais sera également déconseillé et n’est plus disponible dans la version GA suivante dans 2020. À l’avenir, vous pouvez remplacer ceci par le code ci-dessous et utiliser ```this.connectHCI```.
+Une régression des modifications récentes est que les propriétés de ```AppContextService.activeConnection.isHyperConvergedCluster/isFailoverCluster``` ne sont pas définies correctement dans le centre d’administration Windows v1909 et qu’elles ont toujours la valeur false. Ce problème sera résolu dans la prochaine version, V1910, mais sera également déconseillé et n’est plus disponible dans la version GA suivante dans 2020. À l’avenir, vous pouvez remplacer ceci par le code ci-dessous et utiliser ```this.connectHCI```.
 ```
     import { ClusterInventoryCache } from '@msft-sme/core';
 

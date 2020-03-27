@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 566bc270-81c7-48c3-a904-3cba942ad463
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 613bb7f43b382389dc0db953a48668147cfaee88
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a6fe98dea50dd194c2bb2303a663968f93818332
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356045"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317964"
 ---
 # <a name="dns-policies-overview"></a>Vue d’ensemble des stratégies DNS
 
@@ -57,7 +57,7 @@ Vous pouvez utiliser des stratégies de résolution de requêtes DNS pour spéci
 |**Ordre de traitement**|Une fois qu’une requête est classée par niveau et s’applique à, le serveur recherche la première stratégie pour laquelle la requête correspond aux critères et l’applique à la requête.|-Valeur numérique<br />-Valeur unique par stratégie contenant le même niveau et s’applique à la valeur|  
 |**Action**|Action à effectuer par le serveur DNS|-Allow (valeur par défaut pour le niveau zone)<br />-Deny (valeur par défaut au niveau du serveur)<br />-Ignorer|  
 |**Critère**|Condition de stratégie (et/ou) et liste de critères à respecter pour que la stratégie soit appliquée|-Opérateur de condition (AND/OR)<br />-Liste de critères (voir le tableau des critères ci-dessous)|  
-|**Portée**|Liste des étendues de zone et des valeurs pondérées par étendue. Les valeurs pondérées sont utilisées pour la distribution de l’équilibrage de charge. Par exemple, si cette liste comprend Datacenter1 avec un poids de 3 et datacenter2 avec un poids de 5, le serveur répond avec un enregistrement de datacentre1 trois fois plus de huit requêtes|-Liste des étendues de zone (par nom) et pondérations|  
+|**Étendue**|Liste des étendues de zone et des valeurs pondérées par étendue. Les valeurs pondérées sont utilisées pour la distribution de l’équilibrage de charge. Par exemple, si cette liste comprend Datacenter1 avec un poids de 3 et datacenter2 avec un poids de 5, le serveur répond avec un enregistrement de datacentre1 trois fois plus de huit requêtes|-Liste des étendues de zone (par nom) et pondérations|  
 
 > [!NOTE]
 > Les stratégies au niveau du serveur peuvent uniquement avoir les valeurs **Deny** ou **ignore** comme action.
@@ -84,7 +84,7 @@ En utilisant le tableau ci-dessus comme point de départ, le tableau ci-dessous 
 |Adresse IP de l’interface serveur|EQ, 10.0.0.3|  
 |Nom de domaine complet (FQDN)|EQ, *. contoso. com|  
 |Type de requête|NE, SRV|  
-|Heure de la journée|EQ, 20:00-22:00|  
+|Heure du jour|EQ, 20:00-22:00|  
 
 Vous pouvez créer plusieurs stratégies de résolution de requêtes du même niveau, à condition qu’elles aient une valeur différente pour l’ordre de traitement. Lorsque plusieurs stratégies sont disponibles, le serveur DNS traite les requêtes entrantes de la manière suivante :  
 

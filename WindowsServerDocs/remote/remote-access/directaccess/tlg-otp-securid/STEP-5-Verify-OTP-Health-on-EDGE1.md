@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 013df067-e2a0-4cd5-a08b-29238663ebf8
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 773862f2bec0826f12cd3bf55025243583c20114
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 7e03187b2163725ac48fd49921c537790eb640b3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367512"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314386"
 ---
 # <a name="step-5-verify-otp-health-on-edge1"></a>ÉTAPE 5 vérifier l’intégrité du mot de passe à usage unique sur EDGE1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Les procédures suivantes vérifient que le mot de passe à usage unique est configuré et fonctionne correctement à l’aide du contrôle d’intégrité du serveur DirectAccess sur EDGE1.  
   

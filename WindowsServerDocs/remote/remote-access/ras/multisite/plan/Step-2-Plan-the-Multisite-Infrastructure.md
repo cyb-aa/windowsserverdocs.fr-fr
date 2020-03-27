@@ -10,24 +10,24 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64c10107-cb03-41f3-92c6-ac249966f574
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ff8a58aa679691132d074ef52b876cea05366ab5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6e23c3c3d22509af46b1a1741b545a787be00bfc
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367104"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313881"
 ---
 # <a name="step-2-plan-the-multisite-infrastructure"></a>Étape 2 planifier l’infrastructure multisite
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 L’étape suivante du déploiement de l’accès à distance dans une topologie multisite consiste à effectuer la planification de l’infrastructure multisite. notamment, Active Directory, les groupes de sécurité et les objets stratégie de groupe.  
-## <a name="bkmk_2_1_AD"></a>2,1 Active Directory de plan  
+## <a name="21-plan-active-directory"></a><a name="bkmk_2_1_AD"></a>2,1 Active Directory de plan  
 Un déploiement multisite d’accès à distance peut être configuré dans plusieurs topologies :  
   
--   **Site à Active Directory unique, plusieurs points d’entrée**: dans cette topologie, vous disposez d’un seul site Active Directory pour l’ensemble de votre organisation avec des liaisons intranet rapides sur le site, mais vous avez plusieurs serveurs d’accès à distance déployés tout au long de votre organisation, chacune faisant office de point d’entrée. Un exemple géographique de cette topologie consiste à avoir un seul site de Active Directory pour la États-Unis avec des points d’entrée sur la côte est et la côte ouest.  
+-   **Site de Active Directory unique, plusieurs points d’entrée**: dans cette topologie, vous disposez d’un seul site Active Directory pour l’ensemble de votre organisation avec des liaisons intranet rapides sur le site, mais vous avez plusieurs serveurs d’accès à distance déployés dans votre organisation, chacun faisant office de point d’entrée. Un exemple géographique de cette topologie consiste à avoir un seul site de Active Directory pour la États-Unis avec des points d’entrée sur la côte est et la côte ouest.  
   
     ![Infrastructure multisite](../../../../media/Step-2-Plan-the-Multisite-Infrastructure/RAMultisiteTopo1.png)  
   
@@ -50,22 +50,22 @@ Notez les recommandations et contraintes suivantes pour le déploiement de Activ
   
 5.  Les objets de stratégie de groupe de client et les objets de stratégie de groupe de serveur d’application facultatifs sont gérés sur le contrôleur de domaine exécutant comme émulateur de contrôleur de domaine principal (PDC). Cela signifie que les objets de stratégie de groupe client ne sont pas nécessairement gérés dans le site Active Directory contenant le point d’entrée auquel les clients se connectent.  
   
-6.  Si le contrôleur de domaine d’un site Active Directory est inaccessible, le serveur d’accès à distance se connectera à un autre contrôleur de domaine dans le site (s’il est disponible). Si ce n’est pas le cas, il se connecte au contrôleur de domaine d’un autre site pour récupérer un objet de stratégie de groupe mis à jour et authentifier les clients. Dans les deux cas, la console de gestion de l’accès à distance et les applets de commande PowerShell ne peuvent pas être utilisées pour récupérer ou modifier des paramètres de configuration tant que le contrôleur de domaine n’est pas disponible. Notez les points suivants :  
+6.  Si le contrôleur de domaine d’un site Active Directory est inaccessible, le serveur d’accès à distance se connectera à un autre contrôleur de domaine dans le site (s’il est disponible). Si ce n’est pas le cas, il se connecte au contrôleur de domaine d’un autre site pour récupérer un objet de stratégie de groupe mis à jour et authentifier les clients. Dans les deux cas, la console de gestion de l’accès à distance et les applets de commande PowerShell ne peuvent pas être utilisées pour récupérer ou modifier des paramètres de configuration tant que le contrôleur de domaine n’est pas disponible. Notez les points suivants :  
   
     1.  Si le serveur qui exécute en tant qu’émulateur de contrôleur de domaine principal n’est pas disponible, vous devez désigner un contrôleur de domaine disponible qui a mis à jour les objets de stratégie de groupe comme émulateur PDC.  
   
     2.  Si le contrôleur de domaine qui gère un objet de stratégie de groupe de serveur n’est pas disponible, utilisez l’applet de commande PowerShell Set-DAEntryPointDC pour associer un nouveau contrôleur de domaine au point d’entrée. Le nouveau contrôleur de domaine doit avoir des objets de stratégie de groupe à jour avant d’exécuter l’applet de commande.  
   
-## <a name="bkmk_2_2_SG"></a>2,2 planifier des groupes de sécurité  
-Lors du déploiement d’un serveur unique avec des paramètres avancés, tous les ordinateurs clients qui accèdent au réseau interne via DirectAccess ont été rassemblés dans un groupe de sécurité. Dans un déploiement multisite, ce groupe de sécurité est utilisé uniquement pour les ordinateurs clients Windows 8. Dans le cas d’un déploiement multisite, les ordinateurs clients Windows 7 seront rassemblés dans des groupes de sécurité distincts pour chaque point d’entrée dans le déploiement multisite. Par exemple, si vous avez regroupé tous les ordinateurs clients dans le groupe DA_Clients, vous devez maintenant supprimer tous les ordinateurs Windows 7 de ce groupe et les placer dans un autre groupe de sécurité. Par exemple, dans la topologie plusieurs points d’entrée Active Directory sites, vous créez un groupe de sécurité pour le point d’entrée États-Unis (DA_Clients_US) et un pour le point d’entrée Europe (DA_Clients_Europe). Placez tous les ordinateurs clients Windows 7 situés dans les adresses suivantes DA_Clients_US et n’importe quel Europe situé dans le groupe DA_Clients_Europe. Si vous n’avez pas d’ordinateurs clients Windows 7, vous n’avez pas besoin de planifier des groupes de sécurité pour les ordinateurs Windows 7.  
+## <a name="22-plan-security-groups"></a><a name="bkmk_2_2_SG"></a>2,2 planifier des groupes de sécurité  
+Lors du déploiement d’un serveur unique avec des paramètres avancés, tous les ordinateurs clients qui accèdent au réseau interne via DirectAccess ont été rassemblés dans un groupe de sécurité. Dans un déploiement multisite, ce groupe de sécurité est utilisé uniquement pour les ordinateurs clients Windows 8. Dans le cas d’un déploiement multisite, les ordinateurs clients Windows 7 seront rassemblés dans des groupes de sécurité distincts pour chaque point d’entrée dans le déploiement multisite. Par exemple, si vous avez regroupé tous les ordinateurs clients du groupe DA_Clients, vous devez maintenant supprimer tous les ordinateurs Windows 7 de ce groupe et les placer dans un autre groupe de sécurité. Par exemple, dans la topologie plusieurs points d’entrée Active Directory sites, vous créez un groupe de sécurité pour le point d’entrée États-Unis (DA_Clients_US) et l’autre pour le point d’entrée européen (DA_Clients_Europe). Placez tous les ordinateurs clients Windows 7 situés dans les adresses suivantes DA_Clients_US et n’importe quel Europe situé dans le groupe DA_Clients_Europe. Si vous n’avez pas d’ordinateurs clients Windows 7, vous n’avez pas besoin de planifier des groupes de sécurité pour les ordinateurs Windows 7.  
   
 Les groupes de sécurité requis sont les suivants :  
   
 -   Un groupe de sécurité pour tous les ordinateurs clients Windows 8. Il est recommandé de créer un groupe de sécurité unique pour ces clients pour chaque domaine.  
   
--   Groupe de sécurité unique contenant les ordinateurs clients Windows 7 pour chaque point d’entrée. Il est recommandé de créer un groupe unique pour chaque domaine. Exemple : Domain1\DA_Clients_Europe; Domain2\DA_Clients_Europe; Domain1\DA_Clients_US; Domain2\DA_Clients_US.  
+-   Groupe de sécurité unique contenant les ordinateurs clients Windows 7 pour chaque point d’entrée. Il est recommandé de créer un groupe unique pour chaque domaine. Par exemple : Domaine1 \ DA_Clients_Europe ; Domaine2 \ DA_Clients_Europe ; Domaine1 \ DA_Clients_US ; Domaine2 \ DA_Clients_US.  
   
-## <a name="bkmk_2_3_GPO"></a>2,3 stratégie de groupe les objets de plan  
+## <a name="23-plan-group-policy-objects"></a><a name="bkmk_2_3_GPO"></a>2,3 stratégie de groupe les objets de plan  
 Les paramètres DirectAccess configurés au cours du déploiement de l’accès à distance sont collectés dans les GPO. Votre déploiement sur un seul serveur utilise déjà des objets de stratégie de groupe pour les clients DirectAccess, le serveur d’accès à distance et éventuellement pour les serveurs d’applications. Un déploiement multisite requiert les objets de stratégie de groupe suivants :  
   
 -   Un objet de stratégie de groupe de serveur pour chaque point d’entrée.  
@@ -115,7 +115,7 @@ Notez les points suivants quand vous utilisez des objets de stratégie de groupe
   
     -   **Objet de stratégie de groupe**de serveur : objet de stratégie de groupe de serveur pour chaque point d’entrée (dans le domaine dans lequel se trouve le point d’entrée). Cet objet de stratégie de groupe sera appliqué à chaque serveur d’accès à distance dans le point d’entrée.  
   
-    -   **Objet de stratégie de groupe client (Windows 7)** : un objet de stratégie de groupe pour chaque point d’entrée et chaque domaine contenant des ordinateurs clients Windows 7 qui se connecteront aux points d’entrée dans le déploiement multisite. Par exemple, Domain1\DA_W7_Clients_GPO_Europe ; Domain2\DA_W7_Clients_GPO_Europe; Domain1\DA_W7_Clients_GPO_US; Domain2\DA_W7_Clients_GPO_US. Si aucun ordinateur client Windows 7 ne se connecte aux points d’entrée, les objets de stratégie de groupe ne sont pas requis.  
+    -   **Objet de stratégie de groupe client (Windows 7)** : un objet de stratégie de groupe pour chaque point d’entrée et chaque domaine contenant des ordinateurs clients Windows 7 qui se connecteront aux points d’entrée dans le déploiement multisite. Par exemple, Domaine1 \ DA_W7_Clients_GPO_Europe ; Domaine2 \ DA_W7_Clients_GPO_Europe ; Domaine1 \ DA_W7_Clients_GPO_US ; Domaine2 \ DA_W7_Clients_GPO_US. Si aucun ordinateur client Windows 7 ne se connecte aux points d’entrée, les objets de stratégie de groupe ne sont pas requis.  
   
 -   Il n’est pas nécessaire de créer des objets de stratégie de groupe supplémentaires pour les ordinateurs clients Windows 8. Un objet de stratégie de groupe pour chaque domaine contenant des ordinateurs clients a déjà été créé lors du déploiement du serveur d’accès à distance unique. Dans un déploiement multisite, ces objets de stratégie de groupe de client fonctionneront comme les objets de stratégie de groupe pour les clients Windows 8.  
   
@@ -146,11 +146,11 @@ Si vous souhaitez modifier manuellement les paramètres de l’objet de stratég
   
     2.  Après avoir modifié les paramètres, vous devez attendre que les modifications soient répliquées sur le contrôleur de domaine associé aux objets de stratégie de groupe. N’apportez pas de modifications supplémentaires à l’aide de la console de gestion de l’accès à distance ou des applets de commande PowerShell d’accès à distance jusqu’à ce que la réplication Si un objet de stratégie de groupe est modifié sur deux contrôleurs de domaine différents avant la fin de la réplication, des conflits de fusion peuvent se produire, ce qui entraîne une configuration endommagée.  
   
--   Vous pouvez également modifier le paramètre par défaut à l’aide de la boîte de dialogue **modifier le contrôleur de domaine** dans la console de gestion stratégie de groupe, ou à l’aide de l’applet de commande PowerShell **Open-NetGPO** , afin que les modifications effectuées à l’aide de la console ou des applets de commande de mise en réseau Utilisez le contrôleur de domaine que vous spécifiez.  
+-   Vous pouvez également modifier le paramètre par défaut à l’aide de la boîte de dialogue **modifier le contrôleur de domaine** dans la console de gestion stratégie de groupe, ou à l’aide de l’applet de commande PowerShell **Open-NetGPO** , afin que les modifications apportées à l’aide de la console ou des applets de commande de mise en réseau utilisent le contrôleur de domaine que vous spécifiez.  
   
     1.  Pour effectuer cette opération dans la console de gestion de stratégie de groupe, cliquez avec le bouton droit sur le conteneur domaine ou sites, puis cliquez sur **modifier le contrôleur de domaine**.  
   
-    2.  Pour effectuer cette opération dans PowerShell, spécifiez le paramètre DomainController pour l’applet de commande Open-NetGPO. Par exemple, pour activer les profils privés et publics dans le pare-feu Windows sur un objet de stratégie de groupe nommé domain1\DA_Server_GPO _Europe à l’aide d’un contrôleur de domaine nommé europe-dc.corp.contoso.com, procédez comme suit :  
+    2.  Pour effectuer cette opération dans PowerShell, spécifiez le paramètre DomainController pour l’applet de commande Open-NetGPO. Par exemple, pour activer les profils privés et publics dans le pare-feu Windows sur un objet de stratégie de groupe nommé Domaine1 \ DA_Server_GPO _Europe à l’aide d’un contrôleur de domaine nommé europe-dc.corp.contoso.com, procédez comme suit :  
   
         ```  
         $gpoSession = Open-NetGPO -PolicyStore "domain1\DA_Server_GPO _Europe" -DomainController "europe-dc.corp.contoso.com"  
@@ -165,7 +165,7 @@ Pour assurer la cohérence de la configuration dans un déploiement multisite, i
   
 -   **Optimisation de la distribution de la configuration**: après modification de l’infrastructure réseau, il peut être nécessaire de gérer l’objet de stratégie de groupe du serveur d’un point d’entrée sur un contrôleur de domaine dans le même site de Active Directory que le point d’entrée.   
   
-## <a name="bkmk_2_4_DNS"></a>2,4 planifier le DNS  
+## <a name="24-plan-dns"></a><a name="bkmk_2_4_DNS"></a>2,4 planifier le DNS  
 Notez les points suivants lors de la planification du DNS pour un déploiement multisite :  
   
 1.  Les ordinateurs clients utilisent l’adresse ConnectTo pour se connecter au serveur d’accès à distance. Chaque point d’entrée de votre déploiement requiert une adresse ConnectTo différente. Chaque adresse ConnectTo de point d’entrée doit être disponible dans le DNS public et l’adresse que vous choisissez doit correspondre au nom d’objet du certificat IP-HTTPs que vous déployez pour la connexion IP-HTTPs.   

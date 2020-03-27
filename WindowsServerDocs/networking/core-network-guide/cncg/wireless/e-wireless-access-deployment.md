@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f07520dcdefa04cb43760c5e5c66e28c0d1ce878
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ddc5ebd5f2e00251bcd1cdd915702902dcdb14ae
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322111"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318093"
 ---
 # <a name="wireless-access-deployment"></a>Déploiement de l’accès sans fil
 
@@ -31,7 +31,7 @@ Pour déployer l’accès sans fil, procédez comme suit :
 
 - [Joindre de nouveaux ordinateurs sans fil au domaine](#bkmk_domain)
 
-## <a name="bkmk_aps"></a>Déployer et configurer des points d’accès sans fil
+## <a name="deploy-and-configure-wireless-aps"></a><a name="bkmk_aps"></a>Déployer et configurer des points d’accès sans fil
 
 Pour déployer et configurer vos points d’accès sans fil, procédez comme suit :
 
@@ -42,7 +42,7 @@ Pour déployer et configurer vos points d’accès sans fil, procédez comme sui
 >[!NOTE]
 >Les procédures décrites dans ce guide n'incluent aucune instruction dans le cas où la boîte de dialogue **Contrôle de compte d'utilisateur** s'ouvre pour demander votre autorisation de continuer. Si cette boîte de dialogue s’ouvre pendant que vous réalisez les procédures de ce guide, et si elle s’ouvre en réponse à vos actions, cliquez sur **Continuer**.
 
-### <a name="bkmk_channel"></a>Spécifier les fréquences de canal du point d’accès sans fil
+### <a name="specify-wireless-ap-channel-frequencies"></a><a name="bkmk_channel"></a>Spécifier les fréquences de canal du point d’accès sans fil
 
 Lorsque vous déployez plusieurs points d’accès sans fil sur un seul site géographique, vous devez configurer des points d’accès sans fil qui ont des signaux qui se chevauchent afin d’utiliser des fréquences de canal uniques pour réduire les interférences entre les points d’accès
 
@@ -52,7 +52,7 @@ Vous pouvez utiliser les instructions suivantes pour vous aider à choisir les f
 
 - Identifiez les signaux sans fil qui se chevauchent sur les étages adjacents au sein de votre organisation. Après avoir identifié les zones de couverture qui se chevauchent en dehors de et au sein de votre organisation, affectez des fréquences de canaux pour vos points d’accès sans fil, en veillant à ce que les deux points d’accès sans fil avec chevauchement de la couverture
 
-### <a name="bkmk_wirelessaps"></a>Configurer des points d’accès sans fil
+### <a name="configure-wireless-aps"></a><a name="bkmk_wirelessaps"></a>Configurer des points d’accès sans fil
 
 Utilisez les informations suivantes, ainsi que la documentation du produit fournie par le fabricant du point d’accès sans fil pour configurer vos points d’accès sans fil.
 
@@ -95,7 +95,7 @@ Procédez comme suit pour créer un ou plusieurs groupes de sécurité utilisate
 
 - [Ajouter des utilisateurs au groupe de sécurité sans fil](#bkmk_addusers)
 
-### <a name="bkmk_groups"></a>Créer un groupe de sécurité utilisateurs sans fil
+### <a name="create-a-wireless-users-security-group"></a><a name="bkmk_groups"></a>Créer un groupe de sécurité utilisateurs sans fil
 
 Vous pouvez utiliser cette procédure pour créer un groupe de sécurité sans fil dans le Active Directory utilisateurs et ordinateurs Microsoft Management Console \(MMC\) Snap\-dans.  
 
@@ -123,7 +123,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 Si vous avez besoin de plusieurs groupes de sécurité pour les utilisateurs sans fil, répétez ces étapes pour créer des groupes d’utilisateurs sans fil supplémentaires. Plus tard, vous pouvez créer des stratégies réseau individuelles dans NPS pour appliquer différentes conditions et contraintes à chaque groupe, en leur fournissant des autorisations d’accès et des règles de connectivité différentes.
 
-### <a name="bkmk_addusers"></a>Ajouter des utilisateurs au groupe de sécurité utilisateurs sans fil
+### <a name="add-users-to-the-wireless-users-security-group"></a><a name="bkmk_addusers"></a>Ajouter des utilisateurs au groupe de sécurité utilisateurs sans fil
 
 Vous pouvez utiliser cette procédure pour ajouter un utilisateur, un ordinateur ou un groupe à votre groupe de sécurité sans fil dans la console de gestion Microsoft Active Directory utilisateurs et ordinateurs \(MMC\) Snap\-dans.
 
@@ -155,7 +155,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 4. Pour attribuer l’appartenance à un groupe à d’autres ordinateurs, répétez les étapes 1\-3 de cette procédure.
 
-## <a name="bkmk_policies"></a>Configurer des stratégies de\) \(de réseau sans fil IEEE 802,11
+## <a name="configure-wireless-network-ieee-80211-policies"></a><a name="bkmk_policies"></a>Configurer des stratégies de\) \(de réseau sans fil IEEE 802,11
 
 Procédez comme suit pour configurer un réseau sans fil \(les stratégies de\) IEEE 802,11 stratégie de groupe extension :
 
@@ -165,7 +165,7 @@ Procédez comme suit pour configurer un réseau sans fil \(les stratégies de\) 
 
 - [Configurer la nouvelle stratégie de réseau sans fil](#bkmk_policyconfig)
 
-### <a name="bkmk_opengpme"></a>Ouvrir ou ajouter et ouvrir un objet stratégie de groupe
+### <a name="open-or-add-and-open-a-group-policy-object"></a><a name="bkmk_opengpme"></a>Ouvrir ou ajouter et ouvrir un objet stratégie de groupe
 
 Par défaut, la fonctionnalité de gestion des stratégie de groupe est installée sur les ordinateurs exécutant Windows Server 2016 lorsque le Active Directory Domain Services \(AD DS rôle de serveur\) est installé et que le serveur est configuré en tant que contrôleur de domaine. La procédure suivante décrit comment ouvrir la\) Console de gestion des stratégies de groupe \(GPMC sur votre contrôleur de domaine. La procédure décrit ensuite comment ouvrir un\-de domaine existant stratégie de groupe objet \(objet de stratégie de groupe\) pour la modification, ou créer un nouvel objet de stratégie de groupe de domaine et l’ouvrir pour le modifier.
 
@@ -191,7 +191,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 Dans la section suivante, vous utiliserez Éditeur de gestion des stratégies de groupe pour créer une stratégie sans fil.
 
-### <a name="bkmk_activate"></a>Activer le réseau sans fil par défaut \(les stratégies de\) IEEE 802,11
+### <a name="activate-default-wireless-network-ieee-80211-policies"></a><a name="bkmk_activate"></a>Activer le réseau sans fil par défaut \(les stratégies de\) IEEE 802,11
 
 Cette procédure décrit comment activer le réseau sans fil par défaut \(les stratégies de\) IEEE 802,11 à l’aide de la Éditeur de gestion des stratégies de groupe \(éditeur\).
 
@@ -220,7 +220,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 Dans la section suivante, vous pouvez effectuer la configuration de la stratégie, l’ordre des préférences du traitement de la stratégie et les autorisations réseau.
 
-### <a name="bkmk_policyconfig"></a>Configurer la nouvelle stratégie de réseau sans fil
+### <a name="configure-the-new-wireless-network-policy"></a><a name="bkmk_policyconfig"></a>Configurer la nouvelle stratégie de réseau sans fil
 
 Vous pouvez utiliser les procédures de cette section pour configurer une stratégie de réseau sans fil \(IEEE 802,11\). Cette stratégie vous permet de configurer les paramètres de sécurité et d’authentification, de gérer les profils sans fil et de spécifier des autorisations pour les réseaux sans fil qui ne sont pas configurés en tant que réseaux préférés.
 
@@ -230,7 +230,7 @@ Vous pouvez utiliser les procédures de cette section pour configurer une strat�
 
 - [Définir des autorisations réseau](#bkmk_permissions)  
 
-#### <a name="bkmk_configureprofile"></a>Configurer un profil de connexion sans fil pour PEAP\-MS\-CHAP v2
+#### <a name="configure-a-wireless-connection-profile-for-peap-ms-chap-v2"></a><a name="bkmk_configureprofile"></a>Configurer un profil de connexion sans fil pour PEAP\-MS\-CHAP v2
 
 Cette procédure fournit les étapes nécessaires à la configuration d’un profil sans fil PEAP\-MS\-CHAP v2.  
 
@@ -309,7 +309,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 Dans la section suivante, vous pouvez classer les profils de stratégie pour une sécurité optimale.
 
-#### <a name="bkmk_preferenceorder"></a>Définir l’ordre de préférence pour les profils de connexion sans fil
+#### <a name="set-the-preference-order-for-wireless-connection-profiles"></a><a name="bkmk_preferenceorder"></a>Définir l’ordre de préférence pour les profils de connexion sans fil
 Vous pouvez utiliser cette procédure si vous avez créé plusieurs profils sans fil dans votre stratégie de réseau sans fil et que vous souhaitez classer les profils pour une efficacité et une sécurité optimales.
 
 Pour vous assurer que les clients sans fil se connectent avec le niveau de sécurité le plus élevé qu’ils peuvent prendre en charge, placez vos stratégies les plus restrictives en haut de la liste.
@@ -332,7 +332,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 Dans la section suivante, vous pouvez définir des autorisations réseau pour la stratégie sans fil.
 
-#### <a name="bkmk_permissions"></a>Définir des autorisations réseau
+#### <a name="define-network-permissions"></a><a name="bkmk_permissions"></a>Définir des autorisations réseau
 Vous pouvez configurer les paramètres de l’onglet **autorisations réseau** pour les membres du domaine auxquels s’appliquent les stratégies de réseau sans fil \(IEEE 802,11\).
 
 Vous pouvez uniquement appliquer les paramètres suivants pour les réseaux sans fil qui ne sont pas configurés sous l’onglet **général** de la page Propriétés de la **stratégie de réseau sans fil** :
@@ -382,7 +382,7 @@ Pour effectuer ces procédures, il est nécessaire d’appartenir au minimum au 
 
     -   Pour spécifier que vos utilisateurs peuvent se connecter uniquement aux réseaux autorisés à l’aide de profils stratégie de groupe, sélectionnez **utiliser uniquement les profils stratégie de groupe pour les réseaux autorisés**.
 
-## <a name="bkmk_nps"></a>Configurer votre NPSs
+## <a name="configure-your-npss"></a><a name="bkmk_nps"></a>Configurer votre NPSs
 Procédez comme suit pour configurer NPSs afin d’effectuer l’authentification 802.1 X pour l’accès sans fil :
 
 - [Inscrire un serveur NPS dans Active Directory Domain Services](#bkmk_npsreg)
@@ -391,7 +391,7 @@ Procédez comme suit pour configurer NPSs afin d’effectuer l’authentificatio
 
 - [Créer des stratégies NPS pour 802.1 X sans fil à l’aide d’un Assistant](#bkmk_npspolicy)
 
-### <a name="bkmk_npsreg"></a>Inscrire un serveur NPS dans Active Directory Domain Services
+### <a name="register-nps-in-active-directory-domain-services"></a><a name="bkmk_npsreg"></a>Inscrire un serveur NPS dans Active Directory Domain Services
 Vous pouvez utiliser cette procédure pour inscrire un serveur exécutant le serveur NPS (Network Policy Server) \(\) NPS dans Active Directory Domain Services \(AD DS\) dans le domaine où le serveur NPS est membre. Pour que NPSs soit autorisé à lire le\-de connexion dans les propriétés des comptes d’utilisateur pendant le processus d’autorisation, chaque serveur NPS doit être enregistré dans AD DS. L’inscription d’un serveur NPS ajoute le serveur au groupe de sécurité **serveurs RAS et IAS** dans AD DS.
 
 >[!NOTE]
@@ -409,7 +409,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 3. Dans **serveur de stratégie réseau**, cliquez sur **OK**, puis de nouveau sur **OK** .
 
-### <a name="bkmk_radiusclient"></a>Configurer un point d’accès sans fil en tant que client RADIUS NPS
+### <a name="configure-a-wireless-ap-as-an-nps-radius-client"></a><a name="bkmk_radiusclient"></a>Configurer un point d’accès sans fil en tant que client RADIUS NPS
 Vous pouvez utiliser cette procédure pour configurer un point d’accès, également connu sous le nom de *serveur d’accès réseau \(NAS\)* , en tant qu'\-de l’accès à distance au service de l’utilisateur \(client RADIUS\) à l’aide de la\-du composant logiciel enfichable NPS dans. 
 
 >[!IMPORTANT]
@@ -450,7 +450,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 9. Cliquez sur **OK**. Votre NAS s’affiche dans la liste des clients RADIUS configurés sur le serveur NPS.
 
-### <a name="bkmk_npspolicy"></a>Créer des stratégies NPS pour 802.1 X sans fil à l’aide d’un Assistant
+### <a name="create-nps-policies-for-8021x-wireless-using-a-wizard"></a><a name="bkmk_npspolicy"></a>Créer des stratégies NPS pour 802.1 X sans fil à l’aide d’un Assistant
 Vous pouvez utiliser cette procédure pour créer les stratégies de demande de connexion et les stratégies réseau nécessaires au déploiement des points d’accès sans fil 802.1 X\-en tant que\-de l’authentification à distance dans le service utilisateur \(RADIUS\) les clients vers le serveur RADIUS exécutant le serveur de stratégie réseau \(\)NPS.  
 Après avoir exécuté l’Assistant, les stratégies suivantes sont créées :
 
@@ -512,7 +512,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 Vos stratégies NPS sont maintenant créées, et vous pouvez passer à la jonction des ordinateurs sans fil au domaine.
 
-## <a name="bkmk_domain"></a>Joindre de nouveaux ordinateurs sans fil au domaine
+## <a name="join-new-wireless-computers-to-the-domain"></a><a name="bkmk_domain"></a>Joindre de nouveaux ordinateurs sans fil au domaine
 La méthode la plus simple pour joindre de nouveaux ordinateurs sans fil au domaine consiste à attacher physiquement l’ordinateur à un segment du réseau local câblé \(un segment non contrôlé par un commutateur 802.1 X\) avant de joindre l’ordinateur au domaine. Cela est plus facile, car les paramètres de stratégie de groupe sans fil sont appliqués automatiquement et immédiatement et, si vous avez déployé votre propre infrastructure à clé publique, l’ordinateur reçoit le certificat d’autorité de certification et le place dans le magasin de certificats autorités de certification racines de confiance, autoriser le client sans fil à approuver NPSs avec les certificats de serveur émis par votre autorité de certification.
 
 De même, une fois qu’un nouvel ordinateur sans fil est joint au domaine, la méthode recommandée pour que les utilisateurs se connectent au domaine consiste à ouvrir une session à l’aide d’une connexion câblée au réseau.
@@ -528,7 +528,7 @@ Pour plus d’informations, consultez la section [joindre le domaine et ouvrir u
 
 Pour plus d’informations, consultez la section [joindre le domaine et ouvrir une session à l’aide de la configuration du profil de démarrage sans fil par les utilisateurs](#bkmk_userbootstrap).
 
-### <a name="bkmk_itstaff"></a>Joindre le domaine et ouvrir une session à l’aide de la méthode de configuration de l’ordinateur du personnel informatique
+### <a name="join-the-domain-and-log-on-by-using-the-it-staff-computer-configuration-method"></a><a name="bkmk_itstaff"></a>Joindre le domaine et ouvrir une session à l’aide de la méthode de configuration de l’ordinateur du personnel informatique
 Les utilisateurs membres du domaine disposant d’un domaine\-des ordinateurs clients sans fil joints peuvent utiliser un profil sans fil temporaire pour se connecter à un réseau sans fil authentifié 802.1 X\-sans se connecter au réseau local filaire. Ce profil sans fil temporaire est appelé *profil de démarrage sans fil*.
 
 Un profil de démarrage sans fil oblige l’utilisateur à spécifier manuellement les informations d’identification de son compte d’utilisateur de domaine et ne valide pas le certificat de la numérotation d’authentification à distance\-dans le service de l’utilisateur \(\) serveur RADIUS exécutant le serveur NPS (Network Policy Server) \(NPS\).
@@ -560,7 +560,7 @@ Une fois que vous avez joint l’ordinateur au domaine, utilisez cette procédur
 
 Lorsque l’utilisateur démarre l’ordinateur, Windows invite l’utilisateur à entrer son nom de compte d’utilisateur de domaine et son mot de passe. Étant donné que l’authentification unique est activée, l’ordinateur utilise les informations d’identification du compte d’utilisateur de domaine pour établir d’abord une connexion avec le réseau sans fil, puis ouvrir une session sur le domaine.
 
-#### <a name="bkmk_w10"></a>Ouvrir une session sur le domaine à l’aide d’ordinateurs exécutant Windows 10
+#### <a name="log-on-to-the-domain-using-computers-running-windows-10"></a><a name="bkmk_w10"></a>Ouvrir une session sur le domaine à l’aide d’ordinateurs exécutant Windows 10
 
 1. Fermez la session sur l’ordinateur et redémarrez-le.
 
@@ -575,7 +575,7 @@ Lorsque l’utilisateur démarre l’ordinateur, Windows invite l’utilisateur 
 >[!NOTE]
 >Si l' **autre écran utilisateur** n’inclut pas le texte de **connexion à :** et votre nom de domaine, vous devez entrer votre nom d’utilisateur au format *domaine\\utilisateur*. Par exemple, pour ouvrir une session sur le domaine example.com avec un compte nommé **user\-01**, tapez **example\\user\-01**.
 
-### <a name="bkmk_userbootstrap"></a>Joindre le domaine et ouvrir une session à l’aide de la configuration du profil de démarrage sans fil par les utilisateurs
+### <a name="join-the-domain-and-log-on-by-using-bootstrap-wireless-profile-configuration-by-users"></a><a name="bkmk_userbootstrap"></a>Joindre le domaine et ouvrir une session à l’aide de la configuration du profil de démarrage sans fil par les utilisateurs
 Avec cette méthode, vous effectuez les étapes de la section étapes générales, puis vous fournissez à vos utilisateurs de domaine\-membres les instructions relatives à la configuration manuelle d’un ordinateur sans fil avec un profil de démarrage sans fil. Le profil de démarrage sans fil permet à l’utilisateur d’établir une connexion sans fil, puis de joindre le domaine. Une fois l’ordinateur joint au domaine et redémarré, l’utilisateur peut ouvrir une session sur le domaine via une connexion sans fil.
 
 #### <a name="general-steps"></a>étapes générales

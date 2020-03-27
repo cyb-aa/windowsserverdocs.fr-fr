@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4b8f10ab7b3da05fbefabb735ee2b8bb4ef1cb8a
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 36c30372b6cac40b603658eca9636a265801fb1a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781346"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315444"
 ---
 # <a name="manage-qos-policy"></a>Gérer la stratégie QoS
 
@@ -32,7 +32,7 @@ Dans les systèmes d’exploitation Windows, la stratégie de qualité de servic
 
 -  [Afficher, modifier ou supprimer une stratégie de QoS](#bkmk_editpolicy)
 
-##  <a name="bkmk_createpolicy"></a>Créer une stratégie de QoS
+##  <a name="create-a-qos-policy"></a><a name="bkmk_createpolicy"></a>Créer une stratégie de QoS
 
 Avant de créer une stratégie de qualité de service, il est important de comprendre les deux principaux contrôles QoS utilisés pour gérer le trafic réseau :
 
@@ -176,7 +176,7 @@ Pour terminer la création de la nouvelle stratégie de QoS, cliquez sur **Termi
   
 Pour appliquer les paramètres de stratégie de qualité de service aux utilisateurs ou aux ordinateurs, liez l’objet de stratégie de groupe dans lequel les stratégies de QoS sont situées dans un conteneur de Active Directory Domain Services, tel qu’un domaine, un site ou une unité d’organisation (UO).  
   
-##  <a name="bkmk_editpolicy"></a>Afficher, modifier ou supprimer une stratégie de QoS
+##  <a name="view-edit-or-delete-a-qos-policy"></a><a name="bkmk_editpolicy"></a>Afficher, modifier ou supprimer une stratégie de QoS
 
 Les pages de l’Assistant stratégie de QoS décrites précédemment correspondent aux pages de propriétés qui s’affichent lorsque vous affichez ou modifiez les propriétés d’une stratégie.  
   
@@ -188,7 +188,7 @@ Les pages de l’Assistant stratégie de QoS décrites précédemment correspond
   
     -   Profil de stratégie  
   
-    -   Nom de l’application  
+    -   Nom de l'application  
   
     -   Adresses IP  
   
@@ -253,10 +253,10 @@ En définissant un niveau de débit inférieur sous l’onglet **trafic TCP entr
   
 La fenêtre de réception TCP a été modifiée dans Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 et Windows Vista à partir des versions précédentes de Windows. Dans les versions précédentes de Windows, la fenêtre côté réception TCP était limitée à un maximum de 64 kilo-octets (Ko), alors que Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 et Windows Vista redimensionnent dynamiquement la fenêtre côté réception jusqu’à 16 mégaoctets (Mo ). Dans le contrôle du trafic TCP entrant, vous pouvez contrôler le niveau de débit entrant en définissant la valeur maximale que peut atteindre la fenêtre de réception TCP. Les niveaux correspondent aux valeurs maximales suivantes. 
   
-|Niveau de débit entrant|Durée maximum|  
+|Niveau de débit entrant|Maximum|  
 |------------------------|-------|  
-|0|64 KO|
-|1|256 KO|
+|0|64 Ko|
+|1|256 Ko|
 |2|1 Mo|
 |3|16 MO|
 
@@ -291,7 +291,7 @@ Par défaut, les ordinateurs qui exécutent Windows Server 2016, Windows 10, Win
 
 Vous pouvez créer des stratégies de qualité de service qui utilisent ces valeurs DSCP pour vous assurer que les ordinateurs portables avec Wi\-fi certifiés™ pour les adaptateurs sans fil WMM reçoivent une gestion hiérarchisée lorsqu’ils sont associés à Wi\-fi certifié pour les points d’accès WMM.
   
-### <a name="BKMK_precedencerules"></a>Règles de priorité de la stratégie QoS
+### <a name="qos-policy-precedence-rules"></a><a name="BKMK_precedencerules"></a>Règles de priorité de la stratégie QoS
 
 À l’instar des priorités des objets de stratégie de groupe, les stratégies de QoS ont des règles de précédence pour résoudre les conflits lorsque plusieurs stratégies de QoS s’appliquent à un ensemble spécifique de trafic. Pour le trafic TCP ou UDP sortant, une seule stratégie de qualité de service peut être appliquée à la fois, ce qui signifie que les stratégies de QoS n’ont pas d’effet cumulatif, par exemple la somme des taux de limitation.
 

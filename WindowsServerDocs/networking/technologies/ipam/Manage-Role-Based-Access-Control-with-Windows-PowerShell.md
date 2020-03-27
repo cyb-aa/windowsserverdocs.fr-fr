@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4f13f78e-0114-4e41-9a28-82a4feccecfc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: dec5c9b9b5d5fe858e063af70ff0a8e16991e632
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a5cd347b849948052f4f7caa7fa8a863808e8c26
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355219"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309539"
 ---
 # <a name="manage-role-based-access-control-with-windows-powershell"></a>Gérer le contrôle d’accès basé sur les rôles avec Windows PowerShell
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à utiliser IPAM pour gérer le contrôle d’accès en fonction du rôle avec Windows PowerShell.  
   
@@ -30,7 +30,7 @@ Vous pouvez utiliser cette rubrique pour apprendre à utiliser IPAM pour gérer 
   
 Les nouvelles commandes IPAM de Windows PowerShell vous permettent de récupérer et de modifier les étendues d’accès des objets DNS et DHCP. Le tableau suivant illustre la commande correcte à utiliser pour chaque objet IPAM.  
   
-|Objet IPAM|Command|Description|  
+|Objet IPAM|Commande|Description|  
 |---------------|-----------|---------------|  
 |Serveur DNS|IpamDnsServer|Cette applet de commande retourne l’objet serveur DNS dans IPAM.|  
 |Zone DNS|IpamDnsZone|Cette applet de commande retourne l’objet de zone DNS dans IPAM.|  

@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 54a8b9490fdf83d04c6b69fa88f4e8beca4f703a
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: 196a124533b98c6945186ee827494b206028d2c8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259064"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317401"
 ---
 # <a name="secure-the-network-controller"></a>Sécuriser le contrôleur de réseau
 
@@ -125,7 +125,7 @@ Pour chacun des modes d’authentification pris en charge par le contrôleur de 
 
 La communication entre les nœuds du contrôleur de réseau est chiffrée à l’aide du chiffrement au niveau du transport WCF. Cette forme de chiffrement est utilisée lorsque les méthodes d’authentification et d’autorisation sont des certificats Kerberos ou x509. Pour plus d’informations, voir les rubriques suivantes :
 
-- [Guide pratique pour sécuriser un service avec les informations d’identification Windows](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
+- [Comment : sécuriser un service avec des informations d’identification Windows](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
 - [Comment : sécuriser un service avec des certificats X. 509](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-secure-a-service-with-an-x-509-certificate).
 
 ## <a name="southbound-communication"></a>Communication Southbound

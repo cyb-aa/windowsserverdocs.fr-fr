@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 68a94616-3c29-45bd-bd33-e4c578f119e1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3225c42ab14e2ea1bc283f520b14c09ebc2254c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 366e3e7eef6ac1e8682dd3064e0d133f21d1a8da
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396084"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315895"
 ---
 # <a name="unregister-an-nps-from-an-active-directory-domain"></a>Désinscrire un serveur NPS d'un domaine Active Directory
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans le processus de gestion de votre déploiement NPS, il peut s’avérer utile de déplacer un serveur NPS vers un autre domaine, de remplacer un serveur NPS ou de retirer un serveur NPS. 
 

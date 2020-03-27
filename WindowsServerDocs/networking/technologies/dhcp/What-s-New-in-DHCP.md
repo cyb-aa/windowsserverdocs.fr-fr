@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: c6f36998-5b64-45d1-b1f0-0f0d6604dbe3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8032b7c8e78170d57b0367775672577d9fd900e2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 58d849fa1003148b034cc426817b97d3a70d4421
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355453"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312696"
 ---
 # <a name="whats-new-in-dhcp"></a>Nouveautés de DHCP
 
@@ -51,8 +51,8 @@ La prise en charge de la protection d’accès réseau a été introduite pour l
 | Windows Server 2008 |Prise en charge|  
 | Windows Server 2008 R2 |Prise en charge|  
 | Windows Server 2012 |Prise en charge|  
-| Windows Server 2012 R2 |Prise en charge|  
-| Windows Server 2016|Non pris en charge|  
+| Windows Server 2012 R2 |Prise en charge|  
+| Windows Server 2016|Non pris en charge|  
   
 Dans un déploiement NAP, un serveur DHCP exécutant un système d’exploitation prenant en charge la protection d’accès réseau peut fonctionner comme point de contrainte de mise en conformité NAP pour la méthode de contrainte de mise en conformité DHCP NAP. Pour plus d’informations sur DHCP dans NAP, consultez [Checklist : Implementing a DHCP Enforcement Design](https://technet.microsoft.com/library/dd314186.aspx).  
   
@@ -60,7 +60,7 @@ Dans Windows Server 2016, les serveurs DHCP n’appliquent pas les stratégies N
 
 Si les serveurs qui exécutent Windows Server 2016 sont des proxys RADIUS qui transfèrent les demandes d’authentification à un serveur de stratégie réseau \(\) NPS qui prend en charge la protection d’accès réseau, ces clients NAP sont évalués par NPS comme non NAP\-et le traitement NAP échoue.
   
-## <a name="see-also"></a>Voir également  
+## <a name="see-also"></a>Voir aussi  
   
 -   [Protocole DHCP (Dynamic Host Configuration Protocol)](Dynamic-Host-Configuration-Protocol--DHCP-.md)  
   

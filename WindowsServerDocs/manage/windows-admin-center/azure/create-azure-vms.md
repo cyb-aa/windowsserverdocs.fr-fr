@@ -9,12 +9,12 @@ manager: jgerend
 ms.date: 01/28/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 08135ed3454bb22db1c2b0fa3a14a8342fbc2dab
-ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
+ms.openlocfilehash: 2249a69f60fe87758c74a58aa13b47124da41361
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80110662"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319370"
 ---
 # <a name="deploy-azure-virtual-machines-from-within-windows-admin-center"></a>Déployer des machines virtuelles Azure à partir du centre d’administration Windows
 
@@ -53,6 +53,10 @@ Les étapes et les assistants de déploiement d’une machine virtuelle Azure va
 Cela démarre un outil de création étape par étape qui sélectionne une machine virtuelle Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019 Azure comme destination de la migration. Le service de migration de stockage fournit des tailles de machine virtuelle recommandées pour correspondre à votre source, mais vous pouvez les remplacer en cliquant sur **afficher toutes les tailles**.
 <br><br>Les données du serveur source sont également utilisées pour configurer automatiquement vos disques gérés et leurs systèmes de fichiers, ainsi que pour joindre votre nouvelle machine virtuelle Azure à votre domaine Active Directory. Si la machine virtuelle est Windows Server 2019 (que nous vous recommandons), le centre d’administration Windows installe la fonctionnalité de proxy du service de migration de stockage. Une fois qu’il a créé la machine virtuelle Azure, le centre d’administration Windows revient au flux de travail de transfert du service de migration de stockage normal.  
 
+Voici une vidéo qui montre comment utiliser Storage migration service pour migrer vers des machines virtuelles Azure.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
+
 ### <a name="deploying-azure-vms-as-part-of-storage-replica"></a>Déploiement de machines virtuelles Azure dans le cadre du réplica de stockage
 
 1. À partir de l’outil *réplica de stockage* dans le centre d’administration Windows, sous l’onglet *partenariats* , sélectionnez **nouveau** , puis sous *répliquer avec un autre serveur* , sélectionnez **utiliser une nouvelle machine virtuelle Azure** , puis sélectionnez **suivant**.
@@ -60,7 +64,7 @@ Cela démarre un outil de création étape par étape qui sélectionne une machi
 Cela démarre un processus qui sélectionne automatiquement une machine virtuelle Windows Server 2016 ou Windows Server 2019 Azure comme destination de la source de migration. Storage Migration Service recommande que les tailles de machine virtuelle correspondent à votre source, mais vous pouvez la remplacer en sélectionnant **afficher toutes les tailles**. Les données d’inventaire sont utilisées pour configurer automatiquement vos disques gérés et leurs systèmes de fichiers, ainsi que pour joindre votre nouvelle machine virtuelle Azure à votre domaine Active Directory. 
 3. Une fois que le centre d’administration Windows a créé la machine virtuelle Azure, fournissez un nom de groupe de réplication, puis sélectionnez **créer**. Le centre d’administration Windows lance ensuite le processus normal de synchronisation du réplica de stockage pour commencer à protéger vos données.
 
-Voici une vidéo qui montre comment utiliser le réplica de stockage pour migrer vers des machines virtuelles Azure.
+Voici une vidéo qui montre comment utiliser le réplica de stockage pour répliquer sur des machines virtuelles Azure.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/_VqD7HjTewQ] 
 

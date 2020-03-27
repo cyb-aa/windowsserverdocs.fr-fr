@@ -6,19 +6,19 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 10/02/2018
-ms.openlocfilehash: e68a3889867b75152ea941ac1d8eb113b9acd3cb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5425a562264addd3b2fc416f659f8ba79d6d99d6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406004"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317496"
 ---
 # <a name="egress-metering-in-a-virtual-network"></a>Sortie du contrôle dans un réseau virtuel
 
->S’applique à : Windows Server 2019
+>S’applique à : Windows Server 2019
 
 
 Un aspect fondamental de la monétisation du réseau Cloud est la capacité à facturer l’utilisation de la bande passante réseau. Les données sortantes sont facturées en fonction de la quantité totale de données déplacées en dehors du centre de données via Internet dans un cycle de facturation donné.
@@ -51,7 +51,7 @@ Votre sortie doit ressembler à ceci :
    ```
 
 
-## <a name="example-manage-the-unbilled-address-ranges-of-a-virtual-network"></a>Exemple : Gérer les plages d’adresses non facturées d’un réseau virtuel
+## <a name="example-manage-the-unbilled-address-ranges-of-a-virtual-network"></a>Exemple : gérer les plages d’adresses non facturées d’un réseau virtuel
 
 Vous pouvez gérer l’ensemble des préfixes de sous-réseau IP à exclure de la mesure de sortie facturée en définissant la propriété **UnbilledAddressRange** d’un réseau virtuel.  Tout trafic envoyé par les interfaces réseau sur le réseau virtuel avec une adresse IP de destination correspondant à l’un des préfixes ne sera pas inclus dans la propriété BilledEgressBytes.
 

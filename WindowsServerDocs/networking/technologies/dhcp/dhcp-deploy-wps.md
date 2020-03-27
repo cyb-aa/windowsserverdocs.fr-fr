@@ -6,14 +6,14 @@ ms.technology: networking-dhcp
 ms.topic: article
 ms.assetid: 7110ad21-a33e-48d5-bb3c-129982913bc8
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 16900809c2c6b877d2b5c45f1c3ca26e55c6bea9
-ms.sourcegitcommit: 7df2bd3a7d07a50ace86477335ed6fbfb2dac373
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a5b2e750bd7a0103382f6d91c515f4e283a112cb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77027942"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312659"
 ---
 # <a name="deploy-dhcp-using-windows-powershell"></a>Déploiement de DHCP à l'aide de Windows PowerShell
 
@@ -39,19 +39,19 @@ Ce guide contient les sections suivantes.
 - [Commandes Windows PowerShell pour DHCP](#bkmk_dhcpwps)
 - [Liste des commandes Windows PowerShell dans ce guide](#bkmk_list)
 
-## <a name="bkmk_overview"></a>Présentation du déploiement DHCP
+## <a name="dhcp-deployment-overview"></a><a name="bkmk_overview"></a>Présentation du déploiement DHCP
 
 L’illustration suivante représente le scénario que vous pouvez déployer à l’aide de ce guide. Le scénario comprend un serveur DHCP dans un domaine Active Directory. Le serveur est configuré pour fournir des adresses IP aux clients DHCP sur deux sous-réseaux différents. Les sous-réseaux sont séparés par un routeur pour lequel le transfert DHCP est activé.
 
 ![Vue d’ensemble de la topologie du réseau DHCP](../../media/Core-Network-Guide/cng16_overview.jpg)
 
-## <a name="bkmk_technologies"></a>Vues d’ensemble de la technologie
+## <a name="technology-overviews"></a><a name="bkmk_technologies"></a>Vues d’ensemble de la technologie
 
 Les sections suivantes fournissent de brèves vues d’ensemble de DHCP et TCP/IP.
 
 ### <a name="dhcp-overview"></a>Vue d’ensemble de DHCP
 
-DHCP est une norme IP permettant de simplifier la gestion de la configuration IP de l’hôte. Cette norme permet d’utiliser des serveurs DHCP comme moyen de gérer l’allocation dynamique d’adresses IP et d’autres informations de configuration pour les clients DHCP sur votre réseau.
+DHCP est une norme IP permettant de simplifier la gestion de la configuration IP de l’hôte. Le standard DHCP permet d'utiliser des serveurs DHCP comme une méthode de gestion d'affectation dynamique d'adresses IP et d'autres détails de configuration correspondants pour les clients DHCP d'un réseau.
 
 DHCP vous permet d’utiliser un serveur DHCP pour attribuer dynamiquement une adresse IP à un ordinateur ou à un autre périphérique, tel qu’une imprimante, sur votre réseau local, plutôt que de configurer manuellement chaque appareil avec une adresse IP statique.
 
@@ -81,21 +81,21 @@ TCP/IP propose des utilitaires TCP/IP de base qui permettent aux ordinateurs Win
 
 - Windows Server 2016
 
-- Windows 10
+- Windows 10
 
-- R2 Windows Server 2012
+- Windows Server 2012 R2
 
-- Windows 8.1
+- Windows 8.1
 
-- Windows Server 2012
+- Windows Server 2012
 
-- Windows 8
+- Windows 8
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2
 
-- Windows 7
+- Windows 7
 
-- Windows Server 2008
+- Windows Server 2008
 
 - Windows Vista
 
@@ -113,7 +113,7 @@ TCP/IP propose des utilitaires TCP/IP de base qui permettent aux ordinateurs Win
 
 - Tablettes et téléphones cellulaires avec technologie Ethernet câblée ou Wireless 802,11 activée
 
-## <a name="bkmk_plan"></a>Planifier le déploiement DHCP
+## <a name="plan-dhcp-deployment"></a><a name="bkmk_plan"></a>Planifier le déploiement DHCP
 
 Voici les principales étapes de planification avant l’installation du rôle serveur DHCP.
 
@@ -131,17 +131,17 @@ En règle générale, il est économiquement plus avantageux de configurer des r
 
 Chaque sous-réseau doit avoir sa propre plage d’adresses IP unique. Ces plages sont représentées sur un serveur DHCP avec des étendues.
 
-Une étendue est un groupement administratif des adresses IP des ordinateurs d’un sous-réseau qui utilisent le service DHCP. L’administrateur crée d’abord une étendue pour chaque sous-réseau physique, puis utilise l’étendue pour définir les paramètres utilisés par les clients.
+Une étendue est un groupement administratif des adresses IP des ordinateurs d'un sous-réseau qui utilisent le service DHCP (Dynamic Host Configuration Protocol). L'administrateur crée d'abord une étendue pour chaque sous-réseau physique, puis utilise l'étendue pour définir les paramètres utilisés par les clients.
 
 Une étendue possède les propriétés suivantes :
 
-- une plage d’adresses IP où inclure ou exclure les adresses utilisées pour les offres de bail de service DHCP ;
+- Une plage d'adresses IP où inclure ou exclure les adresses utilisées pour les offres de bail de service DHCP.
 
 - un masque de sous-réseau, qui détermine le préfixe de sous-réseau correspondant à une adresse IP donnée ;
 
-- un nom affecté à l’étendue lors de sa création ;
+- Un nom affecté à l'étendue lors de sa création.
 
-- des valeurs de durée de bail, qui sont affectées aux clients DHCP recevant des adresses IP allouées de manière dynamique ;
+- Des valeurs de durée de bail, qui sont affectées aux clients DHCP recevant des adresses IP allouées de manière dynamique.
 
 - des options d’étendue DHCP configurées pour être affectées aux clients DHCP, telles que l’adresse IP d’un serveur DNS et l’adresse IP d’un routeur/d’une passerelle par défaut ;
 
@@ -210,7 +210,7 @@ Des exemples d’éléments de configuration supplémentaires pour AD DS et DNS 
 |Valeurs d’étendue<br /><br />1. nom de l’étendue<br />2. adresse IP de début<br />3. adresse IP de fin<br />4. masque de sous-réseau<br />5. passerelle par défaut (facultatif)<br />6. durée du bail|1. sous-réseau principal<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 jours|
 |Mode d’opération du serveur DHCP IPv6|Non activé|
 
-## <a name="bkmk_lab"></a>Utilisation de ce guide dans un laboratoire de test
+## <a name="using-this-guide-in-a-test-lab"></a><a name="bkmk_lab"></a>Utilisation de ce guide dans un laboratoire de test
 
 Vous pouvez utiliser ce guide pour déployer DHCP dans un laboratoire de test avant de déployer dans un environnement de production. 
 
@@ -273,13 +273,13 @@ Ce déploiement nécessite un concentrateur ou un commutateur, un serveur physiq
 3. Un ordinateur physique exécutant un système d’exploitation client Windows que vous utiliserez pour vérifier que votre serveur DHCP alloue dynamiquement des adresses IP et des options DHCP aux clients DHCP.
 
 
-## <a name="bkmk_deploy"></a>Déployer DHCP
+## <a name="deploy-dhcp"></a><a name="bkmk_deploy"></a>Déployer DHCP
 
 Cette section fournit des exemples de commandes Windows PowerShell que vous pouvez utiliser pour déployer DHCP sur un serveur. Avant d’exécuter ces exemples de commandes sur votre serveur, vous devez modifier les commandes pour qu’elles correspondent à votre réseau et à votre environnement. 
 
 Par exemple, avant d’exécuter les commandes, vous devez remplacer les exemples de valeurs dans les commandes pour les éléments suivants :
 
-- Noms des ordinateurs
+- Noms d'ordinateur
 - Plage d’adresses IP pour chaque étendue que vous souhaitez configurer (1 étendue par sous-réseau)
 - Masque de sous-réseau pour chaque plage d’adresses IP que vous souhaitez configurer
 - Nom de l’étendue pour chaque étendue
@@ -490,7 +490,7 @@ Si vous disposez de sous-réseaux supplémentaires qui sont pris en service par 
 > [!IMPORTANT]
 > Assurez-vous que tous les routeurs entre vos clients DHCP et votre serveur DHCP sont configurés pour le transfert de messages DHCP. Pour plus d’informations sur la configuration du transfert DHCP, consultez la documentation de votre routeur.
 
-## <a name="bkmk_verify"></a>Vérifier la fonctionnalité du serveur
+## <a name="verify-server-functionality"></a><a name="bkmk_verify"></a>Vérifier la fonctionnalité du serveur
 
 Pour vérifier que votre serveur DHCP fournit une allocation dynamique d’adresses IP aux clients DHCP, vous pouvez connecter un autre ordinateur à un sous-réseau desservi. Une fois que vous avez connecté le câble Ethernet à la carte réseau et que vous mettez l’ordinateur sous tension, il demande une adresse IP à partir de votre serveur DHCP. Vous pouvez vérifier que la configuration a réussi à l’aide de la commande **ipconfig/all** et en examinant les résultats, ou en effectuant des tests de connectivité, par exemple en tentant d’accéder à des ressources Web avec votre navigateur ou vos partages de fichiers avec l’Explorateur Windows ou d’autres applications.
 
@@ -501,7 +501,7 @@ Si le client ne reçoit pas d’adresse IP de votre serveur DHCP, effectuez les 
 3. Assurez-vous que le serveur DHCP est autorisé dans Active Directory en exécutant la commande suivante pour récupérer la liste des serveurs DHCP autorisés à partir de Active Directory. [Accédez à DhcpServerInDC](https://docs.microsoft.com/powershell/module/dhcpserver/Get-DhcpServerInDC).
 4. Assurez-vous que vos étendues sont activées en ouvrant la console DHCP \(Gestionnaire de serveur, **Outils**, **DHCP**\), en développant l’arborescence du serveur pour examiner les étendues, puis\-cliquez avec le bouton droit sur chaque étendue. Si le menu qui s’affiche comprend la sélection **activer**, cliquez sur **activer**. \(si l’étendue est déjà activée, la sélection de menu lit **Désactiver**.\)
 
-## <a name="bkmk_dhcpwps"></a>Commandes Windows PowerShell pour DHCP
+## <a name="windows-powershell-commands-for-dhcp"></a><a name="bkmk_dhcpwps"></a>Commandes Windows PowerShell pour DHCP
 
 La référence suivante fournit des descriptions et une syntaxe de commande pour toutes les commandes Windows PowerShell de serveur DHCP pour Windows Server 2016. La rubrique répertorie les commandes dans l’ordre alphabétique en fonction du verbe situé au début des commandes, telles que l' **extraction** ou la **définition**.
 
@@ -517,7 +517,7 @@ La référence suivante fournit les descriptions et la syntaxe des commandes pou
 
 - [Applets de commande du serveur DHCP dans Windows PowerShell](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-deploy-wps)
 
-## <a name="bkmk_list"></a>Liste des commandes Windows PowerShell dans ce guide
+## <a name="list-of-windows-powershell-commands-in-this-guide"></a><a name="bkmk_list"></a>Liste des commandes Windows PowerShell dans ce guide
 
 Voici une liste simple de commandes et d’exemples de valeurs qui sont utilisés dans ce guide.
 

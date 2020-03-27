@@ -6,23 +6,23 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: c04074338cf4ba0189eb1e9bc45a80b948fdbfbf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d3afb21c466ef1010a20ec811df45b9dcb2b711
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388043"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312251"
 ---
-# <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Étape 3. Configurer le serveur d'accès à distance pour VPN Toujours actif (AlwaysOn)
+# <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Étape 3. Configurer le serveur d'accès à distance pour VPN Toujours actif (AlwaysOn)
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Premier** Étape 2. Configurer l’infrastructure de serveur](vpn-deploy-server-infrastructure.md)
-- [**Premier** Étape 4. Installer et configurer le serveur NPS (Network Policy Server)](vpn-deploy-nps.md)
+- [**Précédent :** Étape 2. Configurer l’infrastructure de serveur](vpn-deploy-server-infrastructure.md)
+- [**Précédent :** Étape 4. Installer et configurer le serveur NPS (Network Policy Server)](vpn-deploy-nps.md)
 
 RRAS est conçu pour fonctionner correctement à la fois comme un routeur et un serveur d’accès à distance, car il prend en charge un vaste éventail de fonctionnalités. Dans le cadre de ce déploiement, vous n’avez besoin que d’un petit sous-ensemble de ces fonctionnalités : la prise en charge des connexions VPN IKEv2 et du routage LAN.
 
@@ -173,7 +173,7 @@ Dans cette section, vous pouvez configurer le VPN d’accès à distance pour au
 
 14. Vérifiez le paramètre du **fournisseur de gestion des comptes**:
 
-    |                    Si vous souhaitez que le...                     |                                                     Alors...                                                      |
+    |                    Si vous souhaitez que le...                     |                                                     Alors…                                                      |
     |-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
     | Activité d’accès à distance enregistrée sur le serveur d’accès à distance |                               Assurez-vous que la **gestion des comptes Windows** est sélectionnée.                               |
     |        NPS pour effectuer des services de gestion de comptes pour VPN         | Remplacez le **fournisseur de gestion de comptes** par **RADIUS Accounting** , puis configurez le serveur NPS en tant que fournisseur de gestion des comptes. |
@@ -198,7 +198,7 @@ Dans cette section, vous pouvez configurer le VPN d’accès à distance pour au
 
     a. Cliquez avec le bouton droit sur connexions à la stratégie réseau du **serveur d’accès à distance et de routage Microsoft** , puis sélectionnez **Propriétés**.
 
-    b. Sélectionnez accorder **l’accès. Accordez l’accès si la demande de connexion** correspond à cette option de stratégie.
+    b. Sélectionnez **accorder l’accès. Accordez l’accès si la demande de connexion correspond à cette option de stratégie** .
 
     c. Sous type de serveur d’accès réseau, sélectionnez **serveur d’accès à distance (VPN-accès** à distance) dans la liste déroulante.
 
@@ -234,4 +234,4 @@ Dans cette section, vous pouvez configurer le VPN d’accès à distance pour au
 
 ## <a name="next-step"></a>Étape suivante
 
-[Étape 4. Installer et configurer le serveur NPS (Network Policy Server](vpn-deploy-nps.md)) : Dans cette étape, vous installez le serveur NPS (Network Policy Server) à l’aide de Windows PowerShell ou de l’Assistant Gestionnaire de serveur ajouter des rôles et des fonctionnalités. Vous configurez également NPS pour gérer toutes les tâches d’authentification, d’autorisation et de comptabilité pour les demandes de connexion qu’il reçoit du serveur VPN.
+[Étape 4. Installer et configurer le serveur NPS (Network Policy Server)](vpn-deploy-nps.md): dans cette étape, vous installez le serveur NPS (Network Policy Server) à l’aide de Windows PowerShell ou de l’assistant gestionnaire de serveur ajouter des rôles et des fonctionnalités. Vous configurez également NPS pour gérer toutes les tâches d’authentification, d’autorisation et de comptabilité pour les demandes de connexion qu’il reçoit du serveur VPN.

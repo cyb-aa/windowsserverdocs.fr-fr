@@ -10,14 +10,14 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 26d105e0-afc3-44b5-bb5e-0c884a4c5d62
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3ff03dae44600ff79ed22d298ee338c570e61e36
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d8e7130d5774c19cc3d51045786bfef319cf7d16
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405483"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316432"
 ---
 # <a name="nic-teaming-mac-address-use-and-management"></a>Gestion et utilisation des adresses MAC d'association de cartes réseau
 
@@ -34,7 +34,7 @@ Vous pouvez définir l’adresse MAC de l’Association de cartes réseau sur un
 ## <a name="mac-address-use-on-transmitted-packets"></a>Utilisation des adresses MAC sur les paquets transmis  
 Quand vous configurez une association de cartes réseau en mode indépendant du commutateur et de hachage d’adresse ou de charge dynamique, les paquets d’une seule source (par exemple, une machine virtuelle unique) sont répartis simultanément entre plusieurs membres de l’équipe. Pour éviter toute confusion entre les commutateurs et pour empêcher les alarmes à ailes MAC, l’adresse MAC source est remplacée par une autre adresse MAC sur les trames transmises sur les membres de l’équipe autres que le membre de l’équipe principal. Pour cette raison, chaque membre de l’équipe utilise une adresse MAC différente, et les conflits d’adresses MAC sont empêchés à moins qu’une défaillance ne se produise.  
   
-Quand une défaillance est détectée sur la carte réseau principale, le logiciel d’association de cartes réseau commence à utiliser l’adresse MAC du membre de l’équipe principale sur le membre de l’équipe qui est choisi comme membre de l’équipe principale temporaire (c’est-à-dire, celui qui apparaît maintenant au commutateur comme l’équipe principale). mbre).  Cette modification s’applique uniquement au trafic qui devait être envoyé sur le membre de l’équipe principal avec l’adresse MAC du membre de l’équipe principale comme adresse MAC source. D’autres trafics continuent d’être envoyés avec l’adresse MAC source qu’il aurait utilisé avant la défaillance.  
+Quand une défaillance est détectée sur la carte réseau principale, le logiciel d’association de cartes réseau commence à utiliser l’adresse MAC du membre de l’équipe principale sur le membre de l’équipe qui est choisi comme membre de l’équipe principale temporaire (c’est-à-dire, celui qui apparaît désormais au commutateur comme l’équipe principale). membre).  Cette modification s’applique uniquement au trafic qui devait être envoyé sur le membre de l’équipe principal avec l’adresse MAC du membre de l’équipe principale comme adresse MAC source. D’autres trafics continuent d’être envoyés avec l’adresse MAC source qu’il aurait utilisé avant la défaillance.  
   
 Vous trouverez ci-dessous des listes qui décrivent le comportement de remplacement des adresses MAC de l’Association de cartes réseau, en fonction de la configuration de l’équipe :  
   
@@ -69,13 +69,13 @@ Vous trouverez ci-dessous des listes qui décrivent le comportement de remplacem
     -   Aucun remplacement d’adresse MAC source n’est effectué  
   
 ## <a name="related-topics"></a>Rubriques connexes
-- [Association de cartes réseau](NIC-Teaming.md): Dans cette rubrique, nous vous proposons une vue d’ensemble de l’Association de cartes d’interface réseau (NIC) dans Windows Server 2016. L’Association de cartes réseau vous permet de grouper entre une et 32 cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelles basées sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.  
+- [Association de cartes](NIC-Teaming.md)réseau : dans cette rubrique, nous vous proposons une vue d’ensemble de l’Association de cartes d’interface réseau (NIC) dans Windows Server 2016. L’Association de cartes réseau vous permet de grouper entre une et 32 cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelles basées sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.  
 
-- [Paramètres d’association de cartes réseau](nic-teaming-settings.md): Dans cette rubrique, nous vous offrons une vue d’ensemble des propriétés de l’équipe de cartes réseau, telles que les modes d’association et d’équilibrage de charge. Nous vous fournissons également des détails sur le paramètre de l’adaptateur de secours et la propriété de l’interface d’équipe principale. Si vous disposez d’au moins deux cartes réseau dans une association de cartes réseau, vous n’avez pas besoin de désigner une carte de secours pour la tolérance de panne.
+- [Paramètres d’association de cartes réseau](nic-teaming-settings.md): dans cette rubrique, nous vous offrons une vue d’ensemble des propriétés de l’équipe de cartes réseau, telles que les modes d’association et d’équilibrage de charge. Nous vous fournissons également des détails sur le paramètre de l’adaptateur de secours et la propriété de l’interface d’équipe principale. Si vous disposez d’au moins deux cartes réseau dans une association de cartes réseau, vous n’avez pas besoin de désigner une carte de secours pour la tolérance de panne.
   
-- [Créer une nouvelle association de cartes réseau sur un ordinateur hôte ou une machine virtuelle](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): Dans cette rubrique, vous allez créer une nouvelle association de cartes réseau sur un ordinateur hôte ou dans une machine virtuelle Hyper-V exécutant Windows Server 2016.
+- [Créer une association de cartes réseau sur un ordinateur hôte ou une machine virtuelle](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): dans cette rubrique, vous allez créer une nouvelle association de cartes réseau sur un ordinateur hôte ou sur une machine virtuelle Hyper-V exécutant Windows Server 2016.
 
-- [Résolution des problèmes d’association de cartes réseau](Troubleshooting-NIC-Teaming.md): Dans cette rubrique, nous expliquons comment résoudre les problèmes liés à l’Association de cartes réseau, telles que le matériel, les titres de commutateur physique et la désactivation ou l’activation de cartes réseau à l’aide de Windows PowerShell. 
+- [Résolution des problèmes d’association de cartes](Troubleshooting-NIC-Teaming.md)réseau : dans cette rubrique, nous expliquons comment résoudre les problèmes liés à l’Association de cartes réseau, telles que le matériel, les titres de commutateur physique et la désactivation ou l’activation de cartes réseau à l’aide de Windows PowerShell. 
   
 
 

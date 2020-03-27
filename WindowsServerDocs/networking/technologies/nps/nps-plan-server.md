@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 2900dd2c-0f70-4f8d-9650-ed83d51d509a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: bbcf3338f2cd6d8662a84faf263b486e31b140e5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0e012746841bcf736b7698afb5d7c807194bbec0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405341"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315729"
 ---
 # <a name="plan-nps-as-a-radius-server"></a>Planifier un serveur NPS en tant que serveur RADIUS
 

@@ -10,22 +10,22 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac2f6015-50a5-4909-8f67-8565f9d332a2
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: da23f3082e1d97f1bcfbee7365b863d29ba2d020
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4b9da54822c1b7610bbd7a095beeb305eb243bb1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404499"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314035"
 ---
 # <a name="deploy-multiple-remote-access-servers-in-a-multisite-deployment"></a>Déployer plusieurs serveurs d’accès à distance dans un déploiement multisite
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
  Windows Server 2016 et Windows Server 2012 associent DirectAccess et le VPN RAS (Remote Access Service) à un rôle d’accès à distance unique. L’accès à distance peut être déployé dans plusieurs scénarios d’entreprise. Cette vue d’ensemble fournit une introduction au scénario d’entreprise pour le déploiement de serveurs d’accès à distance dans une configuration multisite.  
   
-## <a name="BKMK_OVER"></a>Description du scénario  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Description du scénario  
 Dans un déploiement multisite, deux ou plusieurs serveurs d’accès à distance ou clusters de serveurs sont déployés et configurés en tant que points d’entrée différents dans un emplacement unique ou dans des emplacements géographiques dispersés. Le déploiement de plusieurs points d’entrée dans un seul emplacement permet la redondance des serveurs ou l’alignement des serveurs d’accès à distance avec l’architecture réseau existante. Le déploiement par emplacement géographique garantit une utilisation efficace des ressources, car les ordinateurs clients distants peuvent se connecter aux ressources réseau internes à l’aide d’un point d’entrée le plus proche. Le trafic dans un déploiement multisite peut être distribué et équilibré avec un équilibreur de charge global externe.  
   
 Un déploiement multisite prend en charge les ordinateurs clients exécutant Windows 10, Windows 8 ou Windows 7. Les ordinateurs clients qui exécutent Windows 10 ou Windows 8 identifient automatiquement un point d’entrée, ou l’utilisateur peut sélectionner manuellement un point d’entrée. L’attribution automatique se produit dans l’ordre de priorité suivant :  
@@ -38,7 +38,7 @@ Un déploiement multisite prend en charge les ordinateurs clients exécutant Win
   
 La prise en charge des clients exécutant Windows 7 doit être activée manuellement sur chaque point d’entrée, et la sélection d’un point d’entrée par ces clients n’est pas prise en charge.  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Composants requis  
 Avant de déployer ce scénario, prenez connaissance des conditions requises suivantes qui ont leur importance :  
   
 -   [Le déploiement d’un serveur DirectAccess unique avec des paramètres avancés](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) doit être déployé avant un déploiement multisite.  
@@ -49,7 +49,7 @@ Avant de déployer ce scénario, prenez connaissance des conditions requises sui
   
 -   Une infrastructure à clé publique doit être déployée.  
   
-    Pour plus d’informations, voir : Mini-module [Test Lab Guide : Infrastructure à clé publique de base pour Windows Server 2012. ](https://social.technet.microsoft.com/wiki/contents/articles/7862.test-lab-guide-mini-module-basic-pki-for-windows-server-2012.aspx)  
+    Pour plus d’informations, voir : [Mini-module de Guide de laboratoire de test : Infrastructure à clé publique de base pour Windows Server 2012.](https://social.technet.microsoft.com/wiki/contents/articles/7862.test-lab-guide-mini-module-basic-pki-for-windows-server-2012.aspx)  
   
 -   IPv6 doit être activé sur le réseau d’entreprise. Si vous utilisez le protocole ISATAP, vous devez le supprimer et utiliser le protocole IPv6 natif.  
   
@@ -64,14 +64,14 @@ Le scénario de déploiement multisite comprend un certain nombre d’étapes :
   
 4. [Résoudre les problèmes liés à un déploiement multisite](troubleshoot/Troubleshoot-a-Multisite-Deployment.md). Cette section de résolution des problèmes décrit plusieurs des erreurs les plus courantes qui peuvent se produire lors du déploiement de l’accès à distance dans un déploiement multisite.
   
-## <a name="BKMK_APP"></a>Applications pratiques  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applications pratiques  
 Un déploiement multisite fournit les éléments suivants :  
   
 -   Amélioration des performances : un déploiement multisite permet aux ordinateurs clients d’accéder aux ressources internes à l’aide de l’accès à distance pour se connecter à l’aide du point d’entrée le plus proche et le plus approprié. L’accès client aux ressources internes est efficace et la vitesse des demandes Internet clientes routées via DirectAccess est améliorée. Le trafic entre les points d’entrée peut être équilibré à l’aide d’un équilibreur de charge global externe.  
   
 -   Facilité de gestion-multisite permet aux administrateurs d’aligner le déploiement de l’accès à distance sur un déploiement de sites Active Directory, en fournissant une architecture simplifiée. Les paramètres partagés peuvent être facilement définis sur des serveurs de point d’entrée ou des clusters. Les paramètres d’accès à distance peuvent être gérés à partir de n’importe quel serveur dans le déploiement, ou à l’aide de Outils d’administration de serveur distant (RSAT). En outre, l’ensemble du déploiement multisite peut être analysé à partir d’une seule console de gestion de l’accès à distance.  
   
-## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau suivant répertorie les rôles et les fonctionnalités utilisés dans ce scénario.  
   
 |Rôle/fonctionnalité|Prise en charge de ce scénario|  
@@ -79,7 +79,7 @@ Le tableau suivant répertorie les rôles et les fonctionnalités utilisés dans
 |Rôle Accès à distance|Ce rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur. Il englobe à la fois DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et le service de routage et d’accès distant (RRAS) qui était auparavant un service de rôle sous le rôle de serveur Services de stratégie et d’accès réseau. Le rôle Accès à distance est constitué de deux composants :<br /><br />-DirectAccess et les services de routage et d’accès à distance (RRAS) VPN-DirectAccess et VPN sont gérés ensemble dans la console de gestion de l’accès à distance.<br />-Routage RRAS : les fonctionnalités de routage RRAS sont gérées dans la console de routage et d’accès distant héritée.<br /><br />Les dépendances sont les suivantes :<br /><br />-Serveur Web Internet Information Services (IIS) : cette fonctionnalité est requise pour configurer le serveur emplacement réseau et la sonde Web par défaut.<br />-Base de données interne Windows : utilisée pour la comptabilité locale sur le serveur d’accès à distance.|  
 |Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<br /><br />-Elle est installée par défaut sur un serveur d’accès à distance lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance.<br />-Il peut éventuellement être installé sur un serveur qui n’exécute pas le rôle de serveur d’accès à distance. Dans ce cas, elle est utilisée pour la gestion à distance d’un ordinateur d’accès à distance qui exécute DirectAccess et le réseau privé virtuel (VPN).<br /><br />La fonctionnalité des outils de gestion de l’accès à distance est constituée des éléments suivants :<br /><br />-Interface utilisateur graphique d’accès à distance et outils en ligne de commande<br />-Module d’accès à distance pour Windows PowerShell<br /><br />Les dépendances incluent :<br /><br />-Console de gestion des stratégies de groupe<br />-Kit d’administration du gestionnaire des connexions (CMAK) RAS<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
   
-## <a name="BKMK_HARD"></a>Configuration matérielle requise  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Configuration matérielle requise  
 La configuration matérielle requise pour ce scénario comprend les éléments suivants :  
   
 -   Au moins deux ordinateurs d’accès à distance à collecter dans un déploiement multisite.   
@@ -88,7 +88,7 @@ La configuration matérielle requise pour ce scénario comprend les éléments s
   
 -   Pour équilibrer la charge du trafic entre les serveurs de point d’entrée, un équilibrage de charge global externe tiers est requis.  
   
-## <a name="BKMK_SOFT"></a>Configuration logicielle requise  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Configuration logicielle requise  
 La configuration logicielle requise pour ce scénario comprend les éléments suivants :  
   
 -   Configuration logicielle requise pour un déploiement sur un seul serveur.  
@@ -117,7 +117,7 @@ La configuration logicielle requise pour ce scénario comprend les éléments su
   
         -   Un objet de stratégie de groupe client Windows 7 unique est requis pour chaque point d’entrée activé pour la prise en charge du client Windows 7, pour chaque domaine.  
   
-## <a name="KnownIssues"></a>Problèmes connus  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Problèmes connus  
 Voici les problèmes connus liés à la configuration d’un scénario multisite :  
   
 -   **Plusieurs points d’entrée dans le même sous-réseau IPv4**. L’ajout de plusieurs points d’entrée dans le même sous-réseau IPv4 génère un message de conflit d’adresse IP et l’adresse DNS64 du point d’entrée n’est pas configurée comme prévu. Ce problème se produit quand IPv6 n’a pas été déployé sur les interfaces internes des serveurs sur le réseau d’entreprise. Pour éviter ce problème, exécutez la commande Windows PowerShell suivante sur tous les serveurs d’accès à distance actuels et futurs :  
@@ -139,7 +139,7 @@ Voici les problèmes connus liés à la configuration d’un scénario multisite
   
     Dans le cas où le client a déjà été mis à niveau, déplacez l’ordinateur client vers le groupe de sécurité Windows 8.  
   
--   Lors de la modification des paramètres du contrôleur de domaine à l’aide de l’applet de commande Windows PowerShell **Set-DAEntryPointDC**, si le paramètre ComputerName spécifié est un serveur d’accès à distance dans un point d’entrée autre que le dernier ajouté au déploiement multisite, un avertissement s’affiche pour indiquer que le serveur spécifié ne sera pas mis à jour avant la prochaine actualisation de la stratégie. Le ou les serveurs réels qui n’ont pas été mis à jour peuvent être consultés à l’aide de l' **État de configuration** dans le **tableau de bord** de la console de gestion de l' **accès à distance**. Cela ne provoque pas de problèmes fonctionnels. Toutefois, vous pouvez exécuter **gpupdate/force** sur le ou les serveurs qui n’ont pas été mis à jour pour que l’état de configuration soit mis à jour immédiatement.  
+-   Lors de la modification des paramètres du contrôleur de domaine à l’aide de l’applet de commande Windows PowerShell **Set-DAEntryPointDC**, si le paramètre ComputerName spécifié est un serveur d’accès à distance dans un point d’entrée autre que le dernier ajouté au déploiement multisite, un avertissement s’affiche indiquant que le serveur spécifié n’est pas mis à jour avant l’actualisation de la stratégie suivante. Le ou les serveurs réels qui n’ont pas été mis à jour peuvent être consultés à l’aide de l' **État de configuration** dans le **tableau de bord** de la console de gestion de l' **accès à distance**. Cela ne provoque pas de problèmes fonctionnels. Toutefois, vous pouvez exécuter **gpupdate/force** sur le ou les serveurs qui n’ont pas été mis à jour pour que l’état de configuration soit mis à jour immédiatement.  
   
 -   Lorsque le déploiement multisite est effectué dans un réseau d’entreprise IPv4 uniquement, la modification du préfixe IPv6 de réseau interne modifie également l’adresse DNS64, mais ne met pas à jour l’adresse sur les règles de pare-feu qui autorisent les requêtes DNS sur le service DNS64. Pour résoudre ce problème, exécutez les commandes Windows PowerShell suivantes après avoir modifié le préfixe IPv6 de réseau interne :  
   
@@ -159,7 +159,7 @@ Voici les problèmes connus liés à la configuration d’un scénario multisite
   
 -   Si DirectAccess a été déployé quand une infrastructure ISATAP existante était présente, lors de la suppression d’un point d’entrée qui était un hôte ISATAP, l’adresse IPv6 du service DNS64 sera supprimée des adresses de serveur DNS de tous les suffixes DNS dans la table NRPT.  
   
-    Pour résoudre ce problème, dans l’Assistant **installation du serveur d’infrastructure** , dans la page **DNS** , supprimez les suffixes DNS qui ont été modifiés et rajoutez-les avec les adresses de serveur DNS correctes, en cliquant sur **détecter** sur les **adresses de serveur DNS.** boîte de dialogue.  
+    Pour résoudre ce problème, dans l’Assistant **installation du serveur d’infrastructure** , dans la page **DNS** , supprimez les suffixes DNS qui ont été modifiés et rajoutez-les avec les adresses de serveur DNS correctes, en cliquant sur **détecter** dans la boîte de dialogue **adresses de serveur DNS** .  
   
 
 

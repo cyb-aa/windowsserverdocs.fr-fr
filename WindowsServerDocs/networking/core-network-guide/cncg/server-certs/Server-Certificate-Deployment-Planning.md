@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 7eb746e0-1046-4123-b532-77d5683ded44
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1ec5bc315381f85434753f9becc94409a74271b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2da57ab750cc556b521329f4096fb088e212a903
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356106"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318217"
 ---
 # <a name="server-certificate-deployment-planning"></a>Planification du déploiement de certificats de serveur
 
@@ -37,25 +37,25 @@ Avant de déployer des certificats de serveur, vous devez planifier les élémen
   
 -   [Planifier la configuration du modèle de certificat de serveur sur l’autorité de certification](#bkmk_template)  
   
-## <a name="bkmk_basic"></a>Planifier la configuration du serveur de base  
+## <a name="plan-basic-server-configuration"></a><a name="bkmk_basic"></a>Planifier la configuration du serveur de base  
 Après avoir installé Windows Server 2016 sur les ordinateurs que vous envisagez d’utiliser en tant qu’autorité de certification et serveur Web, vous devez renommer l’ordinateur et affecter et configurer une adresse IP statique pour l’ordinateur local.  
   
 Pour plus d’informations, consultez le Guide du [réseau de base](../../../core-network-guide/Core-Network-Guide.md)Windows Server 2016.  
   
-## <a name="bkmk_domain"></a>Planifier l’accès au domaine  
+## <a name="plan-domain-access"></a><a name="bkmk_domain"></a>Planifier l’accès au domaine  
 Pour ouvrir une session sur le domaine, l’ordinateur doit être un ordinateur membre du domaine et le compte d’utilisateur doit être créé dans AD DS avant la tentative d’ouverture de session. En outre, la plupart des procédures de ce guide requièrent que le compte d’utilisateur soit membre des groupes Administrateurs de l’entreprise ou Admins du domaine dans Active Directory utilisateurs et ordinateurs. vous devez donc vous connecter à l’autorité de certification avec un compte disposant de l’appartenance au groupe appropriée.  
   
 Pour plus d’informations, consultez le Guide du [réseau de base](../../../core-network-guide/Core-Network-Guide.md)Windows Server 2016.  
   
-## <a name="bkmk_virtual"></a>Planifier l’emplacement et le nom du répertoire virtuel sur votre serveur Web  
+## <a name="plan-the-location-and-name-of-the-virtual-directory-on-your-web-server"></a><a name="bkmk_virtual"></a>Planifier l’emplacement et le nom du répertoire virtuel sur votre serveur Web  
 Pour fournir un accès à la liste de révocation de certificats et au certificat de l’autorité de certification sur d’autres ordinateurs, vous devez stocker ces éléments dans un répertoire virtuel sur votre serveur Web. Dans ce guide, le répertoire virtuel se trouve sur le serveur Web WEB1. Ce dossier se trouve sur le lecteur « C : » et est nommé « PKI ». Vous pouvez localiser votre répertoire virtuel sur votre serveur Web à n’importe quel emplacement de dossier approprié pour votre déploiement.  
   
-## <a name="bkmk_cname"></a>Planifier un enregistrement d’alias DNS (CNAMe) pour votre serveur Web  
+## <a name="plan-a-dns-alias-cname-record-for-your-web-server"></a><a name="bkmk_cname"></a>Planifier un enregistrement d’alias DNS (CNAMe) pour votre serveur Web  
 Les enregistrements de ressource alias (CNAMe) sont également appelés enregistrements de ressources de noms canoniques. Avec ces enregistrements, vous pouvez utiliser plusieurs noms pour pointer vers un seul hôte, ce qui facilite l’hébergement d’un serveur protocole FTP (FTP) et d’un serveur Web sur le même ordinateur. Par exemple, les noms de serveurs connus (FTP, www) sont inscrits à l’aide d’enregistrements de ressource alias (CNAMe) mappés au nom d’hôte DNS (Domain Name System), tel que WEB1, pour l’ordinateur serveur qui héberge ces services.  
   
 Ce guide fournit des instructions sur la configuration de votre serveur Web pour héberger la liste de révocation de certificats (CRL) pour votre autorité de certification (CA). Étant donné que vous pouvez également utiliser votre serveur Web à d’autres fins, par exemple pour héberger un site FTP ou Web, il est judicieux de créer un enregistrement de ressource alias dans DNS pour votre serveur Web. Dans ce guide, l’enregistrement CNAMe est nommé « PKI », mais vous pouvez choisir un nom approprié pour votre déploiement.  
   
-## <a name="bkmk_capolicy"></a>Planifier la configuration de CAPolicy. inf  
+## <a name="plan-configuration-of-capolicyinf"></a><a name="bkmk_capolicy"></a>Planifier la configuration de CAPolicy. inf  
 Avant d’installer les services AD CS, vous devez configurer CAPolicy. inf sur l’autorité de certification avec des informations correctes pour votre déploiement. Un fichier CAPolicy. INF contient les informations suivantes :  
   
 ```  
@@ -99,7 +99,7 @@ Critical=Yes
 > [!IMPORTANT]  
 > Il n’est pas recommandé de modifier d’autres paramètres dans le fichier CAPolicy. inf, sauf si vous avez une raison particulière de le faire.  
   
-## <a name="bkmk_cdp"></a>Planifier la configuration des extensions CDP et AIA sur CA1  
+## <a name="plan-configuration-of-the-cdp-and-aia-extensions-on-ca1"></a><a name="bkmk_cdp"></a>Planifier la configuration des extensions CDP et AIA sur CA1  
 Quand vous configurez le point de distribution de liste de révocation de certificats (CDP) et les paramètres d’accès aux informations de l’autorité (AIA) sur CA1, vous avez besoin du nom de votre serveur Web et de votre nom de domaine. Vous avez également besoin du nom du répertoire virtuel que vous créez sur votre serveur Web où la liste de révocation de certificats (CRL) et le certificat de l’autorité de certification sont stockés.  
   
 L’emplacement CDP que vous devez entrer pendant cette étape de déploiement a le format suivant :  
@@ -118,10 +118,10 @@ Par exemple, si votre serveur Web est nommé WEB1 et que votre enregistrement CN
       
     `http:\/\/pki.corp.contoso.com\/pki\/<ServerDNSName>\_<CaName><CertificateName>.crt`  
       
-## <a name="bkmk_copy"></a>Planifier l’opération de copie entre l’autorité de certification et le serveur Web  
+## <a name="plan-the-copy-operation-between-the-ca-and-the-web-server"></a><a name="bkmk_copy"></a>Planifier l’opération de copie entre l’autorité de certification et le serveur Web  
 Pour publier la liste de révocation de certificats et le certificat d’autorité de certification de l’autorité de certification dans le répertoire virtuel du serveur Web, vous pouvez exécuter la commande certutil-CRL après avoir configuré les emplacements CDP et AIA sur l’autorité de certification. Veillez à configurer les chemins d’accès corrects sous l’onglet **Extensions** des propriétés de l’autorité de certification avant d’exécuter cette commande à l’aide des instructions de ce guide. En outre, pour copier le certificat d’autorité de certification d’entreprise sur le serveur Web, vous devez avoir déjà créé le répertoire virtuel sur le serveur Web et configuré le dossier en tant que dossier partagé.  
   
-## <a name="bkmk_template"></a>Planifier la configuration du modèle de certificat de serveur sur l’autorité de certification  
+## <a name="plan-the-configuration-of-the-server-certificate-template-on-the-ca"></a><a name="bkmk_template"></a>Planifier la configuration du modèle de certificat de serveur sur l’autorité de certification  
 Pour déployer des certificats de serveur inscrits automatiquement, vous devez copier le modèle de certificat nommé **RAS et le serveur IAS**. Par défaut, cette copie est nommée **copie des serveurs RAS et IAS**. Si vous souhaitez renommer cette copie de modèle, planifiez le nom que vous souhaitez utiliser pendant cette étape de déploiement.  
   
 > [!NOTE]  

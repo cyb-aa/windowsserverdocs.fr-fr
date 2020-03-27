@@ -1,9 +1,9 @@
 ---
-title: 'Étape 6 : Rétrograder et supprimer le serveur source du nouveau réseau Windows Server Essentials'
+title: 'Étape 6 : Rétrograder et supprimer le serveur source du nouveau réseau Windows Server Essentials'
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,28 +12,28 @@ ms.assetid: 86244c66-2c5e-488d-adb8-112e1ca3e2e1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6842137dd498b11bccc2216023d648d61edbb87e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3df8b2901ca2ca3d38066c592aaeb326d7471ba0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432543"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318732"
 ---
-# <a name="step-6-demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network"></a>Étape 6 : Rétrograder et supprimer le serveur source du nouveau réseau Windows Server Essentials
+# <a name="step-6-demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network"></a>Étape 6 : Rétrograder et supprimer le serveur source du nouveau réseau Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Après avoir terminé l’installation de Windows Server Essentials et avoir effectué la migration, vous devez effectuer les tâches suivantes :  
+Une fois que vous avez terminé l’installation de Windows Server Essentials et que vous avez terminé la migration, vous devez effectuer les tâches suivantes :  
   
-1.  [Supprimer les Services de certificats Active Directory](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_ADCS)  
+1.  [Supprimer les services de certificats Active Directory](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_ADCS)  
   
-2.  [Déconnecter les imprimantes qui sont directement connectés au serveur Source](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_PhysicallyDisconnect)  
+2.  [Déconnecter les imprimantes qui sont directement connectées au serveur source](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_PhysicallyDisconnect)  
   
-3.  [Rétrograder le serveur Source](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_DemoteTheSourceServer)  
+3.  [Rétrograder le serveur source](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_DemoteTheSourceServer)  
   
-4.  [Supprimer et réaffecter le serveur Source](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_RemoveTheSourceServer)  
+4.  [Supprimer et réaffecter le serveur source](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_RemoveTheSourceServer)  
   
-##  <a name="BKMK_ADCS"></a> Supprimer les Services de certificats Active Directory  
+##  <a name="remove-active-directory-certificate-services"></a><a name="BKMK_ADCS"></a>Supprimer les services de certificats Active Directory  
  La procédure est légèrement différente si vous avez plusieurs services de rôle AD CS (Active Directory Certificate Services) installés sur un même serveur. Vous pouvez utiliser la procédure suivante pour désinstaller un service de rôle AD CS (Active Directory Certificate Services) et conserver les autres services de rôle AD CS.  
   
  Pour effectuer cette procédure, vous devez ouvrir une session avec les mêmes autorisations que celles de l'utilisateur qui a installé l'autorité de certification (CA). Si vous désinstallez une autorité de certification d'entreprise, l'appartenance au groupe Administrateurs de l'entreprise ou son équivalent est le minimum requis pour effectuer cette procédure.  
@@ -42,7 +42,7 @@ Après avoir terminé l’installation de Windows Server Essentials et avoir eff
   
 1.  Connectez-vous au serveur source en tant qu'administrateur de domaine.  
   
-2.  Cliquez successivement sur **Démarrer**, **Outils d'administration**, puis **Gestionnaire de serveur**.  
+2.  Cliquez sur **Démarrer**, sur **Outils d’administration**, puis sur **Gestionnaire de serveur**.  
   
 3.  Cliquez sur **Continuer** dans la boîte de dialogue **Contrôle de compte d'utilisateur**.  
   
@@ -50,7 +50,7 @@ Après avoir terminé l’installation de Windows Server Essentials et avoir eff
   
 5.  Dans l'Assistant Suppression de rôles, cliquez sur **Suivant**.  
   
-6.  Décochez la case **Services de certificats Active Directory** , puis cliquez sur **Suivant**.  
+6.  Décochez la case **Services de certificats Active Directory**, puis cliquez sur **Suivant**.  
   
 7.  Dans la page **Confirmer les options de suppression**, passez en revue les informations, puis cliquez sur **Supprimer**.  
   
@@ -65,10 +65,10 @@ Après avoir terminé l’installation de Windows Server Essentials et avoir eff
     > [!IMPORTANT]
     >  Redémarrez le serveur, même si vous n'êtes pas invité à le faire.  
   
-##  <a name="BKMK_PhysicallyDisconnect"></a> Déconnecter les imprimantes qui sont directement connectés au serveur Source  
- Avant de rétrograder le serveur source, déconnectez physiquement toutes les imprimantes qui sont connectées directement au serveur source et qui sont partagées via ce serveur source. Vérifiez qu'il ne reste aucun objet Active Directory pour les imprimantes qui étaient connectées directement au serveur source. Les imprimantes peuvent être directement connectés au serveur de Destination et partagés à partir de Windows Server Essentials.  
+##  <a name="disconnect-printers-that-are-directly-connected-to-the-source-server"></a><a name="BKMK_PhysicallyDisconnect"></a>Déconnecter les imprimantes qui sont directement connectées au serveur source  
+ Avant de rétrograder le serveur source, déconnectez physiquement toutes les imprimantes qui sont connectées directement au serveur source et qui sont partagées via ce serveur source. Vérifiez qu'il ne reste aucun objet Active Directory pour les imprimantes qui étaient connectées directement au serveur source. Les imprimantes peuvent ensuite être connectées directement au serveur de destination et partagées à partir de Windows Server Essentials.  
   
-##  <a name="BKMK_DemoteTheSourceServer"></a> Rétrograder le serveur Source  
+##  <a name="demote-the-source-server"></a><a name="BKMK_DemoteTheSourceServer"></a>Rétrograder le serveur source  
  Avant de rétrograder le serveur source du rôle de contrôleur de domaine AD DS au rôle de serveur membre de domaine, vérifiez que les paramètres de stratégie de groupe sont appliqués à tous les ordinateurs clients, comme décrit dans la procédure suivante.  
   
 > [!IMPORTANT]
@@ -84,21 +84,21 @@ Après avoir terminé l’installation de Windows Server Essentials et avoir eff
   
 4. Le processus est susceptible de vous demander de fermer la session, puis de la rouvrir à nouveau pour terminer. Cliquez sur **Oui** pour confirmer.  
   
-   Si vous effectuez une migration de Windows Server Essentials ou des versions précédentes, pour rétrograder le serveur, consultez [supprimer des Services de domaine Active Directory](https://technet.microsoft.com/library/hh472163.aspx). Une fois le serveur source ajouté en tant que membre d'un groupe de travail et déconnecté du réseau, vous devez le supprimer des services AD DS sur le serveur de destination.  
+   Si vous effectuez une migration à partir de Windows Server Essentials ou de ses versions antérieures, pour rétrograder le serveur, consultez [supprimer des Active Directory Domain Services](https://technet.microsoft.com/library/hh472163.aspx). Une fois le serveur source ajouté en tant que membre d'un groupe de travail et déconnecté du réseau, vous devez le supprimer des services AD DS sur le serveur de destination.  
   
-   Si vous effectuez une migration à partir de Windows Server Essentials, utilisez le Gestionnaire de serveur pour supprimer le rôle Services de domaine Active Directory, rétrogradant ainsi le contrôleur de domaine sur le serveur Source à l’aide de la procédure suivante :  
+   Si vous effectuez une migration à partir de Windows Server Essentials, utilisez Gestionnaire de serveur pour supprimer le rôle Active Directory Domain Services, ce qui rétrograde le contrôleur de domaine sur le serveur source à l’aide de la procédure suivante :  
   
 #### <a name="to-remove-the-source-server-from-active-directory"></a>Pour supprimer le serveur source d'Active Directory  
   
 1.  Sur le serveur de destination, ouvrez **Utilisateurs et ordinateurs Active Directory**.  
   
-2.  Dans le volet de navigation **Utilisateurs et ordinateurs Active Directory** , développez le nom du domaine, puis développez **Ordinateurs**.  
+2.  Dans le volet de navigation **Utilisateurs et ordinateurs Active Directory**, développez le nom du domaine, puis développez **Ordinateurs**.  
   
 3.  Si le serveur source existe toujours dans la liste des serveurs, cliquez avec le bouton droit sur le nom du serveur source, cliquez sur **supprimer**, puis sur **Oui**.  
   
 4.  Vérifiez que le serveur source n'est pas répertorié, puis fermez **Utilisateurs et ordinateurs Active Directory**.  
   
-##  <a name="BKMK_RemoveTheSourceServer"></a> Supprimer et réaffecter le serveur Source  
+##  <a name="remove-and-repurpose-the-source-server"></a><a name="BKMK_RemoveTheSourceServer"></a>Supprimer et réaffecter le serveur source  
  Désactivez le serveur source et déconnectez-le du réseau. Nous vous recommandons de ne pas reformater le serveur source avant au moins une semaine pour vous assurer que toutes les données nécessaires ont été migrées vers le serveur de destination. Après avoir vérifié que toutes les données ont été migrées, vous pouvez réinstaller si nécessaire ce serveur sur le réseau comme serveur secondaire pour d'autres tâches.  
   
 > [!NOTE]
@@ -106,8 +106,8 @@ Après avoir terminé l’installation de Windows Server Essentials et avoir eff
   
  Une fois le serveur source rétrogradé, son état n'est pas intègre. Si vous voulez réaffecter le serveur source, le moyen le plus simple est de le reformater, d'installer un système d'exploitation serveur, puis de le configurer pour l'utiliser comme serveur supplémentaire.  
   
-## <a name="next-steps"></a>Étapes suivantes  
- Vous avez rétrogradé et supprimé le serveur Source du nouveau réseau Windows Server Essentials. Passez maintenant à [étape 7 : Effectuer des tâches de post-migration pour la migration de Windows Server Essentials](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md).  
+## <a name="next-steps"></a>Étapes suivantes :  
+ Vous avez rétrogradé et supprimé le serveur source du nouveau réseau Windows Server Essentials. Passez maintenant à [l’étape 7 : effectuer des tâches de postconnexion pour la migration de Windows Server Essentials](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md).  
   
 
 Pour afficher toutes les étapes, consultez [migrer vers Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).

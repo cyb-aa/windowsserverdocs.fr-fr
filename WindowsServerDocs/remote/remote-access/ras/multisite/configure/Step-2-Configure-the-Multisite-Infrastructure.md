@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b345ce7cdbb0cf9ff91ec99275232da5ba34edb0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6f020dc2bf5c0dc11d18e886346a98a4a40f3855
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367196"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314056"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Étape 2 configurer l’infrastructure multisite
 
@@ -33,9 +33,9 @@ Pour configurer un déploiement multisite, vous devez effectuer un certain nombr
 |2.4. Configurer les objets de stratégie de groupe|Configurez des objets stratégie de groupe supplémentaires selon les besoins.|  
   
 > [!NOTE]  
-> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Cette rubrique comprend des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_ConfigAD"></a>2,1. Configurer des sites Active Directory supplémentaires  
+## <a name="21-configure-additional-active-directory-sites"></a><a name="BKMK_ConfigAD"></a>2,1. Configurer des sites Active Directory supplémentaires  
 Tous les points d’entrée peuvent résider sur un seul site Active Directory. Par conséquent, au moins un site Active Directory est requis pour l’implémentation des serveurs d’accès à distance dans une configuration multisite. Utilisez cette procédure si vous avez besoin de créer le premier site Active Directory ou si vous souhaitez utiliser des sites Active Directory supplémentaires pour le déploiement multisite. Utilisez le composant logiciel enfichable sites et services Active Directory pour créer des sites dans le réseau « s » de votre organisation.  
 
 Pour effectuer cette procédure, vous devez appartenir au minimum au groupe administrateurs de l' **entreprise** dans la forêt ou au groupe **Admins du domaine** dans le domaine racine de la forêt, ou à un groupe équivalent. Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).  
@@ -62,7 +62,7 @@ Pour plus d’informations, consultez [Ajout d’un site à la forêt](https://t
   
 ![les commandes Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Pour installer la fonctionnalité Windows « Active Directory module pour Windows PowerShell » :  
   
@@ -92,7 +92,7 @@ New-ADReplicationSubnet -Name "10.2.0.0/24" -Site "Second-Site"
 New-ADReplicationSubnet -Name "2001:db8:2::/64" -Site "Second-Site"  
 ```  
   
-## <a name="BKMK_AddDC"></a>2,2. Configurer des contrôleurs de domaine supplémentaires  
+## <a name="22-configure-additional-domain-controllers"></a><a name="BKMK_AddDC"></a>2,2. Configurer des contrôleurs de domaine supplémentaires  
 Pour configurer un déploiement multisite dans un domaine unique, il est recommandé de disposer d’au moins un contrôleur de domaine accessible en écriture pour chaque site de votre déploiement.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe Admins du domaine dans le domaine dans lequel le contrôleur de domaine est installé.  
@@ -148,8 +148,8 @@ Pour plus d’informations, consultez [installation d’un contrôleur de domain
   
 15. Redémarrez l’ordinateur s’il n’a pas été redémarré automatiquement.  
   
-## <a name="BKMK_ConfigSG"></a>2,3. Configurer les groupes de sécurité  
-Un déploiement multisite requiert un groupe de sécurité supplémentaire pour les ordinateurs clients Windows 7 pour chaque point d’entrée du déploiement qui autorise l’accès aux ordinateurs clients Windows 7. S’il existe plusieurs domaines contenant des ordinateurs clients Windows 7, il est recommandé de créer un groupe de sécurité dans chaque domaine pour le même point d’entrée. Vous pouvez également utiliser un groupe de sécurité universel contenant les ordinateurs clients des deux domaines. Par exemple, dans un environnement avec deux domaines, si vous souhaitez autoriser l’accès aux ordinateurs clients Windows 7 dans les points d’entrée 1 et 3, mais pas dans le point d’entrée 2, créez deux groupes de sécurité qui contiennent les ordinateurs clients Windows 7 pour chaque point d’entrée de chacun des  domaines.  
+## <a name="23-configure-security-groups"></a><a name="BKMK_ConfigSG"></a>2,3. Configurer les groupes de sécurité  
+Un déploiement multisite requiert un groupe de sécurité supplémentaire pour les ordinateurs clients Windows 7 pour chaque point d’entrée du déploiement qui autorise l’accès aux ordinateurs clients Windows 7. S’il existe plusieurs domaines contenant des ordinateurs clients Windows 7, il est recommandé de créer un groupe de sécurité dans chaque domaine pour le même point d’entrée. Vous pouvez également utiliser un groupe de sécurité universel contenant les ordinateurs clients des deux domaines. Par exemple, dans un environnement avec deux domaines, si vous souhaitez autoriser l’accès aux ordinateurs clients Windows 7 dans les points d’entrée 1 et 3, mais pas dans le point d’entrée 2, créez deux groupes de sécurité qui contiennent les ordinateurs clients Windows 7 pour chaque point d’entrée de chacun des domaines.  
   
 ### <a name="to-configure-additional-security-groups"></a>Pour configurer des groupes de sécurité supplémentaires  
   
@@ -163,7 +163,7 @@ Un déploiement multisite requiert un groupe de sécurité supplémentaire pour 
   
 5.  Pour ajouter des ordinateurs au nouveau groupe de sécurité, double-cliquez sur le groupe de sécurité, puis dans la boîte de dialogue **< Group_Name propriétés du >** , cliquez sur l’onglet **membres** .  
   
-6.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
+6.  Sous l'onglet **Membres**, cliquez sur **Ajouter**.  
   
 7.  Sélectionnez les ordinateurs Windows 7 à ajouter à ce groupe de sécurité, puis cliquez sur **OK**.  
   
@@ -171,7 +171,7 @@ Un déploiement multisite requiert un groupe de sécurité supplémentaire pour 
   
 ![les commandes Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Pour installer la fonctionnalité Windows « Active Directory module pour Windows PowerShell » :  
   
@@ -194,7 +194,7 @@ New-ADGroup -GroupScope universal -Name Win7_Clients_Entrypoint1
 Add-ADGroupMember -Identity Win7_Clients_Entrypoint1 -Members CLIENT2$  
 ```  
   
-## <a name="ConfigGPOs"></a>2,4. Configurer les objets de stratégie de groupe  
+## <a name="24-configure-gpos"></a><a name="ConfigGPOs"></a>2,4. Configurer les objets de stratégie de groupe  
 Un déploiement de l’accès à distance multisite requiert les objets stratégie de groupe suivants :  
   
 -   Un objet de stratégie de groupe pour chaque point d’entrée pour le serveur d’accès à distance.  
@@ -213,7 +213,7 @@ Quand vous configurez l’accès à distance, l’Assistant crée automatiquemen
   
 Pour créer des objets stratégie de groupe, consultez [créer et modifier un objet stratégie de groupe](https://technet.microsoft.com/library/cc754740.aspx).  
   
-### <a name="DCMaintandDowntime"></a>Maintenance et temps d’arrêt du contrôleur de domaine  
+### <a name="domain-controller-maintenance-and-downtime"></a><a name="DCMaintandDowntime"></a>Maintenance et temps d’arrêt du contrôleur de domaine  
 Lorsqu’un contrôleur de domaine qui exécute en tant qu’émulateur de contrôleur de domaine ou que les contrôleurs de domaine gèrent des objets de stratégie de groupe de serveur connaissent un temps d’arrêt, il n’est pas possible de charger ou modifier la configuration de l’accès Cela n’affecte pas la connectivité du client si d’autres contrôleurs de domaine sont disponibles.  
   
 Pour charger ou modifier la configuration de l’accès à distance, vous pouvez transférer le rôle d’émulateur de contrôleur de domaine principal vers un autre contrôleur de domaine pour les objets de stratégie de groupe du client ou du serveur d’applications ; pour les objets de stratégie de groupe de serveur, modifiez les contrôleurs de domaine qui gèrent les objets de stratégie de groupe serveur.  
@@ -224,7 +224,7 @@ Pour charger ou modifier la configuration de l’accès à distance, vous pouvez
 > [!NOTE]  
 > Avant de modifier l’Association du contrôleur de domaine, assurez-vous que tous les objets de stratégie de groupe du déploiement de l’accès à distance ont été répliqués sur tous les contrôleurs de domaine du domaine. Si l’objet de stratégie de groupe n’est pas synchronisé, les modifications récentes de la configuration peuvent être perdues après la modification de l’Association du contrôleur de domaine, ce qui peut entraîner une configuration endommagée. Pour vérifier la synchronisation des objets de stratégie de groupe, consultez [vérifier stratégie de groupe État](https://technet.microsoft.com/library/jj134176.aspx)de l’infrastructure.  
   
-#### <a name="TransferPDC"></a>Pour transférer le rôle d’émulateur de contrôleur de domaine principal  
+#### <a name="to-transfer-the-pdc-emulator-role"></a><a name="TransferPDC"></a>Pour transférer le rôle d’émulateur de contrôleur de domaine principal  
   
 1.  Dans l’écran d' **Accueil** , tapez**DSA. msc**, puis appuyez sur entrée.  
   
@@ -239,7 +239,7 @@ Pour charger ou modifier la configuration de l’accès à distance, vous pouvez
   
 5.  Cliquez sur **Oui** pour confirmer que vous souhaitez transférer le rôle, puis cliquez sur **Fermer**.  
   
-#### <a name="ChangeDC"></a>Pour modifier le contrôleur de domaine qui gère les objets de stratégie de groupe de serveur  
+#### <a name="to-change-the-domain-controller-that-manages-server-gpos"></a><a name="ChangeDC"></a>Pour modifier le contrôleur de domaine qui gère les objets de stratégie de groupe de serveur  
   
 -   Exécutez l’applet de commande Windows PowerShell `HYPERLINK "https://technet.microsoft.com/library/hh918412.aspx" Set-DAEntryPointDC` sur le serveur d’accès à distance et spécifiez le nom du contrôleur de domaine inaccessible pour le paramètre *ExistingDC* . Cette commande modifie l’Association du contrôleur de domaine pour les objets de stratégie de groupe de serveur des points d’entrée actuellement gérés par ce contrôleur de domaine.  
   
@@ -255,7 +255,7 @@ Pour charger ou modifier la configuration de l’accès à distance, vous pouvez
         Set-DAEntryPointDC "ExistingDC 'dc1.corp.contoso.com' "ComputerName 'DA1.corp.contoso.com' "ErrorAction Inquire  
         ```  
   
-### <a name="ChangeTwoDCs"></a>Modifier deux ou plusieurs contrôleurs de domaine qui gèrent les objets de stratégie de groupe de serveur  
+### <a name="change-two-or-more-domain-controllers-that-manage-server-gpos"></a><a name="ChangeTwoDCs"></a>Modifier deux ou plusieurs contrôleurs de domaine qui gèrent les objets de stratégie de groupe de serveur  
 Dans un nombre minimal de cas, deux ou plusieurs contrôleurs de domaine qui gèrent les objets de stratégie de groupe de serveur ne sont pas disponibles. Si cela se produit, des étapes supplémentaires sont nécessaires pour modifier l’Association du contrôleur de domaine pour les objets de stratégie de groupe de serveur.  
   
 Les informations d’association du contrôleur de domaine sont stockées dans le registre des serveurs d’accès à distance et dans tous les objets de stratégie de groupe de serveur. Dans l’exemple suivant, il existe deux points d’entrée avec deux serveurs d’accès à distance, « DA1 » dans « point d’entrée 1 » et « DA2 » dans « point d’entrée 2 ». L’objet de stratégie de groupe du serveur « point d’entrée 1 » est géré dans le contrôleur de domaine « DC1 », tandis que l’objet de stratégie de groupe du serveur « point d’entrée 2 » est géré dans le contrôleur de domaine « DC2 ». « DC1 » et « DC2 » ne sont pas disponibles. Un troisième contrôleur de domaine est toujours disponible dans le domaine, « DC3 », et les données de « DC1 » et « DC2 » ont déjà été répliquées sur « DC3 ».  
@@ -299,7 +299,7 @@ Les informations d’association du contrôleur de domaine sont stockées dans l
   
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
-### <a name="ConfigDistOptimization"></a>Optimisation de la distribution de la configuration  
+### <a name="optimization-of-configuration-distribution"></a><a name="ConfigDistOptimization"></a>Optimisation de la distribution de la configuration  
 Lorsque vous apportez des modifications de configuration, les modifications sont appliquées uniquement une fois que les objets de stratégie de groupe du serveur se propagent aux serveurs d’accès à distance. Pour réduire la durée de distribution de la configuration, l’accès à distance sélectionne automatiquement un contrôleur de domaine accessible en écriture qui est le lien hypertexte «<https://technet.microsoft.com/library/cc978016.aspx>» le plus proche du serveur d’accès à distance lors de la création de son objet de stratégie de groupe.  
   
 Dans certains scénarios, il peut être nécessaire de modifier manuellement le contrôleur de domaine qui gère un objet de stratégie de groupe de serveur afin d’optimiser la durée de distribution de la configuration :  
@@ -332,7 +332,7 @@ Pour optimiser l’heure de la distribution de la configuration, effectuez l’u
     > [!NOTE]  
     > Lorsque vous modifiez le contrôleur de domaine associé à un point d’entrée spécifique, vous devez spécifier un serveur d’accès à distance qui est membre de ce point d’entrée pour le paramètre *ComputerName* .  
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi  
   
 -   [Étape 3 : configurer le déploiement multisite](Step-3-Configure-the-Multisite-Deployment.md)  
 -   [Étape 1 : implémenter un déploiement de l’accès à distance à un serveur unique](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  

@@ -3,7 +3,7 @@ title: Gérer la sauvegarde du serveur dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 0302d070-c58a-40f2-b56d-7e7842813d02
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7e40a4675cf77d55a3047b41e0ab852fd7cd9de9
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 9489ae5bdb8de594befc2d8aec18f686cb5cbedd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322241"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311151"
 ---
 # <a name="manage-server-backup-in-windows-server-essentials"></a>Gérer la sauvegarde du serveur dans Windows Server Essentials
 
@@ -41,7 +41,7 @@ ms.locfileid: "79322241"
   
 -   [Restaurer des fichiers et des dossiers à partir d’une sauvegarde du serveur](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_7)  
   
-##  <a name="BKMK_WhichBackup"></a>Quelle sauvegarde dois-je choisir ?  
+##  <a name="which-backup-should-i-choose"></a><a name="BKMK_WhichBackup"></a>Quelle sauvegarde dois-je choisir ?  
  Si vous disposez d'une sauvegarde très récente et fiable contenant l'intégralité de vos données critiques, vous n'avez aucune hésitation à avoir. Si vous essayez de restaurer une sauvegarde antérieure sur le serveur ou un ordinateur, le choix de la sauvegarde à restaurer peut demander une certaine réflexion et, éventuellement, des compromis.  
   
 #### <a name="to-choose-a-backup"></a>Pour choisir une sauvegarde  
@@ -54,10 +54,10 @@ ms.locfileid: "79322241"
   
 4.  Il est recommandé de restaurer les fichiers et les dossiers vers un autre emplacement, puis de laisser le propriétaire des fichiers et des dossiers déplacer ceux dont il a besoin vers leur emplacement d'origine. À la fin de l'opération, les fichiers et dossiers qui restent dans l'autre emplacement peuvent être supprimés.  
   
-##  <a name="BKMK_1"></a>Configurer ou personnaliser la sauvegarde du serveur  
+##  <a name="set-up-or-customize-server-backup"></a><a name="BKMK_1"></a>Configurer ou personnaliser la sauvegarde du serveur  
  La sauvegarde du serveur n'est pas configurée automatiquement pendant l'installation. Nous vous conseillons de protéger automatiquement votre serveur et ses données en planifiant des sauvegardes quotidiennes. Il est recommandé de mettre en place un plan de sauvegarde quotidien, car la plupart des organisations ne peuvent pas se permettre de perdre plusieurs jours de données. Pour plus d'informations, voir [Configurer ou personnaliser la sauvegarde du serveur](Set-up-or-customize-server-backup.md).  
   
-##  <a name="BKMK_2"></a>Arrêt de la sauvegarde du serveur en cours  
+##  <a name="stop-server-backup-in-progress"></a><a name="BKMK_2"></a>Arrêt de la sauvegarde du serveur en cours  
  Qu'une sauvegarde du serveur démarre à une heure régulière planifiée ou que vous démarriez une sauvegarde du serveur manuellement, vous pouvez arrêter la sauvegarde en cours d'exécution.  
   
 #### <a name="to-stop-a-backup-in-progress"></a>Pour arrêter une sauvegarde en cours  
@@ -70,7 +70,7 @@ ms.locfileid: "79322241"
   
 4.  Cliquez sur **Oui** pour confirmer votre action.  
   
-##  <a name="BKMK_3"></a>Gérer à distance vos sauvegardes  
+##  <a name="remotely-manage-your-backups"></a><a name="BKMK_3"></a>Gérer à distance vos sauvegardes  
  Quand vous êtes en déplacement, vous pouvez utiliser l'accès web à distance Windows Server Essentials pour accéder au tableau de bord Windows Server Essentials et gérer votre serveur.  
   
 #### <a name="to-use-remote-web-access-to-manage-your-server"></a>Pour utiliser l'accès web à distance pour gérer votre serveur  
@@ -87,7 +87,7 @@ ms.locfileid: "79322241"
   
    Pour plus d’informations sur les Accès web distants, consultez [vue d’ensemble des accès Web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
   
-##  <a name="BKMK_4"></a>Désactiver la sauvegarde du serveur  
+##  <a name="disable-server-backup"></a><a name="BKMK_4"></a>Désactiver la sauvegarde du serveur  
  Nous vous conseillons de protéger automatiquement votre serveur et ses données en planifiant des sauvegardes quotidiennes. Il est recommandé de mettre en place un plan de sauvegarde quotidien, car la plupart des organisations ne peuvent pas se permettre de perdre plusieurs jours de données.  
   
  Si vous avez déjà configuré la sauvegarde du serveur et si vous souhaitez utiliser plus tard une application tierce pour sauvegarder le serveur, vous pouvez désactiver la sauvegarde du serveur Windows Server Essentials.  
@@ -107,13 +107,13 @@ ms.locfileid: "79322241"
   
 5.  Dans la page **Options de Configuration** , cliquez sur **Désactiver la sauvegarde du serveur**. Suivez les instructions de l'Assistant.  
   
-##  <a name="BKMK_5"></a>En savoir plus sur la configuration de la sauvegarde du serveur  
+##  <a name="learn-more-about-setting-up-server-backup"></a><a name="BKMK_5"></a>En savoir plus sur la configuration de la sauvegarde du serveur  
  La sauvegarde du serveur n'est pas activée durant l'installation du serveur.  
   
 > [!NOTE]
 >  Quand vous configurez la sauvegarde du serveur, vous devez connecter au moins un disque dur externe au serveur pour l'utiliser en tant que disque dur de destination de la sauvegarde.  
   
-###  <a name="BKMK_Target"></a>Sauvegarder le lecteur de destination  
+###  <a name="backup-destination-drive"></a><a name="BKMK_Target"></a>Sauvegarder le lecteur de destination  
  Vous pouvez utiliser plusieurs lecteurs de stockage externe pour vos sauvegardes et les entreposer à tour de rôle dans des emplacements sur site et hors site. Cela peut vous aider à renforcer votre stratégie de planification d'urgence, car vous pourrez récupérer vos données si votre matériel local subit des dommages.  
   
  Au moment d'acquérir un lecteur de stockage pour sauvegarder votre serveur, tenez compte des points suivants :  
@@ -159,7 +159,7 @@ ms.locfileid: "79322241"
   
  Par exemple, vous possédez peut-être un dossier contenant des programmes de télévision enregistrés qui prend beaucoup de place sur le disque. Vous pouvez choisir ne pas de sauvegarder ces fichiers, car vous les supprimez de toute façon après les avoir regardés. Vous pouvez également avoir un dossier qui contient les fichiers temporaires que vous ne souhaitez pas conserver.  
   
-##  <a name="BKMK_6"></a>Repartitionner un disque dur sur le serveur  
+##  <a name="repartition-a-hard-drive-on-the-server"></a><a name="BKMK_6"></a>Repartitionner un disque dur sur le serveur  
  Quand un lecteur de disque dur interne non formaté est détecté sur le serveur Windows Server Essentials, cela entraîne le déclenchement d'une alerte d'intégrité qui contient un lien vers l'Assistant Ajout d'un nouveau disque dur. L'Assistant Ajout d'un nouveau disque dur vous guide parmi les différentes options de formatage du disque dur. À la fin de l'exécution de l'Assistant, un ou plusieurs (selon la taille du lecteur) disques durs logiques formatés sont créés sur le disque dur et formatés en NTFS.  
   
  S'il s'avère nécessaire de repartitionner un lecteur de disque dur, suivez les instructions ci-après :  
@@ -182,7 +182,7 @@ ms.locfileid: "79322241"
     > [!NOTE]
     >  Répétez cette étape jusqu'à ce que tout l'espace non alloué sur le lecteur de disque dur soit utilisé.  
   
-##  <a name="BKMK_7"></a>Restaurer des fichiers et des dossiers à partir d’une sauvegarde du serveur  
+##  <a name="restore-files-and-folders-from-a-server-backup"></a><a name="BKMK_7"></a>Restaurer des fichiers et des dossiers à partir d’une sauvegarde du serveur  
  Vous pouvez parcourir et restaurer des fichiers et des dossiers individuels à partir d'une sauvegarde du serveur.  
   
 #### <a name="to-restore-files-and-folders-from-a-server-backup"></a>Pour restaurer des fichiers et des dossiers à partir d'une sauvegarde du serveur  

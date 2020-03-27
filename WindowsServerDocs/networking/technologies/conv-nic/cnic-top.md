@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: d7642338-9b33-4dce-8100-8b2c38d7127a
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: d791e0d51278d1f83f344250d38b1c7005c1a14a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8824a6c6189a447f97f285052af8e5c13a66e766
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355435"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312818"
 ---
 # <a name="converged-network-interface-card-nic-configuration-guidance"></a>Guide de configuration de la carte d’interface réseau convergée \(NIC\)
 
@@ -34,7 +34,7 @@ Lorsque vous déployez une carte réseau convergée avec des ordinateurs hôtes 
 Ce guide fournit deux ensembles d’instructions, un pour les déploiements où les serveurs ont une seule carte réseau installée, qui est un déploiement de base de la carte réseau convergée. et un autre ensemble d’instructions sur lesquelles vos serveurs disposent d’au moins deux cartes réseau installées. il s’agit d’un déploiement d’une carte réseau convergée sur une association incorporée de commutateur \(définir\) équipe de cartes réseau\-RDMA.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 Vous trouverez ci-dessous les conditions préalables pour les déploiements de base et Datacenter de la carte réseau convergée.
 

@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eca02eeb-d92d-463e-aae0-1f7038ba26fe
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e8406286599e5b03173ce1b5d6c34c35245a9094
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d34630b4faa8012eee73967a99bc0541f1305a09
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366947"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313521"
 ---
 # <a name="step-3-plan-otp-certificate-deployment"></a>Étape 3 planifier le déploiement de certificats avec mot de passe à usage unique
 
@@ -41,10 +41,10 @@ Une fois le serveur RADIUS planifié, vous devez planifier les exigences en mati
 |[3,2 planifier le modèle de certificat avec mot de passe à usage unique](#bkmk_3_2_OTP_Cert)|Planifier le modèle de certificat avec mot de passe à usage unique.|
 |[3,3 planifier le certificat d’autorité d’inscription](#bkmk_33RACert)|Planifier le certificat d’autorité d’inscription pour signer toutes les demandes de certificat d’authentification par mot de passe à usage unique.|
 
-## <a name="bkmk_3_1_CA"></a>3,1 planifier l’AC avec mot de passe à usage unique  
+## <a name="31-plan-the-otp-ca"></a><a name="bkmk_3_1_CA"></a>3,1 planifier l’AC avec mot de passe à usage unique  
 Pour déployer DirectAccess à l’aide de l’authentification par mot de passe à usage unique, vous avez besoin d’une autorité de certification interne pour émettre les certificats d’authentification par mot de passe à usage unique sur les ordinateurs clients DirectAccess. À cet effet, vous pouvez utiliser la même autorité de certification interne que celle utilisée pour émettre les certificats utilisés pour l’authentification de l’ordinateur IPsec standard.  
   
-## <a name="bkmk_3_2_OTP_Cert"></a>3,2 planifier le modèle de certificat avec mot de passe à usage unique  
+## <a name="32-plan-the-otp-certificate-template"></a><a name="bkmk_3_2_OTP_Cert"></a>3,2 planifier le modèle de certificat avec mot de passe à usage unique  
 Chaque client DirectAccess requiert un certificat d’authentification par mot de passe à usage unique afin d’accéder au réseau interne. Vous devez configurer un modèle sur votre autorité de certification interne pour le certificat OTP. Notez les points suivants lors de la configuration du modèle de certificat à mot de passe à usage unique :  
   
 -   Tous les utilisateurs qui doivent effectuer une authentification par mot de passe à usage unique doivent disposer d’autorisations de lecture et d’inscription pour ce modèle.  
@@ -70,10 +70,10 @@ Chaque client DirectAccess requiert un certificat d’authentification par mot d
   
     -   Pour le modèle de certificat d’authentification par mot de passe à usage unique, utilisez la clé key 1.3.6.1.4.1.311.20.2.2.  
   
-## <a name="bkmk_33RACert"></a>3,3 planifier le certificat d’autorité d’inscription  
+## <a name="33-plan-the-registration-authority-certificate"></a><a name="bkmk_33RACert"></a>3,3 planifier le certificat d’autorité d’inscription  
 Lorsque les clients DirectAccess demandent un certificat à mot de passe à usage unique, le serveur d’accès à distance reçoit la requête du client. Le serveur d’accès à distance signe toutes les demandes de certificat de mot de passe à usage unique des clients utilisant le certificat d’autorité d’inscription. L’autorité de certification émet des certificats uniquement si la demande est signée par le certificat de l’autorité d’inscription sur le serveur d’accès à distance. Le certificat doit être émis par une autorité de certification interne, le certificat ne peut pas être auto-signé. Il ne doit pas être émis par l’autorité de certification qui a émis les certificats à usage unique, mais l’autorité de certification qui émet les certificats à usage unique doit approuver l’autorité de certification qui émet le certificat de signature de l’autorité d’inscription.  
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi  
   
 -   [Étape 4 : planifier le mot de passe à usage unique pour le serveur d’accès à distance](Step-4-Plan-for-OTP-on-the-Remote-Access-Server.md)  
   

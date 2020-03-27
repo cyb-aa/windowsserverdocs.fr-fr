@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: ea1c34fd-5a33-4228-9437-9bb3d44230eb
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 60ccc8b80537da0d0b689f6c508c75ef15a339c5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 9723dd40b831469c12412a7458376c4019dde199
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406392"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319088"
 ---
 #  <a name="configure-client-automatic-hosted-cache-discovery-by-service-connection-point"></a>Configurer la découverte automatique du cache hébergé par le point de connexion de service
 
@@ -23,7 +23,7 @@ Avec cette procédure, vous pouvez utiliser stratégie de groupe pour activer et
 
 - Windows 10 Entreprise
 - Windows 10 Éducation
-- Windows 8.1 Entreprise
+- Windows 8.1 Entreprise
 - Windows 8 Entreprise
 
 > [!NOTE]  

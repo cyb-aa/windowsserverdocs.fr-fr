@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 55686a9c-60dd-47f4-9f1f-fe72c2873a44
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: dc6ade92eb5fe04271033973911ccb98e871d236
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2ac8dc289cf321266d39016f841c243899fe6cf4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406372"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319061"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment-overview"></a>Présentation du déploiement du mode de cache hébergé BranchCache
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser ce guide pour déployer un serveur de cache hébergé de Br
 
 Cette vue d’ensemble comprend l’infrastructure BranchCache dont vous avez besoin, ainsi qu’une vue pas à pas simple du déploiement.
 
-## <a name="bkmk_components"></a>Infrastructure de déploiement du serveur de cache hébergé
+## <a name="hosted-cache-server-deployment-infrastructure"></a><a name="bkmk_components"></a>Infrastructure de déploiement du serveur de cache hébergé
 
 Dans ce déploiement, le serveur de cache hébergé est déployé à l’aide de points de connexion de service dans Active Directory Domain Services \(AD DS\), et vous avez l’option avec BranchCache dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012, pour préhacher le contenu partagé sur les serveurs de contenu Web et basés sur des fichiers, puis précharger le contenu sur les serveurs de cache hébergé.
 
@@ -56,7 +56,7 @@ Lorsque des ordinateurs clients de la succursale ont stratégie de groupe actual
 
 Vous devez actualiser les stratégie de groupe sur les ordinateurs clients pour appliquer les nouveaux paramètres de stratégie de groupe BranchCache et permettre aux clients de localiser et d’utiliser le serveur de cache hébergé.
 
-## <a name="bkmk_overview"></a>Vue d’ensemble du processus de déploiement du serveur de cache hébergé
+## <a name="hosted-cache-server-deployment-process-overview"></a><a name="bkmk_overview"></a>Vue d’ensemble du processus de déploiement du serveur de cache hébergé
 
 >[!NOTE]
 >Les détails relatifs à l’exécution de ces étapes sont fournis dans la section [déploiement en mode de cache hébergé de BranchCache](4-Bc-Hcm-Deployment.md).

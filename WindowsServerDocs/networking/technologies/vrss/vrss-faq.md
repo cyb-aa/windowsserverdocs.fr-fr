@@ -8,14 +8,14 @@ ms.assetid: 61ae242e-82a8-430d-b07d-52b86c01e686
 ms.localizationpriority: medium
 manager: dougkim
 ms.date: 09/05/2018
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5c7feb696c6ee9014032229543a4f43fb5884527
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0ee9bf121d64eebe98798df907a2584747a00c7a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395846"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315366"
 ---
 # <a name="vrss-frequently-asked-questions"></a>Forum aux questions sur vRSS
 
@@ -23,23 +23,23 @@ Dans cette rubrique, vous trouverez des questions fréquentes et des réponses s
 
 ## <a name="what-are-the-requirements-for-the-physical-network-adapters-that-i-use-with-vrss"></a>Quelles sont les conditions requises pour les cartes réseau physiques que j’utilise avec vRSS ?
 
-Les cartes réseau doivent être compatibles avec file d’attente d’ordinateurs virtuels \(\) d’ordinateurs virtuels et doivent avoir une vitesse de liaison de 10 Gbits/s ou plus.
+Les cartes réseau doivent être compatibles avec File d’attente d’ordinateurs virtuels \(des ordinateurs virtuels\) et doivent avoir une vitesse de liaison de 10 Gbits/s ou plus.
 
 Pour plus d’informations, consultez [planifier l’utilisation de vRSS](vrss-plan.md).
 
-## <a name="does-vrss-work-with-hyper-threaded-processor-cores"></a>L’vRSS utilise-t\--il les cœurs de processeurs hyper-threads ?
+## <a name="does-vrss-work-with-hyper-threaded-processor-cores"></a>L’opération vRSS fonctionne-t-elle avec les cœurs de processeur Hyper\-threads ?
 
-Non. VRSS et des ordinateurs virtuels ignorent les cœurs de processeurs hyper\--thread.
+Non. VRSS et les ordinateurs virtuels ignorent les cœurs de processeurs hyper\-thread.
 
-## <a name="does-vrss-work-for-host-virtual-nics-vnics"></a>L’ordinateur vRSS fonctionne-t- \(il\)pour les cartes réseau virtuelles hôtes cartes réseau virtuelles ?
+## <a name="does-vrss-work-for-host-virtual-nics-vnics"></a>L’ordinateur vRSS fonctionne-t-il pour les cartes réseau virtuelles hôtes \(cartes réseau virtuelles\)?
 
-Oui. Utilisez le paramètre **-managementos** au lieu du\) nom de \(machine virtuelle de l’ordinateur virtuel sur la commande Windows PowerShell **Set-VMNetworkAdapter** , puis **activez-NetAdapterRss** sur l’hôte carte réseau virtuelle.
+Oui. Utilisez le paramètre **-managementos** à la place de l’ordinateur virtuel \(ordinateur virtuel\) nom sur la commande Windows PowerShell **Set-VMNetworkAdapter** et **Enable-NetAdapterRss** sur l’ordinateur hôte carte réseau virtuelle.
 
 Pour plus d’informations, consultez [commandes Windows PowerShell pour RSS et vRSS](vrss-wps.md).
 
 ## <a name="how-many-logical-processors-does-a-vm-need-to-use-vrss"></a>Combien de processeurs logiques un ordinateur virtuel doit-il utiliser vRSS ?
 
-Les machines virtuelles ont besoin \(\) de deux processeurs logiques ou plus pour pouvoir utiliser vRSS.
+Les machines virtuelles ont besoin d’au moins deux processeurs logiques \(de la\).
 
 Pour plus d’informations, consultez [planifier l’utilisation de vRSS](vrss-plan.md).
 
@@ -57,7 +57,7 @@ Si la machine virtuelle reçoit plusieurs sessions TCP, mais que vous ne voyez p
 
 ## <a name="im-looking-at-the-host-and-not-all-of-the-processors-are-being-used-it-looks-like-every-other-one-is-being-skipped"></a>Je regarde l’hôte et les processeurs ne sont pas tous utilisés. Il semble qu’un sur deux soit ignoré.
   
-Vérifiez si l’hyperthreading est activé. Les ordinateurs virtuels et vRSS sont conçus pour ignorer\-les cœurs hyper-thread.
+Vérifiez si l’hyperthreading est activé. Les ordinateurs virtuels et vRSS sont conçus pour ignorer les cœurs de thread hyper\-.
 
 ## <a name="are-there-different-windows-powershell-commands-for-rss-and-vrss"></a>Existe-t-il différentes commandes Windows PowerShell pour RSS et vRSS ?
 

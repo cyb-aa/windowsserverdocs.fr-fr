@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: dfde2e21-f3d5-41e8-8492-cb3f0d028afb
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/25/2018
-ms.openlocfilehash: 0c154d4d4534f4c343107eecd158974b92903e39
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 26edf4d1ae4a30ccd9219392c7c4ee3604dcdad9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405568"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316365"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Configurer la gestion des comptes de serveur NPS (Network Policy Server)
 
@@ -90,7 +90,7 @@ Vous pouvez utiliser cette procédure pour enregistrer les données de gestion d
 >[!NOTE]
 >NPS met en forme les données de gestion sous forme de document XML qu’il envoie à la procédure stockée **report_event** dans la base de données SQL Server que vous désignez dans NPS. Pour SQL Server la journalisation pour fonctionner correctement, vous devez disposer d’une procédure stockée nommée **report_event** dans la base de données SQL Server qui peut recevoir et analyser les documents XML à partir du serveur NPS.
 
-Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe Admins du domaine ou à un groupe équivalent.
+L'appartenance au groupe Administrateurs du domaine, ou équivalent, est la condition minimum requise pour exécuter cette procédure.
 
 ### <a name="to-configure-sql-server-logging-in-nps"></a>Pour configurer la journalisation SQL Server dans NPS
 
@@ -122,7 +122,7 @@ Quand vous configurez une entrée de Registre pour **ping User-Name**, NPS fait 
 **Le nom d’utilisateur ping** n’est pas installé par défaut. Vous devez ajouter **ping User-Name** au registre. Vous pouvez ajouter une entrée au registre à l’aide de l’éditeur du Registre.
 
 >[!CAUTION]
->Une modification incorrecte du Registre peut gravement endommager votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
+>La modification incorrecte du Registre peut gravement endommager le système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
 
 ### <a name="to-add-ping-user-name-to-the-registry"></a>Pour ajouter le nom d’utilisateur ping au registre
 

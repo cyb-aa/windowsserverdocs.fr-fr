@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d81678a7-be21-48f2-9b3f-5a75d6aef013
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 63a6eb5f0f78ed8dbcc0144602f16274fd6ec213
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8275c3e8902ed78d77d01a2ff5d769d3e99abf97
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396314"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316177"
 ---
 # <a name="remote-radius-server-groups"></a>Groupes de serveurs RADIUS distants
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Quand vous configurez le serveur NPS (Network Policy Server) en tant que proxy protocole RADIUS (Remote Authentication Dial-In User Service) (RADIUS), vous utilisez NPS pour transférer les demandes de connexion aux serveurs RADIUS capables de traiter les demandes de connexion, car ils peuvent effectuer les opérations suivantes : authentification et autorisation dans le domaine où se trouve le compte d’utilisateur ou d’ordinateur. Par exemple, si vous souhaitez transférer des demandes de connexion à un ou plusieurs serveurs RADIUS dans des domaines non approuvés, vous pouvez configurer NPS en tant que proxy RADIUS pour transférer les demandes aux serveurs RADIUS distants dans le domaine non approuvé.
 

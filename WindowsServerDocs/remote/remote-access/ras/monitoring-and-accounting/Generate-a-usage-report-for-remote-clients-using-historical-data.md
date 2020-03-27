@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0305467b-ce39-4532-a05a-2cc5ff946f55
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: bae50345e8a6fd4018857e2a754d0274ce02855d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ce5219feca1d55191352d95f2aac017709a5a449
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367255"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314295"
 ---
 # <a name="generate-a-usage-report-for-remote-clients-using-historical-data"></a>Générer un rapport d'utilisation pour les clients distants à l'aide de données d'historique
 
@@ -61,7 +61,7 @@ La console de gestion sur le serveur d’accès à distance peut être utilisée
   
 ![les commandes Windows PowerShell](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Dans le script suivant, modifiez la plage de dates pour laquelle vous souhaitez un rapport dans les paramètres **-StartDateTime** et **-EndDateTime** .  
   

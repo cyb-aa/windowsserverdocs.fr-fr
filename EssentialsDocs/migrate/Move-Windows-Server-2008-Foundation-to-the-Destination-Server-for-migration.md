@@ -3,7 +3,7 @@ title: Déplacer les paramètres et données de Windows Server 2008 Foundation v
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,28 +12,28 @@ ms.assetid: 3ff7d040-ebd1-421c-80db-765deacedd4c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 3d9e662a6474823cae42d0a2abec60963273ca18
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: 61a5caee1aba9de5f60bf0723ee0dadaf4871e5e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828543"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318848"
 ---
 # <a name="move-windows-server-2008-foundation-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Déplacer les paramètres et données de Windows Server 2008 Foundation vers le serveur de destination pour la migration vers Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Déplacez les paramètres et les données vers le serveur de destination comme suit :
 
-1. [Copier des données vers le serveur de Destination (facultatif)](#copy-data-to-the-destination-server)
+1. [Copier les données sur le serveur de destination (facultatif)](#copy-data-to-the-destination-server)
 
-2. [Importer des comptes d’utilisateur Active Directory à bord Windows Server Essentials (facultatif)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
+2. [Importer des comptes d’utilisateur Active Directory dans le tableau de bord Windows Server Essentials (facultatif)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
 
-3. [Déplacer le rôle de serveur DHCP à partir du serveur Source vers le routeur](#move-the-dhcp-server-role-from-the-source-server-to-the-router)
+3. [Déplacer le rôle de serveur DHCP du serveur source vers le routeur](#move-the-dhcp-server-role-from-the-source-server-to-the-router)
 
 4. [Configurer le réseau](#configure-the-network) 
 
-5. [Mapper les ordinateurs autorisés aux comptes d’utilisateurs](#map-permitted-computers-to-user-accounts)
+5. [Mapper les ordinateurs autorisés aux comptes d’utilisateur](#map-permitted-computers-to-user-accounts)
   
 ## <a name="copy-data-to-the-destination-server"></a>Copier les données vers le serveur de destination
  Avant de copier des données du serveur source vers le serveur de destination, effectuez les tâches suivantes :  
@@ -48,20 +48,20 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
   
 1.  Ouvrez une session sur le serveur de destination en tant qu'administrateur de domaine, puis ouvrez une fenêtre de commande.  
   
-2.  À l'invite de commandes, tapez la commande suivante et appuyez sur Entrée :  
+2.  À l'invite de commandes, tapez la commande suivante, puis appuyez sur ENTRÉE :  
   
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`  
   
-     Où :
-     - \<Nom_serveur_source\> est le nom du serveur Source
-     - \<Nomdossiersourcepartagé\> est le nom du dossier partagé sur le serveur Source
-     - \<NomServeurDestination\> est le nom du serveur de Destination,
-     - \<Nomdossierdestinationpartagé\> est le dossier partagé sur le serveur de Destination vers lequel les données seront copiées.  
+     Où :
+     - \<SourceServerName\> est le nom du serveur source
+     - \<Nomdossiersourcepartagé\> est le nom du dossier partagé sur le serveur source
+     - \<NomServeurDestination\> est le nom du serveur de destination,
+     - \<Nomdossierdestinationpartagé\> est le dossier partagé sur le serveur de destination vers lequel les données seront copiées.  
   
 3.  Répétez l'étape précédente pour chaque dossier partagé que vous migrez depuis le serveur source.  
   
-## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importer des comptes d’utilisateurs Active Directory dans le tableau de bord Windows Server Essentials
- Par défaut, tous les comptes d’utilisateur créés sur le serveur Source migrent automatiquement vers le tableau de bord dans Windows Server Essentials. Cependant, la migration automatique d'un compte d'utilisateur Active Directory échoue si toutes les propriétés ne remplissent pas les conditions de la migration. Vous pouvez utiliser l'applet de commande Windows PowerShell suivante pour importer les utilisateurs Active Directory.  
+## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importer des comptes d’utilisateur Active Directory dans le tableau de bord Windows Server Essentials
+ Par défaut, tous les comptes d’utilisateur créés sur le serveur source sont automatiquement migrés vers le tableau de bord dans Windows Server Essentials. Cependant, la migration automatique d'un compte d'utilisateur Active Directory échoue si toutes les propriétés ne remplissent pas les conditions de la migration. Vous pouvez utiliser l'applet de commande Windows PowerShell suivante pour importer les utilisateurs Active Directory.  
   
 #### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>Pour importer un compte d’utilisateur Active Directory dans le tableau de bord Windows Server Essentials
   
@@ -110,12 +110,12 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
   
    Si votre routeur ne prend pas en charge l'infrastructure UPnP, ou si l'infrastructure UPnP est désactivée, une icône d'avertissement jaune peut apparaître en regard du nom du routeur. Vérifiez que les ports suivants sont ouverts et qu'ils sont dirigés vers l'adresse IP du serveur de destination :  
   
--   Port 80 : Trafic Web HTTP  
+-   Port 80 : trafic web HTTP  
   
--   Port 443 : Trafic Web HTTPS  
+-   Port 443 : trafic web HTTPS  
   
 ## <a name="map-permitted-computers-to-user-accounts"></a>Mapper les ordinateurs autorisés aux comptes d'utilisateur  
- Dans Windows Server Essentials, un utilisateur doit être explicitement affecté à un ordinateur pour qu’il s’affiche dans l’accès Web à distance. Chaque compte d'utilisateur qui est migré à partir de Windows Server 2008 Foundation doit être mappé à un ou plusieurs ordinateurs.  
+ Dans Windows Server Essentials, un utilisateur doit être explicitement affecté à un ordinateur pour qu’il s’affiche dans Accès web à distance. Chaque compte d'utilisateur qui est migré à partir de Windows Server 2008 Foundation doit être mappé à un ou plusieurs ordinateurs.  
   
 #### <a name="to-map-user-accounts-to-computers"></a>Pour mapper les comptes d'utilisateur aux ordinateurs  
   

@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/20/2018
-ms.openlocfilehash: 8c354d53db983d0437749de918b2d5f12ede0f5b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a83a36ce7a47f0ebde35bf93bdca20796dd37a28
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405696"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316880"
 ---
 # <a name="software-only-so-features-and-technologies"></a>Fonctionnalités et technologies logicielles uniquement (SO)
 Les fonctionnalités logicielles uniquement sont implémentées dans le cadre du système d’exploitation et sont indépendantes de la ou des cartes réseau sous-jacentes. Parfois, ces fonctionnalités nécessitent un paramétrage de la carte réseau pour un fonctionnement optimal. Les fonctionnalités Hyper-v telles que la qualité de service (vmQoS) de l’ordinateur virtuel, les listes de Access Control (ACL) et les fonctionnalités non-Hyper-V, telles que l’Association de cartes réseau, sont des exemples.

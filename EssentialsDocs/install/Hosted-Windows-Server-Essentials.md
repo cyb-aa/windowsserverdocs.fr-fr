@@ -3,7 +3,7 @@ title: Windows Server Essentials hébergé
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: fda5628c-ad23-49de-8d94-430a4f253802
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 84464c69d4b8576906e5fb0d0a7de7e382a59537
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 76319f87a246c6fabbe0befaf7dc4c74d1416ac4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947506"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311756"
 ---
 # <a name="hosted-windows-server-essentials"></a>Windows Server Essentials hébergé
 
@@ -30,7 +30,7 @@ Ce document contient des informations spécifiques aux hébergeurs qui envisagen
   
  **Système d’exploitation serveur :** Les technologies de produit Windows Server 2012 fournissent le cœur de Windows Server Essentials. Pour plus d’informations, consultez le [site web Windows Server 2012](https://www.microsoft.com/server-cloud/products/windows-server-2012-r2/default.aspx#fbid=ZH0GD_CRAWh).  
   
- **Protection des données :** Windows Server Essentials exploite plusieurs nouvelles fonctionnalités disponibles dans Windows Server 2012 pour fournir des fonctionnalités de protection des données très améliorées. La [nouvelle fonctionnalité Espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) vous permet d’agréger la capacité de stockage physique de différents disques durs, d’ajouter dynamiquement des disques durs et de créer des volumes de données avec des niveaux de résilience spécifiques. Windows Server Essentials peut effectuer des sauvegardes complètes du système et des restaurations complètes du serveur lui-même, ainsi que des ordinateurs clients connectés au réseau. désormais, avec la prise en charge des volumes supérieurs à 2 to. [Windows Azure Online Backup](https://technet.microsoft.com/library/hh831419.aspx) , une nouveauté de Windows Server 2012, peut être utilisé pour protéger les fichiers et les dossiers au sein d’un service de stockage cloud géré par Microsoft. Windows Server Essentials gère et configure également de manière centralisée la fonctionnalité historique des fichiers de Windows 8.1 clients, ce qui permet aux utilisateurs de récupérer des fichiers accidentellement supprimés ou remplacés sans nécessiter d’assistance de la part de l’administrateur.  
+ **Protection des données :** Windows Server Essentials exploite plusieurs nouvelles fonctionnalités disponibles dans Windows Server 2012 pour fournir des fonctionnalités de protection des données très améliorées. La [nouvelle fonctionnalité Espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) vous permet d'agréger la capacité de stockage physique de différents disques durs, d'ajouter dynamiquement des disques durs et de créer des volumes de données avec des niveaux de résilience spécifiques. Windows Server Essentials peut effectuer des sauvegardes complètes du système et des restaurations complètes du serveur lui-même, ainsi que des ordinateurs clients connectés au réseau. désormais, avec la prise en charge des volumes supérieurs à 2 to. [Windows Azure Online Backup](https://technet.microsoft.com/library/hh831419.aspx), une nouveauté de Windows Server 2012, peut être utilisé pour protéger les fichiers et les dossiers au sein d'un service de stockage en nuage géré par Microsoft. Windows Server Essentials gère et configure également de manière centralisée la fonctionnalité historique des fichiers de Windows 8.1 clients, ce qui permet aux utilisateurs de récupérer des fichiers accidentellement supprimés ou remplacés sans nécessiter d’assistance de la part de l’administrateur.  
   
  **Accès en tout lieu :** l’accès web à distance permet d’accéder à des applications et des données, via un navigateur simple d’emploi et tactile, et ce depuis pratiquement n’importe quel endroit et à l’aide de pratiquement tout appareil doté d’une connexion Internet. Windows Server Essentials fournit également une application de Windows Phone mise à jour et une nouvelle application pour les ordinateurs clients Windows 8.1, ce qui permet aux utilisateurs de se connecter intuitivement à, de rechercher des fichiers et des dossiers sur le serveur et d’y accéder. Les fichiers sont également automatiquement mis en cache pour un accès hors ligne et synchronisés si une connexion au serveur est disponible. Windows Server Essentials active la configuration du réseau privé virtuel (VPN) dans un processus simple, piloté par un Assistant, en quelques clics et simplifie la gestion de l’accès VPN pour les utilisateurs. Les ordinateurs clients peuvent exploiter une connexion VPN pour se connecter à distance à un environnement Windows SBS sans avoir besoin de se rendre au bureau.  
   
@@ -38,7 +38,7 @@ Ce document contient des informations spécifiques aux hébergeurs qui envisagen
   
  **Surveillance de l’intégrité :** Windows Server Essentials surveille son propre état d’intégrité et l’état des ordinateurs clients qui exécutent Windows 8.1, Windows 7 et Mac OS X version 10,5 et versions ultérieures. L'état d'intégrité vous signale des problèmes liés aux sauvegardes d'ordinateurs, au stockage de serveur, à un espace disque faible, etc.  
   
- **Extensibilité :** Windows Server Essentials repose sur le modèle d’extensibilité de Windows SBS 2011 Essentials, qui permet à d’autres fournisseurs de logiciels d’ajouter des fonctionnalités au produit de base et ajoute un nouvel ensemble d’API de services Web. Il permet également de conserver la compatibilité avec le [Kit de développement logiciel](https://msdn.microsoft.com/library/gg513958.aspx) (SDK) et les [compléments](https://pinpoint.microsoft.com/applications/search?fpt=300105&q=small+business+server+essentials) créés pour Windows SBS 2011 Essentials.  
+ **Extensibilité :** Windows Server Essentials repose sur le modèle d’extensibilité de Windows SBS 2011 Essentials, qui permet à d’autres fournisseurs de logiciels d’ajouter des fonctionnalités au produit de base et ajoute un nouvel ensemble d’API de services Web. Il permet également de conserver la compatibilité avec le [Kit de développement logiciel](https://msdn.microsoft.com/library/gg513958.aspx) (SDK) et les [compléments](https://pinpoint.microsoft.com/applications/search?fpt=300105&q=small+business+server+essentials) créés pour Windows SBS 2011 Essentials.  
   
 ## <a name="how-can-i-customize-an-image"></a>Comment personnaliser une image ?  
  Reportez-vous à [Windows Server Essentials](https://go.microsoft.com/fwlink/p/?LinkID=249124), qui est un processus Sysprep standard de Windows Server avec des étapes de personnalisation supplémentaires de Windows Server Essentials. Pour terminer la personnalisation, suivez les instructions dans [Création d’une image personnalisée simple](https://technet.microsoft.com/library/jj200117) et [Personnalisation de l’image](https://technet.microsoft.com/library/jj200161), puis suivez les instructions figurant dans [Préparation de l’image en vue du déploiement](https://technet.microsoft.com/library/jj200142) afin de capturer votre image finale.  
@@ -57,10 +57,10 @@ Ce document contient des informations spécifiques aux hébergeurs qui envisagen
   
    Si vous utilisez le Virtual Machine Manager, vous pouvez créer un modèle en utilisant l'instance en cours d'exécution. La création d'un modèle prépare l'instance avec sysprep et éteint le serveur. Une fois qu'elle est stockée dans votre bibliothèque, vous pouvez utiliser l'instance au cas par cas.  
   
-##  <a name="BKMK_automatedeployment"></a>Comment faire automatiser le déploiement ?  
+##  <a name="how-do-i-automate-the-deployment"></a><a name="BKMK_automatedeployment"></a>Comment faire automatiser le déploiement ?  
  Une fois que vous avez obtenu l'image personnalisée, vous pouvez effectuer le déploiement avec votre propre image. Pour effectuer une installation en partie sans assistance, vous devez fournir/déployer le fichier unattend.xml pour la configuration de WinPE. Pour effectuer une installation entièrement sans assistance, vous devez également fournir le fichier cfg. ini pour la configuration initiale de Windows Server Essentials.  
   
-1. Effectuer uniquement une configuration sans assistance de WinPE. Cela automatisera uniquement la configuration de WinPE et arrêtera la configuration avant la configuration initiale, afin de permettre aux utilisateurs de fournir eux-mêmes des informations sur la société, le domaine et l'administrateur pour la session de serveur via RDP. Pour cela, procédez comme suit :  
+1. Effectuer uniquement une configuration sans assistance de WinPE. Cela automatisera uniquement la configuration de WinPE et arrêtera la configuration avant la configuration initiale, afin de permettre aux utilisateurs de fournir eux-mêmes des informations sur la société, le domaine et l'administrateur pour la session de serveur via RDP. Pour effectuer cette opération :  
   
    1.  Fournissez le fichier unattend.xml Windows. Suivez le [Windows 8.1 ADK](https://go.microsoft.com/fwlink/?LinkId=248694) pour générer le fichier et fournissez toutes les informations nécessaires, y compris le nom du serveur, les clés de produit et le mot de passe administrateur. Dans la section Microsoft-Windows-Setup du fichier Unattend. xml, fournissez les informations ci-dessous.  
   
@@ -84,7 +84,7 @@ Ce document contient des informations spécifiques aux hébergeurs qui envisagen
   
    Si vous utilisez le Virtual Machine Manager, vous pouvez spécifier le mot de passe de l'administrateur dans la console lorsque vous créez une nouvelle instance à partir du modèle.  
   
-2. Exécutez une configuration sans assistance complète, y compris la configuration initiale sans assistance. Pour cela, procédez comme suit :  
+2. Exécutez une configuration sans assistance complète, y compris la configuration initiale sans assistance. Pour effectuer cette opération :  
   
    1.  Fournissez le fichier unattend.xml comme vous l'avez-fait ci-dessus si le déploiement démarre depuis la configuration de WinPE.  
   
@@ -278,7 +278,7 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
 > [!NOTE]
 >  Si la redirection de dossiers est activée dans un environnement hébergé pour un profil utilisateur, le temps nécessaire aux utilisateurs finaux pour se connecter peut augmenter si le volume de données est important.  
   
-### <a name="management-pack"></a>Pack d'administration  
+### <a name="management-pack"></a>Pack d’administration  
  Le pack d’administration Windows Server Essentials fournit une fonction de surveillance sur le système d’alerte d’intégrité de Windows Server Essentials pour aider les hébergeurs à gérer un grand nombre de serveurs Windows Server Essentials dédiés à différentes petites entreprises. La surveillance dans cette version inclut uniquement des alertes critiques dans le système.  
   
 #### <a name="management-pack-scope"></a>Étendue du pack d'administration  
@@ -314,7 +314,7 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
   
   Si vous ou vos utilisateurs préférez un autre service de nuage, vous devez :  
   
-1.  Mettez à jour l’interface utilisateur du tableau de bord Windows Server Essentials afin qu’elle fournisse un lien vers votre service Cloud préféré au lieu de la sauvegarde Azure par défaut. Pour plus d’informations, consultez la section « Personnaliser l’image » de la [documentation sur le Kit de déploiement et d’évaluation](https://go.microsoft.com/fwlink/p/?LinkID=249124).  
+1.  Mettez à jour l’interface utilisateur du tableau de bord Windows Server Essentials afin qu’elle fournisse un lien vers votre service Cloud préféré au lieu de la sauvegarde Azure par défaut. Pour plus d’informations, consultez la section « Personnaliser l’image » de la [documentation sur le Kit de déploiement et d’évaluation](https://go.microsoft.com/fwlink/p/?LinkID=249124).  
   
 2.  Facultatif Développez un complément pour le tableau de bord Windows Server Essentials afin de configurer et de gérer le service de sauvegarde Cloud.  
   
@@ -328,20 +328,20 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
   
  Voici certains points à prendre en compte lors de la sauvegarde complète du client :  
   
-- Performance : il se peut que la sauvegarde initiale du serveur nécessite du temps en raison du volume de données à charger.  
+- Performance : il se peut que la sauvegarde initiale du serveur nécessite du temps en raison du volume de données à charger.  
   
-- Stabilité : la connexion Internet n'est parfois pas stable côté client. La sauvegarde du client est conçue pour pouvoir être reprise, et le point de contrôle par défaut est 40 Go (la base de données du client créera un point de contrôle chaque fois qu'un volume de données de 40 Go sera sauvegardé). Vous pouvez modifier cette valeur et la réduire si vous pensez que la connexion Internet n'est pas fiable.  
+- Stabilité : la connexion Internet n'est parfois pas stable côté client. La sauvegarde du client est conçue pour pouvoir être reprise, et le point de contrôle par défaut est 40 Go (la base de données du client créera un point de contrôle chaque fois qu'un volume de données de 40 Go sera sauvegardé). Vous pouvez modifier cette valeur et la réduire si vous pensez que la connexion Internet n'est pas fiable.  
   
   -   Pour activer une tâche de point de contrôle, définissez la clé de registre HKLM\Software\Microsoft\Windows Server\Backup\GetCheckPointJobs sur 1 sur le serveur.  
   
-  -   Pour modifier le seuil de point de contrôle, modifiez la valeur par défaut (40 Go) de HKLM\Software\Microsoft\Windows Server\Backup\CheckPointThreshold sur le client.  
+  -   Pour modifier le seuil de point de contrôle, modifiez la valeur par défaut (40 Go) de HKLM\Software\Microsoft\Windows Server\Backup\CheckPointThreshold sur le client.  
   
-- Restauration du client à froid : l'environnement de préinstallation de Windows ne prenant pas en charge une connexion VPN, la restauration du client à froid n'est pas prise en charge.  
+- Restauration du client à froid : l'environnement de préinstallation de Windows ne prenant pas en charge une connexion VPN, la restauration du client à froid n'est pas prise en charge.  
   
   **L’historique des fichiers** est une fonctionnalité Windows 8.1 pour sauvegarder des données de profil (bibliothèques, bureau, contacts, favoris) sur un partage réseau. Dans Windows Server Essentials, nous autorisons la gestion centralisée du paramètre historique des fichiers de tous les clients Windows 8.1 joints à Windows Server Essentials. Les données de sauvegarde sont stockées sur le serveur Windows Server Essentials. Vous pouvez désactiver cette fonctionnalité en suivant les étapes de la section créer le fichier cfg. ini du [document ADK](https://technet.microsoft.com/library/jj200150).  
   
 ### <a name="storage-management"></a>Gestion du stockage  
- La [nouvelle fonctionnalité Espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) vous permet d’agréger la capacité de stockage physique de différents disques durs, d’ajouter dynamiquement des disques durs et de créer des volumes de données avec des niveaux de résilience spécifiques. Vous pouvez également attacher un disque iSCSI à Windows Server Essentials pour étendre son stockage.  
+ La [nouvelle fonctionnalité Espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) vous permet d'agréger la capacité de stockage physique de différents disques durs, d'ajouter dynamiquement des disques durs et de créer des volumes de données avec des niveaux de résilience spécifiques. Vous pouvez également attacher un disque iSCSI à Windows Server Essentials pour étendre son stockage.  
   
 ## <a name="what-are-the-main-scenarios-i-should-test"></a>Quels sont les principaux scénarios à tester ?  
  Du point de vue de l'hébergement, il est recommandé de tester les scénarios suivants :  
@@ -401,7 +401,7 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
 ## <a name="where-can-i-get-more-support"></a>Où obtenir un support supplémentaire ?  
  Vous pouvez obtenir une documentation sur le Kit de développement logiciel et le Kit de déploiement et d’évaluation depuis le lien ci-dessous :  
   
-- [Kit SDK](https://go.microsoft.com/fwlink/p/?LinkID=248648)  
+- [SDK](https://go.microsoft.com/fwlink/p/?LinkID=248648)  
   
 - [ADK](https://go.microsoft.com/fwlink/p/?LinkID=249124)  
   

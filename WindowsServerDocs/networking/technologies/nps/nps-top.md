@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 9c7a67e0-0953-479c-8736-ccb356230bde
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/20/2018
-ms.openlocfilehash: 5685d4dae742245c131ff2fee3114e905e94e9bc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b509bb14757fab6ebd32490d0146b2801bc8e9f1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396007"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315627"
 ---
 # <a name="network-policy-server-nps"></a>Serveur NPS (Network Policy Server)
 
@@ -55,7 +55,7 @@ NPS offre différentes fonctionnalités en fonction de l’édition de Windows S
 
 ### <a name="windows-server-2016-or-windows-server-2019-standarddatacenter-edition"></a>Windows Server 2016 ou Windows Server 2019 standard/Datacenter Edition
 
-Avec NPS dans Windows Server 2016 standard ou Datacenter, vous pouvez configurer un nombre illimité de clients RADIUS et de groupes de serveurs RADIUS distants. En outre, vous pouvez configurer des clients RADIUS en spécifiant une plage d'adresses IP.
+Avec NPS dans Windows Server 2016 standard ou Datacenter, vous pouvez configurer un nombre illimité de clients RADIUS et de groupes de serveurs RADIUS distants. De plus, vous pouvez configurer des clients RADIUS en spécifiant une plage d'adresses IP.
 
 > [!NOTE]
 > La fonctionnalité services de stratégie et d’accès réseau WIndows n’est pas disponible sur les systèmes installés avec une option d’installation minimale.

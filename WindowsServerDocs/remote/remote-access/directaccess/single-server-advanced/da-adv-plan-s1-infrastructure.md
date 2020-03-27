@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: bb8bb6dda6eab27413b462a4c7f17176fbed85a1
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a1dbd7bad0a6954d0cf66c372a48507a2a8d61be
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822772"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309073"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Étape 1 planifier l’infrastructure DirectAccess avancée
 
@@ -56,7 +56,7 @@ Cette section explique comment planifier votre réseau, y compris :
   
 2. Identifiez vos exigences en matière d'adressage IP :  
   
-    DirectAccess utilise IPv6 avec IPsec pour créer une connexion sécurisée entre les ordinateurs clients DirectAccess et le réseau d'entreprise interne. Pourtant, DirectAccess ne requiert pas systématiquement une connectivité Internet IPv6 ni une prise en charge IPv6 native sur les réseaux internes. Au lieu de cela, il configure et utilise automatiquement des technologies de transition IPv6 pour transférer le trafic IPv6 sur Internet IPv4 (en utilisant 6to4, Teredo ou IP-HTTPS) et sur votre intranet IPv4 uniquement (en utilisant NAT64 ou ISATAP). Pour obtenir une vue d'ensemble de ces technologies de transition, consultez les ressources suivantes :  
+    DirectAccess utilise IPv6 avec IPsec pour créer une connexion sécurisée entre les ordinateurs clients DirectAccess et le réseau d'entreprise interne. Pourtant, DirectAccess ne requiert pas systématiquement une connectivité Internet IPv6 ni une prise en charge IPv6 native sur les réseaux internes. Au lieu de cela, il configure et utilise automatiquement des technologies de transition IPv6 pour transférer le trafic IPv6 sur Internet IPv4 (en utilisant 6to4, Teredo ou IP-HTTPS) et sur votre intranet IPv4 uniquement (en utilisant NAT64 ou ISATAP). Pour obtenir une vue d'ensemble de ces technologies de transition, consultez les ressources suivantes :  
   
     - [Technologies de transition IPv6](https://technet.microsoft.com/library/bb726951.aspx)  
   
@@ -66,8 +66,8 @@ Cette section explique comment planifier votre réseau, y compris :
   
     ||Carte réseau externe|Carte réseau interne|Exigences en matière de routage|  
     |-|--------------|--------------|------------|  
-    |Internet IPv4 et intranet IPv4|Configurez deux adresses IPv4 publiques statiques, consécutives avec les masques de sous-réseau appropriés (requis pour Teredo uniquement).<br/><br/>Configurez également l'adresse IPv4 de la passerelle par défaut de votre pare-feu Internet ou du routeur de votre fournisseur de services Internet local. **Remarque :** Le serveur DirectAccess requiert deux adresses IPv4 publiques consécutives afin qu’il puisse agir en tant que serveur Teredo et que les clients Windows puissent utiliser le serveur DirectAccess pour détecter le type de périphérique NAT derrière lequel ils se trouvent.|Configurez ce qui suit :<br/><br/>-Une adresse intranet IPv4 avec le masque de sous-réseau approprié.<br/>-Suffixe DNS spécifique à la connexion de votre espace de noms intranet. Vous devez également configurer un serveur DNS sur l'interface interne. **Attention :** Ne configurez pas de passerelle par défaut sur les interfaces intranet.|Pour configurer le serveur DirectAccess afin d'atteindre tous les sous-réseaux du réseau IPv4 interne, procédez comme suit :<br/><br/>-Répertorier les espaces d’adressage IPv4 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **route Add-p** ou**netsh interface ipv4 add route** pour ajouter les espaces d’adressage IPv4 en tant qu’itinéraires statiques dans la table de routage IPv4 du serveur DirectAccess.|  
-    |Internet IPv6 et intranet IPv6|Configurez ce qui suit :<br/><br/>-Utilisez la configuration d’adresses fournie par votre fournisseur de services Internet.<br/>-Utilisez la commande **route print** pour vous assurer qu’il existe un itinéraire IPv6 par défaut et qu’il pointe vers le routeur du fournisseur de services Internet dans la table de routage IPv6.<br/>-Déterminez si le fournisseur de services Internet et les routeurs intranet utilisent les préférences de routeur par défaut décrites dans le document RFC 4191 et utilisent une préférence par défaut supérieure à celle de vos routeurs intranet locaux.<br/>    Si vous avez répondu par l'affirmative dans les deux cas, aucune autre configuration n'est requise pour l'itinéraire par défaut. Une préférence plus élevée pour le routeur ISP permet de s'assurer que l'itinéraire IPv6 par défaut actif du serveur DirectAccess pointe vers Internet IPv6.<br/><br/>Étant donné que le serveur DirectAccess est un routeur IPv6, si vous disposez d'une infrastructure IPv6 native, l'interface Internet peut également atteindre les contrôleurs de domaine sur l'intranet. Dans ce cas, ajoutez des filtres de paquets au contrôleur de domaine dans le réseau de périmètre pour empêcher la connectivité IPv6 de l'interface Internet du serveur DirectAccess.|Configurez ce qui suit :<br/><br/>-Si vous n’utilisez pas les niveaux de préférence par défaut, vous pouvez configurer vos interfaces intranet à l’aide de la commande suivante :**netsh interface ipv6 set InterfaceIndex ignoredefaultroutes = Enabled**.<br/>    Cette commande vérifie que les itinéraires par défaut supplémentaires qui pointent vers les routeurs intranet ne seront pas ajoutés à la table de routage IPv6. Vous pouvez obtenir l’index de vos interfaces intranet à l’aide de la commande suivante : **netsh interface ipv6 show interface**.|Si vous avez un intranet IPv6, procédez comme suit pour configurer le serveur DirectAccess afin d'atteindre tous les emplacements IPv6 :<br/><br/>-Répertorier les espaces d’adressage IPv6 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **netsh interface ipv6 add route** pour ajouter les espaces d’adressage IPv6 en tant qu’itinéraires statiques dans la table de routage IPv6 du serveur DirectAccess.|  
+    |Internet IPv4 et intranet IPv4|Configurez deux adresses IPv4 publiques statiques, consécutives avec les masques de sous-réseau appropriés (requis pour Teredo uniquement).<br/><br/>Configurez également l'adresse IPv4 de la passerelle par défaut de votre pare-feu Internet ou du routeur de votre fournisseur de services Internet local. **Remarque :** Le serveur DirectAccess requiert deux adresses IPv4 publiques consécutives afin qu’il puisse agir en tant que serveur Teredo et que les clients Windows puissent utiliser le serveur DirectAccess pour détecter le type de périphérique NAT derrière lequel ils se trouvent.|Configurez les éléments suivants :<br/><br/>-Une adresse intranet IPv4 avec le masque de sous-réseau approprié.<br/>-Suffixe DNS spécifique à la connexion de votre espace de noms intranet. Vous devez également configurer un serveur DNS sur l'interface interne. **Attention :** Ne configurez pas de passerelle par défaut sur les interfaces intranet.|Pour configurer le serveur DirectAccess afin d'atteindre tous les sous-réseaux du réseau IPv4 interne, procédez comme suit :<br/><br/>-Répertorier les espaces d’adressage IPv4 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **route Add-p** ou**netsh interface ipv4 add route** pour ajouter les espaces d’adressage IPv4 en tant qu’itinéraires statiques dans la table de routage IPv4 du serveur DirectAccess.|  
+    |Internet IPv6 et intranet IPv6|Configurez les éléments suivants :<br/><br/>-Utilisez la configuration d’adresses fournie par votre fournisseur de services Internet.<br/>-Utilisez la commande **route print** pour vous assurer qu’il existe un itinéraire IPv6 par défaut et qu’il pointe vers le routeur du fournisseur de services Internet dans la table de routage IPv6.<br/>-Déterminez si le fournisseur de services Internet et les routeurs intranet utilisent les préférences de routeur par défaut décrites dans le document RFC 4191 et utilisent une préférence par défaut supérieure à celle de vos routeurs intranet locaux.<br/>    Si vous avez répondu par l'affirmative dans les deux cas, aucune autre configuration n'est requise pour l'itinéraire par défaut. Une préférence plus élevée pour le routeur ISP permet de s'assurer que l'itinéraire IPv6 par défaut actif du serveur DirectAccess pointe vers Internet IPv6.<br/><br/>Étant donné que le serveur DirectAccess est un routeur IPv6, si vous disposez d'une infrastructure IPv6 native, l'interface Internet peut également atteindre les contrôleurs de domaine sur l'intranet. Dans ce cas, ajoutez des filtres de paquets au contrôleur de domaine dans le réseau de périmètre pour empêcher la connectivité IPv6 de l'interface Internet du serveur DirectAccess.|Configurez les éléments suivants :<br/><br/>-Si vous n’utilisez pas les niveaux de préférence par défaut, vous pouvez configurer vos interfaces intranet à l’aide de la commande suivante :**netsh interface ipv6 set InterfaceIndex ignoredefaultroutes = Enabled**.<br/>    Cette commande vérifie que les itinéraires par défaut supplémentaires qui pointent vers les routeurs intranet ne seront pas ajoutés à la table de routage IPv6. Vous pouvez obtenir l’index de vos interfaces intranet à l’aide de la commande suivante : **netsh interface ipv6 show interface**.|Si vous avez un intranet IPv6, procédez comme suit pour configurer le serveur DirectAccess afin d'atteindre tous les emplacements IPv6 :<br/><br/>-Répertorier les espaces d’adressage IPv6 pour tous les emplacements sur votre intranet.<br/>-Utilisez la commande **netsh interface ipv6 add route** pour ajouter les espaces d’adressage IPv6 en tant qu’itinéraires statiques dans la table de routage IPv6 du serveur DirectAccess.|  
     |Internet IPv4 et intranet IPv6|Le serveur DirectAccess transfère le trafic de l'itinéraire IPv6 par défaut via la carte Microsoft 6to4 à un relais 6to4 sur Internet IPv4. Vous pouvez configurer un serveur DirectAccess pour l'adresse IPv4 de la carte Microsoft 6to4 à l'aide de la commande suivante : `netsh interface ipv6 6to4 set relay name=<ipaddress> state=enabled`.|||  
   
     > [!NOTE]  
@@ -168,7 +168,7 @@ Il existe trois scénarios qui requièrent des certificats lorsque vous déploye
   
 Les exigences liées à l'autorité de certification sont résumées pour chaque scénario dans le tableau ci-dessous.  
   
-|Authentification IPsec|Serveur IP-HTTPS|Serveur d'emplacement réseau|  
+|Authentification IPsec|Serveur IP-HTTPS|Serveur Emplacement réseau|  
 |------------|----------|--------------|  
 |Une autorité de certification interne est requise pour émettre des certificats d’ordinateur sur le serveur et les clients DirectAccess pour l’authentification IPsec lorsque vous n’utilisez pas le proxy Kerberos pour l’authentification.|Autorité de certification interne :<br/><br/>Vous pouvez utiliser une autorité de certification interne pour émettre le certificat IP-HTTPS. Toutefois, vous devez vous assurer que le point de distribution de la liste de révocation de certificats est disponible en externe.|Autorité de certification interne :<br/><br/>Vous pouvez utiliser une autorité de certification interne pour émettre le certificat de site web du serveur Emplacement réseau. Assurez-vous que le point de distribution de la liste de révocation de certificats présente une haute disponibilité à partir du réseau interne.|  
 ||Certificat auto-signé :<br/><br/>Vous pouvez utiliser un certificat auto-signé pour le serveur IP-HTTPS. Toutefois, vous devez vous assurer que le point de distribution de la liste de révocation de certificats est disponible en externe.<br/><br/>Un certificat auto-signé n'est pas utilisable dans des déploiements multisites.|Certificat auto-signé :<br/><br/>Vous pouvez utiliser un certificat auto-signé pour le site web du serveur Emplacement réseau.<br/><br/>Un certificat auto-signé n'est pas utilisable dans des déploiements multisites.|  
@@ -264,7 +264,7 @@ Pour utiliser IP-HTTPS sur un port non standard, procédez comme suit sur le con
   
     3.  Ouvrez le paramètre d’état IP-HTTPS et remplacez l'URL par **https://<nom serveur DirectAccess (par exemple, serveur.contoso.com)>:44500/IPHTTPS**.  
   
-    4.  Cliquez sur **Apply** (Appliquer).  
+    4.  Cliquez sur **Appliquer**.  
   
 2.  Modifiez les paramètres client du proxy Kerberos dans l'objet de stratégie de groupe client.  
   
@@ -272,7 +272,7 @@ Pour utiliser IP-HTTPS sur un port non standard, procédez comme suit sur le con
   
     2.  Ouvrez le paramètre d’état IPHTTPS et remplacez l'URL par **https://<nom serveur DirectAccess (par exemple, serveur.contoso.com)>:44500/IPHTTPS**.  
   
-    3.  Cliquez sur **Apply** (Appliquer).  
+    3.  Cliquez sur **Appliquer**.  
   
 3.  Modifiez les paramètres de stratégie IPsec client pour utiliser ComputerKerb et UserKerb.  
   
@@ -303,7 +303,7 @@ Lors de la planification du site web du serveur Emplacement réseau, notez les p
     > Assurez-vous que les certificats pour IP-HTTPS et le serveur Emplacement réseau ont un **Nom de sujet**. Si le certificat n'a pas de **Nom de sujet**, mais possède un **Autre nom**, il ne sera pas accepté par l'Assistant Accès à distance.  
   
 ## <a name="14-plan-dns-requirements"></a>1.4 Planifier la configuration DNS requise  
-Cette section explique la configuration DNS requise pour les serveurs d'infrastructure et les demandes des clients DirectAccess dans un déploiement d'accès à distance. Elle inclut les sous-sections suivantes :  
+Cette section explique la configuration DNS requise pour les serveurs d'infrastructure et les demandes des clients DirectAccess dans un déploiement d'accès à distance. Elle inclut les sous-sections suivantes :  
   
 -   [1.4.1 planifier la configuration requise pour le serveur DNS](#141-plan-for-dns-server-requirements)  
   
@@ -322,7 +322,7 @@ Vous pouvez préciser que les clients doivent utiliser DirectAccess DNS64 pour r
 > [!NOTE]  
 > Notez que quand un nouveau suffixe est ajouté à la table NRPT dans la console de gestion de l'accès à distance, vous avez la possibilité de détecter automatiquement les serveurs DNS par défaut pour le suffixe en cliquant sur **Détecter**.  
   
-La détection automatique fonctionne comme suit :  
+La détection automatique fonctionne comme suit :  
   
 -   Si le réseau d'entreprise est basé sur IPv4 ou s'il utilise IPv4 et IPv6, l'adresse par défaut correspond à l'adresse DNS64 de la carte interne sur le serveur DirectAccess.  
   
@@ -332,7 +332,7 @@ La détection automatique fonctionne comme suit :
   
 -   **Serveur emplacement réseau**  
   
-    Les clients DirectAccess essaient d'atteindre le serveur Emplacement réseau pour déterminer s'ils se situent sur le réseau interne. Les clients qui se trouvent sur le réseau interne doivent être en mesure de résoudre le nom du serveur Emplacement réseau, mais il est impératif de les empêcher de le faire quand ils se situent sur Internet. Pour garantir cela, le nom de domaine complet (FQDN) du serveur Emplacement réseau est, par défaut, ajouté en tant que règle d'exemption à la table NRPT. De plus, quand vous configurez l'accès à distance, les règles suivantes sont automatiquement créées :  
+    Les clients DirectAccess essaient d'atteindre le serveur Emplacement réseau pour déterminer s'ils se situent sur le réseau interne. Les clients qui se trouvent sur le réseau interne doivent être en mesure de résoudre le nom du serveur Emplacement réseau, mais il est impératif de les empêcher de le faire quand ils se situent sur Internet. Pour garantir cela, le nom de domaine complet (FQDN) du serveur Emplacement réseau est, par défaut, ajouté en tant que règle d'exemption à la table NRPT. De plus, quand vous configurez l'accès à distance, les règles suivantes sont automatiquement créées :  
   
     -   Règle de suffixe DNS pour le domaine racine ou le nom de domaine du serveur DirectAccess et les adresses IPv6 qui correspondent à l'adresse DNS64. Dans les réseaux d'entreprise IPv6 uniquement, les serveurs DNS intranet sont configurés sur le serveur DirectAccess. Par exemple, si le serveur DirectAccess est membre du domaine corp.contoso.com, une règle est créée pour le suffixe DNS corp.contoso.com.  
   
@@ -500,7 +500,7 @@ DirectAccess utilise AD DS et Active Directory objets de stratégie de groupe (G
   
     DirectAccess peut utiliser l'authentification et le chiffrement IPsec entre les clients et le serveur DirectAccess. Vous pouvez étendre l'authentification et le chiffrement IPsec à partir du client jusqu'aux serveurs d'applications internes spécifiés. Pour cela, ajoutez les serveurs d'applications requis dans un groupe de sécurité.  
   
-**Configuration requise pour la AD DS**  
+**Configuration AD DS requise**  
   
 Lorsque vous planifiez d'utiliser les services de domaine Active Directory pour un déploiement DirectAccess, prenez en compte les exigences suivantes :  
   
@@ -510,7 +510,7 @@ Lorsque vous planifiez d'utiliser les services de domaine Active Directory pour 
   
 -   Le serveur DirectAccess doit être membre d'un domaine.  
   
--   Les clients DirectAccess doivent appartenir au domaine. Les clients peuvent appartenir :  
+-   Les clients DirectAccess doivent appartenir au domaine. Les clients peuvent appartenir :  
   
     -   à tout domaine inclus dans la même forêt que le serveur DirectAccess ;  
   
@@ -576,7 +576,7 @@ Les paramètres DirectAccess configurés quand vous configurez l'accès à dista
   
     Cet objet de stratégie de groupe contient les paramètres des serveurs d'applications sélectionnés auxquels vous étendez éventuellement l'authentification et le chiffrement à partir des clients DirectAccess. Si l'authentification et le chiffrement ne sont pas étendus, cet objet de stratégie de groupe n'est pas utilisé.  
   
-Vous pouvez configurer les objets de stratégie de groupe de deux manières :  
+Vous pouvez configurer les objets de stratégie de groupe de deux manières :  
   
 -   **Automatiquement**: vous pouvez spécifier qu’elles sont créées automatiquement. Un nom par défaut est spécifié pour chaque objet de stratégie de groupe.  
   
@@ -675,7 +675,7 @@ Le diagramme suivant illustre cette configuration.
 ### <a name="185-recover-from-a-deleted-gpo"></a>1.8.5 Récupérer après la suppression d'un objet de stratégie de groupe  
 Si un objet de stratégie de groupe de client, de serveur DirectAccess ou de serveur d'applications est supprimé par inadvertance et qu'aucune sauvegarde n'est disponible, vous devez supprimer les paramètres de configuration et les reconfigurer. Si vous disposez d'une sauvegarde, vous pouvez restaurer l'objet de stratégie de groupe.  
   
-La console de gestion de l’accès à distance affiche le message d’erreur suivant : le **GPO (nom de l’objet de stratégie de groupe) est introuvable**. Pour supprimer les paramètres de configuration, procédez comme suit :  
+La console de gestion de l’accès à distance affiche le message d’erreur suivant : le **GPO (nom de l’objet de stratégie de groupe) est introuvable**. Pour supprimer les paramètres de configuration, procédez comme suit :  
   
 1.  Exécutez l'applet de commande Windows PowerShell **Uninstall-remoteaccess**.  
   
@@ -683,7 +683,7 @@ La console de gestion de l’accès à distance affiche le message d’erreur su
   
 3.  Un message d'erreur indique que l'objet de stratégie de groupe est introuvable. Cliquez sur **Supprimer les paramètres de configuration**. Après cela, le serveur sera rétabli à l'état Non configuré.  
   
-## <a name="next-steps"></a>Étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes :  
   
 -   [Étape 2 : planifier les déploiements DirectAccess](da-adv-plan-s2-deployments.md)  
   

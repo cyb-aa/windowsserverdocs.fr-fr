@@ -7,14 +7,14 @@ ms.topic: article
 ms.assetid: 4d08164e-3cc8-44e5-a319-9671e1ac294a
 ms.localizationpriority: medium
 ms.date: 06/11/2018
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 649fbc16e3dfef2ed1061d0ba6a5c22a8712b186
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6dc4f2f090d28f9fa25ce381f8cd981569da6a4a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404378"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313271"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>Résoudre les problèmes liés au VPN Toujours actif (AlwaysOn) 
 
@@ -146,7 +146,7 @@ Une petite configuration insuffisante peut provoquer l’échec de la connexion 
 
 1. L’ordinateur de modèle est-il connecté en externe ? Une analyse **whatismyip** doit afficher une adresse IP publique qui ne vous appartient pas.
 
-2. Pouvez-vous résoudre le nom du serveur d’accès à distance/VPN en adresse IP ? Dans le **panneau de configuration** > connexions réseau et **Internet** > **réseau**, ouvrez les propriétés de votre profil VPN. La valeur de l’onglet **général** doit pouvoir être résolue publiquement via DNS.
+2. Pouvez-vous résoudre le nom du serveur d’accès à distance/VPN en adresse IP ? Dans le **panneau de configuration** > connexions réseau et **Internet** > **réseau**, ouvrez les propriétés de votre profil VPN. **Network** La valeur de l’onglet **général** doit pouvoir être résolue publiquement via DNS.
 
 3. Pouvez-vous accéder au serveur VPN à partir d’un réseau externe ? Envisagez d’ouvrir le protocole ICMP (Internet Control Message Protocol) sur l’interface externe et d’exécuter une commande ping sur le nom à partir du client distant. Une fois le test ping réussi, vous pouvez supprimer la règle d’autorisation ICMP.
 

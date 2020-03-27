@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f6e8d85b-de65-43b3-bf3e-ec84471a1fcc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ce86a75ac5b8d53874d2fc5c6743979506591680
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 74c4eae329698d33b160ac7180bbabd6d1d8fbad
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388232"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314512"
 ---
 # <a name="step-9-configure-edge1"></a>ÉTAPE 9 configurer EDGE1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Les procédures suivantes sont effectuées sur le serveur EDGE1 :  
   
@@ -29,13 +29,13 @@ Les procédures suivantes sont effectuées sur le serveur EDGE1 :
   
 2. Configurer le routage entre les sous-réseaux. Configurez le routage sur EDGE1 pour activer la communication entre les sous-réseaux corpnet et 2-Corpnet.  
   
-## <a name="IPv6"></a>Configurer les serveurs DNS sur EDGE1  
+## <a name="configure-the-dns-servers-on-edge1"></a><a name="IPv6"></a>Configurer les serveurs DNS sur EDGE1  
   
 1.  Dans la console Gestionnaire de serveur, cliquez sur **serveur local**, puis dans la zone **Propriétés** , en regard de **corpnet**, cliquez sur le lien.  
   
 2.  Dans la fenêtre Connexions réseau, cliquez avec le bouton droit sur **corpnet**, puis cliquez sur **Propriétés**.  
   
-3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 4.  Dans **serveur DNS auxiliaire**, tapez **10.2.0.1**. puis cliquez sur **OK**.  
   
@@ -47,9 +47,9 @@ Les procédures suivantes sont effectuées sur le serveur EDGE1 :
   
 8.  Fermez la fenêtre **Connexions réseau**.  
   
-## <a name="ConfigRouting"></a>Configurer le routage entre les sous-réseaux  
+## <a name="configure-routing-between-subnets"></a><a name="ConfigRouting"></a>Configurer le routage entre les sous-réseaux  
   
-1.  Dans l’écran d' **Accueil** , tapez**cmd. exe**, cliquez avec le bouton droit sur **cmd**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Dans l’écran d' **Accueil** , tapez**cmd. exe**, cliquez avec le bouton droit sur **cmd**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la fenêtre d’invite de commandes, entrez les commandes suivantes. Après avoir entré chaque commande, appuyez sur entrée.  
   
@@ -58,7 +58,7 @@ Les procédures suivantes sont effectuées sur le serveur EDGE1 :
     netsh interface IPv6 add route 2001:db8:2::/64 Corpnet 2001:db8:1::fe  
     ```  
   
-3.  Fermez la fenêtre d’invite de commandes.  
+3.  Fermez la fenêtre d'invite de commandes.  
   
 
 

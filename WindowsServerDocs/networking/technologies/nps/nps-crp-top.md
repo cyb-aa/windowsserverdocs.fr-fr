@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 849d661a-42c1-4f93-b669-6009d52aad39
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 268a307336d9a4fae1be5621eec7c32a06a6204e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 311003201f96c5f566077867b09fee0a325ed011
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405394"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316198"
 ---
 # <a name="connection-request-processing"></a>Traitement des requêtes de connexion
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour en savoir plus sur le traitement des demandes de connexion dans le serveur NPS (Network Policy Server) dans Windows Server 2016.
 

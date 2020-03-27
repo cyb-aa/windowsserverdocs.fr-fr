@@ -10,15 +10,15 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: 1785b34741ce525a5bdd27b77a0e52fc2ca6c1b6
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 1463d3b9a596436b93423806a0acdb40728a15fb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591106"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316696"
 ---
 # <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>Créer une nouvelle association de cartes réseau sur un ordinateur hôte ou une machine virtuelle
 
@@ -46,7 +46,7 @@ Le commutateur physique, le commutateur virtuel Hyper-V, le réseau local (LAN) 
 ## <a name="step-1-configure-the-physical-and-virtual-network"></a>Étape 1. Configurer le réseau physique et le réseau virtuel  
 Dans cette procédure, vous créez deux commutateurs virtuels Hyper-V externes, vous connectez une machine virtuelle aux commutateurs, puis vous configurez les connexions de machines virtuelles aux commutateurs.  
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Composants requis
 
 Vous devez être membre du groupe **administrateurs**ou d’un groupe équivalent.  
 
@@ -99,7 +99,7 @@ Vous devez être membre du groupe **administrateurs**ou d’un groupe équivalen
 
     c. Cliquez pour sélectionner **activer cette carte réseau pour faire partie d’une équipe dans le système d’exploitation invité**. 
 
-    d. Cliquez sur **OK**.  
+    d. Cliquez sur **OK**.  
 
     ![Ajouter une carte réseau à une équipe](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_05.jpg)  
 
@@ -119,7 +119,7 @@ Vous devez être membre du groupe **administrateurs**ou d’un groupe équivalen
 
 17. Cliquez sur **fonctionnalités avancées**, faites défiler jusqu’à **Association de cartes**réseau, puis cliquez pour sélectionner **activer cette carte réseau pour faire partie d’une équipe dans le système d’exploitation invité**. 
 
-18. Cliquez sur **OK**.  
+18. Cliquez sur **OK**.  
 
 _**Félicitations!**_  Vous avez configuré le réseau physique et le réseau virtuel.  Vous pouvez maintenant passer à la création d’une nouvelle association de cartes réseau.  
 
@@ -141,7 +141,7 @@ Vous pouvez également configurer l’interface d’équipe principale et config
 
 Pour plus d’informations sur ces paramètres, consultez [paramètres d’association de cartes réseau](nic-teaming-settings.md).
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Composants requis
 
 Vous devez être membre du groupe **administrateurs**ou d’un groupe équivalent.  
 
@@ -204,7 +204,7 @@ Vous devez être membre du groupe **administrateurs**ou d’un groupe équivalen
 
    -   Configurer l’appartenance au réseau local virtuel : cliquez sur un **réseau local virtuel spécifique** et tapez les informations du réseau local virtuel. Par exemple, si vous souhaitez ajouter cette association de cartes réseau au numéro de réseau local virtuel de comptabilité 44, tapez comptabilité 44-VLAN.   
 
-9. Cliquez sur **OK**.  
+9. Cliquez sur **OK**.  
 
 _**Félicitations!**_  Vous avez créé une nouvelle association de cartes réseau sur un ordinateur hôte ou une machine virtuelle.
 
@@ -212,7 +212,7 @@ _**Félicitations!**_  Vous avez créé une nouvelle association de cartes rése
 
 - [Association de cartes](NIC-Teaming.md)réseau : dans cette rubrique, nous vous proposons une vue d’ensemble de l’Association de cartes d’interface réseau (NIC) dans Windows Server 2016. L’Association de cartes réseau vous permet de grouper entre une et 32 cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelles basées sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.   
 
-- [Utilisation et gestion de l’Association de cartes réseau avec l’adresse Mac](NIC-Teaming-MAC-Address-Use-and-Management.md): quand vous configurez une association de cartes réseau avec le mode indépendant du commutateur et l’adresse de hachage d’adresse ou de charge dynamique, l’équipe utilise l’adresse Mac (Media Access Control) du membre de l’Association de cartes réseau principales sur le trafic sortant le trafic. Le membre de l’Association de cartes réseau principale est une carte réseau sélectionnée par le système d’exploitation à partir de l’ensemble initial des membres de l’équipe.
+- [Utilisation et gestion de l’Association de cartes réseau avec l’adresse Mac](NIC-Teaming-MAC-Address-Use-and-Management.md): quand vous configurez une association de cartes réseau avec le mode indépendant du commutateur et l’adresse de hachage d’adresse ou de charge dynamique, l’équipe utilise l’adresse Mac (Media Access Control) du membre de l’équipe de cartes réseau principales sur le trafic sortant. Le membre de l’Association de cartes réseau principale est une carte réseau sélectionnée par le système d’exploitation à partir de l’ensemble initial des membres de l’équipe.
 
 - [Paramètres d’association de cartes réseau](nic-teaming-settings.md): dans cette rubrique, nous vous offrons une vue d’ensemble des propriétés de l’équipe de cartes réseau, telles que les modes d’association et d’équilibrage de charge. Nous vous fournissons également des détails sur le paramètre de l’adaptateur de secours et la propriété de l’interface d’équipe principale. Si vous disposez d’au moins deux cartes réseau dans une association de cartes réseau, vous n’avez pas besoin de désigner une carte de secours pour la tolérance de panne.
 

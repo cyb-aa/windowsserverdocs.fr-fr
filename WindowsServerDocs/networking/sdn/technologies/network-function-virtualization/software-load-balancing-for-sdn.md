@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 97abf182-4725-4026-801c-122db96964ed
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 35743d9e1a25c71a35eed018a4a3882a3d094d76
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1e7870e045f9af79ed46ec1ad998dbc1f1474afd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355565"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312904"
 ---
 # <a name="software-load-balancing-slb-for-sdn"></a>Équilibrage de charge logiciel \(\) SLB pour SDN
 
@@ -114,7 +114,7 @@ SLB inclut des sondes d’intégrité pour valider l’intégrité de l’infras
   
 Contrairement à une appliance d’équilibrage de charge classique dans laquelle la sonde provient de l’appareil et circule à travers le câble vers l’adresse DIP, la sonde SLB provient de l’hôte où se trouve l’adresse DIP et passe directement de l’agent hôte SLB à l’adresse DIP, en répartissant davantage la travaillez sur les hôtes.  
   
-## <a name="bkmk_infrastructure"></a>Infrastructure d’équilibrage de la charge logicielle  
+## <a name="software-load-balancing-infrastructure"></a><a name="bkmk_infrastructure"></a>Infrastructure d’équilibrage de la charge logicielle  
 Pour déployer Windows Server SLB, vous devez d’abord déployer le contrôleur de réseau dans Windows Server 2016 et une ou plusieurs machines virtuelles MUX MUX.  
   
 En outre, vous devez configurer les ordinateurs hôtes Hyper-V avec le commutateur virtuel Hyper-V compatible avec SDN et vérifier que l’agent hôte SLB est en cours d’exécution.  Les routeurs qui desservent les ordinateurs hôtes doivent prendre en charge le routage et le Border Gateway Protocol (BGP) égal à un ECMP et doivent être configurés pour accepter les demandes d’homologation BGP provenant du multiplexeurs SLB.  
@@ -179,7 +179,7 @@ Le routeur BGP effectue les actions suivantes pour SLB.
   
 -   Supprime les multiplexeurs SLB de la rotation SLB si Keep Alive échoue.  
   
-## <a name="bkmk_features"></a>Fonctionnalités d’équilibrage de la charge logicielle  
+## <a name="software-load-balancing-features"></a><a name="bkmk_features"></a>Fonctionnalités d’équilibrage de la charge logicielle  
 Voici quelques-unes des fonctions et des fonctionnalités de SLB.  
   
 **Fonctionnalités principales**  

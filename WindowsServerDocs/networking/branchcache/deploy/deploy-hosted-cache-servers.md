@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 96d03b42-6cd9-4905-b6a2-dc36130dd24f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 69dc525a093c86d57b665e26ff5acaf2679c81a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f66e7e728f8e5ca657d002c3c5afcd2d9d23e9ff
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356437"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319149"
 ---
 # <a name="deploy-hosted-cache-servers-optional"></a>Déployer des serveurs de Cache hébergé (facultatif)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour installer et configurer les serveurs de cache hébergé de BranchCache qui se trouvent dans les filiales où vous souhaitez déployer le mode de cache hébergé de BranchCache. Avec BranchCache dans Windows Server 2016, vous pouvez déployer plusieurs serveurs de cache hébergé dans une filiale.  
   

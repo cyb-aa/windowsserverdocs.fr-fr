@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: da956be0-c92d-46ea-99eb-85e2bd67bf07
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a96b67b235b813ad455d5b289b7238f671e4c547
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4a86d37fe8744127a91b7fb89e4f34d4a0a021fa
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356707"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318494"
 ---
 # <a name="configure-firewall-rules-for-non-domain-members-to-allow-branchcache-traffic"></a>Configurer les règles de pare-feu pour les membres n'appartenant pas au domaine afin d'autoriser le trafic BranchCache
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser les informations de cette rubrique pour configurer des produits de pare-feu tiers et configurer manuellement un ordinateur client avec des règles de pare-feu qui autorisent l’exécution de BranchCache en mode de cache distribué.  
   
@@ -32,24 +32,24 @@ Les clients de cache distribué doivent autoriser le trafic MS-PCCRD entrant et 
   
 Les paramètres de pare-feu doivent autoriser le trafic de multidiffusion en plus du trafic entrant et sortant. Vous pouvez utiliser les paramètres suivants pour configurer des exceptions de pare-feu pour le mode de cache distribué.  
   
-Multidiffusion IPv4 : 239.255.255.250  
+Multidiffusion IPv4:239.255.255.250  
   
 Multidiffusion IPv6 : FF02 :: C  
   
-Trafic entrant : Port local : 3702, port distant : éphémère  
+Trafic entrant : port local : 3702, port distant : éphémère  
   
-Trafic sortant : Port local : éphémère, port distant : 3702  
+Trafic sortant : port local : éphémère, port distant : 3702  
   
 Programme :%systemroot%\system32\svchost.exe (service BranchCache [PeerDistSvc])  
   
-## <a name="ms-pccrr-peer-content-caching-and-retrieval-retrieval-protocol"></a>[MS-PCCRR] : Mise en cache et récupération de contenu homologue : Protocole de récupération  
+## <a name="ms-pccrr-peer-content-caching-and-retrieval-retrieval-protocol"></a>[MS-PCCRR] : mise en cache et récupération de contenu homologue : Protocole de récupération  
 Les clients de cache distribué doivent autoriser le trafic MS-PCCRR entrant et sortant, qui est transmis dans le protocole HTTP 1,1 comme indiqué dans RFC (Request for Comments) 2616.  
   
 Les paramètres de pare-feu doivent autoriser le trafic entrant et sortant. Vous pouvez utiliser les paramètres suivants pour configurer des exceptions de pare-feu pour le mode de cache distribué.  
   
-Trafic entrant : Port local : 80, port distant : éphémère  
+Trafic entrant : port local : 80, port distant : éphémère  
   
-Trafic sortant : Port local : éphémère, port distant : 80  
+Trafic sortant : port local : éphémère, port distant : 80  
   
 
 

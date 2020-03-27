@@ -1,9 +1,9 @@
 ---
-title: 'Étape 5 : Activer la redirection de dossiers sur la migration du serveur de Destination pour Windows Server Essentials'
+title: 'Étape 5 : Activer la redirection de dossiers sur le serveur de destination pour la migration de Windows Server Essentials'
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,30 +12,30 @@ ms.assetid: d3925f80-552d-431f-b2a6-2af202e50ca4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 98b1a7adc23fca15c06ae9588d52bc9bcd532252
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fcc65db17cee65250296715036f0067659a0058e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432606"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318747"
 ---
-# <a name="step-5-enable-folder-redirection-on-the-destination-server-for-windows-server-essentials-migration"></a>Étape 5 : Activer la redirection de dossiers sur la migration du serveur de Destination pour Windows Server Essentials
+# <a name="step-5-enable-folder-redirection-on-the-destination-server-for-windows-server-essentials-migration"></a>Étape 5 : Activer la redirection de dossiers sur le serveur de destination pour la migration de Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Si la redirection de dossiers est activée sur le serveur source, vous pouvez l’activer sur le serveur de destination, puis supprimer l’ancien paramètre Stratégie de groupe de redirection de dossier.  
   
- Tout d’abord, utilisez le tableau de bord Windows Server Essentials pour activer la redirection de dossiers sur le serveur de Destination. Ensuite, supprimez l'ancien paramètre de stratégie de groupe de redirection de dossiers.  
+ Tout d’abord, utilisez le tableau de bord Windows Server Essentials pour activer la redirection de dossiers sur le serveur de destination. Ensuite, supprimez l'ancien paramètre de stratégie de groupe de redirection de dossiers.  
   
 ### <a name="to-enable-folder-redirection-on-the-destination-server"></a>Pour activer la redirection de dossiers sur le serveur de destination  
   
-1.  Sur le serveur de Destination, ouvrez le tableau de bord Windows Server Essentials.  
+1.  Sur le serveur de destination, ouvrez le tableau de bord Windows Server Essentials.  
   
 2.  Dans la barre de navigation, cliquez sur **PÉRIPHÉRIQUES**.  
   
-3.  Dans le volet **Tâches des périphériques** , cliquez sur **Implémenter la stratégie de groupe**.  
+3.  Dans le volet **Tâches des périphériques**, cliquez sur **Implémenter la stratégie de groupe**.  
   
-4.  Dans la page **Activer la stratégie de groupe de redirection de dossiers** , sélectionnez les dossiers à rediriger, puis cliquez sur **Suivant**.  
+4.  Dans la page **Activer la stratégie de groupe de redirection de dossiers**, sélectionnez les dossiers à rediriger, puis cliquez sur **Suivant**.  
   
 5.  Dans la page **Activer les paramètres de stratégie de sécurité**, cliquez sur **Terminer**.  
   
@@ -53,8 +53,8 @@ Si la redirection de dossiers est activée sur le serveur source, vous pouvez l�
   
    Pour appliquer la modification apportée à la redirection de dossiers, les utilisateurs réseau doivent fermer la session de leur ordinateur, puis en rouvrir une. Cela garantit le transfert de tous les dossiers redirigés vers le serveur de destination.  
   
-## <a name="next-steps"></a>Étapes suivantes  
- Vous avez activé la redirection de dossiers sur le serveur de destination. Passez maintenant à [étape 6 : Rétrograder et supprimer le serveur Source du nouveau réseau Windows Server Essentials](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  
+## <a name="next-steps"></a>Étapes suivantes :  
+ Vous avez activé la redirection de dossiers sur le serveur de destination. Passez maintenant à [l’étape 6 : rétrograder et supprimer le serveur source du nouveau réseau Windows Server Essentials](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  
   
 
 Pour afficher toutes les étapes, consultez [migrer vers Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).

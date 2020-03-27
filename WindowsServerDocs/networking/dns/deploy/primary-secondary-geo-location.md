@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6a7836160fc7363ec3d7b2fb11e194db82970f9a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f9bc1a35016ca5946eddeada2088a83f1fa8ca05
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406155"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317749"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Utiliser une stratégie DNS pour la gestion du trafic basée sur la géolocalisation avec des déploiements principaux/secondaires
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à créer une stratégie DNS pour la gestion du trafic basée sur la géolocalisation lorsque votre déploiement DNS comprend des serveurs DNS principal et secondaire.  
 
@@ -37,7 +37,7 @@ Pour vous assurer que les clients woodgrove.com bénéficient d’une expérienc
   
 Contoso cloud services a deux centres de donnes, l’un aux États-Unis et l’autre en Europe, sur lequel contoso héberge son portail d’organisation des aliments pour woodgrove.com.  
   
-Le déploiement de contoso DNS comprend deux serveurs secondaires : **SecondaryServer1**, avec l’adresse IP 10.0.0.2 ; et **SecondaryServer2**, avec l’adresse IP 10.0.0.3. Ces serveurs secondaires font office de serveurs de noms dans les deux régions, avec SecondaryServer1 situé en Europe et SecondaryServer2 situés aux États-Unis.
+Le déploiement DNS contoso comprend deux serveurs secondaires : **SecondaryServer1**, avec l’adresse IP 10.0.0.2 ; et **SecondaryServer2**, avec l’adresse IP 10.0.0.3. Ces serveurs secondaires font office de serveurs de noms dans les deux régions, avec SecondaryServer1 situé en Europe et SecondaryServer2 situés aux États-Unis.
   
 Il existe une copie de zone principale accessible en écriture sur **PrimaryServer** (adresse IP 10.0.0.1), où les modifications de zone sont effectuées. Avec les transferts de zone réguliers vers les serveurs secondaires, les serveurs secondaires sont toujours à jour avec toutes les nouvelles modifications apportées à la zone sur le PrimaryServer.
   
@@ -80,7 +80,7 @@ Pour toute mise à jour supplémentaire dans une étendue de zone, une notificat
   
 ## <a name="how-to-configure-dns-policy-for-primary-secondary-geo-location-based-traffic-management"></a>Comment configurer la stratégie DNS pour la gestion du trafic basé sur l’emplacement géographique secondaire
 
-Avant de commencer, assurez-vous que vous avez effectué toutes les étapes de la rubrique [utiliser une stratégie DNS pour la gestion du trafic basée sur la géolocalisation avec des serveurs principaux](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md)et que votre serveur DNS principal est configuré avec des zones, des étendues de zone, des sous-réseaux clients DNS et DNS. renvoi.  
+Avant de commencer, assurez-vous que vous avez effectué toutes les étapes de la rubrique [utiliser la stratégie DNS pour la gestion du trafic basée sur](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md)la géolocalisation avec les serveurs principaux, et votre serveur DNS principal est configuré avec des zones, des étendues de zone, des sous-réseaux clients DNS et une stratégie DNS.  
   
 > [!NOTE]
 > Les instructions de cette rubrique pour copier les sous-réseaux du client DNS, les étendues de zone et les stratégies DNS des serveurs principaux DNS vers les serveurs DNS secondaires sont destinées à votre configuration DNS initiale et à la validation. À l’avenir, vous souhaiterez peut-être modifier les paramètres des sous-réseaux du client DNS, des étendues de zone et des stratégies sur le serveur principal. Dans ce cas, vous pouvez créer des scripts d’automatisation pour maintenir la synchronisation des serveurs secondaires avec le serveur principal.  

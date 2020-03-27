@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 4ec45e0c-6b37-4dfb-8158-5f40677b0157
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0b373e496567f414657b380bad952baefcbe4b18
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 021cef4a220b183f6580bca75bc6db68aba893cf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396368"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316235"
 ---
 # <a name="connection-request-policies"></a>Stratégies de requête de connexion
 

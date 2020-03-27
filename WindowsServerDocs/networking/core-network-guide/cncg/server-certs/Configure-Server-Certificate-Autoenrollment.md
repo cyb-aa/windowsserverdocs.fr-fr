@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: c81e85cb-ecb8-442a-ad27-442c2f9e40df
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c0803e369d9b48547190dc242617fed6e72d9ce4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 9c85c4fd9026155fe1ca880ecb05f4c9358a2309
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406335"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318427"
 ---
 # <a name="configure-certificate-auto-enrollment"></a>Configurer l’inscription automatique des certificats
 
@@ -26,7 +26,7 @@ Pour être autorisé à effectuer cette procédure, vous devez faire partie du g
 ## <a name="configure-server-certificate-auto-enrollment"></a>Configurer l’inscription automatique de certificat de serveur
 
 1. Sur l’ordinateur où est installé AD DS, ouvrez Windows PowerShell&reg;, tapez **MMC**, puis appuyez sur entrée. La console Microsoft Management Console s’ouvre.
-2. Dans le menu **Fichier** , cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**. La boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** s'ouvre.
+2. Dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**. La boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** s'ouvre.
 3. Dans **composants logiciels enfichables disponibles**, faites défiler la liste jusqu’à, puis double-cliquez sur **éditeur de gestion des stratégies de groupe**. La boîte de dialogue **Sélectionner un objet stratégie de groupe** s’ouvre.
 
      > [!IMPORTANT]
@@ -47,7 +47,7 @@ Pour être autorisé à effectuer cette procédure, vous devez faire partie du g
 ## <a name="configure-user-certificate-auto-enrollment"></a>Configurer l’inscription automatique des certificats utilisateur
 
 1. Sur l’ordinateur où est installé AD DS, ouvrez Windows PowerShell&reg;, tapez **MMC**, puis appuyez sur entrée. La console Microsoft Management Console s’ouvre.
-2. Dans le menu **Fichier** , cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**. La boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** s'ouvre.
+2. Dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**. La boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables** s'ouvre.
 3. Dans **composants logiciels enfichables disponibles**, faites défiler la liste jusqu’à, puis double-cliquez sur **éditeur de gestion des stratégies de groupe**. La boîte de dialogue **Sélectionner un objet stratégie de groupe** s’ouvre.
 
      > [!IMPORTANT]

@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2af3a621991627addb94238e84cceb357fb47731
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4df23cd64bcf3bf9c27190908fb5f2a48b30b833
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588089"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318289"
 ---
 # <a name="capolicyinf-syntax"></a>Syntaxe CAPolicy. inf
 >   S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
@@ -42,7 +42,7 @@ Les termes suivants sont utilisés pour décrire la structure du fichier. inf :
 
 -   _Valeur_ : est le paramètre et apparaît à droite du signe égal.
 
-Dans l’exemple ci-dessous, **[version]** est la section, **signature** est la clé, et **« \$Windows NT \$ »** est la valeur.
+Dans l’exemple ci-dessous, **[version]** est la section, **signature** est la clé, et **«\$Windows NT\$»** est la valeur.
 
 Exemple :
 
@@ -51,7 +51,7 @@ Exemple :
 Signature="$Windows NT$"      #key=value
 ```
 
-###  <a name="version"></a>Version
+###  <a name="version"></a>cible
 
 Identifie le fichier en tant que fichier. inf. La version est la seule section requise et doit se trouver au début de votre fichier CAPolicy. inf.
 
@@ -193,7 +193,7 @@ Dans une installation par défaut de l’autorité de certification, un sous-ens
 
 Il se peut que vous ne souhaitiez pas émettre de certificats immédiatement après l’installation d’une autorité de certification. vous pouvez donc utiliser le paramètre LoadDefaultTemplates pour empêcher l’ajout des modèles par défaut à l’autorité de certification d’entreprise. Si aucun modèle n’est configuré sur l’autorité de certification, il ne peut émettre aucun certificat.
 
-**AlternateSignatureAlgorithm** configure l’autorité de certification pour prendre en charge le format de signature PKCS \#1 v 2.1 pour le certificat d’autorité de certification et les demandes de certificat. Lorsque la valeur 1 est affectée à une autorité de certification racine, le certificat de l’autorité de certification inclut le format de signature PKCS \#1 V 2.1. Lorsqu’elle est définie sur une autorité de certification secondaire, elle crée une demande de certificat qui comprend le format de signature PKCS \#1 V 2.1.
+**AlternateSignatureAlgorithm** configure l’autorité de certification pour prendre en charge le format de signature PKCS\#1 v 2.1 pour le certificat d’autorité de certification et les demandes de certificat. Lorsque la valeur 1 est affectée à une autorité de certification racine, le certificat de l’autorité de certification inclut le format de signature PKCS\#1 V 2.1. Lorsqu’elle est définie sur une autorité de certification secondaire, elle crée une demande de certificat qui comprend le format de signature PKCS\#1 V 2.1.
 
 **ForceUTF8** remplace l’encodage par défaut des noms uniques relatifs (RDN) dans les noms distinctifs de l’objet et de l’émetteur par UTF-8. Seuls les RDN qui prennent en charge UTF-8, tels que ceux qui sont définis en tant que types de chaîne d’annuaire par une RFC, sont affectés. Par exemple, le RDN du composant de domaine (DC) prend en charge l’encodage en IA5 ou UTF-8, tandis que le pays RDN (C) prend uniquement en charge l’encodage comme chaîne imprimable. La directive ForceUTF8 affecte donc un RDN DC, mais n’affecte pas un RDN C.
 

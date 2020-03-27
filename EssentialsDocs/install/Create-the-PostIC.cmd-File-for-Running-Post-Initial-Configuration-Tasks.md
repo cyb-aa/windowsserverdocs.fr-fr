@@ -3,7 +3,7 @@ title: Création du fichier PostIC.cmd pour exécuter les tâches de configurati
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: 99e258bc-0695-48c9-b694-a7f3cbe2a2d0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e15cb8591fc701094dde884d0a55e08d2cf422bb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 81a38f0baf3a47323f6bf8836e48d02bc955cde0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433601"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312061"
 ---
 # <a name="create-the-posticcmd-file-for-running-post-initial-configuration-tasks"></a>Création du fichier PostIC.cmd pour exécuter les tâches de configuration initiales
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Vous pouvez ajouter des personnalisations après la configuration initiale en écrivant votre propre code, puis en appelant ce code depuis un fichier de script appelé PostIC.cmd. Lorsque vous utilisez le fichier PostIC.cmd, vous devez suivre les instructions suivantes :  
   
@@ -43,7 +43,7 @@ Vous pouvez ajouter des personnalisations après la configuration initiale en é
   
 4.  (Facultatif) Créez un fichier SetupFailure.cmd contenant le code à exécuter si une valeur différente de 0 est renvoyée par PostIC.cmd.  
   
-###  <a name="BKMK_SetupFailure"></a> SetupFailure.cmd  
+###  <a name="setupfailurecmd"></a><a name="BKMK_SetupFailure"></a>Fichier setupfailure. cmd  
  Vous pouvez notifier des problèmes lors de la configuration initiale en utilisant SetupFailure.cmd. Le fichier SetupFailure.cmd contient le code que vous souhaitez exécuter si un problème se produit. Le fichier SetupFailure.cmd, placé dans C:\Windows\Setup\Scripts, est exécuté dès qu’une tâche d’installation génère une erreur ou que le fichier PostIC.cmd renvoie une valeur différente de 0.  
   
 ##### <a name="to-define-notifications"></a>Pour définir des notifications  
@@ -55,8 +55,8 @@ Vous pouvez ajouter des personnalisations après la configuration initiale en é
 3.  Enregistrez le fichier SetupFailure.cmd dans C:\Windows\Setup\Scripts.  
   
 ## <a name="see-also"></a>Voir aussi  
- [Prise en main du ADK Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main avec Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

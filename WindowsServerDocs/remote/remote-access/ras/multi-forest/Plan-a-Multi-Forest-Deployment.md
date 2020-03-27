@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8acc260f-d6d1-4d32-9e3a-1fd0b2a71586
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2a0f04a3ff7797d18f7647416dc99319860c7030
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8e483f5986a5a23123495e3a13440ddc57a6c521
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404514"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314040"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>Plan a Multi-Forest Deployment
 
@@ -25,7 +25,7 @@ ms.locfileid: "71404514"
 
 Cette rubrique décrit les étapes de planification requises pour configurer l’accès à distance dans un déploiement à forêts multiples.  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Composants requis  
 Avant de déployer ce scénario, prenez connaissance des conditions requises suivantes qui ont leur importance :  
   
 -   Une approbation bidirectionnelle est requise.  
@@ -38,7 +38,7 @@ Lorsque vous configurez l’accès à distance, des objets de stratégie de grou
   
 En outre, l’administrateur de l’accès à distance doit être administrateur local sur tous les serveurs d’accès à distance, notamment ceux de la nouvelle forêt qui sont ajoutés en tant que points d’entrée vers le déploiement de l’accès à distance d’origine.  
   
-## <a name="ClientSG"></a>Planifier des groupes de sécurité client  
+## <a name="plan-client-security-groups"></a><a name="ClientSG"></a>Planifier des groupes de sécurité client  
 Vous devez configurer au moins un groupe de sécurité dans la nouvelle forêt pour les ordinateurs clients DirectAccess inclus dans cette nouvelle forêt. Cela est dû au fait qu’un groupe de sécurité ne peut pas contenir des comptes provenant de plusieurs forêts.  
   
 > [!NOTE]  

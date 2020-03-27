@@ -10,34 +10,34 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f04eb11e-ed5f-42a1-a77b-57a248ba2d10
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3dad1db575bd9b9b4a70a24da44d1d030273f021
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: cb869ad1617d52562e73eb6965a9f1c2184a56a7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404863"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310787"
 ---
 # <a name="step-3-install-and-configure-edge2"></a>ÉTAPE 3 installation et configuration de EDGE2
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 EDGE2 est le deuxième membre d’un cluster d’accès à distance. EDGE2 est installé et configuré avant d’activer la configuration du cluster.
 
 Pour configurer EDGE2, procédez comme suit :
 
-## <a name="installOS"></a>Installer le système d’exploitation sur EDGE2  
+## <a name="install-the-operating-system-on-edge2"></a><a name="installOS"></a>Installer le système d’exploitation sur EDGE2  
   
 1.  Sur EDGE2, démarrez l’installation de Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.  
   
-2.  Suivez les instructions pour terminer l’installation, en spécifiant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète) et un mot de passe fort pour le compte administrateur local. Ouvrez une session à l’aide du compte Administrateur local.  
+2.  Suivez les instructions pour terminer l’installation, en spécifiant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète) et un mot de passe fort pour le compte administrateur local. Ouvrez une session en utilisant le compte d'administrateur local.  
   
 3.  Connectez EDGE2 à un réseau disposant d’un accès Internet et exécutez Windows Update pour installer les dernières mises à jour pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, puis vous déconnecter d’Internet.  
   
 4.  Connectez une carte réseau au sous-réseau Corpnet ou au commutateur virtuel représentant le sous-réseau Corpnet et l’autre au sous-réseau Internet ou au commutateur virtuel représentant le sous-réseau Internet.  
   
-## <a name="TCP"></a>Configurer les propriétés TCP/IP  
+## <a name="configure-tcpip-properties"></a><a name="TCP"></a>Configurer les propriétés TCP/IP  
   
 1.  Dans la console Gestionnaire de serveur, cliquez sur **serveur local**, puis dans la zone **Propriétés** , en regard de **connexion Ethernet câblée**, cliquez sur le lien.  
   
@@ -47,9 +47,9 @@ Pour configurer EDGE2, procédez comme suit :
   
 4.  Cliquez avec le bouton droit sur **corpnet**, puis cliquez sur **Propriétés**.  
   
-5.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+5.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
-6.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.0.0.8**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**.  
+6.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.0.0.8**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**.  
   
 7.  Cliquez sur **Utiliser l’adresse de serveur DNS suivante**. Dans **Serveur DNS préféré**, tapez **10.0.0.1**.  
   
@@ -73,7 +73,7 @@ Pour configurer EDGE2, procédez comme suit :
   
 17. Cliquez avec le bouton droit sur **Internet**, puis cliquez sur **Propriétés**.  
   
-18. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+18. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 19. Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, entrez **131.107.0.8**. Dans **masque de sous-réseau**, entrez **255.255.255.0**.  
   
@@ -87,9 +87,9 @@ Pour configurer EDGE2, procédez comme suit :
   
 24. Dans la fenêtre d’invite de commandes, tapez **ping dc1.Corp.contoso.com** et appuyez sur entrée. Vérifiez qu’il y a quatre réponses de 10.0.0.1 ou l’adresse IPv6 2001 : DB8:1 :: 1  
   
-25. Fermez la fenêtre d’invite de commandes.  
+25. Fermez la fenêtre d'invite de commandes.  
   
-## <a name="rename"></a>Renommer EDGE2 et le joindre au domaine  
+## <a name="rename-edge2-and-join-it-to-the-domain"></a><a name="rename"></a>Renommer EDGE2 et le joindre au domaine  
   
 1.  Dans la console Gestionnaire de serveur, dans **serveur local**, dans la zone **Propriétés** , en regard de nom de l' **ordinateur**, cliquez sur le lien.  
   
@@ -109,9 +109,9 @@ Pour configurer EDGE2, procédez comme suit :
   
 9. Après le redémarrage, connectez-vous en tant que CORP\User1.  
   
-## <a name="IPHTTPSCert"></a>Installer le certificat IP-HTTPs  
+## <a name="install-the-ip-https-certificate"></a><a name="IPHTTPSCert"></a>Installer le certificat IP-HTTPs  
   
-1.  Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
@@ -139,7 +139,7 @@ Pour configurer EDGE2, procédez comme suit :
   
 14. Fermez la fenêtre de console. Si vous êtes invité à enregistrer les paramètres, cliquez sur **non**.  
   
-## <a name="InstallDA"></a>Installer le rôle accès à distance sur EDGE2  
+## <a name="install-the-remote-access-role-on-edge2"></a><a name="InstallDA"></a>Installer le rôle accès à distance sur EDGE2  
   
 1.  Dans la console Gestionnaire de serveur, dans le **tableau de bord**, cliquez sur **Ajouter des rôles et des fonctionnalités**.  
   
@@ -149,9 +149,9 @@ Pour configurer EDGE2, procédez comme suit :
   
 4.  Cliquez sur **Suivant** cinq fois.  
   
-5.  Dans la boîte de dialogue **Confirmer les sélections d’installation** , cliquez sur **Installer**.  
+5.  Dans la page **Confirmer les sélections d'installation**, cliquez sur **Installer**.  
   
-6.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
+6.  Dans la boîte de dialogue **Progression de l'installation**, vérifiez que l'installation a réussi, puis cliquez sur **Fermer**.  
   
 
 

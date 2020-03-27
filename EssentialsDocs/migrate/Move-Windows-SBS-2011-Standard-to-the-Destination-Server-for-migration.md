@@ -3,7 +3,7 @@ title: Déplacer les paramètres et données de Windows SBS 2011 Standard vers l
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: 16b24026-2fe3-4bd0-b82f-900e1564be99
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ef8e717fe235b8d85f4d53442610818b31ad7d1d
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: d7b1edf2ffd602cd844fa399ac9368a2f4e08643
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590417"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318858"
 ---
 # <a name="move-windows-sbs-2011-standard-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Déplacer les paramètres et données de Windows SBS 2011 Standard vers le serveur de destination pour la migration vers Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Déplacez les paramètres et les données vers le serveur de destination comme suit : 
  
@@ -50,11 +50,11 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
 
 1. Ouvrez une session sur le serveur de destination en tant qu'administrateur de domaine, puis ouvrez une fenêtre de commande. 
 
-2. À l'invite de commandes, tapez la commande suivante et appuyez sur Entrée : 
+2. À l'invite de commandes, tapez la commande suivante, puis appuyez sur ENTRÉE : 
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
  
- Où :
+ Où :
  - \<SourceServerName\> est le nom du serveur source
  - \<Nomdossiersourcepartagé\> est le nom du dossier partagé sur le serveur source
  - \<NomServeurDestination\> est le nom du serveur de destination,
@@ -112,9 +112,9 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
  
  Si votre routeur ne prend pas en charge l'infrastructure UPnP, ou si l'infrastructure UPnP est désactivée, une icône d'avertissement jaune peut apparaître en regard du nom du routeur. Vérifiez que les ports suivants sont ouverts et qu'ils sont dirigés vers l'adresse IP du serveur de destination : 
  
-- Port 80 : Trafic Web HTTP 
+- Port 80 : trafic web HTTP 
  
-- Port 443: Trafic Web HTTPS 
+- Port 443 : trafic web HTTPS 
  
 > [!NOTE]
 > Si vous avez configuré un serveur Exchange local sur un second serveur, vous devez vérifier que le port 25 (SMTP) est également ouvert et qu'il est redirigé vers l'adresse IP du serveur Exchange local. 
@@ -131,9 +131,9 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
  
 2. Cliquez sur **Démarrer**, puis sur **Gestion de serveur**. 
  
-3. Dans le volet de navigation, cliquez sur **gestion avancée**, sur **gestion des stratégie de groupe**, puis sur **forêt:** _< VotreNomdeDomaine\>_ . 
+3. Dans le volet de navigation, cliquez sur **gestion avancée**, sur **gestion des stratégie de groupe**, puis sur **forêt :** _< VotreNomdeDomaine\>_ . 
  
-4. Cliquez sur **domaines**, sur *<\>VotreNomdeDomaine*, puis sur **stratégie de groupe objets**. 
+4. Cliquez sur **domaines**, sur *< VotreNomdeDomaine\>* , puis sur **stratégie de groupe objets**. 
  
 5. Cliquez avec le bouton droit sur **Stratégie d'audit de domaine Small Business Server**, sur **Supprimer**, puis sur **OK**. 
  
@@ -161,9 +161,9 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
  
 2. Cliquez sur **Démarrer**, puis sur **Gestion de serveur**. 
  
-3. Dans le volet de navigation, cliquez sur **fonctionnalités**, sur **gestion des stratégie de groupe**, puis sur **forêt:** _< nomdomainedevotreréseau\>_ 
+3. Dans le volet de navigation, cliquez sur **fonctionnalités**, sur **gestion des stratégie de groupe**, puis sur **forêt :** _< nomdomainedevotreréseau\>_ 
  
-4. Cliquez sur **domaines**, sur *<\>nomdomainedevotreréseau*, puis sur **filtres WMI**. 
+4. Cliquez sur **domaines**, sur *< nomdomainedevotreréseau\>* , puis sur **filtres WMI**. 
  
 5. Cliquez avec le bouton droit sur **Client Windows SBS**, cliquez sur **Supprimer**, puis sur **Oui**. 
  

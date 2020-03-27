@@ -3,7 +3,7 @@ title: Dépanner la connectivité d’accès web à distance dans Windows Server
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: d3642575-b3ee-4488-b654-5bf9d3b8c935
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: fda0b5a227fe25b4e8780915089e97ee48620383
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6db623308184c5be2968fa1d8991de2b48eef5b7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432437"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318636"
 ---
 # <a name="troubleshoot-remote-web-access-connectivity-in-windows-server-essentials"></a>Dépanner la connectivité d’accès web à distance dans Windows Server Essentials
  
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
  En général, Windows Server Essentials peut configurer automatiquement un routeur à large bande si le routeur est un appareil certifié UPnP et si le paramètre UPnP est activé sur le routeur.  
   
@@ -43,7 +43,7 @@ ms.locfileid: "66432437"
   
 - Vérifiez que le périphérique large bande qui se connecte à votre fournisseur de services Internet est activé, fonctionne correctement, et que le routeur est connecté au périphérique large bande.  
   
-- Activez le paramètre UPnP du routeur. Connectez-vous à la page web de configuration du routeur pour activer le paramètre UPnP. Pour plus d’informations sur la connexion au routeur et sur l’activation du paramètre UPnP, consultez la documentation de votre routeur. Une fois que vous activez le paramètre UPnP, exécutez l’activer sur Web Assistant accès à distance pour configurer votre routeur.  
+- Activez le paramètre UPnP du routeur. Connectez-vous à la page web de configuration du routeur pour activer le paramètre UPnP. Pour plus d’informations sur la connexion au routeur et sur l’activation du paramètre UPnP, consultez la documentation de votre routeur. Une fois que vous avez activé le paramètre UPnP, exécutez à nouveau l’Assistant activer l’Accès web à distance pour configurer votre routeur.  
   
 - Si le routeur ne prend pas entièrement en charge la norme UPnP, il ne peut pas être configuré automatiquement. Vous devez configurer manuellement le routeur ou acheter un routeur qui prend en charge la norme UPnP.  
   
@@ -62,19 +62,19 @@ ms.locfileid: "66432437"
     |HTTP|TCP 80|  
     |HTTPS|TCP 443|  
   
-    Pour plus d’informations sur la façon de configurer manuellement le réacheminement de port sur votre routeur, consultez la documentation du fabricant.  
+    Pour plus d’informations sur la configuration manuelle du réacheminement de port sur votre routeur, consultez la documentation du fabricant.  
   
     Une page classique de configuration d’un routeur inclut un tableau semblable au suivant.  
   
   > [!NOTE]
   >  Dans ce tableau, l’adresse IP de l’ordinateur qui exécute Windows Server Essentials est 192.168.0.100. Vous devez déterminer l’adresse IP de votre ordinateur et remplacez cette adresse par l’adresse IP affichée dans le tableau.  
   
-  |Adresse IP|Protocole (TCP/UDP)|Planification|Filtre d’entrée|  
+  |Adresse IP|Protocole (TCP/UDP)|Schedule|Filtre d’entrée|  
   |----------------|---------------------------|--------------|--------------------|  
-  |192.168.0.100|TCP 80|Always|Autoriser tout|  
-  |192.168.0.100|TCP 443|Always|Autoriser tout|  
+  |192.168.0.100|TCP 80|Toujours|Autoriser tout|  
+  |192.168.0.100|TCP 443|Toujours|Autoriser tout|  
   
-   Après avoir configuré manuellement votre routeur, exécutez l’activer sur Web Assistant accès à distance, en sélectionnant le **ignorer la configuration du routeur** option sur le **mise en route** page.  
+   Après avoir configuré manuellement votre routeur, exécutez l’Assistant activer l’Accès web à distance, en veillant à sélectionner l’option **ignorer le programme d’installation du routeur** sur la page **mise en route** .  
   
 - Achetez un nouveau routeur si le vôtre ne prend pas entièrement en charge la norme UPnP.  
   
@@ -83,9 +83,9 @@ ms.locfileid: "66432437"
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Utiliser l’accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Utiliser l’Accès web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Gérer l’accès Web à distance](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Gérer les Accès web distantes](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 -   [Gérer l’accès en tout lieu](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
   

@@ -3,7 +3,7 @@ title: Utiliser l'accès web à distance dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 47ea21a0-5e05-4b4b-8fa4-338c82601276
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f6a5d6fd42c5cd7e92821e1157748054c741ef04
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 8ea6e5c1936cb87fb90cd24fd8e0f6186f42b129
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322101"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313135"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Utiliser l'accès web à distance dans Windows Server Essentials
 
@@ -36,7 +36,7 @@ ms.locfileid: "79322101"
   
 -   [Se connecter à partir d’un appareil mobile](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
   
-##  <a name="BKMK_Connect"></a>Se connecter à un Accès web distant  
+##  <a name="connect-to-remote-web-access"></a><a name="BKMK_Connect"></a>Se connecter à un Accès web distant  
   
 -   [Connexion à un Accès web distant](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
@@ -48,14 +48,14 @@ ms.locfileid: "79322101"
   
 -   [Se connecter à partir d’un appareil mobile](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
   
-##  <a name="BKMK_Connect"></a>Se connecter à un Accès web distant  
+##  <a name="connect-to-remote-web-access"></a><a name="BKMK_Connect"></a>Se connecter à un Accès web distant  
   
 -   [Connexion à un Accès web distant](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
 -   [Accéder à distance à votre ordinateur](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
 
   
-###  <a name="BKMK_1"></a>Connexion à un Accès web distant  
+###  <a name="log-on-to-remote-web-access"></a><a name="BKMK_1"></a>Connexion à un Accès web distant  
  Lorsque vous vous connectez à une Accès web distante à partir d’un ordinateur local ou distant, vous pouvez accéder aux ressources de votre serveur exécutant Windows Server Essentials et des ordinateurs sur votre réseau.  
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-network-computer"></a>Pour se connecter à l'accès web à distance à partir d'un ordinateur réseau  
@@ -76,7 +76,7 @@ ms.locfileid: "79322101"
   
 2.  Dans la page d’ouverture de session Accès web à distance, tapez votre nom d’utilisateur et votre mot de passe dans les zones de texte, puis cliquez sur la flèche.  
   
-###  <a name="BKMK_1.5"></a>Accéder à distance à votre ordinateur  
+###  <a name="remotely-access-your-computer"></a><a name="BKMK_1.5"></a>Accéder à distance à votre ordinateur  
  Lorsque vous n’êtes pas dans votre bureau, vous pouvez utiliser votre navigateur Web pour ouvrir une session sur le site Accès web distant pour accéder à distance au tableau de bord Windows Server Essentials, aux dossiers partagés et aux ordinateurs de votre réseau.  
   
  Lorsque vous vous connectez au tableau de bord, vous pouvez gérer Windows Server Essentials comme vous le feriez si vous étiez au bureau. Vous pouvez effectuer toutes les tâches d'administration habituelles, comme ajouter des comptes d'utilisateurs, ajouter des dossiers partagés, définir l'accès aux dossiers partagés, etc. Lorsque vous vous connectez aux ordinateurs de votre réseau, vous pouvez accéder à leurs bureaux comme si vous étiez physiquement en face d'eux au bureau.  
@@ -105,7 +105,7 @@ ms.locfileid: "79322101"
 #### <a name="to-connect-to-the-server-dashboard"></a>Pour se connecter au tableau de bord du serveur  
  Sous l'onglet **PÉRIPHÉRIQUES**, cliquez sur le nom de votre serveur. Vous ne pouvez sélectionner que des ordinateurs avec un état **Disponible**. Vous devez être en mesure de fournir un compte d'utilisateur et un mot de passe d'administrateur sur votre serveur pour utiliser le tableau de bord.  
   
-##  <a name="BKMK_SharedFolders"></a>Partager des fichiers et des dossiers  
+##  <a name="share-files-and-folders"></a><a name="BKMK_SharedFolders"></a>Partager des fichiers et des dossiers  
   
 
 -   [Charger et télécharger des fichiers dans des Accès web distantes](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
@@ -117,7 +117,7 @@ ms.locfileid: "79322101"
 -   [Créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans Accès web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
 
   
-###  <a name="BKMK_UploadRWA"></a>Charger et télécharger des fichiers dans des Accès web distantes  
+###  <a name="upload-and-download-files-in-remote-web-access"></a><a name="BKMK_UploadRWA"></a>Charger et télécharger des fichiers dans des Accès web distantes  
  Sous l'onglet **Dossiers partagés** de l'accès web à distance, vous pouvez procéder comme suit :  
   
 -   Téléchargez (envoyez) des fichiers de votre ordinateur vers Windows Server Essentials.  
@@ -248,7 +248,7 @@ ms.locfileid: "79322101"
     > [!NOTE]
     >  Si vous utilisez un programme de compression tiers, suivez les procédures de ce programme pour extraire vos fichiers du fichier compressé.  
   
-###  <a name="BKMK_2"></a>Créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans Accès web à distance  
+###  <a name="create-rename-move-delete-or-copy-files-and-folders-in-remote-web-access"></a><a name="BKMK_2"></a>Créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans Accès web à distance  
  Vous pouvez utiliser l'accès web à distance pour créer des dossiers dans un dossier partagé existant, renommer des fichiers et dossiers, déplacer et copier des fichiers et des dossiers et supprimer des fichiers et dossiers sur votre serveur.  
   
 > [!NOTE]
@@ -294,7 +294,7 @@ ms.locfileid: "79322101"
   
 3.  Cliquez avec le bouton droit sur le dossier dans lequel vous voulez copier les fichiers ou dossiers, puis cliquez sur **Coller**.  
   
-##  <a name="BKMK_ConnectMobile"></a>Se connecter à partir d’un appareil mobile  
+##  <a name="connect-from-a-mobile-device"></a><a name="BKMK_ConnectMobile"></a>Se connecter à partir d’un appareil mobile  
   
 
 -   [Utiliser des Accès web distantes à partir d’un appareil mobile](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
@@ -306,7 +306,7 @@ ms.locfileid: "79322101"
 -   [Navigateurs Web pris en charge pour les appareils mobiles](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
 
   
-###  <a name="BKMK_8"></a>Utiliser des Accès web distantes à partir d’un appareil mobile  
+###  <a name="use-remote-web-access-from-a-mobile-device"></a><a name="BKMK_8"></a>Utiliser des Accès web distantes à partir d’un appareil mobile  
  Vous pouvez vous connecter à l'accès web à distance à partir de votre smartphone pour consulter les fichiers et dossiers des dossiers partagés du serveur.  
   
 > [!NOTE]
@@ -334,7 +334,7 @@ ms.locfileid: "79322101"
   
    Vous pouvez rechercher des fichiers et des dossiers dans les dossiers partagés sur le serveur.  
   
-###  <a name="BKMK_9"></a>Navigateurs Web pris en charge pour les appareils mobiles  
+###  <a name="supported-web-browsers-for-mobile-devices"></a><a name="BKMK_9"></a>Navigateurs Web pris en charge pour les appareils mobiles  
  Les navigateurs web pris en charge pour les appareils mobiles incluent les suivants :  
   
 -   Internet Explorer Mobile 6.0 ou version ultérieure  

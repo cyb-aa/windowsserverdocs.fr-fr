@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 58cca2b2-4ef3-4a09-a614-8bdc08d24f15
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: eb7f5c495fa09aed584ef37d668d1fa232d7a497
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 57661fee2cf633a1efe8e264b0f7fe717b81e20d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405446"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316095"
 ---
 # <a name="configure-firewalls-for-radius-traffic"></a>Configurer des pare-feu pour le trafic RADIUS
 

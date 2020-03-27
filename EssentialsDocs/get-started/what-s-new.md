@@ -3,7 +3,7 @@ title: Nouveautés dans Windows Server 2016 Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,39 +12,39 @@ ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bc83686f76c49773203d63a88894841f65ffd1d9
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1d5176a69136e9bad36e22472b8fadbd6d0e9e79
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433761"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310302"
 ---
 # <a name="whats-new-in-windows-server-2016-essentials"></a>Nouveautés dans Windows Server 2016 Essentials
 
-> S'applique à : WindowsServer2016 Essentials
+> S’applique à : Windows Server 2016 Essentials
 
-Voici les nouvelles fonctionnalités dans Windows Server 2016 Essentials et améliorations.
+Voici les fonctionnalités nouvelles et améliorées de Windows Server 2016 Essentials.
 
-## <a name="integration-with-azure-site-recovery-servicesazure-site-recovery-services-integrationmd"></a>[Intégration avec Azure Site Recovery Services](azure-site-recovery-services-integration.md)
+## <a name="integration-with-azure-site-recovery-services"></a>[Intégration à Azure Site Recovery Services](azure-site-recovery-services-integration.md)
 
-**Ce qu’il fait** --lorsqu’un ordinateur virtuel qui est protégé échoue, ou le serveur hôte que la machine virtuelle protégée s’exécute sur échoue, le basculement avec Azure Site Recovery Services gère la continuité des activités jusqu'à ce que la machine virtuelle de site sur ou serveur hôte est réparé et disponible. 
+**Ce qu’il fait** : lorsqu’un ordinateur virtuel protégé échoue, ou que le serveur hôte sur lequel s’exécute l’ordinateur virtuel protégé échoue, le basculement avec les services Azure Site Recovery maintient la continuité de l’activité jusqu’à ce que la machine virtuelle ou le serveur hôte local soit réparé et disponible. 
 
-**Son fonctionnement** --Azure Site Recovery Services, proposé dans Microsoft Azure, permet une réplication en temps réel de vos machines virtuelles (VM) dans un coffre de sauvegarde dans Azure. Dans le cas où votre serveur ou un site tombe en panne en raison d’une défaillance matérielle ou autre, vous pouvez basculer avec Azure Site Recovery Services afin que l’image de machine virtuelle stockée dans votre coffre de sauvegarde sera déployé comme une machine virtuelle en cours d’exécution dans Azure. Associé à un réseau virtuel Azure, le client PC précédemment connecté au serveur local en toute transparence se connectera au serveur en cours d’exécution dans Azure.     
+**Fonctionnement--** les services Azure Site Recovery, proposés dans Microsoft Azure, permettent la réplication en temps réel de vos machines virtuelles vers un coffre de sauvegarde dans Azure. Si votre serveur ou site tombe en panne en raison d’une défaillance matérielle ou autre, vous pouvez basculer avec Azure Site Recovery Services afin que l’image de machine virtuelle stockée dans votre coffre de sauvegarde soit approvisionnée en tant que machine virtuelle en cours d’exécution dans Azure. Associé à un réseau virtuel Azure, les PC clients qui étaient précédemment connectés au serveur local se connectent de manière transparente au serveur s’exécutant dans Azure.     
                                                                                                                                                                                                                                                                                                                
 
-## <a name="integration-with-azure-virtual-networkazure-virtual-network-integrationmd"></a>[Intégration avec le réseau virtuel Azure](azure-virtual-network-integration.md)
+## <a name="integration-with-azure-virtual-network"></a>[Intégration au réseau virtuel Azure](azure-virtual-network-integration.md)
 
-**Ce qu’il fait**--à mesure que les organisations de parvenir au cloud computing, ils rarement déplacent toutes leurs ressources en même temps. Au lieu de cela, ils déplacement des ressources vers le nuage et conserver certaines en local. De cette façon, il est facile de déplacer une organisation dans le cloud par étapes au fil du temps. Intégration au réseau virtuel Azure fournit l’infrastructure de réseau qui rend ce processus transparent et facile à gérer.
+Qu’est- **ce**que les organisations font pour Cloud Computing, elles déplacent rarement toutes leurs ressources en même temps. Au lieu de cela, ils déplacent des ressources dans le Cloud et les conservent localement. De cette façon, il est facile de déplacer une organisation vers le Cloud par étapes au fil du temps. L’intégration du réseau virtuel Azure fournit l’infrastructure réseau qui rend ce processus transparent et gérable.
 
-**Son fonctionnement** --mise en réseau virtuel Azure est un service proposé sur Microsoft Azure qui permet aux organisations de créer un point à point (P2P) ou site à site (S2S) réseau privé virtuel qui rend les ressources qui sont en cours d’exécution dans Azure (par exemple) machines virtuelles et stockage) rechercher comme s’ils se trouvent sur le réseau local pour transparente des applications et des accès aux ressources.
+**Fonctionnement--** Azure Virtual Networking est un service proposé dans Microsoft Azure qui permet aux organisations de créer un réseau privé virtuel (point à point) ou de site à site (S2S) qui rend les ressources qui s’exécutent dans Azure (telles que les machines virtuelles et le stockage) comme si elles se trouvent sur le réseau local pour un accès transparent aux ressources et aux applications.
 
 
 
-## <a name="support-for-larger-deploymentssupport-for-larger-deploymentsmd"></a>[Prise en charge des déploiements plus importants](support-for-larger-deployments.md) 
+## <a name="support-for-larger-deployments"></a>[Prise en charge des déploiements plus importants](support-for-larger-deployments.md) 
 
-Certaines petites entreprises supérieure avez besoin de davantage de fonctionnalités et de capacité à implémenter efficacement des Windows Server Essentials. Windows Server 2016 Essentials fournit apprécieront la gestion de domaines, les utilisateurs et les appareils en ajoutant la prise en charge des déploiements plus importants avec :                                                                                                                                                                                                 
+Certaines petites entreprises de plus grande taille nécessitent davantage de fonctionnalités et de capacités pour implémenter Windows Server Essentials de manière efficace. Windows Server 2016 Essentials offre une plus grande facilité de gestion des domaines, des utilisateurs et des appareils en ajoutant la prise en charge des déploiements plus importants avec :                                                                                                                                                                                                 
 
- - plusieurs domaines
+ - domaines multiples
  - plusieurs contrôleurs de domaine                                                                                                                                                                                                                                        
  - possibilité de spécifier un contrôleur de domaine désigné                                                                                                                                                                                                                   
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

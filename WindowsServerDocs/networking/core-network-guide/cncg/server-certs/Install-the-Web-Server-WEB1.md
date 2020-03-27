@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: f51c9e38-98bb-49c1-9d39-427d07021499
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6ad8106c9c8330dd1b8632b3672d6413c1a1faaf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8871b2b82b30bca5b4efd62a31b52e8dbd7284a9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356220"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318285"
 ---
 # <a name="install-the-web-server-web1"></a>Installer le serveur Web WEB1
 
@@ -40,7 +40,7 @@ Pour réaliser cette procédure, vous devez être membre du groupe **Administrat
 **Remarque**   
 La page **avant de commencer** de l’Assistant Ajout de rôles et de fonctionnalités ne s’affiche pas si vous avez déjà exécuté l’Assistant Ajout de rôles et de fonctionnalités et que vous avez sélectionné **ignorer cette page par défaut** à ce moment-là.  
 
-3. Dans la page **Type d’installation** , cliquez sur **Suivant**.  
+3. Dans la page **Type d’installation**, cliquez sur **Suivant**.  
 4. Sur la page **sélection du serveur** , cliquez sur **suivant**.  
 5. Sur la page **rôles du serveur** , sélectionnez **serveur Web (IIS)** , puis cliquez sur **suivant**.  
 6. Cliquez sur **Suivant** plusieurs fois afin d’accepter tous les paramètres par défaut du serveur Web, puis cliquez sur **Installer**.  

@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 4842a4ab-70bb-4744-bea7-70f2ac892ad1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 25b8586d370865dd3ae4393c2536c348a5d0810f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d64498d5d77483ae43ade01b30aaeecd3e9fc753
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396191"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315984"
 ---
 # <a name="install-network-policy-server"></a>Installer un serveur NPS (Network Policy Server)
 

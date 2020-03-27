@@ -3,7 +3,7 @@ title: Déplacer les paramètres et données de Windows SBS 2003 vers le serveur
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: 67087ccb-d820-4642-8ca2-7d2d38714014
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ba6fbf0237a16451403a7d4618b935c7c01f7064
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: f9cf929016b608641e7a7c958cc1311c49b00221
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584786"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318880"
 ---
 # <a name="move-windows-sbs-2003-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Déplacer les paramètres et données de Windows SBS 2003 vers le serveur de destination pour la migration vers Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Déplacez les paramètres et les données vers le serveur de destination comme suit :
 
@@ -52,11 +52,11 @@ Avant de copier des données du serveur source vers le serveur de destination, e
 
 2. Cliquez sur **Démarrer**, tapez **cmd** dans la zone de recherche, puis appuyez sur Entrée. 
 
-3. À l'invite de commandes, tapez la commande suivante et appuyez sur Entrée : 
+3. À l'invite de commandes, tapez la commande suivante, puis appuyez sur ENTRÉE : 
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
 
-Où :
+Où :
  - \<SourceServerName\> est le nom du serveur source
  - \<Nomdossiersourcepartagé\> est le nom du dossier partagé sur le serveur source
  - \<NomServeurDestination\> est le nom du serveur de destination,
@@ -87,11 +87,11 @@ Windows SBS 2003 utilise des scripts d'ouverture de session pour des tâches tel
 
 #### <a name="to-remove-the-windows-sbs-2003-logon-scripts"></a>Pour supprimer les scripts d'ouverture de session Windows SBS 2003 
 
-1. Cliquez sur **Démarrer**, pointez sur **Outils d'administration**, puis cliquez sur **Utilisateurs et ordinateurs Active Directory**.
+1. Cliquez sur **Démarrer**, pointez sur **Outils d'administration**, puis cliquez sur **Utilisateurs et ordinateurs Active Directory**.
 
 2. Dans **Utilisateurs et ordinateurs Active Directory**, étendez votre réseau, puis cliquez sur **Utilisateurs**.
 
-3. Cliquez avec le bouton droit sur un nom d'utilisateur, cliquez sur **Propriétés**, puis sur l'onglet **Profil** .
+3. Cliquez avec le bouton droit sur un nom d'utilisateur, cliquez sur **Propriétés**, puis sur l'onglet **Profil**.
 
 4. Supprimez le contenu de la zone de texte **Script d'ouverture de session**, puis cliquez sur **OK**.
 
@@ -109,9 +109,9 @@ Les objets de stratégie de groupe (GPO) sont mis à jour pour Windows Server Es
 
 2. Cliquez sur **Démarrer**, puis sur **Gestion de serveur**. 
 
-3. Dans le volet de navigation, cliquez sur **gestion avancée**, sur **gestion des stratégie de groupe**, puis sur **forêt:** _< VotreNomdeDomaine\>_ . 
+3. Dans le volet de navigation, cliquez sur **gestion avancée**, sur **gestion des stratégie de groupe**, puis sur **forêt :** _< VotreNomdeDomaine\>_ . 
 
-4. Cliquez sur **domaines**, sur *<\>VotreNomdeDomaine*, puis sur **stratégie de groupe objets**. 
+4. Cliquez sur **domaines**, sur *< VotreNomdeDomaine\>* , puis sur **stratégie de groupe objets**. 
 
 5. Cliquez avec le bouton droit sur **Stratégie d'audit de domaine Small Business Server**, sur **Supprimer**, puis sur **OK**. 
 
@@ -151,9 +151,9 @@ Nous vous recommandons de configurer la stratégie de mot de passe dans Windows 
 
 2. Cliquez sur **Démarrer**, puis sur **Gestion de serveur**.
 
-3. Dans le volet de navigation, cliquez sur **gestion avancée**, sur **gestion des stratégie de groupe**, puis sur **forêt:** _< nomdomainedevotreréseau\>_
+3. Dans le volet de navigation, cliquez sur **gestion avancée**, sur **gestion des stratégie de groupe**, puis sur **forêt :** _< nomdomainedevotreréseau\>_
 
-4. Cliquez sur **domaines**, sur *<\>nomdomainedevotreréseau*, puis sur **filtres WMI**.
+4. Cliquez sur **domaines**, sur *< nomdomainedevotreréseau\>* , puis sur **filtres WMI**.
 
 5. Cliquez avec le bouton droit sur **PostSP2**, cliquez sur **Supprimer**, puis sur **Oui**.
 
@@ -173,9 +173,9 @@ Nous vous recommandons de configurer la stratégie de mot de passe dans Windows 
 
  Si votre routeur ne prend pas en charge l'infrastructure UPnP, ou si l'infrastructure UPnP est désactivée, une icône d'avertissement jaune peut apparaître en regard du nom du routeur. Vérifiez que les ports suivants sont ouverts et qu'ils sont dirigés vers l'adresse IP du serveur de destination :
 
-- Port 80 : Trafic Web HTTP
+- Port 80 : trafic web HTTP
 
-- Port 443: Trafic Web HTTPS
+- Port 443 : trafic web HTTPS
 
 > [!NOTE]
 > Si vous avez configuré un serveur Exchange local sur un second serveur, vous devez vérifier que le port 25 (SMTP) est également ouvert et qu'il est redirigé vers l'adresse IP du serveur Exchange local.
@@ -195,7 +195,7 @@ Nous vous recommandons de configurer la stratégie de mot de passe dans Windows 
 
 5. Cliquez sur **Dossiers partagés**, sur **Ordinateurs**, sur **Liens vers la page d'accueil**, puis sur **Appliquer**. 
 
-6. Cliquez sur l'onglet **Accès à l'ordinateur** , puis sur le nom de l'ordinateur auquel vous souhaitez autoriser l'accès. 
+6. Cliquez sur l'onglet **Accès à l'ordinateur**, puis sur le nom de l'ordinateur auquel vous souhaitez autoriser l'accès. 
 
 7. Répétez les étapes 3, 4, 5 et 6 pour chaque compte d'utilisateur. 
 

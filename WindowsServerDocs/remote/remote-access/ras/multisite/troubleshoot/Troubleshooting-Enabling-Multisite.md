@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 570c81d6-c4f4-464c-bee9-0acbd4993584
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fc42040d68b8a22dcfc46aa30db3a2a3c3bc060a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 59db462e3772b551f0d80819e7cd79519e95fb14
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367062"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313826"
 ---
 # <a name="troubleshooting-enabling-multisite"></a>Résolution des problèmes d’activation du déploiement multisite
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique contient des informations de résolution des problèmes liés à la commande `Enable-DAMultisite`. Pour confirmer que l’erreur que vous avez reçue est liée à l’activation du déploiement multisite, recherchez l’ID d’événement 10051 dans le journal des événements Windows.  
   
@@ -118,7 +118,7 @@ Dans le déploiement DirectAccess existant, la prise en charge du client Windows
 DirectAccess requiert au moins un groupe de sécurité pour tous les ordinateurs clients Windows 8 et un groupe de sécurité pour les ordinateurs clients Windows 7 pour chaque point d’entrée. Chaque ordinateur client doit être inclus dans un seul groupe de sécurité. Par conséquent, vous devez vous assurer que le groupe de sécurité pour les clients Windows 8 contient uniquement des ordinateurs exécutant Windows 8 et que chaque ordinateur client Windows 7 appartient à un seul groupe de sécurité dédié pour le point d’entrée concerné et qu’aucun client Windows 8 n’est présent. appartiennent aux groupes de sécurité Windows 7.  
   
 ## <a name="active-directory-site"></a>Site Active Directory  
-**Erreur reçue**. Le serveur < nom_serveur > n’est pas associé à un site Active Directory.  
+**Erreur reçue**. Le serveur < server_name > n’est pas associé à un site Active Directory.  
   
 **Cause**  
   
@@ -128,7 +128,7 @@ DirectAccess n’a pas pu déterminer le site Active Directory. Dans la console 
   
 Confirmez que ce site est la source du problème en exécutant la commande `nltest /dsgetsite` sur votre serveur d’accès à distance. Si tel est le cas, la commande renvoie ERROR_NO_SITENAME. Pour remédier à ce problème, sur votre contrôleur de domaine, vérifiez qu’il existe un sous-réseau contenant l’adresse IP du serveur interne et qu’il est défini avec un site Active Directory.  
   
-## <a name="SaveGPOSettings"></a>Enregistrement des paramètres d’objet de stratégie de groupe de serveur  
+## <a name="saving-server-gpo-settings"></a><a name="SaveGPOSettings"></a>Enregistrement des paramètres d’objet de stratégie de groupe de serveur  
 **Erreur reçue**. Une erreur s’est produite lors de l’enregistrement des paramètres d’accès à distance dans l’objet de stratégie de groupe < GPO_name >.  
   
 **Cause**  
@@ -139,7 +139,7 @@ Les modifications apportées à l’objet de stratégie de groupe du serveur n�
   
 Assurez-vous que la connectivité est établie entre le serveur d’accès à distance et le contrôleur de domaine. En cas de connectivité, vérifiez sur le contrôleur de domaine si le fichier registry.pol est verrouillé par un autre utilisateur et si besoin, mettez fin à la session de cet utilisateur pour déverrouiller le fichier.  
   
-## <a name="InternalServerError"></a>Une erreur interne s’est produite  
+## <a name="internal-error-occurred"></a><a name="InternalServerError"></a>Une erreur interne s’est produite  
 **Erreur reçue**. Une erreur interne s'est produite.  
   
 **Cause**  

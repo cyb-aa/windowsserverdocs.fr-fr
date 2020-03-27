@@ -10,24 +10,24 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: f2f2f1a5-ac2f-41b7-a495-98ad0e2a9b20
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fc19a58482df5dfbfb4ea324f317bbe1b27bf834
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d87c149bef3af0aa2b2b86aa5dfce58294b1634b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405600"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312308"
 ---
 # <a name="whats-new-in-ipam"></a>Nouveautés dans IPAM
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la fonctionnalité de gestion des adresses IP (IPAM) qui est nouvelle ou modifiée dans Windows Server 2016.  
   
 IPAM offre des fonctionnalités d’administration et d’analyse hautement personnalisables pour l’adresse IP et l’infrastructure DNS sur un réseau d’entreprise ou de fournisseur de services Cloud (CSP). Vous pouvez surveiller, auditer et gérer les serveurs exécutant le protocole DHCP (Dynamic Host Configuration Protocol) et le système DNS (Domain Name System) à l’aide d’IPAM.  
   
-## <a name="BKMK_IPAM2012R2"></a>Mises à jour dans le serveur IPAM  
+## <a name="updates-in-ipam-server"></a><a name="BKMK_IPAM2012R2"></a>Mises à jour dans le serveur IPAM  
 Voici les fonctionnalités nouvelles et améliorées d’IPAM dans Windows Server 2016.  
   
 |Fonctionnalité/fonction|Nouveauté ou amélioration|Description|  
@@ -39,7 +39,7 @@ Voici les fonctionnalités nouvelles et améliorées d’IPAM dans Windows Serve
 |[Purger les données d’utilisation](#bkmk_purge)|Nouveau|Vous pouvez maintenant réduire la taille de la base de données IPAM en purgeant les données d’utilisation des adresses IP antérieures à une date que vous spécifiez.|  
 |[Prise en charge de Windows PowerShell pour les Access Control basés sur les rôles](#bkmk_ps)|Nouveau|Vous pouvez utiliser Windows PowerShell pour définir des étendues d’accès sur des objets IPAM.|  
   
-### <a name="EIP"></a>Gestion améliorée des adresses IP  
+### <a name="enhanced-ip-address-management"></a><a name="EIP"></a>Gestion améliorée des adresses IP  
 Les fonctionnalités suivantes améliorent les fonctionnalités de gestion des adresses IPAM.  
 >[!NOTE]
 >Pour obtenir des informations de référence sur les commandes IPAM Windows PowerShell, consultez [applets de commande de serveur de gestion des adresses IP (IPAM) dans Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
@@ -69,7 +69,7 @@ La commande recherche une série continue d’adresses IP non allouées qui corr
   
 Pour plus d’informations, consultez [Find-IpamFreeRange](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeRange).  
   
-### <a name="EDNS"></a>Gestion améliorée des services DNS  
+### <a name="enhanced-dns-service-management"></a><a name="EDNS"></a>Gestion améliorée des services DNS  
 IPAM dans Windows Server 2016 prend désormais en charge la détection de serveurs DNS basés sur des fichiers et joints à un domaine dans une forêt Active Directory dans laquelle IPAM s’exécute.  
   
 En outre, les fonctions DNS suivantes ont été ajoutées :  
@@ -86,24 +86,24 @@ En outre, les fonctions DNS suivantes ont été ajoutées :
   
 -   La collection et la configuration des redirecteurs conditionnels (créer, supprimer, modifier).  
   
-### <a name="DDI"></a>DNS intégré, DHCP et gestion des adresses IP (DDI)  
+### <a name="integrated-dns-dhcp-and-ip-address-ddi-management"></a><a name="DDI"></a>DNS intégré, DHCP et gestion des adresses IP (DDI)  
 Lorsque vous affichez une adresse IP dans l’inventaire d’adresses IP, vous avez l’option dans le mode Détails pour afficher tous les enregistrements de ressources DNS associés à l’adresse IP.  
   
 Dans le cadre de la collecte d’enregistrements de ressources DNS, IPAM collecte les enregistrements PTR pour les zones de recherche inversée DNS. Pour toutes les zones de recherche inversée qui sont mappées à une plage d’adresses IP, IPAM crée les enregistrements d’adresse IP pour tous les enregistrements PTR appartenant à cette zone dans la plage d’adresses IP mappée correspondante. Si l’adresse IP existe déjà, l’enregistrement PTR est simplement associé à cette adresse IP. Les adresses IP ne sont pas créées automatiquement si la zone de recherche inversée n’est mappée à aucune plage d’adresses IP.  
   
 Lorsqu’un enregistrement PTR est créé dans une zone de recherche inversée via IPAM, l’inventaire d’adresses IP est mis à jour de la même façon que décrit ci-dessus. Pendant la collecte suivante, étant donné que l’adresse IP existe déjà dans le système, l’enregistrement PTR sera simplement mappé avec cette adresse IP.  
   
-### <a name="bkmk_ad"></a>Prise en charge de plusieurs forêts Active Directory  
+### <a name="multiple-active-directory-forest-support"></a><a name="bkmk_ad"></a>Prise en charge de plusieurs forêts Active Directory  
 Dans Windows Server 2012 R2, IPAM a pu détecter et gérer les serveurs DNS et DHCP appartenant à la même forêt de Active Directory que le serveur IPAM. Vous pouvez désormais gérer les serveurs DNS et DHCP appartenant à une forêt AD différente lorsqu’il a une relation d’approbation bidirectionnelle avec la forêt dans laquelle le serveur IPAM est installé. Vous pouvez accéder à la boîte de dialogue **configurer la découverte de serveurs** et ajouter des domaines à partir des autres forêts approuvées que vous souhaitez gérer. Une fois les serveurs découverts, l’expérience de gestion est la même que pour les serveurs qui appartiennent à la même forêt où IPAM est installé.  
   
 Pour plus d’informations, consultez [gérer les ressources dans plusieurs forêts Active Directory](../../technologies/ipam/Manage-Resources-in-Multiple-Active-Directory-Forests.md)  
   
-### <a name="bkmk_purge"></a>Purger les données d’utilisation  
+### <a name="purge-utilization-data"></a><a name="bkmk_purge"></a>Purger les données d’utilisation  
 La purge des données d’utilisation vous permet de réduire la taille de la base de données IPAM en supprimant les anciennes données d’utilisation des adresses IP. Pour effectuer la suppression des données, vous spécifiez une date, et IPAM supprime toutes les entrées de base de données qui sont antérieures ou égales à la date que vous fournissez.   
   
 Pour plus d’informations, consultez [purger les données d’utilisation](../../technologies/ipam/Purge-Utilization-Data.md).  
   
-### <a name="bkmk_ps"></a>Prise en charge de Windows PowerShell pour les Access Control basés sur les rôles  
+### <a name="windows-powershell-support-for-role-based-access-control"></a><a name="bkmk_ps"></a>Prise en charge de Windows PowerShell pour les Access Control basés sur les rôles  
 Vous pouvez maintenant utiliser Windows PowerShell pour configurer des Access Control basées sur les rôles. Vous pouvez utiliser les commandes Windows PowerShell pour récupérer des objets DNS et DHCP dans IPAM et modifier leurs étendues d’accès. Pour cette raison, vous pouvez écrire des scripts Windows PowerShell pour affecter des étendues d’accès aux objets suivants.  
   
 -   Espace d’adressage IP  

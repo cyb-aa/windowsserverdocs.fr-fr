@@ -3,7 +3,7 @@ title: Modification du modèle de couleurs du tableau de bord et de la zone de l
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: b2913e51-7979-4d48-a431-d2ec5f1042be
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f7079c9e59c44907fa203db48ce366c2b5a1102b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a3ffac0b89a62b04b73aada0a49cb755c7e7bd9a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879640"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312288"
 ---
 # <a name="change-the-color-scheme-of-the-dashboard-and-launchpad"></a>Modification du modèle de couleurs du tableau de bord et de la zone de lancement
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Vous pouvez modifier le modèle de couleurs du tableau de bord et de la zone de lancement en définissant les couleurs que vous voulez utiliser dans un fichier au format XML que vous allez ensuite placer dans un dossier sur le serveur et dont vous allez spécifier le nom dans une entrée de Registre.  
   
@@ -130,7 +130,7 @@ Vous pouvez modifier le modèle de couleurs du tableau de bord et de la zone de 
   
     1.  Cliquez avec le bouton droit sur **Windows Server**, pointez sur **Nouveau**, puis cliquez sur **Clé**.  
   
-    2.  Tapez **OEM** comme nom de la clé.  
+    2.  Donnez le nom **OEM** à la clé.  
   
 4.  Cliquez avec le bouton droit sur **OEM**, pointez sur **Nouveau**, puis cliquez sur **Nom de la valeur**.  
   
@@ -142,37 +142,37 @@ Vous pouvez modifier le modèle de couleurs du tableau de bord et de la zone de 
   
 8.  Copiez le fichier dans %programFiles%\Windows Server\Bin\OEM. Si le répertoire OEM n'existe pas, créez-le.  
   
-##  <a name="BKMK_Dashboard"></a> Tableau de bord et Launchpad zones qui peuvent être modifiés  
+##  <a name="dashboard-and-launchpad-areas-that-can-be-changed"></a><a name="BKMK_Dashboard"></a>Zones du tableau de bord et du Launchpad qui peuvent être modifiées  
  Cette section comprend des exemples de zones du Tableau de bord et du Launchpad pouvant être personnalisées.  
   
 ### <a name="examples"></a>Exemples  
   
-####  <a name="BKMK_Figure1"></a> Figure 1 : Page de connexion du tableau de bord  
+####  <a name="figure-1-sign-in-page-of-the-dashboard"></a><a name="BKMK_Figure1"></a>Figure 1 : page de connexion du tableau de bord  
  ![Tableau de bord Windows Server Essentials](media/SBS8_ADK_Dashboard_Signin_RC.png "SBS8_ADK_Dashboard_Signin_RC")  
   
-####  <a name="BKMK_Figure2"></a> Figure 2 : Launchpad  
- ![Connexion de Windows SBS Launchpad&#45;dans](media/SBS8_ADK_LaunchpadSignin2.png "SBS8_ADK_LaunchpadSignin2")  
+####  <a name="figure-2-launchpad"></a><a name="BKMK_Figure2"></a>Figure 2 : Launchpad  
+ ![Connexion&#45;au LAUNCHPAD Windows SBS](media/SBS8_ADK_LaunchpadSignin2.png "SBS8_ADK_LaunchpadSignin2")  
   
-####  <a name="BKMK_Figure3"></a> Figure 3 : Page de connexion du Launchpad  
- ![Launchpad de Windows Server Essentials](media/SBS8_ADK_Launchpad_Signin_RC.png "SBS8_ADK_Launchpad_Signin_RC")  
+####  <a name="figure-3-sign-in-page-of-the-launchpad"></a><a name="BKMK_Figure3"></a>Figure 3 : page de connexion du Launchpad  
+ ![Launchpad Windows Server Essentials](media/SBS8_ADK_Launchpad_Signin_RC.png "SBS8_ADK_Launchpad_Signin_RC")  
   
-####  <a name="BKMK_Figure4"></a> Figure 4 : Texte du tableau de bord  
- ![Volet de Navigation de Windows Server Essentials](media/SBS8_ADK_Navigation_RC.png "SBS8_ADK_Navigation_RC")  
+####  <a name="figure-4-dashboard-text"></a><a name="BKMK_Figure4"></a>Figure 4 : texte du tableau de bord  
+ ![Volet de navigation Windows Server Essentials](media/SBS8_ADK_Navigation_RC.png "SBS8_ADK_Navigation_RC")  
   
-####  <a name="BKMK_Figure5"></a> Figure 5 : Bordure du sous-onglet  
- ![Bordure de sous-onglet du tableau de bord Windows SBS](media/SBS8_ADK_DashboardSubtabborder.png "SBS8_ADK_DashboardSubtabborder")  
+####  <a name="figure-5-subtab-border"></a><a name="BKMK_Figure5"></a>Figure 5 : bordure du sous-onglet  
+ ![Sous-onglet du tableau de bord Windows SBS-bordure](media/SBS8_ADK_DashboardSubtabborder.png "SBS8_ADK_DashboardSubtabborder")  
   
-####  <a name="BKMK_Figure6"></a> Figure 6 : Volet des tâches  
- ![Volet de tâches du tableau de bord Windows SBS](media/SBS8_ADK_DashboardTaskPane.png "SBS8_ADK_DashboardTaskPane")  
+####  <a name="figure-6-task-pane"></a><a name="BKMK_Figure6"></a>Figure 6 : volet des tâches  
+ ![Volet des tâches du tableau de bord Windows SBS](media/SBS8_ADK_DashboardTaskPane.png "SBS8_ADK_DashboardTaskPane")  
   
-####  <a name="BKMK_Figure9"></a> Figure 7 a : Écran de démarrage du produit  
- ![Écran de démarrage de Windows Server Essentials](media/SBS8_ADK_productspalshscreen_RC.png "SBS8_ADK_productspalshscreen_RC")  
+####  <a name="figure-7a-product-splash-screen"></a><a name="BKMK_Figure9"></a>Figure 7A : écran de démarrage du produit  
+ ![Écran de démarrage Windows Server Essentials](media/SBS8_ADK_productspalshscreen_RC.png "SBS8_ADK_productspalshscreen_RC")  
   
-#### <a name="figure-7b-home-page"></a>Figure 7b : Page d'accueil  
- ![Page d’accueil de Windows Server Essentials](media/SBS8_ADK_Dashboard_HomePage_RC.png "SBS8_ADK_Dashboard_HomePage_RC")  
+#### <a name="figure-7b-home-page"></a>Figure 7b : Page d'accueil  
+ ![Page d’hébergement Windows Server Essentials](media/SBS8_ADK_Dashboard_HomePage_RC.png "SBS8_ADK_Dashboard_HomePage_RC")  
   
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

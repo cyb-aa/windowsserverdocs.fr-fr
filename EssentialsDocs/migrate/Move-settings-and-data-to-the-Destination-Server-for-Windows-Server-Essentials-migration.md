@@ -3,7 +3,7 @@ title: Déplacer les paramètres et données vers le serveur de destination pour
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,24 +12,24 @@ ms.assetid: 2b882e87-347a-4010-b7fd-9599d61198dd
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8e173de32230a219bec99586e1b5b533bbe84b73
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: 4f4ba08c17429f70ef754b0861553e38ba116e5d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66826976"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318835"
 ---
 # <a name="move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Déplacer les paramètres et données vers le serveur de destination pour la migration vers Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Déplacez les paramètres et les données vers le serveur de destination comme suit :
 
-1. [Copier des données vers le serveur de Destination](#copy-data-to-the-destination-server)
+1. [Copier les données sur le serveur de destination](#copy-data-to-the-destination-server)
 
 2. [Configurer le réseau](#configure-the-network) 
 
-3. [Mapper les ordinateurs autorisés aux comptes d’utilisateurs](#map-permitted-computers-to-user-accounts)
+3. [Mapper les ordinateurs autorisés aux comptes d’utilisateur](#map-permitted-computers-to-user-accounts)
  
 ## <a name="copy-data-to-the-destination-server"></a>Copier les données vers le serveur de destination
  Avant de copier des données du serveur source vers le serveur de destination, effectuez les tâches suivantes : 
@@ -44,15 +44,15 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
  
 1. Ouvrez une session sur le serveur de destination en tant qu'administrateur de domaine, puis ouvrez une fenêtre de commande. 
  
-2. À l'invite de commandes, tapez la commande suivante et appuyez sur Entrée : 
+2. À l'invite de commandes, tapez la commande suivante, puis appuyez sur ENTRÉE : 
  
  `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
  
- Où :
- - \<Nom_serveur_source\> est le nom du serveur Source
- - \<Nomdossiersourcepartagé\> est le nom du dossier partagé sur le serveur Source
- - \<NomServeurDestination\> est le nom du serveur de Destination,
- - \<Nomdossierdestinationpartagé\> est le dossier partagé sur le serveur de Destination vers lequel les données seront copiées. 
+ Où :
+ - \<SourceServerName\> est le nom du serveur source
+ - \<Nomdossiersourcepartagé\> est le nom du dossier partagé sur le serveur source
+ - \<NomServeurDestination\> est le nom du serveur de destination,
+ - \<Nomdossierdestinationpartagé\> est le dossier partagé sur le serveur de destination vers lequel les données seront copiées. 
  
 3. Répétez l'étape précédente pour chaque dossier partagé que vous migrez depuis le serveur source. 
  
@@ -69,9 +69,9 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
  
  Si votre routeur ne prend pas en charge l'infrastructure UPnP, ou si l'infrastructure UPnP est désactivée, une icône d'avertissement jaune peut apparaître en regard du nom du routeur. Vérifiez que les ports suivants sont ouverts et qu'ils sont dirigés vers l'adresse IP du serveur de destination : 
  
-- Port 80 : Trafic Web HTTP 
+- Port 80 : trafic web HTTP 
  
-- Port 443 : Trafic Web HTTPS 
+- Port 443 : trafic web HTTPS 
  
 ## <a name="map-permitted-computers-to-user-accounts"></a>Mapper les ordinateurs autorisés aux comptes d'utilisateur
  Chaque compte d'utilisateur qui est migré à partir du serveur source doit être mappé à un ou plusieurs ordinateurs. 

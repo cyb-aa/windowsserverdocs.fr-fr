@@ -7,15 +7,15 @@ ms.technology: networking
 ms.topic: landing-page
 ms.assetid: daaf6b61-5953-4c2d-b6b8-7c885b552646
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
-ms.openlocfilehash: f3b580b108677b391065ad83f61e52504fe9ac91
-ms.sourcegitcommit: 68483ee9284285f5643dd67dce06f5a102cb9469
+ms.openlocfilehash: e625bb537ef514ff68241669c3e75f482a61f068
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74823847"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318578"
 ---
 # <a name="networking"></a>Mise en réseau
 
@@ -53,7 +53,7 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
 
 <hr />
 
-<h2>SDN (Software-Defined Networking)</h2>
+<h2>Mise en réseau SDN (Software Defined Networking)</h2>
 
 <ul class="cardsF panelContent">
     <li>
@@ -68,7 +68,7 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
                     <div class="cardText">
                         <h3><a href="https://docs.microsoft.com/windows-server/networking/sdn/">Mise en réseau SDN (Software Defined Networking)</a></h3>
                         <hr />
-                        <p>Vous pouvez utiliser cette rubrique pour découvrir les technologies de mise en réseau SDN (Software-Defined Networking) offertes par Windows Server, System Center et Microsoft Azure.</p>
+                        <p>Vous pouvez utiliser cette rubrique pour découvrir les technologies de mise en réseau SDN (Software-Defined Networking) offertes par Windows Server, System Center et Microsoft Azure.</p>
                         <p><b>Remarque :</b> Pour les ordinateurs hôtes Hyper-V et les machines virtuelles qui exécutent des serveurs d’infrastructure SDN, tels que des nœuds de contrôleur de réseau et d’équilibrage de la charge logicielle, vous devez installer Windows Server Datacenter Edition. Pour les ordinateurs hôtes Hyper-V qui contiennent uniquement des machines virtuelles de charge de travail client connectées à des réseaux contrôlés par SDN, vous pouvez exécuter Windows Server Standard Edition.</p>
                     </div>
                 </div>
@@ -193,7 +193,7 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
 
 <hr />
 
-## <a name="bkmk_networking"></a>Technologies de mise en réseau
+## <a name="networking-technologies"></a><a name="bkmk_networking"></a>Technologies de mise en réseau
 
 <ul class="cardsF panelContent">
     <li>
@@ -322,7 +322,7 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
                     <div class="cardText">
                         <h3><a href="../virtualization/hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md">Commutateur virtuel Hyper-V</a></h3>
                         <hr />
-                        <p>Le commutateur virtuel Hyper-V désigne un commutateur réseau Ethernet de couche 2 logiciel disponible dans le Gestionnaire Hyper-V lorsque vous installez le rôle serveur Hyper-V. Le commutateur offre des fonctionnalités gérées par programme et extensibles pour connecter des machines virtuelles aux réseaux virtuels et au réseau physique à la fois. Qui plus est, le commutateur virtuel Hyper-V assure l'application de la stratégie de sécurité et d'isolement, ainsi que des niveaux de service. </p>
+                        <p>Le commutateur virtuel Hyper-V désigne un commutateur réseau Ethernet de couche 2 logiciel disponible dans le Gestionnaire Hyper-V lorsque vous installez le rôle serveur Hyper-V. Le commutateur offre des fonctionnalités gérées par programme et extensibles pour connecter des machines virtuelles aux réseaux virtuels et au réseau physique à la fois. Qui plus est, le commutateur virtuel Hyper-V assure l’application de la stratégie de sécurité et d’isolement, ainsi que des niveaux de service. </p>
                     </div>
                 </div>
             </div>
@@ -462,7 +462,7 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
                     <div class="cardText">
                         <h3><a href="technologies/nic-teaming/NIC-Teaming.md">Association de cartes réseau</a></h3>
                         <hr />
-                        <p>La fonction d’association de cartes réseau vous permet de regrouper plusieurs cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelles à définition logicielle. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.</p>
+                        <p>La fonction d’association de cartes réseau vous permet de regrouper plusieurs cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelle à définition logicielle. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.</p>
                     </div>
                 </div>
             </div>
@@ -537,7 +537,7 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Mise en réseau de conteneurs Windows</a></h3>
+                        <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Mise en réseau de conteneur Windows</a></h3>
                         <hr />
                         <p>La mise en réseau de conteneurs Windows vous permet de créer et gérer des réseaux de manière à connecter les points de terminaison de conteneur, aussi bien aux hôtes Windows 10 et Windows Server à l’aide d’outils conformes aux normes du secteur et de flux de travail. Les réseaux de conteneurs Windows prennent en charge plusieurs topologies, notamment privée, à plat-couche 2 et routé-couche 3.</p>
                         <p>Les superpositions que vous pouvez créer localement sur l’hôte sont également prises en charge à l’aide de Dockr, Kubernetes ou Windows PowerShell via les plug-ins qui communiquent avec le service de mise en réseau d’hôte Windows (HNS). Vous pouvez créer et gérer des réseaux de clusters à plusieurs nœuds via des systèmes d’orchestration de niveau supérieur en communiquant via un agent local à chaque HNS de nœud.</p>
@@ -570,10 +570,10 @@ Cette cohérence signifie que vos applications sont désormais plus faciles à m
     </li>
 </ul>
 
-## <a name="additional-resources"></a>Ressources complémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 
 Vous trouverez des ressources de mise en réseau pour les systèmes antérieurs à Windows Server 2016 aux emplacements suivants.
 
-- Windows Server 2012 et Windows Server 2012 R2 [Vue d’ensemble de la mise en réseau](https://technet.microsoft.com/library/hh831357.aspx)
-- Windows Server 2008 et Windows Server 2008 R2 [Réseaux](https://technet.microsoft.com/library/cc753940)
+- [Vue d’ensemble de la mise en réseau](https://technet.microsoft.com/library/hh831357.aspx) Windows Server 2012 et Windows Server 2012 R2
+- [Mise en réseau](https://technet.microsoft.com/library/cc753940) Windows Server 2008 et Windows Server 2008 R2
 - Contenu retiré de Windows Server 2003 [Windows server 2003/2003 R2](https://www.microsoft.com/download/details.aspx?id=53314)

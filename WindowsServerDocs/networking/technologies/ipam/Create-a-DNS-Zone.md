@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a030ff51-a815-4fc4-b26d-aae41c3e4ce5
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: dbd46ad129a4b3e5bbbe55f584f1bae43bd077c3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a9762d15d0b95954623bbefdec38696885676975
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355415"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312635"
 ---
 # <a name="create-a-dns-zone"></a>Créer une zone DNS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour créer une zone DNS à l’aide de la console client IPAM.  
   

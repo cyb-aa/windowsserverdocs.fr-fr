@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9271cf4e5f50adf93f421e830a226507034ac454
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5e1ed095b3180f3aebd25381ec9086445bb141ec
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517474"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316622"
 ---
 # <a name="choosing-a-network-adapter"></a>Choix d’une carte réseau
 
@@ -26,7 +26,7 @@ Les applications nécessitant beaucoup de ressources réseau requièrent des car
 > [!TIP]
 >  Vous pouvez configurer les paramètres de carte réseau à l’aide de Windows PowerShell. Pour plus d’informations, consultez [applets de commande de cartes réseau dans Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter).
 
-##  <a name="bkmk_offload"></a>Fonctionnalités de déchargement
+##  <a name="offload-capabilities"></a><a name="bkmk_offload"></a>Fonctionnalités de déchargement
 
 Le déchargement des tâches à partir de l’unité centrale \(processeur\) à la carte réseau peut réduire l’utilisation du processeur sur le serveur, ce qui améliore les performances globales du système.
 
@@ -42,7 +42,7 @@ La pile réseau des produits Microsoft peut décharger une ou plusieurs tâches 
 |Mise à l’échelle côté réception \(RSS\)|RSS est une technologie de pilote réseau qui permet de distribuer efficacement le traitement de réception réseau sur plusieurs processeurs dans des systèmes multiprocesseurs. Plus d’informations sur RSS sont fournies plus loin dans cette rubrique.|  
 |Réception de la fusion de segment \(RSC\)|RSC est la possibilité de regrouper les paquets pour réduire le traitement d’en-tête nécessaire à l’exécution de l’hôte. Un maximum de 64 Ko de charge utile reçue peut être fusionné en un seul paquet plus grand à traiter. Plus de détails sur RSC sont fournis plus loin dans cette rubrique.|  
   
-###  <a name="bkmk_rss"></a>Mise à l’échelle côté réception
+###  <a name="receive-side-scaling"></a><a name="bkmk_rss"></a>Mise à l’échelle côté réception
 
 Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2 et Windows Server 2008 prennent en charge la mise à l’échelle côté réception \(les\)RSS. 
 
@@ -158,7 +158,7 @@ Pour utiliser pleinement les processeurs, le nombre de files d’attente de réc
 
 RSS peut être activé sur une carte réseau qui est associée à une autre carte d’interface réseau à l’aide de l’Association de cartes réseau. Dans ce scénario, seule la carte réseau physique sous-jacente peut être configurée pour utiliser RSS. Un utilisateur ne peut pas définir des applets de commande RSS sur la carte réseau associée.
   
-###  <a name="bkmk_rsc"></a>Fusion de segment de réception (RSC)
+###  <a name="receive-segment-coalescing-rsc"></a><a name="bkmk_rsc"></a>Fusion de segment de réception (RSC)
 
 La fusion de segment de réception \(RSC\) permet d’obtenir des performances en réduisant le nombre d’en-têtes IP traités pour une quantité donnée de données reçues. Elle doit être utilisée pour aider à mettre à l’échelle les performances des données reçues en regroupant \(ou en fusionnant\) les plus petits paquets en unités plus volumineuses.
 
@@ -206,7 +206,7 @@ RSC est pris en charge uniquement dans l’hôte physique lorsque la carte rése
 
 RSC peut être activé pour un ordinateur virtuel lorsque la virtualisation d’entrée/sortie de racine unique \(SR-IOV\) est activée. Dans ce cas, les fonctions virtuelles prennent en charge la fonction RSC ; par conséquent, les machines virtuelles bénéficient également de l’avantage de RSC.
 
-##  <a name="bkmk_resources"></a>Ressources de la carte réseau
+##  <a name="network-adapter-resources"></a><a name="bkmk_resources"></a>Ressources de la carte réseau
 
 Quelques cartes réseau gèrent activement leurs ressources pour obtenir des performances optimales. Plusieurs cartes réseau vous permettent de configurer manuellement des ressources à l’aide de l’onglet **mise en réseau avancée** pour la carte. Pour ces adaptateurs, vous pouvez définir les valeurs d’un certain nombre de paramètres, notamment le nombre de tampons de réception et de mémoires tampons d’envoi.
 

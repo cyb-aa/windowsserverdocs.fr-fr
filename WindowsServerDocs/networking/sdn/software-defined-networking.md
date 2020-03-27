@@ -6,19 +6,19 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9a1ea73c-20cd-42c5-95ad-b003b9cc6d64
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/09/2018
-ms.openlocfilehash: dd2b39f3563a47db18564de282f2646ec269e584
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a1283c6afcebe7b6abc12f9847865d6305bd3f2c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405925"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317276"
 ---
 # <a name="sdn-in-windows-server-overview"></a>Vue d'ensemble du SDN dans Windows Server
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 
 La mise en réseau SDN (Software Defined Networking) fournit une méthode pour configurer et gérer les périphériques réseau physiques et virtuels tels que les routeurs, les commutateurs et les passerelles de votre centre de données de manière centralisée. Vous pouvez utiliser vos appareils existants compatibles SDN pour bénéficier d’une intégration plus poussée entre le réseau virtuel et le réseau physique. Les éléments de réseau virtuel, tels que le commutateur virtuel Hyper-V, la virtualisation de réseau Hyper-V et la passerelle RAS, sont conçus pour être des éléments intégraux de votre infrastructure SDN. 

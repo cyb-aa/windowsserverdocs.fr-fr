@@ -7,14 +7,14 @@ ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 9b3ef3eb-4246-4e0e-8bf1-53224ca5f2f9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 52f8b9e1446b5b3f3b1e7060cc737204771d1eae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 62bac410d92e63f4f5cb759b04f7a51ef17d18b0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356065"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318048"
 ---
 # <a name="core-network-guidance-for-windows-server"></a>Recommandations relatives au réseau principal pour Windows Server
 
@@ -26,7 +26,7 @@ Cette rubrique fournit une vue d’ensemble de l’aide du réseau de base pour 
   
 -   [Guide du réseau de base pour Windows Server](#bkmk_core)  
   
-## <a name="bkmk_intro"></a>Présentation du réseau Windows Server Core
+## <a name="introduction-to-the-windows-server-core-network"></a><a name="bkmk_intro"></a>Présentation du réseau Windows Server Core
 
 Un réseau de base est un ensemble de matériels, périphériques et logiciels réseau qui fournissent les services centraux répondant aux besoins en technologies de l’information de votre organisation.
 
@@ -46,7 +46,7 @@ Un réseau de base Windows Server présente de nombreux avantages, notamment :
 
 Un réseau de base vous permet également de faire évoluer votre réseau à mesure que votre organisation se développe et que vos besoins en technologies de l’information évoluent. Par exemple, avec un réseau de base, vous pouvez ajouter des domaines, des sous-réseaux IP, des services d’accès à distance, des services sans fil et d’autres fonctionnalités et rôles de serveur fournis par Windows Server 2016.
 
-## <a name="bkmk_core"></a>Guide du réseau de base pour Windows Server
+## <a name="core-network-guide-for-windows-server"></a><a name="bkmk_core"></a>Guide du réseau de base pour Windows Server
 
 Le Guide du réseau de base Windows Server 2016 fournit des instructions sur la planification et le déploiement des composants principaux requis pour un réseau pleinement fonctionnel et un nouveau Active Directory&reg; domaine dans une nouvelle forêt. Ce guide vous explique comment déployer des ordinateurs configurés avec les composants Windows Server suivants :
 

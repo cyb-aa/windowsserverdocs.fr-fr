@@ -3,7 +3,7 @@ title: Lire des médias numériques dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 5f570492-ee21-471b-92c1-3fd9bfb84f55
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c967f2b0f174838567935b4f24339429f43e67bc
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 168569fc6ce7937090a45bf9e7c68353f8b62714
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947370"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310977"
 ---
 # <a name="play-digital-media-in-windows-server-essentials"></a>Lire des médias numériques dans Windows Server Essentials
 
@@ -57,7 +57,7 @@ Les éléments multimédias numériques font référence à des contenus audio, 
 -   [Afficher et parcourir des médias numériques partagés](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_7)  
 
   
-##  <a name="BKMK_1"></a>Présentation des médias numériques  
+##  <a name="digital-media-overview"></a><a name="BKMK_1"></a>Présentation des médias numériques  
  Les éléments multimédias numériques font référence à du contenu audio, vidéo et à des photos qui ont été encodés (compressés numériquement). Le codage du contenu implique la conversion de l'entrée audio et vidéo en un fichier multimédia, comme un fichier Windows Media. Une fois le média numérique codé, il peut être facilement manipulé, distribué et lu par des ordinateurs. Il peut aussi être facilement transmis sur des réseaux d'ordinateurs.  
   
  Voici des exemples de types de médias numériques : WMA (Windows Media Audio), WMV (Windows Media Video), MP3, JPEG et AVI. Pour plus d’informations sur les types de médias numériques qui sont pris en charge par le Lecteur Windows Media, consultez la rubrique [Types de fichiers pris en charge par le Lecteur Windows Media](https://support.microsoft.com/kb/316992).  
@@ -67,7 +67,7 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
 -   **Regarder des vidéos**. Votre serveur peut être utilisé pour stocker et diffuser de grandes collections de vidéos et des programmes de télévision enregistrés sur vos ordinateurs ou sur d'autres appareils de votre réseau. Vous pouvez diffuser en continu des vidéos sur une Xbox 360 ou sur un ordinateur à l'aide du Lecteur Windows Media.  
   
--   **Écouter de la musique**. Quand vous activez le partage de fichiers multimédias pour le dossier partagé **Musique** , vous pouvez accéder à votre musique à partir d'appareils qui prennent en charge Windows Media Connect. Vous n'avez pas besoin d'activer ou de configurer des comptes d'utilisateur pour diffuser en continu à partir du dossier partagé **Musique** une fois que le partage est activé.  
+-   **Écouter de la musique**. Quand vous activez le partage de fichiers multimédias pour le dossier partagé **Musique**, vous pouvez accéder à votre musique à partir d'appareils qui prennent en charge Windows Media Connect. Vous n'avez pas besoin d'activer ou de configurer des comptes d'utilisateur pour diffuser en continu à partir du dossier partagé **Musique** une fois que le partage est activé.  
   
 -   **Présenter des diaporamas de photos**. Vous pouvez stocker des photos numériques dans le dossier partagé **Photos** sur votre serveur, puis y accéder à partir de n'importe quel ordinateur ou d'une Xbox 360 connectée à une télévision à votre domicile ou au bureau. Vous pouvez regarder des diaporamas de photos, ce qui revient à transformer votre télévision en un grand cadre à image.  
   
@@ -76,7 +76,7 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
  Un média protégé contre la copie peut être lu seulement sur l'ordinateur ou l'appareil que vous avez utilisé pour l'acheter. La protection contre la copie vous empêche de lire un média sur plusieurs ordinateurs ou appareils, même si vous copiez le média sur votre serveur et que vous le lisez à partir de là. Toutefois, vous pouvez stocker le média protégé contre la copie sur Windows Server Essentials et continuer à lire le média sur l’ordinateur ou le périphérique que vous avez utilisé pour l’acheter.  
   
-##  <a name="BKMK_2"></a>Lire et partager des contenus multimédias numériques  
+##  <a name="play-and-share-digital-media"></a><a name="BKMK_2"></a>Lire et partager des contenus multimédias numériques  
  Après avoir configuré votre réseau et connecté vos ordinateurs et appareils multimédias au réseau du serveur, vous pouvez rechercher des fichiers multimédias numériques que vous stockez et partagez sur le serveur.  
   
 > [!NOTE]
@@ -94,7 +94,7 @@ Les éléments multimédias numériques font référence à des contenus audio, 
 -   [Envoyer des fichiers multimédias sur Windows Server Essentials vers le lecteur Windows Media, Xbox 360 ou un lecteur multimédia numérique en réseau sur le réseau](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_SendToDevice)  
 
   
-###  <a name="BKMK_2.1"></a>Rechercher et lire des fichiers multimédias sur Windows Server Essentials à partir d’un ordinateur ou d’un lecteur multimédia numérique sur le réseau  
+###  <a name="search-for-and-play-media-files-on-windows-server-essentials-from-a-computer-or-digital-media-player-on-the-network"></a><a name="BKMK_2.1"></a>Rechercher et lire des fichiers multimédias sur Windows Server Essentials à partir d’un ordinateur ou d’un lecteur multimédia numérique sur le réseau  
  Lorsque votre appareil est joint au réseau Windows Server Essentials, vous pouvez rechercher et lire des fichiers multimédias numériques de l’une des manières suivantes :  
   
 
@@ -123,24 +123,24 @@ Les éléments multimédias numériques font référence à des contenus audio, 
 -   [Rechercher et lire des médias partagés à l’aide de l’Accès web à distance](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_RWA2)  
 
   
-####  <a name="BKMK_WMC"></a>Rechercher et lire des fichiers multimédias à partir d’un ordinateur qui exécute Windows Media Center  
+####  <a name="search-for-and-play-media-files-from-a-computer-that-is-running-windows-media-center"></a><a name="BKMK_WMC"></a>Rechercher et lire des fichiers multimédias à partir d’un ordinateur qui exécute Windows Media Center  
   
 1.  Cliquez sur **Démarrer**, sur **Tous les programmes**, puis sur **Windows Media Center**.  
   
-2.  Dans la page **Windows Media Center** , descendez jusqu'au type de média que vous recherchez, puis cliquez sur la bibliothèque multimédia.  
+2.  Dans la page **Windows Media Center**, descendez jusqu'au type de média que vous recherchez, puis cliquez sur la bibliothèque multimédia.  
   
 3.  Recherchez manuellement le fichier qui vous intéresse, ou cliquez sur **Recherche** et tapez le nom du fichier à rechercher.  
   
 4.  Cliquez sur l'image du fichier multimédia pour afficher ou lire le fichier.  
   
-####  <a name="BKMK_MWP"></a>Rechercher et lire des fichiers multimédias à partir d’un ordinateur qui exécute Windows à l’aide du lecteur Windows Media  
+####  <a name="search-for-and-play-media-files-from-a-computer-that-is-running-windows-by-using-windows-media-player"></a><a name="BKMK_MWP"></a>Rechercher et lire des fichiers multimédias à partir d’un ordinateur qui exécute Windows à l’aide du lecteur Windows Media  
   
--   À partir de l'ordinateur ou de l'appareil multimédia, ouvrez le **Lecteur Windows Media** , puis recherchez votre bibliothèque multimédia.  
+-   À partir de l'ordinateur ou de l'appareil multimédia, ouvrez le **Lecteur Windows Media**, puis recherchez votre bibliothèque multimédia.  
   
     > [!NOTE]
     >  Les étapes de recherche varient suivant la version du Lecteur Windows Media que vous utilisez. Pour plus d'informations, consultez l'aide de votre version.  
   
-####  <a name="BKMK_Xbox"></a>Rechercher et lire des fichiers multimédias à l’aide de Xbox 360  
+####  <a name="search-for-and-play-media-files-by-using-xbox-360"></a><a name="BKMK_Xbox"></a>Rechercher et lire des fichiers multimédias à l’aide de Xbox 360  
   
 1.  Connectez votre console Xbox 360 à votre réseau domestique à l'aide d'une connexion câblée ou sans fil.  
   
@@ -157,24 +157,24 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
     3.  Parcourez la liste de fichiers et sélectionnez l'élément que vous souhaitez lire.  
   
-####  <a name="BKMK_Other"></a>Rechercher et lire des fichiers multimédias à l’aide d’autres lecteurs multimédias numériques ou de récepteurs compatibles avec Windows Server Essentials  
+####  <a name="search-for-and-play-media-files-by-using-other-digital-media-players-or-receivers-that-are-compatible-with-windows-server-essentials"></a><a name="BKMK_Other"></a>Rechercher et lire des fichiers multimédias à l’aide d’autres lecteurs multimédias numériques ou de récepteurs compatibles avec Windows Server Essentials  
   
 1.  Accédez au [Centre de compatibilité Windows](https://www.microsoft.com/windows/compatibility/CompatCenter/Home) et assurez-vous que votre lecteur ou récepteur multimédia numérique apparaît dans la liste des appareils compatibles.  
   
 2.  Étant donné que les étapes de recherche varient selon le lecteur multimédia que vous utilisez, consultez l'aide de votre appareil pour obtenir des instructions détaillées.  
   
-####  <a name="BKMK_SharedFolders"></a>Rechercher et lire des fichiers multimédias à l’aide de la fonctionnalité dossiers partagés du Launchpad  
+####  <a name="search-for-and-play-media-files-by-using-the-shared-folders-feature-of-the-launchpad"></a><a name="BKMK_SharedFolders"></a>Rechercher et lire des fichiers multimédias à l’aide de la fonctionnalité dossiers partagés du Launchpad  
   
 1.  Connectez-vous au Launchpad Windows Server Essentials.  
   
 2.  Depuis le Launchpad, cliquez sur **Dossiers partagés**. Une fenêtre de l'Explorateur Windows s'ouvre et affiche les dossiers partagés sur le serveur.  
   
-3.  Dans la zone **Recherche** , tapez le nom d'un fichier multimédia. Les résultats de l'objet de votre recherche sont affichés.  
+3.  Dans la zone **Recherche**, tapez le nom d'un fichier multimédia. Les résultats de l'objet de votre recherche sont affichés.  
   
     > [!NOTE]
     >  En option, vous pouvez également double-cliquer sur un dossier partagé pour parcourir le contenu du dossier.  
   
-####  <a name="BKMK_RWA2"></a>Rechercher et lire des médias partagés à l’aide de l’Accès web à distance  
+####  <a name="search-for-and-play-shared-media-by-using-remote-web-access"></a><a name="BKMK_RWA2"></a>Rechercher et lire des médias partagés à l’aide de l’Accès web à distance  
   
 1.  Connectez-vous à l'accès web à distance.  
   
@@ -182,10 +182,10 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
 3.  Double-cliquez sur un dossier pour afficher le contenu de ce dossier.  
   
-###  <a name="BKMK_SendToDevice"></a>Envoyer des fichiers multimédias sur Windows Server Essentials vers le lecteur Windows Media, Xbox 360 ou un lecteur multimédia numérique en réseau sur le réseau  
+###  <a name="send-media-files-on-windows-server-essentials-to-windows-media-player-xbox-360-or-to-a-networked-digital-media-player-in-the-network"></a><a name="BKMK_SendToDevice"></a>Envoyer des fichiers multimédias sur Windows Server Essentials vers le lecteur Windows Media, Xbox 360 ou un lecteur multimédia numérique en réseau sur le réseau  
  Utilisez le **Lecteur Windows Media** pour rechercher le fichier multimédia que vous souhaitez. Cliquez avec le bouton droit sur le fichier multimédia, puis cliquez sur **Lire sur** pour envoyer le fichier multimédia à un appareil multimédia en réseau.  
   
-##  <a name="BKMK_3"></a>Lire des fichiers multimédias numériques partagés à partir d’un emplacement distant  
+##  <a name="play-shared-digital-media-files-from-a-remote-location"></a><a name="BKMK_3"></a>Lire des fichiers multimédias numériques partagés à partir d’un emplacement distant  
  Vous pouvez lire vos fichiers multimédias lorsque vous êtes hors de votre réseau Windows Server Essentials à l’aide d’Accès web à distance. Vous pouvez utiliser un téléphone portable, un ordinateur distant ou un lecteur multimédia numérique pour rechercher et lire les fichiers multimédias partagés stockés sur votre serveur.  
   
 #### <a name="to-play-shared-media-files-when-you-are-away-from-the-network"></a>Pour lire les fichiers multimédias partagés lorsque vous êtes déconnecté du réseau  
@@ -195,7 +195,7 @@ Les éléments multimédias numériques font référence à des contenus audio, 
 2. Accédez à votre site de l'accès web à distance. Tapez **https://< votrenomdedomaine\>/Remote** dans la barre d’adresses du navigateur Internet, puis appuyez sur entrée.  
   
    > [!NOTE]
-   >  *< votrenomdedomaine\>* est un espace réservé. Il s’agit d’un nom qui est unique à votre serveur, donc l’adresse que vous tapez doit ressembler à **https://contoso.com/remote** . Si vous ne connaissez pas le nom de votre domaine, demandez à l'administrateur qui a choisi le nom de domaine lorsque la fonctionnalité d'accès à distance a été définie sur le serveur. Pour plus d'informations, voir [Turn on Remote Web Access](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
+   >  *< votrenomdedomaine\>* est un espace réservé. Il s’agit d’un nom qui est unique à votre serveur, donc l’adresse que vous tapez doit ressembler à **https://contoso.com/remote** . Si vous ne connaissez pas le nom de votre domaine, demandez à l'administrateur qui a choisi le nom de domaine lorsque la fonctionnalité d'accès à distance a été définie sur le serveur. Pour plus d'informations, voir [Activer l'accès web à distance](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
   
 3. Dans la page de connexion de l'accès web à distance, tapez votre nom de compte d'utilisateur et un mot de passe, puis cliquez sur la flèche.  
   
@@ -210,15 +210,15 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
 5. Lorsqu'il s'affiche, cliquez sur le nom du fichier multimédia pour le lire.  
   
-##  <a name="BKMK_4"></a>Ajouter des fichiers multimédias numériques au serveur  
+##  <a name="add-digital-media-files-to-the-server"></a><a name="BKMK_4"></a>Ajouter des fichiers multimédias numériques au serveur  
 
- L’administrateur du serveur peut ajouter des médias numériques à des dossiers partagés dans la bibliothèque multimédia en accédant directement au serveur ou en utilisant le site de Accès web à distance pour se connecter au tableau de bord. D’autres utilisateurs peuvent ajouter des fichiers multimédias au serveur à l’aide de la connexion **dossiers partagés** sur le Launchpad, à l’aide du site de accès Web à distance ou à l’aide de l’application my server pour Windows Phone. Pour plus d’informations sur la lecture de médias, consultez la rubrique [Play and share digital media](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2).  
+ L’administrateur du serveur peut ajouter des médias numériques à des dossiers partagés dans la bibliothèque multimédia en accédant directement au serveur ou en utilisant le site de Accès web à distance pour se connecter au tableau de bord. D’autres utilisateurs peuvent ajouter des fichiers multimédias au serveur à l’aide de la connexion **dossiers partagés** sur le Launchpad, à l’aide du site de accès Web à distance ou à l’aide de l’application my server pour Windows Phone. Pour plus d'informations sur la lecture de fichiers multimédias, voir [Lire et partager les médias numériques](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2).  
 
- L’administrateur du serveur peut ajouter des médias numériques à des dossiers partagés dans la bibliothèque multimédia en accédant directement au serveur ou en utilisant le site de Accès web à distance pour se connecter au tableau de bord. D’autres utilisateurs peuvent ajouter des fichiers multimédias au serveur à l’aide de la connexion **dossiers partagés** sur le Launchpad, à l’aide du site de accès Web à distance ou à l’aide de l’application my server pour Windows Phone. Pour plus d’informations sur la lecture de médias, consultez la rubrique [Play and share digital media](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2).  
+ L’administrateur du serveur peut ajouter des médias numériques à des dossiers partagés dans la bibliothèque multimédia en accédant directement au serveur ou en utilisant le site de Accès web à distance pour se connecter au tableau de bord. D’autres utilisateurs peuvent ajouter des fichiers multimédias au serveur à l’aide de la connexion **dossiers partagés** sur le Launchpad, à l’aide du site de accès Web à distance ou à l’aide de l’application my server pour Windows Phone. Pour plus d'informations sur la lecture de fichiers multimédias, voir [Lire et partager les médias numériques](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2).  
 
   
 > [!NOTE]
->  Vous pouvez également télécharger des fichiers multimédias sur le serveur à l'aide de l'application Mon Serveur pour Windows Phone. Vous pouvez télécharger l’application My Server à partir du [Windows Phone Store](http://www.windowsphone.com/store/app/my-server/6c2f98d5-6fcf-4e1d-b8b1-cde62ea1a94a). Pour plus d’informations sur l’application my Server pour Windows Phone, consultez le billet de blog [My Server Phone App for Windows Server Essentials](https://blogs.technet.com/b/sbs/archive/2012/09/18/my-server-phone-app-for-windows-server-2012-essentials.aspx).  
+>  Vous pouvez également télécharger des fichiers multimédias sur le serveur à l'aide de l'application Mon Serveur pour Windows Phone. Vous pouvez télécharger l’application My Server à partir du [Windows Phone Store](http://www.windowsphone.com/store/app/my-server/6c2f98d5-6fcf-4e1d-b8b1-cde62ea1a94a). Pour plus d’informations sur l’application my Server pour Windows Phone, consultez le billet de blog [My Server Phone App for Windows Server Essentials](https://blogs.technet.com/b/sbs/archive/2012/09/18/my-server-phone-app-for-windows-server-2012-essentials.aspx).  
   
 #### <a name="to-add-digital-media-files-to-shared-folders-on-the-server"></a>Pour ajouter des fichiers multimédias numériques à des dossiers partagés sur le serveur  
   
@@ -236,10 +236,10 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
 3.  Copiez et collez ou glissez-déplacez les fichiers multimédias que vous souhaitez ajouter au dossier partagé approprié sur le serveur.  
   
-##  <a name="BKMK_5"></a>Télécharger les options de format  
+##  <a name="download-format-options"></a><a name="BKMK_5"></a>Télécharger les options de format  
  Il existe deux options pour le téléchargement des fichiers. Ces options sont disponibles uniquement lorsque vous téléchargez plusieurs fichiers ou un dossier sur un ordinateur Windows.  
   
- Choisissez l'option qui correspond à vos besoins pour les téléchargements :  
+ Choisissez l'option qui correspond à vos besoins pour les téléchargements :  
   
 - **Fichier ZIP compressé (. zip)**  
   
@@ -257,10 +257,10 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
   Avant le début de téléchargement, le fichier .exe ou .zip est créé. En fonction du nombre de fichiers et de la taille totale des fichiers à télécharger, cela peut prendre plusieurs minutes. Une fois le fichier de téléchargement créé, le téléchargement du fichier se produit en arrière-plan. Cela vous permet de continuer à travailler pendant le processus de téléchargement.  
   
-##  <a name="BKMK_6"></a>Outil Easy file upload  
+##  <a name="easy-file-upload-tool"></a><a name="BKMK_6"></a>Outil Easy file upload  
  L’outil Easy file upload rationalise le processus de chargement des fichiers sur votre serveur Windows Server Essentials. Vous pouvez ajouter autant de fichiers que vous le souhaitez à l’outil de téléchargement de fichiers facile, puis les charger dans des dossiers partagés sur le serveur Windows Server Essentials en un seul lot. Pour plus d’informations, consultez le billet de blog [Présentation du partage de fichiers d’accès web à distance](https://blogs.technet.com/b/sbs/archive/2012/04/19/understanding-remote-web-access-file-sharing.aspx).  
   
-##  <a name="BKMK_7"></a>Afficher et parcourir des médias numériques partagés  
+##  <a name="view-and-browse-shared-digital-media"></a><a name="BKMK_7"></a>Afficher et parcourir des médias numériques partagés  
  Vous pouvez afficher ou parcourir les ressources à l'aide du tableau de bord, du Launchpad, du site de l'accès web à distance ou de l'application Mon Serveur pour Windows Phone.  
   
 #### <a name="to-view-and-browse-shared-media-from-the-dashboard"></a>Pour afficher et consulter les médias partagés à partir du tableau de bord  
@@ -289,7 +289,7 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
 3.  Double-cliquez sur un dossier pour afficher le contenu de ce dossier.  
   
-## <a name="see-also"></a>Articles associés  
+## <a name="see-also"></a>Voir aussi  
   
 -   [Gérer des médias numériques](../manage/Manage-Digital-Media-in-Windows-Server-Essentials.md)  
   

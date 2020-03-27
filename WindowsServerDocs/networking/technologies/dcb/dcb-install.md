@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: b89213d8-143a-45f3-a609-bc6a7027204c
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5ecb6ef072dd2328a0a45d57d181dca9c2928a30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: edca8269178d9e1de9f8d57abac04400da0ac5c1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405786"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312804"
 ---
 # <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installer Data Center Bridging \(DCB\) dans Windows Server 2016 ou Windows 10
 
@@ -29,16 +29,16 @@ Vous trouverez ci-dessous les conditions préalables à la configuration et à l
 
 Vous pouvez utiliser les commandes DCB de ce guide dans les systèmes d’exploitation suivants.
 
-- Windows Server (canal semi-annuel)
-- Windows Server 2016
+- Windows Server (canal semi-annuel)
+- Windows Server 2016
 - Windows 10 \(toutes les versions\)
 
 Les systèmes d’exploitation suivants incluent des versions précédentes de DCB qui ne sont pas compatibles avec les commandes utilisées dans la documentation DCB pour Windows Server 2016 et Windows 10.
 
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
 
-###  <a name="hardware-requirements"></a>Configuration matérielle requise
+###  <a name="hardware-requirements"></a>Configuration matérielle
 
 La liste suivante répertorie la configuration matérielle requise pour DCB.
 
@@ -100,7 +100,7 @@ Pour effectuer cette procédure, vous devez être membre des **administrateurs**
 1. Cliquez sur **Démarrer**, puis faites défiler jusqu’à, puis cliquez sur **système Windows**.
 2. Cliquez sur **Panneau de configuration**. La boîte de dialogue **panneau de configuration** s’ouvre.
 3. Dans **le panneau de configuration**, cliquez sur **afficher par**, puis cliquez sur **grandes icônes** ou **petites icônes**.
-4. Cliquez sur **programmes et fonctionnalités**. La boîte de dialogue programmes et fonctionnalités s’ouvre.
+4. Cliquez sur **Programmes et fonctionnalités**. La boîte de dialogue programmes et fonctionnalités s’ouvre.
 5. Dans **programmes et fonctionnalités**, dans le volet gauche, cliquez sur **activer ou désactiver des fonctionnalités Windows**. La boîte de dialogue **fonctionnalités de Windows** s’ouvre.
 6. Dans **fonctionnalités de Windows**, cliquez sur **pontage du centre de données**, puis cliquez sur **OK**.
 

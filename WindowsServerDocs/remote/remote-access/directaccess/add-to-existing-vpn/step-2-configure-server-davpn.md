@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fe221fc9-c7d9-4508-b8a1-000d2515283c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7ee691a02df385e29bdac9656d50bc2c6d3af087
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c26f1fbcfa2d94c001579aabd6794c6537bd06f8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388736"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314746"
 ---
 #  <a name="step-2-configure-the-directaccess-vpn-server"></a>Étape 2 : configurer le serveur DirectAccess-VPN
 
@@ -48,7 +48,7 @@ Pour configurer l'utilisation de DirectAccess sur un ordinateur client, ce derni
 
 1. Dans la page **Sélectionner des groupes**, cliquez sur **Ajouter**.
 
-2. Dans la boîte de dialogue **Sélectionner des groupes** , sélectionnez les groupes de sécurité contenant des ordinateurs clients DirectAccess.
+2. Dans la boîte de dialogue **Sélectionner des groupes**, sélectionnez les groupes de sécurité contenant des ordinateurs clients DirectAccess.
 
 3. Cochez la case **Activer DirectAccess pour les ordinateurs portables uniquement** pour autoriser uniquement les ordinateurs portables à accéder au réseau interne.
 

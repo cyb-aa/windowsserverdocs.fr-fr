@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 911c1538-f79d-42e9-ba38-f4618f87b008
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/02/2018
-ms.openlocfilehash: 6f093e605ce735d8f86f7f4d479a646d144e8829
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c6ca1ff8fabb559628afd2dd1abafc56a908909a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356518"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319194"
 ---
 # <a name="use-group-policy-to-configure-domain-member-client-computers"></a>Utiliser stratégie de groupe pour configurer les ordinateurs clients membres du domaine
 
@@ -35,7 +35,7 @@ Cette section contient les procédures suivantes.
   
 Vous devez être membre du **groupe Admins du domaine**ou avoir l’équivalent d’effectuer ces procédures.  
   
-## <a name="bkmk_gp"></a>Pour créer un objet stratégie de groupe et configurer les modes BranchCache  
+## <a name="to-create-a-group-policy-object-and-configure-branchcache-modes"></a><a name="bkmk_gp"></a>Pour créer un objet stratégie de groupe et configurer les modes BranchCache  
   
 1.  Sur un ordinateur sur lequel le rôle de serveur Active Directory Domain Services est installé, dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **gestion des stratégie de groupe**. La console de gestion stratégie de groupe s’ouvre.  
   
@@ -64,7 +64,7 @@ Vous devez être membre du **groupe Admins du domaine**ou avoir l’équivalent 
   
 12. Utilisez les procédures ci-dessous pour configurer les paramètres de pare-feu sur les ordinateurs clients à l’aide de stratégie de groupe.  
   
-## <a name="bkmk_inbound"></a>Pour configurer les règles de trafic entrant du pare-feu Windows avec fonctions avancées de sécurité  
+## <a name="to-configure-windows-firewall-with-advanced-security-inbound-traffic-rules"></a><a name="bkmk_inbound"></a>Pour configurer les règles de trafic entrant du pare-feu Windows avec fonctions avancées de sécurité  
   
 1.  Dans la console de gestion de stratégie de groupe, développez le chemin suivant : **Forest :** *example.com*, **Domains**, *example.com*, **stratégie de groupe Objects**, où *example.com* est le nom du domaine dans lequel se trouvent les comptes d’ordinateur client BranchCache que vous souhaitez configurer.  
   
@@ -94,7 +94,7 @@ Vous devez être membre du **groupe Admins du domaine**ou avoir l’équivalent 
     > [!IMPORTANT]  
     > Vous devez sélectionner **Autoriser la connexion** pour le client BranchCache afin d'être en mesure de recevoir le trafic sur ce port.  
   
-## <a name="bkmk_outbound"></a>Pour configurer les règles de trafic sortant du pare-feu Windows avec fonctions avancées de sécurité  
+## <a name="to-configure-windows-firewall-with-advanced-security-outbound-traffic-rules"></a><a name="bkmk_outbound"></a>Pour configurer les règles de trafic sortant du pare-feu Windows avec fonctions avancées de sécurité  
   
 1.  Dans la console de l'Éditeur de gestion de stratégie de groupe, cliquez avec le bouton droit sur **Règles sortantes**, puis cliquez sur **Nouvelle règle**. L’Assistant Nouvelle règle de trafic sortant s’ouvre.  
   

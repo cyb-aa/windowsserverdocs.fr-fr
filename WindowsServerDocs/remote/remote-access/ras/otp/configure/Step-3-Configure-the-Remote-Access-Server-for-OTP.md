@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df1e87f2-6a0f-433b-8e42-816ae75395f9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 41cc5cc2df5ac9709818536df8fff098d2a0c297
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d588d9b8675dad8bffc9e020032bc66bebf503b0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404333"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313678"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-otp"></a>Étape 3 configurer le serveur d’accès à distance pour le mot de passe à usage unique
 
@@ -32,9 +32,9 @@ Une fois que le serveur RADIUS a été configuré avec des jetons de distributio
 |[3,3 cartes à puce pour une autorisation supplémentaire](#BKMK_Smartcard)|Informations supplémentaires concernant l’utilisation des cartes à puce.|  
   
 > [!NOTE]  
-> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Cette rubrique comprend des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Exempt"></a>3,1 exempter les utilisateurs de l’authentification par mot de passe à usage unique (facultatif)  
+## <a name="31-exempt-users-from-otp-authentication-optional"></a><a name="BKMK_Exempt"></a>3,1 exempter les utilisateurs de l’authentification par mot de passe à usage unique (facultatif)  
 Si des utilisateurs spécifiques doivent être exemptés de l’authentification par mot de passe à usage unique, ces étapes doivent être effectuées avant la configuration de l’accès à distance :  
   
 > [!NOTE]  
@@ -49,7 +49,7 @@ Si des utilisateurs spécifiques doivent être exemptés de l’authentification
     > [!NOTE]  
     > Veillez à inclure uniquement les comptes d’utilisateur, et non les comptes d’ordinateur, dans le groupe de sécurité exemption par mot de passe à usage unique.  
   
-## <a name="BKMK_Config"></a>3,2 configurer le serveur d’accès à distance pour prendre en charge le mot de passe à usage unique  
+## <a name="32-configure-the-remote-access-server-to-support-otp"></a><a name="BKMK_Config"></a>3,2 configurer le serveur d’accès à distance pour prendre en charge le mot de passe à usage unique  
 Pour configurer l’accès à distance pour utiliser l’authentification à deux facteurs et le mot de passe à usage unique avec le serveur RADIUS et le déploiement de certificats des sections précédentes, procédez comme suit :  
   
 #### <a name="configure-remote-access-for-otp"></a>Configurer l’accès à distance pour OTP  
@@ -99,7 +99,7 @@ Pour configurer l’accès à distance pour utiliser l’authentification à deu
   
 17. Dans la boîte de dialogue vérification de l' **accès à distance** , cliquez sur **appliquer**, attendez que la Stratégie DirectAccess soit mise à jour, puis cliquez sur **Fermer**.  
   
-18. Dans l’écran d' **Accueil** , tapez**PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+18. Dans l’écran d' **Accueil** , tapez**PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 19. Dans la fenêtre Windows PowerShell, tapez **gpupdate/force** , puis appuyez sur entrée.  
   
@@ -107,7 +107,7 @@ Pour configurer l’accès à distance pour mot de passe à usage unique à l’
   
 ![les commandes Windows PowerShell](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Pour configurer l’accès à distance pour utiliser l’authentification à deux facteurs sur un déploiement qui utilise actuellement l’authentification par certificat d’ordinateur :  
   
@@ -134,7 +134,7 @@ Après l’exécution des commandes PowerShell, effectuez les étapes 12-19 de l
 > [!NOTE]  
 > Vérifiez que vous avez appliqué les paramètres de mot de passe à usage unique sur le serveur d’accès à distance avant d’ajouter un point d’entrée.  
   
-## <a name="BKMK_Smartcard"></a>3,3 cartes à puce pour une autorisation supplémentaire  
+## <a name="33-smart-cards-for-additional-authorization"></a><a name="BKMK_Smartcard"></a>3,3 cartes à puce pour une autorisation supplémentaire  
 Dans la page authentification de l’étape 2 de l’Assistant Configuration de l’accès à distance, vous pouvez exiger l’utilisation de cartes à puce pour accéder au réseau interne. Lorsque cette option est sélectionnée, l’Assistant Configuration de l’accès à distance configure la règle de sécurité de connexion IPsec pour le tunnel intranet sur le serveur DirectAccess afin de requérir l’autorisation en mode tunnel avec les cartes à puce. L’autorisation en mode tunnel vous permet de spécifier que seuls les ordinateurs ou les utilisateurs autorisés peuvent établir un tunnel entrant.  
   
 Pour utiliser des cartes à puce avec l'autorisation en mode tunnel IPsec pour le tunnel intranet, vous devez déployer une infrastructure à clé publique (PKI) avec l'infrastructure à cartes à puce.  
@@ -155,7 +155,7 @@ L'autorisation par carte à puce fonctionne grâce à l'activation de l'autorisa
   
 Lorsque vous activez l’autorisation par carte à puce à l’étape 2 de l’Assistant Installation DirectAccess, l’Assistant Installation DirectAccess configure le paramètre d’autorisation du mode de tunnel IPsec global avec ce SID pour l’objet de stratégie de groupe du serveur DirectAccess. Pour afficher cette configuration dans le composant logiciel enfichable pare-feu Windows avec fonctions avancées de sécurité pour l’objet stratégie de groupe du serveur DirectAccess, procédez comme suit :  
   
-1.  Cliquez avec le bouton droit sur pare-feu Windows avec fonctions avancées de sécurité, puis cliquez sur Propriétés.  
+1.  Cliquez avec le bouton droit sur Pare-feu Windows avec fonctions avancées de sécurité, puis sélectionnez Propriétés.  
   
 2.  Sous l’onglet Paramètres IPsec, dans autorisation du tunnel IPsec, cliquez sur Personnaliser.  
   

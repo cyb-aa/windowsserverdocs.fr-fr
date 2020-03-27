@@ -7,14 +7,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3a6e4352-ff62-4290-b8a4-5c83740070fc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8b656bbd823a10f1e36d1757bb53c4565d4e828c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b8a3e1ede1cdec1ca5ee66be8d53d4420bec673b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405832"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317135"
 ---
 # <a name="install-the-network-controller-server-role-using-server-manager"></a>Installer le rôle de serveur du contrôleur de réseau à l’aide de Gestionnaire de serveur
 
@@ -45,13 +45,13 @@ Une fois que vous avez installé le contrôleur de réseau, vous devez utiliser 
   
 6.  Dans **Sélectionner des rôles de serveurs**, cliquez sur **suivant**.  
   
-    ![Cliquez sur suivant](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
+    ![Cliquez sur Suivant.](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
   
 7.  Dans **Sélectionner des fonctionnalités**, cliquez sur **suivant**.  
   
 8.  Dans **contrôleur de réseau** , cliquez sur **suivant**.  
   
-9. Dans **confirmer les sélections d’installation**, passez en revue vos choix. L’installation du contrôleur de réseau requiert le redémarrage de l’ordinateur après l’exécution de l’Assistant. Pour cette raison, cliquez sur **redémarrer automatiquement le serveur de destination, si nécessaire**. La boîte de dialogue **Assistant Ajout de rôles et de fonctionnalités** s’ouvre. cliquez sur **Oui**.  
+9. Dans **confirmer les sélections d’installation**, passez en revue vos choix. L’installation du contrôleur de réseau requiert le redémarrage de l’ordinateur après l’exécution de l’Assistant. Pour cette raison, cliquez sur **redémarrer automatiquement le serveur de destination, si nécessaire**. La boîte de dialogue **Assistant Ajout de rôles et de fonctionnalités** s’ouvre. Cliquez sur **Oui**.  
   
     ![Assistant Ajout de rôles et de fonctionnalités](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_11.jpg)  
   

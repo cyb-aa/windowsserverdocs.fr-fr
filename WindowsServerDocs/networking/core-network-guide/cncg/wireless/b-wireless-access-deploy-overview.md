@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 29ae0f54-f045-465a-a08e-5867979345f2
-author: shortpatti
-ms.author: pashort
-ms.openlocfilehash: 93fb80c550771e4e7d8bc400d647b520b0c67fdf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+author: eross-msft
+ms.author: lizross
+ms.openlocfilehash: 476e86dd4b762a46a97dca0b9ec100b245a58f81
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356089"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318118"
 ---
 # <a name="wireless-access-deployment-overview"></a>Vue d’ensemble du déploiement de l’accès sans fil
 
@@ -37,7 +37,7 @@ Une fois que les services d’infrastructure réseau requis prenant en charge vo
 
 - Sélectionnez les fréquences de canal pour les points d’accès sans fil.
 
-### <a name="active-directory-domain-services"></a>Services de domaine Active Directory
+### <a name="active-directory-domain-services"></a>Services de domaine Active Directory
 Les éléments suivants de AD DS sont requis pour le déploiement de l’accès sans fil.
 
 #### <a name="users-and-computers"></a>Utilisateurs et ordinateurs

@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6dfffd1e-f4f4-43b6-9e3c-49015ce34338
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 132db4811ee135d2ebff99efed6f53b5db1356ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fd09c8e9c7a6f0ea7192ca20440c18f21ba65c93
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404436"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313752"
 ---
 # <a name="troubleshooting-web-probe-urls"></a>Dépannage des URL de sonde Web
 
@@ -25,10 +25,10 @@ ms.locfileid: "71404436"
 
 Cette rubrique contient des informations de résolution des problèmes liés à la commande `Set-DAEntryPointDC`. Pour confirmer que l’erreur que vous avez reçue est liée à la définition du contrôleur de domaine du point d’entrée, recherchez l’ID d’événement 10065 dans le journal des événements Windows.  
   
-## <a name="SaveGPOSettings"></a>Enregistrement des paramètres d’objet de stratégie de groupe de serveur  
+## <a name="saving-server-gpo-settings"></a><a name="SaveGPOSettings"></a>Enregistrement des paramètres d’objet de stratégie de groupe de serveur  
 **Erreur reçue**. Une erreur s’est produite lors de l’enregistrement des paramètres d’accès à distance dans l’objet de stratégie de groupe < GPO_name >.  
   
-Pour résoudre cette erreur, consultez enregistrement des paramètres d’objet de stratégie de groupe de serveur.  
+Pour corriger cette erreur, voir Enregistrement des paramètres de l’objet de stratégie de groupe serveur.  
   
 ## <a name="remote-access-is-not-configured"></a>Accès à distance non configuré  
 **Erreur reçue**. L’accès à distance n’est pas configuré sur < server_name >. Spécifiez le nom d’un serveur qui appartient à un déploiement multisite.  

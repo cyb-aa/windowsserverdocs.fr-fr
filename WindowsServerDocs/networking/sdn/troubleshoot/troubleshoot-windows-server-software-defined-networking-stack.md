@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
-ms.author: pashort
+ms.author: lizross
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: 2782419f0c3d99e7ec7f4ee3389f174df400bd55
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 5827ad3b23d6f084e0138bf34ad47223eccb4e76
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949923"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312845"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Résoudre les problèmes de la pile de mise en réseau SDN (Software Defined Networking) dans Windows Server
 
@@ -24,7 +24,7 @@ Ce guide examine les erreurs et les scénarios d’échec SDN (Common Software D
 
 Pour plus d’informations sur la mise en réseau définie par les logiciels de Microsoft, consultez [mise en réseau à définition logicielle](../../sdn/Software-Defined-Networking--SDN-.md).  
 
-## <a name="error-types"></a>Types d'erreurs  
+## <a name="error-types"></a>Types d’erreurs  
 La liste suivante représente la classe des problèmes rencontrés le plus souvent avec la virtualisation de réseau Hyper-V (HNVv1) dans Windows Server 2012 R2 à partir des déploiements de production en cours et coïncide de nombreuses façons avec les mêmes types de problèmes détectés dans Windows Server 2016 HNVv2 avec la nouvelle pile SDN (Software Defined Network).  
 
 La plupart des erreurs peuvent être classées dans un petit ensemble de classes :   
@@ -123,7 +123,7 @@ Le tableau ci-dessous présente la liste des codes d’erreur, des messages et d
 
 | **Code**| **Message**| **Action**|  
 |--------|-----------|----------|  
-| Inconnu| Erreur inconnue| |  
+| Inconnu.| Erreur inconnue| |  
 | HostUnreachable                       | L’ordinateur hôte n’est pas accessible | Vérifier la connectivité réseau de gestion entre le contrôleur de réseau et l’hôte |  
 | PAIpAddressExhausted                  | Les adresses IP PA sont épuisées | Augmenter la taille du pool d’adresses IP du sous-réseau logique du fournisseur HNV |  
 | PAMacAddressExhausted                 | Les adresses Mac PA sont épuisées | Augmenter la plage du pool d’adresses Mac |  
@@ -266,7 +266,7 @@ Thumbprint                                Subject
 
 Vous pouvez également vérifier les paramètres suivants de chaque certificat pour vous assurer que le nom de l’objet correspond à ce qui est attendu (nom d’hôte ou nom de domaine complet (FQDN) REST ou IP), que le certificat n’a pas encore expiré et que toutes les autorités de certification de la chaîne de certificats sont incluses dans la racine approuvée. autorisations.
 
-- Nom de sujet  
+- Nom d'objet  
 - Date d'expiration  
 - Approuvé par l’autorité racine  
 
@@ -302,7 +302,7 @@ Ce fichier JSON peut être divisé en sections suivantes :
    * Informations sur l’hôte connecté : cette section répertorie l’adresse IP de gestion de tous les ordinateurs hôtes Hyper-V disponibles pour exécuter des charges de travail à charge équilibrée.
    * Plages d’adresses IP virtuelles : cette section répertorie les plages de pools d’adresses IP VIRTUELles publiques et privées. L’adresse IP virtuelle SLBM sera incluse en tant qu’adresse IP allouée à partir de l’une de ces plages. 
    * Itinéraires Mux : cette section répertorie une valeur pour chaque multiplexeur SLB déployé contenant toutes les publications d’itinéraires pour ce multiplexeur particulier.
- * Client
+ * Locataire
    * VipConsolidatedState : cette section répertorie l’état de la connectivité pour chaque adresse IP virtuelle de locataire, y compris le préfixe d’itinéraire publié, l’hôte Hyper-V et les points de terminaison DIP.
 
 > [!NOTE]
@@ -423,7 +423,7 @@ Par exemple, supposons que les hôtes Hyper-V 1 et 2 ont des adresses IP du four
 |-Hôte Hyper-V-|-Adresse IP PA 1|-Adresse IP PA 2|
 |---             |---            |---             |
 |Hôte 1 | 10.10.182.64 | 10.10.182.65 |
-|Hôte 2 | 10.10.182.66 | 10.10.182.67 |
+|Hôte 2 | 10.10.182.66 | 10.10.182.67 |
 
 Nous pouvons effectuer un test ping entre les deux à l’aide de la commande suivante pour vérifier la connectivité réseau logique du fournisseur HNV.
 
@@ -597,7 +597,7 @@ Informations de routage PA :
     Local PA IP: 10.10.182.66
     Remote PA IP: 10.10.182.65
 
- <snip> ...
+ <snip>...
 
 4. Priorité Vérifiez qu’aucune stratégie de pare-feu distribuée n’est spécifiée sur le sous-réseau virtuel ou les interfaces réseau de machine virtuelle qui bloquent le trafic.    
 

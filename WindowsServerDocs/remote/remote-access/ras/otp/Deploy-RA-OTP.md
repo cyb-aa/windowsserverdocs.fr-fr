@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1b2fe70-7956-46e8-a3e3-43848868df09
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d0de5f459e31e1dfac40e49cd6cc83de8722df4d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5b86cbe970c60f0684f3f6e5198fa91bbb9745b1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404426"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313688"
 ---
 # <a name="deploy-remote-access-with-otp-authentication"></a>Déployer l’accès à distance avec l’authentification par mot de passe à usage unique
 
@@ -25,10 +25,10 @@ ms.locfileid: "71404426"
 
  Windows Server 2016 et Windows Server 2012 combinent DirectAccess et le service Routage et accès distant \(RRAS\) VPN en un seul rôle d’accès à distance.   
 
-## <a name="BKMK_OVER"></a>Description du scénario  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Description du scénario  
 Dans ce scénario, un serveur d’accès à distance avec DirectAccess activé est configuré pour authentifier les utilisateurs du client DirectAccess avec\-deux mots de passe à usage unique \(mot de passe à usage unique\) authentification, en plus des informations d’identification de l’Active Directory standard.  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Composants requis  
 Avant de déployer ce scénario, prenez connaissance des conditions requises suivantes qui ont leur importance :  
   
 -   [Le déploiement d’un serveur DirectAccess unique avec des paramètres avancés](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) doit être déployé avant le déploiement du mot de passe à usage unique.  
@@ -54,7 +54,7 @@ Ce scénario d’authentification par mot de passe à usage unique inclut plusie
   
 4.  [Résoudre les problèmes liés à un déploiement OTP] ((/troubleshoot/Troubleshoot-an-OTP-Deployment.md). Cette section de résolution des problèmes décrit plusieurs des erreurs les plus courantes qui peuvent se produire lors du déploiement de l’accès à distance avec l’authentification par mot de passe à usage unique.  
   
-## <a name="BKMK_APP"></a>Applications pratiques  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applications pratiques  
 Renforcer la sécurité : l’utilisation du mot de passe à usage unique augmente la sécurité de votre déploiement DirectAccess. Un utilisateur requiert des informations d’identification par mot de passe à usage unique afin d’obtenir l’accès au réseau interne. Un utilisateur fournit des informations d’identification par mot de passe à usage unique via les connexions d’espace de travail disponibles dans les connexions réseau sur l’ordinateur client Windows 10 ou Windows 8, ou à l’aide de l’Assistant de connectivité DirectAccess \(DCA\) sur les ordinateurs clients exécutant Windows 7. Le processus d’authentification par mot de passe à usage unique fonctionne comme suit :  
   
 1.  Le client DirectAccess entre les informations d’identification de domaine pour accéder aux serveurs d’infrastructure DirectAccess \(via le tunnel d’infrastructure\).  Si aucune connexion au réseau interne n’est disponible, en raison d’un échec IKE spécifique, la connexion d’espace de travail sur l’ordinateur client notifie l’utilisateur que des informations d’identification sont requises. Sur les ordinateurs clients qui exécutent Windows 7, un pop\-de demander des informations d’identification de carte à puce s’affiche.  
@@ -69,7 +69,7 @@ Renforcer la sécurité : l’utilisation du mot de passe à usage unique augme
   
 6.  L’ordinateur client utilise ce certificat pour effectuer de manière transparente l’authentification Kerberos par carte à puce standard.  
   
-## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau suivant répertorie les fonctionnalités et rôles requis pour ce scénario :  
   
 |Fonctionnalité de\/de rôle|Prise en charge de ce scénario|  
@@ -77,7 +77,7 @@ Le tableau suivant répertorie les fonctionnalités et rôles requis pour ce sc�
 |*Rôle gestion de l’accès à distance*|Ce rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur. Ce rôle englobe à la fois DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et les services de routage et d’accès à distance qui étaient auparavant un service de rôle sous le rôle de serveur services de stratégie et d’accès réseau \(NPAS\). Le rôle Accès à distance est constitué de deux composants :<br /><br />1. DirectAccess et les services de routage et d’accès à distance \(RRAS\) VPN-DirectAccess et VPN sont gérés ensemble dans la console de gestion de l’accès à distance.<br />2. routage RRAS : les fonctionnalités de routage RRAS sont gérées dans la console de routage et d’accès distant héritée.<br /><br />Le rôle Accès à distance dépend des fonctionnalités de serveur suivantes :<br /><br />-Internet Information Services \(serveur Web IIS\)-cette fonctionnalité est requise pour configurer le serveur emplacement réseau, utiliser l’authentification par mot de passe à usage unique et configurer la sonde Web par défaut.<br />-Base de données interne Windows : utilisée pour la comptabilité locale sur le serveur d’accès à distance.|  
 |Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<br /><br />-Elle est installée par défaut sur un serveur d’accès à distance lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance.<br />-Il peut éventuellement être installé sur un serveur qui n’exécute pas le rôle de serveur d’accès à distance. Dans ce cas, elle est utilisée pour la gestion à distance d’un ordinateur d’accès à distance qui exécute DirectAccess et le réseau privé virtuel (VPN).<br /><br />La fonctionnalité des outils de gestion de l’accès à distance est constituée des éléments suivants :<br /><br />-Interface utilisateur graphique d’accès à distance et outils en ligne de commande<br />-Module d’accès à distance pour Windows PowerShell<br /><br />Les dépendances incluent :<br /><br />-Console de gestion des stratégies de groupe<br />-Le kit d’administration du gestionnaire des connexions RAS \(CMAK\)<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
   
-## <a name="BKMK_HARD"></a>Configuration matérielle requise  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Configuration matérielle requise  
 La configuration matérielle requise pour ce scénario comprend les éléments suivants :  
   
 -   Un ordinateur qui répond à la configuration matérielle requise pour Windows Server 2016 ou Windows Server 2012.  
@@ -88,7 +88,7 @@ La configuration matérielle requise pour ce scénario comprend les éléments s
   
 -   Un jeton logiciel ou matériel de mot de passe à usage unique.  
   
-## <a name="BKMK_SOFT"></a>Configuration logicielle requise  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Configuration logicielle requise  
 Plusieurs conditions sont requises pour ce scénario :  
   
 1.  Configuration logicielle requise pour un déploiement sur un seul serveur. Pour plus d’informations, consultez [déployer un serveur DirectAccess unique avec des paramètres avancés](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md).  
@@ -103,7 +103,7 @@ Plusieurs conditions sont requises pour ce scénario :
   
     4.  Configuration requise côté client\--pour les ordinateurs clients Windows 10 et Windows 8, l’Assistant connectivité réseau \(service NCA\) est utilisé pour détecter si les informations d’identification par mot de passe à usage unique sont requises. Si c’est le cas, le gestionnaire multimédia DirectAccess vous invite à entrer des informations d’identification.  NCA est inclus dans le système d’exploitation et aucune installation ni aucun déploiement n’est requis. Pour les ordinateurs clients Windows 7, l’Assistant de connectivité DirectAccess \(DCA\) 2,0 est requis. Il peut être téléchargé dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=29039).  
   
-    5.  Notez les éléments suivants :  
+    5.  Notez les points suivants :  
   
         1.  L’authentification par mot de passe à usage unique peut être utilisée en parallèle avec l’authentification par carte à puce et Module de plateforme sécurisée (TPM) \(TPM\)\-. L’activation de l’authentification par mot de passe à usage unique dans la console de gestion de l’accès à distance permet également l’utilisation de l’authentification par carte à puce.  
   
@@ -119,7 +119,7 @@ Plusieurs conditions sont requises pour ce scénario :
   
         7.  Lorsque le WEBDAV est activé, le mot de passe à usage unique doit être désactivé.  
   
-## <a name="KnownIssues"></a>Problèmes connus  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Problèmes connus  
 Les problèmes décrits ci-après sont connus et surviennent souvent lors de la configuration d’un scénario de mot de passe à usage unique :  
   
 -   L’accès à distance utilise un mécanisme de sondage pour vérifier la connectivité aux serveurs de mot de passe à usage unique RADIUS\-. Dans certains cas cela peut provoquer une erreur sur le serveur à mot de passe à usage unique. Pour éviter ce problème, procédez comme suit sur le serveur à mot de passe à usage unique :  

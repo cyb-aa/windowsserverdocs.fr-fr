@@ -10,15 +10,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: dcscontentpm
-ms.author: pashort
+ms.author: lizross
 author: Teresa-Motiv
 ms.date: 12/23/2019
-ms.openlocfilehash: 3feec719934fb16ca34cebe1e653768da5fb9eb7
-ms.sourcegitcommit: 33c89b76ac902927490b9727f3cf92b374754699
+ms.openlocfilehash: f802804d64b3047a2612b7f346de03aff61c30cd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728430"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316539"
 ---
 # <a name="performance-tuning-network-adapters"></a>Réglage des performances des cartes réseau
 
@@ -35,7 +35,7 @@ Les paramètres de réglage corrects pour vos cartes réseau dépendent des vari
 
 Les sections qui suivent décrivent certaines options de réglage des performances.  
 
-##  <a name="bkmk_offload"></a>Activation des fonctionnalités de déchargement
+##  <a name="enabling-offload-features"></a><a name="bkmk_offload"></a>Activation des fonctionnalités de déchargement
 
 L'activation des fonctionnalités de déchargement de la carte réseau est souvent bénéfique. Toutefois, la carte réseau n’est peut-être pas suffisamment puissante pour gérer les capacités de déchargement avec un débit élevé.
 
@@ -48,7 +48,7 @@ Dans ce cas, l’activation des fonctionnalités de déchargement de segment peu
 > [!NOTE]  
 > Certaines cartes réseau nécessitent que vous activiez les fonctionnalités de déchargement indépendamment pour les chemins d’envoi et de réception.
 
-##  <a name="bkmk_rss_web"></a>Activation de la mise à l’échelle côté réception (RSS) pour les serveurs Web
+##  <a name="enabling-receive-side-scaling-rss-for-web-servers"></a><a name="bkmk_rss_web"></a>Activation de la mise à l’échelle côté réception (RSS) pour les serveurs Web
 
 RSS peut améliorer l'extensibilité web et les performances lorsque le serveur comprend moins de cartes réseau que de processeurs logiques. Lorsque l’ensemble du trafic Web passe par les cartes réseau capables d’utiliser RSS, le serveur peut traiter les demandes Web entrantes à partir de différentes connexions simultanément entre différents processeurs.
 
@@ -63,7 +63,7 @@ Le profil prédéfini RSS par défaut est **NUMAStatic**, qui diffère de la val
 
 Par exemple, si vous ouvrez le gestionnaire des tâches et passez en revue les processeurs logiques sur votre serveur et qu’ils semblent être sous-utilisés pour le trafic de réception, vous pouvez essayer d’élever le nombre de files d’attente RSS de la valeur par défaut de deux à la valeur maximale prise en charge par votre carte réseau. Votre carte réseau peut proposer des options permettant de changer le nombre de files d'attente RSS dans le pilote.
 
-##  <a name="bkmk_resources"></a>Amélioration des ressources de la carte réseau
+##  <a name="increasing-network-adapter-resources"></a><a name="bkmk_resources"></a>Amélioration des ressources de la carte réseau
 
 Pour les cartes réseau qui vous permettent de configurer manuellement des ressources telles que des tampons de réception et d’envoi, vous devez augmenter les ressources allouées.  
 
@@ -78,7 +78,7 @@ Pour contrôler la modération des interruptions, certaines cartes réseau expos
 
 Vous devez envisager la modération des interruptions pour les charges de travail liées au processeur. Lors de l’utilisation de la modération des interruptions, envisagez le compromis entre les économies de l’UC de l’ordinateur hôte et la latence par rapport à l’augmentation du nombre d’interruptions de l’ordinateur hôte en raison de plus d’interruptions et d’une latence Si la carte réseau n’effectue pas de modération d’interruption, mais qu’elle expose la fusion de tampons, vous pouvez améliorer les performances en accroissant le nombre de mémoires tampons fusionnées pour permettre davantage de mémoires tampons par envoi ou par réception.
 
-##  <a name="bkmk_low"></a>Réglage des performances pour le traitement des paquets à faible latence
+##  <a name="performance-tuning-for-low-latency-packet-processing"></a><a name="bkmk_low"></a>Réglage des performances pour le traitement des paquets à faible latence
 
 De nombreuses cartes réseaux proposent des options permettant d'optimiser la latence induite par le système d'exploitation. La latence est la durée qui sépare le traitement d'un paquet entrant par le pilote réseau et le renvoi du paquet par ce pilote. Cette durée est généralement mesurée en microsecondes. À titre de comparaison, la durée de transmission de paquets sur de longues distances est généralement mesurée en millisecondes (un ordre de magnitude plus grand). Ce réglage ne réduira pas la durée de transit d'un paquet.
 
@@ -98,7 +98,7 @@ Voici quelques suggestions de réglage des performances pour les réseaux sensib
 
 - Gérez les interruptions de carte réseau et les appels de procédure différés (DPC) sur un processeur cœur qui partage le cache d'UC avec le cœur qui est utilisé par le programme (thread utilisateur) qui traite le paquet. Le réglage de l'affinité de l'UC peut être utilisé pour diriger un processus vers certains processeurs logiques, conjointement avec la configuration RSS. L'utilisation du même cœur pour le thread d'interruption, le thread DPC et le thread de mode utilisateur réduit les performances à mesure que la charge augmente du fait de la compétition entre ISR, DPC et le thread pour utiliser le cœur.
 
-##  <a name="bkmk_smi"></a>Interruptions de gestion du système
+##  <a name="system-management-interrupts"></a><a name="bkmk_smi"></a>Interruptions de gestion du système
 
 De nombreux systèmes matériels utilisent des interruptions de gestion du système (SMI) pour diverses fonctions de maintenance, telles que la signalisation des erreurs de mémoire ECC, la gestion de la compatibilité USB existante, le contrôle du ventilateur et la gestion de l’alimentation contrôlée par le BIOS. Paramètres.
 
@@ -111,11 +111,11 @@ Si vous avez besoin d'une latence très faible, demandez à votre fournisseur de
 > [!NOTE]  
 > Le système d’exploitation ne peut pas contrôler SMIs, car le processeur logique s’exécute en mode de maintenance spécial, ce qui empêche l’intervention du système d’exploitation.
 
-##  <a name="bkmk_tcp"></a>Réglage des performances TCP
+##  <a name="performance-tuning-tcp"></a><a name="bkmk_tcp"></a>Réglage des performances TCP
 
  Vous pouvez utiliser les éléments suivants pour régler les performances TCP.
 
-###  <a name="bkmk_tcp_params"></a>Réglage automatique de la fenêtre de réception TCP
+###  <a name="tcp-receive-window-autotuning"></a><a name="bkmk_tcp_params"></a>Réglage automatique de la fenêtre de réception TCP
 
 Dans Windows Vista, Windows Server 2008 et les versions ultérieures de Windows, la pile réseau Windows utilise une fonctionnalité nommée niveau de réglage automatique de la *fenêtre de réception TCP* pour négocier la taille de la fenêtre de réception TCP. Cette fonctionnalité peut négocier une taille de fenêtre de réception définie pour chaque communication TCP pendant la négociation TCP.
 
@@ -231,13 +231,13 @@ Pour plus d’informations sur ces applets de commande, consultez les articles s
 
 Vous pouvez définir le réglage automatique de la fenêtre de réception sur l’un des cinq niveaux. Le niveau par défaut est **normal**. Le tableau suivant décrit les niveaux.
 
-|Niveau |Valeur hexadécimale |Commentaires |
+|Level |Valeur hexadécimale |Commentaires |
 | --- | --- | --- |
 |Normale (par défaut) |0x8 (facteur d’échelle de 8) |Définissez la taille de la fenêtre de réception TCP pour s’adapter à presque tous les scénarios. |
-|Désactivée |Aucun facteur d’échelle disponible |Définissez la valeur par défaut de la fenêtre de réception TCP. |
-|Limité |0x4 (facteur d’échelle de 4) |Définissez la taille de la fenêtre de réception TCP au-delà de sa valeur par défaut, mais Limitez cette croissance dans certains scénarios. |
+|Désactivé |Aucun facteur d’échelle disponible |Définissez la valeur par défaut de la fenêtre de réception TCP. |
+|Restricted (Restreint) |0x4 (facteur d’échelle de 4) |Définissez la taille de la fenêtre de réception TCP au-delà de sa valeur par défaut, mais Limitez cette croissance dans certains scénarios. |
 |Hautement restreint |0X2 (facteur d’échelle de 2) |Définissez la taille de la fenêtre de réception TCP au-delà de sa valeur par défaut, mais faites-le très prudentment. |
-|Experimental |0xE (facteur d’échelle de 14) |Définissez la taille de la fenêtre de réception TCP pour s’adapter aux scénarios extrêmes. |
+|pratiqué |0xE (facteur d’échelle de 14) |Définissez la taille de la fenêtre de réception TCP pour s’adapter aux scénarios extrêmes. |
 
 Si vous utilisez une application pour capturer des paquets réseau, l’application doit signaler les données qui ressemblent à ce qui suit pour les différents paramètres de niveau de réglage automatique de la fenêtre.
 
@@ -376,7 +376,7 @@ Tous ces paramètres se trouvaient dans la sous-clé de Registre suivante :
 
 > **HKEY_LOCAL_MACHINE \System\CurrentControlSet\Services\Tcpip\Parameters**  
 
-###  <a name="bkmk_wfp"></a>Plateforme de filtrage Windows
+###  <a name="windows-filtering-platform"></a><a name="bkmk_wfp"></a>Plateforme de filtrage Windows
 
 Windows Vista et Windows Server 2008 ont introduit la plateforme de filtrage Windows (WFP). WFP fournit des API aux éditeurs de logiciels indépendants non-Microsoft (ISV) pour créer des filtres de traitement de paquets. Les logiciels pare-feu et antivirus en sont des exemples.
 

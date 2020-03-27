@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 31f3fa4e-cd25-4bf3-89e9-a01a6cec7893
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 13f535b9a91f26b30600b637b46817cfa33ccd7b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ad13e41e756f0185a748fe9e17df64c71a8754bc
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355648"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317072"
 ---
 # <a name="network-controller"></a>Contrôleur de réseau
 
@@ -32,7 +32,7 @@ Nouveauté de Windows Server 2016, le contrôleur de réseau fournit un point d�
 > - [Étapes de la suite du déploiement pour le contrôleur de réseau](post-deploy-steps-nc.md)
 > - [Applets de commande du contrôleur de réseau](https://technet.microsoft.com/library/mt576401.aspx) 
 
-## <a name="bkmk_overview"></a>Vue d’ensemble du contrôleur de réseau
+## <a name="network-controller-overview"></a><a name="bkmk_overview"></a>Vue d’ensemble du contrôleur de réseau
 
 Le contrôleur de réseau est un rôle serveur hautement disponible et évolutif, et fournit une interface de programmation d’applications \(API\) qui permet au contrôleur de réseau de communiquer avec le réseau, et une deuxième API qui vous permet de communiquer avec le contrôleur de réseau.
 
@@ -70,7 +70,7 @@ Si vous déployez un contrôleur de réseau dans un environnement de laboratoire
 
 Pour une haute disponibilité dans des centres de plus grande taille, vous pouvez déployer un cluster à l’aide de trois machines virtuelles qui sont installées sur trois hôtes Hyper-V ou plus. Pour plus d’informations, consultez [haute disponibilité du contrôleur de réseau](network-controller-high-availability.md).
 
-## <a name="bkmk_features"></a>Fonctionnalités du contrôleur de réseau
+## <a name="network-controller-features"></a><a name="bkmk_features"></a>Fonctionnalités du contrôleur de réseau
 
 Les fonctionnalités du contrôleur de réseau suivantes vous permettent de configurer et de gérer des services et appareils réseau virtuels et physiques.  
   
@@ -85,25 +85,25 @@ Les fonctionnalités du contrôleur de réseau suivantes vous permettent de conf
 >[!IMPORTANT]
 >La sauvegarde et la restauration du contrôleur de réseau ne sont actuellement pas disponibles dans Windows Server 2016.
   
-### <a name="bkmk_firewall"></a>Gestion de pare-feu
+### <a name="firewall-management"></a><a name="bkmk_firewall"></a>Gestion de pare-feu
 
 Cette fonctionnalité du contrôleur de réseau vous permet de configurer et gérer les règles de contrôle d'accès de pare-feu (autorisation ou refus) pour les ordinateurs virtuels de votre charge de travail pour le trafic réseau Est/Ouest et Nord/Sud dans votre centre de données. Les règles de pare-feu sont installées dans le port du commutateur virtuel des ordinateurs virtuels de la charge de travail et sont par conséquent distribuées sur votre charge de travail dans le centre de données. À l'aide de l'API Northbound, vous pouvez définir les règles de pare-feu pour le trafic entrant et sortant à partir de l'ordinateur virtuel de la charge de travail. Vous pouvez également configurer chaque règle de pare-feu pour consigner le trafic qui a été autorisé ou refusé par la règle.  
 
 Pour plus d’informations, consultez [vue d’ensemble du pare-feu de centre](../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)de données.
 
-### <a name="bkmk_slb"></a>Gestion des Load Balancer logicielles
+### <a name="software-load-balancer-management"></a><a name="bkmk_slb"></a>Gestion des Load Balancer logicielles
 
 Cette fonctionnalité du contrôleur de réseau vous permet d'activer plusieurs serveurs pour héberger la même charge de travail, ce qui garantit évolutivité et haute disponibilité.  
   
 Pour plus d’informations, consultez [équilibrage &#40;de charge&#41; logiciel SLB pour SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).  
   
-### <a name="bkmk_virtual"></a>Gestion de réseau virtuel
+### <a name="virtual-network-management"></a><a name="bkmk_virtual"></a>Gestion de réseau virtuel
 
 Cette fonctionnalité du contrôleur de réseau vous permet de déployer et configurer la virtualisation du réseau Hyper-V, y compris le commutateur virtuel Hyper-V et les cartes réseau virtuelles sur des ordinateurs virtuels individuels ainsi que de stocker et distribuer des stratégies de réseau virtuel.
 
 Le contrôleur de réseau prend en charge NVGRE (Network Virtualization Generic Routing Encapsulation) et VXLAN (Virtual Extensible Local Area Network).
 
-### <a name="bkmk_gateway"></a>Gestion des passerelles RAS
+### <a name="ras-gateway-management"></a><a name="bkmk_gateway"></a>Gestion des passerelles RAS
 
 Cette fonctionnalité de contrôleur de réseau vous permet de déployer, de configurer et de gérer des machines virtuelles qui sont membres d’un pool de passerelle RAS, en fournissant des services de passerelle à vos locataires. Le contrôleur de réseau vous permet de déployer automatiquement des machines virtuelles exécutant la passerelle RAS avec les fonctionnalités de passerelle suivantes :
 

@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7ce84c9f-fd1f-4463-8fc7-d2f33344a2c9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 831f484db8325bf9a27e9065ac5cf74913d0805c
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1fd3a20cb6429d60f450478f5e817a7506b28346
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791159"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314245"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>Identifier et résoudre les problèmes de fonctionnement du serveur d'accès à distance
 
@@ -38,7 +38,7 @@ Cette rubrique contient des informations sur l’exécution des tâches suivante
   
 - Restaurer le service d’assistance IP  
   
-### <a name="BKMK_Simulate"></a>Simuler un problème d’opérations  
+### <a name="simulate-an-operations-issue"></a><a name="BKMK_Simulate"></a>Simuler un problème d’opérations  
   
 > [!CAUTION]  
 > Comme votre serveur d’accès à distance est probablement correctement configuré et ne rencontre aucun problème, vous pouvez utiliser la procédure suivante pour simuler un problème d’opérations. Si votre serveur est en train de traiter des clients dans un environnement de production, vous ne souhaiterez peut-être pas effectuer ces actions pour l’instant. Au lieu de cela, vous pouvez lire les étapes pour comprendre comment résoudre les problèmes susceptibles de survenir sur votre serveur d’accès à distance à l’avenir.  
@@ -51,7 +51,7 @@ Le service d’assistance IP (IPHlpSvc) héberge des technologies de transition 
   
 2.  Dans la liste des **services**, faites défiler la liste, cliquez avec le bouton droit sur **assistance IP**, puis cliquez sur **arrêter**.  
   
-### <a name="BKMK_Identify"></a>Identifier le problème des opérations et prendre une mesure corrective  
+### <a name="identify-the-operations-issue-and-take-corrective-action"></a><a name="BKMK_Identify"></a>Identifier le problème des opérations et prendre une mesure corrective  
 La désactivation du service d’assistance IP entraîne une erreur grave sur le serveur d’accès à distance. Le tableau de bord de surveillance affiche l’état des opérations du serveur et les détails du problème.  
   
 ##### <a name="to-identify-the-details-and-take-corrective-action"></a>Pour identifier les détails et prendre des mesures correctives  
@@ -82,7 +82,7 @@ La désactivation du service d’assistance IP entraîne une erreur grave sur le
   
     3.  Pour redémarrer le service, tapez **Restart-Service iphlpsvc** à partir d’une invite Windows PowerShell avec élévation de privilèges.  
   
-### <a name="BKMK_Restart"></a>Restaurer le service d’assistance IP  
+### <a name="restore-the-ip-helper-service"></a><a name="BKMK_Restart"></a>Restaurer le service d’assistance IP  
 Pour restaurer le service d’assistance IP sur votre serveur d’accès à distance, vous pouvez suivre les étapes de résolution ci-dessus pour démarrer ou redémarrer le service, ou vous pouvez utiliser la procédure suivante pour inverser la procédure utilisée pour simuler l’échec du service d’assistance IP.  
   
 ##### <a name="to-restart-the-ip-helper-service-on-the-remote-access-server"></a>Pour redémarrer le service d’assistance IP sur le serveur d’accès à distance  
@@ -93,7 +93,7 @@ Pour restaurer le service d’assistance IP sur votre serveur d’accès à dist
   
 ![les commandes Windows PowerShell](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```PowerShell
 PS> Get-RemoteAccessHealth | Where-Object {$_.Component -eq "IP-HTTPS"} | Format-List -Property *  

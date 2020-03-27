@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5b80294a-7325-476b-84eb-69f0d051e8b2
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 541645a274481bb8b044c37df572d7746c5da30e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4e032e2c5b89dc362fceb34e06525d8632f7b19e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405671"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312404"
 ---
 # <a name="filter-the-view-of-dns-resource-records"></a>Filtrer l’affichage des enregistrements de ressources DNS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour filtrer l’affichage des enregistrements de ressources DNS dans la console client IPAM.  
   

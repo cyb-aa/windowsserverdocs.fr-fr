@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c0f4d665-d44e-4348-a89f-5f9191bd96fd
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7d67af8419ce9533243f9d2eac230825bacb28b2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d2c326c3783fee589e5551351a8b93d413c4120c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404406"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313656"
 ---
 # <a name="step-1-implement-a-single-server-remote-access-deployment"></a>Étape 1 implémenter un déploiement de l’accès à distance à un serveur unique
 
@@ -28,7 +28,7 @@ La première étape de configuration pour déployer l’accès à distance avec 
 ## <a name="implement-a-single-server-deployment"></a>Implémenter un déploiement sur un seul serveur  
 Avant de pouvoir configurer l’accès à distance avec un mot de passe à usage unique, vous devez configurer un déploiement avancé de l’accès à distance à un serveur unique, comme décrit dans [déployer un serveur DirectAccess unique avec des paramètres avancés](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings).  
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi  
   
 -   [Étape 2 : configurer le serveur RADIUS](Step-2-Configure-the-RADIUS-Server.md)  
   

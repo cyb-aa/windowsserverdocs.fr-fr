@@ -3,7 +3,7 @@ title: Modification de l’ordre et du regroupement des onglets
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: 79a417fd-1b3e-47ab-ae33-bb1faf95c86d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 578c5619cfdf076bb2735254494f393d56d35713
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: abb443994b413f35f6d70510191bc543fad418f5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887760"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312235"
 ---
 # <a name="change-the-order-and-grouping-of-tabs"></a>Modification de l’ordre et du regroupement des onglets
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Il est possible de changer l’ordre des onglets dans le Tableau de bord de manière à afficher le vôtre en premier (à gauche) dans la rangée d’onglets. Pour ce faire, il convient d’ajouter une entrée au Registre. Vous pouvez également changer le mode de regroupement des onglets en ajoutant des entrées au Registre. Pourquoi pas, par exemple, présenter votre onglet principal suivi des onglets intégrés Microsoft, puis de vos onglets supplémentaires et enfin des onglets provenant de tierces parties ?  
   
@@ -32,11 +32,11 @@ Il est possible de changer l’ordre des onglets dans le Tableau de bord de mani
   
 1.  Sur l'ordinateur de référence, cliquez sur **Démarrer**, entrez **regedit**, puis appuyez sur **Entrée**.  
   
-2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**et **Windows Server**. Si la clé **OEM** n’existe pas, procédez de la façon suivante pour la créer :  
+2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft** et **Windows Server**. Si la clé **OEM** n’existe pas, procédez de la façon suivante pour la créer :  
   
     1.  Cliquez avec le bouton droit sur **Windows Server**, pointez sur **Nouveau**, puis cliquez sur **Clé**.  
   
-    2.  Tapez **OEM** comme nom de la clé.  
+    2.  Donnez le nom **OEM** à la clé.  
   
 3.  Cliquez avec le bouton droit sur **OEM**, pointez sur **Nouveau**, puis cliquez sur **Nom de la valeur**.  
   
@@ -59,7 +59,7 @@ Il est possible de changer l’ordre des onglets dans le Tableau de bord de mani
   
 1.  Si regedit n'est pas ouvert, cliquez sur **Démarrer**, entrez **regedit**, puis appuyez sur **Entrée**.  
   
-2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**et **Windows Server**.  
+2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft** et **Windows Server**.  
   
 3.  Cliquez avec le bouton droit sur **OEM**, pointez sur **Nouveau**, puis cliquez sur **Clé**.  
   
@@ -76,5 +76,5 @@ Il est possible de changer l’ordre des onglets dans le Tableau de bord de mani
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

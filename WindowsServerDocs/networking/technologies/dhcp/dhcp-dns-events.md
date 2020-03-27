@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: beb8c188-6fcf-4520-8825-d17f8ee9fb04
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ccd8024af30f1103afa8eac52926a6b42d32940a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5d167666e632aa1a8d92de71feafc9014b66e7ce
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355426"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312608"
 ---
 # <a name="dhcp-logging-events-for-dns-registrations"></a>Événements de journalisation DHCP pour les inscriptions DNS
 

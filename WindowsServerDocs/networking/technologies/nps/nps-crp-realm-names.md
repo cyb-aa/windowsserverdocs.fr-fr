@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d011eaad-f72a-4a83-8099-8589c4ee8994
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7f9c611b793df36c2e588b2fa099df4e5382194c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dba00395b32980d3139cf88e25571c8001cac24e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405467"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316245"
 ---
 # <a name="realm-names"></a>Noms de domaine
 
@@ -79,6 +79,6 @@ Lorsque le nom d’utilisateur ne contient pas de nom de domaine, NPS en fournit
     
 
 >[!CAUTION]
->Une modification incorrecte du Registre peut endommager gravement votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
+>Une modification incorrecte du Registre peut sérieusement endommager votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
 
 Certains serveurs d’accès réseau non-Microsoft suppriment ou modifient le nom de domaine tel que spécifié par l’utilisateur. Par conséquent, la demande d’accès réseau est authentifiée par rapport au domaine par défaut, qui peut ne pas être le domaine pour le compte de l’utilisateur. Pour résoudre ce problème, configurez vos serveurs RADIUS pour remplacer le nom d’utilisateur dans le format approprié par le nom de domaine exact.

@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b66c09d-e401-4f70-9a2a-6047dd629bfa
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8fe318a8ac17c650d8dbf2339e72b561de529c4a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3aa20913a01a23291879b98d6f53fe60a7138670
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405677"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312454"
 ---
 # <a name="dns-resource-record-management"></a>Gestion d’enregistrement de ressource DNS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique fournit des informations sur la gestion des enregistrements de ressources DNS à l’aide d’IPAM.  
   
@@ -51,7 +51,7 @@ La liste suivante répertorie les types d’enregistrements de ressources DNS qu
   
 -   Adresse ATM  
   
--   CANONIQUE  
+-   CNAME  
   
 -   DHCID  
   
@@ -75,11 +75,11 @@ La liste suivante répertorie les types d’enregistrements de ressources DNS qu
   
 -   Emplacement du service  
   
--   START  
+-   Start  
   
 -   SRV  
   
--   Text  
+-   Texte  
   
 -   Services bien connus  
   

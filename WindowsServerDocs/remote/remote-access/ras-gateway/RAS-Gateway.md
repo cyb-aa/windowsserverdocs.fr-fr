@@ -6,19 +6,19 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: acaa46b7-09b1-4707-9562-116df8db17eb
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/23/2018
-ms.openlocfilehash: ebf2cc840be771707f23d7976b670baae96c1343
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 762ba98a57db1411098c6ae6a8394e9a9b063181
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367493"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308524"
 ---
 # <a name="ras-gateway"></a>Passerelle du serveur d’accès à distance
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 La passerelle RAS est un routeur logiciel et une passerelle que vous pouvez utiliser en mode à un seul locataire ou en mode multi-locataire.  
   
@@ -63,7 +63,7 @@ Cette rubrique contient les sections suivantes.
 
 
   
-## <a name="bkmk_modes"></a>Modes de déploiement de la passerelle RAS  
+## <a name="ras-gateway-deployment-modes"></a><a name="bkmk_modes"></a>Modes de déploiement de la passerelle RAS  
 La passerelle RAS comprend les modes de déploiement suivants.  
   
 ### <a name="single-tenant-mode"></a>Mode de locataire unique  
@@ -81,7 +81,7 @@ Les réseaux virtuels sont créés à l’aide de la virtualisation de réseau H
 La virtualisation de réseau Hyper-V vous permet de déployer un réseau d’ordinateurs virtuels indépendant du réseau physique sous-jacent. Avec les réseaux de machines virtuelles, qui sont composés d’un ou plusieurs sous-réseaux virtuels, l’emplacement physique exact d’un sous-réseau IP est dissocié de la topologie du réseau virtuel. Par conséquent, vous pouvez facilement déplacer vos sous-réseaux locaux vers le Cloud, tout en conservant vos adresses IP et votre topologie existantes dans le Cloud. Cette capacité à conserver l’infrastructure permet aux services existants de continuer à fonctionner, sans se préoccuper de l’emplacement physique des sous-réseaux. Autrement dit, la virtualisation de réseau Hyper-V permet de créer un cloud hybride transparent.  
   
 > [!NOTE]  
-> La virtualisation de réseau Hyper-V est une technologie de superposition de réseau utilisant l’encapsulation générique de routage de réseau ([NVGRE](https://tools.ietf.org/html/draft-sridharan-virtualization-nvgre-00)), qui permet aux locataires d’apporter leur propre espace d’adressage et de permettre aux fournisseurs de services de chiffrement une meilleure évolutivité qu’avec Réseaux locaux virtuels pour l’isolation des locataires.  
+> La virtualisation de réseau Hyper-V est une technologie de superposition de réseau utilisant l’encapsulation générique de routage de réseau ([NVGRE](https://tools.ietf.org/html/draft-sridharan-virtualization-nvgre-00)), qui permet aux locataires d’apporter leur propre espace d’adressage et permet aux fournisseurs de services de chiffrement une meilleure évolutivité qu’avec les réseaux locaux virtuels pour l’isolation des locataires.  
   
 Dans Windows Server 2016, la passerelle RAS achemine le trafic réseau entre le réseau physique et les ressources du réseau de machines virtuelles, quel que soit l’emplacement des ressources. Vous pouvez utiliser la passerelle RAS pour acheminer le trafic réseau entre les réseaux physiques et virtuels au même emplacement physique ou à différents emplacements physiques.  
   
@@ -91,7 +91,7 @@ Dans un autre exemple, si vos réseaux virtuels existent dans le Cloud, votre CS
   
 Pour plus d’informations, consultez [haute disponibilité de la passerelle RAS](../../../networking/sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_clustering"></a>Mise en cluster de la passerelle RAS pour la haute disponibilité  
+## <a name="clustering-ras-gateway-for-high-availability"></a><a name="bkmk_clustering"></a>Mise en cluster de la passerelle RAS pour la haute disponibilité  
 La passerelle RAS est déployée sur un ordinateur dédié qui exécute Hyper-V et qui est configuré avec une machine virtuelle. La machine virtuelle est ensuite configurée en tant que passerelle RAS.  
   
 Pour une haute disponibilité des ressources réseau, vous pouvez déployer une passerelle RAS avec basculement en utilisant deux serveurs hôtes physiques exécutant Hyper-V qui exécutent chacun une machine virtuelle configurée en tant que passerelle. Les ordinateurs virtuels passerelle sont ensuite configurés en cluster pour fournir la protection de basculement contre les pannes réseau et matérielles.  
@@ -102,7 +102,7 @@ Dans un autre exemple, si votre organisation est un fournisseur de services Clou
   
 Lorsque vous déployez une passerelle RAS, les serveurs hôtes qui exécutent Hyper-V et les machines virtuelles que vous configurez en tant que passerelles doivent exécuter Windows Server 2012 R2 ou Windows Server 2016.  
   
-## <a name="bkmk_features"></a>Fonctionnalités de la passerelle RAS  
+## <a name="ras-gateway-features"></a><a name="bkmk_features"></a>Fonctionnalités de la passerelle RAS  
 La passerelle RAS comprend les fonctionnalités suivantes.  
   
 -   **VPN de site à site**. Cette fonctionnalité de passerelle RAS vous permet de connecter deux réseaux à des emplacements physiques différents sur Internet à l’aide d’une connexion VPN de site à site. Si vous disposez d’un siège social et de plusieurs succursales, vous pouvez déployer une passerelle RAS Edge à chaque emplacement et créer des connexions de site à site pour fournir un flux de trafic réseau entre les emplacements. Pour les fournisseurs de services de chiffrement qui hébergent de nombreux locataires dans leur centre de donnes, la passerelle RAS fournit une solution de passerelle mutualisée qui permet à vos locataires d’accéder à leurs ressources et de les gérer sur des connexions VPN de site à site à partir de sites distants, et qui autorise le flux de trafic réseau entre les ressources virtuelles de votre centre de ressources et leur réseau physique.  
@@ -114,19 +114,19 @@ La passerelle RAS comprend les fonctionnalités suivantes.
 -   **Traduction d’adresses réseau (NAT)** . La traduction d’adresses réseau (NAT) vous permet de partager une connexion à l’Internet public par le biais d’une interface unique avec une adresse IP publique unique. Les ordinateurs sur le réseau privé utilisent des adresses privées non routables. NAT mappe les adresses privées à l’adresse publique. Cette fonctionnalité de passerelle RAS permet aux employés de l’organisation avec des déploiements à locataire unique d’accéder aux ressources Internet à partir de la passerelle. Pour les fournisseurs de services de chiffrement, cette fonctionnalité permet aux applications qui s’exécutent sur des machines virtuelles clientes d’accéder à Internet. Par exemple, une machine virtuelle cliente qui est configurée en tant que serveur Web peut contacter des ressources financières externes pour traiter les transactions de carte de crédit.  
 
   
-## <a name="bkmk_deploy"></a>Scénarios de déploiement de la passerelle RAS  
+## <a name="ras-gateway-deployment-scenarios"></a><a name="bkmk_deploy"></a>Scénarios de déploiement de la passerelle RAS  
 Voici les scénarios de déploiement recommandés pour la passerelle RAS.  
   
 -   **Enterprise Edge-déploiement à un seul client**. Avec le déploiement d’entreprise à client unique, vous pouvez connecter un physique à plusieurs autres emplacements physiques sur Internet à l’aide de la fonctionnalité VPN de site à site, et Border Gateway Protocol (BGP) vous permet d’utiliser le routage dynamique. Vous pouvez également fournir aux employés distants l’accès au réseau de votre organisation avec des connexions VPN point à site et des connexions DirectAccess. (Les connexions DirectAccess sont toujours activées et offrent également l’avantage de pouvoir gérer facilement les ordinateurs qui sont connectés à l’aide de DirectAccess, car ils sont connectés chaque fois qu’ils sont connectés et connectés à Internet.) Vous pouvez également configurer des passerelles RAS d’entreprise à client unique avec NAT, afin que les ordinateurs de votre intranet puissent communiquer facilement avec Internet.  
   
 -   **Périphérie du fournisseur de services Cloud-déploiement multi-locataire**. La passerelle RAS déploiement multi-locataire pour les fournisseurs de services de chiffrement vous permet de proposer à vos locataires toutes les fonctionnalités disponibles avec le déploiement à client unique Enterprise Edge. Les connexions VPN de site à site entre les réseaux virtuels locataires dans votre centre de ressources et les emplacements réseau de locataire sur Internet signifient que les locataires ont tout le temps d’accéder en toute transparence à leurs ressources de Cloud. L’accès VPN de point à site pour les locataires signifie que les administrateurs clients peuvent toujours se connecter à leurs réseaux virtuels dans votre centre de ressources pour gérer leurs ressources. Le protocole BGP assure le routage dynamique et assure la connexion des locataires à leurs ressources même lorsque des problèmes réseau se produisent sur Internet ou ailleurs. NAT permet aux machines virtuelles clientes de se connecter à des ressources sur Internet, telles que des ressources de traitement de carte de crédit.  
   
-## <a name="bkmk_manage"></a>Outils de gestion de passerelle RAS  
+## <a name="ras-gateway-management-tools"></a><a name="bkmk_manage"></a>Outils de gestion de passerelle RAS  
 Voici les outils de gestion pour la passerelle RAS.  
   
 -   Dans Windows Server 2016, vous devez utiliser les commandes Windows PowerShell pour déployer un routeur de passerelle RAS. Pour plus d’informations, consultez [applets de commande d’accès à distance](https://docs.microsoft.com/powershell/module/remoteaccess) pour windows server 2016 et Windows 10.  
   
--   Dans System Center 2012 R2 Virtual Machine Manager (VMM), la passerelle RAS est nommée passerelle Windows Server. Un ensemble limité d’options de configuration Border Gateway Protocol (BGP) sont disponibles dans l’interface logicielle de VMM, notamment l' **adresse IP BGP locale** et les **numéros de système autonomes (ASN)** , la **liste des adresses IP homologues BGP**et les **valeurs ASN.** . Cependant, vous pouvez utiliser les commandes BGP Windows PowerShell d’accès à distance pour configurer toutes les autres fonctionnalités de la passerelle Windows Server. Pour plus d’informations, consultez [Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm) et [applets de commande d’accès à distance](https://technet.microsoft.com/library/hh918399.aspx) pour Windows Server 2016 et Windows 10.  
+-   Dans System Center 2012 R2 Virtual Machine Manager (VMM), la passerelle RAS est nommée passerelle Windows Server. Un ensemble limité d’options de configuration d’Border Gateway Protocol (BGP) sont disponibles dans l’interface logicielle de VMM, notamment l' **adresse IP BGP locale** et les **numéros de système autonomes (ASN)** , la **liste des adresses IP homologues BGP**et les **valeurs ASN**. Cependant, vous pouvez utiliser les commandes BGP Windows PowerShell d’accès à distance pour configurer toutes les autres fonctionnalités de la passerelle Windows Server. Pour plus d’informations, consultez [Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm) et [applets de commande d’accès à distance](https://technet.microsoft.com/library/hh918399.aspx) pour Windows Server 2016 et Windows 10.  
   
 ## <a name="related-topics"></a>Rubriques connexes
 - [Haute disponibilité de la passerelle RAS](../../../networking/sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md)  

@@ -10,19 +10,19 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/10/2018
-ms.openlocfilehash: 2356de674bfc6e57c9444136b1244934464a2d02
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f4d9dd20d626f998bee0a8414c281cd27b2d3dbb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396503"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316445"
 ---
 # <a name="nic-teaming"></a>Association de cartes réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, nous vous proposons une vue d’ensemble de l’Association de cartes d’interface réseau (NIC) dans Windows Server 2016. L’Association de cartes réseau vous permet de grouper entre une et 32 cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelles basées sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.  
   
@@ -80,7 +80,7 @@ En fonction du mode de configuration du commutateur et de l’algorithme de dist
 
 Si l’équipe est en mode d’association indépendant du commutateur et que vous définissez la distribution de la charge sur le mode de port Hyper-V ou le mode dynamique, le nombre de files d’attente signalées est la somme de toutes les files d’attente disponibles à partir des membres de l’équipe (mode total de files d’attente). Dans le cas contraire, le nombre de files d’attente signalées est le plus petit nombre de files d’attente prises en charge par les membres de l’équipe (mode min-queues).
 
-Voici pourquoi:  
+Voici pourquoi :  
   
 -   Lorsque l’équipe indépendante du commutateur est en mode de port Hyper-V ou en mode dynamique, le trafic entrant pour un port de commutateur Hyper-V arrive toujours sur le même membre de l’équipe. L’hôte peut prédire/contrôler quel membre reçoit le trafic pour une machine virtuelle particulière. l’Association de cartes réseau peut donc être plus réfléchie sur les files d’attente d’ordinateurs virtuels à allouer à un membre de l’équipe particulier. Association de cartes réseau, utilisation du commutateur Hyper-V, définit l’ordinateur virtuel pour une machine virtuelle sur un seul membre de l’équipe et sait que le trafic entrant atteint cette file d’attente.  
   
@@ -88,7 +88,7 @@ Voici pourquoi:
   
 -   Lorsque l’équipe est en mode indépendant du commutateur et utilise l’équilibrage de charge de hachage d’adresse, le trafic entrant arrive toujours sur une carte réseau (le membre de l’équipe principal), tout cela sur un seul membre de l’équipe. Étant donné que les autres membres de l’équipe ne traitent pas du trafic entrant, ils sont programmés avec les mêmes files d’attente que le membre principal, de sorte que si le membre principal échoue, tous les autres membres de l’équipe peuvent être utilisés pour récupérer le trafic entrant et les files d’attente sont déjà en place.  
 
-- La plupart des cartes réseau ont des files d’attente utilisées pour la mise à l’échelle côté réception (RSS) ou l’ordinateurs virtuels, mais pas en même temps. Certains paramètres de l’ordinateurs virtuels semblent être des paramètres pour les files d’attente RSS, mais les paramètres sur les files d’attente génériques qui sont à la fois des flux RSS et des ordinateurs virtuels sont utilisés en fonction de la fonctionnalité actuellement utilisée. Chaque carte réseau possède, dans ses propriétés avancées, des valeurs pour * \*RssBaseProcNumber et MaxRssProcessors. Voici quelques paramètres d’ordinateur virtuels qui offrent de meilleures performances système.  
+- La plupart des cartes réseau ont des files d’attente utilisées pour la mise à l’échelle côté réception (RSS) ou l’ordinateurs virtuels, mais pas en même temps. Certains paramètres de l’ordinateurs virtuels semblent être des paramètres pour les files d’attente RSS, mais les paramètres sur les files d’attente génériques qui sont à la fois des flux RSS et des ordinateurs virtuels sont utilisés en fonction de la fonctionnalité actuellement utilisée. Chaque carte réseau possède, dans ses propriétés avancées, des valeurs pour * RssBaseProcNumber et \*MaxRssProcessors. Voici quelques paramètres d’ordinateur virtuels qui offrent de meilleures performances système.  
   
 -   Dans l’idéal, chaque carte réseau doit avoir le * RssBaseProcNumber défini sur un nombre pair supérieur ou égal à deux (2). Le premier processeur physique, le cœur 0 (processeurs logiques 0 et 1), effectue généralement la majeure partie du traitement du système, de sorte que le traitement réseau doit s’éloigner de ce processeur physique. Certaines architectures d’ordinateur n’ont pas deux processeurs logiques par processeur physique. par conséquent, pour ces machines, le processeur de base doit être supérieur ou égal à 1. En cas de doute, supposons que votre hôte utilise un processeur logique de 2 par architecture de processeur physique.  
   
@@ -155,11 +155,11 @@ Dans la mesure où le basculement entre les cartes d’interface réseau d’une
 
 ## <a name="related-topics"></a>Rubriques connexes
 
-- [Utilisation et gestion de l’Association de cartes réseau avec l’adresse Mac](NIC-Teaming-MAC-Address-Use-and-Management.md): Quand vous configurez une association de cartes réseau avec le mode indépendant du commutateur et le hachage d’adresse ou la distribution de charge dynamique, l’équipe utilise l’adresse MAC (Media Access Control) du membre de l’équipe de carte réseau principale sur le trafic sortant. Le membre de l’Association de cartes réseau principale est une carte réseau sélectionnée par le système d’exploitation à partir de l’ensemble initial des membres de l’équipe.
+- [Utilisation et gestion de l’Association de cartes réseau avec l’adresse Mac](NIC-Teaming-MAC-Address-Use-and-Management.md): quand vous configurez une association de cartes réseau avec le mode indépendant du commutateur et l’adresse de hachage d’adresse ou de charge dynamique, l’équipe utilise l’adresse Mac (Media Access Control) du membre de l’équipe de cartes réseau principales sur le trafic sortant. Le membre de l’Association de cartes réseau principale est une carte réseau sélectionnée par le système d’exploitation à partir de l’ensemble initial des membres de l’équipe.
 
-- [Paramètres d’association de cartes réseau](nic-teaming-settings.md): Dans cette rubrique, nous vous offrons une vue d’ensemble des propriétés de l’équipe de cartes réseau, telles que les modes d’association et d’équilibrage de charge. Nous vous fournissons également des détails sur le paramètre de l’adaptateur de secours et la propriété de l’interface d’équipe principale. Si vous disposez d’au moins deux cartes réseau dans une association de cartes réseau, vous n’avez pas besoin de désigner une carte de secours pour la tolérance de panne.
+- [Paramètres d’association de cartes réseau](nic-teaming-settings.md): dans cette rubrique, nous vous offrons une vue d’ensemble des propriétés de l’équipe de cartes réseau, telles que les modes d’association et d’équilibrage de charge. Nous vous fournissons également des détails sur le paramètre de l’adaptateur de secours et la propriété de l’interface d’équipe principale. Si vous disposez d’au moins deux cartes réseau dans une association de cartes réseau, vous n’avez pas besoin de désigner une carte de secours pour la tolérance de panne.
   
-- [Créer une nouvelle association de cartes réseau sur un ordinateur hôte ou une machine virtuelle](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): Dans cette rubrique, vous allez créer une nouvelle association de cartes réseau sur un ordinateur hôte ou dans une machine virtuelle Hyper-V exécutant Windows Server 2016.
+- [Créer une association de cartes réseau sur un ordinateur hôte ou une machine virtuelle](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): dans cette rubrique, vous allez créer une nouvelle association de cartes réseau sur un ordinateur hôte ou sur une machine virtuelle Hyper-V exécutant Windows Server 2016.
 
-- [Résolution des problèmes d’association de cartes réseau](Troubleshooting-NIC-Teaming.md): Dans cette rubrique, nous expliquons comment résoudre les problèmes liés à l’Association de cartes réseau, telles que le matériel, les titres de commutateur physique et la désactivation ou l’activation de cartes réseau à l’aide de Windows PowerShell. 
+- [Résolution des problèmes d’association de cartes](Troubleshooting-NIC-Teaming.md)réseau : dans cette rubrique, nous expliquons comment résoudre les problèmes liés à l’Association de cartes réseau, telles que le matériel, les titres de commutateur physique et la désactivation ou l’activation de cartes réseau à l’aide de Windows PowerShell. 
  

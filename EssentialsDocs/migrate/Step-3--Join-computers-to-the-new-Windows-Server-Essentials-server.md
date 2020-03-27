@@ -1,9 +1,9 @@
 ---
-title: 'Étape 3 : Joindre des ordinateurs au nouveau serveur Windows Server Essentials'
+title: 'Étape 3 : Joindre des ordinateurs au nouveau serveur Windows Server Essentials'
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,23 +12,23 @@ ms.assetid: a0e07d1a-8409-429b-87d7-0f4a7e14d668
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f71ac280e2de0b7d945f2d979fe52d173f7c3323
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ca1e3a031c95f19fb68aadcf203b13fa39d7558
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861870"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318761"
 ---
-# <a name="step-3-join-computers-to-the-new-windows-server-essentials-server"></a>Étape 3 : Joindre des ordinateurs au nouveau serveur Windows Server Essentials
+# <a name="step-3-join-computers-to-the-new-windows-server-essentials-server"></a>Étape 3 : Joindre des ordinateurs au nouveau serveur Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-L’étape suivante du processus de migration consiste à connecter des ordinateurs clients vers le nouveau serveur exécutant Windows Server Essentials.  
+L’étape suivante du processus de migration consiste à connecter des ordinateurs clients au nouveau serveur exécutant Windows Server Essentials.  
   
 > [!NOTE]
 >  Vous pouvez ignorer cette étape pour les ordinateurs qui exécutent les systèmes d'exploitation Windows XP ou Windows Vista. Le logiciel Connecteur Windows Server ne prend pas en charge les ordinateurs qui exécutent Windows XP ou Windows Vista.  
   
- Avant de pouvoir joindre un ordinateur client vers le nouveau serveur Windows Server Essentials, vous devez le déconnecter du serveur Source en désinstallant le logiciel Connecteur Windows Server sur l’ordinateur client.  
+ Avant de pouvoir joindre un ordinateur client au nouveau serveur Windows Server Essentials, vous devez le déconnecter du serveur source en désinstallant le logiciel connecteur Windows Server sur l’ordinateur client.  
   
 ### <a name="to-uninstall-windows-server-connector-on-a-client-computer"></a>Pour désinstaller le connecteur Windows Server d'un ordinateur client  
   
@@ -37,7 +37,7 @@ L’étape suivante du processus de migration consiste à connecter des ordinate
 2.  Dans la liste des programmes, cliquez sur l'application de connexion qui s'exécute sur votre ordinateur.  
   
     > [!NOTE]
-    >  L’application connecteur peut être **connecteur de Windows Small Business Server 2011 Essentials**, ou **connecteur Windows Server Essentials**, selon la version de Windows Server Essentials le ordinateur client a été connecté à.  
+    >  L’application connecteur peut être le connecteur **Windows Small Business Server 2011 Essentials**ou le **connecteur Windows Server Essentials**, selon la version de Windows Server Essentials à laquelle l’ordinateur client est connecté.  
   
 3.  Cliquez sur **Désinstaller**.  
   
@@ -50,12 +50,12 @@ L’étape suivante du processus de migration consiste à connecter des ordinate
   
 2.  Ouvrez un navigateur Internet, par exemple Internet Explorer.  
   
-3.  Dans la barre d’adresses, tapez **http://<servername\>/se connecter**, puis appuyez sur ENTRÉE.  
+3.  Dans la barre d’adresse, tapez **http://< servername\>/Connect**, puis appuyez sur entrée.  
   
-4.  Suivez les instructions à l’écran pour joindre l’ordinateur client vers le nouveau serveur Windows Server Essentials.  
+4.  Suivez les instructions à l’écran pour joindre l’ordinateur client au nouveau serveur Windows Server Essentials.  
   
-## <a name="next-steps"></a>Étapes suivantes  
- Vous avez joint vos ordinateurs clients vers le nouveau serveur exécutant Windows Server Essentials. Passez maintenant à [étape 4 : Déplacer les paramètres et les données pour la migration du serveur de Destination pour Windows Server Essentials](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
+## <a name="next-steps"></a>Étapes suivantes :  
+ Vous avez joint vos ordinateurs clients au nouveau serveur exécutant Windows Server Essentials. Passez maintenant à [l’étape 4 : déplacer les paramètres et les données vers le serveur de destination pour la migration vers Windows Server Essentials](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
   
 
 Pour afficher toutes les étapes, consultez [migrer vers Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).

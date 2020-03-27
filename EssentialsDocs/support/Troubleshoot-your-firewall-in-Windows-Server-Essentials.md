@@ -3,7 +3,7 @@ title: Résoudre les problèmes liés à votre pare-feu dans Windows Server Esse
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,24 +12,24 @@ ms.assetid: 51d94b67-8b9b-4159-80dd-f652d73a43cb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 11372589528fcc78e0053bc7002449b53cb3181d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 15a2361284d041898d9ad7240643fdb55aa5b866
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436042"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318584"
 ---
 # <a name="troubleshoot-your-firewall-in-windows-server-essentials"></a>Résoudre les problèmes liés à votre pare-feu dans Windows Server Essentials
  
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
  Si vous rencontrez des problèmes d’accès à distance, exécutez l’Assistant Réparer l’Accès en tout lieu.  
   
 ### <a name="to-run-the-repair-anywhere-access-wizard"></a>Pour exécuter l’Assistant Réparer l’Accès en tout lieu  
   
-1. Ouvrez le tableau de bord.  
+1. Ouvrez le Tableau de bord.  
   
-2. Cliquez sur **Paramètres**, sur l’onglet **Accès en tout lieu** , puis sur **Réparer**.  
+2. Cliquez sur **Paramètres**, sur l’onglet **Accès en tout lieu**, puis sur **Réparer**.  
   
 3. Suivez les instructions de l’Assistant Réparer l’Accès en tout lieu.  
   
@@ -45,9 +45,9 @@ ms.locfileid: "66436042"
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Utiliser l’accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Utiliser l’Accès web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Gérer l’accès Web à distance](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Gérer les Accès web distantes](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 -   [Gérer l’accès en tout lieu](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
   

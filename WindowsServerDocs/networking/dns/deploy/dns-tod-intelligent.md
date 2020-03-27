@@ -6,24 +6,24 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e497b0d73c816f0295588aa77a21c49d376c0dcf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e4bb075368bb3dfadaa8046b177dbbac637763e3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406183"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317824"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Utiliser une stratégie DNS pour les réponses DNS intelligentes basées sur l’heure du jour
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour savoir comment distribuer le trafic d’application sur différentes instances géographiquement distribuées d’une application à l’aide de stratégies DNS basées sur l’heure de la journée.  
   
 Ce scénario est utile dans les situations où vous souhaitez diriger le trafic dans un fuseau horaire vers d’autres serveurs d’applications, tels que des serveurs Web, qui se trouvent dans un autre fuseau horaire. Cela vous permet d’équilibrer la charge du trafic entre les instances d’application pendant les périodes de pointe lorsque vos serveurs principaux sont surchargés avec le trafic.   
   
-### <a name="bkmk_example1"></a>Exemple de réponses DNS intelligentes en fonction de l’heure de la journée  
+### <a name="example-of-intelligent-dns-responses-based-on-the-time-of-day"></a><a name="bkmk_example1"></a>Exemple de réponses DNS intelligentes en fonction de l’heure de la journée  
 Vous trouverez ci-dessous un exemple de la façon dont vous pouvez utiliser la stratégie DNS pour équilibrer le trafic d’application en fonction de l’heure de la journée.  
   
 Cet exemple utilise une société fictive, contoso Gift services, qui fournit des solutions de don en ligne dans le monde entier via son site Web, contosogiftservices.com.   
@@ -38,7 +38,7 @@ L’illustration suivante représente ce scénario.
   
 ![Exemple de stratégie DNS d’heure de la journée](../../media/DNS-Policy-Tod1/dns_policy_tod1.jpg)  
   
-### <a name="bkmk_works1"></a>Comment fonctionnent les réponses DNS intelligentes en fonction de l’heure de la journée  
+### <a name="how-intelligent-dns-responses-based-on-time-of-day-works"></a><a name="bkmk_works1"></a>Comment fonctionnent les réponses DNS intelligentes en fonction de l’heure de la journée  
   
 Lorsque le serveur DNS est configuré avec la stratégie DNS heure de la journée, entre 6 h 00 et 9 h 00 à chaque emplacement géographique, le serveur DNS effectue les opérations suivantes.  
   
@@ -53,7 +53,7 @@ Lorsque plusieurs stratégies DNS sont configurées dans DNS, il s’agit d’un
   
 Pour plus d’informations sur les types de stratégie et les critères, consultez [vue d’ensemble des stratégies DNS](../../dns/deploy/DNS-Policies-Overview.md).  
   
-### <a name="bkmk_how1"></a>Comment configurer la stratégie DNS pour les réponses DNS intelligentes en fonction de l’heure de la journée  
+### <a name="how-to-configure-dns-policy-for-intelligent-dns-responses-based-on-time-of-day"></a><a name="bkmk_how1"></a>Comment configurer la stratégie DNS pour les réponses DNS intelligentes en fonction de l’heure de la journée  
 Pour configurer une stratégie DNS pour les réponses de requêtes basées sur l’équilibrage de charge des applications, vous devez effectuer les étapes suivantes.  
   
 - [Créer les sous-réseaux du client DNS](#bkmk_subnets)  
@@ -69,7 +69,7 @@ Les sections suivantes fournissent des instructions de configuration détaillée
 >[!IMPORTANT]
 >Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs pour de nombreux paramètres. Veillez à remplacer les valeurs d’exemple dans ces commandes par des valeurs appropriées pour votre déploiement avant d’exécuter ces commandes.  
   
-#### <a name="bkmk_subnets"></a>Créer les sous-réseaux du client DNS  
+#### <a name="create-the-dns-client-subnets"></a><a name="bkmk_subnets"></a>Créer les sous-réseaux du client DNS  
 La première étape consiste à identifier les sous-réseaux ou l’espace d’adressage IP des régions pour lesquelles vous souhaitez rediriger le trafic. Par exemple, si vous souhaitez rediriger le trafic pour les États-Unis et l’Europe, vous devez identifier les sous-réseaux ou les espaces d’adressage IP de ces régions.  
   
 Vous pouvez obtenir ces informations à partir de cartes géo-IP. Sur la base de ces distributions géo-IP, vous devez créer les « sous-réseaux du client DNS ». Un sous-réseau client DNS est un regroupement logique de sous-réseaux IPv4 ou IPv6 à partir desquels les requêtes sont envoyées à un serveur DNS.  
@@ -84,7 +84,7 @@ Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet "141.1.0.0/24, 151.1.
 ```  
 Pour plus d’informations, consultez [Add-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-#### <a name="bkmk_zscopes"></a>Créer les étendues de zone  
+#### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes"></a>Créer les étendues de zone  
 Une fois les sous-réseaux clients configurés, vous devez partitionner la zone dont vous souhaitez rediriger le trafic vers deux étendues de zone différentes, une étendue pour chacun des sous-réseaux du client DNS que vous avez configurés.  
   
 Par exemple, si vous souhaitez rediriger le trafic pour le nom DNS www.contosogiftservices.com, vous devez créer deux étendues de zone différentes dans la zone contosogiftservices.com, une pour les États-Unis et une pour l’Europe.  
@@ -104,7 +104,7 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScop
 ```  
 Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-#### <a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone  
+#### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone  
 À présent, vous devez ajouter les enregistrements qui représentent l’hôte du serveur Web dans les deux étendues de zone.  
   
 Par exemple, dans **SeattleZoneScope**, l’enregistrement <strong>www.contosogiftservices.com</strong> est ajouté avec l’adresse IP 192.0.0.1, qui se trouve dans un centre de contenu Seattle. De même, dans **DublinZoneScope**, l’enregistrement <strong>www.contosogiftservices.com</strong> est ajouté avec l’adresse IP 141.1.0.3 dans le centre de centres Dublin  
@@ -121,7 +121,7 @@ Le paramètre ZoneScope n’est pas inclus lorsque vous ajoutez un enregistremen
   
 Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
-#### <a name="bkmk_policies"></a>Créer les stratégies DNS  
+#### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Créer les stratégies DNS  
 Une fois que vous avez créé les sous-réseaux, les partitions (étendues de zone) et que vous avez ajouté des enregistrements, vous devez créer des stratégies qui connectent les sous-réseaux et les partitions, de sorte que lorsqu’une requête provient d’une source dans l’un des sous-réseaux du client DNS, la réponse à la requête est retournée à partir de étendue correcte de la zone. Aucune stratégie n’est requise pour le mappage de l’étendue de zone par défaut.  
   
 Une fois ces stratégies DNS configurées, le comportement du serveur DNS est le suivant :  

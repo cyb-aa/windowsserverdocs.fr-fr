@@ -3,7 +3,7 @@ title: Préparation de l’image en vue du déploiement
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,23 +12,23 @@ ms.assetid: 681c6cad-7fde-494f-86a5-f4c7c15d23f9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 16411ab073e9417c52592aa9a6b13707dd461537
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: aac776253c094c4a77269720bcc5762d6c41d720
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838530"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311549"
 ---
 # <a name="preparing-the-image-for-deployment"></a>Préparation de l’image en vue du déploiement
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Un outil standard pour la préparation de l’image est sysprep.exe. L’exécution de cet outil permet de généraliser l’image et d’éteindre le serveur de sorte que la configuration initiale est exécutée lorsque le serveur contenant l’image est redémarré. Toutes les modifications apportées à l'image doivent être terminées avant l'exécution de sysprep.exe.  
   
 > [!NOTE]
 >  Vous pouvez réinitialiser l'activation de Windows trois fois au maximum à l'aide du fichier sysprep.exe.  
   
-#### <a name="to-prepare-the-image"></a>Pour préparer l’image  
+#### <a name="to-prepare-the-image"></a>Pour préparer l'image  
   
 1.  Supprimer le fichier SkipIC.txt que vous avez ajouté.  
   
@@ -123,7 +123,7 @@ Un outil standard pour la préparation de l’image est sysprep.exe. L’exécut
     ```  
   
     > [!IMPORTANT]
-    >  Vous pouvez également ajouter le fichier unattend.xml sous %systemdrive% au lieu de l'ajouter en tant que paramètre de sysprep. Si le fichier se trouve sous c:\ Il sera couvert par les paramètres utilisateur s, mais si utilisé en tant que paramètre de sysprep, il ne sera pas couvert par les paramètres utilisateur s. Le fichier unattend.xml sous %systemdrive% sera supprimé à chaque redémarrage du serveur. En conséquence, assurez-vous que le serveur ne redémarre pas une fois le fichier unattend.xml créé sous %systemdrive%.  
+    >  Vous pouvez également ajouter le fichier unattend.xml sous %systemdrive% au lieu de l'ajouter en tant que paramètre de sysprep. Si le fichier se trouve sous c:\ il sera couvert par les paramètres de l’utilisateur, mais s’il est utilisé en tant que paramètre de Sysprep, il ne sera pas couvert par les paramètres de l’utilisateur. Le fichier unattend.xml sous %systemdrive% sera supprimé à chaque redémarrage du serveur. En conséquence, assurez-vous que le serveur ne redémarre pas une fois le fichier unattend.xml créé sous %systemdrive%.  
   
 10. Exécutez la commande suivante pour ajouter la clé de registre afin d'ignorer la page de la clé OOBE Windows  
   

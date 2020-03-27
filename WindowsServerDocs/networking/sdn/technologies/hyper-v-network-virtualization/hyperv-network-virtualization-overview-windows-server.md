@@ -10,18 +10,18 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0115b7ad-d229-4c69-9d7e-a3f5fbaa3b2f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0eda30b0980f2080f1603eb906fd308440316248
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2d85545224d8487b4778b95b9366a0336b27b343
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405945"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317220"
 ---
 # <a name="hyper-v-network-virtualization-overview-in-windows-server-2016"></a>Vue d’ensemble de la virtualisation de réseau Hyper-V dans Windows Server 2016
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans Windows Server 2016 et Virtual Machine Manager, Microsoft fournit une solution de virtualisation de réseau de bout en bout.  Il existe cinq composants principaux qui composent la solution de virtualisation de réseau de Microsoft :  
 
@@ -47,7 +47,7 @@ Pour plus d’informations techniques sur la virtualisation de réseau dans Wind
 
 -   [Vue d'ensemble du commutateur virtuel Hyper-V](assetId:///e6ec46af-6ef4-49b3-b1f1-5268dc03f05b)  
 
-## <a name="BKMK_OVER"></a>Description de la fonctionnalité  
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Description de la fonctionnalité  
 La virtualisation de réseau Hyper-V fournit des « réseaux virtuels » (appelés « réseau de machines virtuelles ») à des machines virtuelles similaires à la façon dont la virtualisation de serveur (hyperviseur) fournit des « ordinateurs virtuels » au système d’exploitation. La virtualisation de réseau dissocie les réseaux virtuels de l’infrastructure réseau physique et élimine les contraintes liées aux réseaux VLAN et à l’affectation d’adresses IP hiérarchiques lors de l’approvisionnement d’ordinateurs virtuels. Du fait de cette souplesse, les clients n’ont pas de difficultés à adopter les nuages IaaS et les hébergeurs et administrateurs de centre de données gèrent leur infrastructure avec efficacité, tout en préservant l’isolation mutualisée nécessaire, les exigences de sécurité et en prenant en charge le chevauchement des adresses IP d’ordinateurs virtuels.  
 
 Les clients veulent étendre leurs centres de données dans le nuage en toute transparence. Aujourd’hui, bâtir des architectures de nuage hybride transparentes s’avère délicat du point de vue technique. L’une des plus grandes difficultés auxquelles les clients sont confrontés est la réutilisation de leurs topologies réseau existantes (sous-réseaux, adresses IP, services réseau, etc.) dans le Cloud et le pontage entre leurs ressources locales et leurs ressources de Cloud.  La virtualisation de réseau Hyper-V repose sur le concept d’un réseau d’ordinateurs virtuels indépendant du réseau physique sous-jacent. Avec ce concept de réseau d’ordinateurs virtuels, qui est constitué d’un ou de plusieurs sous-réseaux virtuels, l’emplacement exact dans le réseau physique des ordinateurs virtuels associés à un réseau virtuel est dissocié de la topologie réseau virtuelle. De ce fait, les clients peuvent facilement transférer leurs sous-réseaux virtuels dans le nuage tout en conservant leurs adresses IP et topologie existantes dans le nuage, au point que les services existants continuent de fonctionner sans connaître l’emplacement physique des sous-réseaux. Autrement dit, la virtualisation de réseau Hyper-V permet de créer un cloud hybride transparent.  
@@ -58,7 +58,7 @@ Pour les propriétaires de charges de travail, le principal avantage est qu’il
 
 Pour les propriétaires d’infrastructure, la souplesse accrue sur le plan de la sélection élective des ordinateurs virtuels permet d’envisager le déplacement des charges de travail n’importe où dans les centres de données sans avoir à modifier les ordinateurs virtuels ou reconfigurer les réseaux. Par exemple, la virtualisation de réseau Hyper-V autorise une migration dynamique entre sous-réseaux, ce qui permet à un ordinateur virtuel de migrer dynamiquement n’importe où dans le centre de données sans aucune interruption de service. Auparavant, la migration dynamique se cantonnait au même sous-réseau, ce qui limitait les possibilités quant à l’emplacement des ordinateurs virtuels. La migration dynamique entre sous-réseaux permet aux administrateurs de consolider les charges de travail en fonction des besoins en ressources dynamiques, de l’efficacité énergétique, et elle peut également s’accommoder de la maintenance de l’infrastructure sans perturber le temps d’activité des charges de travail client.  
 
-## <a name="BKMK_APP"></a>Applications pratiques  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applications pratiques  
 Devant le succès des centres de données virtualisés, les organisations informatiques et les fournisseurs d’hébergement (fournisseurs offrant des services de colocalisation ou de location de serveurs physiques) ont commencé à offrir des infrastructures virtualisées plus souples qui facilitent l’offre d’instances de serveur à la demande à leurs clients. Ce nouveau type de service est appelé « infrastructure en tant que service » ou « Infrastructure as a Service » (IaaS) en anglais. Windows Server 2016 fournit toutes les fonctionnalités de plateforme requises pour permettre aux clients d’entreprise de créer des clouds privés et de passer à un modèle opérationnel informatique en tant que service. Windows Server 2016 2016 permet également aux hébergeurs de créer des clouds publics et d’offrir des solutions IaaS à leurs clients. En cas de combinaison avec Virtual Machine Manager et Windows Azure Pack pour gérer la stratégie de virtualisation de réseau Hyper-V, Microsoft fournit une solution cloud puissante.  
 
 La virtualisation de réseau Hyper-V de Windows Server 2016 fournit une virtualisation de réseau basée sur des stratégies et contrôlée par logiciel qui réduit la surcharge de gestion face aux entreprises lorsqu’elles développent des clouds IaaS dédiés, et offre aux hébergeurs de Cloud une meilleure solution flexibilité et évolutivité pour la gestion des machines virtuelles afin d’obtenir une utilisation plus importante des ressources.  
@@ -91,7 +91,7 @@ Le problème de cette exigence vient du fait que, en plus d’être une adresse,
 
 La virtualisation de réseau Hyper-V dissocie les réseaux virtuels des ordinateurs virtuels client de l’infrastructure réseau physique. Les ordinateurs virtuels client peuvent ainsi conserver leurs adresses IP d’origine et les administrateurs de centre de données peuvent approvisionner les ordinateurs virtuels client n’importe où dans le centre de données sans reconfigurer les adresses IP physiques ou les ID VLAN. La section suivante propose un récapitulatif des principales fonctionnalités.  
 
-## <a name="BKMK_NEW"></a>Fonctionnalités importantes  
+## <a name="important-functionality"></a><a name="BKMK_NEW"></a>Fonctionnalités importantes  
 La liste suivante répertorie les fonctionnalités, avantages et fonctionnalités clés de la virtualisation de réseau Hyper-V dans Windows Server 2016 :  
 
 -   **Active la répartition flexible des charges de travail : l’isolement réseau et la réutilisation des adresses IP sans VLAN**  
@@ -132,16 +132,16 @@ La liste suivante répertorie les fonctionnalités, avantages et fonctionnalité
 
     Les stratégies de virtualisation de réseau dans Windows Server 2016 sont configurées via le contrôleur de réseau Microsoft. Le contrôleur de réseau a une API RESTful Northbound et une interface Windows PowerShell pour configurer la stratégie. Pour plus d’informations sur le contrôleur de réseau Microsoft, voir [contrôleur de réseau](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md).  
 
-## <a name="BKMK_SOFT"></a>Configuration logicielle requise  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Configuration logicielle requise  
 La virtualisation de réseau Hyper-V à l’aide du contrôleur de réseau Microsoft nécessite Windows Server 2016 et le rôle Hyper-V.  
 
-## <a name="BKMK_LINKS"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_LINKS"></a>Voir aussi  
 Pour en savoir plus sur la virtualisation de réseau Hyper-V dans Windows Server 2016, consultez les liens suivants :  
 
 
 |       Type de contenu       |                                                                                                                                Références                                                                                                                                |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ressources de la communauté**  |     Blog sur l'[architecture de cloud privé](https://blogs.technet.com/b/privatecloud/archive/2012/03/19/cloud-datacenter-network-architecture-in-the-windows-server-8-era.aspx) -   <br />-Poser des questions : [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)     |
+| **Ressources de la communauté**  |     Blog sur l' [architecture de cloud privé](https://blogs.technet.com/b/privatecloud/archive/2012/03/19/cloud-datacenter-network-architecture-in-the-windows-server-8-era.aspx) -   <br />-Posez vos questions : [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)     |
 |         **APPELÉE**          |                                                                                                     -VXLAN- [RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                                                      |
-| **Technologies connexes** | [contrôleur de réseau](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md) -   <br />[vue d’ensemble de la virtualisation de réseau Hyper-V](assetId:///bf1dba9d-1960-4dd2-a5e2-99466a02044b) -    (Windows Server 2012 R2) |
+| **Technologies connexes** | [contrôleur de réseau](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md) -   <br />-   [vue d’ensemble de la virtualisation de réseau Hyper-V](assetId:///bf1dba9d-1960-4dd2-a5e2-99466a02044b) (Windows Server 2012 R2) |
 

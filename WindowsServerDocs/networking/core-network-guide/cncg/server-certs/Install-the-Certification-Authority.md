@@ -6,18 +6,18 @@ ms.topic: article
 ms.assetid: 4acdc3ad-078e-45cc-b54c-e9456e0c90f5
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 024fc73c4ed089d81808cf44d7cfe8b01bfffaa0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fffb03a707c48c8dd485c68b5c6bf10783b0e6cf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406328"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318364"
 ---
 # <a name="install-the-certification-authority"></a>Installer l’autorité de certification
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour installer les services de certificats Active Directory (AD CS) afin de pouvoir inscrire un certificat de serveur sur les serveurs qui exécutent le serveur NPS (Network Policy Server), le service de routage et d’accès à distance (RRAS), ou les deux.  
   

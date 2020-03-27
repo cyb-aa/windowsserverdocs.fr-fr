@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a275b02c-62b3-4b8a-8417-a710f24bebfe
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a676a8b27c3f799a4cab275610016bfb311e044d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: bc96a6c4406988db2d7906d76af2c1abcfdffeac
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405381"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315901"
 ---
 # <a name="manage-network-policy-server-nps"></a>Gérer le serveur NPS (Network Policy Server)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser les rubriques de cette section pour gérer le serveur NPS (Network Policy Server).  
   
@@ -27,7 +27,7 @@ Vous pouvez utiliser les rubriques de cette section pour gérer le serveur NPS (
 >- [Planifier le serveur NPS (Network Policy Server)](nps-plan-top.md)
 >- [Déployer un serveur NPS (Network Policy Server)](nps-deploy.md)  
   
-Cette section contient les rubriques suivantes :  
+Cette section contient les rubriques suivantes :  
   
 - [Gestion des serveurs NPS avec les Outils d’administration](nps-admintools.md)
 - [Configurer des stratégies de demande de connexion](nps-crp-configure.md)

@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: b6e679c6-4398-496c-88bc-115099f3a819
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ea3f959612de0f2bc56a887ba73aba47f1d3f141
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d4e005e65a3ff645ed91f488820435aff5173390
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406221"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317889"
 ---
 # <a name="use-dns-policy-for-application-load-balancing-with-geo-location-awareness"></a>Utiliser une stratégie DNS pour l’équilibrage de charge des applications avec connaissance de la géolocalisation
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à configurer la stratégie DNS afin d’équilibrer la charge d’une application avec une prise en charge de la géolocalisation.
 
@@ -32,7 +32,7 @@ Dans cet exemple, contoso Gift services est en pleine expansion dans le monde en
 
 À l’instar de Amérique du Nord, la société a maintenant des serveurs Web hébergés dans des centres de centres européens.
 
-Contoso Gift services les administrateurs DNS veulent configurer l’équilibrage de charge d’application pour les centres de distribution européens de la même façon que l’implémentation de la stratégie DNS dans le États-Unis, avec le trafic d’application distribué entre les serveurs Web qui se trouvent dans Dublin, Irlande, Amsterdam, Pays-Bas et ailleurs.
+Contoso Gift services les administrateurs DNS veulent configurer l’équilibrage de charge d’application pour les centres de distribution européens de la même façon que l’implémentation de la stratégie DNS dans le États-Unis, avec le trafic d’application distribué entre les serveurs Web qui se trouvent dans Dublin, Irlande, Amsterdam, Hollande et ailleurs.
 
 Les administrateurs DNS veulent également que toutes les requêtes d’autres emplacements dans le monde soient distribuées de manière égale entre tous leurs centres de centres.
 
@@ -45,7 +45,7 @@ Les sections suivantes vous montrent comment configurer la stratégie DNS pour l
 >[!IMPORTANT]
 >Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs pour de nombreux paramètres. Veillez à remplacer les valeurs d’exemple dans ces commandes par des valeurs appropriées pour votre déploiement avant d’exécuter ces commandes.
 
-### <a name="bkmk_clientsubnets"></a>Créer les sous-réseaux du client DNS
+### <a name="create-the-dns-client-subnets"></a><a name="bkmk_clientsubnets"></a>Créer les sous-réseaux du client DNS
 
 Vous devez d’abord identifier les sous-réseaux ou l’espace d’adressage IP des régions Amérique du Nord et Europe.
 
@@ -61,7 +61,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
     
 Pour plus d’informations, consultez [Add-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
-### <a name="bkmk_zscopes2"></a>Créer les étendues de zone
+### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes2"></a>Créer les étendues de zone
 
 Une fois les sous-réseaux clients en place, vous devez partitionner les contosogiftservices.com de zone dans différentes étendues de zone, chacune pour un centre de centres.
 
@@ -85,11 +85,11 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
 
 Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-### <a name="bkmk_records2"></a>Ajouter des enregistrements aux étendues de zone
+### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records2"></a>Ajouter des enregistrements aux étendues de zone
 
 À présent, vous devez ajouter les enregistrements qui représentent l’hôte du serveur Web dans les étendues de la zone.
 
-Les enregistrements pour les centres de données d’États-Unis d’Amérique ont été ajoutés dans le scénario précédent. Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des enregistrements aux étendues de zone pour les centres de données européens.
+Les enregistrements pour les centres de données d’Amérique ont été ajoutés dans le scénario précédent. Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des enregistrements aux étendues de zone pour les centres de données européens.
  
     
     Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "151.1.0.1" -ZoneScope "DublinZoneScope”
@@ -98,7 +98,7 @@ Les enregistrements pour les centres de données d’États-Unis d’Amérique o
 
 Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-### <a name="bkmk_policies2"></a>Créer les stratégies DNS
+### <a name="create-the-dns-policies"></a><a name="bkmk_policies2"></a>Créer les stratégies DNS
 
 Une fois que vous avez créé les partitions (étendues de zone) et que vous avez ajouté des enregistrements, vous devez créer des stratégies DNS qui distribuent les requêtes entrantes sur ces étendues.
 

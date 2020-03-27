@@ -7,18 +7,18 @@ ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: e9a8f2fd-48fe-4a90-9250-f6b32488b7a4
 ms.author: grcusanz
-author: shortpatti
+author: eross-msft
 ms.date: 08/27/2018
-ms.openlocfilehash: 7f385e094ca70027d1b036bf53af23c1fc4a1bd1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fbb173224797d32bd05fbdadb1bf4cefdc475cb6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406058"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317607"
 ---
 # <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>Mettre à niveau, sauvegarder et restaurer l’infrastructure SDN
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, vous allez apprendre à mettre à jour, sauvegarder et restaurer une infrastructure SDN. 
 
@@ -43,7 +43,7 @@ Lorsque vous mettez à jour chaque composant, vous pouvez utiliser l’une des m
 
 2. Sur la première machine virtuelle du contrôleur de réseau, installez toutes les mises à jour et redémarrez.
 
-3. Avant de passer à la machine virtuelle du contrôleur de réseau `get-networkcontrollernode` suivante, utilisez l’applet de commande pour vérifier l’état du nœud que vous avez mis à jour et redémarré.
+3. Avant de passer à la machine virtuelle du contrôleur de réseau suivante, utilisez l’applet de commande `get-networkcontrollernode` pour vérifier l’état du nœud que vous avez mis à jour et redémarré.
 
 4. Pendant le cycle de redémarrage, attendez que le nœud du contrôleur de réseau s’affiche, puis revenez en arrière.<p>Après le redémarrage de la machine virtuelle, plusieurs minutes peuvent être nécessaires avant de revenir à l’état **_d’avancement._** Pour obtenir un exemple de la sortie, consultez. 
 
@@ -64,9 +64,9 @@ Lorsque vous mettez à jour chaque composant, vous pouvez utiliser l’une des m
     f. Répétez cette opération pour chaque hôte supplémentaire contenant une passerelle de secours.<p>Si aucune passerelle de secours n’est conservée, suivez les mêmes étapes pour tous les hôtes restants.
 
 
-### <a name="example-use-the-get-networkcontrollernode-cmdlet"></a>Exemple : Utiliser l’applet de commande networkcontrollernode 
+### <a name="example-use-the-get-networkcontrollernode-cmdlet"></a>Exemple : utiliser l’applet de commande networkcontrollernode 
 
-Dans cet exemple, vous voyez la sortie de l' `get-networkcontrollernode` applet de commande exécutée à partir de l’une des machines virtuelles du contrôleur de réseau.  
+Dans cet exemple, vous voyez la sortie de l’applet de commande `get-networkcontrollernode` exécuter à partir de l’une des machines virtuelles du contrôleur de réseau.  
 
 L’état des nœuds que vous voyez dans l’exemple de sortie est le suivant :
 
@@ -80,7 +80,7 @@ L’état des nœuds que vous voyez dans l’exemple de sortie est le suivant :
 Une fois que vous avez mis à jour tous les nœuds du contrôleur de réseau, le contrôleur de réseau met à jour les microservices qui s’exécutent au sein du cluster de contrôleur de réseau dans l’heure qui s’est écoulée. 
 
 >[!TIP]
->Vous pouvez déclencher une mise à jour immédiate `update-networkcontroller` à l’aide de l’applet de commande.
+>Vous pouvez déclencher une mise à jour immédiate à l’aide de l’applet de commande `update-networkcontroller`.
 
 
 ```Powershell
@@ -107,8 +107,8 @@ NodeCertificate :
 Status          : Up
 ```
 
-### <a name="example-use-the-update-networkcontroller-cmdlet"></a>Exemple : Utiliser l’applet de commande Update-networkcontroller
-Dans cet exemple, vous voyez la sortie de l' `update-networkcontroller` applet de commande pour forcer la mise à jour du contrôleur de réseau. 
+### <a name="example-use-the-update-networkcontroller-cmdlet"></a>Exemple : utiliser l’applet de commande Update-networkcontroller
+Dans cet exemple, vous voyez la sortie de l’applet de commande `update-networkcontroller` pour forcer la mise à jour du contrôleur de réseau. 
 
 >[!IMPORTANT]
 >Exécutez cette applet de commande lorsque vous n’avez plus de mises à jour à installer.
@@ -125,7 +125,7 @@ NetworkControllerClusterVersion NetworkControllerVersion
 
 Les sauvegardes régulières de la base de données du contrôleur de réseau assurent la continuité des activités en cas de sinistre ou de perte de données.  La sauvegarde des machines virtuelles du contrôleur de réseau n’est pas suffisante, car elle ne garantit pas que la session continue sur les différents nœuds du contrôleur de réseau.
 
-**Exigences**
+**Conditions requises :**
 * Un partage SMB et des informations d’identification avec des autorisations de lecture/écriture sur le partage et le système de fichiers.
 * Vous pouvez éventuellement utiliser un compte de service administré de groupe (GMSA) si le contrôleur de réseau a été installé à l’aide d’un GMSA également.
 
@@ -138,15 +138,15 @@ Les sauvegardes régulières de la base de données du contrôleur de réseau as
    >[!IMPORTANT]
    >Ne redémarrez pas le service SCVMM tant que la sauvegarde du contrôleur de réseau n’est pas terminée.
 
-3. Sauvegardez la base de données du `new-networkcontrollerbackup` contrôleur de réseau avec l’applet de commande.
+3. Sauvegardez la base de données du contrôleur de réseau à l’aide de l’applet de commande `new-networkcontrollerbackup`.
 
-4. Vérifiez l’achèvement et la réussite de la sauvegarde avec `get-networkcontrollerbackup` l’applet de commande.
+4. Vérifiez l’achèvement et la réussite de la sauvegarde avec l’applet de commande `get-networkcontrollerbackup`.
 
 5. Si vous utilisez SCVMM, démarrez le service SCVMM.
 
 
 
-### <a name="example-backing-up-the-network-controller-database"></a>Exemple : Sauvegarde de la base de données du contrôleur de réseau
+### <a name="example-backing-up-the-network-controller-database"></a>Exemple : sauvegarde de la base de données du contrôleur de réseau
 
 ```Powershell
 $URI = "https://NC.contoso.com"
@@ -177,7 +177,7 @@ $BackupProperties.Credential = $ShareCredential
 $Backup = New-NetworkControllerBackup -ConnectionURI $URI -Credential $Credential -Properties $BackupProperties -ResourceId $BackupTime -Force
 ```
 
-### <a name="example-checking-the-status-of-a-network-controller-backup-operation"></a>Exemple : Vérification de l’état d’une opération de sauvegarde de contrôleur de réseau
+### <a name="example-checking-the-status-of-a-network-controller-backup-operation"></a>Exemple : vérification de l’état d’une opération de sauvegarde d’un contrôleur de réseau
 
 ```Powershell
 PS C:\ > Get-NetworkControllerBackup -ConnectionUri $URI -Credential $Credential -ResourceId $Backup.ResourceId
@@ -286,7 +286,7 @@ Lorsque vous restaurez tous les composants nécessaires à partir de la sauvegar
 
 5. Arrêtez les machines virtuelles MUX SLB.
 
-6. Restaurez le contrôleur de réseau `new-networkcontrollerrestore` à l’aide de l’applet de commande.
+6. Restaurez le contrôleur de réseau à l’aide de l’applet de commande `new-networkcontrollerrestore`.
 
 7. Vérifiez le **ProvisioningState** de restauration pour savoir quand la restauration s’est terminée avec succès.
 
@@ -309,7 +309,7 @@ Fetching ResourceType:     loadbalancerMuxes
 Fetching ResourceType:     Gateways
 ```
 
-### <a name="example-restoring-a-network-controller-database"></a>Exemple : Restauration d’une base de données de contrôleur de réseau
+### <a name="example-restoring-a-network-controller-database"></a>Exemple : restauration d’une base de données de contrôleur de réseau
  
 ```Powershell
 $URI = "https://NC.contoso.com"
@@ -326,7 +326,7 @@ $RestoreTime = (Get-Date).ToString("s").Replace(":", "_")
 New-NetworkControllerRestore -ConnectionURI $URI -Credential $Credential -Properties $RestoreProperties -ResourceId $RestoreTime -Force
 ```
 
-### <a name="example-checking-the-status-of-a-network-controller-database-restore"></a>Exemple : Vérification de l’état d’une restauration de base de données de contrôleur de réseau
+### <a name="example-checking-the-status-of-a-network-controller-database-restore"></a>Exemple : vérification de l’état d’une restauration de base de données de contrôleur de réseau
 
 ```PowerShell
 PS C:\ > get-networkcontrollerrestore -connectionuri $uri -credential $cred -ResourceId $restoreTime | convertto-json -depth 10

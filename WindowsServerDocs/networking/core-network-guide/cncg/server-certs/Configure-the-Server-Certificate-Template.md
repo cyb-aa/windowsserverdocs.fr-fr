@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 8ff610e2-43ca-407f-a828-06d9366e02f0
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 35d5875c78dcd92f3b40b919568dabcf0d45d673
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fc4ba05466c2d87e6d6e9f7c0d5cee1bb405c79a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356758"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318390"
 ---
 # <a name="configure-the-server-certificate-template"></a>Configurer le modèle de certificat de serveur
 
@@ -42,7 +42,7 @@ Pour être autorisé à effectuer cette procédure, vous devez faire partie du g
   
 5.  Cliquez sur le menu **action** , puis sur **dupliquer le modèle**. La boîte de dialogue **Propriétés** du modèle s’ouvre.  
   
-6.  Cliquez sur l’onglet **Sécurité** .   
+6.  Cliquez sur l'onglet **Security**.   
   
 7.  Sous l’onglet **sécurité** , sous **noms de groupes ou d’utilisateurs**, cliquez sur **serveurs RAS et IAS**.  
   

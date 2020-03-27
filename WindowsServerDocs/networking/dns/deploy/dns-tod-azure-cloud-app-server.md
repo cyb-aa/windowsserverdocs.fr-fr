@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 4846b548-8fbc-4a7f-af13-09e834acdec0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4307ce1512980277af819e0710e0447d8dbac8c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: be0604a850e54f4945e7416298fad30ce3dbf083
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406196"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317847"
 ---
 # <a name="dns-responses-based-on-time-of-day-with-an-azure-cloud-app-server"></a>Réponses DNS basées sur l’heure du jour avec un serveur d’applications Azure Cloud
 
@@ -57,7 +57,7 @@ L’illustration suivante représente ce scénario.
  
 Cet article explique comment configurer le serveur DNS pour répondre aux requêtes DNS avec deux adresses IP de serveur d’applications différentes : un serveur Web se trouve à Seattle et l’autre dans un centre de informations Azure.
 
-Après la configuration d’une nouvelle stratégie DNS qui est basée sur les heures de pointe de 6 h à 9 h 00 à Seattle, le serveur DNS envoie 70% des réponses DNS aux clients contenant l’adresse IP du serveur Web de Seattle, et trente par cent des réponses DNS à client NTS contenant l’adresse IP du serveur Web Azure, ce qui permet de diriger le trafic client vers le nouveau serveur Web Azure et d’empêcher le serveur Web de Seattle de devenir surchargé. 
+Après la configuration d’une nouvelle stratégie DNS qui est basée sur les heures de pointe de 6 h à 9 h 00 à Seattle, le serveur DNS envoie 70% des réponses DNS aux clients contenant l’adresse IP du serveur Web de Seattle, et trente par cent des réponses DNS aux clients. contenant l’adresse IP du serveur Web Azure, ce qui permet de diriger le trafic client vers le nouveau serveur Web Azure et d’empêcher le serveur Web de Seattle de devenir surchargé. 
 
 À tous les autres moments de la journée, le traitement normal des requêtes a lieu et les réponses sont envoyées à partir de l’étendue de la zone par défaut qui contient un enregistrement pour le serveur Web dans le centre de centres local. 
 

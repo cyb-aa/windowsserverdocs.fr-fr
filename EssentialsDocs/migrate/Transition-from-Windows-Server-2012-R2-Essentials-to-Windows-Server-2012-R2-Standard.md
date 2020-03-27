@@ -3,7 +3,7 @@ title: Transition de Windows Server Essentials vers Windows Server 2012 R2 Stand
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,64 +12,64 @@ ms.assetid: a14689e3-2310-4229-bd3e-dafc0e739e02
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ca36533af169c899865789f153960bf5f0dda684
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 74327b651e76f7a5bbfda2d437b29202f43a90f3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432550"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318695"
 ---
 # <a name="transition-from-windows-server-essentials-to-windows-server-2012-r2-standard"></a>Transition de Windows Server Essentials vers Windows Server 2012 R2 Standard
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Windows Server 2016 est le système d’exploitation prêt pour le cloud qui prend en charge de vos charges de travail actuelles tout en introduisant de nouvelles technologies qui facilitent la transition vers le cloud computing. Contenu de Windows Server 2016 vous aide à vous préparer.
+Windows Server 2016 est le système d’exploitation Cloud qui prend en charge vos charges de travail actuelles tout en introduisant de nouvelles technologies qui facilitent la transition vers cloud computing. Le contenu de Windows Server 2016 vous aide à vous préparer.
 
- Windows Server Essentials prend en charge jusqu'à 25 utilisateurs et 50 appareils. Lorsque les besoins de votre entreprise dépassent la limite, vous pouvez effectuer une transition de licence de place de Windows Server Essentials vers Windows Server 2012 R2 Standard restent la conformité des licences.  
+ Windows Server Essentials prend en charge jusqu’à 25 utilisateurs et 50 appareils. Lorsque les besoins de votre entreprise dépassent la limite, vous pouvez effectuer une transition de licence sur place de Windows Server Essentials vers Windows Server 2012 R2 Standard pour rester conforme à la licence.  
   
- Une fois la transition vers Windows Server 2012 R2 Standard, les limites de compte et les appareils des utilisateurs sont supprimés, mais les fonctionnalités qui sont propres à Windows Server Essentials (tels que le tableau de bord, accès Web à distance et sauvegarde de l’ordinateur client) est toujours disponibles. Toutefois, les limitations techniques de ces fonctionnalités prennent en charge un nombre maximal de 100 comptes d’utilisateurs et de 200 appareils. La fonctionnalité de sauvegarde de l'ordinateur client prendra en charge la sauvegarde de 75 appareils au plus.  
+ Une fois que vous avez effectué la transition vers Windows Server 2012 R2 Standard, les limites du compte d’utilisateur et des appareils sont supprimées, mais les fonctionnalités propres à Windows Server Essentials (telles que le tableau de bord, les Accès web à distance et la sauvegarde des ordinateurs clients) restent disponibles. Toutefois, les limitations techniques de ces fonctionnalités prennent en charge un nombre maximal de 100 comptes d’utilisateurs et de 200 appareils. La fonctionnalité de sauvegarde de l'ordinateur client prendra en charge la sauvegarde de 75 appareils au plus.  
   
 > [!IMPORTANT]
->   Windows Server 2012 R2 Standard requiert une licence d’accès client (CAL) pour chaque utilisateur ou appareil dans votre environnement. Cela est différent de Windows Server Essentials, qui n’utilise pas le modèle de licence d’accès client et ne sont pas fournies avec des licences d’accès client. Lors de la transition à partir de Windows Server Essentials vers Windows Server 2012 R2 Standard, vous devrez acheter le nombre approprié et le type de CAL pour votre environnement (la plupart des clients achètent des licences d’accès client utilisateur).  
+>   Windows Server 2012 R2 Standard nécessite une licence d’accès client (CAL) pour chaque utilisateur ou périphérique de votre environnement. Cela diffère de Windows Server Essentials, qui n’utilise pas le modèle de licence d’accès client et n’est fourni avec aucune licence d’accès client. Lors de la transition de Windows Server Essentials vers Windows Server 2012 R2 Standard, vous devez acheter le nombre et le type appropriés de licences d’accès client pour votre environnement (la plupart des clients achètent des CAL utilisateur).  
   
 ## <a name="before-the-transition"></a>Avant la transition  
   
--   Avant la transition de Windows Server Essentials vers Windows Server 2012 R2 Standard, vous devez effectuer une sauvegarde complète des données du serveur.  
+-   Avant de passer de Windows Server Essentials à Windows Server 2012 R2 Standard, vous devez sauvegarder entièrement les données du serveur.  
   
     > [!IMPORTANT]
     >  Sans une sauvegarde complète du serveur, vous ne pouvez pas rétablir l’état du serveur avant la transition.  
   
--   En outre, assurez-vous que vous lirez et comprenez le contrat de licence utilisateur final (CLUF) pour Windows Server 2012 R2 Standard. Pour afficher le CLUF :  
+-   En outre, assurez-vous de lire et de comprendre le contrat de licence utilisateur final (CLUF) pour Windows Server 2012 R2 Standard. Pour afficher le CLUF :  
   
-    1.  Ouvrez une fenêtre de commandes en tant qu’administrateur.  
+    1.  Ouvrez une fenêtre de commande comme administrateur.  
   
     2.  Exécutez la commande suivante :  
   
-         **DISM / en ligne/set-edition : ServerStandard /geteula :** *chemin CLUF* (où *chemin CLUF* représente l’emplacement auquel vous souhaitez enregistrer le fichier CLUF, par exemple : C:\ws8std_eula.rtf). Utilisez bien .rtf comme extension de nom de fichier.  
+         **DISM/Online/Set-Edition : ServerStandard/geteula :** *EULA Path* (où *EULA Path* représente l’emplacement où vous souhaitez enregistrer le fichier eula, par exemple : c:\ ws8std_eula. rtf). Utilisez bien .rtf comme extension de nom de fichier.  
   
     3.  Ouvrez l’emplacement où vous avez enregistré le fichier, puis double-cliquez sur le fichier pour l’ouvrir.  
   
-## <a name="transition-to--windows-server-2012-r2-standard"></a>Transition vers Windows Server 2012 R2 Standard  
- Une fois que vous avez décidé d’effectuer une transition entre Windows Server Essentials vers Windows Server 2012 R2 Standard, complète ces deux étapes :  
+## <a name="transition-to--windows-server-2012-r2-standard"></a>Passage à Windows Server 2012 R2 Standard  
+ Une fois que vous avez décidé d’effectuer la transition de Windows Server Essentials vers Windows Server 2012 R2 Standard, effectuez les deux étapes suivantes :  
   
-1. Achetez une licence Windows Server 2012 R2 Standard et le nombre approprié de l’utilisateur et/ou les licences d’accès client périphérique pour votre environnement.  
+1. Achetez une licence pour Windows Server 2012 R2 Standard et le nombre approprié de licences d’accès client d’utilisateur et/ou de périphérique pour votre environnement.  
   
-    Vous pouvez acheter une licence pour Windows Server 2012 R2 Standard à partir d’un détaillant, un serveur de distribution, ou à l’aide d’un [Microsoft Partner](https://pinpoint.microsoft.com/SelectCulture.aspx).  
+    Vous pouvez acheter une licence pour Windows Server 2012 R2 Standard auprès d’un détaillant ou d’un distributeur, ou à l’aide d’un [partenaire Microsoft](https://pinpoint.microsoft.com/SelectCulture.aspx).  
   
    > [!NOTE]
-   >  Si vous avez initialement acheté Windows Server 2012 R2 Standard et exercé vos droits à une version antérieure pour installer l’une de vos deux instances virtuelles en tant que Windows Server Essentials, il est inutile d’acheter d’autres.  
+   >  Si vous avez déjà acheté Windows Server 2012 R2 Standard et que vous avez testé vos droits de rétrogradation pour installer l’une de vos deux instances virtuelles en tant que Windows Server Essentials, vous n’avez rien à acheter.  
    >   
-   >  Si vous achetez Windows Server 2012 R2 Standard via le canal de licence en Volume, vous pouvez télécharger une image ISO et une clé de produit pour Windows Server 2012 R2 Standard à partir de Volume Licensing Service Center (VLSC).  
+   >  Si vous achetez Windows Server 2012 R2 standard par le biais du canal de licence en volume, vous pouvez télécharger une image ISO et une clé de produit pour Windows Server 2012 R2 standard à partir du centre de gestion des licences en volume (VLSC).  
    >   
-   >  Si vous achetez Windows Server 2012 R2 Standard à partir de n’importe quel autre canal, vous pouvez télécharger une image ISO et une clé de produit d’évaluation pour Windows Server Essentials à partir de la [centre d’évaluation TechNet](https://technet.microsoft.com/evalcenter/jj659306.aspx). La réalisation de la transition comme décrit à l’étape suivante convertit le produit d’évaluation en un produit entièrement sous licence et pris en charge.  
+   >  Si vous achetez Windows Server 2012 R2 standard à partir de n’importe quel autre canal, vous pouvez télécharger une image ISO et une clé de produit d’évaluation pour Windows Server Essentials à partir du [Centre d’évaluation TechNet](https://technet.microsoft.com/evalcenter/jj659306.aspx). La réalisation de la transition comme décrit à l’étape suivante convertit le produit d’évaluation en un produit entièrement sous licence et pris en charge.  
   
 2. Ouvrez Windows PowerShell en tant qu'administrateur, puis exécutez la commande suivante :  
   
-    **dism /online /set-edition:ServerStandard /accepteula /productkey:** *Clé de produit* (où *clé de produit* est la clé de produit pour votre copie de Windows Server 2012 R2 Standard).  
+    **DISM/Online/Set-Edition : ServerStandard/AcceptEULA/ProductKey :** *clé* de produit (où *clé de produit* est la clé de produit de votre copie de Windows Server 2012 R2 Standard).  
   
     Le serveur redémarre pour terminer le processus de transition.  
   
-   Après la transition, les fonctionnalités de Windows Server Essentials restent sur le serveur et sont prises en charge jusqu'à 100 utilisateurs et 200 appareils.  
+   Après la transition, les fonctionnalités de Windows Server Essentials restent sur le serveur et sont prises en charge pour jusqu’à 100 utilisateurs et 200 appareils.  
   
 ## <a name="see-also"></a>Voir aussi  
   

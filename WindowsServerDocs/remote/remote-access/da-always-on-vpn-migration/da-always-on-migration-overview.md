@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/29/2018
-ms.openlocfilehash: d3ea6f0e29803b8a709f31811f77678bf03201a8
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: bd4d0d4d3b165a4e89a00cd2975ace20687aed7d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822576"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314984"
 ---
 # <a name="overview-of-the-directaccess-to-always-on-vpn-migration"></a>Vue d'ensemble de la migration de DirectAccess vers VPN Toujours actif (AlwaysOn) 
 

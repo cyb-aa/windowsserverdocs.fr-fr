@@ -10,18 +10,18 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 67576533-206b-428a-956c-ed8c53218d9b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9562972f731a553dbc3e5558fcce1d5c51d539d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 141057d2ee3e648f589d255ea04fdef179cedf3c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405882"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317035"
 ---
 # <a name="datacenter-firewall-overview"></a>Présentation du pare-feu de centre de données
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Le pare-feu de centre de centres est un nouveau service inclus avec Windows Server 2016. Il s’agit d’une couche réseau, 5-Tuple (protocole, numéros de port source et de destination, adresses IP source et de destination), pare-feu avec état et multi-locataire. Une fois déployé et proposé en tant que service par le fournisseur de services, les administrateurs clients peuvent installer et configurer des stratégies de pare-feu pour protéger leurs réseaux virtuels contre le trafic indésirable provenant des réseaux Internet et intranet.  
   

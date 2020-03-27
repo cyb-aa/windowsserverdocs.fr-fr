@@ -3,7 +3,7 @@ title: Résoudre les problèmes d’analyse de l’ordinateur dans Windows Serve
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,27 +12,27 @@ ms.assetid: f1e6b377-4a24-4d28-9b25-05910914826b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1adf8ae2dd8763d0bc5a514609bb2470de6acde4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 968c8c82bfde350e631f1f6ae4830a4fd920aa4b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436072"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318606"
 ---
 # <a name="troubleshoot-computer-monitoring-in-windows-server-essentials"></a>Résoudre les problèmes d’analyse de l’ordinateur dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Cette rubrique fournit des solutions aux problèmes rencontrés pendant la surveillance de l’état d’intégrité des ordinateurs dans l’Afficheur des alertes et via les notifications par courrier électronique dans Windows Server Essentials.  
+Cette rubrique fournit des conseils pour résoudre les problèmes rencontrés lors de la surveillance de l’état d’intégrité des ordinateurs dans l’afficheur des alertes et via les notifications par courrier électronique dans Windows Server Essentials.  
   
 > [!NOTE]
->  Pour les informations de dépannage plus récente à partir de la Communauté Windows Server Essentials, nous vous suggérons de visiter le [Forum Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Le forum Windows Server Essentials est le lieu idéal pour rechercher de l'aide ou pour poser une question.  
+>  Pour obtenir les informations les plus récentes sur la résolution des problèmes de la communauté Windows Server Essentials, nous vous suggérons de visiter le [Forum Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Le forum Windows Server Essentials est le lieu idéal pour rechercher de l'aide ou pour poser une question.  
   
-##  <a name="BKMK_TS"></a> Dépannage des notifications par courrier électronique pour les alertes  
+##  <a name="troubleshooting-email-notifications-for-alerts"></a><a name="BKMK_TS"></a>Dépannage des notifications par courrier électronique pour les alertes  
  Cette section répertorie les différents problèmes que vous pouvez rencontrer en utilisant les notifications par courrier électronique pour les alertes.  
   
 ### <a name="cannot-send-the-test-email-for-the-alert"></a>Impossible d'envoyer le message électronique de test pour l'alerte  
- **Problème** vous obtenez une erreur message indiquant que, Impossible d’envoyer le courrier électronique de test pour l’alerte.  
+ **Problème** Vous recevez un message d’erreur indiquant que ne peut pas envoyer le message électronique de test pour l’alerte.  
   
  **Cause** Cette erreur peut se produire en raison de l'un des problèmes suivants dans les paramètres de notifications d'alerte :  
   
@@ -53,7 +53,7 @@ Cette rubrique fournit des solutions aux problèmes rencontrés pendant la surve
      %ProgramData%\Microsoft\Windows Server\Logs\SharedServiceHost-AlertServiceConfig.log  
   
     > [!TIP]
-    >  Pour afficher le dossier ProgramData, les éléments masqués doivent être affichés. Si vous ne voyez pas le dossier ProgramData, dans le ruban **vue** sous l’onglet le **afficher/masquer** groupe, sélectionnez le **éléments masqués** zone de texte.  
+    >  Pour afficher le dossier ProgramData, les éléments masqués doivent être affichés. Si vous ne voyez pas le dossier ProgramData, sous l’onglet **affichage** du ruban, dans le groupe **Afficher/masquer** , sélectionnez la zone de texte **éléments masqués** .  
   
 ##### <a name="to-update-your-email-notification-setup-for-alerts"></a>Pour mettre à jour vos paramètres de notification par courrier électronique pour les alertes  
   

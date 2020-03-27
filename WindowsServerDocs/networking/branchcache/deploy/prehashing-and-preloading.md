@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 5a09d9f1-1049-447f-a9bf-74adf779af27
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1a0694ebe30c5a927fb2f1152adc792f8b0c9157
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 7fe43b3a7c8dc7906e678a219b67ed096aa951d4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356392"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319128"
 ---
 # <a name="prehashing-and-preloading-content-on-hosted-cache-servers-optional"></a>Hachage préalable et préchargement du contenu sur les serveurs de cache hébergé (facultatifs)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour forcer la création d’informations de contenu, également appelées hachages, sur des serveurs Web et de fichiers prenant en charge BranchCache. Vous pouvez également collecter les données sur des serveurs de fichiers et Web dans des packages qui peuvent être transférés vers des serveurs de cache hébergé à distance.  Cela vous permet de précharger du contenu sur des serveurs de cache hébergé à distance afin que les données soient disponibles pour le premier accès client.  
   

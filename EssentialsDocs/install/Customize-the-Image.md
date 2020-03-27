@@ -3,7 +3,7 @@ title: Personnalisation de l’image
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,35 +12,35 @@ ms.assetid: 9dc89e34-fd35-4fa9-8d2f-894bfb780a5f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 66c1b08653cccb5ecf7a0fd168906d1d0cd0184b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 047be39a485c598c6d21bcf95ae4b3a825cacb21
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814880"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311858"
 ---
 # <a name="customize-the-image"></a>Personnalisation de l’image
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Aidez-vous des informations proposées dans cette section pour personnaliser une image du système d’exploitation.  
   
- Cette section comprend les rubriques suivantes :  
+ Cette section contient les rubriques suivantes :  
   
--   [Ajouter des entrées pour le programme d’installation, des compléments, état rapide et liens d’aide](Add-Entries-to-SETUP--ADD-INS--QUICK-STATUS--and-HELP-Links.md)  
+-   [Ajout d’entrées pour les listes CONFIGURATION, COMPLÉMENTS, ÉTAT RAPIDE et des liens vers l’AIDE](Add-Entries-to-SETUP--ADD-INS--QUICK-STATUS--and-HELP-Links.md)  
   
--   [Ajouter des alertes d’intégrité](Add-Health-Alerts.md)  
+-   [Ajout d’alertes d’intégrité](Add-Health-Alerts.md)  
   
--   [Configurer la prise en charge pour un réseau sans fil](Configure-Support-for-a-Wireless-Network.md)  
+-   [Configuration du support pour un réseau sans fil](Configure-Support-for-a-Wireless-Network.md)  
   
--   [Personnaliser les Partitions de disque](Customize-Disk-Partitions.md)  
+-   [Personnalisation des partitions de disque](Customize-Disk-Partitions.md)  
   
--   [Personnaliser la sauvegarde du serveur](Customize-Server-Backup.md)  
+-   [Personnalisation de la sauvegarde du serveur](Customize-Server-Backup.md)  
   
 -   [Personnalisation des dossiers partagés](Customize-Shared-Folders.md)  
   
--   [Définir les paramètres d’affichage](Define-Display-Settings.md)  
+-   [Définition des paramètres d’affichage](Define-Display-Settings.md)  
   
--   [Installer des compléments](Install-Add-Ins.md)  
+-   [Installer les compléments](Install-Add-Ins.md)  
   
--   [Définition du Score WinSAT sur le serveur](Set-the-WinSAT-Score-on-the-Server.md)
+-   [Définition du score WinSAT sur le serveur](Set-the-WinSAT-Score-on-the-Server.md)

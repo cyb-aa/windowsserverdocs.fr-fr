@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9f611f61150508d9170a6fe6757844bc29759886
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 75da22fa4b1e59a7a666ee1a2c8f4e88cf7beeef
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950472"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317730"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Utiliser une stratégie DNS pour le déploiement du serveur DNS de fractionnement\-Brain
 
@@ -33,10 +33,10 @@ Cette rubrique contient les sections suivantes.
 - [Exemple de déploiement de fractionnement DNS](#bkmk_sbexample)
 - [Exemple de contrôle de récurrence sélective DNS](#bkmk_recursion)
 
-## <a name="bkmk_sbexample"></a>Exemple de déploiement de fractionnement DNS
+## <a name="example-of-dns-split-brain-deployment"></a><a name="bkmk_sbexample"></a>Exemple de déploiement de fractionnement DNS
 Vous trouverez ci-dessous un exemple de la façon dont vous pouvez utiliser la stratégie DNS pour accomplir le scénario décrit précédemment du DNS split-brain.
 
-Cette section contient les rubriques suivantes.
+Cette section contient les rubriques suivantes :
 
 - [Fonctionnement du déploiement de fractionnement DNS](#bkmk_sbhow)
 - [Comment configurer un déploiement de fractionnement DNS](#bkmk_sbconfigure)
@@ -57,7 +57,7 @@ L’illustration suivante représente ce scénario.
 ![Déploiement du DNS split-brain](../../media/DNS-Split-Brain/Dns-Split-Brain-01.jpg)  
 
 
-## <a name="bkmk_sbhow"></a>Fonctionnement du déploiement de fractionnement DNS
+## <a name="how-dns-split-brain-deployment-works"></a><a name="bkmk_sbhow"></a>Fonctionnement du déploiement de fractionnement DNS
 
 Lorsque le serveur DNS est configuré avec les stratégies DNS requises, chaque demande de résolution de nom est évaluée par rapport aux stratégies sur le serveur DNS.
 
@@ -67,7 +67,7 @@ Si l’interface de serveur sur laquelle la requête est reçue correspond à l�
 
 Ainsi, dans notre exemple, les requêtes DNS pour www.career.contoso.com reçues sur l’adresse IP privée (10.0.0.56) reçoivent une réponse DNS qui contient une adresse IP interne ; et les requêtes DNS reçues sur l’interface réseau publique reçoivent une réponse DNS qui contient l’adresse IP publique dans l’étendue de la zone par défaut (cela est identique à la résolution de requête normale).  
 
-## <a name="bkmk_sbconfigure"></a>Comment configurer un déploiement de fractionnement DNS
+## <a name="how-to-configure-dns-split-brain-deployment"></a><a name="bkmk_sbconfigure"></a>Comment configurer un déploiement de fractionnement DNS
 Pour configurer le déploiement de Split-Brain DNS à l’aide d’une stratégie DNS, vous devez suivre les étapes ci-dessous.
 
 - [Créer les étendues de zone](#bkmk_zscopes)  
@@ -79,7 +79,7 @@ Les sections suivantes fournissent des instructions de configuration détaillée
 >[!IMPORTANT]
 >Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs pour de nombreux paramètres. Veillez à remplacer les valeurs d’exemple dans ces commandes par des valeurs appropriées pour votre déploiement avant d’exécuter ces commandes. 
 
-### <a name="bkmk_zscopes"></a>Créer les étendues de zone
+### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes"></a>Créer les étendues de zone
 
 Une étendue de zone est une instance unique de la zone. Une zone DNS peut avoir plusieurs étendues de zone, chaque étendue contenant son propre ensemble d’enregistrements DNS. Le même enregistrement peut être présent dans plusieurs étendues, avec des adresses IP différentes ou les mêmes adresses IP. 
 
@@ -92,7 +92,7 @@ Vous pouvez utiliser l’exemple de commande suivant pour partitionner l’éten
 
 Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-### <a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone
+### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone
 
 L’étape suivante consiste à ajouter les enregistrements qui représentent l’hôte du serveur Web dans les deux étendues de zone : interne et par défaut (pour les clients externes). 
 
@@ -109,7 +109,7 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 
 Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-### <a name="bkmk_policies"></a>Créer les stratégies DNS
+### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Créer les stratégies DNS
 
 Une fois que vous avez identifié les interfaces de serveur pour le réseau externe et le réseau interne et que vous avez créé les étendues de zone, vous devez créer des stratégies DNS qui connectent les étendues de zone interne et externe.
 
@@ -128,11 +128,11 @@ Dans l’exemple de commande suivant, 10.0.0.56 est l’adresse IP sur l’inter
 Pour plus d’informations, consultez [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
 
 
-## <a name="bkmk_recursion"></a>Exemple de contrôle de récurrence sélective DNS
+## <a name="example-of-dns-selective-recursion-control"></a><a name="bkmk_recursion"></a>Exemple de contrôle de récurrence sélective DNS
 
 Voici un exemple de la façon dont vous pouvez utiliser la stratégie DNS pour accomplir le scénario décrit précédemment du contrôle de récurrence sélective DNS.
 
-Cette section contient les rubriques suivantes.
+Cette section contient les rubriques suivantes :
 
 - [Fonctionnement du contrôle de récurrence sélective DNS](#bkmk_recursionhow)
 - [Comment configurer le contrôle de récurrence sélective DNS](#bkmk_recursionconfigure)
@@ -154,7 +154,7 @@ L’illustration suivante représente ce scénario.
 ![Contrôle de récurrence sélective](../../media/DNS-Split-Brain/Dns-Split-Brain-02.jpg) 
 
 
-### <a name="bkmk_recursionhow"></a>Fonctionnement du contrôle de récurrence sélective DNS
+### <a name="how-dns-selective-recursion-control-works"></a><a name="bkmk_recursionhow"></a>Fonctionnement du contrôle de récurrence sélective DNS
 
 Si une requête pour laquelle le serveur DNS contoso ne fait pas autorité est reçue, par exemple pour https://www.microsoft.com, la demande de résolution de nom est évaluée par rapport aux stratégies sur le serveur DNS. 
 
@@ -168,14 +168,14 @@ Si la requête est reçue sur l’interface externe, aucune stratégie DNS ne co
 
 Cela empêche le serveur d’agir comme un programme de résolution ouvert pour les clients externes, alors qu’il agit comme un programme de résolution de mise en cache pour les clients internes. 
 
-### <a name="bkmk_recursionconfigure"></a>Comment configurer le contrôle de récurrence sélective DNS
+### <a name="how-to-configure-dns-selective-recursion-control"></a><a name="bkmk_recursionconfigure"></a>Comment configurer le contrôle de récurrence sélective DNS
 
 Pour configurer le contrôle de récurrence sélective DNS à l’aide de la stratégie DNS, vous devez suivre les étapes ci-dessous.
 
 - [Créer des étendues de récursivité DNS](#bkmk_recscopes)
 - [Créer des stratégies de récursivité DNS](#bkmk_recpolicy)
 
-#### <a name="bkmk_recscopes"></a>Créer des étendues de récursivité DNS
+#### <a name="create-dns-recursion-scopes"></a><a name="bkmk_recscopes"></a>Créer des étendues de récursivité DNS
 
 Les étendues de récurrence sont des instances uniques d’un groupe de paramètres qui contrôlent la récursivité sur un serveur DNS. Une étendue de récurrence contient une liste de redirecteurs et spécifie si la récursivité est activée. Un serveur DNS peut avoir de nombreuses étendues de récursivité. 
 
@@ -190,7 +190,7 @@ Dans cet exemple, le paramètre de récurrence par défaut est désactivé, tand
 
 Pour plus d’informations, consultez [Add-DnsServerRecursionScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverrecursionscope?view=win10-ps)
 
-#### <a name="bkmk_recpolicy"></a>Créer des stratégies de récursivité DNS
+#### <a name="create-dns-recursion-policies"></a><a name="bkmk_recpolicy"></a>Créer des stratégies de récursivité DNS
 
 Vous pouvez créer des stratégies de récurrence du serveur DNS pour choisir une étendue de récurrence pour un ensemble de requêtes qui correspondent à des critères spécifiques. 
 

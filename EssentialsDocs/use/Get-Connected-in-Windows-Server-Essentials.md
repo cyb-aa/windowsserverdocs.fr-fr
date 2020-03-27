@@ -3,7 +3,7 @@ title: Connexion dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 05/07/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 149a5d34-43b7-4b9e-99e7-9f2294ab9ddb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 04d09574046474da5bee4437628ade9646cf58ca
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 14acbff8b538224546884e5bb51c40a22b8849b4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322121"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318553"
 ---
 # <a name="get-connected-in-windows-server-essentials"></a>Connexion dans Windows Server Essentials
 
@@ -41,7 +41,7 @@ ms.locfileid: "79322121"
 -   [Utiliser Launchpad](Get-Connected-in-Windows-Server-Essentials.md#BKMK_C)  
 
 
-##  <a name="BKMK_A"></a>Préparer la connexion des ordinateurs au serveur  
+##  <a name="prepare-to-connect-computers-to-the-server"></a><a name="BKMK_A"></a>Préparer la connexion des ordinateurs au serveur  
  Cette section décrit le logiciel Connecteur, les systèmes d'exploitation pris en charge par Windows Server Essentials, les conditions préalables à remplir avant de connecter vos ordinateurs au serveur, ainsi que les changements apportés par le serveur aux ordinateurs quand vous exécutez le logiciel Connecteur.  
 
 
@@ -61,7 +61,7 @@ ms.locfileid: "79322121"
 
 -   [Supprimer un ordinateur d’un domaine Windows](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8)  
 
-###  <a name="BKMK_1"></a>Présentation du logiciel connecteur  
+###  <a name="connector-software-overview"></a><a name="BKMK_1"></a>Présentation du logiciel connecteur  
  Le logiciel Connecteur du système d'exploitation Windows Server Essentials connecte les ordinateurs de votre réseau au serveur Windows Server Essentials. Quand vous connectez des ordinateurs au serveur, le logiciel Connecteur vous permet de sauvegarder automatiquement les ordinateurs et de surveiller leur intégrité. Le logiciel Connecteur vous permet également de configurer et d'administrer à distance le serveur Windows Server Essentials. Le logiciel Connecteur est installé quand vous connectez un ordinateur client au serveur. Pour obtenir des instructions détaillées sur la connexion des ordinateurs clients au serveur Windows Server Essentials, consultez [Connecter des ordinateurs au serveur](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9), plus loin dans cette rubrique.  
 
 -   [Présentation du logiciel connecteur](Get-Connected-in-Windows-Server-Essentials.md#BKMK_1)  
@@ -80,11 +80,11 @@ ms.locfileid: "79322121"
 
 -   [Supprimer un ordinateur d’un domaine Windows](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8)  
 
-###  <a name="BKMK_1"></a>Présentation du logiciel connecteur  
+###  <a name="connector-software-overview"></a><a name="BKMK_1"></a>Présentation du logiciel connecteur  
  Le logiciel Connecteur du système d'exploitation Windows Server Essentials connecte les ordinateurs de votre réseau au serveur Windows Server Essentials. Quand vous connectez des ordinateurs au serveur, le logiciel Connecteur vous permet de sauvegarder automatiquement les ordinateurs et de surveiller leur intégrité. Le logiciel Connecteur vous permet également de configurer et d'administrer à distance le serveur Windows Server Essentials. Le logiciel Connecteur est installé quand vous connectez un ordinateur client au serveur. Pour obtenir des instructions détaillées sur la connexion des ordinateurs clients au serveur Windows Server Essentials, consultez [Connecter des ordinateurs au serveur](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9), plus loin dans cette rubrique.  
 
 
-###  <a name="BKMK_2"></a>Conditions préalables à la connexion d’un ordinateur au serveur  
+###  <a name="prerequisites-for-connecting-a-computer-to-the-server"></a><a name="BKMK_2"></a>Conditions préalables à la connexion d’un ordinateur au serveur  
  Vous devez remplir les conditions requises suivantes pour pouvoir connecter un ordinateur au réseau :  
 
 -   L'installation de Windows Server Essentials est finie, et le serveur est en cours d'exécution. Le logiciel Connecteur quitte son programme d'installation, s'il ne peut pas communiquer avec le serveur.  
@@ -130,7 +130,7 @@ ms.locfileid: "79322121"
  Pour obtenir des instructions pas à pas sur la connexion d'un ordinateur au serveur exécutant Windows Server Essentials, consultez [Connecter des ordinateurs au serveur](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
-###  <a name="BKMK_3"></a>Conditions préalables à la connexion d’un ordinateur Mac au réseau  
+###  <a name="prerequisites-for-connecting-a-mac-computer-to-the-network"></a><a name="BKMK_3"></a>Conditions préalables à la connexion d’un ordinateur Mac au réseau  
  Vous devez remplir les conditions requises suivantes pour pouvoir connecter un ordinateur Mac au réseau :  
 
 -   L'installation du système d'exploitation serveur est finie, et le serveur est en cours d'exécution. Le logiciel Connecteur ne s'installe pas, s'il ne peut pas communiquer avec le serveur.  
@@ -151,7 +151,7 @@ ms.locfileid: "79322121"
 
 -   Un ordinateur client ne peut être connecté qu'à un seul serveur à la fois.  
 
-###  <a name="BKMK_4"></a>Systèmes d’exploitation pris en charge pour les ordinateurs clients  
+###  <a name="supported-operating-systems-for-client-computers"></a><a name="BKMK_4"></a>Systèmes d’exploitation pris en charge pour les ordinateurs clients  
  Windows Server Essentials fournit le même ensemble de fonctionnalités pour tous les ordinateurs clients pris en charge. Ces fonctionnalités comprennent la jonction de domaine, Launchpad et les notifications d'intégrité côté client.  
 
 > [!IMPORTANT]
@@ -259,7 +259,7 @@ ms.locfileid: "79322121"
 > [!NOTE]
 >  Vous pouvez afficher l'état de sauvegarde et d'intégrité d'un ordinateur Mac à partir du tableau de bord Windows Server Essentials. Toutefois, vous ne pouvez pas configurer la sauvegarde de l'ordinateur ou démarrer une sauvegarde à partir du tableau de bord. Par ailleurs, vous ne pouvez pas utiliser l'accès web à distance pour vous connecter à un ordinateur Mac.  
 
-###  <a name="BKMK_5"></a>Modifications apportées par le serveur à un ordinateur client  
+###  <a name="changes-the-server-makes-to-a-client-computer"></a><a name="BKMK_5"></a>Modifications apportées par le serveur à un ordinateur client  
  Quand vous connectez un ordinateur au serveur, le logiciel Windows Server Essentials apporte plusieurs changements à l'ordinateur pour que ce dernier et le serveur puissent fonctionner conjointement.  
 
  Le logiciel effectue les opérations suivantes :  
@@ -297,16 +297,16 @@ ms.locfileid: "79322121"
 
  Pour plus d'informations sur la connexion de votre ordinateur au serveur, voir [Connecter des ordinateurs au serveur](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
-###  <a name="BKMK_6"></a>Informations de nom d’utilisateur et de mot de passe réseau  
+###  <a name="network-user-name-and-password-information"></a><a name="BKMK_6"></a>Informations de nom d’utilisateur et de mot de passe réseau  
  Vous pouvez obtenir les informations relatives à votre nom d'utilisateur et mot de passe réseau auprès de la personne qui gère votre serveur. Vous pouvez utiliser ces informations d'identification pour connecter votre ordinateur au serveur et accéder aux informations de ce dernier.  
 
-###  <a name="BKMK_6"></a>Informations de nom d’utilisateur et de mot de passe réseau  
+###  <a name="network-user-name-and-password-information"></a><a name="BKMK_6"></a>Informations de nom d’utilisateur et de mot de passe réseau  
  Vous pouvez obtenir les informations relatives à votre nom d'utilisateur et mot de passe réseau auprès de la personne qui gère votre serveur. Vous pouvez utiliser ces informations d'identification pour connecter votre ordinateur au serveur et accéder aux informations de ce dernier. 
 
 
  Si vous êtes l'administrateur du serveur, vous pouvez créer les informations d'identification réseau en ajoutant un compte d'utilisateur sous l'onglet **Utilisateurs** du tableau de bord. Pour plus d'informations sur les comptes d'utilisateur, voir [Gérer les comptes d'utilisateur à l'aide du tableau de bord](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8).  
 
-###  <a name="BKMK_7"></a>Compte de l’administrateur de serveur  
+###  <a name="server-administrators-account"></a><a name="BKMK_7"></a>Compte de l’administrateur de serveur  
  Vous devez fournir un nom de compte d'administrateur réseau et son mot de passe pour pouvoir installer le logiciel Connecteur. Un compte d'administrateur réseau permet à l'utilisateur de gérer le réseau local de votre organisation. En outre, il permet de gérer les périphériques réseau tels que les commutateurs et les routeurs.  
 
  Voici, par exemple, des tâches qui peuvent être effectuées à l'aide d'un compte d'administrateur réseau :  
@@ -323,7 +323,7 @@ ms.locfileid: "79322121"
 
   Dans Windows Server Essentials, Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, vous pouvez affecter le niveau d’accès administrateur réseau à n’importe quel compte d’utilisateur. Cela permet d'accorder les autorisations nécessaires pour effectuer des tâches d'administrateur réseau. Quand un utilisateur se voit affecter le niveau d'accès d'administrateur réseau, l'invite du **contrôle d'accès d'utilisateur** s'ouvre pour toute tâche qui nécessite des autorisations d'administrateur.  
 
-###  <a name="BKMK_8"></a>Supprimer un ordinateur d’un domaine Windows  
+###  <a name="remove-a-computer-from-a-windows-domain"></a><a name="BKMK_8"></a>Supprimer un ordinateur d’un domaine Windows  
  Pour supprimer un ordinateur de son domaine, vous êtes invité à indiquer le nom d'utilisateur et le mot de passe du compte de domaine.  
 
 ##### <a name="to-remove-a-computer-from-a-windows-domain"></a>Pour supprimer un ordinateur d'un domaine Windows  
@@ -346,7 +346,7 @@ ms.locfileid: "79322121"
         > [!NOTE]
         >  Votre ordinateur est supprimé du domaine et votre compte d'ordinateur est désactivé dans ce dernier.  
 
-##  <a name="BKMK_B"></a>Connecter des ordinateurs au serveur à l’aide du logiciel connecteur  
+##  <a name="connect-computers-to-the-server-by-using-the-connector-software"></a><a name="BKMK_B"></a>Connecter des ordinateurs au serveur à l’aide du logiciel connecteur  
  Cette section permet d'accéder aux procédures et informations qui vous aideront à installer le logiciel Connecteur, à connecter votre ordinateur au serveur et à résoudre les problèmes de connexion des ordinateurs au serveur.  
 
 
@@ -383,7 +383,7 @@ ms.locfileid: "79322121"
 -   [Fonctionnement de la sauvegarde avec les modes veille et veille prolongée](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Sleep)  
 
 
-###  <a name="BKMK_9"></a>Connecter des ordinateurs au serveur  
+###  <a name="connect-computers-to-the-server"></a><a name="BKMK_9"></a>Connecter des ordinateurs au serveur  
  Lorsque vous connectez un ordinateur à un serveur qui exécute Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, assurez-vous que votre ordinateur client dispose d’une connexion valide à Internet.  
 
  Effectuez la procédure suivante sur tous les ordinateurs clients pour les connecter à votre serveur.  
@@ -456,7 +456,7 @@ ms.locfileid: "79322121"
 
     -   À l'aide du lien **Tableau de bord**, vous pouvez administrer votre serveur.  
 
-###  <a name="BKMK_10"></a>Connecter des ordinateurs à un serveur Windows Server Essentials sans joindre le domaine  
+###  <a name="connect-computers-to-a-windows-server-essentials-server-without-joining-the-domain"></a><a name="BKMK_10"></a>Connecter des ordinateurs à un serveur Windows Server Essentials sans joindre le domaine  
  Cette rubrique explique comment ajouter un ordinateur Windows 7, Windows 8, Windows 8.1 ou Windows 10 à un réseau Windows Server Essentials sans joindre l’ordinateur au domaine Windows Server Essentials dans un déploiement de client local. Cette méthode de connexion est prise en charge dans Windows Server Essentials et Windows Server Essentials.  
 
  Il s'agit d'une solution de remplacement de la méthode habituelle, qui demande de joindre l'ordinateur au domaine Windows Server Essentials. Avec cette méthode, si l'ordinateur se trouve dans un autre domaine, il doit être supprimé de ce dernier pour pouvoir être ajouté au domaine Windows Server Essentials.  
@@ -519,7 +519,7 @@ ms.locfileid: "79322121"
 4.  Effectuez les étapes décrites dans [Connecter des ordinateurs au serveur](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
-####  <a name="BKMK_SecondServer"></a>Joindre un second serveur au réseau  
+####  <a name="join-a-second-server-to-the-network"></a><a name="BKMK_SecondServer"></a>Joindre un second serveur au réseau  
 
 ###### <a name="to-join-a-second-server-to-the-network"></a>Pour joindre un second serveur au réseau  
 
@@ -581,7 +581,7 @@ ms.locfileid: "79322121"
 
 - L’état du stratégie de groupe du deuxième serveur s’affiche comme **non applicable**.  
 
-###  <a name="BKMK_11"></a>Installer le logiciel connecteur  
+###  <a name="install-the-connector-software"></a><a name="BKMK_11"></a>Installer le logiciel connecteur  
  Le logiciel Connecteur dans Windows Server Essentials est installé quand vous connectez votre ordinateur au serveur à l'aide de l'Assistant Connexion d'un ordinateur au serveur. Vous pouvez lancer cet Assistant en tapant **http://< ServerName\>/Connect** dans la barre d’adresses de votre navigateur Web (où *< servername\>* est le nom de votre serveur).  
 
 > [!NOTE]
@@ -601,17 +601,17 @@ ms.locfileid: "79322121"
  Pour obtenir des instructions pas à pas sur la connexion de votre ordinateur au serveur Windows Server Essentials, voir [Connecter des ordinateurs au serveur](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).   
 
 
-###  <a name="BKMK_12"></a>Déplacer manuellement les données et les paramètres de l’ordinateur  
+###  <a name="move-computer-data-and-settings-manually"></a><a name="BKMK_12"></a>Déplacer manuellement les données et les paramètres de l’ordinateur  
   Windows Server Essentials et Windows Server Essentials prennent en charge la migration de profil utilisateur uniquement pour les ordinateurs clients qui exécutent le système d’exploitation Windows 7. Quand vous connectez un ordinateur Windows 7 au serveur, l'Assistant Connexion de l'ordinateur au serveur peut faire migrer automatiquement le profil utilisateur.  
 
  Le profil utilisateur ne peut pas être transféré automatiquement lors de la connexion d’un ordinateur Windows 8, Windows 8.1 ou Windows 10 au serveur. Toutefois, sur un ordinateur Windows 8, vous pouvez utiliser l'outil Transfert de fichiers et paramètres Windows pour transférer les données et paramètres de l'utilisateur local d'origine vers l'ordinateur joint à un domaine. Pour ce faire, vous devez être un administrateur sur l'ordinateur Windows 8 source et sur l'ordinateur Windows 8 de destination. Pour plus d’informations sur l’utilisation de l’outil Transfert de fichiers et paramètres Windows, consultez l’[article 2735227](https://support.microsoft.com/kb/2735227) de la Base de connaissances Microsoft.  
 
-###  <a name="BKMK_Transfer"></a>Transférer plusieurs profils utilisateur pendant le déploiement de l’ordinateur  
+###  <a name="transfer-multiple-user-profiles-during-computer-deployment"></a><a name="BKMK_Transfer"></a>Transférer plusieurs profils utilisateur pendant le déploiement de l’ordinateur  
  Avant de connecter un ordinateur exécutant le système d'exploitation Windows 7 ou Windows 7 SP1 au serveur Windows Server Essentials, pour transférer plusieurs profils utilisateur locaux, vous devez d'abord créer les comptes d'utilisateur réseau correspondants sur le serveur. Pour plus d'informations sur la création des comptes d'utilisateur réseau, voir [Ajouter un compte d'utilisateur](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1).  
 
  La migration de profil utilisateur est uniquement prise en charge sur un ordinateur exécutant Windows 7 (pour Windows Server Essentials) ou Windows 7 SP1 (pour Windows Server Essentials). Quand vous connectez un ordinateur au serveur Windows Server Essentials à l'aide de l'Assistant Connexion de l'ordinateur au serveur, vous disposez d'une option qui permet de déplacer les données et paramètres utilisateur des anciens comptes d'utilisateur locaux vers les nouveaux comptes d'utilisateur réseau. Pour ce faire, dans la page **Déplacer les données et paramètres utilisateur existants** de l'Assistant, mappez les comptes d'utilisateur réseau aux comptes d'utilisateur locaux présents sur l'ordinateur pour transférer plusieurs profils utilisateur situés sur l'ordinateur client.  
 
-###  <a name="BKMK_13"></a>Désinstaller le logiciel connecteur  
+###  <a name="uninstall-the-connector-software"></a><a name="BKMK_13"></a>Désinstaller le logiciel connecteur  
  Vous pouvez désinstaller le logiciel Connecteur d'un ordinateur à l'aide du Panneau de configuration. En règle générale, vous procédez ainsi s'il existe un problème avec le logiciel Connecteur ou si vous devez installer une version plus récente du logiciel Connecteur. Vous devez être connecté à l'ordinateur en tant qu'administrateur pour effectuer cette procédure.  
 
 > [!IMPORTANT]
@@ -638,7 +638,7 @@ ms.locfileid: "79322121"
 > -   La désinstallation du logiciel Connecteur n'entraîne pas l'arrêt de la jonction de l'ordinateur au domaine d'origine. Vous devez supprimer manuellement la jonction de l'ordinateur au domaine. Pour obtenir des instructions, consultez [Supprimer un ordinateur d'un domaine Windows](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
 
 
-###  <a name="BKMK_14"></a>Déconnectez votre ordinateur de ou reconnectez votre ordinateur au serveur.  
+###  <a name="disconnect-your-computer-from-or-reconnect-your-computer-to-the-server"></a><a name="BKMK_14"></a>Déconnectez votre ordinateur de ou reconnectez votre ordinateur au serveur.  
  Pour déconnecter un ordinateur du serveur, procédez comme suit :  
 
 
@@ -658,10 +658,10 @@ ms.locfileid: "79322121"
 
 6. Connectez l'ordinateur au serveur à l'aide de l'Assistant Connect Computer. Pour obtenir des instructions pas à pas, consultez [Connecter des ordinateurs au serveur](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
-###  <a name="BKMK_Sleep"></a>Fonctionnement de la sauvegarde avec les modes veille et veille prolongée  
+###  <a name="how-backup-works-with-sleep-and-hibernate-modes"></a><a name="BKMK_Sleep"></a>Fonctionnement de la sauvegarde avec les modes veille et veille prolongée  
  Si vous sélectionnez l'option **Sortir cet ordinateur du mode veille pour la sauvegarde** quand vous connectez un ordinateur au serveur, l'ordinateur sort automatiquement du mode veille ou veille prolongée, chaque jour, comme indiqué dans la planification de sauvegarde pour pouvoir être sauvegardé. À la fin de la sauvegarde, l'ordinateur retourne en mode veille ou veille prolongée, selon ses paramètres de gestion de l'alimentation. Si vous ne sélectionnez pas cette option, le serveur n'effectue aucune sauvegarde quand l'ordinateur est en veille ou veille prolongée. Pour plus d’informations, consultez [gérer la sauvegarde des clients](../manage/Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
 
-##  <a name="BKMK_C"></a>Utiliser Launchpad  
+##  <a name="use-the-launchpad"></a><a name="BKMK_C"></a>Utiliser Launchpad  
  Vous pouvez utiliser Launchpad pour accéder aux ressources partagées à partir du serveur Windows Server Essentials, effectuer des sauvegardes d'ordinateur et répondre aux alertes d'intégrité du système.  
 
 -   [Présentation de Launchpad](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)  

@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: a3f1f7c4-d9b2-43e6-8bfa-fac707bbd4d3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1e450b9a2282cb4820b8802aa6d36e822f56ca12
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dd39a8d7f08e3ac3e6249017a042c343d9179566
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356593"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319285"
 ---
 # <a name="enable-hash-publication-for-domain-member-file-servers"></a>Activer la publication de hachages pour les serveurs de fichiers membres du domaine
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Lorsque vous utilisez Active Directory Domain Services (AD DS), vous pouvez utiliser le stratégie de groupe de domaine pour activer la publication de hachages BranchCache pour plusieurs serveurs de fichiers. Pour ce faire, vous devez créer une unité d’organisation (UO), ajouter des serveurs de fichiers à l’unité d’organisation, créer une publication de hachage BranchCache stratégie de groupe un objet (GPO), puis configurer l’objet de stratégie de groupe.  
   

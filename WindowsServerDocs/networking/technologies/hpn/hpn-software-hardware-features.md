@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/12/2018
-ms.openlocfilehash: f032717b9f4dca65454d8251083b73ff2d57dba7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 93913acbe598c4fd1b8ee5556dbf70013f3d714a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355320"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316945"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>Fonctionnalités et technologies intégrées logicielles et matérielles (SH)
 
@@ -70,7 +70,7 @@ Le déchargement de tâches IPsec est une fonctionnalité de carte réseau qui p
 
 Les PVLAN autorisent la communication uniquement entre les ordinateurs virtuels sur le même serveur de virtualisation. Un réseau virtuel privé n’est pas lié à une carte réseau physique. Un réseau virtuel privé est isolé de tout le trafic réseau externe sur le serveur de virtualisation, ainsi que tout trafic réseau entre le système d’exploitation de gestion et le réseau externe. Ce type de réseau est utile lorsque vous avez besoin de créer un environnement réseau isolé, comme un domaine de test isolé. Les piles Hyper-V et SDN prennent uniquement en charge le mode de port isolé PVLAN.
 
-Pour plus d’informations sur l’isolation [PVLAN, consultez System Center : Virtual Machine Manager blog](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/)d’ingénierie.
+Pour plus d’informations sur l’isolation PVLAN, consultez le [blog System Center : Virtual Machine Manager Engineering](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/).
 
 ## <a name="remote-direct-memory-access-rdma"></a>RDMA (Remote Direct Memory Access) 
 
@@ -90,7 +90,7 @@ SR-IOV permet au trafic des machines virtuelles de passer directement de la cart
 
 Le trafic qui utilise SR-IOV contourne le commutateur Hyper-V, ce qui signifie que toutes les stratégies, par exemple, les listes de contrôle d’accès ou la gestion de la bande passante ne seront pas appliquées. Le trafic SR-IOV ne peut pas non plus être transmis via une fonctionnalité de virtualisation de réseau. par conséquent, l’encapsulation NV-GRE ou VxLAN ne peut pas être appliquée. Utilisez SR-IOV uniquement pour les charges de travail fiables dans des situations spécifiques. En outre, vous ne pouvez pas utiliser les stratégies d’hôte, la gestion de la bande passante et les technologies de virtualisation.
 
-À l’avenir, deux technologies autorisent SR-IOV : Les tables de Flow génériques (GFT) et le déchargement de la QoS matérielle (gestion de la bande passante dans la carte réseau) : une fois que les cartes réseau de notre écosystème les prennent en charge. La combinaison de ces deux technologies rendrait SR-IOV utile pour toutes les machines virtuelles, autoriserait l’application de stratégies, de virtualisation et de règles de gestion de la bande passante, et pourrait entraîner des bonds dans l’application générale de SR-IOV.
+À l’avenir, deux technologies autorisent SR-IOV : les tables de Flow génériques (GFT) et le déchargement de QoS matériel (gestion de la bande passante dans la carte réseau) : une fois que les cartes réseau de notre écosystème les prennent en charge. La combinaison de ces deux technologies rendrait SR-IOV utile pour toutes les machines virtuelles, autoriserait l’application de stratégies, de virtualisation et de règles de gestion de la bande passante, et pourrait entraîner des bonds dans l’application générale de SR-IOV.
 
 Pour plus d’informations, consultez [vue d’ensemble de la virtualisation d’e/s d’une racine unique (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 

@@ -3,7 +3,7 @@ title: Automatiser l’installation des compléments lors de la phase d’instal
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,19 +12,19 @@ ms.assetid: 2e6ff6e4-8d68-4d49-9e38-8088bc8bf95e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c2345726a17a074fc7022c8c4dc9b2443e9ad384
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 579ed4e6e780c261ca582e943cebf2fc18b5ef62
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433642"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310114"
 ---
 # <a name="automate-installation-of-add-ins-during-setup"></a>Automatiser l’installation des compléments lors de la phase d’installation
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_AddIns"></a> Automatiser l’installation des compléments lors de l’installation  
- Pour installer des compléments lors de la phase d’installation, utilisez la méthode PostIC.cmd décrite dans la section [Création du fichier PostIC.cmd pour exécuter les tâches de configuration initiales](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) de ce document.  
+##  <a name="automate-installing-add-ins-during-setup"></a><a name="BKMK_AddIns"></a>Automatiser l’installation des compléments lors de l’installation  
+ Pour installer des compléments lors de la phase d’installation, utilisez la méthode PostIC.cmd décrite à la section [Création du fichier PostIC.cmd pour exécuter les tâches suivant la configuration initiale](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) du présent document.  
   
  Ajoutez l’entrée suivante à votre fichier PostIC.cmd :  
   
@@ -65,7 +65,7 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
 <¦>  
 ```  
   
- Le « **exefile** » est le fichier exécutable dans le package de compléments qui exécute l’étape de préinstallation et doit être spécifié. **NormalArgs** spécifie des arguments devant être transmis au fichier exécutable dans la ligne de commande en cas d'utilisation du mode interactif. Dans ce mode, le fichier exécutable peut afficher des boîtes de dialogue contextuelles pour l’interaction entre utilisateurs. **SilentArgs** spécifie des arguments devant être transmis au fichier exécutable dans la ligne de commande en cas d’utilisation du mode silencieux (-q est spécifié en cas d'invocation de installaddin.exe). Le fichier exécutable ne doit pas afficher de boîtes de dialogue contextuelles dans ce mode. Si **IgnoreExitCode** est spécifié avec Vrai, l’étape de préinstallation est toujours considérée comme réussie, sinon le code de sortie 0 indique la réussite, 1 indique l’annulation, et d’autres valeurs indiquent un échec. Les balises **NormalArgs**, **SilentArgs**et **IgnoreExitCode** sont toutes optionnelles.  
+ Le « **exefile** » est le fichier exécutable dans le package de compléments qui exécute l’étape de préinstallation et doit être spécifié. **NormalArgs** spécifie des arguments devant être transmis au fichier exécutable dans la ligne de commande en cas d'utilisation du mode interactif. Dans ce mode, le fichier exécutable peut afficher des boîtes de dialogue contextuelles pour l’interaction entre utilisateurs. **SilentArgs** spécifie des arguments devant être transmis au fichier exécutable dans la ligne de commande en cas d’utilisation du mode silencieux (-q est spécifié en cas d'invocation de installaddin.exe). Le fichier exécutable ne doit pas afficher de boîtes de dialogue contextuelles dans ce mode. Si **IgnoreExitCode** est spécifié avec Vrai, l’étape de préinstallation est toujours considérée comme réussie, sinon le code de sortie 0 indique la réussite, 1 indique l’annulation, et d’autres valeurs indiquent un échec. Les balises **NormalArgs**, **SilentArgs** et **IgnoreExitCode** sont toutes optionnelles.  
   
  Une étape de désinstallation personnalisée peut être utilisée dans l’un des cas suivants :  
   
@@ -120,5 +120,5 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

@@ -1,21 +1,21 @@
 ---
-title: Service WINS (Windows Internet Name Service)
+title: Windows Internet Name Service (WINS)
 description: Cette rubrique fournit des informations sur la désaffectation de WINS et l’utilisation de DNS pour les services de résolution de noms sur votre réseau.
 manager: brianlic
 ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 32eabe7d-1130-4001-a79a-8ddb31993e5b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 219c313dfeb26319cd5f537df417724de7044648
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 54e3f69500ccb3dbf6b2dfe47f6dd035e0a20511
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405243"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315164"
 ---
-#  <a name="windows-internet-name-service-wins"></a>Service WINS (Windows Internet Name Service)
+#  <a name="windows-internet-name-service-wins"></a>Windows Internet Name Service (WINS)
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 

@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d6ad863-02a5-49b0-9aff-d189e78b2b80
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a991b312a0938a3809acd2b94c00aa678f5b41da
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 44f8514bd046d2c5f526e85309af430383bf1ec1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404394"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313578"
 ---
 # <a name="step-2-plan-the-radius-server-deployment"></a>Étape 2 planifier le déploiement du serveur RADIUS
 
@@ -29,7 +29,7 @@ Après le déploiement d’un serveur d’accès à distance unique, planifiez l
 |----|--------|  
 |2,1 planifier le serveur RADIUS|Pour le serveur d’authentification par mot de passe à usage unique, l’accès à distance dans Windows Server 2016 et Windows Server 2012 prend en charge tous les serveurs avec mot de passe à usage unique RADIUS prenant en charge le protocole PAP (Password Authentication Protocol).|  
   
-## <a name="BKMK_1.1"></a>2,1 planifier le serveur RADIUS  
+## <a name="21-plan-the-radius-server"></a><a name="BKMK_1.1"></a>2,1 planifier le serveur RADIUS  
 Notez les points suivants lors de la planification d’un serveur RADIUS pour l’authentification par mot de passe à usage unique :  
   
 -   Pour la plupart des types de déploiement à mot de passe à usage unique, vous devez configurer le serveur d’accès à distance en tant qu’agent RADIUS. Pour plus d’informations, consultez la documentation du fournisseur de mot de passe à usage unique.  

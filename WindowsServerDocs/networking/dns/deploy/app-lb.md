@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: f9c313ac-bb86-4e48-b9b9-de5004393e06
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 356c61c2cc5b60f43a69f17966c97f3c69d05cda
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 86ce83142cafe8ebe61aff2fb193e9b646172651
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356040"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317887"
 ---
 # <a name="use-dns-policy-for-application-load-balancing"></a>Utiliser une stratégie DNS pour l’équilibrage de charge des applications
 
@@ -79,7 +79,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
 
 Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-#### <a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone
+#### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone
 
 À présent, vous devez ajouter les enregistrements qui représentent l’hôte du serveur Web dans les étendues de la zone.
 
@@ -100,7 +100,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des
 
 Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-#### <a name="bkmk_policies"></a>Créer les stratégies DNS
+#### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Créer les stratégies DNS
 
 Une fois que vous avez créé les partitions (étendues de zone) et que vous avez ajouté des enregistrements, vous devez créer des stratégies DNS qui distribuent les requêtes entrantes sur ces étendues afin que 50% des requêtes pour contosogiftservices.com soient réparties avec l’adresse IP du Web. le serveur du centre de la Seattle et le reste sont répartis uniformément entre les centres de distribution de Chicago et de Dallas.
 

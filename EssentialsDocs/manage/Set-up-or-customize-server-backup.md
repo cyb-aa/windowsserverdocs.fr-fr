@@ -3,7 +3,7 @@ title: Configurer ou personnaliser la sauvegarde du serveur
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 820474934ef1f164d24d4893c42b10c5043f7707
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 06d8381e622cdb6c437b0f5aa4d1cd9293ef779a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865210"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310598"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Configurer ou personnaliser la sauvegarde du serveur
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
  La sauvegarde du serveur n'est pas configurée automatiquement pendant l'installation. Nous vous conseillons de protéger automatiquement votre serveur et ses données en planifiant des sauvegardes quotidiennes. Il est recommandé de mettre en place un plan de sauvegarde quotidien, car la plupart des organisations ne peuvent pas se permettre de perdre plusieurs jours de données.  
   
@@ -35,7 +35,7 @@ ms.locfileid: "70865210"
   
 -   [Éléments à sauvegarder](Set-up-or-customize-server-backup.md#BKMK_4)  
   
-##  <a name="BKMK_1"></a>Configurer ou modifier les paramètres de sauvegarde du serveur  
+##  <a name="set-up-or-change-server-backup-settings"></a><a name="BKMK_1"></a>Configurer ou modifier les paramètres de sauvegarde du serveur  
   
 #### <a name="to-set-up-or-change-server-backup-settings"></a>Pour définir ou modifier les paramètres de sauvegarde de serveur  
   
@@ -60,12 +60,12 @@ ms.locfileid: "70865210"
 >    2. Dans la zone de texte Rechercher, tapez **Defragment**.  
 >    3. Dans la section de résultats, cliquez sur **Défragmenter et optimiser vos lecteurs**.  
 >    4. Dans la page **Optimiser les lecteurs**, sélectionnez un lecteur, puis cliquez sur **Modifier les paramètres**.  
->    5. Dans la fenêtre **Planification de l'optimisation** , décochez la case **Exécution planifiée (recommandé)** , puis cliquez sur **OK** pour enregistrer les modifications.  
+>    5. Dans la fenêtre **Planification de l'optimisation**, décochez la case **Exécution planifiée (recommandé)** , puis cliquez sur **OK** pour enregistrer les modifications.  
   
-##  <a name="BKMK_2"></a>Planification de la sauvegarde du serveur  
+##  <a name="server-backup-schedule"></a><a name="BKMK_2"></a>Planification de la sauvegarde du serveur  
  Quand vous utilisez l'Assistant Configurer la sauvegarde du serveur ou l'Assistant Personnaliser la sauvegarde du serveur, vous pouvez choisir de sauvegarder les données du serveur à plusieurs reprises durant la journée. Étant donné que les Assistants planifient des sauvegardes incrémentielles, les sauvegardes s'exécutent rapidement et les performances du serveur ne sont que modérément affectées. Par défaut, les Assistants planifient l'exécution d'une sauvegarde tous les jours à 12h00 et 23h00. Vous pouvez toutefois modifier la planification de la sauvegarde en fonction des besoins de votre organisation. Nous vous conseillons d'évaluer de temps en temps l'efficacité de votre plan de sauvegarde et de le modifier en conséquence.  
   
-##  <a name="BKMK_Target"></a>Sauvegarder le lecteur cible  
+##  <a name="backup-target-drive"></a><a name="BKMK_Target"></a>Sauvegarder le lecteur cible  
  Vous pouvez utiliser plusieurs lecteurs de stockage externe pour vos sauvegardes et les entreposer à tour de rôle dans des emplacements sur site et hors site. Cela peut vous aider à renforcer votre stratégie de planification d'urgence, car vous pourrez récupérer vos données si votre matériel local subit des dommages.  
   
  Au moment d'acquérir un lecteur de stockage pour sauvegarder votre serveur, tenez compte des points suivants :  
@@ -113,11 +113,11 @@ ms.locfileid: "70865210"
 >    2. Sous **Outils d'administration**, cliquez sur **Créer et formater des partitions de disque dur**.  
 >    3. Cliquez avec le bouton droit sur le lecteur, puis cliquez sur **Modifier la lettre de lecteur et les chemins d'accès**.  
 >    4. Cliquez sur **Ajouter**.  
->    5. Dans la boîte de dialogue Ajouter une lettre de lecteur ou de chemin d'accès, sélectionnez une lettre de lecteur à assigner. (Vous pouvez réassigner la même lettre de lecteur). Cliquez ensuite sur **OK**.  
+>    5. Dans la boîte de dialogue Ajouter une lettre de lecteur ou de chemin d'accès, sélectionnez une lettre de lecteur à assigner. (Vous pouvez réassigner la même lettre de lecteur.) Cliquez ensuite sur **OK**.  
 > 
 >    Le lecteur apparaît immédiatement sur le Tableau de bord.  
   
-##  <a name="BKMK_4"></a>Éléments à sauvegarder  
+##  <a name="items-to-be-backed-up"></a><a name="BKMK_4"></a>Éléments à sauvegarder  
  Vous pouvez choisir de sauvegarder tous les lecteurs, fichiers et dossiers sur le serveur ou sélectionner uniquement des lecteurs, fichiers ou dossiers spécifiques à sauvegarder.  
   
  Quand vous ajoutez ou supprimez un lecteur ou des fichiers et dossiers partagés, vous devez modifier la configuration de sauvegarde du serveur pour vous assurer que ces éléments sont ajoutés ou supprimés de la configuration de sauvegarde. Pour ajouter ou supprimer des éléments à sauvegarder, effectuez l'une des opérations suivantes :  

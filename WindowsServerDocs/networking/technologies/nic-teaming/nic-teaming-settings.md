@@ -10,15 +10,15 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: ab9a8e309c8031108d58c73d82357e913d5ce398
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc9ab0fa3d1da0e7af8a7a1d7a8706ba6d128648
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396474"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316488"
 ---
 # <a name="nic-teaming-settings"></a>Paramètres d’association de cartes réseau
 Dans cette rubrique, nous vous offrons une vue d’ensemble des propriétés de l’équipe de cartes réseau, telles que les modes d’association et d’équilibrage de charge. Nous vous fournissons également des détails sur le paramètre de l’adaptateur de secours et la propriété de l’interface d’équipe principale. Si vous disposez d’au moins deux cartes réseau dans une association de cartes réseau, vous n’avez pas besoin de désigner une carte de secours pour la tolérance de panne.
@@ -82,7 +82,7 @@ Le hachage de ports TCP crée la distribution la plus granulaire des flux de tra
   
 Toutefois, si l’hôte n’a que quelques machines virtuelles, ce mode peut ne pas être suffisamment granulaire pour obtenir une distribution bien équilibrée. Ce mode limite également toujours une seule machine virtuelle (c’est-à-dire le trafic à partir d’un port commuté unique) à la bande passante disponible sur une seule interface. L’Association de cartes réseau utilise le port de commutateur virtuel Hyper-V comme identificateur au lieu d’utiliser l’adresse MAC source car, dans certains cas, une machine virtuelle peut être configurée avec plusieurs adresses MAC sur un port commuté.  
   
-### <a name="dynamic"></a>dynamique
+### <a name="dynamic"></a>Dynamic
   
 [!INCLUDE [dynamic-shortdesc-include](../../includes/dynamic-shortdesc-include.md)]
   

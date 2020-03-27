@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d9d9e9ac-4859-4522-89ed-a23092c9e12a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: df3c157ea4f453d965cd8754ef4ef9f7a71532a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a937e151954629f7e8775ec68ba8ab5f2b63ee1a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396069"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315812"
 ---
 # <a name="configure-nps-on-a-multihomed-computer"></a>Configurer un serveur NPS sur un ordinateur multirésident
 

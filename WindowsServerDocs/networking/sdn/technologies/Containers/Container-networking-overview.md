@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 318659e5-e4a5-4e46-99d6-211dfc46f6b8
-ms.author: pashort
+ms.author: lizross
 author: jmesser81
 ms.date: 09/04/2018
-ms.openlocfilehash: 352b4303b7cf08a0c53712e46a309b8365c10d08
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8ec74ff0ebf0f0cb87db4d79ed5d37583f9beb9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355677"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317268"
 ---
 # <a name="container-networking-overview"></a>Présentation de la mise en réseau de conteneurs
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, nous vous offrons une vue d’ensemble de la pile de mise en réseau pour les conteneurs Windows. nous proposons également des liens vers des conseils supplémentaires sur la création, la configuration et la gestion des réseaux de conteneurs.
 
@@ -39,6 +39,6 @@ Pour appliquer l’isolation entre les conteneurs sur le même hôte, vous crée
 
 ## <a name="related-topics"></a>Rubriques connexes 
 
-- [Mise en réseau de conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture): Découvrez comment créer et gérer des réseaux de conteneurs pour les déploiements non superposés/SDN.
+- [Mise en réseau de conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture): Découvrez comment créer et gérer des réseaux de conteneurs pour les déploiements non superposés/Sdn.
 
-- [Connecter des points de terminaison de conteneur à un réseau virtuel client](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md): Découvrez comment créer et gérer des réseaux de conteneurs pour les réseaux virtuels de superposition avec SDN. 
+- [Connecter des points de terminaison de conteneur à un réseau virtuel locataire](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md): Découvrez comment créer et gérer des réseaux de conteneurs pour des réseaux virtuels de superposition avec Sdn. 

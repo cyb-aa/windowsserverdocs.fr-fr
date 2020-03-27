@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 354ae5e3-bae1-44f9-afd7-7eaba70f2346
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a2b8d7decad482ca8756aa4d82baa35abf16f5fe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 513bcae13d4a8f3ab935d2bda77745baa1788fa9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404450"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313793"
 ---
 # <a name="troubleshooting-general-issues"></a>Résolution de problèmes généraux
 

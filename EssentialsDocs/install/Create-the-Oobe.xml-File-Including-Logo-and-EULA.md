@@ -3,7 +3,7 @@ title: Créer le fichier OOBE.xml, y compris le logo et le CLUF
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: 8a7b3cc1-21bb-4344-8110-f5d5959b370d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5d7dac41ba6d6f73b0d3d65d3481fe45ff99a6bc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 58d98aa84b8851e3226ebc76c86cffd574400c42
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433610"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312058"
 ---
 # <a name="create-the-oobexml-file-including-logo-and-eula"></a>Créer le fichier OOBE.xml, y compris le logo et le CLUF
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Vous avez la possibilité d'ajouter votre propre Contrat de Licence Utilisateur Final (CLUF) à la configuration initiale grâce au fichier Oobe.xml. Le fichier Oobe.xml contient le texte et les images destinés à la configuration initiale, à l'écran d'accueil de Windows et à d'autres pages présentées à l'utilisateur final. Vous pouvez ajouter plusieurs fichiers Oobe.xml afin de personnaliser le contenu en fonction de la langue et du pays ou de la région sélectionnés par l'utilisateur final. Pour plus d’informations, consultez la documentation [Kit de déploiement et d’évaluation Windows (ADK) pour Windows 8](https://go.microsoft.com/fwlink/?LinkId=248694).  
   
@@ -31,11 +31,11 @@ Vous avez la possibilité d'ajouter votre propre Contrat de Licence Utilisateur 
   
 1. Ouvrez le fichier Oobe.xml dans un éditeur de texte, tel que le Bloc-notes.  
   
-2. Dans le < logopath\>< / logopath\> balises, entrez le chemin d’accès absolu à votre fichier de logo. Choisissez un logo au format .png (Portable Network Graphics) 32 bits de 240 x 100 pixels.  
+2. Dans les balises < logopath\></logopath\>, entrez le chemin d’accès absolu à votre fichier de logo. Choisissez un logo au format .png (Portable Network Graphics) 32 bits de 240 x 100 pixels.  
   
-3. Dans le < eulafilename\>< / eulafilename\> balises, entrez le chemin d’accès absolu au fichier du CLUF. Optez pour un fichier au format .rtf.  
+3. Dans les balises < eulafilename\></eulafilename\>, entrez le chemin d’accès absolu au fichier EULA. Optez pour un fichier au format .rtf.  
   
-4. Dans le < nom\>< / nom\> balises, entrez le nom de votre société.  
+4. Dans le nom de <\>étiquettes </name\>, entrez le nom de votre société.  
   
     L'exemple suivant illustre les balises d'un fichier Oobe.xml :  
   
@@ -59,9 +59,9 @@ Vous avez la possibilité d'ajouter votre propre Contrat de Licence Utilisateur 
   
    |Emplacement Oobe.XML|Critère de détermination de l'emplacement|  
    |-----------------------|----------------------------------------|  
-   |%windir%\System32\Oobe\Info\|le serveur est prévu dans un pays/région unique et un système de langue unique.|  
-   |%windir%\system32\oobe\info\default\\<language\>|Le serveur est prévu pour fonctionner dans une seule région/pays et sur un système multilingue.|  
-   |%windir%\System32\Oobe\Info\\< pays/région > \ et %windir%\system32\oobe\info\\< pays/région >\\< langage\>\|le serveur est prévu pour plus d’un pays / paramètres de région et les besoin de personnalisations sur une base par pays/région, chacun avec une seule langue. Où < pays/région > est la version en notation décimale de l’identificateur d’emplacement géographique (GeoID) du pays ou région où le serveur est déployé, et < langue\> est la version en notation décimale de l’identificateur de paramètres régionaux (LCID).|  
+   |%WINDIR%\System32\Oobe\Info\|le serveur est livré dans un seul pays/région et dans un système de langue unique.|  
+   |%windir%\system32\oobe\info\default\\< Language\>|Le serveur est prévu pour fonctionner dans une seule région/pays et sur un système multilingue.|  
+   |%WINDIR%\System32\Oobe\Info\\< pays/région > \ et%WINDIR%\System32\Oobe\Info\\< pays/région >\\<\>\|le serveur est livré dans plus d’un pays/région, et les paramètres nécessitent des personnalisations par pays/région, chacun avec une seule langue. Où < pays/région > est la version décimale de l’identificateur d’emplacement géographique (GeoID) du pays ou de la région où le serveur est déployé, et < langue\> est la version décimale de l’identificateur de paramètres régionaux (LCID).|  
   
    Si vous disposez d'un logo d'entreprise alternatif avec un texte blanc, la qualité d'affichage sera meilleure pendant la configuration car l'arrière-plan est bleu.  Vous pouvez spécifier ce logo en option en définissant une clé de registre et une valeur.  
   
@@ -75,7 +75,7 @@ Vous avez la possibilité d'ajouter votre propre Contrat de Licence Utilisateur 
   
     1.  Faites un clic droit sur **Windows Server**, cliquez sur **Nouveau**, puis cliquez sur **Clé**.  
   
-    2.  Tapez **OEM**comme nom de clé.  
+    2.  Tapez **OEM** comme nom de clé.  
   
 4.  (Facultatif) Si vous définissez une nouvelle entrée pour un logo, vous pouvez créer plusieurs clés afin de distinguer les versions du logo prévues pour chaque langue. Si vous disposez, par exemple, d'une version anglaise et française du logo, il suffit de créer une clé en-us et une clé fr-fr. Comme tous les fichiers des logos sont stockés dans le même dossier, les différentes instances du fichier d'image spécifiques à chaque langue doivent porter un nom unique. Dans notre exemple, vous pouvez créer un fichier appelé LogoWithWhiteText_en.png et LogoWithWhiteText_de.png.  
   
@@ -88,8 +88,8 @@ Vous avez la possibilité d'ajouter votre propre Contrat de Licence Utilisateur 
 8.  Saisissez le chemin qui contient l'image du logo, puis cliquez sur OK.  
   
 ## <a name="see-also"></a>Voir aussi  
- [Prise en main du ADK Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main avec Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

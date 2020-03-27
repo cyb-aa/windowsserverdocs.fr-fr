@@ -3,7 +3,7 @@ title: Dépanner la fonctionnalité Accès en tout lieu dans Windows Server Esse
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,29 +12,29 @@ ms.assetid: 68f2b05c-09eb-4cba-8db4-a91353b513c6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a14dbaed8c36f52814ba8080262ef60c399931dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5e25a4f597fdab019171aa38e67780069c6380ee
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874010"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318654"
 ---
 # <a name="troubleshoot-anywhere-access-in-windows-server-essentials"></a>Dépanner la fonctionnalité Accès en tout lieu dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Cette rubrique fournit des instructions générales pour l’utilisation de l’Assistant réparation n’importe quel endroit de l’accès dans Windows Server Essentials pour résoudre les problèmes empêchant les utilisateurs réseau d’accéder aux ressources du serveur. Accès en tout lieu fonctionnalités accès Web à distance, réseau privé virtuel (VPN), et DirectAccess permettent aux utilisateurs réseau d’accéder aux ressources serveur à partir de n’importe quel emplacement avec une connexion Internet, à tout moment, à partir de n’importe quel appareil.  
+Cette rubrique fournit des instructions générales sur l’utilisation de l’Assistant réparation de l’accès en tout lieu dans Windows Server Essentials pour résoudre les problèmes empêchant les utilisateurs réseau d’accéder aux ressources du serveur. Fonctionnalités d’accès en tout lieu : les Accès web distantes, le réseau privé virtuel (VPN) et DirectAccess-permettent aux utilisateurs réseau d’accéder aux ressources serveur depuis n’importe quel emplacement avec une connexion Internet, à tout moment, depuis n’importe quel appareil.  
   
  L'Assistant Réparation de l'Accès en tout lieu tente d'identifier et de résoudre les problèmes avec vos routeur, nom de domaine ou pare-feu qui empêchent les utilisateurs du réseau d'accéder à distance aux ressources du serveur.  
   
 > [!NOTE]
->  Pour les informations de dépannage plus récente à partir de la Communauté Windows Server Essentials, nous vous suggérons de visiter le [Forum Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Le forum Windows Server Essentials est le lieu idéal pour rechercher de l'aide ou pour poser une question.  
+>  Pour obtenir les informations les plus récentes sur la résolution des problèmes de la communauté Windows Server Essentials, nous vous suggérons de visiter le [Forum Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Le forum Windows Server Essentials est le lieu idéal pour rechercher de l'aide ou pour poser une question.  
   
 ### <a name="to-repair-anywhere-access"></a>Pour réparer l'Accès en tout lieu  
   
 1.  Ouvrez une session sur le serveur et accédez au tableau de bord.  
   
-2.  Cliquez sur **Paramètres**, puis sur l’onglet **Accès en tout lieu** .  
+2.  Cliquez sur **Paramètres**, puis sur l’onglet **Accès en tout lieu**.  
   
 3.  Cliquez sur **Réparer**. L'Assistant Réparation de l'Accès en tout lieu démarre.  
   
@@ -52,13 +52,13 @@ Cette rubrique fournit des instructions générales pour l’utilisation de l’
  Si l'Assistant Réparation de l'Accès en tout lieu ne parvient pas à effectuer les réparations, consultez les ressources suivantes de résolution des problèmes liés à l'accès web à distance, au VPN et à DirectAccess :  
   
 
--   [Résoudre les problèmes de connectivité de l’accès Web à distance](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [Résoudre les problèmes de connectivité Accès web distante](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
 -   [Résoudre les problèmes de votre pare-feu](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
 
--   [Résoudre les problèmes de connectivité de l’accès Web à distance](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [Résoudre les problèmes de connectivité Accès web distante](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
 -   [Résoudre les problèmes de votre pare-feu](../support/Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
 
   
--   Vérifier le [Forum Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads) pour les problèmes les plus récents signalés par la Communauté Windows Server Essentials.
+-   Consultez le [Forum Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads) pour obtenir les problèmes les plus récents signalés par la communauté Windows Server Essentials.

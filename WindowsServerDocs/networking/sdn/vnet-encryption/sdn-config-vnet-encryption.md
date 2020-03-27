@@ -6,21 +6,21 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/08/2018
-ms.openlocfilehash: 40150e312f4776ec093c9230eedb646eec277f49
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e68da9be84e9567458467c9ebd89155e7c405c5c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405809"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312827"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>Configurer le chiffrement pour un sous-réseau virtuel
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
-Le chiffrement de réseau virtuel permet le chiffrement du trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles dans des sous-réseaux marqués comme « chiffrement activé ». Il utilise aussi le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets. DTLS protège contre les écoutes clandestines, l'altération et la falsification par toute personne ayant accès au réseau physique.
+Le chiffrement de réseau virtuel permet le chiffrement du trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles dans des sous-réseaux marqués comme « chiffrement activé ». Il utilise aussi le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets. DTLS protège contre les écoutes clandestines, l’altération et la falsification par toute personne ayant accès au réseau physique.
 
 Le chiffrement de réseau virtuel requiert :
 - Certificats de chiffrement installés sur chacun des hôtes Hyper-V compatibles SDN.
@@ -118,7 +118,7 @@ Une fois le script exécuté, un nouveau certificat s’affiche dans le magasin 
 
 3. Installer les certificats sur chacun de vos ordinateurs hôtes Hyper-v 
 
-   PS c :\> Rép c :\$SubjectName. *
+   PS C :\> dir c :\$SubjectName. *
 
 
 ~~~
@@ -218,7 +218,7 @@ Après avoir installé le certificat sur chacun des ordinateurs hôtes Hyper-V c
 >Vous pouvez réutiliser ces informations d’identification pour chaque réseau virtuel chiffré, ou vous pouvez déployer et utiliser un certificat unique pour chaque locataire.
 
 
-## <a name="step-3-configuring-a-virtual-network-for-encryption"></a>Étape 3. Configuration d’un réseau virtuel pour le chiffrement
+## <a name="step-3-configuring-a-virtual-network-for-encryption"></a>Étape 3. Configuration d’un réseau virtuel pour le chiffrement
 
 Cette étape suppose que vous avez déjà créé un nom de réseau virtuel « mon réseau » et qu’il contient au moins un sous-réseau virtuel.  Pour plus d’informations sur la création de réseaux virtuels, consultez [créer, supprimer ou mettre à jour des réseaux virtuels locataires](../Manage/Create,-Delete,-or-Update-Tenant-Virtual-Networks.md).
 
@@ -246,7 +246,7 @@ Cette étape suppose que vous avez déjà créé un nom de réseau virtuel « m
 _**Félicitations!**_ Une fois ces étapes terminées, vous avez terminé. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 
 

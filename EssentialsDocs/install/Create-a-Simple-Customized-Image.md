@@ -3,7 +3,7 @@ title: Création d’une image personnalisée simple
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: 29f9a09f-e4e8-476d-ada1-ab9202a670d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e18ff5ded94127449072d28d00b98e17dbe63c3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 74a1729f9445710b6b9d279f1603295eff2a5d25
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884610"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312138"
 ---
 # <a name="create-a-simple-customized-image"></a>Création d’une image personnalisée simple
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Vous pouvez procéder de la façon suivante pour créer une image personnalisée simple :  
   
@@ -46,8 +46,8 @@ Vous pouvez procéder de la façon suivante pour créer une image personnalisée
 9. Préparez l’image en vue du déploiement comme décrit à la rubrique [Préparation de l’image en vue du déploiement](Preparing-the-Image-for-Deployment.md).  
   
 ## <a name="see-also"></a>Voir aussi  
- [Prise en main du ADK Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main avec Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

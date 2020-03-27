@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/12/2018
-ms.openlocfilehash: d5a4d5f06cd433fa92c617a3cb36e95d09be3b27
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 7b2030535e65a94e285a3db00779dddb85411c95
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950450"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316992"
 ---
 # <a name="hardware-only-ho-features-and-technologies"></a>Fonctionnalités et technologies matérielles uniquement (HO)
 
@@ -79,6 +79,6 @@ Dans Windows Server 2016, il existe un nouveau déchargement : MTU_for_HNV. Ce 
 
 LSO permet à une application de transmettre un grand bloc de données à la carte réseau, et la carte réseau décompose les données en paquets qui tiennent dans l’unité de transfert maximale (MTU) du réseau.
 
-## <a name="receive-segment-coalescing-rsc"></a>RSC (Receive Segment Coalescing)
+## <a name="receive-segment-coalescing-rsc"></a>Receive Segment Coalescing (RSC)
 
 La fusion de segment de réception, également connue sous le nom de déchargement de réception volumineux, est une fonctionnalité de carte réseau qui prend en charge les paquets qui font partie du même flux qui arrivent entre les interruptions du réseau et les redirige en un seul paquet avant de les transmettre au système d’exploitation. RSC n’est pas disponible sur les cartes réseau qui sont liées au commutateur virtuel Hyper-V. Pour plus d’informations, voir [Receive segment fusion (RSC)](https://docs.microsoft.com/windows-server/networking/technologies/hpn/rsc-in-the-vswitch).

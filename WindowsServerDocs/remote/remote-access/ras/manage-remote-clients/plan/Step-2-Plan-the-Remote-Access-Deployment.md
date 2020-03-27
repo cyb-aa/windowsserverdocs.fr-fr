@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 131520f567da6529e342229a0f6965d3223f928b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 39b6d0b924d4939361cb66109d049a6924e9be3e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404574"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314235"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Étape 2 planifier le déploiement de l’accès à distance
 
@@ -118,7 +118,7 @@ L’accès à distance requiert trois types de serveurs d’infrastructure :
   
 -   **Serveurs d’administration** 
   
-## <a name="see-also"></a>Voir également  
+## <a name="see-also"></a>Voir aussi  
   
 -   [Étape 1 : planifier l’infrastructure d’accès à distance](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   

@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: bdac7d2a-25b4-4f61-bed1-b290700c18f3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f675322c32db0816d5afb155d53fad9f096ad650
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0568bf051fee3c9ee4fd5d1f403f5110f7669ad3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356693"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319342"
 ---
 # <a name="configure-an-existing-file-server-as-a-content-server"></a>Configurer un serveur de fichiers existant comme serveur de contenu
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour installer le service de rôle **BranchCache pour fichiers réseau** du rôle serveur services de fichiers sur un ordinateur exécutant Windows Server 2016.  
   

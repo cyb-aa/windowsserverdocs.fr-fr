@@ -11,18 +11,18 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9efe0231-94c1-4de7-be8e-becc2af84e69
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e692384e9416e21e00556af6ada9af8df1713a03
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a8628404de8a1b9caccc7f7f51b063cabb1caf27
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405858"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317203"
 ---
 # <a name="hyper-v-network-virtualization-technical-details-in-windows-server-2016"></a>Détails techniques sur la virtualisation de réseau Hyper-V dans Windows Server 2016
 
->S’applique à :  Windows Server 2016
+>S’applique à : Windows Server 2016
 
 La virtualisation de serveur permet à plusieurs instances de serveur de s’exécuter simultanément sur un seul hôte physique. Pourtant, les instances de serveur sont isolées les unes par rapport aux autres. En substance, chaque ordinateur virtuel fonctionne comme s’il s’agissait du seul serveur à s’exécuter sur l’ordinateur physique.  
 
@@ -30,7 +30,7 @@ La virtualisation de réseau offre une fonctionnalité similaire, dans laquelle 
 
 ![virtualisation de serveur comparée à la virtualisation de réseau](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF1.gif)  
 
-Figure 1 : virtualisation de serveur comparée à la virtualisation de réseau  
+Figure 1: virtualisation de serveur comparée à la virtualisation de réseau  
 
 ## <a name="hyper-v-network-virtualization-concepts"></a>Principes de la virtualisation de réseau Hyper-V  
 Dans la virtualisation de réseau Hyper-V (HNV), un client ou un locataire est défini comme le « propriétaire » d’un ensemble de sous-réseaux IP qui sont déployés dans une entreprise ou un centre de donnes. Un client peut être une société ou une entreprise avec plusieurs services ou divisions dans un centre de données privé qui nécessite l’isolement réseau, ou un locataire dans un centre de données public qui est hébergé par un fournisseur de services. Chaque client peut disposer d’un ou plusieurs [réseaux virtuels](#VirtualNetworks) dans le centre de donnes, et chaque réseau virtuel se compose d’un ou de plusieurs [sous-réseaux virtuels](#VirtualSubnets).  
@@ -55,23 +55,23 @@ Il existe deux implémentations de HNV qui seront disponibles dans Windows Serve
     > [!IMPORTANT]  
     > Cette rubrique se concentre sur HNVv2.  
 
-### <a name="VirtualNetworks"></a>Réseau virtuel  
+### <a name="virtual-network"></a><a name="VirtualNetworks"></a>Réseau virtuel  
 
 -   Chaque réseau virtuel se compose d’un ou de plusieurs sous-réseaux virtuels. Un réseau virtuel constitue une limite d’isolation dans laquelle les machines virtuelles d’un réseau virtuel peuvent communiquer entre elles. Traditionnellement, cette isolation a été appliquée à l’aide de réseaux locaux virtuels avec une plage d’adresses IP séparée et une balise 802.1 q ou un ID de réseau local virtuel. Toutefois, avec HNV, l’isolation est appliquée à l’aide de l’encapsulation NVGRE ou VXLAN pour créer des réseaux de superposition avec la possibilité de chevaucher des sous-réseaux IP entre les clients ou les locataires.  
 
 -   Chaque réseau virtuel a un ID de domaine de routage unique (RDID) sur l’ordinateur hôte. Ce RDID est à peu près mappé à un ID de ressource pour identifier la ressource REST de réseau virtuel dans le contrôleur de réseau. La ressource REST de réseau virtuel est référencée à l’aide d’un espace de noms Uniform Resource Identifier (URI) avec l’ID de ressource ajouté.  
 
-### <a name="VirtualSubnets"></a>Sous-réseaux virtuels  
+### <a name="virtual-subnets"></a><a name="VirtualSubnets"></a>Sous-réseaux virtuels  
 
 -   Un sous-réseau virtuel implémente la sémantique de sous-réseau IP de couche 3 pour les ordinateurs virtuels qui font partie d’un même sous-réseau virtuel. Le sous-réseau virtuel forme un domaine de diffusion (semblable à un réseau local virtuel) et l’isolation est appliquée à l’aide du champ NVGRE TNI (ID réseau du locataire) ou VXLAN (VNI).  
 
 -   Chaque sous-réseau virtuel appartient à un seul réseau virtuel (RDID) et un ID de sous-réseau virtuel unique est attribué à l’aide de la clé TNI ou VNI dans l’en-tête de paquet encapsulé. La valeur de l’identification de la page doit être unique dans le centre de centres et se situer dans la plage comprise entre 4096 et 2 ^ 24-2.  
 
-L’un des principaux avantages du réseau virtuel et du domaine de routage est qu’il permet aux clients d’apporter leurs propres topologies de réseau (par exemple, des sous-réseaux IP) au Cloud. La figure 2 montre un exemple dans lequel Contoso Corp possède deux réseaux distincts : le réseau Recherche et développement (« R&D Net ») et le réseau commercial (« Sales Net »). Comme ces réseaux ont des ID de domaine de routage différents, ils ne peuvent pas interagir ensemble. Autrement dit, le réseau R&D Net Contoso est isolé du réseau Sales Net Contoso, alors même que les deux appartiennent à Contoso Corp. Contoso R&D Net contient trois sous-réseaux virtuels. Notez que les RDID et VSID sont uniques au sein d’un centre de données.  
+L’un des principaux avantages du réseau virtuel et du domaine de routage est qu’il permet aux clients d’apporter leurs propres topologies de réseau (par exemple, des sous-réseaux IP) au Cloud. La figure 2 montre un exemple dans lequel Contoso Corp possède deux réseaux distincts : le réseau Recherche et développement (« R&D Net ») et le réseau commercial (« Sales Net »). Comme ces réseaux ont des ID de domaine de routage différents, ils ne peuvent pas interagir ensemble. Autrement dit, le réseau R&D Net Contoso est isolé du réseau Sales Net Contoso, alors même que les deux appartiennent à Contoso Corp. Le réseau R&D Net Contoso contient trois sous-réseaux virtuels. Notez que les RDID et VSID sont uniques au sein d’un centre de données.  
 
 ![réseaux client et sous-réseaux virtuels](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF6.gif)  
 
-Figure 2 : réseaux client et sous-réseaux virtuels  
+Figure 2 : réseaux client et sous-réseaux virtuels  
 
 **Transfert de couche 2**  
 
@@ -134,7 +134,7 @@ Les adresses client préservent la topologie réseau du client, qui est virtuali
 
 ![diagramme conceptuel d’une virtualisation de réseau sur une infrastructure physique](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF2.gif)  
 
-Figure 6 : diagramme conceptuel d’une virtualisation de réseau sur une infrastructure physique  
+Figure 6 : diagramme conceptuel d’une virtualisation de réseau sur une infrastructure physique  
 
 Dans le diagramme, les machines virtuelles clientes envoient des paquets de données dans l’espace de l’autorité de certification, qui parcourent l’infrastructure réseau physique par le biais de leurs propres réseaux virtuels, ou « tunnels ». Dans l’exemple ci-dessus, les tunnels peuvent être considérés comme des « enveloppes » autour des paquets de données Contoso et Fabrikam avec des étiquettes d’expédition vertes (adresses PA) à remettre de l’hôte source de gauche à l’hôte de destination à droite. La clé est la manière dont les hôtes déterminent les « adresses d’expédition » (PA) correspondant aux adresses de l’autorité de certification contoso et fabrikam, comment l’enveloppe est placée autour des paquets et comment les hôtes de destination peuvent désencapsuler les paquets et les remettre au contoso et à fabrikam ordinateurs virtuels de destination correctement.  
 
@@ -161,7 +161,7 @@ Ce mécanisme de virtualisation de réseau utilise l’encapsulation générique
 
 ![Encapsulation NVGRE](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF3.gif)  
 
-Figure 7 : virtualisation de réseau - encapsulation NVGRE  
+Figure 7 : virtualisation de réseau - encapsulation NVGRE  
 
 L’ID de sous-réseau virtuel permet aux hôtes d’identifier l’ordinateur virtuel client pour un paquet donné, même si les PA et les autorités de certification sur les paquets peuvent se chevaucher. De ce fait, tous les ordinateurs virtuels d’un même hôte peuvent partager une adresse fournisseur unique, comme l’illustre la figure 7.  
 
@@ -176,7 +176,7 @@ Le diagramme suivant montre un exemple de déploiement de deux clients situés d
 
 ![exemple de déploiement mutualisé](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF5.png)  
 
-Figure 8 : exemple de déploiement mutualisé  
+Figure 8 : exemple de déploiement mutualisé  
 
 Examinez l’exemple illustré dans la figure 8. Avant d’utiliser le service IaaS partagé du fournisseur d’hébergement :  
 
@@ -190,9 +190,9 @@ Nous partons du principe que le fournisseur de services d’hébergement a cré�
 
 Les deux sociétés se voient attribuer l’ID de sous-réseau virtuel suivant par le contrôleur de réseau, comme indiqué ci-dessous.  L’agent hôte sur chacun des hôtes Hyper-V reçoit les adresses IP PA allouées à partir du contrôleur de réseau et crée deux cartes réseau virtuelles d’ordinateur hôte PA dans un compartiment réseau non défini par défaut. Une interface réseau est affectée à chacun de ces cartes réseau virtuelles d’ordinateur hôte où l’adresse IP PA est affectée comme indiqué ci-dessous :  
 
--   Les machines virtuelles de contoso Corp et le pas : Le fournisseur d’adresses Web est 5001, l’adresse **SQL** **est 192.168.1.10** , le **PA Web** est 192.168.2.20  
+-   Les machines virtuelles de contoso Corp et le **pas : la** machine virtuelle est 5001, **SQL** est 192.168.1.10, **Web PA** est 192.168.2.20  
 
--   Les machines virtuelles de Fabrikam Corp et le pas : Le fournisseur d’adresses Web est 6001, l’adresse **SQL** **est 192.168.1.10** , le **PA Web** est 192.168.2.20  
+-   Les machines virtuelles de Fabrikam Corp et le **pas : la** machine virtuelle est 6001, **SQL** est 192.168.1.10, **Web PA** est 192.168.2.20  
 
 Le contrôleur de réseau raccorde toutes les stratégies réseau (y compris le mappage CA-PA) à l’agent hôte SDN qui conservera la stratégie dans un magasin persistant (dans les tables de base de données OVSDB).  
 
@@ -233,7 +233,7 @@ Lorsque l’ordinateur virtuel Web de contoso Corp (10.1.1.12) sur l’hôte 2 H
 
 -   Le moteur VFP transfère ensuite le paquet au port vSwitch auquel la machine virtuelle de destination est connectée.  
 
-Un processus similaire pour le trafic entre les machines virtuelles Fabrikam Corp **Web** et **SQL** utilise les paramètres de stratégie HNV pour Fabrikam Corp. Par conséquent, avec HNV, les machines virtuelles Fabrikam Corp et Contoso Corp interagissent comme si elles étaient sur leurs intranets d’origine. Ils ne peuvent jamais interagir entre eux, même s’ils utilisent les mêmes adresses IP.  
+Il existe un processus similaire pour le trafic échangé entre les ordinateurs virtuels **Web** et **SQL** de Fabrikam Corp qui utilise les paramètres de stratégie HNV pour Fabrikam Corp. Ainsi, grâce à la virtualisation HNV, les ordinateurs virtuels de Fabrikam Corp et Contoso Corp interagissent comme s’ils se trouvaient sur leur intranet d’origine. Ils ne peuvent jamais interagir entre eux, même s’ils utilisent les mêmes adresses IP.  
 
 Les adresses distinctes (ca et pas), les paramètres de stratégie des hôtes Hyper-V et la traduction d’adresses entre l’autorité de certification et l’administrateur système pour le trafic entrant et sortant des ordinateurs virtuels isolent ces ensembles de serveurs à l’aide de la clé NVGRE ou VLXAN VNID. De plus, les mappages et la transformation de la virtualisation dissocient l’architecture de réseau virtuel de l’infrastructure de réseau physique. Bien que les serveurs **SQL** et **Web** Contoso et les serveurs **SQL** et **Web** Fabrikam résident dans leurs propres sous-réseaux IP d’adresses client (10.1.1/24), leur déploiement physique se produit sur deux hôtes situés dans des sous-réseaux d’adresses fournisseur différents, 192.168.1/24 et 192.168.2/24, respectivement. Cela implique que l’approvisionnement et la migration dynamique des ordinateurs virtuels entre sous-réseaux devient possible avec HNV.  
 
@@ -262,7 +262,7 @@ La hiérarchie d’objets pour le vSwitch et l’extension de transfert VFP est 
 
             -   Table de Flow  
 
-            -   Regrouper  
+            -   Groupe  
 
             -   Règle  
 
@@ -286,18 +286,18 @@ La stratégie HNV est programmée par l’agent hôte. Chaque carte réseau d’
 
 ![Architecture HNV](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF7.png)  
 
-Figure 9 : Architecture HNV  
+Figure 9 : architecture HNV  
 
-## <a name="summary"></a>Récapitulatif  
+## <a name="summary"></a>Résumé  
 Les centres de données en nuage peuvent apporter de nombreux avantages, notamment une extensibilité améliorée et une meilleure utilisation des ressources. Pour profiter de ces avantages potentiels, il est nécessite de faire appel à une technologie à même de résoudre fondamentalement les problèmes de l’extensibilité mutualisée dans un environnement dynamique. La virtualisation HNV a été conçue pour traiter ces problèmes et également pour améliorer l’efficacité des opérations du centre de données en dissociant la topologie du réseau virtuel de la topologie du réseau physique. Reposant sur une norme existante, HNV s’exécute dans le centre de développement actuel et fonctionne avec votre infrastructure VXLAN existante. Les clients disposant de HNV peuvent désormais consolider leurs centres de développement dans un Cloud privé ou étendre de manière transparente leurs centres de développement dans un environnement de fournisseur de serveurs d’hébergement avec un Cloud hybride.  
 
-## <a name="BKMK_LINKS"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_LINKS"></a>Voir aussi  
 Pour en savoir plus sur HNVv2, consultez les liens suivants :  
 
 
 |       Type de contenu       |                                                                                                                                              Références                                                                                                                                              |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ressources de la communauté**  |                                                                Blog sur l'[architecture de cloud privé](https://blogs.technet.com/b/privatecloud) -   <br />-Poser des questions : [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)                                                                |
-|         **APPELÉE**          |                                                                   -   [NVGRE Draft RFC](https://www.ietf.org/id/draft-sridharan-virtualization-nvgre-07.txt)<br />-   [VXLAN-RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                    |
+| **Ressources de la communauté**  |                                                                Blog sur l' [architecture de cloud privé](https://blogs.technet.com/b/privatecloud) -   <br />-Posez vos questions : [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)                                                                |
+|         **APPELÉE**          |                                                                   [RFC -   Draft NVGRE](https://www.ietf.org/id/draft-sridharan-virtualization-nvgre-07.txt)<br />-   [VXLAN-RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                    |
 | **Technologies connexes** | -Pour plus d’informations techniques sur la virtualisation de réseau Hyper-V dans Windows Server 2012 R2, consultez [Détails techniques sur la virtualisation de réseau Hyper-v](https://technet.microsoft.com/library/jj134174.aspx)<br />[contrôleur de réseau](../../../sdn/technologies/network-controller/Network-Controller.md) -    |
 

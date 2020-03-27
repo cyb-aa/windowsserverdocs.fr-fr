@@ -7,17 +7,17 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.author: dacuo
-author: shortpatti
+author: eross-msft
 ms.date: 09/07/2018
-ms.openlocfilehash: dce890d5ae542789c49bf08b5e7f25e62ea2e8c2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4a6fd33dce35cf2a185cf5e4357c37e8050197a2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355303"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312514"
 ---
 # <a name="rsc-in-the-vswitch"></a>RSC dans le vSwitch
->S’applique à : Windows Server 2019
+>S’applique à : Windows Server 2019
 
 La fusion de segment de réception (RSC) dans le vSwitch est une fonctionnalité de Windows Server 2019 et de la mise à jour 2018 d’octobre de Windows 10, qui permet de réduire l’utilisation du processeur de l’ordinateur hôte et augmente le débit des charges de travail virtuelles en fusionnant plusieurs segments TCP en un nombre inférieur, mais plus grand segments. Le traitement d’un nombre réduit de segments de grande taille (fusionné) est plus efficace que le traitement de nombreux petits segments.
 
@@ -27,7 +27,7 @@ Windows Server 2012 et versions ultérieures comprenaient une version de déchar
 
 Les charges de travail dont chemin traverse un commutateur virtuel tirent parti de cette fonctionnalité.
 
-Exemple :
+Par exemple :
 
 -   Héberger des cartes réseau virtuelles, notamment :
 
@@ -66,7 +66,7 @@ Get-VMSwitch -Name vSwitchName | Select-Object *RSC*
 
 
 >[!IMPORTANT]
->Important : RSC dans le vSwitch peut être activé et désactivé à la volée sans impact sur les connexions existantes.
+>Important : la RSC dans le vSwitch peut être activée et désactivée à la volée sans impact sur les connexions existantes.
 
 
 **Désactiver RSC dans le vSwitch**

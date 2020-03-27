@@ -6,19 +6,19 @@ ms.topic: article
 ms.assetid: a1b5fa23-9cb1-4c32-916f-2d75f48b42c7
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 07/19/2018
-ms.openlocfilehash: 335efc4fae1f12f2af8443e91c67ff6ba936edb0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 275bec5c950ea20c3a7d5a933648cf7e068164d1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356210"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318353"
 ---
 # <a name="copy-the-ca-certificate-and-crl-to-the-virtual-directory"></a>Copier le certificat et la liste de révocation des certificats de l’autorité de certification dans le répertoire virtuel
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour copier la liste de révocation de certificats et le certificat d’autorité de certification racine d’entreprise de votre autorité de certification vers un répertoire virtuel sur votre serveur Web, et pour vous assurer que les services AD CS sont correctement configurés. Avant d’exécuter les commandes ci-dessous, veillez à remplacer les noms de répertoires et de serveurs par ceux qui conviennent à votre déploiement.  
   
@@ -48,7 +48,7 @@ Pour effectuer cette procédure, vous devez être membre du **groupe Admins du d
 > [!TIP]  
 > Si l' **État** d’un élément n’est pas **OK**, procédez comme suit :  
 > -   Ouvrez le partage sur votre serveur Web pour vérifier que le certificat et les fichiers de liste de révocation de certificats ont été correctement copiés dans le partage. S’ils n’ont pas été correctement copiés dans le partage, modifiez vos commandes de copie avec la source de fichier et la destination de partage appropriées, puis réexécutez les commandes.  
-> -   Vérifiez que vous avez entré les emplacements appropriés pour le CDP et l’AIA sous l’onglet Extensions de l’autorité de certification. Assurez-vous qu’il n’y a pas d’espaces ou d’autres caractères supplémentaires dans les emplacements que vous avez fournis.  
+> -   Vérifiez que vous avez entré les emplacements appropriés pour le CDP et AIA sous l’onglet Extensions de l’autorité de certification. Assurez-vous qu’il n’y a pas d’espaces ou d’autres caractères supplémentaires dans les emplacements que vous avez fournis.  
 > -   Vérifiez que vous avez copié la liste de révocation de certificats et le certificat d’autorité de certification vers l’emplacement approprié sur votre serveur Web, et que l’emplacement correspond à l’emplacement que vous avez fourni pour les emplacements CDP et AIA sur l’autorité de certification.  
 > -   Vérifiez que vous avez correctement configuré les autorisations pour le dossier virtuel dans lequel le certificat d’autorité de certification et la liste de révocation de certificats sont stockés.  
   

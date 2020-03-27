@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d66901a-c40b-474c-9948-f989f399cfea
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4c7a8243922f58f9705a85cd30b2a68cf4d876c6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 558c99c187ab01f3084621410964f3a01c0dace8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404773"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308665"
 ---
 # <a name="step-6-install-and-configure-2-dc1"></a>ÉTAPE 6 : installer et configurer 2-DC1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 2-DC1 fournit les services suivants :  
   
@@ -50,7 +50,7 @@ Tout d’abord, installez Windows Server 2016, Windows Server 2012 R2 ou Windows
   
 1.  Démarrez l’installation de Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.  
   
-2.  Suivez les instructions pour terminer l’installation, en spécifiant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète) et un mot de passe fort pour le compte administrateur local. Ouvrez une session à l’aide du compte Administrateur local.  
+2.  Suivez les instructions pour terminer l’installation, en spécifiant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète) et un mot de passe fort pour le compte administrateur local. Ouvrez une session en utilisant le compte d'administrateur local.  
   
 3.  Connectez 2-DC1 à un réseau disposant d’un accès Internet et exécutez Windows Update pour installer les dernières mises à jour pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, puis vous déconnecter d’Internet.  
   
@@ -65,9 +65,9 @@ Configurez le protocole TCP/IP avec des adresses IP statiques.
   
 2.  Dans **Connexions réseau**, cliquez avec le bouton droit sur **Connexion Ethernet câblée** et cliquez sur **Propriétés**.  
   
-3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
-4.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.2.0.1**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**. Dans **passerelle par défaut**, tapez **10.2.0.254**. Cliquez sur **utiliser l’adresse de serveur DNS suivante**, dans **serveur DNS préféré**, tapez **10.2.0.1**, puis dans **serveur DNS auxiliaire**, tapez **10.0.0.1**.  
+4.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.2.0.1**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**. Dans **passerelle par défaut**, tapez **10.2.0.254**. Cliquez sur **utiliser l’adresse de serveur DNS suivante**, dans **serveur DNS préféré**, tapez **10.2.0.1**, puis dans **serveur DNS auxiliaire**, tapez **10.0.0.1**.  
   
 5.  Cliquez sur **Avancé**, puis sur l’onglet **DNS**.  
   
@@ -181,13 +181,13 @@ Les ordinateurs du domaine CORP2 doivent obtenir des certificats d’ordinateur 
   
 6.  Dans **Entrez les noms des objets à sélectionner**, tapez **Admins du domaine ; Ordinateurs du domaine** , puis cliquez sur **OK**.  
   
-7.  Dans la boîte de dialogue Propriétés de l' **authentification client-serveur** , dans **noms de groupes ou d’utilisateurs**, cliquez sur **Admins du domaine (CORP2\Domain admins)** , et dans **autorisations pour Admins du domaine**, dans la colonne **autoriser** , sélectionnez **écrire** . et **Inscrivez**-vous.  
+7.  Dans la boîte de dialogue Propriétés de l' **authentification client-serveur** , dans **noms de groupes ou d’utilisateurs**, cliquez sur **Admins du domaine (CORP2\Domain admins)** , et dans **autorisations pour Admins du domaine**, dans la colonne **autoriser** , sélectionnez **écrire** et **inscrire**.  
   
 8.  Dans **noms de groupes ou d’utilisateurs**, cliquez sur **ordinateurs du domaine (ordinateurs CORP2\Domain)** , et dans **autorisations pour ordinateurs du domaine**, dans la colonne **autoriser** , sélectionnez **inscrire** et **inscription**automatique, puis cliquez sur **OK**.  
   
 9. Fermez la Console Modèles de certificat.  
   
-## <a name="replication"></a>Forcer la réplication entre DC1 et 2-DC1  
+## <a name="force-replication-between-dc1-and-2-dc1"></a><a name="replication"></a>Forcer la réplication entre DC1 et 2-DC1  
 Avant de pouvoir vous inscrire aux certificats sur 2 EDGE1, vous devez forcer la réplication des paramètres de DC1 à 2-DC1. Cette opération doit être effectuée sur DC1.  
   
 ### <a name="to-force-replication"></a>Pour forcer la réplication  
@@ -200,7 +200,7 @@ Avant de pouvoir vous inscrire aux certificats sur 2 EDGE1, vous devez forcer la
   
 4.  Dans la boîte de dialogue **Propriétés de DEFAULTIPSITELINK** , dans **coût**, tapez **1**, dans **répliquer toutes**les, tapez **15**, puis cliquez sur **OK**. Attendez 15 minutes que la réplication se termine.  
   
-5.  Pour forcer la réplication maintenant dans l’arborescence de la console, développez **paramètres Sites\Default-First-Site-name\Servers\DC1\NTDS**, dans le volet d’informations, cliquez avec le bouton droit sur **<automatically generated>** , cliquez sur **répliquer maintenant**, puis dans la boîte de dialogue **répliquer maintenant** , Cliquez sur **OK**.  
+5.  Pour forcer la réplication maintenant dans l’arborescence de la console, développez **paramètres Sites\Default-First-Site-name\Servers\DC1\NTDS**, dans le volet d’informations, cliquez avec le bouton droit sur **<automatically generated>** , cliquez sur **répliquer maintenant**, puis dans la boîte de dialogue **répliquer maintenant** , cliquez sur **OK**.  
   
 6.  Pour garantir la réussite de la réplication, procédez comme suit :  
   
@@ -214,7 +214,7 @@ Avant de pouvoir vous inscrire aux certificats sur 2 EDGE1, vous devez forcer la
   
     3.  Assurez-vous que toutes les partitions sont synchronisées sans erreurs. Si ce n’est pas le cas, réexécutez la commande jusqu’à ce qu’aucune erreur ne soit signalée avant de continuer.  
   
-7.  Fermez la fenêtre d’invite de commandes.  
+7.  Fermez la fenêtre d'invite de commandes.  
   
 
 

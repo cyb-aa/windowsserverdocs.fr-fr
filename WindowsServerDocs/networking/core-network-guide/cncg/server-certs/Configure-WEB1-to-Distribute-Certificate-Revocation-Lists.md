@@ -6,18 +6,18 @@ ms.topic: article
 ms.assetid: fa4a8c41-8c2a-425c-8511-736fe5d196ac
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5d53cbba37699346db110f0748a9c3e0c834c18e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3319715e70c1e68739a10a4c67a9fa404d5ad80e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356287"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318415"
 ---
 # <a name="configure-web1-to-distribute-certificate-revocation-lists-crls"></a>Configurer WEB1 pour distribuer des listes de révocation de certificats (CRL)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour configurer le serveur Web WEB1 pour distribuer les listes de révocation de certificats.  
   
@@ -38,13 +38,13 @@ Pour effectuer cette procédure, vous devez être membre du **groupe Admins du d
   
 4.  Dans **partage de fichiers**, tapez **éditeurs de certificats**, puis cliquez sur **Ajouter**. Le groupe éditeurs de certificats est ajouté à la liste. Dans la liste, dans **niveau d’autorisation**, cliquez sur la flèche en regard de **éditeurs de certificats**, puis cliquez sur **lecture/écriture**. Cliquez sur **partager**, puis sur **terminé**.  
   
-5.  Fermez l’Explorateur Windows.  
+5.  Fermez l'Explorateur Windows.  
   
 6.  Ouvrez la console IIS. Dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire des services Internet (IIS)** .  
   
 7.  Dans l’arborescence de la console du gestionnaire Internet Information Services (IIS), développez **web1**. Si vous êtes invité à effectuer une mise en route de la Plateforme Web Microsoft, cliquez sur **Annuler**.  
   
-8.  Développez **Sites** , cliquez avec le bouton droit sur le **Site Web par défaut** , puis cliquez sur **Ajouter un répertoire virtuel**.  
+8.  Développez **Sites**, cliquez avec le bouton droit sur le **Default Web Site**, puis cliquez sur **Ajouter un répertoire virtuel**.  
   
 9. Dans **alias**, tapez **PKI**. Dans **chemin d’accès physique** , tapez **C:\pki**, puis cliquez sur **OK**.  
   
@@ -54,9 +54,9 @@ Pour effectuer cette procédure, vous devez être membre du **groupe Admins du d
   
     2.  Dans **Accueil pki** cliquez sur **Authentification**.  
   
-    3.  Dans le volet **Actions** , cliquez sur **Modifier les autorisations**.  
+    3.  Dans le volet **Actions**, cliquez sur **Modifier les autorisations**.  
   
-    4.  Sous l’onglet **Sécurité** , cliquez sur **Modifier**.  
+    4.  Sous l’onglet **Sécurité**, cliquez sur **Modifier**.  
   
     5.  Dans la boîte de dialogue **Autorisations pour pki**, cliquez sur **Ajouter**.  
   

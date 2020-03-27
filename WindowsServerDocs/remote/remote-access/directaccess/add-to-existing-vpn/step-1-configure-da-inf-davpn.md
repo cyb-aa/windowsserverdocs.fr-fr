@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5dc529f7-7bc3-48dd-b83d-92a09e4055c4
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4437101c6cde25ebb370fe54a2f8ef821997f15d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 09cfde5bdd9e213e166345fb6844dcff08275b3f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388771"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314766"
 ---
 # <a name="step-1-configure-the-directaccess-infrastructure"></a>Étape 1 configurer l’infrastructure DirectAccess
 
@@ -37,7 +37,7 @@ Cette rubrique décrit comment configurer l'infrastructure requise pour activer 
 |Configurer les groupes de sécurité|Configurez les groupes de sécurité qui contiendront les ordinateurs clients DirectAccess, ainsi que tous les autres groupes de sécurité requis dans le déploiement.|  
 |Configurer le serveur Emplacement réseau|L'Assistant Activation de DirectAccess configure le serveur d'emplacement réseau sur le serveur DirectAccess.|  
   
-## <a name="ConfigNetworkSettings"></a>Configurer les paramètres réseau du serveur  
+## <a name="configure-server-network-settings"></a><a name="ConfigNetworkSettings"></a>Configurer les paramètres réseau du serveur  
 Les paramètres d'interface réseau suivants sont requis pour un déploiement à un seul serveur dans un environnement avec IPv4 et IPv6. Toutes les adresses IP sont configurées à l'aide de l'option **Modifier les paramètres de la carte** du **Centre Réseau et partage Windows**.  
   
 -   Topologie de périmètre  
@@ -66,14 +66,14 @@ Les paramètres d'interface réseau suivants sont requis pour un déploiement à
 >     Save-NetGPO -GPOSession $gposession  
 >     ```  
   
-## <a name="ConfigRouting"></a>Configurer le routage dans le réseau d’entreprise  
+## <a name="configure-routing-in-the-corporate-network"></a><a name="ConfigRouting"></a>Configurer le routage dans le réseau d’entreprise  
 Procédez comme suit pour configurer le routage dans le réseau d'entreprise :  
   
 -   Lorsqu'IPv6 natif est déployé dans l'organisation, ajoutez un itinéraire afin que les routeurs du réseau interne redirigent le trafic IPv6 via le serveur d'accès à distance.  
   
 -   Configurez manuellement les itinéraires IPv4 et IPv6 de l'organisation sur les serveurs d'accès à distance. Ajoutez un itinéraire publié afin que tout le trafic ayant un préfixe IPv6 (/48) d'organisation soit transféré au réseau interne. De plus, pour le trafic IPv4, ajoutez des itinéraires explicites afin que le trafic IPv4 soit transféré au réseau interne.  
   
-## <a name="ConfigFirewalls"></a>Configurer des pare-feu  
+## <a name="configure-firewalls"></a><a name="ConfigFirewalls"></a>Configurer des pare-feu  
 Lorsque vous utilisez des pare-feu supplémentaires dans votre déploiement, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d’accès à distance lorsque le serveur d’accès à distance est sur le réseau Internet IPv4 :  
   
 -   trafic 6to4 : protocole IP 41 entrant et sortant.  
@@ -92,10 +92,10 @@ Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de
   
 -   TCP/UDP pour tout le trafic IPv4/IPv6  
   
-## <a name="ConfigCAs"></a>Configurer les autorités de certification et les certificats  
+## <a name="configure-cas-and-certificates"></a><a name="ConfigCAs"></a>Configurer les autorités de certification et les certificats  
 L'Assistant Activation de DirectAccess configure un proxy Kerberos intégré qui s'authentifie à l'aide des noms d'utilisateur et mots de passe. Il configure également un certificat IP-HTTPS sur le serveur d'accès à distance.  
   
-### <a name="ConfigCertTemp"></a>Configurer des modèles de certificats  
+### <a name="configure-certificate-templates"></a><a name="ConfigCertTemp"></a>Configurer des modèles de certificats  
 Lorsque vous utilisez une autorité de certification interne pour émettre des certificats, vous devez configurer un modèle de certificat pour le certificat IP-HTTPS et le certificat de site web du serveur Emplacement réseau.  
   
 ##### <a name="to-configure-a-certificate-template"></a>Pour configurer un modèle de certificat  
@@ -154,7 +154,7 @@ Assurez-vous que le certificat de site web pour l'authentification IP-HTTPS est 
   
 5.  Cliquez avec le bouton droit sur **Certificats**, pointez sur **Toutes les Tâches**, puis cliquez sur **Demander un nouveau certificat**.  
   
-6.  Cliquez sur **Suivant** deux fois.  
+6.  Cliquez deux fois sur **Suivant**.  
   
 7.  Dans la page **demander des certificats** , activez la case à cocher du modèle de certificat et, si nécessaire, cliquez sur des **informations supplémentaires sont requises pour s’inscrire pour ce certificat**.  
   
@@ -174,10 +174,10 @@ Assurez-vous que le certificat de site web pour l'authentification IP-HTTPS est 
   
 15. Dans le volet d'informations du composant logiciel enfichable Certificats, vérifiez qu'un nouveau certificat a été inscrit avec Rôles prévus égal à Authentification du serveur.  
   
-## <a name="ConfigDNS"></a>Configurer le serveur DNS  
+## <a name="configure-the-dns-server"></a><a name="ConfigDNS"></a>Configurer le serveur DNS  
 Vous devez configurer manuellement une entrée DNS pour le site web du serveur Emplacement réseau du réseau interne de votre déploiement.  
   
-### <a name="NLS_DNS"></a>Pour créer le serveur d’emplacement réseau et les enregistrements DNS de sonde Web  
+### <a name="to-create-the-network-location-server-and-web-probe-dns-records"></a><a name="NLS_DNS"></a>Pour créer le serveur d’emplacement réseau et les enregistrements DNS de sonde Web  
   
 1.  Sur le serveur DNS du réseau interne : dans l’écran d' **Accueil** , tapez * * dnsmgmt. msc * *, puis appuyez sur entrée.  
   
@@ -191,7 +191,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
 
 ![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Add-DnsServerResourceRecordA -Name <network_location_server_name> -ZoneName <DNS_zone_name> -IPv4Address <network_location_server_IPv4_address>  
@@ -204,7 +204,7 @@ Vous devez également configurer les entrées DNS pour les éléments suivants�
   
 -   **Vérification de la révocation**des certificats : DirectAccess utilise la vérification de la révocation des certificats pour la connexion IP-HTTPS entre les clients DirectAccess et le serveur d’accès à distance, ainsi que pour la connexion HTTPS entre le client DirectAccess et le serveur d’emplacement réseau. Dans les deux cas, les clients DirectAccess doivent être en mesure de résoudre le point de distribution de liste de révocation de certificats et d'y accéder.  
   
-## <a name="ConfigAD"></a>Configurer Active Directory  
+## <a name="configure-active-directory"></a><a name="ConfigAD"></a>Configurer Active Directory  
 Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doivent être joints à un domaine Active Directory. Les ordinateurs clients DirectAccess doivent être membres de l'un des types de domaines suivants :  
   
 -   les domaines qui appartiennent à la même forêt que le serveur d'accès à distance ;  
@@ -235,7 +235,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 ![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Notez que vous devez fournir des informations d’identification de domaine après avoir entré la commande Add-Computer ci-dessous.  
   
@@ -244,7 +244,7 @@ Add-Computer -DomainName <domain_name>
 Restart-Computer  
 ```  
   
-## <a name="ConfigGPOs"></a>Configurer des objets de stratégie de groupe  
+## <a name="configure-gpos"></a><a name="ConfigGPOs"></a>Configurer des objets de stratégie de groupe  
 Pour déployer l’accès à distance, vous avez besoin d’un minimum de deux objets stratégie de groupe : un objet stratégie de groupe contient des paramètres pour le serveur d’accès à distance et un autre contient des paramètres pour les ordinateurs clients DirectAccess. Quand vous configurez l’accès à distance, l’Assistant crée automatiquement les objets de stratégie de groupe requis. Toutefois, si votre organisation impose une convention d’affectation de noms, ou si vous ne disposez pas des autorisations nécessaires pour créer ou modifier des objets stratégie de groupe, vous devez les créer avant de configurer l’accès à distance.  
   
 Pour créer des objets stratégie de groupe, consultez [créer et modifier un objet stratégie de groupe](https://technet.microsoft.com/library/cc754740.aspx).  
@@ -260,10 +260,10 @@ Pour créer des objets stratégie de groupe, consultez [créer et modifier un ob
 > [!NOTE]  
 > Si un objet stratégie de groupe a été créé manuellement, il est possible, au cours de la configuration de DirectAccess, que l’objet stratégie de groupe ne soit pas disponible. L’objet stratégie de groupe n’a peut-être pas été répliqué sur le contrôleur de domaine le plus proche sur l’ordinateur de gestion. Dans ce cas, l'administrateur peut attendre la fin de la réplication ou forcer la réplication.  
   
-## <a name="ConfigSGs"></a>Configurer des groupes de sécurité  
+## <a name="configure-security-groups"></a><a name="ConfigSGs"></a>Configurer des groupes de sécurité  
 Les paramètres DirectAccess contenus dans l’objet stratégie de groupe de l’ordinateur client sont appliqués uniquement aux ordinateurs qui sont membres des groupes de sécurité que vous spécifiez lors de la configuration de l’accès à distance. De plus, si vous utilisez des groupes de sécurité pour gérer vos serveurs d'applications, créez un groupe de sécurité pour ces serveurs.  
   
-### <a name="Sec_Group"></a>Pour créer un groupe de sécurité pour les clients DirectAccess  
+### <a name="to-create-a-security-group-for-directaccess-clients"></a><a name="Sec_Group"></a>Pour créer un groupe de sécurité pour les clients DirectAccess  
   
 1.  Dans l’écran d' **Accueil** , tapez**DSA. msc**, puis appuyez sur entrée. Dans la console **Utilisateurs et ordinateurs Active Directory**, dans le volet gauche, développez le domaine contenant le groupe de sécurité, cliquez avec le bouton droit sur **Utilisateurs**, pointez sur **Nouveau**, puis cliquez sur **Groupe**.  
   
@@ -273,20 +273,20 @@ Les paramètres DirectAccess contenus dans l’objet stratégie de groupe de l�
   
 4.  Double-cliquez sur le groupe de sécurité des ordinateurs clients DirectAccess, puis dans la boîte de dialogue des propriétés, cliquez sur l'onglet **Membres**.  
   
-5.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
+5.  Sous l'onglet **Membres**, cliquez sur **Ajouter**.  
   
 6.  Dans la boîte de dialogue **Sélectionner Utilisateurs, contacts, ordinateurs ou comptes de service**, sélectionnez les ordinateurs clients que vous voulez activer pour DirectAccess, puis cliquez sur **OK**.  
   
 ![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 New-ADGroup -GroupScope global -Name <DirectAccess_clients_group_name>  
 Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_name>  
 ```  
   
-## <a name="ConfigNLS"></a>Configurer le serveur emplacement réseau  
+## <a name="configure-the-network-location-server"></a><a name="ConfigNLS"></a>Configurer le serveur emplacement réseau  
 Le serveur d'emplacement réseau doit être sur un serveur avec un haut niveau de disponibilité, et un certificat SSL valide doit être approuvé par les clients DirectAccess. Il existe deux options de certificat pour le certificat de serveur d'emplacement réseau :  
   
 -   **Privé**: les éléments suivants sont requis, s’ils n’existent pas déjà :  
@@ -317,7 +317,7 @@ Le serveur d'emplacement réseau doit être sur un serveur avec un haut niveau d
   
 5.  Cliquez avec le bouton droit sur **Certificats**, pointez sur **Toutes les Tâches**, puis cliquez sur **Demander un nouveau certificat**.  
   
-6.  Cliquez sur **Suivant** deux fois.  
+6.  Cliquez deux fois sur **Suivant**.  
   
 7.  Dans la page **demander des certificats** , activez la case à cocher du modèle de certificat et, si nécessaire, cliquez sur des **informations supplémentaires sont requises pour s’inscrire pour ce certificat**.  
   

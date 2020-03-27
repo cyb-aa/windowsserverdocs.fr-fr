@@ -3,7 +3,7 @@ title: Exécuter Windows Server Essentials Log Collector
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,30 +12,30 @@ ms.assetid: 0d340223-fa24-4c75-ba8e-b654feb120ab
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5654f28aeda3c231376ed888a8aa04bc0cf3d000
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a39c23ef4119e109372bad3455415f8d3862cf1b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432488"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318676"
 ---
 # <a name="run-the-windows-server-essentials-log-collector"></a>Exécuter Windows Server Essentials Log Collector
-Vous pouvez exécuter Windows Server Essentials Log Collector à partir du serveur ou sur un ordinateur sur le réseau. Si vous exécutez Log Collector à partir du serveur, vous pouvez uniquement collecter les journaux du serveur. Si vous exécutez Log Collector à partir d'un ordinateur réseau, vous pouvez choisir de collecter les journaux du serveur en plus de ceux de cet ordinateur.  
+Vous pouvez exécuter le collecteur de journaux Windows Server Essentials à partir du serveur ou d’un ordinateur sur le réseau. Si vous exécutez Log Collector à partir du serveur, vous pouvez uniquement collecter les journaux du serveur. Si vous exécutez Log Collector à partir d'un ordinateur réseau, vous pouvez choisir de collecter les journaux du serveur en plus de ceux de cet ordinateur.  
   
  Vous devez disposer de privilèges d'administration appropriés pour exécuter Log Collector. Si vous collectez les fichiers journaux d'un serveur, vous devez être un administrateur de serveur ; si vous collectez les fichiers journaux sur un ordinateur réseau, vous devez être un administrateur de client pour cet ordinateur.  
   
 #### <a name="to-run-the-log-collector-on-the-server-by-using-the-wizard"></a>Pour exécuter Log Collector sur le serveur à l'aide de l'Assistant  
   
-1. Sur le **Démarrer** page du serveur, cliquez sur **Windows Server Essentials Log Collector**.  
+1. Sur la page de **démarrage** du serveur, cliquez sur **collecteur de journaux Windows Server Essentials**.  
   
    > [!NOTE]
-   > - Si le programme Log Collector n’apparaît pas sur le **Démarrer** page, accédez à **%system%\Program Files (x86) \Windows Server Essentials Log Collector**, puis double-cliquez sur **LogCollector** .  
+   > - Si le programme collecteur de journaux n’apparaît pas dans la page de **démarrage** , accédez à **%System%\Program Files Files (x86) \Windows Server Essentials log Collector**, puis double-cliquez sur **LogCollector**.  
    >   -   Si vous n'êtes pas connecté au serveur avec des privilèges d'administration, Log Collector vous invite à entrer vos informations d'identification.  
   
-2. Quand vous êtes invité à un emplacement enregistrer les fichiers journaux seront collectés, vous pouvez choisir l’emplacement par défaut,  **\\ \\< nom_serveur\>\logs**, ou spécifiez un autre emplacement. Pour accepter l'emplacement par défaut, cliquez sur **Suivant**. Pour modifier l'emplacement, cliquez sur **Parcourir**, accédez au dossier dans lequel vous souhaitez enregistrer les fichiers journaux, puis cliquez sur **Enregistrer**.  
+2. Lorsque vous êtes invité à entrer un emplacement dans lequel enregistrer les fichiers journaux collectés, vous pouvez choisir l’emplacement par défaut, **\\\\< ServerName\>\Logs**ou spécifier un autre emplacement. Pour accepter l'emplacement par défaut, cliquez sur **Suivant**. Pour modifier l'emplacement, cliquez sur **Parcourir**, accédez au dossier dans lequel vous souhaitez enregistrer les fichiers journaux, puis cliquez sur **Enregistrer**.  
   
    > [!NOTE]
-   >  Vous n'avez pas besoin de fournir les noms des fichiers journaux. Log Collector désigne la collection de fichiers zip en concaténant le nom d’ordinateur et l’horodatage du fichier.  
+   >  Vous n'avez pas besoin de fournir les noms des fichiers journaux. Le collecteur de journaux nomme la collection de fichiers zip en concaténant le nom de l’ordinateur et l’horodatage du fichier.  
   
 3. Une barre de progression s'affiche pendant la collecte des journaux.  
   
@@ -43,7 +43,7 @@ Vous pouvez exécuter Windows Server Essentials Log Collector à partir du serve
   
 #### <a name="to-run-the-log-collector-on-a-network-computer-by-using-the-wizard"></a>Pour exécuter Log Collector sur un ordinateur réseau à l'aide de l'Assistant  
   
-1.  Accédez à **%system%\Program Files (x86) \Windows Server Essentials Log Collector**, puis double-cliquez sur le fichier **LogCollector.exe**.  
+1.  Accédez à **fichiers%System%\Program Files (x86) \Windows Server Essentials log Collector**, puis double-cliquez sur le fichier **LogCollector. exe**.  
   
     > [!NOTE]
     >  Si vous n'êtes pas connecté à l'ordinateur réseau avec des privilèges d'administration, entrez votre nom d'utilisateur et votre mot de passe quand vous y êtes invité, puis cliquez sur **Suivant**.  
@@ -61,7 +61,7 @@ Vous pouvez exécuter Windows Server Essentials Log Collector à partir du serve
 4.  Tapez ou recherchez l'emplacement dans lequel vous souhaitez enregistrer les fichiers journaux, puis cliquez sur **Suivant**.  
   
     > [!NOTE]
-    >  Vous n'avez pas besoin de fournir les noms des fichiers journaux. Log Collector désigne la collection de fichiers zip en concaténant le nom d’ordinateur et l’horodatage du fichier.  
+    >  Vous n'avez pas besoin de fournir les noms des fichiers journaux. Le collecteur de journaux nomme la collection de fichiers zip en concaténant le nom de l’ordinateur et l’horodatage du fichier.  
   
 5.  Une barre de progression s'affiche pendant la collecte des journaux.  
   
@@ -78,7 +78,7 @@ Vous pouvez exécuter Windows Server Essentials Log Collector à partir du serve
   
 3.  À la racine de la **Bibliothèque du Planificateur de tâches**, accédez à la tâche planifiée nommée **LogCollector**.  
   
-4.  Cliquez avec le bouton droit sur **LogCollector**, puis cliquez sur **Exécuter**. Log Collector enregistre les journaux dans le dossier par défaut sur le serveur,  **\\ \\< nom_serveur\>\Logs**. Si vous n’avez pas l’autorisation d’écriture pour le dossier ou le dossier n’existe pas, les journaux sont placés dans le **< temp\>**  sous-répertoire.  
+4.  Cliquez avec le bouton droit sur **LogCollector**, puis cliquez sur **Exécuter**. Le collecteur de journaux place les journaux dans le dossier par défaut sur le serveur, **\\\\< ServerName\>\Logs**. Si vous n’avez pas d’autorisation d’écriture sur le dossier ou si le dossier n’existe pas, les journaux sont placés dans le sous-répertoire **temp\><** .  
   
 ##### <a name="to-manually-run-the-log-collector-on-a-network-computer"></a>Pour exécuter manuellement Log Collector sur un ordinateur réseau  
   
@@ -88,4 +88,4 @@ Vous pouvez exécuter Windows Server Essentials Log Collector à partir du serve
   
 3.  À la racine de la **Bibliothèque du Planificateur de tâches**, accédez à la tâche planifiée nommée **LogCollector**.  
   
-4.  Cliquez avec le bouton droit sur **LogCollector**, puis cliquez sur **Exécuter**. Log Collector enregistre les journaux dans le **< temp\>**  dossier sur l’ordinateur réseau.
+4.  Cliquez avec le bouton droit sur **LogCollector**, puis cliquez sur **Exécuter**. Le collecteur de journaux place les journaux dans le dossier **< temp\>** sur l’ordinateur réseau.

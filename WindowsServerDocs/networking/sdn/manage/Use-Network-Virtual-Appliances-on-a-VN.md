@@ -10,19 +10,19 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.assetid: 3c361575-1050-46f4-ac94-fa42102f83c1
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 158183bab74e6e45c36c579f3259fc2095a939b5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db634af114610cce0bdbcacd58986ceb5f00dd99
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406045"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317583"
 ---
 # <a name="use-network-virtual-appliances-on-a-virtual-network"></a>Utiliser des appliances virtuelles réseau sur un réseau virtuel
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, vous allez apprendre à déployer des appliances virtuelles réseau sur des réseaux virtuels locataires. Vous pouvez ajouter des appliances virtuelles réseau à des réseaux qui effectuent des fonctions de mise en miroir de port et de routage définies par l’utilisateur.
 
@@ -44,7 +44,7 @@ Certains appareils nécessitent plusieurs cartes réseau virtuelles. En règle g
 Une fois que vous avez déployé l’appliance virtuelle réseau, vous pouvez utiliser l’appliance pour le routage défini, le portage des mises en miroir, ou les deux. 
 
 
-## <a name="example-user-defined-routing"></a>Exemple : Routage défini par l’utilisateur
+## <a name="example-user-defined-routing"></a>Exemple : routage défini par l’utilisateur
 
 Pour la plupart des environnements, vous avez uniquement besoin des itinéraires système déjà définis par le routeur distribué du réseau virtuel. Toutefois, vous devrez peut-être créer une table de routage et ajouter un ou plusieurs itinéraires dans des cas spécifiques, par exemple :
 
@@ -93,7 +93,7 @@ Les sous-réseaux s’appuient sur les itinéraires système jusqu’à ce qu’
 
 Dès que vous appliquez la table de routage au réseau virtuel, le trafic est transféré à l’appliance virtuelle. Vous devez configurer la table de routage dans l’appliance virtuelle pour transférer le trafic, de manière appropriée pour votre environnement.
 
-## <a name="example-port-mirroring"></a>Exemple : Mise en miroir des ports
+## <a name="example-port-mirroring"></a>Exemple : mise en miroir des ports
 
 Dans cet exemple, vous configurez le trafic pour MyVM_Ethernet1 en miroir Appliance_Ethernet1.  Nous supposons que vous avez déployé deux machines virtuelles, l’une comme l’appliance et l’autre en tant que machine virtuelle à surveiller avec la mise en miroir. 
 
@@ -168,6 +168,6 @@ L’appliance doit disposer d’une deuxième interface réseau pour la gestion.
    $srcNic = New-NetworkControllerNetworkInterface -ConnectionUri $uri  -Properties $srcNic.Properties -ResourceId $srcNic.ResourceId
    ```
 
-À l’issue de ces étapes, l’interface Appliance_Ethernet1 reflète le trafic à partir de l’interface MyVM_Ethernet1.
+Une fois ces étapes terminées, l’interface Appliance_Ethernet1 reflète le trafic à partir de l’interface MyVM_Ethernet1.
  
 ---

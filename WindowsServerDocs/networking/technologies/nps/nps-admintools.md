@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 5de80dc0-53be-42b7-8e5b-24d213bf2b25
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 527fbf52d68f36d198068514476868bcba930a68
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1bb6447197bfed1108a62be077b0a076bef995da
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396451"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316358"
 ---
 # <a name="network-policy-server-management-with-administration-tools"></a>Gestion des serveurs NPS avec les Outils d'administration
 
@@ -38,7 +38,7 @@ Une fois que vous avez installé NPS, vous pouvez utiliser cette procédure pour
 
 **Informations d’identification d’administration** 
 
-Pour effectuer cette procédure, vous devez être membre du groupe administrateurs.
+Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs.
 
 ### <a name="to-configure-the-local-nps-by-using-the-nps-console"></a>Pour configurer le serveur NPS local à l’aide de la console NPS
 
@@ -58,7 +58,7 @@ En fonction des conditions du réseau et du nombre de NPSs que vous gérez à l�
 
 **Informations d’identification d’administration** 
 
-Pour effectuer cette procédure, vous devez être membre du groupe administrateurs.
+Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs.
 
 ### <a name="to-manage-multiple-npss-by-using-the-nps-snap-in"></a>Pour gérer plusieurs NPSs à l’aide de la\-du composant logiciel enfichable NPS dans
 
@@ -91,7 +91,7 @@ Pour effectuer cette procédure, vous devez être membre du groupe Administrateu
 1. Sur chaque serveur NPS que vous souhaitez gérer à distance, dans Gestionnaire de serveur, sélectionnez **serveur local**. Dans le volet d’informations Gestionnaire de serveur, affichez le paramètre **Bureau à distance** , puis effectuez l’une des opérations suivantes. 
     1. Si la valeur du paramètre **Bureau à distance** est **activée**, vous n’avez pas besoin d’effectuer certaines des étapes de cette procédure. Passez à l’étape 4 pour commencer à configurer des Bureau à distance des autorisations utilisateur.
     2. Si le paramètre **Bureau à distance** est **désactivé**, cliquez sur le mot **désactivé**. La boîte de dialogue **Propriétés système** s’ouvre sous l’onglet **à distance** .
-2. Dans **Bureau à distance**, cliquez sur **autoriser les connexions à distance à cet ordinateur**. La boîte de dialogue **Connexion Bureau à distance** s’ouvre. Effectuez l’une des opérations suivantes :
+2. Dans **Bureau à distance**, cliquez sur **autoriser les connexions à distance à cet ordinateur**. La boîte de dialogue **Connexion Bureau à distance** s’ouvre. Effectuez l'une des opérations suivantes :
     1. Pour personnaliser les connexions réseau autorisées, cliquez sur **pare-feu Windows avec fonctions avancées de sécurité**, puis configurez les paramètres que vous souhaitez autoriser. 
     2. Pour activer Connexion Bureau à distance pour toutes les connexions réseau sur l’ordinateur, cliquez sur **OK**.
 3. Dans **Propriétés système**, dans **Bureau à distance**, indiquez si vous souhaitez activer **autoriser les connexions uniquement à partir d’ordinateurs exécutant Bureau à distance avec authentification au niveau du réseau**, puis effectuez votre sélection.

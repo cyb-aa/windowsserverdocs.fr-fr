@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d268dc57-78f8-47ba-9a7a-a607e8b9225c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: cbebd0388ccd5dd2540a20f5d325d7f97c7e2bb3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8c1aef88aec45ee63614b889658daceca3779e91
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405432"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316000"
 ---
 # <a name="export-an-nps-configuration-for-import-on-another-server"></a>Exporter une configuration NPS pour l’importer sur un autre serveur
 
@@ -46,11 +46,11 @@ Le tableau suivant répertorie les paramètres de l’applet de commande **Expor
 
 |Paramètre|Description|
 |---------|-----------|
-|Chemin d’accès|Spécifie le nom et l’emplacement du fichier XML dans lequel vous souhaitez exporter la configuration du serveur NPS.|
+|Chemin d'accès|Spécifie le nom et l’emplacement du fichier XML dans lequel vous souhaitez exporter la configuration du serveur NPS.|
 
 **Informations d’identification d’administration**
 
-Pour effectuer cette procédure, vous devez être membre du groupe administrateurs.
+Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs.
 
 ### <a name="export-example"></a>Exemple d’exportation 
 
@@ -85,7 +85,7 @@ Lorsque la commande **netsh nps Import** est exécutée, le serveur NPS est auto
 
 **Informations d’identification d’administration**
 
-Pour effectuer cette procédure, vous devez être membre du groupe administrateurs.
+Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs.
 
 ### <a name="to-copy-an-nps-configuration-to-another-nps-using-netsh-commands"></a>Pour copier une configuration NPS sur un autre serveur NPS à l’aide des commandes netsh
 

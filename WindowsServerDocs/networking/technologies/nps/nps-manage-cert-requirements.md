@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 2af0a1df-5c44-496b-ab11-5bc340dc96f0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f60e5a1da1388a6dd2432a3603f83d6ca2990a29
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c2593c2739728704a59cde169de28ed0ae979419
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405410"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316087"
 ---
 # <a name="configure-certificate-templates-for-peap-and-eap-requirements"></a>Configurer des modèles de certificats pour répondre aux besoins PEAP et EAP
 

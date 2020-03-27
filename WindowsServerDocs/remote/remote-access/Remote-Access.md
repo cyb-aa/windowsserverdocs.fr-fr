@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/18/2018
-ms.openlocfilehash: d2fa9c82c4cab05b2a60916fee3f09c1ea48a472
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dbcd0380dffca29e782be2179024270da73a2c11
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388907"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309414"
 ---
 # <a name="remote-access"></a>Accès à distance
 
@@ -36,7 +36,7 @@ Le rôle serveur d’accès à distance est un regroupement logique des technolo
 >[!IMPORTANT]
 >N’essayez pas de déployer l’accès à distance sur une machine virtuelle \(\) de machines virtuelles dans Microsoft Azure. L’utilisation de l’accès à distance dans Microsoft Azure n’est pas prise en charge. Vous ne pouvez pas utiliser l’accès à distance dans une machine virtuelle Azure pour déployer un VPN, DirectAccess ou une autre fonctionnalité d’accès à distance dans Windows Server 2016 ou des versions antérieures de Windows Server. Pour plus d’informations, consultez [prise en charge des logiciels serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
-## <a name="bkmk_da"></a>Service d’accès à distance \(la passerelle RAS\)-RAS
+## <a name="remote-access-service-ras---ras-gateway"></a><a name="bkmk_da"></a>Service d’accès à distance \(la passerelle RAS\)-RAS
 
 Lorsque vous installez le service de rôle **DirectAccess et VPN (RAS)** , vous déployez la passerelle de service d’accès à distance \(la **passerelle RAS**\). Vous pouvez déployer la passerelle RAS sur un réseau privé virtuel de passerelle RAS à client unique \(VPN\) serveur, un serveur VPN de passerelle RAS mutualisée et un serveur DirectAccess.
 
@@ -51,7 +51,7 @@ Lorsque vous installez le service de rôle **DirectAccess et VPN (RAS)** , vous 
 
 Pour plus d’informations, consultez [passerelle RAS](ras-gateway/RAS-Gateway.md) et [Border Gateway Protocol (BGP)](bgp/Border-Gateway-Protocol-BGP.md).
 
-## <a name="bkmk_rras"></a>Achemine
+## <a name="routing"></a><a name="bkmk_rras"></a>Achemine
 
 Vous pouvez utiliser l’accès à distance pour router le trafic réseau entre les sous-réseaux de votre réseau local. Le routage prend en charge les routeurs de traduction d’adresses réseau (NAT), les routeurs LAN exécutant BGP, le protocole RIP (Routing Information Protocol) et les routeurs compatibles avec la multidiffusion à l’aide du protocole IGMP (Internet Group Management Protocol). En tant que routeur complet, vous pouvez déployer le service d’accès à distance sur un ordinateur serveur ou en tant que machine virtuelle sur un ordinateur exécutant Hyper-V.
 
@@ -61,7 +61,7 @@ Pour installer l’accès à distance en tant que routeur de réseau local, util
 Install-RemoteAccess -VpnType RoutingOnly
 ```  
 
-## <a name="bkmk_proxy"></a>Proxy d’application Web
+## <a name="web-application-proxy"></a><a name="bkmk_proxy"></a>Proxy d’application Web
 
 Le proxy d’application Web est un service de rôle accès à distance dans Windows Server 2016. Le proxy d’application Web fournit la fonctionnalité de proxy inverse pour les applications Web au sein de votre réseau d’entreprise pour permettre aux utilisateurs d’y accéder à partir de n’importe quel appareil à l’extérieur du réseau d’entreprise. Le proxy d’application Web pré-authentifie l’accès aux applications Web à l’aide de Services ADFS (AD FS) et fonctionne également comme un proxy AD FS.
 

@@ -10,18 +10,18 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 34d826c9-65bc-401f-889d-cf84e12f0144
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7d9c37629c0e0d9964554ba90887aa45f74a330a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5fca4fc6a636bcde155e60b6da3c827bc9313606
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355609"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313047"
 ---
 # <a name="ras-gateway-high-availability"></a>Haute disponibilité de la passerelle du serveur d’accès à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour en savoir plus sur les configurations à haute disponibilité pour la passerelle mutualisée RAS pour la mise en réseau SDN (Software Defined Networking).  
   
@@ -35,7 +35,7 @@ Cette rubrique contient les sections suivantes.
   
 -   [Intégration de la passerelle RAS avec le contrôleur de réseau](#bkmk_integration)  
   
-## <a name="bkmk_overview"></a>Vue d’ensemble de la passerelle RAS  
+## <a name="ras-gateway-overview"></a><a name="bkmk_overview"></a>Vue d’ensemble de la passerelle RAS  
 Si votre organisation est un fournisseur de services Cloud (CSP) ou une entreprise avec plusieurs locataires, vous pouvez déployer la passerelle RAS en mode multi-locataire pour assurer le routage du trafic réseau vers et depuis des réseaux virtuels et physiques, y compris Internet.  
   
 Vous pouvez déployer la passerelle RAS en mode multi-locataire en tant que passerelle de périphérie pour acheminer le trafic réseau client des clients vers les ressources et les réseaux virtuels locataires.  
@@ -46,7 +46,7 @@ Ce problème est résolu dans Windows Server 2016, qui fournit plusieurs pools d
   
 Pour plus d’informations sur la passerelle RAS, consultez [passerelle RAS](../../../../remote/remote-access/ras-gateway/RAS-Gateway.md).  
   
-## <a name="bkmk_pools"></a>Vue d’ensemble des pools de passerelle  
+## <a name="gateway-pools-overview"></a><a name="bkmk_pools"></a>Vue d’ensemble des pools de passerelle  
 Dans Windows Server 2016, vous pouvez déployer des passerelles dans un ou plusieurs pools.  
   
 L’illustration suivante montre les différents types de pools de passerelle qui fournissent le routage du trafic entre les réseaux virtuels.  
@@ -73,7 +73,7 @@ Les pools de passerelle offrent également la flexibilité nécessaire pour acti
   
 -   Plusieurs pools peuvent fournir la même fonction de passerelle, mais des capacités différentes. Par exemple, vous pouvez créer un pool de passerelles qui prend en charge les connexions IKEv2 S2S à débit élevé et à faible débit.  
   
-## <a name="bkmk_deployment"></a>Présentation du déploiement de la passerelle RAS  
+## <a name="ras-gateway-deployment-overview"></a><a name="bkmk_deployment"></a>Présentation du déploiement de la passerelle RAS  
 L’illustration suivante montre un déploiement du fournisseur de services Cloud (CSP) classique de la passerelle RAS.  
   
 ![Présentation du déploiement de la passerelle RAS](../../../media/RAS-Gateway-High-Availability/ras_csp_deploy.png)  
@@ -84,7 +84,7 @@ Dans l’illustration, l’appareil BGP MT est une passerelle mutualisée RAS av
   
 Le routeur BGP est séparé dans le diagramme pour représenter ce concept de routage centralisé. L’implémentation BGP de la passerelle fournit également le routage de transit, qui permet au Cloud d’agir en tant que point de transit pour le routage entre deux sites locataires. Ces fonctionnalités BGP s’appliquent à toutes les fonctions de passerelle.  
   
-## <a name="bkmk_integration"></a>Intégration de la passerelle RAS avec le contrôleur de réseau  
+## <a name="ras-gateway-integration-with-network-controller"></a><a name="bkmk_integration"></a>Intégration de la passerelle RAS avec le contrôleur de réseau  
 La passerelle RAS est entièrement intégrée au contrôleur de réseau dans Windows Server 2016. Lorsque la passerelle RAS et le contrôleur de réseau sont déployés, le contrôleur de réseau effectue les fonctions suivantes.  
   
 -   Déploiement des pools de passerelle  
@@ -103,7 +103,7 @@ Les sections suivantes fournissent des informations détaillées sur la passerel
   
 -   [Haute disponibilité pour les passerelles de transfert L3](#bkmk_l3)  
   
-### <a name="bkmk_provisioning"></a>Approvisionnement et équilibrage de la charge des connexions de passerelle (IKEv2, L3 et GRE)  
+### <a name="provisioning-and-load-balancing-of-gateway-connections-ikev2-l3-and-gre"></a><a name="bkmk_provisioning"></a>Approvisionnement et équilibrage de la charge des connexions de passerelle (IKEv2, L3 et GRE)  
 Lorsqu’un client demande une connexion de passerelle, la demande est envoyée au contrôleur de réseau. Le contrôleur de réseau est configuré avec des informations sur tous les pools de passerelle, y compris la capacité de chaque pool et de chaque passerelle dans chaque pool. Le contrôleur de réseau sélectionne le pool et la passerelle appropriés pour la connexion. Cette sélection est basée sur la bande passante requise pour la connexion. Le contrôleur de réseau utilise un algorithme « meilleur ajustement » pour choisir efficacement les connexions dans un pool. Le point d’appairage BGP pour la connexion est également désigné à ce moment-là s’il s’agit de la première connexion du locataire.  
   
 Une fois que le contrôleur de réseau a sélectionné une passerelle RAS pour la connexion, le contrôleur de réseau configure la configuration nécessaire pour la connexion sur la passerelle. Si la connexion est une connexion IKEv2 S2S, le contrôleur de réseau provisionne également une règle de traduction d’adresses réseau (NAT) sur le pool SLB ; Cette règle NAT sur le pool SLB dirige les demandes de connexion du client vers la passerelle désignée. Les locataires sont différenciés par l’adresse IP source, qui est censée être unique.  
@@ -113,7 +113,7 @@ Une fois que le contrôleur de réseau a sélectionné une passerelle RAS pour l
   
 Si le routage BGP est activé pour la connexion, l’homologation BGP est lancée par la passerelle RAS et les itinéraires sont échangés entre les passerelles locales et Cloud. Les itinéraires appris par BGP (ou qui sont des itinéraires configurés statiquement si le protocole BGP n’est pas utilisé) sont envoyés au contrôleur de réseau. Le contrôleur de réseau raccorde ensuite les itinéraires aux hôtes Hyper-V sur lesquels les machines virtuelles clientes sont installées. À ce stade, le trafic du client peut être acheminé vers le site local approprié. Le contrôleur de réseau crée également des stratégies de virtualisation de réseau Hyper-V associées qui spécifient des emplacements de passerelle et les monte sur les hôtes Hyper-V.  
   
-### <a name="bkmk_ike"></a>Haute disponibilité pour IKEv2 S2S  
+### <a name="high-availability-for-ikev2-s2s"></a><a name="bkmk_ike"></a>Haute disponibilité pour IKEv2 S2S  
 Une passerelle RAS dans un pool se compose des connexions et de l’homologation BGP de différents locataires. Chaque pool a des passerelles actives et des passerelles de secours « N ».  
   
 Le contrôleur de réseau gère l’échec des passerelles de la manière suivante.  
@@ -140,8 +140,8 @@ Le contrôleur de réseau gère l’échec des passerelles de la manière suivan
   
 -   En même temps, à mesure que la configuration s’affiche sur la nouvelle passerelle active, les connexions IKEv2 et l’homologation BGP sont rétablies. Les connexions et l’homologation BGP peuvent être initiées par la passerelle Cloud ou la passerelle locale. Les passerelles actualisent leurs itinéraires et les envoient au contrôleur de réseau. Une fois que le contrôleur de réseau a appris les nouveaux itinéraires découverts par les passerelles, le contrôleur de réseau envoie les itinéraires et les stratégies de virtualisation de réseau Hyper-V associées aux hôtes Hyper-V où résident les machines virtuelles des locataires ayant subi une défaillance. Cette activité du contrôleur de réseau est semblable à celle d’une nouvelle configuration de connexion, mais elle a lieu à une plus grande échelle.  
   
-### <a name="bkmk_gre"></a>Haute disponibilité pour GRE  
-Processus de réponse du basculement de la passerelle RAS par le contrôleur de réseau, y compris la détection des défaillances, la copie de la connexion et de la configuration de routage vers la passerelle de secours, le basculement du routage BGP/statique des connexions concernées (y compris le retrait et réactivation des itinéraires sur les hôtes de calcul et la réhomologation BGP) et reconfiguration des stratégies de virtualisation de réseau Hyper-V sur les hôtes de calcul-est le même pour les passerelles et les connexions GRE. La réinitialisation des connexions GRE se produit différemment, mais la solution de haute disponibilité pour GRE a des exigences supplémentaires.  
+### <a name="high-availability-for-gre"></a><a name="bkmk_gre"></a>Haute disponibilité pour GRE  
+Processus de réponse du basculement de la passerelle RAS par le contrôleur de réseau, y compris la détection des défaillances, la copie de la configuration de la connexion et du routage vers la passerelle de secours, le basculement du routage BGP/statique des connexions impactées (y compris le retrait et la réintégration des itinéraires sur les hôtes de calcul et la réhomologation BGP) et la reconfiguration des stratégies de virtualisation de réseau Hyper-V sur les hôtes de calcul-est identique pour les passerelles et les connexions La réinitialisation des connexions GRE se produit différemment, mais la solution de haute disponibilité pour GRE a des exigences supplémentaires.  
   
 ![Haute disponibilité pour GRE](../../../media/RAS-Gateway-High-Availability/ras_ha.png)  
   
@@ -151,7 +151,7 @@ Au moment de l’approvisionnement de la connexion GRE, le contrôleur de résea
   
 En cas de défaillance d’une passerelle, le contrôleur de réseau copie l’adresse IP virtuelle de la passerelle défaillante et d’autres données de configuration sur la passerelle de secours. Lorsque la passerelle de secours devient active, elle publie l’adresse IP virtuelle sur son commutateur de présence, puis sur le réseau physique. Les routeurs distants continuent de connecter les tunnels GRE à la même adresse IP virtuelle et l’infrastructure de routage garantit que les paquets sont acheminés vers la nouvelle passerelle active.  
   
-### <a name="bkmk_l3"></a>Haute disponibilité pour les passerelles de transfert L3  
+### <a name="high-availability-for-l3-forwarding-gateways"></a><a name="bkmk_l3"></a>Haute disponibilité pour les passerelles de transfert L3  
 Une passerelle de transfert L3 de virtualisation de réseau Hyper-V est un pont entre l’infrastructure physique du centre de datacenter et l’infrastructure virtualisée dans le Cloud de virtualisation de réseau Hyper-V. Sur une passerelle de transfert L3 mutualisée, chaque locataire utilise son propre réseau logique avec balisage VLAN pour la connectivité avec le réseau physique du locataire.  
   
 Lorsqu’un nouveau locataire crée une nouvelle passerelle L3, la passerelle du contrôleur de réseau Service Manager sélectionne une machine virtuelle de passerelle disponible et configure une nouvelle interface de locataire avec une adresse IP d’espace d’adresse client (CA) à haut niveau de disponibilité (à partir du réseau logique de réseau local virtuel marqué du locataire ). L’adresse IP est utilisée comme adresse IP de l’homologue sur la passerelle distante (réseau physique) et est le tronçon suivant pour atteindre le réseau de virtualisation de réseau Hyper-V du locataire.  
@@ -165,7 +165,7 @@ Contrairement aux connexions réseau IPsec ou GRE, le commutateur TDR n’appren
   
 Voici quelques exemples de configurations de passerelle de locataire, comme illustré dans l’illustration ci-dessous.  
   
-|Nom du locataire|Adresse IP de la passerelle L3|ID du réseau local virtuel|Adresse IP de l’homologue|  
+|Nom du client|Adresse IP de la passerelle L3|ID du réseau local virtuel|Adresse IP de l’homologue|  
 |---------------|-------------------------|-----------|-------------------|  
 |Contoso|10.127.134.50|1001|10.127.134.55|  
 |Avait|10.127.134.60|1002|10.127.134.65|  
