@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2c5fec6d9dafa350f46dfb5b2f213d628391b87f
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: bf740143c4d9c855df080addd75fdaeee6a1ceac
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822782"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309116"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Étape 2 configurer des serveurs DirectAccess avancés
 
@@ -30,16 +30,16 @@ Cette rubrique décrit comment configurer les paramètres de client et de serveu
 |2.1. Installer le rôle Accès à distance|Installez le rôle Accès à distance.|  
 |2.2. Configurer le type de déploiement|Configurez le type de déploiement comme DirectAccess et VPN, DirectAccess uniquement ou VPN uniquement.|  
 |[Planifier un déploiement avancé de DirectAccess](Plan-an-Advanced-DirectAccess-Deployment.md)|Configurez le serveur d'accès à distance avec les groupes de sécurité contenant les clients DirectAccess.|  
-|2.4. Configurer le serveur d'accès à distance|Configurez les paramètres du serveur d'accès à distance|  
+|2.4. Configurer le serveur d'accès à distance|Configurez les paramètres du serveur d'accès à distance.|  
 |2.5. Configurer les serveurs d'infrastructure|Configurez les serveurs d'infrastructure utilisés dans l'organisation.|  
 |2.6. Configurer les serveurs d'applications|Configurez les serveurs d'applications afin qu'ils exigent une authentification et un chiffrement.|  
 |2.7. Résumé de la configuration et autres objets de stratégie de groupe|Consultez le résumé de la configuration de l'accès à distance et modifiez les objets de stratégie de groupe, si vous le souhaitez.|  
 |2.8. Comment configurer le serveur d'accès à distance au moyen de Windows PowerShell|Configurez l’accès à distance à l’aide de Windows PowerShell.|  
   
 > [!NOTE]  
-> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Cette rubrique comprend des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>2,1. Installer le rôle Accès à distance  
+## <a name="21-install-the-remote-access-role"></a><a name="BKMK_Role"></a>2,1. Installer le rôle Accès à distance  
 Pour déployer l'accès à distance, vous devez installer le rôle Accès à distance sur un serveur de votre organisation qui agira en tant que serveur d'accès à distance.  
   
 #### <a name="to-install-the-remote-access-role"></a>Pour installer le rôle Accès à distance  
@@ -58,13 +58,13 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 ![de la progression de l’installation,](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>commandes équivalentes Windows PowerShell</em>***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Deploy"></a>2,2. Configurer le type de déploiement  
+## <a name="22-configure-the-deployment-type"></a><a name="BKMK_Deploy"></a>2,2. Configurer le type de déploiement  
 L'accès à distance peut être déployé à l'aide de la console de gestion de l'accès à distance de trois façons différentes :  
   
 -   DirectAccess et VPN  
@@ -77,13 +77,13 @@ Ce guide utilise un déploiement DirectAccess uniquement dans les procédures d'
   
 #### <a name="to-configure-the-deployment-type"></a>Pour configurer le type de déploiement  
   
-1.  Sur le serveur d’accès à distance, ouvrez la console de gestion de l’accès à distance : dans l’écran d' **Accueil** , tapez**RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance, ouvrez la console de gestion de l’accès à distance : dans l’écran d' **Accueil** , tapez**RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la console de gestion de l'accès à distance, dans le volet du milieu, cliquez sur **Exécuter l'Assistant Configuration de l'accès à distance**.  
   
 3.  Dans la boîte de dialogue **Configurer l'accès à distance**, cliquez pour choisir de déployer DirectAccess et VPN, DirectAccess uniquement ou VPN uniquement.  
   
-## <a name="BKMK_Clients"></a>2,3. Configurer les clients DirectAccess  
+## <a name="23-configure-directaccess-clients"></a><a name="BKMK_Clients"></a>2,3. Configurer les clients DirectAccess  
 Pour configurer l'utilisation de DirectAccess sur un ordinateur client, ce dernier doit appartenir au groupe de sécurité sélectionné. Une fois DirectAccess configuré, les ordinateurs clients du groupe de sécurité sont configurés pour recevoir l'objet de stratégie de groupe DirectAccess. Vous pouvez également configurer le scénario de déploiement, qui vous autorise à configurer DirectAccess pour l'accès client et l'administration à distance, ou seulement pour l'administration à distance.  
   
 #### <a name="to-configure-directaccess-clients"></a>Pour configurer les clients DirectAccess  
@@ -123,7 +123,7 @@ Pour configurer l'utilisation de DirectAccess sur un ordinateur client, ce derni
   
 9. Cliquez sur **Terminer**.  
   
-## <a name="BKMK_Server"></a>2,4. Configurer le serveur d'accès à distance  
+## <a name="24-configure-the-remote-access-server"></a><a name="BKMK_Server"></a>2,4. Configurer le serveur d'accès à distance  
 Pour déployer l'accès à distance, vous devez configurer le serveur d'accès à distance avec les cartes réseau appropriées, une URL publique pour le serveur d'accès à distance auquel les ordinateurs clients peuvent se connecter (adresse ConnectTo), un certificat IP-HTTPS dont le sujet correspond à l'adresse ConnectTo, les paramètres IPv6 et l'authentification des ordinateurs clients.  
   
 #### <a name="to-configure-the-remote-access-server"></a>Pour configurer le serveur d'accès à distance  
@@ -152,7 +152,7 @@ Pour déployer l'accès à distance, vous devez configurer le serveur d'accès �
   
 6.  Cliquez sur **Terminer**.  
   
-## <a name="BKMK_Infra"></a>2,5. Configurer les serveurs d'infrastructure  
+## <a name="25-configure-the-infrastructure-servers"></a><a name="BKMK_Infra"></a>2,5. Configurer les serveurs d'infrastructure  
 Pour configurer les serveurs d'infrastructure dans un déploiement de l'accès à distance, vous devez configurer le serveur Emplacement réseau, les paramètres DNS (y compris la liste de recherche de suffixes DNS) et les serveurs d'administration qui ne sont pas détectés automatiquement par l'accès à distance.  
   
 #### <a name="to-configure-the-infrastructure-servers"></a>Pour configurer les serveurs d'infrastructure  
@@ -172,7 +172,7 @@ Pour configurer les serveurs d'infrastructure dans un déploiement de l'accès �
   
 6.  Cliquez sur **Terminer**.  
   
-## <a name="BKMK_App"></a>2,6. Configurer les serveurs d'applications  
+## <a name="26-configure-application-servers"></a><a name="BKMK_App"></a>2,6. Configurer les serveurs d'applications  
 Dans un déploiement de l'accès à distance, la configuration de serveurs d'applications est une tâche facultative. L'accès à distance vous permet d'exiger une authentification pour les serveurs d'applications sélectionnés, laquelle est déterminée par leur appartenance à un groupe de sécurité de serveurs d'applications. Par défaut, le trafic destiné aux serveurs d'applications qui exigent une authentification est également chiffré. Toutefois, vous pouvez choisir de ne pas chiffrer le trafic destiné aux serveurs d'applications et d'utiliser l'authentification uniquement.  
   
 > [!NOTE]  
@@ -190,7 +190,7 @@ Dans un déploiement de l'accès à distance, la configuration de serveurs d'app
   
 5.  Cliquez sur **Terminer**.  
   
-## <a name="BKMK_GPO"></a>2,7. Résumé de la configuration et autres objets de stratégie de groupe  
+## <a name="27-configuration-summary-and-alternate-gpos"></a><a name="BKMK_GPO"></a>2,7. Résumé de la configuration et autres objets de stratégie de groupe  
 Une fois la configuration de l'accès à distance terminée, la **Vérification de l'accès DirectAccess** est affichée. Vous pouvez passer en revue tous les paramètres que vous avez sélectionnés auparavant, y compris :  
   
 1.  **Paramètres des objets Stratégie de groupe** : Le nom d’objet de stratégie de groupe du serveur DirectAccess et le nom d’objet de stratégie de groupe du client sont répertoriés. De plus, vous pouvez cliquer sur le lien **Modifier** en regard du titre **Paramètres de l'objet de stratégie de groupe** pour modifier les paramètres des objets de stratégie de groupe.  
@@ -203,10 +203,10 @@ Une fois la configuration de l'accès à distance terminée, la **Vérification 
   
 5.  **Serveurs d’application** : L'état de l’administration à distance DirectAccess est affiché, en plus de l’état de l’authentification de bout en bout auprès des serveurs d’applications spécifiques.  
   
-## <a name="BKMK_PS"></a>2,8. Comment configurer le serveur d'accès à distance au moyen de Windows PowerShell  
+## <a name="28-how-to-configure-the-remote-access-server-by-using-windows-powershell"></a><a name="BKMK_PS"></a>2,8. Comment configurer le serveur d'accès à distance au moyen de Windows PowerShell  
 ![les commandes Windows PowerShell](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Pour effectuer une installation complète dans une topologie de périmètre de l’accès à distance pour DirectAccess uniquement dans un domaine avec la racine **Corp.contoso.com** et en utilisant les paramètres suivants : serveur de stratégie de groupe : **paramètres de serveur DirectAccess**, objet de stratégie de groupe du client : paramètres du client DirectAccess, carte réseau interne : **corpnet**, carte réseau externe : **Internet**, adresse ConnectTto : **Edge1.contoso.com**et serveur emplacement réseau : **nls.Corp.contoso.com**:  
   
@@ -241,7 +241,7 @@ Pour configurer l'expérience client DirectAccess, y compris le nom convivial de
 Set-DAClientExperienceConfiguration -FriendlyName 'Contoso DirectAccess Connection' -PreferLocalNamesAllowed $False -PolicyStore 'corp.contoso.com\DirectAccess Client Settings' -CorporateResources @('HTTP:https://directaccess-WebProbeHost.corp.contoso.com')  
 ```  
   
-## <a name="BKMK_Links"></a>Étape précédente  
+## <a name="previous-step"></a><a name="BKMK_Links"></a>Étape précédente  
   
 -   [Étape 1 : configurer l’infrastructure DirectAccess avancée](da-adv-configure-s1-infrastructure.md)  
   

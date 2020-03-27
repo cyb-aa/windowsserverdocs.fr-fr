@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a820826-e829-4ef2-9a20-f74235f8c25b
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/24/2018
-ms.openlocfilehash: 779c7bc4f6c4ff1e66fca68ced8b0eeb4d54abc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f85f593ec3dca33c5b35fb065c7d84ed12ea9af2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406070"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309826"
 ---
 # <a name="create-delete-or-update-tenant-virtual-networks"></a>Créer, supprimer ou mettre à jour des réseaux virtuels locataires
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, vous allez apprendre à créer, supprimer et mettre à jour des réseaux virtuels de virtualisation de réseau Hyper-V après avoir déployé SDN (Software Defined Networking). La virtualisation de réseau Hyper-V vous permet d’isoler les réseaux locataires afin que chaque réseau client soit une entité distincte. Chaque entité n’a aucune possibilité de connexion croisée, sauf si vous configurez des charges de travail d’accès public.   
   
@@ -39,7 +39,7 @@ Les étapes de création d’un réseau virtuel sont les suivantes :
 Le tableau suivant contient des exemples d’ID de sous-réseau et de préfixes pour deux locataires fictifs. Fabrikam dispose de deux sous-réseaux virtuels, tandis que le locataire Contoso a trois sous-réseaux virtuels.  
  
   
-Nom du locataire  |ID de sous-réseau virtuel  |Préfixe de sous-réseau virtuel    
+Nom du client  |ID de sous-réseau virtuel  |Préfixe de sous-réseau virtuel    
 ---------|---------|---------  
 Fabrikam    |5001         |24.30.1.0/24           
 Fabrikam     |5002         | 24.30.2.0/20          

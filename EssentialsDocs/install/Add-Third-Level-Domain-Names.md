@@ -3,7 +3,7 @@ title: Ajout des noms de domaine de troisième niveau
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,38 +12,38 @@ ms.assetid: e5b4a362-1881-4024-ae4e-cc3b05e50103
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 64bf24e45155fdd981e2061b3de7ebce1c53b36c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5608fb5417b9e958b45d150879daccc3b7767e59
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833320"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310236"
 ---
 # <a name="add-third-level-domain-names"></a>Ajout des noms de domaine de troisième niveau
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Vous pouvez donner aux utilisateurs la possibilité de demander des noms de domaine de troisième niveau dans l'Assistant Configuration du nom de domaine. Il suffit, pour cela, de créer et d'installer un assembly de code qui sera utilisé par le Gestionnaire de domaine dans le système d'exploitation.  
   
 ## <a name="create-a-provider-of-third-level-domain-names"></a>Création d'un fournisseur de noms de domaine de troisième niveau  
  Vous pouvez mettre des noms de domaine de troisième niveau à la disposition des utilisateurs en créant et en installant un assembly de code qui fournira les noms de domaine à l'assistant. Pour ce faire, effectuez les tâches suivantes :  
   
--   [Ajout d’une implémentation de l’interface IDomainSignupProvider à l’assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
+-   [Ajouter une implémentation de l’interface IDomainSignupProvider à l’assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
   
--   [Ajout d’une implémentation de l’interface IDomainMaintenanceProvider à l’assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
+-   [Ajouter une implémentation de l’interface IDomainMaintenanceProvider à l’assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
   
--   [Signez l’assembly avec une signature Authenticode](Add-Third-Level-Domain-Names.md#BKMK_SignAssembly)  
+-   [Signer l’assembly avec une signature Authenticode](Add-Third-Level-Domain-Names.md#BKMK_SignAssembly)  
   
 -   [Installer l’assembly sur l’ordinateur de référence](Add-Third-Level-Domain-Names.md#BKMK_InstallAssembly)  
   
--   [Redémarrez le service de gestion des noms de domaine Windows Server](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
+-   [Redémarrer le service de gestion de noms de domaine Windows Server](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
   
-###  <a name="BKMK_DomainSignup"></a> Ajout d’une implémentation de l’interface IDomainSignupProvider à l’assembly  
+###  <a name="add-an-implementation-of-the-idomainsignupprovider-interface-to-the-assembly"></a><a name="BKMK_DomainSignup"></a>Ajouter une implémentation de l’interface IDomainSignupProvider à l’assembly  
  L'interface IDomainSignupProvider sert à ajouter des offres de domaine à l'Assistant.  
   
 ##### <a name="to-add-the-idomainsignupprovider-code-to-the-assembly"></a>Pour ajouter le code IDomainSignupProvider à l'assembly  
   
-1.  Ouvrez Visual Studio 2008 en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu **Démarrer** , puis en sélectionnant **Exécuter en tant qu’administrateur**.  
+1.  Ouvrez Visual Studio 2008 en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu **Démarrer**, puis en sélectionnant **Exécuter en tant qu’administrateur**.  
   
 2.  Cliquez sur **Fichier**, sur **Nouveau**, puis sur **Projet**.  
   
@@ -278,7 +278,7 @@ Vous pouvez donner aux utilisateurs la possibilité de demander des noms de doma
   
 21. Enregistrez le projet et laissez-le ouvert, car vous aurez l'occasion de le compléter au cours de la procédure suivante. Tant que vous n'aurez pas réalisé celle-ci, vous ne pourrez pas générer le projet.  
   
-###  <a name="BKMK_DomainMaintenance"></a> Ajout d’une implémentation de l’interface IDomainMaintenanceProvider à l’assembly  
+###  <a name="add-an-implementation-of-the-idomainmaintenanceprovider-interface-to-the-assembly"></a><a name="BKMK_DomainMaintenance"></a>Ajouter une implémentation de l’interface IDomainMaintenanceProvider à l’assembly  
  L'interface IDomainMaintenanceProvider assure la maintenance du domaine après sa création.  
   
 ##### <a name="to-add-the-idomainmaintenanceprovider-code-to-the-assembly"></a>Pour ajouter le code IDomainMaintenanceProvider à l'assembly  
@@ -517,10 +517,10 @@ Vous pouvez donner aux utilisateurs la possibilité de demander des noms de doma
   
 14. Enregistrez et générez la solution.  
   
-###  <a name="BKMK_SignAssembly"></a> Signez l’assembly avec une signature Authenticode  
+###  <a name="sign-the-assembly-with-an-authenticode-signature"></a><a name="BKMK_SignAssembly"></a>Signer l’assembly avec une signature Authenticode  
  Vous devez signer l'assembly avec une signature Authenticode pour pouvoir l'utiliser dans le système d'exploitation. Pour plus d’informations sur la signature de l’assembly, consultez [Signature et vérification d’un code avec Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
   
-###  <a name="BKMK_InstallAssembly"></a> Installer l’assembly sur l’ordinateur de référence  
+###  <a name="install-the-assembly-on-the-reference-computer"></a><a name="BKMK_InstallAssembly"></a>Installer l’assembly sur l’ordinateur de référence  
  Placez l'assembly dans un dossier sur l'ordinateur de référence. Notez le chemin d'accès au dossier, car vous devrez entrer cette information dans le Registre au cours de la prochaine étape.  
   
 ### <a name="add-a-key-to-the-registry"></a>Ajout d'une clé au Registre  
@@ -530,7 +530,7 @@ Vous pouvez donner aux utilisateurs la possibilité de demander des noms de doma
   
 1.  Sur l'ordinateur de référence, cliquez sur **Démarrer**, entrez **regedit**, puis appuyez sur **Entrée**.  
   
-2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server**, **Domain Managers**et **Providers**.  
+2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server**, **Domain Managers** et **Providers**.  
   
 3.  Cliquez avec le bouton droit sur **Providers**, pointez sur **Nouveau**, puis cliquez sur **Clé**.  
   
@@ -560,20 +560,20 @@ Vous pouvez donner aux utilisateurs la possibilité de demander des noms de doma
   
 16. Spécifiez le nom de classe complet de votre fournisseur défini dans l'assembly, puis cliquez sur **OK**.  
   
-###  <a name="BKMK_RestartService"></a> Redémarrez le service de gestion des noms de domaine Windows Server  
+###  <a name="restart-the-windows-server-domain-name-management-service"></a><a name="BKMK_RestartService"></a>Redémarrer le service de gestion de noms de domaine Windows Server  
  Vous devez redémarrer le service Gestion de domaine Windows Server pour que le système d'exploitation ait accès au fournisseur.  
   
-##### <a name="restart-the-service"></a>Redémarrage du service  
+##### <a name="restart-the-service"></a>Redémarrer le service  
   
 1.  Cliquez sur **Démarrer**, tapez **mmc**, puis appuyez sur **Entrée**.  
   
 2.  Si le composant logiciel enfichable Services n'est pas répertorié dans la console, ajoutez-le en procédant de la façon suivante :  
   
-    1.  Cliquez sur **Fichier**, puis sur **Ajouter/Supprimer un composant logiciel enfichable**.  
+    1.  Cliquez sur **Fichier**, puis cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
-    2.  Dans la liste **Composants logiciels enfichables disponibles** , cliquez sur **Services**, puis sur **Ajouter**.  
+    2.  Dans la liste **Composants logiciels enfichables disponibles**, cliquez sur **Services**, puis sur **Ajouter**.  
   
-    3.  Dans la boîte de dialogue **Services** , assurez-vous que l'option **L'ordinateur local** est sélectionnée, puis cliquez sur **Terminer**.  
+    3.  Dans la boîte de dialogue **Services**, assurez-vous que l'option **L'ordinateur local** est sélectionnée, puis cliquez sur **Terminer**.  
   
     4.  Cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter/supprimer un composant logiciel enfichable**.  
   
@@ -582,5 +582,5 @@ Vous pouvez donner aux utilisateurs la possibilité de demander des noms de doma
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

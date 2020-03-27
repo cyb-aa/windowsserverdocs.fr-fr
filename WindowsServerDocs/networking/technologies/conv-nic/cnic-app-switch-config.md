@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 6d53c797-fb67-4b9e-9066-1c9a8b76d2aa
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/14/2018
-ms.openlocfilehash: d10e8ca6e4689b89a8b9532f77613f17280282b1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 57fc944461254e78635913ac298bacc26a0789f2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355477"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309616"
 ---
 # <a name="physical-switch-configuration-for-converged-nic"></a>Configuration du commutateur physique pour la carte réseau convergée
 
@@ -45,7 +45,7 @@ Il s’agit uniquement de commandes et de leurs utilisations ; vous devez déte
 13. afficher l’exécution \(vérifier que la configuration est correctement configurée sur les ports\)
 14. WR \(pour que les paramètres persistent au redémarrage du commutateur\)
 
-### <a name="tips"></a>Conseil
+### <a name="tips"></a>Conseils :
 1.  No #command # nie une commande
 2.  Ajout d’un nouveau réseau local virtuel : int VLAN 100 \(si le réseau de stockage se trouve sur VLAN 100\)
 3.  Comment vérifier les réseaux locaux virtuels existants : afficher le réseau local virtuel

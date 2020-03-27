@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: eed5c184-fa55-43a8-a879-b1610ebc70ca
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/14/2018
-ms.openlocfilehash: 2ad7592fd9faf1e92893e6271daabdad907d3aaa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5a088df043190de9e7f1df4dccdc2fc832751093
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405801"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309621"
 ---
 # <a name="converged-nic-configuration-with-a-single-network-adapter"></a>Configuration de carte réseau convergée avec une seule carte réseau
 
@@ -27,7 +27,7 @@ L’exemple de configuration de cette rubrique décrit deux hôtes Hyper-V, l' *
 ![Ordinateurs hôtes Hyper-V](../../media/Converged-NIC/1-single-test-conn.jpg)
 
 
-## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Étape 1. Tester la connectivité entre la source et la destination
+## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Étape 1. Tester la connectivité entre la source et la destination
 
 Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôte de destination. Ce test illustre la connectivité à l’aide de la couche 3 \(L3\) ou de la couche IP, ainsi que de la couche 2 \(\)L2.
 
@@ -40,9 +40,9 @@ Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôt
    _**About**_  
 
 
-   | Nom |    InterfaceDescription     | ifIndex | État |    MacAddress     | LinkSpeed |
+   | Nom |    InterfaceDescription     | ifIndex | Statut |    MacAddress     | LinkSpeed |
    |------|-----------------------------|---------|--------|-------------------|-----------|
-   |  M1  | Mellanox ConnectX-3 Pro... |    4    |   Up (Haut)   | 7C-FE-90-93-8F-A1 |  40 Gbits/s  |
+   |  M1  | Mellanox ConnectX-3 Pro... |    4    |   Monter   | 7C-FE-90-93-8F-A1 |  40 Gbits/s  |
 
    ---
 
@@ -155,7 +155,7 @@ Dans cette étape, nous utilisons la commande **test-NetConnection** Windows Pow
 
 
 
-## <a name="step-3-optional-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Étape 3. Facultatif Configuration des ID de réseau local virtuel pour les cartes réseau installées dans vos ordinateurs hôtes Hyper-V
+## <a name="step-3-optional-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Étape 3. Facultatif Configuration des ID de réseau local virtuel pour les cartes réseau installées dans vos ordinateurs hôtes Hyper-V
 
 De nombreuses configurations réseau utilisent des réseaux locaux virtuels. Si vous envisagez d’utiliser des réseaux locaux virtuels dans votre réseau, vous devez répéter le test précédent avec des réseaux locaux virtuels configurés. En outre, si vous envisagez d’utiliser RoCE pour les services RDMA, vous devez activer les réseaux locaux virtuels.
 
@@ -209,9 +209,9 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   | Nom |          InterfaceDescription           | ifIndex | État |    MacAddress     | LinkSpeed |
+   | Nom |          InterfaceDescription           | ifIndex | Statut |    MacAddress     | LinkSpeed |
    |------|-----------------------------------------|---------|--------|-------------------|-----------|
-   |  M1  | Mellanox ConnectX-3 Pro Ethernet Ada... |    4    |   Up (Haut)   | 7C-FE-90-93-8F-A1 |  40 Gbits/s  |
+   |  M1  | Mellanox ConnectX-3 Pro Ethernet Ada... |    4    |   Monter   | 7C-FE-90-93-8F-A1 |  40 Gbits/s  |
 
    ---
 
@@ -256,7 +256,7 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    |----------------|--------------------------|
    |      Nom      |           SMB            |
    |     Propriétaire      | Stratégie de groupe de l’ordinateur \(\) |
-   | NetworkProfile |           Tous            |
+   | NetworkProfile |           Tout            |
    |   Priorité   |           127            |
    |   JobObject    |          &nbsp;          |
    | NetDirectPort  |           445            |
@@ -274,7 +274,7 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   | Priority | Activé | PolicySet | ifIndex | IfAlias |
+   | Priorité | Activé | PolicySet | ifIndex | IfAlias |
    |----------|---------|-----------|---------|---------|
    |    0     |  False  |  Globale   | &nbsp;  | &nbsp;  |
    |    1     |  False  |  Globale   | &nbsp;  | &nbsp;  |
@@ -305,10 +305,10 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**Possibilités**_   
 
 
-   |      Paramètre      |   Matériel   |   Actuelle    |
+   |      Paramètre      |   Matériel   |   Current    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Aucun(e)     |     Aucun(e)     |
+   |     DcbxSupport     |     Aucune     |     Aucune     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -330,7 +330,7 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**OperationalClassifications:**_  
 
 
-   | Protocole  | Port/type | Priority |
+   | Protocole  | Port/type | Priorité |
    |-----------|-----------|----------|
    |  Default  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
@@ -348,7 +348,7 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   | Nom | Algorithm | Bande passante (%) | Priority | PolicySet | ifIndex | IfAlias |
+   | Nom | Algorithme | Bande passante (%) | Priorité | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | SMB  |    Ste    |      30      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
@@ -363,9 +363,9 @@ L’illustration suivante montre deux hôtes Hyper-V, chacun avec une carte rés
    _**About**_
 
 
-   |   Nom    | Algorithm | Bande passante (%) | Priority | PolicySet | ifIndex | IfAlias |
+   |   Nom    | Algorithme | Bande passante (%) | Priorité | PolicySet | ifIndex | IfAlias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
-   | Valeurs |    Ste    |      70      | 0-2, 4-7  |  Globale   | &nbsp;  | &nbsp;  |
+   | [Par défaut] |    Ste    |      70      | 0-2, 4-7  |  Globale   | &nbsp;  | &nbsp;  |
    |    SMB    |    Ste    |      30      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
@@ -463,7 +463,7 @@ En vue de la création du commutateur Hyper-V, vous devez supprimer les paramèt
    ```  
 
 
-## <a name="step-8-create-a-hyper-v-vswitch-on-your-hyper-v-hosts"></a>Étape 8. Créer un vSwitch Hyper-V sur vos ordinateurs hôtes Hyper-V
+## <a name="step-8-create-a-hyper-v-vswitch-on-your-hyper-v-hosts"></a>Étape 8. Créer un vSwitch Hyper-V sur vos ordinateurs hôtes Hyper-V
 
 L’image suivante représente l’hôte 1 Hyper-V avec un vSwitch.
 
@@ -493,9 +493,9 @@ L’image suivante représente l’hôte 1 Hyper-V avec un vSwitch.
    _**About**_
 
 
-   |         Nom          |        InterfaceDescription         | ifIndex | État |    MacAddress     | LinkSpeed |
+   |         Nom          |        InterfaceDescription         | ifIndex | Statut |    MacAddress     | LinkSpeed |
    |-----------------------|-------------------------------------|---------|--------|-------------------|-----------|
-   | vEthernet \(VMSTEST\) | Carte Ethernet virtuelle Hyper-V #2 |   27    |   Up (Haut)   | E4-1D-2D-07-40-71 |  40 Gbits/s  |
+   | vEthernet \(VMSTEST\) | Carte Ethernet virtuelle Hyper-V #2 |   27    |   Monter   | E4-1D-2D-07-40-71 |  40 Gbits/s  |
 
    ---
 
@@ -511,7 +511,7 @@ L’image suivante représente l’hôte 1 Hyper-V avec un vSwitch.
    _**About**_
 
 
-   |         Nom         | IsManagementOs |        VMName        |  SwitchName  | MacAddress | État | AdressesIP |
+   |         Nom         | IsManagementOs |        VMName        |  SwitchName  | MacAddress | Statut | AdressesIP |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
    | CORP-External-Switch |      True      | CORP-External-Switch | 001B785768AA |    OK    | &nbsp; |             |
    |       VMSTEST        |      True      |       VMSTEST        | E41D2D074071 |    OK    | &nbsp; |             |
@@ -568,7 +568,7 @@ L’image suivante représente l’hôte 1 Hyper-V avec un vSwitch.
     PingReplyDetails (RTT) : 0 ms
    ```
 
-## <a name="step-9-test-hyper-v-virtual-switch-rdma-mode-2"></a>Étape 9 : Tester le commutateur virtuel Hyper-V RDMA (mode 2)
+## <a name="step-9-test-hyper-v-virtual-switch-rdma-mode-2"></a>Étape 9. Tester le commutateur virtuel Hyper-V RDMA (mode 2)
 
 L’illustration suivante représente l’état actuel de vos ordinateurs hôtes Hyper-V, y compris le vSwitch sur l’hôte 1 Hyper-V.
 
@@ -615,9 +615,9 @@ L’illustration suivante représente l’état actuel de vos ordinateurs hôtes
    _**About**_   
 
 
-   |        Nom         |        InterfaceDescription         | ifIndex | État |    MacAddress     | LinkSpeed |
+   |        Nom         |        InterfaceDescription         | ifIndex | Statut |    MacAddress     | LinkSpeed |
    |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
-   | vEthernet (VMSTEST) | Carte Ethernet virtuelle Hyper-V #2 |   27    |   Up (Haut)   | E4-1D-2D-07-40-71 |  40 Gbits/s  |
+   | vEthernet (VMSTEST) | Carte Ethernet virtuelle Hyper-V #2 |   27    |   Monter   | E4-1D-2D-07-40-71 |  40 Gbits/s  |
 
    ---
 

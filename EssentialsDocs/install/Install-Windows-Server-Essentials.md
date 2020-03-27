@@ -3,7 +3,7 @@ title: Installer Windows Server Essentials
 description: Décrit comment installer et personnaliser Windows Server Essentials
 ms.custom: na
 ms.date: 01/02/2017
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,32 +12,32 @@ ms.assetid: fdf020cd-3184-4886-9f9d-7d729a89057e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 29f861b6d6f115dc1a1d2cab3ae04f566da90d8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51c61c22c2d9972e4a7e98509292b38e6443ddc8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879830"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311735"
 ---
 # <a name="install-windows-server-essentials"></a>Installer Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Les documents suivants fournissent des instructions pas à pas pour installer et configurer Windows Server Essentials et Windows Server Essentials, y compris les tâches de préinstallation et les informations sur la configuration système requise.   
+Les documents suivants fournissent des instructions pas à pas pour l’installation et la configuration de Windows Server Essentials et de Windows Server Essentials, y compris les tâches de pré-installation et les informations sur la configuration requise.   
   
 -   [Avant d’installer Windows Server Essentials](Before-You-Install-Windows-Server-Essentials.md)  
   
--   [Configuration système requise pour Windows Server Essentials](../get-started/system-requirements.md)  
+-   [Configuration requise pour Windows Server Essentials](../get-started/system-requirements.md)  
   
 -   [Documentation de version pour Windows Server Essentials](../get-started/release-notes.md)  
   
 -   [Installer et configurer Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials.md)  
   
--   [Hébergés Windows Server Essentials](Hosted-Windows-Server-Essentials.md)  
+-   [Windows Server Essentials hébergé](Hosted-Windows-Server-Essentials.md)  
   
--   [Windows Server Essentials - Kit de déploiement et d’évaluation](Assessment-and-Deployment-Kit-for-Windows-Server-Essentials.md)  
+-   [Windows Server Essentials-Kit de déploiement et d’évaluation](Assessment-and-Deployment-Kit-for-Windows-Server-Essentials.md)  
  
--   [Déployer l’expérience Windows Server Essentials en tant que serveur hébergé](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md)  
+-   [Déployer le rôle Expérience utilisateur Windows Server Essentials en tant que serveur hébergé](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md)  
   
 -   [Ajouter Windows Server Essentials en tant que serveur membre](Add-Windows-Server-Essentials-as-a-Member-Server.md)  
   
@@ -57,10 +57,10 @@ Les documents suivants fournissent des instructions pas à pas pour installer et
 ## <a name="see-also"></a>Voir aussi  
     
   
--   [Migrer des données de serveur vers Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
+-   [Migrer les données du serveur vers Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
   
 -   [Gérer Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   
 -   [Utiliser Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)  
   
--   [Prise en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)
+-   [Prendre en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)

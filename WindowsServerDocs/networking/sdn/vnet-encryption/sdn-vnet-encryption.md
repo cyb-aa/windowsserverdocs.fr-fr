@@ -6,21 +6,21 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 7da0f509-7b02-4a0f-90fb-d97c83a2bc4e
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/08/2018
-ms.openlocfilehash: 7ecb2a1373efcf15aada451313e334e210c76d1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8e12e5ff8a1ce8403e9d13d215f26f46352b17d1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355528"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309755"
 ---
 # <a name="virtual-network-encryption"></a>Chiffrement de réseau virtuel
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
-Le chiffrement de réseau virtuel permet le chiffrement du trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles au sein des sous-réseaux marqués comme « chiffrement activé ». Il utilise aussi le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets. DTLS protège contre les écoutes clandestines, l'altération et la falsification par toute personne ayant accès au réseau physique.
+Le chiffrement de réseau virtuel permet le chiffrement du trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles au sein des sous-réseaux marqués comme « chiffrement activé ». Il utilise aussi le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets. DTLS protège contre les écoutes clandestines, l’altération et la falsification par toute personne ayant accès au réseau physique.
 
 Le chiffrement de réseau virtuel requiert :
 - Certificats de chiffrement installés sur chacun des hôtes Hyper-V compatibles SDN.
@@ -32,7 +32,7 @@ Une fois que vous activez le chiffrement sur un sous-réseau, tout le trafic ré
 >[!TIP]
 >Si vous devez limiter les applications pour qu’elles communiquent uniquement sur le sous-réseau chiffré, vous pouvez utiliser des listes de Access Control (ACL) uniquement pour autoriser la communication au sein du sous-réseau actuel. Pour plus d’informations, consultez [utiliser des listes de Access Control (ACL) pour gérer le flux de trafic réseau du centre de](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow)données.
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes :
 
 [Configurer le chiffrement pour un réseau virtuel](https://docs.microsoft.com/windows-server/networking/sdn/vnet-encryption/sdn-config-vnet-encryption)
 

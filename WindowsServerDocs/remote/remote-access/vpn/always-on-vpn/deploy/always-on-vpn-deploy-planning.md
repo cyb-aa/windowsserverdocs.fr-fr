@@ -6,22 +6,22 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 3c9de3ec-4bbd-4db0-b47a-03507a315383
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 11/05/2018
-ms.openlocfilehash: f92cfdbe13633dd4c59012f566c6888fdc7fc7a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e0e061a38170242a3808fbad0c82a4154bf9c536
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388157"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313306"
 ---
 # <a name="step-1-plan-the-always-on-vpn-deployment"></a>Étape 1. Planifiez le déploiement de VPN Toujours actif (AlwaysOn)
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Premier** En savoir plus sur le flux de travail pour le déploiement de Always On VPN](always-on-vpn-deploy-deployment.md)
-- [**Situé** Étape 2. Configurer l’infrastructure de serveur](vpn-deploy-server-infrastructure.md)
+- [**Précédent :** En savoir plus sur le flux de travail pour le déploiement de Always On VPN](always-on-vpn-deploy-deployment.md)
+- [**Ensuite :** Étape 2. Configurer l’infrastructure de serveur](vpn-deploy-server-infrastructure.md)
 
 Au cours de cette étape, vous allez commencer à planifier et à préparer votre déploiement Always On VPN. Avant d’installer le rôle serveur d’accès à distance sur l’ordinateur sur lequel vous envisagez d’utiliser en tant que serveur VPN, effectuez les tâches suivantes. Après une planification appropriée, vous pouvez déployer VPN Toujours actif (AlwaysOn) et éventuellement configurer l’accès conditionnel pour une connectivité VPN à l’aide d’Azure AD.
 
@@ -71,6 +71,6 @@ Installez le serveur VPN à l’intérieur du réseau de périmètre, qui partit
 
 Dans la plupart des environnements, pour atteindre le nouveau réseau de périmètre interne, ajustez les itinéraires statiques sur le pare-feu de périmètre et le serveur VPN. Toutefois, dans des environnements plus complexes, vous devrez peut-être ajouter des itinéraires statiques aux routeurs internes ou ajuster les règles de pare-feu internes pour le serveur VPN et le bloc d’adresses IP associées aux clients VPN.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
-[Étape 2. Configurer l’infrastructure](vpn-deploy-server-infrastructure.md)du serveur : Dans cette étape, vous installez et configurez les composants côté serveur nécessaires pour prendre en charge le VPN. Les composants côté serveur incluent la configuration de l’infrastructure à clé publique pour distribuer les certificats utilisés par les utilisateurs, le serveur VPN et le serveur NPS.
+[Étape 2. Configuration de l’infrastructure de serveur](vpn-deploy-server-infrastructure.md): au cours de cette étape, vous installez et configurez les composants côté serveur nécessaires pour prendre en charge le VPN. Les composants côté serveur incluent la configuration de l’infrastructure à clé publique pour distribuer les certificats utilisés par les utilisateurs, le serveur VPN et le serveur NPS.

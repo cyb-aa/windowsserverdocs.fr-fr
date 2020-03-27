@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b58252ca-4c1d-4664-a3c4-7301e2121517
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a1c18f264a6a8d263f3e9f50bc325ef97f4240af
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2f3581451b65e96a277b23bd6808d2dea6ba45c9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366916"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313445"
 ---
 # <a name="troubleshooting-enabling-otp"></a>Résolution des problèmes d’activation du mot de passe à usage unique
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique contient des informations de dépannage pour les problèmes liés à l’activation de l’authentification par mot de passe à usage unique DirectAccess avec l’applet de commande PowerShell **Enable-DAOtpAuthentication** ou la console de gestion de l’accès à distance.
   
@@ -49,7 +49,7 @@ Il existe trois causes possibles pour cette erreur :
 2.  Si le modèle n’existe pas, créez-le comme décrit dans 3,3 planifier le certificat de l’autorité d’inscription, ou si un autre modèle de correspondance existe, reconfigurez le mot de passe à usage unique DirectAccess avec le nouveau nom de modèle.  
   
 ## <a name="failed-to-enable-directaccess-otp-when-webdav-is-installed"></a>Échec de l’activation du mot de passe à usage unique DirectAccess lors de l’installation de WebDAV  
-**Scénario**. Lors de la tentative d’application de la configuration de mot de passe à usage unique DirectAccess dans la console de gestion de l’accès à distance ou à l’aide de l’applet de commande PowerShell `Enable-DAOtpAuthentication`, l’opération échoue.  
+**Scénario**. Lors de la tentative d’application de la configuration de mot de passe à usage unique DirectAccess dans la console de gestion de l’accès à distance ou à l’aide de l’applet de commande `Enable-DAOtpAuthentication` PowerShell, l’opération échoue.  
   
 **Erreur reçue** (Journal des événements du serveur). Impossible d’appliquer les paramètres de mot de passe à usage unique DirectAccess, car l’extension IIS WebDAV est en cours d’exécution sur le serveur. Supprimez WebDAV et réappliquez les paramètres.  
   

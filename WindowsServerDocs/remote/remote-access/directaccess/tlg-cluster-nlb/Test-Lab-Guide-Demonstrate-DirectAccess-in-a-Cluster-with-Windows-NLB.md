@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: db15dcf5-4d64-48d7-818a-06c2839e1289
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e0c82f9f56ea680c11cd612e17326fe7cf96aeca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 563ccf1cf68fc6ffd67a29533b3fb3b579a55ee6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388430"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308845"
 ---
 # <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guide de laboratoire de test : démonstration de DirectAccess dans un cluster avec équilibrage de charge réseau Windows
 
@@ -31,7 +31,7 @@ Ce guide contient des instructions permettant de configurer le rôle serveur Acc
 > [!IMPORTANT]  
 > Pour appuyer cette démonstration, il utilise un nombre minimum d’ordinateurs. La configuration détaillée dans ce guide est fournie à des fins de tests en laboratoire seulement et ne doit pas être utilisée dans un environnement de production.  
   
-## <a name="KnownIssues"></a>Problèmes connus  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Problèmes connus  
 Les problèmes décrits ci-après sont connus et surviennent souvent lors de la configuration d’un scénario de cluster :  
   
 -   Après avoir configuré DirectAccess dans un déploiement IPv4 uniquement avec une seule carte réseau et après avoir configuré automatiquement le DNS64 par défaut (l’adresse IPv6 qui contient « : 3333:: ») sur la carte réseau, la tentative d’activation de l’équilibrage de charge via la console Gestion de l’accès à distance entraîne l’affichage d’une invite demandant à l’utilisateur de fournir une adresse IPv6 DIP. Si une adresse IPv6 DIP est fournie, la configuration échoue après avoir cliqué sur **Valider** avec l’erreur : Le paramètre est incorrect.  

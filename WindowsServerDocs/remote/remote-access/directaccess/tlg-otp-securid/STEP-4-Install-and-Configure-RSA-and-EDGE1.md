@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d46ede6f-1a21-414d-b8c3-6b5c87344b9d
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3519e9d6e89b26a733b6b0178334f86e284bddfb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1a2244422c8b625f5641fb775a2e503b096b07b5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404758"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308614"
 ---
 # <a name="step-4-install-and-configure-rsa-and-edge1"></a>ÉTAPE 4 installer et configurer RSA et EDGE1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 RSA est le serveur RADIUS et le mot de passe à usage unique, et est installé avant la configuration de RADIUS et du mot de passe à usage unique.  
   
@@ -49,25 +49,25 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
 11. Configurer EDGE1 pour prendre en charge l’authentification par mot de passe à usage unique. Configurez le mot de passe à usage unique pour DirectAccess et vérifiez la configuration.  
   
-## <a name="InstallOS"></a>Installer le système d’exploitation sur le serveur RSA  
+## <a name="install-the-operating-system-on-the-rsa-server"></a><a name="InstallOS"></a>Installer le système d’exploitation sur le serveur RSA  
   
 1.  Sur RSA, démarrez l’installation de Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.  
   
-2.  Suivez les instructions pour terminer l’installation, en spécifiant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète) et un mot de passe fort pour le compte administrateur local. Ouvrez une session à l’aide du compte Administrateur local.  
+2.  Suivez les instructions pour terminer l’installation, en spécifiant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète) et un mot de passe fort pour le compte administrateur local. Ouvrez une session en utilisant le compte d'administrateur local.  
   
 3.  Connectez RSA à un réseau disposant d’un accès Internet et exécutez Windows Update pour installer les dernières mises à jour pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, puis vous déconnecter d’Internet.  
   
 4.  Connectez RSA au sous-réseau Corpnet.  
   
-## <a name="TCP"></a>Configurer TCP/IP sur RSA  
+## <a name="configure-tcpip-on-rsa"></a><a name="TCP"></a>Configurer TCP/IP sur RSA  
   
 1.  Dans Tâches de configuration initiales, cliquez sur **configurer la mise en réseau**.  
   
 2.  Dans **connexions réseau**, cliquez avec le bouton droit sur connexion au réseau **local**, puis cliquez sur **Propriétés**.  
   
-3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
-4.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans la zone **Adresse IP**, tapez **10.0.0.5**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**. Dans **passerelle par défaut**, tapez **10.0.0.2**. Cliquez sur **utiliser l’adresse de serveur DNS suivante**, dans **serveur DNS préféré**, tapez **10.0.0.1**.  
+4.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans la zone **Adresse IP**, tapez **10.0.0.5**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**. Dans **passerelle par défaut**, tapez **10.0.0.2**. Cliquez sur **utiliser l’adresse de serveur DNS suivante**, dans **serveur DNS préféré**, tapez **10.0.0.1**.  
   
 5.  Cliquez sur **Avancé**, puis sur l’onglet **DNS**.  
   
@@ -77,7 +77,7 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
 8.  Fermez la fenêtre **Connexions réseau**.  
   
-## <a name="copyinstfiles"></a>Copier les fichiers d’installation du gestionnaire d’authentification sur le serveur RSA  
+## <a name="copy-authentication-manager-installation-files-to-the-rsa-server"></a><a name="copyinstfiles"></a>Copier les fichiers d’installation du gestionnaire d’authentification sur le serveur RSA  
   
 1.  Sur le serveur RSA, créez le dossier C:\RSA installation.  
   
@@ -87,11 +87,11 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
 4.  Copiez les fichiers de licence RSA dans C:\RSA Installation\License et Token.  
   
-## <a name="JoinDomain"></a>Joindre le serveur RSA au domaine CORP  
+## <a name="join-the-rsa-server-to-the-corp-domain"></a><a name="JoinDomain"></a>Joindre le serveur RSA au domaine CORP  
   
 1.  Cliquez avec le bouton droit sur **poste de travail**, puis cliquez sur **Propriétés**.  
   
-2.  Dans la boîte de dialogue **Propriétés système** , sous l’onglet **Nom de l’ordinateur** , cliquez sur **Modifier**.  
+2.  Dans la boîte de dialogue **Propriétés système**, sous l’onglet **Nom de l’ordinateur**, cliquez sur **Modifier**.  
   
 3.  Dans **nom**de l’ordinateur, tapez **RSA**. Dans **membre de**, cliquez sur **domaine**, tapez **Corp.contoso.com**, puis cliquez sur **OK**.  
   
@@ -107,7 +107,7 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
 9. Une fois l’ordinateur redémarré, tapez **User1** et le mot de passe, sélectionnez Corp dans la liste déroulante **se connecter à :** , puis cliquez sur **OK**.  
   
-## <a name="BKMK_Firewall"></a>Désactiver le pare-feu Windows sur RSA  
+## <a name="disable-windows-firewall-on-rsa"></a><a name="BKMK_Firewall"></a>Désactiver le pare-feu Windows sur RSA  
   
 1.  Cliquez sur **Démarrer**, sur **panneau**de configuration, sur **système et sécurité**, puis sur **pare-feu Windows**.  
   
@@ -117,13 +117,13 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
 4.  Cliquez sur **OK** et fermez le pare-feu Windows.  
   
-## <a name="install"></a>Installer le gestionnaire d’authentification RSA sur le serveur RSA  
+## <a name="install-rsa-authentication-manager-on-the-rsa-server"></a><a name="install"></a>Installer le gestionnaire d’authentification RSA sur le serveur RSA  
   
 1.  Si le message d’avertissement de sécurité s’affiche à tout moment au cours de ce processus, cliquez sur **exécuter** pour continuer.  
   
 2.  Ouvrez le dossier d’installation de C:\RSA et double-cliquez sur **Autorun. exe**.  
   
-3.  Cliquez sur **Installer maintenant**, cliquez sur **suivant**, sélectionnez l’option Top pour l’États-Unis d’Amérique, puis cliquez sur **suivant**.  
+3.  Cliquez sur **Installer maintenant**, cliquez sur **suivant**, sélectionnez l’option Top pour l’Amérique, puis cliquez sur **suivant**.  
   
 4.  Sélectionnez **J’accepte les termes du contrat de licence**, puis cliquez sur **suivant**.  
   
@@ -145,7 +145,7 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
 13. Une fois l’installation terminée, cliquez sur **Terminer**.  
   
-## <a name="confiauthmgr"></a>Configurer le gestionnaire d’authentification RSA  
+## <a name="configure-rsa-authentication-manager"></a><a name="confiauthmgr"></a>Configurer le gestionnaire d’authentification RSA  
   
 1.  Si la console de sécurité RSA ne s’ouvre pas automatiquement, sur le Bureau de l’ordinateur RSA, double-cliquez sur « RSA Security Console ».  
   
@@ -255,20 +255,20 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement RSA 
   
     6.  Dans la boîte de dialogue de **téléchargement de fichier** , cliquez sur **Enregistrer**, accédez à installation de C:\RSA, puis cliquez sur **Enregistrer**. Cliquez sur **Fermer** dans la boîte de dialogue **Téléchargement terminé** .  
   
-    7.  À partir du support du gestionnaire d’authentification RSA, copiez \auth_mgr\windows-x86_64\am\rsa-ace_nsload\win32-5.0-x86\agent_nsload.exe vers C:\RSA.  
+    7.  À partir de la copie du média du gestionnaire d’authentification RSA \ auth_mgr \Windows-x86_64 \am\rsa-ace_nsload \win32-5.0-x86\ agent_nsload. exe à l’installation C:\RSA.  
   
-## <a name="BKMK_DAProbeUser"></a>Créer DAProbeUser  
+## <a name="create-daprobeuser"></a><a name="BKMK_DAProbeUser"></a>Créer DAProbeUser  
   
 1.  Dans la **console de sécurité RSA** , cliquez sur l’onglet **identité** , cliquez sur **utilisateurs**, puis cliquez sur **Ajouter nouveau**.  
   
 2.  Dans la section **Last Name :** type **section, et**dans la section **User ID :** , tapez **DAProbeUser**. Dans les sections **mot de passe :** et **confirmer le mot de passe :** tapez un mot de passe fort. Désactivez la case à cocher **« demander à l’utilisateur de modifier le mot de passe à la prochaine connexion »** , puis cliquez sur **Enregistrer**.  
   
-## <a name="InstToken"></a>Installer le jeton logiciel RSA SecurID sur CLIENT1  
+## <a name="install-rsa-securid-software-token-on-client1"></a><a name="InstToken"></a>Installer le jeton logiciel RSA SecurID sur CLIENT1  
 Utilisez cette procédure pour installer le jeton logiciel SecurID sur CLIENT1.  
   
 #### <a name="install-securid-software-token"></a>Installer le jeton logiciel SecurID  
   
-1.  Sur l’ordinateur CLIENT1, créez le dossier C:\RSA files. Copiez le fichier Software_Tokens. zip à partir de l’installation C:\RSA sur l’ordinateur RSA vers les fichiers C:\RSA. Extrayez le fichier User1_000031701832. SDTID dans les fichiers C:\RSA sur CLIENT1.  
+1.  Sur l’ordinateur CLIENT1, créez le dossier C:\RSA files. Copiez le fichier Software_Tokens. zip à partir de l’installation de C:\RSA sur l’ordinateur RSA vers les fichiers C:\RSA. Extrayez le fichier User1_000031701832. SDTID dans C:\RSA fichiers sur CLIENT1.  
   
 2.  Accédez à la source du média du jeton logiciel RSA SecurID, puis double-cliquez sur RSASECURIDTOKEN410 dans le dossier **SecurID SoftwareToken client App** pour démarrer l’installation de RSA SecurID. Si le message **ouverture d’un fichier-Avertissement de sécurité** s’affiche, cliquez sur **exécuter**.  
   
@@ -278,17 +278,17 @@ Utilisez cette procédure pour installer le jeton logiciel SecurID sur CLIENT1.
   
 5.  Dans la boîte de dialogue **type d’installation** , sélectionnez **standard**, cliquez sur **suivant**, puis sur **installer**.  
   
-6.  Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+6.  Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 7.  Activez la case à cocher **lancer le jeton logiciel RSA SecurID** , puis cliquez sur **Terminer**.  
   
 8.  Cliquez sur **Importer à partir d’un fichier**.  
   
-9. Cliquez sur **Parcourir**, sélectionnez C:\RSA Files\User1_000031701832.SDTID, puis cliquez sur **ouvrir**.  
+9. Cliquez sur **Parcourir**, sélectionnez fichiers C:\RSA \ USER1_000031701832. SDTID, puis cliquez sur **ouvrir**.  
   
 10. Cliquez deux fois sur **OK**.  
   
-## <a name="configAuthAgt"></a>Configurer EDGE1 en tant qu’agent d’authentification RSA  
+## <a name="configure-edge1-as-an-rsa-authentication-agent"></a><a name="configAuthAgt"></a>Configurer EDGE1 en tant qu’agent d’authentification RSA  
 Utilisez cette procédure pour configurer EDGE1 afin d’effectuer l’authentification RSA.  
   
 #### <a name="configure-the-rsa-authentication-agent"></a>Configurer l’agent d’authentification RSA  
@@ -303,7 +303,7 @@ Utilisez cette procédure pour configurer EDGE1 afin d’effectuer l’authentif
   
    2.  C:\Windows\SysWOW64  
   
-4. Copiez agent_nsload. exe sur C:\Windows\SysWOW64 @ no__t-0.  
+4. Copiez agent_nsload. exe dans C:\Windows\SysWOW64\\.  
   
 5. Ouvrez une invite de commandes avec élévation de privilèges et accédez à C:\Windows\SysWOW64.  
   
@@ -311,7 +311,7 @@ Utilisez cette procédure pour configurer EDGE1 afin d’effectuer l’authentif
   
 7. Copiez C:\Windows\SysWOW64\securid dans C:\Windows\System32.  
   
-## <a name="configOTP"></a>Configurer EDGE1 pour prendre en charge l’authentification OTP  
+## <a name="configure-edge1-to-support-otp-authentication"></a><a name="configOTP"></a>Configurer EDGE1 pour prendre en charge l’authentification OTP  
 Utilisez cette procédure pour configurer le mot de passe à usage unique pour DirectAccess et vérifier la configuration.  
   
 #### <a name="configure-otp-for-directaccess"></a>Configurer le mot de passe à usage unique pour DirectAccess  
@@ -335,13 +335,13 @@ Utilisez cette procédure pour configurer le mot de passe à usage unique pour D
   
 8.  Dans la section **serveurs d’autorité de certification avec mot de passe à usage unique** , sélectionnez App1.Corp.contoso.com, puis cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
   
-9. Sur la page **modèles de certificats avec mot de passe à usage unique** , cliquez sur **Parcourir** pour sélectionner un modèle de certificat utilisé pour l’inscription des certificats émis pour l’authentification par mot de passe à usage unique, puis, dans la boîte de dialogue **modèles de certificat** , sélectionnez **DAOTPLogon** . Cliquez sur **OK**. Cliquez sur **Parcourir** pour sélectionner un modèle de certificat utilisé pour inscrire le certificat utilisé par le serveur d’accès à distance afin de signer les demandes d’inscription de certificat avec mot de passe à usage unique, puis, dans la boîte de dialogue **modèles de certificat** , sélectionnez **DAOTPRA**. Cliquez sur **OK**. Cliquez sur **Suivant**.  
+9. Dans la page **modèles de certificat OTP** , cliquez sur **Parcourir** pour sélectionner un modèle de certificat utilisé pour l’inscription des certificats émis pour l’authentification par mot de passe à usage unique, puis dans la boîte de dialogue **modèles de certificat** , sélectionnez **DAOTPLogon**. Cliquez sur **OK**. Cliquez sur **Parcourir** pour sélectionner un modèle de certificat utilisé pour inscrire le certificat utilisé par le serveur d’accès à distance afin de signer les demandes d’inscription de certificat avec mot de passe à usage unique, puis, dans la boîte de dialogue **modèles de certificat** , sélectionnez **DAOTPRA**. Cliquez sur **OK**. Cliquez sur **Suivant**.  
   
 10. Sur la page **installation du serveur d’accès à distance** , cliquez sur **Terminer**, puis sur **Terminer** dans l' **Assistant expert DirectAccess**.  
   
 11. Dans la boîte de dialogue vérification de l' **accès à distance** , cliquez sur **appliquer**, attendez que la Stratégie DirectAccess soit mise à jour, puis cliquez sur **Fermer**.  
   
-12. Dans l’écran d' **Accueil** , tapez**PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+12. Dans l’écran d' **Accueil** , tapez**PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 13. Dans la fenêtre Windows PowerShell, tapez **gpupdate/force** , puis appuyez sur entrée.  
   

@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7ddcb162-dd92-406c-acab-d3de7239c644
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3009b6002d9d4cd116795c46305ff02fda02ef63
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2d9480b3f021fcf1086ca8001997a1c7c1b56456
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388493"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308914"
 ---
 # <a name="step-2-plan-the-basic-directaccess-deployment"></a>Étape 2 planifier le déploiement de base de DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Après la planification de l’infrastructure DirectAccess, l’étape suivante du déploiement de DirectAccess sur un serveur unique avec les paramètres de base consiste à planifier les paramètres de l’Assistant Prise en main.  
   
@@ -30,7 +30,7 @@ Après la planification de l’infrastructure DirectAccess, l’étape suivante 
 |Planification du déploiement de clients|Par défaut, l’Assistant Prise en main déploie DirectAccess sur tous les ordinateurs portables et les ordinateurs portables du domaine en appliquant un filtre WMI à l’objet de stratégie de groupe des paramètres client.|  
 |Planification du déploiement du serveur DirectAccess|Planifiez la façon de déployer le serveur DirectAccess.|  
   
-## <a name="bkmk_2_1_client"></a>Planification du déploiement du client  
+## <a name="planning-for-client-deployment"></a><a name="bkmk_2_1_client"></a>Planification du déploiement du client  
 Il y a deux décisions à prendre lors de la planification du déploiement de vos clients :  
   
 1.  DirectAccess sera-t-il disponible uniquement pour les ordinateurs portables ou pour n'importe quel ordinateur ?  
@@ -41,7 +41,7 @@ Il y a deux décisions à prendre lors de la planification du déploiement de vo
   
     Les paramètres DirectAccess sont contenus dans l'objet de stratégie de groupe Client DirectAccess. L’objet de stratégie de groupe est appliqué aux ordinateurs qui font partie des groupes de sécurité que vous spécifiez dans l’Assistant Prise en main. Vous pouvez spécifier des groupes de sécurité contenus dans tout domaine pris en charge. Avant de configurer DirectAccess, les groupes de sécurité doivent être créés. Vous pouvez ajouter des ordinateurs au groupe de sécurité après avoir effectué le déploiement de DirectAccess, mais notez que si vous ajoutez des ordinateurs clients qui résident dans un domaine différent du groupe de sécurité, l’objet de stratégie de groupe client ne sera pas appliqué à ces clients. Par exemple, si vous avez créé le groupe de sécurité GS1 dans un domaine A pour les clients DirectAccess, puis que vous ajoutez ensuite des clients d'un domaine B à ce groupe, l'objet de stratégie de groupe client ne sera pas appliqué aux clients du domaine B. Pour éviter ce problème, créez un nouveau groupe de sécurité du client pour chaque domaine contenant des ordinateurs clients. Ou, si vous ne voulez pas créer un nouveau groupe de sécurité, exécutez l'applet de commande Add-DAClient avec le nom du nouvel objet de stratégie de groupe pour le nouveau domaine.  
   
-## <a name="bkmk_2_2_server"></a>Planification du déploiement du serveur DirectAccess  
+## <a name="planning-for-directaccess-server-deployment"></a><a name="bkmk_2_2_server"></a>Planification du déploiement du serveur DirectAccess  
 Il existe un certain nombre de décisions à prendre lors de la planification du déploiement de votre serveur DirectAccess :  
   
 -   **Topologie de réseau** : deux topologies sont disponibles lors du déploiement d’un serveur DirectAccess :  
@@ -52,7 +52,7 @@ Il existe un certain nombre de décisions à prendre lors de la planification du
   
 -   **Cartes réseau** : l’Assistant DirectAccess détecte automatiquement les cartes réseau configurées sur le serveur DirectAccess. Vous pouvez vous assurer que les adaptateurs corrects sont sélectionnés dans la page **vérifier** .  
   
--   **Certificat IP-HTTPS** : dans la mesure où aucune PKI n’est requise dans ce déploiement, l’Assistant configure automatiquement les certificats auto-signés pour IP-HTTPS et le serveur emplacement réseau (si aucun certificat n’est présent) et active automatiquement Kerberos procur. L’assistant active également NAT64 et DNS64 pour la traduction de protocole dans l’environnement IPv4 uniquement. Une fois que l’Assistant a fini d’appliquer la configuration, cliquez sur **Fermer**.  
+-   **Certificat IP-HTTPS** : dans la mesure où aucune PKI n’est requise dans ce déploiement, l’Assistant configure automatiquement les certificats auto-signés pour IP-HTTPS et le serveur emplacement réseau (si aucun certificat n’est présent) et active automatiquement le proxy Kerberos. L’assistant active également NAT64 et DNS64 pour la traduction de protocole dans l’environnement IPv4 uniquement. Une fois que l’Assistant a fini d’appliquer la configuration, cliquez sur **Fermer**.  
   
 -   **Clients Windows 7** : vous ne pouvez pas activer la prise en charge des clients Windows 7 à partir de l’Assistant prise en main. Vous pouvez l’activer à partir de l’Assistant Installation avancée. Pour plus d’informations, consultez [déployer un serveur DirectAccess unique avec des paramètres avancés](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md).  
   
@@ -60,9 +60,9 @@ Il existe un certain nombre de décisions à prendre lors de la planification du
   
 -   **Forcer le tunneling** : Si vous envisagez d’utiliser le tunneling forcé, ou si vous pouvez l’ajouter ultérieurement, vous devez utiliser [déployer un serveur DirectAccess unique avec des paramètres avancés](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) pour déployer une configuration à deux tunnels. En raison de considérations de sécurité, le tunneling forcé dans une configuration de tunnel unique n’est pas pris en charge.  
   
-## <a name="BKMK_Links"></a>Étape précédente  
+## <a name="previous-step"></a><a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 1 : Planifier l’infrastructure DirectAccess de base](da-basic-plan-s1-infrastructure.md)  
+-   [Étape 1 : planifier l’infrastructure DirectAccess de base](da-basic-plan-s1-infrastructure.md)  
   
 
 

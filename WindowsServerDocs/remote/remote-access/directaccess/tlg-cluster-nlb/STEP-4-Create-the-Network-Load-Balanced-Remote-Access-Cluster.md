@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 509eaa08-c49d-448d-a71e-c1c45519ccd5
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f888ebadfaa91b35f0924b23e9818da1c32f26e5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c2f855512b978462f89b8f32b1f7edf59180f563
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388482"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310778"
 ---
 # <a name="step-4-create-the-network-load-balanced-remote-access-cluster"></a>ÉTAPE 4 créer le cluster d’accès à distance avec équilibrage de la charge réseau
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
  Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 vous permettent de créer des clusters de serveurs d’accès à distance. Un cluster agit comme un serveur logique unique et fournit une configuration et une gestion centralisées pour les serveurs du cluster. Lorsque vous utilisez l’équilibrage de la charge réseau (NLB), vous pouvez prendre en charge jusqu’à 8 membres d’accès à distance dans un seul cluster. Les clusters d’accès à distance offrent une haute disponibilité et un équilibrage de la charge des connexions entre les clients DirectAccess et le réseau interne.  
   
@@ -33,7 +33,7 @@ Les procédures suivantes vous permettent de créer et de tester un cluster d’
   
 3. Ajoutez EDGE2 au cluster à charge équilibrée. Après avoir activé l’équilibrage de charge, vous pouvez maintenant ajouter EDGE2 au cluster pour assurer l’équilibrage de charge et la haute disponibilité pour les connexions des clients DirectAccess.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Si vous créez ce laboratoire de test sur des machines virtuelles, vous devez activer l’usurpation d’adresses MAC sur EDGE1 et EDGE2.  
   
@@ -62,7 +62,7 @@ Pour configurer EDGE1 et EDGE2 dans un cluster, vous devez installer la fonction
   
 3.  Dans la boîte de dialogue **Sélectionner des fonctionnalités** , sélectionnez équilibrage de la **charge réseau**, cliquez sur **Ajouter des fonctionnalités**, cliquez sur **suivant**, puis sur **installer**.  
   
-4.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
+4.  Dans la boîte de dialogue **Progression de l'installation**, vérifiez que l'installation a réussi, puis cliquez sur **Fermer**.  
   
 5.  Répétez cette procédure sur EDGE2.  
   
@@ -71,7 +71,7 @@ Utilisez cette procédure pour activer l’équilibrage de charge et configurer 
   
 ### <a name="enable-load-balancing"></a>Activer l’équilibrage de charge  
   
-1.  Sur EDGE1, cliquez sur **Démarrer**, tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur EDGE1, cliquez sur **Démarrer**, tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la console Gestion de l’accès à distance, dans le volet gauche, cliquez sur **configuration**, puis dans le volet **tâches** , cliquez sur **activer l’équilibrage de charge**.  
   
@@ -117,7 +117,7 @@ Utilisez cette procédure pour ajouter EDGE2 au cluster NLB.
   
 8.  Dans la boîte de dialogue **Ajout et suppression de serveurs** , cliquez sur **Fermer**.  
   
-9. Dans l’écran d' **Accueil** , tapez**Nlbmgr. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+9. Dans l’écran d' **Accueil** , tapez**Nlbmgr. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 10. Dans le **Gestionnaire d’équilibrage de la charge réseau**, cliquez sur **cluster da interne**. Dans le volet d’informations, assurez-vous que **Edge1 (corpnet)** et **EDGE2 (corpnet)** ont l’état **convergé**.  
   

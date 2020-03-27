@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: deeb226d81c48e0e389ea4d2619c43aca01e25c2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: feee6f7bfaa34983290bfe173c7729666581e3f8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355889"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309920"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Ajouter une passerelle virtuelle à un réseau virtuel locataire 
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016 
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016 
 
 Découvrez comment utiliser les applets de commande et les scripts Windows PowerShell pour fournir une connectivité de site à site pour les réseaux virtuels de votre locataire. Dans cette rubrique, vous allez ajouter des passerelles virtuelles clientes aux instances de la passerelle RAS qui sont membres des pools de passerelles, à l’aide du contrôleur de réseau. La passerelle RAS prend en charge jusqu’à 100 locataires, en fonction de la bande passante utilisée par chaque locataire. Le contrôleur de réseau détermine automatiquement la meilleure passerelle RAS à utiliser lorsque vous déployez une nouvelle passerelle virtuelle pour vos locataires.  
 

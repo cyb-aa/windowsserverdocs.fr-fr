@@ -6,19 +6,19 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/22/2018
-ms.openlocfilehash: 58e85c15723126f2976fac3ccc21b3cfc6585750
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8cdf4e100c65fae11637c681924746115444f71
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355930"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313025"
 ---
 # <a name="windows-server-2019-gateway-performance"></a>Performances de la passerelle Windows Server 2019
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
 
 Dans Windows Server 2016, l’un des problèmes des clients était l’incapacité de la passerelle SDN à répondre aux exigences de débit des réseaux modernes. Le débit réseau des tunnels IPsec et GRE était limité avec le débit de connexion unique pour que la connectivité IPsec soit d’environ 300 Mbits/s et que la connectivité GRE soit d’environ 2,5 Gbits/s.

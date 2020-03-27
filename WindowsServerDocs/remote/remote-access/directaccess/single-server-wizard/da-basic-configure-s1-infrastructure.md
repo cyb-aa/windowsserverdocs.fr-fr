@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ba4de2a4-f237-4b14-a8a7-0b06bfcd89ad
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b6b8ebfe0a6b42fe174d4b376b981641f043cf58
-ms.sourcegitcommit: 3d5a8357491b6bbd180d1238ea98f23bfc544ac7
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c53adce68168ac4890f14c766e10b2b886dd598c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75827676"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308954"
 ---
 # <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Étape 1 configurer l’infrastructure DirectAccess de base
 
@@ -36,9 +36,9 @@ Cette rubrique décrit comment configurer l’infrastructure requise pour un dé
 |Configurer les groupes de sécurité|Configurez les groupes de sécurité qui contiendront les ordinateurs clients DirectAccess, ainsi que tous les autres groupes de sécurité requis dans le déploiement.|  
   
 > [!NOTE]  
-> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Cette rubrique comprend des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="ConfigNetworkSettings"></a>Configurer les paramètres réseau du serveur  
+## <a name="configure-server-network-settings"></a><a name="ConfigNetworkSettings"></a>Configurer les paramètres réseau du serveur  
 Les paramètres d'interface réseau suivants sont requis pour un déploiement à un seul serveur dans un environnement avec IPv4 et IPv6. Toutes les adresses IP sont configurées à l'aide de l'option **Modifier les paramètres de la carte** du **Centre Réseau et partage Windows**.  
   
 -   Topologie de périmètre  
@@ -74,19 +74,19 @@ Les paramètres d'interface réseau suivants sont requis pour un déploiement à
 >   
 >     Les noms des stratégies IPsec sont DirectAccess-DaServerToInfra et DirectAccess-DaServerToCorp.  
   
-## <a name="ConfigRouting"></a>Configurer le routage dans le réseau d’entreprise  
+## <a name="configure-routing-in-the-corporate-network"></a><a name="ConfigRouting"></a>Configurer le routage dans le réseau d’entreprise  
 Procédez comme suit pour configurer le routage dans le réseau d'entreprise :  
   
 -   Lorsqu'IPv6 natif est déployé dans l'organisation, ajoutez un itinéraire afin que les routeurs du réseau interne redirigent le trafic IPv6 via le serveur d'accès à distance.  
   
 -   Configurez manuellement les itinéraires IPv4 et IPv6 de l'organisation sur les serveurs d'accès à distance. Ajoutez un itinéraire publié afin que tout le trafic ayant un préfixe IPv6 (/48) d'organisation soit transféré au réseau interne. De plus, pour le trafic IPv4, ajoutez des itinéraires explicites afin que le trafic IPv4 soit transféré au réseau interne.  
   
-## <a name="ConfigFirewalls"></a>Configurer des pare-feu  
-Lorsque vous utilisez des pare-feu supplémentaires dans votre déploiement, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d'accès à distance lorsque le serveur d'accès à distance se trouve sur le réseau Internet IPv4 :  
+## <a name="configure-firewalls"></a><a name="ConfigFirewalls"></a>Configurer des pare-feu  
+Lorsque vous utilisez des pare-feu supplémentaires dans votre déploiement, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d’accès à distance lorsque le serveur d’accès à distance est sur le réseau Internet IPv4 :  
   
 -   trafic 6to4 : protocole IP 41 entrant et sortant.  
   
--   IP-HTTPs-port TCP (Transmission Control Protocol) 443 et port TCP source 443 sortant. Lorsque le serveur d'accès à distance dispose d'une seule carte réseau et que le serveur d'emplacement réseau se trouve sur le serveur d'accès à distance, le port TCP 62000 est également requis.  
+-   IP-HTTPs-port TCP (Transmission Control Protocol) 443 et port TCP source 443 sortant. Lorsque le serveur d’accès à distance dispose d’une seule carte réseau et que le serveur Emplacement réseau se trouve sur le serveur d’accès à distance, le port TCP 62000 est également requis.  
   
     > [!NOTE]  
     > Cette exemption doit être configurée sur le serveur d’accès à distance. Toutes les autres exemptions doivent être configurées sur le pare-feu de périmètre.  
@@ -94,9 +94,9 @@ Lorsque vous utilisez des pare-feu supplémentaires dans votre déploiement, app
 > [!NOTE]  
 > Pour les trafics Teredo et 6to4, ces exceptions doivent être appliquées pour les deux adresses IPv4 publiques consécutives côté Internet sur le serveur d’accès à distance. Pour IP-HTTPS, les exceptions ne doivent être appliquées qu’à l’adresse de résolution du nom externe du serveur.  
   
-Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d'accès à distance lorsque le serveur d'accès à distance est sur le réseau Internet IPv6 :  
+Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de pare-feu côté Internet suivantes pour le trafic d’accès à distance lorsque le serveur d’accès à distance est sur le réseau Internet IPv6 :  
   
--   Protocole IP 50  
+-   Protocole IP 50  
   
 -   Port UDP de destination 500 entrant et port UDP source 500 sortant.  
   
@@ -106,10 +106,10 @@ Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de
   
 -   TCP/UDP pour tout le trafic IPv4/IPv6  
   
-## <a name="ConfigDNS"></a>Configurer le serveur DNS  
-Vous devez configurer manuellement une entrée DNS pour le site web du serveur d'emplacement réseau du réseau interne de votre déploiement.  
+## <a name="configure-the-dns-server"></a><a name="ConfigDNS"></a>Configurer le serveur DNS  
+Vous devez configurer manuellement une entrée DNS pour le site web du serveur Emplacement réseau du réseau interne de votre déploiement.  
   
-### <a name="NLS_DNS"></a>Pour créer le serveur d’emplacement réseau et les enregistrements DNS de sonde NCSI  
+### <a name="to-create-the-network-location-server-and-ncsi-probe-dns-records"></a><a name="NLS_DNS"></a>Pour créer le serveur d’emplacement réseau et les enregistrements DNS de sonde NCSI  
   
 1.  Sur le serveur DNS du réseau interne, exécutez **dnsmgmt. msc** , puis appuyez sur entrée.  
   
@@ -123,7 +123,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur d
   
 ![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
 
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Add-DnsServerResourceRecordA -Name <network_location_server_name> -ZoneName <DNS_zone_name> -IPv4Address <network_location_server_IPv4_address>  
@@ -136,7 +136,7 @@ Vous devez également configurer les entrées DNS pour les éléments suivants�
   
 -   **Vérification de la révocation** des certificats : DirectAccess utilise la vérification de la révocation des certificats pour la connexion IP-HTTPS entre les clients DirectAccess et le serveur d’accès à distance, ainsi que pour la connexion HTTPS entre le client DirectAccess et le serveur d’emplacement réseau. Dans les deux cas, les clients DirectAccess doivent être en mesure de résoudre le point de distribution de liste de révocation de certificats et d'y accéder.  
   
-## <a name="ConfigAD"></a>Configurer Active Directory  
+## <a name="configure-active-directory"></a><a name="ConfigAD"></a>Configurer Active Directory  
 Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doivent être joints à un domaine Active Directory. Les ordinateurs clients DirectAccess doivent être membres de l'un des types de domaines suivants :  
   
 -   les domaines qui appartiennent à la même forêt que le serveur d’accès à distance ;  
@@ -159,7 +159,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 6.  Lorsque vous êtes invité à redémarrer l’ordinateur, cliquez sur **OK**.  
   
-7.  Dans la boîte de dialogue **Propriétés système** , cliquez sur **Fermer**.  
+7.  Dans la boîte de dialogue **Propriétés système**, cliquez sur **Fermer**.  
   
 8.  Lorsque vous êtes invité à redémarrer l’ordinateur, cliquez sur **Redémarrer maintenant**.  
   
@@ -185,7 +185,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 ![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Notez que vous devez fournir des informations d’identification de domaine après avoir entré la commande Add-Computer ci-dessous.  
   
@@ -194,7 +194,7 @@ Add-Computer -DomainName <domain_name>
 Restart-Computer  
 ```  
   
-## <a name="ConfigGPOs"></a>Configurer des objets de stratégie de groupe  
+## <a name="configure-gpos"></a><a name="ConfigGPOs"></a>Configurer des objets de stratégie de groupe  
 Pour déployer l’accès à distance, vous avez besoin d’un minimum de deux objets de stratégie de groupe : un objet de stratégie de groupe contient des paramètres pour le serveur d’accès à distance et un autre contient des paramètres pour les ordinateurs clients DirectAccess. Quand vous configurez l’accès à distance, l’Assistant crée automatiquement l’objet de stratégie de groupe requis. Toutefois, si votre organisation impose une convention d’affectation de noms, ou si vous ne disposez pas des autorisations requises pour créer ou modifier des objets de stratégie de groupe, ceux-ci doivent être créés avant la configuration de l’accès à distance.  
   
 Pour créer un objet de stratégie de groupe, consultez [créer et modifier un objet stratégie de groupe](https://technet.microsoft.com/library/cc754740.aspx).  
@@ -213,10 +213,10 @@ Pour créer un objet de stratégie de groupe, consultez [créer et modifier un o
 > [!Warning]
 > N’est pas pris en charge à l’aide de l’Assistant Installation DirectAccess pour configurer DirectAccess, par exemple la modification directe des objets stratégie de groupe DirectAccess ou la modification manuelle des paramètres de stratégie par défaut sur le serveur ou le client.
   
-## <a name="ConfigSGs"></a>Configurer des groupes de sécurité  
+## <a name="configure-security-groups"></a><a name="ConfigSGs"></a>Configurer des groupes de sécurité  
 Les paramètres DirectAccess contenus dans les objets de stratégie de groupe de l’ordinateur client sont appliqués uniquement aux ordinateurs qui sont membres des groupes de sécurité que vous spécifiez lors de la configuration de l’accès à distance.  
   
-### <a name="Sec_Group"></a>Pour créer un groupe de sécurité pour les clients DirectAccess  
+### <a name="to-create-a-security-group-for-directaccess-clients"></a><a name="Sec_Group"></a>Pour créer un groupe de sécurité pour les clients DirectAccess  
   
 1.  Exécutez **DSA. msc**. Dans la console **Utilisateurs et ordinateurs Active Directory**, dans le volet gauche, développez le domaine contenant le groupe de sécurité, cliquez avec le bouton droit sur **Utilisateurs**, pointez sur **Nouveau**, puis cliquez sur **Groupe**.  
   
@@ -226,20 +226,20 @@ Les paramètres DirectAccess contenus dans les objets de stratégie de groupe de
   
 4.  Double-cliquez sur le groupe de sécurité des ordinateurs clients DirectAccess, puis dans la boîte de dialogue des propriétés, cliquez sur l'onglet **Membres**.  
   
-5.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
+5.  Sous l'onglet **Membres**, cliquez sur **Ajouter**.  
   
 6.  Dans la boîte de dialogue **Sélectionner Utilisateurs, contacts, ordinateurs ou comptes de service**, sélectionnez les ordinateurs clients que vous voulez activer pour DirectAccess, puis cliquez sur **OK**.  
   
 ![les commandes Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 New-ADGroup -GroupScope global -Name <DirectAccess_clients_group_name>  
 Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_name>  
 ```  
   
-## <a name="BKMK_Links"></a>Étape suivante  
+## <a name="next-step"></a><a name="BKMK_Links"></a>Étape suivante  
   
 -   [Étape 2 : configurer le serveur DirectAccess de base](da-basic-configure-s2-server.md)  
   

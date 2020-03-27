@@ -1,19 +1,19 @@
 ---
 title: Déployer des appareils graphiques à l’aide du processeur graphique virtuel RemoteFX
 description: Découvrez comment déployer et configurer le processeur graphique virtuel RemoteFX dans Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: rickman
 author: rick-man
 ms.author: rickman
 manager: stevelee
 ms.topic: article
 ms.date: 08/21/2019
-ms.openlocfilehash: 7111899557279d825191948e737d83d7467ce786
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 4ae185232ec39d92997929f8f916ff49caf26dcf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923911"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310510"
 ---
 # <a name="deploy-graphics-devices-using-remotefx-vgpu"></a>Déployer des appareils graphiques à l’aide du processeur graphique virtuel RemoteFX
 

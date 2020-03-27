@@ -3,7 +3,7 @@ title: Configurer la redirection de dossiers sur le serveur de destination Windo
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,20 +12,20 @@ ms.assetid: fe77ba67-128c-4fc3-9361-30fa6af42516
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6709aa2a342efd5837cf340b645961499baff6a5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 44fb54a654689285c5db6d178e6d1c714779b91b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433011"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310605"
 ---
 # <a name="configure-folder-redirection-on-the-windows-server-essentials-destination-server"></a>Configurer la redirection de dossiers sur le serveur de destination Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Effectuez cette tâche si la redirection de dossiers est activée sur le serveur source.  
   
- Pour commencer, supprimez l'ancien paramètre de stratégie de groupe de redirection de dossiers. Puis utilisez le tableau de bord Windows Server Essentials pour activer la redirection de dossiers sur le serveur de Destination.  
+ Pour commencer, supprimez l'ancien paramètre de stratégie de groupe de redirection de dossiers. Utilisez ensuite le tableau de bord Windows Server Essentials pour activer la redirection de dossiers sur le serveur de destination.  
   
 ### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>Pour supprimer l'ancien paramètre de stratégie de groupe de redirection de dossiers  
   
@@ -43,13 +43,13 @@ Effectuez cette tâche si la redirection de dossiers est activée sur le serveur
   
 ### <a name="to-enable-folder-redirection-on-the-destination-server"></a>Pour activer la redirection de dossiers sur le serveur de destination  
   
-1. Sur le serveur de Destination, ouvrez le tableau de bord Windows Server Essentials.  
+1. Sur le serveur de destination, ouvrez le tableau de bord Windows Server Essentials.  
   
 2. Dans la barre de navigation, cliquez sur **Périphériques**.  
   
-3. Dans le volet **Tâches des périphériques** , cliquez sur **Implémenter la stratégie de groupe**.  
+3. Dans le volet **Tâches des périphériques**, cliquez sur **Implémenter la stratégie de groupe**.  
   
-4. Dans la page **Activer la stratégie de groupe de redirection de dossiers** , sélectionnez les dossiers à rediriger, puis cliquez sur **Suivant**.  
+4. Dans la page **Activer la stratégie de groupe de redirection de dossiers**, sélectionnez les dossiers à rediriger, puis cliquez sur **Suivant**.  
   
 5. Dans la page **Activer les paramètres de stratégie de sécurité**, cliquez sur **Terminer**.  
   

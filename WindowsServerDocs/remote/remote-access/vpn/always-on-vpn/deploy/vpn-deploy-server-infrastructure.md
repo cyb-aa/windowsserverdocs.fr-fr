@@ -6,23 +6,23 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: c7e2c4172621416048fa9e82bbd12f5b1717d490
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a7d1c451989d69f45f02571de4854b0f0f4e12f5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404293"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307826"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Étape 2. Configurer l’infrastructure de serveur
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Premier** Étape 1. Planifier le déploiement de VPN Toujours actif (AlwaysOn)](always-on-vpn-deploy-planning.md)
-- [**Situé** Étape 3. Configurer le serveur d’accès à distance pour VPN Toujours actif (AlwaysOn)](vpn-deploy-ras.md)
+- [**Précédent :** Étape 1. Planifier le déploiement VPN Always On](always-on-vpn-deploy-planning.md)
+- [**Ensuite :** Étape 3. Configurer le serveur d’accès à distance pour Always On VPN](vpn-deploy-ras.md)
 
 Au cours de cette étape, vous allez installer et configurer les composants côté serveur nécessaires à la prise en charge du VPN. Les composants côté serveur incluent la configuration de l’infrastructure à clé publique pour distribuer les certificats utilisés par les utilisateurs, le serveur VPN et le serveur NPS.  Vous configurez également RRAS pour prendre en charge les connexions IKEv2 et le serveur NPS pour effectuer l’autorisation pour les connexions VPN.
 
@@ -44,7 +44,7 @@ Vous inscrivez manuellement les certificats sur les serveurs VPN.
 
 5. Dans le Éditeur de gestion des stratégies de groupe, procédez comme suit pour configurer l’inscription automatique des certificats d’ordinateur :
 
-    1. Dans le volet de navigation, accédez **à configuration** > ordinateur >  >  > stratégies paramètres Windows paramètres de sécurité**stratégies de clé publique**.
+    1. Dans le volet de navigation, accédez à **Configuration ordinateur** > **stratégies** > **Paramètres Windows** > **paramètres de sécurité** > stratégies de **clé publique**.
 
     2. Dans le volet d’informations, cliquez avec le bouton droit sur **client des services de certificats – inscription automatique**, puis sélectionnez **Propriétés**.
 
@@ -56,7 +56,7 @@ Vous inscrivez manuellement les certificats sur les serveurs VPN.
 
 6. Dans le Éditeur de gestion des stratégies de groupe, procédez comme suit pour configurer l’inscription automatique des certificats utilisateur :
 
-    1. Dans le volet de navigation, accédez **à configuration** > utilisateur >  >  > stratégies paramètres Windows paramètres de sécurité**stratégies de clé publique**.
+    1. Dans le volet de navigation, accédez à **Configuration utilisateur** > **stratégies** > **Paramètres Windows** > **paramètres de sécurité** > stratégies de **clé publique**.
 
     2. Dans le volet d'informations, cliquez avec le bouton droit sur **Client des services de certificats - Inscription automatique**, puis sélectionnez **Propriétés**.
 
@@ -68,7 +68,7 @@ Vous inscrivez manuellement les certificats sur les serveurs VPN.
 
     6. Fermez l’éditeur de gestion des stratégies de groupe.
 
-7. Fermez la gestion des stratégies de groupe.
+7. Fermez Gestion des stratégies de groupe.
 
 ### <a name="ca-configuration-for-non-domain-joined-computers"></a>Configuration de l’autorité de certification pour les ordinateurs non joints à un domaine
 
@@ -118,12 +118,12 @@ Vous inscrivez manuellement les certificats sur les serveurs VPN.
 
     - **Modèle de certificat :** serveur VPN [_client_]
 
-#### <a name="example-vpngatewayinf-script"></a>Exemple : Script VPNGateway. inf
+#### <a name="example-vpngatewayinf-script"></a>Exemple : script VPNGateway. inf
 
 Ici, vous pouvez voir un exemple de script d’une stratégie de demande de certificat utilisée pour demander un certificat de passerelle VPN à l’aide d’un processus hors bande.
 
 >[!TIP]
->Vous pouvez trouver une copie du script VPNGateway. inf dans le kit d’IP de l’offre VPN dans le dossier stratégies de demande de certificat. Mettez à jour uniquement les champs « subject\_»\_et « continue » avec des valeurs spécifiques au client.
+>Vous pouvez trouver une copie du script VPNGateway. inf dans le kit d’IP de l’offre VPN dans le dossier stratégies de demande de certificat. Mettez à jour uniquement les valeurs « Subject » et «\_continue\_» avec des valeurs spécifiques au client.
 
 ```
 [Version] 
@@ -176,7 +176,7 @@ Vous ajoutez également un groupe contenant des serveurs VPN et un autre groupe 
 
 6. Dans la boîte de dialogue Sélectionner des utilisateurs, ajoutez tous les utilisateurs qui ont besoin d’un accès VPN, puis sélectionnez **OK**.
 
-7. Fermez Utilisateurs et ordinateurs Active Directory.
+7. Fermez Utilisateurs et ordinateurs Active Directory.
 
 ### <a name="configure-the-vpn-servers-and-nps-servers-groups"></a>Configurer les groupes de serveurs NPS et de serveurs VPN
 
@@ -198,14 +198,14 @@ Vous ajoutez également un groupe contenant des serveurs VPN et un autre groupe 
 
 9. Répétez les étapes précédentes pour le groupe de serveurs NPS.
 
-10. Fermez Utilisateurs et ordinateurs Active Directory.
+10. Fermez Utilisateurs et ordinateurs Active Directory.
 
 ## <a name="create-the-user-authentication-template"></a>Créer le modèle d’authentification utilisateur
 
 Dans cette procédure, vous configurez un modèle d’authentification client-serveur personnalisé. Ce modèle est nécessaire, car vous souhaitez améliorer la sécurité globale du certificat en sélectionnant les niveaux de compatibilité mis à niveau et en choisissant le fournisseur de chiffrement de la plateforme Microsoft. Cette dernière modification vous permet d’utiliser le module de plateforme sécurisée sur les ordinateurs clients pour sécuriser le certificat. Pour obtenir une vue d’ensemble du module de plateforme sécurisée, consultez [module de plateforme sécurisée (TPM) vue d’ensemble](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)de la technologie.
 
 >[!IMPORTANT] 
->Le fournisseur de chiffrement de plateforme Microsoft «requiert une puce TPM, dans le cas où vous exécutez une machine virtuelle et vous recevez l’erreur suivante : « Impossible de trouver un CSP valide sur l’ordinateur local » lors de la tentative d’inscription manuelle du certificat, vous devez vérifier « fournisseur de stockage de clés logicielles Microsoft » et le faire en deuxième position après « fournisseur de chiffrement de la plateforme Microsoft » sous l’onglet chiffrement du certificat. sous.
+>Le fournisseur de chiffrement de plateforme Microsoft « nécessite une puce TPM, dans le cas où vous exécutez une machine virtuelle et vous obtenez l’erreur suivante : «impossible de trouver un CSP valide sur l’ordinateur local » lors de la tentative d’inscription manuelle du certificat, vous devez vérifier «Microsoft Software Key Storage Le fournisseur» et l’ont en deuxième position dans l’ordre après « fournisseur de chiffrement de la plateforme Microsoft » sous l’onglet chiffrement dans les propriétés du certificat.
 
 **Procédures**
 
@@ -300,7 +300,7 @@ Serveurs VPN joints à un domaine
 
     3. Dans la boîte de dialogue **Ajouter une stratégie d’application** , sélectionnez **sécurité IP IKE intermédiaire**, puis cliquez sur **OK**.
    
-        L’ajout de la sécurité IP de niveau intermédiaire à l’utilisation améliorée de la sécurité aide dans les scénarios où plusieurs certificats d’authentification de serveur existent sur le serveur VPN. Lorsque la sécurité IP IKE intermédiaire est présente, IPSec utilise uniquement le certificat avec les deux options EKU. Sans cela, l’authentification IKEv2 peut échouer avec l’erreur 13801 : Les informations d’authentification IKE ne sont pas acceptables.
+        L’ajout de la sécurité IP de niveau intermédiaire à l’utilisation améliorée de la sécurité aide dans les scénarios où plusieurs certificats d’authentification de serveur existent sur le serveur VPN. Lorsque la sécurité IP IKE intermédiaire est présente, IPSec utilise uniquement le certificat avec les deux options EKU. Sans cela, l’authentification IKEv2 peut échouer avec l’erreur 13801 : les informations d’identification d’authentification IKE ne sont pas acceptables.
 
     4. Sélectionnez **OK** pour revenir à la boîte **de dialogue Propriétés du nouveau modèle** .
 
@@ -472,6 +472,6 @@ Contrairement au certificat de l’utilisateur, vous devez inscrire manuellement
 
 7. Fermez le composant logiciel enfichable Certificats.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
-[Étape 3. Configurez le serveur d’accès à](vpn-deploy-ras.md)distance pour Always on VPN : Dans cette étape, vous configurez le VPN d’accès à distance pour autoriser les connexions VPN IKEv2, refuser les connexions à partir d’autres protocoles VPN et affecter un pool d’adresses IP statiques pour l’émission d’adresses IP pour la connexion des clients VPN autorisés.
+[Étape 3. Configurer le serveur d’accès à distance pour Always On VPN](vpn-deploy-ras.md): au cours de cette étape, vous configurez le VPN d’accès à distance pour autoriser les connexions VPN IKEv2, refuser les connexions à partir d’autres protocoles VPN et affecter un pool d’adresses IP statiques pour l’émission d’adresses IP pour la connexion des clients VPN autorisés.

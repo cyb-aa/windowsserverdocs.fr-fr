@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cd1e9efd-19e9-49e7-8432-881f661c9792
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 487b85713d415cdda9ee40548091abdb5fe7fc2e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: abc3038cfe0dacb09c115f37289fe72f1c14b96d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404836"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308857"
 ---
 # <a name="overview-of-the-directaccess-cluster-nlb-test-lab-scenario"></a>Vue d’ensemble du scénario de laboratoire de test de cluster DirectAccess avec équilibrage de charge réseau
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans ce scénario de laboratoire de test, DirectAccess est déployé avec :  
   

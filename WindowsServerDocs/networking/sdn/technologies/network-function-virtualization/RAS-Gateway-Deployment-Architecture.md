@@ -10,18 +10,18 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: d46e4e91-ece0-41da-a812-af8ab153edc4
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7b3bd47052e482b562e84d5c44b928c0744b223c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 91d8081261d3cbc5e2da61cc2b5a9737e76a0dc7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405920"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309803"
 ---
 # <a name="ras-gateway-deployment-architecture"></a>Architecture de déploiement de la passerelle du serveur d’accès à distance
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour en savoir plus sur le déploiement du fournisseur de services Cloud (CSP) de la passerelle RAS, y compris les pools de passerelle RAS, les réflecteurs de route et le déploiement de plusieurs passerelles pour des locataires individuels.  
   
@@ -43,7 +43,7 @@ Cette rubrique contient les sections suivantes.
   
 -   [Avantages de l’utilisation de nouvelles fonctionnalités de passerelle RAS](#bkmk_advantages)  
   
-## <a name="bkmk_new"></a>Utilisation des nouvelles fonctionnalités de la passerelle RAS pour concevoir votre déploiement  
+## <a name="using-ras-gateway-new-features-to-design-your--deployment"></a><a name="bkmk_new"></a>Utilisation des nouvelles fonctionnalités de la passerelle RAS pour concevoir votre déploiement  
 La passerelle RAS comprend plusieurs nouvelles fonctionnalités qui changent et améliorent la manière dont vous déployez votre infrastructure de passerelle dans votre centre de donnes.  
   
 ### <a name="bgp-route-reflector"></a>Réflecteur d’itinéraires BGP  
@@ -51,22 +51,22 @@ La fonctionnalité de réflecteur d’itinéraire Border Gateway Protocol (BGP) 
   
 Pour plus d’informations, consultez [Nouveautés de la passerelle RAS](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md).  
   
-### <a name="bkmk_pools"></a>Pools de passerelle  
+### <a name="gateway-pools"></a><a name="bkmk_pools"></a>Pools de passerelle  
 Dans Windows Server 2016, vous pouvez créer plusieurs pools de passerelles de différents types. Les pools de passerelle contiennent de nombreuses instances de passerelle RAS et acheminent le trafic réseau entre les réseaux physiques et virtuels.  
   
 Pour plus d’informations, consultez [Nouveautés de la passerelle RAS](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) et [haute disponibilité de la passerelle RAS](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-### <a name="bkmk_gps"></a>Extensibilité du pool de passerelles  
+### <a name="gateway-pool-scalability"></a><a name="bkmk_gps"></a>Extensibilité du pool de passerelles  
 Vous pouvez facilement mettre à l’échelle un pool de passerelle en ajoutant ou en supprimant des machines virtuelles de passerelle dans le pool. La suppression ou l’ajout de passerelles n’interrompt pas les services fournis par un pool. Vous pouvez également ajouter et supprimer des pools complets de passerelles.  
   
 Pour plus d’informations, consultez [Nouveautés de la passerelle RAS](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) et [haute disponibilité de la passerelle RAS](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-### <a name="bkmk_m"></a>Redondance du pool de passerelle M + N  
+### <a name="mn-gateway-pool-redundancy"></a><a name="bkmk_m"></a>Redondance du pool de passerelle M + N  
 Chaque pool de passerelle est M + N redondant. Cela signifie qu’un nombre « m » de machines virtuelles de passerelle actives est sauvegardé par un nombre « N » de machines virtuelles de passerelle de secours. La redondance M + N offre une plus grande flexibilité pour déterminer le niveau de fiabilité dont vous avez besoin lorsque vous déployez la passerelle RAS.  
   
 Pour plus d’informations, consultez [Nouveautés de la passerelle RAS](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) et [haute disponibilité de la passerelle RAS](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_example"></a>Exemple de déploiement  
+## <a name="example-deployment"></a><a name="bkmk_example"></a>Exemple de déploiement  
 L’illustration suivante fournit un exemple d’homologation eBGP sur des connexions VPN de site à site configurées entre deux locataires, contoso et Woodgrove, et le centre de donnés de Fabrikam CSP.  
   
 ![homologation eBGP sur un réseau VPN de site à site](../../../media/RAS-Gateway-Deployment-Architecture/ras_gateway_architecture.png)  
@@ -82,7 +82,7 @@ En tant que réflecteurs d’itinéraires, GW2 envoie des itinéraires de l’es
   
 Le contrôleur de réseau pousse les stratégies de virtualisation de réseau Hyper-V vers les réseaux virtuels contoso et Woodgrove, ainsi que les stratégies RAS vers les passerelles RAS et les stratégies d’équilibrage de charge vers les multiplexeurs (multiplexeurs) qui sont configurés en tant qu’équilibrage de la charge logicielle. pool.  
   
-## <a name="bkmk_tenant"></a>Ajout de nouveaux locataires et de l’espace d’adressage du client (CA) eBGP appairage  
+## <a name="adding-new-tenants-and-customer-address-ca-space-ebgp-peering"></a><a name="bkmk_tenant"></a>Ajout de nouveaux locataires et de l’espace d’adressage du client (CA) eBGP appairage  
 Quand vous signez un nouveau client et que vous ajoutez le client en tant que nouveau locataire dans votre centre de code, vous pouvez utiliser le processus suivant, dont la plupart sont effectuées automatiquement par les routeurs eBGP du contrôleur de réseau et de la passerelle RAS.  
   
 1.  Approvisionnez un nouveau réseau virtuel et des charges de travail en fonction des exigences de votre locataire.  
@@ -103,7 +103,7 @@ Quand vous signez un nouveau client et que vous ajoutez le client en tant que no
   
 6.  Avec le routage BGP de l’espace de l’autorité de certification, l’homologation eBGP entre les sites d’entreprise et le réflecteur de l’itinéraire de la passerelle RAS du CSP est également établie.  
   
-## <a name="bkmk_route"></a>Synchronisation des itinéraires et routage du plan de données  
+## <a name="route-synchronization-and-data-plane-routing"></a><a name="bkmk_route"></a>Synchronisation des itinéraires et routage du plan de données  
 Une fois l’homologation eBGP établie entre les sites d’entreprise et le réflecteur de l’itinéraire de la passerelle RAS du CSP, le réflecteur d’itinéraire apprend tous les itinéraires de l’entreprise à l’aide du routage BGP dynamique. Le réflecteur d’itinéraire synchronise ces itinéraires entre tous les clients de réflecteur d’itinéraire afin qu’ils soient tous configurés avec le même ensemble d’itinéraires.  
   
 Le réflecteur de routage met également à jour ces itinéraires consolidés, à l’aide de la synchronisation d’itinéraire, au contrôleur de réseau. Le contrôleur de réseau convertit ensuite les itinéraires en stratégies de virtualisation de réseau Hyper-V et configure le réseau de l’infrastructure pour garantir que le routage du chemin des données de bout en bout est approvisionné. Ce processus rend le réseau virtuel du locataire accessible à partir des sites de l’entreprise locataire.  
@@ -114,7 +114,7 @@ De même, avec les stratégies de virtualisation de réseau Hyper-V en place, le
   
 De plus,. le retour du trafic du réseau virtuel client au site d’entreprise locataire distant ignore le SLBs, un processus appelé DSR (direct Server Return).  
   
-## <a name="bkmk_failover"></a>Comment le contrôleur de réseau répond à la passerelle RAS et au basculement de réflecteur d’itinéraire  
+## <a name="how-network-controller-responds-to-ras-gateway-and-route-reflector-failover"></a><a name="bkmk_failover"></a>Comment le contrôleur de réseau répond à la passerelle RAS et au basculement de réflecteur d’itinéraire  
 Voici deux scénarios possibles de basculement : un pour les clients de réflecteur de passerelle RAS et un pour les réflecteurs d’itinéraires de passerelle RAS, y compris les informations sur la façon dont le contrôleur de réseau gère le basculement pour les machines virtuelles dans les deux configurations.  
   
 ### <a name="vm-failure-of-a-ras-gateway-bgp-route-reflector-client"></a>Échec de la machine virtuelle d’une passerelle RAS client de réflecteur d’itinéraire BGP  
@@ -146,7 +146,7 @@ Le contrôleur de réseau effectue les actions suivantes lorsqu’un réflecteur
   
 -   Après la sélection de l’itinéraire BGP, le réflecteur d’itinéraire BGP de la passerelle RAS met à jour les clients de réflecteur d’itinéraire du locataire dans le centre de données et synchronise les itinéraires avec le contrôleur de réseau, ce qui rend le chemin de données de bout en bout disponible pour le trafic de locataire.  
   
-## <a name="bkmk_advantages"></a>Avantages de l’utilisation de nouvelles fonctionnalités de passerelle RAS  
+## <a name="advantages-of-using-new-ras-gateway-features"></a><a name="bkmk_advantages"></a>Avantages de l’utilisation de nouvelles fonctionnalités de passerelle RAS  
 Voici quelques-uns des avantages de l’utilisation de ces nouvelles fonctionnalités de passerelle RAS lors de la conception de votre déploiement de passerelle RAS.  
   
 **Évolutivité de la passerelle RAS**  

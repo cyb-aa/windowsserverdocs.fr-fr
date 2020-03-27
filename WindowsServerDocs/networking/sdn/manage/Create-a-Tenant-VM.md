@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3c62f533-1815-4f08-96b1-dc271f5a2b36
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/24/2018
-ms.openlocfilehash: 3e0678fb204e0895bf4429e8bb877a3f1c0e7a97
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ef588cfc93216f13490ef3196ec0990b9e7f48d3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355854"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309794"
 ---
 # <a name="create-a-vm-and-connect-to-a-tenant-virtual-network-or-vlan"></a>Créer une machine virtuelle et établir la connexion à un réseau virtuel locataire ou un réseau local virtuel
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, vous allez créer une machine virtuelle cliente et la connecter à un réseau virtuel que vous avez créé avec la virtualisation de réseau Hyper-V ou à un réseau local virtuel (VLAN). Vous pouvez utiliser les applets de commande du contrôleur de réseau Windows PowerShell pour vous connecter à un réseau virtuel ou à NetworkControllerRESTWrappers pour vous connecter à un réseau local virtuel.
 
@@ -31,7 +31,7 @@ Utilisez les processus décrits dans cette rubrique pour déployer des appliance
 Les sections de cette rubrique incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs pour de nombreux paramètres. Veillez à remplacer les valeurs d’exemple dans ces commandes par des valeurs appropriées pour votre déploiement avant d’exécuter ces commandes. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 1. Cartes réseau d’ordinateurs virtuels créées avec des adresses MAC statiques pendant la durée de vie de la machine virtuelle.<p>Si l’adresse MAC change au cours de la durée de vie de la machine virtuelle, le contrôleur de réseau ne peut pas configurer la stratégie nécessaire pour la carte réseau. Si vous ne configurez pas la stratégie pour le réseau, cela empêche la carte réseau de traiter le trafic réseau, et toutes les communications avec le réseau échouent.  
 

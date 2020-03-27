@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d98d6f7a-a2e6-45b1-9c63-08e2986a5c03
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7044a0d219decceb7669e92e884c78bcd9e3a61c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 7d21d80f4970a501e31a053483c37268bdddb811
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388389"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314613"
 ---
 # <a name="step-10-install-and-configure-2-edge1"></a>ÉTAPE 10 : installer et configurer 2-EDGE1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 2-la configuration de EDGE1 est constituée des éléments suivants :  
   
@@ -41,17 +41,17 @@ ms.locfileid: "71388389"
   
 2-EDGE1 doit avoir deux cartes réseau installées.  
   
-## <a name="installOS"></a>Installer le système d’exploitation sur 2-EDGE1  
+## <a name="install-the-operating-system-on-2-edge1"></a><a name="installOS"></a>Installer le système d’exploitation sur 2-EDGE1  
   
 1.  Démarrez l’installation de Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.  
   
-2.  Suivez les instructions pour terminer l’installation, en spécifiant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète) et un mot de passe fort pour le compte administrateur local. Ouvrez une session à l’aide du compte Administrateur local.  
+2.  Suivez les instructions pour terminer l’installation, en spécifiant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète) et un mot de passe fort pour le compte administrateur local. Ouvrez une session en utilisant le compte d'administrateur local.  
   
 3.  Connectez 2-EDGE1 à un réseau disposant d’un accès Internet et exécutez Windows Update pour installer les dernières mises à jour pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, puis vous déconnecter d’Internet.  
   
 4.  Connectez une carte réseau au sous-réseau 2-corpnet et l’autre à l’Internet simulé.  
   
-## <a name="tcpip"></a>Configurer les propriétés TCP/IP  
+## <a name="configure-tcpip-properties"></a><a name="tcpip"></a>Configurer les propriétés TCP/IP  
   
 1.  Dans la console Gestionnaire de serveur, cliquez sur **serveur local**, puis dans la zone **Propriétés** , en regard de **connexion Ethernet câblée**, cliquez sur le lien.  
   
@@ -59,7 +59,7 @@ ms.locfileid: "71388389"
   
 3.  Cliquez avec le bouton droit sur **2-corpnet**, puis cliquez sur **Propriétés**.  
   
-4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 5.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.2.0.20**, dans **masque de sous-réseau**, tapez **255.255.255.0**.  
   
@@ -83,9 +83,9 @@ ms.locfileid: "71388389"
   
 15. Cliquez avec le bouton droit sur **Internet**, puis cliquez sur **Propriétés**.  
   
-16. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+16. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
-17. Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **131.107.0.20**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**.  
+17. Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **131.107.0.20**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**.  
   
 18. Cliquez sur **Avancé**. Dans l’onglet **Paramètres IP**, dans la zone **Adresses IP**, cliquez sur **Ajouter**. Dans la boîte de dialogue **adresse TCP/IP** , dans **adresse IP** , tapez **131.107.0.21**, dans **masque de sous-réseau** , tapez **255.255.255.0**, puis cliquez sur **Ajouter**.  
   
@@ -95,7 +95,7 @@ ms.locfileid: "71388389"
   
 21. Fermez la fenêtre **Connexions réseau**.  
   
-## <a name="routing"></a>Configurer le routage entre les sous-réseaux  
+## <a name="configure-routing-between-subnets"></a><a name="routing"></a>Configurer le routage entre les sous-réseaux  
   
 1.  Dans l’écran d' **Accueil** , tapez**cmd. exe**, puis appuyez sur entrée.  
   
@@ -110,9 +110,9 @@ ms.locfileid: "71388389"
   
 4.  Vérifiez qu’il y a quatre réponses provenant de l’adresse IPv4, 10.0.0.1 ou de l’adresse IPv6, 2001 : DB8:1 :: 1.  
   
-5.  Fermez la fenêtre d’invite de commandes.  
+5.  Fermez la fenêtre d'invite de commandes.  
   
-## <a name="Join"></a>Joindre 2-EDGE1 au domaine CORP2  
+## <a name="join-2-edge1-to-the-corp2-domain"></a><a name="Join"></a>Joindre 2-EDGE1 au domaine CORP2  
   
 1.  Dans la console Gestionnaire de serveur, dans **serveur local**, dans la zone **Propriétés** , en regard de nom de l' **ordinateur**, cliquez sur le lien.  
   
@@ -132,7 +132,7 @@ ms.locfileid: "71388389"
   
 9. Une fois l’ordinateur redémarré, cliquez sur **changer d’utilisateur**, puis sur **autre utilisateur** et connectez-vous au domaine CORP2 avec le compte administrateur.  
   
-## <a name="certs"></a>Obtenir des certificats sur 2 EDGE1  
+## <a name="obtain-certificates-on-2-edge1"></a><a name="certs"></a>Obtenir des certificats sur 2 EDGE1  
   
 1.  Dans l’écran **Démarrer** , tapez**MMC. exe**, puis appuyez sur entrée.  
   
@@ -144,7 +144,7 @@ ms.locfileid: "71388389"
   
 5.  Cliquez avec le bouton droit sur **personnel**, pointez sur **toutes les tâches**, puis cliquez sur **demander un nouveau certificat**.  
   
-6.  Cliquez sur **Suivant** deux fois.  
+6.  Cliquez deux fois sur **Suivant**.  
   
 7.  Dans la **page demander des certificats** , activez les cases à cocher **authentification client-serveur** et **serveur Web** , puis cliquez sur l' **inscription pour obtenir ce certificat nécessite des informations supplémentaires**.  
   
@@ -164,7 +164,7 @@ ms.locfileid: "71388389"
   
 15. Fermez la fenêtre de console. Si vous êtes invité à enregistrer les paramètres, cliquez sur **non**.  
   
-## <a name="Access"></a>Fournir l’accès à Corp\user1.  
+## <a name="provide-access-to-corpuser1"></a><a name="Access"></a>Fournir l’accès à Corp\user1.  
   
 1.  Dans l’écran d' **Accueil** , tapez**compmgmt. msc**, puis appuyez sur entrée.  
   
@@ -180,9 +180,9 @@ ms.locfileid: "71388389"
   
 7.  Dans la boîte de dialogue **Propriétés des administrateurs** , cliquez sur **OK**.  
   
-8.  Fermez la fenêtre Gestion de l’ordinateur.  
+8.  Fermez la fenêtre Gestion de l'ordinateur.  
   
-## <a name="InstallDA"></a>Installer le rôle accès à distance sur 2-EDGE1  
+## <a name="install-the-remote-access-role-on-2-edge1"></a><a name="InstallDA"></a>Installer le rôle accès à distance sur 2-EDGE1  
   
 1.  Dans la console Gestionnaire de serveur, dans le **tableau de bord**, cliquez sur **Ajouter des rôles et des fonctionnalités**.  
   
@@ -192,9 +192,9 @@ ms.locfileid: "71388389"
   
 4.  Cliquez sur **Suivant** cinq fois.  
   
-5.  Dans la boîte de dialogue **Confirmer les sélections d’installation** , cliquez sur **Installer**.  
+5.  Dans la page **Confirmer les sélections d'installation**, cliquez sur **Installer**.  
   
-6.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
+6.  Dans la boîte de dialogue **Progression de l'installation**, vérifiez que l'installation a réussi, puis cliquez sur **Fermer**.  
   
 
 

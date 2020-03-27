@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 88ffd598-2fde-402c-bd12-be790f84dc96
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 764fd6d272a498898bbdb1f1da68e0d41c39cf84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 943ec8d386d5fe9910b4415a2ab2525d23efc32e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404620"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308256"
 ---
 # <a name="plan-a-remote-access-cluster-deployment"></a>Planifier un déploiement de cluster d’accès à distance
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
  Windows Server 2016 et Windows Server 2012 associent DirectAccess et le VPN RAS (Remote Access Service) à un rôle d’accès à distance unique. Cette vue d’ensemble fournit une introduction aux étapes de planification requises pour déployer un cluster de serveurs d’accès à distance Windows Server 2016 ou Windows Server 2012.
   
@@ -31,7 +31,7 @@ ms.locfileid: "71404620"
   
 -   [Étape 3 : planifier un déploiement de cluster à charge équilibrée](Step-3-Plan-a-Load-Balanced-Cluster-Deployment.md).  
   
--   Étape 4 : Consignez vos décisions de planification pour le déploiement avancé de l’accès à distance. Cet enregistrement peut servir d'aide pour toute personne impliquée dans les procédures de déploiement.  
+-   Étape 4 : enregistrer vos décisions de planification pour le déploiement avancé de l’accès à distance. Cet enregistrement peut servir d'aide pour toute personne impliquée dans les procédures de déploiement.  
   
 Une fois ces étapes de planification terminées, consultez [configurer un cluster d’accès à distance](../configure/Configure-a-Remote-Access-Cluster.md). 
 

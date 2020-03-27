@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f000066e-7cf8-4085-82a3-4f4fe1cb3c5c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fb7dca9a0f7875936cbb30cbc9c5e9e0a7473237
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 19a87762e19dd763376f50c7c5b04da3f2187874
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404636"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308352"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>Étape 3 : configurer un cluster à charge équilibrée
 
@@ -41,11 +41,11 @@ Après avoir préparé les serveurs du cluster, configurez l’équilibrage de c
 > [!NOTE]  
 > Veillez à ne pas utiliser un DIP qui est déjà présent sur un autre ordinateur sur le réseau.  
   
-## <a name="BKMK_Prefix"></a>3,1 configurer le préfixe IPv6  
+## <a name="31-configure-the-ipv6-prefix"></a><a name="BKMK_Prefix"></a>3,1 configurer le préfixe IPv6  
   
-### <a name="configDA"></a>Pour configurer le préfixe  
+### <a name="to-configure-the-prefix"></a><a name="configDA"></a>Pour configurer le préfixe  
   
-1.  Sur le serveur d’accès à distance, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la Console de gestion de l'accès à distance, cliquez sur **Configuration**.  
   
@@ -57,11 +57,11 @@ Après avoir préparé les serveurs du cluster, configurez l’équilibrage de c
   
 6.  Dans la boîte de dialogue vérification de l' **accès à distance** , vérifiez les paramètres de configuration, puis cliquez sur **appliquer**. Dans la boîte de dialogue **Application des paramètres de l’Assistant Configuration de l’accès à distance**, cliquez sur **Fermer**.  
   
-## <a name="BKMK_NLB"></a>3,2 activer l’équilibrage de charge  
+## <a name="32-enable-load-balancing"></a><a name="BKMK_NLB"></a>3,2 activer l’équilibrage de charge  
   
 #### <a name="to-enable-load-balancing"></a>Pour activer l’équilibrage de charge  
   
-1.  Sur le serveur DirectAccess configuré, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur DirectAccess configuré, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la console Gestion de l’accès à distance, dans le volet gauche, cliquez sur **configuration**, puis dans le volet **tâches** , cliquez sur **activer l’équilibrage de charge**.  
   
@@ -102,7 +102,7 @@ Après avoir préparé les serveurs du cluster, configurez l’équilibrage de c
   
 ![les commandes Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Si vous avez choisi d’utiliser l’équilibrage de charge réseau Windows dans les étapes de planification, exécutez la commande suivante :  
   
@@ -119,12 +119,12 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
 > [!NOTE]  
 > Il est recommandé de ne pas inclure les modifications apportées aux paramètres de l’équilibreur de charge avec les modifications apportées à d’autres paramètres, si vous utilisez des objets de stratégie de groupe intermédiaires. Toutes les modifications apportées aux paramètres de l’équilibreur de charge doivent être appliquées en premier, puis d’autres modifications de configuration doivent être apportées. De même, après la configuration de l’équilibreur de charge sur un nouveau serveur DirectAccess, patientez quelques instants pour que les modifications d’adresse IP soient appliquées et répliquées sur les serveurs DNS de l’entreprise, avant de modifier d’autres paramètres DirectAccess liés au nouveau cluster.  
   
-## <a name="BKMK_InstallIPHTTP"></a>3,3 installer le certificat IP-HTTPs  
-L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.  
+## <a name="33-install-the-ip-https-certificate"></a><a name="BKMK_InstallIPHTTP"></a>3,3 installer le certificat IP-HTTPs  
+L'appartenance au groupe **Administrateurs** local, ou à un groupe équivalent, est la condition requise minimale pour effectuer cette procédure.  
   
-### <a name="IPHTTPSCert"></a>Pour installer le certificat IP-HTTPs  
+### <a name="to-install-the-ip-https-certificate"></a><a name="IPHTTPSCert"></a>Pour installer le certificat IP-HTTPs  
   
-1.  Sur le serveur d’accès à distance configuré, cliquez sur **Démarrer**, tapez **MMC** , puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance configuré, cliquez sur **Démarrer**, tapez **MMC** , puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
@@ -132,7 +132,7 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 4.  Dans le volet gauche de la console, accédez à **certificats (ordinateur local) \Personal\Certificates**. Cliquez avec le bouton droit sur le certificat IP-HTTPs, pointez sur **toutes les tâches** , puis cliquez sur **Exporter**.  
   
-5.  Dans la page **Bienvenue !** , cliquez sur **Suivant**.  
+5.  Dans la page **Bienvenue dans l'Assistant Exportation du certificat**, cliquez sur **Suivant**.  
   
 6.  Dans la page **Exportation de la clé privée**, cliquez sur **Oui, exporter la clé privée**, puis sur **Suivant**.  
   
@@ -148,7 +148,7 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 12. Copiez le certificat sur tous les serveurs qui doivent être membres du cluster.  
   
-13. Sur le nouveau serveur DirectAccess, cliquez sur **Démarrer**, tapez **MMC** , puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+13. Sur le nouveau serveur DirectAccess, cliquez sur **Démarrer**, tapez **MMC** , puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 14. Dans la console MMC, dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
@@ -170,12 +170,12 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 23. Répétez les étapes 13-22 sur tous les serveurs qui doivent être membres du cluster.  
   
-## <a name="BKMK_NLS"></a>3,4 Installation du certificat du serveur emplacement réseau  
-L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.  
+## <a name="34-install-the-network-location-server-certificate"></a><a name="BKMK_NLS"></a>3,4 Installation du certificat du serveur emplacement réseau  
+L'appartenance au groupe **Administrateurs** local, ou à un groupe équivalent, est la condition requise minimale pour effectuer cette procédure.  
   
 #### <a name="to-install-a-certificate-for-network-location"></a>Pour installer un certificat pour l’emplacement réseau  
   
-1.  Sur le serveur d’accès à distance, cliquez sur **Démarrer**, tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance, cliquez sur **Démarrer**, tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Cliquez sur **Fichier**, puis sur **Ajouter ou supprimer des composants logiciels enfichables**.  
   
@@ -185,7 +185,7 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 5.  Cliquez avec le bouton droit sur **Certificats**, pointez sur **Toutes les Tâches**, puis cliquez sur **Demander un nouveau certificat**.  
   
-6.  Cliquez sur **Suivant** deux fois.  
+6.  Cliquez deux fois sur **Suivant**.  
   
 7.  Sur la page **demander des certificats** , cliquez sur le modèle de certificat de serveur Web, puis cliquez sur l' **inscription pour obtenir ce certificat nécessite des informations supplémentaires**.  
   
@@ -208,12 +208,12 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 14. Répétez cette procédure sur tous les serveurs qui doivent être membres du cluster.  
   
-## <a name="BKMK_Add"></a>3,5 ajouter des serveurs au cluster  
+## <a name="35-add-servers-to-the-cluster"></a><a name="BKMK_Add"></a>3,5 ajouter des serveurs au cluster  
  
   
 #### <a name="to-add-servers-to-the-cluster"></a>Pour ajouter des serveurs au cluster  
   
-1.  Sur le serveur DirectAccess configuré, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur DirectAccess configuré, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la Console de gestion de l'accès à distance, cliquez sur **Configuration**. Dans le volet **tâches** , sous **cluster à charge équilibrée**, cliquez sur **Ajouter ou supprimer des serveurs**.  
   
@@ -249,7 +249,7 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 ![les commandes Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>  
@@ -258,12 +258,12 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
 > [!NOTE]  
 > Si le VPN n’a pas été activé dans un cluster à charge équilibrée, vous ne devez pas fournir de plages d’adresses VPN lors de l’ajout d’un nouveau serveur au cluster à l’aide des applets de commande Windows PowerShell. Si vous avez effectué cette opération par erreur, supprimez le serveur du cluster, puis ajoutez-le de nouveau au cluster sans spécifier les plages d’adresses VPN.  
   
-## <a name="BKMK_remove"></a>3,6 suppression d’un serveur du cluster  
+## <a name="36-remove-a-server-from-the-cluster"></a><a name="BKMK_remove"></a>3,6 suppression d’un serveur du cluster  
  
   
 #### <a name="to-remove-a-server-from-the-cluster"></a>Pour supprimer un serveur du cluster  
   
-1.  Sur le serveur d’accès à distance configuré, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance configuré, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la Console de gestion de l'accès à distance, cliquez sur **Configuration**. Dans le volet **tâches** , sous **cluster à charge équilibrée**, cliquez sur **Ajouter ou supprimer des serveurs**.  
   
@@ -279,18 +279,18 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 ![les commandes Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>  
 ```  
   
-## <a name="BKBK_disable"></a>3,7 désactiver l’équilibrage de charge  
+## <a name="37-disable-load-balancing"></a><a name="BKBK_disable"></a>3,7 désactiver l’équilibrage de charge  
 [Effectuez cette étape à l’aide de Windows PowerShell](assetId:///7a817ca0-2b4a-4476-9d28-9a63ff2453f9)  
   
 #### <a name="to-disable-load-balancing"></a>Pour désactiver l’équilibrage de charge  
   
-1.  Sur le serveur DirectAccess configuré, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur DirectAccess configuré, cliquez sur **Démarrer**, puis sur **gestion de l’accès à distance**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la Console de gestion de l'accès à distance, cliquez sur **Configuration**. Dans le volet **tâches** , sous **cluster à charge équilibrée**, cliquez sur **désactiver l’équilibrage de charge**.  
   
@@ -300,7 +300,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 ![les commandes Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 set-RemoteAccessLoadBalancer -disable  
@@ -315,7 +315,7 @@ Cliquer sur **Supprimer les paramètres de configuration** supprime l’accès �
 > -   Après avoir utilisé l’applet de commande **Set-RemoteAccessLoadBalancer** pour désactiver l’équilibrage de charge, patientez 2 minutes avant d’exécuter une autre applet de commande. Cela doit également se faire dans tous les scripts qui exécutent une autre applet de commande après l’applet de commande **Set-RemoteAccessLoadBalancer-Disable** .  
 > -   La désactivation de l’équilibrage de charge modifie l’adresse IP virtuelle du cluster en une adresse IP dédiée. En conséquence, toute opération qui demande le nom du serveur échouera jusqu’à ce que l’entrée DNS mise en cache sur le serveur expire. Assurez-vous que vous n’exécutez pas d’applets de commande PowerShell d’accès à distance après avoir désactivé l’équilibrage de charge jusqu’à ce que le cache sur le serveur ait expiré. Ce problème est plus courant si vous essayez de désactiver l’équilibrage de charge sur un ordinateur à partir d’un autre ordinateur qui se trouve dans un autre domaine. Cela se produit également si vous désactivez l’équilibrage de charge à partir de la console de gestion de l’accès à distance et risquez d’empêcher le chargement de la configuration. La configuration se chargera une fois que le cache a expiré ou a été vidé.  
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi  
   
 -   [Étape 4 : vérification du cluster](Step-4-Verify-the-Cluster.md)  
   

@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0e7d1f5b-c939-47ca-892f-5bb285027fbc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 110696d9f1ff082cfae315632c78fddc14359d52
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 549150b10dede7dca9786fe38da40e9b7dea706f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367323"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308152"
 ---
 # <a name="step-1-configure-the-remote-access-infrastructure"></a>Étape 1 configurer l’infrastructure d’accès à distance
 
@@ -40,9 +40,9 @@ Cette rubrique décrit comment configurer l’infrastructure requise pour un dé
 |Configurer le serveur Emplacement réseau|Configurez le serveur Emplacement réseau, y compris l'installation du certificat de site web du serveur Emplacement réseau.|  
   
 > [!NOTE]  
-> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Cette rubrique comprend des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_ConfigNetworkSettings"></a>Configurer les paramètres réseau du serveur  
+## <a name="configure-server-network-settings"></a><a name="BKMK_ConfigNetworkSettings"></a>Configurer les paramètres réseau du serveur  
 Selon que vous décidez de placer le serveur d’accès à distance à la périphérie ou derrière un périphérique de traduction d’adresses réseau (NAT), les paramètres d’adresse d’interface réseau suivants sont requis pour un déploiement de serveur unique dans un environnement avec IPv4 et IPv6. Toutes les adresses IP sont configurées à l'aide de l'option **Modifier les paramètres de la carte** du **Centre Réseau et partage Windows**.  
   
 **Topologie de périphérie**:  
@@ -78,14 +78,14 @@ Si le serveur d’accès à distance a deux cartes réseau (une pour le profil d
   
     Les noms des stratégies IPsec à utiliser dans cette commande sont **DirectAccess-DaServerToInfra** et **DirectAccess-DaServerToCorp**.  
   
-## <a name="BKMK_ConfigRouting"></a>Configurer le routage dans le réseau d’entreprise  
+## <a name="configure-routing-in-the-corporate-network"></a><a name="BKMK_ConfigRouting"></a>Configurer le routage dans le réseau d’entreprise  
 Procédez comme suit pour configurer le routage dans le réseau d'entreprise :  
   
 -   Lorsqu'IPv6 natif est déployé dans l'organisation, ajoutez un itinéraire afin que les routeurs du réseau interne redirigent le trafic IPv6 via le serveur d'accès à distance.  
   
 -   Configurez manuellement les itinéraires IPv4 et IPv6 de l'organisation sur les serveurs d'accès à distance. Ajoutez un itinéraire publié afin que tout le trafic avec un préfixe IPv6 (/48) soit transféré au réseau interne. De plus, pour le trafic IPv4, ajoutez des itinéraires explicites afin que le trafic IPv4 soit transféré au réseau interne.  
   
-## <a name="BKMK_ConfigFirewalls"></a>Configurer des pare-feu  
+## <a name="configure-firewalls"></a><a name="BKMK_ConfigFirewalls"></a>Configurer des pare-feu  
 Selon les paramètres réseau que vous avez choisis, lorsque vous utilisez des pare-feu supplémentaires dans votre déploiement, appliquez les exceptions de pare-feu suivantes pour le trafic d’accès à distance :  
   
 ### <a name="remote-access-server-on-ipv4-internet"></a>Serveur d’accès à distance sur Internet IPv4  
@@ -124,12 +124,12 @@ Appliquez les exceptions de pare-feu de réseau interne suivantes pour le trafic
   
 -   ICMP pour tout le trafic IPv4 ou IPv6  
   
-## <a name="BKMK_ConfigCAs"></a>Configurer les autorités de certification et les certificats  
+## <a name="configure-cas-and-certificates"></a><a name="BKMK_ConfigCAs"></a>Configurer les autorités de certification et les certificats  
 Avec l’accès à distance dans Windows Server 2012, vous avez le choix entre utiliser des certificats pour l’authentification de l’ordinateur ou utiliser une authentification Kerberos intégrée qui utilise des noms d’utilisateur et des mots de passe. Vous devez également configurer un certificat IP-HTTPs sur le serveur d’accès à distance. Cette section explique comment configurer ces certificats.  
   
 Pour plus d’informations sur la configuration d’une infrastructure à clé publique (PKI), consultez [Active Directory les services de certificats](https://technet.microsoft.com/library/cc770357.aspx).  
   
-### <a name="BKMK_ConfigIPsec"></a>Configurer l’authentification IPsec  
+### <a name="configure-ipsec-authentication"></a><a name="BKMK_ConfigIPsec"></a>Configurer l’authentification IPsec  
 Un certificat est requis sur le serveur d’accès à distance et tous les clients DirectAccess afin qu’ils puissent utiliser l’authentification IPsec. Le certificat doit être émis par une autorité de certification interne. Les serveurs d’accès à distance et les clients DirectAccess doivent approuver l’autorité de certification qui émet les certificats racines et intermédiaires.  
   
 ##### <a name="to-configure-ipsec-authentication"></a>Pour configurer l'authentification IPsec  
@@ -145,7 +145,7 @@ Un certificat est requis sur le serveur d’accès à distance et tous les clien
   
 4.  Configurez l’inscription automatique des certificats si nécessaire. Pour plus d’informations, voir [Configurer l’inscription automatique de certificat](https://technet.microsoft.com/library/cc731522.aspx).  
   
-### <a name="BKMK_ConfigCertTemp"></a>Configurer des modèles de certificats  
+### <a name="configure-certificate-templates"></a><a name="BKMK_ConfigCertTemp"></a>Configurer des modèles de certificats  
 Lorsque vous utilisez une autorité de certification interne pour émettre des certificats, vous devez configurer des modèles de certificats pour le certificat IP-HTTPs et le certificat de site Web du serveur d’emplacement réseau.  
   
 ##### <a name="to-configure-a-certificate-template"></a>Pour configurer un modèle de certificat  
@@ -160,7 +160,7 @@ Après avoir préparé vos modèles, vous pouvez les utiliser pour configurer le
   
 -   [Configurer le serveur emplacement réseau](#BKMK_ConfigNLS)  
   
-### <a name="BKMK_IPHTTPS"></a>Configurer le certificat IP-HTTPs  
+### <a name="configure-the-ip-https-certificate"></a><a name="BKMK_IPHTTPS"></a>Configurer le certificat IP-HTTPs  
 L'accès à distance requiert un certificat IP-HTTPS pour authentifier les connexions IP-HTTPS auprès du serveur d'accès à distance. Il existe trois options de certificat pour le certificat IP-HTTPS :  
   
 -   **Publique**  
@@ -226,10 +226,10 @@ Assurez-vous que le certificat de site web pour l'authentification IP-HTTPS est 
   
 14. Dans le volet d’informations du composant logiciel enfichable Certificats, vérifiez que le nouveau certificat a été inscrit avec l’objectif prévu de l’authentification du serveur.  
   
-## <a name="BKMK_ConfigDNS"></a>Configurer le serveur DNS  
+## <a name="configure-the-dns-server"></a><a name="BKMK_ConfigDNS"></a>Configurer le serveur DNS  
 Vous devez configurer manuellement une entrée DNS pour le site web du serveur Emplacement réseau du réseau interne de votre déploiement.  
   
-### <a name="NLS_DNS"></a>Pour ajouter le serveur emplacement réseau et la sonde Web  
+### <a name="to-add-the-network-location-server-and-web-probe"></a><a name="NLS_DNS"></a>Pour ajouter le serveur emplacement réseau et la sonde Web  
   
 1.  Sur le serveur DNS du réseau interne : dans l’écran d' **Accueil** , tapez**dnsmgmt. msc**, puis appuyez sur entrée.  
   
@@ -245,7 +245,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 ![les commandes Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Add-DnsServerResourceRecordA -Name <network_location_server_name> -ZoneName <DNS_zone_name> -IPv4Address <network_location_server_IPv4_address>  
@@ -266,7 +266,7 @@ Vous devez également configurer les entrées DNS pour les éléments suivants�
   
     Le protocole ISATAP (Intrasite Automatic Tunnel Addressing Protocol) utilise des tunnels pour permettre aux clients DirectAccess de se connecter au serveur d’accès à distance via Internet IPv4, en encapsulant les paquets IPv6 dans un en-tête IPv4. Il est utilisé par l'accès à distance pour fournir la connectivité IPv6 aux hôtes ISATAP sur un intranet. Dans un environnement réseau IPv6 non natif, le serveur d’accès à distance se configure automatiquement en tant que routeur ISATAP. La prise en charge de la résolution pour le nom ISATAP est requise.  
   
-## <a name="BKMK_ConfigAD"></a>Configurer Active Directory  
+## <a name="configure-active-directory"></a><a name="BKMK_ConfigAD"></a>Configurer Active Directory  
 Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doivent être joints à un domaine Active Directory. Les ordinateurs clients DirectAccess doivent être membres de l'un des types de domaines suivants :  
   
 -   les domaines qui appartiennent à la même forêt que le serveur d'accès à distance ;  
@@ -301,7 +301,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 3.  Dans la page **Système**, cliquez sur **Paramètres système avancés**.  
   
-4.  Dans la boîte de dialogue **Propriétés système** , sous l’onglet **Nom de l’ordinateur** , cliquez sur **Modifier**.  
+4.  Dans la boîte de dialogue **Propriétés système**, sous l’onglet **Nom de l’ordinateur**, cliquez sur **Modifier**.  
   
 5.  Dans la zone nom de l' **ordinateur** , tapez le nom de l’ordinateur si vous modifiez également le nom de l’ordinateur lors de la jonction du serveur au domaine. Sous **Membre de**, cliquez sur **Domaine**, et tapez le nom du domaine auquel vous voulez joindre le serveur (par exemple, corp.contoso.com), puis cliquez sur **OK**.  
   
@@ -317,7 +317,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 ![les commandes Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 > [!NOTE]  
 > Vous devez fournir les informations d’identification de domaine après avoir entré la commande suivante.  
@@ -327,12 +327,12 @@ Add-Computer -DomainName <domain_name>
 Restart-Computer  
 ```  
   
-## <a name="BKMK_ConfigGPOs"></a>Configurer des objets de stratégie de groupe  
+## <a name="configure-gpos"></a><a name="BKMK_ConfigGPOs"></a>Configurer des objets de stratégie de groupe  
 Pour déployer l’accès à distance, vous avez besoin d’un minimum de deux objets stratégie de groupe. Un objet stratégie de groupe contient des paramètres pour le serveur d’accès à distance et un autre contient des paramètres pour les ordinateurs clients DirectAccess. Quand vous configurez l’accès à distance, l’Assistant crée automatiquement les objets de stratégie de groupe requis. Toutefois, si votre organisation impose une convention d’affectation de noms, ou si vous ne disposez pas des autorisations nécessaires pour créer ou modifier des objets stratégie de groupe, vous devez les créer avant de configurer l’accès à distance.  
   
 Pour créer des objets stratégie de groupe, consultez [créer et modifier un objet stratégie de groupe](https://technet.microsoft.com/library/cc754740.aspx).  
   
-Un administrateur peut lier manuellement les objets de stratégie de groupe DirectAccess à une unité d’organisation (UO). Considérez les points suivants :  
+Un administrateur peut lier manuellement les objets de stratégie de groupe DirectAccess à une unité d’organisation (UO). Considérons ce qui suit :  
   
 1.  Liez les objets de stratégie de groupe créés aux unités d’organisation respectives avant de configurer DirectAccess.  
   
@@ -351,10 +351,10 @@ Un administrateur peut lier manuellement les objets de stratégie de groupe Dire
 > [!NOTE]  
 > Si un objet stratégie de groupe a été créé manuellement, il est possible que l’objet stratégie de groupe ne soit pas disponible pendant la configuration de DirectAccess. L’objet stratégie de groupe n’a peut-être pas été répliqué sur le contrôleur de domaine le plus proche de l’ordinateur de gestion. L’administrateur peut attendre la fin de la réplication ou forcer la réplication.  
   
-## <a name="BKMK_ConfigSGs"></a>Configurer des groupes de sécurité  
+## <a name="configure-security-groups"></a><a name="BKMK_ConfigSGs"></a>Configurer des groupes de sécurité  
 Les paramètres DirectAccess contenus dans l’objet stratégie de groupe de l’ordinateur client sont appliqués uniquement aux ordinateurs qui sont membres des groupes de sécurité que vous spécifiez lors de la configuration de l’accès à distance.  
   
-### <a name="Sec_Group"></a>Pour créer un groupe de sécurité pour les clients DirectAccess  
+### <a name="to-create-a-security-group-for-directaccess-clients"></a><a name="Sec_Group"></a>Pour créer un groupe de sécurité pour les clients DirectAccess  
   
 1.  Dans l’écran d' **Accueil** , tapez**DSA. msc**, puis appuyez sur entrée.  
   
@@ -366,20 +366,20 @@ Les paramètres DirectAccess contenus dans l’objet stratégie de groupe de l�
   
 5.  Double-cliquez sur le groupe de sécurité ordinateurs clients DirectAccess, puis dans la boîte de dialogue **Propriétés** , cliquez sur l’onglet **membres** .  
   
-6.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
+6.  Sous l'onglet **Membres**, cliquez sur **Ajouter**.  
   
 7.  Dans la boîte de dialogue **Sélectionner Utilisateurs, contacts, ordinateurs ou comptes de service**, sélectionnez les ordinateurs clients que vous voulez activer pour DirectAccess, puis cliquez sur **OK**.  
   
 ![les commandes Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)**équivalentes** Windows PowerShell  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 New-ADGroup -GroupScope global -Name <DirectAccess_clients_group_name>  
 Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_name>  
 ```  
   
-## <a name="BKMK_ConfigNLS"></a>Configurer le serveur emplacement réseau  
+## <a name="configure-the-network-location-server"></a><a name="BKMK_ConfigNLS"></a>Configurer le serveur emplacement réseau  
 Le serveur emplacement réseau doit être sur un serveur avec une haute disponibilité, et il a besoin d’un certificat protocole SSL (SSL) valide qui est approuvé par les clients DirectAccess.  
   
 > [!NOTE]  
@@ -453,7 +453,7 @@ Que vous utilisiez un certificat privé ou un certificat auto-signé, les condit
   
 4.  Assurez-vous que les clients DirectAccess sur le réseau interne peuvent résoudre le nom du serveur d’emplacement réseau, et que les clients DirectAccess sur Internet ne peuvent pas résoudre le nom.  
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi  
   
 -   [Étape 2 : configurer le serveur d’accès à distance](Step-2-Configure-the-Remote-Access-Server.md)
 

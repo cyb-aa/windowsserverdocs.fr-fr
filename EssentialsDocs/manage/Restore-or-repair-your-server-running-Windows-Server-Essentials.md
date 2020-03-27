@@ -3,7 +3,7 @@ title: Restaurer ou réparer votre serveur Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,18 +12,18 @@ ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bb3cc834e0ab6641c14f5e9fbb6afe5c9f187c7c
-ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
+ms.openlocfilehash: 26610c591d7bf81e493cf540599d665b37b02dee
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68787177"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310615"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Restaurer ou réparer votre serveur Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Cette rubrique fournit une vue d’ensemble et des procédures de prise en charge pour la restauration ou la réparation d’un serveur exécutant Windows Server Essentials, et inclut les sections suivantes:  
+ Cette rubrique fournit une vue d’ensemble et des procédures de prise en charge pour la restauration ou la réparation d’un serveur exécutant Windows Server Essentials, et inclut les sections suivantes :  
   
 -   [Vue d’ensemble des restaurations du système de serveur](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Overview)  
   
@@ -31,7 +31,7 @@ ms.locfileid: "68787177"
   
 -   [Restaurer des fichiers et des dossiers sur le serveur](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)  
   
-##  <a name="BKMK_Overview"></a>Vue d’ensemble des restaurations du système de serveur  
+##  <a name="overview-of-server-system-restores"></a><a name="BKMK_Overview"></a>Vue d’ensemble des restaurations du système de serveur  
  L'état du serveur quand vous effectuez une restauration a un impact sur la méthode de restauration disponible et sur l'étendue de la restauration que vous pouvez effectuer.  
   
  Les raisons les plus courantes pour la restauration d'un serveur sont les suivantes :  
@@ -50,7 +50,7 @@ ms.locfileid: "68787177"
   
 - [Réinitialisation des paramètres par défaut du serveur](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
   
-###  <a name="BKMK_RestoreFromBackup"></a>Restauration du serveur à partir d’une sauvegarde  
+###  <a name="restoring-the-server-from-a-backup"></a><a name="BKMK_RestoreFromBackup"></a>Restauration du serveur à partir d’une sauvegarde  
  Cette section fournit des instructions sur le type de sauvegarde à choisir.  
   
  Si une sauvegarde est disponible, le meilleur choix pour la restauration de votre serveur consiste à utiliser le support d’installation du fabricant pour effectuer une restauration à partir d’une sauvegarde externe. La restauration récupérera les paramètres et les dossiers de serveur à partir de la sauvegarde que vous choisissez. Vous devez uniquement configurer les paramètres et restaurer les données créées après la sauvegarde.  
@@ -73,7 +73,7 @@ ms.locfileid: "68787177"
   
 - **Si le serveur dispose de plusieurs disques durs et que lecteur 0 (contenant le volume système) est remplacé**, le volume système est restauré et vous devez restaurer manuellement les dossiers partagés qui étaient auparavant stockés sur le disque 0.  
   
-###  <a name="BKMK_FactoryReset"></a>Réinitialisation des paramètres par défaut du serveur  
+###  <a name="resetting-the-server-to-factory-default-settings"></a><a name="BKMK_FactoryReset"></a>Réinitialisation des paramètres par défaut du serveur  
  Si vous n'avez pas de sauvegarde à partir de laquelle vous pouvez restaurer ou si, pour une raison quelconque, vous souhaitez ou devez effectuer une restauration complète du système sans restaurer la configuration de serveur précédente, vous pouvez effectuer une restauration qui rétablit les paramètres par défaut du serveur à l'aide du support d'installation ou de récupération fourni par le fabricant de matériel de serveur.  
   
  Quand vous restaurez votre serveur en rétablissant les paramètres par défaut, tous les paramètres existants et les applications installées sur votre serveur sont supprimés et vous devez reconfigurer votre serveur. Après la réinitialisation, le serveur redémarre.  
@@ -94,11 +94,11 @@ ms.locfileid: "68787177"
   
  Après une réinitialisation, vous devez effectuer les tâches suivantes :  
   
--   **Reconfigurer le serveur.** Sur le serveur, utilisez l'Assistant Configuration du serveur pour réentrer les paramètres de configuration. Pour configurer un serveur Windows Server Essentials géré à distance à partir d’un ordinateur client, ouvrez un navigateur Web, puis tapez **http://** _< yourservername\>_  dans la barre d’adresses.  
+-   **Reconfigurer le serveur.** Sur le serveur, utilisez l'Assistant Configuration du serveur pour réentrer les paramètres de configuration. Pour configurer un serveur Windows Server Essentials géré à distance à partir d’un ordinateur client, ouvrez un navigateur Web, puis tapez **http://** _< yourservername\>_ dans la barre d’adresses.  
   
--   **Reconnecter les ordinateurs clients au serveur.** Si un ordinateur était auparavant connecté au serveur, vous devez désinstaller le logiciel connecteur Windows Server Essentials de l’ordinateur avant de reconnecter l’ordinateur au serveur. Pour plus d'informations, consultez [Uninstall the Connector software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) et [Connect computers to the server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+-   **Reconnecter les ordinateurs clients au serveur.** Si un ordinateur était auparavant connecté au serveur, vous devez désinstaller le logiciel connecteur Windows Server Essentials de l’ordinateur avant de reconnecter l’ordinateur au serveur. Pour plus d'informations, consultez [Désinstaller le logiciel Connecteur](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) et [Connecter des ordinateurs au serveur](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
   
-##  <a name="BKMK_Restore"></a>Restaurer ou réparer le lecteur système  
+##  <a name="restore-or-repair-the-system-drive"></a><a name="BKMK_Restore"></a>Restaurer ou réparer le lecteur système  
  La première étape de restauration du serveur consiste à restaurer ou à réparer le lecteur système du serveur. Après avoir restauré le lecteur système, vous ferez tout ce qui est nécessaire pour restaurer les lecteurs de données sur le serveur et pour restaurer tous les partages qui ont été perdus durant la restauration.  
   
  Trois méthodes sont disponibles pour l'exécution de la restauration :  
@@ -109,11 +109,11 @@ ms.locfileid: "68787177"
   
 -   [Restaurer ou réinitialiser votre serveur à partir d'un ordinateur client à l'aide du DVD de récupération](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2). Si vous devez restaurer un serveur géré à distance qui exécute Windows Server Essentials, vous devez effectuer la restauration à partir d’un ordinateur client à l’aide du DVD de restauration du fabricant du serveur.  
   
-###  <a name="BKMK_Restore_1"></a>Restaurer ou réparer votre serveur à l’aide du support d’installation  
+###  <a name="restore-or-repair-your-server-using-installation-media"></a><a name="BKMK_Restore_1"></a>Restaurer ou réparer votre serveur à l’aide du support d’installation  
  La procédure suivante décrit comment restaurer le lecteur système de votre serveur à partir d’une sauvegarde à l’aide du support d’installation de Windows Server Essentials. (Pour savoir comment utiliser le support d'installation pour rétablir les paramètres d'origine, consultez la documentation du fabricant du serveur).  
   
 > [!NOTE]
->  Si le serveur utilise des espaces de stockage et que vous restaurez les données sur un nouveau serveur, vous devez d’abord récupérer le lecteur système, puis vous connecter au tableau de bord Windows Server Essentials, configurer les espaces de stockage de la même façon que sur l’ancien serveur, puis récupérer les fichiers DAT. volumes.  
+>  Si le serveur utilise des espaces de stockage et que vous restaurez les données sur un nouveau serveur, vous devez d’abord récupérer le lecteur système, puis vous connecter au tableau de bord Windows Server Essentials, configurer les espaces de stockage de la même façon que sur l’ancien serveur, puis récupérer le volumes de données.  
   
 ##### <a name="to-restore-the-server-system-drive-from-a-backup-using-installation-media"></a>Pour restaurer le lecteur système du serveur à partir d'une sauvegarde à l'aide du support d'installation  
   
@@ -135,13 +135,13 @@ ms.locfileid: "68787177"
   
 4.  Dans la page **Choisir une option**, cliquez sur **Dépannage**.  
   
-5.  Sur la page récupération de l' **image système** , sélectionnez le système actuel? **Windows Server Essentials** ou **Windows Server Essentials**.  
+5.  Sur la page récupération de l' **image système** , sélectionnez le système actuel ? **Windows Server Essentials** ou **Windows Server Essentials**.  
   
      L'Assistant Réimager l'ordinateur s'ouvre.  
   
 6.  Dans la page **Sélectionner une sauvegarde d'image système**, vous pouvez choisir d'utiliser la dernière sauvegarde ou sélectionner une sauvegarde antérieure. Le système sera restauré à l'état où il se trouvait au moment de la sauvegarde que vous choisissez pour la restauration ou la réparation de votre serveur. Les données qui ont été ajoutées ou les modifications qui ont été apportées aux paramètres après l'enregistrement de la sauvegarde doivent être recréées.  
   
-     Sélectionnez l'une des options suivantes, puis cliquez sur **Suivant**:  
+     Sélectionnez l'une des options suivantes, puis cliquez sur **Suivant** :  
   
     -   **Utiliser la dernière image système (recommandé)**  
   
@@ -161,7 +161,7 @@ ms.locfileid: "68787177"
 > [!NOTE]
 >  Pour restaurer et partager des dossiers sur le serveur, vous devrez peut-être effectuer des étapes supplémentaires. Pour plus d'informations, consultez [Restaurer des fichiers et des dossiers sur le serveur](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders).  
   
-###  <a name="BKMK_Restore_2"></a>Restaurer ou réinitialiser votre serveur à partir d’un ordinateur client à l’aide du DVD de récupération  
+###  <a name="restore-or-reset-your-server-from-a-client-computer-using-the-recovery-dvd"></a><a name="BKMK_Restore_2"></a>Restaurer ou réinitialiser votre serveur à partir d’un ordinateur client à l’aide du DVD de récupération  
  Dans Windows Server Essentials, vous pouvez démarrer le serveur à partir d’un lecteur flash USB de démarrage que vous créez, puis récupérer le serveur à partir d’un ordinateur client à l’aide du DVD de récupération que vous avez reçu du fabricant du serveur. L'ordinateur client doit se trouver sur le même réseau que le serveur. Cette méthode n’est pas disponible dans Windows Server Essentials.  
   
  La procédure suivante fournit les étapes générales pour effectuer une restauration du serveur. Ces étapes s'appliquent également à la restauration à partir d'une sauvegarde ou au rétablissement des paramètres d'origine. Pour obtenir des instructions plus spécifiques, consultez la documentation du fabricant de votre serveur.  
@@ -186,7 +186,7 @@ ms.locfileid: "68787177"
 > [!NOTE]
 >  Si vous avez créé des dossiers partagés supplémentaires sur le serveur, ces dossiers risquent de ne pas être reconnus par le serveur après la restauration des données à partir de la sauvegarde. Vous devez repartager ces dossiers. Pour plus d'informations, consultez [Restaurer des fichiers et des dossiers sur le serveur](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders).  
   
-##  <a name="BKMK_RestoreFilesAndFolders"></a>Restaurer des fichiers et des dossiers sur le serveur  
+##  <a name="restore-files-and-folders-on-the-server"></a><a name="BKMK_RestoreFilesAndFolders"></a>Restaurer des fichiers et des dossiers sur le serveur  
  En fonction de la méthode que vous avez employée pour restaurer ou réparer votre serveur et du type de stockage utilisé par le serveur, vous devrez peut-être récupérer les volumes de données après avoir restauré le lecteur système. Dans certains cas, vous devrez peut-être repartager des dossiers existants pour qu'ils soient reconnus par le serveur.  
   
  Voici quelques exemples de scénarios où il peut être nécessaire de restaurer des fichiers et des dossiers :  
@@ -195,19 +195,19 @@ ms.locfileid: "68787177"
   
 -   [Restaurer des dossiers partagés sur le serveur](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_ConfigreSharedFolders). Si vous avez créé des dossiers partagés supplémentaires sur le serveur, à l'issue de la restauration du lecteur système à partir de la sauvegarde, les dossiers partagés sont toujours sur la partition de données ou ont été restaurés sur la partition de données, mais ils peuvent ne pas être reconnus par le serveur. Vous devez repartager ces dossiers.  
   
-###  <a name="BKMK_RestoreFilesFromBackup"></a>Restaurer des fichiers et des dossiers à partir d’une sauvegarde du serveur  
+###  <a name="restore-files-and-folders-from-a-server-backup"></a><a name="BKMK_RestoreFilesFromBackup"></a>Restaurer des fichiers et des dossiers à partir d’une sauvegarde du serveur  
  L'Assistant Restauration de fichiers et de dossiers vous permet de protéger vos données si votre disque dur cesse de fonctionner ou en cas de suppression accidentelle de vos fichiers. Avec la sauvegarde Windows Server Essentials, vous pouvez créer une copie de toutes les données sur votre disque dur et les stocker sur un dispositif de stockage externe. Si les données d'origine sur votre disque dur sont accidentellement effacées, remplacées ou deviennent inaccessibles en raison d'un dysfonctionnement, vous pouvez les restaurer à partir de la sauvegarde. L'Assistant Restauration de fichiers et de dossiers vous permet de restaurer un fichier ou dossier unique, plusieurs fichiers ou dossiers, ou un disque dur entier à partir d'une sauvegarde existante.  
   
  Après une restauration du système, vous devrez peut-être utiliser l'Assistant Restauration de fichiers et de dossiers pour restaurer des fichiers et dossiers qui n'ont pas été conservés lors de la restauration. Par exemple, si vous avez remplacé le disque système, ou si les informations de partition du disque système sont illisibles, vous ne pouvez pas restaurer les données d'autres volumes sur le disque système.  
   
 > [!NOTE]
->  Vous ne pouvez pas utiliser l'Assistant Restauration de fichiers et de dossiers pour restaurer tout le lecteur système. Pour plus d’informations sur la restauration complète du système, consultez [restaurer ou réparer votre serveur à l’aide du support d’installation](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) ou [restaurer ou réinitialiser votre serveur à partir d’un ordinateur client à l’aide du DVD de récupération](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2).  
+>  Vous ne pouvez pas utiliser l'Assistant Restauration de fichiers et de dossiers pour restaurer tout le lecteur système. Pour plus d'informations sur la restauration complète du système, consultez [Restaurer ou réparer votre serveur à l'aide du support d'installation](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) ou [Restaurer ou réinitialiser votre serveur à partir d'un ordinateur client à l'aide du DVD de récupération](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2).  
   
 ##### <a name="to-restore-files-and-folders-from-a-server-backup"></a>Pour restaurer des fichiers et des dossiers à partir d'une sauvegarde du serveur  
   
 1.  Ouvrez le tableau de bord Windows Server Essentials, puis cliquez sur l’onglet **périphériques** .  
   
-2.  Cliquez sur le nom du serveur, puis sur **Restaurer des fichiers ou des dossiers du serveur** dans le volet **Tâches** .  
+2.  Cliquez sur le nom du serveur, puis sur **Restaurer des fichiers ou des dossiers du serveur** dans le volet **Tâches**.  
   
      L'Assistant Restauration de fichiers et de dossiers s'ouvre.  
   
@@ -216,22 +216,22 @@ ms.locfileid: "68787177"
 > [!WARNING]
 >  Pour plus d’informations sur la sauvegarde et la restauration des fichiers et des dossiers, consultez [gérer la sauvegarde et la restauration](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
   
-###  <a name="BKMK_ConfigreSharedFolders"></a>Restaurer les dossiers partagés sur le serveur  
+###  <a name="restore-shared-folders-on-the-server"></a><a name="BKMK_ConfigreSharedFolders"></a>Restaurer les dossiers partagés sur le serveur  
  Après avoir restauré le lecteur système du serveur, si les dossiers partagés sont toujours sur la partition de données ou ont été restaurés sur la partition de données, vous devrez peut-être reconfigurer les dossiers partagés afin que le serveur puisse reconnaître les dossiers. La procédure suivante décrit comment ajouter des dossiers partagés qui ont été partagés précédemment.  
   
 ##### <a name="to-add-an-existing-folder-to-the-server-shared-folders"></a>Pour ajouter un dossier existant aux dossiers partagés du serveur  
   
 1.  Dans l'Explorateur de fichiers, recherchez le dossier partagé sur le disque dur.  
   
-2.  Cliquez avec le bouton droit sur le dossier partagé, cliquez sur **Propriétés**, sur l'onglet **Partage** , puis notez les autorisations du dossier.  
+2.  Cliquez avec le bouton droit sur le dossier partagé, cliquez sur **Propriétés**, sur l'onglet **Partage**, puis notez les autorisations du dossier.  
   
 3.  Connectez-vous au tableau de bord Windows Server Essentials, cliquez sur l’onglet **stockage** , puis cliquez sur **Ajouter un dossier** dans le volet **tâches des dossiers du serveur** .  
   
      L'Assistant Ajouter un dossier s'ouvre.  
   
-4.  Tapez un nom pour le partage dans la zone **Nom** .  
+4.  Tapez un nom pour le partage dans la zone **Nom**.  
   
-5.  Cliquez sur **Parcourir**, accédez à *<\>lecteur\\<\>ServerName*\ServerFolders (par exemple, *d:\Contoso\ServerFolders*), sélectionnez le dossier que vous souhaitez partager, puis cliquez sur **OK**.  
+5.  Cliquez sur **Parcourir**, accédez à *< lecteur\>\\< NomServeur\>* \ServerFolders (par exemple, *d:\Contoso\ServerFolders*), sélectionnez le dossier que vous souhaitez partager, puis cliquez sur **OK**.  
   
 6.  Cliquez sur **Suivant**.  
   

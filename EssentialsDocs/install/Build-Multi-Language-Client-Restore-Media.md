@@ -3,7 +3,7 @@ title: Créer un support de restauration du client multilingue
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,19 +12,19 @@ ms.assetid: 2fdbc016-d464-43cb-bd75-8a63e61588a2
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1ad934d297c3092050bd6adbb6bb0f50d1ec6f36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b9d98c8c370e41ef87f96befdcd7746b0bb59f2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879870"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310083"
 ---
 # <a name="build-multi-language-client-restore-media"></a>Créer un support de restauration du client multilingue
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 > [!NOTE]
->  Vous devez d’abord créer une image Windows multilingue comme décrit dans la [procédure pas à pas : Création de l’Image Windows multilingue](https://technet.microsoft.com/library/jj126995) avant d’ajouter le module linguistique de Windows Server Essentials dans install.wim.  
+>  Vous devez d’abord créer une image Windows multilingue, comme décrit dans la [procédure pas à pas : création d’une image Windows multilingue](https://technet.microsoft.com/library/jj126995) avant d’ajouter Windows Server Essentials linguistique au fichier Pack dans Install. wim.  
   
  Lors de la création du DVD multilingue d’installation du serveur, les modules linguistiques seront installés pour le fichier install.wim du serveur. Les ressources localisées pour l’assistant de restauration seront installées en tant que partie du module linguistique.  
   
@@ -93,11 +93,11 @@ ms.locfileid: "59879870"
 
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)
 
  [Création et personnalisation de l’Image](../install/Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](../install/Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](../install/Testing-the-Customer-Experience.md)
+ [Préparation de l’image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
+ [Test de l’expérience utilisateur](../install/Testing-the-Customer-Experience.md)
 

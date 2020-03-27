@@ -3,7 +3,7 @@ title: Installer et configurer Windows Server Essentials ou Expérience Windows 
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,26 +12,26 @@ ms.assetid: 48ea6cd4-3955-4aaf-9236-2515a6c3e730
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f5593c21b99f4f8cb22979d5dc201a38e54be84c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b0323c8ce2ac69ade9adeca7e948c728e4791f09
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433481"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311660"
 ---
 # <a name="install-and-configure-windows-server-essentials-or-windows-server-essentials-experience"></a>Installer et configurer Windows Server Essentials ou Expérience Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Windows Server Essentials est un premier serveur idéal pour les petites entreprises recensant jusqu'à 25 utilisateurs et 50 appareils. Pour les organisations comptant jusqu'à 100 utilisateurs et 200 appareils, vous pouvez maintenant utiliser Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé. Cette rubrique décrit les deux scénarios.  
+Windows Server Essentials est un premier serveur idéal pour les petites entreprises comptant jusqu’à 25 utilisateurs et 50 appareils. Pour les organisations disposant d’un maximum de 100 utilisateurs et de 200 appareils, vous pouvez désormais utiliser Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé. Cette rubrique décrit les deux scénarios.  
   
-Expérience Windows Server Essentials est un rôle dans Windows Server 2016 qui vous permet de tirer parti de toutes les fonctionnalités (telles que la sauvegarde de l’accès Web à distance et PC) qui sont disponibles dans Windows Server Essentials sans les verrous et les limites appliqués dans  Windows Server Essentials. Ce rôle de serveur est également disponible dans Windows Server Essentials et est activé par défaut.
+L’expérience Windows Server Essentials est un rôle de Windows Server 2016 qui vous permet de tirer parti de toutes les fonctionnalités (telles que les Accès web à distance et la sauvegarde de PC) disponibles dans Windows Server Essentials sans les verrous et les limites appliqués dans.  Windows Server Essentials. Ce rôle serveur est également disponible dans Windows Server Essentials et est activé par défaut.
   
 Avant d’installer Windows Server Essentials ou le rôle expérience Essentials, notez les limitations suivantes.  
   
 |Expérience Windows Server Essentials dans Windows Server Essentials|Expérience Windows Server Essentials dans Windows Server 2016
 |----|----|
-|-Doit être le contrôleur de domaine à la racine de la forêt et le domaine et détenir tous les rôles FSMO.<br /><br /> -Ne peut pas être installé dans un environnement avec un domaine Active Directory existant (Toutefois, il existe une période de grâce de 21 jours pour effectuer des migrations).|-N’ont pas à être un contrôleur de domaine s’il est installé dans un environnement avec un domaine Active Directory existant.<br /><br /> -Si un domaine Active Directory n’existe pas, l’installation du rôle créera un domaine Active Directory et le serveur deviendra le contrôleur de domaine à la racine de la forêt et le domaine, contenant tous les rôles FSMO.  
+|-Doit être le contrôleur de domaine à la racine de la forêt et du domaine, et doit contenir tous les rôles FSMO.<br /><br /> -Ne peut pas être installé dans un environnement avec un domaine Active Directory préexistant (Toutefois, il existe une période de grâce de 21 jours pour l’exécution des migrations).|-Ne doit pas nécessairement être un contrôleur de domaine s’il est installé dans un environnement avec un domaine Active Directory préexistant.<br /><br /> -Si un domaine Active Directory n’existe pas, l’installation du rôle créera un domaine Active Directory et le serveur deviendra le contrôleur de domaine à la racine de la forêt et du domaine, contenant tous les rôles FSMO.  
 |Peut uniquement être déployé dans un domaine unique.|Peut uniquement être déployé dans un domaine unique.  
 |Un contrôleur de domaine en lecture seule ne peut pas exister dans votre domaine.|Un contrôleur de domaine en lecture seule ne peut pas exister dans votre domaine.
 
@@ -51,33 +51,33 @@ Avant d’installer Windows Server Essentials ou le rôle expérience Essentials
  
 |Environnement de déploiement|Description|Section connexe|  
 |----------------------------|-----------------|---------------------|  
-|Nouvel environnement Active Directory|Vous pouvez installer Windows Server Essentials pour créer un environnement Active Directory.|[Déployer Windows Server Essentials pour configurer un nouvel environnement Active Directory](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_NewAD)|  
-|Environnement Active Directory existant|Vous pouvez installer Windows Server Essentials dans un environnement Active Directory existant.|[Déployer Windows Server Essentials dans un environnement Active Directory existant](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_ExistingAD)|  
+|Nouvel environnement Active Directory|Vous pouvez installer Windows Server Essentials pour créer un environnement Active Directory.|[Déployer Windows Server Essentials pour configurer un nouvel environnement de Active Directory](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_NewAD)|  
+|Environnement Active Directory existant|Vous pouvez installer Windows Server Essentials dans un environnement Active Directory existant.|[Déployer Windows Server Essentials dans un environnement de Active Directory existant](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_ExistingAD)|  
 |Environnement virtuel|Vous pouvez déployer Windows Server Essentials en tant qu'ordinateur virtuel.|[Virtualiser votre environnement](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_VirtualWSE)|  
 |Déploiement automatisé|Vous pouvez automatiser le déploiement de Windows Server Essentials à l'aide de Windows PowerShell.|[Installer et configurer Windows Server Essentials à l’aide de Windows PowerShell](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_PowerShell)|  
   
 ## <a name="before-you-begin"></a>Avant de commencer  
  Avant de commencer l'installation, passez en revue la documentation suivante :  
   
--   [Vue d’ensemble du produit Windows Server Essentials](https://www.microsoft.com/server-cloud/windows-server-essentials/windows-server-2012-r2-essentials.aspx)  
+-   [Présentation du produit Windows Server Essentials](https://www.microsoft.com/server-cloud/windows-server-essentials/windows-server-2012-r2-essentials.aspx)  
   
 
 -   [Configuration requise pour Windows Server Essentials](../get-started/system-requirements.md)   
 
   
-##  <a name="BKMK_NewAD"></a> Déployer Windows Server Essentials pour configurer un nouvel environnement Active Directory  
+##  <a name="deploy-windows-server-essentials-to-set-up-a-new-active-directory-environment"></a><a name="BKMK_NewAD"></a>Déployer Windows Server Essentials pour configurer un nouvel environnement de Active Directory  
  Windows Server Essentials permet de configurer rapidement un environnement Active Directory et les composants serveur associés.  
   
-###  <a name="BKMK_WSEDeploy"></a> Déploiement de Windows Server Essentials  
- Si vous utilisez Windows Server Essentials, expérience Windows Server Essentials est déjà activé. Toutefois, vous devez effectuer certaines étapes pour configurer votre serveur.  
+###  <a name="deploying-windows-server-essentials"></a><a name="BKMK_WSEDeploy"></a>Déploiement de Windows Server Essentials  
+ Si vous utilisez Windows Server Essentials, l’expérience Windows Server Essentials est déjà activée. Toutefois, vous devez effectuer certaines étapes pour configurer votre serveur.  
   
 ##### <a name="to-configure-windows-server-essentials-on-a-physical-server"></a>Pour configurer Windows Server Essentials sur un serveur physique  
   
-1. Après la page **Bienvenue** de Windows, l' **Assistant Configurer Windows Server Essentials** est visible sur le Bureau.  
+1. Après la page **Bienvenue** de Windows, l'**Assistant Configurer Windows Server Essentials** est visible sur le Bureau.  
   
 2. Suivez les instructions pour exécuter l'Assistant comme suit :  
   
-   1.  Dans la page **Configurer Windows Server Essentials** , cliquez sur **Suivant**.  
+   1.  Dans la page **Configurer Windows Server Essentials**, cliquez sur **Suivant**.  
   
    2.  Dans **Paramètres d'heure**, assurez-vous que la date, l'heure et le fuseau horaire sont corrects, puis cliquez sur **Suivant**.  
   
@@ -88,7 +88,7 @@ Avant d’installer Windows Server Essentials ou le rôle expérience Essentials
        > [!NOTE]
        >  N'utilisez pas le nom de compte et le mot de passe par défaut **Administrateur** .  
   
-   5.  Cliquez sur **configurer**.  
+   5.  Cliquez sur **Configurer**.  
   
 3. Le serveur redémarre plusieurs fois pendant le processus de configuration et les ouvertures de session sont automatiques jusqu'à la fin de la configuration. Ce processus prend environ 20 minutes.  
   
@@ -96,8 +96,8 @@ Avant d’installer Windows Server Essentials ou le rôle expérience Essentials
   
    Une fois la configuration du serveur terminée, le serveur qui exécute Windows Server Essentials est configuré comme contrôleur de domaine.  
   
-###  <a name="BKMK_DeployWSERole"></a> Déploiement du rôle expérience Windows Server Essentials dans Windows Server 2012 R2 Standard Edition et Datacenter  
- Vous pouvez utiliser le Gestionnaire de serveur pour activer et configurer le rôle expérience Windows Server Essentials dans Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter à l’aide de la procédure suivante.  
+###  <a name="deploying-the-windows-server-essentials-experience-role-in-windows-server-2012-r2-standard-and-datacenter"></a><a name="BKMK_DeployWSERole"></a>Déploiement du rôle expérience Windows Server Essentials dans Windows Server 2012 R2 Standard et Datacenter  
+ Vous pouvez utiliser Gestionnaire de serveur pour activer et configurer le rôle expérience Windows Server Essentials dans Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter à l’aide de la procédure suivante.  
   
 ##### <a name="to-deploy-the-windows-server-essentials-experience-role-in-windows-server-2012-r2"></a>Pour déployer le rôle Expérience Windows Server Essentials dans Windows Server 2012 R2  
   
@@ -105,7 +105,7 @@ Avant d’installer Windows Server Essentials ou le rôle expérience Essentials
   
 2.  Ouvrez le **Gestionnaire de serveur**, puis cliquez sur **Ajouter des rôles et des fonctionnalités**.  
   
-3.  Dans **Sélectionner des rôles de serveurs**, sélectionnez le rôle **Expérience Windows Server Essentials** . Dans la boîte de dialogue, cliquez sur **Ajouter des fonctionnalités**, puis cliquez sur **Suivant**.  
+3.  Dans **Sélectionner des rôles de serveurs**, sélectionnez le rôle **Expérience Windows Server Essentials**. Dans la boîte de dialogue, cliquez sur **Ajouter des fonctionnalités**, puis cliquez sur **Suivant**.  
   
 4.  Dans **Fonctionnalités**, cliquez sur **Suivant**.  
   
@@ -113,7 +113,7 @@ Avant d’installer Windows Server Essentials ou le rôle expérience Essentials
   
 6.  Dans les pages qui suivent, cliquez sur **Suivant** puis, dans la page de confirmation, cliquez sur **Installer**.  
   
-7.  Une fois l’installation terminée, l’expérience Windows Server Essentials doit être répertorié comme rôle serveur dans le Gestionnaire de serveur.  
+7.  Une fois l’installation terminée, l’expérience Windows Server Essentials doit être indiquée comme rôle serveur dans Gestionnaire de serveur.  
   
 8.  Dans la zone de notification du Gestionnaire de serveur, cliquez sur l'indicateur, puis sur **Configurer Windows Server Essentials**.  
   
@@ -123,16 +123,16 @@ Avant d’installer Windows Server Essentials ou le rôle expérience Essentials
     >  Vous ne pouvez pas modifier le nom du serveur une fois que vous avez configuré Windows Server Essentials.  
   
 
-10. Suivez l’Assistant pour configurer Windows Server Essentials comme décrit précédemment dans le [Deploying Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_WSEDeploy) section.  
+10. Suivez les instructions de l’Assistant pour configurer Windows Server Essentials comme décrit précédemment dans la section [déploiement de Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_WSEDeploy) .  
 
-10. Suivez l’Assistant pour configurer Windows Server Essentials comme décrit précédemment dans le [Deploying Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_WSEDeploy) section.  
+10. Suivez les instructions de l’Assistant pour configurer Windows Server Essentials comme décrit précédemment dans la section [déploiement de Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_WSEDeploy) .  
 
   
-##  <a name="BKMK_ExistingAD"></a> Déployer Windows Server Essentials dans un environnement Active Directory existant  
+##  <a name="deploy-windows-server-essentials-in-an-existing-active-directory-environment"></a><a name="BKMK_ExistingAD"></a>Déployer Windows Server Essentials dans un environnement de Active Directory existant  
  Vous pouvez également déployer Windows Server Essentials si votre organisation possède déjà un environnement Active Directory. En outre, vous pouvez choisir si vous voulez déployer Windows Server Essentials en tant que contrôleur de domaine.  
   
 > [!IMPORTANT]
->  Cette option est uniquement disponible si vous déployez le rôle expérience Windows Server Essentials dans Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter.  
+>  Cette option est disponible uniquement si vous déployez le rôle expérience Windows Server Essentials dans Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter.  
   
 #### <a name="to-deploy-windows-server-essentials-in-an-existing-active-directory-environment"></a>Pour déployer Windows Server Essentials dans un environnement Active Directory existant  
   
@@ -161,35 +161,35 @@ Avant d’installer Windows Server Essentials ou le rôle expérience Essentials
   
 9. Dans les pages qui suivent, cliquez sur **Suivant** puis, dans la page de confirmation, cliquez sur **Installer**.  
   
-10. Une fois l’installation terminée, l’expérience de Windows Server Essentials sera répertorié comme rôle serveur dans le Gestionnaire de serveur.  
+10. Une fois l’installation terminée, l’expérience Windows Server Essentials est indiquée comme rôle serveur dans Gestionnaire de serveur.  
   
 11. Dans la zone de notification d'indicateur dans **Gestionnaire de serveur**, cliquez sur l'indicateur, puis sur **Configurer Windows Server Essentials**.  
   
 12. Suivez l'Assistant pour configurer Windows Server Essentials. En fonction de votre configuration Active Directory, vous êtes informé si vous configurez Windows Server Essentials sur un contrôleur de domaine ou en tant que membre du domaine. Cliquez sur **Configurer** pour commencer la configuration. Le processus de configuration prend environ 10 minutes.  
   
-##  <a name="BKMK_VirtualWSE"></a> Virtualiser votre environnement  
-  Windows Server Essentials, Windows Server 2012 R2 Standard et Datacenter de Windows Server 2012 R2 peuvent être exécutés en tant que machines virtuelles. Vous pouvez exécuter des ordinateurs virtuels en utilisant les outils de gestion Hyper-V sur un serveur Hyper-V. Du point de vue de la gestion des licences, Windows Server Essentials vous permet de configurer le rôle Hyper-V et de virtualiser votre environnement. La licence vous permet de configurer un autre système d’exploitation invité qui exécute Windows Server Essentials. Selon votre fournisseur de système « ¢ s configuration, Windows Server Essentials vous permet de configurer un environnement virtualisé en toute transparence.  
+##  <a name="virtualize-your-environment"></a><a name="BKMK_VirtualWSE"></a>Virtualiser votre environnement  
+  Windows Server Essentials, Windows Server 2012 R2 Standard et Windows Server 2012 R2 Datacenter peuvent être exécutés en tant que machines virtuelles. Vous pouvez exécuter des ordinateurs virtuels en utilisant les outils de gestion Hyper-V sur un serveur Hyper-V. Du point de vue des licences, Windows Server Essentials vous permet de configurer le rôle Hyper-V et de virtualiser votre environnement. La licence vous permet de configurer un autre système d’exploitation invité qui exécute Windows Server Essentials. En fonction de la configuration de « ¢ s » du fournisseur système, Windows Server Essentials vous permet de configurer un environnement virtualisé en toute transparence.  
   
 #### <a name="to-deploy-windows-server-essentials-as-a-virtual-machine"></a>Pour déployer Windows Server Essentials en tant qu'ordinateur virtuel  
   
-1.  Après la page d’accueil de Windows (selon votre fournisseur « ¢ s configuration système), le **avant de commencer** page fournit une option permettant de configurer Windows Server Essentials en tant qu’une instance virtuelle ou sur du matériel physique. La disponibilité de ces options est prédéfinie par votre fournisseur de système et les deux options peuvent ne pas être toujours disponibles. Pour installer Windows Server Essentials comme une machine virtuelle, dans **installer Windows Server Essentials**, sélectionnez **installer en tant qu’instance virtuelle**, puis cliquez sur **configurer**.  
+1.  Après la page d’accueil de Windows (en fonction de la configuration de « ¢ s » du fournisseur système, la page **avant de commencer** fournit une option permettant de configurer Windows Server Essentials en tant qu’instance virtuelle ou sur du matériel physique. La disponibilité de ces options est prédéfinie par votre fournisseur de système et les deux options peuvent ne pas être toujours disponibles. Pour installer Windows Server Essentials en tant que machine virtuelle, dans **installer Windows Server Essentials**, sélectionnez **installer en tant qu’instance virtuelle**, puis cliquez sur **configurer**.  
   
 2.  L'Assistant configure un ordinateur virtuel, ce qui prend environ cinq minutes.  
   
 
-3.  Ensuite, configurez Windows Server Essentials comme décrit précédemment dans le [Deploying Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_WSEDeploy) section.  
+3.  Ensuite, configurez Windows Server Essentials comme décrit précédemment dans la section [déploiement de Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_WSEDeploy) .  
 
-3.  Ensuite, configurez Windows Server Essentials comme décrit précédemment dans le [Deploying Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_WSEDeploy) section.  
+3.  Ensuite, configurez Windows Server Essentials comme décrit précédemment dans la section [déploiement de Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md#BKMK_WSEDeploy) .  
 
   
-##  <a name="BKMK_PowerShell"></a> Installer et configurer Windows Server Essentials à l’aide de Windows PowerShell  
+##  <a name="install-and-configure-windows-server-essentials-by-using-windows-powershell"></a><a name="BKMK_PowerShell"></a>Installer et configurer Windows Server Essentials à l’aide de Windows PowerShell  
  Vous pouvez automatiser l'installation de Windows Server Essentials à l'aide des applets de commande Windows PowerShell.  
   
 #### <a name="to-install-windows-server-essentials-by-using-windows-powershell"></a>Pour installer Windows Server Essentials à l'aide de Windows PowerShell  
   
 1.  Ouvrez la console Windows PowerShell à partir d'une invite de commandes avec élévation de privilèges.  
   
-2.  Installer le rôle expérience Windows Server Essentials à l’aide de la commande suivante :  
+2.  Installez le rôle expérience Windows Server Essentials à l’aide de la commande suivante :  
   
     ```  
     Add-WindowsFeature ServerEssentialsRole  
@@ -218,8 +218,8 @@ Avant d’installer Windows Server Essentials ou le rôle expérience Essentials
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Quelles sont les nouveautés dans Windows Server Essentials](../get-started/what-s-new.md)  
+-   [Nouveautés de Windows Server Essentials](../get-started/what-s-new.md)  
   
 -   [Installer Windows Server Essentials](Install-Windows-Server-Essentials.md)  
   
--   [Prise en main Windows Server Essentials](../get-started/get-started.md)
+-   [Prise en main de Windows Server Essentials](../get-started/get-started.md)

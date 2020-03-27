@@ -6,18 +6,18 @@ ms.topic: article
 ms.assetid: ca5c3e04-ae25-4590-97f3-0376a9c2a9a2
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d4b713437f031e4a381d2759bdcbf7f41bd573d5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 63cc9e3b347635aaf631169b887b0e4c0dd9e989
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406343"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318231"
 ---
 # <a name="server-certificate-deployment-overview"></a>Présentation du déploiement de certificats de serveur
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique contient les sections suivantes.  
   
@@ -25,7 +25,7 @@ Cette rubrique contient les sections suivantes.
   
 -   [Vue d’ensemble du processus de déploiement de certificat de serveur](#bkmk_process)
   
-## <a name="bkmk_components"></a>Composants de déploiement de certificat de serveur
+## <a name="server-certificate-deployment-components"></a><a name="bkmk_components"></a>Composants de déploiement de certificat de serveur
 Vous pouvez utiliser ce guide pour installer les services de certificats Active Directory (AD CS) en tant qu’autorité de certification racine d’entreprise et pour inscrire des certificats de serveur sur des serveurs qui exécutent le serveur NPS (Network Policy Server), le service de routage et d’accès à distance (RRAS), NPS et RRAS.
 
 
@@ -36,7 +36,7 @@ L’illustration suivante montre les composants requis pour déployer des certif
 ![Infrastructure requise pour le déploiement de certificats de serveur](../../../media/Nps-Certs/Nps-Certs.jpg)  
   
 > [!NOTE]  
-> Dans l’illustration ci-dessus, plusieurs serveurs sont représentés : DC1, CA1, WEB1 et de nombreux serveurs SDN. Ce guide fournit des instructions sur le déploiement et la configuration de CA1 et WEB1, ainsi que sur la configuration de DC1, que ce guide suppose que vous avez déjà installé sur votre réseau. Si vous n’avez pas encore installé votre domaine Active Directory, vous pouvez le faire à l’aide du [Guide du réseau de base](https://technet.microsoft.com/library/mt604042.aspx) pour Windows Server 2016.  
+> Dans l’illustration ci-dessus, plusieurs serveurs sont représentés : DC1, CA1, WEB1 et plusieurs serveurs SDN. Ce guide fournit des instructions sur le déploiement et la configuration de CA1 et WEB1, ainsi que sur la configuration de DC1, que ce guide suppose que vous avez déjà installé sur votre réseau. Si vous n’avez pas encore installé votre domaine Active Directory, vous pouvez le faire à l’aide du [Guide du réseau de base](https://technet.microsoft.com/library/mt604042.aspx) pour Windows Server 2016.  
   
 Pour plus d’informations sur chaque élément représenté dans l’illustration ci-dessus, consultez les rubriques suivantes :  
   
@@ -46,9 +46,9 @@ Pour plus d’informations sur chaque élément représenté dans l’illustrati
   
 -   [CD1](#bkmk_dc1)  
   
--   [LE SERVEUR NPS1](#bkmk_nps1)  
+-   [LE serveur NPS1](#bkmk_nps1)  
   
-### <a name="bkmk_ca1"></a>CA1 exécutant le rôle de serveur AD CS  
+### <a name="ca1-running-the-ad-cs-server-role"></a><a name="bkmk_ca1"></a>CA1 exécutant le rôle de serveur AD CS  
 Dans ce scénario, l’autorité de certification racine d’entreprise est également une autorité de certification émettrice. L’autorité de certification émet des certificats aux ordinateurs serveurs disposant des autorisations de sécurité appropriées pour inscrire un certificat. Les services de certificats Active Directory (AD CS) sont installés sur CA1.  
   
 Pour les réseaux plus grands ou pour lesquels des problèmes de sécurité justifient, vous pouvez séparer les rôles de l’autorité de certification racine et de l’autorité de certification émettrice, et déployer les autorités de certification secondaires qui émettent des autorités de certification.  
@@ -66,13 +66,13 @@ Vous utilisez une copie du modèle plutôt que le modèle d’origine afin que l
 #### <a name="additional-ca1-configuration"></a>Configuration CA1 supplémentaire  
 L’autorité de certification publie une liste de révocation de certificats que les ordinateurs doivent vérifier pour s’assurer que les certificats qui leur sont présentés comme preuve d’identité sont des certificats valides et qu’ils n’ont pas été révoqués. Vous devez configurer votre autorité de certification avec l’emplacement correct de la liste de révocation de certificats afin que les ordinateurs sachent où rechercher la liste de révocation de certificats pendant le processus d’authentification.  
   
-### <a name="bkmk_web1"></a>WEB1 exécutant le rôle serveur services Web (IIS)  
+### <a name="web1-running-the-web-services-iis-server-role"></a><a name="bkmk_web1"></a>WEB1 exécutant le rôle serveur services Web (IIS)  
 Sur l’ordinateur qui exécute le rôle serveur serveur Web (IIS), WEB1, vous devez créer un dossier dans l’Explorateur Windows pour l’utiliser comme emplacement pour la liste de révocation de certificats et AIA.  
   
 #### <a name="virtual-directory-for-the-crl-and-aia"></a>Répertoire virtuel pour la liste de révocation de certificats et AIA  
 Après avoir créé un dossier dans l’Explorateur Windows, vous devez le configurer en tant que répertoire virtuel dans le gestionnaire de Internet Information Services (IIS), ainsi que configurer la liste de contrôle d’accès pour le répertoire virtuel afin de permettre aux ordinateurs d’accéder aux AIA et aux listes de révocation de certificats. après leur publication.  
   
-### <a name="bkmk_dc1"></a>DC1 exécutant les rôles de serveur AD DS et DNS  
+### <a name="dc1-running-the-ad-ds-and-dns-server-roles"></a><a name="bkmk_dc1"></a>DC1 exécutant les rôles de serveur AD DS et DNS  
 DC1 est le contrôleur de domaine et le serveur DNS sur votre réseau.  
   
 #### <a name="group-policy-default-domain-policy"></a>stratégie de groupe la stratégie de domaine par défaut  
@@ -81,13 +81,13 @@ Après avoir configuré le modèle de certificat sur l’autorité de certificat
 #### <a name="dns-alias-cname-resource-record"></a>Enregistrement de ressource d’alias DNS (CNAMe)  
 Vous devez créer un enregistrement de ressource alias (CNAMe) pour le serveur Web pour vous assurer que les autres ordinateurs peuvent trouver le serveur, ainsi que l’AIA et la liste de révocation des certificats stockés sur le serveur. En outre, l’utilisation d’un enregistrement de ressource CNAMe CNAMe offre une certaine flexibilité afin que vous puissiez utiliser le serveur Web à d’autres fins, telles que l’hébergement de sites Web et FTP.  
   
-### <a name="bkmk_nps1"></a>LE serveur NPS1 exécutant le service de rôle serveur NPS (Network Policy Server) du rôle serveur services de stratégie et d’accès réseau  
+### <a name="nps1-running-the-network-policy-server-role-service-of-the-network-policy-and-access-services-server-role"></a><a name="bkmk_nps1"></a>LE serveur NPS1 exécutant le service de rôle serveur NPS (Network Policy Server) du rôle serveur services de stratégie et d’accès réseau  
 Le serveur NPS est installé lorsque vous effectuez les tâches décrites dans le Guide du réseau de base de Windows Server 2016. par conséquent, avant d’effectuer les tâches décrites dans ce guide, vous devez déjà disposer d’un ou de plusieurs NPSs installés sur votre réseau.  
   
 #### <a name="group-policy-applied-and-certificate-enrolled-to-servers"></a>stratégie de groupe appliqué et certificat inscrit aux serveurs  
 Une fois que vous avez configuré le modèle de certificat et l’inscription automatique, vous pouvez actualiser les stratégie de groupe sur tous les serveurs cibles. À ce stade, les serveurs inscrivent le certificat de serveur à partir de CA1.  
   
-### <a name="bkmk_process"></a>Vue d’ensemble du processus de déploiement de certificat de serveur  
+### <a name="server-certificate-deployment-process-overview"></a><a name="bkmk_process"></a>Vue d’ensemble du processus de déploiement de certificat de serveur  
   
 > [!NOTE]  
 > Les détails relatifs à l’exécution de ces étapes sont fournis dans la section [déploiement de certificats de serveur](../../../core-network-guide/cncg/server-certs/Server-Certificate-Deployment.md).  

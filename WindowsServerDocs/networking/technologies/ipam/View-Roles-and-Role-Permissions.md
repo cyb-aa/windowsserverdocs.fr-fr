@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da8dce90-b54c-4ded-a48a-0cda5ccf1d8a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9f35f4a79bcdfebaedb2e5be5c34725d13a04fe9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 748b4a2547285edf6b04fc124d75facd245c38c9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71401867"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309466"
 ---
 # <a name="view-roles-and-role-permissions"></a>Afficher des rôles et des autorisations de rôle
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour afficher Access Control rôles d’utilisateur dans la console client IPAM.  
   

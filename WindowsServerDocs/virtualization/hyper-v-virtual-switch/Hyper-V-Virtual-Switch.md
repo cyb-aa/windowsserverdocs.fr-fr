@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: article
 ms.assetid: 398440ac-5988-41ce-b91e-eab343a255d3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c508005af67e9dd5b0c9a22693aca25eb19e8e48
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fb2ebf485b5004e457558fc16d8535662c0c5ff2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366829"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307979"
 ---
 # <a name="hyper-v-virtual-switch"></a>Commutateur virtuel Hyper-V
 
@@ -57,7 +57,7 @@ Les fonctionnalités du commutateur virtuel Hyper-V vous offrent davantage d’o
 >[!NOTE]
 > Dans Windows Server 2016, une machine virtuelle avec une carte réseau virtuelle affiche avec précision le débit maximal pour la carte réseau virtuelle. Pour afficher la vitesse de la carte réseau virtuelle dans **connexions réseau**, cliquez avec le bouton droit sur l’icône de carte réseau virtuelle souhaitée, puis cliquez sur **État**. La boîte de dialogue **État** de la carte d’interface réseau virtuelle s’ouvre. Dans le cadre de la **connexion**, la valeur **Vitesse** correspond à la vitesse de la carte réseau physique installée sur le serveur.
   
-## <a name="bkmk_apps"></a>Utilisations du commutateur virtuel Hyper-V
+## <a name="uses-for-hyper-v-virtual-switch"></a><a name="bkmk_apps"></a>Utilisations du commutateur virtuel Hyper-V
 
 Voici quelques scénarios de cas d’usage pour le commutateur virtuel Hyper-V.
 
@@ -69,7 +69,7 @@ Voici quelques scénarios de cas d’usage pour le commutateur virtuel Hyper-V.
   
 L' **extension de transfert gère l’ID de réseau local virtuel**: une société de commutation principale crée une extension de transfert qui applique toutes les stratégies de mise en réseau. Un des éléments gérés correspond aux ID de réseau local virtuel. Le commutateur virtuel cède le contrôle du réseau local virtuel à l’extension de transfert. L’installation de l’entreprise de commutation appelle par programme une interface de programmation d’applications (API) Windows Management Instrumentation (WMI) qui active la transparence, indiquant au commutateur virtuel Hyper-V de passer et de ne pas effectuer d’action sur les étiquettes VLAN.  
   
-## <a name="bkmk_func"></a>Fonctionnalité du commutateur virtuel Hyper-V
+## <a name="hyper-v-virtual-switch-functionality"></a><a name="bkmk_func"></a>Fonctionnalité du commutateur virtuel Hyper-V
  
 Voici certaines des fonctionnalités principales incluses dans le commutateur virtuel Hyper-V :  
   

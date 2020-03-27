@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3bba28d4-23e2-449f-8319-7d2190f68d56
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b093c4cbf5ceb06e84d5e07c8735106797932bc1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8269fee952e60aa53facec95ab3070b906383ad2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404922"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309052"
 ---
 # <a name="step-2-plan-advanced-directaccess-deployments"></a>Étape 2 planifier les déploiements avancés de DirectAccess
 

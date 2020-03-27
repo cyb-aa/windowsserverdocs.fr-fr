@@ -1,9 +1,9 @@
 ---
-title: Joindre des ordinateurs à la nouvelle network1 de Windows Server Essentials
+title: Joindre des ordinateurs au nouveau Network1 Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,28 +12,28 @@ ms.assetid: d94de050-3300-4323-a5ea-c824cb9cecc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 62f31f859ed3fd0f77baf37d3467d4702b24ad95
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 48703ed78ee7d604e67be06b540d4206617d4578
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432917"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318985"
 ---
-# <a name="join-computers-to-the-new-windows-server-essentials-network1"></a>Joindre des ordinateurs à la nouvelle network1 de Windows Server Essentials
+# <a name="join-computers-to-the-new-windows-server-essentials-network1"></a>Joindre des ordinateurs au nouveau Network1 Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_JoinComputers"></a>   
- L’étape suivante du processus de migration consiste à joindre des ordinateurs clients au nouveau réseau Windows Server Essentials et mettre à jour les paramètres de stratégie de groupe.  
+ L’étape suivante du processus de migration consiste à joindre des ordinateurs clients au nouveau réseau Windows Server Essentials et à mettre à jour les paramètres de stratégie de groupe.  
   
 ### <a name="domain-joined-client-computers"></a>Ordinateurs clients appartenant à un domaine  
- Accédez à **http://** <em>destination-servername</em> **/connect** et installez le logiciel Connecteur Windows Server comme s’il s’agissait d’un nouvel ordinateur. Le processus d'installation est le même pour les ordinateurs clients appartenant ou non à un domaine.  
+ Accédez à **http://** <em>nom-du-serveur-de-destination</em> **/connect** et installez le logiciel Connecteur Windows Server comme s'il s'agissait d'un nouvel ordinateur. Le processus d'installation est le même pour les ordinateurs clients appartenant ou non à un domaine.  
   
 > [!NOTE]
 >  Le logiciel Connecteur Windows Server ne prend pas en charge les ordinateurs qui exécutent Windows XP ou Windows Vista. Si vous utilisez des ordinateurs exécutant Windows XP ou Windows Vista qui sont déjà membres du domaine, vous pouvez ignorer cette étape.  
   
 ### <a name="non-domain-joined-client-computers"></a>Ordinateurs clients n'appartenant pas au domaine  
- Accédez à **http://** <em>destination-servername</em> **/connect** et installez le logiciel Connecteur Windows Server comme s’il s’agissait d’un nouvel ordinateur. Le processus d'installation est le même pour les ordinateurs clients appartenant ou non à un domaine.  
+ Accédez à **http://** <em>nom-du-serveur-de-destination</em> **/connect** et installez le logiciel Connecteur Windows Server comme s'il s'agissait d'un nouvel ordinateur. Le processus d'installation est le même pour les ordinateurs clients appartenant ou non à un domaine.  
   
 > [!NOTE]
 >  Le logiciel Connecteur Windows Server ne prend pas en charge les ordinateurs qui exécutent Windows XP ou Windows Vista. Si vous utilisez des ordinateurs exécutant Windows XP ou Windows Vista qui sont déjà membres du domaine, vous pouvez ignorer cette étape.  
@@ -47,9 +47,9 @@ ms.locfileid: "66432917"
   
 1.  Ouvrez une fenêtre d'invite de commandes.  
   
-2.  À l’invite de commandes, tapez **GPRESULT /R**, puis appuyez sur Entrée.  
+2.  À l'invite de commandes, tapez **GPRESULT /R** et appuyez sur Entrée.  
   
-3.  Examinez la sortie de la section stratégie de groupe a été appliquée à partir de : et assurez-vous qu’elle répertorie le serveur de Destination, tel que **DestinationSrv.Domain.local**. Exemple :  
+3.  Examinez la sortie résultante pour la section stratégie de groupe a été appliquée à partir de : et assurez-vous qu’elle répertorie le serveur de destination, par exemple **DestinationSrv. domain. local**. Par exemple :  
   
     ```  
     USER SETTINGS  
@@ -69,6 +69,6 @@ ms.locfileid: "66432917"
   
     1.  Cliquez sur **Démarrer**, cliquez sur **Exécuter**, tapez **rsop.msc** (jeu de stratégie résultant), puis appuyez sur Entrée.  
   
-    2.  Développez l’arborescence avec un X sur celui-ci jusqu'à ce que vous accédiez à un nœud.  
+    2.  Développez l’arborescence avec la Croix (X) jusqu’à ce que vous obteniez un nœud.  
   
     3.  Cliquez avec le bouton droit sur le nœud, puis cliquez sur **Afficher l'erreur** pour obtenir des informations sur la raison de l'échec des paramètres de stratégie de groupe sur l'ordinateur répertorié.

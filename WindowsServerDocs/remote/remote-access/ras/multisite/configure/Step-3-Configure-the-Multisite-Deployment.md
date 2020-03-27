@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3ae66c125548e31603318a7e600c36c00df9d005
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0ac6e231ac797d1ba1e8dfb314c6aa3df99ff91d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822552"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313963"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Étape 3 configurer le déploiement multisite
 
@@ -36,9 +36,9 @@ Après avoir configuré l’infrastructure multisite, procédez comme suit pour 
 |3,7. Ajouter des points d’entrée au déploiement multisite|Ajoutez des points d’entrée supplémentaires au déploiement multisite.|  
   
 > [!NOTE]  
-> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Cette rubrique comprend des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_ConfigServer"></a>3.1. Configurer les serveurs d’accès à distance  
+## <a name="31-configure-remote-access-servers"></a><a name="BKMK_ConfigServer"></a>3.1. Configurer les serveurs d’accès à distance  
 
   
 ### <a name="to-install-the-remote-access-role"></a>Pour installer le rôle Accès à distance  
@@ -61,9 +61,9 @@ Après avoir configuré l’infrastructure multisite, procédez comme suit pour 
   
 9.  Sélectionnez **routage**, sélectionnez **proxy d’application Web**, cliquez sur **Ajouter des fonctionnalités**, puis cliquez sur **suivant**.  
   
-10. Cliquez sur **Suivant**, puis cliquez sur **Installer**.  
+10. Cliquez sur **Suivant**, puis sur **Installer**.  
   
-11.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
+11.  Dans la boîte de dialogue **Progression de l'installation**, vérifiez que l'installation a réussi, puis cliquez sur **Fermer**.  
   
   
 ![les commandes Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
@@ -71,13 +71,13 @@ Après avoir configuré l’infrastructure multisite, procédez comme suit pour 
   
 Les étapes 1-3 doivent être effectuées manuellement et ne sont pas effectuées à l’aide de cette applet de commande Windows PowerShell.  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Admin"></a>3.2. Accorder un accès administrateur  
+## <a name="32-grant-administrator-access"></a><a name="BKMK_Admin"></a>3.2. Accorder un accès administrateur  
   
 #### <a name="to-grant-administrator-permissions"></a>Pour accorder des autorisations d’administrateur  
   
@@ -95,16 +95,16 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 7.  Dans la boîte de dialogue **Propriétés des administrateurs** , cliquez sur **OK**.  
   
-8.  Fermez la fenêtre Gestion de l’ordinateur.  
+8.  Fermez la fenêtre Gestion de l'ordinateur.  
   
 9. Répétez cette procédure sur tous les serveurs d’accès à distance qui feront partie du déploiement multisite.  
   
-## <a name="BKMK_IPHTTPS"></a>3.3. Configurer IP-HTTPs pour un déploiement multisite  
-Sur chaque serveur d’accès à distance qui sera ajouté au déploiement multisite, un certificat SSL est requis pour vérifier la connexion HTTPs au serveur Web IP-HTTPs. L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.  
+## <a name="33-configure-ip-https-for-a-multisite-deployment"></a><a name="BKMK_IPHTTPS"></a>3.3. Configurer IP-HTTPs pour un déploiement multisite  
+Sur chaque serveur d’accès à distance qui sera ajouté au déploiement multisite, un certificat SSL est requis pour vérifier la connexion HTTPs au serveur Web IP-HTTPs. L'appartenance au groupe **Administrateurs** local, ou à un groupe équivalent, est la condition requise minimale pour effectuer cette procédure.  
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>Pour obtenir un certificat IP-HTTPs  
   
-1.  Sur chaque serveur d’accès à distance : dans l’écran **Démarrer** , tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur chaque serveur d’accès à distance : dans l’écran **Démarrer** , tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Cliquez sur **Fichier**, puis sur **Ajouter ou supprimer des composants logiciels enfichables**.  
   
@@ -114,7 +114,7 @@ Sur chaque serveur d’accès à distance qui sera ajouté au déploiement multi
   
 5.  Cliquez avec le bouton droit sur **Certificats**, pointez sur **Toutes les Tâches**, puis cliquez sur **Demander un nouveau certificat**.  
   
-6.  Cliquez sur **Suivant** deux fois.  
+6.  Cliquez deux fois sur **Suivant**.  
   
 7.  Sur la page **demander des certificats** , cliquez sur le modèle de certificat de serveur Web, puis cliquez sur l' **inscription pour obtenir ce certificat nécessite des informations supplémentaires**.  
   
@@ -137,12 +137,12 @@ Sur chaque serveur d’accès à distance qui sera ajouté au déploiement multi
   
 14. Répétez cette procédure sur tous les serveurs d’accès à distance de votre déploiement.  
   
-## <a name="BKMK_NLS"></a>3,4. Configurer le serveur emplacement réseau pour un déploiement multisite  
-Si vous avez choisi de configurer le site Web du serveur d’emplacement réseau sur le serveur d’accès à distance lors de la configuration de votre premier serveur, chaque nouveau serveur d’accès à distance que vous ajoutez doit être configuré avec un certificat de serveur Web qui a le même nom d’objet que celui qui a été sélectionné pour t le serveur d’emplacement réseau pour le premier serveur. Chaque serveur nécessite un certificat pour authentifier la connexion au serveur d’emplacement réseau, et les ordinateurs clients situés dans le réseau interne doivent être en mesure de résoudre le nom du site Web dans DNS.  
+## <a name="34-configure-the-network-location-server-for-a-multisite-deployment"></a><a name="BKMK_NLS"></a>3,4. Configurer le serveur emplacement réseau pour un déploiement multisite  
+Si vous avez choisi de configurer le site Web du serveur emplacement réseau sur le serveur d’accès à distance lors de la configuration de votre premier serveur, chaque nouveau serveur d’accès à distance que vous ajoutez doit être configuré avec un certificat de serveur Web dont le nom d’objet est le même que celui sélectionné pour serveur d’emplacement réseau pour le premier serveur. Chaque serveur nécessite un certificat pour authentifier la connexion au serveur d’emplacement réseau, et les ordinateurs clients situés dans le réseau interne doivent être en mesure de résoudre le nom du site Web dans DNS.  
   
 #### <a name="to-install-a-certificate-for-network-location"></a>Pour installer un certificat pour l’emplacement réseau  
   
-1.  Sur le serveur d’accès à distance : dans l’écran **Démarrer** , tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur le serveur d’accès à distance : dans l’écran **Démarrer** , tapez **MMC**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Cliquez sur **Fichier**, puis sur **Ajouter ou supprimer des composants logiciels enfichables**.  
   
@@ -155,7 +155,7 @@ Si vous avez choisi de configurer le site Web du serveur d’emplacement réseau
     > [!NOTE]  
     > Vous pouvez également importer le certificat utilisé pour le serveur emplacement réseau pour le premier serveur d’accès à distance.  
   
-6.  Cliquez sur **Suivant** deux fois.  
+6.  Cliquez deux fois sur **Suivant**.  
   
 7.  Sur la page **demander des certificats** , cliquez sur le modèle de certificat de serveur Web, puis cliquez sur l' **inscription pour obtenir ce certificat nécessite des informations supplémentaires**.  
   
@@ -178,7 +178,7 @@ Si vous avez choisi de configurer le site Web du serveur d’emplacement réseau
   
 14. Répétez cette procédure sur tous les serveurs d’accès à distance de votre déploiement.  
   
-### <a name="NLS"></a>Pour créer les enregistrements DNS du serveur d’emplacement réseau  
+### <a name="to-create-the-network-location-server-dns-records"></a><a name="NLS"></a>Pour créer les enregistrements DNS du serveur d’emplacement réseau  
   
 1.  Sur le serveur DNS : dans l’écran d' **Accueil** , tapez **dnsmgmt. msc**, puis appuyez sur entrée.  
   
@@ -194,7 +194,7 @@ Si vous avez choisi de configurer le site Web du serveur d’emplacement réseau
   
 7.  Répétez cette procédure avant d’ajouter des serveurs en tant que points d’entrée supplémentaires dans le déploiement.  
   
-## <a name="BKMK_Client"></a>3,5. Configurer des clients DirectAccess pour un déploiement multisite  
+## <a name="35-configure-directaccess-clients-for-a-multisite-deployment"></a><a name="BKMK_Client"></a>3,5. Configurer des clients DirectAccess pour un déploiement multisite  
 Les ordinateurs clients Windows DirectAccess doivent être membres d’un ou plusieurs groupes de sécurité qui définissent leur association DirectAccess. Avant l’activation de l’option multisite, ces groupes de sécurité peuvent contenir à la fois des clients Windows 8 et des clients Windows 7 (si le mode « de bas niveau » approprié a été sélectionné). Une fois que le multisite est activé, le ou les groupes de sécurité client existants, en mode serveur unique, sont convertis en groupes de sécurité pour Windows 8 uniquement. Une fois que le multisite est activé, les ordinateurs clients Windows 7 DirectAccess doivent être déplacés vers les groupes de sécurité client Windows 7 dédiés correspondants (qui sont associés à des points d’entrée spécifiques), ou ils ne pourront pas se connecter via DirectAccess. Les clients Windows 7 doivent d’abord être supprimés des groupes de sécurité existants qui sont désormais des groupes de sécurité Windows 8. ATTENTION : les ordinateurs clients Windows 7 qui sont membres des groupes de sécurité client Windows 7 et Windows 8 perdent la connectivité à distance et les clients Windows 7 sans SP1 perdent également la connectivité de l’entreprise. Par conséquent, tous les ordinateurs clients Windows 7 doivent être supprimés des groupes de sécurité Windows 8.  
   
 #### <a name="remove--windows-7--clients-from-windows-8-security-groups"></a>Supprimer les clients Windows 7 des groupes de sécurité Windows 8  
@@ -210,7 +210,7 @@ Les ordinateurs clients Windows DirectAccess doivent être membres d’un ou plu
 > [!IMPORTANT]  
 > Lorsque vous activez une configuration multisite d’accès à distance, tous les ordinateurs clients (Windows 7 et Windows 8) perdent la connectivité à distance jusqu’à ce qu’ils puissent se connecter au réseau d’entreprise directement ou par VPN pour mettre à jour leurs stratégies de groupe. Cela est vrai lors de l’activation de la fonctionnalité multisite pour la première fois, ainsi que lors de la désactivation de multisite.  
   
-## <a name="BKMK_Enable"></a>3,6. Activer le déploiement multisite  
+## <a name="36-enable-the-multisite-deployment"></a><a name="BKMK_Enable"></a>3,6. Activer le déploiement multisite  
 Pour configurer un déploiement multisite, activez la fonctionnalité multisite sur votre serveur d’accès à distance existant. Avant d’activer la multisite dans votre déploiement, assurez-vous de disposer des informations suivantes :  
   
 1.  Les paramètres globaux de l’équilibreur de charge et les adresses IP si vous souhaitez équilibrer la charge des connexions des clients DirectAccess sur tous les points d’entrée de votre déploiement.  
@@ -219,9 +219,9 @@ Pour configurer un déploiement multisite, activez la fonctionnalité multisite 
   
 3.  Stratégie de groupe des noms d’objets, si vous devez utiliser des objets de stratégie de groupe autres que ceux par défaut, qui sont appliqués sur les ordinateurs clients Windows 7 pour le premier point d’entrée de votre déploiement, si vous avez besoin de la prise en charge des ordinateurs clients Windows 7.  
   
-### <a name="EnabledMultisite"></a>Pour activer une configuration multisite  
+### <a name="to-enable-a-multisite-configuration"></a><a name="EnabledMultisite"></a>Pour activer une configuration multisite  
   
-1.  Sur votre serveur d’accès à distance existant : dans l’écran d' **Accueil** , tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur votre serveur d’accès à distance existant : dans l’écran d' **Accueil** , tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la console Gestion de l’accès à distance, cliquez sur **configuration**, puis dans le volet **tâches** , cliquez sur **activer multisite**.  
   
@@ -262,7 +262,7 @@ Pour configurer un déploiement multisite, activez la fonctionnalité multisite 
   
 ![les commandes Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Pour activer un déploiement multisite nommé « Contoso » sur le premier point d’entrée nommé « Edge1-US ». Le déploiement permet aux clients de sélectionner manuellement le point d’entrée et n’utilise pas d’équilibreur de charge global.  
   
@@ -276,7 +276,7 @@ Pour autoriser l’accès des ordinateurs clients Windows 7 par le biais du prem
 Add-DAClient -EntrypointName 'Edge1-US' -DownlevelSecurityGroupNameList @('corp.contoso.com\DA_Clients_US') -DownlevelGpoName @('corp.contoso.com\DA_W7_Clients_GPO_US)  
 ```  
   
-## <a name="BKMK_EntryPoint"></a>3,7. Ajouter des points d’entrée au déploiement multisite  
+## <a name="37-add-entry-points-to-the-multisite-deployment"></a><a name="BKMK_EntryPoint"></a>3,7. Ajouter des points d’entrée au déploiement multisite  
 Après avoir activé la multisite dans votre déploiement, vous pouvez ajouter des points d’entrée supplémentaires à l’aide de l’Assistant Ajouter un point d’entrée. Avant d’ajouter des points d’entrée, vérifiez que vous disposez des informations suivantes :  
   
 -   Adresses IP globales de l’équilibreur de charge pour chaque nouveau point d’entrée si vous utilisez l’équilibrage de charge global.  
@@ -287,9 +287,9 @@ Après avoir activé la multisite dans votre déploiement, vous pouvez ajouter d
   
 -   Dans le cas où IPv6 est déployé sur le réseau de l’organisation, vous devez préparer le préfixe IP-HTTPs pour le nouveau point d’entrée.  
   
-### <a name="AddEP"></a>Pour ajouter des points d’entrée à votre déploiement multisite  
+### <a name="to-add-entry-points-to-your-multisite-deployment"></a><a name="AddEP"></a>Pour ajouter des points d’entrée à votre déploiement multisite  
   
-1.  Sur votre serveur d’accès à distance existant : dans l’écran d' **Accueil** , tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur votre serveur d’accès à distance existant : dans l’écran d' **Accueil** , tapez **RAMgmtUI. exe**, puis appuyez sur entrée. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la console Gestion de l’accès à distance, cliquez sur **configuration**, puis dans le volet **tâches** , cliquez sur **Ajouter un point d’entrée**.  
   
@@ -344,7 +344,7 @@ Après avoir activé la multisite dans votre déploiement, vous pouvez ajouter d
   
 ![les commandes Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 Pour ajouter l’ordinateur Edge2 à partir du domaine corp2 en tant que deuxième point d’entrée nommé Edge2-Europe. La configuration du point d’entrée est : un préfixe IPv6 client « 2001 : DB8:2 : 2000 ::/64 », une adresse de connexion (le certificat IP-HTTPs sur l’ordinateur Edge2) « edge2.contoso.com », un objet de stratégie de groupe de serveur nommé « paramètres de serveur DirectAccess-Edge2-Europe » et les interfaces internes et externes nommées Internet et Corpnet2 respectivement :  
   
@@ -358,6 +358,6 @@ Pour autoriser l’accès des ordinateurs clients Windows 7 par le biais du deux
 Add-DAClient -EntrypointName 'Edge2-Europe' -DownlevelGpoName @('corp.contoso.com\ DA_W7_Clients_GPO_Europe') -DownlevelSecurityGroupNameList @('corp.contoso.com\DA_Clients_Europe')  
 ```  
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi  
   
 -   [Étape 2 : configurer l’infrastructure multisite](Step-2-Configure-the-Multisite-Infrastructure.md)

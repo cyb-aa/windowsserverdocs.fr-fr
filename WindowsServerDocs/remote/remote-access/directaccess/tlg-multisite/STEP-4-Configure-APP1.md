@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7000e80f-31b1-43c5-b51e-1469d26909e5
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: dc4715fcec778d1fa63ff84e801961572b9cd589
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 22775a3c453cf59a3dfd1d4b7e8a9522057790b4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404783"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308692"
 ---
 # <a name="step-4-configure-app1"></a>ÉTAPE 4 configurer APP1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Configurez les paramètres d’adressage IPv6 statique et de passerelle pour activer l’accès APP1 au sous-réseau 2-Corpnet.  
   

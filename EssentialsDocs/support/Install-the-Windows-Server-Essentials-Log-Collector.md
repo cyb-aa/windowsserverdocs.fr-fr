@@ -3,7 +3,7 @@ title: Installer Windows Server Essentials Log Collector
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: d271c54f-1ffa-464e-afa5-27b8df61854e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a1b1a5492a6e5dbc48899b3918314676884e0454
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 75faeb3fe1c9ced32a37f2ac96ffedbadb2db76f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322091"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318685"
 ---
 # <a name="install-the-windows-server-essentials-log-collector"></a>Installer Windows Server Essentials Log Collector
 
@@ -25,7 +25,7 @@ ms.locfileid: "79322091"
 
 L’Assistant Installation du collecteur de journaux Windows Server Essentials installe le collecteur de journaux en tant que complément launchpad. Vous pouvez installer et utiliser Log Collector sur les ordinateurs réseau ou le serveur, ou les deux. Une fois l'installation terminée, Log Collector apparaît dans le tableau de bord.  
   
-###  <a name="BKMK_ToInstall"></a>Pour installer log Collector  
+###  <a name="to-install-the-log-collector"></a><a name="BKMK_ToInstall"></a>Pour installer log Collector  
   
 1.  Téléchargez le package d'installation de Log Collector sur un serveur ou un ordinateur du réseau.  
   
@@ -42,7 +42,7 @@ L’Assistant Installation du collecteur de journaux Windows Server Essentials i
   
 6.  Cliquez sur **Installer le complément**.  
   
-###  <a name="BKMK_Reinstall"></a>Réinstallation du collecteur de journaux  
+###  <a name="reinstalling-the-log-collector"></a><a name="BKMK_Reinstall"></a>Réinstallation du collecteur de journaux  
  S'il est nécessaire de réinstaller Log Collector, vous devez le désinstaller et le réinstaller sur le serveur et les ordinateurs du réseau. Quand vous désinstallez Log Collector du serveur à l'aide du tableau de bord, il est désinstallé automatiquement de tous les ordinateurs réseau.  
   
 ##### <a name="to-uninstall-and-reinstall-the-log-collector"></a>Pour désinstaller et réinstaller Log Collector  

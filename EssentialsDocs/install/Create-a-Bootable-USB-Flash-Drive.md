@@ -3,7 +3,7 @@ title: Création d'un lecteur flash de démarrage USB
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 05/04/2018
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,22 +12,22 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cb62a460c09fdb2874bcc051176a05e88cee19e7
-ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
+ms.openlocfilehash: 88ae4bc7b560b0571ca339138cb99843c2d078c8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621281"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312119"
 ---
 # <a name="create-a-bootable-usb-flash-drive"></a>Création d'un lecteur flash de démarrage USB
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Vous pouvez créer un lecteur flash USB à utiliser pour déployer Windows Server Essentials. La première étape consiste à préparer le lecteur flash USB à l'aide de DiskPart, un utilitaire de ligne de commande. Pour plus d’informations sur DiskPart, consultez [Options de la ligne de commande DiskPart](https://go.microsoft.com/fwlink/?LinkId=207073).  
+Vous pouvez créer un lecteur flash USB de démarrage à utiliser pour déployer Windows Server Essentials. La première étape consiste à préparer le lecteur flash USB à l'aide de DiskPart, un utilitaire de ligne de commande. Pour plus d’informations sur DiskPart, consultez [Options de la ligne de commande DiskPart](https://go.microsoft.com/fwlink/?LinkId=207073).  
 
 
 > [!TIP]
-> Pour créer un lecteur flash USB pour une utilisation dans la récupération ou de réinstaller Windows sur un PC au lieu d’un serveur, consultez [créer un lecteur de récupération](https://support.microsoft.com/help/4026852/windows-create-a-recovery-drive).
+> Pour créer un lecteur flash USB de démarrage à utiliser pour la récupération ou la réinstallation de Windows sur un PC au lieu d’un serveur, consultez [créer un lecteur de récupération](https://support.microsoft.com/help/4026852/windows-create-a-recovery-drive).
   
  Pour obtenir d'autres scénarios dans lesquels vous pouvez créer ou utiliser un lecteur flash USB de démarrage, consultez les rubriques suivantes :  
   
@@ -67,16 +67,16 @@ Vous pouvez créer un lecteur flash USB à utiliser pour déployer Windows Serve
   
 ## <a name="see-also"></a>Voir aussi  
 
- [Prise en main du ADK Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main avec Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)   
 
- [Prise en main du ADK Windows Server Essentials](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main avec Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](../install/Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](../install/Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
+ [Préparation de l’image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](../install/Testing-the-Customer-Experience.md)   
 
  [Comment pouvons-nous vous aider ?](https://windows.microsoft.com/windows/support)

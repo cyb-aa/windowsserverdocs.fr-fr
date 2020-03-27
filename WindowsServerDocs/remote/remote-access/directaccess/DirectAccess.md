@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6b71d18e-1939-4fc0-bb42-29e0e5ffc8da
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4cc5ed275a6dc3cd235aa0ff1bfb0f0f46350a2b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d07e4ab62c7362d8d58f68380d8d9abb8e7a7f2c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394512"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310826"
 ---
 # <a name="directaccess"></a>DirectAccess
 
@@ -65,6 +65,6 @@ Les systèmes d’exploitation clients suivants prennent en charge DirectAccess.
   
 -   Windows 8 et 8,1 entreprise  
   
--   Windows 7 Édition Intégrale  
+-   Windows 7 Édition Intégrale  
   
 -   Windows 7 Entreprise

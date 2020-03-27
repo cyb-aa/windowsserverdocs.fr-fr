@@ -4,16 +4,16 @@ description: Brève description de la rubrique relative aux résultats du moteur
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 02/13/2019
+ms.date: 03/25/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 20aa5fbc40efc5a3a439361dadfac0f47f4b41d8
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: cb1ac2fc1c7d4ed0a7f57bbe95cb9989bc85e99e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822622"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310561"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Utiliser Storage migration service pour migrer un serveur
 
@@ -32,7 +32,7 @@ Avant de commencer, installez le service de migration de stockage et assurez-vou
 6. Sur tous les serveurs sources et sur les serveurs de destination exécutant Windows Server 2012 R2 ou Windows Server 2016, dans le centre d’administration Windows, connectez-vous à chaque serveur, accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **pare-feu** > **Règles entrantes**, puis vérifiez que les règles suivantes sont activées :
     - Partage de fichiers et d’imprimantes (SMB-Entrée)
     - Service Netlogon (NP-in)
-    - Windows Management Instrumentation (DCOM-in)
+    - Windows Management Instrumentation (DCOM-In)
     - Windows Management Instrumentation (WMI-In)
 
    Si vous utilisez des pare-feu tiers, les plages de ports entrants à ouvrir sont TCP/445 (SMB), TCP/135 (mappeur de point de terminaison RPC/DCOM) et TCP 1025-65535 (ports éphémères RPC/DCOM). Les ports de service de migration du stockage sont TCP/28940 (Orchestrator) et TCP/28941 (proxy).
@@ -60,12 +60,15 @@ Au cours de cette étape, vous allez transférer des données après avoir spéc
 1. Dans la page **transférer les données** > entrer les **informations d’identification** , tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs de destination vers lesquels vous souhaitez effectuer la migration, puis sélectionnez **suivant**.
 2. Sur la page **Ajouter un appareil et des mappages de destination** , le premier serveur source est listé. Tapez le nom du serveur ou du serveur de fichiers en cluster vers lequel vous souhaitez effectuer la migration, puis sélectionnez **analyser l’appareil**. Si vous migrez à partir d’un ordinateur source joint à un domaine, le serveur de destination doit être joint au même domaine. Vous pouvez également cliquer sur « créer une nouvelle machine virtuelle Azure », puis utiliser l’Assistant pour déployer un nouveau serveur de destination dans Azure. Cela permet de dimensionner automatiquement votre machine virtuelle, d’approvisionner le stockage, de formater des disques, de joindre le domaine et d’ajouter le proxy de service de migration de stockage à une destination Windows Server 2019. Vous pouvez choisir parmi les machines virtuelles Windows Server 2019 (recommandé), Windows Server 2016 et Windows Server 2012 R2 de toute taille et utiliser des disques gérés.   
 
- > [!NOTE]
-   > L’utilisation de la « création d’une machine virtuelle Azure » requiert les éléments suivants :
-   > - Un abonnement Azure valide.
-   > - Un groupe de ressources Azure Compute existant dans lequel vous disposez de droits de création.
-   > - Un réseau virtuel et un sous-réseau Azure existants. 
-   > - Une solution de routage ou VPN Azure Express liée au réseau virtuel et au sous-réseau qui permet la connectivité à partir de cette machine virtuelle Azure IaaS sur vos clients locaux, les contrôleurs de domaine, l’ordinateur d’Orchestrator du service de migration de stockage, l’ordinateur du centre d’administration Windows, et l’ordinateur source à migrer.
+    > [!NOTE]
+    > L’utilisation de la « création d’une machine virtuelle Azure » requiert les éléments suivants :
+    > - Un abonnement Azure valide.
+    > - Un groupe de ressources Azure Compute existant dans lequel vous disposez de droits de création.
+    > - Un réseau virtuel et un sous-réseau Azure existants. 
+    > - Une solution de routage ou VPN Azure Express liée au réseau virtuel et au sous-réseau qui permet la connectivité à partir de cette machine virtuelle Azure IaaS sur vos clients locaux, les contrôleurs de domaine, l’ordinateur d’Orchestrator du service de migration de stockage, l’ordinateur du centre d’administration Windows, et l’ordinateur source à migrer.
+   
+    Voici une vidéo qui montre comment utiliser Storage migration service pour migrer vers des machines virtuelles Azure.
+    > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
 
 3. Mappez les volumes source aux volumes de destination, désactivez la case à cocher **inclure** pour tous les partages que vous ne souhaitez pas transférer (y compris les partages administratifs situés dans le dossier système Windows), puis sélectionnez **suivant**.
    ![capture d’écran montrant un serveur source et ses volumes et partages et l’emplacement de transfert vers le](media/migrate/transfer.png) de destination **figure 3 : un serveur source et l’endroit où son stockage sera transféré**
@@ -111,7 +114,7 @@ Au cours de cette étape, vous allez passer des serveurs sources aux serveurs de
 7. Sélectionnez **valider** sur la page **valider l’appareil source et le périphérique de destination** , puis sélectionnez **suivant**.
 8. Lorsque vous êtes prêt à effectuer le basculement, sélectionnez **Démarrer le basculement**. <br>Les utilisateurs et les applications peuvent rencontrer une interruption pendant que l’adresse et les noms sont déplacés et que les serveurs ont été redémarrés plusieurs fois, mais ils ne seront pas affectés par la migration. La durée du basculement dépend de la vitesse à laquelle les serveurs redémarrent, ainsi que des Active Directory et des temps de réplication DNS.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Vue d’ensemble de Storage migration service](overview.md)
 - [Forum aux questions sur Storage migration services (FAQ)](faq.md)

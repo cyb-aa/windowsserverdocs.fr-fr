@@ -3,7 +3,7 @@ title: Gérer des appareils dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: cd43826579bff16e4bdf50bba956f19a39fec5e6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322321"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311314"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gérer des appareils dans Windows Server Essentials
 
@@ -37,7 +37,7 @@ ms.locfileid: "79322321"
   
 -   [Afficher les propriétés de l’ordinateur](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
   
-##  <a name="BKMK_1"></a>Gérer des appareils à l’aide du tableau de bord  
+##  <a name="manage-devices-by-using-the-dashboard"></a><a name="BKMK_1"></a>Gérer des appareils à l’aide du tableau de bord  
  Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. La page **Périphériques** du tableau de bord fournit :  
   
 -   la liste des ordinateurs réseau, qui indique :  
@@ -89,7 +89,7 @@ ms.locfileid: "79322321"
 |Comment connecter des ordinateurs sur le serveur ?|Ouvre une rubrique d'aide qui décrit la procédure à suivre pour joindre un ordinateur au réseau.|  
 |Implémenter la stratégie de groupe|Applique des paramètres de stratégie aux ordinateurs Windows 8 et Windows 7 qui sont joints au domaine.|  
   
-##  <a name="BKMK_2"></a>Accorder des autorisations de compte d’utilisateur pour se connecter à des ordinateurs réseau spécifiques  
+##  <a name="assign-user-accounts-permission-to-log-on-to-specific-network-computers"></a><a name="BKMK_2"></a>Accorder des autorisations de compte d’utilisateur pour se connecter à des ordinateurs réseau spécifiques  
  Vous pouvez affecter des autorisations aux comptes d'utilisateur pour que les utilisateurs puissent se connecter uniquement à des ordinateurs réseau spécifiques quand ils accèdent au réseau Windows Server Essentials à partir d'un emplacement distant.  
   
 #### <a name="to-change-the-computer-access-for-a-user-account"></a>Pour modifier l'accès d'un compte d'utilisateur aux ordinateurs  
@@ -104,7 +104,7 @@ ms.locfileid: "79322321"
   
 5.  Sous l'onglet **Accès à l'ordinateur**, sélectionnez l'ordinateur auquel cet utilisateur peut accéder à distance, puis cliquez sur **OK**.  
   
-##  <a name="BKMK_3"></a>Supprimer un ordinateur du serveur  
+##  <a name="remove-a-computer-from-the-server"></a><a name="BKMK_3"></a>Supprimer un ordinateur du serveur  
  Lorsque vous supprimez un ordinateur d'un serveur qui exécute Windows Server Essentials en ayant recours au tableau de bord, il n'est plus géré par le serveur. Par conséquent, le serveur arrête de créer des sauvegardes d'ordinateur ou d'analyser son intégrité après sa suppression du réseau.  
   
 > [!NOTE]
@@ -118,7 +118,7 @@ ms.locfileid: "79322321"
   
 3.  Dans la liste des ordinateurs, cliquez avec le bouton droit sur l'ordinateur à supprimer du réseau, puis cliquez sur **Supprimer l'ordinateur**.  
   
-##  <a name="BKMK_5"></a>Configurer les paramètres de stratégie de groupe pour la redirection de dossiers et la sécurité  
+##  <a name="configure-group-policy-settings-for-folder-redirection-and-security"></a><a name="BKMK_5"></a>Configurer les paramètres de stratégie de groupe pour la redirection de dossiers et la sécurité  
  Vous pouvez configurer la stratégie de groupe et la déployer sur les ordinateurs du réseau Windows Server Essentials à l'aide du tableau de bord Windows Server Essentials. La stratégie de groupe dans Windows Server Essentials inclut des paramètres pour la redirection des dossiers et la sécurité, qui impactent Windows Update, Windows Defender et le pare-feu du réseau.  
   
 #### <a name="to-configure-group-policy-in-windows-server-essentials"></a>Pour configurer la stratégie de groupe dans Windows Server Essentials  
@@ -139,7 +139,7 @@ ms.locfileid: "79322321"
   
 7.  Cliquez sur **Terminer** pour implémenter les paramètres de stratégie de groupe.  
   
-##  <a name="BKMK_7"></a>Se connecter à un ordinateur réseau à l’aide d’une session Bureau à distance  
+##  <a name="connect-to-a-network-computer-by-using-a-remote-desktop-session"></a><a name="BKMK_7"></a>Se connecter à un ordinateur réseau à l’aide d’une session Bureau à distance  
  Pour accéder à distance à votre ordinateur réseau Windows Server Essentials lorsque vous n’êtes pas dans votre bureau, utilisez votre navigateur Web pour vous connecter au site Web Accès web distant de votre organisation et, sous l’onglet **ordinateurs** , cliquez sur le nom de l’ordinateur.  
   
  La colonne **État** vous indique si vous pouvez vous connecter à un ordinateur sur votre réseau. Elle peut contenir les valeurs suivantes :  
@@ -160,7 +160,7 @@ ms.locfileid: "79322321"
   
      La connexion de l'ordinateur est bloquée par un pare-feu ou le Bureau à distance est désactivé sur l'ordinateur ou par la stratégie de groupe. La mise à jour de cet état sur le serveur peut prendre jusqu'à 6 heures en cas de modifications.  
   
-##  <a name="BKMK_8"></a>Afficher les propriétés de l’ordinateur  
+##  <a name="view-computer-properties"></a><a name="BKMK_8"></a>Afficher les propriétés de l’ordinateur  
  La section **Périphériques** du tableau de bord Windows Server Essentials affiche la liste des ordinateurs réseau. Cette liste fournit des informations supplémentaires sur chaque ordinateur.  
   
 #### <a name="to-view-a-list-of-computers"></a>Pour afficher la liste des ordinateurs  

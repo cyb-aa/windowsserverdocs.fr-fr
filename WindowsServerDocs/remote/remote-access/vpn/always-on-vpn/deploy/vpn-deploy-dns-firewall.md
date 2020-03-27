@@ -6,17 +6,17 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: d8cf3bae-45bf-4ffa-9205-290d555c59da
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/11/2018
-ms.openlocfilehash: aa7658587b8434bfbaa6874498215a6b2c9213be
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 394e589028d9d3d22851ea970346b0f150fee393
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822662"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309404"
 ---
-# <a name="step-5-configure-dns-and-firewall-settings"></a>Étape 5. Configurer les paramètres DNS et de pare-feu
+# <a name="step-5-configure-dns-and-firewall-settings"></a>Étape 5. Configurer les paramètres DNS et de pare-feu
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
@@ -82,6 +82,6 @@ Si vous utilisez la configuration de port RADIUS par défaut sur le serveur VPN 
 
 Si vous n’utilisez pas les ports RADIUS par défaut dans votre déploiement NPS, vous devez configurer le pare-feu pour autoriser le trafic RADIUS sur les ports que vous utilisez. Pour plus d’informations, consultez [configurer des pare-feu pour le trafic RADIUS](../../../../../networking/technologies/nps/nps-firewalls-configure.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 [Étape 6. Configurer le client Windows 10 Always On les connexions VPN](vpn-deploy-client-vpn-connections.md): au cours de cette étape, vous configurez les ordinateurs clients Windows 10 pour qu’ils communiquent avec cette infrastructure avec une connexion VPN. Vous pouvez utiliser plusieurs technologies pour configurer les clients VPN Windows 10, notamment Windows PowerShell, le point de terminaison Microsoft Configuration Manager et Intune. Les trois nécessitent un profil VPN XML pour configurer les paramètres VPN appropriés.

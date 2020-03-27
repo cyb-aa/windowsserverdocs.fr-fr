@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35d68abb-6914-42e0-91e8-803933cf785e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 87983076ee8a7d5546a5ac491ed4ca88153798f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 74aac416a5aa69a0cd935d58e3ecb931e4b5fd02
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367411"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308335"
 ---
 # <a name="step-2-prepare-cluster-servers"></a>Étape 2 Préparez les serveurs de cluster
 
@@ -31,7 +31,7 @@ Avant de pouvoir configurer un déploiement de cluster, vous devez préparer des
 |[2,2 installer le rôle accès à distance](#BKMK_Install)|Sur chaque serveur supplémentaire que vous souhaitez ajouter au cluster, installez le rôle accès à distance.|  
 |[2,3 installer NLB](#BKMK_NLB)|Sur le serveur d’accès à distance déployé et sur chaque serveur supplémentaire que vous souhaitez ajouter au cluster, installez la fonctionnalité NLB. Notez que cette étape n’est pas requise lors de l’utilisation d’un Load Balancer externe.|  
   
-## <a name="BKMK_config"></a>2,1 configurer l’infrastructure d’accès à distance  
+## <a name="21-configure-the-remote-access-infrastructure"></a><a name="BKMK_config"></a>2,1 configurer l’infrastructure d’accès à distance  
 Pour configurer un cluster d’accès à distance, vous devez configurer la topologie du serveur, l’adressage IP, le routage et le transfert sur chaque serveur qui fera partie du cluster.  
   
 ### <a name="to-configure-the-remote-access-infrastructure"></a>Pour configurer l’infrastructure d’accès à distance  
@@ -42,7 +42,7 @@ Pour configurer un cluster d’accès à distance, vous devez configurer la topo
   
 3.  Joignez chacun des serveurs qui seront dans le cluster au même domaine que le premier serveur d’accès à distance.  
   
-## <a name="BKMK_Install"></a>2,2 installer le rôle accès à distance  
+## <a name="22-install-the-remote-access-role"></a><a name="BKMK_Install"></a>2,2 installer le rôle accès à distance  
 Pour configurer un cluster d’accès à distance, vous devez installer le rôle accès à distance sur chaque serveur qui fera partie du cluster.  
   
 ### <a name="to-install-the-remote-access-role-on-always-on-vpn-servers"></a>Pour installer le rôle accès à distance sur des serveurs Always On VPN  
@@ -59,13 +59,13 @@ Pour configurer un cluster d’accès à distance, vous devez installer le rôle
   
 6.  Sélectionnez **routage**, sélectionnez **proxy d’application Web**, cliquez sur **Ajouter des fonctionnalités**, puis cliquez sur **suivant**.  
   
-7. Cliquez sur **Suivant**, puis cliquez sur **Installer**.  
+7. Cliquez sur **Suivant**, puis sur **Installer**.  
   
-8.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
+8.  Dans la boîte de dialogue **Progression de l'installation**, vérifiez que l'installation a réussi, puis cliquez sur **Fermer**.  
   
 9.  Répétez cette procédure sur tous les serveurs qui doivent être membres du cluster.  
   
-## <a name="BKMK_NLB"></a>2,3 installer NLB  
+## <a name="23-install-nlb"></a><a name="BKMK_NLB"></a>2,3 installer NLB  
 Pour configurer un cluster d’accès à distance, vous devez installer la fonctionnalité d’équilibrage de charge réseau sur chaque serveur qui fera partie du cluster.  
   
 > [!NOTE]  
@@ -79,11 +79,11 @@ Pour configurer un cluster d’accès à distance, vous devez installer la fonct
   
 3.  Dans la boîte de dialogue **Sélectionner des fonctionnalités** , sélectionnez équilibrage de la **charge réseau**, cliquez sur **Ajouter des fonctionnalités**, cliquez sur **suivant**, puis sur **installer**.  
   
-4.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
+4.  Dans la boîte de dialogue **Progression de l'installation**, vérifiez que l'installation a réussi, puis cliquez sur **Fermer**.  
   
 5.  Répétez cette procédure sur tous les serveurs qui doivent être membres du cluster.  
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi  
   
 -   [Étape 3 : configurer un cluster à charge équilibrée](Step-3-Configure-a-Load-Balanced-Cluster.md)  
   

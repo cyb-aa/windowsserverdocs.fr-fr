@@ -6,22 +6,22 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 5cb0d342afec9c28259efb7a2e15666358f3cb5b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18fa85189b082a4a88a8a0bc0d6df11e21e7c97d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404253"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307698"
 ---
 # <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>Étape 4. Installer et configurer le serveur NPS (Network Policy Server)
 
 > S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Situé** Étape 3. Configurer le serveur d’accès à distance pour VPN Toujours actif (AlwaysOn)](vpn-deploy-ras.md)
-- [**Situé** Étape 5. Configurer DNS et les paramètres de pare-feu](vpn-deploy-dns-firewall.md)
+- [**Ensuite :** Étape 3. Configurer le serveur d’accès à distance pour Always On VPN](vpn-deploy-ras.md)
+- [**Ensuite :** Étape 5. Configurer les paramètres DNS et de pare-feu](vpn-deploy-dns-firewall.md)
 
 Au cours de cette étape, vous allez installer le serveur NPS (Network Policy Server) pour le traitement des demandes de connexion envoyées par le serveur VPN :
 
@@ -104,7 +104,7 @@ Dans cette procédure, vous inscrivez le serveur dans Active Directory afin qu�
 
 2.  Dans la console NPS, cliquez avec le bouton droit sur **NPS (local)** , puis sélectionnez **inscrire le serveur dans Active Directory**.
    
-     La boîte de dialogue serveur NPS (Network Policy Server) s’ouvre.
+     La boîte de dialogue Serveur NPS (Network Policy Server) s’ouvre.
 
 3.  Dans la boîte de dialogue serveur de stratégie réseau, cliquez deux fois sur **OK** .
 
@@ -179,7 +179,7 @@ Dans cette procédure, vous configurez NPS en tant que serveur RADIUS sur le ré
 
     2. Activez la case à cocher **protocole EAP (Extensible Authentication Protocol** ) pour la sélectionner.
 
-    3. Dans type (en fonction de la méthode d’accès et de la configuration réseau **), sélectionnez Microsoft : PEAP (Protected EAP**), puis sélectionnez **configurer**.
+    3. Dans type (en fonction de la méthode d’accès et de la configuration réseau), sélectionnez **Microsoft : PEAP (Protected EAP)** , puis sélectionnez **configurer**.
       
         La boîte de dialogue Modifier les propriétés EAP protégées s’ouvre.
 
@@ -195,7 +195,7 @@ Dans cette procédure, vous configurez NPS en tant que serveur RADIUS sur le ré
 
 8. Dans spécifier des groupes d’utilisateurs, procédez comme suit :
 
-    1. Sélectionnez **Ajouter**. La boîte de dialogue Sélectionner les utilisateurs, les ordinateurs, les comptes de service ou les groupes s’ouvre.
+    1. Sélectionnez **Ajouter**. La boîte de dialogue Sélectionner des utilisateurs, des ordinateurs, des comptes de service ou des groupes s'ouvre.
 
     2. Entrez **les utilisateurs VPN**, puis sélectionnez **OK**.
 
@@ -226,6 +226,6 @@ Pour mener à bien cette procédure, il faut appartenir au groupe **Administrate
 
 2. À l’invite de commandes Windows PowerShell, tapez **gpupdate**, puis appuyez sur entrée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
-[Étape 5. Configurer les paramètres DNS et de pare-](vpn-deploy-dns-firewall.md)feu pour Always on VPN : Dans cette étape, vous installez le serveur NPS (Network Policy Server) à l’aide de Windows PowerShell ou de l’Assistant Gestionnaire de serveur ajouter des rôles et des fonctionnalités. Vous configurez également NPS pour gérer toutes les tâches d’authentification, d’autorisation et de comptabilité pour les demandes de connexion qu’il reçoit du serveur VPN.
+[Étape 5. Configurer les paramètres DNS et de pare-feu pour Always On VPN](vpn-deploy-dns-firewall.md): au cours de cette étape, vous installez le serveur NPS (Network Policy Server) à l’aide de Windows PowerShell ou de l’assistant gestionnaire de serveur ajouter des rôles et des fonctionnalités. Vous configurez également NPS pour gérer toutes les tâches d’authentification, d’autorisation et de comptabilité pour les demandes de connexion qu’il reçoit du serveur VPN.

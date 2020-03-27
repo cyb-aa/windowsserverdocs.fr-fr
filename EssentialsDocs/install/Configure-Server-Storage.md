@@ -3,7 +3,7 @@ title: Configuration du stockage du serveur
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: ef7ddcdd-3a74-40ca-9487-c3a6fc5155a5
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 718080c050dadc20837ab6b11a677029227e1709
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 3d7c2b49afc9d740e6a4b3fa7ed659e8358c8dc6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865040"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312147"
 ---
 # <a name="configure-server-storage"></a>Configuration du stockage du serveur
 
@@ -32,8 +32,8 @@ ms.locfileid: "70865040"
 |Niveau serveur|Configuration de disque|  
 |------------------|------------------------|  
 |Entrée|-Deux disques physiques<br /><br /> -Configuré en tant que jeu en miroir RAID 1 contenant les éléments suivants :<br /><br /> -C : volume ? 60 Go<br /><br /> -D : volume ? 1000 GO|  
-|Moyen|-Trois disques physiques<br /><br /> -Configuré comme un ensemble RAID 5 contenant les éléments suivants :<br /><br /> -C : volume ? 60 Go<br /><br /> -D : volume ? 1500 GO|  
-|Élevé|-Au moins cinq disques physiques au total<br /><br /> -Deux disques dans un jeu en miroir RAID 1 contenant le volume C :? 100 GO<br /><br /> -Tous les disques restants dans un ensemble RAID 5 contenant les éléments suivants :<br /><br /> -D : volume ? 1500 GO<br /><br /> -E : volume ? 1500 GO|  
+|Moyenne|-Trois disques physiques<br /><br /> -Configuré comme un ensemble RAID 5 contenant les éléments suivants :<br /><br /> -C : volume ? 60 Go<br /><br /> -D : volume ? 1500 GO|  
+|Élevée|-Au moins cinq disques physiques au total<br /><br /> -Deux disques dans un jeu en miroir RAID 1 contenant le volume C :? 100 GO<br /><br /> -Tous les disques restants dans un ensemble RAID 5 contenant les éléments suivants :<br /><br /> -D : volume ? 1500 GO<br /><br /> -E : volume ? 1500 GO|  
   
  Ces recommandations tiennent compte de la taille du système d’exploitation installé, de la taille moyenne du stockage de données que le serveur utilise et de la croissance du stockage de données prévue au cours de la durée de vie du serveur. Les volumes peuvent être des partitions sur un seul disque physique ou ils peuvent être placés sur des disques physiques distincts. Étant donné que le serveur stocke des données importantes pour votre client, il est recommandé d’utiliser plusieurs disques physiques et de protéger les données de vos clients à l’aide de RAID matériel ou d’espaces de stockage.  
   

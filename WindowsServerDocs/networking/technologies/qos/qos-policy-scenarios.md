@@ -6,18 +6,18 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: c4306f06-a117-4f65-b78b-9fd0d1133f95
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9ac5ab31db1b8c184fd179ecb3e6b87f7fffd2ba
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 927232a3b191be86ae91b1dd0d6af767d4f024ae
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405236"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315427"
 ---
 # <a name="qos-policy-scenarios"></a>Scénarios de stratégie de QoS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour passer en revue les scénarios hypothétiques qui illustrent comment, quand et pourquoi utiliser la stratégie QoS.
 
@@ -29,15 +29,15 @@ Les deux scénarios de cette rubrique sont les suivants :
 >[!NOTE]
 >Certaines sections de cette rubrique contiennent les étapes générales que vous pouvez suivre pour effectuer les actions décrites. Pour obtenir des instructions plus détaillées sur la gestion de la stratégie QoS, consultez [gérer la stratégie QoS](qos-policy-manage.md).
 
-## <a name="scenario-1-prioritize-network-traffic-for-a-line-of-business-application"></a>Scénario 1: Hiérarchiser le trafic réseau pour une application métier
+## <a name="scenario-1-prioritize-network-traffic-for-a-line-of-business-application"></a>Scénario 1 : hiérarchiser le trafic réseau pour une application métier
 
 Dans ce scénario, un service informatique a plusieurs objectifs qu’il peut accomplir à l’aide de la stratégie QoS :
 
-- Améliorez les performances du réseau\-pour les applications stratégiques.
+- Améliorez les performances du réseau pour les applications\-critiques.
 - Améliorez les performances du réseau pour un ensemble d’utilisateurs de clés lorsqu’ils utilisent une application spécifique.
-- Veillez à ce\-que l’application de sauvegarde des données de l’entreprise n’entrave pas les performances du réseau en utilisant trop de bande passante en même temps.
+- Assurez-vous que la société\-application de sauvegarde des données étendue n’entrave pas les performances du réseau en utilisant trop de bande passante à un moment donné.
 
-Le département informatique décide de configurer la stratégie de qualité de service pour hiérarchiser les applications spécifiques en \(utilisant\) les valeurs DSCP du point de code du service de différenciation pour classifier le trafic réseau et configurer ses routeurs pour fournir des conditions préférentielles. traitement pour le trafic avec une priorité plus élevée. 
+Le département informatique décide de configurer la stratégie de QoS pour hiérarchiser les applications spécifiques en utilisant le point de code du service de différenciation \(les valeurs DSCP\) pour classifier le trafic réseau et configurer ses routeurs pour fournir un traitement préférentiel pour le trafic de priorité plus élevée. 
 
 >[!NOTE]
 >Pour plus d’informations sur DSCP, consultez la section **définir la priorité de QoS par le biais d’un point de code de services différenciés** dans la rubrique [stratégie de qualité de service (QoS)](qos-policy-top.md).
@@ -50,11 +50,11 @@ Avec trois objectifs distincts à accomplir, l’administrateur informatique dé
 
 #### <a name="qos-policy-for-lob-app-servers"></a>Stratégie de QoS pour les serveurs d’applications LOB
 
-La première\-application critique pour laquelle le service informatique crée une stratégie de QoS est\-une application ERP\) de planification \(des ressources de l’entreprise. L’application ERP est hébergée sur plusieurs ordinateurs qui exécutent tous Windows Server 2016. Dans Active Directory Domain Services, ces ordinateurs sont \(membres d’une UO\) d’unité d’organisation qui a été créée pour les \(serveurs d'\) applications métier métier. Le composant\-côté client de l’application ERP est installé sur les ordinateurs qui exécutent Windows 10 et Windows 8.1.
+La première mission\-application critique pour laquelle le service informatique crée une stratégie de QoS est une application de planification des ressources de l’entreprise\-\(ERP\). L’application ERP est hébergée sur plusieurs ordinateurs qui exécutent tous Windows Server 2016. Dans Active Directory Domain Services, ces ordinateurs sont membres d’une unité d’organisation \(UO\) créée pour les serveurs d’applications métier\) LOB \(. Le composant côté client\-pour l’application ERP est installé sur les ordinateurs qui exécutent Windows 10 et Windows 8.1.
 
-Dans stratégie de groupe, un administrateur sélectionne l’objet de stratégie \(de\) groupe objet stratégie de groupe sur lequel la stratégie QoS sera appliquée. À l’aide de l’Assistant stratégie de QoS, l’administrateur informatique crée une stratégie de QoS appelée « stratégie d’entreprise serveur\-» qui spécifie une valeur DSCP de priorité élevée de 44 pour toutes les applications, toute adresse IP, TCP et UDP et le numéro de port.
+Dans stratégie de groupe, un administrateur sélectionne l’objet stratégie de groupe \(objet de stratégie de groupe\) sur lequel la stratégie QoS sera appliquée. À l’aide de l’Assistant stratégie de QoS, l’administrateur informatique crée une stratégie de QoS appelée « stratégie d’entreprise du serveur » qui spécifie une valeur DSCP haute\-priorité de 44 pour toutes les applications, toute adresse IP, TCP et UDP, ainsi que le numéro de port.
 
-La stratégie QoS est appliquée uniquement aux serveurs LOB en liant l’objet de stratégie de groupe à l’unité d’organisation qui contient uniquement ces \(serveurs\) , via l’outil console de gestion des stratégies de groupe GPMC. Cette stratégie d’entreprise de serveur initiale applique\-la valeur DSCP haute priorité chaque fois que l’ordinateur envoie le trafic réseau. Cette stratégie de QoS peut être modifiée \(ultérieurement dans l’outil\) éditeur d’objets stratégie de groupe pour inclure les numéros de port de l’application ERP, ce qui limite la stratégie à s’appliquer uniquement lorsque le numéro de port spécifié est utilisé.
+La stratégie QoS est appliquée uniquement aux serveurs LOB en liant l’objet de stratégie de groupe à l’unité d’organisation qui contient uniquement ces serveurs, via l’outil de\) Console de gestion des stratégies de groupe \(GPMC. Cette stratégie d’entreprise de serveur initiale applique la valeur DSCP haute\-priorité chaque fois que l’ordinateur envoie le trafic réseau. Cette stratégie de QoS peut être modifiée ultérieurement \(dans l’outil stratégie de groupe de l’éditeur d’objets\) pour inclure les numéros de port de l’application ERP, ce qui limite la stratégie pour s’appliquer uniquement lorsque le numéro de port spécifié est utilisé.
 
 #### <a name="qos-policy-for-the-finance-group"></a>Stratégie QoS pour le groupe finance
 
@@ -95,11 +95,11 @@ Lorsque le trafic arrive au routeur avec les valeurs DSCP de « stratégie d’
 
 Pour effectuer cette tâche, assurez-vous que les conditions suivantes sont respectées :
 
-- Les ordinateurs impliqués exécutent des\-systèmes d’exploitation compatibles QoS.
+- Les ordinateurs impliqués exécutent QoS\-systèmes d’exploitation compatibles.
 
-- Les ordinateurs impliqués sont membres d’un domaine \(Active Directory Domain Services\) AD DS afin de pouvoir être configurés à l’aide de stratégie de groupe.
+- Les ordinateurs impliqués sont membres d’un Active Directory Domain Services \(AD DS\) domaine afin de pouvoir être configurés à l’aide d’stratégie de groupe.
 
-- Les réseaux TCP/IP sont configurés avec des routeurs configurés pour\)le protocole DSCP \(RFC 2474. Pour plus d’informations, consultez la [RFC 2474](https://www.ietf.org/rfc/rfc2474.txt).
+- Les réseaux TCP/IP sont configurés avec des routeurs configurés pour le protocole DSCP \(RFC 2474\). Pour plus d’informations, consultez la [RFC 2474](https://www.ietf.org/rfc/rfc2474.txt).
 
 - Les exigences en matière d’informations d’identification d’administration sont satisfaites.
 
@@ -122,19 +122,19 @@ Pour configurer l’environnement de test, effectuez les tâches suivantes.
 
 Pour classer par ordre de priorité une application métier, effectuez les tâches suivantes :
 
-1. Créez et liez un objet de \(stratégie\) de groupe objet stratégie de groupe avec une stratégie QoS.
+1. Créez et liez un objet stratégie de groupe \(objet de stratégie de groupe\) avec une stratégie QoS.
 
 2. Configurez les routeurs pour traiter de façon différentielle une application métier (à l’aide de la mise en file d’attente) en fonction des valeurs DSCP sélectionnées. Les procédures de cette tâche varient en fonction du type de routeurs que vous avez.
 
-## <a name="scenario-2-prioritize-network-traffic-for-an-http-server-application"></a>Scénario 2 : Définir la priorité du trafic réseau pour une application serveur HTTP
+## <a name="scenario-2-prioritize-network-traffic-for-an-http-server-application"></a>Scénario 2 : hiérarchiser le trafic réseau pour une application serveur HTTP
 
 Dans Windows Server 2016, la QoS basée sur la stratégie comprend les stratégies basées sur l’URL de la fonctionnalité. Les stratégies d’URL vous permettent de gérer la bande passante pour les serveurs HTTP.
 
-De nombreuses applications d’entreprise sont développées pour et hébergées\) sur des serveurs Web IIS Internet Information Services \(, et les applications Web sont accessibles à partir de navigateurs sur des ordinateurs clients.
+De nombreuses applications d’entreprise sont développées pour et hébergées sur Internet Information Services \(les serveurs Web IIS\), et les applications Web sont accessibles à partir de navigateurs sur des ordinateurs clients.
 
 Dans ce scénario, supposons que vous gérez un ensemble de serveurs IIS qui hébergent des vidéos de formation pour tous les employés de votre organisation. Votre objectif est de vous assurer que le trafic provenant de ces serveurs vidéo ne sature pas votre réseau et que le trafic vidéo est différencié du trafic vocal et de données sur le réseau. 
 
-La tâche est semblable à la tâche du scénario 1. Vous allez concevoir et configurer les paramètres de gestion du trafic, tels que la valeur DSCP pour le trafic vidéo, et le taux de limitation comme vous le feriez pour les applications métier. Toutefois, lorsque vous spécifiez le trafic, au lieu de fournir le nom de l’application, vous entrez uniquement l’URL à laquelle votre application serveur HTTP https://hrweb/training répondra : par exemple,.
+La tâche est semblable à la tâche du scénario 1. Vous allez concevoir et configurer les paramètres de gestion du trafic, tels que la valeur DSCP pour le trafic vidéo, et le taux de limitation comme vous le feriez pour les applications métier. Toutefois, lorsque vous spécifiez le trafic, au lieu de fournir le nom de l’application, vous entrez uniquement l’URL à laquelle votre application serveur HTTP répondra : par exemple, https://hrweb/training.
   
 > [!NOTE]
 >Vous ne pouvez pas utiliser les stratégies QoS basées sur l’URL pour hiérarchiser le trafic réseau pour les ordinateurs exécutant des systèmes d’exploitation Windows qui ont été publiés avant Windows 7 et Windows Server 2008 R2.
@@ -153,25 +153,25 @@ Toutes les URL suivantes sont valides et peuvent être spécifiées dans la stra
 
 Mais quel est l’ordre de priorité ? Les règles sont simples. Les stratégies basées sur des URL sont classées par ordre de priorité dans un ordre de lecture de gauche à droite. Ainsi, de la priorité la plus élevée à la priorité la plus basse, les champs d’URL sont les suivants :
   
-[1. Schéma d’URL](#bkmk_QoS_UrlScheme)
+[1. schéma d’URL](#bkmk_QoS_UrlScheme)
 
-[2. Hôte d’URL](#bkmk_QoS_UrlHost)
+[2. hôte d’URL](#bkmk_QoS_UrlHost)
 
-[3. Port de l’URL](#bkmk_QoS_UrlPort)
+[3. port d’URL](#bkmk_QoS_UrlPort)
 
-[4. Chemin de l’URL](#bkmk_QoS_UrlPath)
+[4. chemin de l’URL](#bkmk_QoS_UrlPath)
 
 Les détails sont les suivants :
 
-####  <a name="bkmk_QoS_UrlScheme"></a>1,0. Schéma d’URL
+####  <a name="1-url-scheme"></a><a name="bkmk_QoS_UrlScheme"></a>1. schéma d’URL
 
- `https://`a une priorité plus élevée `https://`que.
+ `https://` a une priorité plus élevée que `https://`.
 
-####  <a name="bkmk_QoS_UrlHost"></a>2. Hôte d’URL
+####  <a name="2-url-host"></a><a name="bkmk_QoS_UrlHost"></a>2. hôte d’URL
 
  De la priorité la plus élevée à la plus basse, il s’agit des éléments suivants :
 
-1. Hostname
+1. Nom d'hôte
 
 2. Adresse IPv6
 
@@ -191,11 +191,11 @@ Dans le cas du nom d’hôte, un nom d’hôte avec davantage d’éléments en 
   
   **Video.Internal.Training.hr.mycompany.com** a la priorité la plus élevée et **selfguide.Training.mycompany.com** a la priorité la plus élevée suivante. La **formation** et la **bibliothèque** partagent la même priorité la plus basse.  
   
-####  <a name="bkmk_QoS_UrlPort"></a>1,3. Port de l’URL
+####  <a name="3-url-port"></a><a name="bkmk_QoS_UrlPort"></a>3. port d’URL
 
 Un numéro de port spécifique ou implicite a une priorité supérieure à celle d’un port générique.
 
-####  <a name="bkmk_QoS_UrlPath"></a>4. Chemin de l’URL
+####  <a name="4-url-path"></a><a name="bkmk_QoS_UrlPath"></a>4. chemin de l’URL
 
 À l’instar d’un nom d’hôte, un chemin d’URL peut être constitué de plusieurs éléments. Celui avec plus d’éléments a toujours une priorité plus élevée que celle avec moins. Par exemple, les chemins d’accès suivants sont répertoriés par priorité :  
 

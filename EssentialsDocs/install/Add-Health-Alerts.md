@@ -3,7 +3,7 @@ title: Ajout d’alertes d’intégrité
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: 270e0aac-dc42-46f3-a20b-a68ffbded06d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8c3ba4746211690ad52f775b8bdc1ccf9b6c74b7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4166d65d0008f3427947322b285221e7b0090029
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433718"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310255"
 ---
 # <a name="add-health-alerts"></a>Ajout d’alertes d’intégrité
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Un complément d’intégrité fournit les définitions des alertes, assure les contrôles d’intégrité et procède aux réparations applicables en cas de problèmes du réseau. Il est constitué de fichiers XML prévus pour annoter le code ou les données servant à évaluer les informations d’intégrité pour une fonctionnalité spécifique. Ces compléments sont créés par les développeurs et installés sur le serveur et les ordinateurs clients par l’administrateur.  
   
@@ -52,5 +52,5 @@ Un complément d’intégrité fournit les définitions des alertes, assure les 
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

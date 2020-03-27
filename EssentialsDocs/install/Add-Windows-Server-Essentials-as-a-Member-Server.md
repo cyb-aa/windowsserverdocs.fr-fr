@@ -3,7 +3,7 @@ title: Ajouter Windows Server Essentials en tant que serveur membre
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,16 +12,16 @@ ms.assetid: d09dd82f-f7d2-47ce-862d-fd9869f2021c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 09943f9708af3839ff21717316853fab9ba0283b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4b87c066885ed2bf0ac6dfa29496317310b062d9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865048"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310175"
 ---
 # <a name="add-windows-server-essentials-as-a-member-server"></a>Ajouter Windows Server Essentials en tant que serveur membre
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Cette rubrique s’applique à un serveur exécutant Windows Server 2012 R2 Standard, Windows Server 2012 R2 Datacenter ou Windows Server 2016 avec le rôle expérience Windows Server Essentials installé. Dans le reste de ce document, le rôle Expérience Windows Server Essentials sera appelé Windows Server Essentials.  
   
@@ -51,7 +51,7 @@ Cette rubrique s’applique à un serveur exécutant Windows Server 2012 R2 Stan
   
 1. Après avoir terminé l'installation de Windows Server Essentials sur votre second serveur, fermez l'Assistant Configuration de Windows Server Essentials.  
   
-2. Dans la zone **Rechercher** , tapez **System Settings**et dans les résultats de la recherche, cliquez sur **Afficher les paramètres système avancés**.  
+2. Dans la zone **Rechercher**, tapez **System Settings** et dans les résultats de la recherche, cliquez sur **Afficher les paramètres système avancés**.  
   
 3. Dans **Propriétés système**, cliquez sur l'onglet **Nom de l'ordinateur**.  
   
@@ -76,7 +76,7 @@ Cette rubrique s’applique à un serveur exécutant Windows Server 2012 R2 Stan
   
 2.  Connectez-vous au serveur à l'aide de votre compte d'administrateur de domaine.  
   
-3.  Ouvrez le Gestionnaire de serveurs.  
+3.  Ouvrez Gestionnaire de serveur.  
   
 4.  Dans la zone de notification d'indicateur dans **Gestionnaire de serveur**, cliquez sur l'indicateur, puis sur **Configurer Windows Server Essentials**.  
   

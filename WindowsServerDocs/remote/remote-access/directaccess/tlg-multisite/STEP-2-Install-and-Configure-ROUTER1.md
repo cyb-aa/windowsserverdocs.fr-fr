@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc20b1a0-540d-4531-a176-50b87c071600
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0c6bff2acc15b7ff90731e0113ae0d5a429c635c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3cd73f1a5e2612f4551be1f16e49e9645c5e12c0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404800"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308733"
 ---
 # <a name="step-2-install-and-configure-router1"></a>ÉTAPE 2 installer et configurer ROUTEUR1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans ce guide de laboratoire de test multisite, l’ordinateur routeur fournit un pont IPv4 et IPv6 entre les sous-réseaux corpnet et 2-corpnet, et joue le rôle de routeur pour le trafic IP-HTTPs et Teredo.  
   
@@ -40,7 +40,7 @@ Tout d’abord, installez Windows Server 2016, Windows Server 2012 R2 ou Windows
   
 1.  Démarrez l’installation de Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (installation complète).  
   
-2.  Suivez les instructions pour effectuer l’installation, en spécifiant un mot de passe fort pour le compte Administrateur local. Ouvrez une session à l’aide du compte Administrateur local.  
+2.  Suivez les instructions pour effectuer l’installation, en spécifiant un mot de passe fort pour le compte Administrateur local. Ouvrez une session en utilisant le compte d'administrateur local.  
   
 3.  Connectez ROUTEUR1 à un réseau disposant d’un accès Internet et exécutez Windows Update pour installer les dernières mises à jour pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, puis vous déconnecter d’Internet.  
   
@@ -57,7 +57,7 @@ Configurez les paramètres TCP/IP sur le routeur et renommez l’ordinateur en R
   
 3.  Cliquez avec le bouton droit sur **corpnet**, puis cliquez sur **Propriétés**.  
   
-4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 5.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.0.0.254**. Dans **masque de sous-réseau**, tapez **255.255.255.0**, puis cliquez sur **OK**.  
   
@@ -71,7 +71,7 @@ Configurez les paramètres TCP/IP sur le routeur et renommez l’ordinateur en R
   
 10. Cliquez avec le bouton droit sur **2-corpnet**, puis cliquez sur **Propriétés**.  
   
-11. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+11. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 12. Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.2.0.254**. Dans **masque de sous-réseau**, tapez **255.255.255.0**, puis cliquez sur **OK**.  
   
@@ -112,7 +112,7 @@ Cet ordinateur est configuré uniquement pour assurer le routage entre les sous-
   
 5.  Dans la boîte de dialogue **pare-feu Windows avec fonctions avancées de sécurité** , sous l’onglet **profil public** , dans **État du pare-feu**, cliquez sur **désactivé**, puis sur **OK**.  
   
-6.  Fermez pare-feu Windows avec fonctions avancées de sécurité.  
+6.  Fermez la fenêtre Pare-feu Windows avec fonctions avancées de sécurité.  
   
 ## <a name="configure-routing-and-forwarding"></a>Configurer le routage et le transfert  
 Pour fournir des services de routage et de transfert entre les sous-réseaux corpnet et 2-corpnet, vous devez activer le transfert sur les interfaces réseau et configurer des itinéraires statiques entre les sous-réseaux.  
@@ -144,4 +144,4 @@ Pour fournir des services de routage et de transfert entre les sous-réseaux cor
     netsh interface IPv6 add route 2001:0:836b:14::/64 2-Corpnet 2001:db8:2::20  
     ```  
   
-5.  Fermez la fenêtre d’invite de commandes.
+5.  Fermez la fenêtre d'invite de commandes.

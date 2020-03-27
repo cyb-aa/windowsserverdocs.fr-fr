@@ -2,26 +2,26 @@
 title: Création d’un DVD de récupération de serveur prenant en charge plusieurs langues
 description: Décrit comment utiliser Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 author: daveba
 ms.author: daveba
-ms.openlocfilehash: 59d8d41e5836ba88b405a058c8340f454b081c06
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: b71fc748f7cc8d82420b7a62fe502135036db727
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980244"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312113"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>Création d’un DVD de récupération de serveur prenant en charge plusieurs langues
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_MLHeadedRecovery"></a>Créer une configuration de serveur et un DVD de récupération de serveur pour la prise en charge de plusieurs langues sur des serveurs administrés localement  
+##  <a name="create-a-server-setup-and-server-recovery-dvd-for-multiple-language-support-on-locally-administered-servers"></a><a name="BKMK_MLHeadedRecovery"></a>Créer une configuration de serveur et un DVD de récupération de serveur pour la prise en charge de plusieurs langues sur des serveurs administrés localement  
   
 > [!NOTE]
->  Vous devez d’abord créer une image Windows multilingue, comme décrit [dans la procédure pas à pas: Création](https://technet.microsoft.com/library/jj126995) d’images système Windows multilingues avant d’ajouter Windows Server Essentials linguistique au fichier Pack dans Install. wim.  
+>  Vous devez d’abord créer une image Windows multilingue, comme décrit dans la [procédure pas à pas : création d’une image Windows multilingue](https://technet.microsoft.com/library/jj126995) avant d’ajouter Windows Server Essentials linguistique au fichier Pack dans Install. wim.  
   
  La configuration s’effectue en deux phases : l’environnement de préinstallation Windows (Windows PE) et la configuration initiale. Par défaut, la page de sélection de la langue de la configuration initiale ne sera pas affichée.  
   
@@ -44,29 +44,29 @@ ms.locfileid: "69980244"
   
 2.  Création d'un support distribuable  
   
-### <a name="prerequisites"></a>Prérequis  
+### <a name="prerequisites"></a>Composants requis  
  Pour ajouter la prise en charge multilingue à l'installation de Windows, vous avez besoin des éléments suivants :  
   
 
--   Ordinateur de référence fournissant tous les outils et fichiers source nécessaires à la création d’une image Windows PE personnalisée. Pour plus d'informations, voir [Prepare the Technician Computer](Prepare-the-Technician-Computer.md).  
+-   Ordinateur de référence fournissant tous les outils et fichiers source nécessaires à la création d’une image Windows PE personnalisée. Pour plus d'informations, voir [Préparation de l'ordinateur de référence](Prepare-the-Technician-Computer.md).  
 
--   Ordinateur de référence fournissant tous les outils et fichiers source nécessaires à la création d’une image Windows PE personnalisée. Pour plus d'informations, voir [Prepare the Technician Computer](../install/Prepare-the-Technician-Computer.md).  
+-   Ordinateur de référence fournissant tous les outils et fichiers source nécessaires à la création d’une image Windows PE personnalisée. Pour plus d'informations, voir [Préparation de l'ordinateur de référence](../install/Prepare-the-Technician-Computer.md).  
 
   
 -   Un DVD Windows Server Essentials.  
   
 -   Un DVD de module linguistique Windows Server Essentials.  
   
-###  <a name="BKMK_Steps"></a>Ajout de la prise en charge de plusieurs langues  
+###  <a name="adding-multiple-language-support"></a><a name="BKMK_Steps"></a>Ajout de la prise en charge de plusieurs langues  
  Pour ajouter la prise en charge de plusieurs langues à installation de Windows vous mettez à jour le fichier Install. wim en y ajoutant les modules linguistiques Windows Server 2012 et Windows Server Essentials.  
   
 #### <a name="update-installwim"></a>Mettre à jour Install.wim  
  Au cours de cette étape, vous allez ajouter des modules linguistiques Windows Server 2012 et Windows Server Essentials dans Install. wim.  
   
 > [!NOTE]
->  Vérifiez que vous installez les modules linguistiques pour Windows Server 2012. Cela garantit l'obtention de l'image de marque appropriée. Les modules linguistiques de l’interface utilisateur multilingue de Windows Server 2012 sont disponibles sur [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx). Suivez les instructions décrites dans la [procédure pas à pas: Création d’images système Windows multilingues sur la](https://technet.microsoft.com/library/jj126995.aspx) création d’une image Windows multilingue avant d’ajouter le module linguistique Windows Server Essentials dans Install. wim.  
+>  Vérifiez que vous installez les modules linguistiques pour Windows Server 2012. Cela garantit l'obtention de l'image de marque appropriée. Les modules linguistiques de l’interface utilisateur multilingue de Windows Server 2012 sont disponibles sur [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx). Suivez les instructions décrites dans la [procédure pas à pas : création d’images système Windows multilingues sur](https://technet.microsoft.com/library/jj126995.aspx) la création d’une image Windows multilingue avant d’ajouter le module linguistique Windows Server Essentials dans Install. wim.  
 >   
->  Les modules linguistiques de Windows Server Essentials sont disponibles dans le support du module linguistique dans\\sous \Language packs < cultureName.\>  
+>  Les modules linguistiques Windows Server Essentials sont disponibles dans le support du module linguistique de sous \Language packs\\< CultureName\>.  
   
 > [!NOTE]
 >  Tous les modules linguistiques ne sont pas disponibles avant la sortie de Windows Server 2012.  
@@ -104,12 +104,12 @@ ms.locfileid: "69980244"
   
 ## <a name="see-also"></a>Voir aussi  
 
- [Création et personnalisation de l’image](Creating-and-Customizing-the-Image.md)   
+ [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)
 
- [Création et personnalisation de l’image](../install/Creating-and-Customizing-the-Image.md)   
+ [Création et personnalisation de l’Image](../install/Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](../install/Additional-Customizations.md)   
  [Préparation de l’image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](../install/Testing-the-Customer-Experience.md)

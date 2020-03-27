@@ -6,19 +6,19 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/10/2018
-ms.openlocfilehash: 38d104bc3ceca478f0e261b3a364b5d4448b22f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a16d82e4db1e92a5dd20f6b4feb88f0619d50cc4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406018"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317512"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Configuration requise pour le déploiement du contrôleur de réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Préparez votre centre de informations pour le déploiement de contrôleur de réseau, qui nécessite un ou plusieurs ordinateurs ou machines virtuelles et un ordinateur ou une machine virtuelle. Avant de pouvoir déployer le contrôleur de réseau, vous devez configurer les groupes de sécurité, les emplacements des fichiers journaux (si nécessaire) et l’inscription DNS dynamique.
 
@@ -56,12 +56,12 @@ La prochaine chose à faire est de configurer les emplacements de fichiers pour 
 >Si vous stockez les journaux dans un partage de fichiers distant, assurez-vous que le partage est accessible à partir du contrôleur de réseau.
 
 
-### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Étape 3. Configurer l’inscription DNS dynamique pour le contrôleur de réseau
+### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Étape 3. Configurer l’inscription DNS dynamique pour le contrôleur de réseau
 
 Enfin, la prochaine chose à faire est de déployer des nœuds de cluster de contrôleur de réseau sur le même sous-réseau ou sur des sous-réseaux différents. 
 
 
-|         Si…         |                                                                                                                                                         Alors…                                                                                                                                                         |
+|         Condition         |                                                                                                                                                         Conséquence                                                                                                                                                         |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  Sur le même sous-réseau,  |                                                                                                                                Vous devez fournir l’adresse IP REST du contrôleur de réseau.                                                                                                                                 |
 | Sur des sous-réseaux différents, | Vous devez fournir le nom DNS REST du contrôleur de réseau, que vous créez pendant le processus de déploiement. Vous devez également effectuer les opérations suivantes :<ul><li>Configurez des mises à jour dynamiques DNS pour le nom DNS du contrôleur de réseau sur le serveur DNS.</li><li>Limitez les mises à jour dynamiques DNS aux nœuds de contrôleur de réseau uniquement.</li></ul> |
@@ -134,7 +134,7 @@ Pour l’automatisation du déploiement basé sur TP5, Active Directory doit êt
 >Si vous déployez à l’aide de VMM, assurez-vous que vos machines virtuelles d’infrastructure (serveur VMM, AD/DNS, SQL Server, etc.) ne sont pas hébergées sur l’un des quatre hôtes affichés dans les diagrammes.  
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 [Planifier une infrastructure réseau à définition logicielle](https://technet.microsoft.com/windows-server-docs/networking/sdn/plan/plan-a-software-defined-network-infrastructure).
 
 ## <a name="related-topics"></a>Rubriques connexes

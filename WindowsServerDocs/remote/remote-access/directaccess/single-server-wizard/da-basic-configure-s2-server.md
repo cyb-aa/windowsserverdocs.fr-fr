@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a21e5799824c968b29c719585ca16b6b45a9ef37
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6faa40428df424f60637fb206641d8bae2774c79
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404912"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308932"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Étape 2 configurer le serveur DirectAccess de base
 
@@ -32,9 +32,9 @@ Cette rubrique décrit comment configurer les paramètres de client et de serveu
 |Mettre à jour les clients avec la configuration DirectAccess|Pour recevoir les paramètres DirectAccess, les clients doivent mettre à jour la stratégie de groupe lorsqu’ils sont connectés à l’intranet.|  
   
 > [!NOTE]  
-> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Cette rubrique comprend des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>Installer le rôle accès à distance  
+## <a name="install-the-remote-access-role"></a><a name="BKMK_Role"></a>Installer le rôle accès à distance  
 Pour déployer l'accès à distance, vous devez installer le rôle Accès à distance sur un serveur de votre organisation qui agira en tant que serveur d'accès à distance.  
   
 #### <a name="to-install-the-remote-access-role"></a>Pour installer le rôle Accès à distance  
@@ -43,7 +43,7 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 2.  Cliquez sur **Suivant** trois fois pour accéder à l’écran de sélection du rôle de serveur.  
   
-3.  Dans la boîte de dialogue **Sélectionner des rôles de serveurs** , sélectionnez **Accès à distance**, puis cliquez sur **Suivant**.  
+3.  Dans la boîte de dialogue **Sélectionner des rôles de serveurs**, sélectionnez **Accès à distance**, puis cliquez sur **Suivant**.  
   
 4.  Dans la boîte de dialogue **Sélectionner des fonctionnalités**, cliquez sur **Suivant**.  
   
@@ -51,7 +51,7 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 6.  Cliquez sur **Ajouter des fonctionnalités**, sur **suivant**, puis sur **installer**.  
   
-7.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
+7.  Dans la boîte de dialogue **Progression de l'installation**, vérifiez que l'installation a réussi, puis cliquez sur **Fermer**.  
   
 ![les commandes Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
@@ -119,7 +119,7 @@ L’applet de commande Windows PowerShell ou les applets de commande suivantes i
   
 6.  Tapez **Get-DAConnectionStatus**, puis appuyez sur **ENTRÉE**. Comme le client peut atteindre l’URL du serveur Emplacement réseau, l’état s’affiche sous la forme **ConnectedLocally**.  
   
-## <a name="BKMK_Links"></a>Étape précédente  
+## <a name="previous-step"></a><a name="BKMK_Links"></a>Étape précédente  
   
 -   [Étape 1 : configurer l’infrastructure DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   

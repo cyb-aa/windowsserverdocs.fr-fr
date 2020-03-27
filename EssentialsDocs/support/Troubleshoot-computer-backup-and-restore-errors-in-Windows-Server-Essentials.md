@@ -3,7 +3,7 @@ title: Résoudre les problèmes liés à la sauvegarde de l’ordinateur et aux 
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 06/25/2013
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,23 +12,23 @@ ms.assetid: 5cc73aff-d2c0-4cf9-a23d-ef928ae5ddc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 37e79661442ba9f66a564b6c6c8fb57db1978454
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 28e3564c93f192563626bfb44992ef9bc4a49598
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812330"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313242"
 ---
 # <a name="troubleshoot-computer-backup-and-restore-errors-in-windows-server-essentials"></a>Résoudre les problèmes liés à la sauvegarde de l’ordinateur et aux erreurs de restauration dans Windows Server Essentials
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Ces procédures vous permettent de résoudre les problèmes liés aux sauvegardes de l'ordinateur dans Windows Server Essentials, y compris les problèmes de configuration de la sauvegarde, les sauvegardes incomplètes ou qui ont échoué, les alertes d'intégrité de sauvegarde et problèmes de restauration des fichiers, des dossiers ou du système complet.  
   
 > [!NOTE]
->  Pour les informations de dépannage plus récente à partir de la Communauté Windows Server Essentials, visitez le [Forum Windows Server Essentials](https://social.technet.microsoft.com/Forums//winserveressentials/threads).  
+>  Pour obtenir les informations de dépannage les plus récentes de la communauté Windows Server Essentials, visitez le [Forum Windows Server Essentials](https://social.technet.microsoft.com/Forums//winserveressentials/threads).  
   
-##  <a name="BKMK_TroubleshootBackupConfigurationIssues"></a> Résoudre les problèmes de configuration de la sauvegarde pour un ordinateur connecté  
+##  <a name="troubleshoot-backup-configuration-issues-for-a-connected-computer"></a><a name="BKMK_TroubleshootBackupConfigurationIssues"></a>Résoudre les problèmes de configuration de sauvegarde pour un ordinateur connecté  
  Utilisez ces procédures pour résoudre les problèmes de configurations de sauvegarde pour les ordinateurs qui sont sauvegardés sur votre serveur Windows Server Essentials.  
   
 ### <a name="errors"></a>Erreurs  
@@ -39,7 +39,7 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 -   Erreur d'annulation de la sauvegarde de l'ordinateur  
   
-### <a name="resolutions"></a>Résolutions  
+### <a name="resolutions"></a>Solutions  
   
 ##### <a name="to-troubleshoot-errors-that-occur-while-you-configure-backups-for-a-connected-computer"></a>Pour résoudre les erreurs se produisant pendant la configuration des sauvegardes d'un ordinateur connecté  
   
@@ -73,7 +73,7 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 6.  Désinstallez le logiciel Connecteur Windows Server Essentials de l'ordinateur, puis réinstallez-le. Pour plus d'informations, voir les rubriques [Désinstaller le logiciel Connecteur](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) et [Installer le logiciel Connecteur](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_11).  
   
-##  <a name="BKMK_TroubleshootaBackupThatDidNotCompleteProperly"></a> Résoudre les problèmes d’une sauvegarde qui n’a pas abouti  
+##  <a name="troubleshoot-a-backup-that-did-not-complete-properly"></a><a name="BKMK_TroubleshootaBackupThatDidNotCompleteProperly"></a>Résoudre les problèmes liés à une sauvegarde qui n’a pas été effectuée correctement  
  Quand le statut d'une sauvegarde est Échec, aucune partie de la sauvegarde n'a abouti et aucune donnée ne peut être restaurée. Toutefois, quand l'état de la sauvegarde est Incomplet, tous les éléments spécifiés dans la sauvegarde de configuration n'ont pas été sauvegardés, mais certaines données peuvent être restaurées.  
   
 ### <a name="errors"></a>Erreurs  
@@ -82,7 +82,7 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 -   Échec de la sauvegarde  
   
-### <a name="resolutions"></a>Résolutions  
+### <a name="resolutions"></a>Solutions  
   
 ##### <a name="to-identify-volumes-that-were-not-backed-up-successfully"></a>Pour identifier les volumes qui n'ont pas été correctement sauvegardés  
   
@@ -98,7 +98,7 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 1.  Vérifiez que le disque dur est connecté à l'ordinateur, qu'il est sous tension et qu'il fonctionne correctement.  
   
-2.  Exécutez **chkdsk /f /r** pour corriger les erreurs sur le disque dur (**/f**) et récupérer des informations lisibles à partir de n'importe quel secteur défectueux (**/r**). Pour plus d’informations sur l’exécution de **chkdsk**, consultez [CHKDSK](https://go.microsoft.com/fwlink/?LinkId=206562).  
+2.  Exécutez **chkdsk /f /r** pour corriger les erreurs sur le disque dur ( **/f**) et récupérer des informations lisibles à partir de n'importe quel secteur défectueux ( **/r**). Pour plus d’informations sur l’exécution de **chkdsk**, consultez [CHKDSK](https://go.microsoft.com/fwlink/?LinkId=206562).  
   
 3.  Vérifiez que l'ordinateur n'a été pas arrêté ou déconnecté du réseau pendant l'exécution de la sauvegarde.  
   
@@ -132,7 +132,7 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 6.  Exécutez **vssadmin** dans une invite de commandes pour résoudre les problèmes du service VSS. Pour plus d’informations sur **vssadmin**, consultez [VSSADMIN](https://go.microsoft.com/fwlink/?LinkID=94332).  
   
-##  <a name="BKMK_TroubleshootBackupHealthAlertIssues"></a> Résoudre les problèmes alerte d’intégrité de sauvegarde  
+##  <a name="troubleshoot-backup-health-alert-issues"></a><a name="BKMK_TroubleshootBackupHealthAlertIssues"></a>Résoudre les problèmes liés aux alertes d’intégrité de sauvegarde  
   
 ### <a name="errors"></a>Erreurs  
   
@@ -140,7 +140,7 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 -   Interruption du Service fournisseur de sauvegarde des solutions Windows Server pour ordinateurs client  
   
-### <a name="resolutions"></a>Résolutions  
+### <a name="resolutions"></a>Solutions  
   
 ##### <a name="to-troubleshoot-a-backup-health-alert"></a>Pour résoudre une alerte d'intégrité de la sauvegarde  
   
@@ -175,13 +175,13 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 5.  Vérifiez les alertes d'intégrité liées à d'autres problèmes qui peuvent avoir une incidence sur la sauvegarde du client.  
   
-##  <a name="BKMK_FileAndFolder"></a> Résoudre les problèmes de restauration d’un fichier ou dossier  
+##  <a name="troubleshoot-a-file-or-folder-restore"></a><a name="BKMK_FileAndFolder"></a>Résoudre les problèmes de restauration d’un fichier ou d’un dossier  
   
 ### <a name="errors"></a>Erreurs  
   
 -   Échec de la restauration du fichier ou du dossier  
   
-### <a name="resolutions"></a>Résolutions  
+### <a name="resolutions"></a>Solutions  
   
 ##### <a name="to-troubleshoot-an-unsuccessful-file-or-folder-restore"></a>Pour résoudre les problèmes liés à un échec de restauration de fichier ou de dossier  
   
@@ -199,13 +199,13 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
     1.  Cliquez sur **Démarrer**, tapez **Gestionnaire de périphériques** dans les zones de texte **Rechercher les programmes et fichiers**, puis cliquez sur ENTRÉE.  
   
-    2.  Dans le Gestionnaire de périphériques, cliquez sur **Périphériques système**, faites défiler jusqu'à **Solutions Windows Server - Pilote de restauration d'ordinateur**.  
+    2.  Dans le Gestionnaire de périphériques, cliquez sur **Périphériques système**, faites défiler jusqu'à **Solutions Windows Server - Pilote de restauration d'ordinateur**.  
   
     3.  Si le pilote n'est pas affiché :  
   
         1.  Ouvrez une invite de commandes avec des privilèges d'administrateur et exécutez la commande suivante :  
   
-             **%ProgramFiles%\Windows Server\Bin\BackupDriverInstaller.exe ?  J’ai**  
+             **%ProgramFiles%\Windows Server\Bin\BackupDriverInstaller.exe ? -i**  
   
         2.  Actualisez le Gestionnaire de périphériques. Le pilote doit apparaître.  
   
@@ -213,7 +213,7 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
     5.  Si l'icône n'est pas un moniteur d'ordinateur :  
   
-        1.  Cliquez avec le bouton droit sur **Solutions Windows Server - Pilote de restauration d'ordinateur**, puis cliquez sur **Propriétés**.  
+        1.  Cliquez avec le bouton droit sur **Solutions Windows Server - Pilote de restauration d'ordinateur**, puis cliquez sur **Propriétés**.  
   
         2.  Cliquez sur l'onglet **Pilote**, puis sur **Mettre à jour le pilote**.  
   
@@ -223,14 +223,14 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 6.  Désinstallez le logiciel Connecteur Windows Server Essentials de l'ordinateur, puis réinstallez-le. Pour plus d'informations, voir les rubriques [Désinstaller le logiciel Connecteur](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) et [Installer le logiciel Connecteur](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_11).  
   
-##  <a name="BKMK_Troubleshootfullsystemrestoreissues"></a> Résoudre les problèmes de restauration complète du système  
+##  <a name="troubleshoot-a-full-system-restore"></a><a name="BKMK_Troubleshootfullsystemrestoreissues"></a>Résoudre les problèmes liés à une restauration complète du système  
   
 ### <a name="errors"></a>Erreurs  
   
 -   Impossible d'ouvrir une session sur l'ordinateur client après une restauration complète du système.  
   
-### <a name="resolutions"></a>Résolutions  
- Si vous modifiez le nom d'un ordinateur, et que vous devez restaurer une sauvegarde qui a été enregistrée avant cette modification, quand vous tentez d'ouvrir une session sous votre compte de domaine après la restauration, le message d'erreur suivant s'affichera : « La base de données de sécurité du serveur n'a pas de compte d'ordinateur pour la relation d'approbation avec cette station de travail. » Pour obtenir à nouveau l'accès réseau à l'ordinateur, supprimez le logiciel Connecteur, enlevez l'ordinateur du domaine Windows, puis reconnectez-vous au serveur.  
+### <a name="resolutions"></a>Solutions  
+ Si vous modifiez le nom d'un ordinateur, et que vous devez restaurer une sauvegarde qui a été enregistrée avant cette modification, quand vous tentez d'ouvrir une session sous votre compte de domaine après la restauration, le message d'erreur suivant s'affichera : « La base de données de sécurité du serveur n'a pas de compte d'ordinateur pour la relation d'approbation avec cette station de travail. » Pour obtenir à nouveau l'accès réseau à l'ordinateur, supprimez le logiciel Connecteur, enlevez l'ordinateur du domaine Windows, puis reconnectez-vous au serveur.  
   
 ##### <a name="to-regain-network-access-to-a-restored-computer-after-a-computer-name-change"></a>Pour récupérer l'accès réseau à un ordinateur restauré après une modification du nom de l'ordinateur  
   
@@ -244,4 +244,4 @@ Ces procédures vous permettent de résoudre les problèmes liés aux sauvegarde
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Prise en charge Windows Server Essentials](Support-Windows-Server-Essentials.md)
+-   [Prendre en charge Windows Server Essentials](Support-Windows-Server-Essentials.md)

@@ -7,19 +7,19 @@ ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 5ba5bb37-ece0-45cb-971b-f7149f658d19
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: 29013827d0cde0447c48afa7a42551760ab9e940
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1a17d5f5fec0a05b4258b295eb37b6dc80cdaee1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355996"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313052"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>Déployer une infrastructure SDN (Software Defined Networking) avec des scripts
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans cette rubrique, vous déployez une infrastructure SDN (Software Defined Network) à l’aide de scripts. L’infrastructure comprend un contrôleur de réseau à haute disponibilité (HA), un/MUX de Load Balancer logiciels à haute disponibilité (SLB), des réseaux virtuels et des listes de Access Control (ACL) associées. En outre, un autre script déploie une charge de travail de locataire pour vous assurer la validation de votre infrastructure SDN.  
 
@@ -31,7 +31,7 @@ Vous pouvez également déployer une infrastructure SDN à l’aide de Virtual M
 ## <a name="pre-deployment"></a>Pré-déploiement  
 
 > [!IMPORTANT]  
-> Avant de commencer le déploiement, vous devez planifier et configurer vos ordinateurs hôtes et votre infrastructure de réseau physique. Pour plus d’informations, voir [Planifier une mise en réseau SDN (Software Defined Networking)](../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md).  
+> Avant de commencer le déploiement, vous devez planifier et configurer vos ordinateurs hôtes et votre infrastructure de réseau physique. Pour plus d’informations, consultez [Planifier une mise en réseau SDN (Software Defined Networking)](../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md).  
 
 Windows Server 2016 doit être installé sur tous les ordinateurs hôtes Hyper-V.  
 
@@ -127,7 +127,7 @@ Si vous utilisez Nano comme hôtes Hyper-V (serveurs physiques) pour le déploie
 1. Pour tous les nœuds nano, le package DSC doit être installé avec le module linguistique :  
 
    - Microsoft-NanoServer-DSC-Package. cab  
-   - Microsoft-NanoServer-DSC-Package_en-us. cab
+   - Microsoft-serveur-DSC-Package_en-US. cab
 
      ``dism /online /add-package /packagepath:<Path> /loglevel:4``  
 
@@ -152,7 +152,7 @@ Si vous utilisez Nano comme hôtes Hyper-V (serveurs physiques) pour le déploie
 5. Accédez au dossier `C:\SDNExpress`.<p>Les dossiers suivants s’affichent :  
 
 
-   | Nom du dossier |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+   | Folder Name |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
    |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    |  AgentConf  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Contient des copies récentes des schémas OVSDB utilisés par l’agent hôte SDN sur chaque hôte Hyper-V de Windows Server 2016 pour programmer la stratégie réseau.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
    |    Certificats    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Emplacement partagé temporaire pour le fichier de certificat NC.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -165,7 +165,7 @@ Si vous utilisez Nano comme hôtes Hyper-V (serveurs physiques) pour le déploie
 
 6. Vérifiez que le fichier VHDX Windows Server 2016 se trouve dans le dossier **images** .  
 
-7. Personnalisez le fichier SDNExpress\scripts\FabricConfig.psd1 en modifiant le **< < remplacez >** balises > par des valeurs spécifiques pour les adapter à votre infrastructure de laboratoire, y compris les noms d’hôte, les noms de domaine, les noms d’utilisateur et les mots de passe, ainsi que les informations réseau pour le réseaux figurant dans la rubrique réseau de planification.  
+7. Personnalisez le fichier SDNExpress\scripts\FabricConfig.psd1 en modifiant le **< < remplacez >** balises > par des valeurs spécifiques pour les adapter à votre infrastructure de laboratoire, y compris les noms d’hôte, les noms de domaine, les noms d’utilisateur et les mots de passe, ainsi que les informations réseau pour les réseaux listés dans la rubrique réseau de planification.  
 
 8. Créez un enregistrement A hôte A dans DNS pour NetworkControllerRestName (FQDN) et NetworkControllerRestIP.  
 
@@ -190,13 +190,13 @@ Utilisez [outils de diagnostic](https://docs.microsoft.com/windows-server/networ
 
 Maintenant que les ressources d’infrastructure ont été déployées, vous pouvez valider votre déploiement SDN de bout en bout en déployant un exemple de charge de travail de locataire. Cette charge de travail de locataire se compose de deux sous-réseaux virtuels (couche Web et couche de base de données) protégés Access Control via des règles de liste de contrôle d’accès (ACL) à l’aide du pare-feu distribué SDN. Le sous-réseau virtuel de la couche Web est accessible via le SLB/MUX à l’aide d’une adresse IP virtuelle (VIP). Le script déploie automatiquement deux machines virtuelles de niveau Web et une machine virtuelle de niveau base de données et les connecte aux sous-réseaux virtuels.  
 
-1.  Personnalisez le fichier SDNExpress\scripts\TenantConfig.psd1 en modifiant le **< < remplacez >** balises > par des valeurs spécifiques (par exemple : Nom de l’image de disque dur virtuel, nom du contrôleur de réseau, nom du vSwitch, etc. comme précédemment défini dans le fichier FabricConfig. psd1)  
+1.  Personnalisez le fichier SDNExpress\scripts\TenantConfig.psd1 en modifiant le **< < remplacez >** balises > par des valeurs spécifiques (par exemple : nom de l’image de disque dur virtuel, nom du contrôleur de réseau, nom du vswitch, etc. comme précédemment défini dans le fichier FabricConfig. psd1)  
 
-2.  Exécutez le script. Exemple :  
+2.  Exécutez le script. Par exemple :  
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
 
-3.  Pour annuler la configuration, exécutez le même script avec le paramètre **Undo** . Exemple :  
+3.  Pour annuler la configuration, exécutez le même script avec le paramètre **Undo** . Par exemple :  
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
 
@@ -214,7 +214,7 @@ Pour vérifier que le déploiement du client a réussi, procédez comme suit :
 
    ``wget <VIP IP address>/unique.htm -disablekeepalive -usebasicparsing``
 
-   où `<VIP IP address>` est l’adresse IP VIP de niveau Web que vous avez configurée dans le fichier TenantConfig. psd1. 
+   où `<VIP IP address>` est l’adresse IP VIP du niveau Web que vous avez configurée dans le fichier TenantConfig. psd1. 
 
    >[!TIP]
    >Recherchez la variable `VIPIP` dans TenantConfig. psd1.

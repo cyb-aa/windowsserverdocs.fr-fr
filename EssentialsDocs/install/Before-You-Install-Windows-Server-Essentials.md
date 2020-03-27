@@ -3,7 +3,7 @@ title: Avant d'installer Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,18 +12,18 @@ ms.assetid: 8d0893bd-e2b7-4494-9537-02b1cbbcd57a
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4629c0ba04cc7ee617a2fc6b6a73a19b9e45ada8
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: 7268ebbfffd034780635e693cd6aa6380f30dd91
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829550"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310108"
 ---
 # <a name="before-you-install-windows-server-essentials"></a>Avant d'installer Windows Server Essentials
 
 >S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_BeforeYouBegin"></a>Avant de commencer l’installation de Windows Server Essentials, effectuez les tâches suivantes :  
+##  <a name="before-you-begin-your-installation-of--windows-server-essentials-perform-the-following-tasks"></a><a name="BKMK_BeforeYouBegin"></a>Avant de commencer l’installation de Windows Server Essentials, effectuez les tâches suivantes :  
 
 -   **Assurez-vous que votre ordinateur répond aux exigences matérielles minimum**. Cela implique de déterminer si vous avez besoin de matériel supplémentaire et de vérifier que les pilotes de votre matériel sont pris en charge par Windows Server Essentials. Pour plus d’informations, consultez [Configuration système requise pour Windows Server Essentials](../get-started/system-requirements.md).   
 
@@ -51,13 +51,13 @@ ms.locfileid: "74829550"
 
   |Numéro de port|Application|  
   |-----------------|-----------------|  
-  |Port 80|Trafic Web HTTP|  
+  |Port 80|Trafic Web HTTP|  
   |Port 443|Trafic Web HTTPS|  
 
 
 - **Lisez la documentation relative à la version de Windows Server Essentials**. La documentation de version contient les informations les plus récentes qui peuvent être essentielles pour installer et configurer correctement Windows Server Essentials. Pour afficher ou imprimer la documentation de la version, consultez [la documentation de version pour Windows Server Essentials](../get-started/release-notes.md).  
 
-## <a name="see-also"></a>Articles associés  
+## <a name="see-also"></a>Voir aussi  
 
 -   [Installer Windows Server Essentials](Install-Windows-Server-Essentials.md)
 

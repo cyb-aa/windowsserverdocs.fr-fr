@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 65ac1c23-3a47-4e58-888d-9dde7fba1586
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: bd0f8ba10536a28479269abafadaaacaffd3d0a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3f67ef0131d5fc765c3fe99fdff85d93e869902e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388381"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308830"
 ---
 # <a name="step-12-test-directaccess-connectivity"></a>ÉTAPE 12-tester la connectivité DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Avant de pouvoir tester la connectivité à partir des ordinateurs clients lorsqu’ils se trouvent sur Internet ou sur des réseaux HomeNet, vous devez vous assurer qu’ils disposent des paramètres de stratégie de groupe appropriés.  
   
@@ -33,12 +33,12 @@ Avant de pouvoir tester la connectivité à partir des ordinateurs clients lorsq
   
 - Tester la connectivité DirectAccess à partir d’Internet jusqu’à 2 EDGE1  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Composants requis  
 Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les deux ordinateurs clients.  
   
-## <a name="policy"></a>Vérifier que les clients possèdent la stratégie de groupe appropriée  
+## <a name="verify-clients-have-the-correct-group-policy"></a><a name="policy"></a>Vérifier que les clients possèdent la stratégie de groupe appropriée  
   
-1.  Sur CLIENT1, cliquez sur **Démarrer**, **tapez PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+1.  Sur CLIENT1, cliquez sur **Démarrer**, **tapez PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 2.  Dans la fenêtre Windows PowerShell, tapez **ipconfig** , puis appuyez sur entrée.  
   
@@ -52,7 +52,7 @@ Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les 
   
 4.  Laissez la fenêtre Windows PowerShell ouverte pour la procédure suivante.  
   
-5.  Sur CLIENT2, cliquez sur **Démarrer**, sur **tous les programmes**, sur **accessoires**, sur **Windows PowerShell**, cliquez avec le bouton droit sur **Windows PowerShell**, puis cliquez sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+5.  Sur CLIENT2, cliquez sur **Démarrer**, sur **tous les programmes**, sur **accessoires**, sur **Windows PowerShell**, cliquez avec le bouton droit sur **Windows PowerShell**, puis cliquez sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 6.  Dans la fenêtre Windows PowerShell, tapez **ipconfig** , puis appuyez sur entrée.  
   
@@ -68,7 +68,7 @@ Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les 
   
 8.  Laissez la fenêtre Windows PowerShell ouverte pour la procédure suivante.  
   
-## <a name="EDGE1"></a>Tester la connectivité DirectAccess à partir d’Internet via EDGE1  
+## <a name="test-directaccess-connectivity-from-the-internet-through-edge1"></a><a name="EDGE1"></a>Tester la connectivité DirectAccess à partir d’Internet via EDGE1  
   
 1. Débranchez 2-EDGE1 à partir du réseau Internet.  
   
@@ -90,10 +90,10 @@ Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les 
   
 7. Vérifiez que vous êtes connecté via EDGE1. Tapez **netsh interface httpstunnel show interfaces** et appuyez sur entrée.  
   
-   La sortie doit contenir l’URL : https://edge1.contoso.com:443/IPHTTPS.  
+   La sortie doit contenir URL : https://edge1.contoso.com:443/IPHTTPS.  
   
    > [!TIP]  
-   > Sur CLIENT1, vous pouvez également exécuter la commande Windows PowerShell suivante : **Accédez à NetIPHTTPSConfiguration**. La sortie affiche les connexions d’URL du serveur disponibles et le profil actuellement actif.  
+   > Sur CLIENT1, vous pouvez également exécuter la commande Windows PowerShell suivante : **NetIPHTTPSConfiguration**. La sortie affiche les connexions d’URL du serveur disponibles et le profil actuellement actif.  
   
 8. Dans la fenêtre Windows PowerShell, tapez « **ping App1** » et appuyez sur entrée. Vous devez voir les réponses de l’adresse IPv6 assignée à APP1, qui, dans ce cas, est 2001 : DB8:1 :: 3.  
   
@@ -105,15 +105,15 @@ Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les 
   
 11. Ouvrez Internet Explorer, dans la barre d’adresses d’Internet Explorer, entrez **https://app1/** , puis appuyez sur entrée. Vous allez voir le site web IIS par défaut sur APP1.  
   
-12. Dans la barre d’adresses d’Internet Explorer, entrez **https://2-app1/** et appuyez sur entrée. Vous verrez le site Web par défaut sur 2-APP1.  
+12. Dans la barre d’adresses d’Internet Explorer, entrez **https://2-app1/** , puis appuyez sur entrée. Vous verrez le site Web par défaut sur 2-APP1.  
   
-13. Dans la barre d’adresses d’Internet Explorer, entrez **https://app2/** et appuyez sur entrée. Vous allez voir le site web par défaut sur APP2.  
+13. Dans la barre d’adresses d’Internet Explorer, entrez **https://app2/** , puis appuyez sur entrée. Vous allez voir le site web par défaut sur APP2.  
   
-14. Dans l’écran d' **Accueil** , tapez<strong>\\ \ 2-App1\Files</strong>, puis appuyez sur entrée. Double-cliquez sur l’exemple de fichier texte.  
+14. Dans l’écran d' **Accueil** , tapez<strong>\\\2-App1\Files</strong>, puis appuyez sur entrée. Double-cliquez sur l’exemple de fichier texte.  
   
     Cela démontre que vous avez pu vous connecter au serveur de fichiers dans le domaine corp2.corp.contoso.com lorsqu’il est connecté via EDGE1.  
   
-15. Dans l’écran d' **Accueil** , tapez<strong>\\ \ App2\Files</strong>, puis appuyez sur entrée. Double-cliquez sur le fichier Nouveau document texte.  
+15. Dans l’écran d' **Accueil** , tapez<strong>\\\App2\Files</strong>, puis appuyez sur entrée. Double-cliquez sur le fichier Nouveau document texte.  
   
     Cela démontre que vous avez pu vous connecter à un serveur IPv4 uniquement à l’aide de SMB pour obtenir une ressource dans le domaine de ressources.  
   
@@ -121,19 +121,19 @@ Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les 
   
 17. Dans la console **pare-feu Windows avec fonctions avancées de sécurité** , Notez que seul le **profil public** est actif. Le pare-feu Windows doit être activé pour que DirectAccess fonctionne correctement. Si le pare-feu Windows est désactivé, la connectivité DirectAccess ne fonctionne pas.  
   
-18. Dans le volet gauche de la console, développez le nœud **analyse** , puis cliquez sur le nœud **règles de sécurité de connexion** . Les règles de sécurité de connexion actives doivent s’afficher : **Stratégie DirectAccess-ClientToCorp**, **Stratégie DirectAccess-ClientToDNS64NAT64PrefixExemption**, **Stratégie DirectAccess-ClientToInfra**et **Stratégie DirectAccess-ClientToNlaExempt**. Faites défiler le volet central vers la droite pour afficher les **premières méthodes d’authentification** et les colonnes de la **2e méthode d’authentification** . Notez que la première règle (ClientToCorp) utilise Kerberos V5 pour établir le tunnel intranet et que la troisième règle (ClientToInfra) utilise NTLMv2 pour établir le tunnel d’infrastructure.  
+18. Dans le volet gauche de la console, développez le nœud **analyse** , puis cliquez sur le nœud **règles de sécurité de connexion** . Vous devez voir les règles de sécurité de connexion actives : **Stratégie DirectAccess-ClientToCorp**, **Stratégie DirectAccess-ClientToDNS64NAT64PrefixExemption**, **Stratégie DirectAccess-ClientToInfra**et **Stratégie DirectAccess-ClientToNlaExempt**. Faites défiler le volet central vers la droite pour afficher les **premières méthodes d’authentification** et les colonnes de la **2e méthode d’authentification** . Notez que la première règle (ClientToCorp) utilise Kerberos V5 pour établir le tunnel intranet et que la troisième règle (ClientToInfra) utilise NTLMv2 pour établir le tunnel d’infrastructure.  
   
 19. Dans le volet gauche de la console, développez le nœud **associations de sécurité** , puis cliquez sur le nœud **mode principal** . Notez les associations de sécurité de tunnel d’infrastructure utilisant NTLMv2 et l’Association de sécurité de tunnel intranet à l’aide de Kerberos V5. Cliquez avec le bouton droit sur l’entrée qui affiche **utilisateur (Kerberos V5)** comme **deuxième méthode d’authentification** , puis cliquez sur **Propriétés**. Sous l’onglet **général** , Notez que le **deuxième ID local d’authentification** est **corp\user1.** , ce qui indique que User1 a pu s’authentifier auprès du domaine Corp à l’aide de Kerberos.  
   
 20. Répétez cette procédure à partir de l’étape 3 sur CLIENT2.  
   
-## <a name="secgroup"></a>Déplacer CLIENT2 vers le groupe de sécurité Win7_Clients_Site2  
+## <a name="move-client2-to-the-win7_clients_site2-security-group"></a><a name="secgroup"></a>Déplacer CLIENT2 vers le groupe de sécurité Win7_Clients_Site2  
   
 1.  Sur DC1, cliquez sur **Démarrer**, tapez **DSA. msc**, puis appuyez sur entrée.  
   
 2.  Dans la console utilisateurs et ordinateurs Active Directory, ouvrez **Corp.contoso.com/users** et double-cliquez sur **Win7_Clients_Site1**.  
   
-3.  Dans la boîte de dialogue **Propriétés de Win7_Clients_Site1** , cliquez sur l’onglet **membres** , sur **client2**, sur **supprimer**, sur **Oui**, puis sur **OK**.  
+3.  Dans la boîte de dialogue Propriétés de la **Win7_Clients_Site1** , cliquez sur l’onglet **membres** , sur **client2**, sur **supprimer**, sur **Oui**, puis sur **OK**.  
   
 4.  Double-cliquez sur **Win7_Clients_Site2**, puis dans la boîte de dialogue **Propriétés de Win7_Clients_Site2** , cliquez sur l’onglet **membres** .  
   
@@ -151,7 +151,7 @@ Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les 
   
     -   nls.corp.contoso.com : ces paramètres indiquent qu’il existe une exemption pour le nom nls.corp.contoso.com.  
   
-## <a name="DAConnect"></a>Tester la connectivité DirectAccess à partir d’Internet jusqu’à 2 EDGE1  
+## <a name="test-directaccess-connectivity-from-the-internet-through-2-edge1"></a><a name="DAConnect"></a>Tester la connectivité DirectAccess à partir d’Internet jusqu’à 2 EDGE1  
   
 1. Connectez-vous 2-EDGE1 au réseau Internet.  
   
@@ -163,10 +163,10 @@ Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les 
   
 5. Assurez-vous que vous êtes connecté à 2 EDGE1. Tapez **netsh interface httpstunnel show interfaces** et appuyez sur entrée.  
   
-   La sortie doit contenir l’URL : https://2-edge1.contoso.com:443/IPHTTPS.  
+   La sortie doit contenir URL : https://2-edge1.contoso.com:443/IPHTTPS.  
   
    > [!TIP]  
-   > Sur CLIENT1, vous pouvez également exécuter la commande suivante : **Accédez à NetIPHTTPSConfiguration**. La sortie affiche les connexions d’URL du serveur disponibles et le profil actuellement actif.  
+   > Sur CLIENT1, vous pouvez également exécuter la commande suivante : **NetIPHTTPSConfiguration**. La sortie affiche les connexions d’URL du serveur disponibles et le profil actuellement actif.  
   
    > [!NOTE]  
    > CLIENT1 change automatiquement le serveur via lequel il se connecte aux ressources de l’entreprise. Si la sortie de la commande indique une connexion à EDGE1, attendez environ cinq minutes, puis réessayez.  
@@ -181,15 +181,15 @@ Connectez les deux ordinateurs clients au réseau Corpnet, puis redémarrez les 
   
 9. Ouvrez Internet Explorer, dans la barre d’adresses d’Internet Explorer, entrez **https://app1/** , puis appuyez sur entrée. Vous allez voir le site web IIS par défaut sur APP1.  
   
-10. Dans la barre d’adresses d’Internet Explorer, entrez **https://2-app1/** et appuyez sur entrée. Vous allez voir le site web par défaut sur APP2.  
+10. Dans la barre d’adresses d’Internet Explorer, entrez **https://2-app1/** , puis appuyez sur entrée. Vous allez voir le site web par défaut sur APP2.  
   
-11. Dans la barre d’adresses d’Internet Explorer, entrez **https://app2/** et appuyez sur entrée. Vous verrez le site Web par défaut sur APP3.  
+11. Dans la barre d’adresses d’Internet Explorer, entrez **https://app2/** , puis appuyez sur entrée. Vous verrez le site Web par défaut sur APP3.  
   
-12. Dans l’écran d' **Accueil** , tapez<strong>\\ \ App1\Files</strong>, puis appuyez sur entrée. Double-cliquez sur l’exemple de fichier texte.  
+12. Dans l’écran d' **Accueil** , tapez<strong>\\\App1\Files</strong>, puis appuyez sur entrée. Double-cliquez sur l’exemple de fichier texte.  
   
     Cela démontre que vous avez pu vous connecter au serveur de fichiers dans le domaine corp.contoso.com lors de la connexion à 2-EDGE1.  
   
-13. Dans l’écran d' **Accueil** , tapez<strong>\\ \ App2\Files</strong>, puis appuyez sur entrée. Double-cliquez sur le fichier Nouveau document texte.  
+13. Dans l’écran d' **Accueil** , tapez<strong>\\\App2\Files</strong>, puis appuyez sur entrée. Double-cliquez sur le fichier Nouveau document texte.  
   
     Cela démontre que vous avez pu vous connecter à un serveur IPv4 uniquement à l’aide de SMB pour obtenir une ressource dans le domaine de ressources.  
   

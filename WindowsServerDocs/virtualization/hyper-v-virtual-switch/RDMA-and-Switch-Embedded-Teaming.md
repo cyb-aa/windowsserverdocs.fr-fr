@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 68c35b64-4d24-42be-90c9-184f2b5f19be
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b39cac842f115a1828c666eec52f17f80971510c
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: cfa8076b84a2fc62cec2a709fc15d3dc5be8eb77
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322711"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307996"
 ---
 # <a name="remote-direct-memory-access-rdma-and-switch-embedded-teaming-set"></a>Accès direct à la mémoire à distance \(\) RDMA et Switch Embedded Association \(définir\)
 
@@ -25,7 +25,7 @@ Cette rubrique fournit des informations sur la configuration de l’accès direc
 > En plus de cette rubrique, le commutateur suivant incorporant du contenu d’association est disponible. 
 > - Téléchargement de la Galerie TechNet : [Guide de l’utilisateur de la carte réseau Windows Server 2016 et du commutateur incorporé](https://gallery.technet.microsoft.com/Windows-Server-2016-839cb607?redir=0)
 
-## <a name="bkmk_rdma"></a>Configuration des interfaces RDMA avec Hyper-V  
+## <a name="configuring-rdma-interfaces-with-hyper-v"></a><a name="bkmk_rdma"></a>Configuration des interfaces RDMA avec Hyper-V  
 
 Dans Windows Server 2012 R2, l’utilisation d’RDMA et d’Hyper-V sur le même ordinateur que les cartes réseau qui fournissent des services RDMA ne peut pas être liée à un commutateur virtuel Hyper-V. Cela augmente le nombre de cartes réseau physiques qui doivent être installées sur l’hôte Hyper-V.
 
@@ -94,7 +94,7 @@ Vérifier les fonctionnalités RDMA :
 
     Get-NetAdapterRdma
 
-###  <a name="bkmk_set-rdma"></a>Créer un commutateur virtuel Hyper-V avec SET et RDMA cartes réseau virtuelles
+###  <a name="create-a-hyper-v-virtual-switch-with-set-and-rdma-vnics"></a><a name="bkmk_set-rdma"></a>Créer un commutateur virtuel Hyper-V avec SET et RDMA cartes réseau virtuelles
 
 Pour utiliser des capacités RDMA sur des cartes réseau virtuelles hôtes Hyper-V \(cartes réseau virtuelles\) sur un commutateur virtuel Hyper-V qui prend en charge l’Association RDMA, vous pouvez utiliser ces exemples de commandes Windows PowerShell.
 
@@ -144,7 +144,7 @@ Cette section fournit une vue d’ensemble de switch Embedded Teaming (SET) dans
 
 - [Gestion d’une équipe de jeu](#bkmk_manage)
 
-## <a name="bkmk_over"></a>DÉFINIR la vue d’ensemble
+## <a name="set-overview"></a><a name="bkmk_over"></a>DÉFINIR la vue d’ensemble
 
 L’ensemble est une autre solution d’association de cartes réseau que vous pouvez utiliser dans les environnements qui incluent Hyper-V et la mise en réseau définie par le logiciel \(SDN\) Stack dans Windows Server 2016. SET intègre certaines fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V.
 
@@ -167,15 +167,15 @@ Pour plus d’informations, consultez [Association de cartes réseau dans des ma
 
 En outre, SET architecture n’expose pas les interfaces d’équipe. Au lieu de cela, vous devez configurer les ports de commutateur virtuel Hyper-V.
 
-## <a name="bkmk_avail"></a>DÉFINIR la disponibilité
+## <a name="set-availability"></a><a name="bkmk_avail"></a>DÉFINIR la disponibilité
 
 SET est disponible dans toutes les versions de Windows Server 2016 qui incluent Hyper-V et la pile SDN. En outre, vous pouvez utiliser les commandes Windows PowerShell et les connexions de Bureau à distance pour gérer les ensembles à partir d’ordinateurs distants qui exécutent un système d’exploitation client sur lequel les outils sont pris en charge.
 
-## <a name="bkmk_nics"></a>Cartes réseau prises en charge pour l’ensemble
+## <a name="supported-nics-for-set"></a><a name="bkmk_nics"></a>Cartes réseau prises en charge pour l’ensemble
 
 Vous pouvez utiliser n’importe quelle carte réseau Ethernet ayant passé la qualification et le logo de matériel Windows \(test\) WHQL dans une équipe de jeu dans Windows Server 2016. L’ensemble exige que toutes les cartes réseau membres d’une équipe de jeu soient identiques \(c’est-à-dire le même fabricant, le même modèle, le même microprogramme et le même pilote\). La définition de prend en charge entre une et huit cartes réseau dans une équipe.
   
-## <a name="bkmk_compat"></a>DÉFINIR la compatibilité avec les technologies de mise en réseau de Windows Server
+## <a name="set-compatibility-with-windows-server-networking-technologies"></a><a name="bkmk_compat"></a>DÉFINIR la compatibilité avec les technologies de mise en réseau de Windows Server
 
 L’ensemble est compatible avec les technologies de mise en réseau suivantes dans Windows Server 2016.
 
@@ -210,7 +210,7 @@ L’ensemble n’est pas compatible avec les technologies de mise en réseau sui
 
 - Ordinateur virtuel QoS \(machine virtuelle-QoS\). La QoS de la machine virtuelle est disponible mais désactivée par défaut. Si vous configurez la qualité de service de la machine virtuelle dans un environnement défini, les paramètres QoS entraînent des résultats imprévisibles.
 
-## <a name="bkmk_modes"></a>DÉFINIR les modes et les paramètres
+## <a name="set-modes-and-settings"></a><a name="bkmk_modes"></a>DÉFINIR les modes et les paramètres
 
 Contrairement à l’Association de cartes réseau, lorsque vous créez une équipe de jeu, vous ne pouvez pas configurer un nom d’équipe. En outre, l’utilisation d’une carte de secours est prise en charge dans l’Association de cartes réseau, mais n’est pas prise en charge dans SET. Lorsque vous déployez SET, toutes les cartes réseau sont actives et aucune n’est en mode veille.
 
@@ -253,7 +253,7 @@ Les charges sortantes dans ce mode sont équilibrées dynamiquement en fonction 
 
 Lorsque l’algorithme en mode dynamique détecte qu’une limite flowlet a été rencontrée, par exemple lorsqu’une interruption de la longueur suffisante s’est produite dans le processus TCP, l’algorithme rééquilibre automatiquement le workflow avec un autre membre de l’équipe, le cas échéant.  Dans certains cas rares, l’algorithme peut également rééquilibrer périodiquement les flux qui ne contiennent pas de flowlets. Pour cette raison, l’affinité entre le canal TCP et le membre de l’équipe peut changer à tout moment, à mesure que l’algorithme d’équilibrage dynamique fonctionne pour équilibrer la charge de travail des membres de l’équipe.
 
-## <a name="bkmk_vmq"></a>Définir et mettre en file d’attente d’ordinateurs virtuels (VMQ)
+## <a name="set-and-virtual-machine-queues-vmqs"></a><a name="bkmk_vmq"></a>Définir et mettre en file d’attente d’ordinateurs virtuels (VMQ)
 
 Les ordinateurs virtuels et les jeux fonctionnent bien ensemble, et vous devez activer l’utilisation de l’ordinateurs virtuels chaque fois que vous utilisez Hyper-V et que vous définissez.
 
@@ -273,15 +273,15 @@ Voici quelques paramètres d’ordinateur virtuels qui offrent de meilleures per
 
 - Les processeurs des membres de l’équipe doivent être dans la mesure où ils ne se chevauchent pas. Par exemple, dans un hôte à 4 cœurs \(8 processeurs logiques\) avec une équipe de 2 cartes réseau 10Gbps, vous pouvez définir la première pour utiliser le processeur de base 2 et utiliser 4 cœurs. la seconde est définie pour utiliser le processeur de base 6 et utiliser 2 cœurs.
 
-## <a name="bkmk_hnv"></a>DÉFINIR et la virtualisation de réseau Hyper-V \(HNV\)
+## <a name="set-and-hyper-v-network-virtualization-hnv"></a><a name="bkmk_hnv"></a>DÉFINIR et la virtualisation de réseau Hyper-V \(HNV\)
 
 SET est entièrement compatible avec la virtualisation de réseau Hyper-V dans Windows Server 2016. Le système de gestion HNV fournit des informations au pilote SET qui permet à de configurer de distribuer la charge du trafic réseau d’une manière optimisée pour le trafic HNV.
   
-## <a name="bkmk_live"></a>DÉFINIR et Migration dynamique
+## <a name="set-and-live-migration"></a><a name="bkmk_live"></a>DÉFINIR et Migration dynamique
 
 Migration dynamique est pris en charge dans Windows Server 2016.
 
-## <a name="bkmk_mac"></a>Utilisation des adresses MAC sur les paquets transmis
+## <a name="mac-address-use-on-transmitted-packets"></a><a name="bkmk_mac"></a>Utilisation des adresses MAC sur les paquets transmis
 
 Quand vous configurez une équipe de jeu avec une distribution de charge dynamique, les paquets d’une seule source \(tels qu’une seule machine virtuelle\) sont répartis simultanément entre plusieurs membres de l’équipe. 
 
@@ -311,7 +311,7 @@ Vous trouverez ci-dessous des listes qui décrivent le comportement de remplacem
   
     - Les paquets envoyés sur un membre de l’équipe autre que le membre de l’équipe affinité comporteront le remplacement de l’adresse MAC source  
   
-## <a name="bkmk_manage"></a>Gestion d’une équipe de jeu
+## <a name="managing-a-set-team"></a><a name="bkmk_manage"></a>Gestion d’une équipe de jeu
 
 Nous vous recommandons d’utiliser System Center Virtual Machine Manager \(VMM\) pour gérer les équipes de groupe, mais vous pouvez également utiliser Windows PowerShell pour gérer SET. Les sections suivantes fournissent les commandes Windows PowerShell que vous pouvez utiliser pour gérer SET.
 

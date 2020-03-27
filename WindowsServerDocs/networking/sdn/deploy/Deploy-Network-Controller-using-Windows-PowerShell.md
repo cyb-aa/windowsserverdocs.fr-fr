@@ -10,15 +10,15 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: 294466ef70a9ffc230953b48bb292938be519eac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee3aa93c02419667b05a987f548ef4d14285231d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406112"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313073"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Déployer le contrôleur de réseau à l’aide de Windows PowerShell
 
@@ -89,7 +89,7 @@ Le tableau suivant fournit des descriptions pour chaque paramètre de la command
 |Paramètre|Description|
 |-------------|---------------|
 |Nom|Le paramètre **Name** spécifie le nom convivial du serveur que vous souhaitez ajouter au cluster.|
-|Server|Le paramètre **Server** spécifie le nom d’hôte, le nom de domaine complet (FQDN) ou l’adresse IP du serveur que vous souhaitez ajouter au cluster. Pour les ordinateurs joints à un domaine, un nom de domaine complet est requis.|
+|Serveur|Le paramètre **Server** spécifie le nom d’hôte, le nom de domaine complet (FQDN) ou l’adresse IP du serveur que vous souhaitez ajouter au cluster. Pour les ordinateurs joints à un domaine, un nom de domaine complet est requis.|
 |FaultDomain|Le paramètre **FaultDomain** spécifie le domaine d’échec pour le serveur que vous ajoutez au cluster. Ce paramètre définit les serveurs qui peuvent rencontrer un échec en même temps que le serveur que vous ajoutez au cluster. Cet échec peut être dû à des dépendances physiques partagées, telles que des sources d’alimentation et de mise en réseau. Les domaines d’erreur représentent généralement des hiérarchies associées à ces dépendances partagées, avec un plus grand nombre de serveurs susceptibles de tomber en panne à partir d’un point supérieur dans l’arborescence de domaine d’erreur. Pendant l’exécution, le contrôleur de réseau prend en compte les domaines d’erreur dans le cluster et tente de répartir les services de contrôleur de réseau afin qu’ils se trouvent dans des domaines d’erreur distincts. Ce processus permet de s’assurer, en cas de défaillance d’un domaine d’erreur, que la disponibilité de ce service et de son état n’est pas compromise. Les domaines d’erreur sont spécifiés dans un format hiérarchique. Par exemple : « FD:/DC1/RACK1/host1 », où DC1 est le nom du centre de connaissances, RACK1 est le nom du rack et host1 est le nom de l’hôte sur lequel le nœud est placé.|
 |RestInterface|Le paramètre **RestInterface** spécifie le nom de l’interface sur le nœud où la communication Rest est arrêtée. Cette interface de contrôleur de réseau reçoit les demandes de l’API Northbound à partir de la couche de gestion du réseau.|
 |NodeCertificate|Le paramètre **NodeCertificate** spécifie le certificat utilisé par le contrôleur de réseau pour l’authentification de l’ordinateur. Le certificat est requis si vous utilisez l’authentification basée sur les certificats pour la communication au sein du cluster. le certificat est également utilisé pour le chiffrement du trafic entre les services de contrôleur de réseau. Le nom d’objet du certificat doit être le même que le nom DNS du nœud.|
@@ -112,7 +112,7 @@ Le tableau suivant fournit des descriptions pour chaque paramètre de la command
 |DiagnosticLogLocation|Le paramètre **DiagnosticLogLocation** spécifie l’emplacement du partage dans lequel les journaux de diagnostic sont régulièrement chargés. Si vous ne spécifiez pas de valeur pour ce paramètre, les journaux sont stockés localement sur chaque nœud. Les journaux sont stockés localement dans le dossier%systemdrive%\Windows\tracing\SDNDiagnostics. Les journaux de cluster sont stockés localement dans le dossier%systemdrive%\ProgramData\Microsoft\Service Fabric\log\Traces.|
 |LogLocationCredential|Le paramètre **LogLocationCredential** spécifie les informations d’identification requises pour accéder à l’emplacement de partage où les journaux sont stockés.|
 |CredentialEncryptionCertificate|Le paramètre **CredentialEncryptionCertificate** spécifie le certificat utilisé par le contrôleur de réseau pour chiffrer les informations d’identification utilisées pour accéder aux fichiers binaires du contrôleur de réseau et au **LogLocationCredential**, s’ils sont spécifiés. Le certificat doit être approvisionné sur tous les nœuds du contrôleur de réseau avant d’exécuter cette commande, et le même certificat doit être inscrit sur tous les nœuds du cluster. L’utilisation de ce paramètre pour protéger les fichiers binaires et les journaux du contrôleur de réseau est recommandée dans les environnements de production. Sans ce paramètre, les informations d’identification sont stockées en texte clair et peuvent être utilisées de façon inutilisée par un utilisateur non autorisé.|
-|Credential|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **Credential** spécifie un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
+|Informations d'identification|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **Credential** spécifie un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
 |CertificateThumbprint|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **CertificateThumbprint** spécifie le certificat de clé publique numérique (x509) d’un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
 |UseSSL|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **UseSSL** spécifie le protocole protocole SSL (SSL) utilisé pour établir une connexion à l’ordinateur distant. Par défaut, SSL n'est pas utilisé.|
 |ComputerName|Le paramètre **ComputerName** spécifie le nœud de contrôleur de réseau sur lequel cette commande est exécutée. Si vous ne spécifiez pas de valeur pour ce paramètre, l’ordinateur local est utilisé par défaut.|
@@ -137,7 +137,7 @@ Le tableau suivant fournit des descriptions pour chaque paramètre de la command
 |RESTIPAddress|Vous n’avez pas besoin de spécifier une valeur pour **RESTIPAddress** avec un déploiement à un seul nœud du contrôleur de réseau. Pour les déploiements à plusieurs nœuds, le paramètre **RESTIPAddress** spécifie l’adresse IP du point de terminaison REST en notation CIDR. Par exemple, 192.168.1.10/24. La valeur du nom d’objet de **serverCertificate** doit correspondre à la valeur du paramètre **RESTIPAddress** . Ce paramètre doit être spécifié pour tous les déploiements de contrôleur de réseau à plusieurs nœuds lorsque tous les nœuds se trouvent sur le même sous-réseau. Si les nœuds se trouvent sur des sous-réseaux différents, vous devez utiliser le paramètre **restname que** au lieu d’utiliser **RESTIPAddress**.|
 |Restname que|Vous n’avez pas besoin de spécifier une valeur pour **restname que** avec un déploiement à un seul nœud du contrôleur de réseau. La seule fois où vous devez spécifier une valeur pour **restname que** est lorsque les déploiements à plusieurs nœuds ont des nœuds qui se trouvent sur des sous-réseaux différents. Pour les déploiements à plusieurs nœuds, le paramètre **restname que** spécifie le nom de domaine complet du cluster de contrôleur de réseau.|
 |ClientSecurityGroup|Le paramètre **ClientSecurityGroup** spécifie le nom du groupe de sécurité Active Directory dont les membres sont des clients de contrôleur de réseau. Ce paramètre est obligatoire uniquement si vous utilisez l’authentification Kerberos pour **clientauthentication**. Le groupe de sécurité doit contenir les comptes à partir desquels les API REST sont accessibles, et vous devez créer le groupe de sécurité et ajouter des membres avant d’exécuter cette commande.|
-|Credential|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **Credential** spécifie un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
+|Informations d'identification|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **Credential** spécifie un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
 |CertificateThumbprint|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **CertificateThumbprint** spécifie le certificat de clé publique numérique (x509) d’un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
 |UseSSL|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **UseSSL** spécifie le protocole protocole SSL (SSL) utilisé pour établir une connexion à l’ordinateur distant. Par défaut, SSL n'est pas utilisé.|
 

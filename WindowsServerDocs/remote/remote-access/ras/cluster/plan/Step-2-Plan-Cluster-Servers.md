@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 673c5bfb-b590-4932-8e54-ca0a466d90cc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 17aadbb789052be7f33822ce49f3b797f2211d55
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 608bc4b2805639e2638ac12f74b712c812ce165f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367378"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308248"
 ---
 # <a name="step-2-plan-cluster-servers"></a>Étape 2 planifier les serveurs de cluster
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Après le déploiement d’un serveur d’accès à distance unique, envisagez d’ajouter des serveurs supplémentaires au cluster.  
   
@@ -30,11 +30,11 @@ Après le déploiement d’un serveur d’accès à distance unique, envisagez d
 |[2,1 installation de rôles et de fonctionnalités](#BKMK_Install).|Pour chaque serveur qui sera ajouté au cluster, planifiez l’installation du rôle accès à distance et la fonctionnalité NLB Windows (si nécessaire), planifiez la topologie, l’adressage IP, le routage et le transfert.|  
 |[2,2 configurer les paramètres du serveur](#BKMK_Config)|Configurez les paramètres de chaque serveur qui sera ajouté au cluster. Notez que vous pouvez configurer un cluster à charge équilibrée de serveurs à l’aide de machines virtuelles. Pour que le routage et la connectivité fonctionnent correctement, vous devez configurer les machines virtuelles de manière à ce qu’elles utilisent l’usurpation d’adresses MAC.|  
   
-## <a name="BKMK_Install"></a>2,1 installation de rôles et de fonctionnalités  
+## <a name="21-installing-roles-and-features"></a><a name="BKMK_Install"></a>2,1 installation de rôles et de fonctionnalités  
 Pour chaque serveur que vous souhaitez joindre au cluster, envisagez d’installer le rôle accès à distance. En outre, planifiez l’installation de la fonctionnalité d’équilibrage de charge réseau (NLB) si vous souhaitez équilibrer la charge du trafic vers le cluster à l’aide de Windows NLB. Pour plus d’informations, consultez équilibrage de la [charge réseau](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  
   
-## <a name="BKMK_Config"></a>2,2 configurer les paramètres du serveur  
-Pour chaque serveur qui sera ajouté au cluster, planifiez les paramètres d’adresse IP et de domaine. Notez les points suivants :  
+## <a name="22-configure-server-settings"></a><a name="BKMK_Config"></a>2,2 configurer les paramètres du serveur  
+Pour chaque serveur qui sera ajouté au cluster, planifiez les paramètres d’adresse IP et de domaine. Notez les points suivants :  
   
 1.  Les serveurs du cluster doivent tous appartenir au même domaine.  
   

@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: df2023bf-ba64-481e-b222-6f709edaa5c1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: be57bc0ce1b509c49f269618765c79f380fd3b12
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d246f0e56681f75e4336ed225d1557a0e05c581b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404678"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308557"
 ---
 # <a name="gre-tunneling-in-windows-server-2016"></a>Tunneling GRE dans Windows Server 2016
 
@@ -64,19 +64,19 @@ Voici quelques exemples de scénarios :
 
 Voici les principaux scénarios que la fonctionnalité de tunnel GRE adresse.  
   
-### <a name="BKMK_Access"></a>Accès à partir de réseaux virtuels locataires à des réseaux physiques locataires
+### <a name="access-from-tenant-virtual-networks-to-tenant-physical-networks"></a><a name="BKMK_Access"></a>Accès à partir de réseaux virtuels locataires à des réseaux physiques locataires
 
 Ce scénario offre un moyen évolutif de fournir un accès à partir de réseaux virtuels locataires à des réseaux physiques clients situés sur le site du fournisseur de services d’hébergement. Un point de terminaison de tunnel GRE est établi sur la passerelle mutualisée. l’autre point de terminaison de tunnel GRE est établi sur un appareil tiers sur le réseau physique. Le trafic de couche 3 est routé entre les machines virtuelles du réseau virtuel et l’appareil tiers sur le réseau physique.  
   
 ![Tunnel GRE connectant le réseau physique de l’hébergeur et le réseau virtuel du locataire](../../media/gre-tunneling-in-windows-server/GRE_.png)  
   
-### <a name="BKMK_Speed"></a>Connectivité à grande vitesse
+### <a name="high-speed-connectivity"></a><a name="BKMK_Speed"></a>Connectivité à grande vitesse
 
 Ce scénario offre une méthode évolutive pour fournir une connectivité à haut débit à partir du réseau local du client vers son réseau virtuel situé dans le réseau du fournisseur de services d’hébergement. Un locataire se connecte au réseau du fournisseur de services via MPLS (Multiprotocol Label Switching), où un tunnel GRE est établi entre le routeur de périphérie du fournisseur de services d’hébergement et la passerelle mutualisée sur le réseau virtuel du locataire.  
   
 ![Tunnel GRE connectant le réseau client MPLS et le réseau virtuel du locataire de l’entreprise](../../media/gre-tunneling-in-windows-server/GRE-.png)  
   
-### <a name="BKMK_Integration"></a>Intégration avec l’isolation basée sur un réseau local virtuel
+### <a name="integration-with-vlan-based-isolation"></a><a name="BKMK_Integration"></a>Intégration avec l’isolation basée sur un réseau local virtuel
 
 Ce scénario vous permet d’intégrer l’isolation basée sur un réseau local virtuel avec la virtualisation de réseau Hyper-V. Un réseau physique sur le réseau du fournisseur d’hébergement contient un équilibreur de charge à l’aide de l’isolation basée sur un réseau local virtuel. Une passerelle mutualisée établit des tunnels GRE entre l’équilibreur de charge sur le réseau physique et la passerelle mutualisée sur le réseau virtuel.  
   
@@ -84,7 +84,7 @@ Il est possible d’établir plusieurs tunnels entre la source et la destination
   
 ![Plusieurs tunnels GRE connectant des réseaux virtuels locataires](../../media/gre-tunneling-in-windows-server/GRE-VLANIsolation.png)  
   
-### <a name="BKMK_Shared"></a>Accéder aux ressources partagées
+### <a name="access-shared-resources"></a><a name="BKMK_Shared"></a>Accéder aux ressources partagées
 
 Ce scénario vous permet d’accéder à des ressources partagées sur un réseau physique situé sur le réseau du fournisseur d’hébergement.  
   
@@ -96,7 +96,7 @@ Dans ce scénario, la passerelle de locataire unique peut être remplacée par d
   
 ![Une passerelle à locataire unique utilisant plusieurs tunnels pour connecter plusieurs réseaux virtuels](../../media/gre-tunneling-in-windows-server/GRE-SharedResource.png)  
   
-### <a name="BKMK_thirdparty"></a>Services d’appareils tiers aux locataires
+### <a name="services-of-third-party-devices-to-tenants"></a><a name="BKMK_thirdparty"></a>Services d’appareils tiers aux locataires
 
 Ce scénario peut être utilisé pour intégrer des appareils tiers (tels que des équilibreurs de charge matérielle) au flux de trafic de réseau virtuel du locataire. Par exemple, le trafic provenant d’un site d’entreprise passe par un tunnel S2S à la passerelle mutualisée. Le trafic est acheminé vers l’équilibreur de charge via un tunnel GRE. L’équilibreur de charge achemine le trafic vers plusieurs machines virtuelles sur le réseau virtuel de l’entreprise. La même chose se produit pour un autre client avec des adresses IP qui se chevauchent potentiellement dans les réseaux virtuels. Le trafic réseau est isolé sur l’équilibreur de charge à l’aide de réseaux locaux virtuels et s’applique à tous les appareils de couche 3 qui prennent en charge les réseaux locaux virtuels.  
   

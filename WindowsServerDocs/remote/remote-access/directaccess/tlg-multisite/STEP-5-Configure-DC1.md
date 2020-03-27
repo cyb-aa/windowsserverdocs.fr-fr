@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 70357156-fcb0-4346-a61e-4ea963e3ffb0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: aa251ccc0cc48e3805667a247047711c2ae4fcf6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 698bc250b428fe5efc4d111f8783483005d48dc5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388305"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308675"
 ---
 # <a name="step-5-configure-dc1"></a>ÉTAPE 5 configurer DC1
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 DC1 agit en tant que contrôleur de domaine, serveur DNS et serveur DHCP pour le domaine corp.contoso.com.  
   
@@ -39,7 +39,7 @@ Pour configurer l’accès à distance en vue d’utiliser une topologie multisi
   
 2.  Dans la fenêtre Connexions réseau, cliquez avec le bouton droit sur **connexion Ethernet câblée**, puis cliquez sur **Propriétés**.  
   
-3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
+3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 4.  Dans **passerelle par défaut**, tapez **10.0.0.254**, et dans **serveur DNS auxiliaire**, tapez **10.2.0.1**, puis cliquez sur **OK**.  
   
@@ -66,13 +66,13 @@ Créez les groupes de sécurité DirectAccess pour Windows 7 à l’aide de la p
   
 4.  Sous **Étendue du groupe**, cliquez sur **Globale**. Sous **Type de groupe**, cliquez sur **Sécurité**, puis cliquez sur **OK**.  
   
-5.  Double-cliquez sur le groupe de sécurité **Win7_Clients_Site1** , puis dans la boîte de dialogue **Propriétés de Win7_Clients_Site1** , cliquez sur l’onglet **membres** .  
+5.  Double-cliquez sur le groupe de sécurité **Win7_Clients_Site1** , puis dans la boîte de dialogue **Propriétés du Win7_Clients_Site1** , cliquez sur l’onglet **membres** .  
   
-6.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
+6.  Sous l'onglet **Membres**, cliquez sur **Ajouter**.  
   
 7.  Dans la boîte de dialogue **Sélectionner les utilisateurs, les contacts, les ordinateurs ou les comptes de service** , cliquez sur **types d’objets**. Dans la boîte de dialogue **types d’objets** , sélectionnez **ordinateurs**, puis cliquez sur **OK**.  
   
-8.  Dans **Entrez les noms des objets à sélectionner**, tapez **client2**, puis cliquez sur **OK**, puis dans la boîte de dialogue **Propriétés de Win7_Clients_Site1** , cliquez sur **OK**.  
+8.  Dans **Entrez les noms des objets à sélectionner**, tapez **client2**, puis cliquez sur **OK**, puis dans la boîte de dialogue **Propriétés du Win7_Clients_Site1** , cliquez sur **OK**.  
   
 9. Dans la console **utilisateurs et ordinateurs Active Directory** , dans le volet gauche, cliquez avec le bouton droit sur **utilisateurs**, pointez sur **nouveau**, puis cliquez sur **groupe**.  
   
@@ -80,7 +80,7 @@ Créez les groupes de sécurité DirectAccess pour Windows 7 à l’aide de la p
   
 11. Sous **Étendue du groupe**, cliquez sur **Globale**. Sous **Type de groupe**, cliquez sur **Sécurité**, puis cliquez sur **OK**.  
   
-12. Fermez la console **Utilisateurs et ordinateurs Active Directory** .  
+12. Fermez la console **Utilisateurs et ordinateurs Active Directory**.  
   
 ## <a name="to-add-a-new-ad-ds-site"></a>Pour ajouter un nouveau site AD DS  
   

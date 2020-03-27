@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 70569958-d7a7-474e-a817-6b7b5134784a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1ba6c059639b9ae7e77a9e103e7ed84f6a2032df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f874469666ab9b68d9eb970cf7fcb6a89ef27f0c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405309"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315570"
 ---
 # <a name="configure-nps-udp-port-information"></a>Configurer des informations de port UDP NPS
 

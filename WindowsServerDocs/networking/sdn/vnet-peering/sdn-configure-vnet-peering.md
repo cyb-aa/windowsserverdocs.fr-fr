@@ -6,29 +6,29 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/08/2018
-ms.openlocfilehash: 4d35501b8d876f2a178a4744d495125dea8da6c7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4ea035d80a32e245edc4633ee14e98b9d1153fff
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405818"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309729"
 ---
 # <a name="configure-virtual-network-peering"></a>Configurer une homologation de réseau virtuel
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
 Dans cette procédure, vous utilisez Windows PowerShell pour créer deux réseaux virtuels, chacun avec un sous-réseau. Ensuite, vous configurez l’homologation entre les deux réseaux virtuels pour activer la connectivité entre eux.
 
-- [Étape 1. Créer le premier réseau virtuel](#step-1-create-the-first-virtual-network)
+- [Étape 1. Créer le premier réseau virtuel](#step-1-create-the-first-virtual-network)
 
-- [Étape 2. Créer le deuxième réseau virtuel](#step-2-create-the-second-virtual-network)
+- [Étape 2. Créer le deuxième réseau virtuel](#step-2-create-the-second-virtual-network)
 
-- [Étape 3. Configurer l’homologation du premier réseau virtuel vers le second réseau virtuel](#step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network)
+- [Étape 3. Configurer l’homologation du premier réseau virtuel vers le second réseau virtuel](#step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network)
 
-- [Étape 4. Configuration de l’homologation à partir du deuxième réseau virtuel sur le premier réseau virtuel](#step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network)
+- [Étape 4. Configuration de l’homologation à partir du deuxième réseau virtuel sur le premier réseau virtuel](#step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network)
 
 
 >[!IMPORTANT]
@@ -90,9 +90,9 @@ $vnetproperties.Subnets = @($vsubnet)
 New-NetworkControllerVirtualNetwork -ResourceId "Woodgrove_VNet1" -ConnectionUri $uri -Properties $vnetproperties
 ```
 
-## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>Étape 3. Configurer l’homologation du premier réseau virtuel vers le second réseau virtuel
+## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>Étape 3. Configurer l’homologation du premier réseau virtuel vers le second réseau virtuel
 
-Dans cette étape, vous configurez l’homologation entre le premier réseau virtuel et le deuxième réseau virtuel que vous avez créé au cours des deux étapes précédentes. L’exemple de script suivant établit l’homologation de réseaux virtuels de **Contoso_vnet1** à **Woodgrove_vnet1**.
+Dans cette étape, vous configurez l’homologation entre le premier réseau virtuel et le deuxième réseau virtuel que vous avez créé au cours des deux étapes précédentes. L’exemple de script suivant établit l’homologation de réseaux virtuels à partir de **Contoso_vnet1** vers **Woodgrove_vnet1**.
 
 ```PowerShell
 $peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties
@@ -120,7 +120,7 @@ New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId
 
 ## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>Étape 4. Configuration de l’homologation à partir du deuxième réseau virtuel sur le premier réseau virtuel
 
-Dans cette étape, vous configurez l’homologation entre le deuxième réseau virtuel et le premier réseau virtuel que vous avez créé aux étapes 1 et 2 ci-dessus. L’exemple de script suivant établit l’homologation de réseaux virtuels de **Woodgrove_vnet1** à **Contoso_vnet1**.
+Dans cette étape, vous configurez l’homologation entre le deuxième réseau virtuel et le premier réseau virtuel que vous avez créé aux étapes 1 et 2 ci-dessus. L’exemple de script suivant établit l’homologation de réseaux virtuels à partir de **Woodgrove_vnet1** vers **Contoso_vnet1**.
 
 ```PowerShell
 $peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties 

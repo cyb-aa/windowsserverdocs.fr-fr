@@ -10,15 +10,15 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
-ms.author: pashort
+ms.author: lizross
 author: jmesser81
 ms.date: 08/24/2018
-ms.openlocfilehash: 83996f7ffb82d01c9f36945efa022f0dd0b9825b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5673cb6f808f37fb7737e22cf93c3984073e4f48
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355820"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309835"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Connecter les points de terminaison de conteneur à un réseau virtuel locataire
 
@@ -45,7 +45,7 @@ La différence entre les pilotes *l2bridge* et *l2tunnel* est la suivante :
 >Ces modes de mise en réseau ne fonctionnent pas pour connecter des points de terminaison de conteneur Windows à un réseau virtuel de locataire dans le cloud public Azure.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 -  Une infrastructure SDN déployée avec le contrôleur de réseau.
 -  Un réseau virtuel client a été créé.
 -  Une machine virtuelle cliente déployée avec la fonctionnalité de conteneur Windows activée, Dockr installé et la fonctionnalité Hyper-V activée. La fonctionnalité Hyper-V est requise pour installer plusieurs fichiers binaires pour les réseaux l2bridge et l2tunnel.
@@ -153,6 +153,6 @@ C:\> docker run -it --network=MyContainerOverlayNetwork <image> <cmd>
 >[!NOTE]
 >L’attribution d’adresses IP statiques n’est pas prise en charge avec les réseaux de conteneurs *l2bridge* ou *l2tunnel* lorsqu’elle est utilisée avec la pile Microsoft Sdn.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations supplémentaires
 Pour plus d’informations sur le déploiement d’une infrastructure SDN, consultez [déployer une infrastructure réseau à définition logicielle](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure).
 

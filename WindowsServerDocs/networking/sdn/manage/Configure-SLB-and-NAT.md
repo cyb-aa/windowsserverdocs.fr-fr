@@ -10,29 +10,29 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: 80f1319c1abc845d7e63a2d53868bf7a3c381019
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a12d9a1ea953b587918fed8367ee21626697e256
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406094"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309889"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>Configurer l’équilibreur de charge logicielle pour l’équilibrage de charge et la traduction d’adresses réseau (NAT)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour apprendre à utiliser la mise \(en réseau logicielle définie SDN\) programme d’équilibrage \(de\) charge logiciel (SLB) pour fournir \(une\)traduction d’adresses réseau sortante NAT, NAT entrant, ou équilibrage de charge entre plusieurs instances d’une application.
+Vous pouvez utiliser cette rubrique pour apprendre à utiliser la mise en réseau définie par logiciel \(SDN\) équilibreur de charge logiciel \(SLB\) pour assurer la traduction d’adresses réseau sortantes \(NAT\), le NAT entrant ou l’équilibrage de charge entre plusieurs instances d’une application.
 
 ## <a name="software-load-balancer-overview"></a>Présentation des Load Balancer de logiciels
 
-Le logiciel SDN load balancer \(SLB\) offre une haute disponibilité et des performances réseau à vos applications. Il s’agit d’un \(TCP de couche\) 4, un équilibreur de charge UDP qui répartit le trafic entrant parmi les instances de service saines dans les services Cloud ou les machines virtuelles définies dans un jeu d’équilibrage de charge.
+Le logiciel SDN Load Balancer \(SLB\) offre une haute disponibilité et des performances réseau à vos applications. Il s’agit d’un équilibrage de charge de couche 4 \(TCP, UDP\) qui répartit le trafic entrant parmi les instances de service saines dans les services Cloud ou les machines virtuelles définies dans un jeu d’équilibrage de charge.
 
 Configurez SLB pour effectuer les opérations suivantes :
 
-- Équilibrer la charge du trafic entrant externe à un réseau virtuel \(vers\)des machines virtuelles de machines virtuelles, également appelé équilibrage de charge d’adresse IP virtuelle publique.
+- Équilibrer la charge du trafic entrant externe à un réseau virtuel vers des machines virtuelles \(des machines virtuelles\), également appelé équilibrage de charge d’adresse IP virtuelle publique.
 - Équilibrer la charge du trafic entrant entre les machines virtuelles d’un réseau virtuel, entre les machines virtuelles dans les services Cloud, ou entre les ordinateurs locaux et les machines virtuelles dans un réseau virtuel intersite. 
 - Transférer le trafic réseau de machine virtuelle du réseau virtuel vers des destinations externes à l’aide de la traduction d’adresses réseau (NAT), également appelée NAT de trafic sortant.
 - Transférer le trafic externe vers une machine virtuelle spécifique, également appelée NAT entrant.
@@ -40,7 +40,7 @@ Configurez SLB pour effectuer les opérations suivantes :
 
 
 
-## <a name="example-create-a-public-vip-for-load-balancing-a-pool-of-two-vms-on-a-virtual-network"></a>Exemple : Créer une adresse IP virtuelle publique pour l’équilibrage de charge d’un pool de deux machines virtuelles sur un réseau virtuel
+## <a name="example-create-a-public-vip-for-load-balancing-a-pool-of-two-vms-on-a-virtual-network"></a>Exemple : création d’une adresse IP virtuelle publique pour l’équilibrage de charge d’un pool de deux machines virtuelles sur un réseau virtuel
 
 Dans cet exemple, vous créez un objet d’équilibrage de charge avec une adresse IP virtuelle publique et deux machines virtuelles en tant que membres du pool pour traiter les demandes à l’adresse IP virtuelle. Cet exemple de code ajoute également une sonde d’intégrité HTTP pour détecter si l’un des membres du pool devient non réactif.
 
@@ -136,7 +136,7 @@ Dans cet exemple, vous créez un objet d’équilibrage de charge avec une adres
 7. Suivez l’exemple suivant pour ajouter les interfaces réseau à ce pool principal.
 
 
-## <a name="example-use-slb-for-outbound-nat"></a>Exemple : Utiliser SLB pour le NAT sortant
+## <a name="example-use-slb-for-outbound-nat"></a>Exemple : utiliser SLB pour le NAT sortant
 
 Dans cet exemple, vous configurez SLB avec un pool principal pour fournir une fonctionnalité NAT sortante pour une machine virtuelle sur l’espace d’adressage privé d’un réseau virtuel pour atteindre le trafic sortant vers Internet. 
 
@@ -195,7 +195,7 @@ Dans cet exemple, vous configurez SLB avec un pool principal pour fournir une fo
 
 4. Suivez l’exemple suivant pour ajouter les interfaces réseau auxquelles vous souhaitez fournir l’accès à Internet.
 
-## <a name="example-add-network-interfaces-to-the-back-end-pool"></a>Exemple : Ajouter des interfaces réseau au pool principal
+## <a name="example-add-network-interfaces-to-the-back-end-pool"></a>Exemple : ajouter des interfaces réseau au pool principal
 Dans cet exemple, vous ajoutez des interfaces réseau au pool principal.  Vous devez répéter cette étape pour chaque interface réseau qui peut traiter les demandes adressées à l’adresse IP virtuelle. 
 
 Vous pouvez également répéter ce processus sur une seule interface réseau pour l’ajouter à plusieurs objets d’équilibrage de charge. Par exemple, si vous avez un objet d’équilibrage de charge pour une adresse IP virtuelle de serveur Web et un objet d’équilibrage de charge distinct pour fournir un NAT sortant.
@@ -221,7 +221,7 @@ Vous pouvez également répéter ce processus sur une seule interface réseau po
    ``` 
 
 
-## <a name="example-use-the-software-load-balancer-for-forwarding-traffic"></a>Exemple : Utiliser le Load Balancer logiciel pour transférer le trafic
+## <a name="example-use-the-software-load-balancer-for-forwarding-traffic"></a>Exemple : utiliser le Load Balancer logiciel pour transférer le trafic
 Si vous avez besoin de mapper une adresse IP virtuelle à une seule interface réseau sur un réseau virtuel sans définir de ports individuels, vous pouvez créer une règle de transfert L3.  Cette règle transfère tout le trafic vers et depuis la machine virtuelle via l’adresse IP virtuelle affectée contenue dans un objet PublicIPAddress.
 
 Si vous avez défini l’adresse IP virtuelle et DIP comme le même sous-réseau, cela revient à effectuer un transfert L3 sans NAT.
@@ -248,7 +248,7 @@ Si vous avez défini l’adresse IP virtuelle et DIP comme le même sous-réseau
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
 
-## <a name="example-use-the-software-load-balancer-for-forwarding-traffic-with-a-dynamically-allocated-vip"></a>Exemple : Utiliser le Load Balancer logiciel pour transférer le trafic avec une adresse IP virtuelle allouée dynamiquement
+## <a name="example-use-the-software-load-balancer-for-forwarding-traffic-with-a-dynamically-allocated-vip"></a>Exemple : utiliser le Load Balancer logiciel pour transférer le trafic avec une adresse IP virtuelle allouée dynamiquement
 Cet exemple répète la même action que dans l’exemple précédent, mais il alloue automatiquement l’adresse IP virtuelle à partir du pool disponible de VIP dans l’équilibreur de charge au lieu de spécifier une adresse IP spécifique. 
 
 1. Créez un objet d’adresse IP publique pour contenir l’adresse IP virtuelle.
@@ -287,7 +287,7 @@ Cet exemple répète la même action que dans l’exemple précédent, mais il a
    $nic.properties.IpConfigurations[0].Properties.PublicIPAddress = $publicIP
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
-   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Exemple : Supprimer une adresse adresse IP publique utilisée pour transférer le trafic et la renvoyer au pool d’adresses IP virtuelles
+   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Exemple : supprimer une adresse adresse IP publique utilisée pour transférer le trafic et la renvoyer au pool d’adresses IP virtuelles
    Cet exemple supprime la ressource PublicIPAddress qui a été créée par les exemples précédents.  Une fois le PublicIPAddress supprimé, la référence au PublicIPAddress est automatiquement supprimée de l’interface réseau, le trafic ne sera pas transféré et l’adresse IP sera renvoyée au pool d’adresses IP VIRTUELles publiques pour une réutilisation.  
 
 4. Supprimer le adresse IP publique

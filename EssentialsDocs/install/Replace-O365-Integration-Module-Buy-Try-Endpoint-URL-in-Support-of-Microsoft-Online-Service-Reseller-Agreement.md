@@ -3,7 +3,7 @@ title: Remplacer l’URL du point d’arrêt d’achat/évaluation du module d�
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,19 +12,19 @@ ms.assetid: 9860a6b9-baea-4bf0-9a9f-6f1a288f996e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b690cedd2f692cc6d11af6e05dd0cd4b4ea5a1d6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11e18d7d61edb0a618fb71791f77c4df84c9d708
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833100"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311542"
 ---
 # <a name="replace-o365-integration-module-buy-try-endpoint-url-in-support-of-microsoft-online-service-reseller-agreement"></a>Remplacer l’URL du point d’arrêt d’achat/évaluation du module d’intégration O365 dans le cadre de l’accord partenaire Microsoft Online Service
 
->S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_O365"></a>   
- Si vous êtes un partenaire Microsoft Online Service Reseller contrat (MOSRA), pour vous assurer que les transactions de l’inscription des clients sont traitées par le biais de votre portail, vous devez remplacer les URL de point de terminaison utilisés par le module d’intégration de Windows Server Essentials Office 365.  
+ Si vous êtes un partenaire MOSRA (Microsoft Online Service Reseller Agreement), pour vous assurer que les transactions d’inscription client sont traitées via votre portail, vous devez remplacer les URL de point de terminaison utilisées par le module d’intégration de Windows Server Essentials Office 365.  
   
  Le module d’intégration utilise les quatre URL de point d’arrêt suivantes :  
   
@@ -48,7 +48,7 @@ ms.locfileid: "59833100"
   
     -   Valeur = *xxxxx*, où xxxxx représente l’URL d’évaluation d’abonnement de votre entreprise. Par exemple, valeur = http://syndicatepartner.office365.com/enterprisetry.html  
   
-3.  Un point de terminaison Office 365 petite entreprise Premium abonnement achat.  
+3.  Un point de terminaison d’achat d’abonnement Office 365 Small Business Premium.  
   
     -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\  
   
@@ -58,7 +58,7 @@ ms.locfileid: "59833100"
   
     -   Valeur = *xxxxx*, où xxxxx représente l’URL d’évaluation d’abonnement de votre entreprise. Par exemple, valeur = http://syndicatepartner.office365.com/smallbizbuy.html  
   
-4.  Office 365 petite entreprise Premium abonnement d’essai point de terminaison.  
+4.  Un point de terminaison d’abonnement Office 365 Small Business Premium.  
   
     -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\  
   
@@ -96,9 +96,9 @@ ms.locfileid: "59833100"
 
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md) [création et personnalisation de l’Image](../install/Creating-and-Customizing-the-Image.md)   
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Test de l’expérience client](Testing-the-Customer-Experience.md) [création et personnalisation de l’image](../install/Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](../install/Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](../install/Testing-the-Customer-Experience.md)
+ [Préparation de l’image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
+ [Test de l’expérience utilisateur](../install/Testing-the-Customer-Experience.md)
 

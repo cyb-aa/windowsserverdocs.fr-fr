@@ -6,22 +6,22 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 3266328c-ca82-40d2-90ca-854b7088ccaa
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4368d0709a22e9c122245c6a0131c5c9bee894a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d82009a4b6e9bcf20ae9cccb4259956358b53148
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405534"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316609"
 ---
 # <a name="configure-the-order-of-network-interfaces"></a>Configurer l’ordre des interfaces réseau
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Dans Windows Server 2016 et Windows 10, vous pouvez utiliser la métrique de l’interface pour configurer l’ordre des interfaces réseau.
 
-Cela diffère des versions précédentes de Windows et de Windows Server, ce qui vous permettait de configurer l’ordre de liaison des cartes réseau à l’aide de l’interface utilisateur ou des commandes **INetCfgComponentBindings :: MoveBefore** et  **INetCfgComponentBindings :: MoveAfter**. Ces deux méthodes pour commander des interfaces réseau ne sont pas disponibles dans Windows Server 2016 et Windows 10.
+Cela diffère des versions précédentes de Windows et de Windows Server, ce qui vous permettait de configurer l’ordre de liaison des cartes réseau à l’aide de l’interface utilisateur ou des commandes **INetCfgComponentBindings :: MoveBefore** et **INetCfgComponentBindings :: MoveAfter**. Ces deux méthodes pour commander des interfaces réseau ne sont pas disponibles dans Windows Server 2016 et Windows 10.
 
 Au lieu de cela, vous pouvez utiliser la nouvelle méthode pour définir l’ordre d’énumération des cartes réseau en configurant la mesure de l’interface de chaque adaptateur. Vous pouvez configurer la métrique de l’interface à l’aide de la commande Windows PowerShell [Set-NetIPInterface](https://docs.microsoft.com/powershell/module/nettcpip/set-netipinterface) .
 

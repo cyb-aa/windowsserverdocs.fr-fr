@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 36255d80-a13e-4af7-a5c0-ab4c8f302622
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ecfbd6dc09f251d5197a16b166aa76e6a37b933a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a0e717b75e1d973f1594b254e1ea5c4eb55536b8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367280"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308237"
 ---
 # <a name="manage-directaccess-clients-remotely"></a>Gérer les clients DirectAccess à distance
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 L'analyse d'accès à distance rend compte de l'activité et de l'état des utilisateurs distants quant aux connexions DirectAccess et VPN. Elle relève le nombre et la durée des connexions clientes (parmi d'autres statistiques) et analyse l'état de fonctionnement du serveur. Une console d'analyse facile à utiliser propose un aperçu de toute votre infrastructure d'accès à distance. Vous avez la possibilité d'afficher l'analyse de configurations de serveur unique, de cluster et multisites.  
   
@@ -53,9 +53,9 @@ Avant de démarrer des tâches d'analyse et de gestion de comptes pour les clien
   
 L'analyse des clients distants se base sur les connexions. Deux types de connexions de tunnel sont établis par les clients DirectAccess :  
   
--   **Connexions du trafic du tunnel de l'ordinateur** : Ce tunnel est établi par l'ordinateur, dans le contexte du système, pour accéder aux serveurs requis pour la résolution de noms, l'authentification, les mises à jour correctives, etc.  
+-   **Connexions du trafic du tunnel de l'ordinateur**: Ce tunnel est établi par l'ordinateur, dans le contexte du système, pour accéder aux serveurs requis pour la résolution de noms, l'authentification, les mises à jour correctives, etc.  
   
--   **Connexions du trafic du tunnel de l'utilisateur** : Ce tunnel est établi par le compte d'utilisateur sur l'ordinateur, dans le contexte d'un utilisateur, quand ce dernier essaie d'accéder à une ressource sur le réseau d'entreprise. Selon les conditions requises du déploiement, un utilisateur peut avoir à fournir des informations d'identification fortes (par exemple, à l'aide d'une carte à puce ou en fournissant un mot de passe à usage unique) pour accéder aux ressources du réseau d'entreprise.  
+-   **Connexions du trafic du tunnel de l'utilisateur**: Ce tunnel est établi par le compte d'utilisateur sur l'ordinateur, dans le contexte d'un utilisateur, quand ce dernier essaie d'accéder à une ressource sur le réseau d'entreprise. Selon les conditions requises du déploiement, un utilisateur peut avoir à fournir des informations d'identification fortes (par exemple, à l'aide d'une carte à puce ou en fournissant un mot de passe à usage unique) pour accéder aux ressources du réseau d'entreprise.  
   
 Pour DirectAccess, une connexion est spécifiquement identifiée par l'adresse IP du client distant. Par exemple, si un tunnel d'ordinateur est ouvert pour un ordinateur client et qu'un utilisateur s'est connecté à partir de cet ordinateur, ils utilisent la même connexion. Quand l'utilisateur se déconnecte, puis se reconnecte tandis que le tunnel d'ordinateur est toujours actif, la connexion reste la même.  
   

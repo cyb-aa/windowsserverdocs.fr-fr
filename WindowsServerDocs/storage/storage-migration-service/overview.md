@@ -4,16 +4,16 @@ description: Storage migration service facilite la migration du stockage vers Wi
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 01/17/2020
+ms.date: 03/26/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 70ce4ebca35e071cf6e27fe429d3c4e6f67d342c
-ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
+ms.openlocfilehash: 0765c43333f23fb09c0f69ceca1ff21cfce25874
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80110672"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310505"
 ---
 # <a name="storage-migration-service-overview"></a>Vue d’ensemble de Storage migration service
 
@@ -21,7 +21,7 @@ ms.locfileid: "80110672"
 
 Storage migration service facilite la migration du stockage vers Windows Server ou vers Azure. Il fournit un outil graphique qui inventorit les données sur les serveurs Windows et Linux, puis transfère les données vers des serveurs plus récents ou vers des machines virtuelles Azure. Le service de migration de stockage offre également la possibilité de transférer l’identité d’un serveur vers le serveur de destination afin que les applications et les utilisateurs puissent accéder à leurs données sans modifier les liens ou les chemins d’accès.
 
-Cette rubrique explique pourquoi vous pouvez utiliser le service de migration de stockage, comment fonctionne le processus de migration et quelles sont les exigences pour les serveurs source et de destination.
+Cette rubrique explique pourquoi vous pouvez utiliser le service de migration de stockage, comment le processus de migration fonctionne, quelles sont les exigences pour les serveurs source et de destination, et quelles sont les nouveautés du [service de migration de stockage](#whats-new-in-storage-migration-service).
 
 ## <a name="why-use-storage-migration-service"></a>Pourquoi utiliser le service de migration de stockage
 
@@ -134,7 +134,12 @@ Le serveur de destination doit exécuter l’un des systèmes d’exploitation s
 
 Le centre d’administration Windows version 1910 vous permet de déployer des machines virtuelles Azure. Cela intègre le déploiement de machines virtuelles dans le service de migration de stockage. Au lieu de créer des serveurs et des machines virtuelles dans le portail Azure manuellement avant de déployer votre charge de travail, et éventuellement des étapes et des configurations requises, le centre d’administration Windows peut déployer la machine virtuelle Azure, configurer son stockage, la joindre à votre domaine, installer des rôles et Configurez ensuite votre système distribué. 
 
+   Voici une vidéo qui montre comment utiliser Storage migration service pour migrer vers des machines virtuelles Azure.
+   > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
+
 ## <a name="whats-new-in-storage-migration-service"></a>Nouveautés du service de migration de stockage
+
+Le centre d’administration Windows version 1910 ajoute la possibilité de déployer des machines virtuelles Azure. Cela intègre le déploiement de machines virtuelles Azure dans le service de migration de stockage. Pour plus d’informations, consultez [migration de machines virtuelles Azure](#azure-vm-migration).
 
 Les nouvelles fonctionnalités suivantes sont disponibles lors de l’exécution du serveur de migration de stockage Orchestrator sur Windows Server, version 1903 ou ultérieure, ou d’une version antérieure de Windows Server avec [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) installé :
 

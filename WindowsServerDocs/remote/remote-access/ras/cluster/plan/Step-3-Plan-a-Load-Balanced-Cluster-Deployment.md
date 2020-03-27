@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7540c17b-81de-47de-a04f-3247afa26f70
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: beb2f5ce27115bf328917e38910198794f523547
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1a195be9c00ef35f80a7e1975b52128681fca1f0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404605"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308213"
 ---
 # <a name="step-3-plan-a-load-balanced-cluster-deployment"></a>Étape 3 : planifier un déploiement de cluster à charge équilibrée
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 L’étape suivante consiste à planifier la configuration de l’équilibrage de charge et le déploiement du cluster.  
   
@@ -32,7 +32,7 @@ L’étape suivante consiste à planifier la configuration de l’équilibrage d
 |3,3 planifier des connexions client VPN|Notez la configuration requise pour les connexions de clients VPN.|  
 |3,4 planifier le serveur emplacement réseau|Si le site Web du serveur d’emplacement réseau est hébergé sur le serveur d’accès à distance et qu’un certificat auto-signé n’est pas utilisé, assurez-vous que chaque serveur du cluster dispose d’un certificat de serveur pour authentifier la connexion au site Web.|  
   
-## <a name="bkmk_2_1_Plan_LB"></a>3,1 planifier l’équilibrage de charge  
+## <a name="31-plan-load-balancing"></a><a name="bkmk_2_1_Plan_LB"></a>3,1 planifier l’équilibrage de charge  
 L’accès à distance peut être déployé sur un serveur unique ou sur un cluster de serveurs d’accès à distance. Le trafic vers le cluster peut être équilibré en charge pour fournir une haute disponibilité et une évolutivité aux clients DirectAccess. Il existe deux options d’équilibrage de charge :  
   
 -   **Windows NLB**-Windows NLB est une fonctionnalité de Windows Server. Pour l’utiliser, vous n’avez pas besoin de matériel supplémentaire, car tous les serveurs du cluster sont responsables de la gestion de la charge du trafic. L’équilibrage de la charge réseau Windows prend en charge un maximum de huit serveurs dans un cluster d’accès à distance.  
@@ -47,7 +47,7 @@ L’accès à distance peut être déployé sur un serveur unique ou sur un clus
   
     -   L’administrateur peut passer de Windows NLB à l’équilibreur de charge externe et vice versa. Notez que l’administrateur ne peut pas passer de l’équilibreur de charge externe à l’équilibrage de charge Windows s’il compte plus de 8 serveurs dans le déploiement de l’équilibrage de charge externe.  
   
-### <a name="ELBConfigEx"></a>3.1.1 exemple de configuration de Load Balancer externe  
+### <a name="311-external-load-balancer-configuration-example"></a><a name="ELBConfigEx"></a>3.1.1 exemple de configuration de Load Balancer externe  
 Cette section décrit les étapes de configuration permettant d’activer un équilibreur de charge externe sur un nouveau déploiement de l’accès à distance. Lorsque vous utilisez un équilibreur de charge externe, le cluster d’accès à distance peut ressembler à la figure ci-dessous, où les serveurs d’accès à distance sont connectés au réseau d’entreprise via un équilibreur de charge sur le réseau interne et à Internet via un équilibreur de charge. connecté au réseau externe :  
   
 ![Exemple de configuration de Load Balancer externe](../../../../media/Step-3-Plan-a-Load-Balanced-Cluster-Deployment/ELBDiagram-URA_Enterprise_NLB-.png)  
@@ -85,7 +85,7 @@ Cette section décrit les étapes de configuration permettant d’activer un éq
   
 6.  Le serveur d’accès à distance sera désormais configuré avec les adresses IP planifiées, et les adresses IP externes et internes du cluster seront configurées en fonction des adresses IP planifiées.  
   
-## <a name="bkmk_2_2_NLB"></a>3,2 planifier IP-HTTPs  
+## <a name="32-plan-ip-https"></a><a name="bkmk_2_2_NLB"></a>3,2 planifier IP-HTTPs  
   
 1.  **Exigences relatives aux certificats**: lors du déploiement du serveur d’accès à distance unique, vous avez choisi d’utiliser un certificat IP-HTTPS émis par une autorité de certification publique ou interne, ou un certificat auto-signé. Pour le déploiement de cluster, vous devez utiliser le même type de certificat sur chaque membre du cluster d’accès à distance. Autrement dit, si vous avez utilisé un certificat émis par une autorité de certification publique (recommandé), vous devez installer un certificat émis par une autorité de certification publique sur chaque membre du cluster. Le nom du sujet du nouveau certificat doit être identique au nom d’objet du certificat IP-HTTPs actuellement utilisé dans votre déploiement. Notez que si vous utilisez des certificats auto-signés, ceux-ci sont configurés automatiquement sur chaque serveur lors du déploiement du cluster.  
   
@@ -94,7 +94,7 @@ Cette section décrit les étapes de configuration permettant d’activer un éq
     > [!NOTE]  
     > Les exigences en matière de préfixe ne sont pertinentes que dans un réseau interne compatible IPv6 (IPv6 uniquement ou IPV4 + IPv6). Dans un réseau d’entreprise IPv4 uniquement, le préfixe du client est configuré automatiquement et l’administrateur ne peut pas le modifier.  
   
-## <a name="BKMK_3.3"></a>3,3 planifier des connexions client VPN  
+## <a name="33-plan-for-vpn-client-connections"></a><a name="BKMK_3.3"></a>3,3 planifier des connexions client VPN  
 Il existe plusieurs éléments à prendre en compte pour les connexions de clients VPN :  
   
 -   Le trafic du client VPN ne peut pas faire l’équilibrage de charge si les adresses des clients VPN sont allouées à l’aide de DHCP. Un pool d’adresses statiques est requis.  
@@ -105,8 +105,8 @@ Il existe plusieurs éléments à prendre en compte pour les connexions de clien
   
 -   Pour activer l’équilibrage de charge du trafic du client IPv6 VPN, vous devez spécifier un préfixe IPv6 59 bits.  
   
-## <a name="BKMK_nls"></a>3,4 planifier le serveur emplacement réseau  
-Si vous exécutez le site Web du serveur emplacement réseau sur le serveur d’accès à distance unique, pendant le déploiement, vous avez choisi d’utiliser un certificat émis par une autorité de certification interne ou un certificat auto-signé.  Notez les points suivants :  
+## <a name="34-plan-the-network-location-server"></a><a name="BKMK_nls"></a>3,4 planifier le serveur emplacement réseau  
+Si vous exécutez le site Web du serveur emplacement réseau sur le serveur d’accès à distance unique, pendant le déploiement, vous avez choisi d’utiliser un certificat émis par une autorité de certification interne ou un certificat auto-signé.  Notez les points suivants :  
   
 1.  Chaque membre du cluster d’accès à distance doit avoir un certificat pour le serveur emplacement réseau qui correspond à l’entrée DNS pour le site Web du serveur emplacement réseau.  
   

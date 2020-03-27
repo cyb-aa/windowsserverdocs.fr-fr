@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 78cc2ce3-a48e-45db-b402-e480b493fab1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ae6fddce1564e44ad72a5630c6abb16cdb6735d1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3e04c732cbacb182731717215a4cf99cf3cc1f76
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388980"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309291"
 ---
 # <a name="border-gateway-protocol-bgp"></a>Protocole BGP (Border Gateway Protocol)
 
@@ -61,7 +61,7 @@ Enable-RemoteAccessRoutingDomain -Name $Contoso_RoutingDomain -Type All -PassThr
 Enable-RemoteAccessRoutingDomain -Name $Fabrikam_RoutingDomain -Type All -PassThru  
 ```  
   
-## <a name="bkmk_top"></a>Topologies de déploiement BGP prises en charge  
+## <a name="bgp-supported-deployment-topologies"></a><a name="bkmk_top"></a>Topologies de déploiement BGP prises en charge  
 Ci-dessous sont répertoriées les topologies de déploiement prises en charge lorsque les sites d’entreprise sont connectés au centre de données du fournisseur de services cloud (CSP).  
   
 Dans tous les scénarios, la passerelle CSP est une passerelle RAS Windows Server 2016 en périphérie. La passerelle RAS, qui est capable de gérer plusieurs connexions à partir de plusieurs locataires, se compose d’un hôte Hyper-V et d’une machine virtuelle qui est réellement configurée comme passerelle. Cette passerelle de périphérie est configurée avec les connexions VPN de site à site comme un routeur BGP mutualisé pour échanger les itinéraires du sous-réseau CSP et d’entreprise.  
@@ -80,7 +80,7 @@ Les topologies de déploiement suivantes sont prises en charge.
   
 Les sections suivantes contiennent des informations supplémentaires sur chaque topologie BGP prise en charge.  
   
-### <a name="bkmk_top1"></a>Passerelle de site à site VPN RAS avec BGP sur le périmètre du site d’entreprise  
+### <a name="ras-vpn-site-to-site-gateway-with-bgp-at-enterprise-site-edge"></a><a name="bkmk_top1"></a>Passerelle de site à site VPN RAS avec BGP sur le périmètre du site d’entreprise  
 Cette topologie décrit un site d’entreprise connecté à un fournisseur de services cloud (CSP). La topologie de routage d’entreprise comprend un routeur interne, une passerelle RAS Windows Server 2016 configurée pour les connexions VPN de site à site avec le fournisseur de services de chiffrement et un périphérique de pare-feu de périmètre. La passerelle RAS met fin aux connexions VPN S2S et BGP.  
   
 ![Passerelle VPN de site à site RAS](../../media/Border-Gateway-Protocol-BGP/bgp_01.jpg)  
@@ -97,7 +97,7 @@ Dans ce scénario, le protocole BGP fonctionne de la façon suivante.
   
     -   L’appareil de périphérie peut être configuré avec des interface ou des itinéraires statiques pour sélectionner les itinéraires de publication à l’aide du protocole BGP. L’appareil de périphérie distribue également les itinéraires externes aux autres routeurs locaux à l’aide d’un protocole IGP.  
   
-### <a name="bkmk_top2"></a>Passerelle tierce avec BGP sur le périmètre du site d’entreprise  
+### <a name="third-party-gateway-with-bgp-at-enterprise-site-edge"></a><a name="bkmk_top2"></a>Passerelle tierce avec BGP sur le périmètre du site d’entreprise  
 Cette topologie décrit un site d’entreprise utilisant un routeur de périphérie tiers pour se connecter à un fournisseur de services cloud (CSP). Le routeur de périphérie sert également de passerelle VPN de site à site.  
   
 ![Passerelle tierce avec protocole BGP en périphérie du site d’entreprise](../../media/Border-Gateway-Protocol-BGP/bgp_02.jpg)  
@@ -108,7 +108,7 @@ Le routeur de périphérie d’entreprise apprend les itinéraires internes loca
   
 -   L’appareil de périphérie implémente un protocole IGP (Interior Gateway Protocol) et participe directement au routage interne.  
   
-### <a name="bkmk_top3"></a>Plusieurs sites d’entreprise se connectant au centre de solutions de CHIFFREment Cloud  
+### <a name="multiple-enterprise-sites-connecting-to-csp-cloud-datacenter"></a><a name="bkmk_top3"></a>Plusieurs sites d’entreprise se connectant au centre de solutions de CHIFFREment Cloud  
 Cette topologie décrit plusieurs sites d’entreprise qui utilisent des passerelles tierces pour se connecter à un fournisseur de services cloud (CSP). Les appareils de périphérie tiers servent de passerelles de VPN de site à site et de routeurs BGP.  
   
 ![Plusieurs sites d’entreprise se connectant au centre de solutions de CHIFFREment Cloud](../../media/Border-Gateway-Protocol-BGP/bgp_03.jpg)  
@@ -125,7 +125,7 @@ Chaque site d’entreprise apprend directement les itinéraires du réseau hébe
   
 Si le routeur BGP du site d’entreprise 1 ne peut pas se connecter au routeur BGP du site d’entreprise 2 en raison de l’échec de la connectivité, le routeur BGP du site 1 commence de manière dynamique à apprendre les itinéraires vers le réseau Enterprise site 2 à partir du routeur BGP du CSP, et le trafic est en toute transparence. reroutage du site 1 vers le site 2 par le biais du routeur BGP Windows Server sur le fournisseur de services de chiffrement.  
   
-### <a name="bkmk_top4"></a>Points de terminaison distincts pour le protocole BGP et le VPN  
+### <a name="separate-termination-points-for-bgp-and-vpn"></a><a name="bkmk_top4"></a>Points de terminaison distincts pour le protocole BGP et le VPN  
 Cette topologie décrit une entreprise qui utilise deux routeurs différents comme points de terminaison BGP et VPN de site à site. Le réseau VPN de site à site est arrêté sur la passerelle RAS Windows Server 2016, alors que BGP est terminé sur un routeur interne. Au niveau du CSP des connexions, le fournisseur de services de chiffrement met fin aux connexions VPN et BGP avec la passerelle RAS. Avec cette configuration, le matériel de routeur tiers interne doit prendre en charge la redistribution des itinéraires IGP vers le protocole BGP, ainsi que la redistribution des itinéraires BGP vers le protocole IGP.  
   
 ![Points de terminaison distincts pour le protocole BGP et le VPN](../../media/Border-Gateway-Protocol-BGP/bgp_04.jpg)  
@@ -144,7 +144,7 @@ Avec ce déploiement, la passerelle RAS d’entreprise possède une connexion VP
   
 À partir de ce stade, le routeur interne d’entreprise et la passerelle RAS CSP échangent des informations de routage. Et le routeur BGP RAS de l’entreprise Découvre les itinéraires du CSP et les itinéraires d’entreprise pour router physiquement les paquets entre les réseaux.  
   
-## <a name="bkmk_features"></a>Fonctionnalités BGP  
+## <a name="bgp-features"></a><a name="bkmk_features"></a>Fonctionnalités BGP  
 Voici les fonctionnalités du routeur BGP de la passerelle RAS.  
   
 **Routage BGP en tant que service de rôle de l’accès à distance**. Vous pouvez maintenant installer le service de rôle **routage** du rôle serveur d’accès à distance sans installer le service de rôle **service d’accès à distance (RAS)** lorsque vous souhaitez utiliser l’accès à distance en tant que routeur de réseau local BGP.  Cela réduit l’encombrement de mémoire du routeur BGP et installe uniquement les composants requis pour le routage BGP dynamique. Le service de rôle routage est utile lorsque seule une machine virtuelle de routeur BGP est requise et que vous n’avez pas besoin d’utiliser DirectAccess ou VPN. En outre, l’utilisation de l’accès à distance en tant que routeur LAN avec BGP vous offre les avantages de routage dynamique de BGP sur votre réseau interne.  

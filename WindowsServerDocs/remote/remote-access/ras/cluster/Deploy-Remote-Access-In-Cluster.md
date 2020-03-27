@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5e4108eee0c62ae4d4db31560b31a6f90751c6b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 9a025c82b5bece3a4719905c4e28333c42aac35c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404647"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308384"
 ---
 # <a name="deploy-remote-access-in-a-cluster"></a>Déployer l’accès à distance dans un cluster
 
@@ -25,10 +25,10 @@ ms.locfileid: "71404647"
 
 Windows Server 2016 et Windows Server 2012 combinent DirectAccess et le service d’accès à distance \(RAS\) VPN en un seul rôle d’accès à distance. Vous pouvez déployer l’accès à distance dans plusieurs scénarios d’entreprise. Cette vue d’ensemble fournit une introduction au scénario d’entreprise pour le déploiement de plusieurs serveurs d’accès à distance dans une charge de cluster équilibrée avec l’équilibrage de charge réseau Windows \(NLB\) ou avec un équilibreur de charge externe \(ELB\), comme F5 Big\-IP.  
 
-## <a name="BKMK_OVER"></a>Description du scénario  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Description du scénario  
 Un déploiement de cluster rassemble plusieurs serveurs d’accès à distance en une seule unité, qui agit ensuite comme un point de contact unique pour les ordinateurs clients distants qui se connectent via DirectAccess ou VPN au réseau d’entreprise interne à l’aide de l’adresse IP virtuelle \(VIP\) du cluster d’accès à distance.  Le trafic vers le cluster est équilibré en charge à l’aide de Windows NLB ou avec un équilibreur de charge externe \(comme F5 Big\-IP\).  
 
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Composants requis  
 Avant de déployer ce scénario, prenez connaissance des conditions requises suivantes qui ont leur importance :  
 
 -   Équilibrage de charge par défaut via l’équilibrage de la charge réseau (NLB) Windows.  
@@ -58,7 +58,7 @@ Ce scénario de déploiement de cluster inclut plusieurs étapes :
 
 3.  [Configurez un cluster d’accès à distance](configure/Configure-a-Remote-Access-Cluster.md). Il s’agit d’un certain nombre d’étapes de configuration, notamment la préparation du serveur unique pour l’équilibrage de charge réseau Windows ou l’équilibrage de charge externe, la préparation de serveurs supplémentaires pour rejoindre le cluster et l’activation de l’équilibrage de charge.  
 
-## <a name="BKMK_APP"></a>Applications pratiques  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applications pratiques  
 Le regroupement de plusieurs serveurs en un cluster de serveurs fournit les avantages suivants :  
 
 -   Extensibilité. Un serveur d’accès à distance unique offre un niveau limité de fiabilité du serveur et de performances évolutives. En regroupant les ressources de deux serveurs ou plus dans un cluster individuel, vous augmentez la capacité en termes de débit et de nombre d’utilisateurs.  
@@ -67,16 +67,16 @@ Le regroupement de plusieurs serveurs en un cluster de serveurs fournit les avan
 
 -   Facilitez la\-de la gestion des\-. Un cluster permet de gérer plusieurs serveurs en tant qu’entité unique. Des paramètres partagés peuvent aisément être définis entre les serveurs du cluster. Les paramètres d’accès à distance peuvent être gérés à partir de n’importe quel serveur du cluster, ou à distance à l’aide de Outils d’administration de serveur distant \(\)d’administration à distance. De plus, le cluster entier peut être analysé à partir d’une console de gestion de l’accès à distance unique.  
 
-## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau suivant répertorie les fonctionnalités et rôles requis pour ce scénario :  
 
 |Fonctionnalité de\/de rôle|Prise en charge de ce scénario|  
 |---------|-----------------|  
 |Rôle Accès à distance|Ce rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur. Il englobe à la fois DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et les services de routage et d’accès à distance \(RRAS\), qui était auparavant un service de rôle sous le rôle de serveur services de stratégie et d’accès réseau \(NPAS\) Server. Le rôle Accès à distance est constitué de deux composants :<br /><br />-Always On VPN et les services de routage et d’accès à distance \(RRAS\) VPN-DirectAccess et VPN sont gérés ensemble dans la console de gestion de l’accès à distance.<br />-Routage RRAS : les fonctionnalités de routage RRAS sont gérées dans la console de routage et d’accès distant héritée.<br /><br />Les dépendances sont les suivantes :<br /><br />-Internet Information Services \(serveur Web IIS\)-cette fonctionnalité est requise pour configurer le serveur emplacement réseau et la sonde Web par défaut.<br />-Base de données interne Windows : utilisée pour la comptabilité locale sur le serveur d’accès à distance.|  
 |Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<br /><br />-Elle est installée par défaut sur un serveur d’accès à distance lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance.<br />-Il peut éventuellement être installé sur un serveur qui n’exécute pas le rôle de serveur d’accès à distance. Dans ce cas, elle est utilisée pour la gestion à distance d’un ordinateur d’accès à distance qui exécute DirectAccess et le réseau privé virtuel (VPN).<br /><br />La fonctionnalité des outils de gestion de l’accès à distance est constituée des éléments suivants :<br /><br />-Interface utilisateur graphique d’accès à distance et outils en ligne de commande<br />-Module d’accès à distance pour Windows PowerShell<br /><br />Les dépendances incluent :<br /><br />-Console de gestion des stratégies de groupe<br />-Le kit d’administration du gestionnaire des connexions RAS \(CMAK\)<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
-|Équilibrage de la charge réseau|Cette fonctionnalité assure l’équilibrage de charge dans un cluster utilisant l’équilibrage de charge réseau Windows.|  
+|Équilibrage de charge réseau|Cette fonctionnalité assure l’équilibrage de charge dans un cluster utilisant l’équilibrage de charge réseau Windows.|  
 
-## <a name="BKMK_HARD"></a>Configuration matérielle requise  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Configuration matérielle requise  
 La configuration matérielle requise pour ce scénario comprend les éléments suivants :  
 
 -   Au moins deux ordinateurs qui répondent à la configuration matérielle requise pour Windows Server 2012.  
@@ -85,7 +85,7 @@ La configuration matérielle requise pour ce scénario comprend les éléments s
 
 -   Pour tester le scénario, vous devez disposer d’au moins un ordinateur exécutant Windows 10 configuré en tant que client VPN Always On.   
 
-## <a name="BKMK_SOFT"></a>Configuration logicielle requise  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Configuration logicielle requise  
 Plusieurs conditions sont requises pour ce scénario :  
 
 -   Configuration logicielle requise pour un déploiement sur un seul serveur. Pour plus d’informations, consultez [déployer un serveur DirectAccess unique avec des paramètres avancés](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md). Un accès à distance unique).  
@@ -100,7 +100,7 @@ Plusieurs conditions sont requises pour ce scénario :
 
     -   Le préfixe IPv6 attribué aux ordinateurs clients DirectAccess sur les clusters de serveurs doit comporter 59 bits. Si VPN est activé, le préfixe VPN doit comporter également 59 bits.  
 
-## <a name="KnownIssues"></a>Problèmes connus  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Problèmes connus  
 Les problèmes décrits ci-après sont connus et surviennent souvent lors de la configuration d’un scénario de cluster :  
 
 -   Après la configuration de DirectAccess dans un\-IPv4 uniquement avec une seule carte réseau et après que le DNS64 par défaut \(l’adresse IPv6 qui contient «  : 3333 :: »\) est automatiquement configuré sur la carte réseau, la tentative d’activation de l’équilibrage de charge\-via la console de gestion de l’accès à distance entraîne une invite invitant l’utilisateur à fournir une adresse IPv6 DIP. Si une adresse IPv6 DIP est fournie, la configuration échoue après avoir cliqué sur **Valider** avec l’erreur : Le paramètre est incorrect.  

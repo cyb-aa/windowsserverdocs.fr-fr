@@ -6,19 +6,19 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/08/2018
-ms.openlocfilehash: ccdcbb953939345ef5e9a45dff87fc7af62eb7bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 01c768aefa685b688c2ed3f777c44a4665b5e4a7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355485"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309683"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseau virtuel
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
 L’homologation de réseaux virtuels vous permet de connecter deux réseaux virtuels en toute transparence. Une fois homologués, à des fins de connectivité, les réseaux virtuels apparaissent comme un seul. 
 
@@ -83,14 +83,14 @@ Lorsque vous Homologuez deux réseaux virtuels, vous devez configurer une homolo
 
 Vous pouvez surveiller l’état de votre connexion d’homologation, qui peut être dans l’un des États suivants :
 
--   **Été** S’affiche lorsque vous créez l’homologation à partir du premier réseau virtuel vers le second réseau virtuel.
+-   **Initié le :** S’affiche lorsque vous créez l’homologation à partir du premier réseau virtuel vers le second réseau virtuel.
 
--   **Correctement** Indiqué après avoir créé l’homologation à partir du deuxième réseau virtuel vers le premier réseau virtuel. L’état d’homologation pour le premier réseau virtuel passe de initié à connecté. Les deux homologues de réseau virtuel doivent avoir l’état connecté avant d’établir correctement une homologation de réseau virtuel.
+-   **Connecté :** Indiqué après avoir créé l’homologation à partir du deuxième réseau virtuel vers le premier réseau virtuel. L’état d’homologation pour le premier réseau virtuel passe de initié à connecté. Les deux homologues de réseau virtuel doivent avoir l’état connecté avant d’établir correctement une homologation de réseau virtuel.
 
--   **Arrêt** Indique si un réseau virtuel se déconnecte d’un autre réseau virtuel.
+-   **Déconnecté :** Indique si un réseau virtuel se déconnecte d’un autre réseau virtuel.
 
 [infographie des États]
 
-## <a name="next-steps"></a>Étapes suivantes
-[Configurez l’homologation de réseaux virtuels](sdn-configure-vnet-peering.md): Dans cette procédure, vous utilisez Windows PowerShell pour rechercher le réseau logique du fournisseur HNV pour créer deux réseaux virtuels, chacun avec un sous-réseau. Vous configurez également l’homologation entre les deux réseaux virtuels.
+## <a name="next-steps"></a>Étapes suivantes :
+[Configuration de l’homologation de réseaux virtuels](sdn-configure-vnet-peering.md): dans cette procédure, vous utilisez Windows PowerShell pour rechercher le réseau logique de fournisseur HNV pour créer deux réseaux virtuels, chacun avec un sous-réseau. Vous configurez également l’homologation entre les deux réseaux virtuels.
 

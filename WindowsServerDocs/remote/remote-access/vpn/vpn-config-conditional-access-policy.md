@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 22983c085f2b9d9e7e16810e25c6fa50111f9fa6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 479c9fe4895f4181f8a776f024a7ff3c047fbc0e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404342"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307817"
 ---
-# <a name="step-73-configure-the-conditional-access-policy"></a>Étape 7.3. Configurer la stratégie d’accès conditionnel
+# <a name="step-73-configure-the-conditional-access-policy"></a>Étape 7.3. configurer la stratégie d'accès conditionnel
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
@@ -88,10 +88,10 @@ Créer une stratégie d’accès conditionnel qui est affectée au groupe d’ut
 
 8.  Dans la page **nouveau** , sous **activer la stratégie**, sélectionnez **activé**.
 
-    ![Activer la stratégie](../../media/Always-On-Vpn/15.png)
+    ![Activer une stratégie](../../media/Always-On-Vpn/15.png)
 
 9.  Dans la page **nouveau** , sélectionnez **créer**.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 [Étape 7,4. Déployer des certificats racines d’accès conditionnel vers AD local](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md): au cours de cette étape, vous allez déployer le certificat racine d’accès conditionnel en tant que certificat racine approuvé pour l’authentification VPN sur votre annuaire Active Directory local.

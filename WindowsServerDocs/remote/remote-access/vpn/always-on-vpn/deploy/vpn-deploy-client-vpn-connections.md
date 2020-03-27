@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.assetid: d165822d-b65c-40a2-b440-af495ad22f42
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.reviewer: deverette
-ms.openlocfilehash: c35cc44e0a52596fd9fa2ba5b2c01727c11b834c
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 11906c737dd1604bf064e25a01289fe2ee5a23ad
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822406"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310494"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Étape 6. Configurer le client Windows 10 Always On les connexions VPN
 
@@ -160,7 +160,7 @@ Toutefois, si vous n’avez pas redémarré l’ordinateur depuis la configurati
 
 6.  Dans nom ou adresse du serveur, tapez le nom de domaine complet (FQDN) **externe** de votre serveur VPN (par exemple, **VPN.contoso.com**).
 
-7.  Cliquez sur **Save**.
+7.  Cliquez sur **Enregistrer**.
 
 8.  Sous paramètres associés, cliquez sur **modifier les options**de l’adaptateur.
 
@@ -698,7 +698,7 @@ Dans Configuration Manager, vous pouvez déployer des profils VPN à l’aide du
 
 Pour utiliser Configuration Manager pour déployer un profil VPN Always On accès à distance sur des ordinateurs clients Windows 10, vous devez commencer par créer un groupe d’ordinateurs ou d’utilisateurs pour lesquels vous déployez le profil. Dans ce scénario, créez un groupe d’utilisateurs pour déployer le script de configuration.
 
-### <a name="create-a-user-group"></a>Créer un groupe d’utilisateurs
+### <a name="create-a-user-group"></a>Créer un groupe d'utilisateurs
 
 1.  Dans la console Configuration Manager, ouvrez ressources et conformité\\regroupements d’utilisateurs.
 
@@ -793,7 +793,7 @@ Après avoir créé le package et le programme, vous devez le déployer dans le 
 
     a.  Dans l’onglet **avancé** , dans **lorsque ce programme est attribué à un ordinateur**, cliquez **une fois pour chaque utilisateur qui ouvre une session**.
 
-    b.  Cliquez sur **OK**.
+    b.  Cliquez sur **OK**.
 
 4.  Cliquez avec le bouton droit sur **script de profil VPN** , puis cliquez sur **déployer** pour démarrer l’Assistant déploiement logiciel.
 
@@ -850,7 +850,7 @@ Une fois le script de configuration ProfileXML déployé, connectez-vous à un o
 
     b.  Cliquez sur **récupération de stratégie utilisateur & cycle d’évaluation**, cliquez sur **Exécuter maintenant**, puis sur **OK**.
 
-    c.  Cliquez sur **OK**.
+    c.  Cliquez sur **OK**.
 
 3.  Fermez le panneau de configuration.
 
@@ -867,7 +867,7 @@ Créez la stratégie de configuration de périphérique VPN pour configurer les 
 
 ### <a name="create-the-always-on-vpn-configuration-policy"></a>Créer la stratégie de configuration Always On VPN
 
-1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2.  Accédez à **Intune** > **configuration** de l’appareil > **profils**.
 
@@ -930,7 +930,7 @@ Pour tester la stratégie de configuration, connectez-vous à un ordinateur clie
 
 5.  Fermez paramètres. Après la synchronisation, vous voyez le profil VPN disponible sur l’ordinateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 Vous avez terminé le déploiement Always On VPN.  Pour les autres fonctionnalités que vous pouvez configurer, consultez le tableau ci-dessous :
 

@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b9b77cfd-8dd4-476b-a118-f3d6bf59e7b1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9cce81998c6041aea223da29979a53d6069f599c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c9bc2b54927905346c980ef2b14d65310ca930b8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404743"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308588"
 ---
 # <a name="step-6-test-directaccess-connectivity-from-the-homenet-subnet"></a>ÉTAPE 6 Testez la connectivité DirectAccess à partir du sous-réseau HomeNet
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Le déploiement du mot de passe à usage unique DirectAccess est maintenant terminé et vous pouvez commencer à tester la connectivité à partir du sous-réseau HomeNet.  
   
@@ -29,13 +29,13 @@ Le déploiement du mot de passe à usage unique DirectAccess est maintenant term
   
 1. Sur CLIENT1, assurez-vous que vous êtes connecté en tant que **User1**.  
   
-2. Dans l’écran d' **Accueil** , tapez**PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+2. Dans l’écran d' **Accueil** , tapez**PowerShell. exe**, cliquez avec le bouton droit sur **PowerShell**, cliquez sur **avancé**, puis sur **exécuter en tant qu’administrateur**. Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 3. Dans la fenêtre Windows PowerShell, tapez **gpupdate/force**, puis appuyez sur entrée.  
   
 4. Débranchez CLIENT1 du sous-réseau Corpnet et connectez-le au sous-réseau HomeNet.  
   
-5. Sur CLIENT1, ouvrez Internet Explorer, et dans la barre d’adresses, tapez **https://app1.corp.contoso.com/** , puis appuyez sur entrée. Appuyez sur F5.  
+5. Sur CLIENT1, ouvrez Internet Explorer, et dans la barre d’adresses, tapez **https://app1.corp.contoso.com/** , puis appuyez sur entrée. Appuyez sur F5.  
   
    Le site ne doit pas s’ouvrir.  
   
@@ -51,15 +51,15 @@ Le déploiement du mot de passe à usage unique DirectAccess est maintenant term
   
 11. Collez le jeton de jeton à huit chiffres précédemment copié, puis cliquez sur **OK**. Attendez la fin de l’authentification. L’état de la connexion à l’espace de travail DirectAccess sera maintenant **connecté**.  
   
-12. Dans Internet Explorer, dans la barre d’adresses, tapez **https://app1.corp.contoso.com/** et appuyez sur entrée. Appuyez sur F5. Vous allez voir le site web IIS par défaut sur APP1.  
+12. Dans Internet Explorer, dans la barre d’adresses, tapez **https://app1.corp.contoso.com/** et appuyez sur entrée. Appuyez sur F5. Vous allez voir le site web IIS par défaut sur APP1.  
   
-13. Dans la barre d’adresses d’Internet Explorer, tapez **https://app2.corp.contoso.com/** et appuyez sur entrée. Appuyez sur F5. Le site Web IIS par défaut s’affiche sur APP2.  
+13. Dans la barre d’adresses d’Internet Explorer, tapez **https://app2.corp.contoso.com/** , puis appuyez sur entrée. Appuyez sur F5. Le site Web IIS par défaut s’affiche sur APP2.  
   
-14. Dans l’écran d' **Accueil** , tapez<strong>\\ \ app1\files</strong>, puis appuyez sur entrée.  
+14. Dans l’écran d' **Accueil** , tapez<strong>\\\app1\files</strong>, puis appuyez sur entrée.  
   
 15. Dans la fenêtre dossiers partagés de **fichiers** , double-cliquez sur le fichier **example. txt** . Vous verrez le contenu du fichier example. txt.  
   
-16. Dans l’écran d' **Accueil** , tapez<strong>\\ \ app2\files</strong>, puis appuyez sur entrée.  
+16. Dans l’écran d' **Accueil** , tapez<strong>\\\app2\files</strong>, puis appuyez sur entrée.  
   
 17. Dans la fenêtre dossiers partagés de **fichiers** , double-cliquez sur le **nouveau fichier texte Text. txt** . Vous verrez le contenu du nouveau fichier texte document. txt.  
   

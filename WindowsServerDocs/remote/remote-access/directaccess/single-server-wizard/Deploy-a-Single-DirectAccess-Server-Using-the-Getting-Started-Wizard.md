@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eb0cf464-0668-40f8-8222-feb6bae6d3d5
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d927971094396a8df44eece80732a9d7a301ed33
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c37ed120b811cd86dd70580d31cff18f2c330677
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388615"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309065"
 ---
 # <a name="deploy-a-single-directaccess-server-using-the-getting-started-wizard"></a>Déployer un serveur DirectAccess individuel à l’aide de l’Assistant Mise en route
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Cette rubrique fournit une introduction au scénario DirectAccess qui utilise un serveur DirectAccess unique et vous permet de déployer DirectAccess en quelques étapes simples.  
   
@@ -32,7 +32,7 @@ Vous pouvez utiliser les rubriques suivantes pour passer en revue les conditions
   
 -   [Conditions préalables pour le déploiement de DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
   
-## <a name="BKMK_OVER"></a>Description du scénario  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Description du scénario  
 Dans ce scénario, un seul ordinateur exécutant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, est configuré en tant que serveur DirectAccess avec les paramètres par défaut en quelques étapes de l’Assistant, sans qu’il soit nécessaire de configurer des paramètres d’infrastructure, tels que en tant qu’autorité de certification (CA) ou Active Directory groupes de sécurité.  
   
 > [!NOTE]  
@@ -41,7 +41,7 @@ Dans ce scénario, un seul ordinateur exécutant Windows Server 2016, Windows Se
 ## <a name="in-this-scenario"></a>Dans ce scénario  
 Pour configurer un serveur DirectAccess de base, plusieurs étapes de planification et de déploiement sont requises.  
   
-### <a name="prerequisites"></a>Prérequis  
+### <a name="prerequisites"></a>Composants requis  
 Avant de déployer ce scénario, prenez connaissance des conditions requises suivantes qui ont leur importance :  
   
 -   Le Pare-feu Windows doit être activé sur tous les profils.  
@@ -86,22 +86,22 @@ Le déploiement comporte les trois phases suivantes :
   
 Pour connaître les étapes de déploiement détaillées, voir [Install and Configure Basic DirectAccess](../../../remote-access/directaccess/single-server-wizard/Install-and-Configure-Basic-DirectAccess.md).  
   
-## <a name="BKMK_APP"></a>Applications pratiques  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applications pratiques  
 Le déploiement d’un serveur d’accès à distance individuel présente les caractéristiques suivantes :  
   
 -   Facilité d’accès. Vous pouvez configurer des ordinateurs clients gérés exécutant Windows 10, Windows 8.1, Windows 8 ou Windows 7, en tant que clients DirectAccess. Ces clients peuvent accéder aux ressources réseau internes via DirectAccess chaque fois qu’ils se trouvent sur Internet sans avoir à se connecter via une connexion VPN. Les ordinateurs clients qui n’exécutent pas l’un de ces systèmes d’exploitation peuvent se connecter au réseau interne via des connexions VPN classiques.  
   
 -   Facilité de gestion. Les ordinateurs clients DirectAccess qui se trouvent sur Internet peuvent être gérés à distance par des administrateurs d'accès à distance via DirectAccess, même si ces ordinateurs ne figurent pas dans le réseau interne de l'entreprise. Les ordinateurs clients qui ne répondent pas aux spécifications de l’entreprise peuvent être automatiquement mis à jour par les serveurs d’administration. DirectAccess et VPN sont gérés dans la même console et avec le même jeu d’Assistants. En outre, un ou plusieurs serveurs d’accès à distance peuvent être gérés à partir d’une seule console de gestion de l’accès à distance.  
   
-## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau suivant répertorie les fonctionnalités et rôles requis pour ce scénario :  
   
 |Rôle/fonctionnalité|Prise en charge de ce scénario|  
 |---------|-----------------|  
-|Rôle Accès à distance|Le rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur ou de Windows PowerShell. Ce rôle englobe à la fois DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et le service Routage et accès distant qui était auparavant un service de rôle sous le rôle de serveur Services de stratégie et d’accès réseau. Le rôle Accès à distance est constitué de deux composants :<br /><br />1.  DirectAccess et le réseau privé virtuel (RRAS) des services de routage et d’accès à distance. DirectAccess et VPN sont gérés ensemble dans la console de gestion de l’accès à distance.<br />2.  Routage RRAS. Les fonctionnalités de routage RRAS sont gérées dans la console de routage et d’accès distant héritée.<br /><br />Le rôle de serveur d’accès à distance dépend des rôles/fonctionnalités de serveur suivants :<br /><br />-Serveur Web Internet Information Services (IIS) : cette fonctionnalité est requise pour configurer le serveur emplacement réseau sur le serveur d’accès à distance, ainsi que la sonde Web par défaut.<br />-Base de données interne Windows. utilisée pour la gestion locale des comptes sur le serveur d'accès à distance.|  
+|Rôle Accès à distance|Le rôle est installé et désinstallé à l’aide de la console du Gestionnaire de serveur ou de Windows PowerShell. Ce rôle englobe à la fois DirectAccess, qui était auparavant une fonctionnalité de Windows Server 2008 R2, et le service Routage et accès distant qui était auparavant un service de rôle sous le rôle de serveur Services de stratégie et d’accès réseau. Le rôle Accès à distance est constitué de deux composants :<br /><br />1. DirectAccess et le réseau privé virtuel (RRAS) des services de routage et d’accès à distance. DirectAccess et VPN sont gérés ensemble dans la console de gestion de l’accès à distance.<br />2. routage RRAS. Les fonctionnalités de routage RRAS sont gérées dans la console de routage et d’accès distant héritée.<br /><br />Le rôle de serveur d’accès à distance dépend des rôles/fonctionnalités de serveur suivants :<br /><br />-Serveur Web Internet Information Services (IIS) : cette fonctionnalité est requise pour configurer le serveur emplacement réseau sur le serveur d’accès à distance, ainsi que la sonde Web par défaut.<br />-Base de données interne Windows. utilisée pour la gestion locale des comptes sur le serveur d'accès à distance.|  
 |Fonctionnalité des outils de gestion de l’accès à distance|Cette fonctionnalité est installée comme suit :<br /><br />-Elle est installée par défaut sur un serveur d’accès à distance lorsque le rôle accès à distance est installé et prend en charge l’interface utilisateur de la console de gestion à distance et les applets de commande Windows PowerShell.<br />-Il peut éventuellement être installé sur un serveur qui n’exécute pas le rôle de serveur d’accès à distance. Dans ce cas, elle est utilisée pour la gestion à distance d’un ordinateur d’accès à distance qui exécute DirectAccess et le réseau privé virtuel (VPN).<br /><br />La fonctionnalité des outils de gestion de l’accès à distance est constituée des éléments suivants :<br /><br />-Interface utilisateur graphique d’accès à distance<br />-Module d’accès à distance pour Windows PowerShell<br /><br />Les dépendances incluent :<br /><br />-Console de gestion des stratégies de groupe<br />-Kit d’administration du gestionnaire des connexions (CMAK) RAS<br />-Windows PowerShell 3,0<br />-Outils et infrastructure de gestion graphique|  
   
-## <a name="BKMK_HARD"></a>Configuration matérielle requise  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Configuration matérielle requise  
 La configuration matérielle requise pour ce scénario comprend les éléments suivants :  
   
 -   Configuration requise du serveur :  
@@ -120,7 +120,7 @@ La configuration matérielle requise pour ce scénario comprend les éléments s
         > Si certains ou tous vos ordinateurs clients exécutent Windows 7, vous devez utiliser l’Assistant Installation avancée. L’Assistant Installation de Prise en main décrit dans ce document ne prend pas en charge les ordinateurs clients qui exécutent Windows 7. Pour obtenir des instructions sur l’utilisation des clients Windows 7 avec DirectAccess, consultez [déployer un serveur DirectAccess unique avec des paramètres avancés](../../../remote-access/directaccess/single-server-advanced/../../../remote-access/directaccess/single-server-advanced/../../../remote-access/directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) .  
   
         > [!NOTE]  
-        > Seuls les systèmes d'exploitation suivants peuvent être utilisés en tant que clients DirectAccess : Windows 10 entreprise, Windows 8.1 Enterprise, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 8 entreprise, Windows Server 2008 R2, Windows 7 entreprise et Windows 7 édition intégrale.  
+        > Seuls les systèmes d’exploitation suivants peuvent être utilisés en tant que clients DirectAccess : Windows 10 entreprise, Windows 8.1 Enterprise, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 8 entreprise, Windows Server 2008 R2, Windows 7 entreprise et Windows 7 édition intégrale.  
   
 -   Configuration requise en termes d’infrastructure et de serveurs d’administration :  
   
@@ -128,7 +128,7 @@ La configuration matérielle requise pour ce scénario comprend les éléments s
   
 -   Un serveur DNS exécutant Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 SP2 ou Windows Server 2008 R2 est requis.  
   
-## <a name="BKMK_SOFT"></a>Configuration logicielle requise  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Configuration logicielle requise  
 Plusieurs conditions sont requises pour ce scénario :  
   
 -   Configuration requise du serveur :  
@@ -143,9 +143,9 @@ Plusieurs conditions sont requises pour ce scénario :
   
     -   Les clients DirectAccess doivent appartenir au domaine. Les domaines contenant des clients peuvent appartenir à la même forêt que celle du serveur d’accès à distance ou ils peuvent avoir une relation d’approbation bidirectionnelle avec la forêt du serveur d’accès à distance.  
   
-    -   Un groupe de sécurité Active Directory est requis afin de contenir les ordinateurs qui seront configurés en tant que clients DirectAccess. Si aucun groupe de sécurité n’est spécifié lors de la configuration des paramètres des clients DirectAccess, le client GPO est appliqué par défaut sur tous les ordinateurs portables inclus dans le groupe de sécurité Ordinateurs du domaine. Seuls les systèmes d'exploitation suivants peuvent être utilisés en tant que clients DirectAccess :  Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 8 entreprise, Windows 7 entreprise et Windows 7 édition intégrale.  
+    -   Un groupe de sécurité Active Directory est requis afin de contenir les ordinateurs qui seront configurés en tant que clients DirectAccess. Si aucun groupe de sécurité n’est spécifié lors de la configuration des paramètres des clients DirectAccess, le client GPO est appliqué par défaut sur tous les ordinateurs portables inclus dans le groupe de sécurité Ordinateurs du domaine. Seuls les systèmes d’exploitation suivants peuvent être utilisés en tant que clients DirectAccess : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 8 entreprise, Windows 7 entreprise et Windows 7 édition intégrale.  
   
-## <a name="BKMK_LINKS"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_LINKS"></a>Voir aussi  
 Le tableau suivant fournit des liens vers des ressources supplémentaires.  
   
 |Type de contenu|Références|  

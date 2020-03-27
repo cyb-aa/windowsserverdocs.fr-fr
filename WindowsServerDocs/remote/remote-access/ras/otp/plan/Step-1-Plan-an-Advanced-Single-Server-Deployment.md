@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 96538cbb-7d6c-4860-9ec7-b1834284ad10
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9f48d030d388f9ae0aa2b18e2b9dd033bd47c55f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: bddc250763cdac65845b114801000c00231ecbbf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366965"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313596"
 ---
 # <a name="step-1-plan-an-advanced-single-server-deployment"></a>Étape 1 planifier un déploiement avancé de serveur unique
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 La première étape de la planification d’un accès à distance avec un déploiement d’authentification du client par mot de passe à usage unique consiste à planifier et à configurer un déploiement de serveur unique avancé.  
   

@@ -6,18 +6,18 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0bc6746f-2adb-43d8-a503-52f473833164
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 297044397088bfb64b51e1553d3f69d5b933e81b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c20c21c39e44d7eb3da812bbe71f175d0688d6c0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405913"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309654"
 ---
 # <a name="troubleshooting-converged-nic-configurations"></a>Résolution des problèmes de configuration de cartes réseau convergées
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser le script suivant pour vérifier si la configuration RDMA est correcte sur l’hôte Hyper-V.
 
@@ -82,7 +82,7 @@ Le carte réseau virtuelle d’hôte doit apparaître comme étant en mesure d�
 
 ## <a name="get-netadapterqos"></a>NetAdapterQos
 
-Vous pouvez afficher la configuration QoS \(\) de la qualité de service de la carte réseau en exécutant la commande Windows PowerShell suivante.
+Vous pouvez afficher la configuration de la qualité de service \(\) QoS de la carte réseau en exécutant la commande Windows PowerShell suivante.
 
     Get-NetAdapterQos
 
@@ -96,14 +96,14 @@ Les priorités et les classes de trafic doivent être affichées selon la premi�
 
 Si vos résultats sont inattendus, procédez comme suit.
 
-1. S’assurer que la carte réseau physique prend en charge \(le\) Data Center Bridging DCB et QoS
+1. Vérifiez que la carte réseau physique prend en charge la liaison de centre de données \(DCB\) et QoS
 2. Vérifiez que les pilotes de carte réseau sont à jour.
 
 --- 
 
 ## <a name="get-smbmultichannelconnection"></a>SmbMultiChannelConnection
 
-Vous pouvez utiliser la commande Windows PowerShell suivante pour vérifier que l’adresse IP du nœud distant est capable\-d’utiliser RDMA.
+Vous pouvez utiliser la commande Windows PowerShell suivante pour vérifier que l’adresse IP du nœud distant est une\-RDMA.
 
     Get-SmbMultiChannelConnection
 
@@ -125,7 +125,7 @@ Si vos résultats sont inattendus, procédez comme suit.
 
 ## <a name="get-smbclientnetworkinterface"></a>SmbClientNetworkInterface
 
-Vous pouvez utiliser la commande suivante pour vérifier que la carte réseau virtuelle que vous avez activée pour RDMA est\-indiquée comme étant compatible RDMA par SMB.
+Vous pouvez utiliser la commande suivante pour vérifier que la carte réseau virtuelle que vous avez activée pour RDMA est signalée en tant que\-RDMA compatible avec SMB.
 
     Get-SmbClientNetworkInterface
 
@@ -145,9 +145,9 @@ Si vos résultats sont inattendus, procédez comme suit.
 
 --- 
 
-## <a name="vstat-mellanox-specific"></a>vstat \(-spécifique à Mellanox\)
+## <a name="vstat-mellanox-specific"></a>vstat \(\) spécifique à Mellanox
 
-Si vous utilisez des cartes réseau Mellanox, vous pouvez utiliser la commande **vstat** pour vérifier la version RDMA sur la RoCE \(\) Ethernet convergée sur les nœuds Hyper-V.
+Si vous utilisez des cartes réseau Mellanox, vous pouvez utiliser la commande **vstat** pour vérifier la version RDMA sur Ethernet \(RoCE\) sur les nœuds Hyper-V.
 
 ### <a name="vstat-expected-results"></a>résultats attendus vstat
 
