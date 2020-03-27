@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d6d1ca5e-bde0-4509-9e14-dc3fa9ff447e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8a63bf7d277108a528a3ab1c20263e31b59c1547
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d0521b44eb2b2733ecd8a259c5f9ca25d8bfdef1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405363"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315799"
 ---
 # <a name="access-permission"></a>Autorisation d’accès
 

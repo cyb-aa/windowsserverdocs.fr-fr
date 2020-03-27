@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 6005dc27-f49e-427f-92f7-b0e558ffe3ff
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7de8ddb79e9b23688c31e55795844c2cd714cb52
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 89b0ff250d118b47b16996018ffb0e973072f6e7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405386"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315943"
 ---
 # <a name="manage-npss"></a>Gérer des serveurs NPS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser les rubriques de cette section pour gérer NPSs.
 
@@ -26,7 +26,7 @@ Vous pouvez utiliser les rubriques de cette section pour gérer NPSs.
 >- [Prise en main avec le serveur NPS (Network Policy Server)](nps-getstart-top.md)
 >- [Déployer un serveur NPS (Network Policy Server)](nps-deploy.md) 
 
-Cette section contient les rubriques suivantes :
+Cette section contient les rubriques suivantes :
 
 - [Configurer NPS sur un ordinateur multirésident](nps-multihomed-configure.md)
 - [Configurer les informations de port UDP NPS](nps-udp-ports-configure.md)

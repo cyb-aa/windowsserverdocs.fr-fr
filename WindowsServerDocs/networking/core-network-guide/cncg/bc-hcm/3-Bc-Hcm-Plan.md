@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: bc44a7db-f7a5-4e95-9d95-ab8d334e885f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0fe55bc9971606559af652d592a91db7a89544a7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 09e6d6db0347e36c2cea01a0bc200edcaf4eb474
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356364"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319053"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment-planning"></a>Planification du déploiement du mode de cache hébergé BranchCache
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser cette rubrique pour planifier le déploiement de BranchCache en mode de cache hébergé.
 
@@ -36,7 +36,7 @@ Avant de déployer votre serveur de cache hébergé, vous devez planifier les é
 
 - [Planifier le préhachage et la création de packages de données sur les serveurs de contenu](#bkmk_prehash)
 
-## <a name="bkmk_basic"></a>Planifier la configuration du serveur de base
+## <a name="plan-basic-server-configuration"></a><a name="bkmk_basic"></a>Planifier la configuration du serveur de base
   
 Si vous envisagez d’utiliser un serveur existant dans votre succursale en tant que serveur de cache hébergé, vous n’avez pas besoin d’effectuer cette étape de planification, car l’ordinateur est déjà nommé et a une configuration d’adresse IP.
 
@@ -45,25 +45,25 @@ Après avoir installé Windows Server 2016 sur votre serveur de cache hébergé,
 >[!NOTE]
 >Dans ce guide, le serveur de cache hébergé est nommé HCS1, mais vous devez utiliser un nom de serveur approprié pour votre déploiement.
 
-## <a name="bkmk_domain"></a>Planifier l’accès au domaine
+## <a name="plan-domain-access"></a><a name="bkmk_domain"></a>Planifier l’accès au domaine
 
 Si vous envisagez d’utiliser un serveur existant dans votre succursale en tant que serveur de cache hébergé, vous n’avez pas besoin d’effectuer cette étape de planification, sauf si l’ordinateur n’est pas actuellement joint au domaine.
   
 Pour ouvrir une session sur le domaine, l’ordinateur doit être un ordinateur membre du domaine et le compte d’utilisateur doit être créé dans AD DS avant la tentative d’ouverture de session. En outre, vous devez joindre l’ordinateur au domaine avec un compte disposant de l’appartenance de groupe appropriée.
 
-## <a name="bkmk_cachelocation"></a>Planifier l’emplacement et la taille du cache hébergé
+## <a name="plan-the-location-and-size-of-the-hosted-cache"></a><a name="bkmk_cachelocation"></a>Planifier l’emplacement et la taille du cache hébergé
 
 Sur HCS1, déterminez où vous souhaitez localiser le cache hébergé sur votre serveur de cache hébergé. Par exemple, déterminez l’emplacement du disque dur, du volume et du dossier dans lequel vous envisagez de stocker le cache.
 
 En outre, déterminez le pourcentage d’espace disque que vous souhaitez allouer au cache hébergé.
 
-## <a name="bkmk_package"></a>Planifier le partage vers lequel les packages de serveur de contenu doivent être copiés
+## <a name="plan-the-share-to-which-the-content-server-packages-are-to-be-copied"></a><a name="bkmk_package"></a>Planifier le partage vers lequel les packages de serveur de contenu doivent être copiés
 
 Une fois que vous avez créé des packages de données sur vos serveurs de contenu, vous devez les copier sur le réseau vers un partage sur votre serveur de cache hébergé.
 
-Planifiez l’emplacement du dossier et les autorisations de partage pour le dossier partagé. En outre, si vos serveurs de contenu hébergent une grande quantité de données et que les packages que vous créez seront des fichiers volumineux, envisagez d’effectuer l’opération de copie en dehors des heures de pointe, afin que la bande passante du réseau étendu ne soit pas consommée par l’opération de copie pendant le moment où d’autres utilisateurs doivent utiliser  la bande passante pour les opérations commerciales normales.
+Planifiez l’emplacement du dossier et les autorisations de partage pour le dossier partagé. En outre, si vos serveurs de contenu hébergent une grande quantité de données et que les packages que vous créez seront des fichiers volumineux, envisagez d’effectuer l’opération de copie en dehors des heures de pointe, afin que la bande passante du réseau étendu ne soit pas consommée par l’opération de copie pendant le moment où d’autres utilisateurs doivent utiliser la bande passante pour les opérations commerciales normales.
 
-## <a name="bkmk_prehash"></a>Planifier le préhachage et la création de packages de données sur les serveurs de contenu
+## <a name="plan-prehashing-and-data-package-creation-on-content-servers"></a><a name="bkmk_prehash"></a>Planifier le préhachage et la création de packages de données sur les serveurs de contenu
 
 Avant de préhacher du contenu sur vos serveurs de contenu, vous devez identifier les dossiers et les fichiers qui contiennent le contenu que vous souhaitez ajouter au package de données. 
 

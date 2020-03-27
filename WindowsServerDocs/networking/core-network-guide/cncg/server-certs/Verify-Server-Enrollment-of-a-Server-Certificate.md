@@ -6,18 +6,18 @@ ms.topic: article
 ms.assetid: bd80a018-5a30-47c3-89fc-aacb9f5ad298
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5f87db78d6f07d11c36193b1a56cf66bd44e7160
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b55988d9e5d4832acf6c74039815c9e8c9a8a6ca
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356102"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318134"
 ---
 # <a name="verify-server-enrollment-of-a-server-certificate"></a>Vérifier l’inscription de serveur d’un certificat de serveur
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour vérifier que vos serveurs NPS (Network Policy Server) ont inscrit un certificat de serveur auprès de l’autorité de certification.   
   

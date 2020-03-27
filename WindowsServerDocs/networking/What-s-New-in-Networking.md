@@ -1,20 +1,20 @@
 ---
-title: Nouveautés de la mise en réseau
+title: Nouveautés réseau
 description: Cette rubrique fournit des informations générales sur les nouvelles fonctionnalités et technologies pour la mise en réseau dans Windows Server 2016
 ms.prod: windows-server
 ms.technology: networking
 ms.topic: get-started-article
 ms.assetid: 08fb7563-d319-48a9-b181-ca0ca3032c18
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: da2166d28edda5662797824d9b26ad930f51083c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 35c3c3b2610918e8b0fd69ccf04422e3f6df4d0e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406756"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318539"
 ---
-# <a name="whats-new-in-networking"></a>Nouveautés de la mise en réseau
+# <a name="whats-new-in-networking"></a>Nouveautés réseau
 
 >S’applique à : Windows Server 2016
 
@@ -25,7 +25,7 @@ Voici les technologies de mise en réseau nouvelles ou améliorées de Windows S
   
 -   [Nouvelles fonctionnalités pour les technologies de mise en réseau supplémentaires](#bkmk_existing)  
   
-## <a name="bkmk_features"></a>Nouvelles technologies et fonctionnalités de mise en réseau
+## <a name="new-networking-features-and-technologies"></a><a name="bkmk_features"></a>Nouvelles technologies et fonctionnalités de mise en réseau
 
 La mise en réseau est une partie fondamentale de la plateforme SDDC (Software Defined Datacenter), et Windows Server 2016 fournit des technologies SDN (Software Defined Networking) nouvelles et améliorées pour vous aider à migrer vers une solution SDDC entièrement réalisée pour votre organisation.  
   
@@ -72,28 +72,28 @@ Les principes de base de l’échelle du Cloud suivants sont désormais disponib
   
 -   **Switch Embedded Teaming (Set)** .        SET est une solution d’association de cartes réseau intégrée au commutateur virtuel Hyper-V. L’ensemble permet d’associer jusqu’à huit cartes réseau physiques à une seule équipe, ce qui améliore la disponibilité et assure le basculement. Dans Windows Server 2016, vous pouvez créer des équipes qui sont limitées à l’utilisation du protocole SMB (Server Message Block) et RDMA. En outre, vous pouvez utiliser définir des équipes pour distribuer le trafic réseau pour la virtualisation de réseau Hyper-V. Pour plus d’informations, [ &#40;consultez accès direct à la&#41; mémoire à distance RDMA et &#40;Switch&#41;Embedded Teaming Set](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
-## <a name="bkmk_existing"></a>Nouvelles fonctionnalités pour les technologies de mise en réseau supplémentaires
+## <a name="new-features-for-additional-networking-technologies"></a><a name="bkmk_existing"></a>Nouvelles fonctionnalités pour les technologies de mise en réseau supplémentaires
 
 Cette section contient des informations sur les nouvelles fonctionnalités des technologies de mise en réseau familières.
   
-## <a name="bkmk_dhcp"></a>DHCP  
+## <a name="dhcp"></a><a name="bkmk_dhcp"></a>DHCP  
 Le protocole DHCP est une norme IETF (Internet Engineering Task Force) conçue pour réduire le travail d’administration et la complexité de configuration des hôtes sur un réseau TCP/IP, tel qu’un intranet privé. Le recours au service Serveur DHCP permet d’automatiser le processus de configuration de TCP/IP sur les clients DHCP.  
   
 Pour plus d’informations, consultez [Nouveautés dans DHCP](technologies/dhcp/What-s-New-in-DHCP.md).  
   
-## <a name="bkmk_dns"></a>DN  
+## <a name="dns"></a><a name="bkmk_dns"></a>DN  
 Le service DNS permet de nommer les ordinateurs et les services de réseau dans les réseaux TCP/IP. L’attribution de noms DNS permet de rechercher les ordinateurs et les services au moyen de noms conviviaux. Lorsqu’un utilisateur entre un nom DNS dans une application, les services DNS peuvent résoudre ce nom en une autre information qui lui est associée, par exemple une adresse IP.  
   
 Vous trouverez ci-dessous des informations sur le client DNS et le serveur DNS.  
   
-### <a name="bkmk_dnsc"></a>Client DNS  
+### <a name="dns-client"></a><a name="bkmk_dnsc"></a>Client DNS  
 Voici les nouvelles technologies clientes DNS ou améliorées.  
   
 -   **Liaison de service du client DNS**. Dans Windows 10, le service client DNS offre une prise en charge améliorée pour les ordinateurs dotés de plusieurs interfaces réseau.  
   
 Pour plus d’informations, voir [Nouveautés du client DNS dans Windows Server 2016](dns/What-s-New-in-DNS-Client.md)  
   
-### <a name="bkmk_dnss"></a>Serveur DNS  
+### <a name="dns-server"></a><a name="bkmk_dnss"></a>Serveur DNS  
 Voici les technologies de serveur DNS nouvelles ou améliorées.  
   
 -   **Stratégies DNS**.  Vous pouvez configurer des stratégies DNS pour spécifier la façon dont un serveur DNS répond aux requêtes DNS. Les réponses DNS peuvent être basées sur l’adresse IP du client (emplacement), l’heure de la journée et plusieurs autres paramètres. Les stratégies DNS activent les DNS sensibles à l’emplacement, la gestion du trafic, l’équilibrage de charge, le DNS de fractionnement et d’autres scénarios.  
@@ -118,17 +118,17 @@ Voici les technologies de serveur DNS nouvelles ou améliorées.
   
 Pour plus d’informations, voir [Nouveautés du serveur DNS dans Windows server 2016](dns/What-s-New-in-DNS-Server.md)  
   
-## <a name="bkmk_GRE"></a>Tunneling GRE  
+## <a name="gre-tunneling"></a><a name="bkmk_GRE"></a>Tunneling GRE  
 La passerelle RAS prend désormais en charge les tunnels GRE (Generic Routing Encapsulation) à haute disponibilité pour les connexions de site à site et la redondance M + N des passerelles. GRE est un protocole de tunneling léger qui peut encapsuler une grande variété de protocoles de la couche réseau dans les liaisons point à point virtuelles sur un réseau d’interconnexion IP.  
   
 Pour plus d’informations, voir [tunneling GRE dans Windows Server 2016](../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
   
-## <a name="HNV"></a>Virtualisation de réseau Hyper-V  
+## <a name="hyper-v-network-virtualization"></a><a name="HNV"></a>Virtualisation de réseau Hyper-V  
 Introduite dans Windows Server 2012, la virtualisation de réseau Hyper-V (HNV) permet la virtualisation de réseaux clients sur une infrastructure de réseau physique partagée. Avec des modifications minimales nécessaires sur l’infrastructure réseau physique, HNV offre aux fournisseurs de services l’agilité de déployer et de migrer les charges de travail des locataires n’importe où sur les trois Clouds : le Cloud du fournisseur de services, le cloud privé ou le Microsoft Azure cloud public.  
   
 Pour plus d’informations, consultez [Nouveautés de la virtualisation de réseau Hyper-V dans Windows Server 2016](sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md)  
   
-## <a name="bkmk_ipam"></a>IP  
+## <a name="ipam"></a><a name="bkmk_ipam"></a>IP  
 IPAM offre des fonctionnalités d’administration et d’analyse hautement personnalisables pour l’adresse IP et l’infrastructure DNS sur un réseau d’entreprise. IPAM vous permet de surveiller, d’auditer et de gérer les serveurs qui exécutent le protocole DHCP (Dynamic Host Configuration Protocol) et le système DNS (Domain Name System).  
   
 -   **Gestion améliorée des adresses IP**.  

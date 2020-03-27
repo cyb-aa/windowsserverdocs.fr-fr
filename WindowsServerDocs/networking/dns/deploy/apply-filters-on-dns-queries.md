@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: b86beeac-b0bb-4373-b462-ad6fa6cbedfa
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 95b68995326dc3d3bf48ca36caa9b2ab4923a7c3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 45dad1eb40caba7ac304fc640e3d56044254f08c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406210"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317833"
 ---
 # <a name="use-dns-policy-for-applying-filters-on-dns-queries"></a>Utiliser une stratégie DNS pour l’application de filtres sur les requêtes DNS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour apprendre à configurer une stratégie DNS dans Windows Server&reg; 2016 afin de créer des filtres de requête basés sur des critères que vous fournissez. 
 
@@ -27,7 +27,7 @@ Par exemple, vous pouvez configurer une stratégie DNS avec une liste de blocage
 
 Un autre exemple consiste à créer une liste d’autorisation de filtre de requête qui autorise uniquement un ensemble spécifique de clients à résoudre certains noms.
 
-## <a name="bkmk_criteria"></a>Critères de filtre de requête
+## <a name="query-filter-criteria"></a><a name="bkmk_criteria"></a>Critères de filtre de requête
 Vous pouvez créer des filtres de requête avec n’importe quelle combinaison logique (et/ou/ou non) des critères suivants.
 
 |Nom|Description|
@@ -37,15 +37,15 @@ Vous pouvez créer des filtres de requête avec n’importe quelle combinaison l
 |Protocole Internet|Protocole réseau utilisé dans la requête. Les valeurs possibles sont IPv4 et IPv6.|
 |Adresse IP de l’interface serveur|Adresse IP de l’interface réseau du serveur DNS qui a reçu la demande DNS.|
 |Nom de domaine complet (FQDN)|Nom de domaine complet de l’enregistrement dans la requête, avec la possibilité d’utiliser un caractère générique.|
-|Type de requête|Type d’enregistrement interrogé \(, SRV, txt, etc.\)|
-|Heure de la journée|Heure à laquelle la requête est reçue.|
+|Type de requête|Type d’enregistrement interrogé \(A, SRV, TXT, etc.\).|
+|Heure du jour|Heure à laquelle la requête est reçue.|
 
 Les exemples suivants montrent comment créer des filtres pour une stratégie DNS qui bloquent ou autorisent les requêtes de résolution de noms DNS.
 
 >[!NOTE]
 >Les exemples de commandes de cette rubrique utilisent la commande Windows PowerShell **Add-DnsServerQueryResolutionPolicy**. Pour plus d’informations, consultez [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps). 
 
-## <a name="bkmk_block1"></a>Bloquer les requêtes d’un domaine
+## <a name="block-queries-from-a-domain"></a><a name="bkmk_block1"></a>Bloquer les requêtes d’un domaine
 
 Dans certains cas, vous souhaiterez peut-être bloquer la résolution de noms DNS pour les domaines que vous avez identifiés comme étant malveillants, ou pour les domaines qui ne sont pas conformes aux instructions d’utilisation de votre organisation. Vous pouvez effectuer des requêtes de blocage pour les domaines à l’aide d’une stratégie DNS.
 
@@ -60,7 +60,7 @@ Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicy" -Action IGNORE -FQDN 
 >[!NOTE]
 >Quand vous configurez le paramètre d' **action** avec la valeur **ignore**, le serveur DNS est configuré pour supprimer les requêtes sans aucune réponse du tout. Le client DNS dans le domaine malveillant expire alors.
 
-## <a name="bkmk_block2"></a>Bloquer les requêtes à partir d’un sous-réseau
+## <a name="block-queries-from-a-subnet"></a><a name="bkmk_block2"></a>Bloquer les requêtes à partir d’un sous-réseau
 Dans cet exemple, vous pouvez bloquer des requêtes à partir d’un sous-réseau s’il est détecté par un programme malveillant et tente de contacter des sites malveillants à l’aide de votre serveur DNS. 
 
 'Add-DnsServerClientSubnet-Name "MaliciousSubnet06"-IPv4Subnet 172.0.33.0/24-PassThru
@@ -73,14 +73,14 @@ L’exemple suivant montre comment vous pouvez utiliser les critères de sous-r�
 Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicyMalicious06" -Action IGNORE -ClientSubnet  "EQ,MaliciousSubnet06" –FQDN “EQ,*.contosomalicious.com” -PassThru
 `
 
-## <a name="bkmk_block3"></a>Bloquer un type de requête
+## <a name="block-a-type-of-query"></a><a name="bkmk_block3"></a>Bloquer un type de requête
 Vous devrez peut-être bloquer la résolution de noms pour certains types de requêtes sur vos serveurs. Par exemple, vous pouvez bloquer la requête « ANY », qui peut être utilisée à des fins malveillantes pour créer des attaques par amplification.
 
 `
 Add-DnsServerQueryResolutionPolicy -Name "BlockListPolicyQType" -Action IGNORE -QType "EQ,ANY" -PassThru
 `
 
-## <a name="bkmk_allow1"></a>Autoriser les requêtes uniquement à partir d’un domaine
+## <a name="allow-queries-only-from-a-domain"></a><a name="bkmk_allow1"></a>Autoriser les requêtes uniquement à partir d’un domaine
 Vous pouvez non seulement utiliser une stratégie DNS pour bloquer des requêtes, mais vous pouvez les utiliser pour approuver automatiquement des requêtes à partir de domaines ou sous-réseaux spécifiques. Quand vous configurez les listes d’autorisation, le serveur DNS traite uniquement les requêtes des domaines autorisés, tout en bloquant toutes les autres requêtes d’autres domaines.
 
 L’exemple de commande suivant autorise uniquement les ordinateurs et les appareils dans les domaines contoso.com et enfant à interroger le serveur DNS.
@@ -89,7 +89,7 @@ L’exemple de commande suivant autorise uniquement les ordinateurs et les appar
 Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicyDomain" -Action IGNORE -FQDN "NE,*.contoso.com" -PassThru 
 `
 
-## <a name="bkmk_allow2"></a>Autoriser les requêtes uniquement à partir d’un sous-réseau
+## <a name="allow-queries-only-from-a-subnet"></a><a name="bkmk_allow2"></a>Autoriser les requêtes uniquement à partir d’un sous-réseau
 Vous pouvez également créer des listes d’autorisation pour les sous-réseaux IP, afin que toutes les requêtes qui ne proviennent pas de ces sous-réseaux soient ignorées.
 
 `
@@ -99,7 +99,7 @@ Add-DnsServerClientSubnet -Name "AllowedSubnet06" -IPv4Subnet 172.0.33.0/24 -Pas
 Add-DnsServerQueryResolutionPolicy -Name "AllowListPolicySubnet” -Action IGNORE -ClientSubnet  "NE, AllowedSubnet06" -PassThru
 `
 
-## <a name="bkmk_allow3"></a>Autoriser uniquement certains QTypes
+## <a name="allow-only-certain-qtypes"></a><a name="bkmk_allow3"></a>Autoriser uniquement certains QTypes
 Vous pouvez appliquer des listes d’autorisation à QTYPEs. 
 
 Par exemple, si vous avez des clients externes interrogeant l’interface de serveur DNS 164.8.1.1, seuls certains QTYPEs sont autorisés à être interrogés, alors qu’il existe d’autres QTYPEs tels que des enregistrements SRV ou TXT utilisés par des serveurs internes pour la résolution de noms ou à des fins de surveillance.

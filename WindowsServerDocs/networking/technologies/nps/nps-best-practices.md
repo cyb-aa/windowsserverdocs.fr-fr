@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 90e544bd-e826-4093-8c3b-6a6fc2dfd1d6
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 364783e2188152fc5c57bba04991ae124b0bb8d2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 278d813aa13ea42b7f597bdbe7eb210f68cee955
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405496"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316308"
 ---
 # <a name="network-policy-server-best-practices"></a>Meilleures pratiques relatives au serveur NPS
 
@@ -97,7 +97,7 @@ Voici les meilleures pratiques pour l’utilisation de NPS dans les grandes orga
 
 - Utilisez un nom d’utilisateur principal pour faire référence aux utilisateurs chaque fois que cela est possible. Un utilisateur peut avoir le même nom d’utilisateur principal, quelle que soit l’appartenance à un domaine. Cette pratique fournit une évolutivité qui peut être nécessaire dans les organisations avec un grand nombre de domaines.
 
-- Si vous avez installé le serveur de stratégie réseau \(\) NPS sur un ordinateur autre qu’un contrôleur de domaine et que le serveur NPS reçoit un grand nombre de demandes d’authentification par seconde, vous pouvez améliorer les performances de NPS en renforçant le nombre d’authentifications simultanées autorisées entre le serveur NPS et le contrôleur de domaine. Pour plus d'informations, voir 
+- Si vous avez installé le serveur de stratégie réseau \(\) NPS sur un ordinateur autre qu’un contrôleur de domaine et que le serveur NPS reçoit un grand nombre de demandes d’authentification par seconde, vous pouvez améliorer les performances de NPS en renforçant le nombre d’authentifications simultanées autorisées entre le serveur NPS et le contrôleur de domaine. Pour plus d’informations, consultez 
 
 ## <a name="security-issues"></a>Problèmes de sécurité
 

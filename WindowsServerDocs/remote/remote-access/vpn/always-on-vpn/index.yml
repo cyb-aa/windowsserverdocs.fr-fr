@@ -8,8 +8,8 @@ metadata:
   text: 'VPN Toujours actif (AlwaysOn) fournit une solution unique et cohérente pour un accès à distance à tous vos appareils connectés, même les appareils personnels. Avec VPN Toujours actif (AlwaysOn), le type de connexion ne doit pas nécessairement être exclusivement utilisateur ou appareil, mais peut être une combinaison des deux. Par exemple, vous pouvez activer l''authentification de l’appareil pour la gestion d’appareils à distance, puis activer l''authentification utilisateur pour la connectivité aux sites et services internes de la société.'
   keywords: 'Windows 10, Windows Server, Windows Server 2016, accès à distance, VPN'
   ms.localizationpriority: high
-  author: shortpatti
-  ms.author: pashort
+  author: eross-msft
+  ms.author: lizross
   ms.date: 11/05/2018
   ms.topic: article
   ms.devlang: na

@@ -6,20 +6,20 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: ef9828f8-c0ad-431d-ae52-e2065532e68f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9c313b88e2502a99baf5962a1f2eb224d67a38dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5c74ca9fe60374d1bc1396d95c2e34cc5cd1fdd6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406175"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317767"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-servers"></a>Utiliser une stratégie DNS pour la gestion du trafic basée sur la géolocalisation avec des serveurs principaux
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour apprendre à configurer la stratégie DNS afin d’autoriser les serveurs DNS principaux à répondre aux requêtes des clients DNS en fonction de l’emplacement géographique du client et de la ressource à laquelle le client tente de se connecter, en fournissant au client l’adresse IP ad. l’approche de la ressource la plus proche.  
+Vous pouvez utiliser cette rubrique pour apprendre à configurer la stratégie DNS afin d’autoriser les serveurs DNS principaux à répondre aux requêtes des clients DNS en fonction de l’emplacement géographique du client et de la ressource à laquelle le client tente de se connecter, en fournissant le client avec l’adresse IP. adresse de la ressource la plus proche.  
   
 >[!IMPORTANT]  
 >Ce scénario montre comment déployer une stratégie DNS pour la gestion du trafic basée sur la géolocalisation lorsque vous utilisez uniquement des serveurs DNS principaux. Vous pouvez également effectuer une gestion du trafic basée sur la géolocalisation lorsque vous avez à la fois des serveurs DNS principaux et secondaires. Si vous avez un déploiement principal secondaire, commencez par effectuer les étapes de cette rubrique, puis effectuez les étapes fournies dans la rubrique [utiliser la stratégie DNS pour la gestion du trafic basée sur la géolocalisation avec des déploiements principaux secondaires](primary-secondary-geo-location.md).
@@ -32,7 +32,7 @@ Vous pouvez utiliser les paramètres de stratégie DNS suivants pour contrôler 
 - **Protocole de transport**. Protocole de transport utilisé dans la requête. Les entrées possibles sont **UDP** et **TCP**.
 - **Protocole Internet**. Protocole réseau utilisé dans la requête. Les entrées possibles sont **IPv4** et **IPv6**.
 - **Adresse IP de l’interface serveur**. Adresse IP de l’interface réseau du serveur DNS qui a reçu la demande DNS.
-- **NOM DE DOMAINE COMPLET**. Nom de domaine complet (FQDN) de l’enregistrement dans la requête, avec la possibilité d’utiliser un caractère générique.
+- **Nom de domaine complet**. Nom de domaine complet (FQDN) de l’enregistrement dans la requête, avec la possibilité d’utiliser un caractère générique.
 - **Type de requête**. Type d’enregistrement interrogé (A, SRV, TXT, etc.).
 - **Heure de la journée**. Heure à laquelle la requête est reçue. 
   
@@ -42,7 +42,7 @@ Vous pouvez combiner les critères suivants avec un opérateur logique (AND/OR) 
 - **Refuser**. Le serveur DNS répond à cette requête avec une réponse d’échec.          
 - **Autoriser**. Le serveur DNS répond à la réponse gérée par le trafic.          
   
-##  <a name="bkmk_example"></a>Exemple de gestion du trafic basé sur l’emplacement géographique
+##  <a name="geo-location-based-traffic-management-example"></a><a name="bkmk_example"></a>Exemple de gestion du trafic basé sur l’emplacement géographique
 
 Vous trouverez ci-dessous un exemple de la façon dont vous pouvez utiliser la stratégie DNS pour obtenir une redirection du trafic sur la base de l’emplacement physique du client qui exécute une requête DNS.   
   
@@ -56,7 +56,7 @@ L’illustration suivante représente ce scénario.
   
 ![Exemple de gestion du trafic basé sur l’emplacement géographique](../../media/DNS-Policy-Geo1/dns_policy_geo1.png)  
   
-##  <a name="bkmk_works"></a>Fonctionnement du processus de résolution de noms DNS  
+##  <a name="how-the-dns-name-resolution-process-works"></a><a name="bkmk_works"></a>Fonctionnement du processus de résolution de noms DNS  
   
 Pendant le processus de résolution de noms, l’utilisateur tente de se connecter à www.woodgrove.com. Cela entraîne la demande de résolution de nom DNS envoyée au serveur DNS qui est configuré dans les propriétés de connexion réseau sur l’ordinateur de l’utilisateur. En règle générale, il s’agit du serveur DNS fourni par le fournisseur de services Internet local agissant comme un programme de résolution de mise en cache. il est appelé LDNS.   
   
@@ -69,7 +69,7 @@ Dans ce scénario, le serveur DNS faisant autorité voit généralement la deman
 >[!NOTE]  
 >Les stratégies DNS utilisent l’adresse IP de l’expéditeur dans le paquet UDP/TCP qui contient la requête DNS. Si la requête atteint le serveur principal par le biais de plusieurs sauts de programme de résolution/LDNS, la stratégie considère uniquement l’adresse IP du dernier programme de résolution à partir duquel le serveur DNS reçoit la requête.  
   
-##  <a name="bkmk_config"></a>Comment configurer la stratégie DNS pour les réponses de requêtes basées sur l’emplacement géographique  
+##  <a name="how-to-configure-dns-policy-for-geo-location-based-query-responses"></a><a name="bkmk_config"></a>Comment configurer la stratégie DNS pour les réponses de requêtes basées sur l’emplacement géographique  
 Pour configurer la stratégie DNS pour les réponses de requêtes basées sur l’emplacement géographique, vous devez effectuer les étapes suivantes.  
   
 1. [Créer les sous-réseaux du client DNS](#bkmk_subnets)  
@@ -85,7 +85,7 @@ Les sections suivantes fournissent des instructions de configuration détaillée
 >[!IMPORTANT]  
 >Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs pour de nombreux paramètres. Veillez à remplacer les valeurs d’exemple dans ces commandes par des valeurs appropriées pour votre déploiement avant d’exécuter ces commandes.  
   
-### <a name="bkmk_subnets"></a>Créer les sous-réseaux du client DNS  
+### <a name="create-the-dns-client-subnets"></a><a name="bkmk_subnets"></a>Créer les sous-réseaux du client DNS  
   
 La première étape consiste à identifier les sous-réseaux ou l’espace d’adressage IP des régions pour lesquelles vous souhaitez rediriger le trafic. Par exemple, si vous souhaitez rediriger le trafic pour les États-Unis et l’Europe, vous devez identifier les sous-réseaux ou les espaces d’adressage IP de ces régions.  
   
@@ -101,7 +101,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
   
 Pour plus d’informations, consultez [Add-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-### <a name="bkmk_scopes"></a>Créer des étendues de zone  
+### <a name="create-zone-scopes"></a><a name="bkmk_scopes"></a>Créer des étendues de zone  
 Une fois les sous-réseaux clients configurés, vous devez partitionner la zone dont vous souhaitez rediriger le trafic vers deux étendues de zone différentes, une étendue pour chacun des sous-réseaux du client DNS que vous avez configurés.   
   
 Par exemple, si vous souhaitez rediriger le trafic pour le nom DNS www.woodgrove.com, vous devez créer deux étendues de zone différentes dans la zone woodgrove.com, une pour les États-Unis et une pour l’Europe.  
@@ -120,7 +120,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
 
 Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-### <a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone  
+### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Ajouter des enregistrements aux étendues de zone  
 À présent, vous devez ajouter les enregistrements qui représentent l’hôte du serveur Web dans les deux étendues de zone.   
   
 Par exemple, **USZoneScope** et **EuropeZoneScope**. Dans USZoneScope, vous pouvez ajouter l’enregistrement www.woodgrove.com avec l’adresse IP 192.0.0.1, qui se trouve dans un centre de centres des États-Unis. et dans EuropeZoneScope, vous pouvez ajouter le même enregistrement (www.woodgrove.com) à l’adresse IP 141.1.0.1 dans le centre de centres européen.   
@@ -145,7 +145,7 @@ Le paramètre **ZoneScope** n’est pas inclus lorsque vous ajoutez un enregistr
   
 Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
-### <a name="bkmk_policies"></a>Créer les stratégies  
+### <a name="create-the-policies"></a><a name="bkmk_policies"></a>Créer les stratégies  
 Une fois que vous avez créé les sous-réseaux, les partitions (étendues de zone) et que vous avez ajouté des enregistrements, vous devez créer des stratégies qui connectent les sous-réseaux et les partitions, de sorte que lorsqu’une requête provient d’une source dans l’un des sous-réseaux du client DNS, la réponse à la requête est retournée à partir de étendue correcte de la zone. Aucune stratégie n’est requise pour le mappage de l’étendue de zone par défaut.   
   
 Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer une stratégie DNS qui lie les sous-réseaux du client DNS et les étendues de zone.   

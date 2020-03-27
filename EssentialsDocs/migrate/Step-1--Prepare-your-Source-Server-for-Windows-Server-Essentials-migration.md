@@ -3,7 +3,7 @@ title: 'Étape 1 : Préparer votre serveur source pour la migration vers Windows
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f95ebfec13c2ec1f374c60f48d5f8af6c4b22324
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: cb0cffdda0e0f1528887d3c94a1905a99c5c55c3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947389"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318782"
 ---
 # <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Étape 1 : Préparer votre serveur source pour la migration vers Windows Server Essentials
 
@@ -38,7 +38,7 @@ Cette section décrit comment sauvegarder le serveur source, évaluer l'intégri
 
 5.  [Créer un plan pour migrer des applications métier](Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MigrateLOB)  
 
-###  <a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sauvegarder votre serveur source  
+###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sauvegarder votre serveur source  
  Sauvegardez votre serveur source avant de commencer le processus de migration. L'exécution d'une sauvegarde permet de protéger vos données de toute perte accidentelle si une erreur irrécupérable survient lors de la migration.  
 
 ##### <a name="to-back-up-the-source-server"></a>Pour sauvegarder le serveur source  
@@ -56,15 +56,15 @@ Cette section décrit comment sauvegarder le serveur source, évaluer l'intégri
    |Windows Small Business Server 2011 Standard|[Gestion de la sauvegarde du serveur](https://technet.microsoft.com/library/cc527488.aspx)  
    |Windows Server Essentials|[Gérer la sauvegarde et la restauration dans Windows Server Essentials](https://technet.microsoft.com/library/jj713536.aspx)
 
-###  <a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installer les service packs les plus récents  
+###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installer les service packs les plus récents  
  Vous devez installer les mises à jour et les Service Packs les plus récents sur le serveur source avant d'effectuer la migration.  
 
-###  <a name="BKMK_DeleteSvcAcctSetting"></a>Supprimer le paramètre ouvrir une session en tant que compte de service  
- Si vous effectuez une migration à partir de Windows Small Business Server 2003 ou Windows Server 2003, supprimez le paramètre de compte **Ouvrir une session en tant que service** de la stratégie de groupe.  
+###  <a name="delete-the-log-on-as-a-service-account-setting"></a><a name="BKMK_DeleteSvcAcctSetting"></a>Supprimer le paramètre ouvrir une session en tant que compte de service  
+ Si vous effectuez une migration à partir de Windows Small Business Server 2003 ou Windows Server 2003, supprimez le paramètre de compte **Ouvrir une session en tant que service** de la stratégie de groupe.  
 
 ##### <a name="to-delete-the-log-on-as-a-service-account-setting"></a>Pour supprimer le paramètre ouvrir une session en tant que compte de service  
 
-1.  Pour ouvrir l'outil **Gestion des stratégies de groupe** , cliquez sur **Démarrer**, **Panneau de configuration**, **Outils d'administration**, puis sur **Gestion des stratégies de groupe**.  
+1.  Pour ouvrir l'outil **Gestion des stratégies de groupe**, cliquez sur **Démarrer**, **Panneau de configuration**, **Outils d'administration**, puis sur **Gestion des stratégies de groupe**.  
 
 2.  Cliquez avec le bouton droit sur **Stratégie des contrôleurs de domaine par défaut**, puis cliquez sur **Modifier**.  
 
@@ -72,11 +72,11 @@ Cette section décrit comment sauvegarder le serveur source, évaluer l'intégri
 
 4.  Dans le volet d'informations, double-cliquez sur **Ouvrir une session en tant que service**.  
 
-5.  Décochez la case **Définir ces paramètres de stratégie** .  
+5.  Décochez la case **Définir ces paramètres de stratégie**.  
 
 6.  Supprimez \\\localhost\SYSVOL\\< nom_domaine\>\scripts\ SBS_LOGIN_SCRIPT. bat.  
 
-###  <a name="BKMK_EvaluateHealth"></a>Évaluer l’intégrité du serveur source  
+###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_EvaluateHealth"></a>Évaluer l’intégrité du serveur source  
  Il est important d'évaluer l'intégrité de votre serveur source avant de commencer la migration. Utilisez les procédures suivantes pour vous assurer que les mises à jour sont actuelles, pour générer un rapport d'intégrité du système et pour exécuter Windows Server Solutions Best Practice Analyzer (BPA).  
 
 #### <a name="download-and-install-critical-and-security-updates"></a>Télécharger et installer les mises à jour critiques et de sécurité  
@@ -91,11 +91,11 @@ Cette section décrit comment sauvegarder le serveur source, évaluer l'intégri
 3.  Si des mises à jour sont trouvées, cliquez sur **Installer les mises à jour**.  
 
 #### <a name="run-the-best-practices-analyzer"></a>Exécuter l'outil Best Practices Analyzer  
- Vous pouvez exécuter l'outil Best Practices Analyzer (BPA) pour vérifier qu'il n'y a aucun problème sur votre serveur, réseau ou domaine avant de commencer le processus de migration. L'analyseur BPA collecte les informations de configuration auprès des sources suivantes :  
+ Vous pouvez exécuter l'outil Best Practices Analyzer (BPA) pour vérifier qu'il n'y a aucun problème sur votre serveur, réseau ou domaine avant de commencer le processus de migration. L'analyseur BPA collecte les informations de configuration auprès des sources suivantes :  
 
 -   WMI (Windows Management Instrumentation) Active Directory  
 
--   Registre  
+-   Le Registre  
 
 -   Internet Information Services (IIS)  
 
@@ -106,7 +106,7 @@ Cette section décrit comment sauvegarder le serveur source, évaluer l'intégri
 
    |             Si votre serveur source est en cours d’exécution             |                                                     vous pouvez récupérer les outils BPA à partir de                                                      |
    |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-   |                     Windows SBS 2003                     | [Site Web Best Practices Analyzer Microsoft Windows Small Business Server 2003](https://www.microsoft.com/download/details.aspx?id=5334) |
+   |                     Windows SBS 2003                     | [Site Web Best Practices Analyzer Microsoft Windows Small Business Server 2003](https://www.microsoft.com/download/details.aspx?id=5334) |
    |                     Windows SBS 2008                     | [Site Web Best Practices Analyzer Microsoft Windows Small Business Server 2008](https://www.microsoft.com/download/details.aspx?id=6231) |
    | Windows SBS 2011 Essentials ou Windows SBS 2011 Standard |          [Site Web Best Practices Analyzer des solutions Windows Server](https://www.microsoft.com/download/details.aspx?id=15556)           |
    |     Windows Server Essentials ou Windows Server 2012     |                                                          Tableau de bord du serveur                                                           |
@@ -123,7 +123,7 @@ Cette section décrit comment sauvegarder le serveur source, évaluer l'intégri
 
    1.  Connectez-vous au serveur de destination en tant qu'administrateur, puis ouvrez le tableau de bord.  
 
-   2.  Dans le tableau de bord, cliquez sur l'onglet **Périphériques** .  
+   2.  Dans le tableau de bord, cliquez sur l'onglet **Périphériques**.  
 
    3.  Dans le volet **tâches** <**Server** >, cliquez sur **Best Practices Analyzer**.  
 
@@ -131,7 +131,7 @@ Cette section décrit comment sauvegarder le serveur source, évaluer l'intégri
 
 5. Une fois l’analyse terminée, cliquez sur **Afficher un rapport de cette analyse Best Practices**.  
 
-   Une fois la collecte d'informations sur la configuration du serveur effectuée, l'outil BPA vérifie que les informations sont correctes et présente ensuite aux administrateurs la liste des informations et des problèmes classés par niveau de gravité. La liste décrit chaque problème et fournit une recommandation ou une solution possible. Trois types de rapports sont disponibles :  
+   Une fois la collecte d'informations sur la configuration du serveur effectuée, l'outil BPA vérifie que les informations sont correctes et présente ensuite aux administrateurs la liste des informations et des problèmes classés par niveau de gravité. La liste décrit chaque problème et fournit une recommandation ou une solution possible. Trois types de rapports sont disponibles :  
 
 |Type de rapport|Description
 |-----------------|----------------- 
@@ -140,7 +140,7 @@ Cette section décrit comment sauvegarder le serveur source, évaluer l'intégri
 
 Pour afficher la description et les solutions relatives à un problème, cliquez sur le problème dans le rapport. Les problèmes signalés par l'outil BPA n'affectent pas tous la migration, mais vous devez résoudre le plus grand nombre de problèmes pour garantir la réussite de la migration.  
 
-####  <a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchroniser l’heure du serveur source avec une source de temps externe  
+####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchroniser l’heure du serveur source avec une source de temps externe  
  L’heure du serveur source doit être réglée, à cinq minutes près, sur l'heure du serveur de destination, et la date et le fuseau horaire doivent être identiques sur les deux serveurs. Si le serveur source est exécuté dans une machine virtuelle, la date, l’heure et le fuseau horaire du serveur hôte doivent correspondre à ceux du serveur source et du serveur de destination. Pour vous assurer que Windows Server Essentials est correctement installé, vous devez synchroniser l’heure du serveur source sur le serveur NTP (Network Time Protocol) sur Internet.  
 
 ###### <a name="to-synchronize-the-source-server-time-with-the-ntp-server"></a>Pour synchroniser l’heure du serveur source sur le serveur NTP  
@@ -158,7 +158,7 @@ Pour afficher la description et les solutions relatives à un problème, cliquez
 > [!IMPORTANT]
 >  Au cours de l’installation de Windows Server Essentials, vous avez la possibilité de vérifier l’heure sur le serveur de destination et de la modifier, si nécessaire. Vérifiez que l’heure est réglée à cinq minutes près sur l’heure réglée sur le serveur source. À la fin de l’installation, le serveur de destination est synchronisé sur le serveur NTP. Tous les ordinateurs appartenant à un domaine, y compris le serveur source, sont synchronisés sur le serveur de destination, qui prend le rôle de maître d’émulateur de contrôleur de domaine principal.  
 
-###  <a name="BKMK_MigrateLOB"></a>Créer un plan pour migrer des applications métier  
+###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_MigrateLOB"></a>Créer un plan pour migrer des applications métier  
  Une application métier est une application informatique critique vitale pour l'activité d'une entreprise. Les applications métiers incluent la gestion des comptes, la gestion de la chaîne logistique, ainsi que la planification des ressources.  
 
  Lorsque vous prévoyez de migrer vos applications métiers, consultez les fournisseurs d’applications métiers afin de définir la meilleure méthode de migration de chaque application. Vous devez également rechercher le support utilisé pour réinstaller les applications métiers sur le serveur de destination.  
@@ -195,7 +195,7 @@ Pour afficher la description et les solutions relatives à un problème, cliquez
 > [!NOTE]
 >  Une fois votre serveur source mis à jour et préparé pour la migration, vous devez créer une sauvegarde du serveur mis à jour avant de poursuivre le processus de migration.  
 
-## <a name="next-steps"></a>Étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes :  
  Vous avez préparé votre serveur source pour la migration vers Windows Server Essentials.  Passez maintenant à [l’étape 2 : installer Windows Server Essentials en tant que nouveau contrôleur de domaine réplica](Step-2--Install-Windows-Server-Essentials-as-a-new-replica-domain-controller.md).  
 
 Pour afficher toutes les étapes, consultez [migrer vers Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).

@@ -11,24 +11,24 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/10/2018
-ms.openlocfilehash: ed2dc8861366b929de346d5bd5b3d40998cc8dd5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 83f94d3770c475fca7f5d4b8cc2f5a5ade1a20d7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355788"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317465"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planifier une infrastructure SDN (Software Defined Networking)
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 En savoir plus sur la planification du déploiement d’une infrastructure réseau à définition logicielle, y compris la configuration matérielle et logicielle requise. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Cette rubrique décrit un certain nombre de configurations matérielle et logicielle requises, notamment :
 
 -   **Groupes de sécurité configurés, emplacements des fichiers journaux et inscription DNS dynamique** Vous devez préparer votre centre de informations pour le déploiement du contrôleur de réseau, ce qui nécessite un ou plusieurs ordinateurs ou machines virtuelles et un ordinateur ou une machine virtuelle. Avant de pouvoir déployer le contrôleur de réseau, vous devez configurer les groupes de sécurité, les emplacements des fichiers journaux (si nécessaire) et l’inscription DNS dynamique.  Si vous n’avez pas préparé votre centre de données pour le déploiement du contrôleur de réseau, consultez [Configuration requise pour l’installation et la préparation pour le déploiement du contrôleur de réseau](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md) .
@@ -48,7 +48,7 @@ Chaque hôte de calcul physique requiert une connectivité réseau via une ou pl
 >[!IMPORTANT]
 >La mise en réseau définie par le logiciel Windows Server 2016 prend en charge l’adressage IPv4 pour Underlay et la superposition. IPv6 n'est pas pris en charge.
 
-### <a name="logical-networks"></a>réseaux logiques
+### <a name="logical-networks"></a>Réseaux logiques
 
 #### <a name="management-and-hnv-provider"></a>Fournisseur HNV et de gestion 
 
@@ -60,7 +60,7 @@ Un serveur DHCP peut attribuer automatiquement des adresses IP pour le réseau d
 >Le contrôleur de réseau affecte une adresse IP de fournisseur HNV à un hôte de calcul physique uniquement après que l’agent hôte du contrôleur de réseau a reçu la stratégie de réseau pour un ordinateur virtuel client spécifique. 
 
 
-|                                                               Si…                                                               |                                                                                                                                                                          Alors…                                                                                                                                                                           |
+|                                                               Condition                                                               |                                                                                                                                                                          Conséquence                                                                                                                                                                           |
 |-----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                  Les réseaux logiques utilisent des réseaux locaux virtuels,                                                  |                                                                 l’hôte de calcul physique doit se connecter à un port de commutateur Trunk qui a accès à ces réseaux locaux virtuels. Il est important de noter que les cartes réseau physiques sur l’ordinateur hôte ne doivent pas être activées pour le filtrage VLAN.                                                                 |
 |                À l’aide de l’Association commutée intégrée (SET) et de plusieurs membres de l’équipe de cartes réseau, tels que les cartes réseau,                |                                                                                                                        vous devez connecter tous les membres de l’équipe de cartes réseau pour cet ordinateur hôte particulier au même domaine de diffusion de couche 2.                                                                                                                         |
@@ -93,7 +93,7 @@ Modifiez l’exemple de préfixes de sous-réseau IP et d’ID de réseau local 
 
 | **Nom du réseau** |  **Subnet**  | **Filtrage** | **ID de réseau local virtuel sur le camion** | **Gateway**  |                                                           **Réservations (exemples)**                                                           |
 |------------------|--------------|----------|----------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-|    gestion    | 10.184.108.0 |    24    |          7           | 10.184.108.1 | 10.184.108.1 – routeur 10.184.108.4-contrôleur de réseau 10.184.108.10-hôte de calcul 110.184.108.11-hôte de calcul 210.184.108. X-hôte de calcul X |
+|    Gestion    | 10.184.108.0 |    24    |          7           | 10.184.108.1 | 10.184.108.1 – routeur 10.184.108.4-contrôleur de réseau 10.184.108.10-hôte de calcul 110.184.108.11-hôte de calcul 210.184.108. X-hôte de calcul X |
 |   Fournisseur HNV   |  10.10.56.0  |    23    |          11          |  10.10.56.1  |                                                    10.10.56.1 – routeur 10.10.56.2-SLB/MUX1                                                     |
 |     Transition      |  10.10.10.0  |    24    |          10          |  10.10.10.1  |                                                               10.10.10.1 – routeur                                                               |
 |    Adresse IP virtuelle publique    |  41.40.40.0  |    27    |          N/A          |  41.40.40.1  |                                    41.40.40.1 – routeur 41.40.40.2-SLB/multiplex VIP 41.40.40.3-adresse IP virtuelle VPN S2S IPSec                                    |
@@ -121,11 +121,11 @@ Si vous utilisez un stockage basé sur RDMA, définissez un réseau local virtue
 
 Si vous déployez votre infrastructure SDN à l’aide de scripts, les sous-réseaux de gestion, de fournisseur HNV, de transit et d’adresse IP virtuelle doivent être routables les uns avec les autres sur le réseau physique.     
 
-Les informations \(de routage, par exemple\) le tronçon suivant pour les sous-réseaux d’adresses IP virtuelles, sont publiées par les passerelles de type SLB/MUX et RAS dans le réseau physique à l’aide de l’appairage BGP interne. Les réseaux logiques d’adresses IP virtuelles n’ont pas de réseau local virtuel affecté et ne sont pas préconfigurés dans le commutateur de couche 2 (par exemple, commutateur haut de la rack).  
+Les informations de routage \(par exemple les\) de tronçon suivant pour les sous-réseaux d’adresses IP virtuelles sont publiées par les passerelles SLB/MUX et RAS dans le réseau physique à l’aide de l’appairage BGP interne. Les réseaux logiques d’adresses IP virtuelles n’ont pas de réseau local virtuel affecté et ne sont pas préconfigurés dans le commutateur de couche 2 (par exemple, commutateur haut de la rack).  
 
 Vous devez créer un homologue BGP sur le routeur utilisé par votre infrastructure SDN pour recevoir des itinéraires pour les réseaux logiques d’adresses IP virtuelles publiés par les passerelles de type SLB/multiplexeurs et RAS. L’homologation BGP ne doit se produire qu’une seule méthode (de la passerelle SLB/MUX ou RAS vers l’homologue BGP externe).  Au-dessus de la première couche de routage, vous pouvez utiliser des itinéraires statiques ou un autre protocole de routage dynamique tel que OSPF. Toutefois, comme indiqué précédemment, le préfixe de sous-réseau IP pour les réseaux logiques d’adresses IP virtuelles doit être routable à partir du réseau physique vers l’homologue BGP externe.   
 
-L’homologation BGP est généralement configurée dans un commutateur ou un routeur géré dans le cadre de l’infrastructure réseau. L’homologue BGP peut également être configuré sur un serveur Windows avec le rôle de serveur d’accès à distance (RAS) installé en mode routage uniquement. Cet homologue de routeur BGP dans l’infrastructure réseau doit être configuré pour avoir son propre ASN et autoriser l’homologation à partir d’un ASN affecté aux \(\)passerelles SDN et SLB/MUX et RAS. Vous devez obtenir les informations suivantes auprès de votre routeur physique, ou à partir de l’administrateur réseau pour le contrôle de ce routeur :
+L’homologation BGP est généralement configurée dans un commutateur ou un routeur géré dans le cadre de l’infrastructure réseau. L’homologue BGP peut également être configuré sur un serveur Windows avec le rôle de serveur d’accès à distance (RAS) installé en mode routage uniquement. Cet homologue de routeur BGP dans l’infrastructure réseau doit être configuré pour avoir son propre ASN et autoriser l’homologation à partir d’un ASN affecté aux composants SDN \(les passerelles SLB/MUX et RAS\). Vous devez obtenir les informations suivantes auprès de votre routeur physique, ou à partir de l’administrateur réseau pour le contrôle de ce routeur :
 
 - ASN du routeur  
 - Adresse IP du routeur  
@@ -165,28 +165,28 @@ Switch Embedded Teaming (SET) est une autre solution d’association de cartes r
 
 Pour plus d’informations, consultez [accès direct à la mémoire à distance (RDMA) et Switch Embedded Teaming (Set)](../../../virtualization//hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).   
 
-Pour tenir compte de la surcharge liée au trafic de réseau virtuel client causé par des en-têtes d’encapsulation VXLAN ou NVGRE, l’unité de transmission maximale (MTU) du réseau de l’infrastructure de couche 2 (commutateurs \(et hôtes) doit être définie sur une valeur supérieure ou égale à 1674 octets, y compris Ethernet de couche 2 en-têtes.\) 
+Pour tenir compte de la surcharge liée au trafic de réseau virtuel client causé par des en-têtes d’encapsulation VXLAN ou NVGRE, la MTU du réseau de l’infrastructure de couche 2 (commutateurs et hôtes) doit être définie sur une valeur supérieure ou égale à 1674 octets \(y compris des en-têtes Ethernet de couche 2\). 
 
-Les cartes réseau qui prennent en charge le nouveau mot clé *EncapOverhead* Advanced adapter fixent la MTU automatiquement via l’agent hôte du contrôleur de réseau. Les cartes réseau qui ne prennent pas en charge le nouveau mot clé *EncapOverhead* doivent définir la taille MTU manuellement sur chaque hôte physique à\) l’aide du mot clé *JumboPacket* \(ou équivalent. 
+Les cartes réseau qui prennent en charge le nouveau mot clé *EncapOverhead* Advanced adapter fixent la MTU automatiquement via l’agent hôte du contrôleur de réseau. Les cartes réseau qui ne prennent pas en charge le nouveau mot clé *EncapOverhead* doivent définir la taille MTU manuellement sur chaque hôte physique à l’aide du mot clé *JumboPacket* \(ou équivalent\). 
 
 
-### <a name="switches"></a>Active
+### <a name="switches"></a>Commutateurs
 
 Lorsque vous sélectionnez un commutateur physique et un routeur pour votre environnement, assurez-vous qu’il prend en charge l’ensemble de fonctionnalités suivant :  
 
-- Paramètres \(MTU switchport requis\)  
-- MTU défini sur > = 1674 octets \(, y compris l’en-tête L2-Ethernet\)  
-- Protocoles \(L3 requis\)  
+- Les paramètres MTU switchport \(requis\)  
+- MTU défini sur > = 1674 octets \(y compris l’en-tête L2-Ethernet\)  
+- Les protocoles L3 \(requis\)  
 - ECMP  
-- ECMP \(basé sur BGP\)IETF RFC 4271\-
+- BGP \(IETF RFC 4271\)basé sur \-ECMP
 
 Les implémentations doivent prendre en charge les instructions dans les normes IETF suivantes.
 
-- RFC 2545 : « BGP-4 Multi-Protocol Extensions for IPv6 Inter-Domain Routing »  
-- RFC 4760 : « Extensions multiprotocoles pour BGP-4 »  
-- RFC 4893 : « Prise en charge du protocole BGP pour les quatre octets comme un espace numérique »  
-- RFC 4456 : «Réflexion de l’itinéraire BGP : Alternative à la maille complète BGP interne (IBGP)»  
-- RFC 4724 : « Mécanisme de redémarrage approprié pour BGP »  
+- RFC 2545 : « extensions multiprotocoles BGP-4 pour le routage inter-domaines IPv6 »  
+- RFC 4760 : « extensions multiprotocole pour BGP-4 »  
+- RFC 4893 : « prise en charge du protocole BGP pour les quatre octets sous forme d’espace de nombre »  
+- RFC 4456 : « réflexion d’itinéraire BGP : alternative au maillage complet BGP interne (IBGP) »  
+- RFC 4724 : « mécanisme de redémarrage approprié pour BGP »  
 
 Les protocoles de balisage suivants sont requis.
 
@@ -195,9 +195,9 @@ Les protocoles de balisage suivants sont requis.
 
 Les éléments suivants fournissent un contrôle de lien.
 
-- Quality of service \(PFC requis uniquement si vous utilisez RoCE\)
-- Sélection \(de trafic améliorée 802.1 Qaz\)
-- 802.1 de contrôle \(de workflow basé sur la priorité p/Q et 802.1 qbb\)
+- La qualité de service \(PFC uniquement requis si vous utilisez RoCE\)
+- Sélection de trafic améliorée \(802.1 Qaz\)
+- Contrôle de transmission basé sur la priorité \(802.1 p/Q et 802.1 qbb\)
 
 Les éléments suivants assurent la disponibilité et la redondance.
 
@@ -209,8 +209,8 @@ Les éléments suivants fournissent des fonctionnalités de gestion.
 **Surveillance**
 
 - SNMP v1 ou SNMP v2 (requis si le contrôleur de réseau est utilisé pour l’analyse du commutateur physique)  
-- MIB \(SNMP requis si vous utilisez le contrôleur de réseau pour l’analyse du commutateur physique\)  
-- MIB-II (RFC 1213), LLDP, interface MIB \(RFC 2863\), if-MIB, IP-MIB, IP-Forward-MIB, Q-Bridge-MIB, Bridge-MIB, LLDB-MIB, entité-MIB, IEEE8023-lag-MIB  
+- MIB SNMP \(requis si vous utilisez le contrôleur de réseau pour l’analyse du commutateur physique\)  
+- MIB-II (RFC 1213), LLDP, interface MIB \(RFC 2863\), IF-MIB, IP-MIB, IP-FORWARD-MIB, Q-BRIDGE-MIB, BRIDGE-MIB, LLDB-MIB, entité-MIB, IEEE8023-LAG-MIB  
 
 Les diagrammes suivants montrent un exemple de configuration à quatre nœuds. À des fins de clarté, le premier diagramme affiche uniquement le contrôleur de réseau, le second montre le contrôleur de réseau plus l’équilibreur de charge logiciel et le troisième schéma montre le contrôleur de réseau, l’équilibreur de charge logiciel et la passerelle.  
 
@@ -231,19 +231,19 @@ Pour tous les ordinateurs hôtes Hyper-V, Windows Server 2016 doit être install
 Tout type de stockage compatible avec Hyper-V, partagé ou local, peut être utilisé.   
 
 > [!TIP]  
-> C’est pratique si vous utilisez le même nom pour tous vos commutateurs virtuels, mais ce n’est pas obligatoire. Si vous envisagez de déployer à l’aide de scripts, consultez `vSwitchName` le commentaire associé à la variable dans le fichier config. psd1.  
+> C’est pratique si vous utilisez le même nom pour tous vos commutateurs virtuels, mais ce n’est pas obligatoire. Si vous envisagez de déployer à l’aide de scripts, consultez le commentaire associé à la variable `vSwitchName` dans le fichier config. psd1.  
 
 **Exigences de calcul pour l’hôte**  
 Le tableau suivant indique la configuration matérielle et logicielle minimale requise pour les quatre hôtes physiques utilisés dans l’exemple de déploiement.  
 
 Host|Configuration matérielle requise|Configuration logicielle requise|  
 --------|-------------------------|-------------------------  
-|Hôte Hyper-v physique|PROCESSEUR 4 cœurs 2,66 GHz<br /><br />32 Go de RAM<br /><br />300 Go d’espace disque<br /><br />carte réseau physique 1 Go/s (ou plus rapide)|SYSTÈME D’EXPLOITATION Windows Server 2016<br /><br />Rôle Hyper-V installé|  
+|Hôte Hyper-v physique|PROCESSEUR 4 cœurs 2,66 GHz<br /><br />32 Go de RAM<br /><br />300 Go d’espace disque<br /><br />carte réseau physique 1 Go/s (ou plus rapide)|Système d’exploitation : Windows Server 2016<br /><br />Rôle Hyper-V installé|  
 
 
 **Configuration requise pour le rôle d’ordinateur virtuel de l’infrastructure SDN**  
 
-Rôle|exigences relatives aux processeurs virtuels|Mémoire requise|Configuration requise pour le disque|  
+Role|exigences relatives aux processeurs virtuels|Mémoire requise|Configuration requise pour le disque|  
 --------|---------------------|-----------------------|---------------------  
 |Contrôleur de réseau (trois nœuds)|4 processeurs virtuels|4 Go min (8 Go recommandés)|75 Go pour le lecteur de système d’exploitation  
 |SLB/MUX (trois nœuds)|8 processeurs virtuels|8 Go recommandés|75 Go pour le lecteur de système d’exploitation  

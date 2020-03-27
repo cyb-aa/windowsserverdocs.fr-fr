@@ -3,7 +3,7 @@ title: Prendre en charge Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: ac12e9a9-ba7a-480a-9249-6e216c70941b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d6855e777ea6e59ce5a9596adc9ba2e186b0a3e5
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 9142f44e61a7361bd4c40bdfdb5869e326d67343
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947381"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318661"
 ---
 # <a name="support-windows-server-essentials"></a>Prendre en charge Windows Server Essentials
 
@@ -25,7 +25,7 @@ ms.locfileid: "75947381"
 
 Cette rubrique fournit des options de dépannage et un support technique pour Windows Server Essentials.  
   
-##  <a name="BKMK_Top"></a>Meilleures solutions de support et mises à jour  
+##  <a name="top-support-solutions-and-updates"></a><a name="BKMK_Top"></a>Meilleures solutions de support et mises à jour  
   
 -   [Principales solutions de support pour Windows Server 2012 R2 et Windows Server 2012](https://blogs.technet.com/b/topsupportsolutions/archive/2014/02/04/top-support-solutions-for-microsoft-windows-server-2012.aspx)  
   
@@ -41,7 +41,7 @@ Cette rubrique fournit des options de dépannage et un support technique pour Wi
   
 -   [Correctif : vous ne pouvez pas activer le rôle Windows Server Update Services dans Windows Server Essentials](https://support.microsoft.com/kb/2762663) (2013 février)  
   
-## <a name="troubleshoot"></a>Dépanner  
+## <a name="troubleshoot"></a>Dépannage  
  Cette section fournit des informations vous permettant de résoudre les problèmes courants que vous pouvez rencontrer lorsque vous utilisez Windows Server Essentials. Les informations de dépannage sont organisées dans des zones logiques qui correspondent aux fonctionnalités clés du produit.  
   
 -   [Règles utilisées par l’outil BPA (Best Practices Analyzer) de Windows Server Essentials](../migrate/Rules-used-by-the-Windows-Server-Essentials-Best-Practices-Analyzer--BPA--Tool.md)  
@@ -126,7 +126,7 @@ Cette rubrique fournit des options de dépannage et un support technique pour Wi
   
 -    Pour savoir comment collaborer en toute sécurité avec les partenaires et fournisseurs, consultez [Améliorer la collaboration dans les PME](https://technet.microsoft.com/library/dn747893.aspx).  
   
-## <a name="see-also"></a>Articles associés  
+## <a name="see-also"></a>Voir aussi  
   
 -   [Installer Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)  
   

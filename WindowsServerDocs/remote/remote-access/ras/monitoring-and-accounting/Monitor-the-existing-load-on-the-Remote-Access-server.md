@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 62fa2895-62ae-42cf-817c-53e06ac2a26c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 43c447205a5ef0cbd33b0486e01d630e6d00c633
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0507a7f0151e1f5f8aefaf4de5a3a4f8a776971d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367222"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314195"
 ---
 # <a name="monitor-the-existing-load-on-the-remote-access-server"></a>Analyser la charge existante sur le serveur d'accès à distance
 
@@ -60,7 +60,7 @@ L' **Analyseur de performances** affiche désormais sous forme graphique les sta
   
 ![les commandes Windows PowerShell](../../../media/Monitor-the-existing-load-on-the-Remote-Access-server/PowerShellLogoSmall.gif)***<em>équivalentes</em> Windows PowerShell***  
   
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
   
 ```  
 PS> Get-RemoteAccessConnectionStatisticsSummary  

@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 55528736-6c19-40bd-99e8-5668169ef3c7
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 229e2955c7f382ff630829990a9dd6485d62652e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 09ed401fa4912a48033e4a51a29309e3fd4cc998
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388877"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310904"
 ---
 # <a name="directaccess-offline-domain-join"></a>Jonction de domaine hors connexion DirectAccess
 
->S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Ce guide explique les étapes à suivre pour effectuer une jonction de domaine hors connexion avec DirectAccess. Au cours d’une jonction de domaine hors connexion, un ordinateur est configuré pour joindre un domaine sans connexion physique ou VPN.  
   
@@ -44,12 +44,12 @@ Introduite dans Windows Server 2008 R2, les contrôleurs de domaine incluent une
   
 3.  Redémarrez l’ordinateur de destination et l’ordinateur sera joint au domaine.  
   
-### <a name="BKMK_ODJOverview"></a>Vue d’ensemble du scénario de jonction de domaine hors connexion avec des stratégies DirectAccess  
+### <a name="offline-domain-join-with-directaccess-policies-scenario-overview"></a><a name="BKMK_ODJOverview"></a>Vue d’ensemble du scénario de jonction de domaine hors connexion avec des stratégies DirectAccess  
 La jonction de domaine hors connexion DirectAccess est un processus que les ordinateurs exécutant Windows Server 2016, Windows Server 2012, Windows 10 et Windows 8 peuvent utiliser pour joindre un domaine sans être physiquement joint au réseau d’entreprise, ou être connectés via un VPN. Cela permet de joindre des ordinateurs à un domaine à partir d’emplacements où il n’existe aucune connectivité à un réseau d’entreprise. La jonction de domaine hors connexion pour DirectAccess fournit des stratégies DirectAccess aux clients pour permettre l’approvisionnement à distance.  
   
 Une jonction de domaine crée un compte d’ordinateur et établit une relation d’approbation entre un ordinateur exécutant un système d’exploitation Windows et un domaine de Active Directory.  
   
-## <a name="BKMK_ODJRequirements"></a>Préparer la jonction de domaine hors connexion  
+## <a name="prepare-for-offline-domain-join"></a><a name="BKMK_ODJRequirements"></a>Préparer la jonction de domaine hors connexion  
   
 1.  Créez le compte d’ordinateur.  
   
@@ -84,7 +84,7 @@ Pour accorder des droits d’utilisateur, il est nécessaire d’appartenir au m
   
 2.  Double-cliquez sur le nom de la forêt, double-cliquez sur **domaines**, double-cliquez sur le nom du domaine dans lequel vous souhaitez joindre un ordinateur, cliquez avec le bouton droit sur **stratégie de domaine par défaut**, puis cliquez sur **modifier**.  
   
-3.  Dans l’arborescence de la console, double-cliquez sur **Configuration ordinateur**, sur **stratégies**, sur **Paramètres Windows**, sur **paramètres de sécurité**, sur **stratégies locales**, puis sur  **Attribution des droits utilisateur**.  
+3.  Dans l’arborescence de la console, double-cliquez sur **Configuration ordinateur**, sur **stratégies**, sur **Paramètres Windows**, sur paramètres de **sécurité**, sur **stratégies locales**, puis sur **attribution des droits utilisateur**.  
   
 4.  Dans le volet d’informations, double-cliquez sur **Ajouter des stations de travail au domaine**.  
   
@@ -92,12 +92,12 @@ Pour accorder des droits d’utilisateur, il est nécessaire d’appartenir au m
   
 6.  Tapez le nom du compte auquel vous souhaitez accorder les droits d’utilisateur, puis cliquez deux fois sur **OK** .  
   
-## <a name="BKMK_ODKSxS"></a>Processus de jonction de domaine hors connexion  
+## <a name="offline-domain-join-process"></a><a name="BKMK_ODKSxS"></a>Processus de jonction de domaine hors connexion  
 Exécutez Djoin. exe à partir d’une invite de commandes avec élévation de privilèges pour approvisionner les métadonnées du compte d’ordinateur. Lorsque vous exécutez la commande d’approvisionnement, les métadonnées de compte d’ordinateur sont créées dans un fichier binaire que vous spécifiez dans le cadre de la commande.  
   
 Pour plus d’informations sur la fonction NetProvisionComputerAccount utilisée pour approvisionner le compte d’ordinateur au cours d’une jonction de domaine hors connexion, consultez [fonction NetProvisionComputerAccount](https://go.microsoft.com/fwlink/?LinkId=162426) (https://go.microsoft.com/fwlink/?LinkId=162426). Pour plus d’informations sur la fonction NetRequestOfflineDomainJoin qui s’exécute localement sur l’ordinateur de destination, consultez [fonction NetRequestOfflineDomainJoin](https://go.microsoft.com/fwlink/?LinkId=162427) (https://go.microsoft.com/fwlink/?LinkId=162427).  
   
-## <a name="BKMK_ODJSteps"></a>Procédure d’exécution d’une jonction de domaine hors connexion DirectAccess  
+## <a name="steps-for-performing-a-directaccess-offline-domain-join"></a><a name="BKMK_ODJSteps"></a>Procédure d’exécution d’une jonction de domaine hors connexion DirectAccess  
 Le processus de jonction de domaine hors connexion comprend les étapes suivantes :  
   
 1.  Créez un compte d’ordinateur pour chacun des clients distants et générez un package d’approvisionnement à l’aide de la commande Djoin. exe à partir d’un ordinateur déjà joint au domaine dans le réseau d’entreprise.  
@@ -114,7 +114,7 @@ Il existe deux options à prendre en compte lors de la création du paquet de co
   
 Pour effectuer la jonction de domaine hors connexion, procédez comme suit :  
   
-##### <a name="option1-create-a-provisioning-package-for-the-client-without-pki"></a>Option 1 : Créer un package d’approvisionnement pour le client sans infrastructure à clé publique  
+##### <a name="option1-create-a-provisioning-package-for-the-client-without-pki"></a>Option1 : créer un package d’approvisionnement pour le client sans infrastructure à clé publique  
   
 1.  À l’invite de commandes de votre serveur d’accès à distance, tapez la commande suivante pour approvisionner le compte d’ordinateur :  
   
@@ -122,7 +122,7 @@ Pour effectuer la jonction de domaine hors connexion, procédez comme suit :
     Djoin /provision /domain <your domain name> /machine <remote machine name> /policynames DA Client GPO name /rootcacerts /savefile c:\files\provision.txt /reuse  
     ```  
   
-##### <a name="option2-create-a-provisioning-package-for-the-client-with-pki"></a>Option2 Créer un package d’approvisionnement pour le client avec l’infrastructure à clé publique  
+##### <a name="option2-create-a-provisioning-package-for-the-client-with-pki"></a>Option2 : créer un package d’approvisionnement pour le client avec l’infrastructure à clé publique  
   
 1.  À l’invite de commandes de votre serveur d’accès à distance, tapez la commande suivante pour approvisionner le compte d’ordinateur :  
   
@@ -138,7 +138,7 @@ Pour effectuer la jonction de domaine hors connexion, procédez comme suit :
   
 3.  Dans le volet d’informations, cliquez avec le bouton droit sur **DirectAccessClients**, puis cliquez sur **Propriétés**.  
   
-4.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
+4.  Sous l'onglet **Membres**, cliquez sur **Ajouter**.  
   
 5.  Cliquez sur **Types d'objets**, sélectionnez **Ordinateurs**, puis cliquez sur **OK**.  
   

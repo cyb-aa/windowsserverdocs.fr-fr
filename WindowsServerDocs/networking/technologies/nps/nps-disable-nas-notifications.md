@@ -6,22 +6,22 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a09bfb03-95fc-4534-bf3c-97078ef6b07e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b8ae0ab02a5c14675d543087f635d53ee63e0423
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dd56dfd4db9dd41c98141e2239efcca544a364fe
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396251"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316168"
 ---
 # <a name="disable-nas-notification-forwarding-in-nps"></a>Désactiver le transfert de notifications NAS dans NPS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette procédure pour désactiver le transfert des messages de démarrage et d’arrêt à partir des serveurs d’accès réseau (NAS) vers les membres d’un groupe de serveurs RADIUS distants configuré dans NPS.
 
-Lorsque vous avez configuré des groupes de serveurs RADIUS distants et, dans **stratégies de demande de connexion**NPS, vous désactivez la case à cocher transférer les **demandes de gestion de comptes à ce groupe de serveurs RADIUS distants** , ces groupes reçoivent toujours les notifications de démarrage et d’arrêt NAS. messages. 
+Lorsque vous avez configuré des groupes de serveurs RADIUS distants et, dans **stratégies de demande de connexion**NPS, vous désactivez la case à cocher transférer les **demandes de gestion de comptes à ce groupe de serveurs RADIUS distants** , ces groupes reçoivent toujours les messages de notification de démarrage et d’arrêt NAS. 
 
 Cela crée un trafic réseau inutile. Pour éliminer ce trafic, désactivez le transfert de notifications NAS pour des serveurs individuels dans chaque groupe de serveurs RADIUS distants.
 
