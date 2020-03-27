@@ -1,22 +1,22 @@
 ---
-title: Équilibrage de la charge réseau
+title: Équilibrage de charge réseau
 description: Dans cette rubrique, nous vous proposons une vue d’ensemble de l’équilibrage de charge réseau \(fonctionnalité d'\) NLB dans Windows Server 2016. Vous pouvez utiliser NLB pour gérer deux serveurs ou plus en tant que cluster virtuel unique. L’équilibrage de la charge réseau améliore la disponibilité et l’extensibilité des applications de serveur Internet, telles que celles utilisées sur les serveurs Web, FTP, de pare-feu, proxy, de réseau privé virtuel \(VPN\), ainsi que sur d’autres serveurs de mission\-critiques.
 manager: dougkim
 ms.prod: windows-server
 ms.technology: networking-nlb
 ms.topic: article
 ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: 4d79b6f29fbe64633bf04604ad586aff3dd86edf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 80dae16442041e3b46babaca6d163095c1c5e475
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405847"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309695"
 ---
-# <a name="network-load-balancing"></a>Équilibrage de la charge réseau
+# <a name="network-load-balancing"></a>Équilibrage de charge réseau
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
@@ -102,7 +102,7 @@ Voici les principales fonctionnalités de l’équilibrage de la charge réseau.
   
 -   Elle vous permet de mettre des ordinateurs hors connexion à des fins de maintenance préventive sans perturber les opérations de cluster sur les autres hôtes.  
   
-## <a name="hardware-requirements"></a>Configuration matérielle requise  
+## <a name="hardware-requirements"></a>Configuration matérielle  
 Voici la configuration matérielle requise pour exécuter un cluster NLB.  
   
 -   Tous les hôtes du cluster doivent résider sur le même sous-réseau.  
