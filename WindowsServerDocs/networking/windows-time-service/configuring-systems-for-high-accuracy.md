@@ -2,18 +2,18 @@
 ms.assetid: ''
 title: Configuration de systèmes de haute précision
 description: La synchronisation de l’heure dans Windows 10 et Windows Server 2016 a été considérablement améliorée.  Dans des conditions de fonctionnement raisonnables, les systèmes peuvent être configurés pour maintenir une précision de 1 ms (milliseconde), ou une meilleure précision, par rapport à l’heure UTC.
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: b7cd256fdbbdbe7432e5b5d5b16254314132560f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8cdded0eb0dc663d352011fb1a6765a2ed358764
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405192"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315038"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Configuration de systèmes de haute précision
 >S'applique à : Windows Server 2016 et Windows 10, version 1607 ou ultérieure
@@ -106,7 +106,7 @@ Cette mesure peut être obtenue à l’aide de l’outil w32tm.exe intégré.  P
 
 #### <a name="registry-settings"></a>Paramètres du Registre
 
-# <a name="minpollintervaltabminpollinterval"></a>[MinPollInterval](#tab/MinPollInterval)
+# <a name="minpollinterval"></a>[MinPollInterval](#tab/MinPollInterval)
 Configure le plus petit intervalle en secondes log2 autorisé pour l’interrogation du système.
 
 |  |  | 
@@ -120,7 +120,7 @@ La commande suivante indique au service de temps Windows de récupérer les para
 `w32tm /config /update`
 
 
-# <a name="maxpollintervaltabmaxpollinterval"></a>[MaxPollInterval](#tab/MaxPollInterval)
+# <a name="maxpollinterval"></a>[MaxPollInterval](#tab/MaxPollInterval)
 Configure le plus grand intervalle en secondes log2 autorisé pour l’interrogation du système.
 
 |  |  |  
@@ -133,7 +133,7 @@ La commande suivante indique au service de temps Windows de récupérer les para
 
 `w32tm /config /update`
 
-# <a name="updateintervaltabupdateinterval"></a>[UpdateInterval](#tab/UpdateInterval)
+# <a name="updateinterval"></a>[UpdateInterval](#tab/UpdateInterval)
 Nombre de cycles d’horloge entre les ajustements de correction de phase.
 
 |  |  |  
@@ -146,7 +146,7 @@ La commande suivante indique au service de temps Windows de récupérer les para
 
 `w32tm /config /update`
 
-# <a name="specialpollintervaltabspecialpollinterval"></a>[SpecialPollInterval](#tab/SpecialPollInterval)
+# <a name="specialpollinterval"></a>[SpecialPollInterval](#tab/SpecialPollInterval)
 Configure l’intervalle d’interrogation en secondes quand l’indicateur SpecialInterval 0x1 est activé.
 
 |  |  |  
@@ -159,7 +159,7 @@ La commande suivante redémarre le service de temps Windows pour récupérer les
 
 `net stop w32time && net start w32time`
 
-# <a name="frequencycorrectratetabfrequencycorrectrate"></a>[FrequencyCorrectRate](#tab/FrequencyCorrectRate)
+# <a name="frequencycorrectrate"></a>[FrequencyCorrectRate](#tab/FrequencyCorrectRate)
 
 |  |  |  
 |---------|---------|

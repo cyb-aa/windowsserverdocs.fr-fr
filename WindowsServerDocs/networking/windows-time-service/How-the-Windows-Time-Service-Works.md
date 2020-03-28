@@ -2,19 +2,19 @@
 ms.assetid: d1953097-63ea-4a0e-b860-2f3b7c175c41
 title: Fonctionnement du service de temps Windows
 description: ''
-author: shortpatti
-ms.author: pashort
+author: eross-msft
+ms.author: lizross
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2bf4a887218cd51e9c10954a75bbc1ba2112647f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d8532dedb6473a34591a1f160a94a785cc4ba367
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405151"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315172"
 ---
 # <a name="how-the-windows-time-service-works"></a>Fonctionnement du service de temps Windows
 

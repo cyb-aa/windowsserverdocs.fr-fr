@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 8cb9b59f-0255-4261-b49a-562c5ea50ee0
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 815e59ca00d6450b8ef09a034434c4209c928e78
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fe2318ad7feb732b86bcd69317bff20146923b64
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405579"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312243"
 ---
 # <a name="netsh-command-syntax-contexts-and-formatting"></a>Syntaxe des commandes Netsh, contextes et mise en forme
 
@@ -33,7 +33,7 @@ Chaque DLL d’assistance netsh fournit un ensemble complet de fonctionnalités,
 
 ### <a name="obtain-a-list-of-contexts"></a>Obtenir la liste de contextes
 
-Vous pouvez obtenir la liste des contextes netsh en ouvrant l’invite de commandes ou Windows PowerShell sur un ordinateur exécutant Windows Server 2016 ou Windows 10. Tapez la commande **netsh** et appuyez sur Entrée. Tapez **/?**, puis appuyez sur Entrée.
+Vous pouvez obtenir la liste des contextes netsh en ouvrant l’invite de commandes ou Windows PowerShell sur un ordinateur exécutant Windows Server 2016 ou Windows 10. Tapez la commande **netsh** et appuyez sur Entrée. Tapez **/?** , puis appuyez sur Entrée.
 
 Voici un exemple de sortie de ces commandes sur un ordinateur exécutant Windows Server 2016 Datacenter.
 
@@ -94,7 +94,7 @@ Voici un exemple de sortie de ces commandes sur un ordinateur exécutant Windows
 
 Les contextes netsh peuvent contenir des commandes et des contextes supplémentaires, appelés *sous-contextes*. Par exemple, dans le contexte Routing, vous pouvez passer aux sous-contextes IP et IPv6.
 
-Pour afficher la liste des commandes et sous-contextes que vous pouvez utiliser dans un contexte, depuis l’invite netsh, tapez le nom du contexte, puis tapez **/?** ou **help**. Par exemple, pour afficher la liste des sous-contextes et commandes que vous pouvez utiliser dans le contexte Routing, depuis l’invite netsh \(c’est-à-dire, **netsh&gt;**\), tapez l’une des commandes suivantes :
+Pour afficher la liste des commandes et sous-contextes que vous pouvez utiliser dans un contexte, depuis l’invite netsh, tapez le nom du contexte, puis tapez **/?** ou **help**. Par exemple, pour afficher la liste des sous-contextes et commandes que vous pouvez utiliser dans le contexte Routing, depuis l’invite netsh \(c’est-à-dire, **netsh&gt;** \), tapez l’une des commandes suivantes :
 
 **routing /?**
 
@@ -127,11 +127,11 @@ Pour démarrer Network Shell et entrer netsh depuis l’invite de commandes ou d
 
 ### <a name="netsh"></a>netsh
 
-Netsh est un utilitaire de script en ligne de commande qui vous permet, localement ou à distance, d’afficher ou de modifier la configuration réseau d’un ordinateur en cours d’exécution. Utilisé sans paramètres, **netsh** ouvre l’invite de commandes Netsh.exe \(c’est-à-dire, **netsh&gt;**\).
+Netsh est un utilitaire de script en ligne de commande qui vous permet, localement ou à distance, d’afficher ou de modifier la configuration réseau d’un ordinateur en cours d’exécution. Utilisé sans paramètres, **netsh** ouvre l’invite de commandes Netsh.exe \(c’est-à-dire, **netsh&gt;** \).
 
 #### <a name="syntax"></a>Syntaxe
 
-**netsh**\[ **-a**&nbsp;*AliasFile*\] \[ **-c**&nbsp;*Context* \] \[**-r**&nbsp;*RemoteComputer*\] \[ **-u** \[ *DomainName\\* \] *UserName* \] \[ **-p**&nbsp;*Password* | \*\] \[{*NetshCommand* | **-f**&nbsp;*ScriptFile*}\]
+**netsh**\[ **-a**&nbsp;*AliasFile*\] \[ **-c**&nbsp;*Context* \] \[ **-r**&nbsp;*RemoteComputer*\] \[ **-u** \[ *DomainName\\* \] *UserName* \] \[ **-p**&nbsp;*Password* | \*\] \[{*NetshCommand* |  **-f**&nbsp;*ScriptFile*}\]
 
 #### <a name="parameters"></a>Paramètres
 
@@ -199,7 +199,7 @@ Facultatif. Spécifie le script que vous souhaitez exécuter.
 Facultatif. Affiche l’aide depuis l’invite de commandes netsh.
 
 > [!NOTE]
-> Si vous spécifiez **`-r`** suivi d’une autre commande, **netsh** exécute la commande sur l’ordinateur distant, puis revient à l’invite de commandes Cmd.exe. Si vous spécifiez **`-r`** sans aucune autre commande, **netsh** s’ouvre en mode distant. Le processus est similaire à l’utilisation de **set machine** depuis l’invite de commandes Netsh. Quand vous utilisez **`-r`**, vous définissez l’ordinateur cible pour l’instance actuelle de **netsh** uniquement. Une fois que vous avez quitté et regagné **netsh**, l’ordinateur cible est réinitialisé en tant qu’ordinateur local. Vous pouvez exécuter des commandes **netsh** sur un ordinateur distant en spécifiant un nom d’ordinateur stocké dans WINS, un nom UNC, un nom Internet résolu par le serveur DNS ou une adresse IP.
+> Si vous spécifiez **`-r`** suivi d’une autre commande, **netsh** exécute la commande sur l’ordinateur distant, puis revient à l’invite de commandes Cmd.exe. Si vous spécifiez **`-r`** sans aucune autre commande, **netsh** s’ouvre en mode distant. Le processus est similaire à l’utilisation de **set machine** depuis l’invite de commandes Netsh. Quand vous utilisez **`-r`** , vous définissez l’ordinateur cible pour l’instance actuelle de **netsh** uniquement. Une fois que vous avez quitté et regagné **netsh**, l’ordinateur cible est réinitialisé en tant qu’ordinateur local. Vous pouvez exécuter des commandes **netsh** sur un ordinateur distant en spécifiant un nom d’ordinateur stocké dans WINS, un nom UNC, un nom Internet résolu par le serveur DNS ou une adresse IP.
 
 **Entrée de valeurs de chaîne de paramètre pour les commandes netsh**
 

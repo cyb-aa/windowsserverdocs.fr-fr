@@ -2,18 +2,18 @@
 ms.assetid: e34622ff-b2d0-4f81-8d00-dacd5d6c215e
 title: Informations techniques de référence sur le service de temps Windows
 description: Le service W32Time assure la synchronisation de l’horloge réseau pour les ordinateurs sans nécessiter de configuration complète. Le service W32Time est essentiel au bon fonctionnement de l’authentification Kerberos V5 et donc de l’authentification AD DS.
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 04d39f222fbbc7943cc2074a857a76f38832935d
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: b3d66f47bea99f6eed55aac15f2b54f3401a5755
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919879"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314913"
 ---
 # <a name="windows-time-service-technical-reference"></a>Informations techniques de référence sur le service de temps Windows
 >S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 ou version ultérieure
@@ -46,7 +46,7 @@ Ce guide n’**aborde pas** la question de la configuration du service de temps 
     > [!WARNING]  
     > Certaines applications peuvent exiger l’utilisation de services de temps de grande précision sur l’ordinateur. Dans ce cas, vous pouvez choisir de configurer une source de temps manuelle, tout en sachant que le service de temps Windows n’a pas été conçu pour fonctionner comme une source de temps hautement précise. Veillez à prendre connaissance des limitations de prise en charge pour les environnements exigeant une grande précision d’heure, comme décrit dans l’article 939322 de la Base de connaissances Microsoft, [Limite de prise en charge pour configurer le service de temps Windows pour les environnements à haute précision](support-boundary.md).  
   
--   Pour configurer le service de temps Windows sur des ordinateurs clients ou serveurs Windows configurés en tant que membres de groupe de travail et non membres de domaine, consultez [Configurer une source de temps manuelle pour un ordinateur client sélectionné](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816656%28v%3dws.10%29).  
+-   Pour configurer le service de temps Windows sur des ordinateurs clients ou serveurs Windows configurés comme membres de groupe de travail et non comme membres de domaine, consultez [Configurer une source de temps manuelle pour un ordinateur client sélectionné](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816656%28v%3dws.10%29).  
   
 -   Pour configurer le service de temps Windows sur un ordinateur hôte qui exécute un environnement virtuel, consultez l’article 816042 de la Base de connaissances Microsoft, [Configuration d’un serveur de temps de référence dans Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402). Si vous utilisez un produit de virtualisation non-Microsoft, veillez à consulter la documentation de l’éditeur de ce produit.  
   

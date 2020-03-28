@@ -2,19 +2,19 @@
 ms.assetid: ''
 title: Temps Windows pour la traçabilité
 description: Dans de nombreux secteurs, les réglementations exigent que les systèmes soient traçables au format UTC.  Cela signifie que le décalage d’un système peut être attesté par rapport au temps universel coordonné (UTC).
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 307739042426088fa92c50e6ea4dc5d2a744f15a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e7f7a68d61729813583255d64afbf172475969e3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405206"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314937"
 ---
 # <a name="windows-time-for-traceability"></a>Temps Windows pour la traçabilité
 >S'applique à : Windows Server 2016 version 1709 ou ultérieure et Windows 10 version 1703 ou ultérieure
@@ -41,7 +41,7 @@ Aucune configuration n’est nécessaire pour réaliser cette fonctionnalité.  
 
 La section suivante présente les événements journalisés en vue d’une utilisation dans les scénarios de traçabilité.
 
-# <a name="257tab257"></a>[257](#tab/257)
+# <a name="257"></a>[257](#tab/257)
 Cet événement est journalisé lors du démarrage du service de temps Windows (W32Time) et journalise les informations relatives à l’heure actuelle, au nombre de cycles actuel, à la configuration du runtime, aux fournisseurs de temps et à la fréquence d’horloge actuelle.
 
 |||
@@ -71,7 +71,7 @@ w32tm.exe /query /status /verbose
 ```
 
 
-# <a name="258tab258"></a>[258](#tab/258)
+# <a name="258"></a>[258](#tab/258)
 Cet événement est journalisé quand le service de temps Windows (W32Time) est en cours d’arrêt et journalise des informations sur l’heure actuelle et le nombre de cycles.
 
 |||
@@ -84,7 +84,7 @@ Cet événement est journalisé quand le service de temps Windows (W32Time) est 
 **Exemple de texte :** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
 
-# <a name="259tab259"></a>[259](#tab/259)
+# <a name="259"></a>[259](#tab/259)
 Cet événement journalise régulièrement la liste actuelle des sources de temps et la source de temps choisie.  De plus, il journalise le nombre de cycles actuel.  Cet événement ne se déclenche pas chaque fois qu’une source de temps change.  D’autres événements listés plus loin dans ce document fournissent cette fonctionnalité.
 
 |||
@@ -105,7 +105,7 @@ server1.fabrikam.com,0x8 (ntp.m|0x8|[::]:123->[IPAddress]:123)server2.fabrikam.c
 *Identifier les pairs*
 `w32tm.exe /query /peers`
 
-# <a name="260tab260"></a>[260](#tab/260)
+# <a name="260"></a>[260](#tab/260)
 
 |||
 |---|---|
@@ -113,7 +113,7 @@ server1.fabrikam.com,0x8 (ntp.m|0x8|[::]:123->[IPAddress]:123)server2.fabrikam.c
 |Détails |W32time journalise régulièrement sa configuration et son état. Il s’agit de l’équivalent de l’appel de :<br><br>`w32tm /query /configuration /verbose`<br>OU<br>`w32tm /query /status /verbose` |
 |Mécanisme de limitation  |Journalisé une fois toutes les 8 heures. |
 
-# <a name="261tab261"></a>[261](#tab/261)
+# <a name="261"></a>[261](#tab/261)
 Journalise chaque instance où l’heure système est modifiée à l’aide de l’API SetSystemTime.
 
 |||
@@ -121,7 +121,7 @@ Journalise chaque instance où l’heure système est modifiée à l’aide de l
 |Description de l'événement |L’heure système est définie |
 |Mécanisme de limitation  |Aucune.<br><br>Cela devrait se produire rarement sur les systèmes avec une synchronisation horaire raisonnable, et nous voulons le journaliser à chaque fois. Nous ignorons le paramètre TimeJumpAuditOffset lors de la journalisation de cet événement, car ce paramètre était destiné à limiter les événements dans le journal des événements système de Windows. |
 
-# <a name="262tab262"></a>[262](#tab/262)
+# <a name="262"></a>[262](#tab/262)
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ Journalise chaque instance où l’heure système est modifiée à l’aide de l
 |Détails |La fréquence d’horloge système est constamment modifiée par W32time quand l’horloge n’est pas loin d’être synchronisée. Nous souhaitons capturer les ajustements « raisonnablement significatifs » apportés à la fréquence d’horloge sans saturer le journal des événements. |
 |Mécanisme de limitation  |Tous les ajustements d’horloge inférieurs à TimeAdjustmentAuditThreshold (min = 128 parties par million, par défaut = 800 parties par million) ne sont pas journalisés.<br><br>Une modification de 2 PPM de la fréquence d’horloge avec la précision actuelle engendre un changement de 120 μsec/s de la précision de l’horloge.<br><br>Sur un système synchronisé, la majorité des ajustements sont inférieurs à ce niveau. Si vous souhaitez un suivi plus fin, vous pouvez abaisser ce paramètre et/ou utiliser PerfCounters. |
 
-# <a name="263tab263"></a>[263](#tab/263)
+# <a name="263"></a>[263](#tab/263)
 
 |||
 |---|---|
@@ -138,7 +138,7 @@ Journalise chaque instance où l’heure système est modifiée à l’aide de l
 |Mécanisme de limitation  |Aucune.<br><br>Cet événement se produit uniquement quand un administrateur ou une mise à jour de la stratégie de groupe change les fournisseurs de temps, puis déclenche W32time. Nous souhaitons journaliser chaque instance de modification des paramètres. |
 
 
-# <a name="264tab264"></a>[264](#tab/264)
+# <a name="264"></a>[264](#tab/264)
 
 |||
 |---|---|
@@ -146,7 +146,7 @@ Journalise chaque instance où l’heure système est modifiée à l’aide de l
 |Détails |Le client NTP enregistre un événement avec l’état actuel des serveurs/pairs quand un serveur de temps/pair change d’état (**En attente > Synchronisation**, **Synchronisation > Inaccessible** ou autres transitions). |
 |Mécanisme de limitation  |Fréquence maximale : une fois toutes les 5 minutes pour protéger le journal des problèmes temporaires et d’une implémentation de fournisseur incorrecte. |
 
-# <a name="265tab265"></a>[265](#tab/265)
+# <a name="265"></a>[265](#tab/265)
 
 |||
 |---|---|
@@ -155,7 +155,7 @@ Journalise chaque instance où l’heure système est modifiée à l’aide de l
 |Mécanisme de limitation  |Aucune. |
 
 
-# <a name="266tab266"></a>[266](#tab/266)
+# <a name="266"></a>[266](#tab/266)
 
 |||
 |---|---|
