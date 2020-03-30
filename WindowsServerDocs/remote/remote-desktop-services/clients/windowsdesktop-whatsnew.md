@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 03/10/2020
+ms.date: 03/24/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 981a9071b3f5daf1ca97dcde8a8b32b2a2588d99
-ms.sourcegitcommit: fc900eb19ac26c3d6bc2de179cc4b2c1e971043e
+ms.openlocfilehash: 38b779b12b841e276d8f807af6f6332469c20817
+ms.sourcegitcommit: 9e8fddf683c9a36aad330ebef9b80d57f75ffb43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79038062"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80233305"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
@@ -30,14 +30,14 @@ Le client peut être configuré pour différents [groupes d’utilisateurs](wind
 
 |Groupe d’utilisateurs |Version  |
 |-----------|---------|
-|Public     |1.2.675  |
-|Insider    |1.2.787  |
+|Public     |1.2.790  |
+|Insider    |1.2.790  |
 
-## <a name="updates-for-version-12787"></a>Mises à jour pour la version 1.2.787
+## <a name="updates-for-version-12790"></a>Mises à jour relatives à la version 1.2.790
 
-*Date de publication : 10/03/2020*
+*Date de publication : 24/03/2020*
 
-Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qZVh), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qXhC), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qRVA)
+Télécharger²: [Windows 64 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4siSh), [Windows 32 bits](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4siSi), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4sllb)
 
 - Renommage de l’action « Mettre à jour » pour les espaces de travail en « Actualiser » afin d’assurer la cohérence avec d’autres clients Bureau à distance.
 - Vous pouvez maintenant actualiser un espace de travail directement à partir de son menu contextuel.
