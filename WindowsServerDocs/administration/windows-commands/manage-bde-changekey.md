@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 436d4bbec0dbb31fd9cdfb4fc29057e32d87888a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0fc273bc84e0bc25a7409941af6dca02b6042640
+ms.sourcegitcommit: 479ad84a0d6c7c7b8308122b8bac8308cb36fe9b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374110"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80391704"
 ---
 # <a name="manage-bde-changekey"></a>Manage-bde : ChangeKey
 
@@ -39,15 +39,15 @@ manage-bde -changekey [<Drive>] [<PathToExternalKeyDirectory>] [-computername <N
 |Lecteur \<>|Représente une lettre de lecteur suivie par un signe deux-points.|
 |\<PathToExternalKeyDirectory >|Représente l’emplacement du répertoire dans lequel enregistrer le fichier de clé de démarrage externe qui peut être utilisé pour déverrouiller le lecteur.|
 |-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
-|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
+|Nom de l' \<>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|
 |-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_Examples"></a>Illustre
 
 L’exemple suivant illustre l’utilisation de la commande **-ChangeKey** pour créer une nouvelle clé de démarrage sur le lecteur E à utiliser avec le chiffrement BitLocker sur le lecteur C.
 ```
-manage-bde –changekey C: E:\
+manage-bde -changekey C: E:\
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
