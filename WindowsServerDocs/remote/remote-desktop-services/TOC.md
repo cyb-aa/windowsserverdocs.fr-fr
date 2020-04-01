@@ -63,7 +63,7 @@
 ### [Optimisation de Windows 10 version 1909 pour un rôle VDI (Virtual Desktop Infrastructure)](rds_vdi-recommendations-1909.md)
 ### [Optimisation de Windows 10 version 1803 pour un rôle VDI (Virtual Desktop Infrastructure)](rds-vdi-recommendations-1803.md)
 ### [Gérer les utilisateurs de votre collection de services Bureau à distance](rds-user-management.md)
-### [Personnaliser le titre des Services Bureau à distance « ressources de travail » à l'aide de PowerShell sur Windows Server](rds-work-resources.md)
+### [Personnaliser le titre « Ressources de travail » des services Bureau à distance avec PowerShell sur Windows Server](rds-work-resources.md)
 ### [Diagnostiquer les problèmes de performances d'application avec des compteurs de performances](rds-rdsh-performance-counters.md)
 
 ## Accéder à vos ressources Bureau à distance
@@ -93,8 +93,8 @@
 #### [Accorder un accès à votre PC à partir de l'extérieur du réseau](clients/remote-desktop-allow-outside-access.md)
 #### [Modifier le port d'écoute du Bureau à distance sur votre PC](clients/change-listening-port.md)
 ### Informations avancées
-#### [Quel client vous convient le mieux ?](clients/remote-desktop-app-compare.md)
-#### [Paramètres du fichier RDP du Bureau à distance](clients/rdp-files.md)
+#### [Comparer les clients](clients/remote-desktop-app-compare.md)
+#### [Paramètres pris en charge du fichier RDP du Bureau à distance](clients/rdp-files.md)
 #### [Schéma d’URI de Bureau à distance](clients/remote-desktop-uri.md)
 #### [FAQ sur le client Bureau à distance](clients/remote-desktop-client-faq.md)
 #### [Paramètres de confidentialité des applications et des postes de travail managés](clients/remote-privacy-settings.md)
