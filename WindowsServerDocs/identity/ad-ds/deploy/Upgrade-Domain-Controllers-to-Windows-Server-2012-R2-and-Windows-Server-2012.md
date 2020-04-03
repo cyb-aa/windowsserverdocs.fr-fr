@@ -22,7 +22,7 @@ ms.locfileid: "76822722"
 
 Cette rubrique fournit des informations générales sur Active Directory Domain Services dans Windows Server 2012 R2 et Windows Server 2012 et explique le processus de mise à niveau des contrôleurs de domaine à partir de Windows Server 2008 ou Windows Server 2008 R2.  
   
-## <a name="BKMK_UpgradeWorkflow"></a>Étapes de mise à niveau du contrôleur de domaine  
+## <a name="domain-controller-upgrade-steps"></a><a name="BKMK_UpgradeWorkflow"></a>Étapes de mise à niveau du contrôleur de domaine  
 La méthode recommandée pour mettre à niveau un domaine consiste à promouvoir les contrôleurs de domaine qui exécutent des versions plus récentes de Windows Server et rétrograder les contrôleurs de domaine plus anciens en fonction des besoins. Cette méthode est préférable à la mise à niveau du système d’exploitation d’un contrôleur de domaine existant. Cette liste décrit les étapes générales à suivre avant de promouvoir un contrôleur de domaine qui exécute une version plus récente de Windows Server :  
   
 1. Vérifiez que le serveur cible répond à la [configuration requise](https://technet.microsoft.com/library/dn303418.aspx).  
@@ -68,7 +68,7 @@ Windows 8 et Windows Server 2012 introduisent la nouvelle fonctionnalité de [ma
   
 Comme Windows Update fait partie de la maintenance automatique dans Windows 8 et Windows Server 2012, sa propre planification interne pour définir un jour et une heure d'installation des mises à jour n'est plus en vigueur. Pour garantir un comportement de redémarrage cohérent et prévisible pour tous les appareils et ordinateurs de votre entreprise, notamment ceux qui exécutent Windows 8 et Windows Server 2012, consultez l’article de la Base de connaissances Microsoft [2885694](https://support.microsoft.com/kb/2885694) (ou le correctif cumulatif d’octobre 2013 [2883201](https://support.microsoft.com/kb/2883201)), puis configurez les paramètres de stratégie décrits dans le billet de blog WSUS [Enabling a more predictable Windows Update experience for Windows 8 and Windows Server 2012 (KB 2885694)](https://blogs.technet.com/b/wsus/archive/2013/10/08/enabling-a-more-predictable-windows-update-experience-for-windows-8-and-windows-server-2012-kb-2885694.aspx)(en anglais).  
 
-## <a name="BKMK_NewWS2012R2"></a>Quelles sont les nouveautés de AD DS dans Windows Server 2012 R2 ?
+## <a name="whats-new-in-ad-ds-in-windows-server-2012-r2"></a><a name="BKMK_NewWS2012R2"></a>Quelles sont les nouveautés de AD DS dans Windows Server 2012 R2 ?
 
 Le tableau suivant récapitule les nouvelles fonctionnalités pour les services de domaine Active Directory dans Windows Server 2012 R2, avec un lien vers des informations plus détaillées le cas échéant. Pour obtenir une explication plus détaillée de certaines fonctionnalités, notamment les conditions requises, voir [Nouveautés d’Active Directory sous Windows Server 2012 R2](https://technet.microsoft.com/library/dn268294.aspx).  
 
@@ -87,7 +87,7 @@ Le tableau suivant récapitule les nouvelles fonctionnalités pour les services 
 |[Améliorations de l'événement 1644](https://technet.microsoft.com/library/dn535775.aspx)|Les statistiques des résultats de recherche LDAP ont été ajoutées à l'ID d'événement 1644 pour faciliter le dépannage.|  
 |[Amélioration du débit de réplication Active Directory](https://technet.microsoft.com/library/dn535775.aspx)|Remplace le débit de réplication Active Directory maximal de 40 Mbits/s par 600 Mbits/s environ.|  
 
-## <a name="BKMK_WhatsNewAD"></a>Quelles sont les nouveautés de AD DS dans Windows Server 2012 ?
+## <a name="whats-new-in-ad-ds-in-windows-server-2012"></a><a name="BKMK_WhatsNewAD"></a>Quelles sont les nouveautés de AD DS dans Windows Server 2012 ?
 
 Le tableau suivant récapitule les nouvelles fonctionnalités pour les services de domaine Active Directory dans Windows Server 2012, avec un lien vers des informations plus détaillées le cas échéant. Pour obtenir une explication plus détaillée de certaines fonctionnalités, notamment les conditions requises, consultez [Nouveautés de Active Directory Domain Services (AD DS)](https://technet.microsoft.com/library/hh831477.aspx).  
   
@@ -108,7 +108,7 @@ Le tableau suivant récapitule les nouvelles fonctionnalités pour les services 
 |[Protection de la restauration USN pour les contrôleurs de contrôle virtualisés](https://technet.microsoft.com/library/hh831734.aspx#safe_virt_dc)|La restauration accidentelle des sauvegardes de captures instantanées des contrôleurs de domaine virtualisés ne provoque plus de restauration USN.|  
 |[Visionneuse de l’historique de Windows PowerShell](https://technet.microsoft.com/library/hh831702.aspx#windows_powershell_history_viewer)|Permet aux administrateurs d’afficher les commandes Windows PowerShell exécutées lors de l’utilisation du Centre d’administration Active Directory.|  
   
-### <a name="BKMK_"></a>Maintenance automatique et modifications du comportement de redémarrage après l’application des mises à jour par Windows Update
+### <a name="automatic-maintenance-and-changes-to-restart-behavior-after-updates-are-applied-by-windows-update"></a><a name="BKMK_"></a>Maintenance automatique et modifications du comportement de redémarrage après l’application des mises à jour par Windows Update
 
 Avant la version Windows 8, Windows Update gérait sa propre planification interne pour rechercher les mises à jour, puis pour les télécharger et les installer. Pour cela, l'Agent de mise à jour automatique Windows Update devait toujours être en cours d'exécution en arrière-plan et utilisait de la mémoire ainsi que d'autres ressources système.  
   
@@ -131,7 +131,7 @@ Le tableau suivant répertorie certains exemples de configuration de ces paramè
 
 Pour plus d’informations sur la raison pour laquelle l’équipe d’ingénieurs Windows a implémenté ces modifications, voir [Minimizing restarts after automatic updating in Windows Update](https://blogs.msdn.com/b/b8/archive/2011/11/14/minimizing-restarts-after-automatic-updating-in-windows-update.aspx)(en anglais).  
 
-## <a name="BKMK_InstallationChanges"></a>Modifications de l’installation du rôle serveur AD DS
+## <a name="ad-ds-server-role-installation-changes"></a><a name="BKMK_InstallationChanges"></a>Modifications de l’installation du rôle serveur AD DS
 
 De Windows Server 2003 à Windows Server 2008 R2, vous exécutiez la version x86 ou X64 de l’outil en ligne de commande Adprep.exe avant d’exécuter l’Assistant Installation de Active Directory, Dcpromo.exe, et Dcpromo.exe proposait des variantes facultatives pour une installation à partir du support ou une installation sans assistance.  
   
@@ -142,7 +142,7 @@ Les vérifications de configuration requise dans l’Assistant Installation des 
 Dans leur ensemble, les modifications apportées à l'installation des services de domaine Active Directory simplifient le processus d'installation du rôle de contrôleur de domaine et réduisent la probabilité d'erreurs d'administration, en particulier quand vous déployez plusieurs contrôleurs de domaine sur des régions et domaines globaux.  
 Pour obtenir des informations plus détaillées sur l’interface graphique utilisateur et les installations Windows PowerShell, notamment la syntaxe de ligne de commande et les instructions pas à pas de l’Assistant, voir [Installer les services de domaine Active Directory](https://technet.microsoft.com/library/hh472162.aspx). Pour les administrateurs qui veulent contrôler l’introduction des modifications de schéma dans une forêt Active Directory indépendamment de l’installation des contrôleurs de domaine Windows Server 2012 dans une forêt existante, les commandes Adprep.exe peuvent toujours être exécutées à une invite de commandes avec élévation de privilèges.  
 
-## <a name="BKMK_DeprecatedFeatures"></a>Fonctionnalités déconseillées et modifications de comportement relatives aux AD DS dans Windows Server 2012
+## <a name="deprecated-features-and-behavior-changes-related-to-ad-ds-in-windows-server-2012"></a><a name="BKMK_DeprecatedFeatures"></a>Fonctionnalités déconseillées et modifications de comportement relatives aux AD DS dans Windows Server 2012
 
 Il existe quelques modifications associées aux services de domaine Active Directory :  
 
@@ -163,7 +163,7 @@ Il existe quelques modifications associées aux services de domaine Active Direc
 |Jeton de liaison de canal/Protection étendue pour l’authentification intégrée|NON APPLICABLE|Enabled|Consultez l' [avis de sécurité Microsoft (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559) et [l’article 976918](https://go.microsoft.com/fwlink/?LinkId=178251) de la base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=178251).<br /><br />Examinez et installez le correctif logiciel de l' [article 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394) dans la base de connaissances Microsoft, si nécessaire.|  
 |LMv2|Enabled|Désactivée|[Article 976918](https://go.microsoft.com/fwlink/?LinkId=178251) dans la Base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=178251)|  
 
-## <a name="BKMK_SysReqs"></a>Conditions du système d'exploitation
+## <a name="operating-system-requirements"></a><a name="BKMK_SysReqs"></a>Conditions du système d'exploitation
 
 La configuration système minimale requise pour Windows Server 2012 est répertoriée dans le tableau suivant. Pour plus d’informations sur la configuration requise et la préinstallation, voir [Installation de Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx). Aucune configuration supplémentaire n’est requise pour installer une nouvelle forêt Active Directory, mais vous devez ajouter suffisamment de mémoire pour mettre en cache le contenu de la base de données Active Directory afin d’améliorer les performances pour les contrôleurs de domaine, les demandes de clients LDAP et les applications prenant en charge Active Directory. Si vous mettez à niveau un contrôleur de domaine existant ou que vous ajoutez un nouveau contrôleur de domaine à une forêt existante, passez en revue la section suivante pour vous assurer que l'espace disque du serveur est suffisant.  
 
@@ -175,7 +175,7 @@ La configuration système minimale requise pour Windows Server 2012 est réperto
 |Résolution de l’écran|800 x 600, ou supérieure|  
 |Divers|Lecteur de DVD, clavier, accès Internet|  
 
-### <a name="BKMK_DiskSpaceDCWin8"></a>Espace disque requis pour la mise à niveau des contrôleurs de domaine
+### <a name="disk-space-requirements-for-upgrading-domain-controllers"></a><a name="BKMK_DiskSpaceDCWin8"></a>Espace disque requis pour la mise à niveau des contrôleurs de domaine
 
 Cette section traite de l’espace disque requis uniquement pour la mise à niveau des contrôleurs de domaine à partir de Windows Server 2008 ou Windows Server 2008 R2. Pour plus d’informations sur l’espace disque requis pour mettre à niveau des contrôleurs de domaine vers des versions antérieures de Windows Server, voir [Espace disque requis pour la mise à niveau vers Windows Server 2008](https://technet.microsoft.com/library/cc754463(WS.10).aspx#BKMK_2008) ou [Espace disque requis pour la mise à niveau vers Windows Server 2008 R2](https://technet.microsoft.com/library/cc754463(WS.10).aspx#BKMK_2008R2).  
   
@@ -200,7 +200,7 @@ Les systèmes d'exploitation Windows Server et clients Windows suivants sont pri
    - Les ordinateurs qui exécutent Windows 8.1 ou Windows 8 sont également en mesure de rejoindre des domaines avec des contrôleurs de domaine qui exécutent une version antérieure de Windows Server, notamment Windows Server 2003 ou version ultérieure. Dans ce cas, cependant, certaines fonctionnalités Windows 8 peuvent nécessiter une configuration supplémentaire ou ne pas être disponibles. Pour obtenir plus d’informations sur ces fonctionnalités et d’autres recommandations pour la gestion des clients Windows 8 dans les domaines de niveau inférieur, voir [Exécution d’ordinateurs membres Windows 8 dans des domaines Windows Server 2003](https://social.technet.microsoft.com/wiki/contents/articles/17361.running-windows-8-member-computers-in-windows-server-2003-domains.aspx).  
 - Systèmes d'exploitation Windows Server : Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 R2, Windows Server 2003  
 
-## <a name="BKMK_UpgradePaths"></a>Chemins de mise à niveau sur place pris en charge
+## <a name="supported-in-place-upgrade-paths"></a><a name="BKMK_UpgradePaths"></a>Chemins de mise à niveau sur place pris en charge
 
 Les contrôleurs de domaine qui exécutent des versions 64 bits de Windows Server 2008 ou Windows Server 2008 R2 peuvent être mis à niveau vers Windows Server 2012. Vous ne pouvez pas mettre à niveau des contrôleurs de domaine qui exécutent Windows Server 2003 ou des versions 32 bits de Windows Server 2008. Pour les remplacer, installez des contrôleurs de domaine qui exécutent une version ultérieure de Windows Server dans le domaine, puis supprimez les contrôleurs de domaine Windows Server 2003.  
 
@@ -217,7 +217,7 @@ Pour plus d’informations sur les chemins de mise à niveau pris en charge, voi
   
 En raison d’un problème connu, vous ne pouvez pas mettre à niveau un contrôleur de domaine qui exécute une installation Server Core de Windows Server 2008 R2 vers une installation Server Core de Windows Server 2012. La mise à niveau se bloque sur un écran noir vers la fin du processus de mise à niveau. Le redémarrage de ces contrôleurs de domaine expose une option dans le fichier boot.ini pour restaurer la version de système d’exploitation précédente. Un autre redémarrage déclenche la restauration automatique de la version de système d’exploitation précédente. Tant qu’une solution n’est pas disponible, il est recommandé d’installer un nouveau contrôleur de domaine exécutant une installation Server Core de Windows Server 2012 au lieu de mettre à niveau sur place un contrôleur de domaine existant qui exécute une installation Server Core de Windows Server. 2008 R2. Pour plus d’informations, voir l’article [2734222](https://support.microsoft.com/kb/2734222)de la Base de connaissances.  
 
-## <a name="BKMK_FunctionalLevels"></a>Fonctionnalités et exigences de niveau fonctionnel
+## <a name="functional-level-features-and-requirements"></a><a name="BKMK_FunctionalLevels"></a>Fonctionnalités et exigences de niveau fonctionnel
 
 Windows Server 2012 requiert un niveau fonctionnel de forêt Windows Server 2003. Autrement dit, avant de pouvoir ajouter un contrôleur de domaine qui exécute Windows Server 2012 à une forêt Active Directory existante, le niveau fonctionnel de la forêt doit être Windows Server 2003 ou une version ultérieure. Cela signifie que les contrôleurs de domaine qui exécutent Windows Server 2008 R2, Windows Server 2008 ou Windows Server 2003 peuvent fonctionner dans la même forêt, mais que les contrôleurs de domaine qui exécutent Windows 2000 Server ne sont pas pris en charge et bloqueront l’installation d’un contrôleur de domaine qui exécute Windows Server 2012. Si la forêt contient des contrôleurs de domaine exécutant Windows Server 2003 ou version supérieure, mais que le niveau fonctionnel de la forêt est toujours Windows 2000, l’installation est également bloquée.  
   
@@ -244,7 +244,7 @@ Au-delà des niveaux fonctionnels, un contrôleur de domaine qui exécute Window
 > [!NOTE]  
 > Microsoft Exchange Server 2013 exige un niveau fonctionnel de la forêt de Windows Server 2003 ou version supérieure.  
 
-## <a name="BKMK_ServerRoles"></a>AD DS de l’interopérabilité avec d’autres rôles de serveur et systèmes d’exploitation Windows
+## <a name="ad-ds-interoperability-with-other-server-roles-and-windows-operating-systems"></a><a name="BKMK_ServerRoles"></a>AD DS de l’interopérabilité avec d’autres rôles de serveur et systèmes d’exploitation Windows
 
 Les services de domaine Active Directory ne sont pas pris en charge sur les systèmes d’exploitation Windows suivants :  
   
@@ -256,7 +256,7 @@ Les services de domaine Active Directory ne peuvent pas être installés sur un 
 - Hyper-V Server  
 - Service Broker pour les connexions Bureau à distance  
   
-## <a name="BKMK_OpsMasters"></a>Rôles de maître d’opérations
+## <a name="operations-master-roles"></a><a name="BKMK_OpsMasters"></a>Rôles de maître d’opérations
 
 Certaines nouvelles fonctionnalités de Windows Server 2012 affectent les rôles de maître d’opérations :  
 
@@ -267,15 +267,15 @@ Certaines nouvelles fonctionnalités de Windows Server 2012 affectent les rôles
 > [!NOTE]  
 > Bien qu’il ne s’agisse pas de rôles de maître d’opérations, une autre modification dans AD DS installation est que le rôle serveur DNS et le catalogue global sont installés par défaut sur tous les contrôleurs de domaine qui exécutent Windows Server 2012.  
 
-## <a name="BKMK_Virtual"></a>Virtualisation de contrôleurs de domaine
+## <a name="virtualizing-domain-controllers"></a><a name="BKMK_Virtual"></a>Virtualisation de contrôleurs de domaine
 
 Les améliorations apportées à AD DS à partir de Windows Server 2012 permettent la virtualisation plus sûre des contrôleurs de domaine et la possibilité de cloner des contrôleurs de domaine. Le clonage de contrôleurs de domaine permet quant à lui de déployer rapidement des contrôleurs de domaine supplémentaires dans un nouveau domaine et de profiter d’autres avantages. Pour plus d’informations, [consultez Introduction à &#40;Active Directory Domain Services&#41; AD DS &#40;niveau de virtualisation&#41;100](../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md).  
 
-## <a name="BKMK_Admin"></a>Administration des serveurs Windows Server 2012
+## <a name="administration-of-windows-server-2012-servers"></a><a name="BKMK_Admin"></a>Administration des serveurs Windows Server 2012
 
 Utilisez la [Outils d’administration de serveur distant pour Windows 8](https://www.microsoft.com/download/details.aspx?id=28972) pour gérer les contrôleurs de domaine et d’autres serveurs qui exécutent windows server 2012. Vous pouvez exécuter Windows Server 2012 Outils d’administration de serveur distant sur un ordinateur qui exécute Windows 8.  
 
-## <a name="BKMK_AppCompat"></a>Compatibilité des applications
+## <a name="application-compatibility"></a><a name="BKMK_AppCompat"></a>Compatibilité des applications
 
 Le tableau suivant affiche des applications Microsoft intégrées à Active Directory courantes. Le tableau indique les versions de Windows Server sur lesquelles les applications peuvent être installées et si l’introduction des contrôleurs de domaine Windows Server 2012 a une incidence sur la compatibilité des applications.  
 
@@ -299,7 +299,7 @@ Le tableau suivant affiche des applications Microsoft intégrées à Active Dire
 |SQL Server 2008|Source : Article de la Base de connaissances [2681562](https://support.microsoft.com/kb/2681562)<br /><br />Requiert SQL Server 2008 avec Service Pack 3 ou version ultérieure pour une installation sur Windows Server 2012.|  
 |SQL Server 2005|Source : Article de la Base de connaissances [2681562](https://support.microsoft.com/kb/2681562)<br /><br />Pas de prise en charge pour une installation sur Windows Server 2012.|  
 
-## <a name="BKMK_KnownIssues"></a>Problèmes connus
+## <a name="known-issues"></a><a name="BKMK_KnownIssues"></a>Problèmes connus
 
 Le tableau suivant répertorie les problèmes connus associés à l’installation des services de domaine Active Directory.  
 
