@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 90e544bd-e826-4093-8c3b-6a6fc2dfd1d6
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 278d813aa13ea42b7f597bdbe7eb210f68cee955
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 4e6e6d2612af80bdaaa3900414bb08c3f0c18ea3
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316308"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639911"
 ---
 # <a name="network-policy-server-best-practices"></a>Meilleures pratiques relatives au serveur NPS
 
@@ -97,7 +97,7 @@ Voici les meilleures pratiques pour l’utilisation de NPS dans les grandes orga
 
 - Utilisez un nom d’utilisateur principal pour faire référence aux utilisateurs chaque fois que cela est possible. Un utilisateur peut avoir le même nom d’utilisateur principal, quelle que soit l’appartenance à un domaine. Cette pratique fournit une évolutivité qui peut être nécessaire dans les organisations avec un grand nombre de domaines.
 
-- Si vous avez installé le serveur de stratégie réseau \(\) NPS sur un ordinateur autre qu’un contrôleur de domaine et que le serveur NPS reçoit un grand nombre de demandes d’authentification par seconde, vous pouvez améliorer les performances de NPS en renforçant le nombre d’authentifications simultanées autorisées entre le serveur NPS et le contrôleur de domaine. Pour plus d’informations, consultez 
+- Si vous avez installé le serveur de stratégie réseau \(\) NPS sur un ordinateur autre qu’un contrôleur de domaine et que le serveur NPS reçoit un grand nombre de demandes d’authentification par seconde, vous pouvez améliorer les performances de NPS en renforçant le nombre d’authentifications simultanées autorisées entre le serveur NPS et le contrôleur de domaine. Pour plus d’informations, consultez [augmenter les authentifications simultanées traitées par NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-concurrent-auth).
 
 ## <a name="security-issues"></a>Problèmes de sécurité
 

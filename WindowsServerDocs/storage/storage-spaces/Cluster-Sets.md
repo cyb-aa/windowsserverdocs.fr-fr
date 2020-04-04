@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/30/2019
 description: Cet article décrit le scénario des ensembles de clusters
 ms.localizationpriority: medium
-ms.openlocfilehash: 52d686fa9797d84f56182b15c36a26440792ec13
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db427e8fa4e5574c6eb7837cf0ab4a9fcc180410
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402913"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639961"
 ---
 # <a name="cluster-sets"></a>Jeux de clusters
 
@@ -65,7 +65,7 @@ Un domaine d’erreur est le regroupement d’artefacts logiciels et matériels 
 
 **Groupe à haute disponibilité**
 
-Un groupe à haute disponibilité permet à l’administrateur de configurer la redondance souhaitée des charges de travail en cluster entre les domaines d’erreur, en les organisant dans un groupe à haute disponibilité et en déployant des charges de travail dans ce groupe à haute disponibilité. Par exemple, si vous déployez une application à deux niveaux, nous vous recommandons de configurer au moins deux machines virtuelles dans un groupe à haute disponibilité pour chaque niveau, ce qui garantit qu’en cas de défaillance d’un domaine d’erreur dans ce groupe à haute disponibilité, votre application aura au moins une machine virtuelle dans chaque niveau hébergée sur un domaine d’erreur différent de ce même groupe à haute disponibilité.
+Un groupe à haute disponibilité permet à l’administrateur de configurer la redondance souhaitée des charges de travail en cluster entre les domaines d’erreur, en les organisant dans un groupe à haute disponibilité et en déployant des charges de travail dans ce groupe à haute disponibilité. Par exemple, si vous déployez une application à deux niveaux, nous vous recommandons de configurer au moins deux machines virtuelles dans un groupe à haute disponibilité pour chaque niveau, ce qui garantit qu’en cas de défaillance d’un domaine d’erreur dans ce groupe à haute disponibilité, votre application disposera au moins d’une machine virtuelle dans chaque niveau hébergée sur un domaine d’erreur différent de ce même groupe à
 
 ## <a name="why-use-cluster-sets"></a>Pourquoi utiliser des ensembles de clusters ?
 
@@ -116,7 +116,7 @@ Au moment de la création de l’ensemble de clusters, l’administrateur a la p
 
 ## <a name="creating-a-cluster-set"></a>Création d’un ensemble de clusters
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Composants requis
 
 Lorsque vous créez un ensemble de clusters, les conditions préalables suivantes sont recommandées :
 
@@ -163,7 +163,7 @@ Lorsque vous créez un ensemble de clusters, les conditions préalables suivante
 
         Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterGroup 
 
-8. Pour vérifier que le processus de création de l’ensemble de clusters a créé un partage SMB (identifié en tant que volume1 ou quel que soit le dossier du volume partagé de cluster avec le nom de serveur de fichiers d’infrastructure et le chemin d’accès) sur le SOFS d’infrastructure pour chaque membre du cluster Volume CSV :
+8. Pour vérifier que le processus de création de l’ensemble de clusters a créé un partage SMB (identifié en tant que volume1 ou quel que soit le dossier du volume partagé de cluster avec le nom de serveur de fichiers d’infrastructure et le chemin d’accès) sur le SOFS d’infrastructure pour le volume CSV de chaque membre du cluster :
 
         Get-SmbShare -CimSession CSMASTER
 
@@ -171,7 +171,7 @@ Lorsque vous créez un ensemble de clusters, les conditions préalables suivante
 
         Get-ClusterSetLog -ClusterSetCimSession CSMASTER -IncludeClusterLog -IncludeManagementClusterLog -DestinationFolderPath <path>
 
-9. Configurez la délégation Kerberos avec [restriction](https://blogs.technet.microsoft.com/virtualization/2017/02/01/live-migration-via-constrained-delegation-with-kerberos-in-windows-server-2016/) entre tous les membres du groupe de clusters.
+9. Configurez la délégation Kerberos avec [restriction](https://techcommunity.microsoft.com/t5/virtualization/live-migration-via-constrained-delegation-with-kerberos-in/ba-p/382334) entre tous les membres du groupe de clusters.
 
 10. Configurez le type d’authentification de la migration dynamique de l’ordinateur virtuel entre clusters sur Kerberos sur chaque nœud de l’ensemble de clusters.
 
@@ -260,7 +260,7 @@ La migration dynamique d’un ordinateur virtuel entre différents clusters d’
 
 Avec les ensembles de clusters, ces étapes ne sont pas nécessaires et une seule commande est nécessaire.  Tout d’abord, vous devez définir tous les réseaux disponibles pour la migration à l’aide de la commande :
 
-    Set-VMHost -UseAnyNetworkMigration $true
+    Set-VMHost -UseAnyNetworkForMigration $true
 
 Par exemple, je souhaite déplacer un ordinateur virtuel de l’ensemble de clusters de CLUSTER1 vers NODE2-CL3 sur CLUSTER3.  La commande est la suivante :
 
@@ -323,7 +323,7 @@ Par exemple, la commande permettant de supprimer le cluster CLUSTER1 des ensembl
 
         Remove-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER
 
-## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions
 
 **Question :** Dans mon ensemble de clusters, suis-je limité à l’utilisation de clusters hyper-convergents uniquement ? <br>
 **Réponse :** º.  Vous pouvez mélanger des espaces de stockage direct avec des clusters traditionnels.

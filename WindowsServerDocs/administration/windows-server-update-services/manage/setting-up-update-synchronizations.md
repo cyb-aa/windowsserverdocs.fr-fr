@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4559016388f9b0d765c8e4d76f76fa7ef0a7f0f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c7bca5be7a8ec0e857cba65680fbc3b967af4f8
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361596"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639755"
 ---
 # <a name="setting-up-update-synchronizations"></a>Configuration des synchronisations de mise à jour
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Au cours de la synchronisation, un serveur WSUS télécharge les mises à jour (mises à jour des métadonnées et des fichiers) à partir d’une source de mise à jour. Il télécharge également les nouvelles classifications et les catégories de produits, le cas échéant. Lorsque votre serveur WSUS se synchronise pour la première fois, il télécharge toutes les mises à jour que vous avez spécifiées lors de la configuration des options de synchronisation. Après la première synchronisation, votre serveur WSUS télécharge uniquement les mises à jour à partir de la source de mise à jour, ainsi que les révisions dans les métadonnées des mises à jour existantes et les expirations des mises à jour.
 
@@ -77,7 +77,7 @@ Vous pouvez configurer votre serveur WSUS pour utiliser un serveur proxy lors de
 
     -   Si vous souhaitez activer l’authentification de base pour l’utilisateur qui se connecte au serveur proxy, activez la case à cocher **autoriser l’authentification de base (le mot de passe est envoyé en texte clair)** .
 
-3.  Cliquez sur **OK**.
+3.  Cliquez sur **OK**.
 
     > [!NOTE]
     > Étant donné que WSUS initialise tout son trafic réseau, il n’est pas nécessaire de configurer le pare-feu Windows sur un serveur WSUS connecté directement à Microsoft Update.
@@ -110,7 +110,7 @@ Vous pouvez soit synchroniser votre serveur WSUS manuellement, soit spécifier u
 
 4.  pour les **synchronisations par jour**, sélectionnez le nombre de synchronisations que vous voulez faire chaque jour. Par exemple, si vous souhaitez quatre synchronisations par jour à partir de 3:00 A.M., les synchronisations auront lieu à 3:00 h 00, 9:00 3:00 h 00 et 9:00 P.M. tous les jours. (Notez qu’un décalage temporel aléatoire sera ajouté à l’heure de synchronisation planifiée pour libérer les connexions au serveur à Microsoft Update.)
 
-5.  Cliquez sur **OK**.
+5.  Cliquez sur **OK**.
 
 #### <a name="to-synchronize-your-wsus-server-immediately"></a>Pour synchroniser immédiatement votre serveur WSUS
 

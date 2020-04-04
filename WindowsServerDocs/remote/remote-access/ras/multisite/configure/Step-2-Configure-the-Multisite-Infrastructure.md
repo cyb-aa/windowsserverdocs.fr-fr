@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6f020dc2bf5c0dc11d18e886346a98a4a40f3855
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9434f3192da110c8ad61e999d2aecd02bfff3812
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314056"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639836"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Étape 2 configurer l’infrastructure multisite
 
@@ -241,7 +241,7 @@ Pour charger ou modifier la configuration de l’accès à distance, vous pouvez
   
 #### <a name="to-change-the-domain-controller-that-manages-server-gpos"></a><a name="ChangeDC"></a>Pour modifier le contrôleur de domaine qui gère les objets de stratégie de groupe de serveur  
   
--   Exécutez l’applet de commande Windows PowerShell `HYPERLINK "https://technet.microsoft.com/library/hh918412.aspx" Set-DAEntryPointDC` sur le serveur d’accès à distance et spécifiez le nom du contrôleur de domaine inaccessible pour le paramètre *ExistingDC* . Cette commande modifie l’Association du contrôleur de domaine pour les objets de stratégie de groupe de serveur des points d’entrée actuellement gérés par ce contrôleur de domaine.  
+-   Exécutez l’applet de commande Windows PowerShell [Set-DAEntryPointDC](https://docs.microsoft.com/powershell/module/remoteaccess/set-daentrypointdc) sur le serveur d’accès à distance et spécifiez le nom du contrôleur de domaine inaccessible pour le paramètre *ExistingDC* . Cette commande modifie l’Association du contrôleur de domaine pour les objets de stratégie de groupe de serveur des points d’entrée actuellement gérés par ce contrôleur de domaine.
   
     -   Pour remplacer le contrôleur de domaine inaccessible « dc1.corp.contoso.com » par le contrôleur de domaine « dc2.corp.contoso.com », procédez comme suit :  
   
@@ -300,7 +300,7 @@ Les informations d’association du contrôleur de domaine sont stockées dans l
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="optimization-of-configuration-distribution"></a><a name="ConfigDistOptimization"></a>Optimisation de la distribution de la configuration  
-Lorsque vous apportez des modifications de configuration, les modifications sont appliquées uniquement une fois que les objets de stratégie de groupe du serveur se propagent aux serveurs d’accès à distance. Pour réduire la durée de distribution de la configuration, l’accès à distance sélectionne automatiquement un contrôleur de domaine accessible en écriture qui est le lien hypertexte «<https://technet.microsoft.com/library/cc978016.aspx>» le plus proche du serveur d’accès à distance lors de la création de son objet de stratégie de groupe.  
+Lorsque vous apportez des modifications de configuration, les modifications sont appliquées uniquement une fois que les objets de stratégie de groupe du serveur se propagent aux serveurs d’accès à distance. Pour réduire le temps de distribution de la configuration, l’accès à distance sélectionne automatiquement un contrôleur de domaine accessible [en écriture le plus proche du serveur d’accès à distance lors de la création de](https://technet.microsoft.com/library/cc978016.aspx) son objet de stratégie de groupe de serveur.  
   
 Dans certains scénarios, il peut être nécessaire de modifier manuellement le contrôleur de domaine qui gère un objet de stratégie de groupe de serveur afin d’optimiser la durée de distribution de la configuration :  
   
@@ -336,4 +336,3 @@ Pour optimiser l’heure de la distribution de la configuration, effectuez l’u
   
 -   [Étape 3 : configurer le déploiement multisite](Step-3-Configure-the-Multisite-Deployment.md)  
 -   [Étape 1 : implémenter un déploiement de l’accès à distance à un serveur unique](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  
-

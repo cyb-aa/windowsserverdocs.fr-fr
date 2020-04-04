@@ -13,12 +13,12 @@ ms.assetid: deae35b9-7647-42b8-b6bf-45645a44c9c4
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: fba83d22d9e5d9f31a5809781aa04943cc4cd3af
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6416a86b0f80861d0272581c8468fa7d5bb7f329
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364154"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639955"
 ---
 # <a name="hyper-v-virtual-machine-connection"></a>Connexion à une machine virtuelle Hyper-V
 
@@ -47,7 +47,7 @@ Les informations suivantes peuvent vous être utiles pour utiliser VMConnect :
 |Modifier les paramètres de la machine virtuelle|Sélectionnez **Fichier** > **Paramètres**.|  
 |Connectez-vous à une image DVD \(fichier .iso\) ou à une disquette virtuelle \(fichier .vfd\)|Sélectionnez **Média**.<br /><br />Les disquettes virtuelles ne sont pas prises en charge pour les machines virtuelles de génération 2. Pour plus d’informations, consultez [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md).|  
 |Utiliser les ressources locales d’un hôte sur une machine virtuelle Hyper\-V comme un lecteur flash USB|Activez le mode de session étendu sur l’hôte Hyper-V, utilisez VMConnect pour vous connecter à la machine virtuelle et, avant de vous connecter, choisissez la ressource locale à utiliser. Pour obtenir les étapes spécifiques, consultez [Utiliser des ressources locales sur une machine virtuelle Hyper\-V avec VMConnect](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md).|  
-|Changer les paramètres de VMConnect enregistrés pour une machine virtuelle|Exécutez la commande suivante dans Windows PowerShell ou sur l’invite de commandes :<br /><br />`VMConnect.exe <ServerName> <VMName> \/edit`|  
+|Changer les paramètres de VMConnect enregistrés pour une machine virtuelle|Exécutez la commande suivante dans Windows PowerShell ou sur l’invite de commandes :<br /><br />`VMConnect.exe <ServerName> <VMName> /edit`|  
 |Empêcher un utilisateur VMConnect de prendre le contrôle d’une session VMConnect d’un autre utilisateur|[Activer le mode de session étendu sur l’hôte Hyper-V](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host).<br /><br />Le fait de ne pas activer le mode de session étendu peut poser un risque de sécurité et de confidentialité. Si un utilisateur est connecté et a ouvert une session sur une machine virtuelle via VMConnect, et qu’un autre utilisateur autorisé se connecte à la même machine virtuelle, la session est prise par le deuxième utilisateur, le premier utilisateur perdant la session. Le deuxième utilisateur sera en mesure de voir le Bureau, les documents et les applications du premier utilisateur.|
 |Gérer les services ou les composants d’intégration qui permettent à la machine virtuelle de communiquer avec l’hôte Hyper-V| Sur les hôtes Hyper-V qui exécutent Windows 10 ou Windows Server 2016, vous ne pouvez pas gérer les services d’intégration avec VMConnect. Consultez ces rubriques : <br />- [Activer ou désactiver les services d’intégration à partir de l’hôte Hyper-V](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics) <br />- [Activer/désactiver les services d’intégration à partir d’une machine virtuelle Windows](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-windows)<br />- [Activer/désactiver les services d’intégration à partir d’une machine virtuelle Linux](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-linux) <br />- [Conserver les services d’intégration à jour pour la machine virtuelle](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#integration-service-maintenance)  <br />Pour les hôtes qui exécutent Windows Server 2012 ou Windows Server 2012 R2, consultez [Services d’intégration](https://technet.microsoft.com/library/dn798297(v=ws.11).aspx).|
 |Redimensionner la fenêtre de VMConnect|Vous pouvez changer la taille de la fenêtre de VMConnect pour les machines virtuelles de génération 2 qui exécutent un système d’exploitation Windows. Pour cela, il peut être nécessaire d’activer le mode de session étendu sur l’hôte Hyper-V. Pour plus d’informations, consultez [Activer le mode de session étendu sur l’hôte Hyper-V](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host). Pour les machines virtuelles qui exécutent Ubuntu, consultez [Modification de la résolution d’écran d’Ubuntu dans une machine virtuelle Hyper-V](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/).|

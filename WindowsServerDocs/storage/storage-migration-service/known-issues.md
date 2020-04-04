@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a9759f0ea8835c8e07bcd298b75024e3ee29c9ed
-ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
+ms.openlocfilehash: f8a1e70bba740875e19660d5a729a952c9fae8f2
+ms.sourcegitcommit: d56c042c58833bdaa9a6fe54dd68f540af12fc6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78856343"
+ms.lasthandoff: 04/04/2020
+ms.locfileid: "80661070"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -23,7 +23,7 @@ Le service de migration de stockage est disponible en deux parties : le service
 
 Par exemple, Windows Server, version 1903 comprend de nouvelles fonctionnalités et des correctifs pour le service de migration de stockage, qui sont également disponibles pour Windows Server 2019 et Windows Server version 1809 en installant [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534).
 
-## <a name="collecting-logs"></a>Comment collecter des fichiers journaux lors de l’utilisation de Support Microsoft
+## <a name="how-to-collect-log-files-when-working-with-microsoft-support"></a><a name="collecting-logs"></a>Comment collecter des fichiers journaux lors de l’utilisation de Support Microsoft
 
 Le service de migration de stockage contient des journaux des événements pour le service Orchestrator et le service proxy. Le serveur Orchestrator contient toujours les journaux des événements, et les serveurs de destination sur lesquels le service proxy est installé contiennent les journaux du proxy. Ces journaux se trouvent sous :
 
@@ -343,7 +343,7 @@ Lorsque vous tentez d’exécuter la fenêtre couper sur une source de cluster W
        at Microsoft.FailoverClusters.Framework.ClusterUtils.RenameFSNetName(SafeClusterHandle ClusterHandle, String clusterName, String FsResourceId, String NetNameResourceId, String newDnsName, CancellationToken ct)
        at Microsoft.StorageMigration.Proxy.Cutover.CutoverUtils.RenameFSNetName(NetworkCredential networkCredential, Boolean isLocal, String clusterName, String fsResourceId, String nnResourceId, String newDnsName, CancellationToken ct)    [d:\os\src\base\dms\proxy\cutover\cutoverproxy\CutoverUtils.cs::RenameFSNetName::1510]
 
-Ce problème est dû à l’absence d’API dans les versions antérieures de Windows Server. Actuellement, il n’existe aucun moyen de migrer les clusters Windows Server 2008 et Windows Server 2003. Vous pouvez effectuer un inventaire et un transfert sans problème sur les clusters Windows Server 2008 R2, puis effectuer manuellement le basculement en modifiant manuellement l’adresse IP et le nom d’accès de la ressource du serveur de fichiers source du cluster, puis en modifiant le nom et l’adresse IP du cluster de destination. adresse qui correspond à la source d’origine. 
+Ce problème est dû à l’absence d’API dans les versions antérieures de Windows Server. Actuellement, il n’existe aucun moyen de migrer les clusters Windows Server 2008 et Windows Server 2003. Vous pouvez effectuer un inventaire et un transfert sans problème sur les clusters Windows Server 2008 R2, puis effectuer manuellement le basculement en modifiant manuellement l’adresse IP et le nom d’accès de la ressource du serveur de fichiers source du cluster, puis en modifiant l’adresse IP et le nom du cluster de destination afin qu’il corresponde à la source d’origine. 
 
 ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-dhcp"></a>Le basculement se bloque sur « 38% mappage des interfaces réseau sur l’ordinateur source... » lors de l’utilisation de DHCP 
 
@@ -421,7 +421,7 @@ Si vous avez déjà exécuté le transfert un ou plusieurs fois :
     Get-ADObject -Filter 'Description -like "*storage migration service renamed*"' -SearchBase 'DC=<domain>,DC=<TLD>' | ft name,distinguishedname
     ```
    
- 2. Pour tous les utilisateurs retournés avec leur nom d’origine, modifiez leur « nom d’ouverture de session utilisateur (antérieur à Windows 2000) » pour supprimer le suffixe de caractère aléatoire ajouté par Storage migration service, afin que ce perdant puisse ouvrir une session.
+ 2. Pour tous les utilisateurs retournés avec leur nom d’origine, modifiez leur « nom d’ouverture de session utilisateur (antérieur à Windows 2000) » pour supprimer le suffixe de caractère aléatoire ajouté par Storage migration service, afin que cet utilisateur puisse ouvrir une session.
  3. Pour tous les groupes retournés avec leur nom d’origine, modifiez leur nom de groupe (antérieur à Windows 2000) pour supprimer le suffixe de caractère aléatoire ajouté par Storage migration service.
  4. Pour tous les utilisateurs ou groupes désactivés dont le nom contient désormais un suffixe ajouté par Storage migration service, vous pouvez supprimer ces comptes. Vous pouvez vérifier que les comptes d’utilisateur ont été ajoutés ultérieurement, car ils ne contiendront que le groupe utilisateurs du domaine et auront une date/heure de création correspondant à l’heure de début du transfert du service de migration du stockage.
  
@@ -484,7 +484,7 @@ Lorsque vous tentez d’exécuter un inventaire, vous recevez :
  - Le service d’accès à distance au registre n’est pas en cours d’exécution sur l’ordinateur source.
  - le pare-feu n’autorise pas les connexions à distance au serveur source à partir de l’orchestrateur.
  - Le compte de migration source ne dispose pas des autorisations de Registre à distance pour se connecter à l’ordinateur source.
- - Le compte de migration source ne dispose pas des autorisations de lecture dans le registre de l’ordinateur source, sous « HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion » ou sous «HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\ LanManServer
+ - Le compte de migration source ne dispose pas d’autorisations de lecture dans le registre de l’ordinateur source, sous « HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion » ou sous « HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\LanmanServer ».
  
  ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Le basculement se bloque sur « 38% mappage des interfaces réseau sur l’ordinateur source... » 
 
