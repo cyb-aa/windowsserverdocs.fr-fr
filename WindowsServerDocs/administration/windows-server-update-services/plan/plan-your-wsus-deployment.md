@@ -10,16 +10,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 37e3a7788ccd409f4002f5fe2d7ea087e89b3419
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 8d284c51bfa1e04a38c32adf5dce2b6f5d948b0a
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323521"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639933"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planifier votre déploiement WSUS
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2019, Windows Server (Canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La première étape du déploiement de WSUS (Windows Server Update Services) consiste à prendre des décisions importantes, par exemple le choix du scénario de déploiement de WSUS, le choix d’une topologie de réseau et la prise de connaissance de la configuration requise. La liste de contrôle suivante décrit les étapes de la préparation de votre déploiement.
 
@@ -37,7 +37,7 @@ La première étape du déploiement de WSUS (Windows Server Update Services) con
 
 ### <a name="system-requirements"></a>Configuration requise
 
-Avant d’activer le rôle serveur WSUS, vérifiez que le serveur répond à la configuration requise et que vous disposez des autorisations nécessaires pour effectuer l’installation en vous conformant aux recommandations suivantes :
+La configuration requise pour les logiciels de base de données et le matériel dépend du nombre d’ordinateurs clients mis à jour dans votre organisation.  Avant d’activer le rôle serveur WSUS, vérifiez que le serveur répond à la configuration requise et que vous disposez des autorisations nécessaires pour effectuer l’installation en vous conformant aux recommandations suivantes :
 
 -   La configuration matérielle requise du serveur pour activer le rôle WSUS dépend de la configuration matérielle requise. Les configurations matérielles minimales requises pour WSUS sont les suivantes :
 
@@ -45,9 +45,12 @@ Avant d’activer le rôle serveur WSUS, vérifiez que le serveur répond à la 
 
     -   **Mémoire :** WSUS exige 2 Go de RAM de plus que ce qui est requis par le serveur et tous les autres services ou logiciels.
 
-    -   **Espace disque disponible :** 10 Go (au moins 40 Go sont recommandés)
+    -   **Espace disque disponible :** 40 Go ou plus recommandés
 
-    -   **Carte réseau :** 100 mégabits par seconde (Mbits/s) au minimum
+    -   **Carte réseau :** 100 mégabits par seconde (Mbits/s) ou plus (1 Go est recommandé)
+
+> [!NOTE] 
+> Ces instructions partent du principe que les clients WSUS se synchronisent avec le serveur toutes les huit heures pour un rollup de 30 000 clients. S’ils se synchronisent plus souvent, il y aura un incrément correspondant dans la charge du serveur.  
 
 -   Configuration logicielle requise :
 

@@ -10,16 +10,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 22554a9669c30cc827c509824f187fbaaedb1272
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5d71a26cbe889f5de11934b2af411ac407fc5e75
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361698"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639861"
 ---
-# <a name="step-1-install-the-wsus-server-role"></a>Étape 1 : Installer le rôle serveur WSUS
+# <a name="step-1-install-the-wsus-server-role"></a>Étape 1 : Installer le rôle serveur WSUS
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2019, Windows Server (Canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’étape suivante du déploiement de votre serveur WSUS consiste à installer le rôle serveur WSUS. La procédure suivante explique comment installer le rôle serveur WSUS à l’aide du Gestionnaire de serveur.
 
@@ -56,7 +56,7 @@ L’étape suivante du déploiement de votre serveur WSUS consiste à installer 
 
 11. Cliquez sur **Suivant**. La page **Rôle de serveur web (IIS)** s’affiche. Vérifiez les informations, puis cliquez sur **Suivant**. Dans **Sélectionner les services de rôle à installer pour le serveur Web (IIS)** , conservez les valeurs par défaut, puis cliquez sur **Suivant**.
 
-12. Dans la page **Confirmer les sélections d’installation**, passez en revue les options sélectionnées, puis cliquez sur **Installer**. L’Assistant d’installation de WSUS s’exécute. Le processus peut durer plusieurs minutes.
+12. Dans la page **Confirmer les sélections d’installation** , passez en revue les options sélectionnées, puis cliquez sur **Installer**. L’Assistant d’installation de WSUS s’exécute. Le processus peut durer plusieurs minutes.
 
 13. Une fois l’installation de WSUS terminée, dans la fenêtre de résumé de la page **Progression de l’installation** , cliquez sur **Lancer les tâches de post-installation**. Le message suivant s’affiche : **Veuillez patienter pendant la configuration de votre serveur**. Une fois la tâche terminée, le message suivant s’affiche : **Configuration terminée**. Cliquez sur **Fermer**.
 
