@@ -1,24 +1,20 @@
 ---
 title: Manage-bde sur
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f6a12814-df74-416c-a04a-62ea8512263e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a95bbc375c0a5b62b96f7c68f7d5ab5e09371d1c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1785c10ade5f7aace8595d8d0972fb1fa315232b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373995"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840012"
 ---
 # <a name="manage-bde-on"></a>Manage-bde : on
 
@@ -35,7 +31,7 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 [{-?|/?}] [{-help|-h}]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -50,7 +46,7 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 |-tpmandpin|Ajoute une Module de plateforme sécurisée (TPM) (TPM) et un protecteur de code confidentiel (PIN) pour le lecteur du système d’exploitation. Vous pouvez également utiliser **-TP** comme version abrégée de cette commande.|
 |-tpmandstartupkey|Ajoute un module de plateforme sécurisée et un protecteur de clé de démarrage pour le lecteur de système d’exploitation. Vous pouvez également utiliser **-tsk** comme version abrégée de cette commande.|
 |-tpmandpinandstartupkey|Ajoute un protecteur de module de plateforme sécurisée, de code confidentiel et de clé de démarrage pour le lecteur de système d’exploitation. Vous pouvez également utiliser **-tpsk** comme version abrégée de cette commande.|
-|-Password|Ajoute un protecteur de clé de mot de passe pour le lecteur de données. Vous pouvez également utiliser **-PW** comme version abrégée de cette commande.|
+|-password|Ajoute un protecteur de clé de mot de passe pour le lecteur de données. Vous pouvez également utiliser **-PW** comme version abrégée de cette commande.|
 |-ADAccountOrGroup|Ajoute un protecteur d’identité basé sur SID pour le volume. Le volume est automatiquement déverrouillé si l’utilisateur ou l’ordinateur possède les informations d’identification appropriées. Lorsque vous spécifiez un compte d’ordinateur, ajoutez un **$** au nom de l’ordinateur et spécifiez **– service** pour indiquer que le déverrouillage doit se produire dans le contenu du serveur BitLocker au lieu de l’utilisateur. Vous pouvez également utiliser **-sid** comme version abrégée de cette commande.|
 |-UsedSpaceOnly|Définit le mode de chiffrement sur le chiffrement de l’espace utilisé uniquement. Les sections du volume contenant l’espace utilisé seront chiffrées, mais pas l’espace libre. Si cette option n’est pas spécifiée, tout l’espace utilisé et l’espace libre sur le volume seront chiffrés. Vous pouvez également utiliser **-utilisé** comme version abrégée de cette commande.|
 |-encryptionMethod|Configure l’algorithme de chiffrement et la taille de clé. Vous pouvez également utiliser **-em** comme version abrégée de cette commande.|
@@ -60,11 +56,11 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 |-RemoveVolumeShadowCopies|Forcez la deletikon des clichés instantanés de volume pour le volume. Après avoir exécuté cette commande, vous ne pourrez pas restaurer ce volume à l’aide de points de restauration système précédents. Vous pouvez également utiliser **-rvsc** comme version abrégée de cette commande.|
 |\<FileSystemType >|Spécifie les systèmes de fichiers qui peuvent être utilisés avec les lecteurs de données de découverte : FAT32, valeur par défaut ou aucun.|
 |-ComputerName|Spécifie que Manage-bde est utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
-|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
+|Nom de l' \<>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|
 |-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 L’exemple suivant illustre l’utilisation de la commande **-on** pour activer BitLocker pour le lecteur C et ajouter un mot de passe de récupération au lecteur.
 ```
@@ -87,7 +83,7 @@ L’exemple suivant illustre l’utilisation de la commande **-on** pour activer
 manage-bde –on C: -fet Hardware
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Gérer-bde](manage-bde.md)

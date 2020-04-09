@@ -1,24 +1,20 @@
 ---
 title: sélectionner une partition
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 25f70083-b8f7-4a8e-9b34-4b3ffbe06670
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a186e2678fde64396a8b4b57a2d14e4b0b7bf26
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 97145d73cbbe1bdc9b27e545b047b78fe89e4984
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371069"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834802"
 ---
 # <a name="select-partition"></a>sélectionner une partition
 
@@ -34,7 +30,7 @@ sélectionne la partition spécifiée et lui déplace le focus. Cette commande p
 select partition=<n>  
 ```  
   
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
   
 |   Paramètre    |                                                                                    Description                                                                                    |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,7 +46,7 @@ select partition=<n>
   
 -   Si une partition est sélectionnée avec un volume correspondant, le volume est sélectionné automatiquement.  
   
-## <a name="BKMK_examples"></a>Illustre  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
 Pour déplacer le focus vers la partition 3, tapez :  
   
 ```  
@@ -63,8 +59,8 @@ Pour afficher la partition qui a actuellement le focus sur le disque sélectionn
 select partition  
 ```  
   
-#### <a name="additional-references"></a>Références supplémentaires  
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Références supplémentaires  
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

@@ -1,24 +1,20 @@
 ---
 title: gérer le déverrouillage autodéverrouillé BDE
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 063528bf-d235-4b44-887a-52a7d983e01a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e6927c964a3f35c70fc3b9467cc2d16bbd973b17
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3786700a809a672c00ee77c444c133b04e71e863
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374141"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840252"
 ---
 # <a name="manage-bde-autounlock"></a>Manage-bde : autounlock
 
@@ -33,27 +29,27 @@ manage-bde -autounlock [{-enable|-disable|-clearallkeys}] <Drive> [-computername
 
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|-activer|Active le déverrouillage automatique pour un lecteur de données.|
-|-désactiver|Désactive le déverrouillage automatique pour un lecteur de données.|
+|-enable|Active le déverrouillage automatique pour un lecteur de données.|
+|-disable|Désactive le déverrouillage automatique pour un lecteur de données.|
 |-clearallkeys|Supprime toutes les clés externes stockées sur le lecteur du système d’exploitation.|
 |Lecteur \<>|Représente une lettre de lecteur suivie par un signe deux-points.|
 |-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
-|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
+|Nom de l' \<>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|
 |-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 L’exemple suivant illustre l’utilisation de la commande **-autounlock** pour activer le déverrouillage automatique du lecteur de données E.
 ```
 manage-bde –autounlock -enable E:
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Gérer-bde](manage-bde.md)

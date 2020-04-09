@@ -1,24 +1,20 @@
 ---
 title: mqsvc
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8bfd7874-ccb4-453f-b908-3a5b9aee0ad6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8dcf98fa02eaede162fd75181af7a070b8a0aed4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2c6db0d1161bacb456305ba33be6d4142277206d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373516"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839302"
 ---
 # <a name="mqsvc"></a>mqsvc
 
@@ -32,10 +28,10 @@ Message Queuing technologie permet aux applications exécutées à des moments d
 Mqsvc.exe
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 Aucune
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

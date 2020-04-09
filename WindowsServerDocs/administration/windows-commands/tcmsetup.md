@@ -1,24 +1,20 @@
 ---
 title: tcmsetup
 description: Découvrez comment configurer et désactiver le client TAPI.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 15e0c10f-996f-4301-92e5-943f7ee8212d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c646acef51f06c57f16ec7e5310e3319a11383f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bbfc9a0238d258f11233b0e48a30048c1d62cef4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370680"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80833412"
 ---
 # <a name="tcmsetup"></a>tcmsetup
 
@@ -33,7 +29,7 @@ tcmsetup [/q] [/x] /c <Server1> [<Server2> …]
 tcmsetup  [/q] /c /d
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,14 +43,14 @@ tcmsetup  [/q] /c /d
 
 ## <a name="remarks"></a>Notes
 
--   Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs sur l’ordinateur local, ou l’autorité appropriée doit vous avoir été déléguée. Si l'ordinateur est joint à un domaine, les membres du groupe Admins du domaine peuvent être en mesure d'effectuer cette procédure. Pour des raisons de sécurité, il est conseillé d'utiliser la fonction **Exécuter en tant que** pour effectuer cette procédure.
+-   Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs sur l'ordinateur local ou bien disposer de l'autorité appropriée. Si l'ordinateur est joint à un domaine, les membres du groupe Administrateurs du domaine doivent pouvoir suivre cette procédure. Pour des raisons de sécurité, il est conseillé d'utiliser la fonction **Exécuter en tant que** pour effectuer cette procédure.
 -   Pour que l’interface TAPI fonctionne correctement, vous devez exécuter la commande **tcmsetup** pour spécifier les serveurs distants qui seront utilisés par les clients TAPI.
 -   Pour qu’un utilisateur client puisse utiliser un téléphone ou une ligne sur un serveur TAPI, l’administrateur du serveur de téléphonie doit attribuer l’utilisateur au téléphone ou à la ligne.
 -   La liste des serveurs de téléphonie créée par cette commande remplace toute liste existante de serveurs de téléphonie disponibles pour le client. Vous ne pouvez pas utiliser cette commande pour ajouter à la liste existante.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Vue d’ensemble de l’interface de commande](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
 

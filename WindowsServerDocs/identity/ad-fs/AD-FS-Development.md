@@ -1,7 +1,6 @@
 ---
 ms.assetid: e9563792-cd73-4a32-b4a1-5bd6a2109016
 title: Développement des services AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,17 +8,17 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d9d170678b845446706c148c8816b5dc83e19371
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b4c94553116d7a888ad76fd999f12cecd70e3523
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360107"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854092"
 ---
 # <a name="ad-fs-development"></a>Développement des services AD FS
 
 
-Ce document contient une liste de toutes les procédures pas à pas relatives à la documentation pour le développement de AD FS. Notamment :  
+Ce document contient une liste de toutes les procédures pas à pas relatives à la documentation pour le développement de AD FS. Cela inclut les éléments suivants :  
   
  
 - [Créer une méthode d'authentification personnalisée pour AD FS](../ad-fs/development/ad-fs-build-custom-auth-method.md)

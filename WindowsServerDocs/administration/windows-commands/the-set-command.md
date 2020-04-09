@@ -1,30 +1,27 @@
 ---
-title: Commande Set
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: set
+description: La rubrique commandes Windows pour Set, qui définit les propriétés et les attributs des serveurs des services de déploiement Windows, des ordinateurs, des images, des groupes d’images et des serveurs de transport Windows.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5def6be0-83b9-4133-bc1b-bbe6d407eca7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8131685b227444a0114e9c0eb70d6191a78f3da0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e47a90137a94d4ada149135ee0b593e0ade0ae3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385082"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80833052"
 ---
-# <a name="the-set-command"></a>Commande Set
+# <a name="set"></a>set
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Définit les propriétés et les attributs pour les serveurs des services de déploiement Windows, les ordinateurs prédéfinis, les images, les groupes d’images et les serveurs de transport.
+
 ## <a name="subcommands"></a>Sous-commandes
 |Sous-commande|Description|
 |-------|--------|

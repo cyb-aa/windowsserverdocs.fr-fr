@@ -1,24 +1,20 @@
 ---
 title: bitsadmin setaclflag
-description: La rubrique commandes Windows pour **Bitsadmin setaclflag** -définit les indicateurs de propagation de la liste de contrôle d’accès.
-ms.custom: na
+description: La rubrique commandes Windows pour Bitsadmin setaclflag, qui définit les indicateurs de propagation de la liste de contrôle d’accès.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6e3bcda0-827d-4dfd-8384-d1da018f3e10
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fbdb12c29af7b4db8b25846d43ee1c93b2454ff2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4ac47e554dde6a555e891d89668cd12fec3179d4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380759"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849672"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
@@ -30,7 +26,7 @@ Définit les indicateurs de propagation de la liste de contrôle d’accès (ACL
 bitsadmin /SetAclFlags <Job> <Flags>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -41,13 +37,13 @@ bitsadmin /SetAclFlags <Job> <Flags>
 
 Le commutateur SetAclFlags est utilisé pour gérer les informations de propriétaire et de liste de contrôle d’accès lorsqu’un travail télécharge des données à partir d’un partage Windows (SMB).
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 L’exemple suivant définit les indicateurs de propagation de la liste de contrôle d’accès pour le travail nommé *myDownloadJob* afin de conserver les informations de propriétaire et de groupe avec les fichiers téléchargés.
 ```
 C:\>bitsadmin /setaclflags myDownloadJob OG
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

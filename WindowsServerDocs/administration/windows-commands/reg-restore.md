@@ -1,24 +1,20 @@
 ---
 title: Reg Restore
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a51f1c0c-969b-4b76-930a-c8bb14dea26e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d6c121256cecaebc26e2c402d9b9ced8890eddc2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e511694247c04f2befc9c0148498e43b85f664ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384673"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836362"
 ---
 # <a name="reg-restore"></a>Reg Restore
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 Reg restore <KeyName> <FileName>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -49,16 +45,16 @@ Reg restore <KeyName> <FileName>
 
 |Valeur|Description|
 |-----|-----------|
-|0|Réussite|
+|0|Opération réussie|
 |1|Échec|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour restaurer le fichier nommé NTRKBkUp. HIV dans la clé HKLM\Software\Microsoft\ResKit, et remplacer le contenu existant de la clé, tapez :
 ```
 REG RESTORE HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

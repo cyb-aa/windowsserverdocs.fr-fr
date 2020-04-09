@@ -1,7 +1,6 @@
 ---
 ms.assetid: e3ea1f67-60d4-4566-b24c-37faa95c3b2a
 title: Détermination du coût
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0ce7acddbfa9f7536f3d5a190c6968ea0d8cf6b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1bbc75cab2e78d1001fa13d419072807f202fd61
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408877"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822582"
 ---
 # <a name="determining-the-cost"></a>Détermination du coût
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous attribuez des valeurs de coût aux liens de sites pour favoriser les connexions peu onéreuses sur des connexions coûteuses. Certains services et applications, tels que le localisateur de contrôleur de domaine (du localisateur) et les espaces de noms système de fichiers DFS (DFSN), utilisent également les informations de coût pour localiser les ressources les plus proches. Le coût d’un lien de site peut être utilisé pour déterminer quel contrôleur de domaine est contacté par les clients dans un site si le contrôleur de domaine pour le domaine spécifié n’existe pas sur ce site. Le client contacte le contrôleur de domaine à l’aide du lien de sites auquel est affecté le coût le plus bas.  
   
@@ -30,16 +29,16 @@ Le tableau suivant répertorie les vitesses pour les différents types de résea
   
 |Type de réseau|Vitesse|  
 |----------------|---------|  
-|Très lent|56 kilobits par seconde (Kbits/s)|  
+|Très lent|56 Ko par seconde (Ko/s)|  
 |Lent|64 Kbits/s|  
 |Réseau numérique à intégration de services (RNIS)|64 kbit/s ou 128 kbit/s|  
 |Relais de trames|Vitesse variable, généralement comprise entre 56 kbit/s et 1,5 mégabits par seconde (Mbits/s)|  
-|T1|1,5 Mbits/s|  
+|T1|1,5 Mbits/s|  
 |T3|45 Mbits/s|  
 |10Baset|10 Mbits/s|  
 |Mode de transfert asynchrone (ATM)|Vitesse variable, généralement comprise entre 155 Mbits/s et 622 Mbits/s|  
 |100Baset|100 Mbits/s|  
-|Gigabit Ethernet|1 Gigabit par seconde (Gbits/s)|  
+|Gigabit Ethernet|1 Go par seconde (Go/s)|  
   
 Utilisez le tableau suivant pour calculer le coût de chaque lien de site en fonction de la vitesse de liaison du réseau étendu (WAN). Pour la vitesse de liaison de réseau étendu qui ne figure pas dans le tableau, vous pouvez calculer un facteur de coût relatif en divisant 1 024 par le journal de la bande passante disponible, mesuré en Kbits/s.  
   
@@ -54,7 +53,7 @@ Utilisez le tableau suivant pour calculer le coût de chaque lien de site en fon
 |256|425|  
 |512|378|  
 |1 024|340|  
-|2 048|309|  
+|2,048|309|  
 |4 096|283|  
   
 Ces coûts ne reflètent pas les différences de fiabilité entre les liaisons réseau. Définissez des coûts plus élevés sur les liaisons réseau sujettes aux défaillances, afin de ne pas avoir à vous appuyer sur ces liens pour la réplication. En définissant des coûts de liens de sites supérieurs, vous pouvez contrôler le basculement de réplication en cas d’échec d’une liaison de site.  

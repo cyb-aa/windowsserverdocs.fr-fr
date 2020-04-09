@@ -1,28 +1,24 @@
 ---
 title: logman create trace
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1b4dfecd-6f56-4c51-b622-c2054b4aabd7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 39e54cc10827a473bc19304c91dd6cd7afbf008c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0b415bba125c9ae85f1bba9d5580c28c5c7af9b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374529"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840852"
 ---
 # <a name="logman-create-trace"></a>logman create trace
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 créer un collecteur de données de suivi d’événements.  
 
@@ -30,7 +26,7 @@ créer un collecteur de données de suivi d’événements.
 ```  
 logman create trace <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
 
 |                         Paramètre                          |                                                                                                                                                                                                                                                                                                                                Description                                                                                                                                                                                                                                                                                                                                |
 |------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,14 +59,14 @@ logman create trace <[-n] <name>> [options]
 |                           -[-] UL                           |                                                                                                                                                                                                                                                                                                                 Exécutez la session de suivi d’événements en mode utilisateur.                                                                                                                                                                                                                                                                                                                 |
 |                        -BS <value>                         |                                                                                                                                                                                                                                                                                                           Spécifie la taille de la mémoire tampon de la session de suivi d’événements, en Ko.                                                                                                                                                                                                                                                                                                            |
 |                       -NB <min max>                        |                                                                                                                                                                                                                                                                                                           Spécifie le nombre de mémoires tampons de session de suivi d’événements.                                                                                                                                                                                                                                                                                                            |
-| -mode < Globalsequence&#124;localsequence&#124;Pagedmemory > | Spécifie le mode d’enregistreur d’événements de session de suivi d’événements.<br /><br />**Globalsequence** spécifie que le traceur d’événements ajoute un numéro de séquence à chaque événement qu’il reçoit, quelle que soit la session de suivi qui a reçu l’événement.<br /><br />**Localsequence** spécifie que le traceur d’événements ajoute des numéros de séquence pour les événements reçus au niveau d’une session de trace spécifique. Quand l’option **localsequence** est utilisée, des numéros de séquence dupliqués peuvent exister dans toutes les sessions, mais ils sont uniques dans chaque session de suivi.<br /><br />**Pagedmemory** spécifie que le traceur d’événements utilise la mémoire paginée plutôt que le pool de mémoire non paginé par défaut pour ses allocations de mémoire tampon interne. |
+| -mode < Globalsequence&#124;localsequence&#124;Pagedmemory > | Spécifie le mode d’enregistreur d’événements de session de suivi d’événements.<p>**Globalsequence** spécifie que le traceur d’événements ajoute un numéro de séquence à chaque événement qu’il reçoit, quelle que soit la session de suivi qui a reçu l’événement.<p>**Localsequence** spécifie que le traceur d’événements ajoute des numéros de séquence pour les événements reçus au niveau d’une session de trace spécifique. Quand l’option **localsequence** est utilisée, des numéros de séquence dupliqués peuvent exister dans toutes les sessions, mais ils sont uniques dans chaque session de suivi.<p>**Pagedmemory** spécifie que le traceur d’événements utilise la mémoire paginée plutôt que le pool de mémoire non paginé par défaut pour ses allocations de mémoire tampon interne. |
 
 ## <a name="remarks"></a>Notes  
 Où [-] est listé, un extra-inverse l’option.  
-## <a name="BKMK_examples"></a>Illustre  
-L’exemple suivant crée un collecteur de données de suivi d’événements appelé trace_log utilisant moins de 16 et plus de 256 tampons, chaque taille de mémoire tampon de 64 Ko et renvoie les résultats vers l’emplacement c:\logfile.  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
+L’exemple suivant crée un collecteur de données de suivi d’événements appelé trace_log utilisant moins de 16 et plus de 256 tampons, chaque taille de mémoire tampon de 64 Ko, et renvoie les résultats vers l’emplacement c:\logfile.  
 ```  
 logman create trace trace_log -nb 16 256 -bs 64 -o c:\logfile  
 ```  
-#### <a name="additional-references"></a>Références supplémentaires  
+## <a name="additional-references"></a>Références supplémentaires  
 [logman](logman.md)  

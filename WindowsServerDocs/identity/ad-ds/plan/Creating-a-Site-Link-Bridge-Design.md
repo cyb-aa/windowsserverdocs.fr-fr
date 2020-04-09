@@ -1,7 +1,6 @@
 ---
 ms.assetid: 64142026-07b5-4601-840a-c8dcf6ab9814
 title: Création d'une conception de pont lien de sites
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 79e91481c357d05617ee0ddc716e2bf6e90b8b27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f75feb34b64e2ab41859dd708147a2e8d05a768a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408961"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822762"
 ---
 # <a name="creating-a-site-link-bridge-design"></a>Création d'une conception de pont lien de sites
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Un pont de liaison de site connecte deux ou plusieurs liens de sites et active la transitivité entre les liens de sites. Chaque lien de site dans un pont doit avoir un site en commun avec un autre lien de sites dans le pont. Le vérificateur de cohérence des données (KCC) utilise les informations de chaque lien de site pour calculer le coût de la réplication entre les sites dans un lien de site et les sites dans les autres liens de site du pont. Sans la présence d’un site commun entre les liaisons de sites, le KCC ne peut pas non plus établir de connexions directes entre les contrôleurs de domaine dans les sites qui sont connectés par le même pont de liaison de site.  
   
@@ -39,4 +38,4 @@ Si votre organisation dispose d’une topologie de réseau Hub and spoke, vous n
   
 ### <a name="controlling-replication-through-a-firewall"></a>Contrôle de la réplication via un pare-feu
 
-Si deux contrôleurs de domaine représentant le même domaine dans deux sites différents sont autorisés à communiquer entre eux uniquement par le biais d’un pare-feu, vous pouvez désactiver **relier tous les liens de sites** et créer des ponts entre liens de sites pour les sites du même côté du pare. Par conséquent, si votre réseau est séparé par des pare-feu, nous vous recommandons de désactiver la transitivité des liens de sites et de créer des ponts entre liens de sites pour le réseau d’un côté du pare-feu. Pour plus d’informations sur la gestion de la réplication via des pare-feu, consultez l’article [Active Directory dans réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=107074).
+Si deux contrôleurs de domaine représentant le même domaine dans deux sites différents sont autorisés à communiquer entre eux uniquement par le biais d’un pare-feu, vous pouvez désactiver **relier tous les liens de sites** et créer des ponts entre liens de sites pour les sites du même côté du pare-feu. Par conséquent, si votre réseau est séparé par des pare-feu, nous vous recommandons de désactiver la transitivité des liens de sites et de créer des ponts entre liens de sites pour le réseau d’un côté du pare-feu. Pour plus d’informations sur la gestion de la réplication via des pare-feu, consultez l’article [Active Directory dans réseaux segmentés par des pare-feu](https://go.microsoft.com/fwlink/?LinkId=107074).

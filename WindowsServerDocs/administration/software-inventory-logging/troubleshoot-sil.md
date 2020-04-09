@@ -1,27 +1,23 @@
 ---
 title: Résolution des problèmes de la journalisation de l’inventaire logiciel
 description: Décrit comment résoudre les problèmes courants de déploiement de la journalisation de l’inventaire logiciel.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 author: brentfor
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: fb6e6fbba835e049748ca8578f24a1ff7fc750bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5a02caf63bbd02705aebb8306a7b50a32f3d6c82
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382876"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851412"
 ---
 # <a name="troubleshoot-software-inventory-logging"></a>Résolution des problèmes de la journalisation de l’inventaire logiciel 
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 ## <a name="understanding-sil"></a>Fonctionnement de SIL
 
@@ -29,9 +25,9 @@ Avant de commencer à dépanner SIL, vous devez avoir une bonne compréhension d
 
 1. [Présentation de la journalisation de l’inventaire logiciel (SIL) (10:57)](https://channel9.msdn.com/Blogs/Regular-IT-Guy/An-Introduction-to-Software-Inventory-Logging-SIL)
 
-2. [Journalisation de l’inventaire logiciel : Configuration de l’agrégateur SIL (14:34)](https://channel9.msdn.com/Blogs/windowsserver/Software-Inventory-Logging-Setting-up-SIL-Aggregator)
+2. [Journalisation de l’inventaire logiciel : configuration de l’agrégateur SIL (14:34)](https://channel9.msdn.com/Blogs/windowsserver/Software-Inventory-Logging-Setting-up-SIL-Aggregator)
 
-3. [Journalisation de l’inventaire logiciel : Activation du transfert SIL (7:20)](https://channel9.msdn.com/Blogs/windowsserver/Software-Inventory-Logging-Enabling-SIL-Forwarding)
+3. [Journalisation de l’inventaire logiciel : activation du transfert SIL (7:20)](https://channel9.msdn.com/Blogs/windowsserver/Software-Inventory-Logging-Enabling-SIL-Forwarding)
 
 ## <a name="how-sil-data-flow-works"></a>Fonctionnement du SIL Data Flow
 
@@ -54,7 +50,7 @@ Avant de commencer, vous devez connaître la durée de démarrage de l’agréga
 >[!IMPORTANT]
 >Il n’y aura pas de données dans le rapport tant que le cube de données SQL ne sera pas traité à l’heure du système local 3:00. Ne poursuivez pas les étapes de dépannage tant que le cube n’a pas traité les données.
 
-Si vous dépannez des données dans le rapport (ou manquantes dans le rapport) qui sont plus récentes que la dernière fois que le cube a été traité, ou avant le traitement du cube (pour une nouvelle installation), procédez comme suit pour traiter le cube de données SQL en temps réel. :
+Si vous dépannez des données dans le rapport (ou manquantes dans le rapport) qui sont plus récentes que la dernière fois que le cube a été traité, ou avant le traitement du cube (pour une nouvelle installation), procédez comme suit pour traiter le cube de données SQL en temps réel :
 
 1. Connectez-vous en tant qu’administrateur de SQL Server et exécutez **SSMS** à partir d’une invite de commandes.
 2. Connectez-vous au moteur de base de données.
@@ -69,11 +65,11 @@ S’il n’y a toujours pas de données dans le rapport, poursuivez avec le dép
 
 #### <a name="no-data-in-the-report-when-using-the-publish-silreport-cmdlet-or-data-is-generally-missing"></a>Aucune donnée dans le rapport lors de l’utilisation de l’applet de commande Publish-SilReport (ou les données sont généralement manquantes)
 
-Si des données sont manquantes, cela est probablement dû au fait que le cube de données SQL n’a pas encore été traité. S’il a récemment été traité et que vous pensez que des données manquantes doivent avoir été reçues au niveau de l’agrégateur avant le traitement du cube, suivez le chemin d’accès aux données dans l’ordre inverse. Choisissez un ordinateur hôte unique et une machine virtuelle unique à dépanner. Le chemin d’accès aux données en sens inverse est **Sila Report** &lt; &lt; **Sila Database** &lt; **Sila local** **Remote host** ou **WS VM Running sil agent/Task**.
+Si des données sont manquantes, cela est probablement dû au fait que le cube de données SQL n’a pas encore été traité. S’il a récemment été traité et que vous pensez que des données manquantes doivent avoir été reçues au niveau de l’agrégateur avant le traitement du cube, suivez le chemin d’accès aux données dans l’ordre inverse. Choisissez un ordinateur hôte unique et une machine virtuelle unique à dépanner. Le chemin d’accès aux données dans l’ordre inverse est **Sila Report** &lt; **base de données Sila** &lt; **Sila répertoire local** &lt; **hôte physique distant** ou la **machine virtuelle WS exécutant sil agent/tâche**.
 
 #### <a name="check-to-see-if-data-is-in-the-database"></a>Vérifier si les données se trouvent dans la base de données
 
-Il existe deux façons de vérifier les données : **PowerShell** ou **SSMS**.
+Il existe deux façons de rechercher des données : **PowerShell** ou **SSMS**.
 
 >[!Important]
 >Si le cube a été traité au moins une fois depuis que SILA inséré des données dans la base de données, ces données doivent être reflétées dans le rapport. S’il n’y a pas de données dans la base de données, l’interrogation des hôtes physiques échoue, la réception de la valeur HTTPs, ou les deux.
@@ -92,9 +88,9 @@ Il existe deux façons de vérifier les données : **PowerShell** ou **SSMS**.
 
 **Autres commandes associées**
 
-**Obtenir-SilAggregator-ComputerName &lt;nom de domaine complet d’un serveur&gt;connu qui pousse les données**: Cela produira des informations à partir de la base de données sur un ordinateur (machine virtuelle) avant le traitement du cube. Cette applet de commande peut donc être utilisée pour vérifier les données de la base de données d’un serveur Windows qui transmet les données SIL sur HTTPs, avant ou sans, le processus de cube à 3:00 (ou si vous n’avez pas actualisé le cube en temps réel comme décrit au début de cette section).
+**Obtenir-SilAggregator-Computername &lt;nom de domaine complet d’un serveur connu exécutant un push de données&gt;** : cette opération génère des informations à partir de la base de données sur un ordinateur (machine virtuelle) avant le traitement du cube. Cette applet de commande peut donc être utilisée pour vérifier les données de la base de données d’un serveur Windows qui transmet les données SIL sur HTTPs, avant ou sans, le processus de cube à 3:00 (ou si vous n’avez pas actualisé le cube en temps réel comme décrit au début de cette section).
 
-**Obtient-SilAggregator-VmHostName &lt;nom de domaine complet d’un hôte physique interrogé où il y a une valeur sous la colonne sondage récente lors de l’utilisation&gt;de l’applet de commande SilVmHost**: Cela produira des informations à partir de la base de données sur un hôte physique même avant le traitement du cube.
+**Obtenir-SilAggregator-VmHostName &lt;nom de domaine complet d’un hôte physique interrogé où il existe une valeur sous la colonne sondage récente lors de l’utilisation de l’applet de commande SilVmHost-&gt;** : cette opération génère des informations à partir de la base de données sur un hôte physique même avant le traitement du cube.
 
 #### <a name="ssms"></a>SSMS
 
@@ -128,7 +124,7 @@ Cela peut se produire dans les environnements virtuels quand SIL Aggregater n’
 
         -   Vous devez attendre une heure après avoir ajouté l’hôte pour l’interrogation (en supposant que cet intervalle est défini sur par défaut – peut être vérifié à l’aide de l’applet de commande Set **-silaggregator** ).
 
-        -   S’il y a eu une heure depuis que l’ordinateur hôte a été ajouté, vérifiez que la tâche d’interrogation est en cours d’exécution : Dans **Planificateur de tâches**, sélectionnez l' **agrégateur de journalisation de l’inventaire logiciel** sous **Microsoft** &gt; **Windows** et vérifiez l’historique de la tâche.
+        -   S’il y a eu une heure depuis que l’ordinateur hôte a été ajouté, vérifiez que la tâche d’interrogation est en cours d’exécution : dans **Planificateur de tâches**, sélectionnez **agrégateur de journalisation de l’inventaire logiciel** sous **Microsoft** &gt; **Windows** et vérifiez l’historique de la tâche.
 
     -   Si un ordinateur hôte est listé, mais qu’il n’existe aucune valeur pour **RecentPoll**, **HostType**ou **HypervisorType**, cela peut être ignoré en grande partie. Cela ne se produit que dans les environnements HyperV. Ces données proviennent réellement de la machine virtuelle Windows Server, identifiant l’hôte physique qu’elle exécute sur HTTPs. Cela peut être utile pour identifier une machine virtuelle spécifique qui signale, mais nécessite l’exploration de la base de données à l’aide de l’applet de commande **SilAggregatorData** .
 
@@ -145,7 +141,7 @@ Une fois les hôtes correctement interrogés, vous pouvez voir les données de c
    - En cas d’erreur :
      - Vérifiez que l’élément **targetUri** contient **https://** dans l’entrée.
      - Vérifier que toutes les conditions préalables sont remplies 
-     - Assurez-vous que toutes les mises à jour nécessaires pour Windows Server sont installées (voir conditions préalables pour SIL). Un moyen rapide de vérifier (sur WS 2012 R2 uniquement) consiste à les Rechercher à l’aide de l’applet de commande suivante : **Obtient-SilWindowsUpdate \*3060, \*3000**
+     - Assurez-vous que toutes les mises à jour nécessaires pour Windows Server sont installées (voir conditions préalables pour SIL). Un moyen rapide de vérifier (sur WS 2012 R2 uniquement) consiste à les Rechercher à l’aide de l’applet de commande suivante : **SilWindowsUpdate \*3060, \*3000**
      - Assurez-vous que le certificat utilisé pour l’authentification auprès de l’agrégateur est installé dans le magasin approprié sur le serveur local à inventorier avec **SilLogging**.
      - Sur l’agrégateur SIL, vérifiez que l’empreinte numérique du certificat utilisé pour l’authentification auprès de l’agrégateur est ajoutée à la liste à l’aide de l’applet de commande **Set-SilAggregator** **– AddCertificateThumbprint** .
      - Si vous utilisez des certificats d’entreprise, vérifiez que le serveur sur lequel SIL est activé est joint au domaine pour lequel le certificat a été créé, ou qu’il peut être vérifié avec une autorité racine. Si un certificat n’est pas approuvé sur l’ordinateur local qui tente de transférer/envoyer des données à un Aggregator, cette action échoue avec une erreur.
@@ -156,7 +152,7 @@ Une fois les hôtes correctement interrogés, vous pouvez voir les données de c
 
      -  Enfin, vous pouvez vérifier l’emplacement suivant pour les fichiers SIL mis en cache sur le serveur qui tente de transférer/envoyer, **\Windows\System32\Logfiles\SIL**. Si **SilLogging** a démarré et s’exécute depuis plus d’une heure, ou que **Publish-SilData** a été exécuté récemment et qu’il n’y a aucun fichier dans ce répertoire, la journalisation dans l’agrégateur a réussi.
 
-S’il n’y a pas d’erreur et qu’aucune sortie ne s’affiche dans la console, le push/publication des données à partir du nœud de fin Windows Server vers l’agrégateur SIL sur HTTPs a réussi. Pour suivre le chemin d’accès aux données, connectez-vous à l’agrégateur SIL en tant qu’administrateur, puis examinez le ou les fichiers de données qui sont arrivés. Accédez à **Program Files (x86)** &gt; **Microsoft sil aggregater** &gt; Sila Directory. Vous pouvez surveiller les fichiers de données arrivant en temps réel.
+S’il n’y a pas d’erreur et qu’aucune sortie ne s’affiche dans la console, le push/publication des données à partir du nœud de fin Windows Server vers l’agrégateur SIL sur HTTPs a réussi. Pour suivre le chemin d’accès aux données, connectez-vous à l’agrégateur SIL en tant qu’administrateur, puis examinez le ou les fichiers de données qui sont arrivés. Accédez à **Program Files (x86)** &gt; l' **agrégateur Microsoft sil** &gt; répertoire Sila. Vous pouvez surveiller les fichiers de données arrivant en temps réel.
 
 >[!NOTE] 
 >Plusieurs fichiers de données ont peut-être été transférés avec l’applet de commande **Publish-SilData** . SIL sur le nœud de fin met en cache les notifications push ayant échoué pendant 30 jours. À la prochaine transmission Push réussie, tous les fichiers de données seront envoyés à l’agrégateur pour traitement. De cette façon, un agrégateur SIL nouvellement configuré peut afficher les données d’un nœud de fin avant sa propre configuration.

@@ -4,15 +4,15 @@ description: Recommandations concernant l’optimisation des performances pour l
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
-ms.author: DavSo; Ericam; YaShi
+ms.author: davso; ericam; yashi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9587eb5215d2920a0146e8a697c6f36c50f19f27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ec36d87957e5bbe897597e330e766c3193cd30d0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370052"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851692"
 ---
 # <a name="performance-tuning-web-servers"></a>Optimisation des performances des serveurs Web
 
@@ -57,7 +57,7 @@ La désactivation des mises à jour est efficace lorsque vous utilisez des ensem
 >[!Warning]
 > Certaines applications, telles que les utilitaires de sauvegarde incrémentielle, s’appuient sur ces informations de mise à jour et ne fonctionnent pas correctement sans ces dernières.
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 - [Optimisation des performances d’IIS 10.0](tuning-iis-10.md)
 - [Optimisation de HTTP 1.1/2](http-performance.md)
 

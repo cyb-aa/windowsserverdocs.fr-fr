@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup : delkdc'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7d6ec389-094c-4a7b-a78b-605497ddc289
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b918f8c2fa0ec09c2aae77517a0ee2c9e77ce2dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 63b264da227d51b6f47f982c66828536bd677920
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375139"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841692"
 ---
 # <a name="ksetupdelkdc"></a>Ksetup : delkdc
 
@@ -32,7 +28,7 @@ Supprime les instances de noms de centre de distribution de clés (KDC) pour le 
 ksetup /delkdc <RealmName> <KDCName>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,7 +43,7 @@ Sur les ordinateurs exécutant Windows 2000 Server avec Service Pack 1 (SP1) et 
 
 Pour vérifier le nom de domaine par défaut de l’ordinateur, ou pour vérifier que cette commande fonctionnait comme prévu, exécutez **Ksetup** à l’invite de commandes et vérifiez que le KDC qui a été supprimé n’existe pas dans la liste.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Les exigences de sécurité de cet ordinateur ont été modifiées, de sorte que le lien entre le domaine Windows et le domaine non-Windows doit être supprimé. Tout d’abord, déterminez l’Association à supprimer et générez la sortie des associations existantes :
 ```
@@ -58,7 +54,7 @@ Supprimez l’Association à l’aide de la commande suivante :
 Ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup](ksetup.md)
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

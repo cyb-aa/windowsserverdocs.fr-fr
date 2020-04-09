@@ -1,24 +1,20 @@
 ---
 title: Configurer la gestion à distance dans Gestionnaire de serveur
 description: Gestionnaire de serveur
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 509182ed-c37d-4b81-84bc-aee43d006873
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e1058a5679f73fcd2ceb8586da687158762d10f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 01bc2d2d262882c08d1213bae6149896a8b284ab
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383211"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851562"
 ---
 # <a name="configure-remote-management-in-server-manager"></a>Configurer la gestion à distance dans Gestionnaire de serveur
 
@@ -30,7 +26,7 @@ Vous pouvez utiliser Gestionnaire de serveur pour gérer les serveurs distants q
 
 Pour gérer les serveurs qui exécutent des versions de Windows Server antérieures à Windows Server 2016, installez les logiciels et mises à jour suivants afin de rendre les versions plus anciennes de Windows Server gérables à l’aide de Gestionnaire de serveur dans Windows Server 2016.
 
-|Système d’exploitation|Logiciel requis|Facilité de gestion|
+|Système d'exploitation|Logiciels requis|Facilité de gestion|
 |----------|-----------|---------|
 | Windows Server 2012 R2 ou Windows Server 2012 |-   [.NET Framework 4,6](https://www.microsoft.com/download/details.aspx?id=45497)<br />-   [Windows Management Framework 5,0](https://go.microsoft.com/fwlink/?LinkID=395058). Windows Management Framework 5,0 Télécharger les fournisseurs de mises à jour du package Windows Management Instrumentation (WMI) sur Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2. Les fournisseurs WMI mis à jour permettent Gestionnaire de serveur collecter des informations sur les rôles et les fonctionnalités qui sont installés sur les serveurs gérés. Tant que la mise à jour n’est pas appliquée, les serveurs qui exécutent Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 ont l’état de facilité de gestion **non accessible**.<br />-La mise à jour des performances associée à [l’article 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) de la base de connaissances n’est plus nécessaire sur les serveurs qui exécutent windows server 2012 R2 ou windows server 2012.||
 | Windows Server 2008 R2 |-   [.NET Framework 4,5](https://www.microsoft.com/download/details.aspx?id=30653)<br />-   [Windows Management Framework 4,0](https://go.microsoft.com/fwlink/?LinkId=293881). Windows Management Framework 4,0 Télécharger les fournisseurs de mises à jour du package Windows Management Instrumentation (WMI) sur Windows Server 2008 R2. Les fournisseurs WMI mis à jour permettent Gestionnaire de serveur collecter des informations sur les rôles et les fonctionnalités qui sont installés sur les serveurs gérés. Tant que la mise à jour n’est pas appliquée, les serveurs qui exécutent Windows Server 2008 R2 ont l’état de facilité de gestion **non accessible**.<br />-La mise à jour des performances associée à [l’article 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) de la base de connaissances permet gestionnaire de serveur collecter les données de performances à partir de Windows Server 2008 R2.||
@@ -64,7 +60,7 @@ Dans Windows Server 2016, Gestionnaire de serveur s’appuie sur la gestion à d
 
     -   [Pour désactiver la gestion à distance à l’aide d’un fichier de réponses au cours d’une installation sans assistance](#to-disable-remote-management-by-using-an-answer-file-during-unattended-installation)
 
--   Pour configurer l’administration à distance via le modèle DCOM, voir [Configurer l’administration à distance via le modèle DCOM](#to-configure-mmc-or-other-tool-remote-management-over-dcom).
+-   Pour configurer la gestion à distance via DCOM, voir [Pour configurer la gestion à distance via DCOM](#to-configure-mmc-or-other-tool-remote-management-over-dcom).
 
 ### <a name="to-enable-server-manager-remote-management-by-using-the-windows-interface"></a>Activer l’administration à distance via le Gestionnaire de serveur à l’aide de l’interface Windows
 
@@ -101,7 +97,7 @@ Dans Windows Server 2016, Gestionnaire de serveur s’appuie sur la gestion à d
 
     **%windir%\system32\Configure-SMremoting.exe**
 
-3.  Effectuez l’une des opérations suivantes :
+3.  Effectuez l'une des opérations suivantes :
 
     -   Pour désactiver la gestion à distance, tapez configure **-SMRemoting. exe-Disable**, puis appuyez sur **entrée**.
 
@@ -111,7 +107,7 @@ Dans Windows Server 2016, Gestionnaire de serveur s’appuie sur la gestion à d
 
 ### <a name="to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server"></a>Activer l’administration à distance via le Gestionnaire de serveur et Windows PowerShell dans des versions antérieures de Windows Server
 
--   Effectuez l’une des opérations suivantes :
+-   Effectuez l'une des opérations suivantes :
 
     -   Pour activer la gestion à distance sur les serveurs qui exécutent Windows Server 2012, consultez [pour activer la gestion à distance gestionnaire de serveur à l’aide de l’interface Windows](#to-enable-server-manager-remote-management-by-using-the-windows-interface) dans cette rubrique.
 
@@ -168,7 +164,7 @@ Dans Windows Server 2016, Gestionnaire de serveur s’appuie sur la gestion à d
     > [!NOTE]
     > Ce paramètre désactive la gestion à distance dans le cadre du processus de configuration du système d’exploitation. La configuration de ce paramètre n’empêche pas un administrateur d’activer la gestion à distance Gestionnaire de serveur sur un serveur une fois l’installation du système d’exploitation terminée. Les administrateurs peuvent réactiver Gestionnaire de serveur administration à distance en suivant les étapes de [la section pour configurer gestionnaire de serveur administration à distance à l’aide de l’interface Windows](#to-enable-server-manager-remote-management-by-using-the-windows-interface) ou [pour activer la gestion à distance gestionnaire de serveur à l’aide de Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell) dans cette rubrique.
     > 
-    > Si vous désactivez la gestion à distance par défaut dans le cadre d’une installation sans assistance et que vous n’activez pas la gestion à distance sur le serveur après l’installation, les serveurs auxquels ce fichier de réponses est appliqué ne peuvent pas être entièrement gérés à l’aide de Gestionnaire de serveur. Les serveurs qui exécutent Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (et dont la gestion à distance est désactivée par défaut) génèrent des erreurs d’état de la gestion dans la console Gestionnaire de serveur une fois qu’elles ont été ajoutées au serveur de Gestionnaire de serveur pool.
+    > Si vous désactivez la gestion à distance par défaut dans le cadre d’une installation sans assistance et que vous n’activez pas la gestion à distance sur le serveur après l’installation, les serveurs auxquels ce fichier de réponses est appliqué ne peuvent pas être entièrement gérés à l’aide de Gestionnaire de serveur. Les serveurs qui exécutent Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (et dont la gestion à distance est désactivée par défaut) génèrent des erreurs d’état de la gestion dans la console Gestionnaire de serveur une fois qu’elles ont été ajoutées au pool de serveurs Gestionnaire de serveur.
 
 ## <a name="windows-remote-management-winrm-listener-settings"></a>Paramètres de l’écouteur de gestion à distance de Windows (WinRM)
 Gestionnaire de serveur s’appuie sur les paramètres de l’écouteur WinRM par défaut sur les serveurs distants que vous souhaitez gérer. Si le mécanisme d’authentification par défaut ou le numéro de port de l’écouteur WinRM sur un serveur distant a été modifié par rapport aux paramètres par défaut, Gestionnaire de serveur ne peut pas communiquer avec le serveur distant.

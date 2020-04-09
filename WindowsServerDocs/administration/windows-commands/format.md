@@ -2,18 +2,18 @@
 title: Format
 ms.prod: windows-server
 manager: dongill
-ms.author: JGerend
+ms.author: jgerend
 ms.technology: storage
 ms.topic: article
 ms.assetid: 51ec7423-9a01-4219-868a-25d69cdcc832
-author: JasonGerend
+author: jasongerend
 ms.date: 10/16/2017
-ms.openlocfilehash: 7db57ac8115d99327fea72c12695a2ca6d3bc05f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 95f88ef316bb7d188db212911835b867c6d4556f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377039"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844472"
 ---
 # <a name="format"></a>Format
 > S’applique à : Windows 10, Windows Server 2016
@@ -32,7 +32,7 @@ format <Volume> [/v:<Label>] [/q] [/p:<Passes>]
 format <Volume> [/q]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |   Paramètre    |                                                                                                                                                                                                                    Description                                                                                                                                                                                                                     |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -109,7 +109,7 @@ Pour formater le disque dur, appuyez sur Y ; Si vous ne souhaitez pas formater 
 
   La commande **format**, avec des paramètres différents, est disponible à partir de la console de récupération.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 
 Pour formater une nouvelle disquette dans le lecteur A avec la taille par défaut, tapez :
 ```
@@ -124,6 +124,6 @@ Pour formater une disquette dans le lecteur A et lui affecter le nom de volume �
 format a: /v:DATA
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 [Clé de syntaxe de ligne de commande](https://technet.microsoft.com/library/cc771080.aspx)

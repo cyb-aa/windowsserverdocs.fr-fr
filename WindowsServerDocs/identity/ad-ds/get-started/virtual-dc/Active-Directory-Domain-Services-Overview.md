@@ -1,7 +1,6 @@
 ---
 ms.assetid: f052dfcd-dace-4485-8d0a-cc7df5cf3751
-title: Vue d’ensemble d’Active Directory Domain Services
-description: ''
+title: Vue d’ensemble des services de domaine Active Directory
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 2d5630ece940e5bd7895510c245d14b67c847a70
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: 3c11e4a925eae89355da301d0b0facb62a53a942
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791125"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824562"
 ---
-# <a name="active-directory-domain-services-overview"></a>Vue d’ensemble d’Active Directory Domain Services
+# <a name="active-directory-domain-services-overview"></a>Vue d’ensemble des services de domaine Active Directory
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 Un répertoire est une structure hiérarchique qui stocke des informations sur les objets sur le réseau. Un service d’annuaire, tel que Active Directory Domain Services (AD DS), fournit les méthodes permettant de stocker les données d’annuaire et de mettre ces données à la disposition des utilisateurs et administrateurs du réseau. Par exemple, AD DS stocke des informations sur les comptes d’utilisateur, telles que les noms, les mots de passe, les numéros de téléphone, etc., et permet à d’autres utilisateurs autorisés du même réseau d’accéder à ces informations.

@@ -1,24 +1,20 @@
 ---
 title: rétablir
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 75ad40e4-502a-401e-b11e-8b31e00424b5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3243f13a4997824d9fff7c874ce26d56325fefa4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d7dae609e4615868b03e4b5ea9a681f553aa0667
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371453"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835752"
 ---
 # <a name="revert"></a>rétablir
 
@@ -32,12 +28,12 @@ Ramène un volume à un cliché instantané spécifié. Cela est pris en charge 
 revert <ShadowCopyID>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
 |\<ShadowCopyID >|Spécifie l’ID de cliché instantané pour rétablir le volume.|
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

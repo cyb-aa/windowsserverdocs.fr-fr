@@ -1,24 +1,20 @@
 ---
 title: Wbadmin obtient les éléments
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour Wbadmin obtenir des éléments, qui répertorie les éléments inclus dans une sauvegarde spécifique.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 27d08ce3-6e06-4260-b264-fc1bde132d09
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c3cc532381321655bbd3d5549b3c9b1896b9280
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 781057bb450ab4b692c793f67d807e008efcf5d8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362414"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829752"
 ---
 # <a name="wbadmin-get-items"></a>Wbadmin obtient les éléments
 
@@ -39,7 +35,7 @@ wbadmin get items
 [-machine:<BackupMachineName>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,7 +43,7 @@ wbadmin get items
 |-backupTarget|Spécifie l’emplacement de stockage qui contient les sauvegardes pour lesquelles vous souhaitez obtenir des détails. Utilisez pour répertorier les sauvegardes stockées à cet emplacement cible. Les emplacements des cibles de sauvegarde peuvent être un lecteur de disque connecté localement ou un dossier partagé distant. Si **Wbadmin obten items**est exécuté sur le même ordinateur que celui sur lequel la sauvegarde a été créée, ce paramètre n’est pas nécessaire. Toutefois, ce paramètre est requis pour obtenir des informations sur une sauvegarde créée à partir d’un autre ordinateur.|
 |-machine|Spécifie le nom de l’ordinateur pour lequel vous souhaitez obtenir les détails de la sauvegarde. Utile lorsque plusieurs ordinateurs ont été sauvegardés au même emplacement. Doit être utilisé lorsque **-backupTarget** est spécifié.|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour répertorier les éléments de la sauvegarde qui ont été exécutés le 31 mars 2013 à 9:00 A.M., tapez :
 ```
@@ -58,8 +54,8 @@ Pour répertorier les éléments de la sauvegarde de SERVEUR01 qui a été exéc
 wbadmin get items -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Applet [de commande WBBackupSet](https://technet.microsoft.com/library/jj902473.aspx)

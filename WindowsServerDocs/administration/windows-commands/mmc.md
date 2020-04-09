@@ -1,24 +1,20 @@
 ---
 title: mmc
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7bfa4030-ce42-40fb-922f-2f5145a80872
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1bf9efe257e9e2b6cf20c28c1e6c0cf27230a6bc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0d143336db3369b3b319391967db879126d2fb29
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373598"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839442"
 ---
 # <a name="mmc"></a>mmc
 
@@ -29,7 +25,7 @@ ms.locfileid: "71373598"
 ```
 mmc <path>\<filename>.msc [/a] [/64] [/32]
 ```
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |       Paramètre        |                                                                                                 Description                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -45,5 +41,5 @@ mmc <path>\<filename>.msc [/a] [/64] [/32]
 - Après avoir ouvert **MMC** ou un fichier de console en mode auteur, vous pouvez ouvrir une console existante en cliquant sur **ouvrir** dans le menu de la **console** .
 - Vous pouvez utiliser la ligne de commande pour créer des raccourcis pour ouvrir **MMC** et les consoles enregistrées. Une commande de ligne de commande fonctionne avec la commande **exécuter** du menu **Démarrer** , dans une fenêtre d’invite de commandes, dans des raccourcis ou dans un fichier de commandes ou un programme qui appelle la commande.
   ## <a name="additional-references"></a>Références supplémentaires
-- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

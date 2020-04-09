@@ -1,24 +1,20 @@
 ---
 title: prnport
 description: Découvrez comment créer, supprimer et répertorier les ports d’imprimante.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a0ec638-a21e-4a34-be5c-bd0f7ca89ffe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c9c162cef2a3ae2f3de1e891691572130ae68f93
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 17f81b127927a41e60c290535032876def109989
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372552"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837222"
 ---
 # <a name="prnport"></a>prnport
 
@@ -34,7 +30,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <PortName>]
 [-i <SNMPIndex>] [-y <CommunityName>] -2{e | -d}
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |          Paramètre           |                                                                                                                                                                                                                                                                                                     Description                                                                                                                                                                                                                                                                                                      |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -64,7 +60,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <PortName>]
 -   Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).
 -   Le protocole TCP RAW est un protocole de performances plus élevé sur Windows que le protocole LPR.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour afficher tous les ports d’impression TCP/IP standard sur le serveur \\\Server1, tapez :
 ```
 cscript prnport -l -s Server1
@@ -86,6 +82,6 @@ Pour ajouter un port d’impression TCP/IP standard sur l’ordinateur local qui
 cscript prnport -a -r IP_10.2.3.4 -h 10.2.3.4
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [référence de commande d’impression](print-command-reference.md)

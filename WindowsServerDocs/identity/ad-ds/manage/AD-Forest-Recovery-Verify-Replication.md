@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-vérifier la réplication
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 302e522a-fb40-43bc-bc63-83dcc87ebde5
 ms.technology: identity-adds
-ms.openlocfilehash: f6bee5164849d6643c1744ce121b9ce91b5e7f7f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: af0946674d9185651c7b22a822dcc3a2dd5a1c5d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949042"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823392"
 ---
 # <a name="resources-to-verify-replication-is-working"></a>Ressources pour vérifier le bon fonctionnement de la réplication 
 
@@ -27,7 +26,7 @@ Une fois que vous avez restauré ou réinstallé tous les contrôleurs de contr�
 
 Vérifiez le réplication DFS Connectez-vous observateur d’événements pour l’ID d’événement 4602 (ou l’ID d’événement du service de réplication de fichiers 13516), qui indique que SYSVOL a été initialisé.  
 
-Si le premier contrôleur de domaine récupéré est l’ID d’événement 4614 («le contrôleur de domaine attend pour effectuer la réplication initiale. Le dossier répliqué restera dans l’état de synchronisation initial jusqu’à ce qu’il soit répliqué avec son partenaire» dans le journal réplication DFS, alors l’ID d’événement 4602 n’apparaît pas et vous devez effectuer les étapes manuelles suivantes pour récupérer SYSVOL s’il est répliqué par Member  
+Si le premier contrôleur de domaine récupéré est l’ID d’événement 4614 («le contrôleur de domaine attend pour effectuer la réplication initiale. Le dossier répliqué restera dans l’état de synchronisation initial jusqu’à ce qu’il soit répliqué avec son partenaire» dans le journal réplication DFS, alors l’ID d’événement 4602 n’apparaît pas et vous devez effectuer les étapes manuelles suivantes pour récupérer SYSVOL s’il est répliqué par DFSR :  
 
 1. Lorsque l’événement DFSR 4612 apparaît sur le premier contrôleur de périphérique restauré, effectuez une restauration faisant autorité manuelle comme décrit dans [2218556 : comment forcer une synchronisation faisant autorité et ne faisant pas autorité pour le SYSVOL répliqué par DFSR (comme « D4/D2 » pour le service FRS)](https://support.microsoft.com/kb/2218556) (https://support.microsoft.com/kb/2218556).  
 2. Définissez l' **indicateur SysvolReady** sur 1 manuellement, comme décrit dans [947022 le partage Netlogon n’est pas présent après l’installation de Active Directory Domain Services sur un nouveau contrôleur de domaine Windows Server 2008 complet ou en lecture seule](https://support.microsoft.com/kb/947022).  

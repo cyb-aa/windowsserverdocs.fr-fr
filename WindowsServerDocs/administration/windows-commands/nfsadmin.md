@@ -1,24 +1,20 @@
 ---
 title: nfsadmin
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7375b2cf-c6b8-45b5-abf6-6c10e462defd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2658cf610e4328d382b9224f4230d68a022d1cc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6134ac7737cd761e752082b336e851dead23bd14
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373218"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838982"
 ---
 # <a name="nfsadmin"></a>nfsadmin
 
@@ -79,10 +75,10 @@ Libère les verrous détenus par un *client* ou, si **tous** sont spécifiés, p
 **start**  
 démarre le serveur pour le service NFS.  
   
-**stop**  
+**erreur**  
 Arrête le service serveur pour NFS.  
   
-**config**  
+**package**  
 Spécifie les paramètres généraux pour le serveur pour NFS. Vous devez fournir au moins l’une des options suivantes avec l’argument de commande **config** :  
   
 <em>serveur</em> de **\=mapsvr**  
@@ -94,7 +90,7 @@ Spécifie si les événements seront audités et où les événements seront enr
 **événements**  
 Spécifie que les événements audités seront enregistrés uniquement dans le journal des applications observateur d’événements.  
   
-**file**  
+**txt**  
 Spécifie que les événements audités seront enregistrés uniquement dans le fichier spécifié par la **configuration fname**.  
   
 **versions**  
@@ -109,7 +105,7 @@ Définit le fichier *spécifié par le fichier en* tant que fichier d’audit. L
 **\=fsize**\=*taille*  
 Définit la *taille* maximale en mégaoctets du fichier d’audit. La taille maximale par défaut est de 7 Mo.  
   
-**audit\=** \[ **\+** | **\-** \]**mount** \[ **\+** | **\-** \]**lecture** \[ **\+|\-** \]**écriture** \[ **\+** | **\-** \]**créer** \[ **\+|\-\]** **Supprimer** \[ **\+** | **\-** \]**verrouillage** \[ **\+** | **\-** \]**tout**  
+**audit\=** \[ **\+** | **\-** \]**Mount** \[ **\+** | **\-** \] **\[** \+ **|\-\]** **\[\+** | **\-** \] **\[** \+ **|\-** **\-** \]**locking** **\[\+** **tout** **|\-** **\]** **\[\+.** **write** **delete** **\-** |\]  
 Spécifie les événements à enregistrer. Pour commencer l’enregistrement d’un événement, tapez un signe plus \( **\+** \) avant le nom de l’événement ; pour arrêter l’enregistrement d’un événement, tapez un signe moins \( **\-** \) avant le nom de l’événement. Si le signe est omis, le signe plus est utilisé. N’utilisez pas **All** avec un autre nom d’événement.  
   
 **lockperiod\=** <em>secondes</em>  
@@ -163,13 +159,13 @@ DWOrd ObCaseInsensitive
 **ntfscase\=** {**lower** | **supérieur** | **Preserve**}  
 Spécifie si la casse des caractères dans les noms de fichiers dans le système de fichiers NTFS est retournée en minuscules, en majuscules ou sous la forme stockée dans le répertoire. La valeur par défaut est **Preserve**. Ce paramètre ne peut pas être modifié si **casesensitivelookups** est défini sur **Oui**.  
   
-*nom* de CreateGroup  
+**creategroup** *nom* de CreateGroup  
 crée un nouveau groupe client, en lui attribuant le *nom*spécifié.  
   
 **listgroups**  
 Affiche les noms de tous les groupes de clients.  
   
-*nom* de DeleteGroup  
+**deletegroup** *nom* de DeleteGroup  
 supprime le groupe client spécifié par *Name*.  
   
 **renamegroup** *OldName NewName*  
@@ -178,7 +174,7 @@ modifie le nom du groupe de clients spécifié par *OldName* en *NewName*
 **AddMembers** *nom* de l’hôte\[...\]  
 Ajoute l' *hôte* au groupe client spécifié par *nom*.  
   
-*nom* de la ListMembers  
+**listmembers** *nom* de la ListMembers  
 répertorie les ordinateurs hôtes dans le groupe de clients spécifiés par *nom*.  
   
 \[de l' *hôte du groupe* **deletemembers** ...\]  
@@ -192,10 +188,10 @@ Utilisez la commande de **client nfsadmin** pour administrer le client pour NFS.
 **start**  
 démarre le client pour le service NFS.  
   
-**stop**  
+**erreur**  
 Arrête le service client pour NFS.  
   
-**config**  
+**package**  
 Spécifie les paramètres généraux du client pour NFS. Vous devez fournir au moins l’une des options suivantes avec l’argument de commande **config** :  
   
 <em>mode</em> de **\=FileAccess**  

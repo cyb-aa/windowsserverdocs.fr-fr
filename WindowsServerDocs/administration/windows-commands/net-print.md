@@ -1,24 +1,20 @@
 ---
 title: Net print
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f59b2015-4698-415d-9a74-09566c466f40
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 241f9d74cb537924cf69c1e0bb5fd73a422c4b23
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad631788a59c24dcb92d180330de25a5be320154
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373305"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839052"
 ---
 # <a name="net-print"></a>Net print
 
@@ -33,15 +29,15 @@ pour obtenir des exemples d’utilisation de cette commande, consultez la sectio
 > Net print {\\<computerName>\<Sharename> | 
 > \\<computerName> <JobNumber> [/hold | /release | /delete]} [help]
 > ```
-> ## <a name="parameters"></a>Paramètres
+> ### <a name="parameters"></a>Paramètres
 > 
 > |               Paramètres               |                                                                                                                                                                                                                     Description                                                                                                                                                                                                                      |
 > |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |    \\\\<computerName>\\<Sharename>     |                                                                                                                                                                            Spécifie (par nom) l’ordinateur et la file d’attente à l’impression sur lesquels vous souhaitez afficher des informations.                                                                                                                                                                             |
 > |           \\\\<computerName>           |                                                                                                                                 Spécifie (par nom) l’ordinateur qui héberge le travail d’impression que vous souhaitez contrôler. Si vous ne spécifiez pas d’ordinateur, l’ordinateur local est supposé. Requiert le paramètre <JobNumber>.                                                                                                                                  |
 > |              <JobNumber>               |                                             Spécifie le numéro du travail d’impression que vous souhaitez contrôler. Ce nombre est attribué par l’ordinateur qui héberge la file d’attente à l’impression dans laquelle le travail d’impression est envoyé. Une fois qu’un ordinateur a attribué un nombre à un travail d’impression, ce numéro n’est affecté à aucun autre travail d’impression dans une file d’attente hébergée par cet ordinateur. Obligatoire lors de l’utilisation du paramètre \\\\<computerName>.                                             |
-> | [/Hold &#124; /Release &#124; /delete] | Spécifie l’action à effectuer avec le travail d’impression.<br /><br />-Le paramètre **/Hold** retarde le travail, ce qui permet à d’autres travaux d’impression de le contourner jusqu’à ce qu’il soit libéré.<br />-Le paramètre **/Release** libère un travail d’impression qui a été retardé.<br />-Le paramètre **/Delete** supprime un travail d’impression d’une file d’attente à l’impression.<br /><br />Si vous spécifiez un numéro de travail, mais que vous ne spécifiez aucune action, les informations sur le travail d’impression s’affichent. |
-> |                  help                  |                                                                                                                                                                                                     Affiche l’aide de la commande **net print** .                                                                                                                                                                                                     |
+> | [/Hold &#124; /Release &#124; /delete] | Spécifie l’action à effectuer avec le travail d’impression.<p>-Le paramètre **/Hold** retarde le travail, ce qui permet à d’autres travaux d’impression de le contourner jusqu’à ce qu’il soit libéré.<br />-Le paramètre **/Release** libère un travail d’impression qui a été retardé.<br />-Le paramètre **/Delete** supprime un travail d’impression d’une file d’attente à l’impression.<p>Si vous spécifiez un numéro de travail, mais que vous ne spécifiez aucune action, les informations sur le travail d’impression s’affichent. |
+> |                  aide                  |                                                                                                                                                                                                     Affiche l’aide de la commande **net print** .                                                                                                                                                                                                     |
 > 
 > ## <a name="remarks"></a>Notes
 > - **Net print** \\\\<computerName> affiche des informations sur les travaux d’impression dans une file d’attente d’impression partagée. Voici un exemple de rapport pour tous les travaux d’impression dans une file d’attente pour une imprimante partagée nommée LASER :
@@ -66,7 +62,7 @@ pour obtenir des exemples d’utilisation de cette commande, consultez la sectio
 >   Job parameters
 >   additional info
 >   ```
->   ## <a name="BKMK_examples"></a>Illustre
+>   ## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 >   Cet exemple montre comment répertorier le contenu de la file d’attente à l’impression DotMatrix sur l’ordinateur \\\Production :
 >   ```
 >   Net print \\Production\Dotmatrix 
@@ -83,6 +79,6 @@ pour obtenir des exemples d’utilisation de cette commande, consultez la sectio
 >   ```
 >   Net print \\Production 263 /release 
 >   ```
->   #### <a name="additional-references"></a>Références supplémentaires
->   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+>   ## <a name="additional-references"></a>Références supplémentaires
+>   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 >   [référence de commande d’impression](print-command-reference.md)

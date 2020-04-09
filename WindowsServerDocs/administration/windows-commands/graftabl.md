@@ -1,24 +1,20 @@
 ---
 title: graftabl
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b08351d4-3d24-490c-86f6-1252da11d923
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ac7748b43eb8859a17a2c61ef9ef4444019ad51b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d55df814cb962e82775a86e154a024c579987cf2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375630"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842412"
 ---
 # <a name="graftabl"></a>graftabl
 
@@ -35,7 +31,7 @@ graftabl <CodePage>
 graftabl /status
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -54,7 +50,7 @@ graftabl /status
     |2|Une erreur de fichier s’est produite.|
 -   Vous pouvez utiliser la variable d’environnement ERRORLEVEL dans un programme de traitement par lots pour traiter les codes de sortie retournés par **GRAFTABL**.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher la page de codes actuelle utilisée par **GRAFTABL**, tapez :
 ```
@@ -69,9 +65,9 @@ Pour charger le jeu de caractères graphiques pour la page de codes 850 (multili
 graftabl 850
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Freedisk](freedisk.md)
 

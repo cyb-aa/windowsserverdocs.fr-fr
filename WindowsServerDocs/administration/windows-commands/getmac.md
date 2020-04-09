@@ -1,24 +1,20 @@
 ---
 title: getmac
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a749a348-7cd1-4336-9f33-bb42dd0e31e1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c770f5da5159e0037af479f90fadb4cd83464c77
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b593bf61bb08d2c1c7868b1bbb175ed64a8bcf7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375811"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842612"
 ---
 # <a name="getmac"></a>getmac
 
@@ -29,7 +25,7 @@ Retourne l’adresse MAC (Media Access Control) et la liste des protocoles rése
 ```
 getmac[.exe][/s <computer> [/u <Domain\<User> [/p <Password>]]][/fo {TABLE | list | CSV}][/nh][/v]
 ```
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |             Paramètre              |                                                                                          Description                                                                                          |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,7 +39,7 @@ getmac[.exe][/s <computer> [/u <Domain\<User> [/p <Password>]]][/fo {TABLE | lis
 
 ## <a name="remarks"></a>Notes
 **GETMAC** peut être utile lorsque vous souhaitez entrer l’adresse Mac dans un analyseur réseau ou lorsque vous avez besoin de savoir quels protocoles sont en cours d’utilisation sur chaque carte réseau d’un ordinateur.
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 Les exemples suivants illustrent la façon dont vous pouvez utiliser la commande **GETMAC** :
 ```
 getmac /fo table /nh /v
@@ -64,4 +60,4 @@ getmac /s srvmain /u maindom\hiropln /p p@ssW23 /fo list /v
 getmac /s srvmain /u maindom\hiropln /p p@ssW23 /fo table /nh
 ```
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

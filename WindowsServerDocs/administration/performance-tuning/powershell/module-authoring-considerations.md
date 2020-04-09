@@ -4,15 +4,15 @@ description: Considérations relatives à la création de modules PowerShell
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: JasonSh
+ms.author: jasonsh
 author: lzybkr
 ms.date: 10/16/2017
-ms.openlocfilehash: 8945339e7a7950d3cd722ab2af629b45e7f6dd5d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 25b202e56286b7c26c3150642a656eb31a120808
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370360"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851932"
 ---
 # <a name="powershell-module-authoring-considerations"></a>Considérations relatives à la création de modules PowerShell
 
@@ -28,7 +28,7 @@ Pendant l’analyse des modules, si les commandes exportées peuvent être enti�
 
 ### <a name="guidelines"></a>Recommandations
 
-* Dans le manifeste de module, n’utilisez pas de caractères génériques dans les entrées `AliasesToExport`, `CmdletsToExport` et `FunctionsToExport`.
+* Dans le manifeste de module, n’utilisez pas de caractères génériques dans les entrées `AliasesToExport`, `CmdletsToExport`et `FunctionsToExport`.
 
 * Si le module n’exporte pas de commandes d’un type particulier, spécifiez-le explicitement dans le manifeste en spécifiant `@()`.
 Une entrée manquante ou `$null` équivaut à spécifier le caractère générique `*`.

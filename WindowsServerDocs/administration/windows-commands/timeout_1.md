@@ -1,28 +1,22 @@
 ---
 title: timeout
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour le délai d’expiration, qui suspend le processeur de commande pendant le nombre de secondes spécifié.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e26b4a84-0e30-46e1-aa10-0667b7d3cb4c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09f294eb78a8868b4e3962557a36199b69fae0c9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bd0a43e49e8a7567ac975333b04a9e6f549a0fd8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385772"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832812"
 ---
 # <a name="timeout"></a>timeout
-
-
 
 Suspend le processeur de commandes pendant le nombre de secondes spécifié.
 
@@ -34,7 +28,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 timeout /t <TimeoutInSeconds> [/nobreak] 
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -48,7 +42,7 @@ timeout /t <TimeoutInSeconds> [/nobreak]
 -   Une séquence de touches utilisateur reprend immédiatement l’exécution du processeur de commandes, même si le délai d’expiration n’a pas expiré.
 -   Lorsqu’il est utilisé conjointement avec la commande **Sleep** , le **délai d’attente** est semblable à celui de la commande **Pause** .
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour suspendre le processeur de commandes pendant dix secondes, tapez :
 ```
@@ -63,6 +57,6 @@ Pour suspendre indéfiniment le processeur de commandes jusqu’à ce qu’une t
 timeout /t -1
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

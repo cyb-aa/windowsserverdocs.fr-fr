@@ -1,24 +1,20 @@
 ---
 title: repair-bde
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 534dca1a-05f7-4ea8-ac24-4fe5f14f988a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 817e5fb5cf032376ddfddb3a54f73411ac175def
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2107e5b7ef0339fc4f682632f3ef5a593578680a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384552"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835962"
 ---
 # <a name="repair-bde"></a>repair-bde
 
@@ -41,7 +37,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples
 repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–lf] [-f] [{-?|/?}]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -51,7 +47,7 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 |-RP|Identifie le mot de passe de récupération numérique qui doit être utilisé pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-RecoveryPassword**.|
 |-PW|Identifie le mot de passe qui doit être utilisé pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-Password**|
 |-KP|Identifie le package de clé de récupération qui peut être utilisé pour déverrouiller le volume. Cette commande peut également être spécifiée en tant que **-keypackage**.|
-|-LF|Spécifie le chemin d’accès au fichier qui stocke les messages d’erreur, d’avertissement et d’information de Repair-bde. Cette commande peut également être spécifiée sous la forme **-logfile**.|
+|-lf|Spécifie le chemin d’accès au fichier qui stocke les messages d’erreur, d’avertissement et d’information de Repair-bde. Cette commande peut également être spécifiée sous la forme **-logfile**.|
 |-f|Force le démontage d’un volume, même s’il ne peut pas être verrouillé. Cette commande peut également être spécifiée en tant que **force**.|
 |-? ou /?|Affiche l'aide à l'invite de commandes.|
 
@@ -59,7 +55,7 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 
 Si le chemin d’accès à un package de clé n’est pas spécifié, la commande **Repair-bde** recherche un package de clés sur le lecteur. Toutefois, si le disque dur a été endommagé, **Repair-bde** peut ne pas être en mesure de trouver le package et vous invitera à fournir le chemin d’accès.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 L’exemple suivant tente de réparer le lecteur C et d’écrire le contenu du lecteur C sur le lecteur D à l’aide du fichier de clé de récupération (RecoveryKey. bek) stocké sur le lecteur F et écrit les résultats de cette tentative dans le fichier journal (log. txt) sur le lecteur Z.
 ```
@@ -78,6 +74,6 @@ L’exemple suivant tente de réparer le lecteur C et d’écrire le contenu du 
 repair-bde C: D: -pw
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

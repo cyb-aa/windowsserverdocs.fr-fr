@@ -1,24 +1,20 @@
 ---
 title: echo
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fb9fcd0f-5e73-4504-aa95-78204e1a79d3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 343d6327d262401b4be14e472a135062456890f1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e6e9c3c79cc8006efba0c97a574e3d6d94a6f7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377628"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845242"
 ---
 # <a name="echo"></a>echo
 
@@ -35,7 +31,7 @@ echo [<Message>]
 echo [on | off]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -45,7 +41,7 @@ echo [on | off]
 
 ## <a name="remarks"></a>Notes
 
--   La commande **echo** *message* est particulièrement utile lorsque **echo** est désactivé. Pour afficher un message de plusieurs lignes sans afficher de commandes, vous pouvez inclure plusieurs commandes de *message* d’écho après la commande **echo off** dans votre programme de traitement par lots.
+-   La commande **echo** *message* est particulièrement utile lorsque **echo** est désactivé. Pour afficher un message de plusieurs lignes sans afficher de commandes, vous pouvez inclure plusieurs commandes de **echo** *message* d’écho après la commande **echo off** dans votre programme de traitement par lots.
 -   Quand **echo** est désactivé, l’invite de commandes n’apparaît pas dans la fenêtre d’invite de commandes. Pour afficher l’invite de commandes, tapez **echo on.**
 -   S’il est utilisé dans un fichier de commandes, **echo on** et **echo off** n’affectent pas le paramètre à l’invite de commandes.
 -   Pour empêcher l’écho d’une commande particulière dans un fichier de commandes, insérez un arobase (@) devant la commande. Pour empêcher l’écho de toutes les commandes dans un fichier de commandes, incluez la commande **echo off** au début du fichier.
@@ -117,6 +113,6 @@ File2.txt
 File3.txt
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

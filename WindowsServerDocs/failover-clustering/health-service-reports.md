@@ -5,15 +5,14 @@ manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: e65db8834bd0b059dc7bbebbcaf9288fb46da225
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3b47e1abf3805b7e6e3dc180d5d937ddb2723fa4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369680"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827542"
 ---
 # <a name="health-service-reports"></a>Rapports de Service de contrôle d’intégrité
 > S’applique à : Windows Server 2019, Windows Server 2016
@@ -76,7 +75,7 @@ Le nom d’utilisateur fourni doit être un administrateur local de l’ordinate
 
 Il est recommandé de construire la **SecureString** de mot de passe directement à partir de l’entrée d’utilisateur en temps réel, de sorte que leur mot de passe ne soit jamais stocké en texte en clair. Cela permet d’atténuer un grand nombre de problèmes de sécurité. Toutefois, dans la pratique, il est courant de les construire comme indiqué ci-dessus à des fins de prototypage.
 
-### <a name="discover-objects"></a>Détecter des objets
+### <a name="discover-objects"></a>Détecter les objets
 
 Une fois le **CimSession** établi, vous pouvez interroger Windows Management Instrumentation (WMI) sur le cluster.
 
@@ -217,7 +216,7 @@ Chaque mesure a seulement trois propriétés, par cette table.
 | -------------|-------------------|
 | Nom         | IOLatencyAverage  |
 | Valeur        | 0,00021           |
-| Sections        | 3                 |
+| Unités        | 3                 |
 
 Units = {0, 1, 2, 3, 4}, où 0 = « octets », 1 = « BytesPerSecond », 2 = « CountPerSecond », 3 = « secondes » ou 4 = « pourcentage ».
 
@@ -282,6 +281,6 @@ Voici les mesures disponibles pour chaque étendue dans Windows Server 2016.
 | IOThroughputTotal   | 1         |
 | IOThroughputWrite   | 1         |
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 
 - [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)

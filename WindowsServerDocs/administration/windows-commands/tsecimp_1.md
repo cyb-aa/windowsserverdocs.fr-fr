@@ -1,28 +1,22 @@
 ---
 title: tsecimp
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour Tsecimp, qui importe les informations d’affectation d’un fichier Extensible Markup Language (XML) dans le fichier de sécurité du serveur TAPI (sect. ini).
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d7488ec6-0eff-45ff-89ee-9cbe752416bf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c596d6d24a611882c0ecf234c22c83a268ec53c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 30a097bcd25e981f72a421b81b80b595343404ba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71363929"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832502"
 ---
 # <a name="tsecimp"></a>tsecimp
-
-
 
 Importe les informations d’affectation d’un fichier Extensible Markup Language (XML) dans le fichier de sécurité du serveur TAPI (sect. ini). Vous pouvez également utiliser cette commande pour afficher la liste des fournisseurs TAPI et les périphériques de ligne associés à chacun d’eux, valider la structure du fichier XML sans importer le contenu et vérifier l’appartenance au domaine.
 
@@ -33,13 +27,13 @@ tsecimp /f <Filename> [{/v | /u}]
 tsecimp /d
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|/f \<nom de fichier >|Obligatoire. Spécifie le nom du fichier XML qui contient les informations d’affectation que vous souhaitez importer.|
+|/f \<nom du fichier >|Obligatoire. Spécifie le nom du fichier XML qui contient les informations d’affectation que vous souhaitez importer.|
 |/v|Valide la structure du fichier XML sans importer les informations dans le fichier sect. ini.|
-|/u.|Vérifie si chaque utilisateur est membre du domaine spécifié dans le fichier XML. L’ordinateur sur lequel vous utilisez ce paramètre doit être connecté au réseau. Ce paramètre peut ralentir considérablement les performances si vous traitez une grande quantité d’informations d’attribution de l’utilisateur.|
+|/u|Vérifie si chaque utilisateur est membre du domaine spécifié dans le fichier XML. L’ordinateur sur lequel vous utilisez ce paramètre doit être connecté au réseau. Ce paramètre peut ralentir considérablement les performances si vous traitez une grande quantité d’informations d’attribution de l’utilisateur.|
 |/d|Affiche la liste des fournisseurs de téléphonie installés. Pour chaque fournisseur de téléphonie, les périphériques de ligne associés sont répertoriés, ainsi que les adresses et les utilisateurs associés à chaque périphérique de ligne.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
@@ -72,7 +66,7 @@ tsecimp /d
   - Le code suivant supprime tous les appareils de ligne affectés à User1.  
     ```
     <UserList>
-      <User NoMerge="1">
+      <User NoMerge=1>
         <DomainUser>domain1\user1</DomainUser>
       </User>
     </UserList>
@@ -80,7 +74,7 @@ tsecimp /d
   - Le code suivant supprime tous les appareils de ligne affectés à User1 avant d’attribuer une ligne avec l’adresse 99999. Utilisateur1 n’aura pas d’autres lignes attribuées, que des appareils en ligne aient été attribués précédemment.  
     ```
     <UserList>
-      <User NoMerge="1">
+      <User NoMerge=1>
         <DomainUser>domain1\user1</DomainUser>
         <FriendlyName>User1</FriendlyName>
         <LineList>
@@ -115,7 +109,7 @@ tsecimp /d
           <Line>
             <Address>99999</Address>
           </Line>
-          <Line Remove="1">
+          <Line Remove=1>
             <Address>88888</Address>
           </Line>
         </LineList>
@@ -132,7 +126,7 @@ tsecimp /d
           <Line>
             <PermanentID>1000</PermanentID>
           </Line>
-          <Line Remove="1">
+          <Line Remove=1>
             <Address>88888</Address>
           </Line>
         </LineList>
@@ -143,23 +137,23 @@ tsecimp /d
 -   L’exemple de sortie suivant apparaît une fois que l’option de ligne de commande **/d** est spécifiée pour afficher la configuration TAPI actuelle. Pour chaque fournisseur de téléphonie, les périphériques de ligne associés sont répertoriés, ainsi que les adresses et les utilisateurs associés à chaque périphérique de ligne.  
     ```
     NDIS Proxy TAPI Service Provider
-            Line: "WAN Miniport (L2TP)"
+            Line: WAN Miniport (L2TP)
                     Permanent ID: 12345678910
 
     NDIS Proxy TAPI Service Provider
-            Line: "LPT1DOMAIN1\User1"
+            Line: LPT1DOMAIN1\User1
                     Permanent ID: 12345678910
 
     Microsoft H.323 Telephony Service Provider
-            Line: "H323 Line"
+            Line: H323 Line
                     Permanent ID: 123456
                     Addresses:
                             BLDG1-TAPI32
 
     ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Vue d’ensemble de l’interface de commande](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)

@@ -1,23 +1,19 @@
 ---
 title: Préparer votre serveur source pour Windows Server Essentials migration1
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 503b8edc645b43da1dc5c5fb37547e8e0245d4a2
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: d7a718e9e84866b6a1f626499b7e2bec58de498f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318816"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852402"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Préparer votre serveur source pour Windows Server Essentials migration1
 
@@ -81,7 +77,7 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
 #### <a name="run-the-windows-server-solutions-best-practices-analyzer"></a>Exécutez Windows Server Solutions Best Practices Analyzer  
  Vous pouvez exécuter Windows Server Solutions Best Practices Analyzer (BPA) pour vérifier qu'il n'y a aucun problème sur votre serveur, réseau ou domaine avant de commencer le processus de migration. L'analyseur BPA collecte les informations de configuration auprès des sources suivantes :  
   
--   WMI (Windows Management Instrumentation) Active Directory®  
+-   Windows Management Instrumentation de&reg; Active Directory (WMI)  
   
 -   Le Registre  
   

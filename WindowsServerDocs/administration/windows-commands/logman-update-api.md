@@ -1,28 +1,24 @@
 ---
 title: API de mise à jour logman
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6f322e52-0f9f-42b1-bd64-8b8f8fe086fc britw
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8e5a45270ec0ed70928688728abceb5bcb8bb29
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7739098343f7b98b0812a9b7199dea2da044786e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374373"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840592"
 ---
 # <a name="logman-update-api"></a>API de mise à jour logman
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Met à jour les propriétés d’un collecteur de données de suivi d’API existant.  
 
@@ -30,7 +26,7 @@ Met à jour les propriétés d’un collecteur de données de suivi d’API exis
 ```  
 logman update api <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
 
 |                    Paramètre                     |                                                                               Description                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,11 +59,11 @@ logman update api <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Notes  
 Où [-] est listé, un extra-inverse l’option.  
-## <a name="BKMK_examples"></a>Illustre  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
 La commande suivante met à jour le compteur de trace d’API existant appelé trace_notepad pour le fichier exécutable c:\windows\notepad.exe en excluant l’appel d’API TlsGetValue généré par le module Kernel32. dll.  
 ```  
 logman create api trace_notepad -exe c:\windows\notepad.exe -exapis kernel32.dll!TlsGetValue  
 ```  
-#### <a name="additional-references"></a>Références supplémentaires  
+## <a name="additional-references"></a>Références supplémentaires  
 [logman](logman.md)  
 [logman create API](logman-create-api.md)  

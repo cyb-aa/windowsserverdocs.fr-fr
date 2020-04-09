@@ -3,17 +3,17 @@ ms.assetid: 0f2a7f7b-aca8-4e5d-ad67-4258e88bc52f
 title: Nouveautés du stockage dans Windows Server
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: dongill
+manager: dongill
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: ffcff036a7e30018e523def055ce3aeb8d30c225
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 0de83c8642629b3a7ff21c9accadec5f9331178e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322331"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820852"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Nouveautés du stockage dans Windows Server
 
@@ -63,9 +63,9 @@ Pour être honnête, le centre d’administration Windows est un téléchargemen
 
 ### <a name="storage-migration-service"></a>Service de migration du stockage
 
-Le Service de migration du stockage est une nouvelle technologie qui facilite la migration des serveurs vers une version plus récente de Windows Server. Il offre un outil graphique qui répertorie les données sur les serveurs, transfère les données et la configuration vers les nouveaux serveurs puis, de manière facultative, fait passer les identités des anciens serveurs sur les nouveaux serveurs afin que les applications et les utilisateurs n’aient rien à modifier. Pour plus d’informations, consultez [Service de migration du stockage](storage-migration-service/overview.md).
+Le Service de migration du stockage est une nouvelle technologie qui facilite la migration des serveurs vers une version plus récente de Windows Server. Il offre un outil graphique qui répertorie les données sur les serveurs, transfère les données et la configuration vers les nouveaux serveurs puis, de manière facultative, fait passer les identités des anciens serveurs sur les nouveaux serveurs afin que les applications et les utilisateurs n’aient rien à modifier. Pour plus d’informations, consultez la section [Service de migration du stockage](storage-migration-service/overview.md).
 
-### <a id="storage-spaces-direct"></a>Espaces de stockage direct (Windows Server 2019 uniquement)
+### <a name="storage-spaces-direct-windows-server-2019-only"></a><a id="storage-spaces-direct"></a>Espaces de stockage direct (Windows Server 2019 uniquement)
 
 Plusieurs améliorations ont été apportées à espaces de stockage direct dans Windows Server 2019 (espaces de stockage direct n’est pas inclus dans Windows Server, canal semi-annuel) :
 
@@ -109,7 +109,7 @@ Plusieurs améliorations ont été apportées à espaces de stockage direct dans
 
     Les administrateurs peuvent ainsi délimiter manuellement l’allocation des volumes dans espaces de stockage direct. Cela peut augmenter considérablement la tolérance aux pannes sous certaines conditions, mais impose des considérations et une complexité de gestion supplémentaires. Pour plus d’informations, consultez [délimiter l’allocation de volumes](storage-spaces/delimit-volume-allocation.md).
 
-### <a name="storage-replica2019"></a>Réplica de stockage
+### <a name="storage-replica"></a><a name="storage-replica2019"></a>Réplica de stockage
 
 Il existe un certain nombre d’améliorations apportées au [réplica de stockage](storage-replica/storage-replica-overview.md) dans cette version :
 
@@ -128,7 +128,7 @@ Pour obtenir des performances accrues, tous les membres du groupe de réplicatio
 
 #### <a name="test-failover"></a>Test de basculement
 
-Vous pouvez maintenant monter temporairement un instantané du stockage répliqué sur un serveur de destination à des fins de test ou de sauvegarde. Pour plus d’informations, consultez le [Forum aux questions sur le réplica de stockage](https://aka.ms/srfaq).
+Vous pouvez maintenant monter temporairement un instantané du stockage répliqué sur un serveur de destination à des fins de test ou de sauvegarde. Pour plus d'informations, consultez le [Forum Aux Questions sur le réplica de stockage](https://aka.ms/srfaq).
 
 #### <a name="windows-admin-center-support"></a>Prise en charge de Windows Admin Center
 
@@ -154,13 +154,13 @@ Le réplica de stockage contient également les améliorations suivantes :
 
 ### <a name="file-server-resource-manager"></a>Outils de gestion de ressources pour serveur de fichiers
 
-Windows Server 2019 offre la possibilité d’empêcher le service de Gestionnaire des ressources de serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur tous les volumes au démarrage du service. Cela permet d’économiser de l’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel. Pour plus d’informations, consultez [Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md).
+Windows Server 2019 offre la possibilité d’empêcher le service de Gestionnaire des ressources de serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur tous les volumes au démarrage du service. Cela permet d'économiser de l’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel. Pour plus d’informations, voir [Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-version-1803"></a>Nouveautés du stockage dans Windows Server, version 1803
 
 ### <a name="file-server-resource-manager"></a>Outils de gestion de ressources pour serveur de fichiers
 
-Windows Server, version 1803, offre la possibilité d’empêcher le service de Gestionnaire des ressources du serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur tous les volumes au démarrage du service. Cela permet d’économiser de l’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel. Pour plus d’informations, consultez [Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md).
+Windows Server, version 1803, offre la possibilité d’empêcher le service de Gestionnaire des ressources du serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur tous les volumes au démarrage du service. Cela permet d'économiser de l’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel. Pour plus d’informations, voir [Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-version-1709"></a>Nouveautés du stockage dans Windows Server, version 1709
 
@@ -172,7 +172,7 @@ Pour plus d’informations, voir la [Présentation du canal semi-annuel de Windo
 
 La protection de récupération d’urgence ajoutée par le réplica de stockage est maintenant développée pour inclure les éléments suivants :
 
-- **Test de basculement** : le montage du stockage de destination est maintenant possible grâce à la fonctionnalité de test de basculement. Vous pouvez monter une capture instantanée du stockage répliqué sur les nœuds de destination de manière temporaire à des fins de test ou de sauvegarde. Pour plus d’informations, consultez le [Forum aux questions sur le réplica de stockage](https://aka.ms/srfaq).
+- **Test de basculement** : le montage du stockage de destination est maintenant possible grâce à la fonctionnalité de test de basculement. Vous pouvez monter une capture instantanée du stockage répliqué sur les nœuds de destination de manière temporaire à des fins de test ou de sauvegarde. Pour plus d'informations, consultez le [Forum Aux Questions sur le réplica de stockage](https://aka.ms/srfaq).
 - **Prise en charge du centre d’administration Windows**: la prise en charge de la gestion graphique de la réplication est désormais disponible dans le centre d’administration Windows via l’outil Gestionnaire de serveur. Cela comprend la réplication de serveur à serveur, le cluster à cluster, ainsi que la réplication de cluster étendu.
 
 Le réplica de stockage contient également les améliorations suivantes :
@@ -193,7 +193,7 @@ Le réplica de stockage contient également les améliorations suivantes :
 
 ## <a name="whats-new-in-storage-in-windows-server-2016"></a>Nouveautés du stockage dans Windows Server 2016
 
-### <a name="s2d"></a>espaces de stockage direct  
+### <a name="storage-spaces-direct"></a><a name="s2d"></a>espaces de stockage direct  
 Les espaces de stockage direct permettent de créer un stockage à haute disponibilité et scalable en utilisant des serveurs avec un stockage local. Le déploiement et la gestion des systèmes de stockage défini par un logiciel sont simplifiés, et il est maintenant possible d’utiliser de nouvelles classes de périphériques de disque, comme SSD SATA et NVMe, ce qui ne pouvait pas se faire auparavant avec les espaces de stockage en cluster avec des disques partagés.  
 
 **Quels avantages cette modification procure-t-elle ?**  
@@ -205,7 +205,7 @@ Pour plus d’informations, voir [Espaces de stockage direct dans Windows Server
 **En quoi le fonctionnement est-il différent ?**  
 Cette fonctionnalité est une nouveauté de Windows Server 2016.  
 
-### <a name="storage-replica"></a>Réplica de stockage
+### <a name="storage-replica"></a><a name="storage-replica"></a>Réplica de stockage
 
 Le réplica de stockage permet une réplication synchrone indépendante du stockage, au niveau du bloc, entre des clusters ou des serveurs pour la récupération d’urgence, ainsi que l’extension d’un cluster de basculement entre des sites. La réplication synchrone permet la mise en miroir des données dans des sites physiques avec des volumes cohérents en cas d’incident, ce qui garantit aucune perte de données au niveau du système de fichiers. La réplication asynchrone permet l’extension de site au-delà de plages métropolitaines avec la possibilité de perte de données.  
 
@@ -229,7 +229,7 @@ Pour plus d’informations, voir [Réplica de stockage dans Windows Server 2016
 **En quoi le fonctionnement est-il différent ?**  
 Cette fonctionnalité est une nouveauté de Windows Server 2016.  
 
-### <a name="storage-qos"></a>Qualité de service de stockage  
+### <a name="storage-quality-of-service"></a><a name="storage-qos"></a>Qualité de service de stockage  
 Vous pouvez maintenant utiliser la qualité de service (QoS) de stockage pour analyser de manière centralisée les performances de stockage de bout en bout et créer des stratégies de gestion avec Hyper-V et des clusters CSV dans Windows Server 2016.  
 
 **Quels avantages cette modification procure-t-elle ?**  
@@ -248,7 +248,7 @@ Cette fonctionnalité est une nouveauté de Windows Server 2016. Auparavant, Wi
 
 Pour plus d’informations, voir [Qualité de service de stockage](storage-qos/storage-qos-overview.md)
 
-### <a name="dedup"></a>Déduplication des données  
+### <a name="data-deduplication"></a><a name="dedup"></a>Déduplication des données  
 | Fonctionnalité | Nouveauté ou mise à jour | Description |
 |---------------|----------------|-------------|
 | [Prise en charge des volumes importants](data-deduplication/whats-new.md#large-volume-support) | Mise à jour terminée | Avant Windows Server 2016, les volumes devaient être dimensionnés de façon spécifique pour l’activité attendue, avec des tailles de volume supérieures à 10 To qui ne convenaient pas à la déduplication. Dans Windows Server 2016, la déduplication des données prend en charge des tailles de volume **pouvant atteindre 64 To**. |
@@ -257,7 +257,7 @@ Pour plus d’informations, voir [Qualité de service de stockage](storage-qos/s
 | [Support de sauvegarde simplifié](data-deduplication/whats-new.md#simple-backup-support) | Nouveau | Dans Windows Server 2012 R2, les applications de sauvegarde virtualisées, telles que [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) de Microsoft, étaient prises en charge via une série d’étapes de configuration manuelles. Dans Windows Server 2016, un nouveau type d’utilisation « Sauvegarde » par défaut a été ajouté pour un déploiement transparent de la déduplication des données pour les applications de sauvegarde virtualisées. |
 | [Prise en charge des mises à niveau propagées du système d’exploitation du cluster](data-deduplication/whats-new.md#cluster-upgrade-support) | Nouveau | La déduplication des données prend entièrement en charge la nouvelle fonctionnalité de [mise à niveau propagée de système d’exploitation de cluster](..//failover-clustering/cluster-operating-system-rolling-upgrade.md) de Windows Server 2016. |
 
-### <a name="smb-hardening-improvements"></a>Améliorations de la sécurisation renforcée SMB pour les connexions SYSVOL et NETLOGon  
+### <a name="smb-hardening-improvements-for-sysvol-and-netlogon-connections"></a><a name="smb-hardening-improvements"></a>Améliorations de la sécurisation renforcée SMB pour les connexions SYSVOL et NETLOGon  
 Dans Windows 10 et Windows Server 2016, les connexions clientes aux partages SYSVOL et NETLOGON par défaut des services de domaine Active Directory sur les contrôleurs de domaine nécessitent maintenant une signature SMB et une authentification mutuelle (par exemple, Kerberos).   
 
 **Quels avantages cette modification procure-t-elle ?**  

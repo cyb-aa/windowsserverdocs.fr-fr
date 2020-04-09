@@ -1,26 +1,23 @@
 ---
 title: Résolution des problèmes d’un cluster de basculement à l’aide de Rapport d’erreurs Windows
 description: Résolution des problèmes liés à un cluster de basculement à l’aide de rapports WER, avec des détails spécifiques sur la collecte des rapports et le diagnostic des problèmes courants.
-keywords: Cluster de basculement, rapports WER, diagnostics, cluster Rapport d’erreurs Windows
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.author: vpetter
-ms.topic: article
-author: vpetter
+author: dcuomo
 ms.date: 03/27/2018
-ms.localizationpriority: ''
-ms.openlocfilehash: 46c633af8cf82ac43d2a787a7193685d88ad0ecc
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: e8db88dc4fe3ad9176299c5b423a7aac6093f254
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322151"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827352"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Résolution des problèmes d’un cluster de basculement à l’aide de Rapport d’erreurs Windows 
 
 > S’applique à : Windows Server 2019, Windows Server 2016, Windows Server
 
-Rapport d’erreurs Windows (WER) est une infrastructure de commentaires flexible basée sur les événements, conçue pour aider les administrateurs avancés ou la prise en charge de niveau 3 à collecter des informations sur les problèmes matériels et logiciels que Windows peut détecter, signaler les informations à Microsoft, et fournissent aux utilisateurs toutes les solutions disponibles. Cette [référence](https://docs.microsoft.com/powershell/module/windowserrorreporting/) fournit des descriptions et la syntaxe de toutes les applets de commande WindowsErrorReporting.
+Rapport d’erreurs Windows (WER) est une infrastructure de commentaires flexible basée sur les événements, conçue pour aider les administrateurs avancés ou la prise en charge de niveau 3 à collecter des informations sur les problèmes matériels et logiciels que Windows peut détecter, signaler les informations à Microsoft et fournir aux utilisateurs toutes les solutions disponibles. Cette [référence](https://docs.microsoft.com/powershell/module/windowserrorreporting/) fournit des descriptions et la syntaxe de toutes les applets de commande WindowsErrorReporting.
 
 Les informations sur la résolution des problèmes présentées ci-dessous sont utiles pour la résolution des problèmes avancés qui ont été remontés et qui peuvent nécessiter l’envoi de données à Microsoft pour le triage.
 

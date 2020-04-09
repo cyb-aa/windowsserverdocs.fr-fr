@@ -1,24 +1,20 @@
 ---
 title: ren
 description: Découvrez comment renommer un fichier ou un répertoire à l’aide de la commande ren.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 60398e12-a05d-4524-a73a-0a925943e21d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 2ba3f6a13dc03c0b6a5561be9f0f692546a25149
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 235497b09f44f9077b7f622f7f2b68a0bc49af86
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384580"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836042"
 ---
 # <a name="ren"></a>ren
 
@@ -33,7 +29,7 @@ ren [<Drive>:][<Path>]<FileName1> <FileName2>
 rename [<Drive>:][<Path>]<FileName1> <FileName2>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -51,7 +47,7 @@ rename [<Drive>:][<Path>]<FileName1> <FileName2>
   Duplicate file name or file not found
   ```
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 
 Pour modifier toutes les extensions de nom de fichier. txt du répertoire actif en extensions. doc, tapez :
 ```
@@ -62,6 +58,6 @@ Pour modifier le nom d’un répertoire de Chap10 en part10, tapez :
 ren chap10 part10 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,29 +1,25 @@
 ---
 title: Gérer le matériel de la station
 description: Fournit une vue d’ensemble de la gestion du matériel pour les stations MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 429b8539-b17a-4e01-9576-860600466451
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 9ca65352a6f016d5d18bdd92b39b737cdddb9057
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8ffb6fd714293471a0e9aa020390943b201261c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395236"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853522"
 ---
 # <a name="manage-station-hardware"></a>Gérer le matériel de la station
-Un système MultiPoint services se compose d’un seul ordinateur et d’au moins une station. Le matériel de la station se compose généralement d’un concentrateur de station, d’une souris, d’un clavier et d’un moniteur vidéo. Les stations sont généralement branchées physiquement à l’ordinateur.  
+Un système MultiPoint Services est composé d’un seul ordinateur et d’au moins une station. Le matériel d’une station comprend généralement un concentrateur de station, une souris, un clavier et un moniteur vidéo. Les stations sont généralement branchées physiquement à l’ordinateur.  
   
-L’illustration suivante fournit un exemple de disposition d’un système MultiPoint Services doté de quatre stations. Chaque station est connectée à l’ordinateur MultiPoint services à l’aide d’un concentrateur USB et de cartes vidéo à plusieurs écrans. Cette illustration ne représente pas les stations connectées à l’aide de hubs multifonction.  
+L’illustration suivante fournit un exemple de disposition d’un système MultiPoint Services doté de quatre stations. Chaque station est connectée à l’ordinateur MultiPoint services à l’aide d’un concentrateur USB et de cartes vidéo à plusieurs écrans. Cette illustration ne représente pas les stations connectées via des concentrateurs multifonctions.  
    
 ![Image de la disposition du système USB MultiPoint services](./media/WMSMultiPointServerUSBSystemLayout.gif)  
   

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 65ed5956-6140-4e06-8d99-8771553637d1
 title: Rétrogradation de contrôleurs de domaine et de domaines (niveau 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e3f320b67196a2400ebedbaeaf0a5b59969400e8
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: b8c5502f50b065e8c75d0167328868ac129dfad1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588091"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825428"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>Rétrogradation de contrôleurs de domaine et de domaines
 
@@ -36,8 +35,8 @@ Cette rubrique explique comment supprimer les services AD DS à l'aide du Gestio
 |||  
 |-|-|  
 |**Applets de commande ADDSDeployment et ServerManager**|Arguments (les arguments en **gras** sont obligatoires. Les arguments en *italique* peuvent être spécifiés à l'aide de Windows PowerShell ou de l'Assistant Configuration des services de domaine Active Directory.)|  
-|Uninstall-ADDSDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
-|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<br /><br />***-IncludeManagementTools***<br /><br />*-Redémarrer*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
+|Uninstall-ADDSDomainController|-SkipPreChecks<p>*-LocalAdministratorPassword*<p>-Confirm<p>***-Credential***<p>-DemoteOperationMasterRole<p>*-DNSDelegationRemovalCredential*<p>-Force<p>*-ForceRemoval*<p>*-IgnoreLastDCInDomainMismatch*<p>*-IgnoreLastDNSServerForZone*<p>*-LastDomainControllerInDomain*<p>-Norebootoncompletion<p>*-RemoveApplicationPartitions*<p>*-RemoveDNSDelegation*<p>-RetainDCMetadata|  
+|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<p>***-IncludeManagementTools***<p>*-Redémarrer*<p>-Remove<p>-Force<p>-ComputerName<p>-Credential<p>-LogPath<p>-Vhd|  
   
 > [!NOTE]  
 > L'argument **-credential** n'est requis que si vous n'êtes pas déjà connecté en tant que membre du groupe Administrateurs de l'entreprise (rétrogradation du dernier contrôleur de domaine dans un domaine) ou du groupe Admins du domaine (rétrogradation d'un contrôleur de domaine répliqué). L'argument **-includemanagementtools** n'est requis que si vous voulez supprimer tous les utilitaires de gestion des services AD DS.  
@@ -93,7 +92,7 @@ Uninstall-windowsfeature
 
 ![Assistant Suppression de rôles et de fonctionnalités-validation](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demote.png)  
 
-### <a name="credentials"></a>Informations d’identification
+### <a name="credentials"></a>Informations d'identification
 
 ![Assistant Configuration de Active Directory Domain Services-sélection des informations d’identification](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Credentials.png)  
 
@@ -170,7 +169,7 @@ Par exemple, vous pouvez demander manuellement un mot de passe à l’aide de l�
 > [!WARNING]
 > Comme les deux options précédentes ne confirment pas le mot de passe, utilisez une extrême prudence : le mot de passe n’est pas visible.
 
-Vous pouvez également fournir une chaîne sécurisée sous forme d'une variable en texte clair convertie, bien que ceci soit fortement déconseillé. Exemple :
+Vous pouvez également fournir une chaîne sécurisée sous forme d'une variable en texte clair convertie, bien que ceci soit fortement déconseillé. Par exemple :
 
 ```
 -localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
@@ -193,7 +192,7 @@ Uninstall-ADDSDomainController
 
 Utilisez l'argument **Whatif** facultatif avec **Uninstall-ADDSDomainController** et l'applet de commande pour passer en revue les informations de configuration. Cela vous permet de voir les valeurs explicites et implicites des arguments d'une applet de commande.
 
-Exemple :
+Par exemple :
 
 ![Exemple de désinstallation de PowerShell-ADDSDomainController](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)
 

@@ -1,28 +1,24 @@
 ---
 title: Gérer la journalisation des accès utilisateur
 description: Décrit comment gérer la journalisation des accès utilisateur
-ms.custom: na
 ms.prod: windows-server
 ms.technology: manage-user-access-logging
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4f039017-4152-47eb-838e-bb6ef730b638
 author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b209cdb4763d4f30478725aa1ba47f399e9a729f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ff33102a2197cc961a44290c5b7e4e3e40b0191
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382843"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851382"
 ---
 # <a name="manage-user-access-logging"></a>Gérer la journalisation des accès utilisateur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ce document explique comment gérer la journalisation des accès utilisateur (UAL, User Access Logging).  
   
@@ -48,7 +44,7 @@ Les options de configuration traitées dans ce document incluent :
   
 -   Activation du suivi des licences d’utilisation Dossiers de travail   
   
-## <a name="BKMK_Step1"></a>Désactivation et activation du service de journalisation des accès aux services  
+## <a name="disabling-and-enabling-the-ual-service"></a><a name="BKMK_Step1"></a>Désactivation et activation du service de journalisation des accès aux services  
 La journalisation des accès système est activée et s’exécute par défaut lorsqu’un ordinateur exécutant Windows Server 2012 ou version ultérieure est installé et démarré pour la première fois. Les administrateurs peuvent arrêter et désactiver la journalisation des accès utilisateur pour respecter les exigences de confidentialité ou d’autres besoins opérationnels. Vous pouvez désactiver cette option à l’aide de la console Services, à partir de la ligne de commande ou à l’aide des applets de commande PowerShell. Toutefois, pour s’assurer que la journalisation des accès système ne s’exécute pas à nouveau au prochain démarrage de l’ordinateur, vous devez également désactiver le service. Les procédures suivantes décrivent comment désactiver et désactiver la journalisation des éléments de journal.  
   
 > [!NOTE]  
@@ -62,7 +58,7 @@ La journalisation des accès système est activée et s’exécute par défaut l
   
 3.  Faites défiler l’affichage et sélectionnez **Service de journalisation des accès utilisateur**. Cliquez sur **Arrêter le service**.  
   
-4.  Cliquez\-avec le bouton droit sur le nom du service et sélectionnez **Propriétés**. Dans l’onglet **Général**, modifiez le **Type de démarrage** en spécifiant **Désactivé**, puis cliquez sur **OK**.  
+4.  Cliquez avec le bouton droit\-sur le nom du service, puis sélectionnez **Propriétés**. Dans l’onglet **Général**, modifiez le **Type de démarrage** en spécifiant **Désactivé**, puis cliquez sur **OK**.  
   
 #### <a name="to-stop-and-disable-ual-from-the-command-line"></a>Pour arrêter et désactiver la journalisation des accès utilisateur à partir de la ligne de commande  
   
@@ -71,13 +67,13 @@ La journalisation des accès système est activée et s’exécute par défaut l
 2.  Appuyez sur les touches Windows + R et tapez **cmd** pour ouvrir une fenêtre d’invite de commandes.  
   
     > [!IMPORTANT]  
-    > Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+    > Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 3.  Tapez **net stop ualsvc**, et appuyez sur ENTRÉE.  
   
 4.  Tapez **netsh ualsvc set opmode mode=disable**, puis appuyez sur ENTRÉE.  
    
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.  
 
 Vous pouvez également arrêter et désactiver la journalisation des accès utilisateur en utilisant les commandes Windows PowerShell Stop-service et Disable-Ual.  
   
@@ -97,9 +93,9 @@ Si vous souhaitez ultérieurement redémarrer et réactiver la journalisation de
   
 2.  Dans le Gestionnaire de serveur, pointez sur **Outils**, puis cliquez sur **Services**.  
   
-3.  Faites défiler l’affichage et sélectionnez **Service de journalisation des accès utilisateur**. Cliquez sur **Démarrer le service**.  
+3.  Faites défiler l’affichage et sélectionnez **Service de journalisation des accès utilisateur**. Cliquez sur **Démarrer le service** .  
   
-4.  Cliquez avec le bouton droit sur le nom du service et sélectionnez **Propriétés**. Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
+4.  Cliquez avec le bouton droit sur le nom du service et sélectionnez **Propriétés**. Dans l’onglet **Général**, modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
   
 #### <a name="to-start-and-enable-ual-from-the-command-line"></a>Pour démarrer et activer la journalisation des accès utilisateur à partir de la ligne de commande  
   
@@ -108,13 +104,13 @@ Si vous souhaitez ultérieurement redémarrer et réactiver la journalisation de
 2.  Appuyez sur les touches Windows + R et tapez **cmd** pour ouvrir une fenêtre d’invite de commandes.  
   
     > [!IMPORTANT]  
-    > Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+    > Si la boîte de dialogue **Contrôle de compte d'utilisateur** apparaît, confirmez que l'action affichée est bien celle que vous souhaitez effectuer, puis cliquez sur **Oui**.  
   
 3.  Tapez **net start ualsvc**, puis appuyez sur ENTRÉE.  
   
 4.  Tapez **netsh ualsvc set opmode mode=enable**, puis appuyez sur ENTRÉE.  
 
-L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
+La ou les applets de commande Windows PowerShell suivantes ont la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles apparaissent ici sur plusieurs lignes en raison de contraintes de mise en forme.
   
 Vous pouvez également démarrer et réactiver la journalisation des accès utilisateur en utilisant les commandes Windows PowerShell Start-service et Enable-Ual.  
   
@@ -126,10 +122,10 @@ Enable-ual
 Start-service ualsvc  
 ```  
   
-## <a name="BKMK_Step2"></a>Collecte des données de journalisation des informations  
+## <a name="collecting-ual-data"></a><a name="BKMK_Step2"></a>Collecte des données de journalisation des informations  
 En plus des applets de commande PowerShell décrites dans la section précédente, 12 applets de commande supplémentaires peuvent être utilisées pour collecter des données de journalisation des informations de bout en bout :  
   
--   **Get-UalOverview** : fournit des détails associés à la journalisation des accès utilisateur et l’historique des rôles et produits installés.  
+-   **Get-UalOverview**: fournit des détails associés à la journalisation des accès utilisateur et l’historique des rôles et produits installés.  
   
 -   **Get-UalServerUser** : fournit les données des accès des utilisateurs clients pour le serveur local ou ciblé.  
   
@@ -141,9 +137,9 @@ En plus des applets de commande PowerShell décrites dans la section précédent
   
 -   **Get-UalDailyUserAccess** : fournit les données des accès des utilisateurs clients pour chaque jour de l’année.  
   
--   **Get-UalDailyDeviceAccess** : fournit les données des accès des périphériques clients pour chaque jour de l’année.  
+-   **Get-UalDailyDeviceAccess**: fournit les données des accès des périphériques clients pour chaque jour de l’année.  
   
--   **Get-UalDailyAccess** : fournit à la fois les données des accès des périphériques et des utilisateurs clients pour chaque jour de l’année.  
+-   **Get-UalDailyAccess**: fournit à la fois les données des accès des périphériques et des utilisateurs clients pour chaque jour de l’année.  
   
 -   **Get-UalHyperV** : fournit les données d’ordinateur virtuel qui se rapportent au serveur local ou ciblé.  
   
@@ -151,12 +147,12 @@ En plus des applets de commande PowerShell décrites dans la section précédent
   
 -   **Get-UalSystemId** : fournit les données spécifiques au système permettant d’identifier de façon unique le serveur local ou ciblé.  
   
-L’applet de commande `Get-UalSystemId` est censée fournir un profil unique d’un serveur pour toutes les autres données issues de ce serveur à mettre en corrélation.  Si un serveur subit une modification dans l’un des paramètres d' `Get-UalSystemId` un nouveau profil est créé.  `Get-UalOverview` est censée fournir à l’administrateur la liste des rôles installés et en cours d’utilisation sur le serveur.  
+L’applet de commande `Get-UalSystemId` est censée fournir un profil unique d’un serveur pour toutes les autres données issues de ce serveur à mettre en corrélation.  Si un serveur subit une modification dans l’un des paramètres de `Get-UalSystemId` un nouveau profil est créé.  `Get-UalOverview` est censée fournir à l’administrateur la liste des rôles installés et en cours d’utilisation sur le serveur.  
   
 > [!NOTE]  
-> Les fonctionnalités de base des Services d’impression et de numérisation de document et des services de fichiers sont installées par défaut. Par conséquent, les administrateurs peuvent s’attendre à toujours voir les informations relatives à ces fonctionnalités affichées comme si les rôles complets étaient installés. Des applets de commande de journalisation des accès utilisateur distinctes sont incluses pour Hyper-V et DNS en raison des données uniques que la journalisation des accès utilisateur collecte pour ces rôles serveur.  
+> Les fonctionnalités de base des Services d’impression et de numérisation de document et des services de fichiers sont installées par défaut. Par conséquent, les administrateurs peuvent s’attendre à toujours voir les informations relatives à ces fonctionnalités affichées comme si les rôles complets étaient installés. Des applets de commande de journalisation des e/d distinctes sont incluses pour Hyper-V et DNS en raison des données uniques collectées par la journalisation des informations pour ces rôles serveur.  
   
-Un cas d’usage standard des applets de commande de journalisation des accès utilisateur correspond au scénario dans lequel un administrateur interroge le service de journalisation des accès utilisateur au sujet des accès client uniques sur une plage de dates donnée. Cette opération peut être réalisée de différentes façons. La méthode ci-dessous est recommandée pour obtenir les accès par des périphériques uniques sur une plage de dates.  
+Un cas d’usage standard des applets de commande de journalisation des accès utilisateur correspond au scénario dans lequel un administrateur interroge le service de journalisation des accès utilisateur au sujet des accès client uniques sur une plage de dates donnée. Cela peut être effectué de différentes façons. La méthode suivante est recommandée pour interroger des accès d’appareil uniques sur une plage de dates.  
   
 ```  
 PS C:\Windows\system32>Gwmi -Namespace "root\AccessLogging" -query "SELECT * FROM MsftUal_DeviceAccess WHERE LastSeen >='1/01/2013' and LastSeen <='3/31/2013'"  
@@ -165,7 +161,7 @@ PS C:\Windows\system32>Gwmi -Namespace "root\AccessLogging" -query "SELECT * FRO
   
 Ceci retourne une liste détaillée de tous les périphériques client uniques, classés par adresse IP, qui ont effectué des demandes auprès du serveur dans cette plage de dates.  
   
-« ActivityCount » pour chaque client unique est limité à 65 535 par jour. En outre, l’appel à WMI à partir de PowerShell est requis uniquement lorsque vous effectuez une requête par date.  Tous les autres paramètres des applets de commande de journalisation des accès utilisateur peuvent être utilisés au sein des requêtes PowerShell comme prévu, comme dans l’exemple suivant :  
+« ActivityCount » pour chaque client unique est limité à 65 535 par jour. En outre, l’appel à WMI à partir de PowerShell est requis uniquement lorsque vous interrogez par date.  Tous les autres paramètres d’applet de commande de journalisation des éléments de journal peuvent être utilisés dans les requêtes PS comme prévu, comme dans l’exemple suivant :  
   
 ```  
 PS C:\Windows\system32> Get-UalDeviceAccess -IPAddress "10.36.206.112"  
@@ -195,12 +191,12 @@ Le premier jour de l’année, la journalisation des accès utilisateur cré un 
   
 2.  Appuyez sur les touches Windows + R et tapez **cmd** pour ouvrir une fenêtre d’invite de commandes.  
   
-3.  Ajoutez la valeur de Registre :  **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)** .  
+3.  Ajoutez la valeur de Registre :  **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)** .  
   
     > [!WARNING]  
-    > Une modification incorrecte du Registre peut endommager gravement votre système. Avant d’apporter des modifications au Registre, il est conseillé de sauvegarder les données importantes stockées sur l’ordinateur.  
+    > Une modification incorrecte du Registre peut sérieusement endommager votre système. Avant d’apporter des modifications au Registre, il est conseillé de sauvegarder les données importantes stockées sur l’ordinateur.  
   
-    L’exemple suivant montre comment ajouter un intervalle de deux minutes (non recommandé comme état d’exécution à long terme) : **Reg Add HKLM\System\CurrentControlSet\Control\WMI\\AutoLogger\Sum/v PollingInterval/t reg\_DWORD/d 120000/f**  
+    L’exemple suivant montre comment ajouter un intervalle de deux minutes (non recommandé comme état d’exécution à long terme) : **reg Add HKLM\System\CurrentControlSet\Control\WMI\\AutoLogger\Sum/V PollingInterval/T REG\_DWORD/d 120000/f**  
   
     Les valeurs temporelles sont exprimées en millisecondes. La valeur minimale est de 60 secondes, la valeur maximale de sept jours et la valeur par défaut de 24 heures.  
   
@@ -222,19 +218,19 @@ La journalisation des accès utilisateur n’a pas pour vocation d’être un co
 ## <a name="managing-ual-in-high-volume-environments"></a>Gestion de la journalisation des accès utilisateur dans des environnements de grand volume  
 Cette section décrit ce à quoi un administrateur peut s’attendre lorsque la journalisation des accès utilisateur est utilisée sur un serveur à grand volume client :  
   
-Le nombre maximal d’accès pouvant être consignés par le biais de la journalisation des accès utilisateur est de 65 535 par jour.  Il n’est pas recommandé d’utiliser la journalisation des accès utilisateur sur des serveurs connectés directement à Internet, tels que des serveurs Web connectés directement à Internet, ni dans des scénarios où des performances extrêmement élevées constituent l’objectif principal du serveur (par exemple, dans les environnements HPC). La journalisation des accès aux entreprises est principalement conçue pour les scénarios intranet de petite, moyenne et entreprise où un volume élevé est prévu, mais pas aussi élevé que le nombre de déploiements qui servent le volume de trafic Internet régulièrement.  
+Le nombre maximal d’accès pouvant être consignés par le biais de la journalisation des accès utilisateur est de 65 535 par jour.  La journalisation des connexions réseau n’est pas recommandée pour une utilisation sur des serveurs connectés directement à Internet, tels que des serveurs Web connectés directement à Internet ou dans des scénarios où des performances extrêmement élevées constituent la fonction principale du serveur (par exemple, dans les environnements de charge de travail HPC). La journalisation des accès aux entreprises est principalement conçue pour les scénarios intranet de petite, moyenne et entreprise où un volume élevé est prévu, mais pas aussi élevé que le nombre de déploiements qui servent le volume de trafic Internet régulièrement.  
   
-**Journalisation des accès utilisateur dans la mémoire** : Étant donné que la journalisation des applications utilise le moteur ESE (Extensible Storage Engine), les besoins en mémoire de la journalisation des e/d augmentent au fil du temps (ou par quantité de demandes client). En revanche, la mémoire sera libérée lorsque le système en aura besoin pour réduire l’impact sur les performances système.  
+**Mémoire disponible : dans**la mesure où la journalisation des applications utilise le moteur ESE (Extensible Storage Engine), les besoins en mémoire de la journalisation des e/d augmentent au fil du temps (ou par quantité de demandes client). En revanche, la mémoire sera libérée lorsque le système en aura besoin pour réduire l’impact sur les performances système.  
   
-**Journalisation des accès utilisateur sur le disque** : La configuration requise pour le disque dur de la journalisation des éléments est approximativement la suivante :  
+Journalisation **sur disque**: la configuration requise pour le disque dur de la journalisation des éléments est approximativement la suivante :  
   
--   0 enregistrement client unique : 22 Mo  
+-   0 enregistrement client unique : 22 Mo  
   
--   50 000 enregistrements client unique : 80 Mo  
+-   50 000 enregistrements client unique : 80 Mo  
   
--   500 000 enregistrements client unique : 384 Mo  
+-   500 000 enregistrements client unique : 384 Mo  
   
--   1 000 000 enregistrements client unique : 729 Mo  
+-   1 000 000 enregistrements client unique : 729 Mo  
   
 ## <a name="recovering-from-a-corrupt-state"></a>Récupération à partir d’un état endommagé  
 Cette section traite de l’utilisation de la journalisation du moteur de stockage extensible (ESE) à un niveau élevé et de ce qu’un administrateur peut faire si les données de journalisation des éléments de journal sont endommagées ou irrécupérables.  
@@ -261,7 +257,7 @@ Après avoir ajouté la clé de Registre, vous devez redémarrer le service Sync
   
 Une fois la journalisation activée, 2 événements à caractère informatif sont consignés dans le canal Journaux Windows\Application chaque fois qu’un client se connecte au serveur. Pour Dossiers de travail, chaque utilisateur peut avoir un ou plusieurs périphériques clients se connectant au serveur et recherchant des mises à jour de données toutes les 10 minutes. Dans le cas d’un serveur gérant 1 000 utilisateurs, dotés de 2 périphériques chacun, les journaux d’applications sont remplacés toutes les 70 minutes, ce qui complique la résolution des problèmes non associés. Pour éviter ce risque, vous pouvez désactiver temporairement le service de journalisation des accès utilisateur ou augmenter la taille du canal Windows Windows\application du serveur.  
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi  
 
 - [Prise en main de la journalisation des accès utilisateur](get-started-with-user-access-logging.md)
   

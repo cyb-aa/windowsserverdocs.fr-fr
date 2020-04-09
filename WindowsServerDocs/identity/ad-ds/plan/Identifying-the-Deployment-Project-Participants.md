@@ -1,7 +1,6 @@
 ---
 ms.assetid: 50bd2566-e03c-4884-b5c4-895c8aab80aa
 title: Identification des participants au projet de déploiement
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: bb5ded466a45061649585a747be74adcdc1148cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 516c37165952e46c8e6e76499909e90851e305ce
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408773"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822312"
 ---
 # <a name="identifying-the-deployment-project-participants"></a>Identification des participants au projet de déploiement
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La première étape de l’établissement d’un projet de déploiement pour domaine Active Directory Service (AD DS) consiste à établir les équipes de projet de conception et de déploiement qui seront chargées de gérer la phase de conception et la phase de déploiement du cycle de projet Active Directory. En outre, vous devez identifier les individus et les groupes qui seront responsables du propriétaire et de la maintenance de l’annuaire une fois le déploiement terminé.  
   
@@ -28,10 +27,10 @@ La première étape de l’établissement d’un projet de déploiement pour dom
   
 -   [Génération d’équipes de projet](#BKMK_3)  
   
-## <a name="BKMK_1"></a>Définition des rôles spécifiques au projet  
+## <a name="defining-project-specific-roles"></a><a name="BKMK_1"></a>Définition des rôles spécifiques au projet  
 L’une des étapes importantes de l’établissement des équipes de projet consiste à identifier les personnes qui doivent détenir des rôles spécifiques à un projet. Il s’agit notamment du sponsor exécutif, de l’architecte de projet et du chef de projet. Ces personnes sont responsables de l’exécution du projet de déploiement Active Directory.  
   
-Une fois que vous avez désigné l’architecte de projet et le chef de projet, ces personnes établissent des canaux de communication au sein de l’organisation, créent des planifications de projet et identifient les personnes qui seront membres des équipes de projet, en commençant par le différents propriétaires.  
+Une fois que vous avez désigné l’architecte de projet et le chef de projet, ces personnes établissent des canaux de communication au sein de l’organisation, créent des planifications de projet et identifient les personnes qui seront membres des équipes de projet, en commençant par les différents propriétaires.  
   
 ### <a name="executive-sponsor"></a>Sponsor exécutif  
 Le déploiement d’une infrastructure comme AD DS peut avoir un impact important sur une organisation. Pour cette raison, il est important de disposer d’un parrain dirigeant qui comprend la valeur métier du déploiement, qui prend en charge le projet au niveau exécutif et peut aider à résoudre les conflits au sein de l’organisation.  
@@ -71,7 +70,7 @@ Le chef de projet facilite la coopération entre les divisions et entre les grou
   
 -   Établissement et maintien de la communication avec le sponsor exécutif tout au long du projet de déploiement  
   
-## <a name="BKMK_2"></a>Établissement des propriétaires et administrateurs  
+## <a name="establishing-owners-and-administrators"></a><a name="BKMK_2"></a>Établissement des propriétaires et administrateurs  
 Dans un projet de déploiement Active Directory, les individus propriétaires sont tenus responsables par la direction pour s’assurer que les tâches de déploiement sont terminées et que Active Directory spécifications de conception répondent aux besoins de l’organisation. Les propriétaires n’ont pas nécessairement accès ou manipulent directement l’infrastructure d’annuaire. Les administrateurs sont les personnes responsables de la réalisation des tâches de déploiement requises. Les administrateurs disposent de l’accès réseau et des autorisations nécessaires pour manipuler l’annuaire et son infrastructure.  
   
 Le rôle du propriétaire est stratégique et responsable. Les propriétaires sont responsables de la communication des administrateurs aux tâches nécessaires à l’implémentation de la conception de la Active Directory, telles que la création de contrôleurs de domaine dans la forêt. Les administrateurs sont responsables de l’implémentation de la conception sur le réseau conformément aux spécifications de conception.  
@@ -85,10 +84,10 @@ La gestion quotidienne des AD DS implique deux types de propriétaires :
   
 -   Les propriétaires de données responsables de la maintenance des informations stockées dans l’annuaire. Cela comprend la gestion et la gestion des comptes d’utilisateurs et d’ordinateurs des ressources locales telles que les serveurs membres et les stations de travail.  
   
-Il est important d’identifier le service Active Directory et les propriétaires de données tôt afin qu’ils puissent participer à la plus grande partie du processus de conception possible. Étant donné que les propriétaires de services et de données sont responsables de la maintenance à long terme de l’annuaire à la fin du projet de déploiement, il est important pour ces personnes de fournir des informations sur les besoins de l’organisation et de savoir comment et pourquoi certaines décisions de conception sont prises. Les propriétaires de services incluent le propriétaire de la forêt, le propriétaire du système de nommage des domaine Active Directory (DNS) et le propriétaire de la topologie de site. Les propriétaires de données incluent les propriétaires d’unités d’organisation.  
+Il est important d’identifier le service Active Directory et les propriétaires de données tôt afin qu’ils puissent participer à la plus grande partie du processus de conception possible. Étant donné que les propriétaires de services et de données sont responsables de la maintenance à long terme de l’annuaire à la fin du projet de déploiement, il est important pour ces personnes de fournir des informations sur les besoins de l’organisation et de savoir comment et pourquoi certaines décisions de conception ont été prises. Les propriétaires de services incluent le propriétaire de la forêt, le propriétaire du système de nommage des domaine Active Directory (DNS) et le propriétaire de la topologie de site. Les propriétaires de données incluent les propriétaires d’unités d’organisation.  
   
 ### <a name="service-and-data-administrators"></a>Administrateurs de services et de données  
-Le fonctionnement de AD DS implique deux types d’administrateurs : les administrateurs de service et les administrateurs de données. Les administrateurs de service implémentent des décisions de stratégie émises par les propriétaires de services et gèrent les tâches quotidiennes associées à la gestion du service d’annuaire et de l’infrastructure. Cela comprend la gestion des contrôleurs de domaine qui hébergent le service d’annuaire, la gestion d’autres services réseau tels que DNS qui sont requis pour AD DS, le contrôle de la configuration des paramètres à l’ensemble de la forêt et la garantie que l’annuaire est toujours Téléchargé.  
+Le fonctionnement de AD DS implique deux types d’administrateurs : les administrateurs de service et les administrateurs de données. Les administrateurs de service implémentent des décisions de stratégie émises par les propriétaires de services et gèrent les tâches quotidiennes associées à la gestion du service d’annuaire et de l’infrastructure. Cela comprend la gestion des contrôleurs de domaine qui hébergent le service d’annuaire, la gestion d’autres services réseau tels que DNS qui sont requis pour AD DS, le contrôle de la configuration des paramètres à l’ensemble de la forêt et la garantie que l’annuaire est toujours disponible.  
   
 Les administrateurs de service sont également chargés d’effectuer les tâches de déploiement Active Directory en cours qui sont nécessaires après la fin du processus de déploiement initial de Windows Server 2008 Active Directory. Par exemple, à mesure que les demandes sur l’annuaire augmentent, les administrateurs de service créent des contrôleurs de domaine supplémentaires et établissent ou suppriment des approbations entre les domaines, si nécessaire. Pour cette raison, l’équipe de déploiement Active Directory doit inclure les administrateurs de service.  
   
@@ -96,7 +95,7 @@ Vous devez veiller à affecter des rôles d’administrateur de service uniqueme
   
 Les administrateurs de données sont des utilisateurs d’un domaine qui sont responsables de la gestion des données stockées dans AD DS tels que les comptes d’utilisateurs et de groupes, et pour la maintenance des ordinateurs qui sont membres de leur domaine. Les administrateurs de données contrôlent des sous-ensembles d’objets dans le répertoire et n’ont aucun contrôle sur l’installation ou la configuration du service d’annuaire.  
   
-Les comptes d’administrateur de données ne sont pas fournis par défaut. Une fois que l’équipe de conception a déterminé comment les ressources doivent être gérées pour l’organisation, les propriétaires de domaine doivent créer des comptes d’administrateur de données et les déléguer aux autorisations appropriées en fonction de l’ensemble d’objets dont les administrateurs sont responsables. .  
+Les comptes d’administrateur de données ne sont pas fournis par défaut. Une fois que l’équipe de conception a déterminé comment les ressources doivent être gérées pour l’organisation, les propriétaires du domaine doivent créer des comptes d’administrateur de données et les déléguer aux autorisations appropriées en fonction de l’ensemble d’objets dont les administrateurs sont responsables.  
   
 Il est préférable de limiter le nombre d’administrateurs de service au sein de votre organisation au nombre minimal requis pour s’assurer que l’infrastructure continue à fonctionner. La majorité des tâches administratives peuvent être effectuées par les administrateurs de données. Les administrateurs de service ont besoin d’un ensemble de compétences plus larges, car ils sont responsables de la gestion de l’annuaire et de l’infrastructure qui le prend en charge. Les administrateurs de données n’ont besoin que des compétences nécessaires pour gérer leur partie de l’annuaire. La Division des affectations de travail de cette manière entraîne des économies pour l’organisation, car seul un petit nombre d’administrateurs doivent être formés pour fonctionner et gérer l’ensemble de l’annuaire et de son infrastructure.  
   
@@ -107,7 +106,7 @@ Le déploiement de AD DS nécessite la coordination et la communication entre de
 Une fois le projet de déploiement terminé, ces propriétaires de services et de données continuent à être responsables de la partie de l’infrastructure gérée par leur groupe. Dans un environnement Active Directory, ces propriétaires sont le propriétaire de la forêt, le DNS pour AD DS propriétaire, le propriétaire de la topologie de site et le propriétaire de l’unité d’organisation. Les rôles de ces propriétaires de services et de données sont expliqués dans les sections suivantes.  
   
 #### <a name="forest-owner"></a>Propriétaire de la forêt  
-Le propriétaire de la forêt est généralement responsable informatique au sein de l’organisation qui est responsable de l’Active Directory processus de déploiement et qui est finalement responsable de la maintenance de la livraison de service au sein de la forêt après la le déploiement est terminé. Le propriétaire de la forêt affecte les individus pour remplir les autres rôles de propriété en identifiant le personnel clé au sein de l’organisation qui est en mesure de fournir les informations nécessaires sur l’infrastructure réseau et les besoins administratifs. Le propriétaire de la forêt est responsable des opérations suivantes :  
+Le propriétaire de la forêt est généralement responsable informatique au sein de l’organisation qui est responsable de l’Active Directory processus de déploiement et qui est finalement responsable de la maintenance de la livraison de service au sein de la forêt une fois le déploiement terminé. Le propriétaire de la forêt affecte les individus pour remplir les autres rôles de propriété en identifiant le personnel clé au sein de l’organisation qui est en mesure de fournir les informations nécessaires sur l’infrastructure réseau et les besoins administratifs. Le propriétaire de la forêt est responsable des opérations suivantes :  
   
 -   Déploiement du domaine racine de la forêt pour créer la forêt  
   
@@ -172,7 +171,7 @@ Le propriétaire de l’unité d’organisation est responsable de la gestion de
   
 Le propriétaire de l’unité d’organisation est un propriétaire de données.  
   
-## <a name="BKMK_3"></a>Génération d’équipes de projet  
+## <a name="building-project-teams"></a><a name="BKMK_3"></a>Génération d’équipes de projet  
 Active Directory équipes de projet sont des groupes temporaires chargés d’effectuer Active Directory tâches de conception et de déploiement. Une fois le projet de déploiement de Active Directory terminé, les propriétaires assument la responsabilité de l’annuaire et les équipes de projet peuvent DISBAND.  
   
 La taille des équipes de projet varie en fonction de la taille de l’organisation. Dans les petites organisations, une seule personne peut couvrir plusieurs domaines de responsabilité dans une équipe de projet et être impliquée dans plusieurs phases du déploiement. Les grandes organisations peuvent nécessiter des équipes de plus grande taille avec des personnes différentes ou même des équipes différentes couvrant les différents domaines de responsabilité. La taille des équipes n’est pas importante tant que tous les domaines de responsabilité sont affectés, et les objectifs de conception de l’organisation sont atteints.  
@@ -184,7 +183,7 @@ La séparation de l’administration des services et des données dans AD DS per
   
 Pour les organisations qui ont un groupe informatique centralisé, le groupe informatique est généralement le propriétaire de la forêt et, par conséquent, le propriétaire de la forêt potentielle pour tous les déploiements futurs. Les organisations qui incluent un certain nombre de groupes informatiques d’infrastructure indépendants ont un certain nombre de propriétaires de forêts potentiels. Si votre organisation dispose déjà d’une infrastructure Active Directory en place, tous les propriétaires de forêts actuels sont également des propriétaires de forêts potentiels pour les nouveaux déploiements.  
   
-Sélectionnez l’un des propriétaires de forêts potentiels comme propriétaire de la forêt pour chaque forêt que vous envisagez de déployer. Ces propriétaires de forêts potentiels sont responsables de l’utilisation de l’équipe de conception pour déterminer si leur forêt est réellement déployée ou si une autre voie d’action (comme rejoindre une autre forêt existante) est une meilleure utilisation des ressources disponibles. et répond toujours à leurs besoins. Le propriétaire de la forêt (ou les propriétaires) de votre organisation est membre de l’équipe de conception Active Directory.  
+Sélectionnez l’un des propriétaires de forêts potentiels comme propriétaire de la forêt pour chaque forêt que vous envisagez de déployer. Ces propriétaires de forêts potentiels sont responsables de l’utilisation de l’équipe de conception pour déterminer si leur forêt est réellement déployée ou si une autre voie d’action (telle que la jonction à une autre forêt existante) est une meilleure utilisation des ressources disponibles, tout en répondant à leurs besoins. Le propriétaire de la forêt (ou les propriétaires) de votre organisation est membre de l’équipe de conception Active Directory.  
   
 ### <a name="establishing-a-design-team"></a>Établissement d’une équipe de conception  
 L’équipe de conception Active Directory est chargée de rassembler toutes les informations nécessaires pour prendre des décisions sur la conception de la structure logique Active Directory.  
@@ -253,7 +252,7 @@ L’équipe de déploiement Active Directory comprend les membres suivants :
 L’équipe de déploiement collabore avec le service et les administrateurs de données au cours de la phase de déploiement pour s’assurer que les membres de l’équipe d’exploitation connaissent bien la nouvelle conception. Cela permet d’assurer une transition sans heurts de la propriété lorsque l’opération de déploiement est terminée. À la fin du processus de déploiement, la responsabilité de la gestion du nouvel environnement de Active Directory passe à l’équipe des opérations.  
   
 ### <a name="documenting-the-design-and-deployment-teams"></a>Documentation des équipes de conception et de déploiement  
-Documentez les noms et les informations de contact des personnes qui feront partie de la conception et du déploiement de AD DS. Identifiez qui sera responsable de chaque rôle sur les équipes de conception et de déploiement. Initialement, cette liste comprend les propriétaires de forêts potentiels, le chef de projet et l’architecte de projet. Lorsque vous déterminez le nombre de forêts que vous allez déployer, vous devrez peut-être créer de nouvelles équipes de conception pour des forêts supplémentaires. Notez que vous devez mettre à jour votre documentation au fur et à mesure que vous identifiez les différents propriétaires de Active Directory pendant le processus de conception. Pour obtenir une feuille de travail qui vous aide à documenter les équipes de conception et de déploiement pour chaque forêt, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des outils d’aide pour le kit de déploiement de Windows Server 2003 ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) et ouvrez « Informations sur les équipes de conception et de déploiement» (DSSLOGI_1. doc).  
+Documentez les noms et les informations de contact des personnes qui feront partie de la conception et du déploiement de AD DS. Identifiez qui sera responsable de chaque rôle sur les équipes de conception et de déploiement. Initialement, cette liste comprend les propriétaires de forêts potentiels, le chef de projet et l’architecte de projet. Lorsque vous déterminez le nombre de forêts que vous allez déployer, vous devrez peut-être créer de nouvelles équipes de conception pour des forêts supplémentaires. Notez que vous devez mettre à jour votre documentation au fur et à mesure que vous identifiez les différents propriétaires de Active Directory pendant le processus de conception. Pour obtenir une feuille de travail qui vous aide à documenter les équipes de conception et de déploiement pour chaque forêt, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des outils d’aide pour le kit de déploiement de Windows Server 2003 ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) et ouvrez « informations sur l’équipe de conception et de déploiement » (DSSLOGI_1. doc).  
   
 
 

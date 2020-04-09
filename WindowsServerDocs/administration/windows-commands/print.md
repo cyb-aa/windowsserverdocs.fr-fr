@@ -1,24 +1,20 @@
 ---
 title: print
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aa2325d5-a993-4ed3-b996-255165452db8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ada0657e2f17754e55e97e6488aac99fb0025afb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 36966d8d3beb032ee0dcee50d9bd5bc0111bf4f5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372152"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837372"
 ---
 # <a name="print"></a>print
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 Print [/d:<PrinterName>] [<Drive>:][<Path>]<FileName>[ ...]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -55,7 +51,7 @@ Print [/d:<PrinterName>] [<Drive>:][<Path>]<FileName>[ ...]
     -   Affichage de l’état d’une imprimante
     -   Préparation d’une imprimante pour le changement de page de codes
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour envoyer le fichier Report. txt situé dans le répertoire actif à une imprimante connectée à LPT2 sur l’ordinateur local, tapez :
 ```
@@ -66,9 +62,9 @@ Pour envoyer le fichier Report. txt situé dans le répertoire c:\Accounting à 
 print /d:\\copyroom\printer1 c:\accounting\report.txt 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Référence des commandes d’impression](print-command-reference.md)
 

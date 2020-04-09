@@ -1,28 +1,24 @@
 ---
 title: netstat
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 60e2718f-93cc-4ceb-bf0e-58a6a6e4fc8b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 54bd21b7e96275d329e45e825971d9236488c793
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: afd34cca2ecd3caa7ac480b380b85ba6d2a19fcb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373264"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839012"
 ---
 # <a name="netstat"></a>netstat
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche les connexions TCP actives, les ports sur lesquels l’ordinateur écoute, les statistiques Ethernet, la table de routage IP, les statistiques IPv4 (pour les protocoles IP, ICMP, TCP et UDP) et les statistiques IPv6 (pour les protocoles IPv6, ICMPv6, TCP sur IPv6 et UDP sur IPv6). Utilisé sans paramètres, **netstat** affiche les connexions TCP actives. 
 
@@ -31,7 +27,7 @@ Affiche les connexions TCP actives, les ports sur lesquels l’ordinateur écout
 netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<Interval>]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |   Paramètre   |                                                                                                                                              Description                                                                                                                                              |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,10 +47,10 @@ netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<Interval>]
     -   Proto nom du protocole (TCP ou UDP).
     -   Adresse locale adresse IP de l’ordinateur local et numéro de port utilisé. Le nom de l’ordinateur local qui correspond à l’adresse IP et le nom du port s’affichent sauf si le paramètre **-n** est spécifié. Si le port n’est pas encore établi, le numéro de port est affiché sous la forme d’un astérisque (*).
     -   adresse étrangère adresse IP et numéro de port de l’ordinateur distant auquel le socket est connecté. Les noms qui correspondent à l’adresse IP et au port s’affichent, sauf si le paramètre **-n** est spécifié. Si le port n’est pas encore établi, le numéro de port est affiché sous la forme d’un astérisque (*).
-    -   Département Indique l’état d’une connexion TCP. Les États possibles sont les suivants : CLOSE_WAIT CLOSEd FIN_WAIT_1 FIN_WAIT_2 LAST_ACK listEN SYN_RECEIVED SYN_SEND timeD_WAIT pour plus d’informations sur les États d’une connexion TCP, consultez la RFC 793.
+    -   Département Indique l’état d’une connexion TCP. Les États possibles sont les suivants : CLOSE_WAIT fermé FIN_WAIT_1 FIN_WAIT_2 LAST_ACK écouter SYN_RECEIVED SYN_SEND timeD_WAIT pour plus d’informations sur les États d’une connexion TCP, consultez la RFC 793.
 -   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 Pour afficher à la fois les statistiques Ethernet et les statistiques de tous les protocoles, tapez :
 ```
 netstat -e -s
@@ -73,4 +69,4 @@ netstat -n -o
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

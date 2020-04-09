@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: b62d031c547f140ac5008af20a9e0ee4bcecc919
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 326390a5b40de46ca932043e9982f84c7758d901
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376786"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844002"
 ---
 # <a name="fsutil-usn"></a>Fsutil USN
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -33,7 +33,7 @@ fsutil usn [readdata] <FileName>
 fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |-------------|---------------|
@@ -57,7 +57,7 @@ fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 |à reajourner|Lit les enregistrements USN dans le journal USN.|
 |Minver = nombre\<>|Version principale minimale de USN_RECORD à retourner. Valeur par défaut = 2.|
 |MaxVer = nombre\<>|Version principale maximale de USN_RECORD à retourner. Valeur par défaut = 4.|
-|startusn =\<numéro USN >|USN à partir duquel commencer la lecture du journal USN. Valeur par défaut = 0.|
+|startusn =\<numéro USN >|USN à partir duquel commencer la lecture du journal USN. Valeur par défaut = 0.|
 
 
 ## <a name="remarks"></a>Notes
@@ -84,7 +84,7 @@ fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 
     La suppression ou la désactivation d’un journal des modifications actif prend beaucoup de temps, car le système doit accéder à tous les enregistrements de la table de fichiers maîtres (MFT) et affecter la valeur 0 (zéro) au dernier attribut USN. Ce processus peut prendre plusieurs minutes et peut se poursuivre après le redémarrage du système, si un redémarrage est nécessaire. Pendant ce processus, le journal des modifications n’est pas considéré comme actif, ni désactivé. Si le système désactive le journal, il est inaccessible et toutes les opérations du journal retournent des erreurs. Vous devez faire attention à la désactivation d’un journal actif, car cela affecte négativement les autres applications qui utilisent le journal.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour créer un journal des modifications USN sur le lecteur C, tapez :
 
 ```
@@ -127,8 +127,8 @@ Pour lire le journal USN avec un numéro USN de début spécifique, tapez :
 fsutil usn readjournal startusn=0xF00
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

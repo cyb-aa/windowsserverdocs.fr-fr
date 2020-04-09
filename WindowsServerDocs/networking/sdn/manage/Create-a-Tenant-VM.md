@@ -1,24 +1,20 @@
 ---
 title: Créer une machine virtuelle et établir la connexion à un réseau virtuel locataire ou un réseau local virtuel
 description: Dans cette rubrique, nous vous montrons comment créer une machine virtuelle cliente et la connecter à un réseau virtuel que vous avez créé avec la virtualisation de réseau Hyper-V ou à un réseau local virtuel (VLAN).
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3c62f533-1815-4f08-96b1-dc271f5a2b36
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/24/2018
-ms.openlocfilehash: ef588cfc93216f13490ef3196ec0990b9e7f48d3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 3949c4f10015a7fdfe4955b950b109a702553c45
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309794"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854512"
 ---
 # <a name="create-a-vm-and-connect-to-a-tenant-virtual-network-or-vlan"></a>Créer une machine virtuelle et établir la connexion à un réseau virtuel locataire ou un réseau local virtuel
 
@@ -57,7 +53,7 @@ Vérifiez que vous avez déjà créé un réseau virtuel avant d’utiliser cet 
 2. Récupérez le réseau virtuel qui contient le sous-réseau auquel vous souhaitez connecter la carte réseau.
 
    ```Powershell 
-   $vnet = get-networkcontrollervirtualnetwork -connectionuri $uri -ResourceId “Contoso_WebTier”
+   $vnet = get-networkcontrollervirtualnetwork -connectionuri $uri -ResourceId "Contoso_WebTier"
    ```
 
 3. Créez un objet d’interface réseau dans le contrôleur de réseau.
@@ -77,14 +73,14 @@ Vérifiez que vous avez déjà créé un réseau virtuel avant d’utiliser cet 
    $ipconfiguration = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfiguration
    $ipconfiguration.resourceid = "MyVM_IP1"
    $ipconfiguration.properties = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfigurationProperties
-   $ipconfiguration.properties.PrivateIPAddress = “24.30.1.101”
+   $ipconfiguration.properties.PrivateIPAddress = "24.30.1.101"
    $ipconfiguration.properties.PrivateIPAllocationMethod = "Static"
     
    $ipconfiguration.properties.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
    $ipconfiguration.properties.subnet.ResourceRef = $vnet.Properties.Subnets[0].ResourceRef
     
    $vmnicproperties.IpConfigurations = @($ipconfiguration)
-   New-NetworkControllerNetworkInterface –ResourceID “MyVM_Ethernet1” –Properties $vmnicproperties –ConnectionUri $uri
+   New-NetworkControllerNetworkInterface –ResourceID "MyVM_Ethernet1" –Properties $vmnicproperties –ConnectionUri $uri
    ```
 
 4. Récupérez l’InstanceId de l’interface réseau à partir du contrôleur de réseau.
@@ -103,7 +99,7 @@ Vérifiez que vous avez déjà créé un réseau virtuel avant d’utiliser cet 
     
    $FeatureId = "9940cd46-8b06-43bb-b9d5-93d50381fd56"
     
-   $vmNics = Get-VMNetworkAdapter -VMName “MyVM”
+   $vmNics = Get-VMNetworkAdapter -VMName "MyVM"
     
    $CurrentFeature = Get-VMSwitchExtensionPortFeature -FeatureId $FeatureId -VMNetworkAdapter $vmNics
     
@@ -134,7 +130,7 @@ Vérifiez que vous avez déjà créé un réseau virtuel avant d’utiliser cet 
 6. Démarrez la machine virtuelle.
 
    ```PowerShell
-    Get-VM -Name “MyVM” | Start-VM 
+    Get-VM -Name "MyVM" | Start-VM 
    ```
 
 Vous venez de créer une machine virtuelle, de connecter la machine virtuelle à un réseau virtuel locataire et de démarrer la machine virtuelle afin qu’elle puisse traiter les charges de travail des locataires.
@@ -155,7 +151,7 @@ Vous venez de créer une machine virtuelle, de connecter la machine virtuelle à
 2. Définissez l’ID de réseau local virtuel sur la carte réseau de machine virtuelle.
 
    ```PowerShell
-   Set-VMNetworkAdapterIsolation –VMName “MyVM” -AllowUntaggedTraffic $true -IsolationMode VLAN -DefaultIsolationId 123
+   Set-VMNetworkAdapterIsolation –VMName "MyVM" -AllowUntaggedTraffic $true -IsolationMode VLAN -DefaultIsolationId 123
    ```
 
 3. Récupérez le sous-réseau de réseau logique et créez l’interface réseau. 
@@ -174,14 +170,14 @@ Vous venez de créer une machine virtuelle, de connecter la machine virtuelle à
     $ipconfiguration = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfiguration
     $ipconfiguration.resourceid = "MyVM_Ip1"
     $ipconfiguration.properties = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfigurationProperties
-    $ipconfiguration.properties.PrivateIPAddress = “10.127.132.177”
+    $ipconfiguration.properties.PrivateIPAddress = "10.127.132.177"
     $ipconfiguration.properties.PrivateIPAllocationMethod = "Static"
 
     $ipconfiguration.properties.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
     $ipconfiguration.properties.subnet.ResourceRef = $logicalnet.Properties.Subnets[0].ResourceRef
 
     $vmnicproperties.IpConfigurations = @($ipconfiguration)
-    $vnic = New-NetworkControllerNetworkInterface –ResourceID “MyVM_Ethernet1” –Properties $vmnicproperties –ConnectionUri $uri
+    $vnic = New-NetworkControllerNetworkInterface –ResourceID "MyVM_Ethernet1" –Properties $vmnicproperties –ConnectionUri $uri
 
     $vnic.InstanceId
    ```
@@ -192,7 +188,7 @@ Vous venez de créer une machine virtuelle, de connecter la machine virtuelle à
    #The hardcoded Ids in this section are fixed values and must not change.
    $FeatureId = "9940cd46-8b06-43bb-b9d5-93d50381fd56"
 
-   $vmNics = Get-VMNetworkAdapter -VMName “MyVM”
+   $vmNics = Get-VMNetworkAdapter -VMName "MyVM"
 
    $CurrentFeature = Get-VMSwitchExtensionPortFeature -FeatureId $FeatureId -VMNetworkAdapter $vmNic
         
@@ -223,7 +219,7 @@ Vous venez de créer une machine virtuelle, de connecter la machine virtuelle à
 5. Démarrez la machine virtuelle.
 
    ```PowerShell
-   Get-VM -Name “MyVM” | Start-VM 
+   Get-VM -Name "MyVM" | Start-VM 
    ```
 
 Vous venez de créer une machine virtuelle, de connecter la machine virtuelle à un réseau local virtuel et de démarrer la machine virtuelle afin qu’elle puisse traiter les charges de travail des locataires.

@@ -1,24 +1,20 @@
 ---
 title: openfiles
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c3be561d-a11f-4bf1-9835-8e4e96fe98ec
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38b1d27b86551c6d4cd9e6b1ad87bfc0e8dd221d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f684acc48fbb279ced8ce1dfb3a930ff15f3bf13
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372500"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837822"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -31,7 +27,7 @@ Cette rubrique contient des informations sur les commandes suivantes :
 -   [openfiles/Query](#BKMK_query)
 -   [openfiles/local](#BKMK_local)
 
-## <a name="BKMK_disconnect"></a>OPENFILES/Disconnect
+## <a name="openfiles-disconnect"></a><a name=BKMK_disconnect></a>OPENFILES/Disconnect
 
 Permet à un administrateur de déconnecter des fichiers et des dossiers qui ont été ouverts à distance par le biais d’un dossier partagé.
 
@@ -41,7 +37,7 @@ Permet à un administrateur de déconnecter des fichiers et des dossiers qui ont
 openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/id <OpenFileID>] | [/a <AccessedBy>] | [/o {read | write | read/write}]} [/op <OpenFile>]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |            Paramètre             |                                                                                                                                 Description                                                                                                                                  |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,7 +56,7 @@ Pour déconnecter tous les fichiers ouverts avec l’ID de fichier 26843578, tap
 ```
 openfiles /disconnect /id 26843578
 ```
-Pour déconnecter tous les fichiers et répertoires ouverts accessibles par l’utilisateur « hiropln », tapez :
+Pour déconnecter tous les fichiers et répertoires ouverts accessibles par l’utilisateur hiropln, tapez :
 ```
 openfiles /disconnect /a hiropln
 ```
@@ -68,16 +64,16 @@ Pour déconnecter tous les fichiers et répertoires ouverts en mode lecture/écr
 ```
 openfiles /disconnect /o read/write
 ```
-Pour déconnecter le répertoire avec le nom de fichier ouvert «C:\TestShare\", quelle que soit la personne qui y accède, tapez :
+Pour déconnecter le répertoire avec le nom de fichier ouvert C:\TestShare\,, quelle que soit la personne qui y accède, tapez :
 ```
-openfiles /disconnect /a * /op "c:\testshare\"
+openfiles /disconnect /a * /op c:\testshare\
 ```
-Pour déconnecter tous les fichiers ouverts sur l’ordinateur distant « Srvmain » qui sont accessibles par l’utilisateur « hiropln », quel que soit leur ID, tapez :
+Pour déconnecter tous les fichiers ouverts sur l’ordinateur distant Srvmain qui sont accessibles par l’utilisateur hiropln, quel que soit leur ID, tapez :
 ```
 openfiles /disconnect /s srvmain /u maindom\hiropln /id *
 ```
 
-## <a name="BKMK_query"></a>openfiles/Query
+## <a name="openfiles-query"></a><a name=BKMK_query></a>openfiles/Query
 
 Interroge et affiche tous les fichiers ouverts.
 
@@ -87,7 +83,7 @@ Interroge et affiche tous les fichiers ouverts.
 openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo {TABLE | LIST | CSV}] [/nh] [/v]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |          Paramètre           |                                                                                                                                 Description                                                                                                                                  |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -113,7 +109,7 @@ Pour interroger et afficher tous les fichiers ouverts sous forme de liste avec d
 ```
 openfiles /query /fo list /v
 ```
-Pour interroger et afficher tous les fichiers ouverts sur le système distant « Srvmain » en utilisant les informations d’identification de l’utilisateur « hiropln » sur le domaine « maindol », tapez :
+Pour interroger et afficher tous les fichiers ouverts sur le système distant Srvmain en utilisant les informations d’identification de l’utilisateur hiropln sur le domaine maindol, tapez :
 ```
 openfiles /query /s srvmain /u maindom\hiropln /p p@ssW23
 ```
@@ -121,7 +117,7 @@ openfiles /query /s srvmain /u maindom\hiropln /p p@ssW23
 > [!NOTE]
 > Dans cet exemple, le mot de passe est fourni sur la ligne de commande. Pour empêcher l’affichage du mot de passe, laissez l’option **/p** . Vous serez invité à entrer le mot de passe, qui ne sera pas renvoyé à l’écran.
 
-## <a name="BKMK_local"></a>openfiles/local
+## <a name="openfiles-local"></a><a name=BKMK_local></a>openfiles/local
 
 Active ou désactive l’indicateur global de la liste gérer les objets. En cas d’utilisation sans paramètre, **openfiles/local** affiche l’état actuel de l’indicateur global maintain Object List.
 
@@ -131,7 +127,7 @@ Active ou désactive l’indicateur global de la liste gérer les objets. En cas
 openfiles /local [on | off]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -167,6 +163,6 @@ Pour désactiver l’indicateur global gérer la liste d’objets, tapez :
 openfiles /local off
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

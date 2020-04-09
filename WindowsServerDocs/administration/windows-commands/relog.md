@@ -1,24 +1,20 @@
 ---
 title: relog
 description: Découvrez comment extraire des informations de compteur de performances à partir des fichiers journaux coutner de performances.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7480f6c0-9953-4d70-9b1c-b27e09d8db13
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: daedd85f1557c191a690e7eb750559cfd268d3a0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ecd06b11c2f055761ed06ef6c9332fb491eaaf3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371624"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836182"
 ---
 # <a name="relog"></a>relog
 
@@ -31,7 +27,7 @@ Extrait les compteurs de performance des journaux des compteurs de performance d
 relog [<FileName> [<FileName> ...]] [/a] [/c <path> [<path> ...]] [/cf <FileName>] [/f  {bin|csv|tsv|SQL}] [/t <Value>] [/o {OutputFile|DSN!CounterLog}] [/b <M/D/YYYY> [[<HH>:] <MM>:] <SS>] [/e <M/D/YYYY> [[<HH>:] <MM>:] <SS>] [/config {<FileName>|i}] [/q]  
 ```  
 
-### <a name="parameters"></a>Paramètres  
+#### <a name="parameters"></a>Paramètres  
 
 |                                         Paramètre                                          |                                                                                                                                                                  Description                                                                                                                                                                   |
 |--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -74,7 +70,7 @@ Utilisation de l’option **/config** :
 
 Pour plus d’informations sur l’incorporation de **relog** dans vos scripts Windows Management Instrumentation (WMI), consultez « Scripting WMI » (en anglais) sur le [site Web des kits de ressources Microsoft Windows](https://go.microsoft.com/fwlink/?LinkId=4665).  
 
-## <a name="BKMK_Examples"></a>Illustre  
+## <a name="examples"></a><a name="BKMK_Examples"></a>Illustre  
 Pour rééchantillonner les journaux de suivi existants à intervalles fixes de 30, répertoriez les chemins d’accès des compteurs, les fichiers de sortie et les formats :  
 ```  
 relog c:\perflogs\daily_trace_log.blg /cf counter_file.txt /o c:\perflogs\reduced_log.csv /t 30 /f csv  
@@ -89,4 +85,4 @@ relog "c:\perflogs\daily_trace_log.blg" -f sql -o "SQL:sql2016x64odbc!counter_lo
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

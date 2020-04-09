@@ -1,51 +1,46 @@
 ---
 title: Bitsadmin gettemporaryname
-description: La rubrique commandes Windows pour **Bitsadmin gettemporaryname** -indique le nom de fichier temporaire du fichier donné au sein du travail.
-ms.custom: na
+description: La rubrique commandes Windows pour **Bitsadmin gettemporaryname**, qui indique le nom de fichier temporaire du fichier donné au sein du travail.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 68925edc-a801-4292-a812-7471c4f60fdd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b665fae4c0bfdd5ea04b929be49f9590430b358
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6c331ecf12cb02d34c76692158c79eafbe5691c5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381301"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850452"
 ---
 # <a name="bitsadmin-gettemporaryname"></a>Bitsadmin gettemporaryname
-
-
 
 Indique le nom de fichier temporaire du fichier donné au sein du travail.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /GetTemporaryName <Job> <file index> 
+bitsadmin /gettemporaryname <job> <file_index>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
-|Index de fichiers|Commence à 0|
+| Paramètre | Description |
+| -------------- | -------------- |
+| le travail | Nom complet ou GUID du travail. |
+| file_index | Démarre à partir de 0. |
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
-L’exemple suivant indique le nom de fichier temporaire du fichier 2 pour le travail nommé *myJob*.
+L’exemple suivant indique le nom de fichier temporaire du fichier 2 pour le travail nommé *myDownloadJob*.
+
 ```
-C:\>bitsadmin /GetTemporaryName myJob 1 
+C:\>bitsadmin /gettemporaryname myDownloadJob 1
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

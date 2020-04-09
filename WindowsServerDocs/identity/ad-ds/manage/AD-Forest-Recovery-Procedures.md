@@ -1,6 +1,5 @@
 ---
 title: 'Récupération de la forêt Active Directory : procédures'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 47a471fb-3b0b-4aa8-8525-1c92d0d51e93
 ms.technology: identity-adds
-ms.openlocfilehash: 0d427448c8d2a6616b87a524bcc941fc8555cbd4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 37422ce09d02615a6048142695820200388661a6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390312"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823763"
 ---
 # <a name="ad-forest-recovery---procedures"></a>Récupération de la forêt Active Directory : procédures
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Cette section contient des procédures relatives au processus de récupération de forêt. Les procédures s’appliquent à Windows Server 2016, 2012 R2, 2012 et s’appliquent également à Windows Server 2008 R2 et 2008, avec quelques exceptions mineures.
 

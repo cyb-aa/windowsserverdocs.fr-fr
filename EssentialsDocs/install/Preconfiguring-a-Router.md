@@ -1,23 +1,19 @@
 ---
 title: Préconfiguration d’un routeur
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9153ac90-bb0c-4b8d-93b2-e2121ed13636
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bdfa3215b7a2426bcde807119971d99ccc229716
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: c39bf3ac260a23b7fc9cc9feec7f34786b1e8aae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311576"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80819942"
 ---
 # <a name="preconfiguring-a-router"></a>Préconfiguration d’un routeur
 
@@ -43,7 +39,7 @@ En général, une nouvelle installation du système d’exploitation nécessite 
   
 -   Si le routeur prend en charge plusieurs sous-réseaux, l’adresse IP du serveur doit être remise en tant que serveur DNS unique via le protocole DHCP.  
   
--   Si le routeur dispose d’une fonctionnalité de contrôle d’accès intégrée pour les services de domaine Active DirectoryÂ®, vous pouvez automatiser l’intégration de Active Directory lors de la configuration initiale du serveur. N’oubliez pas d’exposer cette fonction via le complément de gestion du routeur dans le Tableau de bord.  
+-   Si le routeur dispose d’une fonctionnalité de contrôle d’accès intégrée pour les services de domaine Active DirectoryÂ&reg;, vous pouvez automatiser l’intégration de Active Directory lors de la configuration initiale du serveur. N’oubliez pas d’exposer cette fonction via le complément de gestion du routeur dans le Tableau de bord.  
   
 > [!NOTE]
 >  Pour plus d'informations sur la configuration des connexions réseau sans fil, voir [Configuration de la prise en charge d'un réseau sans fil](Configure-Support-for-a-Wireless-Network.md).  

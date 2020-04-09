@@ -1,6 +1,6 @@
 ---
 title: Cleanmgr
-description: Découvrez comment utiliser les options de ligne de commande pour configurer l’outil de nettoyage de disque (Cleanmgr. exe) pour nettoyer automatiquement certains fichiers.
+description: Découvrez comment utiliser les options de ligne de commande pour configurer l’outil Nettoyage de disque (Cleanmgr.exe) pour nettoyer automatiquement certains fichiers.
 ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: iangpgh
@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 0646922f409d4ea8abb85c927a329013e32016de
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 9abde0cb0db910cd500df94f98c76e6c370cba2a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947584"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847712"
 ---
 # <a name="cleanmgr"></a>Cleanmgr
 
@@ -29,7 +29,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 cleanmgr [/d <driveletter>] [/sageset:n]  [/sagerun:n] [/TUNEUP:n] [/LOWDISK] [/VERYLOWDISK]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |      Paramètre      |    Description     |
 | ------------------- | ------------------ |
@@ -89,4 +89,4 @@ cleanmgr /tuneup:1
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[Libérer de l’espace sur le lecteur Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)
+[Libérer de l’espace disque dans Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)

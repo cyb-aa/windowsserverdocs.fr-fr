@@ -1,24 +1,25 @@
 ---
 title: Déploiement d’un serveur de fichiers en cluster à deux nœuds
+description: Cet article décrit la création d’un cluster de serveurs de fichiers à deux nœuds.
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 02/01/2019
-description: Cet article décrit la création d’un cluster de serveurs de fichiers à deux nœuds.
-ms.openlocfilehash: 03e78495b3fc85449d3d383706fb82541dd10372
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b92ab965e94bec5bc7cfa5d068bff601d2f8f6b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361304"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827882"
 ---
 # <a name="deploying-a-two-node-clustered-file-server"></a>Déploiement d’un serveur de fichiers en cluster à deux nœuds
 
 > S’applique à : Windows Server 2019, Windows Server 2016
 
-Un cluster de basculement est un groupe d'ordinateurs indépendants qui travaillent conjointement pour accroître la disponibilité des applications et des services. Les serveurs en cluster (appelés « nœuds ») sont connectés par des câbles physiques et par des logiciels. En cas de défaillance de l'un des nœuds, un autre prend sa place pour fournir le service (processus appelé « basculement »), garantissant ainsi des interruptions minimales de service pour les utilisateurs.
+Un cluster de basculement est un groupe d'ordinateurs indépendants qui travaillent conjointement pour accroître la disponibilité des applications et des services. Les serveurs en cluster (appelés nœuds) sont reliés via des câbles physiques et des logiciels. En cas de défaillance de l'un des nœuds, un autre prend sa place pour fournir le service (processus appelé « basculement »), garantissant ainsi des interruptions minimales de service pour les utilisateurs.
 
 Ce guide décrit les étapes d’installation et de configuration d’un cluster de basculement de serveur de fichiers à usage général qui a deux nœuds. En créant la configuration dans ce guide, vous pouvez en savoir plus sur les clusters de basculement et vous familiariser avec l’interface du composant logiciel enfichable Gestion du cluster de basculement dans Windows Server 2019 ou Windows Server 2016.
 
@@ -42,7 +43,7 @@ Le scénario suivant décrit comment un cluster de basculement de serveur de fic
 
 La liste suivante décrit les fonctionnalités de configuration de dossiers partagés intégrées au clustering de basculement :
 
-- L’affichage est limité à des dossiers partagés en cluster uniquement (pas de combinaison avec des dossiers partagés non cluster) : quand un utilisateur affiche des dossiers partagés en spécifiant le chemin d’accès d’un serveur de fichiers en cluster, l’affichage inclut uniquement les dossiers partagés qui font partie du fichier spécifique. rôle de serveur. Il exclut les dossiers partagés non cluster et partage une partie des rôles de serveur de fichiers distincts qui se trouvent sur un nœud du cluster.
+- L’affichage est limité aux dossiers partagés en cluster uniquement (pas de combinaison avec les dossiers partagés non cluster) : quand un utilisateur affiche des dossiers partagés en spécifiant le chemin d’accès d’un serveur de fichiers en cluster, l’affichage inclut uniquement les dossiers partagés qui font partie du rôle de serveur de fichiers spécifique. Il exclut les dossiers partagés non cluster et partage une partie des rôles de serveur de fichiers distincts qui se trouvent sur un nœud du cluster.
 
 - Énumération basée sur l’accès : vous pouvez utiliser l’énumération basée sur l’accès pour masquer un dossier spécifié à partir de l’affichage des utilisateurs. Au lieu de permettre aux utilisateurs de voir un dossier sans qu'ils puissent toutefois y accéder, vous pouvez choisir de les empêcher de voir le dossier. Vous pouvez configurer l’énumération basée sur l’accès pour un dossier partagé en cluster de la même façon que pour un dossier partagé non cluster.
 
@@ -103,7 +104,7 @@ Pour un cluster de basculement à deux nœuds, vous avez besoin de l'infrastruct
 
     Si vous avez des réseaux privés qui ne sont pas routés vers le reste de votre infrastructure réseau, vérifiez que chacun de ces réseaux privés utilise un sous-réseau unique. Cela est nécessaire même si vous attribuez une adresse IP unique à chaque carte réseau. Par exemple, si vous avez un nœud de cluster dans un bureau central qui utilise un réseau physique, et un autre nœud dans une filiale qui utilise un autre réseau physique, ne spécifiez pas 10.0.0.0/24 pour les deux réseaux, même si vous attribuez une adresse IP unique à chaque carte adaptateur.
 
-    Pour plus d’informations sur les cartes réseau, consultez Configuration matérielle requise pour un cluster de basculement à deux nœuds, plus haut dans ce guide.
+    Pour plus d'informations sur les cartes réseau, consultez Configuration matérielle pour un cluster de basculement à deux nœuds, précédemment dans ce guide.
 
 - **DNS :** Les serveurs du cluster doivent utiliser le système DNS (Domain Name System) pour la résolution de noms. Le protocole de mise à jour dynamique DNS peut être utilisé.
 
@@ -113,7 +114,7 @@ Pour un cluster de basculement à deux nœuds, vous avez besoin de l'infrastruct
 
 - **Clients :** Si nécessaire pour le test, vous pouvez connecter un ou plusieurs clients en réseau au cluster de basculement que vous créez et observer l’effet sur un client lorsque vous déplacez ou basculez le serveur de fichiers en cluster d’un nœud de cluster à l’autre.
 
-- **Compte d’administration du cluster :** Lorsque vous créez un cluster ou y ajoutez des serveurs, vous devez avoir ouvert une session sur le domaine à l’aide d’un compte disposant de droits d’administrateur et d’autorisations sur tous les serveurs de ce cluster. Le compte n’a pas besoin d’être un compte Admins du domaine, mais peut être un compte Utilisateurs du domaine situé dans le groupe Administrateurs sur chaque serveur en cluster. En outre, si le compte n’est pas un compte admins du domaine, le compte (ou le groupe dont le compte est membre) doit disposer des autorisations **créer des objets ordinateur** et **Lire toutes les propriétés** dans l’unité d’organisation de domaine qui réside dans.
+- **Compte d’administration du cluster :** Lorsque vous créez un cluster ou y ajoutez des serveurs, vous devez avoir ouvert une session sur le domaine à l’aide d’un compte disposant de droits d’administrateur et d’autorisations sur tous les serveurs de ce cluster. Le compte n'a pas besoin d'être un compte Admins du domaine, mais peut être un compte Utilisateurs du domaine situé dans le groupe Administrateurs de chaque serveur en cluster. En outre, si le compte n’est pas un compte admins du domaine, le compte (ou le groupe dont le compte est membre) doit disposer des autorisations **créer des objets ordinateur** et **Lire toutes les propriétés** dans l’unité d’organisation de domaine qui réside dans.
 
 ## <a name="steps-for-installing-a-two-node-file-server-cluster"></a>Étapes pour l'installation d'un cluster de serveur de fichiers à deux nœuds
 
@@ -127,7 +128,7 @@ Vous devez effectuer les étapes suivantes pour installer un cluster de basculem
 
 Étape 4 : créer le cluster
 
-Si vous avez déjà installé les nœuds de cluster et souhaitez configurer un cluster de basculement de serveur de fichiers, consultez étapes de configuration d’un cluster de serveurs de fichiers à deux nœuds, plus loin dans ce guide.
+Si vous avez déjà installé les nœuds de cluster et souhaitez configurer un cluster de basculement de serveur de fichiers, consultez Étapes pour la configuration d'un cluster de serveur de fichiers à deux nœuds, plus loin dans ce guide.
 
 ### <a name="step-1-connect-the-cluster-servers-to-the-networks-and-storage"></a>Étape 1 : connecter les serveurs de cluster aux réseaux et au stockage
 
@@ -153,9 +154,9 @@ Pour un cluster de serveur de fichiers à deux nœuds, lorsque vous connectez le
 
 6. Si vous avez acheté un logiciel qui contrôle le format ou le fonctionnement du disque, suivez les instructions du fournisseur sur l’utilisation de ce logiciel avec Windows Server.
 
-7. Sur l’un des serveurs que vous souhaitez Clusterer, cliquez sur Démarrer, sur outils d’administration, sur gestion de l’ordinateur, puis sur gestion des disques. (Si la boîte de dialogue contrôle de compte d’utilisateur s’affiche, vérifiez que l’action affichée est celle que vous souhaitez, puis cliquez sur continuer.) Dans gestion des disques, vérifiez que les disques de cluster sont visibles.
+7. Sur l'un des serveurs à mettre en cluster, cliquez sur Démarrer, sur Outils d'administration, sur Gestion de l'ordinateur, puis sur Gestion des disques. (Si la boîte de dialogue contrôle de compte d’utilisateur s’affiche, vérifiez que l’action affichée est celle que vous souhaitez, puis cliquez sur continuer.) Dans gestion des disques, vérifiez que les disques de cluster sont visibles.
 
-8. Si vous souhaitez avoir un volume de stockage de plus de 2 téraoctets, et si vous utilisez l'interface Windows pour contrôler le format du disque, convertissez ce dernier au style de partitionnement GPT (table de partition GUID). Pour ce faire, sauvegardez toutes les données sur le disque, supprimez tous les volumes sur le disque, puis, dans gestion des disques, cliquez avec le bouton droit sur le disque (et non sur une partition), puis cliquez sur convertir en disque GPT.  Pour les volumes de moins de 2 téraoctets, au lieu d'utiliser le format GPT, vous pouvez recourir au style de partition MBR (enregistrement de démarrage principal).
+8. Si vous souhaitez avoir un volume de stockage de plus de 2 téraoctets, et si vous utilisez l'interface Windows pour contrôler le format du disque, convertissez ce dernier au style de partitionnement GPT (table de partition GUID). Pour ce faire, sauvegardez toutes les données du disque, supprimez tous les volumes du disque, puis, dans Gestion des disques, cliquez avec le bouton droit sur le disque (et non sur une partition) et cliquez sur Conversion en disque GPT.  Pour les volumes de moins de 2 téraoctets, au lieu d'utiliser le format GPT, vous pouvez recourir au style de partition MBR (enregistrement de démarrage principal).
 
 9. Vérifiez le format des volumes ou numéros d’unités logiques exposés. Il est recommandé d'utiliser le format NTFS (pour le disque témoin, vous devez utiliser NTFS).
 
@@ -177,7 +178,7 @@ Dans cette étape, le rôle de serveur de fichiers et la fonctionnalité de clus
 
 5. Pour le rôle serveur, dans la liste des rôles, ouvrez **services de fichiers**, sélectionnez **serveur de fichiers**, puis **suivant**.
 
-   ![Ajouter un rôle](media/Cluster-File-Server/Cluster-FS-Add-FS-Role-1.png)
+   ![Ajout de rôle](media/Cluster-File-Server/Cluster-FS-Add-FS-Role-1.png)
 
 6. Pour les fonctionnalités, dans la liste des fonctionnalités, sélectionnez **clustering de basculement**.  Une boîte de dialogue contextuelle s’affiche et répertorie les outils d’administration également en cours d’installation.  Conserver tous les éléments sélectionnés, choisissez **Ajouter des fonctionnalités** et **suivant**.
 
@@ -189,7 +190,7 @@ Dans cette étape, le rôle de serveur de fichiers et la fonctionnalité de clus
 
 9. Répétez les étapes sur le deuxième ordinateur.
 
-#### <a name="using-powershell"></a>À l'aide de PowerShell
+#### <a name="using-powershell"></a>À l’aide de PowerShell
 
 1. Ouvrez une session PowerShell d’administration en cliquant avec le bouton droit sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (admin)** .
 2. Pour installer le rôle de serveur de fichiers, exécutez la commande suivante :
@@ -241,9 +242,9 @@ Avant de créer un cluster, il est fortement recommandé de valider votre config
 
 8. Toujours dans la page Résumé, cliquez sur Afficher le rapport et lisez les résultats des tests. Apportez les modifications nécessaires à la configuration et réexécutez les tests. <br>Pour afficher les résultats des tests après avoir fermé l’Assistant, consultez *SystemRoot\Cluster\Reports\Validation Report Date and Time. html*.
 
-9. Pour afficher les rubriques d’aide sur la validation de cluster après avoir fermé l’Assistant, dans gestion du cluster de basculement, cliquez sur aide, sur rubriques d’aide, sur l’onglet Sommaire, développez le contenu de l’aide sur le cluster de basculement, puis cliquez sur validation d’une configuration de cluster de basculement. .
+9. Pour afficher les rubriques d'aide relatives à la validation de cluster une fois que vous avez fermé l'Assistant, dans Gestion du cluster de basculement, cliquez sur Aide, sur Rubriques d'aide, sur l'onglet Sommaire, développez le sommaire de l'aide spécifique au cluster de basculement, puis cliquez sur Validation d'une configuration de cluster de basculement.
 
-#### <a name="using-powershell"></a>À l'aide de PowerShell
+#### <a name="using-powershell"></a>À l’aide de PowerShell
 
 1. Ouvrez une session PowerShell d’administration en cliquant avec le bouton droit sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (admin)** .
 
@@ -281,7 +282,7 @@ La commande suivante permet de créer un cluster à partir des ordinateurs et de
 
 8. Dans la page **Résumé** , vous obtiendrez la configuration qu’il a créée.  Vous pouvez sélectionner Afficher le rapport pour afficher le rapport de la création.
 
-#### <a name="using-powershell"></a>À l'aide de PowerShell
+#### <a name="using-powershell"></a>À l’aide de PowerShell
 
 1. Ouvrez une session PowerShell d’administration en cliquant avec le bouton droit sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (admin)** .
 

@@ -1,28 +1,22 @@
 ---
-title: La commande verbose
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: commentaires
+description: Rubrique relative aux commandes Windows pour verbose, qui affiche la sortie détaillée pour une commande spécifiée.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fcf30ae7-818f-4e7e-a083-a1812682032b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c7ecc2bb3578b578060694c95833fd32674db10
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f67a4fe99a5051e8844e6386d87911946a808c1e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369914"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832842"
 ---
-# <a name="the-verbose-command"></a>La commande verbose
-
-
+# <a name="verbose"></a>commentaires
 
 Affiche la sortie détaillée d’une commande spécifiée. Vous pouvez utiliser **/Verbose** avec les autres commandes WDSUTIL que vous exécutez. Notez que vous devez spécifier **/Verbose** et **/Progress** directement après **WDSUTIL**.
 

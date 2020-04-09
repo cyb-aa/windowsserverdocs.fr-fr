@@ -1,7 +1,6 @@
 ---
 ms.assetid: f74eec9a-2485-4ee0-a0d8-cce01250a294
 title: Administration simplifiée AD DS
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: e1989630cadd7d63f8ed041174135722d568484f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323161"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824422"
 ---
 # <a name="ad-ds-simplified-administration"></a>Administration simplifiée AD DS
 
@@ -173,7 +172,7 @@ Le code de préparation Active Directory auparavant hébergé dans ADprep.exe es
 > [!IMPORTANT]  
 > Il n'existe pas d'outil Adprep32.exe 32 bits pour Windows Server 2012. Vous devez disposer d'au moins un ordinateur Windows Server 2008 x64, Windows Server 2008 R2 ou Windows Server 2012 qui fonctionne en tant que contrôleur de domaine, serveur membre ou dans un groupe de travail pour préparer la forêt et le domaine. Adprep.exe ne s'exécute pas sur Windows Server 2003 x64.  
   
-## <a name="BKMK_PrereuisiteChecking"></a>Vérification de la configuration requise
+## <a name="prerequisite-checking"></a><a name="BKMK_PrereuisiteChecking"></a>Vérification de la configuration requise
 
 Le système de vérification de la configuration requise intégré au code managé Windows PowerShell ADDSDeployment fonctionne dans différents modes, selon l'opération. Les tableaux ci-dessous décrivent chaque test et son utilisation, et fournissent une description du mode de validation et des éléments validés. Ces tableaux peuvent être utiles si vous rencontrez des problèmes quand la validation échoue et que l'erreur ne suffit pas à résoudre le problème.  
   
@@ -191,23 +190,23 @@ Il existe des applets de commande Windows PowerShell ADDSDeployment pour toutes 
 
 D'ordinaire, il n'est pas nécessaire d'exécuter ces applets de commande ; elles s'exécutent déjà automatiquement avec les applets de commande de déploiement par défaut.  
 
-#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>Tests requis
+#### <a name="prerequisite-tests"></a><a name="BKMK_ADDSInstallPrerequisiteTests"></a>Tests requis
 
 ||||  
 |-|-|-|  
-|Nom du test|Protocoles<br /><br />used|Description et remarques|  
-|VerifyAdminTrusted<br /><br />ForDelegationProvider|LDAP|Valide que vous disposez du privilège « Permettre à l'ordinateur et aux comptes d'utilisateurs d'être approuvés pour la délégation » (SeEnableDelegationPrivilege) sur le contrôleur de domaine partenaire existant. L'accès à votre attribut tokenGroups construit est requis.<br /><br />Ce test n'est pas utilisé pour les communications avec les contrôleurs de domaine Windows Server 2003. Vous devez manuellement confirmer ce privilège avant la promotion|  
-|VerifyADPrep<br /><br />Conditions préalables (forêt)|LDAP|Détecte et contacte le contrôleur de schéma à l'aide de l'attribut namingContexts rootDSE et de l'attribut fsmoRoleOwner du contexte de nommage de schéma. Identifie les opérations préparatoires (forestprep, domainprep ou rodcprep) requises pour l'installation des services AD DS. Valide que l'attribut objectVersion du schéma est prévu et vérifie si une extension supplémentaire est requise.|  
-|VerifyADPrep<br /><br />Conditions préalables (domaine et contrôleur de domaine en lecture seule)|LDAP|Détecte et contacte le maître d'infrastructure à l'aide de l'attribut namingContexts rootDSE et de l'attribut fsmoRoleOwner du conteneur d'infrastructure. Dans le cas de l'installation d'un contrôleur de domaine en lecture seule, ce test détecte le maître d'opérations des noms de domaine et s'assure qu'il est en ligne.|  
-|CheckGroup<br /><br />Appartenance|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Admins du domaine ou Administrateurs de l'entreprise, en fonction de l'opération (Admins du domaine pour l'ajout ou la rétrogradation d'un contrôleur de domaine, Administrateurs de l'entreprise pour l'ajout ou la suppression d'un domaine)|  
-|CheckForestPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre des groupes Administrateurs de l'entreprise et Administrateurs du schéma, et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
-|CheckDomainPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Admins du domaine et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
-|CheckRODCPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Administrateurs de l'entreprise et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
-|VerifyInitSync<br /><br />AfterReboot|LDAP|Valide que le contrôleur de schéma a été répliqué au moins une fois depuis son redémarrage en définissant une valeur factice sur l'attribut rootDSE becomeSchemaMaster|  
-|VerifySFUHotFix<br /><br />Applied|LDAP|Valide que le schéma de la forêt existant ne contient pas l'extension SFU2 de problème connu pour l'attribut UID avec l'OID 1.2.840.113556.1.4.7000.187.102<br /><br />([https://support.microsoft.com/kb/821732](https://support.microsoft.com/kb/821732))|  
-|VerifyExchange<br /><br />SchemaFixed|LDAP, WMI, DCOM, RPC|Valide que le schéma de la forêt existant ne contient pas encore les extensions Exchange 2000 extensions ms-Exch-Assistant-Name, ms-Exch-LabeledURI et ms-Exch-House-identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649))|  
-|VerifyWin2KSchema<br /><br />Consistency|LDAP|Valide que le schéma de la forêt existant a des attributs et classes de base cohérents (qui ne sont pas modifiés de façon incorrecte par un tiers).|  
-|DCPromo|DRSR sur RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC sur SMB (SAMR)|Valide la syntaxe de ligne de commande passée au code de promotion et à la promotion de test. Valide que la forêt ou le domaine n'existe pas déjà si vous en créez un.|  
-|VerifyOutbound<br /><br />ReplicationEnabled|LDAP, DRSR sur SMB, RPC sur SMB (LSARPC)|Valide que la réplication sortante du contrôleur de domaine existant spécifié comme partenaire de réplication est activée en vérifiant l'attribut des options de l'objet Paramètres NTDS pour NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004)|  
-|VerifyMachineAdmin<br /><br />Password|DRSR sur RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC sur SMB (SAMR)|Valide que le mot de passe du mode sans échec défini pour DSRM répond aux exigences de complexité pour les domaines.|  
+|Nom du test|Protocoles<p>used|Description et remarques|  
+|VerifyAdminTrusted<p>ForDelegationProvider|LDAP|Valide que vous disposez du privilège « Permettre à l'ordinateur et aux comptes d'utilisateurs d'être approuvés pour la délégation » (SeEnableDelegationPrivilege) sur le contrôleur de domaine partenaire existant. L'accès à votre attribut tokenGroups construit est requis.<p>Ce test n'est pas utilisé pour les communications avec les contrôleurs de domaine Windows Server 2003. Vous devez manuellement confirmer ce privilège avant la promotion|  
+|VerifyADPrep<p>Conditions préalables (forêt)|LDAP|Détecte et contacte le contrôleur de schéma à l'aide de l'attribut namingContexts rootDSE et de l'attribut fsmoRoleOwner du contexte de nommage de schéma. Identifie les opérations préparatoires (forestprep, domainprep ou rodcprep) requises pour l'installation des services AD DS. Valide que l'attribut objectVersion du schéma est prévu et vérifie si une extension supplémentaire est requise.|  
+|VerifyADPrep<p>Conditions préalables (domaine et contrôleur de domaine en lecture seule)|LDAP|Détecte et contacte le maître d'infrastructure à l'aide de l'attribut namingContexts rootDSE et de l'attribut fsmoRoleOwner du conteneur d'infrastructure. Dans le cas de l'installation d'un contrôleur de domaine en lecture seule, ce test détecte le maître d'opérations des noms de domaine et s'assure qu'il est en ligne.|  
+|CheckGroup<p>Appartenance|LDAP,<p>RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Admins du domaine ou Administrateurs de l'entreprise, en fonction de l'opération (Admins du domaine pour l'ajout ou la rétrogradation d'un contrôleur de domaine, Administrateurs de l'entreprise pour l'ajout ou la suppression d'un domaine)|  
+|CheckForestPrep<p>GroupMembership|LDAP,<p>RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre des groupes Administrateurs de l'entreprise et Administrateurs du schéma, et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
+|CheckDomainPrep<p>GroupMembership|LDAP,<p>RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Admins du domaine et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
+|CheckRODCPrep<p>GroupMembership|LDAP,<p>RPC sur SMB (LSARPC)|Valide que l'utilisateur est membre du groupe Administrateurs de l'entreprise et qu'il dispose du privilège Gérer le journal d'audit et de la sécurité (SesScurityPrivilege) sur les contrôleurs de domaine existants|  
+|VerifyInitSync<p>AfterReboot|LDAP|Valide que le contrôleur de schéma a été répliqué au moins une fois depuis son redémarrage en définissant une valeur factice sur l'attribut rootDSE becomeSchemaMaster|  
+|VerifySFUHotFix<p>Applied|LDAP|Valide que le schéma de la forêt existant ne contient pas l'extension SFU2 de problème connu pour l'attribut UID avec l'OID 1.2.840.113556.1.4.7000.187.102<p>([https://support.microsoft.com/kb/821732](https://support.microsoft.com/kb/821732))|  
+|VerifyExchange<p>SchemaFixed|LDAP, WMI, DCOM, RPC|Valide que le schéma de la forêt existant ne contient pas encore les extensions Exchange 2000 extensions ms-Exch-Assistant-Name, ms-Exch-LabeledURI et ms-Exch-House-identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649))|  
+|VerifyWin2KSchema<p>Consistency|LDAP|Valide que le schéma de la forêt existant a des attributs et classes de base cohérents (qui ne sont pas modifiés de façon incorrecte par un tiers).|  
+|DCPromo|DRSR sur RPC,<p>LDAP,<p>DNS<p>RPC sur SMB (SAMR)|Valide la syntaxe de ligne de commande passée au code de promotion et à la promotion de test. Valide que la forêt ou le domaine n'existe pas déjà si vous en créez un.|  
+|VerifyOutbound<p>ReplicationEnabled|LDAP, DRSR sur SMB, RPC sur SMB (LSARPC)|Valide que la réplication sortante du contrôleur de domaine existant spécifié comme partenaire de réplication est activée en vérifiant l'attribut des options de l'objet Paramètres NTDS pour NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004)|  
+|VerifyMachineAdmin<p>Password|DRSR sur RPC,<p>LDAP,<p>DNS<p>RPC sur SMB (SAMR)|Valide que le mot de passe du mode sans échec défini pour DSRM répond aux exigences de complexité pour les domaines.|  
 |VerifySafeModePassword|*N/A*|Valide que le mot de passe d'administrateur local défini répond aux exigences de complexité de la stratégie de sécurité de l'ordinateur.|  

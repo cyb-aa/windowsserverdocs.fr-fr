@@ -1,24 +1,20 @@
 ---
 title: wbadmin
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour Wbadmin, qui vous permet de sauvegarder et de restaurer votre système d’exploitation, les volumes, les fichiers, les dossiers et les applications à partir d’une invite de commandes.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4b0b3f32-d21f-4861-84bb-b2eadbf1e7b8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a0fe9b999e788af1316ca0dbbf50b84e80cb08e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ca9bdc54cd77f11239d0a61cf052e7b12b02b22
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362474"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829472"
 ---
 # <a name="wbadmin"></a>wbadmin
 
@@ -50,7 +46,7 @@ Vous devez exécuter **Wbadmin** à partir d’une invite de commandes avec él�
 |[Wbadmin restore catalog](wbadmin-restore-catalog.md)|Récupère un catalogue de sauvegarde à partir d’un emplacement de stockage spécifié dans le cas où le catalogue de sauvegarde de l’ordinateur local a été endommagé.|
 |[Wbadmin delete catalog](wbadmin-delete-catalog.md)|Supprime le catalogue de sauvegarde sur l’ordinateur local. Utilisez cette sous-commande uniquement si le catalogue de sauvegarde de cet ordinateur est endommagé et que vous n’avez pas de sauvegardes stockées dans un autre emplacement que vous pouvez utiliser pour restaurer le catalogue.|
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Sauvegarde et récupération](https://go.microsoft.com/fwlink/?LinkID=195054)
 -   [Sauvegarde Windows Server des applets de commande dans Windows PowerShell](https://technet.microsoft.com/library/jj902428.aspx)

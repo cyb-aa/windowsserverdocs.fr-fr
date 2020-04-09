@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 6863940d69e30f4984897a7e03369a834da21d1d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8227fafc6b29471e2f09db171645012967553429
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376779"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844052"
 ---
 # <a name="fsutil-tiering"></a>Hiérarchisation de fsutil
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
@@ -31,7 +31,7 @@ fsutil tiering [setflags] <volume> <flags>
 fsutil tiering [tierlist] <volume>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |-------------|---------------|
@@ -79,7 +79,7 @@ fsutil tiering tierlist C:
 
 
 ### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

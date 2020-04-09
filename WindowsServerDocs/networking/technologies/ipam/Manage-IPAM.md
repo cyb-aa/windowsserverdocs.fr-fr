@@ -2,22 +2,18 @@
 title: Gérer IPAM
 description: Cette rubrique fait partie du Guide de gestion des adresses IP (IPAM) de Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ipam
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c68905ef-d54f-4fc8-80ac-1006125db64f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: ffe7816c0464f0963f3f65cf21f1f6a4b7c42aa1
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 10e3a894b8b91a56c4682090a9e6a52f647aab26
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316815"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854832"
 ---
 # <a name="manage-ipam"></a>Gérer IPAM
 

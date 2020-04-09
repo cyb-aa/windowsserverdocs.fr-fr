@@ -1,24 +1,20 @@
 ---
 title: waitfor
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour WAITFOR, qui envoie ou attend un signal sur un système. **WAITFOR** est utilisé pour synchroniser les ordinateurs sur un réseau.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a48ef70d-4d28-4035-b6b0-7d7b46ac2157
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aecea0ad19ee42e61396eb8b8ccd579b9ce2057b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4542fc9d231b8150ab89e07e173d9671d6b7a3f3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362600"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829932"
 ---
 # <a name="waitfor"></a>waitfor
 
@@ -35,7 +31,7 @@ waitfor [/s <Computer> [/u [<Domain>\]<User> [/p [<Password>]]]] /si <SignalName
 waitfor [/t <Timeout>] <SignalName>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |       Paramètre       |                                                                                         Description                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,23 +53,23 @@ waitfor [/t <Timeout>] <SignalName>
 -   Les ordinateurs ne peuvent recevoir des signaux que s’ils se trouvent dans le même domaine que l’ordinateur qui envoie le signal.
 -   Vous pouvez utiliser **WAITFOR** lorsque vous testez des builds logicielles. Par exemple, l’ordinateur de compilation peut envoyer un signal à plusieurs ordinateurs exécutant **WAITFOR** une fois la compilation terminée. À la réception du signal, le fichier de commandes qui comprend **WAITFOR** peut demander aux ordinateurs de commencer immédiatement l’installation d’un logiciel ou d’exécuter des tests sur la build compilée.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
-Pour attendre la réception du signal « espresso\build007 », tapez :
+Pour attendre la réception du signal espresso\build007, tapez :
 ```
 waitfor espresso\build007
 ```
 Par défaut, **WAITFOR** attend indéfiniment un signal.
 
-Pour attendre 10 secondes avant que le signal « espresso\compile007 » soit reçu avant le dépassement du délai d’attente, tapez :
+Pour attendre la réception de 10 secondes du signal espresso\compile007 avant le dépassement du délai d’attente, tapez :
 ```
 waitfor /t 10 espresso\build007
 ```
-Pour activer manuellement le signal « espresso\build007 », tapez :
+Pour activer manuellement le signal espresso\build007, tapez :
 ```
 waitfor /si espresso\build007
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

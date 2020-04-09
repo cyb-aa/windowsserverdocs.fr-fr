@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup : addhosttorealmmap'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 237742d5-fa68-466c-b97e-636f489248ea
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e6a28c6001707fac245de7136b5fb5bd38495027
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1ee8f434482b0658194daed46b62f6f7f70abae1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375651"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841842"
 ---
 # <a name="ksetupaddhosttorealmmap"></a>Ksetup : addhosttorealmmap
 
@@ -32,7 +28,7 @@ Ajoute un mappage de nom de principal du service (SPN) entre l’hôte indiqué 
 ksetup /addhosttorealmmap <HostName> <RealmName>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -45,7 +41,7 @@ Cette commande vous permet de mapper un hôte ou plusieurs hôtes qui partagent 
 
 Le mappage est enregistré dans le registre dans **HKEY_LOCAL_MACHINE \system\currentcontolset\lsa\kerberos\hosttorealm**.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Dans le cadre de la configuration du domaine CONTOSO, mappez l’ordinateur hôte IPops897 au domaine :
 ```
@@ -53,8 +49,8 @@ ksetup /addhosttorealmmap IPops897 CONTOSO
 ```
 Dans le registre, vérifiez que le mappage est le même que prévu.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup:delhosttorealmmap](ksetup-delhosttorealmmap.md)
 -   [Ksetup](ksetup.md)
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -4,15 +4,15 @@ description: Considérations relatives à l’alimentation matérielle du serveu
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: a9d4653824d497ea0c42337260aa788bab354ba3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 865899e5f33bde97dff97efaff6010b95aafd3e6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355014"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851982"
 ---
 # <a name="server-hardware-power-considerations"></a>Considérations relatives à l’alimentation matérielle du serveur
 
@@ -57,7 +57,7 @@ Les barrettes d’alimentation ne font pas partie intégrante du matériel serve
 
 Pour éviter de gaspiller de l’électricité, vous pouvez déployer une bande d’alimentation gérée à distance pour chaque rack de serveurs afin de déconnecter par programmation l’alimentation de serveurs spécifiques.
 
-## <a name="processor-terminology"></a>Terminologie du processeur
+## <a name="processor-terminology"></a>terminologie du processeur
 La terminologie du processeur utilisée dans cette rubrique reflète la hiérarchie des composants disponibles dans la figure suivante. Les termes utilisés du plus grand au plus petit niveau de granularité des composants sont les suivants :
 
 -   Socket de processeur

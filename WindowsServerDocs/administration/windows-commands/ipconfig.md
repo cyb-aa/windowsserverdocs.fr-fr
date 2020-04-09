@@ -1,24 +1,20 @@
 ---
 title: ipconfig
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 15071c2c-4815-4893-93b2-ab30232e312e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4bfe3476dd90016291881ca8cee2b66283772bce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1c93b75d6518746df7ef936c7059bd03fcf96ab6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375384"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842072"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -32,11 +28,11 @@ Affiche toutes les valeurs de configuration réseau TCP/IP actuelles et actualis
 ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [/renew6[<Adapter>]] [/release6 [<Adapter>]] [/flushdns] [/displaydns] [/registerdns] [/showclassid <Adapter>] [/setclassid <Adapter> [<ClassID>]]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|All|Affiche la configuration TCP/IP complète pour toutes les cartes. Les cartes peuvent représenter des interfaces physiques, telles que des cartes réseau installées, ou des interfaces logiques, telles que des connexions d'accès à distance.|
+|/all|Affiche la configuration TCP/IP complète pour toutes les cartes. Les cartes peuvent représenter des interfaces physiques, telles que des cartes réseau installées, ou des interfaces logiques, telles que des connexions d'accès à distance.|
 |/allcompartments|Affiche la configuration TCP/IP complète pour tous les compartiments.|
 |/displaydns|Affiche le contenu du cache de résolution client DNS, qui comprend les entrées préchargées du fichier hosts local et les enregistrements de ressources récemment obtenus pour les requêtes de nom résolues par l’ordinateur. Le service client DNS utilise ces informations pour résoudre rapidement les noms fréquemment interrogés, avant d’interroger ses serveurs DNS configurés.|
 |/flushdns|Vide et réinitialise le contenu du cache de résolution client DNS. Lors de la résolution des problèmes DNS, vous pouvez utiliser cette procédure pour supprimer les entrées de cache négatives du cache, ainsi que toutes les autres entrées ajoutées de manière dynamique.|
@@ -52,7 +48,7 @@ ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [
 ## <a name="remarks"></a>Notes
 
 - Cette commande est particulièrement utile sur les ordinateurs qui sont configurés pour obtenir automatiquement une adresse IP. Cela permet aux utilisateurs de déterminer les valeurs de configuration TCP/IP qui ont été configurées par DHCP, l’adressage IP privé automatique (APIPA) ou une autre configuration.
-- Si le nom que vous fournissez pour l' *adaptateur* contient des espaces, utilisez des guillemets autour du nom de l’adaptateur (par exemple : **«** <em>nom de l’adaptateur</em> **»** ).
+- Si le nom que vous fournissez pour l' *adaptateur* contient des espaces, utilisez des guillemets autour du nom de l’adaptateur (par exemple : * * * * nom de l'<em>adaptateur</em>* * * *).
 - Pour les noms d’adaptateurs, **ipconfig** prend en charge l’utilisation du caractère générique astérisque (\*) pour spécifier soit les adaptateurs dont le nom commence par une chaîne spécifiée, soit les adaptateurs dont le nom contient une chaîne spécifiée. Par exemple, la **\*locale** correspond à tous les adaptateurs qui commencent par la chaîne Local et **\*con\*** correspond à tous les adaptateurs contenant la chaîne con.
 
 ## <a name="examples"></a>Exemples
@@ -67,7 +63,7 @@ ipconfig /all
 ```
 Pour renouveler une configuration d’adresse IP attribuée par DHCP uniquement pour l’adaptateur de connexion au réseau local, tapez :
 ```
-ipconfig /renew "Local Area Connection"
+ipconfig /renew Local Area Connection
 ```
 Pour vider le cache de résolution DNS lors de la résolution des problèmes de résolution de noms DNS, tapez :
 ```
@@ -79,9 +75,9 @@ ipconfig /showclassid Local*
 ```
 Pour définir l’ID de classe DHCP pour l’adaptateur de connexion au réseau local en TEST, tapez :
 ```
-ipconfig /setclassid "Local Area Connection" TEST
+ipconfig /setclassid Local Area Connection TEST
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

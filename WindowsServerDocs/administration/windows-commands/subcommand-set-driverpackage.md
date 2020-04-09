@@ -1,28 +1,22 @@
 ---
 title: Sous-commande Set-DriverPackage
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour la sous-commande Set-DriverPackage, qui renomme et/ou active ou désactive un package de pilotes sur un serveur.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 11804bb6-ca29-4461-8c63-5131748cd742
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65751cf6e03baa87c7734b318a26111652bee0a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 68d282b3338e67a33a55481658f55db69930b10e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370820"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834016"
 ---
 # <a name="subcommand-set-driverpackage"></a>Sous-commande : Set-DriverPackage
-
-
 
 Renomme et/ou active ou désactive un package de pilotes sur un serveur.
 
@@ -32,7 +26,7 @@ Renomme et/ou active ou désactive un package de pilotes sur un serveur.
 WDSUTIL /Set-DriverPackage [/Server:<Server name>] {/DriverPackage:<Name> | /PackageId:<ID>} [/Name:<New Name>] [/Enabled:{Yes | No}
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |        Paramètre         |                                                                                                                                                                                                               Description                                                                                                                                                                                                                |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,7 +36,7 @@ WDSUTIL /Set-DriverPackage [/Server:<Server name>] {/DriverPackage:<Name> | /Pac
 |   [/Name :\<nouveau nom >]    |                                                                                                                                                                                              Spécifie le nouveau nom du package de pilotes.                                                                                                                                                                                              |
 |      [/Enabled : {Oui      |                                                                                                                                                                                                                   º                                                                                                                                                                                                                    |
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour modifier les paramètres d’un package, tapez l’un des éléments suivants :
 ```
@@ -52,6 +46,6 @@ WDSUTIL /Set-DriverPackage /PackageId:{4D36E972-E325-11CE-BFC1-08002BE10318} /Na
 WDSUTIL /Set-DriverPackage /DriverPackage:MyDriverPackage /Name:NewName /Enabled:Yes
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

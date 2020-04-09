@@ -4,15 +4,15 @@ description: Recommandations concernant le réglage des performances des contene
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
-ms.author: DavSo; Ericam; YaShi
+ms.author: davso; ericam; yashi
 author: akino
 ms.date: 10/16/2017
-ms.openlocfilehash: 890632c9e8adf221e56ffa91331e5371a3fcdf86
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a4508e28e54562748422b198f703e23326d15720
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384942"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851632"
 ---
 # <a name="performance-tuning-windows-server-containers"></a>Réglage des performances des conteneurs Windows Server
 
@@ -35,7 +35,7 @@ L’isolation supplémentaire fournie par les conteneurs Hyper-V est en grande p
 
 Les conteneurs Windows Server et Hyper-V prennent en charge Server Core et une nouvelle option d’installation disponible dans Windows Server 2016 : [Nano Server](https://technet.microsoft.com/windows-server-docs/compute/nano-server/getting-started-with-nano-server). 
 
-Nano Server est un système d’exploitation de serveur administré à distance et optimisé pour les centres de données et clouds privés. Il est similaire à Windows Server en mode ServerCore (Installation minimale), mais il est beaucoup plus petit, n’a aucune fonction d’ouverture de session locale et ne prend en charge que les agents, outils et applications 64bits. Il prend occupe moins d’espace disque et démarre plus rapidement.
+Nano Server est un système d’exploitation de serveur administré à distance et optimisé pour les centres de données et clouds privés. Il est similaire à Windows Server en mode Server Core (Installation minimale), mais il est beaucoup plus petit, n’a aucune fonction d’ouverture de session locale et ne prend en charge que les agents, outils et applications 64 bits. Il prend occupe moins d’espace disque et démarre plus rapidement.
 
 ## <a name="container-start-up-time"></a>Temps de démarrage du conteneur
 Le temps de démarrage du conteneur est une métrique clé dans bon nombre des scénarios où l’usage de conteneurs est le plus avantageux. Il est donc essentiel de comprendre comment optimiser le temps de démarrage du conteneurs. Vous trouverez ci-dessous quelques compromis de réglage destinés à vous aider à comprendre comment améliorer le temps de démarrage.

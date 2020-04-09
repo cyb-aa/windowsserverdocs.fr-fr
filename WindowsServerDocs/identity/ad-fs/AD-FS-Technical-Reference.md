@@ -1,7 +1,6 @@
 ---
 ms.assetid: e2c940f5-4b1f-457a-bc71-dcced0c752f7
 title: Informations techniques de référence sur ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 29c52b21e5bb30fc54c2f561015c64ae93447836
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54d97a0dc9e4c752f4b5141fba015edc4ed4d8b4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408564"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854142"
 ---
 # <a name="ad-fs-technical-reference"></a>Informations techniques de référence sur ADFS
 
@@ -30,7 +29,7 @@ ms.locfileid: "71408564"
 > Vous trouverez du contenu de conception AD FS 2.0 supplémentaire à la page [Plan de contenu AD FS 2.0](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx) sur Microsoft TechNet Wiki. Cette page est gérée par des membres de la communauté AD FS 2.0 et est régulièrement contrôlée par l’équipe du produit AD FS.
 
 ## <a name="see-also"></a>Voir aussi
-[Présentation de Services ADFS](AD-FS-2016-Overview.md)
+[Vue d’ensemble des services AD FS (Active Directory Federation Services)](AD-FS-2016-Overview.md)
 
 
 

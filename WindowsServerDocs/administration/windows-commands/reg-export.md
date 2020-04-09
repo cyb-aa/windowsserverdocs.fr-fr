@@ -1,24 +1,20 @@
 ---
 title: Reg Export
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0ad9526f-1e29-4fa5-9d2d-feaa92f12d7c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7fb3a779ffe5a4e7d513ca9a3afed8ee90901688
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5901014511fed0c17a641e1ed183ddbf40dd44c8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384752"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836492"
 ---
 # <a name="reg-export"></a>Reg Export
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 Reg export KeyName FileName [/y]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -49,16 +45,16 @@ Le tableau suivant répertorie les valeurs renvoyées pour l’opération **reg 
 
 |Valeur|Description|
 |-----|-----------|
-|0|Réussite|
+|0|Opération réussie|
 |1|Échec|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour exporter le contenu de toutes les sous-clés et valeurs de la clé MyApp dans le fichier AppBkUp. reg, tapez :
 ```
 reg export HKLM\Software\MyCo\MyApp AppBkUp.reg
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

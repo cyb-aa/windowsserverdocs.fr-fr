@@ -1,50 +1,45 @@
 ---
 title: Bitsadmin et getconfigurationflags
-description: Rubrique relative aux commandes Windows pour **Bitsadmin en cache et getconfigurationflags** -obtient les indicateurs de configuration qui déterminent si l’ordinateur fournit du contenu aux pairs et peut télécharger du contenu à partir de pairs.
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour **Bitsadmin en cache** et **getconfigurationflags**, qui obtient les indicateurs de configuration qui déterminent si l’ordinateur fournit du contenu aux pairs et s’il peut télécharger du contenu à partir de pairs.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 124ddc15-3444-4bd5-96e5-c6bfabe4f9c2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94c7eb1a115fe9152b149b8cf65765b179080cc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: be8d6a719d63c8e9c6250320560b6ce21274c680
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381089"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850172"
 ---
 # <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>Bitsadmin et getconfigurationflags
 
-
-
-Obtient les indicateurs de configuration qui déterminent si l’ordinateur fournit du contenu aux pairs et peut télécharger du contenu à partir d’homologues.
+Obtient les indicateurs de configuration qui déterminent si l’ordinateur fournit du contenu aux pairs et s’il peut télécharger du contenu à partir de pairs.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /PeerCaching /GetConfigurationFlags <Job> 
+bitsadmin /peercaching /getconfigurationflags <job>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
+| Paramètre | Description |
+| -------------- | -------------- |
+| le travail | Nom complet ou GUID du travail. |
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
-L’exemple suivant obtient les indicateurs de configuration pour le travail nommé *myJob*.
+L’exemple suivant obtient les indicateurs de configuration pour le travail nommé *myDownloadJob*.
+
 ```
-C:\> Bitsadmin /PeerCaching /GetConfigurationFlags myJob
+C:\> bitsadmin /peercaching /getconfigurationflags myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

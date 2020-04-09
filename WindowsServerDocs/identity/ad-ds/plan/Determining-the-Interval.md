@@ -1,7 +1,6 @@
 ---
 ms.assetid: 96a6749c-6c9f-4f2f-ad0a-51272d282ace
 title: Détermination de l’intervalle
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 065b4ff707bdd8b82e33e06ad2b52c57a746045f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f39ad2ce2ce84e36d2faff2a07b8310d3600b6c9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402624"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822572"
 ---
 # <a name="determining-the-interval"></a>Détermination de l’intervalle
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous devez définir la propriété intervalle de réplication de lien de site pour indiquer la fréquence à laquelle vous souhaitez que la réplication se produise au moment où la planification autorise la réplication. Par exemple, si la planification autorise la réplication entre 02:00 heures et 04:00 heures et que l’intervalle de réplication est défini sur 30 minutes, la réplication peut se produire jusqu’à quatre fois au cours de l’heure planifiée. L’intervalle de réplication par défaut est de 180 minutes, soit 3 heures. L’intervalle minimal est de 15 minutes.  
   
@@ -52,7 +51,7 @@ Avec une stratégie de réplication de stockage et de transfert, il est difficil
   
 -   Combinez ces latences maximales pour déterminer la latence maximale de l’ensemble du réseau.  
   
-    Par exemple, si la latence maximale entre Seattle et son site satellite à Los Angeles est d’un jour, la latence de réplication maximale pour cet ensemble de liens (Washington, D.C.-New York-Seattle-Los Angeles) est de 31 heures, soit 4 (Washington, D.C.-New York) + 3 (nouveau York-Seattle) + 24 (Seattle-Los Angeles), comme indiqué dans le tableau suivant.  
+    Par exemple, si la latence maximale entre Seattle et son site satellite à Los Angeles est d’une journée, la latence de réplication maximale pour cet ensemble de liens (Washington, D.C.-New York-Seattle-Los Angeles) est de 31 heures, c’est-à-dire 4 (Washington, D.C.-New York) + 3 (New York-Seattle) + 24 (Seattle-Los Angeles), comme indiqué dans le tableau suivant.  
   
     |Sites|Seattle|Boston|Los Angeles|New York|Washington, D.C.|  
     |---------|-----------|----------|---------------|------------|--------------------|  

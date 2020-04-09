@@ -3,17 +3,17 @@ ms.assetid: 6416d125-bcaf-433d-971a-2f0283bca2c2
 title: 'Mise à jour adaptée aux clusters : Forum aux questions'
 ms.topic: article
 ms.prod: windows-server
-manager: dongill
+manager: lizross
 ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
 description: Réponses aux questions fréquemment posées sur la mise à jour adaptée aux clusters dans Windows Server.
-ms.openlocfilehash: 736b49222ae4c9e2a27229341f0d886bd3e0343c
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: ca81e952c0524af36ab6d241a205bd1cc971c74a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822132"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828102"
 ---
 # <a name="cluster-aware-updating-frequently-asked-questions"></a>Mise à jour adaptée aux clusters : Forum Aux Questions
 
@@ -33,14 +33,14 @@ Non. Cette fonctionnalité peut être utilisée quel que soit le type de l’app
 > [!NOTE]  
 > Actuellement, les charges de travail en cluster suivantes sont testées et certifiées pour la mise à jour adaptée aux clusters : SMB, hyper\-V, réplication DFS, espaces de noms DFS, iSCSI et NFS.  
   
-## <a name="does-cau-support-updates-from-microsoft-update-and-windows-update"></a>La mise à jour adaptée aux clusters prend-elle en charge les mises à jour de Microsoft Update et de Windows Update ?  
+## <a name="does-cau-support-updates-from-microsoft-update-and-windows-update"></a>La mise à jour adaptée aux clusters prend-elle en charge les mises à jour de Microsoft Update et de Windows Update ?  
 Oui. Par défaut, la mise à jour adaptée aux clusters est configurée avec un plug\-dans qui utilise les API de l’utilitaire Windows Update Agent \(WUA\) sur les nœuds du cluster. L’infrastructure WUA peut être configurée pour pointer vers Microsoft Update et Windows Update ou pour Windows Server Update Services \(WSUS\) comme source de mises à jour.  
   
 ## <a name="does-cau-support-wsus-updates"></a>La mise à jour adaptée aux clusters prend-elle en charge les mises à jour des services WSUS ?  
 Oui. Par défaut, la mise à jour adaptée aux clusters est configurée avec un plug\-dans qui utilise les API de l’utilitaire Windows Update Agent \(WUA\) sur les nœuds du cluster. L’infrastructure WUA peut être configurée pour pointer vers Microsoft Update et Windows Update ou vers un Windows Server Update Services local \(serveur WSUS\) comme source de mises à jour.  
   
 ## <a name="can-cau-apply-limited-distribution-release-updates"></a>La mise à jour adaptée aux clusters applique-t-elle les mises à jour LDR ?  
-Oui. La version de distribution limitée \(les mises à jour LDR\), également appelées correctifs, ne sont pas publiées par Microsoft Update ou Windows Update. elles ne peuvent donc pas être téléchargées par l’agent Windows Update \(la\) de plug-in de la mise à jour adaptée aux clusters par défaut.  
+Oui. La version de distribution limitée \(les mises à jour LDR\), également appelées correctifs, ne sont pas publiées par Microsoft Update ou Windows Update. elles ne peuvent donc pas être téléchargées par l’agent Windows Update \(la\) de plug-in de la mise à jour adaptée aux clusters par défaut.\-  
   
 Toutefois, la mise à jour adaptée aux clusters comprend un deuxième\-de connexion dans lequel vous pouvez choisir d’appliquer des mises à jour correctives. Ce correctif\-dans peut également être personnalisé pour appliquer des mises à jour du pilote, du microprogramme et du BIOS non\-Microsoft.  
   
@@ -48,14 +48,14 @@ Toutefois, la mise à jour adaptée aux clusters comprend un deuxième\-de conne
 Oui. Si les mises à jour cumulatives sont des mises à jour de correctifs logiciels grand public ou LDR (Limited Distribution Release), elles peuvent être appliquées par la mise à jour adaptée aux clusters.  
   
 ## <a name="can-i-schedule-updates"></a>Puis-je planifier des mises à jour ?  
-Oui. La mise à jour adaptée aux clusters prend en charge les modes de mise à jour suivants, qui permettent de planifier des mises à jour :  
+Oui. La mise à jour adaptée aux clusters prend en charge les modes de mise à jour suivants, qui permettent de planifier des mises à jour :  
   
 **Mise à jour de l’auto\-** Permet au cluster de se mettre à jour lui-même en fonction d’un profil défini et d’une planification régulière, par exemple lors d’une fenêtre de maintenance mensuelle. Vous pouvez également démarrer une exécution de mise à jour de\-à la demande à tout moment. Pour activer le mode de mise à jour de la\-automatique, vous devez ajouter le rôle en cluster de la mise à jour adaptée aux clusters au cluster. La fonctionnalité de mise à jour de la mise à jour\-adaptée aux clusters se comporte comme toute autre charge de travail en cluster. elle peut fonctionner en toute transparence avec les basculements planifiés et non planifiés d’un ordinateur coordinateur de mise à jour.  
   
 **Mise à jour des\-à distance** Vous permet de démarrer une exécution de mise à jour à tout moment à partir d’un ordinateur exécutant Windows ou Windows Server. Vous pouvez démarrer une exécution de mise à jour via la fenêtre de mise à jour adaptée aux clusters ou à l’aide de l’applet de commande **CauRun PowerShell Invoke\-** . La mise à jour\-distance est le mode de mise à jour par défaut pour la mise à jour adaptée aux clusters Vous pouvez utiliser le Planificateur de tâches pour exécuter l’applet de commande [Invoke-CauRun](https://technet.microsoft.com/itpro/powershell/windows/cluster-aware-updating/invoke-caurun) au moment souhaité à partir d’un ordinateur distant qui ne fait pas partie d’un des nœuds du cluster.  
   
 ## <a name="can-i-schedule-updates-to-apply-during-a-backup"></a>Puis-je planifier des mises à jour à appliquer pendant une sauvegarde ?  
-Oui. La mise à jour adaptée aux clusters n’impose aucune contrainte à cet égard. Toutefois, l’exécution de mises à jour logicielles sur un serveur \(avec les redémarrages potentiels associés\) alors qu’une sauvegarde du serveur est en cours n’est pas une pratique recommandée. Gardez à l’esprit que la mise à jour adaptée aux clusters s’appuie exclusivement sur les API de clustering pour déterminer quels basculements et restaurations de ressources effectuer ; elle n’a donc pas connaissance de l’état de la sauvegarde sur le serveur.  
+Oui. La mise à jour adaptée aux clusters n’impose aucune contrainte à cet égard. Toutefois, l’exécution de mises à jour logicielles sur un serveur \(avec les redémarrages potentiels associés\) alors qu’une sauvegarde du serveur est en cours n’est pas une pratique recommandée. Gardez à l’esprit que la mise à jour adaptée aux clusters s’appuie exclusivement sur les API de clustering pour déterminer quels basculements et restaurations de ressources effectuer ; elle n’a donc pas connaissance de l’état de la sauvegarde sur le serveur.  
   
 ## <a name="can-cau-work-with-configuration-manager"></a>La mise à jour adaptée aux clusters peut-elle fonctionner avec Configuration Manager  
 La mise à jour adaptée aux clusters est un outil qui coordonne les mises à jour logicielles sur un nœud de cluster et Configuration Manager effectue également des mises à jour logicielles du serveur. Il est important de configurer ces outils de manière à ce qu’ils n’aient pas à se chevaucher les mêmes serveurs dans un déploiement de centre de développement, y compris l’utilisation de différents serveurs de Windows Server Update Services. Cela permet de s’assurer que l’objectif de l’utilisation de la mise à jour adaptée aux clusters n’est pas malencontreusement involontaire, car Configuration Manager\-la mise à jour pilotée n’incorpore pas la reconnaissance  
@@ -158,7 +158,7 @@ Oui. La mise à jour adaptée aux clusters comporte plusieurs options d’exécu
   
 -   [\-plug-in de mise à jour adaptée aux clusters dans l’exemple](https://code.msdn.microsoft.com/windowsdesktop/Cluster-Aware-Updating-6a8854c9)  
   
-## <a name="see-also"></a>Articles associés  
+## <a name="see-also"></a>Voir aussi  
   
--   [Vue d’ensemble de la mise à jour adaptée aux clusters](cluster-aware-updating.md)  
+-   [Vue d’ensemble de la mise à jour adaptée aux clusters\-  
   

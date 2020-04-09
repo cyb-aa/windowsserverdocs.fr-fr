@@ -1,28 +1,22 @@
 ---
 title: chkntfs
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour chkntfs, qui affiche ou modifie la vérification automatique du disque au démarrage de l’ordinateur.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 93eca810-8699-4716-8e9d-aecd54f704be
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f940fe81f0e7e01495e071931059b2375b78bb22
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bb04022964b3c315c1003a9746f6551fc281dba3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379345"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847772"
 ---
 # <a name="chkntfs"></a>chkntfs
-
-
 
 Affiche ou modifie la vérification automatique du disque au démarrage de l’ordinateur. Si elle est utilisée sans options, **chkntfs** affiche le système de fichiers du volume spécifié. Si la vérification automatique des fichiers est planifiée pour s’exécuter, **chkntfs** indique si le volume spécifié est modifié ou est planifié pour être vérifié lors du prochain démarrage de l’ordinateur.
 
@@ -41,18 +35,18 @@ chkntfs [/x <Volume> [...]]
 chkntfs [/c <Volume> [...]]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Volume > [...]|Spécifie un ou plusieurs volumes à vérifier au démarrage de l’ordinateur. Les volumes valides incluent des lettres de lecteur (suivies de deux-points), de points de montage ou de noms de volumes.|
+|\<du volume > [...]|Spécifie un ou plusieurs volumes à vérifier au démarrage de l’ordinateur. Les volumes valides incluent des lettres de lecteur (suivies de deux-points), de points de montage ou de noms de volumes.|
 |/d|Restaure tous les paramètres par défaut de **chkntfs** , à l’exception de la durée du compte à rebours pour la vérification automatique des fichiers. Par défaut, tous les volumes sont vérifiés au démarrage de l’ordinateur et **chkdsk** s’exécute sur ceux qui sont modifiés.|
-|/t [ : \<Time >]|Remplace le délai d’exécution du compte à rebours d’amorçage de Autochk. exe par la durée spécifiée en secondes. Si vous n’entrez pas de temps, **/t** affiche la durée du compte à rebours en cours.|
-|/x \<Volume > [...]|Spécifie un ou plusieurs volumes à exclure de la vérification au démarrage de l’ordinateur, même si le volume est marqué comme nécessitant **chkdsk**.|
-|/c \<Volume > [...]|Planifie un ou plusieurs volumes à vérifier au démarrage de l’ordinateur et exécute **chkdsk** sur ceux qui ont été modifiés.|
+|/t [ :\<> de temps]|Remplace le délai d’exécution du compte à rebours d’amorçage de Autochk. exe par la durée spécifiée en secondes. Si vous n’entrez pas de temps, **/t** affiche la durée du compte à rebours en cours.|
+|/x \<> de volume [...]|Spécifie un ou plusieurs volumes à exclure de la vérification au démarrage de l’ordinateur, même si le volume est marqué comme nécessitant **chkdsk**.|
+|/c \<volume > [...]|Planifie un ou plusieurs volumes à vérifier au démarrage de l’ordinateur et exécute **chkdsk** sur ceux qui ont été modifiés.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher le type de système de fichiers pour le lecteur C, tapez :
 ```
@@ -95,6 +89,6 @@ chkntfs /x c: d: e:
 chkntfs /c d:
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

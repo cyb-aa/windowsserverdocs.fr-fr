@@ -1,24 +1,20 @@
 ---
 title: Gérer des tâches système à l’aide du Gestionnaire MultiPoint
 description: Vue d’ensemble des tâches de gestion dans le gestionnaire MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: efb34298-391c-4435-afdf-1a749f1ce224
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 185f4c88286138af61f92f3f349efd8f584ed73c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a1f51d459634f9657a8623e52ed30b88158167ad
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405058"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853512"
 ---
 # <a name="manage-system-tasks-using-multipoint-manager"></a>Gérer des tâches système à l’aide du Gestionnaire MultiPoint
 Dans le gestionnaire MultiPoint, vous pouvez utiliser l’onglet dossier de **démarrage** pour effectuer des tâches multipoint services et vérifier l’état du système. Parmi les tâches que vous pouvez exécuter sous l’onglet **Accueil**, citons les suivantes :  

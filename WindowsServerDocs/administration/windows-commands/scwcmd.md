@@ -1,28 +1,24 @@
 ---
 title: Scwcmd
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 188ae881-c7d4-4a7a-b967-8fdc79f5f345
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fae9476f94af5faa6e942239e7d91cf589bb1776
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 014bb8b26f6eebaefa3a9997a71fbaaf543a75dc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384257"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835042"
 ---
 # <a name="scwcmd"></a>Scwcmd
 
-> S'applique à : Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server 2012 R2, Windows Server 2012
 
 L’outil en ligne de commande Scwcmd. exe inclus dans l’Assistant Configuration de la sécurité (SCW) peut être utilisé pour effectuer les tâches suivantes :
 -   Configurez un ou plusieurs serveurs avec une stratégie générée par SCW.
@@ -40,7 +36,7 @@ Lorsque vous utilisez l’outil **scwcmd** pour configurer, analyser ou restaure
 scwcmd <command> [<subcommand>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Sous-commande|Description|
 |----------|-----------|
@@ -52,6 +48,6 @@ scwcmd <command> [<subcommand>]
 |/View|Génère le rendu d’un fichier. XML à l’aide d’une transformation. XSL spécifiée.</br>Consultez [scwcmd : View](scwcmd-view.md) pour connaître la syntaxe et les options.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

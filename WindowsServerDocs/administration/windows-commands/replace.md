@@ -1,24 +1,20 @@
 ---
 title: replace
 description: Découvrez comment utiliser la commande Replace pour remplacer des fichiers.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6143661e-d90f-4812-b265-6669b567dd1f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 0e96be58106847a3ff6451cdb7792a197ec40227
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d44e4f8383a77582177f4d9b161210207ce46e63
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384509"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835902"
 ---
 # <a name="replace"></a>replace
 
@@ -35,7 +31,7 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/a] [/p] [/r] [/w]
 replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] [/u] 
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -46,7 +42,7 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 |/r|Remplace les fichiers en lecture seule et non protégés. Si vous tentez de remplacer un fichier en lecture seule, mais que vous ne spécifiez pas **/r**, une erreur se produit et arrête l’opération de remplacement.|
 |/w|Attend l’insertion d’un disque avant le début de la recherche des fichiers sources. Si vous ne spécifiez pas **/w**, **Replace** commence à remplacer ou à ajouter des fichiers immédiatement après avoir appuyé sur entrée.|
 |/s|Effectue une recherche dans tous les sous-répertoires du répertoire de destination et remplace les fichiers correspondants. Vous ne pouvez pas utiliser **/s** avec l’option de ligne de commande **/a** . La commande **Replace** n’effectue pas de recherche dans les sous-répertoires spécifiés dans *chemin1*.|
-|/u.|Remplace uniquement les fichiers du répertoire de destination qui sont antérieurs à ceux du répertoire source. Vous ne pouvez pas utiliser **/u** avec l’option de ligne de commande **/a** .|
+|/u|Remplace uniquement les fichiers du répertoire de destination qui sont antérieurs à ceux du répertoire source. Vous ne pouvez pas utiliser **/u** avec l’option de ligne de commande **/a** .|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
@@ -74,12 +70,12 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 > [!NOTE]
 > Vous pouvez utiliser le paramètre ERRORLEVEL sur la ligne de commande **If** dans un programme de traitement par lots pour traiter les codes de sortie retournés par **Replace**.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 
 Pour mettre à jour toutes les versions d’un fichier nommé téléphones. CLI (qui apparaissent dans plusieurs répertoires sur le lecteur C), avec la dernière version du fichier phones. CLI à partir d’une disquette dans le lecteur A, tapez :
 
 `replace a:\phones.cli c:\ /s`
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6b38480e-5b1c-49f0-9d46-8cf22f70f0d2
 title: Configurer l’environnement lab pour AD FS dans Windows Server 2012 R2
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 52199ab8ca6f82443e78e72c6980746fa561363a
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 44de547b0a9c8636b07886d35c451bca6ec46341
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323121"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855172"
 ---
 # <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>Configurer l’environnement lab pour AD FS dans Windows Server 2012 R2
 
@@ -43,12 +42,12 @@ Pour configurer cet environnement de test, effectuez les étapes suivantes :
 
 4.  [Étape 4 : configurer l’ordinateur client (CLIENT1)](../../ad-fs/deployment/../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_10)
 
-## <a name="BKMK_1"></a>Étape 1 : configurer le contrôleur de domaine (DC1)
+## <a name="step-1-configure-the-domain-controller-dc1"></a><a name="BKMK_1"></a>Étape 1 : configurer le contrôleur de domaine (DC1)
 Dans le cadre de cet environnement de test, vous pouvez appeler votre racine Active Directory domaine **contoso.com** et spécifier <strong>pass@word1</strong> en tant que mot de passe d’administrateur.
 
 -   Installez le service de rôle AD DS et installez Active Directory Domain Services (AD DS) pour faire de votre ordinateur un contrôleur de domaine dans Windows Server 2012 R2. Cette action met à niveau votre schéma AD DS dans le cadre de la création du contrôleur de domaine. Pour plus d’informations et pour obtenir des instructions pas à pas, consultez[https://technet.microsoft.com/library/hh472162.aspx](https://technet.microsoft.com/library/hh472162.aspx).
 
-### <a name="BKMK_2"></a>Créer des comptes de Active Directory de test
+### <a name="create-test-active-directory-accounts"></a><a name="BKMK_2"></a>Créer des comptes de Active Directory de test
 Une fois que votre contrôleur de domaine est opérationnel, vous pouvez créer un groupe de test, tester des comptes d'utilisateur dans ce domaine et ajouter le compte d'utilisateur au compte de groupe. Vous utilisez ces comptes pour effectuer les procédures des guides pas à pas mentionnés plus haut dans cette rubrique.
 
 Créez les comptes ci-après :
@@ -74,7 +73,7 @@ Le compte du compte de service administré de groupe (GMSA) est requis lors de l
 
     ```
 
-## <a name="BKMK_4"></a>Étape 2 : configurer le serveur de Fédération (ADFS1) à l’aide de Device Registration service
+## <a name="step-2-configure-the-federation-server-adfs1-by-using-device-registration-service"></a><a name="BKMK_4"></a>Étape 2 : configurer le serveur de Fédération (ADFS1) à l’aide de Device Registration service
 Pour configurer une autre machine virtuelle, installez Windows Server 2012 R2 et connectez-le au domaine **contoso.com**. Configurez l’ordinateur après l’avoir joint au domaine, puis procédez à l’installation et à la configuration du rôle AD FS.
 
 Regardez la vidéo [Active Directory Federation Services How-To Video Series: Installing an AD FS Server Farm](https://technet.microsoft.com/video/dn469436) (Série de vidéos de procédure sur les services AD FS : Installation d’une batterie de serveurs AD FS).
@@ -202,7 +201,7 @@ Vous devez au minimum être membre du groupe des administrateurs ou d'un groupe 
     > [!IMPORTANT]
     > Dans un déploiement réel, si votre entreprise possède plusieurs suffixes de nom d'utilisateur principal (UPN), vous devez créer un enregistrement CNAME par suffixe UPN dans DNS.
 
-## <a name="BKMK_5"></a>Étape 3 : configurer le serveur Web (WebServ1) et un exemple d’application basée sur les revendications
+## <a name="step-3-configure-the-web-server-webserv1-and-a-sample-claims-based-application"></a><a name="BKMK_5"></a>Étape 3 : configurer le serveur Web (WebServ1) et un exemple d’application basée sur les revendications
 Configurez un ordinateur virtuel (WebServ1) en installant le système d’exploitation Windows Server 2012 R2 et connectez-le au domaine **contoso.com**. Après l'avoir joint au domaine, vous pouvez passer à l'installation et à la configuration du rôle de serveur web.
 
 Pour effectuer les procédures pas à pas mentionnées plus haut dans cette rubrique, vous devez posséder un exemple d'application sécurisé par votre serveur de fédération (ADFS1).
@@ -222,7 +221,7 @@ Vous devez effectuer les étapes suivantes pour configurer un serveur web avec c
 
 4.  [Créer une approbation de partie de confiance sur votre serveur de Fédération](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_11)
 
-### <a name="BKMK_15"></a>Installer le rôle de serveur Web et Windows Identity Foundation
+### <a name="install-the-web-server-role-and-windows-identity-foundation"></a><a name="BKMK_15"></a>Installer le rôle de serveur Web et Windows Identity Foundation
 
 1. > [!NOTE]
    > Vous devez avoir accès au support d’installation de Windows Server 2012 R2.
@@ -247,11 +246,11 @@ Vous devez effectuer les étapes suivantes pour configurer un serveur web avec c
 
 10. Dans la page **Confirmer les sélections d'installation**, cliquez sur **Spécifier un autre chemin d'accès source**. Entrez le chemin d’accès au répertoire SxS situé dans le support d’installation de Windows Server 2012 R2. Par exemple, D:\Sources\Sxs. Cliquez sur **OK**, puis sur **Installer**.
 
-### <a name="BKMK_13"></a>Installer le kit de développement logiciel Windows Identity Foundation
+### <a name="install-windows-identity-foundation-sdk"></a><a name="BKMK_13"></a>Installer le kit de développement logiciel Windows Identity Foundation
 
 1.  Exécutez WindowsIdentityFoundation-SDK-3.5. msi pour installer le kit de développement logiciel (SDK) Windows Identity Foundation 3,5 (https://www.microsoft.com/download/details.aspx?id=4451). Choisissez toutes les options par défaut.
 
-### <a name="BKMK_9"></a>Configuration de l’application de revendications simple dans IIS
+### <a name="configure-the-simple-claims-app-in-iis"></a><a name="BKMK_9"></a>Configuration de l’application de revendications simple dans IIS
 
 1.  Installez un certificat SSL valide dans le magasin de certificats de l'ordinateur. Le certificat doit contenir le nom de votre serveur web, **webserv1.contoso.com**.
 
@@ -322,7 +321,7 @@ Vous devez effectuer les étapes suivantes pour configurer un serveur web avec c
 
 Vous devez maintenant sécuriser votre exemple d’application qui s’exécute sur votre serveur Web avec AD FS. Pour ce faire, vous pouvez ajouter une approbation de partie de confiance à votre serveur de fédération (ADFS1). Regardez la vidéo [Active Directory Federation Services How-To Video Series: Add a Relying Party Trust](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust)(Série de vidéos de procédure sur les services AD FS : Ajout d’une approbation de partie de confiance)
 
-### <a name="BKMK_11"></a>Créer une approbation de partie de confiance sur votre serveur de Fédération
+### <a name="create-a-relying-party-trust-on-your-federation-server"></a><a name="BKMK_11"></a>Créer une approbation de partie de confiance sur votre serveur de Fédération
 
 1.  Sur votre serveur de fédération (ADFS1), dans la **console Gestion AD FS**, accédez à **Approbations de partie de confiance**, puis cliquez sur **Ajouter une approbation de partie de confiance**.
 
@@ -350,7 +349,7 @@ Vous devez maintenant sécuriser votre exemple d’application qui s’exécute 
 
 10. Cliquez sur **Terminer**, puis sur **OK**.
 
-## <a name="BKMK_10"></a>Étape 4 : configurer l’ordinateur client (CLIENT1)
+## <a name="step-4-configure-the-client-computer-client1"></a><a name="BKMK_10"></a>Étape 4 : configurer l’ordinateur client (CLIENT1)
 Configurez une autre machine virtuelle et installez Windows 8.1. Cette machine virtuelle doit se trouver sur le même réseau virtuel que les autres machines. Cette machine NE DOIT PAS être jointe au domaine Contoso.
 
 Le client DOIT approuver le certificat SSL utilisé pour le serveur de fédération (ADFS1), que vous avez configuré dans [Step 2: Configure the federation server (ADFS1) with Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4). Il doit aussi pouvoir valider les informations sur la révocation du certificat.

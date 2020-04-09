@@ -4,15 +4,15 @@ description: Définition de site et considérations relatives au placement des c
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
+ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 66c6f94f1f3fee924ba0d9a3bfa0c712d62bb095
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: aac7b8f37de2132778bd681d2f2e29ad0ad0810d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947100"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851872"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Positionnement approprié des contrôleurs de domaine et des considérations sur les sites
 
@@ -76,7 +76,7 @@ Pour tous les scénarios d’approbation, les informations d’identification so
 
 -   Désactivez le passage des demandes d’authentification avec un domaine NULL spécifié dans toutes les approbations disponibles. [Le processus Lsass. exe peut cesser de répondre si vous avez de nombreuses approbations externes sur un contrôleur de domaine Active Directory](https://support.microsoft.com/kb/923241/EN-US)
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 - [Réglage des performances Active Directory serveurs](index.md)
 - [Considérations matérielles](hardware-considerations.md)
 - [Considérations relatives au protocole LDAP](ldap-considerations.md)

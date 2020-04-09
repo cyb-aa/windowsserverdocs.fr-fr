@@ -9,16 +9,16 @@ ms.date: 10/29/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 28bb22c0f2dc70e899fe5ddfe232eacedfd400bc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3b82958471e5292f202aa338aee7f4f5863459af
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390757"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825212"
 ---
 # <a name="domain-wide-schema-updates"></a>Mises à jour de schéma à l’ensemble du domaine
 
->S'applique à : Windows Server
+>S’applique à : Windows Server
 
 Vous pouvez consulter l’ensemble de modifications suivant pour vous aider à comprendre et à préparer les mises à jour de schéma effectuées par adprep/domainprep dans Windows Server.
 
@@ -26,23 +26,23 @@ Vous pouvez consulter l’ensemble de modifications suivant pour vous aider à c
 
 Pour plus d’informations sur la façon d’interpréter les chaînes d’entrée de contrôle d’accès (ACE), consultez [chaînes ACE](https://msdn.microsoft.com/library/aa374928(VS.85).aspx). Pour plus d’informations sur la façon d’interpréter les chaînes d’ID de sécurité (SID), consultez [sid Strings](https://msdn.microsoft.com/library/aa379602(VS.85).aspx).
 
-## <a name="windows-server-semi-annual-channel-domain-wide-updates"></a>Windows Server (canal semi-annuel) : Mises à jour à l’ensemble du domaine
+## <a name="windows-server-semi-annual-channel-domain-wide-updates"></a>Windows Server (canal semi-annuel) : mises à jour à l’ensemble du domaine
 
-Une fois les opérations effectuées par **domainprep** dans Windows Server 2016 (Operation 89), l’attribut **Revision** pour l’objet CN = ActiveDirectoryUpdate, CN = DomainUpdates, CN = System, DC = DomaineRacineForêt a la valeur **16** .
+Une fois les opérations effectuées par **domainprep** dans Windows Server 2016 (Operation 89), l’attribut **Revision** pour l’objet CN = ActiveDirectoryUpdate, CN = DomainUpdates, CN = System, DC = DomaineRacineForêt a la valeur **16**.
 
 |Nombre d’opérations et GUID|Description|Autorisations|
 |------------------------------|---------------|--------------|---------------|
 |**Opération 89**: {A0C238BA-9E30-4EE6-80A6-43F731E9A5CD}|Supprimez l’ACE accordant le contrôle total aux administrateurs de clés d’entreprise et ajoutez un ACE accordant à l’administrateur de clé d’entreprise le contrôle total sur l’attribut msdsKeyCredentialLink uniquement.|Supprimer (A ; CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; Administrateurs de clé d’entreprise) <br /> <br />Add (OA ; CI RPWP;5b47d60f-6090-40b2-9f37-2a4de88f3063;; Administrateurs de clé d’entreprise)|
 
-## <a name="windows-server-2016-domain-wide-updates"></a>Windows Server 2016 : Mises à jour à l’ensemble du domaine
+## <a name="windows-server-2016-domain-wide-updates"></a>Windows Server 2016 : mises à jour à l’ensemble du domaine
 
-Une fois les opérations effectuées par **domainprep** dans Windows Server 2016 (operations 82-88), l’attribut **Revision** pour l’objet CN = ActiveDirectoryUpdate, CN = DomainUpdates, CN = System, DC = DomaineRacineForêt est défini sur **15** .
+Une fois les opérations effectuées par **domainprep** dans Windows Server 2016 (operations 82-88), l’attribut **Revision** pour l’objet CN = ActiveDirectoryUpdate, CN = DomainUpdates, CN = System, DC = DomaineRacineForêt a la valeur **15**.
 
 |Nombre d’opérations et GUID|Description|Attributs|Autorisations|
 |------------------------------|---------------|--------------|---------------|
-|**Opération 82**: {83C53DA7-427e-47A4-A07A-A324598B88F7}|Créer un conteneur CN = Keys à la racine du domaine|-objectClass : conteneur<br />descriptive Conteneur par défaut pour les objets d’informations d’identification de clé<br />- ShowInAdvancedViewOnly: TRUE|UN CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; EA<br />UN CI RPWPCRLCLOCCDCRCWDWOSDDTSW ;;;D UN<br />UN CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; SY<br />UN CI RPWPCRLCLOCCDCRCWDWOSDDTSW ;;;D E<br />UN CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; ED|
+|**Opération 82**: {83C53DA7-427e-47A4-A07A-A324598B88F7}|Créer un conteneur CN = Keys à la racine du domaine|-objectClass : conteneur<br />-Description : conteneur par défaut pour les objets d’informations d’identification de clé<br />-ShowInAdvancedViewOnly : TRUE|Un CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; EA<br />Un CI RPWPCRLCLOCCDCRCWDWOSDDTSW ;;;D Un<br />Un CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; Sy<br />Un CI RPWPCRLCLOCCDCRCWDWOSDDTSW ;;;D E<br />Un CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; Ed|
 |**Opération 83**: {C81FC9CC-0130-4fd1-B272-634D74818133}|Ajoutez contrôle total autoriser les ACE au conteneur CN = clés pour « domain\Key admins » et « rootdomain\Enterprise Key admins ».|N/A|Un CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; Administrateurs de clés)<br />Un CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; Administrateurs de clé d’entreprise)|
-|**Opération 84**: {E5F9E791-D96D-4FC9-93C9-D53E1DC439BA}|Modifiez l’attribut otherWellKnownObjects pour qu’il pointe vers le conteneur CN = Keys.|- otherWellKnownObjects: B :32:683A24E2E8164BD3AF86AC3C2CF3F981 : CN = clés,% WS|N/A|
+|**Opération 84**: {E5F9E791-D96D-4FC9-93C9-D53E1DC439BA}|Modifiez l’attribut otherWellKnownObjects pour qu’il pointe vers le conteneur CN = Keys.|-otherWellKnownObjects : B :32:683A24E2E8164BD3AF86AC3C2CF3F981 : CN = Keys,% WS|N/A|
 |**Opération 85**: {e6d5fd00-385d-4e65-b02d-9da3493ed850}|Modifiez le contexte de nommage de domaine pour autoriser « domain\Key admins » et « rootdomain\Enterprise Key admins » à modifier l’attribut msDS-KeyCredentialLink. |N/A|FONCTIONNEMENT CI RPWP;5b47d60f-6090-40b2-9f37-2a4de88f3063;; Administrateurs de clés)<br />FONCTIONNEMENT CI RPWP;5b47d60f-6090-40b2-9f37-2a4de88f3063;; Les administrateurs de clé d’entreprise dans le domaine racine, mais dans les domaines non racine, ont provoqué une fausse entrée de l’ACE relative au domaine avec un SID non résoluble-527.|
 |**Opération 86**: {3a6b3fbf-3168-4312-a10d-dd5b3393952d}|Accordez à l’ordinateur de test DS-valid-Write-Computer ERE le propriétaire du créateur et|N/A|FONCTIONNEMENT CIIO ; SW ; 9b026da6-0d3c-465C-8bee-5199d7165cba ; bf967a86-0de6-11D0-A285-00aa003049e2 ; PS)<br />FONCTIONNEMENT CIIO ; SW ; 9b026da6-0d3c-465C-8bee-5199d7165cba ; bf967a86-0de6-11D0-A285-00aa003049e2 ; CO)|
 |**Opération 87**: {7F950403-0AB3-47F9-9730-5D7B0269F9BD}|Supprimez l’entrée du contrôle d’accès accordant le contrôle total au groupe administrateurs de clés d’entreprise du domaine incorrect, puis ajoutez un ACE accordant le contrôle total au groupe administrateurs de clé d’entreprise. |N/A|Supprimer (A ; CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; Administrateurs de clé d’entreprise)<br /> <br />Ajouter (A ; CI RPWPCRLCLOCCDCRCWDWOSDDTSW;;; Administrateurs de clé d’entreprise)|
@@ -50,13 +50,13 @@ Une fois les opérations effectuées par **domainprep** dans Windows Server 2016
 
 Les groupes Administrateurs de clé d’entreprise et administrateurs de clés sont créés uniquement après la promotion d’un contrôleur de domaine Windows Server 2016 et le rôle FSMO d’émulateur de contrôleur de domaine principal.
 
-## <a name="windows-server-2012-r2-domain-wide-updates"></a>Windows Server 2012 R2 : Mises à jour à l’ensemble du domaine
+## <a name="windows-server-2012-r2-domain-wide-updates"></a>Windows Server 2012 R2 : mises à jour à l’ensemble du domaine
 
-Bien qu’aucune opération ne soit effectuée par **domainprep** dans Windows Server 2012 R2, une fois la commande terminée, l’attribut **Revision** pour l’objet CN = ActiveDirectoryUpdate, CN = DomainUpdates, CN = System, DC = DomaineRacineForêt a la valeur **10** .
+Bien qu’aucune opération ne soit effectuée par **domainprep** dans Windows Server 2012 R2, une fois la commande terminée, l’attribut **Revision** pour l’objet CN = ActiveDirectoryUpdate, CN = DomainUpdates, CN = System, DC = DomaineRacineForêt a la valeur **10**.
 
-## <a name="windows-server-2012-domain-wide-updates"></a>Windows Server 2012 : Mises à jour à l’ensemble du domaine
+## <a name="windows-server-2012-domain-wide-updates"></a>Windows Server 2012 : mises à jour à l’ensemble du domaine
 
-Une fois que les opérations effectuées par **domainprep** dans Windows Server 2012 (operations 78, 79, 80 et 81) sont terminées, l’attribut **Revision** de l’objet CN = ActiveDirectoryUpdate, CN = DomainUpdates, CN = System, DC = DomaineRacineForêt est défini sur **9**.
+Une fois les opérations effectuées par **domainprep** dans Windows Server 2012 (operations 78, 79, 80 et 81), l’attribut **Revision** de l’objet CN = ActiveDirectoryUpdate, CN = DomainUpdates, CN = System, DC = DomaineRacineForêt est défini sur **9**.
 
 |Nombre d’opérations et GUID|Description|Attributs|Autorisations|
 |------------------------------|---------------|--------------|---------------|

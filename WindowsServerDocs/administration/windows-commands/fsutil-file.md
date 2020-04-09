@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b89d96535512f79c83c601be50327c24dc40787
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 175b5e17f186653d4fdbc7efb505637e915cfe38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376981"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844322"
 ---
 # <a name="fsutil-file"></a>Fichier fsutil
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -42,7 +42,7 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |-------------|---------------|
@@ -51,7 +51,7 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 |longueur de la \<>|Spécifie la longueur des données valides du fichier.|
 |findbysid|Recherche des fichiers qui appartiennent à un utilisateur spécifié sur des volumes NTFS où les quotas de disque sont activés.|
 |nom d’utilisateur \<>|Spécifie le nom d’utilisateur ou le nom d’ouverture de session de l’utilisateur.|
-|\<directory>|Spécifie le chemin d’accès complet au répertoire, par exemple C:\Users.|
+|Répertoire \<>|Spécifie le chemin d’accès complet au répertoire, par exemple C:\Users.|
 |optimizemetadata|Cela effectue un compactage immédiat des métadonnées pour un fichier donné.|
 |/A|Analyser les métadonnées de fichier avant et après l’optimisation.|
 |queryallocranges|Interroge les plages allouées pour un fichier sur un volume NTFS. Utile pour déterminer si un fichier a des régions éparses.|
@@ -61,9 +61,9 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 |/R|Si <filename> est un point d’analyse, ouvrez-le au lieu de sa cible.|
 |\<startingvcn >|Spécifie le premier VCN à interroger. En cas d’omission, commencez à VCN 0.|
 |\<numvcns >|Nombre de VCNs à interroger. En cas d’omission ou 0, interroger jusqu’à EOF.|
-|queryfileid|Interroge l’ID d’un fichier sur un volume NTFS.<br /><br />Ce paramètre s’applique à : Windows Server 2008 R2 et Windows 7.|
+|queryfileid|Interroge l’ID d’un fichier sur un volume NTFS.<p>Ce paramètre s’applique à : Windows Server 2008 R2 et Windows 7.|
 |> du volume \<|Spécifie le volume en tant que nom de lecteur suivi d’un signe deux-points.|
-|queryfilenamebyid|Affiche un nom de lien aléatoire pour un ID de fichier spécifié sur un volume NTFS. Étant donné qu’un fichier peut avoir plusieurs noms de liens pointant vers ce fichier, il n’est pas garanti que le lien de fichier sera fourni à la suite de la requête pour le nom de fichier.<br /><br />Ce paramètre s’applique à : Windows Server 2008 R2 et Windows 7.|
+|queryfilenamebyid|Affiche un nom de lien aléatoire pour un ID de fichier spécifié sur un volume NTFS. Étant donné qu’un fichier peut avoir plusieurs noms de liens pointant vers ce fichier, il n’est pas garanti que le lien de fichier sera fourni à la suite de la requête pour le nom de fichier.<p>Ce paramètre s’applique à : Windows Server 2008 R2 et Windows 7.|
 |\<fileid >|Spécifie l’ID du fichier sur un volume NTFS.|
 |queryoptimizemetadata|Interroge l’état des métadonnées d’un fichier.|
 |queryvaliddata|Interroge la longueur de données valide d’un fichier.|
@@ -87,7 +87,7 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 
     -   Création de fichiers volumineux lorsque la performance est un problème. Cela évite le temps nécessaire pour remplir le fichier avec des zéros lors de la création ou de l’extension du fichier.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour rechercher des fichiers appartenant à scottb sur le lecteur C, tapez :
 
 ```
@@ -136,8 +136,8 @@ Pour définir une plage d’un fichier sur un volume NTFS sur des zéros pour la
 fsutil file setzerodata offset=100 length=150 c:\temp\sample.txt  
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

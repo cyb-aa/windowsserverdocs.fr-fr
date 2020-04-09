@@ -1,56 +1,57 @@
 ---
 title: bitsadmin getaclflags
-description: La rubrique commandes Windows pour **Bitsadmin GETACLFLAGS** -récupère les indicateurs de propagation de la liste de contrôle d’accès.
-ms.custom: na
+description: La rubrique commandes Windows pour **Bitsadmin GETACLFLAGS**, qui récupère les indicateurs de propagation de la liste de contrôle d’accès (ACL).
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99266def-7479-4430-a61c-98ec433fa88b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ad98cd742161ae06be5cba7acde7b810eaf199d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d53018e2fa5c659c8cf4b0ec985beda848a8c1af
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381790"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850792"
 ---
 # <a name="bitsadmin-getaclflags"></a>bitsadmin getaclflags
 
-Récupère les indicateurs de propagation de la liste de contrôle d’accès (ACL).
+Récupère les indicateurs de propagation de la liste de contrôle d’accès (ACL), en indiquant si les éléments sont hérités par les objets enfants.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /GetAclFlags <Job>
+bitsadmin /getaclflags <job>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
+| Paramètre | Description |
+| --------- | ----------- |
+| le travail | Nom complet ou GUID du travail. |
 
 ## <a name="remarks"></a>Notes
 
 Affiche une ou plusieurs des valeurs d’indicateur suivantes :
--   SORTIES Copiez les informations de propriétaire avec le fichier.
--   ACTIVÉE Copier les informations de groupe avec le fichier.
--   D: Copiez les informations DACL avec le fichier.
--   X Copiez les informations SACL avec le fichier.
 
-## <a name="BKMK_examples"></a>Illustre
+- **o** -copier les informations de propriétaire avec le fichier.
+
+- **g** -copier les informations de groupe avec le fichier.
+
+- **d** -copie les informations discrétionnaires sur la liste de contrôle d’accès (DACL) avec le fichier.
+
+- **s** -copier les informations de la liste de contrôle d’accès système (SACL) avec le fichier.
+
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 L’exemple suivant récupère les indicateurs de propagation de la liste de contrôle d’accès pour le travail nommé *myDownloadJob*.
+
 ```
 C:\>bitsadmin /getaclflags myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

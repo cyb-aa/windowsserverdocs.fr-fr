@@ -1,29 +1,25 @@
 ---
 title: Paramètres du Registre TLS (Transport Layer Security)
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-tls-ssl
-ms.tgt_pltfrm: na
 ms.topic: article
 author: justinha
 ms.author: justinha
-manager: brianlic-msft
+manager: brianlic
 ms.date: 02/28/2019
-ms.openlocfilehash: 60202e537093bd21515043ba56f70f3895c91d42
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: d65b314d6896c886ce606d2b649fcfd7309c583b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322401"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820282"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Paramètres du Registre TLS (Transport Layer Security)
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10
 
-Cette rubrique de référence destinée aux professionnels de l’informatique contient des informations sur les paramètres de Registre pris en charge pour l’implémentation Windows du protocole TLS (Transport Layer Security) et du protocole protocole SSL (SSL) par le biais de la prise en charge de la sécurité Schannel. Fournisseur (SSP). Les sous-clés et les entrées de Registre abordées dans cette rubrique vous aident à administrer et à dépanner le SSP Schannel, en particulier les protocoles TLS et SSL. 
+Cette rubrique de référence destinée aux professionnels de l’informatique contient des informations sur les paramètres de Registre pris en charge pour l’implémentation Windows du protocole TLS (Transport Layer Security) et du protocole SSL (protocole SSL) via le fournisseur SSP (Security Support Provider) Schannel. Les sous-clés et les entrées de Registre abordées dans cette rubrique vous aident à administrer et à dépanner le SSP Schannel, en particulier les protocoles TLS et SSL. 
 
 > [!CAUTION]
 > Ces informations sont fournies à titre de référence et peuvent être utilisées dans le cadre de la résolution de problèmes ou de la vérification de l’application des paramètres requis.

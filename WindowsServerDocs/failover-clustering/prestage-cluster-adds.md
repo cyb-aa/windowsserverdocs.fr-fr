@@ -5,16 +5,16 @@ ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.manager: daveba
+manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 56bf122923525de6e0005dd6d866220221dc9ce1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b14561a05778ed30e71363a2cd3b3b6fdf24f78e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392062"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827472"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Préparer des objets d’ordinateur de cluster dans Active Directory Domain Services
 
@@ -22,7 +22,7 @@ ms.locfileid: "71392062"
 
 Cette rubrique montre comment prédéfinir des objets ordinateur du cluster dans les services de domaine Active Directory (AD DS). Vous pouvez utiliser cette procédure pour permettre à un utilisateur ou un groupe de créer un cluster de basculement lorsqu’il n’a pas l’autorisation de créer des objets ordinateur dans AD DS.
 
-Lorsque vous créez un cluster de basculement à l’aide de l’Assistant Création d’un cluster ou de Windows PowerShell, vous devez indiquer un nom pour le cluster. Si vous disposez d’autorisations suffisantes lorsque vous créez le cluster, le processus de création du cluster crée automatiquement un objet ordinateur dans AD DS qui correspond au nom du cluster. Cet objet est appelé *objet nom de cluster* . À l’aide de l’objet nom de cluster, les objets ordinateur virtuel sont automatiquement créés lorsque vous configurez des rôles en cluster qui utilisent des points d’accès client. Par exemple, si vous créez un serveur de fichiers à haut niveau de disponibilité avec un point d’accès client nommé *FileServer1*, l’objet nom de cluster crée un objet ordinateur virtuel correspondant dans AD DS.
+Lorsque vous créez un cluster de basculement à l’aide de l’Assistant Création d’un cluster ou de Windows PowerShell, vous devez indiquer un nom pour le cluster. Si vous disposez d’autorisations suffisantes lorsque vous créez le cluster, le processus de création du cluster crée automatiquement un objet ordinateur dans AD DS qui correspond au nom du cluster. Cet objet est appelé *objet nom de cluster*. À l’aide de l’objet nom de cluster, les objets ordinateur virtuel sont automatiquement créés lorsque vous configurez des rôles en cluster qui utilisent des points d’accès client. Par exemple, si vous créez un serveur de fichiers à haut niveau de disponibilité avec un point d’accès client nommé *FileServer1*, l’objet nom de cluster crée un objet ordinateur virtuel correspondant dans AD DS.
 
 >[!NOTE]
 >Il est possible de créer un cluster détaché Active Directory, où aucun CNO ou VCO n’est créé dans AD DS. Cela s’adresse à des types spécifiques de déploiements de cluster. Pour plus d’informations, voir [Déployer un cluster détaché d’Active Directory](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v%3dws.11)>).
@@ -65,11 +65,11 @@ Nous vous recommandons, à titre de meilleure pratique, de créer une unité d�
 
 Vous devez configurer des autorisations afin que le compte d’utilisateur qui sera utilisé pour créer le cluster de basculement dispose des autorisations Contrôle total sur l’objet nom de cluster.
 
-L’appartenance au groupe **Opérateurs de compte** est la condition minimale requise pour effectuer cette étape.
+L’appartenance au groupe **Opérateurs de compte**  est la condition minimale requise pour effectuer cette étape.
 
 Voici comment accorder aux utilisateurs les autorisations nécessaires pour créer le cluster :
 
-1. Dans Utilisateurs et ordinateurs Active Directory, dans le menu **Affichage** , vérifiez que l’option **Fonctionnalités avancées** est sélectionnée.
+1. Dans Utilisateurs et ordinateurs Active Directory, dans le menu **Affichage**, vérifiez que l’option **Fonctionnalités avancées** est sélectionnée.
 2. Recherchez et cliquez avec le bouton droit sur CNO, puis sélectionnez **Propriétés**.
 3. Sous l’onglet **sécurité** , sélectionnez **Ajouter**.
 4. Dans la boîte de dialogue **Sélectionner les utilisateurs, les ordinateurs ou les groupes** , spécifiez le compte d’utilisateur ou le groupe auquel vous souhaitez accorder des autorisations, puis sélectionnez **OK**.
@@ -91,7 +91,7 @@ Lorsque vous créez un rôle en cluster avec un point d’accès client, le clus
 
 Si vous avez prédéfini l’objet nom de cluster dans AD DS, vous pouvez procéder de l’une des façons suivantes pour créer des objets ordinateur virtuel :
 
-- Option 1 : [Grant the CNO permissions to the OU](#grant-the-cno-permissions-to-the-ou). Si vous utilisez cette option, le cluster peut automatiquement créer des objets ordinateur virtuel dans AD DS. Par conséquent, un administrateur pour le cluster de basculement peut créer des rôles en cluster sans avoir à vous demander de prédéfinir des objets ordinateur virtuel dans AD DS.
+- Option 1 : [accorder à l’objet nom de cluster les autorisations sur l’unité d’organisation](#grant-the-cno-permissions-to-the-ou). Si vous utilisez cette option, le cluster peut automatiquement créer des objets ordinateur virtuel dans AD DS. Par conséquent, un administrateur pour le cluster de basculement peut créer des rôles en cluster sans avoir à vous demander de prédéfinir des objets ordinateur virtuel dans AD DS.
 
 >[!NOTE]
 >L’appartenance au groupe **Admins du domaine**, ou à un groupe équivalent, est la condition minimale requise pour effectuer les étapes relatives à cette option.
@@ -103,15 +103,15 @@ Si vous avez prédéfini l’objet nom de cluster dans AD DS, vous pouvez procé
 
 ### <a name="grant-the-cno-permissions-to-the-ou"></a>Accorder les autorisations CNO à l’unité d’organisation
 
-1. Dans Utilisateurs et ordinateurs Active Directory, dans le menu **Affichage** , vérifiez que l’option **Fonctionnalités avancées** est sélectionnée.
+1. Dans Utilisateurs et ordinateurs Active Directory, dans le menu **Affichage**, vérifiez que l’option **Fonctionnalités avancées** est sélectionnée.
 2. Cliquez avec le bouton droit sur l’unité d’organisation dans laquelle vous avez créé le CNO à l' [étape 1 : prédéfinir le CNO dans AD DS](#step-1-prestage-the-cno-in-ad-ds), puis sélectionnez **Propriétés**.
 3. Sous l’onglet **sécurité** , sélectionnez **avancé**.
 4. Dans la boîte de dialogue **paramètres de sécurité avancés** , sélectionnez **Ajouter**.
 5. En regard de **principal**, sélectionnez **Sélectionner un principal**.
 6. Dans la boîte de dialogue **Sélectionner un utilisateur, un ordinateur, un compte de service ou des groupes** , sélectionnez **types d’objets**, activez la case à cocher **ordinateurs** , puis sélectionnez **OK**.
 7. Sous **Entrez les noms des objets à sélectionner**, entrez le nom du CNO, sélectionnez **vérifier les noms**, puis sélectionnez **OK**. En réponse au message d’avertissement qui indique que vous allez ajouter un objet désactivé, sélectionnez **OK**.
-8. Dans la boîte de dialogue **Entrée d’autorisation** , vérifiez que la liste **Type** a la valeur **Autoriser**et que la liste **S’applique à** a la valeur **cet objet et tous ceux descendants**.
-9. Sous **Autorisations**, activez la case à cocher **Créer Objets ordinateur** .
+8. Dans la boîte de dialogue **Entrée d’autorisation**, vérifiez que la liste **Type** a la valeur **Autoriser** et que la liste **S’applique à** a la valeur **cet objet et tous ceux descendants**.
+9. Sous **Autorisations**, activez la case à cocher **Créer Objets ordinateur**.
 
    ![Octroi de l’autorisation de création d’objets ordinateur à l’objet nom de cluster](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
 
@@ -123,7 +123,7 @@ Un administrateur sur le cluster de basculement peut maintenant créer des rôle
 ### <a name="prestage-a-vco-for-a-clustered-role"></a>Préparer un VCO pour un rôle en cluster
 
 1. Avant de commencer, assurez-vous de connaître le nom du cluster et celui que le rôle en cluster portera.
-2. Dans Utilisateurs et ordinateurs Active Directory, dans le menu **Affichage** , vérifiez que l’option **Fonctionnalités avancées** est sélectionnée.
+2. Dans Utilisateurs et ordinateurs Active Directory, dans le menu **Affichage**, vérifiez que l’option **Fonctionnalités avancées** est sélectionnée.
 3. Dans Active Directory utilisateurs et ordinateurs, cliquez avec le bouton droit sur l’unité d’organisation dans laquelle réside le CNO du cluster, pointez sur **nouveau**, puis sélectionnez **ordinateur**.
 4. Dans la zone nom de l' **ordinateur** , entrez le nom que vous allez utiliser pour le rôle en cluster, puis sélectionnez **OK**.
 5. Il est recommandé de cliquer avec le bouton droit sur le compte d’ordinateur que vous venez de créer, de sélectionner **Propriétés**, puis de sélectionner l’onglet **objet** . Sous l’onglet **objet** , activez la case à cocher **protéger l’objet des suppressions accidentelles** , puis sélectionnez **OK**.
@@ -131,7 +131,7 @@ Un administrateur sur le cluster de basculement peut maintenant créer des rôle
 7. Sous l’onglet **sécurité** , sélectionnez **Ajouter**.
 8. Dans la boîte de dialogue **Sélectionner un utilisateur, un ordinateur, un compte de service ou des groupes** , sélectionnez **types d’objets**, activez la case à cocher **ordinateurs** , puis sélectionnez **OK**.
 9. Sous **Entrez les noms des objets à sélectionner**, entrez le nom du CNO, sélectionnez **vérifier les noms**, puis sélectionnez **OK**. Si vous recevez un message d’avertissement indiquant que vous êtes sur le paragraphe duquel vous allez ajouter un objet désactivé, sélectionnez **OK**.
-10. Assurez-vous que l’objet nom de cluster est sélectionné puis, en regard de **Contrôle total**, activez la case à cocher **Autoriser** .
+10. Assurez-vous que l’objet nom de cluster est sélectionné puis, en regard de **Contrôle total**, activez la case à cocher **Autoriser**.
 11. Sélectionnez **OK**.
 
 Un administrateur sur le cluster de basculement peut maintenant créer le rôle en cluster avec un point d’accès client qui correspond au nom de l’objet ordinateur virtuel prédéfini, puis mettre la ressource en ligne.

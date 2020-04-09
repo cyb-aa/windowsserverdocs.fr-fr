@@ -4,15 +4,15 @@ description: Recommandations en matière de réglage des performances pour les p
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS
+ms.author: hammadbu; vladmis
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: fcd7afd840df12ec19e162f751df9e5c0c9c84d4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3794b47e7226a905944495dd7c31f3196a33d0d5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385015"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851732"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Optimisation des performances Bureau à distance les passerelles
 
@@ -70,42 +70,42 @@ Les paramètres suivants permettent de paramétrer les appels de procédure dist
 
 La liste suivante de compteurs de performances est considérée comme un ensemble de compteurs de base lorsque vous surveillez l’utilisation des ressources sur la passerelle des services Bureau à distance :
 
--   \\Passerelle des services Terminal Server\\\*
+-   \\\\\* de la passerelle des services Terminal Server
 
--   \\Proxy RPC/HTTP\\\*
+-   \\\\proxy RPC/HTTP \*
 
--   \\Proxy RPC/HTTP par serveur\\\*
+-   \\\\proxy RPC/HTTP par serveur \*
 
--   \\Service Web\\\*
+-   \\\\de service Web \*
 
--   \\W3SVC\_W3WP\\\*
+-   \\W3SVC\_\\W3WP \*
 
--   \\IPv4/IPv6\\\*
+-   \\IPv4\\\*
 
--   \\Capacité\\\*
+-   \\de mémoire \\\*
 
--   \\Interface réseau (\*)\\\*
+-   Interface réseau \\(\*)\\\*
 
--   \\Processus (\*)\\\*
+-   \\du processus de \\(\*) \*
 
--   \\Informations sur le\*processeur ()\\\*
+-   Informations sur le processeur de \\(\*)\\\*
 
--   \\Synchronisation (\*)\\\*
+-   \\de synchronisation (\*)\\\*
 
--   \\Requise\\\*
+-   \\système\\\*
 
 -   \\TCPv4\\\*
 
 Les compteurs de performances suivants s’appliquent uniquement au transport RPC hérité :
 
--   \\RPC proxy\\ \* RPC/http
+-   \\RPC/proxy HTTP\\\* RPC
 
--   \\RPC/proxy http par serveur\\RPC \*
+-   \\le proxy RPC/HTTP par serveur\\\* RPC
 
--   \\RPC du\\ service\* Web
+-   Service Web \\\\\* RPC
 
--   \\W3SVC\_RPC\\ W3WP\*
+-   \\W3SVC\_W3WP\\\* RPC
 
 > [!NOTE]
-> Le cas échéant, ajoutez \\les\\ objets \\IPv6\* et TCPv6\\ \* . ReplaceThisText
+> Le cas échéant, ajoutez les objets \\\\IPv6 \* et \\TCPv6\\\*. ReplaceThisText
 

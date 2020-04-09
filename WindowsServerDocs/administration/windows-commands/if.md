@@ -1,24 +1,20 @@
 ---
 title: if
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 698b3fb9-532b-4c2b-af7f-179f8dc57131
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8518fffc4f271369b13899e149ebd30145726b8
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: 706ac1569ac3ca7ae504410935f334be360eda3a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259024"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842232"
 ---
 # <a name="if"></a>if
 
@@ -42,7 +38,7 @@ if cmdextversion <Number> <Command> [else <Expression>]
 if defined <Variable> <Command> [else <Expression>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |        Paramètre        |                                                                                                                                                                                                                Description                                                                                                                                                                                                                 |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -55,10 +51,10 @@ if defined <Variable> <Command> [else <Expression>]
 |           /i            |                                                            Force les comparaisons de chaînes à ignorer la casse.  Vous pouvez utiliser **/i** sur la forme <em>Chaîne1</em> **==** <em>Chaîne2</em> de **If**. Ces comparaisons sont génériques, en ce sens que si les deux *string1* et *Chaîne2* sont constitués uniquement de chiffres numériques, les chaînes sont converties en nombres et une comparaison numérique est effectuée.                                                            |
 | Nombre de \<CMDEXTVERSION > | Spécifie une condition true uniquement si le numéro de version interne associé à la fonctionnalité d’extensions de commande de cmd. exe est supérieur ou égal au nombre spécifié. La première version est 1. Elle augmente par incréments d’une lorsque des améliorations significatives sont ajoutées aux extensions de commande. La condition **cmdextversion** n’est jamais vraie lorsque les extensions de commande sont désactivées (par défaut, les extensions de commande sont activées). |
 |   Variable \<définie >   |                                                                                                                                                                                            Spécifie une condition true si la *variable* est définie.                                                                                                                                                                                            |
-|      Expression \<      |                                                                                                                                                                   Spécifie une commande de ligne de commande et tous les paramètres à passer à la commande dans une clause **else** .                                                                                                                                                                   |
+|      Expression \<>      |                                                                                                                                                                   Spécifie une commande de ligne de commande et tous les paramètres à passer à la commande dans une clause **else** .                                                                                                                                                                   |
 |           /?            |                                                                                                                                                                                                    Affiche l'aide à l'invite de commandes.                                                                                                                                                                                                    |
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>Notes
 
 -   Si la condition spécifiée dans une clause **If** a la valeur true, la commande qui suit la condition est exécutée. Si la condition est false, la commande dans la clause **If** est ignorée et la commande exécute toute commande spécifiée dans la clause **else** .
 -   Quand un programme s’arrête, il retourne un code de sortie. Pour utiliser des codes de sortie comme conditions, utilisez **ERRORLEVEL**.
@@ -68,9 +64,9 @@ if defined <Variable> <Command> [else <Expression>]
     -   **% cmdextversion%** s’étend dans la représentation sous forme de chaîne de la valeur actuelle de **cmdextversion**. Cela suppose qu’il n’existe pas de variable d’environnement avec le nom CMDEXTVERSION. Si tel est le cas, vous obtiendrez la valeur CMDEXTVERSION à la place.
 -   Vous devez utiliser la clause **else** sur la même ligne que la commande après le **If**.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
-Pour afficher le message « Impossible de trouver le fichier de données » si le fichier Product. dat est introuvable, tapez :
+Pour afficher le message Impossible de trouver le fichier de données si le fichier Product. dat est introuvable, tapez :
 ```
 if not exist product.dat echo Cannot find data file 
 ```
@@ -110,15 +106,15 @@ echo The Product.dat file is missing.
 > :end
 > echo Done! 
 > ```
-> Pour accéder à l’étiquette « OK » si la valeur de la variable d’environnement ERRORLEVEL est inférieure ou égale à 1, tapez :
+> Pour accéder à l’étiquette OK si la valeur de la variable d’environnement ERRORLEVEL est inférieure ou égale à 1, tapez :
 > ```
 > if %errorlevel% LEQ 1 goto okay
 > ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
-[If](if.md)
+[Que](if.md)
 
 [Goto](goto.md)

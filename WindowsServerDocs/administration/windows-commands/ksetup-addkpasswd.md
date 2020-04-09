@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup : addkpasswd'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d3196995-1b38-48ff-ba08-911cfab77317
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72c27cb6b068dc46cd58e753b4b08d68b39bfb20
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 73abfff54ecfcd31ebbd7469c12228fff850fbf1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375193"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841822"
 ---
 # <a name="ksetupaddkpasswd"></a>Ksetup : addkpasswd
 
@@ -32,7 +28,7 @@ Ajoute une adresse de serveur de mot de passe Kerberos (kpasswd) pour un domaine
 ksetup /addkpasswd <RealmName> [<KpasswdName>]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 Si le domaine Kerberos sur lequel la station de travail doit s’authentifier prend en charge le protocole de modification Kerberos, vous pouvez configurer un ordinateur client exécutant le système d’exploitation Windows pour qu’il utilise un serveur de mot de passe Kerberos. Ce paramètre est configuré côté domaine.
 
@@ -49,7 +45,7 @@ Exécutez la commande **Ksetup** pour vérifier le nom du KDC. Si **kpasswd =** 
 
 Vous pouvez ajouter des noms KDC supplémentaires un par un.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Configurez le domaine, CORP. CONTOSO.COM, afin qu’il utilise le serveur KDC non-Windows, mitkdc.contoso.com, comme serveur de mot de passe :
 ```
@@ -57,8 +53,8 @@ ksetup /addkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 ```
 Cela aboutit à un serveur de mot de passe Kerberos non-Windows qui contrôle tous les mots de passe pour l’authentification entre l’informatique et le domaine.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup](ksetup.md)
 -   [Ksetup:delkpasswd](ksetup-delkpasswd.md)
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

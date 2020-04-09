@@ -1,34 +1,30 @@
 ---
 title: Configurer des fonctionnalités à la demande dans Windows Server
 description: Gestionnaire de serveur
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e663bbea-d025-41fa-b16c-c2bff00a88e8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f834ca2e4c4acd045ccaeb4f46142dcc0e86f674
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 090b87810dc519728bf915bdb2cd79668c7f01f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383266"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851552"
 ---
 # <a name="configure-features-on-demand-in-windows-server"></a>Configurer des fonctionnalités à la demande dans Windows Server
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Cette rubrique décrit comment supprimer des fichiers de fonctionnalités dans une configuration de type Fonctionnalités à la demande en utilisant l’applet de commande Uninstall-WindowsFeature.
 
-Fonctionnalités à la demande est une fonctionnalité, introduite dans Windows 8 et Windows Server 2012, qui vous permet de supprimer des fichiers de rôles et de fonctionnalités (parfois appelés *charge utile*de fonctionnalité) du système d’exploitation afin de conserver de l’espace disque, et d’installer des rôles et des fonctionnalités à partir de emplacements distants ou média d’installation, et non à partir d’ordinateurs locaux. Vous pouvez supprimer des fichiers de fonctionnalités d’ordinateurs virtuels ou physiques en cours d’exécution. Vous pouvez également ajouter ou supprimer des fichiers de fonctionnalités dans les fichiers WIM (Windows Image) ou les disques durs virtuels hors connexion pour créer une copie reproductible des configurations de type Fonctionnalités à la demande.
+Fonctionnalités à la demande est une fonctionnalité, introduite dans Windows 8 et Windows Server 2012, qui vous permet de supprimer des fichiers de rôles et de fonctionnalités (parfois appelés *charge utile*de fonctionnalité) du système d’exploitation afin de conserver de l’espace disque, et d’installer des rôles et des fonctionnalités à partir d’emplacements distants ou de supports d’installation, et non à partir d’ordinateurs locaux. Vous pouvez supprimer des fichiers de fonctionnalités d’ordinateurs virtuels ou physiques en cours d’exécution. Vous pouvez également ajouter ou supprimer des fichiers de fonctionnalités dans les fichiers WIM (Windows Image) ou les disques durs virtuels hors connexion pour créer une copie reproductible des configurations de type Fonctionnalités à la demande.
 
-Dans une configuration de fonctionnalités à la demande, lorsque des fichiers de fonctionnalités ne sont pas disponibles sur un ordinateur, si une installation requiert ces fichiers de fonctionnalités, Windows Server 2012 R2 ou Windows Server 2012 peut être dirigé pour obtenir les fichiers à partir d’un magasin de fonctionnalités côte à côte (un dossier partagé qui contient les fichiers de fonctionnalités et qui est disponible pour l’ordinateur sur le réseau), à partir de Windows Update ou à partir du support d’installation. Par défaut, lorsque les fichiers de fonctionnalités ne sont pas disponibles sur le serveur cible, Fonctionnalités à la demande recherche les fichiers de fonctionnalités manquants en effectuant les tâches suivantes, dans l’ordre indiqué.
+Dans une configuration à la demande, lorsque des fichiers de fonctionnalités ne sont pas disponibles sur un ordinateur, si une installation requiert ces fichiers de fonctionnalités, Windows Server 2012 R2 ou Windows Server 2012 peut être dirigé pour obtenir les fichiers à partir d’un magasin de fonctionnalités côte à côte (un dossier partagé qui contient des fichiers de fonctionnalités et est disponible pour l’ordinateur sur le réseau), à partir de Windows Update ou à partir du support d’installation. Par défaut, lorsque les fichiers de fonctionnalités ne sont pas disponibles sur le serveur cible, Fonctionnalités à la demande recherche les fichiers de fonctionnalités manquants en effectuant les tâches suivantes, dans l’ordre indiqué.
 
 1.  Recherche dans un emplacement spécifié par les utilisateurs de l’Assistant Ajout de rôles et de fonctionnalités ou commandes d’installation DISM
 
@@ -52,14 +48,14 @@ Cette rubrique contient les sections suivantes.
 
 -   [Supprimer des fichiers de fonctionnalités à l’aide de Uninstall-WindowsFeature](#BKMK_remove)
 
-## <a name="BKMK_store"></a>Créer un fichier de fonctionnalités ou un magasin côte à côte
+## <a name="create-a-feature-file-or-side-by-side-store"></a><a name=BKMK_store></a>Créer un fichier de fonctionnalités ou un magasin côte à côte
 Cette section décrit comment configurer un dossier partagé de fichiers de fonctionnalités distant (également appelé magasin côte à côte) qui stocke les fichiers requis pour installer des rôles, des services de rôle et des fonctionnalités sur des serveurs qui exécutent Windows Server 2012 R2 ou Windows Server 2012. Une fois que vous avez configuré un magasin de fonctionnalités, vous pouvez installer des rôles, des services de rôle et des fonctionnalités sur des serveurs qui exécutent ces systèmes d’exploitation, et spécifier le magasin de fonctionnalités comme emplacement des fichiers sources d’installation.
 
 #### <a name="to-create-a-feature-file-store"></a>Pour créer un magasin de fichiers de fonctionnalités
 
-1.  Créez un dossier partagé sur un serveur de votre réseau. Par exemple, *\\ \ network\share\sxs*.
+1.  Créez un dossier partagé sur un serveur de votre réseau. Par exemple, *\\\network\share\sxs*.
 
-2.  Vérifiez que les autorisations appropriées sont affectées au magasin de fonctionnalités. Le chemin d’accès source ou le partage de fichiers doit accorder des autorisations de **lecture** au groupe **tout le monde** (non recommandé pour des raisons de sécurité) ou aux comptes d’ordinateur (*domaine*\\*nom_serveur*$) des serveurs sur lesquels vous envisagez d’installer fonctionnalités à l’aide de ce magasin de fonctionnalités ; l’octroi de l’accès au compte d’utilisateur n’est pas suffisant.
+2.  Vérifiez que les autorisations appropriées sont affectées au magasin de fonctionnalités. Le chemin d’accès source ou partage de fichiers doit accorder des autorisations de **lecture** au groupe **tout le monde** (non recommandé pour des raisons de sécurité) ou aux comptes d’ordinateur (*domaine*\\*nom_serveur*$) des serveurs sur lesquels vous envisagez d’installer des fonctionnalités à l’aide de ce magasin de fonctionnalités. l’octroi de l’accès au compte d’utilisateur n’est pas suffisant.
 
     Vous pouvez accéder aux paramètres du partage de fichiers et des autorisations en effectuant l’une des opérations suivantes sur le Bureau Windows.
 
@@ -72,14 +68,14 @@ Cette section décrit comment configurer un dossier partagé de fichiers de fonc
 
 3.  Copiez le dossier **Sources\SxS** de votre support d’installation Windows Server dans le dossier partagé que vous avez créé à l’étape 1.
 
-## <a name="BKMK_methods"></a>Méthodes de suppression des fichiers de fonctionnalités
+## <a name="methods-of-removing-feature-files"></a><a name=BKMK_methods></a>Méthodes de suppression des fichiers de fonctionnalités
 Deux méthodes sont disponibles pour supprimer des fichiers de fonctionnalités de Windows Server dans une configuration de type Fonctionnalités à la demande.
 
 -   Le paramètre `remove` de l’applet de commande `Uninstall-WindowsFeature` vous permet de supprimer des fichiers de fonctionnalités d’un serveur ou d’un disque dur virtuel hors connexion (VHD) qui exécute Windows Server 2012 R2 ou Windows Server 2012. Les valeurs valides pour le paramètre `remove` sont les noms des rôles, des services de rôle et des fonctionnalités.
 
 -   Les commandes de gestion et de maintenance des images de déploiement (DISM) vous permettent de créer des fichiers WIM personnalisés qui économisent l’espace disque en omettant les fichiers de fonctionnalités qui sont inutiles ou qui peuvent être obtenus auprès d’autres sources distantes. Pour plus d’informations sur la préparation d’images personnalisées à l’aide de l’outil DISM, consultez [Comment activer ou désactiver des fonctionnalités de Windows](https://technet.microsoft.com/library/hh824822.aspx).
 
-## <a name="BKMK_remove"></a>Supprimer des fichiers de fonctionnalités à l’aide de Uninstall-WindowsFeature
+## <a name="remove-feature-files-by-using-uninstall-windowsfeature"></a><a name=BKMK_remove></a>Supprimer des fichiers de fonctionnalités à l’aide de Uninstall-WindowsFeature
 Vous pouvez utiliser l’applet de commande Uninstall-WindowsFeature à la fois pour désinstaller des rôles, des services de rôle et des fonctionnalités des serveurs et des disques durs virtuels hors connexion qui exécutent Windows Server 2012 R2 ou Windows Server 2012, et pour supprimer des fichiers de fonctionnalités. Vous pouvez désinstaller et supprimer les mêmes rôles, services de rôle et fonctionnalités dans la même commande, si vous le souhaitez.
 
 > [!IMPORTANT]
@@ -104,13 +100,13 @@ Vous pouvez utiliser l’applet de commande Uninstall-WindowsFeature à la fois 
     Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -remove
     ```
 
-    **Tels** Gestionnaire de licences des services Bureau à distance est le dernier service de rôle restant des services Bureau à distance, qui est installé. La commande désinstalle Gestionnaire de licences des services Bureau à distance, puis supprime les fichiers de fonctionnalités pour l’intégralité du rôle Services Bureau à distance du serveur spécifié, *contoso_1*.
+    **Exemple :** Gestionnaire de licences des services Bureau à distance est le dernier service de rôle restant des services Bureau à distance qui sont installés. La commande désinstalle Gestionnaire de licences des services Bureau à distance, puis supprime les fichiers de fonctionnalités pour l’intégralité du rôle Services Bureau à distance du serveur spécifié, *contoso_1*.
 
     ```
     Uninstall-WindowsFeature -Name rdS-Licensing -computerName contoso_1 -remove
     ```
 
-    **Tels** Dans l’exemple suivant, la commande supprime les services de domaine Active Directory et la gestion des stratégie de groupe à partir d’un disque dur virtuel hors connexion. La fonctionnalité et le rôle sont d’abord désinstallés, puis leurs fichiers de fonctionnalités sont entièrement supprimés du disque dur virtuel hors connexion, *Contoso.vhd*.
+    **Exemple :** Dans l’exemple suivant, la commande supprime les services de domaine Active Directory et la gestion des stratégie de groupe à partir d’un disque dur virtuel hors connexion. La fonctionnalité et le rôle sont d’abord désinstallés, puis leurs fichiers de fonctionnalités sont entièrement supprimés du disque dur virtuel hors connexion, *Contoso.vhd*.
 
     > [!NOTE]
     > Vous devez ajouter le paramètre `computerName` si vous exécutez l’applet de commande à partir d’un ordinateur exécutant Windows 8.1 ou Windows 8.
@@ -123,8 +119,8 @@ Vous pouvez utiliser l’applet de commande Uninstall-WindowsFeature à la fois 
 
 ## <a name="see-also"></a>Voir aussi
 [Installer ou désinstaller des rôles, des services de rôle ou des fonctionnalités](install-or-uninstall-roles-role-services-or-features.md)
-[options d’installation de Windows Server](https://technet.microsoft.com/library/hh831786.aspx)
-[Comment activer ou désactiver les fonctionnalités Windows](https://technet.microsoft.com/library/hh824822.aspx)
-[Deployment Image Servicing and Management (DISM) Overview](https://technet.microsoft.com/library/hh825236.aspx)
+les [options d’installation de Windows Server](https://technet.microsoft.com/library/hh831786.aspx)
+[Comment activer ou désactiver les fonctionnalités Windows
+la](https://technet.microsoft.com/library/hh824822.aspx) [gestion et la maintenance des images de déploiement (DISM)](https://technet.microsoft.com/library/hh825236.aspx)
 
 

@@ -1,24 +1,20 @@
 ---
 title: 'secedit : valider'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9fb06354-f55a-4ca4-9fbc-9a872eb9b9cf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ece0a0324b77eb4226b679bc29f7bd599f15a120
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b9425f7a1fb821f4ecbaa7c1689c3baabbff6223
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371100"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834872"
 ---
 # <a name="seceditvalidate"></a>secedit : valider
 
@@ -33,7 +29,7 @@ Secedit /validate <configuration file name>
 
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -49,15 +45,15 @@ Le fichier journal ne sera pas mis à jour.
 
 Dans Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur la façon d’actualiser les paramètres de sécurité, consultez [gpupdate](gpupdate.md).
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Une fois la restauration effectuée sur un modèle de sécurité, vous devez vérifier que le fichier INF de restauration, secRBKcontoso. inf, est valide.
 ```
 Secedit /validate secRBKcontoso.inf
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Secedit:generaterollback](secedit-generaterollback.md)
 -   [Secedit](secedit.md)
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

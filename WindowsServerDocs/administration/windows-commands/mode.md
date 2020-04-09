@@ -1,24 +1,20 @@
 ---
 title: mode
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b59b04f2-b41d-42df-b5be-19c3721445b1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00dabdbeb7f0665c99714d0a97c7d3c78b22e04e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 528277075f7448c86ca2d660c5e65c59098afbc0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373612"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839432"
 ---
 # <a name="mode"></a>mode
 
@@ -34,7 +30,7 @@ Vous pouvez utiliser le **mode** pour effectuer les tâches suivantes : chaque 
 -   [Pour modifier la taille de la mémoire tampon de l’écran d’invite de commandes](#BKMK_5)
 -   [Pour définir la vitesse de répétition du clavier](#BKMK_6)
 
-## <a name="BKMK_1"></a>Pour configurer un port de communication série
+## <a name="to-configure-a-serial-communications-port"></a><a name=BKMK_1></a>Pour configurer un port de communication série
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -42,7 +38,7 @@ Vous pouvez utiliser le **mode** pour effectuer les tâches suivantes : chaque 
 mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon={on|off}] [odsr={on|off}] [octs={on|off}] [dtr={on|off|hs}] [rts={on|off|hs|tg}] [idsr={on|off}]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |  Paramètre  |                                                                                                                                                                                     Description                                                                                                                                                                                     |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,16 +47,16 @@ mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon=
 | parité =\<P > |                              Spécifie la manière dont le système utilise le bit de parité pour vérifier les erreurs de transmission. Le tableau suivant répertorie les valeurs valides pour *P*. La valeur par défaut est **e**. Tous les ordinateurs ne prennent pas en charge les valeurs **m** et **s**.</br>-   **n** = aucun</br>-   **e** = même</br>-   **o** = impair</br>-   **m** = marque</br>-   **s** = espace                              |
 |  Data =\<D >  |                                                                                                    Spécifie le nombre de bits de données dans un caractère. Les valeurs valides pour **d** sont comprises dans la plage de 5 à 8. La valeur par défaut est 7. Tous les ordinateurs ne prennent pas en charge les valeurs 5 et 6.                                                                                                     |
 |  Stop =\<S >  |                                                                                  Spécifie le nombre de bits d’arrêt qui définissent la fin d’un caractère : 1, 1,5 ou 2. Si la vitesse de transmission est de 110, la valeur par défaut est 2. Dans le cas contraire, la valeur par défaut est 1. Tous les ordinateurs ne prennent pas en charge la valeur 1,5.                                                                                   |
-|   to = {on    |                                                                                                                                                                                        préférable                                                                                                                                                                                         |
-|   Xon = {on   |                                                                                                                                                                                        préférable                                                                                                                                                                                         |
-|  ODSR = {on   |                                                                                                                                                                                        préférable                                                                                                                                                                                         |
-|  PTOM = {on   |                                                                                                                                                                                        préférable                                                                                                                                                                                         |
+|   to = {on    |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|   Xon = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|  ODSR = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|  PTOM = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
 |   DTR = {on   |                                                                                                                                                                                         le                                                                                                                                                                                         |
 |   RTS = {on   |                                                                                                                                                                                         le                                                                                                                                                                                         |
-|  IDSR = {on   |                                                                                                                                                                                        préférable                                                                                                                                                                                         |
+|  IDSR = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
 |     /?      |                                                                                                                                                                        Affiche l'aide à l'invite de commandes.                                                                                                                                                                         |
 
-## <a name="BKMK_2"></a>Pour afficher l’état de tous les appareils ou d’un seul appareil
+## <a name="to-display-the-status-of-all-devices-or-of-a-single-device"></a><a name=BKMK_2></a>Pour afficher l’état de tous les appareils ou d’un seul appareil
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -68,7 +64,7 @@ mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon=
 mode [<Device>] [/status]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -80,7 +76,7 @@ mode [<Device>] [/status]
 
 En cas d’utilisation sans paramètre, le **mode** affiche l’état de tous les périphériques installés sur votre système.
 
-## <a name="BKMK_3"></a>Pour rediriger la sortie d’un port parallèle vers un port de communication série
+## <a name="to-redirect-output-from-a-parallel-port-to-a-serial-communications-port"></a><a name=BKMK_3></a>Pour rediriger la sortie d’un port parallèle vers un port de communication série
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -88,7 +84,7 @@ En cas d’utilisation sans paramètre, le **mode** affiche l’état de tous le
 mode lpt<N>[:]=com<M>[:]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -115,7 +111,7 @@ mode lpt1
 ```
 Cette commande empêche la redirection du fichier de LPT1 vers COM1.
 
-## <a name="BKMK_4"></a>Pour sélectionner, actualiser ou afficher le nombre de pages de codes de la console
+## <a name="to-select-refresh-or-display-the-numbers-of-the-code-pages-for-the-console"></a><a name=BKMK_4></a>Pour sélectionner, actualiser ou afficher le nombre de pages de codes de la console
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -124,7 +120,7 @@ mode <Device> codepage select=<YYY>
 mode <Device> codepage [/status]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -135,7 +131,7 @@ mode <Device> codepage [/status]
 |/status|Affiche le nombre de pages de codes actuelles sélectionnées pour l’appareil spécifié. Vous pouvez abréger **/Status** en **/STA**. Que vous spécifiiez ou non **/Status**, le **mode CodePage** affiche le nombre de pages de codes sélectionnées pour l’appareil spécifié.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="BKMK_5"></a>Pour modifier la taille de la mémoire tampon de l’écran d’invite de commandes
+## <a name="to-change-the-size-of-the-command-prompt-screen-buffer"></a><a name=BKMK_5></a>Pour modifier la taille de la mémoire tampon de l’écran d’invite de commandes
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -143,7 +139,7 @@ mode <Device> codepage [/status]
 mode con[:] [cols=<C>] [lines=<N>]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -152,7 +148,7 @@ mode con[:] [cols=<C>] [lines=<N>]
 |lignes =\<N >|Spécifie le nombre de lignes dans la mémoire tampon d’écran de l’invite de commandes.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="BKMK_6"></a>Pour définir la vitesse de répétition du clavier
+## <a name="to-set-the-keyboard-typematic-rate"></a><a name=BKMK_6></a>Pour définir la vitesse de répétition du clavier
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -160,7 +156,7 @@ mode con[:] [cols=<C>] [lines=<N>]
 mode con[:] [rate=<R> delay=<D>]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -179,6 +175,6 @@ mode con[:] [rate=<R> delay=<D>]
 
   Les valeurs valides pour *D* sont 1, 2, 3 et 4 (représentant 0,25, 0,50, 0,75 et 1 seconde). La valeur par défaut est 2. Si vous définissez le délai, vous devez également définir la fréquence.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

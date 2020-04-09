@@ -1,24 +1,20 @@
 ---
 title: manage-bde
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 276a7841-7289-48d4-a57d-bc7c300affbb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7ca23e5f4499672f1e4bfcca6b9ad27f4e84039b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 816e20152ec40ce54c1192f3075c6f4556aed3db
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373766"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839692"
 ---
 # <a name="manage-bde"></a>manage-bde
 
@@ -33,7 +29,7 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 [–SetIdentifier] [-ForceRecovery] [–changepassword] [–changepin] [–changekey] [-KeyPackage] [–upgrade] [-WipeFreeSpace] [{-?|/?}] [{-help|-h}]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -48,17 +44,17 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 |[Manage-bde: protectors](manage-bde-protectors.md)|Gère les méthodes de protection pour la clé de chiffrement.|
 |[Manage-bde: tpm](manage-bde-tpm.md)|Configure le Module de plateforme sécurisée (TPM) de l’ordinateur (TPM). Cette commande n’est pas prise en charge sur les ordinateurs exécutant Windows 8 ou **win8_server_2**. Pour gérer le module de plateforme sécurisée sur ces ordinateurs, utilisez le composant logiciel enfichable MMC Gestion du module de plateforme sécurisée ou les applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell.|
 |[Manage-bde: setidentifier](manage-bde-setidentifier.md)|Définit le champ d’identificateur de lecteur sur le lecteur à la valeur spécifiée dans le paramètre **fournir les identificateurs uniques pour votre organisation** stratégie de groupe.|
-|[Manage-bde: ForceRecovery](manage-bde-forcerecovery.md)|Force un lecteur protégé par BitLocker en mode de récupération au redémarrage. Cette commande supprime tous les protecteurs de clé liés au module de plateforme sécurisée du lecteur. Lorsque l’ordinateur redémarre, seul un mot de passe de récupération ou une clé de récupération peut être utilisé pour déverrouiller le lecteur.|
+|[Manage-bde : ForceRecovery](manage-bde-forcerecovery.md)|Force un lecteur protégé par BitLocker en mode de récupération au redémarrage. Cette commande supprime tous les protecteurs de clé liés au module de plateforme sécurisée du lecteur. Lorsque l’ordinateur redémarre, seul un mot de passe de récupération ou une clé de récupération peut être utilisé pour déverrouiller le lecteur.|
 |[Manage-bde: changepassword](manage-bde-changepassword.md)|Modifie le mot de passe d’un lecteur de données.|
 |[Manage-bde: changepin](manage-bde-changepin.md)|Modifie le code confidentiel d’un lecteur de système d’exploitation.|
 |[Manage-bde: changekey](manage-bde-changekey.md)|Modifie la clé de démarrage pour un lecteur de système d’exploitation.|
-|[Manage-bde: KeyPackage](manage-bde-keypackage.md)|Génère un package de clé pour un lecteur.|
+|[Manage-bde : keypackage](manage-bde-keypackage.md)|Génère un package de clé pour un lecteur.|
 |[Manage-bde: upgrade](manage-bde-upgrade.md)|Met à niveau la version de BitLocker.|
-|[Manage-bde: WipeFreeSpace](manage-bde-wipefreespace.md)|Nettoie l’espace libre sur un lecteur.|
+|[Manage-bde : WipeFreeSpace](manage-bde-wipefreespace.md)|Nettoie l’espace libre sur un lecteur.|
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|
 |-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 L’exemple suivant affiche les lecteurs sur l’ordinateur et indique s’ils sont protégés par BitLocker et l’état de chiffrement actuel.
 ```
@@ -73,7 +69,7 @@ L’exemple suivant illustre le déverrouillage d’un lecteur protégé par Bit
 manage-bde –unlock E: -recoverypassword 111111-222222-333333-444444-555555-666666-777777-888888
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Activation de BitLocker à l’aide de la ligne de commande](https://technet.microsoft.com/library/dd894351(v=ws.10).aspx)

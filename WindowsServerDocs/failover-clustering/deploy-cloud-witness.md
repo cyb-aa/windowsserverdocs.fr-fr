@@ -2,19 +2,19 @@
 ms.assetid: 0cd1ac70-532c-416d-9de6-6f920a300a45
 title: Déployer un témoin de Cloud pour un cluster de basculement
 ms.prod: windows-server
-manager: eldenc
+manager: lizross
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: Comment utiliser Microsoft Azure pour héberger le témoin d’un cluster de basculement Windows Server dans le Cloud-alias comment déployer un témoin Cloud.
-ms.openlocfilehash: ad5ff47a72319fee7650d1d9c0d0616cfaaa22d3
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0b4ba643dca81d2d19b94b1d27485149f938e1c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948175"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827912"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Déployer un témoin de cloud pour un cluster de basculement
 
@@ -22,7 +22,7 @@ ms.locfileid: "75948175"
 
 Cloud Witness est un type de témoin de quorum de cluster de basculement qui utilise Microsoft Azure pour fournir un vote sur le quorum de cluster. Cette rubrique fournit une vue d’ensemble de la fonctionnalité de témoin de Cloud, les scénarios qu’elle prend en charge et des instructions sur la configuration d’un témoin de Cloud pour un cluster de basculement.
 
-## <a name="CloudWitnessOverview"></a>Présentation du témoin Cloud
+## <a name="cloud-witness-overview"></a><a name="CloudWitnessOverview"></a>Présentation du témoin Cloud
 
 La figure 1 illustre une configuration de quorum de cluster de basculement étiré sur plusieurs sites avec Windows Server 2016. Dans cet exemple de configuration (figure 1), il existe 2 nœuds dans 2 centres de centres (appelés sites). Notez qu’il est possible qu’un cluster s’étende sur plus de 2 centres de informations. En outre, chaque centre de informations peut avoir plus de 2 nœuds. Une configuration de quorum de cluster classique dans cette installation (contrat SLA de basculement automatique) donne à chaque nœud un vote. Un vote supplémentaire est donné au témoin de quorum pour permettre au cluster de continuer à s’exécuter même si l’un des centres de données rencontre une panne d’alimentation. La mathématique est simple : il y a 5 votes au total et vous avez besoin de 3 votes pour que le cluster reste en cours d’exécution.  
 
@@ -47,7 +47,7 @@ Diagramme de ![illustrant un cluster étendu à plusieurs sites avec un témoin 
 
 Comme illustré à la figure 2, aucun autre site distinct n’est requis. Le témoin Cloud, comme tout autre témoin de quorum, obtient un vote et peut participer aux calculs de quorum.  
 
-## <a name="CloudWitnessSupportedScenarios"></a>Témoin Cloud : scénarios pris en charge pour un type de témoin unique
+## <a name="cloud-witness-supported-scenarios-for-single-witness-type"></a><a name="CloudWitnessSupportedScenarios"></a>Témoin Cloud : scénarios pris en charge pour un type de témoin unique
 Si vous avez un déploiement de cluster de basculement, où tous les nœuds peuvent accéder à Internet (par extension d’Azure), il est recommandé de configurer un témoin de cloud comme ressource de témoin de quorum.  
 
 Voici quelques-uns des scénarios pris en charge pour l’utilisation d’un témoin de Cloud en tant que témoin de quorum :  
@@ -60,7 +60,7 @@ Voici quelques-uns des scénarios pris en charge pour l’utilisation d’un té
 
 À compter de Windows Server 2012 R2, il est recommandé de toujours configurer un témoin, car le cluster gère automatiquement le vote témoin et les nœuds votent avec le quorum dynamique.  
 
-## <a name="CloudWitnessSetUp"></a>Configurer un témoin de Cloud pour un cluster
+## <a name="set-up-a-cloud-witness-for-a-cluster"></a><a name="CloudWitnessSetUp"></a>Configurer un témoin de Cloud pour un cluster
 Pour configurer un témoin de Cloud en tant que témoin de quorum pour votre cluster, procédez comme suit :
 1. Créer un compte de stockage Azure à utiliser en tant que témoin Cloud
 2. Configurez le témoin Cloud en tant que témoin de quorum pour votre cluster.
@@ -79,11 +79,11 @@ Lorsque vous utilisez le même compte de stockage Azure pour configurer le témo
 2. Dans le menu hub, sélectionnez Nouveau -> Données + stockage -> Compte de stockage.
 3. Dans la page créer un compte de stockage, procédez comme suit :
     1. Entrez un nom pour votre compte de stockage.
-    <br>Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Le nom du compte de stockage doit également être unique dans Azure.
+    <br>Les noms de compte de stockage doivent comporter entre 3 et 24 caractères et ne peuvent contenir que des chiffres et des lettres minuscules. Le nom du compte de stockage doit également être unique dans Azure.
         
     2. Pour **type de compte**, sélectionnez **usage général**.
     <br>Vous ne pouvez pas utiliser un compte de stockage d’objets BLOB pour un témoin Cloud.
-    3. Dans **Performances**, sélectionnez **Standard**.
+    3. Pour **performances**, sélectionnez **standard**.
     <br>Vous ne pouvez pas utiliser le stockage Premium Azure pour un témoin Cloud.
     2. Pour **la réplication**, sélectionnez **stockage localement redondant (LRS)** .
     <br>Le clustering de basculement utilise le fichier BLOB comme point d’arbitrage, ce qui nécessite des garanties de cohérence lors de la lecture des données. Par conséquent, vous devez sélectionner **le stockage localement redondant** pour le type de **réplication** .
@@ -172,5 +172,5 @@ Lors de la configuration d’un témoin de Cloud en tant que témoin de quorum p
 ### <a name="proxy-considerations-with-cloud-witness"></a>Considérations relatives au proxy avec un témoin Cloud  
 Le témoin Cloud utilise le protocole HTTPs (port par défaut 443) pour établir la communication avec le service BLOB Azure. Assurez-vous que le port HTTPs est accessible via le proxy réseau.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 - [Nouveautés du clustering de basculement dans Windows Server](whats-new-in-failover-clustering.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 3095e6a7-b562-4c6a-bf29-13b32c133cac
 title: Inscrire un certificat SSL pour AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: efa7c7aee848a5bbb68d3ce7140e135d37c2161d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6f7af40f23c3fa3bd0a31ecb74b11013133a4b32
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408368"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855432"
 ---
 # <a name="enroll-an-ssl-certificate-for-ad-fs"></a>Inscrire un certificat SSL pour AD FS
 
-Services ADFS \(AD FS\) requiert un certificat pour le protocole Secure Socket Layer \(l’authentification de serveur SSL\) sur chaque serveur de Fédération de votre batterie de serveurs de Fédération. Le même certificat peut être utilisé sur chaque serveur de Fédération d’une batterie de serveurs. Le certificat et sa clé privée doivent être disponibles. Par exemple, si le certificat et sa clé privée se trouvent dans un fichier .pfx, vous pouvez importer le fichier directement dans l’Assistant Configuration des services AD FS (Active Directory Federation Services). Ce certificat SSL doit contenir les éléments suivants :  
+Services ADFS \(AD FS\) requiert un certificat pour le protocole Secure Socket Layer \(l’authentification de serveur SSL\) sur chaque serveur de Fédération de votre batterie de serveurs de Fédération. Le même certificat peut être utilisé sur chaque serveur de Fédération d’une batterie de serveurs. Vous devez avoir accès à la fois au certificat et à sa clé privée. Par exemple, si le certificat et sa clé privée se trouvent dans un fichier .pfx, vous pouvez importer le fichier directement dans l’Assistant Configuration des services AD FS (Active Directory Federation Services). Ce certificat SSL doit contenir les éléments suivants :  
   
 1.  Le nom d’objet et l’autre nom de l’objet doivent contenir le nom de votre service de Fédération, par exemple fs.contoso.com.  
   

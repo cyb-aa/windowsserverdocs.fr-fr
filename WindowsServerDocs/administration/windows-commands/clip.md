@@ -1,28 +1,22 @@
 ---
 title: clip
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour clip, qui redirige la sortie de commande de la ligne de commande vers le presse-papiers Windows.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 85322d85-3376-4806-845b-93ac77fe27bf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82186869782c47f41930d46b4c33a710e6addedf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0d997154a382cf39aa2b877d7a2b84f4ff34157d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379338"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847642"
 ---
 # <a name="clip"></a>clip
-
-
 
 Redirige la sortie de commande de la ligne de commande vers le presse-papiers Windows. Vous pouvez ensuite coller cette sortie de texte dans d’autres programmes.
 
@@ -35,7 +29,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 clip < <FileName>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,7 +41,7 @@ clip < <FileName>
 
 Vous pouvez utiliser la commande **clip** pour copier des données directement dans une application qui peut recevoir du texte à partir du presse-papiers.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour copier la liste de répertoires active dans le presse-papiers Windows, tapez :
 ```
@@ -62,6 +56,6 @@ Pour copier le contenu d’un fichier nommé Readme. txt dans le presse-papiers 
 clip < readme.txt
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

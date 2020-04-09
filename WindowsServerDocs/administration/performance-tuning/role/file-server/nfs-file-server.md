@@ -5,18 +5,18 @@ ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
-ms.author: RoopeshB, NedPyle
+ms.author: roopeshb, nedpyle
 ms.date: 10/16/2017
-ms.openlocfilehash: 07e5005c1bc38e791e847c8965cbc9a6c0ac96f4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9bee396532c3319e43d10012e098533495cf0b03
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355184"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851852"
 ---
 # <a name="performance-tuning-nfs-file-servers"></a>Réglage des performances pour les serveurs de fichiers NFS
 
-## <a href="" id="servicesnfs"></a>Modèle des services pour NFS
+## <a name="services-for-nfs-model"></a><a href="" id="servicesnfs"></a>Modèle des services pour NFS
 
 
 Les sections suivantes fournissent des informations sur le modèle NFS (Microsoft Services for Network File System) pour la communication client-serveur. Étant donné que NFS v2 et NFS v3 sont toujours les versions les plus largement déployées du protocole, toutes les clés de Registre, à l’exception de MaxConcurrentConnectionsPerIp, s’appliquent uniquement à NFS v2 et NFS v3.
@@ -41,7 +41,7 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\OptimalReads
     ```
 
-    La valeur par défaut est 0. Ce paramètre détermine si les fichiers sont ouverts pour un accès de fichier\_aléatoire\_ou pour un fichier\_séquentiel\_uniquement, en fonction des caractéristiques d’e/s de la charge de travail. Définissez cette valeur sur 1 pour forcer l’ouverture des fichiers pour le fichier\_un accès\_aléatoire. Le fichier\_RANDOM\_ACCESS empêche le système de fichiers et le gestionnaire de cache de prérécupérer.
+    La valeur par défaut est 0. Ce paramètre détermine si les fichiers sont ouverts pour un accès de fichier\_aléatoire\_ou pour un fichier\_séquentiel\_uniquement, en fonction des caractéristiques d’e/s de la charge de travail. Définissez cette valeur sur 1 pour forcer l’ouverture des fichiers pour le fichier\_un accès\_aléatoire. Le fichier\_RANDOM\_ACCESS empêche le système de fichiers et le gestionnaire de cache de prérécupérer.
 
     >[!NOTE]
     > Ce paramètre doit être évalué avec soin, car il peut avoir un impact potentiel sur la croissance du cache des fichiers système.
@@ -93,7 +93,7 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\LockFileHandleCacheInMemory
     ```
 
-    La valeur par défaut est 0. Ce paramètre spécifie si les pages physiques allouées pour la taille de cache spécifiée par FileHandleCacheSizeInMB sont verrouillées en mémoire. Si cette valeur est définie sur 1, cette activité est active. Les pages sont verrouillées en mémoire (non paginées sur le disque), ce qui améliore les performances de résolution des handles de fichiers, mais réduit la mémoire disponible pour les applications.
+    La valeur par défaut est 0. Ce paramètre spécifie si les pages physiques allouées pour la taille de cache spécifiée par FileHandleCacheSizeInMB sont verrouillées en mémoire. Si cette valeur est définie sur 1, cette activité est active. Les pages sont verrouillées en mémoire (non paginées sur le disque), ce qui améliore les performances de résolution des handles de fichiers, mais réduit la mémoire disponible pour les applications.
 
 -   **MaxIcbNfsReadHandlesCacheSize**
 

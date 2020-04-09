@@ -1,24 +1,20 @@
 ---
 title: prncnfg
 description: Découvrez comment configurer une imprimante à l’aide de la commande prncfg.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 38a4e8fa-3122-495b-a125-35b926bc6415
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 5cbbf82e832c50d168e0bef06b2b7c3022dd90e8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3db99c06232e4ed6b3ad5df4ee189d38bffb14c2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372138"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837322"
 ---
 # <a name="prncnfg"></a>prncnfg
 
@@ -31,7 +27,7 @@ Configure ou affiche les informations de configuration relatives à une impriman
 cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <NewprinterName>] [-u <UserName>] [-w <Password>] [-r <PortName>] [-l <Location>] [-h <Sharename>] [-m <Comment>] [-f <SeparatorFileName>] [-y <Datatype>] [-st <starttime>] [-ut <Untiltime>] [-i <DefaultPriority>] [-o <Priority>] [<+|->shared] [<+|->direct] [<+|->hidden] [<+|->published] [<+|->rawonly] [<+|->queued] [<+|->enablebidi] [<+|->keepprintedjobs] [<+|->workoffline] [<+|->enabledevq] [<+|->docompletefirst]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
 |-g|Affiche les informations de configuration relatives à une imprimante.|
@@ -71,7 +67,7 @@ cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <Ne
     ```
 -   Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour afficher les informations de configuration de l’imprimante nommée colorprinter_2 avec une file d’attente à l’impression hébergée par l’ordinateur distant nommé HRServer, tapez :
 ```
 cscript prncnfg -g -S HRServer -P colorprinter_2 
@@ -87,6 +83,6 @@ Pour modifier le nom d’une imprimante sur l’ordinateur distant nommé HRServ
 cscript prncnfg -x -S HRServer -P colorprinter_2 -z "colorprinter 3" 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [référence de commande d’impression](print-command-reference.md)

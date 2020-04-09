@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup : addenctypeattr'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 32cc87d7-b9e1-4d14-9eb7-3b439c55aa3a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f207d36ff52be4b0dc222d96d62a2ac9e38f573f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 217e8a707c0af23901da3f433f630b253360f093
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375304"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841942"
 ---
 # <a name="ksetupaddenctypeattr"></a>Ksetup : addenctypeattr
 
@@ -32,7 +28,7 @@ Ajoute l’attribut type de chiffrement à la liste des types possibles pour le 
 ksetup /addenctypeattr <DomainName> {DES-CBC-CRC | DES-CBC-MD5 | RC4-HMAC-MD5 | AES128-CTS-HMAC-SHA1-96 | AES256-CTS-HMAC-SHA1-96}
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -49,7 +45,7 @@ Si la commande réussit ou échoue, un message d’État s’affiche.
 
 Pour définir le domaine auquel vous souhaitez vous connecter et utiliser, exécutez la commande **Ksetup/domain \<DomainName >** .
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Déterminez les types de chiffrement actuels qui sont définis sur cet ordinateur :
 ```
@@ -72,11 +68,11 @@ Vérifiez que l’attribut type de chiffrement a été défini comme étant dest
 ksetup /getenctypeattr corp.contoso.com
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Klist](klist.md)
 -   [Ksetup:domain](ksetup-domain.md)
 -   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
 -   [Ksetup:getenctypeattr](ksetup-getenctypeattr.md)
 -   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: Comparaison de Reg
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 177dc6a3-034e-4846-a394-330d03c14e0b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bfccc1f64b0113967a52e3ac0516d800cfea3532
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 21eb459711f8ca72bf2f6d841d958bb25a96f845
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384718"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836542"
 ---
 # <a name="reg-compare"></a>Comparaison de Reg
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 reg compare <KeyName1> <KeyName2> [{/v ValueName | /ve}] [{/oa | /od | /os | on}] [/s]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |    Paramètre    |                                                                                                                                                                                                                                                                                          Description                                                                                                                                                                                                                                                                                           |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -68,7 +64,7 @@ Le tableau suivant répertorie les symboles affichés dans les résultats.
 |<|Les données *KeyName1* sont inférieures à *KeyName2* .|
 |>|Les données *KeyName1* sont supérieures aux données *KeyName2* .|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour comparer toutes les valeurs sous la clé **MyApp** avec toutes les valeurs sous la clé **SaveMyApp**, tapez :
 
@@ -82,6 +78,6 @@ Pour comparer toutes les sous-clés et les valeurs sous HKLM\Software\MyCo sur l
 
 REG COMPARe \\\\ZODIAC\HKLM\Software\MyCo \\\\. /s
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

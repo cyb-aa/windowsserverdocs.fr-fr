@@ -1,30 +1,26 @@
 ---
 title: diskcomp
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour diskcomp, qui compare le contenu de deux disquettes.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4f56f534-a356-4daa-8b4f-38e089341e42
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca5ea0f4587b21b2a274c772aab239668b7868b4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e36e644616e25659c1a2a5ca684e975fd06fc19f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377871"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845552"
 ---
 # <a name="diskcomp"></a>diskcomp
 
+Compare le contenu de deux disquettes. En cas d’utilisation sans paramètre, **diskcomp** utilise le lecteur actuel pour comparer les deux disques.
 
-
-Compare le contenu de deux disquettes. En cas d’utilisation sans paramètre, **diskcomp** utilise le lecteur actuel pour comparer les deux disques. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
+Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,7 +28,7 @@ Compare le contenu de deux disquettes. En cas d’utilisation sans paramètre, *
 diskcomp [<Drive1>: [<Drive2>:]]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -107,7 +103,7 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
   Pour traiter les codes de sortie retournés par **diskcomp**, vous pouvez utiliser la variable d’environnement errorlevel sur la ligne de commande **If** dans un programme de traitement par lots.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Si votre ordinateur ne possède qu’un seul lecteur de disquette (par exemple, le lecteur A) et que vous souhaitez comparer deux disques, tapez :
 ```
@@ -131,7 +127,7 @@ goto exit
 echo ERROR: An irrecoverable error occurred 
 goto exit 
 :break 
-echo "You just pressed CTRL+C" to stop the comparison 
+echo You just pressed CTRL+C to stop the comparison 
 goto exit 
 :no_compare 
 echo Disks are not the same 
@@ -142,6 +138,6 @@ goto exit
 :exit
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,30 +1,26 @@
 ---
 title: prnjobs
 description: Apprenez à gérer les travaux d’impression à partir de la ligne de commande.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5ad34199-7a5a-40c1-8053-bccd5929df43
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c4fb9be9545274bbbf33926042f7a4deec5ceb05
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 231b8a7a9f4f8623b3d84cc789064d256883a733
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372096"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837292"
 ---
 # <a name="prnjobs"></a>prnjobs
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Suspend, reprend, annule et répertorie les travaux d’impression.
+suspend, reprend, annule et répertorie les travaux d’impression.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -32,7 +28,7 @@ cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>]
 [-p <printerName>] [-j <JobID>] [-u <UserName>] [-w <Password>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |          Paramètre           |                                                                                                                                                                                        Description                                                                                                                                                                                        |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,7 +49,7 @@ cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>]
     ```
 -   Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour suspendre un travail d’impression avec un ID de travail 27 envoyé à l’ordinateur distant nommé HRServer pour l’impression sur l’imprimante nommée colorprinter, tapez :
 ```
 cscript prnjobs.vbs -z -s HRServer -p colorprinter -j 27
@@ -63,7 +59,7 @@ Pour répertorier tous les travaux d’impression en file d’attente pour l’i
 cscript prnjobs.vbs -l -p colorprinter_2
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Référence des commandes d’impression](print-command-reference.md)

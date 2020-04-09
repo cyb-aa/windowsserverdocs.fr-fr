@@ -1,28 +1,24 @@
 ---
 title: alerte de mise à jour logman
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ede94a76-931c-40ed-9fda-6766bed8ff72 britw
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc32e3de6078489e59fe24c97f02fb440e86628d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13bd7fbef96b75d9308b1e2c8475389d10bbb921
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374390"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840602"
 ---
 # <a name="logman-update-alert"></a>alerte de mise à jour logman
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mettre à jour les propriétés d’un collecteur de données d’alerte existant.  
 
@@ -30,7 +26,7 @@ Mettre à jour les propriétés d’un collecteur de données d’alerte existan
 ```  
 logman update alert <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
 
 |                 Paramètre                  |                                                                               Description                                                                               |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -62,11 +58,11 @@ logman update alert <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Notes  
 Où [-] est listé, un extra-inverse l’option.  
-## <a name="BKMK_examples"></a>Illustre  
-L’exemple suivant met à jour le collecteur de données new_alert existant, en définissant la valeur de seuil du compteur% temps processeur dans le groupe de compteurs Processeur (_ total) sur 40%.  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
+L’exemple suivant met à jour la new_alert du collecteur de données existant, en définissant la valeur de seuil du compteur% temps processeur dans le groupe de compteurs Processeur (_Total) sur 40%.  
 ```  
-logman update alert new_alert -th "\Processor(_Total)\% Processor time>40"  
+logman update alert new_alert -th \Processor(_Total)\% Processor time>40  
 ```  
-#### <a name="additional-references"></a>Références supplémentaires  
+## <a name="additional-references"></a>Références supplémentaires  
 [logman](logman.md)  
 [logman créer une alerte](logman-create-alert.md)  

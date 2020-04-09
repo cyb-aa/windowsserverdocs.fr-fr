@@ -1,24 +1,20 @@
 ---
 title: Reg Import
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0be103de-08fc-4f02-b590-361782680b3e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e1c7920a64469717c30cfcddda7b8002db5ba10
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0816297e837bbce91ca069e3506405cbdb53c51a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384735"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836422"
 ---
 # <a name="reg-import"></a>Reg Import
 
@@ -34,29 +30,29 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 Reg import FileName
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Nom de fichier >|Spécifie le nom et le chemin d’accès du fichier dont le contenu doit être copié dans le registre de l’ordinateur local. Ce fichier doit être créé à l’avance à l’aide de **reg Export**.|
+|Nom de fichier \<>|Spécifie le nom et le chemin d’accès du fichier dont le contenu doit être copié dans le registre de l’ordinateur local. Ce fichier doit être créé à l’avance à l’aide de **reg Export**.|
 |/?|Affiche l’aide pour **reg Import** à l’invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
 Le tableau suivant répertorie les valeurs renvoyées pour l’opération **reg Import** .
 
-|Value|Description|
+|Valeur|Description|
 |-----|-----------|
-|0|Succès|
+|0|Opération réussie|
 |1|Échec|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour importer des entrées de Registre à partir du fichier nommé AppBkUp. reg, tapez :
 ```
 reg import AppBkUp.reg
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

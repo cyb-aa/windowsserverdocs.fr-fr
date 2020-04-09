@@ -1,24 +1,20 @@
 ---
 title: rem
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1a45b585-a83c-4ff6-badd-ff40f34cec23
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2da0b6e42858582c1485659f3bf8f59e8e2ed97e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 94428e6d5ec6fdb482a5d0d15bd1120e45ffea80
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384572"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836112"
 ---
 # <a name="rem"></a>rem
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 rem [<Comment>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,7 +43,7 @@ rem [<Comment>]
 -   Vous ne pouvez pas utiliser un caractère de redirection ( **<** ou **>** ) ou un canal ( **|** ) dans un commentaire de fichier de commandes.
 -   Bien que vous puissiez utiliser **REM** sans commentaire pour ajouter un espacement vertical à un fichier de commandes, vous pouvez également utiliser des lignes vides. Les lignes vides sont ignorées lors du traitement d’un programme de traitement par lots.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 L’exemple suivant montre un fichier de commandes qui utilise des remarques pour les commentaires et l’espacement vertical :
 ```
@@ -65,6 +61,6 @@ rem Set prompt to indicate current directory
 prompt $p$g
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

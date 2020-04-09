@@ -1,23 +1,19 @@
 ---
 title: wecutil
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour wecutil, qui vous permet de créer et de gérer des abonnements aux événements qui sont transférés à partir d’ordinateurs distants.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0c82a6cb-d652-429c-9c3d-0f568c78d54b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimps
-ms.openlocfilehash: 78005a715a0dbd20124bfb24be27586a8e153310
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2bb397ace7cc99c8b8d6bbed3598346ff2d0801c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362185"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829435"
 ---
 # <a name="wecutil"></a>wecutil
 
@@ -39,14 +35,14 @@ wecutil  [{es | enum-subscription}]
 [{qc | quick-config} [/q:[<Quiet>]]].
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
 |{es \| enum-abonnement}|Affiche les noms de tous les abonnements aux événements distants qui existent.|
 |{GS \| obtient-subscription} \<subid > [/f :\<format >] [/Uni :\<Unicode >]|Affiche les informations de configuration de l’abonnement à distance. \<subid > est une chaîne qui identifie de façon unique un abonnement. \<subid > est identique à la chaîne spécifiée dans la balise de > \<SubscriptionId du fichier de configuration XML, utilisé pour créer l’abonnement.|
 |{GR \| obtient-subscriptionruntimestatus} \<subid > [\<EventSource >...]|Affiche l’état d’exécution d’un abonnement. \<subid > est une chaîne qui identifie de façon unique un abonnement. \<subid > est identique à la chaîne spécifiée dans la balise de > \<SubscriptionId du fichier de configuration XML, utilisé pour créer l’abonnement. \<EventSource > est une chaîne qui identifie un ordinateur qui sert de source d’événements. \<EventSource > doit être un nom de domaine complet, un nom NetBIOS ou une adresse IP.|
-|{SS \| Set-subscription} \<subid > [/e : [\<> sous-activée]] [/ESA :\<adresse >] [/ESE : [\<Srcenabled >]] [/AES] [/res] [/un :\<username >] [/up :\<Password >] [/d :\<desc >] [/URI :\<URI >] [/cm :\<Configmode >] [/ex :\<expire >] [/q :\<Query >] [/dia :\<Dialect >] [/TN :\<Transportname >] [/TP :\<Transportport >] [/DM :\<DeliveryMode >] [/DMI :\<Deliverymax >] [/DMLT :\<deliveryTime >] [/HI :\<Heartbeat >] [/CF :\<Content >] [/l :\<locale >] [/REE : [\<Readexist >]] [/LF :\<logfile >] [/PN :\<PublisherName >] [/ESSP :\<Enableport >] [/HN :\<hostname >] [/CT :\<type >]</br>ou</br>{SS \| Set-subscription/c :\<ConfigFile > [/cun :\<comnom_utilisateur >/Cup :\<compassword >]|Modifie la configuration de l’abonnement. Vous pouvez spécifier l’ID d’abonnement et les options appropriées pour modifier les paramètres d’abonnement, ou vous pouvez spécifier un fichier de configuration XML pour modifier les paramètres d’abonnement.|
+|{SS \| Set-subscription} \<subid > [/e : [\</ESA activé]] [ : > adresse\<] [/ESE : [> Srcenabled\<]] [/AES] [/res] [/un : > nom d’utilisateur\<] [/up : > mot de passe\<] [/d : > DESC\<] [/URI : > URI\<] [/cm :\<Configmode >] [/ex :\<expire >] [/q :\<Query >] [/dia :\<Dialect >] [/TN :\<Transportname >] [/TP :\<Transportport >] [/DM :\<DeliveryMode >] [/DMI :\<Deliverymax >] [/DMLT :\<deliveryTime >] [/HI :\<pulsation >] [/CF :\<Content >] [/l :\<paramètres régionaux >] [/REE : [\<Readexist >]] [/LF :\<logfile >] [/PN :\<PublisherName >] [/ESSP :\<Enableport >] [/HN :\<hostname >] [/CT :\<type >]</br>ou</br>{SS \| Set-subscription/c :\<ConfigFile > [/cun :\<comnom_utilisateur >/Cup :\<compassword >]|Modifie la configuration de l’abonnement. Vous pouvez spécifier l’ID d’abonnement et les options appropriées pour modifier les paramètres d’abonnement, ou vous pouvez spécifier un fichier de configuration XML pour modifier les paramètres d’abonnement.|
 |{CS \| Create-Subscription} \<ConfigFile > [/cun :\<nom_utilisateur >/Cup :\<mot de passe >]|Crée un abonnement à distance. \<ConfigFile > spécifie le chemin d’accès au fichier XML qui contient la configuration de l’abonnement. Le chemin d’accès peut être absolu ou relatif au répertoire actif.|
 |{DS \| Delete-subscription} \<subid >|Supprime un abonnement et annule l’abonnement de toutes les sources d’événements qui délivrent des événements dans le journal des événements pour l’abonnement. Les événements déjà reçus et journalisés ne sont pas supprimés. \<subid > est une chaîne qui identifie de façon unique un abonnement. \<subid > est identique à la chaîne spécifiée dans la balise de > \<SubscriptionId du fichier de configuration XML, utilisé pour créer l’abonnement.|
 |{RS \| Retry-subscription} \<subid > [\<EventSource >...]|Effectue une nouvelle tentative pour établir une connexion et envoyer une demande d’abonnement à distance à un abonnement inactif. Tente de réactiver toutes les sources d’événements ou les sources d’événement spécifiées. Les sources désactivées ne sont pas retentées. \<subid > est une chaîne qui identifie de façon unique un abonnement. \<subid > est identique à la chaîne spécifiée dans la balise de > \<SubscriptionId du fichier de configuration XML, utilisé pour créer l’abonnement. \<EventSource > est une chaîne qui identifie un ordinateur qui sert de source d’événements. \<EventSource > doit être un nom de domaine complet, un nom NetBIOS ou une adresse IP.|
@@ -78,7 +74,7 @@ wecutil  [{es | enum-subscription}]
 |/DMLT :\<deliveryTime >|Définit la latence maximale pour la transmission d’un lot d’événements. \<deliveryTime > est le nombre de millisecondes. Cette option est valide uniquement si **/cm** est défini sur Custom.|
 |/HI :\<> de pulsation|Définit l’intervalle de pulsation. \<> de pulsation est le nombre de millisecondes. Cette option est valide uniquement si **/cm** est défini sur Custom.|
 |/CF :\<> de contenu|Spécifie le format des événements retournés. \<> de contenu peuvent être des événements ou RenderedText. Lorsque la valeur est RenderedText, les événements sont retournés avec les chaînes localisées (telles que la description de l’événement) jointes à l’événement. La valeur par défaut est RenderedText.|
-|/l :\<paramètres régionaux >|Spécifie les paramètres régionaux pour la remise des chaînes localisées au format RenderedText. \<paramètres régionaux > est un identificateur de langue et de pays/région, par exemple « en-US ». Cette option est valide uniquement si l’option **/CF** est définie sur RenderedText.|
+|/l :\<paramètres régionaux >|Spécifie les paramètres régionaux pour la remise des chaînes localisées au format RenderedText. \<paramètres régionaux > est un identificateur de langue et de pays/région, par exemple, en-US. Cette option est valide uniquement si l’option **/CF** est définie sur RenderedText.|
 |/REE : [\<Readexist >]|Identifie les événements remis pour l’abonnement. \<Readexist > peut avoir la valeur true ou false. Lorsque le <Readexist> a la valeur true, tous les événements existants sont lus à partir des sources d’événements d’abonnement. Lorsque le <Readexist> a la valeur false, seuls les événements futurs (arrivant) sont remis. La valeur par défaut est true pour une option **/REE** sans valeur. Si aucune option **/REE** n’est spécifiée, la valeur par défaut est false.|
 |/LF :\<fichier journal >|Spécifie le journal des événements local utilisé pour stocker les événements reçus des sources d’événements.|
 |/PN :\<PublisherName >|Spécifie le nom de l’éditeur. Il doit s’agir d’un serveur de publication qui possède ou importe le journal spécifié par l’option **/LF** .|
@@ -96,7 +92,7 @@ wecutil  [{es | enum-subscription}]
 
 - L’exemple suivant montre le contenu d’un fichier de configuration :  
   ```
-  <Subscription xmlns="https://schemas.microsoft.com/2006/03/windows/events/subscription">
+  <Subscription xmlns=https://schemas.microsoft.com/2006/03/windows/events/subscription>
   <Uri>https://schemas.microsoft.com/wbem/wsman/1/windows/EventLog</Uri>
   <!-- Use Normal (default), Custom, MinLatency, MinBandwidth -->
   <ConfigurationMode>Normal</ConfigurationMode>
@@ -104,24 +100,24 @@ wecutil  [{es | enum-subscription}]
   <SubscriptionId>SampleSubscription</SubscriptionId>
   <Query><![CDATA[
   <QueryList>
-  <Query Path="Application">
+  <Query Path=Application>
   <Select>*</Select>
   </Query>
   </QueryList>
   ]]></Query>
   <EventSources>
-  <EventSource Enabled="true">
+  <EventSource Enabled=true>
   <Address>mySource.myDomain.com</Address>
   <UserName>myUserName</UserName>
   <Password>*</Password>
   </EventSource>
   </EventSources>
   <CredentialsType>Default</CredentialsType>
-  <Locale Language="EN-US"></Locale>
+  <Locale Language=EN-US></Locale>
   </Subscription>
   ```
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Informations de configuration de sortie pour un abonnement nommé Sub1 :
 ```
@@ -164,6 +160,6 @@ Supprimez un abonnement nommé Sub1 :
 wecutil ds sub1
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: f6e76ef0-2217-4cdb-980f-22a780a85ebb
 title: Exigences en matière de conception des services ADDS
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cb9d4c04bc3fc7bb534e75b80f0947bd225b7b85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e33681088706d60b7d33047d38eb55730725129f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368956"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822912"
 ---
 # <a name="ad-ds-design-requirements"></a>Exigences en matière de conception des services ADDS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 ## <a name="designing-the-active-directory-logical-structure"></a>Conception de la structure logique Active Directory  

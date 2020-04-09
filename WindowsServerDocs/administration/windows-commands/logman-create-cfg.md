@@ -1,36 +1,32 @@
 ---
 title: logman créer cfg
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bfc87093-3ff5-4e19-aa93-d185fb8e2239
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a9dffb308c9c5b73777aa2a2b4dd6e0204699ec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 51ae4b64665577aa4795527371764401ce1fe9a1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374587"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840882"
 ---
 # <a name="logman-create-cfg"></a>logman créer cfg
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-créer un collecteur de données de configuration.  
+Créer un collecteur de données de configuration.  
 
 ## <a name="syntax"></a>Syntaxe  
 ```  
 logman create cfg <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
 
 |                    Paramètre                     |                                                                               Description                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,14 +57,14 @@ logman create cfg <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Notes  
 Où [-] est listé, un extra-inverse l’option.  
-## <a name="BKMK_examples"></a>Illustre  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
 La commande suivante crée un collecteur de données de configuration appelé cfg_log à l’aide de la clé de Registre HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\Currentverion\\.  
 ```  
-logman create cfg cfg_log -reg "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\\"  
+logman create cfg cfg_log -reg HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\\  
 ```  
 La commande suivante crée un collecteur de données de configuration appelé cfg_log qui enregistre tous les objets WMI à partir de root\WMI dans la colonne de base de données MSNdis_Vendordriverversion.  
 ```  
-logman create cfg cfg_log -mgt "root\wmi:select * FROM MSNdis_Vendordriverversion"  
+logman create cfg cfg_log -mgt root\wmi:select * FROM MSNdis_Vendordriverversion  
 ```  
-#### <a name="additional-references"></a>Références supplémentaires  
+## <a name="additional-references"></a>Références supplémentaires  
 [logman](logman.md)  

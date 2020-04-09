@@ -1,24 +1,20 @@
 ---
 title: pathping
 description: Découvrez comment obtenir des informations sur la latence et la perte du réseau à l’aide de la commande pathping.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ec430125-b1dc-4aad-a7c9-b70f486d9e3c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 3232aaac979aa4e410d31db810abdd940d1c24bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f853ef430207c08e78e0446ce67c6b5bec4c1db
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372401"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837693"
 ---
 # <a name="pathping"></a>pathping
 
@@ -32,7 +28,7 @@ Fournit des informations sur la latence du réseau et la perte réseau au niveau
 ```
 pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>] [/i <IPaddress>] [/4 <IPv4>] [/6 <IPv6>][<TargetName>]
 ```
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
 |/n|Empêche **pathping** de tenter de résoudre les adresses IP des routeurs intermédiaires en leurs noms. Cela peut accélérer l’affichage des résultats de **pathping** .|
@@ -41,7 +37,7 @@ pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>]
 |/p \<période >|Spécifie le nombre de millisecondes d’attente entre les pings successifs. La valeur par défaut est 250 millisecondes (1/4 seconde).|
 |/q \<NumQueries >|Spécifie le nombre de messages de demande d’écho envoyés à chaque routeur dans le chemin d’accès. La valeur par défaut est 100 requêtes.|
 |/w \<délai d’expiration >|Spécifie le nombre de millisecondes à attendre pour chaque réponse. La valeur par défaut est 3000 millisecondes (3 secondes).|
-|/i \<IPaddress >|Spécifie l’adresse source.|
+|/i \<IPaddress >|Spécifie l'adresse source.|
 |/4 \<> IPv4|Spécifie que pathping utilise uniquement IPv4.|
 |/6 \<> IPv6|Spécifie que pathping utilise uniquement IPv6.|
 |\<TargetName >|Spécifie la destination, qui est identifiée par une adresse IP ou un nom d’hôte.|
@@ -55,7 +51,7 @@ pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>]
 -   Quand vous utilisez le paramètre **/w** , plusieurs pings peuvent être envoyés en parallèle. Pour cette raison, la durée spécifiée dans le paramètre de *délai d’attente* n’est pas limitée par la durée spécifiée dans le paramètre *period* pour l’attente entre les pings.
 -   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 L’exemple suivant illustre la sortie de la commande **pathping** :
 
@@ -92,4 +88,4 @@ Dans l’exemple de rapport ci-dessus, les colonnes **nœud/lien**, **perdu/envo
 Les taux de perte affichés pour les liens, identifiés sous forme de barres verticales ( **|** ) dans la colonne **adresse** , indiquent la congestion des liens qui provoque la perte de paquets transférés sur le chemin d’accès. Les taux de perte affichés pour les routeurs (identifiés par leurs adresses IP) indiquent que ces routeurs peuvent être surchargés.
 
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

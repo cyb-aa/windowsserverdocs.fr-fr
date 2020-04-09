@@ -1,24 +1,20 @@
 ---
 title: mapadmin
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b17332c7-8622-4223-9c43-2fb9cf4d992d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fc4b76c1989298ea83c480b9c838ce0fc18fef5f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ea60f4d9753ed90c0d13ee48289b011aeafe6b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373756"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839672"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -57,14 +53,14 @@ En plus des arguments de commande spécifiques, **mapadmin** accepte les argumen
 -p &lt;mot de passe&gt; spécifie le mot de passe de l’utilisateur. Si vous spécifiez l’option **-u** mais omettez l’option **-p** , vous êtes invité à entrer le mot de passe de l’utilisateur.
 L’action spécifique effectuée par **mapadmin** dépend de l’argument de commande que vous spécifiez :
 
-## <a name="parameters"></a>Paramètres
-### <a name="start"></a>start
+### <a name="parameters"></a>Paramètres
+### <a name="start"></a>démarrer
 démarre le service mappage de noms d’utilisateurs.
 
 ### <a name="stop"></a>stop
 Arrête le service mappage de noms d’utilisateurs.
 
-### <a name="config"></a>package
+### <a name="config"></a>config
 Spécifie les paramètres généraux de mappage de noms d’utilisateurs. Les options suivantes sont disponibles avec cet argument de commande : **-r &lt;dddd&gt;:&lt;hh&gt;:&lt;mm&gt;** -spécifie l’intervalle d’actualisation pour la mise à jour à partir des bases de données Windows et NIS en jours, heures et minutes. L’intervalle minimal est de 5 minutes.
 **-i {oui | non}** -active le mappage simple (**Oui**) ou désactivé (**non**). Par défaut, le mappage simple est activé.
 **Ajouter** -crée un nouveau mappage pour un utilisateur ou un groupe. Les options suivantes sont disponibles avec cet argument de commande :
@@ -136,4 +132,4 @@ Spécifie les paramètres généraux de mappage de noms d’utilisateurs. Les op
 -   pour les groupes UNIX, utilisez la forme &lt;NISdomain&gt;\\&lt;GroupName&gt;, &lt;GroupName&gt;@&lt;NISdomain&gt;, &lt;GroupName&gt;@PCNFSou PCNFS\\&lt;GroupName&gt;
 
 ## <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

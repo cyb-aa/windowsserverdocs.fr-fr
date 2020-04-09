@@ -4,15 +4,15 @@ description: Considérations relatives à la configuration d’Hyper-V pour le r
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: f21115265ca7d2788fc0be078860048602d82c0f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3c4fa32b97761ad05c88722ef090f96fff21cf3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370157"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851792"
 ---
 # <a name="hyper-v-configuration"></a>Configuration d’Hyper-V
 
@@ -76,15 +76,15 @@ Hyper-V publie des compteurs de performances pour faciliter la caractérisation 
 
 Vous devez toujours mesurer l’utilisation du processeur par le système physique à l’aide des compteurs de performance du processeur logique de l’hyperviseur Hyper-V. Les compteurs d’utilisation de l’UC que le gestionnaire des tâches et le rapport de l’analyseur de performances dans les partitions racines et enfants ne reflètent pas l’utilisation réelle de l’UC physique. Utilisez les compteurs de performances suivants pour surveiller les performances :
 
-- **Processeur logique de l’hyperviseur Hyper-V (\*) \\% de la durée d’exécution totale** Durée totale d’inactivité des processeurs logiques
+- **Processeur logique de l’hyperviseur Hyper-V (\*)\\% de la durée d’exécution totale** Durée totale d’inactivité des processeurs logiques
 
-- **Processeur logique de l’hyperviseur Hyper-V (\*) \\% de la durée d’exécution** de l’invité Temps passé à exécuter des cycles au sein d’un invité ou de l’hôte
+- **Processeur logique de l’hyperviseur Hyper-V (\*)\\% du temps d’exécution invité** Temps passé à exécuter des cycles au sein d’un invité ou de l’hôte
 
-- **Processeur logique de l’hyperviseur Hyper-V (\*) \\% de la durée d’exécution de l’hyperviseur** Temps passé à s’exécuter au sein de l’hyperviseur
+- **Processeur logique de l’hyperviseur Hyper-V (\*)\\% de la durée d’exécution de l’hyperviseur** Temps passé à s’exécuter au sein de l’hyperviseur
 
-- Le **processeur virtuel de la racine de l'\*hyperviseur Hyper-V ()\\\\** * mesure l’utilisation du processeur de la partition racine
+- Le **processeur virtuel racine de l’hyperviseur Hyper-V (\*)\\\\** * mesure l’utilisation du processeur de la partition racine
 
-- **Le processeur virtuel de l’hyperviseur\\Hyper-V (\*)\\** * mesure l’utilisation du processeur des partitions invitées
+- **Processeur virtuel de l’hyperviseur Hyper-V (\*)\\\\** * mesure l’utilisation du processeur des partitions invitées
 
 
 ## <a name="see-also"></a>Voir aussi

@@ -1,24 +1,20 @@
 ---
 title: Evntcmd
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1aabb74-76e7-4304-95a6-50ad87e92fd9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b4496df6df1a40b383505627d58389c098493f59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 86e4290543ffcc0da1c768a661fd88a7638b1146
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377439"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845012"
 ---
 # <a name="evntcmd"></a>Evntcmd
 
@@ -29,7 +25,7 @@ Configure la traduction des événements en interruptions, en destinations d’i
 ```  
 evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>  
 ```  
-### <a name="parameters"></a>Paramètres  
+#### <a name="parameters"></a>Paramètres  
 
 |      Paramètre      |                                                                                                                                                            Description                                                                                                                                                             |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -65,19 +61,19 @@ evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>
   - Le paramètre *delete_TRAP_DEST* spécifie que vous ne voulez pas que les messages d’interruption soient envoyés à un hôte spécifié au sein d’une communauté.  
   - Le paramètre *CommunityName* spécifie, par nom, la Communauté dans laquelle les messages d’interruption sont envoyés.  
   - Le paramètre *HostID* spécifie, par son nom ou son adresse IP, l’hôte auquel vous ne souhaitez pas envoyer de messages d’interruption.  
-    ## <a name="BKMK_Examples"></a>Illustre  
+    ## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
     Les exemples suivants illustrent les entrées du fichier de configuration pour la commande **evntcmd** . Elles ne sont pas conçues pour être tapées à partir d’une invite de commandes.  
     Pour envoyer un message d’interruption si le service journal des événements est redémarré, tapez :  
     ```  
-    #pragma add System "Eventlog" 2147489653  
+    #pragma add System Eventlog 2147489653  
     ```  
     Pour envoyer un message d’interruption si le service journal des événements est redémarré deux fois en trois minutes, tapez :  
     ```  
-    #pragma add System "Eventlog" 2147489653 2 180  
+    #pragma add System Eventlog 2147489653 2 180  
     ```  
     Pour arrêter l’envoi d’un message d’interruption à chaque redémarrage du service journal des événements, tapez :  
     ```  
-    #pragma delete System "Eventlog" 2147489653  
+    #pragma delete System Eventlog 2147489653  
     ```  
     Pour envoyer des messages d’interruption au sein de la communauté nommée public à l’hôte avec l’adresse IP 192.168.100.100, tapez :  
     ```  
@@ -92,4 +88,4 @@ evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>
     #pragma delete_TRAP_DEST private localhost  
     ```  
     ## <a name="additional-references"></a>Références supplémentaires  
-- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+- - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

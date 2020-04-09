@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup : dumpstate'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3ef2f7b8-97af-4f42-9542-cff324840637
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 625d05b2fea9ae58681648c64e309aa8b2a201ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 46f827d26d867392db4cbef92cf5be496aee8d74
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374993"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841512"
 ---
 # <a name="ksetupdumpstate"></a>Ksetup : dumpstate
 
@@ -32,7 +28,7 @@ Affiche l’état actuel des paramètres de domaine pour tous les domaines défi
 ksetup /dumpstate
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 Aucune
 
@@ -49,14 +45,14 @@ Cette commande n’affiche pas le mot de passe de l’ordinateur défini à l’
 
 **Ksetup** produit la même sortie que **Ksetup/dumpstate**.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Recherchez la plupart des configurations de domaine Kerberos sur un ordinateur :
 ```
 ksetup /dumpstate
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup](ksetup.md)
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

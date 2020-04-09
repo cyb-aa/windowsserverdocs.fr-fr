@@ -1,24 +1,20 @@
 ---
 title: path
 description: Découvrez comment définir la variable d’environnement PATH.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1bfa1349-e79a-472b-a9e6-d7a91149ae8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81e8441e7c67e42bdf929e703c8fe780a6f8aff8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cb77cac3871dcf4a411638409de68d038a317d24
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372424"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837712"
 ---
 # <a name="path"></a>path
 
@@ -35,7 +31,7 @@ path [[<Drive>:]<Path>[;...][;%PATH%]]
 path ;
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |     Paramètre     |                                                                                                     Description                                                                                                      |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,12 +50,12 @@ path ;
 -   Si au moins deux fichiers du chemin d’accès de la commande ont le même nom de fichier et l’extension, **path** commence par Rechercher le nom de fichier spécifié dans le répertoire actif. Il recherche ensuite dans les répertoires dans le chemin d’accès de commande dans l’ordre dans lequel ils sont répertoriés dans la variable d’environnement PATH.
 -   Si vous placez la commande **path** dans votre fichier Autoexec. NT, le système d’exploitation Windows ajoute automatiquement le chemin de recherche du sous-système MS-DOS spécifié chaque fois que vous ouvrez une session sur votre ordinateur. Cmd. exe n’utilise pas le fichier Autoexec. NT. Lorsqu’il est démarré à partir d’un raccourci, cmd. exe hérite des variables d’environnement définies dans Poste de travail/Properties/Advanced/Environment.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 
 Pour rechercher les chemins C:\User\Taxes, B:\User\Invest et B:\Bin pour les commandes externes, tapez :
 
 `path c:\user\taxes;b:\user\invest;b:\bin`
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

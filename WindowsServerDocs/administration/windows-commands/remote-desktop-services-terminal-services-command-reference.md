@@ -1,34 +1,30 @@
 ---
 title: Référence des commandes des services Bureau à distance (services Terminal Server)
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2f371848-5c48-470c-908c-afbc95d3a805
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3d13d6ac2e423c5a07a2a84af5e17fe9081cd70f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2e188be84c657688a971a75788942d4acf598d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371614"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836062"
 ---
 # <a name="remote-desktop-services-terminal-services-command-reference"></a>Référence des commandes des services Bureau à distance (services Terminal Server)
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La liste suivante répertorie les Services Bureau à distance outils en ligne de commande.
 > [!NOTE]
-> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Sous Windows Server 2008 R2, les services Terminal Server sont appelés Services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 > 
-> |                 Command                 |                                                      Description                                                       |
+> |                 Commande                 |                                                      Description                                                       |
 > |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 > |           [change](change.md)           | modifications Bureau à distance paramètres de serveur de l’hôte de session (hôte de session Bureau à distance) pour les ouvertures de session, les mappages de port COM et le mode d’installation. |
 > |     [change logon](change-logon.md)     |    Active ou désactive les ouvertures de session des sessions clientes sur un serveur hôte de session Bureau à distance ou affiche l’état actuel de l’ouverture de session.     |

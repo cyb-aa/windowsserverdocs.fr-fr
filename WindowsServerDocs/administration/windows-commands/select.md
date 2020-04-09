@@ -1,26 +1,22 @@
 ---
-title: sans perte de données
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: Sélection d'éléments
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9eeb40c0-4258-46e2-8dbc-94f63497e771
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7dc3bc8775f971968f096ba4344348e77c112cfa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f9ad7051978f4b509f54bf783f71943b65617bc7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384112"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834652"
 ---
-# <a name="select"></a>sans perte de données
+# <a name="select"></a>Sélection d'éléments
 
 
 
@@ -35,7 +31,7 @@ select volume
 select vdisk
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -49,7 +45,7 @@ select vdisk
 -   Si un volume est sélectionné avec une partition correspondante, la partition est automatiquement sélectionnée.
 -   Si une partition est sélectionnée avec un volume correspondant, le volume est sélectionné automatiquement.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

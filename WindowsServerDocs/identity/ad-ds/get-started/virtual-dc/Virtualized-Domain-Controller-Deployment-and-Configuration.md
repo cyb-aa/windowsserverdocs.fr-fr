@@ -1,7 +1,6 @@
 ---
 ms.assetid: b146f47e-3081-4c8e-bf68-d0f993564db2
 title: Déploiement et configuration des contrôleurs de domaine virtualisés
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: be2c919e4379cf615fe25d68446855229ace87dd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 97d726f8bfbbe664dfdfd6b7000988f009174631
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390697"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824692"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Déploiement et configuration des contrôleurs de domaine virtualisés
 
@@ -34,7 +33,7 @@ Cette rubrique traite des sujets suivants :
   
     Description détaillée des validations effectuées durant la restauration sécurisée des contrôleurs de domaine virtualisés.  
   
-## <a name="BKMK_InstallConsiderations"></a>Considérations relatives à l’installation  
+## <a name="installation-considerations"></a><a name="BKMK_InstallConsiderations"></a>Considérations relatives à l’installation  
 Il n'y a aucune installation de rôle ou de composant spécifique pour les contrôleurs de domaine virtualisés. Tous les contrôleurs de domaine contiennent automatiquement les fonctionnalités relatives au clonage et à la restauration sécurisée. Vous ne pouvez pas supprimer ou désactiver ces fonctionnalités.  
   
 L'utilisation de contrôleurs de domaine Windows Server 2012 demande un schéma AD DS Windows Server 2012 version 56 ou supérieure et un niveau fonctionnel de forêt correspondant à Windows Server 2003 version native ou supérieure.  
@@ -44,7 +43,7 @@ Les contrôleurs de domaine, qu'ils soient accessibles en écriture ou en lectur
 > [!IMPORTANT]  
 > Le détenteur d'un rôle FSMO d'émulateur de contrôleur de domaine principal doit être en ligne quand le clonage commence.  
   
-### <a name="BKMK_PlatformReqs"></a>Configuration requise pour la plateforme  
+### <a name="platform-requirements"></a><a name="BKMK_PlatformReqs"></a>Configuration requise pour la plateforme  
 Le clonage des contrôleurs de domaine virtualisés demande les éléments suivants :  
   
 -   rôle FSMO d'émulateur de contrôleur de domaine principal hébergé sur un contrôleur de domaine Windows Server 2012 ;  
@@ -93,7 +92,7 @@ Aucune de ces opérations n'est couverte par la sémantique des ID de générati
   
 Pour plus d’informations sur les bulles USN et les objets en attente, voir l’article consacré à la [résolution des problèmes d’opérations Active Directory qui échouent avec l’erreur 8606 : « Des attributs insuffisants ont été donnés pour créer un objet. »](https://support.microsoft.com/kb/2028495).  
   
-## <a name="BKMK_VDCCloning"></a>Clonage des contrôleurs de domaine virtualisés  
+## <a name="virtualized-domain-controller-cloning"></a><a name="BKMK_VDCCloning"></a>Clonage des contrôleurs de domaine virtualisés  
 Il existe un certain nombre de stades et d'étapes pour le clonage d'un contrôleur de domaine virtualisé, indépendamment de l'utilisation d'outils graphiques ou de Windows PowerShell. De manière générale, il existe trois stades :  
   
 **Préparer l’environnement**  
@@ -237,7 +236,7 @@ set-acl -aclobject $acl $domainNC
 cd c:  
 ```  
   
-Vous pouvez également exécuter l’exemple [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms) dans une console Windows PowerShell, en la faisant démarrer avec des privilèges d’administrateur élevés sur un contrôleur de domaine du domaine affecté. Les autorisations sont définies automatiquement. L'exemple se trouve dans l'annexe de ce module.  
+Vous pouvez également exécuter l'exemple [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms) dans une console Windows PowerShell, en la faisant démarrer avec des privilèges d'administrateur élevés sur un contrôleur de domaine du domaine affecté. Les autorisations sont définies automatiquement. L'exemple se trouve dans l'annexe de ce module.  
   
 ### <a name="step-4---remove-incompatible-applications-or-services-if-not-using-customdccloneallowlistxml"></a>Étape 4 - Supprimer les applications ou services incompatibles (si vous n'utilisez pas CustomDCCloneAllowList.xml)  
 Les programmes ou services retournés précédemment par Get-ADDCCloningExcludedApplicationList ( *et non ajoutés au fichier CustomDCCloneAllowList.xml* ) doivent être retirés avant le clonage. La désinstallation de l'application ou du service est la méthode recommandée.  
@@ -268,7 +267,7 @@ Vous devez exécuter l'applet de commande sur le contrôleur de domaine source q
   
 ||||  
 |-|-|-|  
-|**Directory**<br /><br />**PolicySchedule**|**Arguments**|**Explicatif**|  
+|**Directory**<p>**PolicySchedule**|**Arguments**|**Explicatif**|  
 |**New-ADDCCloneConfigFile**|*<no argument specified>*|Crée un fichier DcCloneConfig.xml vide dans le répertoire de travail DSA (par défaut : %systemroot%\ntds)|  
 ||-CloneComputerName|Spécifie le nom d'ordinateur du contrôleur de domaine clone. Type de données chaîne.|  
 ||-Path|Spécifie le dossier où créer le fichier DcCloneConfig.xml. Si rien n’est spécifié, le répertoire de travail DSA est choisi (par défaut : %systemroot%\ntds). Type de données chaîne.|  
@@ -451,7 +450,7 @@ Par exemple, pour exporter la totalité de la chaîne des captures instantanées
   
 ![Déploiement de DC virtualisé](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSConvertVhd.png)  
   
-#### <a name="BKMK_Offline"></a>Ajout de XML au disque système hors connexion  
+#### <a name="adding-xml-to-the-offline-system-disk"></a><a name="BKMK_Offline"></a>Ajout de XML au disque système hors connexion  
 Si vous avez copié le fichier Dccloneconfig.xml sur le contrôleur de domaine source en cours d'exécution, vous devez à présent copier le fichier dccloneconfig.xml mis à jour sur le disque système copié/exporté hors connexion. Selon les applications installées détectées avec l'applet de commande Get-ADDCCloningExcludedApplicationList utilisée plus tôt, vous pouvez également être amené à copier le fichier CustomDCCloneAllowList.xml sur le disque.  
   
 Les emplacements suivants peuvent contenir le fichier DcCloneConfig.xml :  
@@ -670,7 +669,7 @@ Par exemple :
   
 Une fois que l'ordinateur a redémarré après la fin du clonage, il est désormais un contrôleur de domaine. Vous pouvez vous connecter normalement pour vérifier son bon fonctionnement. Si des erreurs se produisent, le serveur est configuré pour démarrer en mode de restauration des services d'annuaire à des fins de diagnostic.  
   
-## <a name="BKMK_VDCSafeRestore"></a>Protections de la virtualisation  
+## <a name="virtualization-safeguards"></a><a name="BKMK_VDCSafeRestore"></a>Protections de la virtualisation  
 Contrairement au clonage de contrôleur de domaine virtualisé, les dispositifs de protection en matière de virtualisation de Windows Server 2012 ne comportent pas d'étapes de configuration. La fonctionnalité est opérationnelle sans intervention, à condition de respecter certaines conditions simples :  
   
 -   L'hyperviseur prend en charge les ID de génération d'ordinateur virtuel.  
@@ -680,7 +679,7 @@ Contrairement au clonage de contrôleur de domaine virtualisé, les dispositifs 
 ### <a name="validate-the-hypervisor"></a>Valider l'hyperviseur  
 Vérifiez que le contrôleur de domaine source s'exécute sur un hyperviseur pris en charge en consultant la documentation du fournisseur. Les contrôleurs de domaine virtualisés sont indépendants de l'hyperviseur et ne demandent pas obligatoirement Hyper-V.  
   
-Consultez la section précédente [Platform Requirements](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_PlatformReqs) pour connaître les modalités de prise en charge des ID de génération d’ordinateur virtuel.  
+Consultez la section précédente [Conditions requises par la plateforme](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_PlatformReqs) pour connaître les modalités de prise en charge des ID de génération d'ordinateur virtuel.  
   
 Si vous effectuez la migration d'ordinateurs virtuels d'un hyperviseur source vers un hyperviseur cible distinct, les dispositifs de protection en matière de virtualisation peuvent éventuellement se déclencher, selon que les hyperviseurs prennent en charge ou non les ID de génération d'ordinateur virtuel, comme expliqué dans le tableau suivant.  
   

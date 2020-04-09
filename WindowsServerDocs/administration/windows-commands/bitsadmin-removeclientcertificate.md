@@ -1,50 +1,45 @@
 ---
 title: Bitsadmin removeclientcertificate
-description: Rubrique relative aux commandes Windows pour **Bitsadmin removeclientcertificate** -supprime le certificat client du travail.
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour **Bitsadmin removeclientcertificate**, qui supprime le certificat client du travail.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b417c3e5-aadd-4fcc-968f-45d8b67ca516
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c664ba9b26f3511dedf35477a1cd393db709337e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 38cf00dc48ff036e7d710fb7436f00fd9381dd0b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381042"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849872"
 ---
 # <a name="bitsadmin-removeclientcertificate"></a>Bitsadmin removeclientcertificate
-
-
 
 Supprime le certificat client du travail.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /RemoveClientCertificate <Job> 
+bitsadmin /removeclientcertificate <job>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
+| Paramètre | Description |
+| -------------- | -------------- |
+| le travail | Nom complet ou GUID du travail. |
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
-L’exemple suivant supprime le certificat client du travail nommé *myJob*.
+L’exemple suivant supprime le certificat client du travail nommé *myDownloadJob*.
+
 ```
-C:\>Bitsadmin /RemoveClientCertificate myJob 
+C:\>bitsadmin /removeclientcertificate myDownloadJob 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

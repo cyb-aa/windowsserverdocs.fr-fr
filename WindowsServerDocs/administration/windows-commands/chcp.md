@@ -1,28 +1,22 @@
 ---
 title: chcp
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour chcp, qui modifie la page de codes active de la console.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc7b1c71-7b80-443d-9cf1-9bcf305aa1fd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5784b052ff1d7084d68cca0589caf518b8e44a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e644cf8544d135c5d21c344b0fd0a3364c7f89c1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379527"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847942"
 ---
 # <a name="chcp"></a>chcp
-
-
 
 Modifie la page de codes active de la console. En cas d’utilisation sans paramètre, **chcp** affiche le numéro de la page de codes active de la console.
 
@@ -34,11 +28,11 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 chcp [<NNN>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|@NO__T 0NNN >|Spécifie la page de codes.|
+|\<NNN >|Spécifie la page de codes.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 Le tableau suivant répertorie chaque page de codes prise en charge et son pays/région ou langue :
@@ -64,7 +58,7 @@ Le tableau suivant répertorie chaque page de codes prise en charge et son pays/
 -   Vous n’avez pas besoin de préparer les pages de codes (comme dans MS-DOS).
 -   Les programmes que vous démarrez après avoir affecté une nouvelle page de codes utilisent la nouvelle page de codes. Toutefois, les programmes (sauf cmd. exe) que vous démarrez avant d’affecter la nouvelle page de codes utilisent la page de codes d’origine.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher le paramètre de page de codes active, tapez :
 ```
@@ -82,6 +76,6 @@ Si la page de codes spécifiée n’est pas valide, le message d’erreur suivan
 
 `Invalid code page`
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

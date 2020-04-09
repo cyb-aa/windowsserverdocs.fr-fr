@@ -1,24 +1,20 @@
 ---
 title: Afficher les détails et notifications de la tâche
 description: Gestionnaire de serveur
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95117407-2dd3-4f9a-841f-4331be3544c3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3dcbac95e60fce75316f8a4427aef54bdfad15b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0047a9f2d4b6b66cec85b2746b1975af2ced3316
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383019"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851452"
 ---
 # <a name="view-task-details-and-notifications"></a>Afficher les détails et notifications de la tâche
 
@@ -50,7 +46,7 @@ Pour supprimer une notification que vous ne voulez plus voir dans la liste **not
 ## <a name="viewing-and-troubleshooting-tasks-by-using-task-details"></a>Affichage et dépannage des tâches à l’aide des détails des tâches
 La commande détails de la **tâche** au bas du menu **notifications** ouvre la boîte de dialogue détails de la **tâche** , qui fournit des descriptions complètes des événements de tâches (démarrage, arrêt, avertissements, réussites ou échecs). Comme les autres contrôles de liste dans Gestionnaire de serveur, tels que les vignettes **événements**, **services**et **Best Practices Analyzer** , vous pouvez filtrer et créer des requêtes à exécuter sur les tâches qui sont affichées dans la boîte de dialogue détails de la **tâche** . (pour plus d’informations sur le filtrage et la création de requêtes sur les contrôles de liste, consultez [Filtrer, trier et interroger des données dans des vignettes gestionnaire de serveur](filter-sort-and-query-data-in-server-manager-tiles.md).) Dans le volet supérieur, vous pouvez passer en revue les notifications telles qu’elles ont été affichées dans le menu **notifications** et voir le nombre de notifications générées à propos de la même tâche. la sélection d’une notification dans le volet supérieur affiche des informations complètes sur la notification dans le volet inférieur.
 
-Le volet inférieur est particulièrement utile pour dépanner les tâches qui ont échoué. Si Gestionnaire de serveur ne pouvez pas vous connecter ou obtenir des données pour un serveur qui est membre du pool de serveurs, les entrées de ce volet contiennent souvent des messages détaillés, y compris le texte complet de la gestion à distance de Windows (WinRM) sous-jacente, la mise en réseau ou les problèmes de sécurité qui empêcher Gestionnaire de serveur de communiquer avec un serveur cible.
+Le volet inférieur est particulièrement utile pour dépanner les tâches qui ont échoué. Si Gestionnaire de serveur ne pouvez pas vous connecter ou obtenir des données pour un serveur qui est membre du pool de serveurs, les entrées de ce volet contiennent souvent des messages détaillés, y compris le texte intégral de la gestion à distance de Windows (WinRM) sous-jacente, la mise en réseau ou les problèmes de sécurité qui empêchent Gestionnaire de serveur de communiquer avec un serveur cible.
 
 ## <a name="see-also"></a>Voir aussi
 [Filtrer, trier et interroger des données dans Gestionnaire de serveur vignettes](filter-sort-and-query-data-in-server-manager-tiles.md)

@@ -1,28 +1,22 @@
 ---
 title: shutdown
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour Shutdown, qui vous permet d’arrêter ou de redémarrer des ordinateurs locaux ou distants un par un.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c432f5cf-c5aa-4665-83af-0ec52c87112e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8a5170fa214d4ed639ff3b817cf949a9f44ebd6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 649695fb8ec936375057cf730eb215047c97e19e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383889"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834182"
 ---
 # <a name="shutdown"></a>shutdown
-
-
 
 Permet d’arrêter ou de redémarrer des ordinateurs locaux ou distants, un par un.
 
@@ -31,10 +25,10 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 ## <a name="syntax"></a>Syntaxe
 
 ```
-shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t <XXX>] [/d [p|u:]<XX>:<YY> [/c "comment"]] 
+shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t <XXX>] [/d [p|u:]<XX>:<YY> [/c comment]] 
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -50,7 +44,7 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 |/m \\\\\<ComputerName >|Spécifie l’ordinateur cible. Ne peut pas être utilisé avec l’option **/l** .|
 |/t \<XXX >|Définit le délai d’attente ou le délai sur *xxx* secondes avant un redémarrage ou un arrêt. Cela provoque l’affichage d’un avertissement sur la console locale. Vous pouvez spécifier 0-600 secondes. Si vous n’utilisez pas **/t**, le délai d’attente est de 30 secondes par défaut.|
 |/d [p\|u :]\<XX >:\<YY >|Indique la raison du redémarrage ou de l’arrêt du système. Les valeurs de paramètre sont les suivantes :</br>**p** indique que le redémarrage ou l’arrêt est planifié.</br>**u** indique que la raison est définie par l’utilisateur.</br>Remarque : si **p** ou **u** ne sont pas spécifiés, le redémarrage ou l’arrêt n’est pas planifié.</br>*XX* spécifie le numéro de raison principale (entier positif inférieur à 256).</br>*YY* Spécifie le numéro de raison secondaire (entier positif inférieur à 65536).|
-|/c «\<le commentaire > »|Vous permet de commenter en détail la raison de l’arrêt. Vous devez d’abord fournir une raison à l’aide de l’option **/d** . Vous devez placer les commentaires entre guillemets. Vous disposez de 511 caractères au maximum.|
+|/c \<commentaire >|Vous permet de commenter en détail la raison de l’arrêt. Vous devez d’abord fournir une raison à l’aide de l’option **/d** . Vous devez placer les commentaires entre guillemets. Vous disposez de 511 caractères au maximum.|
 |/?|Affiche l’aide à l’invite de commandes, y compris une liste des raisons majeures et mineures définies sur votre ordinateur local.|
 
 ## <a name="remarks"></a>Notes
@@ -63,17 +57,17 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 -   Si vous spécifiez des codes de raison majeurs et mineurs, vous devez d’abord définir ces codes de raison sur chaque ordinateur sur lequel vous envisagez d’utiliser les raisons. Si les codes de raison ne sont pas définis sur l’ordinateur cible, le moniteur d’événements de mise hors tension ne peut pas consigner le texte de raison correct.
 -   N’oubliez pas d’indiquer qu’un arrêt est planifié à l’aide du paramètre **p :** . L’omission de **p :** indique qu’un arrêt n’est pas planifié. Si vous tapez **p :** suivi du code de raison d’un arrêt non planifié, la commande n’effectue pas l’arrêt. À l’inverse, si vous omettez **p :** et que vous tapez le code de raison d’un arrêt planifié, la commande n’effectue pas l’arrêt.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
-Pour forcer les applications à fermer et redémarrer l’ordinateur local après un délai d’une minute avec la raison « application : maintenance (planifiée) » et le commentaire « reconfiguration de MyApp. exe », tapez :
+Pour forcer les applications à fermer et redémarrer l’ordinateur local après un délai d’une minute avec la raison application : maintenance (planifiée) et commentaire reconfigurant MyApp. exe, tapez :
 ```
-shutdown /r /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
+shutdown /r /t 60 /c Reconfiguring myapp.exe /f /d p:4:1
 ```
 Pour redémarrer l’ordinateur distant \\\\ServerName avec les mêmes paramètres, tapez :
 ```
-shutdown /r /m \\servername /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
+shutdown /r /m \\servername /t 60 /c Reconfiguring myapp.exe /f /d p:4:1
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,51 +1,47 @@
 ---
 title: bitsadmin replaceremoteprefix
-description: 'Rubrique relative aux commandes Windows pour **Bitsadmin REPLACEREMOTEPREFIX** : tous les fichiers du travail dont l’URL distante commence par *OldPrefix* sont modifiés pour utiliser *NewPrefix*.'
-ms.custom: na
+description: La rubrique commandes Windows pour **Bitsadmin REPLACEREMOTEPREFIX**, qui modifie l’URL distante de tous les fichiers du travail de *oldprefix* à *newprefix*, si nécessaire.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d0e0abb1-bdb4-4c74-abbc-16c809f5fd81
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ee896a337b571487797967d3ce0bf1f1b17e7507
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0cea0108a292815e31e893e91dc4079305c1da9a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380799"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849812"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
 
-Tous les fichiers du travail dont l’URL distante commence par *OldPrefix* sont modifiés pour utiliser *NewPrefix*.
+Modifie l’URL distante de tous les fichiers du travail de *oldprefix* à *newprefix*, si nécessaire.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /ReplaceRemotePrefix <Job> <OldPrefix> <NewPrefix
+bitsadmin /replaceremoteprefix <job> <oldprefix> <newprefix>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
-|OldPrefix|Préfixe d’URL existant|
-|NewPrefix|Nouveau préfixe d’URL|
+| Paramètre | Description |
+| -------------- | -------------- |
+| le travail | Nom complet ou GUID du travail. |
+| oldprefix | Préfixe d’URL existant. |
+| newprefix | Nouveau préfixe d’URL. |
 
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant modifie tous les fichiers du travail nommé *myDownloadJob* dont l’URL distante commence par *http://stageserver* à *http://prodserver* .
+L’exemple suivant modifie l’URL distante de tous les fichiers de la tâche nommée *myDownloadJob*, de *http://stageserver* à *http://prodserver* .
 
 ```
-C:\>bitsadmin /ReplaceRemotePrefix myDownloadJob http://stageserver http://prodserver
+C:\>bitsadmin /replaceremoteprefix myDownloadJob http://stageserver http://prodserver
 ```
 
-## <a name="additional-information"></a>Informations complémentaires
+## <a name="additional-information"></a>Informations supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

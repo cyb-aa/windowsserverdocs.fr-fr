@@ -1,7 +1,6 @@
 ---
 ms.assetid: 434fd617-373a-405e-bae4-da324ea83efc
 title: Guide de déploiement des services AD FS Windows Server 2012 R2
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7a3cada555fbf22a853e3aaf002c6413b6555fb8
-ms.sourcegitcommit: 5197a87e659589bcc8d2a32069803ae736b02892
+ms.openlocfilehash: b4cf161d9dfcbeeb467ccb0a83cc260c5299057e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79376276"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855522"
 ---
 # <a name="configure-a-federation-server"></a>Configurer un serveur de fédération
 
@@ -151,7 +150,7 @@ Vous pouvez créer une nouvelle batterie de serveurs de Fédération à l’aide
 4.  Dans la page **spécifier une batterie** de serveurs, indiquez le nom du serveur de Fédération principal dans une batterie de serveurs qui utilise wid ou spécifiez le nom d’hôte de la base de données et le nom de l’instance de base de données d’une batterie de serveurs de fédération existante qui utilise SQL Server.  
   
     > [!WARNING]  
-    > Dans Windows Server® 2012 R2, il existe une solution de contournement pour spécifier l’instance par défaut de SQL Server. Elle consiste à ne pas utiliser l'interface utilisateur. Au lieu de cela, suivez les étapes de la section [pour configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération à l’aide de Windows PowerShell](Configure-a-Federation-Server.md#BKMK_3).  
+    > Dans Windows Server&reg; 2012 R2, il existe une solution de contournement pour spécifier l’instance par défaut de SQL Server. Elle consiste à ne pas utiliser l'interface utilisateur. Au lieu de cela, suivez les étapes de la section [pour configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération à l’aide de Windows PowerShell](Configure-a-Federation-Server.md#BKMK_3).  
   
     > [!IMPORTANT]  
     > Si vous voulez créer une batterie AD FS et utiliser SQL Server pour stocker vos données de configuration, vous pouvez utiliser SQL Server 2008 et versions plus récentes, notamment SQL Server 2012.  
@@ -225,7 +224,7 @@ Après avoir installé le Services ADFS \(AD FS\) service de rôle sur votre ord
 
 -   [Ajouter un serveur de Fédération à une batterie de serveurs de fédération existante](Configure-a-Federation-Server.md#BKMK_2)
 
-## <a name="BKMK_1"></a>Configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération
+## <a name="configure-the-first-federation-server-in-a-new-federation-server-farm"></a><a name="BKMK_1"></a>Configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération
 
 ### <a name="to-configure-the-first-federation-server-in-a-new-federation-server-farm-by-using-the-active-directory-federation-service-configuration-wizard"></a>Pour configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération à l’aide de l’Assistant Configuration de service FS (Federation Service) Active Directory
 
@@ -271,7 +270,7 @@ Après avoir installé le Services ADFS \(AD FS\) service de rôle sur votre ord
 
 9. Sur la page **résultats** , passez en revue les résultats et vérifiez si la configuration est terminée, puis cliquez sur **étapes suivantes requises pour effectuer votre déploiement du service de Fédération**. Pour plus d’informations, consultez [étapes suivantes pour terminer l’installation de votre AD FS](https://go.microsoft.com/fwlink/p/?LinkId=286704). Cliquez sur **Fermer** pour quitter l'Assistant.
 
-### <a name="BKMK_3"></a>Pour configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération à l’aide de Windows PowerShell
+### <a name="to-configure-the-first-federation-server-in-a-new-federation-server-farm-via-windows-powershell"></a><a name="BKMK_3"></a>Pour configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération à l’aide de Windows PowerShell
 Vous pouvez créer une nouvelle batterie de serveurs de Fédération à l’aide d’un compte gMSA nouveau ou existant ou d’un compte d’utilisateur de domaine existant.
 
 -   **Si vous souhaitez créer un nouveau serveur de Fédération à l’aide d’un nouveau compte gMSA, procédez comme suit :**
@@ -330,7 +329,7 @@ Vous pouvez créer une nouvelle batterie de serveurs de Fédération à l’aide
         > [!IMPORTANT]
         > Si vous souhaitez créer une batterie de AD FS et utiliser SQL Server pour stocker vos données de configuration, vous pouvez utiliser SQL Server 2008 et versions plus récentes, y compris SQL Server 2012 et SQL Server 2014.
 
-## <a name="BKMK_2"></a>Ajouter un serveur de Fédération à une batterie de serveurs de fédération existante
+## <a name="add-a-federation-server-to-an-existing-federation-server-farm"></a><a name="BKMK_2"></a>Ajouter un serveur de Fédération à une batterie de serveurs de fédération existante
 
 > [!IMPORTANT]
 > Vérifiez que vous avez terminé [l’étape 3 : installer le service de rôle AD FS](../../ad-fs/deployment/Install-the-AD-FS-Role-Service.md), avant de commencer l’une des procédures décrites dans cette section.
@@ -351,7 +350,7 @@ Vous pouvez créer une nouvelle batterie de serveurs de Fédération à l’aide
 4.  Dans la page **spécifier une batterie** de serveurs, indiquez le nom du serveur de Fédération principal dans une batterie de serveurs qui utilise wid ou spécifiez le nom d’hôte de la base de données et le nom de l’instance de base de données d’une batterie de serveurs de fédération existante qui utilise SQL Server.
 
     > [!WARNING]
-    > Dans Windows Server® 2012 R2, il existe une solution de contournement pour spécifier l’instance par défaut de SQL Server. Elle consiste à ne pas utiliser l'interface utilisateur. Au lieu de cela, suivez les étapes de la section [pour configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération à l’aide de Windows PowerShell](Configure-a-Federation-Server.md#BKMK_3).
+    > Dans Windows Server&reg; 2012 R2, il existe une solution de contournement pour spécifier l’instance par défaut de SQL Server. Elle consiste à ne pas utiliser l'interface utilisateur. Au lieu de cela, suivez les étapes de la section [pour configurer le premier serveur de Fédération dans une nouvelle batterie de serveurs de Fédération à l’aide de Windows PowerShell](Configure-a-Federation-Server.md#BKMK_3).
 
     > [!IMPORTANT]
     > Si vous voulez créer une batterie AD FS et utiliser SQL Server pour stocker vos données de configuration, vous pouvez utiliser SQL Server 2008 et versions plus récentes, notamment SQL Server 2012.

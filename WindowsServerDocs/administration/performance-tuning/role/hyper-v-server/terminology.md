@@ -4,15 +4,15 @@ description: Terminologie Hyper-v utile dans le réglage des performances d’Hy
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: acd61e9edef3ac88027d0cc89618c537fa6aa25f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 88aaebaac9161849fefe8116a1115eb628bcbf9e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385028"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851762"
 ---
 # <a name="hyper-v-terminology"></a>Terminologie Hyper-V
 Cette section résume la terminologie clé propre à la technologie des machines virtuelles utilisée dans cette rubrique de réglage des performances :
@@ -22,9 +22,9 @@ Cette section résume la terminologie clé propre à la technologie des machines
 |*partition enfant* | Tout ordinateur virtuel créé par la partition racine.|
 |*virtualisation des appareils* | Mécanisme qui permet à une ressource matérielle d’être abstraite et partagée entre plusieurs consommateurs.|
 |*appareil émulé*|Appareil virtualisé qui imite un périphérique matériel physique réel afin que les invités puissent utiliser les pilotes typiques pour ce périphérique matériel.|
-|*enlightenment*|Optimisation d’un système d’exploitation invité pour qu’il prenne en charge les environnements de machines virtuelles et ajuste son comportement pour les ordinateurs virtuels.|
+|*révération*|Optimisation d’un système d’exploitation invité pour qu’il prenne en charge les environnements de machines virtuelles et ajuste son comportement pour les ordinateurs virtuels.|
 |*courriels*|Logiciel qui s’exécute dans une partition. Il peut s’agir d’un système d’exploitation complet ou d’un petit noyau à usage spécial. L’hyperviseur est indépendant de l’invité.|
-|*hypervisor*|Couche de logiciels qui se trouve au-dessus du matériel et au-dessous d’un ou de plusieurs systèmes d’exploitation. Son travail principal consiste à fournir des environnements d’exécution isolés appelés partitions. Chaque partition possède son propre ensemble de ressources matérielles virtualisées (unité centrale de traitement ou UC, mémoire et périphériques). L’hyperviseur contrôle et régit l’accès au matériel sous-jacent.|
+|*technologie*|Couche de logiciels qui se trouve au-dessus du matériel et au-dessous d’un ou de plusieurs systèmes d’exploitation. Son travail principal consiste à fournir des environnements d’exécution isolés appelés partitions. Chaque partition possède son propre ensemble de ressources matérielles virtualisées (unité centrale de traitement ou UC, mémoire et périphériques). L’hyperviseur contrôle et régit l’accès au matériel sous-jacent.|
 |*processeur logique*| Unité de traitement qui gère un thread d’exécution (flux d’instructions). Il peut y avoir un ou plusieurs processeurs logiques par cœur de processeur et un ou plusieurs cœurs par socket de processeur.|
 | *accès direct au disque*|Représentation d’un disque physique entier en tant que disque virtuel au sein de l’invité. Les données et les commandes sont transmises au disque physique (via la pile de stockage native de la partition racine) sans traitement intermédiaire par la pile virtuelle.|
 |*partition racine*|La partition racine qui est créée en premier et possède toutes les ressources qui ne le sont pas, y compris la plupart des appareils et de la mémoire système. La partition racine héberge la pile de virtualisation et crée et gère les partitions enfants.|

@@ -1,6 +1,5 @@
 ---
 title: 'Récupération de la forêt Active Directory : prise d’un rôle de maître d’opérations'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,22 +8,22 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 7e6bb370-f840-4416-b5e2-86b0ba715f4f
 ms.technology: identity-adds
-ms.openlocfilehash: 672dc119845acbe9cf38f82c793bd377d31db3b2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b229215eb7dde23bd1c17e6023b1c5eace0a56bf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390283"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823532"
 ---
 # <a name="ad-forest-recovery---seizing-an-operations-master-role"></a>Récupération de la forêt Active Directory : prise d’un rôle de maître d’opérations  
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Utilisez la procédure suivante pour prendre un rôle de maître d’opérations (également connu sous le nom de rôle d’opérations à maître unique flottant (FSMO)). Vous pouvez utiliser Ntdsutil. exe, un outil de ligne de commande qui est installé automatiquement sur tous les contrôleurs de contrôle.  
   
 ## <a name="to-seize-an-operations-master-role"></a>Pour prendre un rôle de maître d’opérations  
   
-1. À l'invite de commandes, tapez la commande suivante et appuyez sur Entrée :  
+1. À l'invite de commandes, tapez la commande suivante, puis appuyez sur ENTRÉE :  
 
    ```  
    ntdsutil  
@@ -60,13 +59,13 @@ Utilisez la procédure suivante pour prendre un rôle de maître d’opérations
 
 6. En fonction du rôle que vous souhaitez prendre, à l’invite **maintenance FSMO :** , tapez la commande appropriée, comme décrit dans le tableau suivant, puis appuyez sur entrée.  
   
-|Rôle|Informations d’identification|Command|  
+|Role|Informations d'identification|Commande|  
 |----------|-----------------|-------------|  
-|Maître d’attribution de noms de domaine|Administrateurs de l’entreprise|**Prendre le maître d’attribution de noms**|  
+|Maître d’attribution de noms de domaine|Administrateurs de l'entreprise|**Prendre le maître d’attribution de noms**|  
 |Contrôleur de schéma|Administrateurs du schéma|**Prendre le contrôleur de schéma**|  
-|Remarque du maître d’infrastructure **:**  Une fois que vous avez assumé le rôle de maître d’infrastructure, vous pouvez recevoir un message d’erreur ultérieurement si vous devez exécuter adprep/rodcprep. Pour plus d’informations, consultez l’article [949257](https://support.microsoft.com/kb/949257)de la base de connaissances.|Administrateurs du domaine|**Prendre le maître d’infrastructure**|  
-|Maître d’émulateur de contrôleur de domaine principal|Administrateurs du domaine|**Prendre le PDC**|  
-|Maître RID|Administrateurs du domaine|**Prendre le maître RID**|  
+|Remarque du maître d’infrastructure **:** une fois que vous avez assumé le rôle de maître d’infrastructure, vous pouvez recevoir un message d’erreur ultérieurement si vous devez exécuter adprep/rodcprep. Pour plus d’informations, consultez l’article [949257](https://support.microsoft.com/kb/949257)de la base de connaissances.|Admins du domaine|**Prendre le maître d’infrastructure**|  
+|Maître d’émulateur de contrôleur de domaine principal|Admins du domaine|**Prendre le PDC**|  
+|Maître RID|Admins du domaine|**Prendre le maître RID**|  
 
 Après avoir confirmé la demande, Active Directory ou AD DS tente de transférer le rôle. En cas d’échec du transfert, des informations d’erreur s’affichent, et Active Directory ou AD DS se poursuivent. Une fois la cessation terminée, une liste des rôles et le nom LDAP (Lightweight Directory Access Protocol) du serveur qui contient actuellement chaque rôle s’affiche. Vous pouvez également exécuter **NETDOM QUERY FSMO** à une invite de commandes avec élévation de privilèges pour vérifier les détenteurs de rôle actuels.  
   

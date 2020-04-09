@@ -1,9 +1,7 @@
 ---
 title: Référentiel de logiciels Linux pour les produits Microsoft
 description: Ce document explique comment utiliser et installer des packages logiciels Linux pour les produits Microsoft.
-ms.custom: na
 ms.prod: windows-server
-ms.service: na
 manager: szark
 ms.technology: compute
 ms.topic: article
@@ -11,16 +9,16 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: szarkos
 ms.author: szark
 ms.date: 10/16/2017
-ms.openlocfilehash: e32c11dac1d887ba0ae0192bb658f71ece77a42c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b57a1e7243f989a4529a666880572a9ceaa57644
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947247"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852062"
 ---
 # <a name="linux-software-repository-for-microsoft-products"></a>Référentiel de logiciels Linux pour les produits Microsoft
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Overview
 Microsoft crée et prend en charge un large éventail de produits logiciels pour les systèmes Linux et les met à disposition via des référentiels de packages APT et YUM standard. Ce document décrit comment configurer le référentiel sur votre système Linux, afin que vous puissiez installer/mettre à niveau le logiciel Linux de Microsoft à l’aide des outils de gestion des packages standard de votre distribution.
 
 Le référentiel de logiciels Linux de Microsoft est constitué de plusieurs sous-référentiels :
@@ -30,7 +28,7 @@ Le référentiel de logiciels Linux de Microsoft est constitué de plusieurs sou
  - MSSQL-Server : ces référentiels contiennent des packages pour Microsoft SQL Server sur Linux-voir aussi : [SQL Server sur Linux](https://www.microsoft.com/sql-server/sql-server-vnext-including-Linux).
 
 > [!Note]
-> Les packages dans les référentiels de logiciels Linux sont soumis aux termes du contrat de licence figurant dans les packages. Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
+> Les packages dans les référentiels de logiciels Linux sont soumis aux termes du contrat de licence figurant dans les packages. Veuillez lire les termes du contrat de licence avant d’utiliser le package. L’installation et l’utilisation du package constituent votre acceptation de ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
 
 
 ## <a name="configuring-the-repositories"></a>Configuration des référentiels
@@ -63,19 +61,19 @@ Les référentiels peuvent être configurés automatiquement en installant le pa
 
  - Ubuntu 18,04 (Bionic)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
         sudo apt-get update
 
  - Ubuntu 18,10 (cosmique)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.10/prod
         sudo apt-get update
 
  - Ubuntu 19,04 (Disco)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/19.04/prod
         sudo apt-get update
 
@@ -97,7 +95,7 @@ Les fichiers de configuration du référentiel sont disponibles à partir de [pa
 
 ### <a name="examples"></a>Exemples :
 
- - RHEL/CentOS 7
+ - RHEL/CentOS 7
 
         # Install repository configuration
         curl https://packages.microsoft.com/config/rhel/7/prod.repo > ./microsoft-prod.repo

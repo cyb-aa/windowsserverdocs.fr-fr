@@ -1,7 +1,6 @@
 ---
 ms.assetid: 87196b65-a356-409f-9af0-b5950797d668
 title: Annexe A-examen des conditions de AD DS clés
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 81beba874440f7a75c2d7932357fae70f046d996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad8c1cf769c0c2a22e2d55f7bd2d111095410afe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409019"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822862"
 ---
-# <a name="appendix-a-reviewing-key-ad-ds-terms"></a>Annexe A : Examen des conditions d’AD DS clés
+# <a name="appendix-a-reviewing-key-ad-ds-terms"></a>Annexe A : Révision des principaux termes relatifs aux services AD DS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les termes suivants s’appliquent au processus de déploiement de Windows Server 2008 Active Directory Domain Services (AD DS).  
   
-## <a name="active-directory-domain"></a>domaine Active Directory,  
+## <a name="active-directory-domain"></a>Domaine Active Directory  
 Unité administrative d’un réseau informatique qui, à des fins de gestion, regroupe plusieurs fonctionnalités, notamment les suivantes :  
   
 -   **Identité de l’utilisateur au niveau du réseau**. Dans les domaines, les identités des utilisateurs peuvent être créées une seule fois, puis référencées sur n’importe quel ordinateur joint à la forêt dans laquelle se trouve le domaine. Les contrôleurs de domaine qui composent un domaine stockent les comptes d’utilisateur et les informations d’identification de l’utilisateur, tels que les mots de passe ou les certificats, en toute sécurité.  

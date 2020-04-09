@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
 ms.prod: windows-server
-ms.openlocfilehash: 5cb26bcff99d9cf3a1ee8b3a937ad6098a913c3d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d68e2becbf9c6522be7e1ff6e6742d44f3a8247
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362062"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829232"
 ---
 # <a name="windows-commands"></a>Commandes Windows
 
@@ -24,32 +24,50 @@ Cet ensemble de documentation décrit les commandes Windows que vous pouvez util
 
 Pour rechercher des informations sur une commande spécifique, dans le menu A-Z suivant, cliquez sur la lettre de départ de la commande, puis cliquez sur le nom de la commande.
 
-[UN](#a) |
+[Une](#a) |
 [B](#b) | 
 [C](#c) | 
 [D](#d) | 
 [E](#e) | 
-[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[M](#m)5[N](#n)7[O](#o)9[P](#p)1[Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | O | LETTRE
+[F](#f) | 
+[G](#g) | 
+[H](#h) | 
+[I](#i) |
+[J](#j) | 
+[K](#k) | 
+[L](#l) | 
+[M](#m) | 
+[N](#n) | 
+[O](#o) | 
+[P](#p) | 
+[Q](#q) | 
+[R](#r) | 
+[S](#s) | 
+[t](#t) | 
+[U](#u) | 
+[V](#v) | 
+[W](#w) | 
+[X](#x) | O | Lettre
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Les informations contenues dans cette rubrique s’appliquent aux éléments suivants :
 
 -   Windows Server 2019
 -   Windows Server (canal semi-annuel)
--   Windows Server 2016
--   Windows Server 2012 R2
+-   Windows Server 2016
+-   Windows Server 2012 R2
 -   Windows Server 2012 
 -   Windows Server 2008 R2
 -   Windows Server 2008
--   Windows 10
+-   Windows 10
 -   Windows 8.1
 
 ### <a name="command-shell-overview"></a>Vue d’ensemble de l’interface de commande
 
 L’interface de commande était le premier Shell intégré à Windows pour automatiser les tâches de routine, telles que la gestion des comptes d’utilisateur ou les sauvegardes nocturnes, avec des fichiers de commandes (. bat). Avec Windows Script Host, vous pouvez exécuter des scripts plus sophistiqués dans l’interface de commande. Pour plus d’informations, consultez [cscript](cscript.md) ou [wscript](wscript.md). Vous pouvez effectuer des opérations plus efficacement à l’aide de scripts que si vous utilisiez l’interface utilisateur. Les scripts acceptent toutes les commandes qui sont disponibles sur la ligne de commande.
 
-Windows dispose de deux shells de commande : L’interface de commande et [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Chaque interpréteur de commandes est un programme logiciel qui fournit une communication directe entre vous et le système d’exploitation ou l’application, en fournissant un environnement pour automatiser les opérations informatiques.
+Windows dispose de deux shells de commande : l’interface de commande et [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Chaque interpréteur de commandes est un programme logiciel qui fournit une communication directe entre vous et le système d’exploitation ou l’application, en fournissant un environnement pour automatiser les opérations informatiques.
 
 PowerShell a été conçu pour étendre les fonctionnalités de l’interface de commande afin d’exécuter des commandes PowerShell appelées cmdlets. Les applets de commande sont similaires aux commandes Windows, mais fournissent un langage de script plus extensible. Vous pouvez exécuter des commandes Windows et des applets de commande PowerShell dans PowerShell, mais l’interface de commande peut uniquement exécuter des commandes Windows et non des applets de commande PowerShell.
 
@@ -58,25 +76,43 @@ Pour l’automatisation Windows à jour la plus robuste, nous vous recommandons 
 >Vous pouvez également télécharger et installer [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6), la version open source de PowerShell. 
 
 > [!CAUTION]
-> Une modification incorrecte du Registre peut endommager gravement votre système. Avant d’apporter les modifications suivantes au registre, vous devez sauvegarder toutes les données importantes sur l’ordinateur.
+> Une modification incorrecte du Registre peut sérieusement endommager votre système. Avant d’apporter les modifications suivantes au registre, vous devez sauvegarder toutes les données importantes sur l’ordinateur.
 
 > [!NOTE]
-> Pour activer ou désactiver la saisie semi-automatique des noms de fichiers et de répertoires dans l’interface de commande d’un ordinateur ou d’une session utilisateur, exécutez **regedit. exe** et définissez la **valeur reg_DWOrd**suivante :
+> Pour activer ou désactiver la saisie semi-automatique des noms de fichiers et de répertoires dans l’interface de commande d’un ordinateur ou d’une session utilisateur, exécutez **regedit. exe** et définissez la **valeur de reg_DWOrd**suivante :
 > 
-> HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\completionChar\reg_DWOrd
+> HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\completionChar\ reg_DWOrd
 > 
-> Pour définir la valeur **reg_DWOrd** , utilisez la valeur hexadécimale d’un caractère de contrôle pour une fonction particulière (par exemple, **0 9** est Tab et **0 08** est un retour arrière). Les paramètres spécifiés par l’utilisateur sont prioritaires par rapport aux paramètres de l’ordinateur, et les options de ligne de commande sont prioritaires sur les paramètres du Registre.
+> Pour définir la valeur de **reg_DWOrd** , utilisez la valeur hexadécimale d’un caractère de contrôle pour une fonction particulière (par exemple, **0 9** est Tab et **0 08** est un retour arrière). Les paramètres spécifiés par l’utilisateur sont prioritaires par rapport aux paramètres de l’ordinateur, et les options de ligne de commande sont prioritaires sur les paramètres du Registre.
 
 ## <a name="command-line-reference-a-z"></a>Référence de ligne de commande A-Z
 
 Pour rechercher des informations sur une commande Windows spécifique, dans le menu A-Z suivant, cliquez sur la lettre de départ de la commande, puis cliquez sur le nom de la commande.
 
-[UN](#a) |
+[Une](#a) |
 [B](#b) | 
 [C](#c) | 
 [D](#d) | 
 [E](#e) | 
-[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[M](#m)5[N](#n)7[O](#o)9[P](#p)1[Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | O | LETTRE
+[F](#f) | 
+[G](#g) | 
+[H](#h) | 
+[I](#i) |
+[J](#j) | 
+[K](#k) | 
+[L](#l) | 
+[M](#m) | 
+[N](#n) | 
+[O](#o) | 
+[P](#p) | 
+[Q](#q) | 
+[R](#r) | 
+[S](#s) | 
+[t](#t) | 
+[U](#u) | 
+[V](#v) | 
+[W](#w) | 
+[X](#x) | O | Lettre
 
 ### <a name="a"></a>A
 -   [append](append.md)
@@ -266,7 +302,7 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
 - [ftype](ftype.md)
 - [fveupdate](fveupdate.md)
 
-### <a name="g"></a>G
+### <a name="g"></a>I
 -   [getmac](getmac.md)
 -   [gettype](gettype.md)
 -   [goto](goto.md)
@@ -280,7 +316,7 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
 -   [helpctr](helpctr.md)
 -   [hostname](hostname.md)
 
-### <a name="i"></a>CLIQU
+### <a name="i"></a>I
 -   [icacls](icacls.md)
 -   [if](if.md)
 -   [inuse](inuse.md)
@@ -348,13 +384,13 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
   -   [Manage-bde : protecteurs](manage-bde-protectors.md)
   -   [Manage-bde : TPM](manage-bde-tpm.md)
   -   [Manage-bde : SetIdentifier](manage-bde-setidentifier.md)
-  -   [manage-BDE : ForceRecovery](manage-bde-forcerecovery.md)
+  -   [Manage-bde : ForceRecovery](manage-bde-forcerecovery.md)
   -   [Manage-bde : ChangePassword](manage-bde-changepassword.md)
   -   [Manage-bde : changepin](manage-bde-changepin.md)
   -   [Manage-bde : ChangeKey](manage-bde-changekey.md)
-  -   [manage-BDE : KeyPackage](manage-bde-keypackage.md)
+  -   [Manage-bde : keypackage](manage-bde-keypackage.md)
   -   [Manage-bde : mettre à niveau](manage-bde-upgrade.md)
-  -   [manage-BDE : WipeFreeSpace](manage-bde-wipefreespace.md)
+  -   [Manage-bde : WipeFreeSpace](manage-bde-wipefreespace.md)
 - [mapadmin](mapadmin.md)
 - [Md](Md.md)
 - [mkdir](mkdir.md)
@@ -486,7 +522,7 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
 - [rundll32](rundll32.md)
 - [rwinsta](rwinsta.md)
 
-### <a name="s"></a>S
+### <a name="s"></a>T
 - [schtasks](schtasks.md)
 - [scwcmd](Scwcmd.md)
   -   [scwcmd : analyser](scwcmd-analyze.md)
@@ -545,7 +581,7 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
 -   [typeperf](typeperf.md)
 -   [tzutil](tzutil.md)
 
-### <a name="u"></a>GOUDJARATI
+### <a name="u"></a>U
 -   [unlodctr](unlodctr_1.md)
 
 ### <a name="v"></a>V
@@ -582,7 +618,6 @@ Pour rechercher des informations sur une commande Windows spécifique, dans le m
 - [winnt32](winnt32.md)
 - [winpop](winpop.md)
 - [winrs](winrs.md)
-- [sujet](wlbs_1.md)
 - [wmic](wmic.md)
 - [wscript](wscript.md)
 

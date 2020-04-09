@@ -2,22 +2,19 @@
 title: Migration de la base de données WSUS de l’WID (base de données interne Windows) vers SQL
 description: 'Rubrique Windows Server Update Service (WSUS) : procédure de migration de la base de données WSUS (SUSDB) d’une instance de base de données interne Windows vers une instance locale ou distante de SQL Server.'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: get-started article
 ms.assetid: 90e3464c-49d8-4861-96db-ee6f8a09g7dr
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: 594c20cbfea521006de6d1ec69763669298376e6
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 8d38833170aae5e13f9d42b726d7cb0b3c12de56
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948519"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828452"
 ---
 >S’applique à : Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016
 
@@ -25,10 +22,10 @@ ms.locfileid: "75948519"
 
 Procédez comme suit pour migrer la base de données WSUS (SUSDB) d’une instance de base de données interne Windows vers une instance locale ou distante de SQL Server.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 - Instance SQL. Il peut s’agir de **MSSQLSERVER** par défaut ou d’une instance personnalisée.
-- SQL Server Management Studio
+- SQL Server Management Studio
 - WSUS avec rôle WID installé
 - IIS (cela est normalement inclus lorsque vous installez WSUS via Gestionnaire de serveur). Il n’est pas déjà installé, il doit être.
 
@@ -105,7 +102,7 @@ Après avoir attaché le SUSDB, vérifiez que **NT AUTHORITY\NETWORK SERVICE** d
 
 1. Accédez à SQL Server Management Studio
 2. Ouverture de l’instance
-3. Cliquez sur **Sécurité**
+3. Cliquer sur **sécurité**
 4. Cliquer sur **connexions**
 
 Le compte **NT AUTHORITY\NETWORK SERVICE** doit figurer dans la liste. Si ce n’est pas le cas, vous devez l’ajouter en ajoutant un nouveau nom de connexion.
@@ -116,7 +113,7 @@ Le compte **NT AUTHORITY\NETWORK SERVICE** doit figurer dans la liste. Si ce n�
 ##### <a name="adding-nt-authoritynetwork-service-and-granting-it-rights"></a>Ajout de NT AUTHORITY\NETWORK SERVICE et octroi d’autorisations
 
 1. Cliquez avec le bouton droit sur **connexions** , puis cliquez sur **nouvelle connexion...**
-    ![Image6](images/image6.png)
+    ![image6](images/image6.png)
 2. Sur la page **général** , renseignez le **nom de connexion** (**NT AUTHORITY\NETWORK SERVICE**) et définissez la **base de données par défaut** sur SUSDB.
     ![image7](images/image7.png)
 3. Dans la page **rôles du serveur** , assurez-vous que **public** et **sysadmin** sont sélectionnés.
@@ -124,7 +121,7 @@ Le compte **NT AUTHORITY\NETWORK SERVICE** doit figurer dans la liste. Si ce n�
 4. Sur la page mappage de l' **utilisateur** :
     - Sous **utilisateurs mappés à cette connexion**: sélectionnez **SUSDB**
     - Sous **appartenance au rôle de base de données pour : SUSDB**, vérifiez que les éléments suivants sont activés :
-        - **public**
+        - **publique**
         - **WebService** ![image9](images/image9.png)
 5. Cliquez sur **OK**.
 
@@ -149,7 +146,7 @@ Le compte **NT AUTHORITY\NETWORK SERVICE** doit figurer dans la liste.
     >
     > ![image11](images/image11.png)
 
-4. Dans la page **mappage** de l’utilisateur, sélectionnez la base de données **SUSDB** sous **« utilisateurs mappés à cette connexion »** .
+4. Dans la page mappage de l' **utilisateur** , sélectionnez la base de données **SUSDB** sous **utilisateurs mappés à cette connexion** .
 5. Vérifiez **WebService** sous l' **appartenance du rôle de base de données pour : SUSDB**: ![image12](images/image12.png)
 6. Cliquez sur **OK** pour enregistrer les paramètres.
     > [!NOTE]
@@ -158,7 +155,7 @@ Le compte **NT AUTHORITY\NETWORK SERVICE** doit figurer dans la liste.
 ### <a name="edit-the-registry-to-point-wsus-to-the-sql-server-instance"></a>Modifiez le registre de façon à faire pointer WSUS vers l’instance SQL Server
 
 > [!IMPORTANT]
-> Suivez attentivement les étapes décrites dans cette section. De graves problèmes peuvent se produire si vous modifiez le registre de façon incorrecte. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/help/322756) en cas de problème.
+> Suivez attentivement les étapes décrites dans cette section. En effet, toute erreur de modification peut être à l'origine de problèmes graves. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/help/322756) en cas de problème.
 
 1. Cliquez sur **Démarrer**, puis sur **Exécuter**. Tapez **regedit**, puis cliquez sur **OK**.
 2. Recherchez la clé suivante : **HKEY_LOCAL_MACHINE \software\microsoft\updateservices\server\setup\sqlservername**

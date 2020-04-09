@@ -1,28 +1,22 @@
 ---
-title: active
-description: La rubrique commandes Windows pour les disques de base **actifs** , marque la partition avec le focus comme active.
-ms.custom: na
+title: actif
+description: La rubrique commandes Windows pour **active**, qui sur les disques de base, marque la partition avec le focus comme active.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1f25da2e-87fc-4392-a7ee-f38d09b7873c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c926bf9b7a583cf7eaa23166e09e6f0a1599e625
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 42f2e0d367344355e8f9a570f37cfbdc5dfc4590
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382850"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851372"
 ---
-# <a name="active"></a>active
-
-
+# <a name="active"></a>actif
 
 Sur les disques de base, marque la partition ayant le focus comme active.
 
@@ -33,20 +27,23 @@ Sur les disques de base, marque la partition ayant le focus comme active.
 
 ```
 active
+```- 
+
+## Remarks
+
+-   This informs the basic input/output system (BIOS) or Extensible Firmware Interface (EFI) that the partition or volume is a valid system partition or system volume.
+
+-   Only partitions can be marked as active.
+
+-   A partition must be selected for this operation to succeed. Use the **select partition** command to select a partition and shift the focus to it.
+
+## <a name=BKMK_examples></a>Examples
+
+To mark the partition with focus as the active partition, type:
+
 ```
-
-## <a name="remarks"></a>Notes
-
--   Cela indique au système BIOS ou Extensible Firmware Interface (EFI) de base que la partition ou le volume est une partition système ou un volume système valide.
--   Seules les partitions peuvent être marquées comme actives.
--   Une partition doit être sélectionnée pour que cette opération aboutisse. Utilisez la commande **Sélectionner une partition** pour sélectionner une partition et y déplacer le focus.
-
-## <a name="BKMK_examples"></a>Illustre
-
-Pour marquer la partition ayant le focus sur la partition active, tapez :
+actif
 ```
-active
-```
+## Additional References
 
-#### <a name="additional-references"></a>Références supplémentaires
-
+- [Command-Line Syntax Key](command-line-syntax-key.md)

@@ -1,28 +1,22 @@
 ---
-title: Utilisation de la commande AllServers
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: AllServers
+description: La rubrique commandes Windows pour la commande AllServers, qui récupère des informations sur tous les serveurs des services de déploiement Windows.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fe2e3c69-8f2e-457d-af55-d249ebf70f53
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8dd7f9917a54a80b3c570b07fe1a87bd3bcbe4d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b400d5a2be69e8e89a05b233cc2e8f29bec848f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71363258"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80831212"
 ---
-# <a name="using-the-get-allservers-command"></a>Utilisation de la commande AllServers
-
-
+# <a name="get-allservers"></a>AllServers
 
 Récupère des informations sur tous les serveurs des services de déploiement Windows.
 
@@ -35,7 +29,7 @@ Récupère des informations sur tous les serveurs des services de déploiement W
 WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Forest:{Yes | No}]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |   Paramètre   |                                                                                                                 Description                                                                                                                  |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,7 +37,7 @@ WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Fo
 |  /Detailed  | Lorsqu’il est utilisé conjointement avec **/Show : images** ou **/Show : All**, retourne toutes les métadonnées d’image de chaque image. Si l’option **/detailed** n’est pas spécifiée, le comportement par défaut consiste à retourner le nom de l’image, la description et le nom du fichier. |
 | [/Forest : {Oui |                                                                                                                     Non}]                                                                                                                     |
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher des informations sur tous les serveurs, tapez :
 ```
@@ -54,6 +48,6 @@ Pour afficher des informations détaillées sur tous les serveurs, tapez :
 WDSUTIL /Verbose /Get-AllServers /Show:All /Detailed /Forest:Yes
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

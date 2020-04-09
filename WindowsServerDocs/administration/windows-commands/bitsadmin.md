@@ -1,24 +1,20 @@
 ---
 title: bitsadmin
-description: La rubrique commandes Windows pour **Bitsadmin** -Bitsadmin est un outil en ligne de commande que vous pouvez utiliser pour créer, télécharger ou télécharger des travaux et surveiller leur progression.
-ms.custom: na
+description: La rubrique commandes Windows pour Bitsadmin, qui est un outil de ligne de commande utilisé pour créer, télécharger ou télécharger des travaux et surveiller leur progression.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4853036e-1df8-45ad-8be6-cfb097b8dd27
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b53293b28a83ecced34d248741996c958531d517
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ae6536b5c149f54bbfd37a5e0e814ffaa09a6bae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380099"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848742"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
@@ -34,7 +30,7 @@ La plupart des commutateurs correspondent aux méthodes des [interfaces bits](/w
 
 Utilisez les commutateurs suivants pour créer un travail, définir et récupérer les propriétés d’un travail, et surveiller l’état d’un travail. Pour obtenir des exemples qui montrent comment utiliser certains de ces commutateurs pour effectuer des tâches, consultez [exemples Bitsadmin](bitsadmin-examples.md).
 
-## <a name="switches"></a>Active
+## <a name="switches"></a>Commutateurs
 
 [bitsadmin addfile](bitsadmin-addfile.md)  
 [bitsadmin addfileset](bitsadmin-addfileset.md)  

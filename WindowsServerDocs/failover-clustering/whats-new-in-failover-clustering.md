@@ -4,16 +4,16 @@ title: Nouveautés du clustering de basculement dans Windows Server
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.topic: get-started-article
-manager: dongill
+manager: lizross
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 40342f43f7afbf020ba20f27586650767218fe83
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0d4b648a54e1937aedfe3fd087977c5733110787
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948032"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827332"
 ---
 # <a name="whats-new-in-failover-clustering"></a>Nouveautés du clustering de basculement
 
@@ -29,22 +29,22 @@ Cette rubrique décrit les fonctionnalités nouvelles et modifiées du clusterin
     Avec les ensembles de clusters, vous pouvez déplacer des machines virtuelles en ligne (migration dynamique) entre des clusters au sein de l’ensemble de clusters.
 
     Pour plus d’informations, consultez [cluster sets](../storage/storage-spaces/cluster-sets.md).
+                
+- **Clusters adaptés à Azure**                
+                
+    Désormais, les clusters de basculement détectent automatiquement le runn ng des machines virtuelles Azure IaaS et optimisent la configuration pour fournir un basculement et une journalisation proactive des événements de maintenance planifiée Azure pour atteindre les niveaux de disponibilité les plus élevés. Le déploiement est également simplifié en éliminant la nécessité de configurer l’équilibreur de charge avec un nom de réseau dynamique pour le nom du cluster.
+                
+- **Cross-DOM en c uste MIG**
+                
+    Les clusters de basculement peuvent désormais passer de manière dynamique d’un domaine de Active Directory à un autre, ce qui simplifie la consolidation de domaine et la création de clusters b’créés par des partenaires de matériel et joints au domaine du client par la suite.    
+- **Témoin USB**                
 
-- **Clusters adaptés à Azure**
-
-    Désormais, les clusters de basculement détectent automatiquement quand ils s’exécutent sur des machines virtuelles Azure IaaS et optimisent la configuration pour fournir un basculement et une journalisation proactive des événements de maintenance planifiée Azure pour atteindre les niveaux de disponibilité les plus élevés. Le déploiement est également simplifié en éliminant la nécessité de configurer l’équilibreur de charge avec un nom de réseau dynamique pour le nom du cluster.
-
-- **Migration de cluster entre domaines**
-
-    Les clusters de basculement peuvent désormais migrer dynamiquement d’un domaine de Active Directory à un autre, ce qui simplifie la consolidation de domaine et permet de créer des clusters par des partenaires matériels et de les joindre ultérieurement au domaine du client.
-- **Témoin USB**
-
-    Vous pouvez maintenant utiliser un lecteur USB connecté à un commutateur réseau comme témoin pour déterminer le quorum d’un cluster. Cela étend le témoin de partage de fichiers pour prendre en charge tout appareil conforme à SMB2.
-
-- **Améliorations de l’infrastructure de cluster**
-
-    Le cache du volume partagé de cluster est désormais activé par défaut pour renforcer les performances des machines virtuelles. MSDTC prend désormais en charge les volumes partagés de cluster afin d'autoriser le déploiement de charges de travail MSDTC sur les espaces de stockage direct comme avec SQL Server. Amélioration de la logique de détection de nœuds partitionnés avec autoréparation pour que les nœuds redeviennent membres du cluster. Détection d'itinéraire de réseau en cluster et autoréparation améliorées.
-
+    Vous pouvez maintenant utiliser un lecteur USB si est attaché à un commutateur réseau comme témoin pour déterminer le quorum d’un cluster. Cela étend le témoin de partage de fichiers pour prendre en charge tout appareil conforme à SMB2.
+                
+- **Ruct de la mise en cluster**
+                
+    Le cache du volume partagé de cluster est désormais activé par d page pour Oost les performances des machines virtuelles. MSDTC prend désormais en charge les volumes partagés de cluster afin d'autoriser le déploiement de charges de travail MSDTC sur les espaces de stockage direct comme avec SQL Server. Amélioration de la logique de détection de nœuds partitionnés avec autoréparation pour que les nœuds redeviennent membres du cluster. Détection d'itinéraire de réseau en cluster et autoréparation améliorées.
+                
 - **Mise à jour adaptée aux clusters qui prend en charge les espaces de stockage direct**
 
     La mise à jour adaptée aux clusters (Cluster Aware Updating ou CAU) est désormais intégrée et détecte les espaces de stockage direct, vérifiant et garantissant que la resynchronisation des données est terminée sur chaque nœud. La mise à jour adaptée aux clusters inspecte les mises à jour pour qu’elles redémarrent intelligemment uniquement si nécessaire. Cela permet d’orchestrer les redémarrages de tous les serveurs du cluster en vue d’une maintenance planifiée.
@@ -64,9 +64,9 @@ Cette rubrique décrit les fonctionnalités nouvelles et modifiées du clusterin
     Les clusters de basculement n’utilisent plus l’authentification NTLM. Au lieu de cela, Kerberos et l’authentification basée sur les certificats sont utilisés exclusivement. Aucune modification n’est requise par l’utilisateur ou les outils de déploiement pour tirer parti de cette amélioration de la sécurité. Il permet également de déployer des clusters de basculement dans des environnements où NTLM a été désactivé. 
 
 
-## <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server 2016
+## <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server 2016
 
-### <a name="BKMK_RollingUpgrade"></a>Mise à niveau propagée du système d’exploitation du cluster
+### <a name="cluster-operating-system-rolling-upgrade"></a><a name="BKMK_RollingUpgrade"></a>Mise à niveau propagée du système d’exploitation du cluster
 
 La mise à niveau propagée du système d’exploitation de cluster permet à un administrateur de mettre à niveau le système d’exploitation des nœuds de cluster de Windows Server 2012 R2 vers une version plus récente sans arrêter les charges de travail Hyper-V ou Serveur de fichiers avec montée en puissance parallèle. Avec cette fonctionnalité, les pénalités de temps d’arrêt sur les contrats de niveau de service peuvent être évitées. 
 
@@ -94,7 +94,7 @@ Les systèmes d’exploitation de cluster pour la mise à niveau en plusieurs ph
 
 Pour plus d’informations, consultez [mise à niveau propagée du système d’exploitation de cluster](cluster-operating-system-rolling-upgrade.md). 
 
-### <a name="BKMK_SR"></a>Réplica de stockage  
+### <a name="storage-replica"></a><a name="BKMK_SR"></a>Réplica de stockage  
 Le réplica de stockage est une nouvelle fonctionnalité qui permet la réplication synchrone de niveau bloc et indépendante du stockage entre les serveurs ou les clusters pour la récupération d’urgence, ainsi que l’étirement d’un cluster de basculement entre les sites. La réplication synchrone permet la mise en miroir des données dans des sites physiques avec des volumes cohérents en cas d’incident, ce qui garantit aucune perte de données au niveau du système de fichiers. La réplication asynchrone permet l’extension de site au-delà de plages métropolitaines avec la possibilité de perte de données. 
 
 **Quels avantages cette modification procure-t-elle ?**  
@@ -126,8 +126,8 @@ Le réplica de stockage vous permet d’effectuer les opérations suivantes :
 Pour plus d’informations, voir [Réplica de stockage dans Windows Server 2016](../storage/storage-replica/storage-replica-overview.md). 
 
 
-### <a name="BKMK_CloudWitness"></a>Témoin Cloud  
-Dans Windows Server2016, Témoin cloud est un nouveau type de témoin de quorum de cluster avec basculement, qui utilise Microsoft Azure comme point d’arbitrage. Comme les autres témoins de quorum, Témoin cloud obtient un vote et peut prendre part à des calculs de quorum. Vous pouvez le configurer comme témoin de quorum à l’aide de l’Assistant Configuration de quorum du cluster. 
+### <a name="cloud-witness"></a><a name="BKMK_CloudWitness"></a>Témoin Cloud  
+Dans Windows Server 2016, Témoin cloud est un nouveau type de témoin de quorum de cluster avec basculement, qui utilise Microsoft Azure comme point d’arbitrage. Comme les autres témoins de quorum, Témoin cloud obtient un vote et peut prendre part à des calculs de quorum. Vous pouvez le configurer comme témoin de quorum à l’aide de l’Assistant Configuration de quorum du cluster. 
 
 **Quels avantages cette modification procure-t-elle ?**  
 
@@ -147,7 +147,7 @@ Pour plus d’informations, consultez [déployer un témoin de Cloud pour un clu
 
 Cette fonctionnalité est une nouveauté de Windows Server 2016. 
 
-### <a name="BKMK_VMs"></a>Résilience de la machine virtuelle  
+### <a name="virtual-machine-resiliency"></a><a name="BKMK_VMs"></a>Résilience de la machine virtuelle  
 **Résilience de calcul** Windows Server 2016 comprend une plus grande résilience de calcul des machines virtuelles afin de réduire les problèmes de communication intra-cluster dans votre cluster de calcul, comme suit : 
 
 -   **Options de résilience disponibles pour les machines virtuelles :**  Vous pouvez maintenant configurer des options de résilience de machine virtuelle qui définissent le comportement des machines virtuelles pendant les défaillances temporaires :  
@@ -166,17 +166,17 @@ Lorsqu’un ordinateur virtuel se déconnecte de son stockage sous-jacent, il s�
 
 Dans Windows Server 2016, la résilience du stockage d’ordinateur virtuel est également prise en charge et optimisée pour les clusters invités. 
 
-### <a name="BKMK_Diagnostics"></a>Améliorations des diagnostics dans le clustering de basculement  
+### <a name="diagnostic-improvements-in-failover-clustering"></a><a name="BKMK_Diagnostics"></a>Améliorations des diagnostics dans le clustering de basculement  
 Pour faciliter le diagnostic des problèmes liés aux clusters de basculement, Windows Server 2016 comprend les éléments suivants :  
 
 -   Plusieurs améliorations apportées aux fichiers journaux de cluster (tels que les informations de fuseau horaire et le journal DiagnosticVerbose) facilitent la résolution des problèmes de clustering de basculement. Pour plus d’informations, consultez améliorations de la [résolution des problèmes liés au cluster de basculement Windows Server 2016-journal de cluster](https://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
 
 -   Nouveau type de vidage de la **mémoire active**, qui filtre la plupart des pages mémoire allouées aux ordinateurs virtuels, et rend donc la mémoire. dmp beaucoup plus petite et plus facile à enregistrer ou à copier. Pour plus d’informations, consultez améliorations de la [résolution des problèmes liés au cluster de basculement Windows Server 2016-vidage actif](https://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx). 
 
-### <a name="BKMK_SiteAware"></a>Clusters de basculement prenant en charge les sites  
+### <a name="site-aware-failover-clusters"></a><a name="BKMK_SiteAware"></a>Clusters de basculement prenant en charge les sites  
 Windows Server 2016 comprend des clusters de basculement prenant en charge les sites qui permettent de regrouper des nœuds dans des clusters étendus en fonction de leur emplacement physique (site). La sensibilisation au site du cluster améliore les opérations clés pendant le cycle de vie du cluster, telles que le comportement de basculement, les stratégies de positionnement, les pulsations entre les nœuds et le comportement du quorum. Pour plus d’informations, consultez [clusters de basculement prenant en charge les sites dans Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
 
-### <a name="BKMK_multidomainclusters"></a>Groupes de travail et clusters à plusieurs domaines  
+### <a name="workgroup-and-multi-domain-clusters"></a><a name="BKMK_multidomainclusters"></a>Groupes de travail et clusters à plusieurs domaines  
 Dans Windows Server 2012 R2 et les versions antérieures, un cluster peut uniquement être créé entre des nœuds membres joints au même domaine. Windows Server 2016 déjoue cet obstacle en introduisant la possibilité de créer un cluster de basculement sans dépendances Active Directory. Vous pouvez maintenant créer des clusters de basculement dans les configurations suivantes :  
 
 -   **Clusters à domaine unique.** Clusters avec tous les nœuds joints au même domaine. 
@@ -186,17 +186,17 @@ Dans Windows Server 2012 R2 et les versions antérieures, un cluster peut unique
 -   **Clusters de groupe de travail.** Clusters avec des nœuds qui sont des serveurs membres/groupe de travail (et non joints à un domaine). 
 
 Pour plus d’informations, consultez [groupes de travail et clusters à plusieurs domaines dans Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx)  
-### <a name="BKMK_VMLoadBalancing"></a>Équilibrage de charge de la machine virtuelle  
+### <a name="virtual-machine-load-balancing"></a><a name="BKMK_VMLoadBalancing"></a>Équilibrage de charge de la machine virtuelle  
 L’équilibrage de charge de l’ordinateur virtuel est une nouvelle fonctionnalité du clustering de basculement qui facilite l’équilibrage de charge transparent des ordinateurs virtuels sur les nœuds d’un cluster. Les nœuds surdédiés sont identifiés en fonction de la mémoire de l’ordinateur virtuel et de l’utilisation du processeur sur le nœud. Les machines virtuelles sont ensuite déplacées (migration dynamique) d’un nœud trop sollicitée vers des nœuds avec une bande passante disponible (le cas échéant). L’intensité de l’équilibrage peut être réglée pour garantir des performances et une utilisation optimales du cluster. L’équilibrage de charge est activé par défaut dans la version d’évaluation technique de Windows Server 2016. Toutefois, l’équilibrage de charge est désactivé lorsque l’optimisation dynamique SCVMM est activée. 
 
-### <a name="BKMK_VMStartOrder"></a>Ordre de démarrage de la machine virtuelle  
+### <a name="virtual-machine-start-order"></a><a name="BKMK_VMStartOrder"></a>Ordre de démarrage de la machine virtuelle  
 L’ordre de démarrage des machines virtuelles est une nouvelle fonctionnalité du clustering de basculement qui présente l’orchestration de l’ordre de démarrage des machines virtuelles (et de tous les groupes) dans un cluster. Les machines virtuelles peuvent désormais être regroupées en niveaux, et les dépendances de début d’ordre peuvent être créées entre différents niveaux. Cela permet de s’assurer que les machines virtuelles les plus importantes (comme les contrôleurs de domaine ou les machines virtuelles utilitaires) sont démarrées en premier. Les ordinateurs virtuels ne sont pas démarrés tant que les ordinateurs virtuels sur lesquels ils ont une dépendance ne sont pas également démarrés. 
 
-### <a name="BKMK_SMBMultiChannel"></a>Réseaux de clusters à plusieurs cartes réseau et SMB Multichannel simplifiés  
+### <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a><a name="BKMK_SMBMultiChannel"></a>Réseaux de clusters à plusieurs cartes réseau et SMB Multichannel simplifiés  
 Les réseaux de cluster de basculement ne sont plus limités à une seule carte réseau par sous-réseau/réseau. Avec des réseaux de clusters à plusieurs cartes réseau et multicanaux SMB simplifiés, la configuration réseau est automatique et chaque carte réseau sur le sous-réseau peut être utilisée pour le trafic de cluster et de charge de travail. Cette amélioration permet aux clients d’optimiser le débit du réseau pour Hyper-V, SQL Server instance de cluster de basculement et d’autres charges de travail SMB. 
 
 Pour plus d’informations, consultez la [page simplification des réseaux de clusters SMB multicanaux et à plusieurs cartes réseau](smb-multichannel.md).
 
-## <a name="see-also"></a>Articles associés  
+## <a name="see-also"></a>Voir aussi  
 * [Stockage](../storage/storage.md)  
 * [Nouveautés du stockage dans Windows Server 2016](../storage/whats-new-in-storage.md)  

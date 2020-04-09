@@ -1,24 +1,20 @@
 ---
 title: Configurer des listes de contrôle d’accès (ACL) du pare-feu de centre de données
 description: Vous pouvez appliquer des listes de contrôle d’accès spécifiques à des interfaces réseau.  Si les listes de contrôle d’accès sont également définies sur le sous-réseau virtuel auquel l’interface réseau est connectée, les deux listes de contrôle d’accès sont appliquées, mais les ACL de l’interface réseau sont hiérarchisées au-dessus des ACL du sous-réseau virtuel.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 25f18927-a63e-44f3-b02a-81ed51933187
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: fdf9f7dbe8fb9541cc8f77cfbce014c5210296d5
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: f6b1078f88b2d377c3c49934e2b1bd219641d82e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317665"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854562"
 ---
 # <a name="configure-datacenter-firewall-access-control-lists-acls"></a>Configurer des listes de Access Control de pare-feu de centre de donnes
 

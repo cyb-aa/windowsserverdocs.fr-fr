@@ -1,24 +1,20 @@
 ---
 title: macfile
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e2ce586c-b316-41d3-90f8-4be0d074cc0e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 194d1adaaf64ffee2a217982638ddf0661dd0369
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0156be5a3209bf8cedf13b35ceab61ef38a0f49a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374168"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840312"
 ---
 # <a name="macfile"></a>macfile
 
@@ -30,14 +26,14 @@ Gère le serveur de fichiers pour les serveurs, les volumes, les répertoires et
 -   [Pour modifier le message d’ouverture de session et limiter les sessions](#BKMK_LogonLimit)
 -   [Pour ajouter, modifier ou supprimer des volumes accessibles par Macintosh](#BKMK_addvol)
 
-## <a name="BKMK_Moddirs"></a>Pour modifier des répertoires dans des volumes accessibles par Macintosh
+## <a name="to-modify-directories-in-macintosh-accessible-volumes"></a><a name=BKMK_Moddirs></a>Pour modifier des répertoires dans des volumes accessibles par Macintosh
 
 ### <a name="syntax"></a>Syntaxe
 ```
 macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName>] [/group:<GroupName>] [/permissions:<Permissions>]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 -   /Server :\\\\<computerName> spécifie le serveur sur lequel modifier un répertoire. En cas d’omission, l’opération est effectuée sur l’ordinateur local.
 -   /Path :<directory> requis. Spécifie le chemin d’accès au répertoire que vous souhaitez modifier. Le répertoire doit exister. le **répertoire MacFile** ne crée pas de répertoires.
 -   /owner :<OwnerName> modifie le propriétaire du répertoire. En cas d’omission, le propriétaire reste inchangé.
@@ -52,7 +48,7 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
     |Troisième|OwnerMakechanges|
     |Quatrième|GroupSeeFiles|
     |Cinquième|GroupSeeFolders|
-    |Alinéa|GroupMakechanges|
+    |Sixième|GroupMakechanges|
     |Troisième|WorldSeeFiles|
     |Huitième|WorldSeeFolders|
     |Neuvième|WorldMakechanges|
@@ -63,22 +59,22 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
     Affiche l'aide à l'invite de commandes.
 
 ### <a name="remarks"></a>Notes
-- Si les informations que vous fournissez contiennent des espaces ou des caractères spéciaux, utilisez des guillemets autour du texte (par exemple, **«** <em>nom de l’ordinateur</em> **»** ).
+- Si les informations que vous fournissez contiennent des espaces ou des caractères spéciaux, utilisez des guillemets autour du texte (par exemple, * * * * nom de l'<em>ordinateur</em>* * * *).
 - Utilisez **macfiledirectory** pour mettre un répertoire existant dans un volume accessible aux Macintosh à la disposition des utilisateurs Macintosh. La commande **macfiledirectory** ne crée pas de répertoires. Utilisez le gestionnaire de fichiers, l’invite de commandes ou la commande **Macintosh nouveau dossier** pour créer un répertoire dans un volume accessible par Macintosh avant d’utiliser la commande **macfile Directory** .
-  ### <a name="BKMK_Examples"></a>Illustre
+  ### <a name="examples"></a><a name=BKMK_Examples></a>Illustre
   L’exemple suivant modifie les autorisations du sous-répertoire mai Sales, dans les statistiques de volume accessibles aux Macintosh, sur le lecteur E du serveur local. L’exemple attribue les autorisations voir les fichiers, voir les dossiers et apporter des modifications au propriétaire et afficher les fichiers et voir les autorisations de dossiers pour tous les autres utilisateurs, tout en empêchant le renommage, le déplacement ou la suppression du répertoire.
   ```
-  macfile directory /path:"e:\statistics\may sales" /permissions:11111011000
+  macfile directory /path:e:\statistics\may sales /permissions:11111011000
   ```
 
-## <a name="BKMK_Joinforks"></a>Pour joindre les données et les branches de ressources d’un fichier Macintosh
+## <a name="to-join-a-macintosh-files-data-and-resource-forks"></a><a name=BKMK_Joinforks></a>Pour joindre les données et les branches de ressources d’un fichier Macintosh
 
 ### <a name="syntax"></a>Syntaxe
 ```
 macfile forkize[/server:\\<computerName>] [/creator:<CreatorName>] [/type:<typeName>]  [/datafork:<Filepath>] [/resourcefork:<Filepath>] /targetfile:<Filepath>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |         Paramètre          |                                                                                                           Description                                                                                                            |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -91,25 +87,25 @@ macfile forkize[/server:\\<computerName>] [/creator:<CreatorName>] [/type:<typeN
 |             /?             |                                                                                               Affiche l'aide à l'invite de commandes.                                                                                               |
 
 ### <a name="remarks"></a>Notes
-- Si les informations que vous fournissez contiennent des espaces ou des caractères spéciaux, utilisez des guillemets autour du texte (par exemple, **«** <em>nom de l’ordinateur</em> **»** ).
+- Si les informations que vous fournissez contiennent des espaces ou des caractères spéciaux, utilisez des guillemets autour du texte (par exemple, * * * * nom de l'<em>ordinateur</em>* * * *).
 
 ### <a name="examples"></a>Exemples
-Pour créer le fichier Treeapp sur le volume accessible par Macintosh D:\Release, à l’aide de la branche de ressources C:\Cross\Mac\Appcode et pour que ce nouveau fichier apparaisse aux clients Macintosh en tant qu’application (les applications Macintosh utilisent le type APPL) avec le créateur (signature). ) défini sur MAGNOLIA, tapez :
+Pour créer le fichier Treeapp sur le volume accessible par Macintosh D:\Release, à l’aide de la branche de ressources C:\Cross\Mac\Appcode et pour que ce nouveau fichier apparaisse aux clients Macintosh en tant qu’application (les applications Macintosh utilisent le type APPL) avec le créateur (signature) défini sur MAGNOLIA, tapez :
 ```
 macfile forkize /resourcefork:c:\cross\mac\appcode /type:APPL /creator:MAGNOLIA /targetfile:D:\Release\treeapp
 ```
 Pour remplacer le créateur de fichier par Microsoft Word 5,1, pour le fichier WOrd. txt dans le répertoire D:\Word documents\Group files, sur le serveur \\\SERverA, tapez :
 ```
-macfile forkize /server:\\servera /creator:MSWD /type:TEXT /targetfile:"d:\Word documents\Group files\Word.txt"
+macfile forkize /server:\\servera /creator:MSWD /type:TEXT /targetfile:d:\Word documents\Group files\Word.txt
 ```
 
-## <a name="BKMK_LogonLimit"></a>Pour modifier le message d’ouverture de session et limiter les sessions
+## <a name="to-change-the-logon-message-and-limit-sessions"></a><a name=BKMK_LogonLimit></a>Pour modifier le message d’ouverture de session et limiter les sessions
 ### <a name="syntax"></a>Syntaxe
 ```
 macfile server [/server:\\<computerName>] [/maxsessions:{Number | unlimited}] [/loginmessage:<Message>]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |               Paramètre                |                                                                                                                                                                           Description                                                                                                                                                                            |
 |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -119,22 +115,22 @@ macfile server [/server:\\<computerName>] [/maxsessions:{Number | unlimited}] [/
 |                   /?                   |                                                                                                                                                               Affiche l'aide à l'invite de commandes.                                                                                                                                                               |
 
 ### <a name="remarks"></a>Notes
-- Si les informations que vous fournissez contiennent des espaces ou des caractères spéciaux, utilisez des guillemets autour du texte (par exemple, **«** <em>nom de l’ordinateur</em> **»** ).
+- Si les informations que vous fournissez contiennent des espaces ou des caractères spéciaux, utilisez des guillemets autour du texte (par exemple, * * * * nom de l'<em>ordinateur</em>* * * *).
 
 ### <a name="examples"></a>Exemples
-Pour modifier le nombre de sessions de serveur de fichiers et d’impression pour les sessions Macintosh autorisées sur le serveur local, du paramètre actuel à cinq sessions, et ajouter le message d’ouverture de session « fermer la session à partir du serveur pour Macintosh Lorsque vous avez terminé ». tapez :
+Pour modifier le nombre de sessions de serveur de fichiers et d’impression pour les sessions Macintosh autorisées sur le serveur local du paramètre actuel à cinq sessions, et pour ajouter le message d’ouverture de session à partir du serveur pour Macintosh Lorsque vous avez terminé., tapez :
 ```
-macfile server /maxsessions:5 /loginmessage:"Log off from Server for Macintosh when you are finished."
+macfile server /maxsessions:5 /loginmessage:Log off from Server for Macintosh when you are finished.
 ```
 
-## <a name="BKMK_addvol"></a>Pour ajouter, modifier ou supprimer des volumes accessibles par Macintosh
+## <a name="to-add-change-or-remove-macintosh-accessible-volumes"></a><a name=BKMK_addvol></a>Pour ajouter, modifier ou supprimer des volumes accessibles par Macintosh
 ### <a name="syntax"></a>Syntaxe
 ```
 macfile volume {/add|/set} [/server:\\<computerName>] /name:<volumeName>/path:<directory>[/readonly:{true | false}] [/guestsallowed:{true | false}] [/password:<Password>] [/maxusers:{<Number>>|unlimited}]
 macfile volume /remove[/server:\\<computerName>] /name:<volumeName>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |              Paramètre               |                                                                                                                                                                       Description                                                                                                                                                                        |
 |--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -146,29 +142,29 @@ macfile volume /remove[/server:\\<computerName>] /name:<volumeName>
 |  /guestsallowed : {true &#124; false}  |      Spécifie si les utilisateurs qui ouvrent une session en tant qu’invités peuvent utiliser le volume. tapez true pour spécifier que les invités peuvent utiliser le volume. tapez false pour indiquer que les invités ne peuvent pas utiliser le volume. En cas d’omission lors de l’ajout d’un volume, les invités peuvent utiliser le volume. En cas d’omission lors de la modification d’un volume, le paramètre **guestsallowed** du volume reste inchangé.       |
 |         /Password :<Password>         |                                                                               Spécifie un mot de passe qui sera requis pour accéder au volume. Si ce paramètre n’est pas spécifié lors de l’ajout d’un volume, aucun mot de passe n’est créé. Si ce paramètre n’est pas spécifié lors de la modification d’un volume, le mot de passe reste inchangé.                                                                               |
 | /maxusers : {<Number>>&#124;illimité} |                                                 Spécifie le nombre maximal d’utilisateurs qui peuvent utiliser simultanément les fichiers sur le volume. En cas d’omission lors de l’ajout d’un volume, un nombre illimité d’utilisateurs peut utiliser le volume. En cas d’omission lors de la modification d’un volume, la valeur **maxusers** reste inchangée.                                                 |
-|               /remove                |                                                                                                                                Obligatoire lorsque vous supprimez un volume accessible aux Macintosh. Supprime le volume spécifié.                                                                                                                                |
+|               /remove                |                                                                                                                                Obligatoire lorsque vous supprimez un volume accessible aux Macintosh. supprime le volume spécifié.                                                                                                                                |
 |                  /?                  |                                                                                                                                                           Affiche l'aide à l'invite de commandes.                                                                                                                                                           |
 
 ### <a name="remarks"></a>Notes
-- Si les informations que vous fournissez contiennent des espaces ou des caractères spéciaux, utilisez des guillemets autour du texte (par exemple, **«** <em>nom de l’ordinateur</em> **»** ).
+- Si les informations que vous fournissez contiennent des espaces ou des caractères spéciaux, utilisez des guillemets autour du texte (par exemple, * * * * nom de l'<em>ordinateur</em>* * * *).
 
 ### <a name="examples"></a>Exemples
 Pour créer un volume appelé statistiques marketing américaines sur le serveur local, en utilisant le répertoire stats du lecteur E et pour indiquer que le volume n’est pas accessible par les invités, tapez :
 ```
-macfile volume /add /name:"US Marketing Statistics" /guestsallowed:false /path:e:\Stats
+macfile volume /add /name:US Marketing Statistics /guestsallowed:false /path:e:\Stats
 ```
 Pour modifier le volume créé ci-dessus pour qu’il soit en lecture seule et pour exiger un mot de passe, et pour définir le nombre d’utilisateurs maximum sur cinq, tapez :
 ```
-macfile volume /set /name:"US Marketing Statistics" /readonly:true /password:saturn /maxusers:5
+macfile volume /set /name:US Marketing Statistics /readonly:true /password:saturn /maxusers:5
 ```
 Pour ajouter un volume appelé conception paysage, sur le serveur \\\Magnolia, en utilisant le répertoire arbres du lecteur E et pour indiquer que le volume est accessible par les invités, tapez :
 ```
-macfile volume /add /server:\\Magnolia /name:"Landscape Design" /path:e:\trees
+macfile volume /add /server:\\Magnolia /name:Landscape Design /path:e:\trees
 ```
 Pour supprimer le volume appelé rapports sur les ventes sur le serveur local, tapez :
 ```
-macfile volume /remove /name:"Sales Reports"
+macfile volume /remove /name:Sales Reports
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

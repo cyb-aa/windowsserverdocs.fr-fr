@@ -1,19 +1,20 @@
 ---
 title: Migration de cluster inter-domaines dans Windows Server 2016/2019
+description: Cet article décrit le déplacement d’un cluster Windows Server 2019 d’un domaine à un autre
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 01/18/2019
-description: Cet article décrit le déplacement d’un cluster Windows Server 2019 d’un domaine à un autre
 ms.localizationpriority: medium
-ms.openlocfilehash: 68f49795124dedf0655726853a4d865686f6d697
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ba556b5a00f3932e2049135b177a7ad8bbceec9c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361409"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828292"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migration d’un domaine de cluster de basculement
 
@@ -122,7 +123,7 @@ Dans les étapes suivantes, un cluster est déplacé du domaine Contoso.com vers
    New-ClusterNameAccount -Name CLUSTERNAME -Domain NEWDOMAINNAME.com -UpgradeVCOs
    ```
 
-    REMARQUE : Si vous n’avez pas de groupes supplémentaires avec des noms de réseau (par exemple, un cluster Hyper-V avec des machines virtuelles uniquement), le commutateur de paramètre-UpgradeVCOs n’est pas nécessaire.
+    Remarque : Si vous n’avez pas de groupes supplémentaires avec des noms de réseau (par exemple, un cluster Hyper-V avec des machines virtuelles uniquement), le commutateur de paramètre-UpgradeVCOs n’est pas nécessaire.
 
 9. Utilisez Active Directory utilisateurs et ordinateurs pour vérifier le nouveau domaine et vérifier que les objets ordinateur associés ont été créés. Si tel est le cas, mettez les ressources restantes dans les groupes en ligne.
 

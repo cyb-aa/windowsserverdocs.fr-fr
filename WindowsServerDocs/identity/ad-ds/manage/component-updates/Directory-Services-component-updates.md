@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8a3cf2ae-2511-4eea-afd5-a43179a78613
-title: Mises à jour du composant Directory Services
-description: ''
+title: Mises à jour des composants Services d'annuaire
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d79f31572bc30d0f4fa3af45671c58b799e40f02
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cde839feda47d55415b2b6cc1026a7a3e6515a44
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390018"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823092"
 ---
-# <a name="directory-services-component-updates"></a>Mises à jour du composant Directory Services
+# <a name="directory-services-component-updates"></a>Mises à jour des composants Services d'annuaire
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 **Auteur**: Justin Turner, ingénieur du support technique senior avec le groupe Windows  
   
@@ -42,17 +41,17 @@ Expliquez les nouvelles mises à jour des composants des services d’annuaire s
   
     -   [Amélioration du débit de réplication Active Directory](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_ADRepl)  
   
-## <a name="BKMK_FL"></a>Niveaux fonctionnels de domaine et de forêt  
+## <a name="domain-and-forest-functional-levels"></a><a name="BKMK_FL"></a>Niveaux fonctionnels de domaine et de forêt  
   
-### <a name="overview"></a>Vue d'ensemble  
+### <a name="overview"></a>Overview  
 La section fournit une brève introduction aux modifications apportées au niveau fonctionnel du domaine et de la forêt.  
   
 ### <a name="new-dfl-and-ffl"></a>Nouveaux DFL et FFL  
 Avec la version, il existe de nouveaux niveaux fonctionnels de domaine et de forêt :  
   
--   Niveau fonctionnel de forêt : Windows Server 2012 R2  
+-   Niveau fonctionnel de la forêt : Windows Server 2012 R2  
   
--   Niveau fonctionnel du domaine : Windows Server 2012 R2  
+-   Niveau fonctionnel du domaine : Windows Server 2012 R2  
   
 ### <a name="the-windows-server-2012-r2-domain-functional-level-enables-support-for-the-following"></a>Le niveau fonctionnel de domaine Windows Server 2012 R2 permet la prise en charge des éléments suivants :  
   
@@ -60,13 +59,13 @@ Avec la version, il existe de nouveaux niveaux fonctionnels de domaine et de for
   
     *Les utilisateurs protégés* qui s’authentifient auprès d’un domaine Windows Server 2012 R2 **ne peuvent plus**:  
   
-    -   S’authentifier avec l’authentification NTLM  
+    -   s’authentifier avec l’authentification NTLM ;  
   
-    -   Utiliser les suites de chiffrement DES ou RC4 dans la pré-authentification Kerberos  
+    -   utiliser les suites de chiffrement DES ou RC4 dans la pré-authentification Kerberos ;  
   
-    -   Être délégué avec délégation non contrainte ou contrainte  
+    -   être délégués en utilisant la délégation non contrainte ou contrainte ;  
   
-    -   Renouveler les tickets d’utilisateur (TGT) au-delà de la durée de vie initiale de 4 heures  
+    -   renouveler les tickets TGT utilisateur au-delà de la durée de vie initiale de 4 heures.  
   
 2.  Stratégies d'authentification  
   
@@ -112,7 +111,7 @@ Création d’un nouveau domaine dans une forêt existante
   
 ![mises à jour des services d’annuaire](media/Directory-Services-component-updates/GTR_ADDS_FFL.gif)  
   
-### <a name="adprep"></a>PREP  
+### <a name="adprep"></a>Prep  
 Cette version ne contient aucune nouvelle opération de forêt ou de domaine.  
   
 Ces fichiers. ldf contiennent des modifications de schéma pour **Device Registration service**.  
@@ -145,9 +144,9 @@ Ces fichiers. ldf contiennent des modifications de schéma pour **Device Registr
   
 2.  Sch69  
   
-## <a name="BKMK_NTFRS"></a>Dépréciation de NTFRS  
+## <a name="deprecation-of-ntfrs"></a><a name="BKMK_NTFRS"></a>Dépréciation de NTFRS  
   
-### <a name="overview"></a>Vue d'ensemble  
+### <a name="overview"></a>Overview  
 FRS est déconseillé dans Windows Server 2012 R2.  La désapprobation du service FRS s’effectue en appliquant un niveau fonctionnel de domaine minimal (DFL) de Windows Server 2008.  Cette mise en application est présente uniquement si le nouveau domaine est créé à l’aide de Gestionnaire de serveur ou de Windows PowerShell.  
   
 Pour spécifier le niveau fonctionnel du domaine, utilisez le paramètre-DomainMode avec les applets de commande Install-ADDSForest ou Install-ADDSDomain.  Les valeurs prises en charge pour ce paramètre peuvent être un entier valide ou une valeur de chaîne énumérée correspondante. Par exemple, pour définir le niveau du mode de domaine sur Windows Server 2008 R2, vous pouvez spécifier une valeur de 4 ou « Win2008R2 ».  Lors de l’exécution de ces applets de commande à partir du serveur 2012 R2, les valeurs valides sont les suivantes : Windows Server 2008 (3, Win2008) Windows Server 2008 R2 (4, Win2008R2) Windows Server 2012 (5, Win2012) et Windows Server 2012 R2 (6, Win2012R2). Le niveau fonctionnel du domaine ne peut pas être inférieur à celui de la forêt, mais il peut être supérieur.  Étant donné que le service FRS est déconseillé dans cette version, Windows Server 2003 (2, Win2003) n’est pas un paramètre reconnu avec ces applets de commande lorsqu’il est exécuté à partir de Windows Server 2012 R2.  
@@ -156,9 +155,9 @@ Pour spécifier le niveau fonctionnel du domaine, utilisez le paramètre-DomainM
   
 ![mises à jour des services d’annuaire](media/Directory-Services-component-updates/GTR_ADDS_PS_InstallDFL2.gif)  
   
-## <a name="BKMK_LDAPQuery"></a>Modifications de l’optimiseur de requête LDAP  
+## <a name="ldap-query-optimizer-changes"></a><a name="BKMK_LDAPQuery"></a>Modifications de l’optimiseur de requête LDAP  
   
-### <a name="overview"></a>Vue d'ensemble  
+### <a name="overview"></a>Overview  
 L’algorithme de l’optimiseur de requête LDAP a été réévalué et optimisé.  Le résultat est l’amélioration des performances de l’efficacité de la recherche LDAP et du temps de recherche LDAP pour les requêtes complexes.  
   
 > [!NOTE]
@@ -172,7 +171,7 @@ L’algorithme de l’optimiseur de requête LDAP a été réévalué et optimis
 > -   Moins d’appels au support technique concernant les problèmes de performances AD  
 > -   Arrière-plan porté sur Windows Server 2008 R2 (KB 2862304)  
   
-### <a name="background"></a>Présentation  
+### <a name="background"></a>Arrière-plan  
 La possibilité de rechercher des Active Directory est un service principal fourni par les contrôleurs de domaine.  D’autres services et applications sectorielles s’appuient sur des recherches Active Directory.  Les opérations d’entreprise peuvent cesser d’être arrêtées si cette fonctionnalité n’est pas disponible.  En tant que service de base et fortement utilisé, il est impératif que les contrôleurs de domaine gèrent efficacement le trafic de recherche LDAP.  L’algorithme de l’optimiseur de requête LDAP tente d’optimiser les recherches LDAP en mappant les filtres de recherche LDAP à un jeu de résultats qui peut être satisfait via des enregistrements déjà indexés dans la base de données.  Cet algorithme a été réévalué et optimisé.  Le résultat est l’amélioration des performances de l’efficacité de la recherche LDAP et du temps de recherche LDAP pour les requêtes complexes.  
   
 ### <a name="details-of-change"></a>Détails de la modification  
@@ -268,7 +267,7 @@ Log Record Bytes Generated: 0
   
         ![mises à jour des services d’annuaire](media/Directory-Services-component-updates/GTR_ADDS_Event1644.gif)  
   
-### <a name="BKMK_EnableStats"></a>Pour activer le contrôle stats dans LDP  
+### <a name="to-enable-the-stats-control-in-ldp"></a><a name="BKMK_EnableStats"></a>Pour activer le contrôle stats dans LDP  
   
 1.  Ouvrez LDP. exe, puis connectez-vous et liez un contrôleur de domaine.  
   
@@ -286,7 +285,7 @@ Log Record Bytes Generated: 0
   
     ![mises à jour des services d’annuaire](media/Directory-Services-component-updates/GTR_ADDS_SearchOptions.gif)  
   
-### <a name="try-this-use-ldp-to-return-query-statistics"></a>Essayez ceci : Utiliser LDP pour retourner des statistiques sur les requêtes  
+### <a name="try-this-use-ldp-to-return-query-statistics"></a>Essayez ceci : utilisez LDP pour retourner des statistiques sur les requêtes  
 Procédez comme suit sur un contrôleur de domaine, ou à partir d’un client ou d’un serveur joint à un domaine sur lequel les outils de AD DS installés.  Répétez les étapes suivantes pour cibler votre contrôleur de Windows Server 2012 et votre contrôleur de Windows Server 2012 R2.  
   
 1.  Passez en revue l’article [« création d’applications Microsoft ad compatibles plus efficaces »](https://msdn.microsoft.com/library/ms808539.aspx) et reportez-vous à cette rubrique en fonction des besoins.  
@@ -299,7 +298,7 @@ Procédez comme suit sur un contrôleur de domaine, ou à partir d’un client o
   
 5.  Essayez de créer une recherche qui prend beaucoup de temps pour s’exécuter (vous pouvez augmenter l’option de **limite de temps** pour que la recherche n’expire pas).  
   
-### <a name="additional-resources"></a>Ressources complémentaires  
+### <a name="additional-resources"></a>Ressources supplémentaires  
 [Que sont les recherches Active Directory ?](https://technet.microsoft.com/library/cc783845(v=ws.10).aspx)  
   
 [Comment Active Directory les recherches dans le travail](https://technet.microsoft.com/library/cc755809(v=WS.10).aspx)  
@@ -308,16 +307,16 @@ Procédez comme suit sur un contrôleur de domaine, ou à partir d’un client o
   
 [951581](https://support.microsoft.com/kb/951581) les requêtes LDAP sont exécutées plus lentement que prévu dans le service d’annuaire AD ou AD LDS/Adam et l’ID d’événement 1644 peut être enregistré  
   
-## <a name="BKMK_1644"></a>améliorations des événements 1644  
+## <a name="1644-event-improvements"></a><a name="BKMK_1644"></a>améliorations des événements 1644  
   
-### <a name="overview"></a>Vue d'ensemble  
+### <a name="overview"></a>Overview  
 Cette mise à jour ajoute des statistiques de résultats de recherche LDAP supplémentaires à l’ID d’événement 1644 afin de faciliter la résolution des problèmes.  En outre, il existe une nouvelle valeur de Registre qui peut être utilisée pour activer la journalisation sur un seuil basé sur la durée.  Ces améliorations ont été apportées dans Windows Server 2012 et Windows Server 2008 R2 SP1 via KB [2800945](https://support.microsoft.com/kb/2800945) et seront mises à la disposition de windows Server 2008 SP2.  
   
 > [!NOTE]  
 > -   Des statistiques de recherche LDAP supplémentaires sont ajoutées à l’ID d’événement 1644 pour aider à résoudre les problèmes de recherche LDAP inefficaces ou coûteux  
 > -   Vous pouvez maintenant spécifier un seuil de temps de recherche (par exemple, Journalisation des événements 1644 pour les recherches qui prennent plus de 100 millisecondes) au lieu de spécifier les valeurs de seuil de résultat de recherche coûteuses et inefficaces  
   
-### <a name="background"></a>Présentation  
+### <a name="background"></a>Arrière-plan  
 Lors de la résolution des problèmes de performances de Active Directory, il devient évident que l’activité de recherche LDAP peut contribuer au problème.  Vous décidez d’activer la journalisation pour que vous puissiez voir les requêtes LDAP coûteuses ou inefficaces traitées par le contrôleur de domaine.  Pour activer la journalisation, vous devez définir la valeur de diagnostics de l’ingénierie de champ et éventuellement spécifier les valeurs de seuil des résultats de recherche coûteux/inefficaces.  Lorsque vous activez le niveau de journalisation de l’ingénierie de champs à 5, toute recherche qui répond à ces critères est consignée dans le journal des événements des services d’annuaire avec l’ID d’événement 1644.  
   
 L’événement contient :  
@@ -326,7 +325,7 @@ L’événement contient :
   
 -   Nœud de départ  
   
--   Filter  
+-   Filtre  
   
 -   Étendue de recherche  
   
@@ -376,7 +375,7 @@ NOUVEAU
   
 ![mises à jour des services d’annuaire](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012R2.gif)  
   
-#### <a name="try-this-use-the-event-log-to-return-query-statistics"></a>Essayez ceci : Utiliser le journal des événements pour retourner les statistiques des requêtes  
+#### <a name="try-this-use-the-event-log-to-return-query-statistics"></a>Essayez ceci : utilisez le journal des événements pour retourner les statistiques des requêtes  
   
 1.  Répétez les étapes suivantes pour cibler votre contrôleur de Windows Server 2012 et votre contrôleur de Windows Server 2012 R2. Observez l’ID d’événement 1644s sur les deux contrôleurs de contrôleur après chaque recherche.  
   
@@ -386,9 +385,9 @@ NOUVEAU
   
 4.  Effectuez une recherche LDAP que l’optimiseur de requête ne peut pas optimiser, car un ou plusieurs attributs ne sont pas indexés.  
   
-## <a name="BKMK_ADRepl"></a>Amélioration du débit de réplication Active Directory  
+## <a name="active-directory-replication-throughput-improvement"></a><a name="BKMK_ADRepl"></a>Amélioration du débit de réplication Active Directory  
   
-### <a name="overview"></a>Vue d'ensemble  
+### <a name="overview"></a>Overview  
 La réplication Active Directory utilise RPC pour le transport de réplication. Par défaut, RPC utilise une mémoire tampon de transmission de 8 Ko et une taille de paquet de 5 Ko. Cela a pour effet de faire en sorte que l’instance émettrice transmette trois paquets (environ 15 k de données) et qu’elle doit ensuite attendre un aller-retour réseau avant d’en envoyer davantage. En supposant un temps d’aller-retour 3 ms, le débit le plus élevé est de Active Directory maximal, même sur des réseaux 1Gbps ou 10 Gbit/s.  
   
 > [!NOTE]  
@@ -402,7 +401,7 @@ Cette mise à jour augmente le débit maximal à environ 600 Mbits/s en remplaç
 > [!NOTE]  
 > Il n’existe aucun paramètre configurable pour modifier ce comportement.  
   
-### <a name="additional-resources"></a>Ressources complémentaires  
+### <a name="additional-resources"></a>Ressources supplémentaires  
 [Fonctionnement du modèle de réplication Active Directory](https://technet.microsoft.com/library/cc772726(v=WS.10).aspx)  
   
 

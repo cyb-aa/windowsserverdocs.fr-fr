@@ -1,24 +1,20 @@
 ---
 title: rd
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 42e672f6-5bc2-4c16-af25-18e7ed2dd555
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 029935bcd8773e41adefcd6ca916d75edcea3065
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 298e6b291a6aa08701b6d54a11470b0cc4bea486
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371800"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836712"
 ---
 # <a name="rd"></a>rd
 
@@ -35,7 +31,7 @@ rd [<Drive>:]<Path> [/s [/q]]
 rmdir [<Drive>:]<Path> [/s [/q]]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |     Paramètre     |                                                                 Description                                                                  |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -59,7 +55,7 @@ rmdir [<Drive>:]<Path> [/s [/q]]
     Si vous recevez ce message d’erreur, vous devez passer à un autre répertoire (et non à un sous-répertoire du répertoire actif), puis utiliser le **Bureau à distance** (spécifiez le *chemin d’accès* si nécessaire).
 -   La commande **rd** , avec des paramètres différents, est disponible à partir de la console de récupération.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Vous ne pouvez pas supprimer le répertoire dans lequel vous travaillez actuellement. Vous devez passer à un répertoire qui ne se trouve pas dans le répertoire actif. Par exemple, pour passer au répertoire parent, tapez :
 ```
@@ -79,6 +75,6 @@ rd /s /q test
 > [!CAUTION]
 > Lorsque vous exécutez **rd/s** en mode silencieux, la totalité de l’arborescence de répertoires est supprimée sans confirmation. Assurez-vous que les fichiers importants sont déplacés ou sauvegardés avant d’utiliser l’option de ligne de commande **/q** .
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

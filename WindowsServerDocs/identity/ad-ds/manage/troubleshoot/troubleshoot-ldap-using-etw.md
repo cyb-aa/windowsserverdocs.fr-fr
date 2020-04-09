@@ -1,26 +1,20 @@
 ---
 title: Utilisation d’ETW pour résoudre les problèmes de connexion LDAP
 description: Comment activer et utiliser ETW pour suivre les connexions LDAP entre les contrôleurs de domaine AD DS.
-audience: Admin
-ms.custom:
-- CI ID 110964
-- CSSTroubleshoot
 author: Teresa-Motiv
 manager: dcscontentpm
 ms.prod: windows-server-dev
 ms.technology: active-directory-lightweight-directory-services
-ms.tgt_platform: multiple
-keywords:
-- suivi d’événements LDAP
+audience: Admin
 ms.author: v-tea
 ms.topic: article
 ms.date: 11/22/2019
-ms.openlocfilehash: 32929a89e959ee28fdf29ec121e74eafcb0209e4
-ms.sourcegitcommit: 30de12eebeb0fc79567d6bb6ab513692ea2415d3
+ms.openlocfilehash: f7b7df714dbd02b15555fa20c70c1e995e121a48
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74854178"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822932"
 ---
 # <a name="using-etw-to-troubleshoot-ldap-connections"></a>Utilisation d’ETW pour résoudre les problèmes de connexion LDAP
 
@@ -79,7 +73,7 @@ Pour utiliser un indicateur, remplacez la valeur de l’indicateur de l’espace
 > [!NOTE]  
 > Vous pouvez spécifier plusieurs indicateurs en utilisant la somme des valeurs d’indicateur appropriées. Par exemple, pour spécifier les indicateurs **debug\_Search** (0x00000001) et **Debug\_cache** (0x00000010), la valeur \<*TraceFlags*> appropriée est **0x00000011**.
 
-|Nom de l’indicateur |Valeur d’indicateur |Description de l’indicateur |
+|Nom de l’indicateur |Valeur de l’indicateur |Description de l’indicateur |
 | --- | --- | --- |
 |**DEBUG_SEARCH** |0x00000001 |Journalise les demandes de recherche et les paramètres transmis à ces demandes. Les réponses ne sont pas enregistrées ici. Seules les demandes de recherche sont journalisées. (Utilisez **DEBUG_SPEWSEARCH** pour journaliser les réponses aux requêtes de recherche.) |
 |**DEBUG_WRITE** |0x00000002 |Journalise les demandes d’écriture et les paramètres transmis à ces demandes. Les demandes d’écriture incluent les opérations d’ajout, de suppression, de modification et étendues. |

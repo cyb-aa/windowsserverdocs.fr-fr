@@ -1,24 +1,20 @@
 ---
 title: Wbadmin start Recovery
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour Wbadmin start Recovery, qui exécute une opération de récupération basée sur les paramètres que vous spécifiez.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 52381316-a0fa-459f-b6a6-01e31fb21612
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edb287573dc76619502faf58018f48c464140629
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b5a65e67e7a34ca5263c85c1038820e0a4fc1ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362347"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829612"
 ---
 # <a name="wbadmin-start-recovery"></a>Wbadmin start Recovery
 
@@ -48,7 +44,7 @@ wbadmin start recovery
 [-quiet]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -73,7 +69,7 @@ wbadmin start recovery
 >     [!NOTE]
 >     Before using **wbadmin** to perform an install from media operation, you should consider using the **ntdsutil** command because **ntdsutil** only copies the minimum amount of data needed, and it uses a more secure data transport method.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Pour exécuter une récupération de la sauvegarde à partir du 31 mars 2013, à 9:00 h 00, du volume d :, tapez :
 ```
@@ -97,9 +93,9 @@ Pour exécuter une récupération de la sauvegarde à partir du 30 avril 2013, p
 wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Applet [de commande Start-WBFileRecovery](https://technet.microsoft.com/library/jj902457.aspx)
 -   Applet [de commande Start-WBHyperVRecovery](https://technet.microsoft.com/library/jj902463.aspx)

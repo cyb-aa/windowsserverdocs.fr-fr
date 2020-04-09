@@ -1,24 +1,20 @@
 ---
 title: tracert
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour tracert, qui détermine le chemin d’accès à une destination, en envoyant des demandes d’écho ICMP (Internet Control Message Protocol) ou des messages ICMPv6 à la destination avec des valeurs de champ Durée de vie (TTL) de manière incrémentielle.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9032a032-2e5e-49d4-9e86-f821600e4ba6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f08fd3276f3377fed06d7b9a2cc3399fa1071f39
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a4485763aecf46aa91664c6a6a42c437be518f02
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385647"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832642"
 ---
 # <a name="tracert"></a>tracert
 
@@ -30,7 +26,7 @@ Détermine le chemin d’accès à une destination en envoyant la demande d’é
 ```  
 tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr>] [/4][/6] <TargetName>  
 ```  
-### <a name="parameters"></a>Paramètres  
+#### <a name="parameters"></a>Paramètres  
 |Paramètre|Description|  
 |-------|--------|  
 |/d|Empêche le **traceurt** de tenter de résoudre les adresses IP des routeurs intermédiaires en leurs noms. Cela peut accélérer l’affichage des résultats de **tracert** .|  
@@ -49,7 +45,7 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 -   Pour suivre un chemin d’accès et fournir une latence réseau et une perte de paquets pour chaque routeur et chaque lien dans le chemin d’accès, utilisez la commande **pathping** .  
 -   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.  
 
-## <a name="BKMK_Examples"></a>Illustre  
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre  
 Pour suivre le chemin d’accès à l’ordinateur hôte nommé corp7.microsoft.com, tapez :  
 ```  
 tracert corp7.microsoft.com  
@@ -63,4 +59,4 @@ Pour suivre le chemin d’accès à l’ordinateur hôte nommé corp7.microsoft.
 tracert /j 10.12.0.1 10.29.3.1 10.1.44.1 corp7.microsoft.com  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

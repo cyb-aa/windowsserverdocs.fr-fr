@@ -1,24 +1,20 @@
 ---
 title: wevtutil
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour wevtutil, qui vous permet de récupérer des informations sur les journaux d’événements et les serveurs de publication.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d4c791e0-7e59-45c5-aa55-0223b77a4822 vhorne
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 21f3b721a2a08a7fa101ec09f1f11b5e984f0113
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 62be2b14373457a3b114e8d067e1c7aa32b2182d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362169"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829352"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -40,7 +36,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 [{cl | clear-log} <Logname> [/bu:<Backup>]] [/r:<Remote>] [/u:<Username>] [/p:<Password>] [/a:<Auth>] [/uni:<Unicode>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -61,7 +57,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 
 |       Option       |                                                                                                                                                                                                                                                                 Description                                                                                                                                                                                                                                                                  |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /f : format de\<>    |                                                                                                                                                               Spécifie que la sortie doit être au format XML ou texte. Si \<format > est XML, la sortie est affichée au format XML. Si \<format > est texte, la sortie s’affiche sans balises XML. La valeur par défaut est texte.                                                                                                                                                                |
+|    /f : format de\<>    |                                                                                                                                                               Spécifie que la sortie doit être au format XML ou texte. Si \<format > est XML, la sortie est affichée au format XML. Si \<format > est texte, la sortie s’affiche sans balises XML. La valeur par défaut est Text.                                                                                                                                                                |
 |   /e :\<activée >    |                                                                                                                                                                                                                                         Active ou désactive un journal. \<activée > peut avoir la valeur true ou false.                                                                                                                                                                                                                                          |
 |  /i :\<> d’isolation   | Définit le mode d’isolation des journaux. \<> d’isolation peut être système, application ou personnalisé. Le mode d’isolation d’un journal détermine si un journal partage une session avec d’autres journaux dans la même classe d’isolation. Si vous spécifiez l’isolement système, le journal cible partagera au moins les autorisations d’écriture avec le journal système. Si vous spécifiez l’isolation des applications, le journal cible partagera au moins les autorisations d’écriture avec le journal des applications. Si vous spécifiez l’isolation personnalisée, vous devez également fournir un descripteur de sécurité à l’aide de l’option **/ca** . |
 |  /LFN :\<LogPath >   |                                                                                                                                                                                                           Définit le nom du fichier journal. \<LogPath > est un chemin d’accès complet au fichier dans lequel le service journal des événements stocke les événements de ce journal.                                                                                                                                                                                                           |
@@ -87,7 +83,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |   /BU :\<> de sauvegarde    |                                                                                                                                                                                                      Spécifie le chemin d’accès à un fichier dans lequel les événements effacés seront stockés. Incluez l’extension. evtx dans le nom du fichier de sauvegarde.                                                                                                                                                                                                       |
 |    /r :\<> à distance    |                                                                                                                                                                                            Exécute la commande sur un ordinateur distant. \<> à distance est le nom de l’ordinateur distant. Les paramètres **im** et **um** ne prennent pas en charge l’opération distante.                                                                                                                                                                                            |
 |   /u :\<nom d’utilisateur >   |                                                                                                                                                                          Spécifie un autre utilisateur pour se connecter à un ordinateur distant. \<nom d’utilisateur > est un nom d’utilisateur au format domaine\utilisateur ou utilisateur. Cette option s’applique uniquement lorsque l’option **/r** est spécifiée.                                                                                                                                                                          |
-|   /p :\<mot de passe >   |                                                                                                                                               Spécifie le mot de passe de l’utilisateur. Si l’option **/u** est utilisée et que cette option n’est pas spécifiée ou \<> de mot de passe est « *», l’utilisateur est invité à entrer un mot de passe. Cette option s’applique uniquement lorsque l’option \*\*/u*\* est spécifiée.                                                                                                                                                |
+|   /p :\<mot de passe >   |                                                                                                                                               Spécifie le mot de passe de l’utilisateur. Si l’option **/u** est utilisée et que cette option n’est pas spécifiée ou \<mot de passe > est *, l’utilisateur est invité à entrer un mot de passe. Cette option s’applique uniquement lorsque l’option \*\*/u*\* est spécifiée.                                                                                                                                                |
 |     /a :\<> d’authentification     |                                                                                                                                                                                             Définit le type d’authentification pour la connexion à un ordinateur distant. \<> d’authentification peut être default, Negotiate, Kerberos ou NTLM. La valeur par défaut est Negotiate.                                                                                                                                                                                              |
 |  /Uni :\<Unicode >   |                                                                                                                                                                                                             Affiche la sortie au format Unicode. \<> Unicode peut avoir la valeur true ou false. Si <Unicode> a la valeur true, la sortie est au format Unicode.                                                                                                                                                                                                             |
 
@@ -97,9 +93,9 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 
     Le fichier de configuration est un fichier XML avec le même format que la sortie de wevtutil GL \<LogName >/f : XML. L’exemple suivant illustre le format d’un fichier de configuration qui active la rétention, active la sauvegarde automatique et définit la taille maximale du journal dans le journal des applications :  
     ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <channel name="Application" isolation="Application"
-    xmlns="https://schemas.microsoft.com/win/2004/08/events">
+    <?xml version=1.0 encoding=UTF-8?>
+    <channel name=Application isolation=Application
+    xmlns=https://schemas.microsoft.com/win/2004/08/events>
     <logging>
     <retention>true</retention>
     <autoBackup>true</autoBackup>
@@ -110,7 +106,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
     </channel>
     ```
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Répertorier les noms de tous les journaux :
 ```
@@ -155,4 +151,4 @@ wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

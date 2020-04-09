@@ -1,7 +1,6 @@
 ---
 ms.assetid: bb16e39d-566d-436c-b957-394c06d556db
 title: Guide de conception AD FS dans Windows Server 2012
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d9d7ec6f4ff575d3aac30b7127e591b78f5ef49b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a9a3e5c8e32b74e059f7a7bbc64c85092a5f047
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359207"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853952"
 ---
 # <a name="ad-fs-design-guide-in-windows-server"></a>Guide de conception de AD FS dans Windows Server 
 
@@ -23,7 +22,7 @@ ms.locfileid: "71359207"
 > [!NOTE]  
 > Pour plus d’informations sur le déploiement de AD FS dans Windows Server 2012 R2, consultez le [Guide de déploiement de Windows server 2012 r2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md).  
   
-Vous pouvez utiliser Active Directory Services de Fédération de® \(AD FS\) avec le système d’exploitation Windows Server® 2012 dans un rôle de fournisseur de services de Fédération pour authentifier en toute transparence vos utilisateurs sur des applications ou services Web\-qui résident dans une organisation partenaire de ressource, sans que les administrateurs aient besoin de créer ou de gérer des approbations externes ou des approbations de forêt entre les réseaux des deux organisations et sans que les utilisateurs aient besoin de se connecter une deuxième fois. Le processus d’authentification sur un réseau lors de l’accès aux ressources d’un autre réseau, sans la charge des actions d’ouverture de session répétées par les utilisateurs, est appelé authentification unique\-sur \(\)SSO.  
+Vous pouvez utiliser Active Directory Services de Fédération de&reg; \(AD FS\) avec le système d’exploitation Windows Server&reg; 2012 dans un rôle de fournisseur de services de Fédération pour authentifier en toute transparence vos utilisateurs sur des applications ou services Web\-qui résident dans une organisation partenaire de ressource, sans que les administrateurs aient besoin de créer ou de gérer des approbations externes ou des approbations de forêt entre les réseaux des deux organisations et sans que les utilisateurs aient besoin de se connecter une deuxième fois. Le processus d’authentification sur un réseau lors de l’accès aux ressources d’un autre réseau, sans la charge des actions d’ouverture de session répétées par les utilisateurs, est appelé authentification unique\-sur \(\)SSO.  
   
 ## <a name="about-this-guide"></a>À propos de ce guide  
 Ce guide fournit des recommandations pour vous aider à planifier un nouveau déploiement de AD FS, en fonction des exigences de votre organisation \(également mentionnées dans ce guide comme objectifs de déploiement\) et la conception particulière que vous souhaitez créer. Ce guide est prévu pour une utilisation par un spécialiste d'infrastructure ou un architecte système. Il met en évidence vos principaux points de décision lors de la planification de votre déploiement AD FS. Avant de lire ce guide, vous devez avoir une bonne compréhension de la façon dont AD FS fonctionne sur un niveau fonctionnel. Vous devez également avoir une bonne compréhension des exigences de l’organisation qui seront reflétées dans votre conception de AD FS.  

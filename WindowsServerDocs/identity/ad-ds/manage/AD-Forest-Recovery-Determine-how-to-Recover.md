@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-déterminer comment récupérer la forêt
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: d604efded5b6a2ff3911a92f52817498f43c9933
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fea55dc5551198f7bc06afb2ec38077398b9cf77
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369169"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824052"
 ---
 # <a name="determine-how-to-recover-the-forest"></a>Déterminer comment récupérer la forêt
 
@@ -26,7 +25,7 @@ La récupération d’une forêt Active Directory entière implique de la restau
 - Toutes les mises à jour apportées aux objets existants depuis la dernière sauvegarde approuvée
 - Toutes les modifications apportées à la partition de configuration ou à la partition de schéma dans AD DS (telles que les modifications de schéma) depuis la dernière sauvegarde approuvée
 
-Pour chaque domaine de la forêt, le mot de passe d’un compte d’administrateur de domaine doit être connu. De préférence, il s’agit du mot de passe du compte administrateur intégré. Vous devez également connaître le mot de passe DSRM pour effectuer une restauration de l’état du système d’un contrôleur de réseau. En général, il est recommandé d’archiver le compte administrateur et l’historique des mots de passe DSRM dans un endroit sûr tant que les sauvegardes sont valides, c’est-à-dire dans la durée de vie de désactivation ou dans la durée de vie des objets supprimés si Active Directory recyclage Bin est activé. Vous pouvez également synchroniser le mot de passe DSRM avec un compte d’utilisateur de domaine afin de le rendre plus facile à mémoriser. Pour plus d’informations, consultez l’article [961320](https://support.microsoft.com/kb/961320)de la base de connaissances. La synchronisation du compte DSRM doit être effectuée avant la récupération de la forêt, dans le cadre de la préparation.
+Pour chaque domaine de la forêt, le mot de passe d’un compte d’administrateur de domaine doit être connu. De préférence, il s’agit du mot de passe du compte administrateur intégré. Vous devez également connaître le mot de passe DSRM pour effectuer une restauration de l’état du système d’un contrôleur de réseau. En général, il est recommandé d’archiver le compte administrateur et l’historique des mots de passe DSRM dans un endroit sûr tant que les sauvegardes sont valides, c’est-à-dire dans la durée de vie de désactivation ou dans la durée de vie des objets supprimés si Active Directory corbeille est activée. Vous pouvez également synchroniser le mot de passe DSRM avec un compte d’utilisateur de domaine afin de le rendre plus facile à mémoriser. Pour plus d’informations, consultez l’article [961320](https://support.microsoft.com/kb/961320)de la base de connaissances. La synchronisation du compte DSRM doit être effectuée avant la récupération de la forêt, dans le cadre de la préparation.
 
 > [!NOTE]
 > Le compte administrateur est membre du groupe Administrateurs intégré par défaut, tout comme les groupes Admins du domaine et administrateurs de l’entreprise. Ce groupe dispose d’un contrôle total sur tous les contrôleurs de domaine du domaine.
@@ -53,7 +52,7 @@ Si l’heure de l’échec est inconnue, examinez plus en détail pour identifie
 
 Si Active Directory corbeille est activée, la durée de vie de la sauvegarde est égale à la valeur de **deletedObjectLifetime** ou à la valeur **tombstoneLifetime** , la valeur la plus petite étant retenue. Pour plus d’informations, consultez [Guide pas à pas de la corbeille Active Directory](https://go.microsoft.com/fwlink/?LinkId=178657) (https://go.microsoft.com/fwlink/?LinkId=178657).
 
-Vous pouvez également utiliser l’outil de montage de base de données Active Directory (DSAMAIN. exe) et un outil LDAP (Lightweight Directory Access Protocol), tels que LDP. exe ou Active Directory des utilisateurs et des ordinateurs, pour identifier la sauvegarde qui a le dernier État sûr de la dédié. L’outil de montage de base de données Active Directory, qui est inclus dans les systèmes d’exploitation Windows Server 2008 et versions ultérieures, expose Active Directory données stockées dans les sauvegardes ou les captures instantanées en tant que serveur LDAP. Ensuite, vous pouvez utiliser un outil LDAP pour parcourir les données. Cette approche présente l’avantage de ne pas vous obliger à redémarrer un contrôleur de service en mode de restauration des services d’annuaire (DSRM) pour examiner le contenu de la sauvegarde de AD DS.
+Vous pouvez également utiliser l’outil de montage de base de données Active Directory (DSAMAIN. exe) et un outil LDAP (Lightweight Directory Access Protocol), tels que LDP. exe ou Active Directory des utilisateurs et des ordinateurs, pour identifier la sauvegarde qui a le dernier état de sécurité de la forêt. L’outil de montage de base de données Active Directory, qui est inclus dans les systèmes d’exploitation Windows Server 2008 et versions ultérieures, expose Active Directory données stockées dans les sauvegardes ou les captures instantanées en tant que serveur LDAP. Ensuite, vous pouvez utiliser un outil LDAP pour parcourir les données. Cette approche présente l’avantage de ne pas vous obliger à redémarrer un contrôleur de service en mode de restauration des services d’annuaire (DSRM) pour examiner le contenu de la sauvegarde de AD DS.
 
 Pour plus d’informations sur l’utilisation de l’outil de montage de base de données Active Directory, consultez le [Guide pas à pas de l’outil de montage de base de données Active Directory](https://technet.microsoft.com/library/cc753609\(WS.10\).aspx).
 
@@ -68,7 +67,7 @@ La facilité du processus de restauration est un facteur important lorsque vous 
 
 Choisissez un contrôleur de périphérique qui répond le mieux aux critères suivants :
 
-- Contrôleur de périphérique qui est accessible en écriture. Ceci est obligatoire.
+- Contrôleur de périphérique qui est accessible en écriture. Cette donnée est obligatoire.
 
 - Un contrôleur de périphérique exécutant Windows Server 2012 en tant que machine virtuelle sur un hyperviseur qui prend en charge VM-GenerationID. Ce contrôleur de périphérique peut être utilisé comme source pour le clonage.
 - Un contrôleur de réseau accessible, physiquement ou sur un réseau virtuel, et de préférence situé dans un centre de contenu. De cette façon, vous pouvez facilement isoler le réseau au cours de la récupération de la forêt.
@@ -90,7 +89,7 @@ Déterminez la structure actuelle de la forêt en identifiant tous les domaines 
 
 Préparez une table qui affiche les fonctions de chaque contrôleur de domaine dans le domaine, comme illustré dans l’exemple suivant. Cela vous permettra de revenir à la configuration de la forêt après l’échec après la récupération.
 
-|Nom du contrôleur de périphérique|Système d’exploitation|FSMO|GC|RODC|Secours|DNS|Server Core|VM|Machine virtuelle-GenID|  
+|Nom du contrôleur de périphérique|Système d’exploitation|FSMO|GC|RODC|Secours|DNS|Minimale|VM|Machine virtuelle-GenID|  
 |-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|  
 |DC_1|Windows Server 2012|Contrôleur de schéma, maître d’attribution de noms de domaine|Oui|Non|Oui|Non|Non|Oui|Oui|  
 |DC_2|Windows Server 2012|Aucune|Oui|Non|Oui|Oui|Non|Oui|Oui|  
@@ -104,12 +103,12 @@ Pour chaque domaine de la forêt, identifiez un contrôleur de domaine inscripti
   
 Dans cet exemple, il existe quatre candidats de sauvegarde : DC_1, DC_2, DC_4 et DC_5. Parmi ces candidats de sauvegarde, vous ne pouvez en restaurer qu’un seul. Le contrôleur de périphérique recommandé est DC_5 pour les raisons suivantes :  
 
-- Il répond à la configuration requise pour l’utiliser en tant que source pour le clonage de contrôleur de service virtualisé, autrement dit, il exécute Windows Server 2012 en tant que contrôleur de périphérique virtuel sur un hyperviseur qui prend en charge VM-GenerationID, exécute un logiciel qui est autorisé à être cloné (ou qui peut être supprimé s’il n’est pas possible de le cloner). d). Après la restauration, le rôle d’émulateur de contrôleur de domaine principal est pris pour ce serveur et il peut être ajouté au groupe contrôleurs de domaine clonables pour le domaine.  
+- Elle répond à la configuration requise pour l’utiliser en tant que source pour le clonage de contrôleur de service virtualisé, autrement dit, elle exécute Windows Server 2012 en tant que contrôleur de périphérique virtuel sur un hyperviseur qui prend en charge VM-GenerationID, exécute les logiciels qui sont autorisés à être clonés (ou qui peuvent être supprimés s’ils ne peuvent pas être clonés). Après la restauration, le rôle d’émulateur de contrôleur de domaine principal est pris pour ce serveur et il peut être ajouté au groupe contrôleurs de domaine clonables pour le domaine.  
 - Il exécute une installation complète de Windows Server 2012. Un contrôleur de périphérique qui exécute une installation Server Core peut être moins pratique en tant que cible pour la récupération.  
 - Il s’agit d’un serveur DNS. Par conséquent, il n’est pas nécessaire de réinstaller DNS.  
 
 > [!NOTE]
-> Étant donné que DC_5 n’est pas un serveur de catalogue global, il présente également un avantage en ce que le catalogue global n’a pas besoin d’être supprimé après la restauration. Toutefois, le fait que le contrôleur de l’un ou non soit également un serveur de catalogue global n’est pas un facteur déterminant, car à compter de Windows Server 2012, tous les contrôleurs de contrôle sont des serveurs de catalogue global par défaut, et la suppression et l’ajout du catalogue global après la restauration sont recommandés dans le cadre de la forêt. processus de récupération dans tous les cas.  
+> Étant donné que DC_5 n’est pas un serveur de catalogue global, il présente également un avantage en ce que le catalogue global n’a pas besoin d’être supprimé après la restauration. Mais si le contrôleur de l’état de l’alimentation est également un serveur de catalogue global, ce qui n’est pas un facteur déterminant, car à compter de Windows Server 2012, tous les contrôleurs de contrôle sont des serveurs de catalogue global par défaut, et il est recommandé de supprimer et d’ajouter le catalogue global après la restauration dans tous les cas.  
 
 ## <a name="recover-the-forest-in-isolation"></a>Récupérer la forêt de manière isolée
 
@@ -125,7 +124,7 @@ Si vous exécutez des contrôleurs de service virtualisés, vous pouvez les dép
 
 Si vous exécutez des contrôleurs de domaine sur du matériel physique, déconnectez le câble réseau du premier contrôleur de domaine que vous envisagez de restaurer dans le domaine racine de forêt. Si possible, déconnectez également les câbles réseau de tous les autres contrôleurs de réseau. Cela empêche les contrôleurs de contrôle de la réplication, s’ils sont démarrés par inadvertance pendant le processus de récupération de la forêt.  
 
-Dans une forêt importante qui est répartie sur plusieurs emplacements, il peut être difficile de garantir que tous les contrôleurs de domaines inscriptibles sont arrêtés. Pour cette raison, les étapes de récupération (telles que la réinitialisation du compte d’ordinateur et le compte krbtgt, en plus du nettoyage des métadonnées) sont conçues pour garantir que les contrôleurs de service inscriptibles récupérés ne sont pas répliqués avec des contrôleurs de service potentiellement inscriptibles dangereux (au cas où d’autres sont encore en ligne dans le forêt).  
+Dans une forêt importante qui est répartie sur plusieurs emplacements, il peut être difficile de garantir que tous les contrôleurs de domaines inscriptibles sont arrêtés. Pour cette raison, les étapes de récupération (telles que la réinitialisation du compte d’ordinateur et le compte krbtgt, en plus du nettoyage des métadonnées) sont conçues pour garantir que les contrôleurs de service inscriptibles récupérés ne sont pas répliqués avec des contrôleurs de service potentiellement inscriptibles dangereux (au cas où d’autres sont encore en ligne dans la forêt).  
   
 Toutefois, la réplication ne se produit qu’en prenant en charge les contrôleurs de l’écriture hors connexion. Par conséquent, chaque fois que cela est possible, vous devez déployer une technologie de gestion à distance qui peut vous aider à arrêter et à isoler physiquement les contrôleurs de l’accès en écriture pendant la récupération de la forêt.  
   

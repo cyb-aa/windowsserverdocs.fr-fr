@@ -1,7 +1,6 @@
 ---
 ms.assetid: d8e61aa4-8e4b-4097-83ca-70cf61366b75
 title: Délégation de l’administration avec des objets d’unité d’organisation
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 31b8ef30cb12903936d00a8ab8fe56de77f8025a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: af13896c07c10710be6e087be5d31dbd4aec698f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408940"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822712"
 ---
 # <a name="delegating-administration-by-using-ou-objects"></a>Délégation de l’administration avec des objets d’unité d’organisation
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser des unités d’organisation (UO) pour déléguer l’administration d’objets, tels que des utilisateurs ou des ordinateurs, au sein de l’unité d’organisation à un individu ou un groupe désigné. Pour déléguer l’administration à l’aide d’une unité d’organisation, placez la personne ou le groupe auquel vous déléguez des droits d’administration dans un groupe, placez l’ensemble d’objets à contrôler dans une unité d’organisation, puis déléguez les tâches d’administration de l’unité d’organisation à ce groupe.  
   

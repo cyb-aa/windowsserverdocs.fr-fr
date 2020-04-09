@@ -1,6 +1,5 @@
 ---
 title: 'Récupération de la forêt Active Directory : FAQ'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,22 +8,22 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: ac9e5a3d-8b1e-41b7-8e02-f64b7acf1359
 ms.technology: identity-adds
-ms.openlocfilehash: 49cd12621c6ddf89393f0463e4856555ca241491
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f32111cf7cc81f8f49b7b1058cc1a0ccc780da7f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369113"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824002"
 ---
 # <a name="ad-forest-recovery---faq"></a>Récupération de la forêt Active Directory : FAQ
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2, Windows Server 2003
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2, Windows Server 2003
 
 Ce document contient les questions fréquemment posées (FAQ) concernant la récupération de la forêt :  
 
 ## <a name="general-recovery"></a>Récupération générale
 
-**QUESTION Que puis-je faire pour accélérer la récupération ?**
+**Q : que puis-je faire pour accélérer la récupération ?**
 
 Bien que la vitesse de récupération ne soit pas l’objectif principal de ce guide, vous pouvez obtenir des temps de récupération plus courts en procédant de la façon suivante :  
   
@@ -57,7 +56,7 @@ Vous pouvez également accélérer les installations de AD DS à l’aide de la 
   
 Les entreprises qui ont un contrat de niveau de service (SLA) plus agressif peuvent envisager de modifier les procédures de récupération de forêt pour accélérer la récupération.  
   
-**QUESTION Puis-je automatiser le processus de récupération de forêt ?**
+**Q : puis-je automatiser le processus de récupération de forêt ?**
 
 En raison de la nature complexe et critique du processus de récupération de forêt, il n’existe actuellement aucune Automation de bout en bout. Le processus de récupération de forêt est plus un défi logistique et organisationnel de la restauration de la continuité des activités qu’un problème technique de l’automatisation des processus. Par conséquent, la personne qui administre l’environnement doit créer un plan de récupération de forêt spécifique à cet environnement, puis automatiser ses sections qui peuvent être automatisées avec succès.  
   

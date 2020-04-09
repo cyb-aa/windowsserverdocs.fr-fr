@@ -1,24 +1,20 @@
 ---
 title: Gérer les bureaux virtuels
 description: En savoir plus sur la gestion des bureaux virtuels (VDI) dans MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fa9ac0ed-47cb-4811-91ff-4fcb62d7858b
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 45bb3e98779bc27913c7e675a9c9db7e575d9d72
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 114fde42ca36f9451680066056251bafbe944e56
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389591"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853462"
 ---
 # <a name="manage-virtual-desktops"></a>Gérer les bureaux virtuels
 L’infrastructure VDI sur un seul ordinateur vous permet de configurer chaque station multipoint services *locale* pour se connecter à un système d’exploitation invité Windows 10 entreprise s’exécutant sur une machine virtuelle Hyper-V sur le même ordinateur multipoint services que la station. Ces stations de bureaux virtuels peuvent être personnalisées avec une application qui ne peut pas être installée sur une version de Windows Server.  
@@ -56,11 +52,11 @@ Le système est redémarré, ce qui peut prendre quelques minutes.
 ## <a name="import-a-virtual-desktop-template"></a>Importer un modèle de bureau virtuel  
 Si vous avez créé un modèle de bureau virtuel sur un autre serveur MultiPoint, vous pouvez importer ce modèle en procédant comme suit.  
 
-1.  Ouvrez le Gestionnaire MultiPoint, puis cliquez sur l’onglet **Bureaux virtuels**.  
+1.    Ouvrez le Gestionnaire MultiPoint, puis cliquez sur l’onglet **Bureaux virtuels**.  
   
-2.  Sous les tâches VDI, cliquez sur **Import Virtual desktop template** (Importer un modèle de bureau virtuel).  
+2.    Sous les tâches VDI, cliquez sur **Import Virtual desktop template** (Importer un modèle de bureau virtuel).  
   
-3.  Recherchez le modèle et définissez le chemin et le préfixe pour le modèle importé.  
+3.    Recherchez le modèle et définissez le chemin et le préfixe pour le modèle importé.  
   
 ## <a name="customize-the-virtual-desktop-template"></a>Personnaliser le modèle de bureau virtuel  
 Après avoir créé le modèle de bureau virtuel, vous pouvez le personnaliser avec des applications, des mises à jour logicielles, et configurer les paramètres système.   
@@ -76,18 +72,18 @@ Le modèle s’ouvre dans une fenêtre distincte et des instructions supplément
     > [!NOTE]  
     > Si le système MultiPoint Services n’est pas exécuté en mode station, redémarrez-le avant d’exécuter les étapes suivantes.  
   
-2.  Sélectionnez le modèle de bureau virtuel dans le volet de gauche\-. Son nom est <préfixe – t>.  
+2.  Sélectionnez le modèle de bureau virtuel dans le volet gauche. Son nom est <préfixe – t>.  
   
 3.  Sous les tâches de modèle, cliquez sur **Créer des stations de bureaux virtuels**, puis sur **OK**.  
   
     Le processus de création de la station de bureau virtuel prend quelques minutes.  
   
     > [!NOTE]  
-    > Si l’une des stations locales est actuellement connectée à un bureau virtuel basé sur\-session, vous devez vous déconnecter de ces stations pour qu’elles se connectent à l’une des stations de bureaux virtuels nouvellement créées.  
+    > Si l’une des stations locales est actuellement connectée à un bureau virtuel basé sur une session, vous devez vous déconnecter de cette station pour qu’elle se connecte à l’une des stations de bureaux virtuels que vous venez de créer.  
   
 ### <a name="validate-the-newly-created-customized-virtual-station-desktops"></a>Valider les bureaux de station virtuels personnalisés nouvellement créés  
   
-Vous pouvez valider vos bureaux de stations virtuelles personnalisés en vous connectant à une ou plusieurs stations de bureaux virtuels à l’aide d’un compte d’administrateur local ou d’un compte de domaine, puis vérifiez que les nouveaux bureaux virtuels\-basés sur les machines virtuelles fonctionnent correctement.  
+Vous pouvez valider les bureaux de station virtuels personnalisés en vous connectant à une ou plusieurs stations de bureaux virtuels à l’aide d’un compte administrateur local ou d’un compte de domaine, puis vérifier que les nouveaux bureaux virtuels basés sur des machines virtuelles fonctionnent correctement.  
   
 ## <a name="disable-virtual-desktops"></a>Désactiver les bureaux virtuels  
   
