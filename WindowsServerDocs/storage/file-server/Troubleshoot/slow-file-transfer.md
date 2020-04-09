@@ -3,16 +3,15 @@ title: Vitesse de transfert des fichiers SMB lente
 description: Décrit comment résoudre les problèmes de performances de transfert de fichiers SMB.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 0e6c049404f464eba872075a8ef5060b303920c8
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: af05daa164b5b2c5eca73eff51d97d4c25ba1ca3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654560"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815392"
 ---
 # <a name="slow-smb-files-transfer-speed"></a>Vitesse de transfert des fichiers SMB lente
 
@@ -46,7 +45,7 @@ Si vous constatez des transferts lents de fichiers volumineux, envisagez les ét
 
 ## <a name="small-file-transfer-is-slow"></a>Le transfert de petits fichiers est lent
 
-Le transfert lent des petits fichiers via SMB se produit le plus souvent s’il y a de nombreux fichiers. Ce comportement est normal.
+Le transfert lent des petits fichiers via SMB se produit le plus souvent s’il y a de nombreux fichiers. Il s’agit d’un comportement attendu.
 
 Lors du transfert de fichiers, la création de fichiers entraîne une surcharge de protocole élevée et une surcharge importante du système de fichiers. Pour les transferts de fichiers volumineux, ces coûts ne se produisent qu’une seule fois. Lors du transfert d’un grand nombre de petits fichiers, le coût est répétitif et entraîne des transferts lents.
 
@@ -66,7 +65,7 @@ Vous trouverez ci-dessous des détails techniques sur ce problème :
 
 Ce problème se produit généralement sur une connexion WAN. Cela est courant et, en général, est dû à la manière dont les applications Office (Microsoft Excel, en particulier) accèdent et lisent les données.
 
-Nous vous recommandons de vous assurer que les fichiers binaires Office et SMB sont à jour, puis de vérifier que le bail est désactivé sur le serveur SMB. Pour cela, procédez comme suit :
+Nous vous recommandons de vous assurer que les fichiers binaires Office et SMB sont à jour, puis de vérifier que le bail est désactivé sur le serveur SMB. Pour cela, procédez comme suit:
    
 1. Exécutez la commande PowerShell suivante dans Windows 8 et Windows Server 2012 ou versions ultérieures de Windows :
       

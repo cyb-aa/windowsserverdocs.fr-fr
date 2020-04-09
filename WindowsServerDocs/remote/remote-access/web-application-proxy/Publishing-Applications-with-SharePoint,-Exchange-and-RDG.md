@@ -1,7 +1,6 @@
 ---
 ms.assetid: 61ed00fd-51c7-4728-91fa-8501de9d8f28
 title: Publication d’applications avec SharePoint, Exchange et la passerelle des services Bureau à distance
-description: ''
 author: billmath
 manager: mtillman
 ms.author: billmath
@@ -9,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: 3852baf866dae20d1d1d08219841295aa976c626
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 18851463b82afc1dc34615e6faaa14622c80224a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79319933"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818682"
 ---
 # <a name="publishing-applications-with-sharepoint-exchange-and-rdg"></a>Publication d’applications avec SharePoint, Exchange et la passerelle des services Bureau à distance
 
@@ -27,7 +26,7 @@ Cette rubrique décrit les tâches nécessaires à la publication de SharePoint 
 > [!NOTE]
 > Ces informations sont fournies telles quelles.  Services Bureau à distance prend en charge et recommande l’utilisation [d’Azure App proxy pour fournir un accès à distance sécurisé aux applications locales](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
-## <a name="BKMK_6.1"></a>Publier le serveur SharePoint
+## <a name="publish-sharepoint-server"></a><a name="BKMK_6.1"></a>Publier le serveur SharePoint
 Vous pouvez publier un site SharePoint via le proxy d’application Web lorsque le site SharePoint est configuré pour l’authentification basée sur les revendications ou l’authentification Windows intégrée. Si vous souhaitez utiliser Services ADFS (AD FS) pour la pré-authentification, vous devez configurer une partie de confiance à l’aide de l’un des assistants.
 
 -   Si le site SharePoint utilise l’authentification basée sur les revendications, vous devez utiliser l’Assistant Ajouter une approbation de partie de confiance afin de configurer l’approbation pour l’application.
@@ -40,7 +39,7 @@ Vous pouvez publier un site SharePoint via le proxy d’application Web lorsque 
 
 Si votre site SharePoint est configuré à l’aide des mappages d’accès de substitution (AAM) ou des collections de sites de noms d’hôtes, vous pouvez utiliser différentes URL du serveur externe et principal pour publier votre application. Toutefois, si vous ne configurez pas votre site SharePoint à l’aide de AAM ou des collections de sites hôtes, vous devez utiliser les mêmes URL de serveur externe et principal.
 
-## <a name="BKMK_6.2"></a>Publier Exchange Server
+## <a name="publish-exchange-server"></a><a name="BKMK_6.2"></a>Publier Exchange Server
 Le tableau suivant décrit les services Exchange que vous pouvez publier via le proxy d’application Web et la pré-authentification prise en charge pour ces services :
 
 
@@ -48,7 +47,7 @@ Le tableau suivant décrit les services Exchange que vous pouvez publier via le 
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Outlook Web App     | -AD FS à l’aide de l’authentification non basée sur les revendications<br />-Direct<br />-AD FS à l’aide de l’authentification basée sur les revendications pour Exchange 2013 service Pak 1 (SP1) sur site |                                                                  Pour plus d’informations, voir : [Utiliser l’authentification basée sur les revendications AD FS avec Outlook Web App et le CAE](https://go.microsoft.com/fwlink/?LinkId=393723)                                                                  |
 | Panneau de configuration Exchange |                                                                               Pass-through                                                                               |                                                                                                                                                                                                                                                                                    |
-|    Outlook Anywhere    |                                                                               Pass-through                                                                               | Vous devez publier les trois URL pour que Outlook Anywhere fonctionne correctement :<br /><br />-L’URL de découverte automatique.<br />-Le nom d’hôte externe du serveur Exchange ; autrement dit, l’URL configurée pour la connexion des clients à.<br />-Le nom de domaine complet interne du serveur Exchange. |
+|    Outlook Anywhere    |                                                                               Pass-through                                                                               | Vous devez publier les trois URL pour que Outlook Anywhere fonctionne correctement :<p>-L’URL de découverte automatique.<br />-Le nom d’hôte externe du serveur Exchange ; autrement dit, l’URL configurée pour la connexion des clients à.<br />-Le nom de domaine complet interne du serveur Exchange. |
 |  Exchange ActiveSync   |                                                     Pass-through<br/> AD FS à l’aide du protocole d’autorisation de base HTTP                                                      |                                                                                                                                                                                                                                                                                    |
 
 Pour publier Outlook Web App à l’aide de l’authentification Windows intégrée, vous devez utiliser l’Assistant Ajouter une approbation de partie de confiance non basée sur les revendications afin de configurer l’approbation pour l’application.
@@ -162,7 +161,7 @@ Si vous souhaitez restreindre l’accès à votre passerelle d’accès à dista
 
             Pour plus d’informations sur le protocole RDP, consultez [configuration du scénario de mot de passe à usage unique de la passerelle TS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731249(v=ws.10)).
 
-## <a name="BKMK_Links"></a>Voir aussi
+## <a name="see-also"></a><a name="BKMK_Links"></a>Voir aussi
 
 - [Planification de la publication d’applications à l’aide du proxy d’application Web](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383650(v=ws.11))
 
