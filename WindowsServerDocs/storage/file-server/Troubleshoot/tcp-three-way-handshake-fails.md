@@ -3,22 +3,21 @@ title: Échec du protocole de transfert TCP bidirectionnel pendant la connexion 
 description: Présente l’échec du protocole de transfert TCP bidirectionnel pendant la connexion SMB.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 8cef47e164b8768747cb383f4d7012130c7cb516
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: cb88fa89344172cfc1ed036865a4496ed73e9a22
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654630"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815322"
 ---
 # <a name="tcp-three-way-handshake-failure-during-smb-connection"></a>Échec du protocole de transfert TCP bidirectionnel pendant la connexion SMB
 
 Lorsque vous analysez un suivi réseau, vous remarquez qu’il existe un échec de la négociation de protocole TCP (Transmission Control Protocol) qui provoque le problème SMB. Cet article explique comment résoudre ce problème.
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 En règle générale, il s’agit d’un pare-feu local ou d’infrastructure qui bloque le trafic. Ce problème peut se produire dans l’un des scénarios suivants.
 
@@ -71,7 +70,7 @@ Assurez-vous que les règles de partage de fichiers et d’imprimantes (SMB-in) 
 > [!NOTE]
 > Selon la configuration de votre ordinateur, le « pare-feu Windows » peut être appelé « pare-feu Windows Defender ».
 
-## <a name="scenario-2"></a>Scénario 2
+## <a name="scenario-2"></a>Scénario 2
 
 Le paquet TCP SYN n’arrive jamais sur le serveur SMB.
 

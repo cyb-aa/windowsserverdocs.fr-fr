@@ -3,16 +3,15 @@ title: La connexion TCP est abandonnée pendant la négociation de validation
 description: Explique comment dépanner le problème SMB lorsque la connexion TCP est abandonnée lors de l’instruction Validate Negotiate.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 3455b4ac0a2706f80702378dda02c1877af219ca
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 36bd49777899870246a19531c6681a5b45bb622d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654620"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815512"
 ---
 # <a name="tcp-connection-is-aborted-during-validate-negotiate"></a>La connexion TCP est abandonnée pendant la négociation de validation
 
@@ -32,7 +31,7 @@ Les exigences suivantes s’appliquent au paquet Validate Negotiate :
 
 - Vous devez comparer le FSCTL\_valider\_négocier des messages d’informations\_aux messages Negotiate pour vous assurer qu’aucun élément n’a été modifié.
 
-## <a name="workaround"></a>Solution
+## <a name="workaround"></a>Solution de contournement
 
 Vous pouvez désactiver temporairement le processus de validation de négociation. Pour ce faire, recherchez la sous-clé de Registre suivante :
 

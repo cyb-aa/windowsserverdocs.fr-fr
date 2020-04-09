@@ -3,16 +3,15 @@ title: SMBv1 n’est pas installé par défaut dans Windows 10 version 1709, Win
 description: Décrit le comportement du protocole SMBv1 dans Windows 10 automne Creators Update et Windows Server, version 1709 et versions ultérieures.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 27869820e49257d059d124bac3f515ac91fef7b0
-ms.sourcegitcommit: 30afd51d74cb6472720fb13ec47d80cf42b20c27
+ms.openlocfilehash: fdc90c6e5d6790348fafc12079eec5ac7e387b3f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80272315"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815312"
 ---
 # <a name="smbv1-is-not-installed-by-default-in-windows-10-version-1709-windows-server-version-1709-and-later-versions"></a>SMBv1 n’est pas installé par défaut dans Windows 10 version 1709, Windows Server version 1709 et versions ultérieures
 

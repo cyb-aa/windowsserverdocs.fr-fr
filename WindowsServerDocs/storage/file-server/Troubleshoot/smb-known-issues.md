@@ -3,24 +3,23 @@ title: Problèmes connus avec SMB
 description: Liste des problèmes connus liés à SMB.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 13e79dc5bd2d84bbcb9efd8f5548f65a9ecba47b
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 9dac6468689c89aa565e6c675bb0b1005630e48d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654520"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815362"
 ---
 # <a name="smb-known-issues"></a>Problèmes connus avec SMB
 
 Les rubriques suivantes décrivent certains problèmes courants de résolution des problèmes qui peuvent se produire lorsque vous utilisez le protocole SMB (Server Message Block). Ces rubriques fournissent également des solutions possibles à ces problèmes.
 
-- [Échec du protocole de transfert TCP bidirectionnel](tcp-three-way-handshake-fails.md)
+- [Échec de la connexion TCP en trois temps](tcp-three-way-handshake-fails.md)
 
-- [Négociation, configuration de session et échecs de connexion d’arborescence](negotiate-session-setup-tree-connect-fails.md)
+- [Échecs de la négociation, de la configuration de session et de la connexion d’arborescence](negotiate-session-setup-tree-connect-fails.md)
 
 - [La connexion TCP est abandonnée pendant la négociation de validation](abort-during-validate-negotiate.md)
 

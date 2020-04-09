@@ -3,20 +3,19 @@ title: Comment détecter, activer et désactiver SMBv1, SMBv2 et SMBv3 dans Wind
 description: Décrit comment activer et désactiver le protocole SMB (Server Message Block) (SMBv1, SMBv2 et SMBv3) dans les environnements client et serveur Windows.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 9da4d6f2b5616dc6f8aec3fefb1ae7141ed88b0b
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: d6c47843dedaf45842f70d1bb408b59d63c03eb4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654390"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815502"
 ---
 # <a name="how-to-detect-enable-and-disable-smbv1-smbv2-and-smbv3-in-windows"></a>Comment détecter, activer et désactiver SMBv1, SMBv2 et SMBv3 dans Windows
 
-## <a name="summary"></a>Récapitulatif
+## <a name="summary"></a>Résumé
 
 Cet article décrit comment activer et désactiver le protocole SMB (Server Message Block) version 1 (SMBv1), SMB version 2 (SMBv2) et SMB version 3 (SMBv3) sur les composants client et serveur SMB. 
 
@@ -46,7 +45,7 @@ Dans Windows 8, Windows 8.1, Windows 10, Windows Server 2012 et Windows Server 2
 - Leasing de répertoires : améliore les temps de réponse des applications dans les succursales grâce à la mise en cache    
 - Optimisations des performances-optimisations pour les e/s de lecture/écriture aléatoires
 
-##  <a name="more-information"></a>Plus d’informations
+##  <a name="more-information"></a>Informations supplémentaires
 
 Le protocole SMBv2 a été introduit dans Windows Vista et Windows Server 2008.
 
@@ -54,7 +53,7 @@ Le protocole SMBv3 a été introduit dans Windows 8 et Windows Server 2012.
 
 Pour plus d’informations sur les fonctionnalités des fonctionnalités SMBv2 et SMBv3, consultez les articles suivants :
 
-[Vue d’ensemble du bloc de message serveur](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795(v=ws.11))
+[Vue d’ensemble du protocole SMB](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795(v=ws.11))
 
 [Nouveautés du système de noms de domaine (SMB)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff625695(v=ws.10))  
 
@@ -76,7 +75,7 @@ Pour plus d’informations sur les fonctionnalités des fonctionnalités SMBv2 e
   Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol
   ```
 
-- Activez : 
+- Rendre 
 
   ```PowerShell
   Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol
@@ -96,7 +95,7 @@ Pour plus d’informations sur les fonctionnalités des fonctionnalités SMBv2 e
   Set-SmbServerConfiguration -EnableSMB2Protocol $false
   ```
 
-- Activez :
+- Rendre
 
   ```PowerShell
   Set-SmbServerConfiguration -EnableSMB2Protocol $true 
@@ -124,7 +123,7 @@ Pour plus d’informations sur les fonctionnalités des fonctionnalités SMBv2 e
   Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
   ```
 
-- Activez : 
+- Rendre 
 
   ```PowerShell
   Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
@@ -144,7 +143,7 @@ Pour plus d’informations sur les fonctionnalités des fonctionnalités SMBv2 e
   Set-SmbServerConfiguration –EnableSMB2Protocol $false
   ```
 
-- Activez :
+- Rendre
 
   ```PowerShell
   Set-SmbServerConfiguration –EnableSMB2Protocol $true
@@ -179,7 +178,7 @@ Vous n’avez pas besoin de redémarrer l’ordinateur après l’exécution de 
   Set-SmbServerConfiguration -EnableSMB1Protocol $false
   ```
 
-- Activez : 
+- Rendre 
   ```PowerShell
   Set-SmbServerConfiguration -EnableSMB1Protocol $true
   ```
@@ -199,7 +198,7 @@ Pour plus d’informations, consultez [stockage serveur chez Microsoft](https://
   Set-SmbServerConfiguration -EnableSMB2Protocol $false
   ```
 
-- Activez :
+- Rendre
   
   ```PowerShell
   Set-SmbServerConfiguration -EnableSMB2Protocol $true
@@ -230,7 +229,7 @@ Désactive
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 
-Activez :  
+Rendre  
 
 ```PowerShell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 1 –Force
@@ -251,7 +250,7 @@ Désactive
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 0 –Force  
 ```
 
-Activez :
+Rendre
 
 ```PowerShell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 –Force 
@@ -263,7 +262,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 #### <a name="registry-editor"></a>Éditeur du Registre
 
 > [!IMPORTANT]
-> Suivez attentivement les étapes décrites dans cette section. De graves problèmes peuvent se produire si vous modifiez le registre de façon incorrecte. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/help/322756) en cas de problème.
+> Suivez attentivement les étapes décrites dans cette section. En effet, toute erreur de modification peut être à l'origine de problèmes graves. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/help/322756) en cas de problème.
  
 Pour activer ou désactiver SMBv1 sur le serveur SMB, configurez la clé de Registre suivante :
 
@@ -312,7 +311,7 @@ Default: 1 = Enabled (No registry key is created)
   sc.exe config mrxsmb10 start= disabled
   ```
 
-- Activez :
+- Rendre
 
   ```cmd
   sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi
@@ -335,7 +334,7 @@ Pour plus d’informations, consultez [stockage serveur chez Microsoft](https://
   sc.exe config mrxsmb20 start= disabled 
   ```
 
-- Activez :
+- Rendre
 
   ```cmd
   sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi
@@ -358,7 +357,7 @@ Cette procédure configure le nouvel élément suivant dans le registre :
 
 Pour configurer ce à l’aide de stratégie de groupe, procédez comme suit :
  
-1. Ouvrez la **Console de gestion des stratégies de groupe**. Cliquez avec le bouton droit sur l’objet de stratégie de groupe (GPO) qui doit contenir le nouvel élément de préférence, puis cliquez sur **Modifier**.
+1. Ouvrez la **Console de gestion des stratégies de groupe**. Cliquez avec le bouton droit sur l'objet de stratégie de groupe (GPO) qui doit contenir le nouvel élément de préférence, puis cliquez sur **Modifier**.
 
 2. Dans l’arborescence de la console, sous **Configuration ordinateur**, développez le dossier **Préférences** , puis développez le dossier **Paramètres Windows** .
 
@@ -404,7 +403,7 @@ Entrée de Registre : **DependOnService** REG_MULTI_SZ : **« Bowser », «�
 
 Pour configurer ce à l’aide de stratégie de groupe, procédez comme suit :
  
-1. Ouvrez la **Console de gestion des stratégies de groupe**. Cliquez avec le bouton droit sur l’objet de stratégie de groupe (GPO) qui doit contenir le nouvel élément de préférence, puis cliquez sur **Modifier**.
+1. Ouvrez la **Console de gestion des stratégies de groupe**. Cliquez avec le bouton droit sur l'objet de stratégie de groupe (GPO) qui doit contenir le nouvel élément de préférence, puis cliquez sur **Modifier**.
 
 2. Dans l’arborescence de la console, sous **Configuration ordinateur**, développez le dossier **Préférences** , puis développez le dossier **Paramètres Windows** .
 
@@ -430,7 +429,7 @@ Pour configurer ce à l’aide de stratégie de groupe, procédez comme suit :
    - **Chemin**de la clé : SYSTEM\CurrentControlSet\Services\LanmanWorkstation
    - **Nom**de la valeur : DependOnService
    - **Type de valeur**: REG_MULTI_SZ 
-   - **Données de la valeur** :
+   - **Données**de la valeur :
       - Bowser
       - MRxSmb20
       - NSI
@@ -447,7 +446,7 @@ Pour configurer ce à l’aide de stratégie de groupe, procédez comme suit :
 
 6. Redémarrez les systèmes ciblés pour terminer la désactivation de SMB v1.
 
-### <a name="summary"></a>Récapitulatif
+### <a name="summary"></a>Résumé
 
 Si tous les paramètres se trouvent dans le même objet de stratégie de groupe (GPO), la gestion des stratégie de groupe affiche les paramètres suivants.
 

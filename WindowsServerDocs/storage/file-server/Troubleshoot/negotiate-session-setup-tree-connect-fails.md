@@ -3,16 +3,15 @@ title: Négociation, configuration de session et échecs de connexion d’arbore
 description: Explique comment résoudre les problèmes liés à la négociation, à la configuration de session et aux échecs de connexion d’arborescence.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 0ccd8d882060432dcfc27ee47b82d0c61e3aad4d
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 13124176e530aa7b74d18a38c906bf5297be511e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654370"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815382"
 ---
 # <a name="negotiate-session-setup-and-tree-connect-failures"></a>Négociation, configuration de session et échecs de connexion d’arborescence
 
@@ -30,7 +29,7 @@ Si vous utilisez Windows Server 2008 R2, il existe des correctifs pour résoudre
 
 Le serveur SMB reçoit une SESSION SMB\_demande d’installation à partir d’un client SMB, mais n’a pas pu répondre.
 
-Si le nom de domaine complet (FQDN) ou le nom NetBIOS (Network Basic Input/Output System) du serveur est utilisé dans le chemin d’accès UNC (Universal Naming Convention), Windows utilise Kerberos pour l’authentification.
+Si le nom de domaine complet (FQDN) ou le nom NetBIOS (Network Basic Input/Output System) du serveur est’sed dans le chemin d’accès UNC (Universal Naming Convention), Windows utilise Kerberos pour l’authentification.
 
 Après la réponse Negotiate, vous tenterez d’obtenir un ticket Kerberos pour le nom de principal du service (SPN) Common Internet File System (CIFS) du serveur. Examinez le trafic Kerberos sur le port TCP 88 pour vous assurer qu’il n’y a pas d’erreurs Kerberos lorsque le client SMB obtient le jeton.
 
@@ -61,7 +60,7 @@ Assurez-vous que le partage existe sur le serveur et qu’il est correctement or
 
 Vérifiez que le disque et le dossier utilisés par le partage existent et sont accessibles.
 
-Si vous utilisez SMBv3 ou une version ultérieure, vérifiez si le serveur et le partage nécessitent un chiffrement, mais que le client ne prend pas en charge le chiffrement. Pour cela, effectuez les actions ci-dessous :
+Si vous utilisez SMBv3 ou une version ultérieure, vérifiez si le serveur et le partage nécessitent un chiffrement, mais que le client ne prend pas en charge le chiffrement. Pour ce faire, effectuez les actions suivantes :
 
 - Vérifiez le serveur en exécutant la commande suivante.
 
@@ -89,7 +88,7 @@ Suivez ces instructions lors de la résolution des problèmes :
 
 ## <a name="references"></a>Références
 
-Pour plus d'informations, consultez les articles suivants.
+Pour plus d’informations, consultez les articles suivants.
 
 [3.3.5.4 recevant une demande de négociation SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/b39f253e-4963-40df-8dff-2f9040ebbeb1)
 
