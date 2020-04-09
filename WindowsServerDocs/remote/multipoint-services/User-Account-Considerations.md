@@ -1,27 +1,23 @@
 ---
 title: Considérations relatives au compte d’utilisateur
 description: Fournit des considérations sur le compte d’utilisateur, le nom d’utilisateur et le mot de passe pour MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e225900b-cee9-48c9-b21c-394dc5e72b78
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: c81d14d46e96d39676e1fb6fa31892e0d5e1b683
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 732100a79adbdd7d9fbe4ade742c43084d6b54f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389258"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820572"
 ---
 # <a name="user-account-considerations"></a>Considérations relatives au compte d’utilisateur
-Cette rubrique décrit les problèmes que vous devez prendre en compte, en tant qu’utilisateur administratif, lorsque vous créez et gérez des comptes d’utilisateur. Vous gérez les comptes d’utilisateur sous l’onglet utilisateurs du gestionnaire MultiPoint. Pour plus d’informations, voir la rubrique [Gérer les comptes d’utilisateur](Manage-User-Accounts.md).  
+Cette rubrique décrit des problèmes qui vous intéressent en tant qu’utilisateur administratif, car vous créez et gérez des comptes d’utilisateur. Vous gérez les comptes d’utilisateur sous l’onglet utilisateurs du gestionnaire MultiPoint. Pour plus d’informations, voir la rubrique [Gérer les comptes d’utilisateur](Manage-User-Accounts.md).  
   
 ## <a name="user-account-types"></a>Types de comptes d’utilisateur  
 Un compte d’utilisateur est un ensemble d’informations qui indique à MultiPoint services les fichiers et les dossiers auxquels un utilisateur peut accéder, les modifications qu’il peut apporter au système MultiPoint services et les préférences de chaque utilisateur, telles que l’arrière-plan du bureau. Chaque personne accède à son propre compte d’utilisateur en utilisant un nom d’utilisateur et un mot de passe uniques. MultiPoint Services prend en charge trois types de comptes d’utilisateur :  

@@ -1,7 +1,6 @@
 ---
 ms.assetid: c28c60ff-693d-49ee-a75b-58f24866217b
 title: Exigences relatives à la résolution de noms pour les serveurs proxy de fédération
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 51176101b471ec940e2b43a95e1a1a8d37b394f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 47c5bd23d3ba82c3df81c71951c2a50db0fe99d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408065"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853042"
 ---
 # <a name="name-resolution-requirements-for-federation-server-proxies"></a>Exigences relatives à la résolution de noms pour les serveurs proxy de fédération
 
@@ -38,7 +37,7 @@ L’illustration suivante et les étapes correspondantes montrent la réalisatio
 Pour plus d’informations sur la configuration d’une adresse IP de cluster ou d’un nom de domaine complet de cluster à l’aide de NLB, consultez [spécification des paramètres de cluster](https://go.microsoft.com/fwlink/?LinkId=75282).  
   
 ### <a name="1-configure-the-hosts-file-on-the-federation-server-proxy"></a>1. Configurer le fichier hôtes sur le serveur proxy de fédération  
-Dans la mesure où le système DNS du réseau de périmètre est configuré pour résoudre toutes les demandes de fs.fabrikam.com sur le serveur proxy de Fédération de compte, le serveur proxy de Fédération du partenaire de compte a une entrée dans son fichier hosts local pour résoudre fs.fabrikam.com à l’adresse IP du serveur de Fédération de compte réel \(ou du nom DNS de cluster pour la batterie de serveurs de Fédération\) connectée au réseau Cela permet au serveur proxy de Fédération de compte de résoudre le nom d’hôte fs.fabrikam.com en serveur de Fédération de comptes plutôt qu’à lui-même, comme cela se produit s’il essayait de Rechercher fs.fabrikam.com à l’aide du DNS de périmètre, afin que la Fédération le serveur proxy peut communiquer avec le serveur de Fédération.  
+Dans la mesure où le système DNS du réseau de périmètre est configuré pour résoudre toutes les demandes de fs.fabrikam.com sur le serveur proxy de Fédération de compte, le serveur proxy de Fédération du partenaire de compte a une entrée dans son fichier hosts local pour résoudre fs.fabrikam.com à l’adresse IP du serveur de Fédération de compte réel \(ou du nom DNS de cluster pour la batterie de serveurs de Fédération\) connectée au réseau Cela permet au serveur proxy de Fédération de compte de résoudre le nom d’hôte fs.fabrikam.com en serveur de Fédération de comptes plutôt qu’à lui-même, comme cela se produit s’il essayait de Rechercher fs.fabrikam.com à l’aide du DNS de périmètre, afin que le serveur proxy de Fédération puisse communiquer avec le serveur de Fédération.  
   
 ### <a name="2-configure-perimeter-dns"></a>2. Configurer le DNS de périmètre  
 Étant donné qu’il n’existe qu’un seul nom d’hôte AD FS auquel les ordinateurs clients sont dirigés, qu’ils se trouvent sur un intranet ou sur Internet, les ordinateurs clients sur Internet qui utilisent le serveur DNS de périmètre doivent résoudre le nom de domaine complet du serveur de Fédération de compte \(fs.fabrikam.com\) à l’adresse IP du serveur proxy de Fédération de compte sur le réseau de périmètre. Pour qu’il puisse transférer les clients vers le serveur proxy de Fédération de compte lorsqu’ils tentent de résoudre fs.fabrikam.com, le DNS de périmètre contient une zone DNS corp.fabrikam.com limitée avec un seul hôte \(un\) enregistrement de ressource pour FS \(fs.fabrikam.com\) et l’adresse IP du serveur proxy de Fédération de compte sur le réseau de périmètre.  
@@ -59,7 +58,7 @@ L’illustration suivante et les étapes correspondantes montrent la réalisatio
 ### <a name="1-configure-perimeter-dns"></a>1. Configurer le DNS de périmètre  
 Pour ce scénario, étant donné qu’il est supposé que vous allez configurer la zone DNS Internet que vous contrôlez pour résoudre les requêtes effectuées pour une URL de point de terminaison spécifique \(fs.fabrikam.com\) au serveur proxy de Fédération dans le réseau de périmètre, vous devez également configurer la zone du DNS de périmètre pour transférer ces demandes au serveur de Fédération du réseau d’entreprise.  
   
-Afin que les clients puissent être transférés au serveur de Fédération de compte lorsqu’ils tentent de résoudre fs.fabrikam.com, le DNS de périmètre est configuré avec un seul hôte \(un\) enregistrement de ressource pour FS \(fs.fabrikam.com\) et l’adresse IP du serveur de Fédération de compte sur le réseau d’entreprise. Cela permet au serveur proxy de Fédération de compte de résoudre le nom d’hôte fs.fabrikam.com en serveur de Fédération de comptes plutôt qu’à lui-même, comme cela se produit s’il essayait de Rechercher fs.fabrikam.com à l’aide de DNS Internet, afin que le serveur de Fédération le proxy peut communiquer avec le serveur de Fédération.  
+Afin que les clients puissent être transférés au serveur de Fédération de compte lorsqu’ils tentent de résoudre fs.fabrikam.com, le DNS de périmètre est configuré avec un seul hôte \(un\) enregistrement de ressource pour FS \(fs.fabrikam.com\) et l’adresse IP du serveur de Fédération de compte sur le réseau d’entreprise. Cela permet au serveur proxy de Fédération de compte de résoudre le nom d’hôte fs.fabrikam.com en serveur de Fédération de comptes plutôt qu’à lui-même, comme cela se produit s’il essayait de Rechercher fs.fabrikam.com à l’aide de DNS Internet, afin que le serveur proxy de Fédération puisse communiquer avec le serveur de Fédération.  
   
 ### <a name="2-configure-internet-dns"></a>2. Configurer le DNS Internet  
 Pour réussir la résolution de noms dans ce scénario, toutes les demandes des ordinateurs clients sur Internet pour fs.fabrikam.com doivent être résolues par la zone DNS Internet que vous contrôlez. Par conséquent, vous devez configurer votre zone DNS Internet pour transférer les demandes des clients pour fs.fabrikam.com à l’adresse IP du serveur proxy de Fédération de compte dans le réseau de périmètre.  

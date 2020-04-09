@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 9779da98ecb43245fe206390d9b70471f15d706e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9807efa2c570b8ed63c2d776327b8e3311846488
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362614"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80830112"
 ---
 # <a name="vssadmin-delete-shadows"></a>Vssadmin supprimer les ombres
 
@@ -27,13 +27,13 @@ Supprime les clichés instantanés d’un volume spécifié.
 vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID>] [/quiet]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---|---|
 |/for =\<> VolumeFor|Spécifie le cliché instantané du volume qui sera supprimé.|
 |/oldest|Supprime uniquement le cliché instantané le plus ancien.|
-|All|Supprime tous les clichés instantanés du volume spécifié.|
+|/all|Supprime tous les clichés instantanés du volume spécifié.|
 |/Shadow =\<ShadowID >|Supprime le cliché instantané spécifié par ShadowID. Pour afficher l’ID du cliché instantané, utilisez la commande **vssadmin list Shadows** . Lorsque vous entrez un ID de cliché instantané, utilisez le format suivant, où chaque *X* représente un caractère hexadécimal :<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
 |/quiet|Spécifie que la commande n’affichera pas de messages pendant l’exécution.|
 

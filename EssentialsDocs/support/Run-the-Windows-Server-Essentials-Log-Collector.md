@@ -1,23 +1,19 @@
 ---
 title: Exécuter Windows Server Essentials Log Collector
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0d340223-fa24-4c75-ba8e-b654feb120ab
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a39c23ef4119e109372bad3455415f8d3862cf1b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 6aac2ed382321349d39874c7db7617f6da845919
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318676"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852272"
 ---
 # <a name="run-the-windows-server-essentials-log-collector"></a>Exécuter Windows Server Essentials Log Collector
 Vous pouvez exécuter le collecteur de journaux Windows Server Essentials à partir du serveur ou d’un ordinateur sur le réseau. Si vous exécutez Log Collector à partir du serveur, vous pouvez uniquement collecter les journaux du serveur. Si vous exécutez Log Collector à partir d'un ordinateur réseau, vous pouvez choisir de collecter les journaux du serveur en plus de ceux de cet ordinateur.  

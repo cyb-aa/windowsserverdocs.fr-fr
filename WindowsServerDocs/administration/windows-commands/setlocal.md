@@ -1,28 +1,22 @@
 ---
 title: setlocal
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour setlocal, qui démarre la localisation des variables d’environnement dans un fichier de commandes.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e4e4b6d3-3f1a-4851-a782-25ee2470e16e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 997c996854f488bb1776f135e3288e3b094e683c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 24ed41289bb517d41db11fd3ebc41e5751b7afd9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384088"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834362"
 ---
 # <a name="setlocal"></a>setlocal
-
-
 
 Démarre la localisation des variables d’environnement dans un fichier de commandes. La localisation se poursuit jusqu’à ce qu’une commande **endlocal** correspondante soit rencontrée ou que la fin du fichier de commandes soit atteinte.
 
@@ -63,9 +57,9 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
     verify other 2>nul
     if errorlevel 1 echo Unable to enable extensions
     ```  
-    Comme **cmd** ne définit pas la variable ERRORLEVEL lorsque les extensions de commande sont désactivées, la commande **verify** initialise la variable ERRORLEVEL à une valeur différente de zéro quand vous l’utilisez avec un argument non valide. En outre, si vous utilisez la commande **setlocal** avec les arguments {**ENABLEEXTENSIONS** | **disableextensions**} ou {**ENABLEDELAYEDEXPANSION** | **disabledelayedexpansion**} et qu’elle ne définit pas la variable ERRORLEVEL sur **1**, les extensions de commande ne sont pas disponibles.
+    Comme **cmd** ne définit pas la variable ERRORLEVEL lorsque les extensions de commande sont désactivées, la commande **verify** initialise la variable ERRORLEVEL à une valeur différente de zéro quand vous l’utilisez avec un argument non valide. En outre, si vous utilisez la commande **setlocal** avec les arguments {**ENABLEEXTENSIONS** | **disableextensions**} ou {**ENABLEDELAYEDEXPANSION** | **disabledelayedexpansion**} et qu’elle n’affecte pas la valeur **1**à la variable ERRORLEVEL, les extensions de commande ne sont pas disponibles.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Vous pouvez localiser les variables d’environnement dans un fichier de commandes, comme indiqué dans l’exemple de script suivant :
 ```
@@ -82,6 +76,6 @@ endlocal
 start notepad c:\superapp.out
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,28 +1,22 @@
 ---
-title: copy
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: copier
+description: Rubrique de commandes Windows pour Copy, qui copie un ou plusieurs fichiers d’un emplacement à un autre.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9624d4a1-349a-4693-ad00-1d1d4e59e9ac
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 102fd6b59516b04b8986ee47b52f521be73f04de
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f1ba088f62dec574a23406683bf5ae3d13c1e86
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379039"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847142"
 ---
-# <a name="copy"></a>copy
-
-
+# <a name="copy"></a>copier
 
 Copie un ou plusieurs fichiers d’un emplacement à un autre.
 
@@ -34,7 +28,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a | /b] [+ ...]] [<Destination> [/a | /b]]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -112,7 +106,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
     Pour copier tous les fichiers et sous-répertoires d’un répertoire, utilisez la commande **xcopy** .
 -   La commande de **copie** , avec des paramètres différents, est disponible à partir de la console de récupération.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour copier un fichier appelé MEMO. doc vers letter. doc dans le lecteur actif et vous assurer qu’un caractère de fin de fichier (CTRL + Z) se trouve à la fin du fichier copié, tapez :
 ```
@@ -136,7 +130,7 @@ Pour combiner tous les fichiers du répertoire actif ayant l’extension de nom 
 ```
 copy *.txt Combined.doc 
 ```
-Si vous souhaitez combiner plusieurs fichiers binaires dans un seul fichier à l’aide de caractères génériques, incluez **/b**. Cela empêche Windows de traiter CTRL + Z comme un caractère de fin de fichier. Par exemple, entrez :
+Si vous souhaitez combiner plusieurs fichiers binaires dans un seul fichier à l’aide de caractères génériques, incluez **/b**. Cela empêche Windows de traiter CTRL + Z comme un caractère de fin de fichier. Par exemple, tapez :
 ```
 copy /b *.exe Combined.exe
 ```
@@ -144,7 +138,7 @@ copy /b *.exe Combined.exe
 > [!CAUTION]
 > Si vous combinez des fichiers binaires, le fichier résultant peut être inutilisable en raison de la mise en forme interne.
 
-Dans l’exemple suivant, **Copy** combine chaque fichier avec une extension. txt avec son fichier. Ref correspondant. Le résultat est un fichier portant le même nom de fichier, mais avec une extension. doc. **Copie** combine fichier1. txt avec fichier1. ref pour former fichier1. doc, puis **copie** le fichier2. txt avec fichier2. ref pour former fichier2. doc, et ainsi de suite. Par exemple, entrez :
+Dans l’exemple suivant, **Copy** combine chaque fichier avec une extension. txt avec son fichier. Ref correspondant. Le résultat est un fichier portant le même nom de fichier, mais avec une extension. doc. **Copie** combine fichier1. txt avec fichier1. ref pour former fichier1. doc, puis **copie** le fichier2. txt avec fichier2. ref pour former fichier2. doc, et ainsi de suite. Par exemple, tapez :
 ```
 copy *.txt + *.ref *.doc
 ```
@@ -153,6 +147,6 @@ Pour combiner tous les fichiers avec l’extension. txt, puis combiner tous les 
 copy *.txt + *.ref Combined.doc
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

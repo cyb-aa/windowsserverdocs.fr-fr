@@ -1,28 +1,22 @@
 ---
 title: Bitsadmin setclientcertificatebyid
-description: La rubrique commandes Windows pour **Bitsadmin setclientcertificatebyid** spécifie l’identificateur du certificat client à utiliser pour l’authentification du client dans une requête HTTPS (SSL).
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour Bitsadmin setclientcertificatebyid, qui spécifie l’identificateur du certificat client à utiliser pour l’authentification du client dans une requête HTTPs (SSL)
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8585a7a1-7472-437b-b04a-a11925782a3a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 53b6fa4c65397cf710d0497fbae889afd31ec136
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 80c97b21194c773d1b21aab2ee31794624da671c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380729"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849662"
 ---
 # <a name="bitsadmin-setclientcertificatebyid"></a>Bitsadmin setclientcertificatebyid
-
-
 
 Spécifie l’identificateur du certificat client à utiliser pour l’authentification du client dans une requête HTTPs (SSL).
 
@@ -32,7 +26,7 @@ Spécifie l’identificateur du certificat client à utiliser pour l’authentif
 bitsadmin /SetClientCertificateByID <Job> <store_location> <store_name> hexa-decimal_cert_id>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -41,13 +35,13 @@ bitsadmin /SetClientCertificateByID <Job> <store_location> <store_name> hexa-dec
 |Store_name|Nom du magasin de certificats. Les valeurs possibles incluent notamment :</br>AUTORITÉ de certification (certificats d’autorité de certification)</br>MY (certificats personnels)</br>RACINE (certificats racines)</br>SPC (certificat de l’éditeur de logiciel)|
 |Hexadecimal_cert_id|Nombre hexadécimal représentant le hachage du certificat|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 L’exemple suivant spécifie l’identificateur du certificat client à utiliser pour l’authentification du client dans une requête HTTPs (SSL) pour la tâche nommée *myJob*.
 ```
 C:\>bitsadmin Bitsadmin /SetClientCertificateByID myJob BG_CERT_STORE_LOCATION_CURRENT_USER MY A106B52356D3FBCD1853A41B619358BD 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

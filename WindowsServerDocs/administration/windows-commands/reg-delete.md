@@ -1,24 +1,20 @@
 ---
 title: reg supprimer
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cee05071-1607-4ab1-b8ab-65caebeb85c3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7156bf58b27da1602931f0dc1903de71d86764e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 726a3c700a9278dbc7abb1873aae7ea3c957bbb5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384760"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836502"
 ---
 # <a name="reg-delete"></a>reg supprimer
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -51,10 +47,10 @@ Le tableau suivant répertorie les valeurs renvoyées pour l’opération **reg 
 
 |Valeur|Description|
 |-----|-----------|
-|0|Réussite|
+|0|Opération réussie|
 |1|Échec|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour supprimer le délai d’expiration de la clé de Registre et ses sous-clés et valeurs, tapez :
 ```
@@ -65,6 +61,6 @@ Pour supprimer la valeur de Registre MTU sous HKLM\Software\MyCo sur l’ordinat
 REG DELETE \\ZODIAC\HKLM\Software\MyCo /v MTU
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

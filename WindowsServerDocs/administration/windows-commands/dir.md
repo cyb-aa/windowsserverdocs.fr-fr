@@ -1,28 +1,22 @@
 ---
 title: dir
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour dir, qui affiche la liste des fichiers et sous-répertoires d’un répertoire.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: edcbf69b-eaa4-466e-b210-3dd8892f4d93
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8aeb2b3b7d62ae62ba9b8fa70988cf64060673ca
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 44e50707886df87b217f22bc04edcdaf7496b0d1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79320013"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845562"
 ---
 # <a name="dir"></a>dir
-
-
 
 Affiche la liste des fichiers et sous-répertoires d’un répertoire. En cas d’utilisation sans paramètre, **dir** affiche le nom de volume et le numéro de série du disque, suivis d’une liste de répertoires et de fichiers sur le disque (y compris leur nom et la date et l’heure de leur dernière modification). Pour les fichiers, **dir** affiche l’extension de nom et la taille en octets. **Dir** affiche également le nombre total de fichiers et de répertoires figurant dans la liste, leur taille cumulée et l’espace libre (en octets) restant sur le disque.
 
@@ -34,7 +28,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>]][/o[[:]<SortOrder>]] [/t[[:]<TimeField>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -44,7 +38,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 |/q|Affiche les informations de propriété du fichier.|
 |/w|Affiche la liste dans un format étendu, avec un maximum de cinq noms de fichiers ou de répertoires sur chaque ligne.|
 |/d|Affiche la liste dans le même format que **/w**, mais les fichiers sont triés par colonne.|
-|/a [[ :]\<les attributs >]|Affiche uniquement les noms de ces répertoires et fichiers avec les attributs que vous spécifiez. Si vous omettez **/a**, **dir** affiche les noms de tous les fichiers, à l’exception des fichiers système et cachés. Si vous utilisez **/a** sans spécifier d' *attributs*, **dir** affiche les noms de tous les fichiers, y compris les fichiers système et les fichiers cachés.</br>La liste suivante décrit chacune des valeurs que vous pouvez utiliser pour les *attributs*. Utilisation d’un signe deux-points ( :) est facultatif. Utilisez n’importe quelle combinaison de ces valeurs et ne séparez pas les valeurs par des espaces.</br>**d** répertoires</br>fichiers masqués **h**</br>fichiers système **s**</br>points d’analyse **l**</br>fichiers en lecture seule **r**</br>**fichiers prêts** pour l’archivage</br>**je** ne trouve pas les fichiers indexés</br>**-** Signification du préfixe « not »|
+|/a [[ :]\<les attributs >]|Affiche uniquement les noms de ces répertoires et fichiers avec les attributs que vous spécifiez. Si vous omettez **/a**, **dir** affiche les noms de tous les fichiers, à l’exception des fichiers système et cachés. Si vous utilisez **/a** sans spécifier d' *attributs*, **dir** affiche les noms de tous les fichiers, y compris les fichiers système et les fichiers cachés.</br>La liste suivante décrit chacune des valeurs que vous pouvez utiliser pour les *attributs*. Utilisation d’un signe deux-points ( :) est facultatif. Utilisez n’importe quelle combinaison de ces valeurs et ne séparez pas les valeurs par des espaces.</br>**d** répertoires</br>fichiers masqués **h**</br>fichiers système **s**</br>points d’analyse **l**</br>fichiers en lecture seule **r**</br>**fichiers prêts** pour l’archivage</br>**je** ne trouve pas les fichiers indexés</br>**-** Signification du préfixe non|
 |/o [[ :]\<SortOrder >]|Trie la sortie en fonction de *SortOrder*, qui peut être n’importe quelle combinaison des valeurs suivantes :</br>**n** par nom (alphabétique)</br>**e** par extension (par ordre alphabétique)</br>premiers répertoires du groupe **g**</br>**s** par taille (le plus petit en premier)</br>**d** par date/heure (le plus ancien en premier)</br>**-** Préfixe de l’ordre inverse</br>Remarque : l’utilisation d’un signe deux-points est facultative. Les valeurs multiples sont traitées dans l’ordre dans lequel vous les répertoriez. Ne séparez pas plusieurs valeurs par des espaces.</br>Si *SortOrder* n’est pas spécifié, **dir/o** répertorie les répertoires par ordre alphabétique, suivis des fichiers, qui sont également triés par ordre alphabétique.|
 |/t [[ :]\<TimeField >]|Spécifie le champ d’heure à afficher ou à utiliser pour le tri. La liste suivante décrit chacune des valeurs que vous pouvez utiliser pour *TimeField*:</br>création **c**</br>**un** dernier accès</br>en **dernier écrit**|
 |/s|Répertorie toutes les occurrences du nom de fichier spécifié dans le répertoire spécifié et dans tous les sous-répertoires.|
@@ -63,8 +57,8 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
   **Astérisque (\*) :** Utilisez l’astérisque comme substitut pour toute chaîne de caractères, par exemple :  
   - **dir \*. txt** répertorie tous les fichiers du répertoire actif avec les extensions qui commencent par. txt, par exemple. txt,. txt1,. txt_old.
-  - **dir read\*. txt** répertorie tous les fichiers du répertoire actif qui commencent par « Read » et les extensions qui commencent par. txt, telles que. txt,. txt1 ou. txt_old.
-  - Répertoire de **lecture\*.\*** répertorie tous les fichiers du répertoire actif qui commencent par « lecture » avec une extension.
+  - **dir read\*. txt** répertorie tous les fichiers du répertoire actif qui commencent par Read et les extensions qui commencent par. txt, telles que. txt,. txt1 ou. txt_old.
+  - Répertoire de **lecture\*.\*** répertorie tous les fichiers du répertoire actif qui commencent par lire avec une extension.
 
   Le caractère générique astérisque utilise toujours le mappage de noms de fichiers courts. vous risquez donc d’obtenir des résultats inattendus. Par exemple, le répertoire suivant contient deux fichiers (t. txt2 et T97. txt) : 
  
@@ -83,7 +77,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
   Vous pouvez vous attendre à ce que la saisie de **dir t97\\** * retourne le fichier T97. txt. Toutefois, le fait de taper **dir t97\\** * retourne les deux fichiers, car le caractère générique astérisque correspond au fichier t. txt2 T97. txt en utilisant son mappage de noms courts T97B4 ~ 1. txt. De même, si vous tapez **del t97\\** *, les deux fichiers sont supprimés.
 
-  **Point d’interrogation ( ?) :** Utilisez le point d’interrogation comme substitut d’un caractère unique dans un nom. Par exemple, **en tapant dir read ???. txt** répertorie tous les fichiers du répertoire actif portant l’extension. txt qui commencent par « Read » et qui sont suivis d’un maximum de trois caractères. Cela comprend Read. txt, Read1. txt, Read12. txt, Read123. txt et Readme1. txt, mais pas Readme12. txt.
+  **Point d’interrogation ( ?) :** Utilisez le point d’interrogation comme substitut d’un caractère unique dans un nom. Par exemple, **en tapant dir read ???. txt** répertorie tous les fichiers du répertoire actif portant l’extension. txt qui commencent par Read et qui sont suivis de trois caractères au maximum. Cela comprend Read. txt, Read1. txt, Read12. txt, Read123. txt et Readme1. txt, mais pas Readme12. txt.
 - Spécification des attributs d’affichage de fichier
 
   Si vous utilisez **/a** avec plusieurs valeurs dans les *attributs*, **dir** affiche uniquement les noms de ces fichiers avec tous les attributs spécifiés. Par exemple, si vous utilisez **/a** avec **r** et **-h** comme attributs (à l’aide de **/a : r-h** ou **/AR-h**), **dir** n’affiche que les noms des fichiers en lecture seule qui ne sont pas masqués.
@@ -103,7 +97,7 @@ Pour afficher tous les répertoires l’un après l’autre, dans l’ordre alph
 dir /s/w/o/p
 ```
 
-**Dir** répertorie le répertoire racine, les sous-répertoires et les fichiers dans le répertoire racine, y compris les extensions. Ensuite, **dir** répertorie les noms de sous-répertoires et les noms de fichiers dans chaque sous-répertoire de l’arborescence.
+La commande **dir** répertorie le répertoire racine, les sous-répertoires et les fichiers dans le répertoire racine, y compris les extensions. Ensuite, **dir** répertorie les noms de sous-répertoires et les noms de fichiers dans chaque sous-répertoire de l’arborescence.
 
 Pour modifier l’exemple précédent de manière à ce que **dir** affiche les noms et les extensions de fichiers, mais omet les noms de répertoire, tapez :
 
@@ -135,8 +129,8 @@ Pour afficher la liste de tous les noms de fichiers avec l’extension. txt dans
 dir c:\*.txt /w/o/s/p
 ```
 
-**Dir** affiche, dans un format étendu, une liste alphabétique des noms de fichiers correspondants dans chaque répertoire, et s’interrompt chaque fois que l’écran se remplit jusqu’à ce que vous appuyiez sur une touche pour continuer.
+La commande **dir** affiche, dans un format étendu, une liste alphabétique des noms de fichiers correspondants dans chaque répertoire, et s’interrompt chaque fois que l’écran se remplit jusqu’à ce que vous appuyiez sur une touche pour continuer.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

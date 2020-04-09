@@ -4,15 +4,15 @@ description: Instructions de réglage des performances pour les hôtes de sessio
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS; DenisGun
+ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: b439b0cbab66f98a1f74faeb7bff996b30a188d5
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 3227bfe3bf21343ca9b7e85a07f550b4684a2fb7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812330"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851712"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Réglage des performances Bureau à distance hôtes de session
 
@@ -58,7 +58,7 @@ L’activité du disque qui est générée sur un serveur hôte de session Burea
 
 -   Profils utilisateur et données utilisateur
 
-Dans l’idéal, ces zones doivent être sauvegardées par des dispositifs de stockage distincts. L’utilisation de configurations RAID entrelacées ou d’autres types de stockage à hautes performances améliore les performances. Nous vous recommandons vivement d’utiliser des adaptateurs de stockage avec une mise en cache d’écriture avec batterie de secours. Les contrôleurs avec le cache d’écriture de disque offrent une meilleure prise en charge des opérations d’écriture synchrones. Étant donné que tous les utilisateurs disposent d’une ruche distincte, les opérations d’écriture synchrones sont beaucoup plus courantes sur un serveur hôte de session Bureau à distance. Les ruches de Registre sont régulièrement enregistrées sur le disque à l’aide d’opérations d’écriture synchrones. Pour activer ces optimisations, à partir de la console Gestion des disques, ouvrez la boîte de dialogue **Propriétés** du disque de destination et, sous l’onglet **stratégies** , sélectionnez **activer le cache d’écriture sur le disque** et **désactiver la mémoire tampon d’écriture dans le cache Windows. vidages** sur les cases à cocher de l’appareil.
+Dans l’idéal, ces zones doivent être sauvegardées par des dispositifs de stockage distincts. L’utilisation de configurations RAID entrelacées ou d’autres types de stockage à hautes performances améliore les performances. Nous vous recommandons vivement d’utiliser des adaptateurs de stockage avec une mise en cache d’écriture avec batterie de secours. Les contrôleurs avec le cache d’écriture de disque offrent une meilleure prise en charge des opérations d’écriture synchrones. Étant donné que tous les utilisateurs disposent d’une ruche distincte, les opérations d’écriture synchrones sont beaucoup plus courantes sur un serveur hôte de session Bureau à distance. Les ruches de Registre sont régulièrement enregistrées sur le disque à l’aide d’opérations d’écriture synchrones. Pour activer ces optimisations, à partir de la console Gestion des disques, ouvrez la boîte de dialogue **Propriétés** du disque de destination et, sous l’onglet **stratégies** , activez la case à cocher **activer le cache d’écriture sur le disque** et **désactiver le vidage du cache d’écriture Windows** sur le périphérique.
 
 ### <a name="network-configuration"></a>Configuration réseau
 
@@ -132,7 +132,7 @@ Les icônes de notification sur le bureau peuvent avoir des mécanismes d’actu
 
 ### <a name="remote-desktop-protocol-data-compression"></a>Compression des données de protocole RDP (Remote Desktop Protocol)
 
-La compression de protocole RDP (Remote Desktop Protocol) peut être configurée à l’aide de stratégie de groupe sous **Configuration ordinateur** &gt; **modèles d’administration** &gt; **composants Windows** **&gt; services Bureau à distance** &gt; **Bureau à distance hôte de session** &gt; **environnement de session à distance** &gt; **configurer la compression pour les données RemoteFX**. Trois valeurs sont possibles :
+La compression de protocole RDP (Remote Desktop Protocol) peut être configurée à l’aide de stratégie de groupe sous **Configuration ordinateur** &gt; **modèles d’administration** &gt; **composants Windows** **&gt; services Bureau à distance** &gt; Bureau à distance **hôte de session** &gt; de session **à distance** &gt; **configurer la compression pour les données RemoteFX**. Trois valeurs sont possibles :
 
 -   **Optimisé pour utiliser moins de mémoire** Consomme la quantité de mémoire minimale par session, mais a le taux de compression le plus faible et, par conséquent, la consommation de bande passante la plus élevée.
 
@@ -144,7 +144,7 @@ Vous pouvez également choisir de ne pas utiliser un algorithme de compression p
 
 ### <a name="device-redirection"></a>Redirection de périphérique
 
-La redirection de périphérique peut être configurée à l’aide de stratégie de groupe sous **Configuration ordinateur** &gt; **Modèles d’administration** **composants Windows** **&gt; &gt; services Bureau à distance &gt;** **à distance Hôte de session Bureau** &gt; la **redirection de l’appareil et des ressources** ou à l’aide de la zone de propriétés de la **Collection de sessions** dans Gestionnaire de serveur.
+La redirection de périphérique peut être configurée à l’aide de stratégie de groupe sous **Configuration ordinateur** &gt; **Modèles d’administration** **composants Windows** **&gt; &gt; services Bureau à distance &gt; Bureau à distance** &gt; hôte de **session** **et la redirection de ressources** , ou à l’aide de la zone de propriétés de la collection de **sessions** dans Gestionnaire de serveur.
 
 En règle générale, la redirection de périphérique augmente la quantité de connexions au serveur hôte de session Bureau à distance réseau utilisée, car les données sont échangées entre les appareils sur les ordinateurs clients et les processus qui s’exécutent dans la session serveur. L’étendue de l’augmentation est une fonction de la fréquence des opérations exécutées par les applications qui s’exécutent sur le serveur sur les appareils redirigés.
 

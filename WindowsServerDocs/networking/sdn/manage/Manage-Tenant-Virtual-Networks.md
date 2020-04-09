@@ -1,23 +1,19 @@
 ---
 title: Gérer les réseaux virtuels locataires
 description: Cette rubrique fait partie du Guide de mise en réseau à définition logicielle sur la gestion des charges de travail client et des réseaux virtuels dans Windows Server 2016.
-manager: brianlic
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5905532b-626d-4b35-99a3-72a063e25809
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: 15ba6f6039e9b2249fadd7898a5393527e6ea2ab
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: f7c3ac1e4d85a7770bff8f731ef2091ebe3a4745
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313018"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854502"
 ---
 # <a name="manage-tenant-virtual-networks"></a>Gérer les réseaux virtuels locataires
 

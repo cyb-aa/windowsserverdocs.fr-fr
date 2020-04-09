@@ -1,24 +1,20 @@
 ---
 title: créer et gérer des groupes de serveurs
 description: Gestionnaire de serveur
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9d5b1be8-49fd-4ff7-9580-e4ff21fe4b17
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 74075f091cd707f6faf73567c1dce6f22a2f6753
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f4ad512c55bcd1391ad55bdbdeb9a2ba3bfd7f0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383218"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851542"
 ---
 # <a name="create-and-manage-server-groups"></a>créer et gérer des groupes de serveurs
 
@@ -26,7 +22,7 @@ ms.locfileid: "71383218"
 
 Cette rubrique décrit comment créer des groupes de serveurs personnalisés définis par l’utilisateur dans Gestionnaire de serveur dans Windows Server.
 
-## <a name="BKMK_groups"></a>Groupes de serveurs
+## <a name="server-groups"></a><a name=BKMK_groups></a>Groupes de serveurs
 Les serveurs que vous ajoutez au pool de serveurs sont affichés dans la page **tous les serveurs** de gestionnaire de serveur. Vous pouvez créer des groupes de serveurs personnalisés avec les serveurs que vous avez ajoutés. Les groupes de serveurs vous permettent d’afficher et de gérer un sous-ensemble plus petit de votre pool de serveurs en tant qu’unité logique ; par exemple, vous pouvez créer un groupe nommé **serveurs de gestion des comptes** pour tous les serveurs du service comptabilité de votre organisation ou un groupe nommé **Chicago** pour tous les serveurs situés géographiquement à Chicago. Après avoir créé un groupe de serveurs, la page d’installation du groupe dans Gestionnaire de serveur affiche des informations sur les événements, les services, les compteurs de performances, les Best Practices Analyzer les résultats et les rôles et fonctionnalités installés pour le groupe dans son ensemble.
 
 Les serveurs peuvent être membres de plusieurs groupes.
@@ -43,7 +39,7 @@ Les serveurs peuvent être membres de plusieurs groupes.
 
 #### <a name="to-edit-an-existing-server-group"></a>Pour modifier un groupe de serveurs existant
 
-1.  Effectuez l’une des opérations suivantes :
+1.  Effectuez l'une des opérations suivantes :
 
     -   Dans le volet de navigation Gestionnaire de serveur, cliquez avec le bouton droit sur un groupe de serveurs, puis cliquez sur **modifier le groupe de serveurs**.
 
@@ -58,7 +54,7 @@ Les serveurs peuvent être membres de plusieurs groupes.
 
 #### <a name="to-delete-an-existing-server-group"></a>Pour supprimer un groupe de serveurs existant
 
-1.  Effectuez l’une des opérations suivantes :
+1.  Effectuez l'une des opérations suivantes :
 
     -   Dans le volet de navigation Gestionnaire de serveur, cliquez avec le bouton droit sur un groupe de serveurs, puis cliquez sur **supprimer le groupe de serveurs**.
 

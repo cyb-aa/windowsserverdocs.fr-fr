@@ -6,13 +6,14 @@ ms.topic: get-started-article
 ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
+manager: lizross
 ms.date: 03/27/2018
-ms.openlocfilehash: fc1799db76f528a599ef70eec5093da0a76206a2
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 8b2ea665542d57b12899a5993a62973c446485a7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948538"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828352"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Mise à niveau propagée du système d’exploitation du cluster
 
@@ -45,7 +46,7 @@ Le scénario suivant n’est pas pris en charge dans Windows Server 2016 :
 
 La mise à niveau propagée de système d’exploitation de cluster est entièrement prise en charge par System Center Virtual Machine Manager (SCVMM) 2016. Si vous utilisez SCVMM 2016, consultez [effectuer une mise à niveau propagée d’un cluster hôte Hyper-V vers Windows Server 2016 dans VMM](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade?view=sc-vmm-1807) pour obtenir des conseils sur la mise à niveau des clusters et sur l’automatisation des étapes décrites dans ce document.  
 
-## <a name="requirements"></a>Conditions préalables  
+## <a name="requirements"></a>Configuration requise  
 Avant de commencer le processus de mise à niveau propagée du système d’exploitation du cluster, complétez les conditions suivantes :
 
 - Démarrez avec un cluster de basculement exécutant Windows Server (canal semi-annuel), Windows Server 2016 ou Windows Server 2012 R2.
@@ -226,7 +227,7 @@ La mise à niveau propagée de système d’exploitation de cluster comprend les
         ![ScreenCap présentant la sortie de l’applet de commande VMHostSupportedVersion](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png)  
         **Figure 21 : affichage des versions de configuration des machines virtuelles Hyper-V prises en charge par l’hôte**  
 
-   3. Sur chaque nœud hôte Hyper-V du cluster, les versions de configuration de machine virtuelle Hyper-V peuvent être mises à niveau en planifiant une courte fenêtre de maintenance avec les utilisateurs, en sauvegardant, en désactivant les machines virtuelles et en exécutant l’applet de commande [`Update-VMVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (voir figure 22). Cette opération met à jour la version de la machine virtuelle et active les nouvelles fonctionnalités Hyper-V, ce qui évite d’avoir à effectuer de futures mises à jour du composant d’intégration Hyper-V. Cette applet de commande peut être exécutée à partir du nœud Hyper-V qui héberge la machine virtuelle, ou le paramètre `-ComputerName` peut être utilisé pour mettre à jour la version de la machine virtuelle à distance. Dans cet exemple, nous mettons à niveau la version de configuration de VM1 de 5,0 à 7,0 pour tirer parti de nombreuses nouvelles fonctionnalités Hyper-V associées à cette version de configuration de machine virtuelle, telles que les points de contrôle de production (sauvegardes de cohérence d’application) et les machines virtuelles binaires fichier de configuration.  
+   3. Sur chaque nœud hôte Hyper-V du cluster, les versions de configuration de machine virtuelle Hyper-V peuvent être mises à niveau en planifiant une courte fenêtre de maintenance avec les utilisateurs, en sauvegardant, en désactivant les machines virtuelles et en exécutant l’applet de commande [`Update-VMVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (voir figure 22). Cette opération met à jour la version de la machine virtuelle et active les nouvelles fonctionnalités Hyper-V, ce qui évite d’avoir à effectuer de futures mises à jour du composant d’intégration Hyper-V. Cette applet de commande peut être exécutée à partir du nœud Hyper-V qui héberge la machine virtuelle, ou le paramètre `-ComputerName` peut être utilisé pour mettre à jour la version de la machine virtuelle à distance. Dans cet exemple, nous mettons à niveau la version de configuration de VM1 de 5,0 à 7,0 pour tirer parti de nombreuses nouvelles fonctionnalités Hyper-V associées à cette version de configuration de machine virtuelle, telles que les points de contrôle de production (sauvegardes de cohérence d’application) et le fichier de configuration de machine virtuelle binaire.  
 
        ![ScreenCap présentant l’applet de commande Update-VMVersion en action](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
        **Figure 22 : mise à niveau d’une version de machine virtuelle à l’aide de l’applet de commande PowerShell Update-VMVersion**  
@@ -243,7 +244,7 @@ Bien que nous ciblions des scénarios de cloud privé, en particulier les cluste
 - Nous encourageons les clients à parcourir rapidement le processus de mise à niveau du cluster, car certaines fonctionnalités du cluster ne sont pas optimisées pour le mode mixte du système d’exploitation.  
 - Évitez de créer ou de redimensionner le stockage sur des nœuds Windows Server 2016 alors que le cluster s’exécute en mode mixte en raison d’éventuelles incompatibilités lors du basculement d’un nœud Windows Server 2016 vers des nœuds Windows Server 2012 R2 de niveau supérieur.  
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions  
+## <a name="frequently-asked-questions"></a>Forum aux questions  
 **Combien de temps le cluster de basculement peut-il s’exécuter en mode mixte ?**  
     Nous encourageons les clients à effectuer la mise à niveau dans un délai de quatre semaines. Il existe de nombreuses optimisations dans Windows Server 2016. Nous avons réussi à mettre à niveau les clusters de serveurs de fichiers Hyper-V et avec montée en puissance parallèle sans temps d’arrêt en moins de quatre heures au total.  
 
@@ -277,7 +278,7 @@ Bien que nous ciblions des scénarios de cloud privé, en particulier les cluste
 **Puis-je utiliser System Center 2016 Virtual Machine Manager (SCVMM) pour automatiser le processus de mise à niveau propagée du système d’exploitation du cluster ?**  
     Oui, vous pouvez automatiser le processus de mise à niveau propagée du système d’exploitation du cluster à l’aide de VMM dans System Center 2016.  
 
-## <a name="see-also"></a>Articles associés  
+## <a name="see-also"></a>Voir aussi  
 -   [Notes de publication : problèmes importants dans Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
 -   [Nouveautés de Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [Nouveautés du clustering de basculement dans Windows Server](whats-new-in-failover-clustering.md)  

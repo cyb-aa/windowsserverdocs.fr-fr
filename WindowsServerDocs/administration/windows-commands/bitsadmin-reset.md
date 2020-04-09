@@ -1,57 +1,48 @@
 ---
 title: bitsadmin reset
-description: La rubrique commandes Windows pour **Bitsadmin Reset** -annule tous les travaux de la file d’attente de transfert détenus par l’utilisateur actuel.
-ms.custom: na
+description: La rubrique commandes Windows pour **Bitsadmin Reset**, qui annule tous les travaux de la file d’attente de transfert détenues par l’utilisateur actuel.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0e4f9d1d-072c-493f-8d7a-f6d713c3ef29
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: adc6b07a7b5d1414c733fe6a3ac05eba7cb3029e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ed1dcf9bce06af527ffb5b6a79d76d860d78450c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380808"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849792"
 ---
 # <a name="bitsadmin-reset"></a>bitsadmin reset
 
-Annule tous les travaux de la file d’attente de transfert détenus par l’utilisateur actuel.
+Annule toutes les tâches de la file d’attente de transfert détenues par l’utilisateur actuel. > Vous ne pouvez pas réinitialiser les travaux créés par le système local. Au lieu de cela, vous devez être administrateur et utiliser le planificateur de tâches pour planifier cette commande en tant que tâche à l’aide des informations d’identification du système local.
 
-**BITSAdmin 1,5 et versions antérieures**: Si vous disposez de privilèges d’administrateur, **réinitialisez** annule tous les travaux de la file d’attente. L’option/AllUsers n’est pas prise en charge.
+> [!NOTE]
+> Dans BITSAdmin 1,5 et les versions antérieures, si vous disposez de privilèges d’administrateur, le commutateur/Reset annule tous les travaux de la file d’attente. En outre, l’option/ALLUSERS n’est pas prise en charge.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /Reset [/AllUsers]
+bitsadmin /reset [/allusers]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|AllUsers|Facultatif : annule tous les travaux de la file d’attente.|
+| Paramètre | Description |
+| -------------- | -------------- |
+| /ALLUSERS | Ce paramètre est facultatif. Annule toutes les tâches de la file d’attente détenues par l’utilisateur actuel. Vous devez disposer de privilèges d’administrateur pour utiliser ce paramètre. |
 
-## <a name="remarks"></a>Notes
-
-Vous devez disposer de privilèges d’administrateur pour utiliser le paramètre **ALLUSERS** .
-
-> [!NOTE]
-> Les administrateurs ne peuvent pas réinitialiser les travaux créés par le système local. Utilisez le planificateur de tâches pour planifier cette commande en tant que tâche à l’aide des informations d’identification du système local.
-
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 L’exemple suivant annule tous les travaux de la file d’attente de transfert pour l’utilisateur actuel.
+
 ```
-C:\>bitsadmin /Reset
+C:\>bitsadmin /reset
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

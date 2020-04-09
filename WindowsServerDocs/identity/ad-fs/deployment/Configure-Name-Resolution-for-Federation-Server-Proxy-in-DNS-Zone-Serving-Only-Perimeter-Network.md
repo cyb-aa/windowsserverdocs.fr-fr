@@ -1,7 +1,6 @@
 ---
 ms.assetid: b7109e46-b66e-4c5c-8b87-a6611d68415a
 title: Configurer la résolution de noms pour un serveur proxy de fédération dans une zone DNS desservant uniquement le réseau de périmètre
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: de4627f2e03e6432f4e678cd9ca932819cb483d5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 451ed2bb2b2da9481d33c6e9e339bb582824a4e1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408438"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854922"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>Configurer la résolution de noms pour un serveur proxy de fédération dans une zone DNS desservant uniquement le réseau de périmètre
 
@@ -31,7 +30,7 @@ Pour que la résolution de noms puisse fonctionner correctement pour un serveur 
 ## <a name="add-the-ip-address-of-a-federation-server-to-the-hosts-file"></a>Ajouter l’adresse IP d’un serveur de Fédération au fichier hosts  
 Pour qu’un serveur proxy de Fédération puisse fonctionner comme prévu dans le réseau de périmètre d’un partenaire de compte, vous devez ajouter une entrée au fichier hosts sur ce serveur proxy de Fédération qui pointe vers le nom d’hôte DNS d’un serveur de Fédération \(par exemple, fs.fabrikam.com\) et \(adresse IP, par exemple, 192.168.1.4\) dans le réseau d’entreprise du partenaire de compte. L’ajout de cette entrée au fichier hosts empêche le serveur proxy de Fédération de se contacter pour résoudre un appel initié par le client\-à un serveur de Fédération du partenaire de compte.  
   
-Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs** ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 #### <a name="to-add-the-ip-address-of-a-federation-server-to-the-hosts-file"></a>Pour ajouter l’adresse IP d’un serveur de Fédération au fichier hosts  
   

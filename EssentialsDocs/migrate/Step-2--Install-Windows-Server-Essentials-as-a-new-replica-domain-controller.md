@@ -1,23 +1,19 @@
 ---
 title: 'Étape 2 : Installer Windows Server Essentials en tant que nouveau contrôleur de domaine réplica'
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c7ccfc34-63fd-436b-a1cd-e05810f60bfe
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5968db77c091dbca1eb7d38f5e924e5f449052ce
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 932ff1010ebe0be3b560375ac46b0372f86e3dc2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318774"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852372"
 ---
 # <a name="step-2-install-windows-server-essentials-as-a-new-replica-domain-controller"></a>Étape 2 : Installer Windows Server Essentials en tant que nouveau contrôleur de domaine réplica
 

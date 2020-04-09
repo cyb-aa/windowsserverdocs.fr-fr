@@ -1,33 +1,29 @@
 ---
 title: Vue d’ensemble technique des stratégies de restriction logicielle
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc7013b0-0efd-40fd-bd6d-75128adbd0b8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 293239c9f746f939b06d45d6e8c1a50b59e2bc43
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 38625a8d416345a6a7ed40c021b55aa10d1fd92f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322961"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855272"
 ---
 # <a name="software-restriction-policies-technical-overview"></a>Vue d’ensemble technique des stratégies de restriction logicielle
 
 >S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique décrit les stratégies de restriction logicielle, quand et comment utiliser la fonctionnalité, quelles modifications ont été implémentées dans les versions antérieures et fournit des liens vers des ressources supplémentaires pour vous aider à créer et déployer des stratégies de restriction logicielle à compter de Windows Serveur 2008 et Windows Vista.
+Cette rubrique décrit les stratégies de restriction logicielle, le moment et l’utilisation de la fonctionnalité, les modifications qui ont été implémentées dans les versions antérieures et fournit des liens vers des ressources supplémentaires pour vous aider à créer et déployer des stratégies de restriction logicielle à compter de Windows Server 2008 et Windows Vista.
 
 ## <a name="introduction"></a>Introduction
-Les stratégies de restriction logicielle offrent aux administrateurs un mécanisme de stratégie de groupe pour identifier les logiciels et contrôler leur capacité à s’exécuter sur l’ordinateur local. Ces stratégies peuvent être utilisées pour protéger les ordinateurs exécutant des systèmes d’exploitation Microsoft Windows (à compter de Windows Server 2003 et Windows XP Professionnel) contre les conflits connus et pour protéger les ordinateurs contre les menaces de sécurité telles que les virus malveillants. et chevaux de Troie. Les stratégies de restriction logicielle peuvent aussi contribuer à créer une configuration fortement restreinte pour vos ordinateurs, dans laquelle seule l’exécution d’applications clairement identifiées est autorisée. Les stratégies de restriction logicielle sont intégrées à Microsoft Active Directory et à la stratégie de groupe. Vous avez également la possibilité de créer des stratégies de restriction logicielle sur des ordinateurs autonomes.
+Les stratégies de restriction logicielle offrent aux administrateurs un mécanisme de stratégie de groupe pour identifier les logiciels et contrôler leur capacité à s’exécuter sur l’ordinateur local. Ces stratégies peuvent être utilisées pour protéger les ordinateurs exécutant des systèmes d’exploitation Microsoft Windows (à compter de Windows Server 2003 et Windows XP Professionnel) contre les conflits connus et pour protéger les ordinateurs contre les menaces de sécurité telles que les virus malveillants et les chevaux de Troie. Les stratégies de restriction logicielle peuvent aussi contribuer à créer une configuration fortement restreinte pour vos ordinateurs, dans laquelle seule l’exécution d’applications clairement identifiées est autorisée. Les stratégies de restriction logicielle sont intégrées à Microsoft Active Directory et à la stratégie de groupe. Vous avez également la possibilité de créer des stratégies de restriction logicielle sur des ordinateurs autonomes.
 
 Les stratégies de restriction logicielle sont des stratégies d’approbation, c’est-à-dire des règles définies par un administrateur pour limiter des scripts et d’autres formes de code qui n’apparaissent pas entièrement fiables depuis l’exécution. L’extension des stratégies de restriction logicielle de l’éditeur de stratégie de groupe local fournit une interface utilisateur unique par l’intermédiaire de laquelle les paramètres de restriction de l’utilisation des applications peuvent être gérés sur l’ordinateur local ou dans un domaine.
 
@@ -72,7 +68,7 @@ Les administrateurs peuvent en particulier faire appel aux stratégies de restri
 
 -   Empêcher l’exécution des fichiers exécutables sur l’ordinateur local, l’unité d’organisation, le site ou le domaine. Ceci peut s’avérer judicieux dans des cas où vous n’avez pas recours aux stratégies de restriction logicielle pour résoudre d’éventuels problèmes liés à des utilisateurs malveillants.
 
-## <a name="BKMK_Diffs_Changes"></a>Différences et modifications des fonctionnalités
+## <a name="differences-and-changes-in-functionality"></a><a name="BKMK_Diffs_Changes"></a>Différences et modifications des fonctionnalités
 Il n’y a aucune modification dans les fonctionnalités de SRP pour Windows Server 2012 et Windows 8.
 
 **Versions prises en charge**
@@ -89,15 +85,15 @@ Le tableau suivant compare les fonctions et fonctionnalités de la fonctionnalit
 |Fonction de contrôle de l'application|Stratégies de restriction logicielle|AppLocker|
 |----------------|----|-------|
 |Portée|Les stratégies SRP peuvent être appliquées à tous les systèmes d'exploitation Windows à compter de Windows XP et de Windows Server 2003.|Les stratégies AppLocker s’appliquent uniquement à Windows Server 2008 R2, Windows Server 2012, Windows 7 et Windows 8.|
-|Création de stratégie|Les stratégies de stratégie de restriction logicielle sont gérées via stratégie de groupe et seul l’administrateur de l’objet de stratégie de groupe peut mettre à jour la stratégie SRP. L’administrateur de l’ordinateur local peut modifier les stratégies de SRP définies dans l’objet de stratégie de groupe local.|Les stratégies AppLocker sont gérées par le biais de stratégie de groupe et seul l’administrateur de l’objet de stratégie de groupe peut mettre à jour la stratégie. L’administrateur de l’ordinateur local peut modifier les stratégies AppLocker définies dans l’objet de stratégie de groupe local.<br /><br />AppLocker permet la personnalisation des messages d’erreur pour diriger les utilisateurs vers une page Web pour obtenir de l’aide.|
+|Création de stratégie|Les stratégies de stratégie de restriction logicielle sont gérées via stratégie de groupe et seul l’administrateur de l’objet de stratégie de groupe peut mettre à jour la stratégie SRP. L’administrateur de l’ordinateur local peut modifier les stratégies de SRP définies dans l’objet de stratégie de groupe local.|Les stratégies AppLocker sont gérées par le biais de stratégie de groupe et seul l’administrateur de l’objet de stratégie de groupe peut mettre à jour la stratégie. L’administrateur de l’ordinateur local peut modifier les stratégies AppLocker définies dans l’objet de stratégie de groupe local.<p>AppLocker permet la personnalisation des messages d’erreur pour diriger les utilisateurs vers une page Web pour obtenir de l’aide.|
 |Maintenance des stratégies|Les stratégies de stratégie de restriction logicielle doivent être mises à jour à l’aide du composant logiciel enfichable Stratégie de sécurité locale (si les stratégies sont créées localement) ou de la Console de gestion des stratégies de groupe (GPMC).|Les stratégies AppLocker peuvent être mises à jour à l’aide du composant logiciel enfichable Stratégie de sécurité locale (si les stratégies sont créées localement) ou de la console GPMC ou des applets de commande Windows PowerShell AppLocker.|
 |Application de stratégie|Les stratégies de stratégie de restriction logicielle sont distribuées via stratégie de groupe.|Les stratégies AppLocker sont distribuées via stratégie de groupe.|
-|Mode d’application|SRP fonctionne en mode liste de refus, où les administrateurs peuvent créer des règles pour les fichiers qu’ils ne souhaitent pas autoriser dans cette entreprise, tandis que le reste du fichier est autorisé à s’exécuter par défaut.<br /><br />Le SRP peut également être configuré en « mode liste verte » de telle sorte que tous les fichiers par défaut soient bloqués et que les administrateurs doivent créer des règles d’autorisation pour les fichiers qu’ils souhaitent autoriser.|AppLocker fonctionne par défaut en mode liste verte, où seuls ces fichiers sont autorisés à s’exécuter pour lesquels il existe une règle d’autorisation correspondante.|
-|Types de fichiers pouvant être contrôlés|Le SRP peut contrôler les types de fichiers suivants :<br /><br />-Exécutables<br />-Dll<br />-Scripts<br />-Programmes d’installation Windows<br /><br />Le SRP ne peut pas contrôler chaque type de fichier séparément. Toutes les règles de SRP se trouvent dans un seul regroupement de règles.|AppLocker peut contrôler les types de fichiers suivants :<br /><br />-Exécutables<br />-Dll<br />-Scripts<br />-Programmes d’installation Windows<br />-Applications et programmes d’installation empaquetés (Windows Server 2012 et Windows 8)<br /><br />AppLocker gère un regroupement de règles distinct pour chacun des cinq types de fichiers.|
-|Types de fichiers désignés|SRP prend en charge une liste extensible de types de fichiers qui sont considérés comme exécutables. Les administrateurs peuvent ajouter des extensions pour les fichiers qui doivent être considérés comme exécutables.|AppLocker ne prend pas en charge cette. AppLocker prend actuellement en charge les extensions de fichier suivantes :<br /><br />-Exécutables (. exe,. com)<br />-Dll (. ocx,. dll)<br />-Scripts (. vbs,. js,. ps1,. cmd,. bat)<br />-Programmes d’installation Windows (. msi,. MST,. msp)<br />-Programmes d’installation d’applications empaquetées (. AppX)|
-|Types de règles|SRP prend en charge quatre types de règles :<br /><br />-Hash<br />-Chemin d’accès<br />-Signature<br />-Zone Internet|AppLocker prend en charge trois types de règles :<br /><br />-Hash<br />-Chemin d’accès<br />-Serveur de publication|
+|Mode d’application|SRP fonctionne en mode liste de refus, où les administrateurs peuvent créer des règles pour les fichiers qu’ils ne souhaitent pas autoriser dans cette entreprise, tandis que le reste du fichier est autorisé à s’exécuter par défaut.<p>Le SRP peut également être configuré en « mode liste verte » de telle sorte que tous les fichiers par défaut soient bloqués et que les administrateurs doivent créer des règles d’autorisation pour les fichiers qu’ils souhaitent autoriser.|AppLocker fonctionne par défaut en mode liste verte, où seuls ces fichiers sont autorisés à s’exécuter pour lesquels il existe une règle d’autorisation correspondante.|
+|Types de fichiers pouvant être contrôlés|Le SRP peut contrôler les types de fichiers suivants :<p>-Exécutables<br />-Dll<br />-Scripts<br />-Programmes d’installation Windows<p>Le SRP ne peut pas contrôler chaque type de fichier séparément. Toutes les règles de SRP se trouvent dans un seul regroupement de règles.|AppLocker peut contrôler les types de fichiers suivants :<p>-Exécutables<br />-Dll<br />-Scripts<br />-Programmes d’installation Windows<br />-Applications et programmes d’installation empaquetés (Windows Server 2012 et Windows 8)<p>AppLocker gère un regroupement de règles distinct pour chacun des cinq types de fichiers.|
+|Types de fichiers désignés|SRP prend en charge une liste extensible de types de fichiers qui sont considérés comme exécutables. Les administrateurs peuvent ajouter des extensions pour les fichiers qui doivent être considérés comme exécutables.|AppLocker ne prend pas en charge cette. AppLocker prend actuellement en charge les extensions de fichier suivantes :<p>-Exécutables (. exe,. com)<br />-Dll (. ocx,. dll)<br />-Scripts (. vbs,. js,. ps1,. cmd,. bat)<br />-Programmes d’installation Windows (. msi,. MST,. msp)<br />-Programmes d’installation d’applications empaquetées (. AppX)|
+|Types de règles|SRP prend en charge quatre types de règles :<p>-Hash<br />-Chemin d’accès<br />-Signature<br />-Zone Internet|AppLocker prend en charge trois types de règles :<p>-Hash<br />-Chemin d’accès<br />-Serveur de publication|
 |Modification de la valeur de hachage|Les stratégies de restriction logicielle permettent aux administrateurs de fournir des valeurs de hachage personnalisées.|AppLocker calcule la valeur de hachage elle-même. En interne, elle utilise le hachage Authenticode SHA1 pour les exécutables portables (exe et dll) et les programmes d’installation Windows et un hachage de fichier plat SHA1 pour le reste.|
-|Prise en charge de différents niveaux de sécurité|Les administrateurs de SRP peuvent spécifier les autorisations avec lesquelles une application peut s’exécuter. Par conséquent, un administrateur peut configurer une règle de sorte que le bloc-notes s’exécute toujours avec des autorisations restreintes et jamais avec des privilèges d’administrateur.<br /><br />SRP sur Windows Vista et versions antérieures prenait en charge plusieurs niveaux de sécurité. Sur Windows 7, cette liste était limitée à deux niveaux seulement : non autorisé et non restreint (l’utilisateur de base se traduit par non autorisé).|AppLocker ne prend pas en charge les niveaux de sécurité.|
+|Prise en charge de différents niveaux de sécurité|Les administrateurs de SRP peuvent spécifier les autorisations avec lesquelles une application peut s’exécuter. Par conséquent, un administrateur peut configurer une règle de sorte que le bloc-notes s’exécute toujours avec des autorisations restreintes et jamais avec des privilèges d’administrateur.<p>SRP sur Windows Vista et versions antérieures prenait en charge plusieurs niveaux de sécurité. Sur Windows 7, cette liste était limitée à deux niveaux seulement : non autorisé et non restreint (l’utilisateur de base se traduit par non autorisé).|AppLocker ne prend pas en charge les niveaux de sécurité.|
 |Gérer les applications empaquetées et les programmes d’installation d’applications empaquetés|Mesure|. AppX est un type de fichier valide qu’AppLocker peut gérer.|
 |Ciblage d’une règle pour un utilisateur ou un groupe d’utilisateurs|Les règles de SRP s’appliquent à tous les utilisateurs sur un ordinateur particulier.|Les règles AppLocker peuvent être ciblées pour un utilisateur ou un groupe d’utilisateurs spécifique.|
 |Prise en charge des exceptions de règle|SRP ne prend pas en charge les exceptions de règle|Les règles AppLocker peuvent avoir des exceptions qui permettent aux administrateurs de créer des règles telles que « autoriser tous les éléments à partir de Windows à l’exception de Regedit. exe ».|
@@ -119,7 +115,7 @@ Les stratégies de restriction logicielle fournissent un mécanisme pour le syst
 
 -   Ensemble d’API de système d’exploitation et d’applications qui appellent les API de stratégies de restriction logicielle pour assurer l’application des stratégies de restriction logicielle au moment de l’exécution.
 
--   Active Directory et stratégie de groupe. Les stratégies de restriction logicielle dépendent de l’infrastructure stratégie de groupe pour propager les stratégies de restriction logicielle du Active Directory vers les clients appropriés, et pour définir l’étendue et filtrer l’application de ces stratégies sur les ordinateurs cibles.
+-   Active Directory et stratégie de groupe. Les stratégies de restriction logicielle dépendent de l’infrastructure stratégie de groupe pour propager les stratégies de restriction logicielle du Active Directory aux clients appropriés, et pour définir l’étendue et filtrer l’application de ces stratégies sur les ordinateurs cibles appropriés.
 
 -   API d’approbation Authenticode et WinVerify utilisées pour traiter les fichiers exécutables signés.
 
@@ -129,7 +125,7 @@ Les stratégies de restriction logicielle fournissent un mécanisme pour le syst
 
 Pour plus d’informations sur l’architecture du SRP, sur la façon dont les stratégies de restriction logicielle gèrent les règles, les processus et les interactions, voir [Comment les stratégies de restriction logicielle fonctionnent](https://technet.microsoft.com/library/cc786941(v=WS.10).aspx) dans la bibliothèque technique de Windows Server 2003.
 
-## <a name="BKMK_Best_Practices"></a>Meilleures pratiques
+## <a name="best-practices"></a><a name="BKMK_Best_Practices"></a>Meilleures pratiques
 
 ### <a name="do-not-modify-the-default-domain-policy"></a>Ne modifiez pas la stratégie de domaine par défaut.
 
@@ -180,7 +176,7 @@ Pour plus d’informations sur l’architecture du SRP, sur la façon dont les s
 |**Planification**|[Informations techniques de référence sur les stratégies de restriction logicielle](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx)|
 |**Opérations**|[Administrer les stratégies de restriction logicielle](administer-software-restriction-policies.md)|
 |**Résolution des problèmes**|[Résolution des problèmes liés aux stratégies de restriction logicielle (2003)](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx)|
-|**Sécurité**|[Menaces et contre-mesures pour les stratégies de restriction logicielle (2008)](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx)<br /><br />[Menaces et contre-mesures pour les stratégies de restriction logicielle (2008 R2)](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx)|
+|**Sécurité**|[Menaces et contre-mesures pour les stratégies de restriction logicielle (2008)](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx)<p>[Menaces et contre-mesures pour les stratégies de restriction logicielle (2008 R2)](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx)|
 |**Outils et paramètres**|[Outils et paramètres des stratégies de restriction logicielle (2003)](https://technet.microsoft.com/library/cc782454(v=WS.10).aspx)|
 |**Ressources de la communauté**|[Verrouillage d’applications avec des stratégies de restriction logicielle](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
 

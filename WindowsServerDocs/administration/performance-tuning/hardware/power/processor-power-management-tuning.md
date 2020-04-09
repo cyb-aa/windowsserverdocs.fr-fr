@@ -4,19 +4,19 @@ description: Réglage de la gestion de l’alimentation du processeur (PPM) pour
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 53399c1ff1d9fa60df992b922b99c82d119b2f58
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5c7319c843609f8bf846dd6ccf4bc2bf91f3b942
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355024"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851972"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Réglage de la gestion de l’alimentation du processeur (PPM) pour le mode de gestion de l’alimentation équilibré de Windows Server
 
-À compter de Windows Server 2008, Windows Server propose trois modes de gestion de l’alimentation : **Équilibre**, **hautes performances**et **économiseur d’énergie**. Le mode de gestion de l’alimentation **équilibré** est le choix par défaut qui vise à offrir la meilleure efficacité énergétique pour un ensemble de charges de travail serveur typiques. Cette rubrique décrit les charges de travail qui ont été utilisées pour déterminer les paramètres par défaut du schéma **équilibré** pour les versions précédentes de Windows.
+À compter de Windows Server 2008, Windows Server propose trois modes d’alimentation : **équilibre**, **hautes performances**et **économiseur d’énergie**. Le mode de gestion de l’alimentation **équilibré** est le choix par défaut qui vise à offrir la meilleure efficacité énergétique pour un ensemble de charges de travail serveur typiques. Cette rubrique décrit les charges de travail qui ont été utilisées pour déterminer les paramètres par défaut du schéma **équilibré** pour les versions précédentes de Windows.
 
 Si vous exécutez un système serveur qui a des caractéristiques de charge de travail radicalement différentes ou des performances et des exigences d’alimentation supérieures à celles de ces charges de travail, vous souhaiterez peut-être ajuster les paramètres d’alimentation par défaut (c’est-à-dire créer un mode de gestion de l’alimentation personnalisé). L’une des sources d’informations de paramétrage utiles est l' [alimentation matérielle du serveur](../power.md). Vous pouvez également décider que le mode de gestion de l’alimentation à **hautes performances** est le bon choix pour votre environnement, en reconnaissant que vous aurez probablement un impact important sur l’énergie dans Exchange pour un certain niveau de réactivité accrue.
 
@@ -46,7 +46,7 @@ Le paramétrage de chaque stratégie d’alimentation est piloté par les donné
 
 -   **SPECpower – charge de travail JAVA**
 
-    [SPECpower\_ssj2008](http://spec.org/power_ssj2008/) est le premier Benchmark des spécifications standard qui évalue conjointement les caractéristiques d’alimentation et de performances. Il s’agit d’une charge de travail Java côté serveur avec différents niveaux de charge processeur. Il ne nécessite pas beaucoup de ressources disque ou réseau, mais il a certaines exigences en matière de bande passante de mémoire. Presque toute l’activité de l’UC est effectuée en mode utilisateur ; l’activité en mode noyau n’a pas un impact important sur les caractéristiques d’alimentation et de performances des bancs d’essai, à l’exception des décisions relatives à la gestion de l’alimentation.
+    [SPECpower\_ssj2008](http://spec.org/power_ssj2008/) est le premier test des spécifications standard qui évalue conjointement les caractéristiques d’alimentation et de performances. Il s’agit d’une charge de travail Java côté serveur avec différents niveaux de charge processeur. Il ne nécessite pas beaucoup de ressources disque ou réseau, mais il a certaines exigences en matière de bande passante de mémoire. Presque toute l’activité de l’UC est effectuée en mode utilisateur ; l’activité en mode noyau n’a pas un impact important sur les caractéristiques d’alimentation et de performances des bancs d’essai, à l’exception des décisions relatives à la gestion de l’alimentation.
 
 -   **Charge de travail du serveur d’applications**
 
@@ -58,12 +58,12 @@ Tous les tests d’évaluation, à l’exception de SPECpower, ont été conçus
 
 Pour chaque version de Windows, les serveurs de production les plus récents sont utilisés dans le processus d’analyse et d’optimisation du mode de gestion de l’alimentation. Dans certains cas, les tests ont été effectués sur des systèmes de pré-production dont la planification de publication correspondait à celle de la prochaine version de Windows.
 
-Étant donné que la plupart des serveurs sont vendus avec des sockets de 1 à 4 processeurs, et étant donné que les serveurs de montée en puissance sont moins susceptibles d’avoir une efficacité énergétique comme préoccupation principale, les tests d’optimisation du mode de gestion de l’alimentation sont principalement exécutés sur les systèmes à 2 sockets et à 4 Sockets. La quantité de mémoire RAM, de disque et de ressources réseau pour chaque test est choisie pour permettre à chaque système de s’exécuter jusqu’à sa capacité maximale, tout en prenant en compte les restrictions de coût qui seraient normalement en place pour les environnements de serveurs réels, comme conserver le configurations raisonnables.
+Étant donné que la plupart des serveurs sont vendus avec des sockets de 1 à 4 processeurs, et étant donné que les serveurs de montée en puissance sont moins susceptibles d’avoir une efficacité énergétique comme préoccupation principale, les tests d’optimisation du mode de gestion de l’alimentation sont principalement exécutés sur les systèmes à 2 sockets et à 4 Sockets. La quantité de RAM, de disque et de ressources réseau pour chaque test est choisie pour permettre à chaque système de s’exécuter jusqu’à sa capacité maximale, tout en prenant en compte les restrictions de coût qui seraient normalement en place pour les environnements de serveurs réels, par exemple pour conserver les configurations raisonnables.
 
 > [!IMPORTANT]
-> Même si le système peut s’exécuter à sa charge maximale, nous optimisons généralement les niveaux de charge inférieurs, car les serveurs qui s’exécutent régulièrement à leurs pics de charge sont bien recommandés pour utiliser le mode de gestion de l’alimentation **hautes performances** , sauf si l’efficacité énergétique est élevée. importance.
+> Même si le système peut s’exécuter à sa charge maximale, nous optimisons généralement les niveaux de charge inférieurs, car les serveurs qui s’exécutent régulièrement à leurs pics de charge sont bien recommandés pour utiliser le mode de gestion de l’alimentation **hautes performances** , à moins que l’efficacité énergétique soit de priorité élevée.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Mesures
 
 Toutes les évaluations testées utilisent le débit comme mesure de performance. Le temps de réponse est considéré comme une exigence de contrat SLA pour ces charges de travail (à l’exception de SAP, où il s’agit d’une mesure principale). Par exemple, une exécution de benchmark est considérée comme « valide » si le temps de réponse moyen ou maximal est inférieur à une certaine valeur.
 
@@ -74,7 +74,7 @@ Par conséquent, l’analyse du paramétrage de PPM utilise également le débit
 L’exécution des cœurs de processeur à des fréquences inférieures réduit la consommation d’énergie. Toutefois, les fréquences inférieures réduisent généralement le débit et augmentent le temps de réponse. Pour le mode de gestion de l’alimentation **équilibré** , il existe un compromis intentionnel entre réactivité et efficacité énergétique. Les tests de charge de travail SAP, ainsi que les contrats SLA de temps de réponse sur les autres charges de travail, assurez-vous que l’augmentation du temps de réponse ne dépasse pas un certain seuil (5% comme exemple) pour ces charges de travail spécifiques.
 
 > [!NOTE]
-> Si la charge de travail utilise le temps de réponse comme mesure de performance, le système doit basculer vers le mode de gestion de l’alimentation **hautes performances** ou modifier le mode de gestion de l’alimentation **équilibré** comme indiqué dans [paramètres de mode d’alimentation équilibrée recommandés pour une réponse rapide Heure](recommended-balanced-plan-parameters.md).
+> Si la charge de travail utilise le temps de réponse comme mesure de performance, le système doit basculer vers le mode de gestion de l’alimentation **hautes performances** ou modifier le mode de gestion de l’alimentation **équilibré** comme indiqué dans les [paramètres du mode de gestion de l’alimentation équilibrée recommandés pour accélérer le temps de réponse](recommended-balanced-plan-parameters.md).
 
 ### <a name="tuning-results"></a>Résultats du paramétrage
 
@@ -107,11 +107,11 @@ En raison du nombre et de la complexité des paramètres, il peut s’agir d’u
 
 ### <a name="understand-high-level-performance-and-power-requirements"></a>Comprendre les performances et les exigences d’alimentation de haut niveau
 
-Si votre charge de travail est en « temps réel » (par exemple, si elle est sujette à des problèmes ou à d’autres impacts visibles de l’utilisateur final) ou si elle a des exigences de réactivité très strictes (par exemple, une bourse d’actions) et si la consommation d’énergie n’est pas un critère principal pour votre environnement, vous devez probablement il vous suffit de basculer vers le mode de gestion de l’alimentation **hautes performances** . Dans le cas contraire, vous devez comprendre les exigences de temps de réponse de vos charges de travail, puis régler les paramètres PPM pour une efficacité énergétique optimale qui répond toujours à ces exigences.
+Si votre charge de travail est en « temps réel » (par exemple, si elle est sujette à des problèmes ou à d’autres impacts visibles de l’utilisateur final) ou si elle a des exigences de réactivité très strictes (par exemple, une bourse boursière), et **si la consommation d’énergie** n’est pas un critère principal pour votre environnement Dans le cas contraire, vous devez comprendre les exigences de temps de réponse de vos charges de travail, puis régler les paramètres PPM pour une efficacité énergétique optimale qui répond toujours à ces exigences.
 
 ### <a name="understand-underlying-workload-characteristics"></a>Comprendre les caractéristiques de charge de travail sous-jacentes
 
-Vous devez connaître vos charges de travail et concevoir les jeux de paramètres d’expérimentation à des fins de paramétrage. Par exemple, si les fréquences des cœurs de processeur doivent être rampes très rapidement (peut-être que vous avez une charge de travail en rafale avec des périodes d’inactivité significatives, mais que vous avez besoin d’une réactivité très rapide lorsqu’une nouvelle transaction est utilisée), la stratégie d’augmentation des performances du processeur peut être défini sur « fusée » (ce qui, comme son nom l’indique, pousse la fréquence du cœur de l’UC à sa valeur maximale au lieu de l’exécuter sur une période donnée).
+Vous devez connaître vos charges de travail et concevoir les jeux de paramètres d’expérimentation à des fins de paramétrage. Par exemple, si les fréquences des cœurs de processeur doivent être rampes très rapidement (peut-être que vous avez une charge de travail en rafale avec des périodes d’inactivité significatives) mais vous avez besoin d’une réactivité très rapide lorsqu’une nouvelle transaction est utilisée), puis la stratégie d’augmentation des performances du processeur peut être définie sur « fusée » (ce qui, comme son nom l’indique, pousse la fréquence du cœur de l’UC à sa valeur maximale au lieu de l’exécuter sur une période donnée).
 
 Si votre charge de travail est très intense, l’intervalle de vérification des PPM peut être réduit pour accélérer le démarrage de la fréquence d’UC après l’arrivée d’une rafale. Si votre charge de travail ne dispose pas d’une concurrence de thread élevée, le parking de base peut être activé pour forcer l’exécution de la charge de travail sur un plus petit nombre de cœurs, ce qui peut également éventuellement améliorer les taux d’accès au cache du processeur.
 

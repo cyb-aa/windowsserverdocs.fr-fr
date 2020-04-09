@@ -1,7 +1,6 @@
 ---
 ms.assetid: 73a4deba-7da6-4eae-8fdd-2a4d369f9cbb
 title: Annexe des informations techniques de référence sur les contrôleurs de domaine virtualisés
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e1018d5bbff5922df5a696e5c4fad12dc9f6ec3d
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: ee5a46781a61b8546fef113763c0d8ef9ca9f6cc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323131"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853982"
 ---
 # <a name="virtualized-domain-controller-technical-reference-appendix"></a>Annexe des informations techniques de référence sur les contrôleurs de domaine virtualisés
 
@@ -26,7 +25,7 @@ Cette rubrique traite des sujets suivants :
   
 -   [FixVDCPermissions. ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
   
-## <a name="BKMK_Terms"></a>Correspondance  
+## <a name="terminology"></a><a name="BKMK_Terms"></a>Correspondance  
   
 -   **Instantané** : état d’une machine virtuelle à un moment donné. Elle dépend de la chaîne des captures instantanées précédentes prises, sur le matériel et sur la plateforme de virtualisation.  
   
@@ -44,7 +43,7 @@ Cette rubrique traite des sujets suivants :
   
 -   **Importation/exportation** : fonctionnalité Hyper-V qui permet à l’utilisateur d’enregistrer l’intégralité de l’ordinateur virtuel (fichiers de machine virtuelle, VHD et configuration de l’ordinateur). Il permet ensuite aux utilisateurs d’utiliser ce jeu de fichiers pour ramener l’ordinateur sur le même ordinateur que la même machine virtuelle (restauration), sur un autre ordinateur que la même machine virtuelle (déplacement) ou sur une nouvelle machine virtuelle (copie).  
   
-## <a name="BKMK_FixPDCPerms"></a>FixVDCPermissions. ps1  
+## <a name="fixvdcpermissionsps1"></a><a name="BKMK_FixPDCPerms"></a>FixVDCPermissions. ps1  
   
 ```  
 # Unsigned script, requires use of set-executionpolicy remotesigned -force  

@@ -4,15 +4,15 @@ description: Architecture Hyper-v condsiderations pour le réglage des performan
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0feb2977791dd181907c381e4898924ff51c2bc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 47ff4a25f67e2b03655d17ab5a57aeaa3274a835
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383492"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851832"
 ---
 # <a name="hyper-v-architecture"></a>Architecture Hyper-V
 

@@ -1,24 +1,20 @@
 ---
 title: fc
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 485fc3d8-b7c5-496d-87be-0011112f27d5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f6c004fcebcf5eb743354d9e0a121ff8598217a4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4b358b8c1bf44b5b7942cef05bd09fa8cac850a3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377251"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844742"
 ---
 # <a name="fc"></a>fc
 
@@ -35,7 +31,7 @@ fc /a [/c] [/l] [/lb<N>] [/n] [/off[line]] [/t] [/u] [/w] [/<NNNN>] [<Drive1>:][
 fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |            Paramètre             |                                                                                                                                     Description                                                                                                                                      |
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,8 +42,8 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 |             /lb\<N >              |                         Définit le nombre de lignes de la mémoire tampon interne sur *N*. La longueur par défaut de la mémoire tampon de ligne est de 100 lignes. Si les fichiers que vous comparez ont plus de 100 lignes consécutives différentes, **FC** annule la comparaison.                         |
 |                /n                |                                                                                                                Affiche les numéros de ligne pendant une comparaison ASCII.                                                                                                                 |
 |            /OFF [ligne]            |                                                                                                               N’ignore pas les fichiers dont l’attribut offline est défini.                                                                                                               |
-|                commutateur                |                                                                    Empêche **FC** de convertir les tabulations en espaces. Le comportement par défaut consiste à traiter les tabulations comme des espaces, avec des arrêts à chaque huitième position de caractère.                                                                    |
-|                /u.                |                                                                                                                        Compare les fichiers en tant que fichiers texte Unicode.                                                                                                                         |
+|                /t                |                                                                    Empêche **FC** de convertir les tabulations en espaces. Le comportement par défaut consiste à traiter les tabulations comme des espaces, avec des arrêts à chaque huitième position de caractère.                                                                    |
+|                /u                |                                                                                                                        Compare les fichiers en tant que fichiers texte Unicode.                                                                                                                         |
 |                /w                |         Compresse les espaces blancs (c’est-à-dire les tabulations et les espaces) au cours de la comparaison. Si une ligne contient un grand nombre d’espaces ou de tabulations consécutifs, **/w** traite ces caractères comme un seul espace. Lorsqu’il est utilisé avec **/w**, **FC** ignore les espaces blancs au début et à la fin d’une ligne.         |
 |             /\<NNNN >             | Spécifie le nombre de lignes consécutives qui doivent correspondre à la suite d’une incompatibilité, avant que **FC** considère que les fichiers doivent être resynchronisés. Si le nombre de lignes correspondantes dans les fichiers est inférieur à *nnnn*, **FC** affiche les lignes correspondantes comme des différences. La valeur par défaut est 2. |
 | [\<Lecteur1 >:] [<Path1>]<FileName1> |                                                                                        Spécifie l’emplacement et le nom du premier fichier ou ensemble de fichiers à comparer. *NomFichier1* est obligatoire.                                                                                        |
@@ -85,7 +81,7 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 
     Lors de la comparaison de fichiers binaires plus grands que la mémoire disponible, **FC** compare complètement les deux fichiers, en superposant les portions de la mémoire avec les portions suivantes du disque. La sortie est la même que pour les fichiers qui tiennent entièrement dans la mémoire.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour effectuer une comparaison ASCII de deux fichiers texte, Monthly. rpt et Sales. rpt, et afficher les résultats dans un format abrégé, tapez :
 ```
@@ -124,6 +120,6 @@ Pour comparer chaque fichier de commandes du répertoire racine du lecteur C au 
 fc c:*.bat d:*.bat
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

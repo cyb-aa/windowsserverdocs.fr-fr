@@ -1,7 +1,6 @@
 ---
 ms.assetid: cf32926a-2083-408b-a264-2cad179ed18a
 title: Distribuer des certificats aux ordinateurs clients à l’aide de stratégie de groupe
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 1d9692bc099174f15b77e792087f4c7055bf85d1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c0e1ab21faa42789bee20c7b8945284aba068310
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359623"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855442"
 ---
 # <a name="distribute-certificates-to-client-computers-by-using-group-policy"></a>Distribuer des certificats aux ordinateurs clients à l’aide de stratégie de groupe
 

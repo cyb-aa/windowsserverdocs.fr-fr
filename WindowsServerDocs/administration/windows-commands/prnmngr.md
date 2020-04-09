@@ -1,24 +1,20 @@
 ---
 title: prnmngr
 description: Découvrez comment ajouter, supprimer et répertorier des imprimantes et des connexions.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 39eee1a8-4b41-4c9f-941e-486495135eb8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 12981519a1d3bfc079a58e5883bc845955b8a8c6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 621bd6ef68b4243fc010c5c704c286a22028cd6e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372071"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837232"
 ---
 # <a name="prnmngr"></a>prnmngr
 
@@ -33,7 +29,7 @@ cscript Prnmngr {-a | -d | -x | -g | -t | -l | -?}[c] [-s <ServerName>]
 [-w <Password>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |           Paramètre           |                                                                                                                                                                                        Description                                                                                                                                                                                        |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -58,7 +54,7 @@ cscript Prnmngr {-a | -d | -x | -g | -t | -l | -?}[c] [-s <ServerName>]
     ```
 -   Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour ajouter une imprimante nommée colorprinter_2 connectée à LPT1 sur l’ordinateur local et nécessitant un pilote d’imprimante nommé Color Printer driver1, tapez :
 ```
 cscript prnmngr -a -p colorprinter_2 -m "color printer Driver1" -r lpt1:
@@ -68,6 +64,6 @@ Pour supprimer l’imprimante nommée colorprinter_2 de l’ordinateur distant n
 cscript prnmngr -d -s HRServer -p colorprinter_2 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [référence de commande d’impression](print-command-reference.md)

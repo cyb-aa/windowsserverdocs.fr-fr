@@ -1,28 +1,24 @@
 ---
 title: makecab
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4da95297-c593-427b-9f76-2f389c46cbf4
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0231b6f1ddd3e81caa7544587f764e2308015b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 46efbae1d59a85071622df51fc018d0bf73dc504
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374146"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840262"
 ---
 # <a name="makecab"></a>makecab
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Empaquetez les fichiers existants dans un fichier cabinet (. cab).
 ## <a name="syntax"></a>Syntaxe
@@ -30,7 +26,7 @@ Empaquetez les fichiers existants dans un fichier cabinet (. cab).
 makecab [/v[n]] [/d var=<value> ...] [/l <dir>] <source> [<destination>]
 makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 ```
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |      Paramètre       |                                                                        Description                                                                        |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,8 +39,8 @@ makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 |          /?          |                                                           Affiche l'aide à l'invite de commandes.                                                            |
 
 ## <a name="remarks"></a>Notes
--   Pour plus d’informations sur directive_file, consultez le [format Microsoft Cabinet](https://go.microsoft.com/fwlink/?LinkId=226852) sur MSDN.
+-   Reportez-vous au [format Microsoft Cabinet](https://go.microsoft.com/fwlink/?LinkId=226852) sur MSDN pour plus d’informations sur directive_file.
 
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

@@ -4,15 +4,15 @@ description: Réglage des performances pour les hôtes de virtualisation Bureau 
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS; denisgun
+ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: 1b66f6404df5debee2a4c52ffc9166c8eabb9f81
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 2a0db4d890a01df13c44a9bb7adfbd13bebbdde0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947126"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851702"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Réglage des performances Bureau à distance les hôtes de virtualisation
 
@@ -41,7 +41,7 @@ Enable-DedupVolume <volume> -UsageType HyperV
 > [!NOTE]
 > L’optimisation de la déduplication des données des fichiers ouverts est prise en charge uniquement pour les scénarios VDI avec Hyper-V utilisant un stockage distant sur SMB 3,0.
 
-### <a name="memory"></a>Memory
+### <a name="memory"></a>Mémoire
 
 L’utilisation de la mémoire du serveur est motivée par trois facteurs principaux :
 
@@ -55,7 +55,7 @@ Pour une charge de travail de travail de base de connaissances classique, les ma
 
 Par conséquent, il est important de fournir suffisamment de mémoire serveur pour satisfaire la mémoire requise par le nombre attendu de machines virtuelles invitées, ainsi que d’une quantité suffisante de mémoire pour le serveur.
 
-### <a name="cpu"></a>CPU
+### <a name="cpu"></a>UC
 
 Lorsque vous planifiez la capacité du serveur pour un serveur hôte de virtualisation des services Bureau à distance, le nombre d’ordinateurs virtuels par cœur physique dépend de la nature de la charge de travail. Comme point de départ, il est raisonnable de planifier 12 machines virtuelles par cœur physique, puis d’exécuter les scénarios appropriés pour valider les performances et la densité. Une densité plus élevée peut être réalisable en fonction des caractéristiques de la charge de travail.
 
@@ -69,7 +69,7 @@ Mémoire dynamique permet une utilisation plus efficace des ressources mémoire 
 
 Mémoire dynamique vous permet d’augmenter la densité des machines virtuelles avec les ressources que vous avez déjà sans sacrifier les performances ou l’évolutivité. Le résultat est une utilisation plus efficace des ressources matérielles serveur onéreuses, ce qui peut être plus facile à gérer et à réduire les coûts.
 
-Sur les systèmes d’exploitation invités exécutant Windows 8 et versions ultérieures avec des processeurs virtuels qui s’étendent sur plusieurs processeurs logiques, considérez le compromis entre l’exécution avec Mémoire dynamique pour réduire l’utilisation de la mémoire et la désactivation des Mémoire dynamique pour améliorer les performances. d’une application qui prend en charge la topologie de l’ordinateur. Une telle application peut exploiter les informations de topologie pour prendre des décisions de planification et d’allocation de mémoire.
+Sur les systèmes d’exploitation invités exécutant Windows 8 et versions ultérieures avec des processeurs virtuels qui s’étendent sur plusieurs processeurs logiques, envisagez le compromis entre l’exécution de Mémoire dynamique pour réduire l’utilisation de la mémoire et la désactivation de Mémoire dynamique afin d’améliorer les performances d’une application compatible avec la topologie de l’ordinateur. Une telle application peut exploiter les informations de topologie pour prendre des décisions de planification et d’allocation de mémoire.
 
 ### <a name="tiered-storage"></a>Stockage à plusieurs niveaux
 

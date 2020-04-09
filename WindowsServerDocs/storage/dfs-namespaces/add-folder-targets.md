@@ -3,17 +3,17 @@ title: Ajouter des cibles de dossier
 description: Cette rubrique explique comment ajouter des cibles de dossier (chemins d’accès UNC)
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: brianlic
+manager: brianlic
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms-date: 06/05/2017
-ms.openlocfilehash: b0685ea795d53b36fad92d54f817f67de57e3a82
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d2f3845a612556a51692aaf51d256bbedd518e7a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403182"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854102"
 ---
 # <a name="add-folder-targets"></a>Ajouter des cibles de dossier
 

@@ -1,24 +1,20 @@
 ---
 title: pour
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e275726c-035f-4a74-8062-013c37f5ded1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db0bf54e35e4226cb020b040d5fc36ddd88dc02b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e7040e4cb8e0f38e58ce5e868535dcfb2d897fbd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377124"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844532"
 ---
 # <a name="for"></a>pour
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -104,17 +100,17 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     Les syntaxes sont les suivantes :  
     ```
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in ("<LiteralString>") do <Command> [<CommandLineOptions>]
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in ('<Command>') do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in (<LiteralString>) do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in ('<Command>') do <Command> [<CommandLineOptions>]
     ```  
     L’argument *Set* spécifie un ou plusieurs noms de fichiers. Chaque fichier est ouvert, lu et traité avant de passer au fichier suivant dans *Set*. Pour remplacer le comportement d’analyse par défaut, spécifiez *ParsingKeywords*. Il s’agit d’une chaîne entre guillemets qui contient un ou plusieurs mots clés pour spécifier des options d’analyse différentes.
 
     Si vous utilisez l’option **usebackq** , utilisez l’une des syntaxes suivantes :  
     ```
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in ("<Set>") do <Command> [<CommandLineOptions>]
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in ('<LiteralString>') do <Command> [<CommandLineOptions>]
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in (`<Command>`) do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in ('<LiteralString>') do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in (`<Command>`) do <Command> [<CommandLineOptions>]
     ```  
     Le tableau suivant répertorie les mots clés d’analyse que vous pouvez utiliser pour *ParsingKeywords*.  
 
@@ -133,7 +129,7 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     |Variable avec modificateur|Description|
     |----------------------|-----------|
-    |% ~ I|Développe **% I** , qui supprime tous les guillemets ("") qui l’entourent.|
+    |% ~ I|Développe **% I** qui supprime les guillemets ().|
     |% ~ fI|Développe **% I** en un nom de chemin d’accès complet.|
     |% ~ dI|Développe **% I** sur une lettre de lecteur uniquement.|
     |% ~ pI|Développe **% I** vers un chemin d’accès uniquement.|
@@ -160,12 +156,12 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     En utilisant des noms de variable en majuscules tels que **% I**, vous pouvez rendre votre code plus lisible et éviter toute confusion avec les modificateurs, qui ne respectent pas la casse.
 - Analyse d’une chaîne
 
-  Vous pouvez utiliser la **logique d’analyse pour/f** sur une chaîne immédiate en encapsulant *\<nouvel literalstring\>* dans : guillemets doubles (*sans* « usebackq ») ou en guillemets simples (*avec* « usebackq »), par exemple (« myString ») ou (« myString »). *\<\>nouvel literalstring* est traité comme une seule ligne d’entrée à partir d’un fichier. Lors de l’analyse d' *\<nouvel literalstring\>* par des guillemets doubles, les symboles de commande (comme **\\ \& \|** \> \< \^) sont traités comme des caractères ordinaires.
+  Vous pouvez utiliser la **logique d’analyse pour/f** sur une chaîne immédiate en encapsulant *\<nouvel literalstring\>* dans l’un ou l’autre : les guillemets doubles (*sans* usebackq) ou entre guillemets simples (*avec* usebackq), par exemple (myString) ou ('myString'). *\<\>nouvel literalstring* est traité comme une seule ligne d’entrée à partir d’un fichier. Lors de l’analyse d' *\<nouvel literalstring\>* par des guillemets doubles, les symboles de commande (comme **\\ \& \|** \> \< \^) sont traités comme des caractères ordinaires.
 - Analyse de la sortie
 
   Vous pouvez utiliser la commande **for/f** pour analyser la sortie d’une commande en plaçant une *commande\<* entre guillemets\>entre les parenthèses. Elle est traitée comme une ligne de commande, qui est transmise à un enfant cmd. exe. La sortie est capturée en mémoire et analysée comme s’il s’agissait d’un fichier.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour utiliser **pour** dans un fichier de commandes, utilisez la syntaxe suivante :
 ```
@@ -179,17 +175,17 @@ Dans l’exemple précédent, chaque fichier ayant l’extension. doc ou. txt da
 
 Pour analyser un fichier en ignorant les lignes commentées, tapez :
 ```
-for /f "eol=; tokens=2,3* delims=," %i in (myfile.txt) do @echo %i %j %k
+for /f eol=; tokens=2,3* delims=, %i in (myfile.txt) do @echo %i %j %k
 ```
-Cette commande analyse chaque ligne dans MyFile. txt. Elle ignore les lignes qui commencent par un point-virgule et transmet le deuxième et le troisième jeton de chaque ligne **au corps du (les jetons** sont délimités par des virgules ou des espaces). Le corps de l’instruction **for** fait référence à **% i** pour obtenir le deuxième jeton, **% j** pour obtenir le troisième jeton et **% k** pour obtenir tous les jetons restants. Si les noms de fichier que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, « nom de fichier »). Pour utiliser des guillemets, vous devez utiliser **usebackq**. Dans le cas contraire, les guillemets sont interprétés comme définissant une chaîne littérale à analyser.
+Cette commande analyse chaque ligne dans MyFile. txt. Elle ignore les lignes qui commencent par un point-virgule et transmet le deuxième et le troisième jeton de chaque ligne **au corps du (les jetons** sont délimités par des virgules ou des espaces). Le corps de l’instruction **for** fait référence à **% i** pour obtenir le deuxième jeton, **% j** pour obtenir le troisième jeton et **% k** pour obtenir tous les jetons restants. Si les noms de fichier que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, nom de fichier). Pour utiliser des guillemets, vous devez utiliser **usebackq**. Dans le cas contraire, les guillemets sont interprétés comme définissant une chaîne littérale à analyser.
 
-**% i** est déclaré explicitement dans l’instruction **for** . **% j** et **% k** sont implicitement déclarés à l’aide de **tokens =** . Vous pouvez utiliser **tokens =** pour spécifier jusqu’à 26 jetons, à condition qu’il n’entraîne pas de tentative de déclaration d’une variable supérieure à la lettre « z » ou « z ».
+**% i** est déclaré explicitement dans l’instruction **for** . **% j** et **% k** sont implicitement déclarés à l’aide de **tokens =** . Vous pouvez utiliser **tokens =** pour spécifier jusqu’à 26 jetons, à condition qu’il n’entraîne pas de tentative de déclaration d’une variable supérieure à la lettre Z ou z.
 
 L’exemple suivant énumère les noms des variables d’environnement dans l’environnement actuel. Pour analyser la sortie d’une commande en plaçant un *jeu* entre les parenthèses, tapez :
 ```
-for /f "usebackq delims==" %i in ('set') do @echo %i 
+for /f usebackq delims== %i in ('set') do @echo %i 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

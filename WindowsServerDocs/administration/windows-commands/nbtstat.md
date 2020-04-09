@@ -1,28 +1,24 @@
 ---
 title: nbtstat
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1d2ea99e-72f1-471f-9525-d2c49bf3be82
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd9148c922ac97e83b3b21bcb8b6585775505bf2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8077228a6c72302e63a2d1b8123e7f7e0ff6b8e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373317"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839022"
 ---
 # <a name="nbtstat"></a>nbtstat
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche les statistiques de protocole NetBIOS sur TCP/IP (NetBT), les tables de noms NetBIOS pour l’ordinateur local et les ordinateurs distants, ainsi que le cache de noms NetBIOS. **nbtstat** permet d’actualiser le cache de noms NetBIOS et les noms inscrits auprès du service WINS (Windows Internet Name Service). Utilisé sans paramètres, **nbtstat** affiche l’aide. 
 
@@ -32,7 +28,7 @@ Affiche les statistiques de protocole NetBIOS sur TCP/IP (NetBT), les tables de 
 nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [<Interval>]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |    Paramètre    |                                                                                                                         Description                                                                                                                         |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +40,7 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 |       /R        |                                                                      Vide le contenu du cache de noms NetBIOS, puis recharge les entrées avec balises #PRE à partir du fichier **Lmhosts** .                                                                      |
 |       /RR       |                                                                           Libère, puis actualise les noms NetBIOS de l’ordinateur local qui est inscrit auprès des serveurs WINS.                                                                            |
 |       /s        |                                                                          Affiche les sessions clientes et serveur NetBIOS, en tentant de convertir l’adresse IP de destination en un nom.                                                                           |
-|       COMMUTATEUR        |                                                                          Affiche les sessions client et serveur NetBIOS, en répertoriant les ordinateurs distants par adresse IP de destination uniquement.                                                                          |
+|       /S        |                                                                          Affiche les sessions client et serveur NetBIOS, en répertoriant les ordinateurs distants par adresse IP de destination uniquement.                                                                          |
 |   <Interval>    | Réaffiche les statistiques sélectionnées, en interrompant le nombre de secondes spécifié dans *intervalle* entre chaque affichage. Appuyez sur CTRL + C pour arrêter l’affichage des statistiques. Si ce paramètre est omis, **nbtstat** n’imprime les informations de configuration actuelles qu’une seule fois. |
 |       /?        |                                                                                                            Affiche l'aide à l'invite de commandes.                                                                                                             |
 
@@ -56,14 +52,14 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
     |Orientation|Description|
     |------|--------|
-    |Entrée|Nombre d’octets reçus.|
+    |Entrée|Nombre d'octets reçus.|
     |Sortie|Nombre d’octets envoyés.|
     |Entrée/Sortie|Indique si la connexion provient de l’ordinateur (sortant) ou d’un autre ordinateur vers l’ordinateur local (entrant).|
     |Assurance|Durée restante pendant laquelle une entrée de cache de table de noms est conservée avant d’être purgée.|
     |Nom local|Nom NetBIOS local associé à la connexion.|
     |Hôte distant|Nom ou adresse IP associé à l’ordinateur distant.|
     |< 03 >|Dernier octet d’un nom NetBIOS converti en hexadécimal. Chaque nom NetBIOS a une longueur de 16 caractères. Ce dernier octet a souvent une importance particulière, car le même nom peut être présent plusieurs fois sur un ordinateur, ce qui diffère uniquement par le dernier octet. Par exemple, < 20 > est un espace en texte ASCII.|
-    |type|Type de nom. Un nom peut être un nom unique ou un nom de groupe.|
+    |type|Type du nom. Un nom peut être un nom unique ou un nom de groupe.|
     |Statut|Si le service NetBIOS sur l’ordinateur distant est en cours d’exécution (inscrit) ou si un nom d’ordinateur dupliqué a inscrit le même service (conflit).|
     |État|État des connexions NetBIOS.|
 
@@ -75,17 +71,17 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     |associé à|Un point de terminaison de connexion a été créé et associé à une adresse IP.|
     |Listen|Ce point de terminaison est disponible pour une connexion entrante.|
     |Idle|Ce point de terminaison a été ouvert, mais ne peut pas recevoir de connexions.|
-    |Correspondance|Une session se trouve dans la phase de connexion et le mappage de nom à adresse IP de la destination est en cours de résolution.|
+    |Connexion en cours|Une session se trouve dans la phase de connexion et le mappage de nom à adresse IP de la destination est en cours de résolution.|
     |Refuser|Une session entrante est actuellement acceptée et sera connectée bientôt.|
     |La reconnexion|Une session tente de se reconnecter (elle n’a pas réussi à se connecter à la première tentative).|
     |Sortant|Une session se trouve dans la phase de connexion et la connexion TCP est en cours de création.|
     |Entrant|Une session entrante est dans la phase de connexion.|
-    |Déconnexion|Une session est en cours de déconnexion.|
+    |Déconnexion en cours|Une session est en cours de déconnexion.|
     |Disconnected|L’ordinateur local a émis une déconnexion et attend la confirmation du système distant.|
 
 -   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 Pour afficher la table de noms NetBIOS de l’ordinateur distant avec le nom d’ordinateur NetBIOS CORP07, tapez :
 
 ```
@@ -130,6 +126,6 @@ nbtstat /S 5
 
 ## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 

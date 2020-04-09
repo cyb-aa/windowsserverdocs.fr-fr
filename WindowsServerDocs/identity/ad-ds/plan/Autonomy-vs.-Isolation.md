@@ -1,7 +1,6 @@
 ---
 ms.assetid: ef63d40c-a262-4a18-938d-b95c10680c0b
-title: Autonomie et Isolation
-description: ''
+title: Autonomie et isolation
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c3430ae9320ed2d39768d91f768adb3f9ab1c716
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d836804f1de84ed9d10a978876db9cbecc23123
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402643"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822832"
 ---
-# <a name="autonomy-vs-isolation"></a>Autonomie et Isolation
+# <a name="autonomy-vs-isolation"></a>Autonomie et isolation
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez concevoir votre structure logique Active Directory pour obtenir l’un des éléments suivants :  
   
@@ -44,7 +43,7 @@ Le nombre de forêts que vous devez déployer est basé sur les exigences d’au
 ### <a name="data-isolation"></a>Isolation des données  
 L’isolation des données implique un contrôle exclusif sur les données par le groupe ou l’organisation qui détient les données. Il est important de noter que les administrateurs de service peuvent prendre le contrôle d’une ressource en dehors des administrateurs de données. En plus, les administrateurs de données n’ont pas la possibilité d’empêcher les administrateurs de service d’accéder aux ressources qu’ils contrôlent. Par conséquent, vous ne pouvez pas isoler les données lorsqu’un autre groupe au sein de l’organisation est responsable de l’administration des services. Si un groupe requiert l’isolation des données, ce groupe doit également assumer la responsabilité de l’administration des services.  
   
-Étant donné que les données stockées dans AD DS et sur les ordinateurs joints à AD DS ne peuvent pas être isolées des administrateurs de service, le seul moyen pour un groupe au sein d’une organisation d’obtenir une isolation complète des données consiste à créer une forêt distincte pour ces données. Les organisations pour lesquelles les conséquences d’une attaque par un logiciel malveillant ou par un administrateur de services forcé sont importantes peuvent choisir de créer une forêt distincte pour assurer l’isolation des données. Les exigences légales créent généralement un besoin pour ce type d’isolation des données. Exemple :  
+Étant donné que les données stockées dans AD DS et sur les ordinateurs joints à AD DS ne peuvent pas être isolées des administrateurs de service, le seul moyen pour un groupe au sein d’une organisation d’obtenir une isolation complète des données consiste à créer une forêt distincte pour ces données. Les organisations pour lesquelles les conséquences d’une attaque par un logiciel malveillant ou par un administrateur de services forcé sont importantes peuvent choisir de créer une forêt distincte pour assurer l’isolation des données. Les exigences légales créent généralement un besoin pour ce type d’isolation des données. Par exemple :  
   
 -   Une institution financière est requise par la loi pour limiter l’accès aux données qui appartiennent à des clients appartenant à une juridiction donnée aux utilisateurs, aux ordinateurs et aux administrateurs situés dans cette juridiction. Bien que l’établissement approuve les administrateurs de service qui travaillent en dehors de la zone protégée, si la limitation d’accès n’est pas respectée, l’établissement n’est plus en mesure de faire de l’entreprise dans cette juridiction. Par conséquent, l’établissement financier doit isoler les données des administrateurs de service en dehors de cette juridiction. Notez que le chiffrement n’est pas toujours une alternative à cette solution. Le chiffrement peut ne pas protéger les données des administrateurs de service.  
   
@@ -61,7 +60,7 @@ L’autonomie des données n’empêche pas les administrateurs de service de la
 ### <a name="service-isolation"></a>Isolation du service  
 L’isolation de service implique le contrôle exclusif de l’infrastructure Active Directory. Les groupes qui requièrent l’isolation du service requièrent qu’aucun administrateur en dehors du groupe ne puisse interférer avec le fonctionnement du service d’annuaire.  
   
-Les exigences opérationnelles ou légales créent généralement un besoin d’isolation du service. Exemple :  
+Les exigences opérationnelles ou légales créent généralement un besoin d’isolation du service. Par exemple :  
   
 -   Une société de fabrication a une application critique qui contrôle l’équipement en usine. Les interruptions du service sur d’autres parties du réseau de l’organisation ne peuvent pas être autorisées à interférer avec le fonctionnement de l’usine.  
   
@@ -70,7 +69,7 @@ Les exigences opérationnelles ou légales créent généralement un besoin d’
 ### <a name="service-autonomy"></a>Autonomie des services  
 L’autonomie de service implique la possibilité de gérer l’infrastructure sans nécessiter de contrôle exclusif ; par exemple, lorsqu’un groupe souhaite apporter des modifications à l’infrastructure (telles que l’ajout ou la suppression de domaines, la modification de l’espace de noms DNS (Domain Name System) ou la modification du schéma) sans l’approbation du propriétaire de la forêt.  
   
-L’autonomie du service peut être nécessaire au sein d’une organisation pour un groupe qui souhaite pouvoir contrôler le niveau de service de AD DS (en ajoutant et en supprimant des contrôleurs de domaine, si nécessaire) ou pour un groupe qui doit être en mesure d’installer des applications compatibles avec l’annuaire. exiger des extensions de schéma.  
+L’autonomie du service peut être nécessaire au sein d’une organisation pour un groupe qui souhaite pouvoir contrôler le niveau de service de AD DS (en ajoutant et en supprimant des contrôleurs de domaine, si nécessaire) ou pour un groupe qui doit être en mesure d’installer des applications compatibles avec l’annuaire qui nécessitent des extensions de schéma.  
   
 ## <a name="limited-connectivity"></a>Connectivité limitée  
 Si un groupe au sein de votre organisation possède des réseaux qui sont séparés par des périphériques qui limitent ou limitent la connectivité entre les réseaux (tels que les pare-feu et les périphériques de traduction d’adresses réseau (NAT)), cela peut avoir un impact sur la conception de votre forêt. Lorsque vous identifiez les exigences de conception de votre forêt, veillez à noter les emplacements où vous disposez d’une connectivité réseau limitée. Ces informations sont requises pour vous permettre de prendre des décisions concernant la conception de la forêt.  

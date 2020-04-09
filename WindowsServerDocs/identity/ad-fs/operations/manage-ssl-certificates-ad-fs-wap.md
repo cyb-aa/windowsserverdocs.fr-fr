@@ -9,12 +9,12 @@ ms.date: 10/02/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 230fdaac28f4766c33e62362ca4c7e4d20f22c8e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b832756e123bee0223738ee804ac3a4db2371e84
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357736"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855292"
 ---
 # <a name="managing-ssl-certificates-in-ad-fs-and-wap-in-windows-server-2016"></a>Gestion des certificats SSL dans AD FS et WAP 2016 dans Windows Server 2016
 
@@ -38,7 +38,7 @@ Pour connaître les conditions requises, telles que l’affectation de noms, la 
 
 ## <a name="replacing-the-ssl-certificate-for-ad-fs"></a>Remplacement du certificat SSL pour AD FS
 > [!NOTE]
-> Le certificat SSL AD FS n’est pas le même que le certificat de communication du service AD FS trouvé dans le composant logiciel enfichable Gestion des AD FS. Pour modifier le certificat SSL AD FS, vous devez utiliser PowerShell.
+> Le certificat SSL AD FS n’est pas identique au certificat de communication du service AD FS qui se trouve dans le composant logiciel enfichable Gestion AD FS. Pour modifier le certificat SSL AD FS, vous devez utiliser PowerShell.
 
 Tout d’abord, déterminez le mode de liaison de certificat que vos serveurs AD FS exécutent : la liaison d’authentification par certificat par défaut ou le mode de liaison TLS du client secondaire.
 

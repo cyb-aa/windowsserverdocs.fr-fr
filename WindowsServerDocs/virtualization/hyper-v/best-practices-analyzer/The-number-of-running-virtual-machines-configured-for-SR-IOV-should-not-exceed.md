@@ -2,20 +2,19 @@
 title: Le nombre d’ordinateurs virtuels en cours d’exécution configurés pour SR-IOV ne doit pas dépasser le nombre de fonctions virtuelles disponibles pour les machines virtuelles
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 8bd4af5e-9e7d-4710-8950-39435a8bb373
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0887035c84ebc4b7d93163533387f2f8ab20fb87
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3c58e980471284c950f41551b02b92bf74aca7cc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364613"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854612"
 ---
 # <a name="the-number-of-running-virtual-machines-configured-for-sr-iov-should-not-exceed-the-number-of-virtual-functions-available-to-the-virtual-machines"></a>Le nombre d’ordinateurs virtuels en cours d’exécution configurés pour SR-IOV ne doit pas dépasser le nombre de fonctions virtuelles disponibles pour les machines virtuelles
 
@@ -25,7 +24,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Avertissement|  
 |**Catégorie**|Configuration|  

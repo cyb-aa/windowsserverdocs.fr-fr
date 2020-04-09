@@ -1,24 +1,20 @@
 ---
 title: Utiliser des listes de contrôle d’accès (ACL) pour gérer le flux de trafic réseau du centre de distribution
 description: Dans cette rubrique, vous allez apprendre à configurer des listes de contrôle d’accès (ACL) pour gérer le flux de trafic de données à l’aide du pare-feu et des ACL de centre de données sur des sous-réseaux virtuels. Vous activez et configurez le pare-feu de centre de centres en créant des listes de contrôle d’accès appliquées à un sous-réseau virtuel ou à une interface réseau.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a7ac5af-85e9-4440-a631-6a3a38e9015d
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/27/2018
-ms.openlocfilehash: 1f18ad9ddb0ea1a7575f6fcb26189f36f818ada2
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 2b8a3af119ac11f3bcfd704bb4f43f12c989dbf6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317486"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854412"
 ---
 # <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Utiliser des listes de contrôle d’accès (ACL) pour gérer le flux de trafic réseau du centre de distribution
 

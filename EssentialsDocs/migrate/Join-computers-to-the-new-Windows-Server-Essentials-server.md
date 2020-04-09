@@ -1,23 +1,19 @@
 ---
 title: Joindre des ordinateurs au nouveau Serveur1 Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cdfa9504-9881-4265-b308-c7ee8721bfaa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6f7d20e2d74c311a34b98de7c33c755b5981fcef
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: db00a395ebdb77ef65d99f58e6bbfbd9db4e53ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318977"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852562"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-server1"></a>Joindre des ordinateurs au nouveau Serveur1 Windows Server Essentials
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 663a2482-33d1-4c19-8607-2e24eef89fcb
 title: Batterie de serveurs de fédération utilisant la base de données interne Windows
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,30 +8,30 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5f6911bea712dadd9a0b666c3bf8cbe9a260efb7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4704928213de4ed1ed71630fe6a49b54f2019af5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359143"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853112"
 ---
 # <a name="federation-server-farm-using-wid"></a>Batterie de serveurs de fédération utilisant la base de données interne Windows
 
-La topologie par défaut pour services ADFS \(AD FS\) est une batterie de serveurs de Fédération, utilisant le schéma \(\)de base de données interne Windows, qui comprend jusqu’à cinq serveurs de Fédération hébergeant votre service FS (Federation Service) de l’organisation. Dans cette topologie, AD FS utilise WID comme magasin pour la base de données de configuration AD FS pour tous les serveurs de Fédération joints à cette batterie. La batterie réplique et maintient les données du service de fédération de la base de données de configuration à travers chaque serveur de la batterie.  
+La topologie par défaut pour Services ADFS \(AD FS\) est une batterie de serveurs de Fédération, utilisant la base de données interne Windows \(la\)WID, qui se compose de cinq serveurs de Fédération hébergeant le service FS (Federation Service) de votre organisation. Dans cette topologie, AD FS utilise WID comme magasin pour la base de données de configuration AD FS pour tous les serveurs de Fédération joints à cette batterie. La batterie réplique et maintient les données du service de fédération de la base de données de configuration à travers chaque serveur de la batterie.  
   
-La création du premier serveur de fédération d’une batterie consiste aussi à créer un nouveau service de fédération. Lorsque vous utilisez WID pour la base de données de configuration AD FS, le premier serveur de Fédération que vous créez dans la batterie est appelé *serveur de Fédération principal*. Cela signifie que cet ordinateur est configuré avec une copie\/en lecture/écriture de la base de données de configuration AD FS.  
+La création du premier serveur de fédération d’une batterie consiste aussi à créer un nouveau service de fédération. Lorsque vous utilisez WID pour la base de données de configuration AD FS, le premier serveur de Fédération que vous créez dans la batterie est appelé *serveur de Fédération principal*. Cela signifie que cet ordinateur est configuré avec une copie en lecture\/en écriture de la base de données de configuration AD FS.  
   
-Tous les autres serveurs de Fédération configurés pour cette batterie sont désignés sous le terme de *serveurs de Fédération secondaires* , car ils doivent répliquer les modifications apportées sur le\-serveur de Fédération principal vers les copies en lecture seule du AD FS base de données de configuration qu’ils stockent localement.  
+Tous les autres serveurs de Fédération configurés pour cette batterie sont désignés comme *serveurs de Fédération secondaires* , car ils doivent répliquer toutes les modifications apportées sur le serveur de Fédération principal à la lecture\-uniquement les copies de la base de données de configuration AD FS qu’elles stockent localement.  
   
 > [!NOTE]  
-> Nous vous recommandons d’utiliser au moins deux serveurs de Fédération dans une\-configuration à charge équilibrée.  
+> Nous vous recommandons d’utiliser au moins deux serveurs de Fédération dans une configuration de charge\-équilibrée.  
   
 ## <a name="deployment-considerations"></a>Considérations relatives au déploiement  
 Cette section décrit les différentes considérations à prendre en compte concernant le public concerné, les avantages et les limitations associés à cette topologie de déploiement.  
   
 ### <a name="who-should-use-this-topology"></a>Qui doit utiliser cette topologie ?  
   
--   Organisations avec 100 ou moins de relations d’approbation configurées qui doivent fournir à \(leurs utilisateurs internes une connexion à des ordinateurs connectés physiquement au réseau\) d’entreprise à\-l’aide de l’authentification \(uniqueAccès\) SSO à des applications ou services fédérés  
+-   Les organisations disposant de 100 ou moins de relations d’approbation configurées qui doivent fournir à leurs utilisateurs internes des \(connectés aux ordinateurs qui sont physiquement connectés au réseau d’entreprise\) avec une authentification unique\-sur \(SSO\) accès aux applications ou services fédérés  
   
 -   Les organisations qui souhaitent fournir à leurs utilisateurs internes un accès SSO à Microsoft Online Services ou Microsoft Office 365  
   
@@ -45,7 +44,7 @@ Cette section décrit les différentes considérations à prendre en compte conc
   
 -   Fournit un accès SSO aux utilisateurs internes  
   
--   Redondance des données et des \(service FS (Federation Service) chaque serveur de Fédération réplique les modifications sur les autres serveurs de Fédération de la même batterie\)  
+-   La redondance des données et des service FS (Federation Service) \(chaque serveur de Fédération réplique les modifications sur les autres serveurs de Fédération de la même batterie\)  
   
 -   La batterie de serveurs peut être montée en charge en ajoutant jusqu’à cinq serveurs de Fédération  
   
@@ -55,15 +54,15 @@ Cette section décrit les différentes considérations à prendre en compte conc
   
 -   Une batterie de serveurs WID a une limite de cinq serveurs de Fédération. Pour plus d'informations, consultez [Considérations sur la topologie du déploiement d'AD FS](AD-FS-Deployment-Topology-Considerations.md).  
   
--   Une batterie de serveurs wid ne prend pas en charge la détection de \(relecture de jetons ou\) la\)résolution d’artefacts du protocole SAML Security Assertion Markup Language \(.  
+-   Une batterie de serveurs WID ne prend pas en charge la détection de relecture de jetons ou la résolution d’artefacts \(partie du Security Assertion Markup Language \(protocole\) SAML\).  
   
 ## <a name="server-placement-and-network-layout-recommendations"></a>Recommandations relatives à l’emplacement du serveur et à la disposition du réseau  
-Lorsque vous êtes prêt à commencer le déploiement de cette topologie sur votre réseau, vous devez prévoir de placer tous les serveurs de Fédération de votre réseau d’entreprise derrière un hôte NLB \(\) d’équilibrage de charge réseau qui peut être configuré pour un cluster NLB. avec un nom DNS \(\) et une adresse IP de cluster du système de noms de domaine de cluster dédiés.  
+Lorsque vous êtes prêt à commencer le déploiement de cette topologie sur votre réseau, vous devez prévoir de placer tous les serveurs de Fédération de votre réseau d’entreprise derrière un équilibrage de charge réseau \(NLB\) ordinateur hôte qui peut être configuré pour un cluster NLB avec un système de noms de domaine de cluster dédié \(nom d'\) DNS et une adresse IP de cluster.  
   
 > [!NOTE]  
 > Ce nom DNS de cluster doit correspondre au nom de service FS (Federation Service), par exemple fs.fabrikam.com.  
   
-L’hôte NLB peut utiliser les paramètres définis dans ce cluster NLB pour allouer des demandes du client aux serveurs de Fédération individuels. L’illustration suivante montre comment la société fictive Fabrikam, Inc., définit la première phase de son déploiement à l’aide d’une\-batterie \(de serveurs de Fédération d’ordinateurs\) FS1 et de FS2 avec wid et le positionnement d’un serveur DNS et un seul hôte NLB connecté au réseau d’entreprise.  
+L’hôte NLB peut utiliser les paramètres définis dans ce cluster NLB pour allouer des demandes du client aux serveurs de Fédération individuels. L’illustration suivante montre comment la société fictive Fabrikam, Inc., définit la première phase de son déploiement à l’aide\-d’une batterie de serveurs de Fédération d’ordinateurs \(FS1 et FS2\) avec WID et le positionnement d’un serveur DNS et d’un seul hôte NLB connecté au réseau d’entreprise.  
   
 ![batterie de serveurs utilisant WID](media/FarmWID.gif)  
   

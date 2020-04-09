@@ -2,18 +2,18 @@
 title: Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: brianlic
+manager: brianlic
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: Le Gestionnaire des ressources de serveur de fichiers (FSRM) est un outil qui vous permet de gérer et de classer des données sur un serveur de fichiers Windows Server.
-ms.openlocfilehash: 719176307afc320ad676fd1acfc07ad9d15920cf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ed7e5abce9389283a9b9d641f813b5df89a586b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394167"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854242"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers
 
@@ -53,7 +53,7 @@ Les fonctionnalités incluses dans les Gestionnaire des ressources du serveur de
   
 -   Vous pouvez créer un rapport qui s’exécute tous les dimanches soirs à minuit et qui génère une liste des fichiers les plus récemment consultés au cours des deux derniers jours. Vous pouvez ainsi déterminer l’activité de stockage du week-end et planifier en conséquence le temps mort du serveur.  
 
-## <a name="whats-new"></a>Nouveautés-empêcher FSRM de créer des journaux de modifications
+## <a name="whats-new---prevent-fsrm-from-creating-change-journals"></a><a name="whats-new"></a>Nouveautés-empêcher FSRM de créer des journaux de modifications
 
 À compter de Windows Server, version 1803, vous pouvez désormais empêcher le service de Gestionnaire des ressources de serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur les volumes au démarrage du service. Cela peut économiser un peu d’espace sur chaque volume, mais la classification des fichiers en temps réel est désactivée.
 
@@ -61,7 +61,7 @@ Pour les nouvelles fonctionnalités plus anciennes, consultez [Nouveautés du se
 
 Pour empêcher les Gestionnaire des ressources du serveur de fichiers de créer un journal des modifications sur tout ou partie des volumes au démarrage du service, procédez comme suit : 
 
-1. Arrêtez le service SRMSVC. Par exemple, ouvrez une session PowerShell en tant qu’administrateur et `Stop-Service SrmSvc`entrez.
+1. Arrêtez le service SRMSVC. Par exemple, ouvrez une session PowerShell en tant qu’administrateur et entrez `Stop-Service SrmSvc`.
 2. Supprimez le journal USN pour les volumes pour lesquels vous souhaitez économiser de l’espace à l’aide de la commande fsutil : 
 
       ```
@@ -69,14 +69,14 @@ Pour empêcher les Gestionnaire des ressources du serveur de fichiers de créer 
       ```
     Par exemple : `fsutil usn deletejournal /d c:`
 
-3. Ouvrez l’éditeur du Registre, par exemple, `regedit` en tapant dans la même session PowerShell.
-4. Accédez à la clé suivante : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings**
+3. Ouvrez l’éditeur du Registre, par exemple, en tapant `regedit` dans la même session PowerShell.
+4. Accédez à la clé suivante : **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\srmsvc\settings**
 5. Pour ignorer éventuellement la modification de la création du journal pour l’ensemble du serveur (ignorez cette étape si vous souhaitez la désactiver uniquement sur des volumes spécifiques) :
     1. Cliquez avec le bouton droit sur la clé des **paramètres** , puis sélectionnez **nouvelle** > **valeur DWORD (32 bits)** . 
-    1. Nommez la `SkipUSNCreationForSystem`valeur.
+    1. Nommez la valeur `SkipUSNCreationForSystem`.
     1. Définissez la valeur sur **1** (hexadécimal).
 6. Pour éventuellement ignorer la création du journal des modifications pour des volumes spécifiques :
-    1. Récupérez les chemins de volume que vous souhaitez ignorer à `fsutil volume list` l’aide de la commande ou de la commande PowerShell suivante :
+    1. Récupérez les chemins de volume que vous souhaitez ignorer à l’aide de la commande `fsutil volume list` ou de la commande PowerShell suivante :
         ```PowerShell
         Get-Volume | Format-Table DriveLetter,FileSystemLabel,Path
         ```
@@ -88,9 +88,9 @@ Pour empêcher les Gestionnaire des ressources du serveur de fichiers de créer 
                     System Reserved \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
         C                           \\?\Volume{8d3c9e8a-0000-0000-0000-501f00000000}\
        ```
-    2. De retour dans l’éditeur du Registre, cliquez avec le bouton droit sur la clé **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** , puis sélectionnez **nouvelle** > **valeur de chaînes multiples**.
-    3. Nommez la `SkipUSNCreationForVolumes`valeur.
-    4. Entrez le chemin d’accès de chaque volume sur lequel vous ignorez la création d’un journal des modifications, en plaçant chaque chemin sur une ligne distincte. Exemple :
+    2. De retour dans l’éditeur du Registre, cliquez avec le bouton droit sur la clé **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\srmsvc\settings** , puis sélectionnez **nouvelle** > **valeur de chaînes multiples**.
+    3. Nommez la valeur `SkipUSNCreationForVolumes`.
+    4. Entrez le chemin d’accès de chaque volume sur lequel vous ignorez la création d’un journal des modifications, en plaçant chaque chemin sur une ligne distincte. Par exemple :
 
         ```
         \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
@@ -98,9 +98,9 @@ Pour empêcher les Gestionnaire des ressources du serveur de fichiers de créer 
         ```
 
         > [!NOTE] 
-        > L’éditeur du Registre peut vous indiquer qu’il a supprimé des chaînes vides, en affichant cet avertissement que vous pouvez ignorer en toute sécurité : *Data de type REG_MULTI_SZ ne peut pas contenir de chaînes vides. L’éditeur du Registre va supprimer toutes les chaînes vides trouvées.*
+        > L’éditeur du Registre peut vous indiquer qu’il a supprimé des chaînes vides, en affichant cet avertissement que vous pouvez ignorer sans risque : les *données de type REG_MULTI_SZ ne peuvent pas contenir de chaînes vides. L’éditeur du Registre va supprimer toutes les chaînes vides trouvées.*
 
-7. Démarrez le service SRMSVC. Par exemple, dans une session PowerShell, `Start-Service SrmSvc`entrez.
+7. Démarrez le service SRMSVC. Par exemple, dans une session PowerShell, entrez `Start-Service SrmSvc`.
 
 
 

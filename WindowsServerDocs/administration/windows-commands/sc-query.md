@@ -1,24 +1,20 @@
 ---
 title: Requête SC
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac365f89-4b20-4de6-a582-b204c5e7d0eb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d2f3f603ad173b5ab90bc56a9a4e589c0fe9d8a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 38d83fa07e9f85f3a5a4b86388bbed41fcf326d1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384344"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835282"
 ---
 # <a name="sc-query"></a>Requête SC
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= {own | share | interact | kernel | filesys | rec | adapt}] [state= {active | inactive | all}] [bufsize= <BufferSize>] [ri= <ResumeIndex>] [group= <GroupName>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |       Paramètre        |                                                                                                                          Description                                                                                                                          |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,10 +38,10 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
 |     \<ServiceName >     |                                      Spécifie le nom du service retourné par l’opération **getkeyname** . Ce paramètre de **requête** n’est pas utilisé conjointement avec d’autres paramètres de **requête** (autres que *ServerName*).                                      |
 |     type = {Driver      |                                                                                                                            service                                                                                                                            |
 |       type = {Own       |                                                                                                                             partager                                                                                                                             |
-|     État = {actif     |                                                                                                                           Inactive                                                                                                                            |
+|     État = {actif     |                                                                                                                           inactive                                                                                                                            |
 | bufsize = \<BufferSize > |                     Spécifie la taille (en octets) de la mémoire tampon d’énumération. La taille de la mémoire tampon par défaut est de 1 024 octets. Vous devez augmenter la taille de la mémoire tampon d’énumération lorsque l’affichage résultant d’une requête dépasse 1 024 octets.                      |
 |   RI = \<ResumeIndex >   | Spécifie le numéro d’index au niveau duquel l’énumération doit commencer ou reprendre. La valeur par défaut est **0** (zéro). Utilisez ce paramètre avec le paramètre **bufsize =** lorsque des informations supplémentaires sont retournées par une requête que le tampon par défaut peut afficher. |
-|  Groupe = \<GroupName >   |                                                                             Spécifie le groupe de services à énumérer. Par défaut, tous les groupes sont énumérés (**Group = ""** ).                                                                              |
+|  Groupe = \<GroupName >   |                                                                             Spécifie le groupe de services à énumérer. Par défaut, tous les groupes sont énumérés (* * groupe = * *).                                                                              |
 |           /?           |                                                                                                             Affiche l'aide à l'invite de commandes.                                                                                                              |
 
 ## <a name="remarks"></a>Notes
@@ -62,7 +58,7 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
   sc query bufsize= 1822 ri= 79
   ```
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher uniquement les informations relatives aux services actifs, tapez l’une des commandes suivantes :
 ```
@@ -98,6 +94,6 @@ Pour afficher les informations relatives aux pilotes dans le groupe NDIS (Networ
 sc query type= driver group= ndis
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

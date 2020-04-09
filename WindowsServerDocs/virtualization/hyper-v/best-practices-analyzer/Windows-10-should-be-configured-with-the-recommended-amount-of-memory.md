@@ -2,20 +2,19 @@
 title: Windows 10 doit être configuré avec la quantité de mémoire recommandée.
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 0c810b82-b06a-4382-b598-5c642e8534be
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: a2722f9ecdfbab037de67ef77af7cec2eed4f0b9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e38ca9d00ad502fc2ae3f2784a9e3f1a159d13a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364567"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854982"
 ---
 # <a name="windows-10-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows 10 doit être configuré avec la quantité de mémoire recommandée.
 
@@ -25,9 +24,9 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Les sections suivantes fournissent des détails sur le problème spécifique. L’italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour le problème spécifique.  
@@ -35,7 +34,7 @@ Les sections suivantes fournissent des détails sur le problème spécifique. L�
 ## <a name="issue"></a>**Problème**  
 *Une machine virtuelle exécutant Windows 10 est configurée avec une quantité inférieure à la quantité recommandée de RAM, qui est de 1 Go.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Effet**  
 *Le système d’exploitation invité et les applications peuvent ne pas fonctionner correctement. Il se peut que la mémoire soit insuffisante pour exécuter plusieurs applications à la fois. Cela a un impact sur les machines virtuelles suivantes :*  
 ```  
 <list of virtual machines>  
@@ -49,7 +48,7 @@ Les sections suivantes fournissent des détails sur le problème spécifique. L�
   
 2.  Dans le volet de résultats, sous **machines virtuelles**, sélectionnez la machine virtuelle que vous souhaitez configurer. L’état de la machine virtuelle doit être défini sur **désactivé**. Si ce n’est pas le cas, cliquez avec le bouton droit sur l’ordinateur virtuel, puis cliquez sur **arrêter**.  
   
-3.  Dans le volet **Action**, sous le nom de l'ordinateur virtuel, cliquez sur **Paramètres**.  
+3.  Dans le volet **Action**, sous le nom de l’ordinateur virtuel, cliquez sur **Paramètres**.  
   
 4.  Dans le volet de navigation, cliquez sur **mémoire**.  
   

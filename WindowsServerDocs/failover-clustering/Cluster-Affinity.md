@@ -1,18 +1,19 @@
 ---
 title: Affinité de cluster
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 03/07/2019
 description: Cet article décrit l’affinité de cluster de basculement et les niveaux d’antiaffinité
-ms.openlocfilehash: 9a269d2b14e953daee849008a473c750dfbfe84b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c9910cac602802b753391fad1009fb7f1fa3d2f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361459"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828282"
 ---
 # <a name="cluster-affinity"></a>Affinité de cluster
 
@@ -86,7 +87,7 @@ Dans une liste PowerShell des groupes, vous voyez ceci :
 - N’oubliez pas que dans un scénario à deux nœuds et ClusterEnforcedAntiAffinity, si un nœud est défaillant, les deux groupes ne s’exécuteront pas.  
 
 - L’utilisation de propriétaires préférés sur des groupes peut être combinée à l’antiaffinité dans un cluster à trois nœuds ou plus.
-- Les paramètres AntiAffinityClassNames et ClusterEnforcedAntiAffinity se produisent uniquement après un recyclage des ressources. SAVOIR vous pouvez les définir, mais si les deux groupes sont en ligne sur le même nœud lorsqu’ils sont définis, ils continuent à rester en ligne.
+- Les paramètres AntiAffinityClassNames et ClusterEnforcedAntiAffinity se produisent uniquement après un recyclage des ressources. savoir vous pouvez les définir, mais si les deux groupes sont en ligne sur le même nœud lorsqu’ils sont définis, ils continuent à rester en ligne.
 
 
 

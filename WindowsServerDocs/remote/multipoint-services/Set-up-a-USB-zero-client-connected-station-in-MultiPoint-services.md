@@ -1,24 +1,20 @@
 ---
 title: Configurer une station USB connectée sans client dans MultiPoint services
 description: Découvrez comment créer une station cliente zéro USB dans MultiPoint services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d2908865-6be3-474d-88f1-995f40bb61d0
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 80a73065024e5c40f1ebf8efd64022ee6d48fbe8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 688b4908cd52dd53ba88f0a35cabccb58c289ba1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395072"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855642"
 ---
 # <a name="set-up-a-usb-zero-client-connected-station-in-multipoint-services"></a>Configurer une station USB connectée sans client dans MultiPoint services
 Lorsque vous utilisez des clients USB à zéro pour créer des stations MultiPoint services, le moniteur de chaque station est connecté au port vidéo sur le client USB Zero, comme indiqué dans l’illustration suivante. Pour plus d’informations sur ce type de station et les autres, consultez la page sur les [stations multipoint](MultiPoint-services-Stations.md).

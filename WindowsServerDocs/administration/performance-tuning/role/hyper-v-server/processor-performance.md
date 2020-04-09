@@ -4,15 +4,15 @@ description: Considérations sur les performances du processeur dans le réglage
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d61d0e37bd80033bfcfb0cf5c601d8bcedda104
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc1d6bdb848ea9662ba9b3d3119f286af3476688
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370040"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851752"
 ---
 # <a name="hyper-v-processor-performance"></a>Performances du processeur Hyper-V
 
@@ -55,7 +55,7 @@ Voici les meilleures pratiques supplémentaires pour configurer une *version cli
 
 -   Désactivez les tâches planifiées telles que la défragmentation planifiée.
 
-## <a name="virtual-numa"></a>NUMA virtuel
+## <a name="virtual-numa"></a>Virtual NUMA
 
 Pour permettre la virtualisation de charges de travail à grande échelle, Hyper-V dans Windows Server 2016 a développé des limites de mise à l’échelle de machine virtuelle. Une seule machine virtuelle peut recevoir jusqu’à 240 processeurs virtuels et 12 to de mémoire. Lors de la création de ces machines virtuelles volumineuses, la mémoire de plusieurs nœuds NUMA sur le système hôte sera probablement utilisée. Dans une telle configuration de machine virtuelle, si les processeurs virtuels et la mémoire ne sont pas alloués à partir du même nœud NUMA, les charges de travail peuvent présenter des performances médiocres en raison de l’impossibilité de tirer parti des optimisations NUMA.
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: cd4d4902-dcdf-49dd-8059-82a56bf4b585
 title: Exporter la partie clé privée d'un certificat d'authentification serveur
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8e1bbeddc4bae1c420b6cc78b52d6b873320ae8f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6baa734e3fc346d94f4387e2ed54d3e707e5af75
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359578"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855422"
 ---
 # <a name="export-the-private-key-portion-of-a-server-authentication-certificate"></a>Exporter la partie clé privée d'un certificat d'authentification serveur
 
@@ -27,7 +26,7 @@ Ce même concept est vrai pour les batteries de serveurs proxy de Fédération d
   
 En fonction du rôle joué par cet ordinateur, procédez comme suit sur l’ordinateur du serveur de Fédération ou le serveur proxy de Fédération sur lequel vous avez installé le certificat d’authentification serveur avec la clé privée. Une fois la procédure terminée, importez ce certificat sur le site web par défaut de chaque serveur de la batterie de serveurs. Pour plus d’informations, consultez [Importer un certificat d’authentification serveur sur le site Web par défaut](Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).  
   
-Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs** ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-export-the-private-key-portion-of-a-server-authentication-certificate"></a>Pour exporter la partie clé privée d'un certificat d'authentification serveur  
   
@@ -39,7 +38,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
   
 4. Dans le volet central, cliquez avec le bouton\-droit sur le certificat que vous souhaitez exporter, puis cliquez sur **Exporter**.  
   
-5. Dans la boîte de dialogue **exporter un certificat** , cliquez sur **...** .  
+5. Dans la boîte de dialogue **exporter un certificat** , cliquez sur **...** de l'ordinateur.  
   
 6. Dans **nom de fichier**, tapez **C :\\** <em>NameofCertificate</em>, puis cliquez sur **ouvrir**.  
   

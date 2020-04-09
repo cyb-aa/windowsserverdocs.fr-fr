@@ -3,21 +3,21 @@ ms.assetid: 13210461-1e92-48a1-91a2-c251957ba256
 title: Résolution des problèmes liés aux mises à jour du microprogramme des lecteurs
 ms.prod: windows-server
 ms.author: toklima
-ms.manager: masriniv
+manager: masriniv
 ms.technology: storage
 ms.topic: article
 author: toklima
 ms.date: 04/18/2017
-ms.openlocfilehash: 9c9c1083def53e09b063a0ca9879e4d4527e98c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b62fdfe64ea579f61239dc582c639fb10ec1371c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365888"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820882"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Résolution des problèmes liés aux mises à jour du microprogramme des lecteurs
 
->S’applique à : Windows 10, Windows Server (canal semi-annuel),
+>S’applique à : Windows 10, Windows Server (canal semi-annuel)
 
 Windows 10, version 1703 ou ultérieure, et Windows Server (canal semi-annuel) permettent de mettre à jour le microprogramme de disques durs et de disques SSD qui ont été certifiés à l’aide du qualificateur supplémentaire Firmware Upgradeable (microprogramme pouvant être mis à niveau) via PowerShell.
 
@@ -41,7 +41,7 @@ D’un point de vue architectural, cette nouvelle fonctionnalité s’appuie sur
 Les sections suivantes proposent diverses informations de dépannage, selon que des pilotes Microsoft ou tiers sont utilisés.
 
 ## <a name="identifying-inappropriate-hardware"></a>Identification de matériel inapproprié
-La méthode la plus rapide pour déterminer si un périphérique prend en charge le jeu de commandes approprié consiste à simplement lancer PowerShell et à passer un disque représentant l’objet PhysicalDisk dans l’applet de commande Get-StorageFirmwareInfo. Voici un exemple :
+La méthode la plus rapide pour déterminer si un périphérique prend en charge le jeu de commandes approprié consiste à simplement lancer PowerShell et à passer un disque représentant l’objet PhysicalDisk dans l’applet de commande Get-StorageFirmwareInfo. Exemple :
 
 ```powershell
 Get-PhysicalDisk -SerialNumber 15140F55976D | Get-StorageFirmwareInformation
@@ -142,7 +142,7 @@ Par défaut, les journaux de diagnostic ne sont pas affichés et vous pouvez les
 
 Pour collecter ces entrées de journal avancées, activez le journal, reproduisez l’échec de mise à jour du microprogramme et enregistrez le journal de diagnostic.
 
-Voici un exemple de mise à jour de microprogramme sur un appareil SATA qui échoue, car l’image à télécharger n’était pas valide (ID d’événement : 258) :
+Voici l’exemple d’une mise à jour du microprogramme sur un périphérique SATA ayant échoué parce que l’image à télécharger n’était pas valide (ID d’événement : 258) :
 
 ``` 
 EventData
@@ -174,11 +174,11 @@ Parameter8Value 0
 ```
 
 L’événement ci-dessus contient des informations détaillées sur le périphérique sous forme de valeurs de paramètre comprises entre 2 et 6. Dans ce cas, il s’agit de valeurs de registre ATA. La spécification ACS ATA peut être utilisée pour décoder les valeurs suivantes pour l’échec d’une commande de téléchargement de commande :
-- Code de retour : 0 (0000 0000) (sans signification, car aucune charge utile n’a été transférée)
-- Fonctionnalités : 15 (0000 1111) (le bit 1 est défini sur « 1 » et indique « Abort »)
+- Return Code: 0 (0000 0000) (N/A - sans signification dans la mesure où aucune charge utile n’a été transférée)
+- Fonctionnalités : 15 (0000 1111) (le bit 1 est défini sur « 1 » et indique « abandon »)
 - SectorCount: 0 (0000 0000) (N/A)
-- DriveHead: 160 (1010 0000) (N/A : seuls les bits obsolètes sont définis)
-- Commande 146 (1001 0010) (le bit 1 est défini sur « 1 » indiquant la disponibilité des données de sens)
+- DriveHead: 160 (1010 0000) (N/A – seuls les bits obsolètes sont définis)
+- Commande : 146 (1001 0010) (le bit 1 est défini sur « 1 » indiquant la disponibilité des données de sens)
 
 Ceci indique que l’opération de mise à jour du microprogramme a été abandonnée par le périphérique.
 

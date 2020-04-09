@@ -1,7 +1,6 @@
 ---
 ms.assetid: f0464182-56a2-4bfa-a8c8-7e39c1bd62d3
 title: Batterie de serveurs de fédération utilisant la base de données interne Windows et des proxys
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,19 +8,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a123afaebba002b8ee4fb98d5cee5aded286a96
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 523e076ad9593f09ac2f9db5c45fa8c2e82f05bb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359134"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853102"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Batterie de serveurs de fédération utilisant la base de données interne Windows et des proxys
 
 Cette topologie de déploiement pour Services ADFS \(AD FS\) est identique à celle de la batterie de serveurs de Fédération avec la topologie \(de la base de données interne Windows\), mais elle ajoute des ordinateurs proxy au réseau de périmètre pour prendre en charge les utilisateurs externes. Ces proxies redirigent les demandes d’authentification du client qui proviennent de l’extérieur de votre réseau d’entreprise vers la batterie de serveurs de Fédération. Dans les versions précédentes de AD FS, ces proxies étaient appelés serveurs proxy de Fédération.  
   
 > [!IMPORTANT]  
-> Dans Services ADFS \(AD FS\) dans Windows Server 2012 R2, le rôle de serveur proxy de Fédération est géré par un nouveau service de rôle accès à distance appelé proxy d’application Web. Pour activer votre AD FS pour l’accessibilité depuis l’extérieur du réseau d’entreprise, ce qui était l’objectif du déploiement d’un serveur proxy de Fédération dans les versions héritées de AD FS, comme AD FS 2,0 et AD FS dans Windows Server 2012, vous pouvez déployer un ou plusieurs proxys d’application Web pour un D FS dans Windows Server 2012 R2.  
+> Dans Services ADFS \(AD FS\) dans Windows Server 2012 R2, le rôle de serveur proxy de Fédération est géré par un nouveau service de rôle accès à distance appelé proxy d’application Web. Pour activer votre AD FS pour l’accessibilité depuis l’extérieur du réseau d’entreprise, ce qui était l’objectif du déploiement d’un serveur proxy de Fédération dans les versions héritées de AD FS, comme AD FS 2,0 et AD FS dans Windows Server 2012, vous pouvez déployer un ou plusieurs proxys d’application Web pour AD FS dans Windows Server 2012 R2.  
 >   
 > Dans le contexte de AD FS, le proxy d’application Web fonctionne comme un proxy de serveur de fédération AD FS. De plus, il fournit une fonctionnalité de proxy inverse aux applications web de votre réseau d’entreprise, permettant aux utilisateurs de n’importe quel appareil d’y accéder depuis l’extérieur du réseau d’entreprise. Pour plus d’informations sur le proxy d’application web, consultez Vue d’ensemble du proxy d’application web.  
 >   

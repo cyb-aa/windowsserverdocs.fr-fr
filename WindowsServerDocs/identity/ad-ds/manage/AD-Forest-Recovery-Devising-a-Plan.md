@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-élaboration d’un plan de récupération de forêt Active Directory
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 17381f30-55f2-4e00-977a-b701675fa4ff
 ms.technology: identity-adds
-ms.openlocfilehash: 0ef0fbc19f1b3ba5a46fe09f66da6721f2e84712
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ebdff0616d0e3a99b710e07e3bff149a275ff4ea
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369148"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824023"
 ---
 # <a name="ad-forest-recovery---devising-an-ad-forest-recovery-plan"></a>Récupération de la forêt Active Directory-élaboration d’un plan de récupération de forêt Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Selon les besoins de votre environnement et de votre entreprise, vous pouvez être amené à effectuer toutes les étapes décrites dans ce guide pour effectuer une récupération de forêt réussie. Étant donné que ce guide sert uniquement de modèle pour la récupération de forêt, il est essentiel de concevoir un plan de récupération de forêt personnalisé adapté à votre environnement et répondant aux besoins de votre entreprise.  
   

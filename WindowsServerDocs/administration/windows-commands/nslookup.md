@@ -1,28 +1,24 @@
 ---
 title: nslookup
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 41516932-7833-434a-aa92-b4cf0f9a7ef7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b47592be57d5999ac26465097490da266bd0aea
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 15062d81992ee1b6e55d47cb9e49822350e4f2bc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372704"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838092"
 ---
 # <a name="nslookup"></a>nslookup
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche des informations que vous pouvez utiliser pour diagnostiquer l’infrastructure DNS (Domain Name System). Avant d’utiliser cet outil, vous devez vous familiariser avec le fonctionnement du service DNS. L’outil de ligne de commande nslookup est disponible uniquement si vous avez installé le protocole TCP/IP.
 ## <a name="syntax"></a>Syntaxe
@@ -57,7 +53,7 @@ nslookup /set [no]vc
 nslookup /view <FileName>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |                       Paramètre                       |                                                                                                         Description                                                                                                         |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -97,7 +93,7 @@ nslookup /view <FileName>
   Si vous avez besoin de Rechercher plusieurs éléments de données, vous pouvez utiliser le mode interactif. tapez un trait d’Union (-) pour le premier paramètre et le nom ou l’adresse IP d’un serveur de noms DNS pour le deuxième paramètre. Ou omettez les deux paramètres et **nslookup** utilise le serveur de noms DNS par défaut. Voici quelques conseils sur l’utilisation du mode interactif :
   -   Pour interrompre les commandes interactives à tout moment, appuyez sur CTRL + B.
   -   Pour quitter, tapez **Exit**.
-  -   Pour traiter une commande intégrée comme un nom d’ordinateur, faites-le précéder du caractère d'\\échappement ().
+  -   Pour traiter une commande intégrée comme un nom d’ordinateur, faites-le précéder du caractère d’échappement (\\).
   -   Une commande non reconnue est interprétée comme un nom d’ordinateur.
 - Si la demande de recherche échoue, **nslookup** imprime un message d’erreur. Le tableau suivant répertorie les messages d’erreur possibles.
   |**Message d’erreur**|**Description**|
@@ -106,7 +102,7 @@ nslookup /view <FileName>
   |`No response from server`|Aucun serveur de noms DNS n’est en cours d’exécution sur l’ordinateur serveur.|
   |`No records`|Le serveur de noms DNS n’a pas d’enregistrements de ressource du type de requête actuel pour l’ordinateur, bien que le nom de l’ordinateur soit valide. Le type de requête est spécifié à l’aide de la commande **Set QueryType** .|
   |`Nonexistent domain`|L’ordinateur ou le nom de domaine DNS n’existe pas.|
-  |`Connection refused`<br /><br />\- ou -<br /><br />`Network is unreachable`|La connexion au serveur de noms DNS ou au serveur Finger n’a pas pu être établie. Cette erreur se produit généralement avec les requêtes **ls** et **Finger** .|
+  |`Connection refused`<p>-ou-<p>`Network is unreachable`|La connexion au serveur de noms DNS ou au serveur Finger n’a pas pu être établie. Cette erreur se produit généralement avec les requêtes **ls** et **Finger** .|
   |`Server failure`|Le serveur de noms DNS a trouvé une incohérence interne dans sa base de données et n’a pas pu retourner une réponse valide.|
   |`Refused`|Le serveur de noms DNS a refusé de traiter la demande.|
   |`format error`|Le serveur de noms DNS a détecté que le format du paquet de demande n’était pas correct. Elle peut indiquer une erreur dans **nslookup**.|
@@ -117,4 +113,4 @@ nslookup /view <FileName>
     #### <a name="examples"></a>Exemples
     Chaque option de ligne de commande se compose d’un trait d’Union (-) suivi immédiatement du nom de commande et, dans certains cas, d’un signe égal (=), puis d’une valeur. Par exemple, pour modifier le type de requête par défaut en informations sur l’hôte (ordinateur) et le délai d’expiration initial à 10 secondes, tapez : **nslookup-QueryType = HINFO-Timeout = 10**
     ## <a name="see-also"></a>Voir aussi
-    [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+    - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

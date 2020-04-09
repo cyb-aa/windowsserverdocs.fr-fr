@@ -1,28 +1,24 @@
 ---
-title: help
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: aide
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 75dbf94f-d79c-45b2-9463-c06648218f4a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c3d76a71ec287e5c874ae3e4dec34016c5c80336
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 404cefe879e8f63678f2cba90516fad9c216eb23
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375581"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842312"
 ---
-# <a name="help"></a>help
+# <a name="help"></a>aide
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Affiche la liste des commandes disponibles ou des informations d’aide détaillées sur une commande spécifiée.  
   
@@ -34,7 +30,7 @@ Affiche la liste des commandes disponibles ou des informations d’aide détaill
 help [<command>]  
 ```  
   
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
   
 | Paramètre |                              Description                              |
 |-----------|-----------------------------------------------------------------------|
@@ -44,7 +40,7 @@ help [<command>]
   
 -   Si aucune commande n’est spécifiée, **l’aide** affiche toutes les commandes possibles.  
   
-## <a name="BKMK_examples"></a>Illustre  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
 Pour afficher la liste de toutes les commandes disponibles dans DiskPart, tapez :  
   
 ```  
@@ -57,8 +53,8 @@ Pour afficher des informations d’aide détaillées sur l’utilisation de la c
 help create partition primary  
 ```  
   
-#### <a name="additional-references"></a>Références supplémentaires  
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Références supplémentaires  
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

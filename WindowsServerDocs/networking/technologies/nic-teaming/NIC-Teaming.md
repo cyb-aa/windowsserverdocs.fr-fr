@@ -2,23 +2,19 @@
 title: Association de cartes réseau
 description: Dans cette rubrique, nous vous proposons une vue d’ensemble de l’Association de cartes d’interface réseau (NIC) dans Windows Server 2016. L’Association de cartes réseau vous permet de grouper entre une et 32 cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelles basées sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.
 manager: dougkim
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-nict
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: lizross
 author: eross-msft
 ms.date: 09/10/2018
-ms.openlocfilehash: f4d9dd20d626f998bee0a8414c281cd27b2d3dbb
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 13607bedb436b794e03e3b2ef67ca0e90d865ed7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316445"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854732"
 ---
 # <a name="nic-teaming"></a>Association de cartes réseau
 
@@ -41,7 +37,10 @@ Quand vous configurez des cartes réseau dans une association de cartes réseau,
 En outre, vous pouvez connecter vos cartes réseau associées au même commutateur ou à différents commutateurs. Si vous connectez des cartes réseau à différents commutateurs, les deux commutateurs doivent se trouver sur le même sous-réseau.  
   
 ## <a name="availability"></a>Disponibilité  
-L’Association de cartes réseau est disponible dans toutes les versions de Windows Server 2016. Vous pouvez utiliser divers outils pour gérer l’Association de cartes réseau à partir d’ordinateurs exécutant un système d’exploitation client, par exemple : • applets de commande Windows PowerShell • Bureau à distance • Outils d’administration de serveur distant  
+L’Association de cartes réseau est disponible dans toutes les versions de Windows Server 2016. Vous pouvez utiliser divers outils pour gérer l’Association de cartes réseau à partir d’ordinateurs exécutant un système d’exploitation client, par exemple :
+*    Des applets de commande Windows PowerShell
+*    Bureau à distance
+*    Outils d'administration de serveur distant  
   
 ## <a name="supported-and-unsupported-nics"></a>Cartes réseau prises en charge et non prises en charge   
 Vous pouvez utiliser n’importe quelle carte réseau Ethernet qui a réussi le test de qualification et de logo de matériel Windows (tests WHQL) dans une association de cartes réseau dans Windows Server 2016.  
@@ -116,9 +115,9 @@ Quand une équipe se connecte à un commutateur virtuel Hyper-V, toute la répar
 
 Envisagez d’utiliser des réseaux locaux virtuels dans une machine virtuelle configurée avec une association de cartes réseau à l’aide des instructions suivantes :
   
--   La méthode recommandée pour la prise en charge de plusieurs réseaux locaux virtuels dans une machine virtuelle consiste à configurer la machine virtuelle avec plusieurs ports sur le commutateur virtuel Hyper-V et à associer chaque port à un réseau local virtuel. Ne jamais associer ces ports à la machine virtuelle, car cela entraîne des problèmes de communication réseau.  
+-    La méthode recommandée pour la prise en charge de plusieurs réseaux locaux virtuels dans une machine virtuelle consiste à configurer la machine virtuelle avec plusieurs ports sur le commutateur virtuel Hyper-V et à associer chaque port à un réseau local virtuel. Ne jamais associer ces ports à la machine virtuelle, car cela entraîne des problèmes de communication réseau.  
 
--   Si la machine virtuelle possède plusieurs fonctions virtuelles SR-IOV (VFs), assurez-vous qu’elles se trouvent sur le même réseau local virtuel avant de les associer à la machine virtuelle. Il est facile de configurer les différents VFss sur différents réseaux locaux virtuels, ce qui entraîne des problèmes de communication réseau.  
+-    Si la machine virtuelle possède plusieurs fonctions virtuelles SR-IOV (VFs), assurez-vous qu’elles se trouvent sur le même réseau local virtuel avant de les associer à la machine virtuelle. Il est facile de configurer les différents VFss sur différents réseaux locaux virtuels, ce qui entraîne des problèmes de communication réseau.  
  
   
 ### <a name="manage-network-interfaces-and-vlans"></a>Gérer les interfaces réseau et les réseaux locaux virtuels 

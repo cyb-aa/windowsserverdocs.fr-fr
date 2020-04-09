@@ -1,7 +1,6 @@
 ---
 ms.assetid: 208928eb-bb17-4984-a312-23fff43133e3
 title: Améliorations de l’audit apportées à AD FS dans Windows Server 2016
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 10/25/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4eb93513d12b2bba2620ff16be24f62ace5dee85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 191ecf5b3c7bf6c8c44d4d3553cd6e98b5543351
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407256"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853802"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>Améliorations de l’audit apportées à AD FS dans Windows Server 2016
 
@@ -23,7 +22,7 @@ Actuellement, dans AD FS pour Windows Server 2012 R2, de nombreux événements d
     Avec la publication de AD FS dans Windows Server 2016, l’audit est devenu plus rationalisé et moins détaillé.  
   
 ## <a name="auditing-levels-in-ad-fs-for-windows-server-2016"></a>Niveaux d’audit dans AD FS pour Windows Server 2016  
-Par défaut, les AD FS dans Windows Server 2016 sont activés pour l’audit de base.  Avec l’audit de base, les administrateurs verront 5 événements ou moins pour une requête unique.  Cela marque une diminution significative du nombre d’événements que les administrateurs doivent examiner pour afficher une requête unique.   Le niveau d’audit peut être augmenté ou diminué à l’aide de la applet PowerShell:  Set-AdfsProperties-AuditLevel.  Le tableau ci-dessous décrit les niveaux d’audit disponibles.  
+Par défaut, les AD FS dans Windows Server 2016 sont activés pour l’audit de base.  Avec l’audit de base, les administrateurs verront 5 événements ou moins pour une requête unique.  Cela marque une diminution significative du nombre d’événements que les administrateurs doivent examiner pour afficher une requête unique.   Le niveau d’audit peut être augmenté ou diminué à l’aide de PowerShell applet : Set-AdfsProperties-AuditLevel.  Le tableau ci-dessous décrit les niveaux d’audit disponibles.  
   
 ||||  
 |-|-|-|  
@@ -32,11 +31,11 @@ Par défaut, les AD FS dans Windows Server 2016 sont activés pour l’audit de 
 |De base (par défaut)|Set-AdfsProperties-AuditLevel de base|Plus de 5 événements seront journalisés pour une demande unique|  
 |Verbose|Set-AdfsProperties-AuditLevel verbose|Tous les événements sont consignés.  Cela permet de consigner une quantité importante d’informations par demande.|  
   
-Pour afficher le niveau d’audit actuel, vous pouvez utiliser le applet PowerShell:  Accédez à AdfsProperties.  
+Pour afficher le niveau d’audit actuel, vous pouvez utiliser PowerShell applet : obtenir-AdfsProperties.  
   
 ![améliorations de l’audit](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_1.PNG)  
   
-Le niveau d’audit peut être augmenté ou diminué à l’aide de la applet PowerShell:  Set-AdfsProperties-AuditLevel.  
+Le niveau d’audit peut être augmenté ou diminué à l’aide de PowerShell applet : Set-AdfsProperties-AuditLevel.  
   
 ![améliorations de l’audit](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_2.png)  
   

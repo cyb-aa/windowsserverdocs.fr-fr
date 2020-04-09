@@ -1,31 +1,27 @@
 ---
 title: Installer une station
 description: Découvrez comment configurer une station dans MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dce05b6c-795e-43b2-9920-026550b873c5
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 95a332a3d15e82047b46cc19f168f945cdb334d2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c3d40346402131e64c437da12f1ff89b4eb3f8f3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389452"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853942"
 ---
 # <a name="set-up-a-station"></a>Installer une station
 Une *station* MultiPoint Services est généralement composée d’un *concentrateur de station*, d’une souris, d’un clavier et d’un moniteur vidéo. Cette rubrique décrit la connexion des périphériques matériels au concentrateur de station pour créer une station MultiPoint Services.  
   
 Le concentrateur de station est un périphérique matériel qui permet de connecter des périphériques à un ordinateur dans un système MultiPoint Services. MultiPoint Services prend en charge deux types de concentrateurs de station :  
   
--   **Concentrateur USB :** Concentrateur d’extension USB multiport générique conforme aux spécifications Universal Serial Bus 2,0 ou versions ultérieures. Ces concentrateurs disposent généralement de deux ou quatre ports USB, ou plus, qui permettent de connecter plusieurs périphériques USB à un seul port USB sur l’ordinateur. Les concentrateurs USB sont généralement des périphériques distincts qui peuvent être alimentés de manière externe ou alimentés par bus. Les concentrateurs utilisés comme concentrateurs de station avec MultiPoint Services devraient posséder au moins quatre ports.  
+-   **Concentrateur USB :** concentrateur d’extension USB multiport générique compatible avec les spécifications USB 2.0 ou ultérieures. Ces concentrateurs disposent généralement de deux ou quatre ports USB, ou plus, qui permettent de connecter plusieurs périphériques USB à un seul port USB sur l’ordinateur. Les concentrateurs USB sont généralement des périphériques distincts qui peuvent être alimentés de manière externe ou alimentés par bus. Les concentrateurs utilisés comme concentrateurs de station avec MultiPoint Services devraient posséder au moins quatre ports.  
   
     > [!IMPORTANT]  
     > Si vous envisagez de connecter des périphériques USB autres qu’un clavier et une souris au concentrateur, nous vous conseillons d’utiliser un concentrateur alimenté de façon externe pour de meilleures performances.  

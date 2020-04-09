@@ -1,7 +1,6 @@
 ---
 ms.assetid: ba7f2b9f-7351-4680-b7d8-a5f270614f1c
 title: Nouveautés relatives à l’installation et à la suppression des services de domaine Active Directory
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1f24615491391d932609d7f80549985818ced8c1
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: b290b11487ce84b0c7cd962b272f52fea538769a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323201"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824942"
 ---
 # <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Nouveautés relatives à l’installation et à la suppression des services de domaine Active Directory
 
@@ -36,7 +35,7 @@ L’installation des services AD DS comprend les fonctionnalités suivantes :
 - **Vous pouvez exporter un script Windows PowerShell qui contient toutes les options qui ont été spécifiées pendant l’installation graphique.** À la fin d’une installation ou d’une suppression, vous pouvez exporter les paramètres vers un script Windows PowerShell pour automatiser la même opération.  
 - **Seule la réplication critique se produit avant le redémarrage.** Nouveau commutateur permettant la réplication des données non critiques avant le redémarrage. Pour plus d’informations, voir [Arguments de l’applet de commande ADDSDeployment](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Params).  
 
-## <a name="BKMK_ADConfigurationWizard"></a>Assistant configuration Active Directory Domain Services
+## <a name="the-active-directory-domain-services-configuration-wizard"></a><a name="BKMK_ADConfigurationWizard"></a>Assistant configuration Active Directory Domain Services
 
 À partir de Windows Server 2012, l’Assistant configuration Active Directory Domain Services remplace l’Assistant Installation Active Directory Domain Services héritée par l’option d’interface utilisateur (IU) pour spécifier les paramètres lors de l’installation d’un contrôleur de domaine. L’Assistant Configuration des services de domaine Active Directory est lancé au terme de l’exécution de l’Assistant Ajout de rôles.  
 
@@ -45,7 +44,7 @@ L’installation des services AD DS comprend les fonctionnalités suivantes :
 
 Dans [installer le &#40;niveau de&#41;Active Directory Domain Services 100](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md), les procédures de l’interface utilisateur montrent comment démarrer l’Assistant Ajout de rôles pour installer les fichiers binaires du rôle de serveur AD DS, puis exécuter l’Assistant Configuration de Active Directory Domain Services pour terminer l’installation du contrôleur de domaine. Les exemples Windows PowerShell montrent comment effectuer les deux étapes à l’aide d’une applet de commande de déploiement AD DS.  
   
-## <a name="BKMK_NewAdprep"></a>Intégration d’Adprep. exe
+## <a name="adprepexe-integration"></a><a name="BKMK_NewAdprep"></a>Intégration d’Adprep. exe
 
 À partir de Windows Server 2012, il n’existe qu’une seule version d’Adprep. exe (il n’existe aucune version 32 bits, adprep32. exe). Les commandes adprep sont exécutées automatiquement si nécessaire lorsque vous installez un contrôleur de domaine qui exécute Windows Server 2012 sur un domaine ou une forêt Active Directory existante.  
   
@@ -104,7 +103,7 @@ La commande adprep /domainprep /gpprep n’est pas exécutée dans le cadre de l
 
 Vous pouvez ajouter en toute sécurité des contrôleurs de domaine qui exécutent Windows Server 2012 à un domaine existant sans exécuter adprep/domainprep/gpprep, mais le mode de planification RSOP ne fonctionnera pas correctement.  
 
-## <a name="BKMK_PrereqCheck"></a>AD DS la validation de la configuration requise pour l’installation
+## <a name="ad-ds-installation-prerequisite-validation"></a><a name="BKMK_PrereqCheck"></a>AD DS la validation de la configuration requise pour l’installation
 
 L’Assistant Installation des services de domaine Active Directory vérifie que les conditions préalables suivantes sont remplies avant de démarrer l’installation. Cela vous donne la possibilité de corriger les problèmes susceptibles de bloquer l’installation.  
   
@@ -122,13 +121,13 @@ Voici d’autres vérifications des conditions préalables qui sont issues de l�
 - Vérification du nom du domaine enfant : vérifie que les noms du parent et du nouveau domaine enfant sont valides et qu’ils ne sont pas en conflit avec des domaines existants.  
 - Vérification du nom du domaine de l’arborescence : vérifie que le nom de l’arborescence spécifié est valide et qu’il n’existe pas actuellement.  
 
-## <a name="BKMK_SystemReqs"></a>Configuration système requise
+## <a name="system-requirements"></a><a name="BKMK_SystemReqs"></a>Configuration système requise
 
 La configuration système requise pour Windows Server 2012 est identique à celle de Windows Server 2008 R2. Pour plus d’informations, voir [Configuration système requise pour Windows Server 2008 R2 avec SP1](https://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx) (https://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx).  
 
 Il est possible que des conditions supplémentaires soient associées à certaines fonctionnalités. Par exemple, la fonctionnalité de clonage de contrôleur de domaine virtuel requiert que l’émulateur de contrôleur de domaine principal exécute Windows Server 2012 et un ordinateur exécutant Windows Server 2012 avec le rôle Hyper-V installé.  
 
-## <a name="BKMK_KnownIssues"></a>Problèmes connus
+## <a name="known-issues"></a><a name="BKMK_KnownIssues"></a>Problèmes connus
 
 Cette section répertorie certains des problèmes connus qui affectent AD DS installation dans Windows Server 2012. Pour découvrir d’autres problèmes connus, voir [Résolution des problèmes de déploiement de contrôleur de domaine](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
 
@@ -172,7 +171,7 @@ Cette section répertorie certains des problèmes connus qui affectent AD DS ins
 
    Si vous joignez le serveur cible au domaine, puis effectuez l’installation à l’aide d’une carte à puce, l’installation aboutit.  
   
-- **Le module ADDSDeployment ne s’exécute pas sous les processus 32 bits.** Si vous automatisez le déploiement et la configuration de Windows Server 2012 à l’aide d’un script qui comprend une applet de commande ADDSDeployment et toute autre applet de commande qui ne prend pas en charge les processus 64 bits natifs, le script peut échouer avec une erreur qui indique le ADDSDeployment l’applet de commande est introuvable.  
+- **Le module ADDSDeployment ne s’exécute pas sous les processus 32 bits.** Si vous automatisez le déploiement et la configuration de Windows Server 2012 à l’aide d’un script qui comprend une applet de commande ADDSDeployment et toute autre applet de commande qui ne prend pas en charge les processus 64 bits natifs, le script peut échouer avec une erreur indiquant que l’applet de commande ADDSDeployment est introuvable.  
 
    Dans ce cas, vous devez exécuter l’applet de commande ADDSDeployment séparément de l’applet de commande qui ne prend pas en charge les processus 64 bits natifs.  
 
@@ -230,7 +229,7 @@ Si vous rencontrez ce problème, examinez le fichier dcpromo.log dans le dossier
 
    Si l’erreur est causée par la spécification d’un compte et d’un mot de passe d’administrateur local, vous devez, pour corriger le problème, réinstaller le système d’exploitation, [effectuer un nettoyage des métadonnées](https://technet.microsoft.com/library/cc816907(WS.10).aspx) du compte pour le contrôleur de domaine qui n’a pas réussi à effectuer l’installation, puis réessayer l’installation des services de domaine Active Directory à l’aide d’informations d’identification de l’administrateur de domaine. Le redémarrage du serveur ne corrige pas cette condition d’erreur, car le serveur indique que les services AD DS est installé même si l’installation ne s’est pas terminée correctement.  
 
-### <a name="BKMK_nonnormalDNSNameWarning"></a>Active Directory Domain Services Assistant Configuration avertit lorsqu’un nom DNS non normalisé est spécifié.
+### <a name="active-directory-domain-services-configuration-wizard-warns-when-a-non-normalized-dns-name-is-specified"></a><a name="BKMK_nonnormalDNSNameWarning"></a>Active Directory Domain Services Assistant Configuration avertit lorsqu’un nom DNS non normalisé est spécifié.
 
 Si vous créez un domaine ou une forêt et que vous spécifiez un nom de domaine DNS contenant des caractères internationaux qui ne sont pas normalisés, l’Assistant Configuration des services de domaine Active Directory affiche alors un avertissement indiquant l’échec possible des requêtes DNS pour le nom. Bien que le nom de domaine DNS soit spécifié dans la page Configuration de déploiement, l’avertissement apparaît dans la page Vérification de la configuration requise plus loin dans l’Assistant.  
 

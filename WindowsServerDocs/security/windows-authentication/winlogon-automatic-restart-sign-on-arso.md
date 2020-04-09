@@ -1,24 +1,19 @@
 ---
 title: Connexion de redémarrage automatique Winlogon
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: na
-ms.suite: na
 ms.technology: security-auditing
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 15cddcfa-8a8e-45e4-bb76-b8e1a14ceac0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: f085cf78a01148f97a450577131213ce977a432a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3dd66cc799ee23f77c9c60e23e49d3088a27b2fc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402320"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855102"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Connexion de redémarrage automatique Winlogon
 
@@ -29,7 +24,7 @@ ms.locfileid: "71402320"
 > [!NOTE]  
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
-## <a name="overview"></a>Vue d’ensemble  
+## <a name="overview"></a>Overview  
 Windows 8 a introduit les applications de l’écran de verrouillage.  Il s’agit des applications qui exécutent et affichent des notifications lorsque la session de l’utilisateur est verrouillée (rendez-vous, courrier électronique et messages, etc.).  Les appareils qui sont redémarrés en raison du processus de Windows Update ne parviennent pas à afficher ces notifications d’écran de verrouillage lors du redémarrage.  Certains utilisateurs dépendent de ces applications d’écran de verrouillage.  
   
 ## <a name="whats-changed"></a>Nouveautés  
@@ -95,7 +90,7 @@ Si vous désactivez ce paramètre de stratégie, l’appareil ne stocke pas les 
   
 |Nom de valeur|Type|Données|  
 |-------|----|----|  
-|DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Exemple :**<br /><br />0 (activé)<br /><br />1 (désactivé)|  
+|DisableAutomaticRestartSignOn|DWORD|0<p>**Exemple :**<p>0 (activé)<p>1 (désactivé)|  
   
 **Emplacement du registre de la stratégie :** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System  
   
@@ -142,11 +137,11 @@ Une session utilisateur existante peut être conservée même si elle est désac
 ### <a name="logon-hours-and-parental-controls"></a>Horaires d’accès et contrôle parental  
 Les heures d’ouverture de session et le contrôle parental peuvent empêcher la création d’une nouvelle session utilisateur.  Si un redémarrage se produit au cours de cette fenêtre, l’utilisateur n’est pas autorisé à se connecter.  Une stratégie supplémentaire empêche le verrouillage ou la déconnexion en tant qu’action de conformité.  Cela peut être problématique dans de nombreux cas enfants où le verrouillage de compte peut se produire entre le temps de sortie et la mise en éveil, en particulier si la fenêtre de maintenance est courante pendant cette période.  
   
-## <a name="additional-resources"></a>Ressources complémentaires  
+## <a name="additional-resources"></a>Ressources supplémentaires  
 **Table SEQ Table \\\* arabe 3 : Glossaire connexion**  
   
 |Terme|Définition|  
 |----|-------|  
-|Autologon|Le logo automatique est une fonctionnalité qui est présente dans Windows pour plusieurs versions.  Il s’agit d’une fonctionnalité documentée de Windows qui a même des outils tels que l’ouverture de logos automatique pour Windows v 3.01  *[http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<br /><br />Il permet à un seul utilisateur de l’appareil de se connecter automatiquement sans entrer d’informations d’identification. Les informations d’identification sont configurées et stockées dans le registre en tant que secret LSA chiffré.|  
+|Autologon|Le logo automatique est une fonctionnalité qui est présente dans Windows pour plusieurs versions.  Il s’agit d’une fonctionnalité documentée de Windows qui a même des outils tels que l’ouverture de logos automatique pour Windows v 3.01  *[http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<p>Il permet à un seul utilisateur de l’appareil de se connecter automatiquement sans entrer d’informations d’identification. Les informations d’identification sont configurées et stockées dans le registre en tant que secret LSA chiffré.|  
   
 

@@ -1,24 +1,20 @@
 ---
 title: ksetup
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4e046f8a-811b-48dc-9a69-18d8e097f353
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 265f67bff65794938485472a41064837551c7699
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b3c61fd81691f9db44330eddbf40d4212d1786ff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374799"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841252"
 ---
 # <a name="ksetup"></a>ksetup
 
@@ -55,7 +51,7 @@ ksetup
 
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -68,7 +64,7 @@ ksetup
 |[Ksetup:server](ksetup-server.md)|Vous permet de spécifier le nom d’un ordinateur Windows sur lequel appliquer les modifications.|
 |[Ksetup:setcomputerpassword](ksetup-setcomputerpassword.md)|Définit le mot de passe du compte de domaine de l’ordinateur (ou du principal de l’hôte).|
 |[Ksetup:removerealm](ksetup-removerealm.md)|Supprime du registre toutes les informations pour le domaine spécifié.|
-|[Ksetup:domain](ksetup-domain.md)|Vous permet de spécifier un domaine (si \<DomainName > n’a pas été défini à l’aide de **/Domain**).|
+|[Ksetup:domain](ksetup-domain.md)|Vous permet de spécifier un domaine (si \<nom_domaine > n’a pas été défini à l’aide de l’utilisation de la valeur **/Domain**).|
 |[Ksetup:changepassword](ksetup-changepassword.md)|Vous permet d’utiliser le kpasswd pour modifier le mot de passe de l’utilisateur connecté.|
 |[Ksetup:listrealmflags](ksetup-listrealmflags.md)|Répertorie les indicateurs de domaine disponibles que **Ksetup** peut détecter.|
 |[Ksetup:setrealmflags](ksetup-setrealmflags.md)|Définit des indicateurs de domaine pour un domaine spécifique.|
@@ -87,10 +83,10 @@ ksetup
 
 **Ksetup** est utilisé pour modifier les paramètres de l’ordinateur afin de localiser les domaines Kerberos. Dans les implémentations basées sur Kerberos non-Microsoft, ces informations sont généralement conservées dans le fichier krb5. conf. Dans les systèmes d’exploitation Windows Server, elle est conservée dans le registre. Vous pouvez utiliser cet outil pour modifier ces paramètres. Ces paramètres sont utilisés par les stations de travail pour localiser les domaines Kerberos et par les contrôleurs de domaine afin de localiser les domaines Kerberos pour les relations d’approbation entre domaines.
 
-**Ksetup** initialise les clés de registre que le fournisseur SSP (Security Support Provider) Kerberos utilise pour localiser un KDC pour le domaine Kerberos si l’ordinateur exécute windows Server 2003, windows Server 2008 ou windows Server 2008 R2 et n’est pas membre d’un Windows Domain. Après la configuration, l’utilisateur d’un ordinateur client qui exécute le système d’exploitation Windows peut se connecter aux comptes dans le domaine Kerberos.
+**Ksetup** initialise les clés de registre que le fournisseur SSP (Security Support Provider) Kerberos utilise pour localiser un KDC pour le domaine Kerberos si l’ordinateur exécute windows Server 2003, windows Server 2008 ou windows Server 2008 R2 et n’est pas membre d’un domaine Windows. Après la configuration, l’utilisateur d’un ordinateur client qui exécute le système d’exploitation Windows peut se connecter aux comptes dans le domaine Kerberos.
 
 Le protocole Kerberos version 5 est la valeur par défaut pour l’authentification réseau sur les ordinateurs exécutant Windows XP professionnel, Windows Vista et Windows 7. Le SSP Kerberos recherche le nom de domaine du domaine de l’utilisateur dans le registre, puis résout le nom en adresse IP en interrogeant un serveur DNS. Le protocole Kerberos peut utiliser le DNS pour localiser les KDC en utilisant uniquement le nom de domaine, mais il doit être spécialement configuré pour ce faire.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

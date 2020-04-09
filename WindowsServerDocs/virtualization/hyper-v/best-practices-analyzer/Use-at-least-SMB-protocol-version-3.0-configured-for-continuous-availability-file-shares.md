@@ -2,20 +2,19 @@
 title: Utilisez au moins le protocole SMB version 3,0 configuré pour la disponibilité continue sur des partages de fichiers qui stockent des fichiers pour les machines virtuelles
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: a1fa5cf9-8a48-4f63-bb57-d81e63e77b30
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 3a6cbb6052e2e50b7fd78792c5e01885d7672932
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18943c6b34ab74206483779db5afa06bbde04874
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393340"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854202"
 ---
 # <a name="use-at-least-smb-protocol-version-30-configured-for-continuous-availability-on-file-shares-that-store-files-for-virtual-machines"></a>Utilisez au moins le protocole SMB version 3,0 configuré pour la disponibilité continue sur des partages de fichiers qui stockent des fichiers pour les machines virtuelles
 
@@ -25,7 +24,7 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
@@ -35,13 +34,13 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="issue"></a>**Problème**  
 *Les fichiers d’ordinateur virtuel ou les fichiers de disque dur virtuel sont stockés sur un partage de fichiers réseau qui n’est pas configuré avec la fonctionnalité de disponibilité continue de la version 3,0 du protocole SMB.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Effet**  
 *Microsoft ne recommande pas cette configuration, car elle peut avoir un impact sur la disponibilité des machines virtuelles à l’aide du serveur. Cela a un impact sur les machines virtuelles suivantes :*  
   
 \<liste des machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
-Effectuez l’une des opérations suivantes :  
+Effectuez l'une des opérations suivantes :  
   
 -   Déplacez les fichiers vers un partage de fichiers SMB 3,0 configuré pour une disponibilité continue.  
   

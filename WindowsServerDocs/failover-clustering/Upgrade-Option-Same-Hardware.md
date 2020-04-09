@@ -1,29 +1,30 @@
 ---
 title: Mise à niveau des clusters de basculement à l’aide du même matériel
+description: Cet article décrit la mise à niveau d’un cluster de basculement à deux nœuds à l’aide du même matériel
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 02/28/2019
-description: Cet article décrit la mise à niveau d’un cluster de basculement à deux nœuds à l’aide du même matériel
 ms.localizationpriority: medium
-ms.openlocfilehash: 5fe93f1d43e0c3a1bc4269b585cb9d021d3461aa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2d9866417908b3979a4ee17b25dd0d3a404bb1c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361400"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828182"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>Mise à niveau de clusters de basculement sur le même matériel
 
 > S’applique à : Windows Server 2019, Windows Server 2016
 
-Un cluster de basculement est un groupe d'ordinateurs indépendants qui travaillent conjointement pour accroître la disponibilité des applications et des services. Les serveurs en cluster (appelés « nœuds ») sont connectés par des câbles physiques et par des logiciels. En cas de défaillance de l'un des nœuds, un autre prend sa place pour fournir le service (processus appelé « basculement »), garantissant ainsi des interruptions minimales de service pour les utilisateurs.
+Un cluster de basculement est un groupe d'ordinateurs indépendants qui travaillent conjointement pour accroître la disponibilité des applications et des services. Les serveurs en cluster (appelés nœuds) sont reliés via des câbles physiques et des logiciels. En cas de défaillance de l'un des nœuds, un autre prend sa place pour fournir le service (processus appelé « basculement »), garantissant ainsi des interruptions minimales de service pour les utilisateurs.
 
 Ce guide décrit les étapes de la mise à niveau des nœuds de cluster vers Windows Server 2019 ou Windows Server 2016 à partir d’une version antérieure utilisant le même matériel.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Overview
 
 La mise à niveau du système d’exploitation sur un cluster de basculement existant est uniquement prise en charge lors du passage de Windows Server 2016 à Windows 2019.  Si le cluster de basculement exécute une version antérieure, telle que Windows Server 2012 R2 et versions antérieures, la mise à niveau alors que les services de cluster sont en cours d’exécution ne permet pas de joindre des nœuds ensemble.  Si vous utilisez le même matériel, vous pouvez prendre des mesures pour l’extraire vers la version la plus récente.  
 
@@ -37,7 +38,7 @@ Avant de commencer une mise à niveau, vérifiez qu’une sauvegarde en cours, y
 
 Dans l’exemple ci-dessous, le nom du cluster de basculement est CLUSTER et les noms de nœuds sont NODE1 et NODE2.
 
-## <a name="step-1-evict-first-node-and-upgrade-to-windows-server-2016"></a>Étape 1 : Supprimer le premier nœud et effectuer une mise à niveau vers Windows Server 2016
+## <a name="step-1-evict-first-node-and-upgrade-to-windows-server-2016"></a>Étape 1 : supprimer le premier nœud et effectuer une mise à niveau vers Windows Server 2016
 
 1. Dans Gestionnaire du cluster de basculement, vous pouvez vider toutes les ressources de NODE1 à NODE2 en cliquant avec le bouton droit sur le nœud et en sélectionnant les rôles **suspendre** et **purger**.  Vous pouvez également utiliser la commande PowerShell [suspend-CLUSTERNODE](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode).
 
@@ -61,7 +62,7 @@ Dans l’exemple ci-dessous, le nom du cluster de basculement est CLUSTER et les
 
 7.  Une fois que toutes les ressources ont été migrées, arrêtez le nœud NODE2 (cluster d’origine) et déconnectez le stockage afin de ne pas provoquer d’interférences.  Connectez le stockage à NODE1.  Une fois que tout est connecté, mettez toutes les ressources en ligne et assurez-vous qu’elles fonctionnent comme dans le cas.
 
-## <a name="step-2-rebuild-second-node-to-windows-server-2019"></a>Étape 2 : Régénérer le second nœud sur Windows Server 2019
+## <a name="step-2-rebuild-second-node-to-windows-server-2019"></a>Étape 2 : régénérer le second nœud sur Windows Server 2019
 
 Une fois que vous avez vérifié que tout fonctionne comme il le devrait, NODE2 peut être reconstruit sur Windows Server 2019 et être joint au cluster.
 
@@ -85,7 +86,7 @@ Une fois que vous avez vérifié que tout fonctionne comme il le devrait, NODE2 
 
 5. Déchargez toutes les ressources de NODE1 à NODE2 en cliquant avec le bouton droit sur le nœud et en sélectionnant les rôles **suspendre** et **purger**.  Vous pouvez également utiliser la commande PowerShell [suspend-CLUSTERNODE](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode).  Assurez-vous que toutes les ressources sont en ligne et qu’elles fonctionnent comme dans le cas.
 
-## <a name="step-3-rebuild-first-node-to-windows-server-2019"></a>Étape 3 : Régénérer le premier nœud sur Windows Server 2019
+## <a name="step-3-rebuild-first-node-to-windows-server-2019"></a>Étape 3 : régénérer le premier nœud sur Windows Server 2019
 
 1. Supprimez NODE1 du cluster et déconnectez le stockage du nœud comme vous l’avez fait précédemment.
 

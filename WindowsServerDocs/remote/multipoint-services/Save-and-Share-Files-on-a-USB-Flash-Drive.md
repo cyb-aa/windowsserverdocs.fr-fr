@@ -1,24 +1,20 @@
 ---
 title: Enregistrer et partager des fichiers sur une clé USB
 description: Découvrez comment enregistrer des fichiers sur un disque mémoire flash USB dans MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 51f6564e-a07f-4b13-8567-a5f080cc2e0d
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: ddbee49ae80e65f29dcdb3c3c4ad43c17a451ccf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5eb73bdc630d375a19da5c42ed6ceb265eab2e4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389414"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855652"
 ---
 # <a name="save-and-share-files-on-a-usb-flash-drive"></a>Enregistrer et partager des fichiers sur une clé USB
 En plus de pouvoir partager du contenu à l’aide de dossiers publics dans l’Explorateur Windows, vous pouvez également partager du contenu à l’aide d’un périphérique de stockage USB, tel qu’un disque mémoire flash USB ou un dispositif de stockage de masse. Quand vous associez directement un périphérique de stockage USB à l’ordinateur hôte ou à un concentrateur USB qui n’est pas un concentrateur de station, tous les utilisateurs, *standard* et *administratifs*, le voient comme un dispositif de stockage amovible dans le système MultiPoint Services.  

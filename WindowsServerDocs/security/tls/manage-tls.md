@@ -1,23 +1,19 @@
 ---
 title: Gérer le protocole TLS (Transport Layer Security)
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-tls-ssl
-ms.tgt_pltfrm: na
 ms.topic: article
 author: justinha
 ms.author: justinha
-manager: brianlic-msft
+manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: a4ac1ea5b0648dbb80f103c146ad3df23fc04ab7
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 065c8932667eed12d347e796c29cc7ee013c0383
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322681"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852932"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Gérer le protocole TLS (Transport Layer Security)
 
@@ -121,11 +117,11 @@ Windows ne peut pas utiliser une courbe nommée après qu’un administrateur a 
 Les organisations peuvent distribuer des paramètres de courbe à l’entreprise, à un ordinateur joint à un domaine, à l’aide de stratégie de groupe et à l’extension de registre des préférences de stratégie de groupe.  
 Le processus de distribution d’une courbe est le suivant :
 
-1.  Sur Windows 10 et Windows Server 2016, utilisez **certutil. exe** pour ajouter une nouvelle courbe nommée inscrite à Windows.
-2.  À partir de ce même ordinateur, ouvrez la Console de gestion des stratégies de groupe (GPMC), créez un nouvel objet stratégie de groupe, puis modifiez-le.
-3.  Accédez à **Configuration ordinateur | Préférences | Paramètres Windows | Registre**.  Cliquez avec le bouton droit sur **Registre**. Pointez sur **nouveau** , puis sélectionnez **élément de collecte**. Renommez l’élément de collecte pour qu’il corresponde au nom de la courbe. Vous allez créer un élément de collecte de Registre pour chaque clé de Registre sous *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
-4.  Configurez la collection de registres de préférences de stratégie de groupe nouvellement créée en ajoutant un nouvel **élément de Registre** pour chaque valeur de Registre indiquée sous *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[curveName]* .
-5.  Déployez l’objet stratégie de groupe contenant stratégie de groupe élément de collection de Registre sur les ordinateurs Windows 10 et Windows Server 2016 qui doivent recevoir les nouvelles courbes nommées.
+1.    Sur Windows 10 et Windows Server 2016, utilisez **certutil. exe** pour ajouter une nouvelle courbe nommée inscrite à Windows.
+2.    À partir de ce même ordinateur, ouvrez la Console de gestion des stratégies de groupe (GPMC), créez un nouvel objet stratégie de groupe, puis modifiez-le.
+3.    Accédez à **Configuration ordinateur | Préférences | Paramètres Windows | Registre**.  Cliquez avec le bouton droit sur **Registre**. Pointez sur **nouveau** , puis sélectionnez **élément de collecte**. Renommez l’élément de collecte pour qu’il corresponde au nom de la courbe. Vous allez créer un élément de collecte de Registre pour chaque clé de Registre sous *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
+4.    Configurez la collection de registres de préférences de stratégie de groupe nouvellement créée en ajoutant un nouvel **élément de Registre** pour chaque valeur de Registre indiquée sous *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[curveName]* .
+5.    Déployez l’objet stratégie de groupe contenant stratégie de groupe élément de collection de Registre sur les ordinateurs Windows 10 et Windows Server 2016 qui doivent recevoir les nouvelles courbes nommées.
 
     ![PRÉFÉRENCES distribuer des courbes](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)
 

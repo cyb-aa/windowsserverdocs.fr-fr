@@ -1,23 +1,19 @@
 ---
 title: Gérer des appareils dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cd43826579bff16e4bdf50bba956f19a39fec5e6
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: f05d156447cddf9afbbe20fddc4b590459a37ae7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311314"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852812"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gérer des appareils dans Windows Server Essentials
 

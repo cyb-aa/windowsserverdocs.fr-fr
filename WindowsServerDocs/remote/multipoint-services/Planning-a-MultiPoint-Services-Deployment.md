@@ -1,24 +1,20 @@
 ---
 title: Planification d’un déploiement de MultiPoint Services
 description: Rubrique de navigation pour plus d’informations sur la planification de votre déploiement MultiPoint services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dcb9edf1-99d0-490c-a7f8-863b18a80cdf
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: c6c1074ddd45eee4540b1b6a04d921c2d5cca6ce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 91a75704515f2999bbbfe6caf443fec7dc09e76d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395150"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853382"
 ---
 # <a name="planning-a-multipoint-services-deployment"></a>Planification d’un déploiement de MultiPoint Services
 MultiPoint Services permet de connecter plusieurs stations à un ordinateur. Plusieurs utilisateurs peuvent alors partager un ordinateur en même temps. Chaque station est constituée d’un concentrateur de station, d’un moniteur, d’un clavier et d’une souris. MultiPoint Services inclut l’application MultiPoint Manager, qui vous permet, en tant qu’utilisateur administratif, de surveiller et de gérer les stations MultiPoint, et l’application MultiPoint Dashboard, qui offre des fonctionnalités d’administration quotidiennes.   

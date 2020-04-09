@@ -1,24 +1,20 @@
 ---
 title: Administrer les stratégies de restriction logicielle
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cc22093-67d1-47b6-9ddd-4569b6761ce9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: c75c7813041870f79ed95250857a5c7d1576c7dc
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 88e745b6951ab27f22cc412ee63f792d30775d14
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322981"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855112"
 ---
 # <a name="administer-software-restriction-policies"></a>Administrer les stratégies de restriction logicielle
 
@@ -53,7 +49,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 
 -   [Utiliser des stratégies de restriction logicielle pour aider à protéger votre ordinateur contre un virus de courrier électronique](use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus.md)
 
-## <a name="BKMK_Open_SRP"></a>Pour ouvrir des stratégies de restriction logicielle
+## <a name="to-open-software-restriction-policies"></a><a name="BKMK_Open_SRP"></a>Pour ouvrir des stratégies de restriction logicielle
 
 -   [Pour votre ordinateur local](#BKMK_1)
 
@@ -63,7 +59,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 
 -   [Pour un site, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé](#BKMK_4)
 
-### <a name="BKMK_1"></a>Pour votre ordinateur local
+### <a name="for-your-local-computer"></a><a name="BKMK_1"></a>Pour votre ordinateur local
 
 1.  Ouvrez Paramètres de sécurité locaux.
 
@@ -76,7 +72,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > [!NOTE]
 > Pour réaliser cette procédure, vous devez être membre du groupe Administrateurs sur l'ordinateur local ou bien disposer de l'autorité appropriée.
 
-### <a name="BKMK_2"></a>Pour un domaine, un site ou une unité d’organisation, et vous êtes sur un serveur membre ou sur une station de travail jointe à un domaine
+### <a name="for-a-domain-site-or-organizational-unit-and-you-are-on-a-member-server-or-on-a-workstation-that-is-joined-to-a-domain"></a><a name="BKMK_2"></a>Pour un domaine, un site ou une unité d’organisation, et vous êtes sur un serveur membre ou sur une station de travail jointe à un domaine
 
 1.  Ouvrez la console MMC.
 
@@ -101,7 +97,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > [!NOTE]
 > Pour effectuer cette procédure, vous devez être membre du groupe Admins du domaine.
 
-### <a name="BKMK_3"></a>Pour un domaine ou une unité d’organisation, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
+### <a name="for-a-domain-or-organizational-unit-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_3"></a>Pour un domaine ou une unité d’organisation, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
 
 1.  Ouvrez Console de gestion des stratégies de groupe.
 
@@ -120,7 +116,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > [!NOTE]
 > Pour effectuer cette procédure, vous devez être membre du groupe Admins du domaine.
 
-### <a name="BKMK_4"></a>Pour un site, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
+### <a name="for-a-site-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_4"></a>Pour un site, et vous êtes sur un contrôleur de domaine ou sur une station de travail sur laquelle le Outils d’administration de serveur distant installé
 
 1.  Ouvrez Console de gestion des stratégies de groupe.
 
@@ -145,7 +141,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > -   Pour définir les paramètres de stratégie qui seront appliqués aux ordinateurs, quels que soient les utilisateurs qui se connectent à ceux-ci, cliquez sur Configuration de l' **ordinateur**.
 > -   Pour définir les paramètres de stratégie qui seront appliqués aux utilisateurs, quel que soit l’ordinateur sur lequel ils se connectent, cliquez sur Configuration de l' **utilisateur**.
 
-## <a name="BKMK_Create_SRP"></a>Pour créer des stratégies de restriction logicielle
+## <a name="to-create-new-software-restriction-policies"></a><a name="BKMK_Create_SRP"></a>Pour créer des stratégies de restriction logicielle
 
 1.  Ouvrez Stratégies de restriction logicielle.
 
@@ -158,7 +154,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 >     -   Si vous créez des stratégies de restriction logicielle pour un ordinateur joint à un domaine, les membres du groupe Administrateurs du domaine peuvent exécuter cette procédure.
 > -   Si des stratégies de restriction logicielle ont déjà été créés pour un objet de stratégie de groupe, la commande **Nouvelles stratégies de restriction logicielle** ne s’affiche pas dans le menu **Action**. Pour supprimer les stratégies de restriction logicielle appliquées à un objet de stratégie de groupe, dans l’arborescence de la console, cliquez avec le bouton droit sur **Stratégies de restriction logicielle**, puis cliquez sur **Supprimer les stratégies de restriction logicielle**. Lorsque vous supprimez des stratégies de restriction logicielle pour un objet de stratégie de groupe, vous supprimez également toutes les règles de stratégies de restriction logicielle pour cet objet de stratégie de groupe. Une fois les stratégies de restriction logicielle supprimées, vous pouvez en créer de nouvelles pour cet objet de stratégie de groupe.
 
-## <a name="BKMK_Add_Del"></a>Pour ajouter ou supprimer un type de fichier désigné
+## <a name="to-add-or-delete-a-designated-file-type"></a><a name="BKMK_Add_Del"></a>Pour ajouter ou supprimer un type de fichier désigné
 
 1.  Ouvrez Stratégies de restriction logicielle.
 
@@ -178,7 +174,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > -   Il peut être nécessaire de créer un paramètre de stratégie de restriction logicielle pour l’objet de stratégie de groupe si cela n’est pas encore fait.
 > -   La liste des types de fichiers désignés est partagée par toutes les règles pour la configuration de l’ordinateur et la configuration de l’utilisateur pour un objet de stratégie de groupe.
 
-## <a name="BKMK_Prevent_Admin"></a>Pour empêcher l’application de stratégies de restriction logicielle aux administrateurs locaux
+## <a name="to-prevent-software-restriction-policies-from-applying-to-local-administrators"></a><a name="BKMK_Prevent_Admin"></a>Pour empêcher l’application de stratégies de restriction logicielle aux administrateurs locaux
 
 1.  Ouvrez Stratégies de restriction logicielle.
 
@@ -192,7 +188,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > -   Si la plupart des utilisateurs de votre organisation sont membres du groupe local Administrateurs sur leur ordinateur, il est préférable de ne pas activer cette option.
 > -   Si vous définissez une stratégie de restriction logicielle pour votre ordinateur local, utilisez cette procédure pour empêcher l’application de ces stratégies aux administrateurs locaux. Si vous définissez un paramètre de stratégie de restriction logicielle pour votre réseau, filtrez les paramètres de stratégie d’utilisateur en fonction de l’appartenance aux groupes de sécurité via stratégie de groupe.
 
-## <a name="BKMK_Sec_Lvl"></a>Pour modifier le niveau de sécurité par défaut des stratégies de restriction logicielle
+## <a name="to-change-the-default-security-level-of-software-restriction-policies"></a><a name="BKMK_Sec_Lvl"></a>Pour modifier le niveau de sécurité par défaut des stratégies de restriction logicielle
 
 1.  Ouvrez Stratégies de restriction logicielle.
 
@@ -210,7 +206,7 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 > -   Des règles de stratégies de restriction logicielle sont créées pour spécifier des exceptions au niveau de sécurité par défaut. Quand le niveau de sécurité par défaut est **Non restreint**, les règles peuvent indiquer les logiciels dont l’exécution n’est pas autorisée. Quand le niveau de sécurité par défaut est **Non autorisé**, les règles peuvent indiquer les logiciels dont l’exécution est autorisée.
 > -   Au moment de l’installation, le niveau de sécurité par défaut des stratégies de restriction logicielle sur tous les fichiers du système est défini à **Non restreint**.
 
-## <a name="BKMK_Apply_SRP_DLLs"></a>Pour appliquer des stratégies de restriction logicielle aux dll
+## <a name="to-apply-software-restriction-policies-to-dlls"></a><a name="BKMK_Apply_SRP_DLLs"></a>Pour appliquer des stratégies de restriction logicielle aux dll
 
 1.  Ouvrez Stratégies de restriction logicielle.
 

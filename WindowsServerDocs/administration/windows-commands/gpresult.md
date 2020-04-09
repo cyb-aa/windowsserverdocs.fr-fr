@@ -1,24 +1,20 @@
 ---
 title: gpresult
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dfaa3adf-2c83-486c-86d6-23f93c5c883c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb61911450ea8c0c68af0cf1a35c2f571810504b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 480599a4040ab1fdcc3842cdb0eaa8c35afa873c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375658"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842462"
 ---
 # <a name="gpresult"></a>gpresult
 
@@ -33,7 +29,7 @@ Pour utiliser les rapports RSoP pour des ordinateurs ciblés à distance via le 
 gpresult [/s <system> [/u <USERNAME> [/p [<PASSWOrd>]]]] [/user [<TARGETDOMAIN>\]<TARGETUSER>] [/scope {user | computer}] {/r | /v | /z | [/x | /h] <FILENAME> [/f] | /?}
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 > [!NOTE]
 > Excepté quand vous utilisez **/ ?** , vous devez inclure une option output, **/r**, **/v**, **/z**, **/x**ou **/h**.
@@ -79,4 +75,4 @@ L’exemple suivant affiche les données RSoP de l’ordinateur **Srvmain** et d
 ## <a name="additional-references"></a>Références supplémentaires
 - [TechCenter stratégie de groupe](https://go.microsoft.com/fwlink/?LinkID=145531)
 
-- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -4,17 +4,16 @@ description: Always On VPN présente de nombreux avantages par rapport aux solut
 ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
-ms.assetid: ''
-ms.author: lizross
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ebdceedbe793eba545e57fd991114158cb647be
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 53538466358256a8cd0955033503092f157eb562
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313370"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853632"
 ---
 # <a name="always-on-vpn-enhancements"></a>Améliorations du VPN Toujours actif (AlwaysOn)
 

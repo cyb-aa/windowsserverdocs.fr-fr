@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6618b3ce-0e94-4009-b887-d8e05453358b
 title: Batterie de serveurs de fédération utilisant SQL Server
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 358199fd37cdbb320bc8f3e3e5b2900d261986f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 862cbc74833e2d4e9f385ba961b58a1f703e6611
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359149"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853132"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Batterie de serveurs de fédération utilisant SQL Server
 
@@ -51,7 +50,7 @@ Les versions suivantes de SQL Server sont prises en charge avec AD FS installé 
   
 -   SQL Server 2008 \/ R2  
   
--   SQL Server 2012  
+-   SQL Server 2012  
   
 ## <a name="server-placement-and-network-layout-recommendations"></a>Recommandations relatives à l’emplacement du serveur et à la disposition du réseau  
 À l’instar de la batterie de serveurs de Fédération avec la topologie WID, tous les serveurs de Fédération de la batterie de serveurs sont configurés pour utiliser un système de noms de domaine de cluster \(nom de\) DNS \(qui représente le nom de service FS (Federation Service)\) et une adresse IP de cluster dans le cadre de l’équilibrage de charge réseau \(la configuration du cluster\) NLB. Cela permet à l’hôte NLB d’allouer des demandes de client aux serveurs de Fédération individuels. Les serveurs proxys de Fédération peuvent être utilisés pour effectuer un proxy des demandes des clients vers la batterie de serveurs de Fédération.  

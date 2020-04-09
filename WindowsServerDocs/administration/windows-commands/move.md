@@ -1,24 +1,20 @@
 ---
 title: move
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fde290a8-d385-450f-8987-ee837fed667d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4302a3403f73892500c3f9deb608e9489c7e91ae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: efd0cd0716c564a9570647820056ab9c38e41274
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373526"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839372"
 ---
 # <a name="move"></a>move
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 move [{/y | /-y}] [<Source>] [<Target>]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -49,13 +45,13 @@ move [{/y | /-y}] [<Source>] [<Target>]
 -   L’option de ligne de commande **/y** peut être prédéfinie dans la variable d’environnement COPYCMD. Vous pouvez le remplacer par **/-y** sur la ligne de commande. La valeur par défaut est l’invite à confirmer le remplacement des fichiers, sauf si la commande de **copie** est exécutée à partir d’un script de commandes.
 -   Le déplacement de fichiers chiffrés vers un volume qui ne prend pas en charge système de fichiers EFS (EFS) génère une erreur. Déchiffrez les fichiers en premier ou déplacez les fichiers vers un volume qui prend en charge EFS.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour déplacer tous les fichiers avec l’extension. xls du répertoire \Data vers le répertoire \ Second_Q \Rapports, tapez :
 ```
 move \data\*.xls \second_q\reports\ 
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

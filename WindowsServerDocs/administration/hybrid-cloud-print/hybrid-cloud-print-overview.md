@@ -1,68 +1,65 @@
 ---
-title: Vue d’ensemble de l’impression de Cloud hybride Windows Server
-description: L’impression de Cloud hybride permet aux professionnels de l’informatique prendre en charge les exigences de l’impression pour BYOD ou domaine appareils joints à un.
-ms.prod: w10
-ms.mktglfcycl: manage
-ms.sitesec: library
-ms.pagetype: store
+title: Vue d’ensemble de Windows Server hybride Cloud Print
+description: Le Cloud hybride permet aux professionnels de l’informatique de prendre en charge les exigences d’impression pour les BYOD ou les appareils joints à un domaine.
+ms.prod: windows-server
 ms.technology: server-general
-author: TrudyHa
-ms.author: TrudyHa
+author: trudyha
+ms.author: trudyha
 ms.date: 10/16/2017
-ms.openlocfilehash: faa9fde857a9a4ee3f7c03f682b3dbced0340417
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f448e8709f9e73165ba1a477c59567fcff4a2008
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878830"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852002"
 ---
-# <a name="windows-server-hybrid-cloud-print-overview"></a>Vue d’ensemble de l’impression de Cloud hybride Windows Server
+# <a name="windows-server-hybrid-cloud-print-overview"></a>Vue d’ensemble de Windows Server hybride Cloud Print
 
 **S’applique à**
 -   Windows Server 2016
 
-## <a name="what-is-hybrid-cloud-print"></a>Nouveautés d’impression de Cloud hybride ?
-**Impression de Cloud hybride** est une nouvelle fonctionnalité de Windows Server 2016 disponible via **fonctionnalités à la demande**. Il permet aux professionnels de l’informatique prendre en charge les exigences de l’impression pour les personnes qui apportent leurs propres appareils, ou utiliser des appareils joints à Azure Active Directory. Cela inclut les appareils mobiles tels que Windows phone, ordinateurs portables ou les tablettes exécutant Windows 10 ou Windows Mobile. Il prend en charge l’impression à partir de n’importe quel endroit personnes ont accès à Internet.
+## <a name="what-is-hybrid-cloud-print"></a>Qu’est-ce que le Cloud hybride ?
+L’impression sur le **Cloud hybride** est une nouvelle fonctionnalité de Windows Server 2016 disponible par **le biais de fonctionnalités à la demande**. Elle permet aux professionnels de l’informatique de prendre en charge les exigences d’impression pour les personnes qui apportent leurs propres appareils, ou d’utiliser des appareils joints à votre Azure Active Directory. Cela comprend les appareils mobiles tels que Windows Phone, les ordinateurs portables ou les tablettes exécutant Windows 10 ou Windows Mobile. Il assure la prise en charge de l’impression de partout où les utilisateurs ont accès à Internet.
 
-Pour les administrateurs informatiques, **impression de Cloud hybride** fournit l’accès utilisateur sécurisée à des imprimantes locales à l’aide multi-Factor d’Azure pour valider l’accès utilisateur. Fonctionnalité de (SSO) à authentification unique simplifie l’expérience utilisateur. **Impression de Cloud hybride** repose sur Windows **serveur d’impression** rôle, ce qui donne aux professionnels de l’informatique une expérience similaire à la gestion des imprimantes et sécurité d’accès utilisateur.
+Pour les administrateurs informatiques, le **Cloud hybride** offre un accès sécurisé aux imprimantes locales à l’aide d’Azure Multi-Factor Authentication pour valider l’accès des utilisateurs. La fonctionnalité d’authentification unique (SSO) simplifie l’expérience utilisateur. L’impression sur le **Cloud hybride** repose sur le rôle **serveur d’impression** Windows, offrant aux professionnels de l’informatique une expérience similaire à la gestion des imprimantes et de la sécurité de l’accès utilisateur.
 
-**L’impression de Cloud hybride** permet aux personnes de votre organisation pour imprimer à partir des appareils qu’ils utilisent pour effectuer leur travail - même lorsqu’ils sont en dehors de son bureau ou d’un espace de travail.
+L’impression sur le **Cloud hybride** permet aux personnes de votre organisation d’imprimer depuis les appareils qu’ils utilisent pour effectuer leur travail, même lorsqu’ils sont éloignés de leur bureau ou de leur lieu de travail.
 
-**Impression de Cloud hybride** est pris en charge dans Windows 10 Creators Update et Windows 10 S.
+L’impression sur le **Cloud hybride** est prise en charge dans Windows 10 Creators Update et Windows 10 S.
  
 ## <a name="feature-summary"></a>Résumé des fonctionnalités
-**Impression de Cloud hybride** se compose de deux principaux composants côté serveur : **Découverte** service, et **Windows Print** service.
-- **Découverte** point de terminaison de service en cours d’exécution sur un service IIS prenant en charge le standard de l’industrie Mopria Alliance pour la découverte d’imprimante dans le cloud.
-- **Impression de Windows** standard protocole IPP (Internet Printing) pour garantir le système d’exploitation client plus large de point de terminaison de service en cours d’exécution sur un service IIS prenant en charge de secteur d’activité prennent en charge.
+L’impression sur le **Cloud hybride** se compose de deux composants principaux côté serveur : service de **découverte** et service d' **impression Windows** .
+- Point de terminaison du service de **découverte** exécuté sur un service IIS prenant en charge Mopria Alliance Industry Standard pour la découverte d’imprimantes dans le Cloud.
+- Point de terminaison du service d' **impression Windows** exécuté sur un service IIS prenant en charge le protocole IPP (Internet Printing Protocol) standard pour garantir la prise en charge de système d’exploitation client la plus large.
 
 ## <a name="deployment"></a>Déploiement
-**Impression de Cloud hybride** prend en charge deux options de déploiement différents selon où votre organisation requiert une authentification utilisateur. Voici à quoi pourrait ressembler un déploiement :
+L’impression sur le **Cloud hybride** prend en charge deux options de déploiement différentes en fonction de l’endroit où votre organisation requiert l’authentification des utilisateurs. Voici à quoi peut ressembler un déploiement :
 
-![Un diagramme montrant une représentation graphique de la solution d’impression de Cloud hybride](../media/hybrid-cloud-print/wshcp-deployment-options.png)
+![Diagramme illustrant une représentation graphique de la solution d’impression du Cloud hybride](../media/hybrid-cloud-print/wshcp-deployment-options.png)
 
-*Diagramme de solution d’impression Cloud hybride*
+*Diagramme de solution d’impression sur le Cloud hybride*
 
-Le diagramme montre :
-- **Impression de Cloud hybride** à l’aide d’Azure Active Directory comme fournisseur d’identité utilisateur. 
-- **Impression de Windows** service et **découverte** points de terminaison de service sont enregistrés avec Azure Active Directory pour activer l’appareil client récupérer le jeton d’authentification utilisateur requis pour utiliser par rapport à ces services. 
-- Une gestion des appareils mobiles de service, tel que **Microsoft Intune**, provisionne l’appareil client avec les stratégies nécessaires pour se connecter à Azure Active Directory pour **Windows Print** service et **découverte**service.
+Le diagramme illustre les éléments suivants :
+- **Impression sur le Cloud hybride** à l’aide d’Azure Active Directory en tant que fournisseur d’identité utilisateur. 
+- Les points de terminaison du service d’impression et de **découverte** de **Windows** sont inscrits auprès de Azure Active Directory pour permettre à l’appareil client de récupérer le jeton d’authentification utilisateur requis à utiliser avec ces services. 
+- Un service MDM, tel que **Microsoft Intune**, configure l’appareil client avec les stratégies nécessaires pour se connecter Azure Active Directory au service de **découverte** et de service d' **impression Windows** .
 
-Cette table a plus d’informations sur les éléments dans le diagramme.  
+Cette table contient plus d’informations sur les éléments du diagramme.  
 
 | Élément | Description |
 | ------- | ----------- |
-| Azure Active Directory  | Fournit des contrôles et fonctionnalités d’identité et d’autorisation utilisateur |
-| Active Directory        | Fournit des contrôles et fonctionnalités d’identité et d’autorisation utilisateur |
-| Azure AD Connect  | Synchronise les informations d’identification de l’utilisateur entre Azure AD et AD local. |
-| Service de gestion des appareils mobiles (Intune) | Fournit la fonctionnalité d’approvisionnement stratégie appareil pour vous assurer de l’appareil client (appareil BYOD) est conforme aux stratégies d’entreprise. |
-| Proxy Azure AD | Fournit une connexion à long terme qui est établie derrière votre pare-feu pour Azure pour autoriser le trafic spécifique application configurée à partir d’Internet au réseau d’entreprise. |
-| Azure Web App | Le cœur de la solution d’impression de Cloud hybride. Fournit les points de terminaison web requis pour détecter des imprimantes et envoyer le contenu d’impression pour les appareils joints au domaine non. |
-| APPAREIL BYOD / serveur spouleur d’impression de Windows / imprimante | Il s’agit en tant que-est. Aucune modification de fonctionnalité dans le déploiement. |
+| Azure Active Directory  | Fournit et contrôle les fonctionnalités d’identité et d’autorisation des utilisateurs |
+| Active Directory        | Fournit et contrôle les fonctionnalités d’identité et d’autorisation des utilisateurs |
+| Azure AD Connect  | Synchronise les informations d’identification de l’utilisateur entre Azure AD et l’annuaire Active Directory local. |
+| Service MDM (Intune) | Fournit la fonctionnalité d’approvisionnement de stratégie d’appareil pour garantir que le périphérique client (BYOD) est conforme aux stratégies d’entreprise. |
+| Proxy Azure AD | Fournit une connexion à long terme établie de derrière votre pare-feu vers Azure pour permettre au trafic d’application configuré spécifique de circuler depuis Internet vers le réseau d’entreprise. |
+| Application Web Azure | Le cœur de la solution d’impression du Cloud hybride. Fournit les points de terminaison Web requis pour découvrir des imprimantes et envoyer du contenu d’impression pour les appareils non joints à un domaine. |
+| Périphérique BYOD/spouleur du serveur d’impression Windows/imprimante | Ils sont tels quels. Aucune modification de la fonctionnalité dans le déploiement. |
 
-Il existe deux façons d’installer **impression de Cloud hybride**:
-- **Fonctionnalités à la demande** -consultez [configurer les fonctionnalités à la demande dans Windows Server](https://docs.microsoft.com/windows-server/administration/server-manager/configure-features-on-demand-in-windows-server) pour en savoir plus sur l’ajout et suppression des fichiers de rôles et de fonctionnalités. 
-- **Paramètres de Windows Server 2016** -les administrateurs peuvent accéder à **paramètres** -> **applications** -> **gestion des fonctionnalités facultatives**  ->  **Ajouter une fonctionnalité** et recherchez les fonctionnalités sur le package à la demande 
-- Commandes PowerShell - fenêtre d’administrateur dans un PowerShell, exécutez les commandes suivantes :
+Il existe deux façons d’installer le **Cloud hybride**:
+- \* * Fonctionnalités à la demande, voir [configurer des fonctionnalités à la demande dans Windows Server](https://docs.microsoft.com/windows-server/administration/server-manager/configure-features-on-demand-in-windows-server) pour en savoir plus sur l’ajout et la suppression de fichiers de rôles et de fonctionnalités. 
+- \* * Paramètres Windows Server 2016, que les administrateurs peuvent atteindre **paramètres** -> **apps** -> **gérer les fonctionnalités facultatives** -> **Ajouter une fonctionnalité** et rechercher le package fonctionnalités à la demande 
+- Commandes PowerShell-dans une fenêtre Administrateur PowerShell, exécutez les commandes suivantes :
 
 ```PowerShell
     Install-Module -Name PublishCloudPrinter

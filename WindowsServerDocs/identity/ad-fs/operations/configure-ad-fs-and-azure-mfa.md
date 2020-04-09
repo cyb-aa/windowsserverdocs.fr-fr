@@ -1,7 +1,6 @@
 ---
 ms.assetid: 24c4b9bb-928a-4118-acf1-5eb06c6b08e5
-title: Configurer AD FS 2016 et Azure MFA
-description: ''
+title: Configurer ADFS2016 et Azure MFA
 ms.author: billmath
 author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b658644d1ba7cec1b02a2a51331cd7b7152efc77
-ms.sourcegitcommit: 75e611fd5de8b8aa03fc26c2a3d5dbf8211b8ce3
+ms.openlocfilehash: d519b47d048068ad53e4f11a6b64621ab5f232b1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77145494"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855312"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Configurer Azure MFA en tant que fournisseur d’authentification avec AD FS
 
@@ -56,7 +55,7 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
 
 ### <a name="azure-mfa-as-additional-authentication-to-office-365"></a>Azure MFA en tant qu’authentification supplémentaire à Office 365
 
-Avant, si vous souhaitiez avoir Azure MFA comme méthode d’authentification supplémentaire dans AD FS pour Office 365 ou d’autres parties utilisatrices, la meilleure option consistait à configurer Azure AD pour effectuer une MFA composée, dans laquelle l’authentification principale est effectuée localement dans AD FS et MFA est tr iggered par Azure AD. À présent, vous pouvez utiliser Azure MFA comme authentification supplémentaire dans AD FS lorsque le paramètre SupportsMfa du domaine est défini sur $True.  
+Avant, si vous souhaitiez avoir Azure MFA comme méthode d’authentification supplémentaire dans AD FS pour Office 365 ou d’autres parties utilisatrices, la meilleure option consistait à configurer Azure AD pour effectuer une MFA composée, dans laquelle l’authentification principale est effectuée localement dans AD FS et l’authentification MFA est déclenchée par Azure AD. À présent, vous pouvez utiliser Azure MFA comme authentification supplémentaire dans AD FS lorsque le paramètre SupportsMfa du domaine est défini sur $True.  
 
 Comme décrit ci-dessus, toute AD FS utilisateur qui n’a pas encore été inscrit (les informations de vérification de l’authentification MFA) doit être invité par le biais d’une page d’erreur AD FS personnalisée pour accéder [https://aka.ms/mfasetup](https://aka.ms/mfasetup) pour configurer les informations de vérification, puis retenter AD FS connexion.  
 

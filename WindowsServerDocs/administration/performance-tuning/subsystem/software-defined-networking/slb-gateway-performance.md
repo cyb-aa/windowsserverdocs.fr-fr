@@ -4,15 +4,15 @@ description: Instructions de réglage des performances de la passerelle SLB sur 
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: grcusanz; AnPaul
+ms.author: grcusanz; anpaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a0d239da2ca321333ec757db22bbaf9a9b8ba30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d1a497f24eba26b3b9b866772ae5171ea0fcbb24
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383458"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851582"
 ---
 # <a name="slb-gateway-performance-tuning-in-software-defined-networks"></a>Réglage des performances de la passerelle SLB dans les réseaux à définition logicielle
 
@@ -26,7 +26,7 @@ Les ordinateurs virtuels SLB MUX sont déployés dans une configuration actif/ac
 
 Une connexion individuelle à une adresse IP virtuelle (VIP) est toujours envoyée au même multiplexeur, en supposant que le nombre de multiplexeurs reste constant et que, par conséquent, son débit est limité au débit d’une seule machine virtuelle Mux.  Multiplexeurs traite uniquement le trafic entrant qui est destiné à une adresse IP virtuelle.  Les paquets de réponse sont transmis directement à partir de la machine virtuelle qui envoie la réponse au commutateur physique qui le transmet au client.
 
-Dans certains cas, lorsque la source de la requête provient d’un hôte SDN qui est ajouté au même contrôleur de réseau que celui qui gère l’adresse IP virtuelle, une optimisation supplémentaire du chemin entrant pour la demande est également effectuée, ce qui permet à la plupart des paquets de se déplacer directement à partir du client vers le serveur, en ignorant complètement la machine virtuelle Mux.  Aucune configuration supplémentaire n’est requise pour que cette optimisation ait lieu.
+Dans certains cas, lorsque la source de la requête provient d’un hôte SDN qui est ajouté au même contrôleur de réseau que celui qui gère l’adresse IP virtuelle, une optimisation supplémentaire du chemin d’accès entrant pour la demande est également effectuée, ce qui permet à la plupart des paquets de circuler directement du client vers le serveur, en ignorant entièrement la machine virtuelle Mux.  Aucune configuration supplémentaire n’est requise pour que cette optimisation ait lieu.
 
 Chaque machine virtuelle SLB MUX doit être dimensionnée conformément aux instructions fournies dans la section Configuration requise du rôle de machine virtuelle SDN infrastructure de la rubrique [planifier une infrastructure réseau à définition logicielle](../../../../networking/sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md) .
 

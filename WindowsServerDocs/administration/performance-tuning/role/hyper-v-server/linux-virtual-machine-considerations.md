@@ -4,15 +4,15 @@ description: Machine virtuelle Linux et BSD
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5668629e7eded214525561d30fec496a4e91b8dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7abc1ef5473365dd26dce1167bb685f116822a7d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385070"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851742"
 ---
 # <a name="linux-virtual-machine-considerations"></a>Considérations sur les machines virtuelles Linux
 
@@ -26,7 +26,7 @@ Même lorsque l’invité exécute Integration Services, il peut être configur�
 
 Linux par défaut active l’accélération matérielle et les déchargements par défaut. Si l’option vRSS est activée dans les propriétés d’une carte réseau sur l’ordinateur hôte et que l’invité Linux a la possibilité d’utiliser vRSS, la fonctionnalité est activée. Dans PowerShell, ce même paramètre peut être modifié à l’aide de la commande `EnableNetAdapterRSS`.
 
-De même, la fonctionnalité VMMQ (RSS du commutateur virtuel) peut être activée sur la carte réseau physique utilisée par les **Propriétés**invitées  > **configurer...**  >  onglet**avancé** > définir le format **RSS du commutateur virtuel** sur **activé** ou sur Activer VMMQ dans PowerShell à l’aide des éléments suivants :
+De même, la fonctionnalité VMMQ (RSS du commutateur virtuel) peut être activée sur la carte réseau physique utilisée par les **Propriétés** invité > **configurer...**  > onglet **avancé** > définir le format **RSS du commutateur virtuel** sur **activé** ou activer VMMQ dans PowerShell à l’aide des éléments suivants :
 
 ```PowerShell
  Set-VMNetworkAdapter -VMName **$VMName** -VmmqEnabled $True

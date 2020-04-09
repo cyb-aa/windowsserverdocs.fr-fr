@@ -1,24 +1,20 @@
 ---
 title: reg unload
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1d07791d-ca27-454e-9797-27d7e84c5048
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32df397b597291269dcfb1449d00e86b2f4f5836
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5fd1436ed1122a09eea11d358a3711aedddf2c1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384618"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836272"
 ---
 # <a name="reg-unload"></a>reg unload
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 reg unload <KeyName>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,10 +43,10 @@ Le tableau suivant répertorie les valeurs renvoyées pour l’option **reg unlo
 
 |Valeur|Description|
 |-----|-----------|
-|0|Réussite|
+|0|Opération réussie|
 |1|Échec|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour décharger le TempHive Hive dans le fichier HKLM, tapez :
 ```
@@ -60,6 +56,6 @@ REG UNLOAD HKLM\TempHive
 > [!CAUTION]
 > Ne modifiez pas le Registre directement, sauf si vous n’avez pas d’autre solution. L’éditeur du Registre contourne les protections standard, en autorisant les paramètres qui peuvent dégrader les performances, endommager votre système, voire vous obliger à réinstaller Windows. Vous pouvez modifier en toute sécurité la plupart des paramètres du Registre à l’aide des programmes du panneau de configuration ou de la console MMC (Microsoft Management Console). Si vous devez modifier le Registre directement, sauvegardez-le en premier.
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

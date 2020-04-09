@@ -1,24 +1,20 @@
 ---
 title: pnpunattend
 description: Découvrez comment auditer les pilotes de périphériques sur un ordinateur, ainsi que pour effectuer des installations de pilote en mode silencieux.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4fa88932-cff0-4dfc-936c-98c0e3dfbeb8 britw
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 77a6ab1ea45322e3c53e8b095c412cf8838be60d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c4836665946b39acdacf4c204c6e79fc2d8507bd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372270"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837532"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
@@ -30,14 +26,14 @@ Audite un ordinateur pour rechercher des pilotes de périphériques et effectuer
 PnPUnattend.exe auditSystem [/help] [/?] [/h] [/s] [/L]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|auditSystem|Spécifie l’installation du pilote en ligne.</br>Obligatoire, sauf si **pnpunattend** est exécuté avec **/Help** ou **/ ?** paramètres.|
-|/s|Facultatif. Spécifie de rechercher les pilotes sans installer.|
-|/L|Facultatif. Spécifie l’affichage des informations de journal pour cette commande dans l’invite de commandes.|
-|/?|Facultatif. Affiche l’aide de cette commande à l’invite de commandes.|
+|auditSystem|Spécifie l’installation du pilote en ligne.</br>Obligatoire, sauf si **pnpunattend** est exécuté avec **/Help** ou **/ ?** .|
+|/s|Ce paramètre est facultatif. Spécifie de rechercher les pilotes sans installer.|
+|/L|Ce paramètre est facultatif. Spécifie l’affichage des informations de journal pour cette commande dans l’invite de commandes.|
+|/?|Ce paramètre est facultatif. Affiche l’aide de cette commande à l’invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
@@ -60,4 +56,4 @@ pnpunattend auditsystem /s /l
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

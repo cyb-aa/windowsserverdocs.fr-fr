@@ -2,30 +2,29 @@
 title: Windows 7 doit être configuré avec au moins la quantité minimale de mémoire
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.»
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 1b81ec0b-ceca-4fba-83ea-90d5f1d9bda8
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: fee0fb772ff0f3c2344ed3ef4ef2b9786480ff8e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9f29ff11b601bf3fe841e2634be6096e59d78cd5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393222"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854972"
 ---
 # <a name="windows-7-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows 7 doit être configuré avec au moins la quantité minimale de mémoire
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d'informations sur les meilleures pratiques et les analyses, consultez [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Error|  
 |**Catégorie**|Configuration|  
@@ -42,7 +41,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ```  
 <list of virtual machine names>  
 ```  
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
   
 *Utilisez le Gestionnaire Hyper-V pour augmenter la mémoire allouée à cette machine virtuelle à au moins 512 Mo.*  
   
@@ -52,7 +51,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
   
 2.  Dans le volet de résultats, sous **machines virtuelles**, sélectionnez la machine virtuelle que vous souhaitez configurer. L’état de la machine virtuelle doit être défini sur **désactivé**. Si ce n’est pas le cas, cliquez avec le bouton droit sur l’ordinateur virtuel, puis cliquez sur **arrêter**.  
   
-3.  Dans le volet **Action**, sous le nom de l'ordinateur virtuel, cliquez sur **Paramètres**.  
+3.  Dans le volet **Action**, sous le nom de l’ordinateur virtuel, cliquez sur **Paramètres**.  
   
 4.  Dans le volet de navigation, cliquez sur **mémoire**.  
   

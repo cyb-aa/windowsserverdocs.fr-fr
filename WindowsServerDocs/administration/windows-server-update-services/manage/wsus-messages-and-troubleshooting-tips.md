@@ -1,37 +1,34 @@
 ---
-title: Astuces de résolution des problèmes et messages WSUS
+title: Conseils de dépannage et messages WSUS
 description: Rubrique Windows Server Update Service (WSUS)-résolution des problèmes à l’aide de messages WSUS
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9f6317f7-bfe0-42d9-87ce-d8f038c728ca
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c66e655ea6b6c44ee3ba375f75e6532fab74bfb
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: e4fe14eeaba3fc82e125288f8c47fb445f6e00b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948484"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828312"
 ---
-# <a name="wsus-messages-and-troubleshooting-tips"></a>Astuces de résolution des problèmes et messages WSUS
+# <a name="wsus-messages-and-troubleshooting-tips"></a>Conseils de dépannage et messages WSUS
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique contient des informations sur les messages WSUS suivants :
 
--   « L’ordinateur n’a pas signalé l’État »
+-   L’ordinateur n’a pas signalé l’État
 
--   « ID de message 6703-échec de la synchronisation WSUS »
+-   ID de message 6703-échec de la synchronisation WSUS
 
--   « Erreur 0x80070643 : erreur irrécupérable lors de l’installation »
+-   Erreur 0x80070643 : erreur irrécupérable lors de l’installation
 
--   «Certains services ne sont pas en cours d’exécution. Vérifiez les services [...] suivants.
+-   Certains services ne sont pas en cours d’exécution. Vérifiez les services suivants [...]
 
 ## <a name="computer-has-not-reported-status"></a>L’ordinateur n’a pas signalé l’État
 Ce message est généré dans la console WSUS lorsqu’un ordinateur client WSUS n’envoie pas d’informations au serveur WSUS pour indiquer son état de mise à jour actuel. Ce problème est généralement dû au fait que l’ordinateur client WSUS n’est pas le serveur WSUS.
@@ -76,7 +73,7 @@ Pour résoudre ce problème, accordez des autorisations d’administrateur syst�
 
 - **Selfupdate :** Pour plus d’informations sur la résolution des problèmes liés au service selfupdate, consultez [mises à jour automatiques](https://technet.microsoft.com/library/cc708554(v=ws.10).aspx) .
 
-- **WSSUService. exe :** Ce service facilite la synchronisation. Si vous rencontrez des problèmes de synchronisation, accédez à WSUSService. exe en cliquant sur **Démarrer**, pointez sur **Outils d’administration**, cliquez sur **services**, puis recherchez **service de mise à jour Windows Server** dans la liste des services. Procédez comme suit :
+- **WSSUService. exe :** Ce service facilite la synchronisation. Si vous rencontrez des problèmes de synchronisation, accédez à WSUSService. exe en cliquant sur **Démarrer**, pointez sur **Outils d’administration**, cliquez sur **services**, puis recherchez **service de mise à jour Windows Server** dans la liste des services. procédez comme suit :
     
     -   Vérifiez que ce service est en cours d’exécution. Cliquez sur **Démarrer** s’il est arrêté ou sur **redémarrer** pour actualiser le service.
     
@@ -90,6 +87,6 @@ Pour résoudre ce problème, accordez des autorisations d’administrateur syst�
     
   - **MSSQLSERver** (si vous utilisez WMSDE ou MSDE, si vous utilisez SQL Server et que vous utilisez le nom d’instance par défaut pour le nom de l’instance)
     
-  - **MSSQL $ WSUS** (si vous utilisez une base de données SQL Server et que vous avez nommé votre instance de base de données « WSUS »)
+  - **MSSQL $ WSUS** (si vous utilisez une base de données SQL Server et que vous avez nommé votre instance de base de données WSUS)
     
     Cliquez avec le bouton droit sur le service, puis cliquez sur **Démarrer** si le service n’est pas en cours d’exécution ou sur **redémarrer** pour actualiser le service s’il est en cours d’exécution.

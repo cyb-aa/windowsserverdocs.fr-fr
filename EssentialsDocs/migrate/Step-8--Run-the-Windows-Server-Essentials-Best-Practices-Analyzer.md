@@ -1,23 +1,19 @@
 ---
 title: 'Étape 8 : Exécuter l’outil Best Practices Analyzer Windows Server Essentials'
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e6ba701d-7183-4c26-960e-44cc280bf3e6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9a10333a6b814d81a535ed43bb8dd9ec901d1fbc
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: e32033dafe48f5b5eac063af638c14267e82e62f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318715"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852312"
 ---
 # <a name="step-8-run-the-windows-server-essentials-best-practices-analyzer"></a>Étape 8 : Exécuter l’outil Best Practices Analyzer Windows Server Essentials
 

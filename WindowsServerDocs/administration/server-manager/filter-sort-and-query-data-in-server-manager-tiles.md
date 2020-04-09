@@ -1,28 +1,24 @@
 ---
 title: Filtrer, trier et interroger des données dans les vignettes du Gestionnaire de serveur
 description: Gestionnaire de serveur
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8786f791-73e5-4c75-8d12-46e88a196976
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 89604b73fd071030d0f800b3a38a7ac3858ef1c6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8447d06c03b6adca00966d05978d4337d9b5984
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383204"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851532"
 ---
 # <a name="filter-sort-and-query-data-in-server-manager-tiles"></a>Filtrer, trier et interroger des données dans les vignettes du Gestionnaire de serveur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans Windows Server, les vignettes de Gestionnaire de serveur vous permettent de filtrer et de trier les données, ainsi que de créer et d’enregistrer des requêtes personnalisées. Vous pouvez trier, utiliser des filtres de mots clés et exécuter des requêtes sur les entrées de liste dans les vignettes événements, performances, Best Practices Analyzer, services et rôles et fonctionnalités sur les pages de groupe ou de rôle de serveur dans Gestionnaire de serveur.  
   
@@ -34,7 +30,7 @@ Cette rubrique contient les sections suivantes.
   
 -   [créer et exécuter des requêtes personnalisées sur les données de mosaïque](#BKMK_query)  
   
-## <a name="BKMK_tiles"></a>Filtrer les entrées de liste dans les vignettes  
+## <a name="filter-list-entries-in-tiles"></a><a name=BKMK_tiles></a>Filtrer les entrées de liste dans les vignettes  
 La zone de texte **Filtre** est un moyen rapide de réduire la liste des entrées dans une vignette pour n’afficher que les entrées contenant une chaîne de texte précise.  
   
 #### <a name="to-apply-a-filter-to-the-list-of-entries-in-a-tile"></a>Pour appliquer un filtre à la liste des entrées dans une vignette  
@@ -49,10 +45,10 @@ La zone de texte **Filtre** est un moyen rapide de réduire la liste des entrée
   
 4.  Pour supprimer le filtre, supprimez la chaîne dans la zone de texte du filtre ou cliquez sur **X**.  
   
-## <a name="BKMK_sort"></a>Trier les entrées de liste dans les vignettes  
+## <a name="sort-list-entries-in-tiles"></a><a name=BKMK_sort></a>Trier les entrées de liste dans les vignettes  
 Trier les entrées de liste dans Gestionnaire de serveur vignettes en cliquant sur les en-têtes de colonne. Lorsque vous cliquez sur un en-tête de colonne la première fois, les valeurs alphanumériques de la colonne sont triées dans l’ordre croissant (flèche pointant vers le haut) ; pour les trier par ordre décroissant (flèche vers le bas), cliquez une nouvelle fois dessus.  
   
-## <a name="BKMK_query"></a>créer et exécuter des requêtes personnalisées sur les données de mosaïque  
+## <a name="create-and-run-custom-queries-on-tile-data"></a><a name=BKMK_query></a>créer et exécuter des requêtes personnalisées sur les données de mosaïque  
 Vous pouvez créer des requêtes personnalisées dans les vignettes événements, performances, Best Practices Analyzer, services ou rôles et fonctionnalités dans Gestionnaire de serveur. Par défaut, la zone de la barre d’outils de vignette dans laquelle vous sélectionnez les critères de génération d’une requête personnalisée est masquée. Cliquez sur **développer** (bouton Chevron sur le bord droit de la barre d’outils mosaïque) pour afficher les critères de la requête.  
   
 #### <a name="to-create-a-custom-query-for-tile-data"></a>Pour créer une requête personnalisée pour des données de vignette  

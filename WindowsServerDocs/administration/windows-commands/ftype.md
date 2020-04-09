@@ -1,24 +1,20 @@
 ---
 title: ftype
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6fb53cee-9bed-44dd-af5d-bc7cec1dd114
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ce3f4c360269eb9cabd2cbef8abb89935923a595
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f982f68f25a4decbc9c572b533fa1ecc5e893a8c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375823"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842702"
 ---
 # <a name="ftype"></a>ftype
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 ftype [<FileType>[=[<OpenCommandString>]]]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -53,7 +49,7 @@ Le tableau suivant décrit comment **ftype** remplace les variables dans une cha
 |%2, %3,...|Obtient le premier paramètre (%2), le deuxième paramètre (%3), et ainsi de suite.|
 |%~\<N >|Obtient tous les paramètres restants à partir du *n*ième paramètre, où *N* peut être un nombre compris entre 2 et 9.|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher les types de fichiers actuels pour lesquels des chaînes de commande ouvertes sont définies, tapez :
 ```
@@ -81,6 +77,6 @@ Pour éviter d’avoir à taper l’extension de nom de fichier. pl lors de l’
 set PATHEXT=.pl;%PATHEXT%
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

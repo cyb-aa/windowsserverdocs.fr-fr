@@ -1,7 +1,6 @@
 ---
 ms.assetid: 20d183f0-ef94-44bb-9dfc-ed93799dd1a6
 title: Quand utiliser une règle de revendication personnalisée
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c784c4b6dbfee7034dd9302dc87fc74b896763f5
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 41e7ea7c2bc627f2fce198e5c7227148e8b03d88
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950144"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853822"
 ---
 # <a name="when-to-use-a-custom-claim-rule"></a>Quand utiliser une règle de revendication personnalisée
 Vous écrivez une règle de revendication personnalisée dans Services ADFS \(AD FS\) à l’aide du langage de règle de revendication, qui est l’infrastructure que le moteur d’émission de revendications utilise pour générer, transformer, transmettre et filtrer les revendications par programmation. L’utilisation d’une règle personnalisée permet de créer des règles avec une logique plus complexe qu’un modèle de règle standard. Envisagez d’utiliser une règle personnalisée lorsque vous souhaitez :  
@@ -57,7 +56,7 @@ Pour créer cette règle, commencez par créer la syntaxe dont vous avez besoin 
   
 Ce modèle de règle propose les options suivantes :  
   
--   Spécifier le nom de la règle de revendication  
+-   Spécifier un nom de règle de revendication  
   
 -   Tapez une ou plusieurs conditions facultatives et une instruction d’émission à l’aide du langage de règle de revendication AD FS  
   
@@ -70,12 +69,12 @@ Pour plus d’informations sur l’utilisation du langage de règle de revendica
 ## <a name="using-the-claim-rule-language"></a>Utilisation du langage des règles de revendication  
   
 ### <a name="example-how-to-combine-first-and-last-names-based-on-a-users-name-attribute-values"></a>Exemple : comment combiner le prénom et le nom en fonction des valeurs d’attribut Name d’un utilisateur  
-La syntaxe de règle suivante combine les prénoms et les noms des valeurs d’attribut dans un magasin d’attributs donné. Le moteur de stratégie constitue un produit cartésien des correspondances pour chaque condition. Par exemple, le résultat pour le prénom {« Frank », « Alan »} et les noms {« Miller », « Shen »} est {« Frank Miller », « Frank Shen », « Alan Miller », « Alan Shen »} :  
+La syntaxe de règle suivante combine les prénoms et les noms des valeurs d’attribut dans un magasin d’attributs donné. Le moteur de stratégie constitue un produit cartésien des correspondances pour chaque condition. Par exemple, la sortie pour le prénom {« Frank », « Alan »} et les noms {« Miller », « Shen »} est {« Frank Miller », « Frank Shen », « Alan Miller », « Alan Shen »} :  
   
 ```  
 c1:[type == "http://exampleschema/firstname" ]  
 &&  c2:[type == "http://exampleschema/lastname",]   
-=> issue(type = "http://exampleschema/name", value = c1.value + “  “ + c2.value);  
+=> issue(type = "http://exampleschema/name", value = c1.value + "  " + c2.value);  
 ```  
   
 ### <a name="example-how-to-issue-a-manager-claim-based-on-whether-users-have-direct-reports"></a>Exemple : comment émettre une revendication de gestionnaire basée sur le fait que des utilisateurs disposent de rapports directs  
@@ -83,7 +82,7 @@ La règle suivante émet une revendication de gestionnaire uniquement si l’uti
   
 ```  
 c:[type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] => add(store = "SQL Store", types = ("http://schemas.xmlsoap.org/claims/Reports"), query = "SELECT Reports FROM dbo.DirectReports WHERE UserName = {0}", param = c.value );  
-count([type == “http://schemas.xmlsoap.org/claims/Reports“] ) > 0 => issue(= "http://schemas.xmlsoap.org/claims/ismanager", value = "true");  
+count([type == "http://schemas.xmlsoap.org/claims/Reports"] ) > 0 => issue(= "http://schemas.xmlsoap.org/claims/ismanager", value = "true");  
 ```  
   
 ### <a name="example-how-to-issue-a-ppid-claim-based-on-an-ldap-attribute"></a>Exemple : comment émettre une revendication PPID (Private Personal Identifier) basée sur un attribut LDAP  

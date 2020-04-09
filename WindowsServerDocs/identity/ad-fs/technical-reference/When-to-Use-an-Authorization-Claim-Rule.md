@@ -1,7 +1,6 @@
 ---
 ms.assetid: b734cbcb-342c-4a28-8ab5-b9cd990bb1c2
 title: Quand utiliser une règle de revendication d’autorisation
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,15 +8,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 49246d9df294b966f0ba38b1d3c1f361ce5f1d5f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e8be891a8f09e38809503c40469e21a7e99687a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407260"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853762"
 ---
 # <a name="when-to-use-an-authorization-claim-rule"></a>Quand utiliser une règle de revendication d’autorisation
-Vous pouvez utiliser cette règle dans services ADFS \(AD FS\) lorsque vous devez prendre un type de revendication entrante, puis appliquer une action qui détermine si l’accès est autorisé ou refusé à un utilisateur en fonction de la valeur que vous avez spécifiez dans la règle. Lorsque vous utilisez cette règle, vous transmettez ou transformez les revendications qui correspondent à la logique de règle suivante, en fonction des options que vous configurez dans la règle :  
+Vous pouvez utiliser cette règle dans Services ADFS \(AD FS\) lorsque vous devez prendre un type de revendication entrante, puis appliquer une action qui détermine si l’accès est autorisé ou refusé à un utilisateur en fonction de la valeur que vous spécifiez dans la règle. Lorsque vous utilisez cette règle, vous transmettez ou transformez les revendications qui correspondent à la logique de règle suivante, en fonction des options que vous configurez dans la règle :  
   
 |Option de règle|Logique de règle|  
 |---------------|--------------|  
@@ -28,11 +27,11 @@ Vous pouvez utiliser cette règle dans services ADFS \(AD FS\) lorsque vous deve
 Les sections suivantes constituent une introduction aux règles de revendication et fournissent des informations détaillées sur les conditions d’utilisation de cette règle.  
   
 ## <a name="about-claim-rules"></a>À propos des règles de revendication  
-Une règle de revendication représente une instance de logique métier qui prend une revendication entrante, lui applique une condition \(si x Then y\) et génère une revendication sortante basée sur les paramètres de condition. La liste suivante présente d’importantes astuces sur les règles de revendication dont vous devez prendre connaissance avant de poursuivre la lecture de cette rubrique :  
+Une règle de revendication représente une instance de logique métier qui prend une revendication entrante, lui applique une condition \(si x Then y\) et génère une revendication sortante en fonction des paramètres de condition. La liste suivante présente d’importantes astuces sur les règles de revendication dont vous devez prendre connaissance avant de poursuivre la lecture de cette rubrique :  
   
--   Dans le composant logiciel enfichable\-gestion des AD FS, les règles de revendication ne peuvent être créées qu’à l’aide de modèles de règles de revendication  
+-   Dans le\-du composant logiciel enfichable Gestion de l’AD FS dans, les règles de revendication peuvent uniquement être créées à l’aide de modèles de règle de revendication  
   
--   Les règles de revendication traitent les revendications entrantes soit \(directement à partir d’un fournisseur\) de revendications, par exemple Active Directory ou une autre service FS (Federation Service), soit à partir de la sortie des règles de transformation d’acceptation sur une approbation de fournisseur de revendications.  
+-   Les règles de revendication traitent les revendications entrantes soit directement à partir d’un fournisseur de revendications \(comme Active Directory ou un autre service FS (Federation Service)\), soit à partir de la sortie des règles de transformation d’acceptation sur une approbation de fournisseur de revendications.  
   
 -   Les règles de revendication sont traitées par le moteur d’émission des revendications au sein d’un ensemble de règles donné et dans l’ordre chronologique. En définissant la hiérarchie des règles, vous pouvez affiner ou filtrer des revendications générées par des règles précédentes dans un ensemble de règles donné.  
   
@@ -58,28 +57,28 @@ Si vous souhaitez utiliser la condition de refus, mais aussi activer l’accès 
 Si l’accès est refusé à un utilisateur lorsque le moteur d’émission de revendications traite l’ensemble de règles, le traitement des règles supplémentaires s’arrête et AD FS renvoie une erreur « Accès refusé » à la demande de l’utilisateur.  
   
 ## <a name="authorizing-users"></a>Autorisation des utilisateurs  
-Dans AD FS, les règles d’autorisation sont utilisées pour émettre une revendication d’autorisation ou de refus qui détermine si un utilisateur ou un \(groupe d’utilisateurs, selon le type\) de revendication utilisé, est autorisé\-à accéder aux ressources Web dans un compte de confiance donné. tiers ou non. Les règles d’autorisation ne peuvent être définies que sur des approbations de partie de confiance.  
+Dans AD FS, les règles d’autorisation sont utilisées pour émettre une revendication d’autorisation ou de refus qui détermine si un utilisateur ou un groupe d’utilisateurs \(selon le type de revendication utilisé\) est autorisé à accéder aux ressources de\-Web dans une partie de confiance donnée. Les règles d’autorisation ne peuvent être définies que sur des approbations de partie de confiance.  
   
 ### <a name="authorization-rule-sets"></a>Ensembles de règles d’autorisation  
 Différents ensembles de règles d’autorisation s’appliquent selon le type d’opération d’autorisation ou de refus que vous devez configurer. Ces ensembles de règles sont les suivants :  
   
--   **Règles d’autorisation d’émission** : Ces règles déterminent si un utilisateur peut recevoir des revendications pour une partie de confiance et, par conséquent, accéder à la partie de confiance.  
+-   **Règles d’autorisation d’émission** : ces règles déterminent si un utilisateur peut recevoir des revendications pour une partie de confiance et, par conséquent, accéder à la partie de confiance.  
   
--   **Règles d’autorisation de délégation** : Ces règles déterminent si un utilisateur peut agir comme un autre utilisateur avec la partie de confiance. Lorsqu’un utilisateur agit comme un autre utilisateur, les revendications relatives à l’utilisateur auteur de la requête sont toujours placées dans le jeton.  
+-   **Onglet Règles d’autorisation de délégation** : ces règles déterminent si un utilisateur peut agir comme un autre utilisateur avec la partie de confiance. Lorsqu’un utilisateur agit comme un autre utilisateur, les revendications relatives à l’utilisateur auteur de la requête sont toujours placées dans le jeton.  
   
--   **Règles d’autorisation d’emprunt d’identité** : Ces règles déterminent si un utilisateur peut se substituer complètement à un autre utilisateur face à la partie de confiance. Emprunter l’identité d’un autre utilisateur est une fonctionnalité très puissante, car la partie de confiance ne sait pas qu’il s’agit d’un autre utilisateur.  
+-   **Règles d’autorisation d’emprunt d’identité** : ces règles déterminent si un utilisateur peut se substituer complètement à un autre utilisateur face à la partie de confiance. Emprunter l’identité d’un autre utilisateur est une fonctionnalité très puissante, car la partie de confiance ne sait pas qu’il s’agit d’un autre utilisateur.  
   
 Pour plus d’informations sur l’intégration du processus de règle d’autorisation dans le pipeline d’émission de revendications, consultez le rôle du moteur d’émission de revendications.  
   
 ### <a name="supported-claim-types"></a>Types de revendications pris en charge  
-AD FS définit deux types de revendication utilisés pour déterminer si un utilisateur est autorisé ou refusé. Ces \(URI\) d’identificateurs de ressources uniformes de type revendication sont les suivants :  
+AD FS définit deux types de revendication utilisés pour déterminer si un utilisateur est autorisé ou refusé. Ces identificateurs de ressource uniforme de type de revendication \(URI\) sont les suivants :  
   
-1.  **Autoriser**: http :\/\/schemas.Microsoft.com\/autorisationrevendications\/\/  
+1.  **Autoriser**: http :\/\/schemas.Microsoft.com\/autorisation\/revendications\/autoriser  
   
-2.  **Deny**: http :\/\/schemas.Microsoft.com\/authorization\/claims\/Deny  
+2.  **Deny**: http :\/\/schemas.Microsoft.com\/authorization\/revendications\/Deny  
   
 ## <a name="how-to-create-this-rule"></a>Comment créer cette règle  
-Vous pouvez créer les deux règles d’autorisation à l’aide du langage de règle de revendication ou à l’aide du modèle de règle **autoriser tous les utilisateurs** ou **autoriser ou refuser des utilisateurs en fonction d’une revendication entrante** dans le composant logiciel enfichable\-gestion des AD FS. Le modèle de règle Autoriser tous les utilisateurs ne fournit pas d’options de configuration. Toutefois, le modèle de règle Autoriser ou refuser les utilisateurs en fonction d’une revendication entrante fournit les options de configuration suivantes :  
+Vous pouvez créer les deux règles d’autorisation à l’aide du langage de règle de revendication ou à l’aide du modèle de règle **autoriser tous les utilisateurs** ou **autoriser ou refuser des utilisateurs en fonction d’une revendication entrante** dans le\-du composant logiciel enfichable Gestion du AD FS dans. Le modèle de règle Autoriser tous les utilisateurs ne fournit pas d’options de configuration. Toutefois, le modèle de règle Autoriser ou refuser les utilisateurs en fonction d’une revendication entrante fournit les options de configuration suivantes :  
   
 -   Spécifier un nom de règle de revendication  
   
@@ -102,7 +101,7 @@ Lorsque vous utilisez la syntaxe du langage de règle de revendication pour auto
 ```  
 [type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod",   
 value == "urn:federation:authentication:windows" ]  
-&& [type == "http://schemas.xmlsoap.org/claims/Group ", value == “editors”]   
+&& [type == "http://schemas.xmlsoap.org/claims/Group ", value == "editors"]   
 => issue(type = "http://schemas.xmlsoap.org/claims/authZ", value = "Granted");  
 ```  
   
@@ -115,13 +114,13 @@ Avant qu’un service de fédération puisse utiliser un serveur proxy de fédé
   
 Lorsque vous souhaitez spécifier quels utilisateurs peuvent créer une approbation de proxy pour un service de fédération donné, vous pouvez utiliser une des méthodes de délégation suivantes. Cette liste de méthodes est par ordre de priorité, selon les recommandations de l’équipe de produit AD FS des méthodes de délégation les plus sûres et les moins problématiques. Il est nécessaire de se limiter à une seule de ces méthodes, selon les besoins de votre organisation :  
   
-1.  Créez un groupe de sécurité de domaine \(dans Active Directory par exemple\), FSProxyTrustCreators, ajoutez ce groupe au groupe Administrateurs local sur chacun des serveurs de Fédération de la batterie, puis ajoutez uniquement les comptes d’utilisateur auxquels vous souhaitez pour déléguer ce droit au nouveau groupe. Il s’agit de la méthode recommandée.  
+1.  Créez un groupe de sécurité de domaine dans Active Directory \(par exemple, FSProxyTrustCreators\), ajoutez ce groupe au groupe Administrateurs local sur chacun des serveurs de Fédération de la batterie, puis ajoutez uniquement les comptes d’utilisateur auxquels vous souhaitez déléguer ce droit au nouveau groupe. Il s’agit de la méthode recommandée.  
   
 2.  Ajoutez le compte de domaine de l’utilisateur au groupe Administrateurs sur chacun des serveurs de Fédération de la batterie.  
   
 3.  Si pour une raison quelconque vous ne pouvez pas utiliser une de ces méthodes, vous pouvez également créer une règle d’autorisation à cet effet. Bien que cela ne soit pas recommandé en raison de complications risquant de survenir si cette règle n’est pas écrite correctement, vous pouvez utiliser une règle d’autorisation personnalisée pour déléguer le pouvoir de créer ou même de supprimer les approbations entre tous les serveurs proxy de fédération qui sont associés à un service de fédération donné à certains comptes d’utilisateur du domaine Active Directory.  
   
-    Si vous choisissez la méthode 3, vous pouvez utiliser la syntaxe de règle suivante pour émettre une revendication d’autorisation qui permettra à \(un utilisateur spécifié dans ce\\cas,\) contoso Frankis de créer des approbations pour un ou plusieurs serveurs proxys de Fédération pour le Service FS (Federation Service). Vous devez appliquer cette règle à l’aide du **jeu\-** de commandes Windows PowerShell ADFSProperties AddProxyAuthorizationRules.  
+    Si vous choisissez la méthode 3, vous pouvez utiliser la syntaxe de règle suivante pour émettre une revendication d’autorisation qui permet à un utilisateur spécifié \(dans ce cas, contoso\\Frank\) de créer des approbations pour un ou plusieurs serveurs proxys de Fédération pour le service FS (Federation Service). Vous devez appliquer cette règle à l’aide du jeu de commandes Windows PowerShell **\-ADFSProperties AddProxyAuthorizationRules**.  
   
     ```  
     c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", issuer=~"^AD AUTHORITY$" value == "contoso\frankm" ] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true")  
@@ -134,7 +133,7 @@ Lorsque vous souhaitez spécifier quels utilisateurs peuvent créer une approbat
     c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/proxytrustid", Issuer =~ "^SELF AUTHORITY$" ] => issue(store="_ProxyCredentialStore",types=("https://schemas.microsoft.com/authorization/claims/permit"),query="isProxyTrustProvisioned({0})", param=c.Value );  
     ```  
   
-    Ultérieurement, pour supprimer l’utilisateur de sorte qu’il ne puisse plus créer d’approbations de proxy, vous pouvez revenir à la règle d’autorisation d’approbation de proxy par défaut pour supprimer le droit de créer des approbations de proxy pour le service de fédération. Vous devez également appliquer cette règle à l’aide du **jeu\-** de commandes Windows PowerShell ADFSProperties AddProxyAuthorizationRules.  
+    Ultérieurement, pour supprimer l’utilisateur de sorte qu’il ne puisse plus créer d’approbations de proxy, vous pouvez revenir à la règle d’autorisation d’approbation de proxy par défaut pour supprimer le droit de créer des approbations de proxy pour le service de fédération. Vous devez également appliquer cette règle à l’aide du jeu de commandes Windows PowerShell **\-ADFSProperties AddProxyAuthorizationRules**.  
   
     ```  
     exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-544", Issuer =~ "^AD AUTHORITY$"])   

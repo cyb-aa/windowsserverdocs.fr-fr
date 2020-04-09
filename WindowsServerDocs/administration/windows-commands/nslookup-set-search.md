@@ -1,24 +1,20 @@
 ---
 title: nslookup set search
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 064ac660-8b04-4af9-8b2c-e4e0549771b8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d9da08a296d61789dbafeccde5d46c8a220d874c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9972919eae1be21d5dd30820d64dd1576b935666
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372779"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838302"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
@@ -32,7 +28,7 @@ Ajoute les noms de domaine DNS (Domain Name System) dans la liste de recherche d
 set [no]search
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |  Paramètre   |                                                                          Description                                                                          |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,6 +36,6 @@ set [no]search
 |  **recherche**  | Ajoute les noms de domaine DNS (Domain Name System) dans la liste de recherche du domaine DNS à la demande jusqu’à ce qu’une réponse soit reçue. La syntaxe par défaut est **Search**. |
 |    {aide     |                                                                              ?}                                                                               |
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

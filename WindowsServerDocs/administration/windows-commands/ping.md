@@ -1,24 +1,20 @@
 ---
 title: ping
 description: Utilisez la commande ping pour vérifier la connectivité réseau.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 49272671-2eec-4fa5-881f-65c24cfbef52
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 7d9841c12d403d91e14021ff9df65246d322debd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c9e03b45d889bcac87bd3e533ab69c7a07be74ee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372306"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837552"
 ---
 # <a name="ping"></a>ping
 
@@ -32,17 +28,17 @@ La commande **ping** vérifie la connectivité de niveau IP à un autre ordinate
 ping [/t] [/a] [/n <Count>] [/l <Size>] [/f] [/I <TTL>] [/v <TOS>] [/r <Count>] [/s <Count>] [{/j <Hostlist> | /k <Hostlist>}] [/w <timeout>] [/R] [/S <Srcaddr>] [/4] [/6] <TargetName>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |-------|--------|
-|commutateur|Spécifie que le ping continue à envoyer des messages de demande d’écho à la destination jusqu’à ce qu’il soit interrompu. Pour interrompre et afficher les statistiques, appuyez sur CTRL + ATTN. Pour interrompre et quitter **ping**, appuyez sur Ctrl + C.|
+|/t|Spécifie que le ping continue à envoyer des messages de demande d’écho à la destination jusqu’à ce qu’il soit interrompu. Pour interrompre et afficher les statistiques, appuyez sur CTRL + ATTN. Pour interrompre et quitter **ping**, appuyez sur Ctrl + C.|
 |/a|Spécifie que la résolution de noms inversée est effectuée sur l’adresse IP de destination. En cas de réussite, ping affiche le nom d’hôte correspondant.|
 |/n \<nombre\>|Spécifie le nombre de messages de demande d’écho envoyés. La valeur par défaut est 4.|
 |Taille de \<de/l\>|Spécifie la longueur, en octets, du champ de données dans les messages de demande d’écho envoyés. La valeur par défaut est 32. La taille maximale est de 65 527.|
 |/f|Spécifie que les messages de demande d’écho sont envoyés avec l’indicateur do not fragment dans l’en-tête IP défini sur 1 (disponible sur IPv4 uniquement). Le message de demande d’écho ne peut pas être fragmenté par les routeurs dans le chemin d’accès à la destination. Ce paramètre est utile pour résoudre les problèmes de l’unité de transmission maximale (PMTU) Path.|
 |/I \<TTL\>|Spécifie la valeur du champ TTL dans l’en-tête IP pour les messages de demande d’écho envoyés. La valeur par défaut est la valeur de durée de vie par défaut pour l’hôte. La *durée de vie* maximale est de 255.|
-|\> des OT \<|Spécifie la valeur du champ type de service (TOS) dans l’en-tête IP pour les messages de demande d’écho envoyés (disponible sur IPv4 uniquement). La valeur par défaut est 0. *OT* est spécifié sous la forme d’une valeur décimale comprise entre 0 et 255.|
+|\> des OT \<|Spécifie la valeur du champ type de service (TOS) dans l’en-tête IP pour les messages de demande d’écho envoyés (disponible sur IPv4 uniquement). La valeur par défaut est 0. *OT* est spécifié sous la forme d’une valeur décimale comprise entre 0 et 255.|
 |/r nombre d' \<\>|Spécifie que l’option d’itinéraire d’enregistrement dans l’en-tête IP est utilisée pour enregistrer le chemin emprunté par le message de demande d’écho et le message de réponse d’écho correspondant (disponible sur IPv4 uniquement). Chaque tronçon du chemin d’accès utilise une entrée dans l’option Enregistrer l’itinéraire. Si possible, spécifiez un *nombre* supérieur ou égal au nombre de sauts entre la source et la destination. Le *nombre* doit être un minimum de 1 et un maximum de 9.|
 |/s \<\>|Spécifie que l’option horodateur Internet dans l’en-tête IP est utilisée pour enregistrer l’heure d’arrivée du message de demande d’écho et le message de réponse à écho correspondant pour chaque tronçon. Le *nombre* doit être un minimum de 1 et un maximum de 4. Cela est requis pour les adresses de destination lien-local.|
 |/j \<hostlist\>|Spécifie que les messages de demande d’écho utilisent l’option de route de source libre dans l’en-tête IP avec l’ensemble de destinations intermédiaires spécifié dans *hostlist* (disponible sur IPv4 uniquement). Avec un routage source libre, les destinations intermédiaires successives peuvent être séparées par un ou plusieurs routeurs. Le nombre maximal d’adresses ou de noms dans la liste d’ordinateurs hôtes est de 9. La liste hôte est une série d’adresses IP (en notation décimale séparée par des points), séparées par des espaces.|
@@ -60,7 +56,7 @@ ping [/t] [/a] [/n <Count>] [/l <Size>] [/f] [/I <TTL>] [/v <TOS>] [/r <Count>] 
 -   Vous pouvez utiliser la **commande ping** pour tester à la fois le nom de l’ordinateur et l’adresse IP de l’ordinateur. Si le test ping de l’adresse IP réussit, mais que le test ping du nom de l’ordinateur n’est pas possible, vous risquez de rencontrer un problème de résolution de noms. Dans ce cas, assurez-vous que le nom d’ordinateur que vous spécifiez peut être résolu par le biais du fichier d’hôtes local, en utilisant des requêtes DNS (Domain Name System) ou des techniques de résolution de noms NetBIOS.
 -   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_Examples"></a>Illustre
 
 L’exemple suivant montre le résultat de la commande **ping** :
 
@@ -98,4 +94,4 @@ ping /j 10.12.0.1 10.29.3.1 10.1.44.1 10.0.99.221
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

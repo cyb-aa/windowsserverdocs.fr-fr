@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup : ChangePassword'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 283078e7-a88f-4875-90e6-f8605e6b7ea7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 51be9e71c2b290e6346d23144543e0eec29f9d07
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 68b14388ff3c33458873b494c8d5a770b44f7545
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375181"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841782"
 ---
 # <a name="ksetupchangepassword"></a>Ksetup : ChangePassword
 
@@ -32,7 +28,7 @@ Utilise la valeur de mot de passe du centre de distribution de clés (kpasswd) p
 ksetup /changepassword <OldPasswd> <NewPasswd>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -51,7 +47,7 @@ Si vous souhaitez forcer une modification de mot de passe lors de la prochaine o
 
 La sortie de la commande vous informe de l’état de réussite ou d’échec.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Modifier le mot de passe d’un utilisateur actuellement connecté à cet ordinateur dans ce domaine :
 ```
@@ -66,6 +62,6 @@ Forcer l’utilisateur actuellement connecté à modifier le mot de passe à la 
 ksetup /changepassword Pas$w0rd *
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

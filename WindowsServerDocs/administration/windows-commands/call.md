@@ -1,35 +1,29 @@
 ---
 title: appel
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique relative aux commandes Windows pour Call, qui appelle un programme de traitement par lots à partir d’un autre sans arrêter le programme de traitement par lots parent.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d34a41dc-e6c7-4467-bf6a-15cec704833e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 89097ec5d3711b3d8831f8c33b3778ed0752246f
-ms.sourcegitcommit: ee8fa8e1293f29229b5ce1b0f3d4a07ba99568f5
+ms.openlocfilehash: 58b2d03c76f53fa7bbf5c483c1a423cd4a011f94
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78280190"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848232"
 ---
 # <a name="call"></a>appel
 
-
-
 Appelle un programme de traitement par lots à partir d’un autre sans arrêter le programme de traitement par lots parent. La commande **Call** accepte des étiquettes en tant que cible de l’appel.
 
-> [!NOTE]
-> L' **appel** n’a aucun effet à l’invite de commandes lorsqu’il est utilisé en dehors d’un script ou d’un fichier de commandes.
-
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+
+> [!NOTE]
+> L’appel n’a aucun effet à l’invite de commandes lorsqu’il est utilisé en dehors d’un script ou d’un fichier de commandes.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,7 +31,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |           Paramètre           |                                                                         Description                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,7 +51,7 @@ Vous pouvez utiliser les syntaxes facultatives suivantes comme substitutions pou
 
 |Paramètre batch|Description|
 |---------------|-----------|
-|% ~ 1|Développe **%1** et supprime les guillemets ("").|
+|% ~ 1|Développe **%1** et supprime les guillemets ().|
 |% ~ F1|Développe **%1** vers un chemin d’accès complet.|
 |% ~ D1|Développe **%1** vers une lettre de lecteur uniquement.|
 |% ~ P1|Développe **%1** vers un chemin d’accès uniquement.|
@@ -100,7 +94,7 @@ Dans les exemples ci-dessus, **%1** et Path peuvent être remplacés par d’aut
 
     `call :<Label> <Arguments>`
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour exécuter le programme Checknew. bat à partir d’un autre programme de traitement par lots, tapez la commande suivante dans le programme de traitement par lots parent :
 ```
@@ -111,6 +105,6 @@ Si le programme de traitement par lots parent accepte deux paramètres de lot et
 call checknew %1 %2
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

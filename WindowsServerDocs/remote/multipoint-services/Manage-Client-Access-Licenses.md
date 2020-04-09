@@ -1,24 +1,20 @@
 ---
 title: Gérer des licences d’accès client
 description: En savoir plus sur l’utilisation des licences d’accès client dans MultiPoint services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 675e089e-d841-401e-bba7-69f3929ef609
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 4d809ab1bf2a18dff537bf63620623d576c0b25d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 2981f22b2b85d90f4102c3a0b67e25901cb12395
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949881"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853542"
 ---
 # <a name="manage-client-access-licenses"></a>Gérer des licences d’accès client
 Chaque station qui se connecte à un système MultiPoint services, y compris l’ordinateur exécutant MultiPoint services utilisé comme station, doit avoir une *licence d’accès client (CAL)* Bureau à distance par utilisateur valide.
@@ -49,5 +45,5 @@ Si elle n’est pas configurée correctement, la configuration de MultiPoint ser
    - Sélectionnez **OK** 
 
   
-## <a name="see-also"></a>Articles associés  
+## <a name="see-also"></a>Voir aussi  
 [Gérer des tâches système à l’aide du Gestionnaire MultiPoint](Manage-System-Tasks-Using-MultiPoint-Manager.md)

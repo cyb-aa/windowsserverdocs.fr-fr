@@ -1,24 +1,20 @@
 ---
 title: Manage-bde ChangeKey
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 69463db9-7e03-47ff-b233-a95d5055725f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0fc273bc84e0bc25a7409941af6dca02b6042640
-ms.sourcegitcommit: 479ad84a0d6c7c7b8308122b8bac8308cb36fe9b
+ms.openlocfilehash: 2885723f7712ee507fb43465035513bc8c7a1b2b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80391704"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840192"
 ---
 # <a name="manage-bde-changekey"></a>Manage-bde : ChangeKey
 
@@ -32,7 +28,7 @@ Modifie la clé de démarrage pour un lecteur de système d’exploitation. Pour
 manage-bde -changekey [<Drive>] [<PathToExternalKeyDirectory>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -43,14 +39,14 @@ manage-bde -changekey [<Drive>] [<PathToExternalKeyDirectory>] [-computername <N
 |-? ou /?|Affiche une brève aide à l’invite de commandes.|
 |-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="examples"></a><a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 L’exemple suivant illustre l’utilisation de la commande **-ChangeKey** pour créer une nouvelle clé de démarrage sur le lecteur E à utiliser avec le chiffrement BitLocker sur le lecteur C.
 ```
 manage-bde -changekey C: E:\
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Gérer-bde](manage-bde.md)

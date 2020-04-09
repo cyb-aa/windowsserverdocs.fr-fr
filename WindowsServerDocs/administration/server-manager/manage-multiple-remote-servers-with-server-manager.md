@@ -1,32 +1,28 @@
 ---
 title: Gérer plusieurs serveurs distants avec Gestionnaire de serveur
 description: Gestionnaire de serveur
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a17e686-e7f2-47e2-b7af-733777c38b5f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 74632dd26a1bfe7b280c73737557f1e954a7a1db
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4b7a33e15287f24ee5b259618dfcfef3c6245564
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383139"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851502"
 ---
 # <a name="manage-multiple-remote-servers-with-server-manager"></a>Gérer plusieurs serveurs distants avec Gestionnaire de serveur
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
-Gestionnaire de serveur est une console de gestion dans Windows Server 2012 R2 et Windows Server 2012 qui aide les professionnels de l’informatique à approvisionner et gérer des serveurs Windows locaux et distants à partir de leurs ordinateurs de bureau, sans avoir besoin d’un accès physique aux serveurs ou vous devez activer les connexions au Protocole Bureau à distance (rdP) sur chaque serveur. Bien que Gestionnaire de serveur soit disponible dans Windows Server 2008 R2 et Windows Server 2008, Gestionnaire de serveur a été mis à jour dans Windows Server 2012, pour prendre en charge la gestion multiserveur à distance et pour augmenter le nombre de serveurs qu’un administrateur peut gérer.
+Gestionnaire de serveur est une console de gestion dans Windows Server 2012 R2 et Windows Server 2012 qui aide les professionnels de l’informatique à approvisionner et gérer des serveurs Windows locaux et distants à partir de leurs ordinateurs de bureau, sans avoir besoin d’un accès physique aux serveurs ni d’activer des connexions Bureau à distance protocole (rdP) sur chaque serveur. Bien que Gestionnaire de serveur soit disponible dans Windows Server 2008 R2 et Windows Server 2008, Gestionnaire de serveur a été mis à jour dans Windows Server 2012, pour prendre en charge la gestion multiserveur à distance et pour augmenter le nombre de serveurs qu’un administrateur peut gérer.
 
-Dans nos tests, Gestionnaire de serveur dans Windows Server 2012 R2 et Windows Server 2012 peut être utilisé pour gérer jusqu’à 100 serveurs configurés avec une charge de travail classique. Le nombre de serveurs que vous pouvez gérer en utilisant une console du Gestionnaire de serveur unique peut varier en fonction de la quantité de données que vous demandez aux serveurs gérés ainsi que des ressources matérielles et réseau disponibles pour l’ordinateur exécutant le Gestionnaire de serveur. Lorsque la quantité de données à afficher est sur le point d’atteindre la capacité des ressources de cet ordinateur, vous pouvez être confronté à des réactions lentes du Gestionnaire de serveur ainsi qu’à des retards dans la réalisation des actualisations. Pour augmenter le nombre de serveurs que vous pouvez gérer à l’aide du Gestionnaire de serveur, nous vous conseillons de limiter la quantité de données d’événement que le Gestionnaire de serveur obtient de vos serveurs gérés en utilisant les paramètres de la boîte de dialogue **Configurer les données d’événement**. Configurer les données d’événement peut être ouverte à partir du menu **Tâches** dans la vignette **Événements** . Si vous devez gérer un très grand nombre de serveurs dans votre organisation, nous vous recommandons d’évaluer des produits de la [suite Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
+Dans nos tests, Gestionnaire de serveur dans Windows Server 2012 R2 et Windows Server 2012 peut être utilisé pour gérer jusqu’à 100 serveurs configurés avec une charge de travail classique. Le nombre de serveurs que vous pouvez gérer en utilisant une console du Gestionnaire de serveur unique peut varier en fonction de la quantité de données que vous demandez aux serveurs gérés ainsi que des ressources matérielles et réseau disponibles pour l’ordinateur exécutant le Gestionnaire de serveur. Lorsque la quantité de données à afficher est sur le point d’atteindre la capacité des ressources de cet ordinateur, vous pouvez être confronté à des réactions lentes du Gestionnaire de serveur ainsi qu’à des retards dans la réalisation des actualisations. Pour augmenter le nombre de serveurs que vous pouvez gérer à l’aide du Gestionnaire de serveur, nous vous conseillons de limiter la quantité de données d’événement que le Gestionnaire de serveur obtient de vos serveurs gérés en utilisant les paramètres de la boîte de dialogue **Configurer les données d’événement**. Configurer les données d’événement peut être ouverte à partir du menu **Tâches** dans la vignette **Événements**. Si vous devez gérer un très grand nombre de serveurs dans votre organisation, nous vous recommandons d’évaluer des produits de la [suite Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
 
 Cette rubrique et ses sous-rubriques fournissent des informations sur l’utilisation des fonctionnalités de la console Gestionnaire de serveur. Cette rubrique contient les sections suivantes.
 
@@ -40,13 +36,13 @@ Cette rubrique et ses sous-rubriques fournissent des informations sur l’utilis
 
 -   [Exporter les paramètres de Gestionnaire de serveur vers d’autres ordinateurs](#BKMK_export)
 
-## <a name="BKMK_1.1"></a>Examiner les considérations initiales et la configuration système requise
+## <a name="review-initial-considerations-and-system-requirements"></a><a name=BKMK_1.1></a>Examiner les considérations initiales et la configuration système requise
 Les sections suivantes répertorient certaines considérations initiales que vous devez examiner, ainsi que la configuration matérielle et logicielle requise pour Gestionnaire de serveur.
 
-### <a name="hardware-requirements"></a>Configuration matérielle requise
+### <a name="hardware-requirements"></a>Configuration matérielle
 Gestionnaire de serveur est installé par défaut avec toutes les éditions de Windows Server 2012 R2 et Windows Server 2012. Aucune configuration matérielle supplémentaire n’existe pour Gestionnaire de serveur.
 
-### <a name="BKMK_softconfig"></a>Logiciels et configuration requise
+### <a name="software-and-configuration-requirements"></a><a name=BKMK_softconfig></a>Logiciels et configuration requise
 Gestionnaire de serveur est installé par défaut avec toutes les éditions de Windows Server 2012. Bien que vous puissiez utiliser Gestionnaire de serveur pour gérer les [options d’installation minimale](https://go.microsoft.com/fwlink/p/?LinkID=241573) de windows server 2012 et windows Server 2008 R2 qui s’exécutent sur des ordinateurs distants, gestionnaire de serveur ne s’exécute pas directement sur les options d’installation minimale.
 
 Pour gérer entièrement les serveurs distants qui exécutent Windows Server 2008 ou Windows Server 2008 R2, installez les mises à jour suivantes sur les serveurs que vous souhaitez gérer, dans l’ordre indiqué.
@@ -83,7 +79,7 @@ La console Gestionnaire de serveur est fournie avec [Outils d’administration d
 
 2.  Dans l’écran d' **Accueil** , cliquez sur **Gestionnaire de serveur**. La vignette **Gestionnaire de serveur** est disponible après avoir installé Outils d’administration de serveur distant.
 
-3.  Si ni les **Outils d’administration** ni les vignettes **Gestionnaire de serveur** ne s’affichent sur l’écran d' **accueil** après l’installation de outils d’administration de serveur distant, et que la recherche de gestionnaire de serveur sur l’écran d' **Accueil** ne s’affiche pas résultats, vérifiez que le paramètre **afficher les outils d’administration** est activé. Pour afficher ce paramètre, placez le curseur de la souris dans l’angle supérieur droit de l’écran d' **Accueil** , puis cliquez sur **paramètres**. Si le paramètre **Afficher les outils d’administration** est désactivé, activez-le pour afficher les outils que vous avez installés dans le cadre des Outils d’administration de serveur distant.
+3.  Si ni les **Outils d’administration** ni les vignettes **Gestionnaire de serveur** ne s’affichent dans l’écran d' **accueil** après l’installation de outils d’administration de serveur distant, et que la recherche de gestionnaire de serveur sur l’écran d' **Accueil** n’affiche pas les résultats, vérifiez que le paramètre **afficher les outils d’administration** est activé. Pour afficher ce paramètre, placez le curseur de la souris dans l’angle supérieur droit de l’écran d' **Accueil** , puis cliquez sur **paramètres**. Si le paramètre **Afficher les outils d’administration** est désactivé, activez-le pour afficher les outils que vous avez installés dans le cadre des Outils d’administration de serveur distant.
 
 Pour plus d’informations sur l’exécution de Outils d’administration de serveur distant pour Windows 8 afin de gérer des serveurs distants, consultez [Outils d’administration de serveur distant](https://go.microsoft.com/fwlink/?LinkID=221055) sur le wiki technet.
 
@@ -94,7 +90,7 @@ Pour plus d’informations sur l’exécution de Outils d’administration de se
 
 Pour effectuer des tâches de gestion sur des serveurs distants à l’aide de Gestionnaire de serveur, les serveurs distants que vous voulez gérer doivent être configurés pour autoriser la gestion à distance à l’aide de Gestionnaire de serveur et Windows PowerShell. Si la gestion à distance a été désactivée sur Windows Server 2012 R2 ou Windows Server 2012 et que vous souhaitez la réactiver, procédez comme suit.
 
-##### <a name="BKMK_windows"></a>Pour configurer Gestionnaire de serveur la gestion à distance sur Windows Server 2012 R2 ou Windows Server 2012 à l’aide de l’interface Windows
+##### <a name="to-configure-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-the-windows-interface"></a><a name=BKMK_windows></a>Pour configurer Gestionnaire de serveur la gestion à distance sur Windows Server 2012 R2 ou Windows Server 2012 à l’aide de l’interface Windows
 
 1.  > [!NOTE]
     > Les paramètres contrôlés par la boîte de dialogue **configurer l’administration à distance** n’affectent pas les parties de gestionnaire de serveur qui utilisent DCOM pour les communications à distance.
@@ -113,9 +109,9 @@ Pour effectuer des tâches de gestion sur des serveurs distants à l’aide de G
 
     -   Pour permettre la gestion à distance de cet ordinateur à l’aide de Gestionnaire de serveur ou de Windows PowerShell, sélectionnez **activer la gestion à distance de ce serveur à partir d’autres ordinateurs**.
 
-##### <a name="BKMK_ps"></a>Pour activer la gestion à distance Gestionnaire de serveur sur Windows Server 2012 R2 ou Windows Server 2012 à l’aide de Windows PowerShell
+##### <a name="to-enable-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-windows-powershell"></a><a name=BKMK_ps></a>Pour activer la gestion à distance Gestionnaire de serveur sur Windows Server 2012 R2 ou Windows Server 2012 à l’aide de Windows PowerShell
 
-1.  Effectuez l’une des opérations suivantes :
+1.  Effectuez l'une des opérations suivantes :
 
     -   Pour exécuter Windows PowerShell en tant qu’administrateur à partir de l’écran d' **Accueil** , cliquez avec le bouton droit sur la vignette **Windows PowerShell** , puis cliquez sur **exécuter en tant qu’administrateur**.
 
@@ -132,7 +128,7 @@ Pour effectuer des tâches de gestion sur des serveurs distants à l’aide de G
 
 ###### <a name="to-enable-server-manager-and-windows-powershell-remote-management-on-older-operating-systems"></a>Pour activer la gestion à distance via le Gestionnaire de serveur et Windows PowerShell sur des systèmes d’exploitation plus anciens
 
--   Effectuez l’une des opérations suivantes :
+-   Effectuez l'une des opérations suivantes :
 
     -   Pour activer la gestion à distance sur les serveurs qui exécutent Windows Server 2008 R2, consultez [gestion à distance avec Gestionnaire de serveur](https://go.microsoft.com/fwlink/?LinkID=137378) dans l’aide de windows Server 2008 R2.
 
@@ -140,10 +136,10 @@ Pour effectuer des tâches de gestion sur des serveurs distants à l’aide de G
 
     -   Pour activer la gestion à distance sur des serveurs qui exécutent Windows Server 2003, activez les exceptions WMI DCOM dans le Pare-feu Windows. Pour plus d’informations sur la procédure à suivre sur des serveurs qui exécutent Windows Server 2003, voir [Connexion via le Pare-feu Windows](https://msdn.microsoft.com/library/aa389286.aspx) sur MSDN.
 
-## <a name="BKMK_tasks"></a>Tâches que vous pouvez effectuer dans Gestionnaire de serveur
-Gestionnaire de serveur rend l’administration du serveur plus efficace en permettant aux administrateurs d’effectuer les tâches du tableau suivant à l’aide d’un seul outil. Dans Windows Server 2012 R2 et Windows Server 2012, les utilisateurs standard d’un serveur et les membres du groupe administrateurs peuvent effectuer des tâches de gestion dans Gestionnaire de serveur, mais par défaut, les utilisateurs standard ne peuvent pas effectuer certaines tâches, comme illustré dans la tableau suivant.
+## <a name="tasks-that-you-can-perform-in-server-manager"></a><a name=BKMK_tasks></a>Tâches que vous pouvez effectuer dans Gestionnaire de serveur
+Gestionnaire de serveur rend l’administration du serveur plus efficace en permettant aux administrateurs d’effectuer les tâches du tableau suivant à l’aide d’un seul outil. Dans Windows Server 2012 R2 et Windows Server 2012, les utilisateurs standard d’un serveur et les membres du groupe administrateurs peuvent effectuer des tâches de gestion dans Gestionnaire de serveur, mais par défaut, les utilisateurs standard ne peuvent pas effectuer certaines tâches, comme indiqué dans le tableau suivant.
 
-Les administrateurs peuvent utiliser deux applets de commande Windows PowerShell dans le module d’applet de commande Gestionnaire de serveur, [Enable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205470.aspx) et [Disable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205468.aspx), pour contrôler davantage l’accès utilisateur standard à certains données supplémentaires. L’applet de commande **Enable-ServerManagerStandardUserremoting** peut fournir à un ou plusieurs utilisateurs standard et non-administrateurs l’accès aux données d’inventaire des événements, des services, des compteurs de performances et des rôles et des fonctionnalités.
+Les administrateurs peuvent utiliser deux applets de commande Windows PowerShell dans le module d’applet de commande Gestionnaire de serveur, [Enable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205470.aspx) et [Disable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205468.aspx), pour contrôler davantage l’accès utilisateur standard à certaines données supplémentaires. L’applet de commande **Enable-ServerManagerStandardUserremoting** peut fournir à un ou plusieurs utilisateurs standard et non-administrateurs l’accès aux données d’inventaire des événements, des services, des compteurs de performances et des rôles et des fonctionnalités.
 
 > [!IMPORTANT]
 > Le Gestionnaire de serveur ne peut pas être utilisé pour gérer une version plus récente du système d’exploitation Windows Server. Gestionnaire de serveur s’exécutant sur Windows Server 2012 ou Windows 8 ne peut pas être utilisé pour gérer les serveurs qui exécutent Windows Server 2012 R2.
@@ -166,7 +162,7 @@ Les administrateurs peuvent utiliser deux applets de commande Windows PowerShell
 > [!NOTE]
 > Le Gestionnaire de serveur peut recevoir uniquement des informations sur l’état en ligne ou hors connexion en provenance de serveurs exécutant Windows Server 2003. Gestionnaire de serveur ne peut pas être utilisé pour ajouter des rôles et des fonctionnalités aux serveurs qui exécutent Windows Server 2008 R2, Windows Server 2008 ou Windows Server 2003.
 
-## <a name="BKMK_start"></a>Démarrer Gestionnaire de serveur
+## <a name="start-server-manager"></a><a name=BKMK_start></a>Démarrer Gestionnaire de serveur
 Gestionnaire de serveur démarre automatiquement par défaut sur les serveurs qui exécutent Windows Server 2012 lorsqu’un membre du groupe administrateurs se connecte à un serveur. Si vous fermez Gestionnaire de serveur, redémarrez-le de l’une des manières suivantes. Cette section contient également les étapes permettant de modifier le comportement par défaut et d’empêcher le démarrage automatique de Gestionnaire de serveur.
 
 #### <a name="to-start-server-manager-from-the-start-screen"></a>Pour démarrer le Gestionnaire de serveur à partir de l’écran d’accueil
@@ -181,17 +177,17 @@ Gestionnaire de serveur démarre automatiquement par défaut sur les serveurs qu
 
 1.  Dans la console Gestionnaire de serveur, dans le menu **gérer** , cliquez sur Propriétés de la **Gestionnaire de serveur**.
 
-2.  Dans la boîte de dialogue **Propriétés du Gestionnaire de serveur** , activez la case à cocher **Ne pas démarrer automatiquement le Gestionnaire de serveur à l’ouverture de session**. Cliquez sur **OK**.
+2.  Dans la boîte de dialogue **Propriétés du Gestionnaire de serveur**, activez la case à cocher **Ne pas démarrer automatiquement le Gestionnaire de serveur à l’ouverture de session**. Cliquez sur **OK**.
 
 3.  Vous pouvez également empêcher le démarrage automatique de Gestionnaire de serveur en activant le paramètre stratégie de groupe, **ne pas démarrer automatiquement gestionnaire de serveur à l’ouverture de session**. Le chemin d’accès à ce paramètre de stratégie, dans la console de l’éditeur de stratégie de groupe local, est Computer Configuration\Administrative système \ Manager.
 
-## <a name="BKMK_restart"></a>Redémarrer les serveurs distants
+## <a name="restart-remote-servers"></a><a name=BKMK_restart></a>Redémarrer les serveurs distants
 Vous pouvez redémarrer un serveur distant à partir de la vignette **serveurs** d’une page de rôle ou de groupe dans Gestionnaire de serveur.
 
 > [!IMPORTANT]
 > Le redémarrage d’un serveur distant force le serveur à redémarrer, même si des utilisateurs sont toujours connectés au serveur distant et que des programmes avec des données non enregistrées sont toujours ouverts. Ce comportement est différent de la fermeture ou du redémarrage de l’ordinateur local sur lequel vous êtes invité à enregistrer les données de programme non enregistrées et à confirmer que vous voulez forcer les utilisateurs connectés à fermer la session. Assurez-vous de pouvoir forcer d’autres utilisateurs à se déconnecter des serveurs distants et de pouvoir ignorer les données non enregistrées dans les programmes exécutés sur les serveurs distants.
 > 
-> Si une actualisation automatique se produit dans Gestionnaire de serveur alors qu’un serveur géré est en cours d’arrêt et de redémarrage, des erreurs d’état de la gestion et de l’actualisation peuvent se produire pour le serveur géré, car Gestionnaire de serveur ne peut pas se connecter au serveur distant tant qu’il n’est pas terminé le redémarrage.
+> Si une actualisation automatique se produit dans Gestionnaire de serveur alors qu’un serveur géré est en cours d’arrêt et de redémarrage, des erreurs d’état de la gestion et de l’actualisation peuvent se produire pour le serveur géré, car Gestionnaire de serveur ne peut pas se connecter au serveur distant tant que le redémarrage n’est pas terminé.
 
 #### <a name="to-restart-remote-servers-in-server-manager"></a>Pour redémarrer des serveurs distants dans le Gestionnaire de serveur
 
@@ -201,12 +197,12 @@ Vous pouvez redémarrer un serveur distant à partir de la vignette **serveurs**
 
 3.  Cliquez avec le bouton droit sur les serveurs sélectionnés, puis cliquez sur **Redémarrer le serveur**.
 
-## <a name="BKMK_export"></a>Exporter les paramètres de Gestionnaire de serveur vers d’autres ordinateurs
+## <a name="export-server-manager-settings-to-other-computers"></a><a name=BKMK_export></a>Exporter les paramètres de Gestionnaire de serveur vers d’autres ordinateurs
 Dans Gestionnaire de serveur, votre liste de serveurs gérés, les modifications apportées aux paramètres de la console Gestionnaire de serveur et les groupes personnalisés que vous avez créés sont stockés dans les deux fichiers suivants. Vous pouvez réutiliser ces paramètres sur d’autres ordinateurs qui exécutent la même version de Gestionnaire de serveur (pas les ordinateurs qui exécutent l’option d’installation minimale) ou Windows 8. Outils d’administration de serveur distant doit s’exécuter sur des ordinateurs clients Windows pour exporter les paramètres de Gestionnaire de serveur vers ces ordinateurs.
 
 -   %*AppData*% \ Microsoft\Windows\ServerManager\Serverlist.Xml
 
--   %*AppData*% \ Local\Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\User.config
+-   %*AppData*% \ Local \ Microsoft_Corporation \Servermanager. exe_StrongName_*GUID*\6.2.0.0\User.config
 
 > [!NOTE]
 > -   Les informations d’identification Gérer en tant que (ou autres) pour les serveurs de votre pool de serveurs ne sont pas stockées dans le profil itinérant. Les utilisateurs du Gestionnaire de serveur doivent les ajouter à chaque ordinateur à partir duquel ils veulent effectuer la gestion.
@@ -224,17 +220,17 @@ Vous pouvez exporter des paramètres de Gestionnaire de serveur, rendre les para
 
 2.  Sous l’onglet **Profil** , ajoutez un chemin d’accès à un partage réseau pour stocker le profil de l’utilisateur.
 
-3.  Effectuez l’une des opérations suivantes :
+3.  Effectuez l'une des opérations suivantes :
 
-    -   Sur les versions L’anglais (en-US) génère, les modifications apportées au fichier **serverlist. xml** sont automatiquement enregistrées dans le profil. Passez à l’étape suivante.
+    -   Sur les builds de l’anglais américain (en-US), les modifications apportées au fichier **serverlist. xml** sont automatiquement enregistrées dans le profil. Passez à l’étape suivante.
 
     -   Sur les autres versions, copiez les deux fichiers suivants de l’ordinateur qui exécute Gestionnaire de serveur vers le partage réseau qui fait partie du profil itinérant de l’utilisateur.
 
         -   %*AppData*% \ Microsoft\Windows\ServerManager\Serverlist.Xml
 
-        -   %*LocalAppData*% \ Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\User.config
+        -   %*LocalAppData*% \ Microsoft_Corporation \Servermanager. exe_StrongName_*GUID*\6.2.0.0\User.config
 
-4.  Cliquez sur **OK** pour enregistrer vos modifications et fermer la boîte de dialogue **Propriétés** .
+4.  Cliquez sur **OK** pour enregistrer vos modifications et fermer la boîte de dialogue **Propriétés**.
 
 #### <a name="to-export-server-manager-settings-to-computers-in-workgroups"></a>Pour exporter les paramètres du Gestionnaire de serveur vers des ordinateurs dans des groupes de travail
 
@@ -242,6 +238,6 @@ Vous pouvez exporter des paramètres de Gestionnaire de serveur, rendre les para
 
     -   %*AppData*% \ Microsoft\Windows\ServerManager\Serverlist.Xml
 
-    -   %*LocalAppData*% \ Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\User.config
+    -   %*LocalAppData*% \ Microsoft_Corporation \Servermanager. exe_StrongName_*GUID*\6.2.0.0\User.config
 
 

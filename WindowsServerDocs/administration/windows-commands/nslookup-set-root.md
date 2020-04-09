@@ -1,24 +1,20 @@
 ---
 title: nslookup set root
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ad5393c-d4fd-4594-8187-576b1dcde60a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a1737275bf6321525bbba56cd4d6a77ef973423
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: ea2c34bbf7c9323c948d57ac2a838c22aea1008e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591026"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838312"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
@@ -29,7 +25,7 @@ Modifie le nom du serveur racine utilisé pour les requêtes.
 ```
 set root=<RootServer>
 ```
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |    Paramètre    |                                   Description                                    |
 |-----------------|----------------------------------------------------------------------------------|
@@ -39,5 +35,5 @@ set root=<RootServer>
 ## <a name="remarks"></a>Notes
 - La sous-commande **Set root** affecte la sous-commande **racine** .
   ## <a name="additional-references"></a>Références supplémentaires
-  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+  - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
   [racine nslookup](nslookup-root.md)

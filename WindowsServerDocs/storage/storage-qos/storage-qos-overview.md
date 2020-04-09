@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: ed7d7ca4f41784f2ae12220eb2e30077e2467175
-ms.sourcegitcommit: 056d355516f199e8a505c32b9aa685d0cde89e44
+ms.openlocfilehash: 1a320a53ccda78ea19c8dc7b8e22c2bb2c1d236b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79518744"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854112"
 ---
 # <a name="storage-quality-of-service"></a>Qualité de service de stockage
 
@@ -31,10 +31,10 @@ Vous pouvez utiliser la qualité de service de stockage dans Windows Server 201
 
 Ce document décrit comment votre entreprise peut bénéficier de la nouvelle fonctionnalité de qualité de service de stockage. Il part du principe que vous avez déjà utilisé Windows Server, le clustering de basculement Windows Server, le serveur de fichiers avec montée en puissance parallèle, Hyper-V et Windows PowerShell.
 
-## <a name="BKMK_Overview"></a>Vue  
+## <a name="overview"></a><a name="BKMK_Overview"></a>Vue  
 Cette section décrit la configuration requise pour l’utilisation de la qualité de service de stockage, une vue d’ensemble d’une solution définie par un logiciel à l’aide de la qualité de service de stockage et une liste de termes liés à la qualité de service de stockage.  
 
-### <a name="BKMK_Requirements"></a>Exigences de qualité de service de stockage  
+### <a name="storage-qos-requirements"></a><a name="BKMK_Requirements"></a>Exigences de qualité de service de stockage  
 La qualité de service de stockage prend en charge deux scénarios de déploiement :  
 
 -   **Hyper-V avec un serveur de fichiers avec montée en puissance parallèle** Ce scénario nécessite les deux éléments suivants :  
@@ -55,7 +55,7 @@ La qualité de service de stockage prend en charge deux scénarios de déploieme
 
 Un cluster de basculement est nécessaire. Tous les serveurs doivent exécuter la même version de Windows Server 2016.  
 
-### <a name="BKMK_SolutionOverview"></a>Utilisation de la qualité de service de stockage dans une solution de stockage définie par logiciel  
+### <a name="using-storage-qos-in-a-software-defined-storage-solution"></a><a name="BKMK_SolutionOverview"></a>Utilisation de la qualité de service de stockage dans une solution de stockage définie par logiciel  
 La qualité de service de stockage est intégrée à la solution de stockage défini par le logiciel Microsoft et fournie par le serveur de fichiers avec montée en puissance parallèle et Hyper-V. Le serveur de fichiers avec montée en puissance parallèle expose les partages de fichiers pour les serveurs Hyper-V à l’aide du protocole SMB3. Un nouveau Gestionnaire de stratégie a été ajouté au cluster de serveurs de fichiers, qui fournit l’analyse des performances de stockage central.  
 
 ![Serveur de fichiers avec montée en puissance parallèle et qualité de service de stockage](media/overview-Clustering_SOFSStorageQoS.png)  
@@ -66,11 +66,11 @@ Quand les serveurs Hyper-V lancent des machines virtuelles, le Gestionnaire de s
 
 Quand des modifications sont apportées aux stratégies de qualité de service de stockage ou aux exigences en matière de performances par les machines virtuelles, le Gestionnaire de stratégie demande aux serveurs Hyper-V d’adapter leur comportement. Cette boucle de commentaires garantit que tous les disques durs virtuels des machines virtuelles fonctionnent de façon cohérente conformément aux stratégies de qualité de service de stockage définies.  
 
-### <a name="BKMK_Glossary"></a>Glossaire  
+### <a name="glossary"></a><a name="BKMK_Glossary"></a>Glossaire  
 
 |Terme|Description|  
 |--------|---------------|  
-|E/S par seconde normalisées|Toute l’utilisation du stockage est mesurée en « E/S par seconde normalisées ».  Il s’agit du nombre d’opérations d’entrée/sortie de stockage par seconde.  Toute E/S d’une taille inférieure ou égale à 8 Ko est considérée comme étant une E/S normalisée.  Toute E/S d’une taille supérieure à 8 Ko est traitée comme représentant plusieurs E/S normalisées. Par exemple, une demande de 256 Ko est traitée comme 32 E/S par seconde normalisées.<br /><br />Windows Server 2016 inclut la possibilité de spécifier la taille utilisée pour normaliser les E/S.  Sur le cluster de stockage, la taille normalisée peut être spécifiée et prise en compte dans les calculs de normalisation à l’échelle du cluster.  La valeur par défaut demeure 8 Ko.|  
+|E/S par seconde normalisées|Toute l’utilisation du stockage est mesurée en « E/S par seconde normalisées ».  Il s’agit du nombre d’opérations d’entrée/sortie de stockage par seconde.  Toute E/S d’une taille inférieure ou égale à 8 Ko est considérée comme étant une E/S normalisée.  Toute E/S d’une taille supérieure à 8 Ko est traitée comme représentant plusieurs E/S normalisées. Par exemple, une demande de 256 Ko est traitée comme 32 E/S par seconde normalisées.<p>Windows Server 2016 inclut la possibilité de spécifier la taille utilisée pour normaliser les E/S.  Sur le cluster de stockage, la taille normalisée peut être spécifiée et prise en compte dans les calculs de normalisation à l’échelle du cluster.  La valeur par défaut demeure 8 Ko.|  
 |Flux|Chaque descripteur de fichier ouvert par un serveur Hyper-V dans un fichier VHD ou VHDX est considéré comme un « flux ». Si une machine virtuelle est associée à deux disques durs virtuels, elle aura 1 flux vers le cluster de serveurs de fichiers par fichier. Si un VHDX est partagé avec plusieurs machines virtuelles, il aura 1 flux par machine virtuelle.|  
 |InitiatorName|Nom de la machine virtuelle qui est indiqué au serveur de fichiers avec montée en puissance parallèle pour chaque flux.|  
 |InitiatorID|Identificateur correspondant à l’ID de machine virtuelle.  Il peut toujours être utilisé pour identifier de façon unique les machines virtuelles des flux individuels même si les machines virtuelles ont le même InitiatorName.|  
@@ -81,10 +81,10 @@ Quand des modifications sont apportées aux stratégies de qualité de service d
 |Aggregated |Type de stratégie où les propriétés MinimumIOPS, MaximumIOPS et Bandwidth spécifiées sont partagées entre tous les flux affectés à la stratégie. Tous les disques durs virtuels auxquels la stratégie est appliquée sur ce système de stockage ont une seule allocation de bande passante d’E/S qu’ils doivent partager.|  
 |Dédié|Type de stratégie où les propriétés MinimumIOPS, MaximumIOPS et Bandwidth spécifiées sont gérées pour les VHD/VHDX individuels.|  
 
-## <a name="BKMK_SetUpQoS"></a>Comment configurer la qualité de service de stockage et surveiller les performances de base  
+## <a name="how-to-set-up-storage-qos-and-monitor-basic-performance"></a><a name="BKMK_SetUpQoS"></a>Comment configurer la qualité de service de stockage et surveiller les performances de base  
 Cette section décrit comment activer la nouvelle fonctionnalité de qualité de service de stockage et analyser les performances de stockage sans appliquer de stratégies personnalisées.  
 
-### <a name="BKMK_SetupStorageQoSonStorageCluster"></a>Configurer la qualité de service de stockage sur un cluster de stockage  
+### <a name="set-up-storage-qos-on-a-storage-cluster"></a><a name="BKMK_SetupStorageQoSonStorageCluster"></a>Configurer la qualité de service de stockage sur un cluster de stockage  
 Cette section explique comment activer la qualité de service de stockage sur un cluster de basculement nouveau ou existant et un serveur de fichiers avec montée en puissance parallèle qui exécute Windows Server 2016.  
 
 #### <a name="set-up-storage-qos-on-a-new-installation"></a>Configurer la qualité de service de stockage sur une nouvelle installation  
@@ -107,7 +107,7 @@ Name                   State      OwnerGroup        ResourceType
 Storage Qos Resource   Online     Cluster Group     Storage QoS Policy Manager  
 ```  
 
-### <a name="BKMK_SetupStorageQoSonComputeCluster"></a>Configurer la qualité de service de stockage sur un cluster de calcul  
+### <a name="set-up-storage-qos-on-a-compute-cluster"></a><a name="BKMK_SetupStorageQoSonComputeCluster"></a>Configurer la qualité de service de stockage sur un cluster de calcul  
 Le rôle Hyper-V dans Windows Server 2016 dispose de la prise en charge intégrée de la qualité de service de stockage et est activé par défaut.  
 
 #### <a name="install-remote-administration-tools-to-manage-storage-qos-policies-from-remote-computers"></a>Installer des outils d’administration à distance pour gérer les stratégies de qualité de service de stockage à partir d’ordinateurs distants  
@@ -289,7 +289,7 @@ MaximumIops    : 0
 MinimumIops    : 781  
 ```  
 
-## <a name="BKMK_CreateQoSPolicies"></a>Comment créer et surveiller des stratégies QoS de stockage  
+## <a name="how-to-create-and-monitor-storage-qos-policies"></a><a name="BKMK_CreateQoSPolicies"></a>Comment créer et surveiller des stratégies QoS de stockage  
 Cette section décrit comment créer des stratégies de qualité de service de stockage, appliquer ces stratégies à des machines virtuelles et analyser un cluster de stockage après l’application des stratégies.  
 
 ### <a name="create-storage-qos-policies"></a>Créer des stratégies de qualité de service de stockage  
@@ -531,10 +531,10 @@ WinOltp1      7e2f3e73-1ae4-4710-8219-0769a4aba072        1500         250      
 WinOltp1      7e2f3e73-1ae4-4710-8219-0769a4aba072        6000        1000            4507  
 ```  
 
-## <a name="BKMK_KnownIssues"></a>Comment identifier et résoudre les problèmes courants  
+## <a name="how-to-identify-and-address-common-issues"></a><a name="BKMK_KnownIssues"></a>Comment identifier et résoudre les problèmes courants  
 Cette section décrit comment rechercher des machines virtuelles avec des stratégies de qualité de service de stockage non valides, comment recréer une stratégie correspondante, comment supprimer une stratégie d’une machine virtuelle et comment identifier les machines virtuelles qui ne répondent pas aux critères de la stratégie de qualité de service de stockage.  
 
-### <a name="BKMK_FindingVMsWithInvalidPolicies"></a>Identifier les machines virtuelles avec des stratégies non valides  
+### <a name="identify-virtual-machines-with-invalid-policies"></a><a name="BKMK_FindingVMsWithInvalidPolicies"></a>Identifier les machines virtuelles avec des stratégies non valides  
 
 Si une stratégie est supprimée du serveur de fichiers avant d’être supprimée d’une machine virtuelle, la machine virtuelle continue de fonctionner comme si aucune stratégie n’avait été appliquée.  
 
@@ -578,7 +578,7 @@ WinOltp1      UnknownPolicyId           0           0            4926 UnknownPol
 WinOltp1      UnknownPolicyId           0           0               0 UnknownPolicyId BOO...  
 ```  
 
-#### <a name="BKMK_RecreateMatchingPolicy"></a>Recréer une stratégie de qualité de service de stockage correspondante  
+#### <a name="recreate-a-matching-storage-qos-policy"></a><a name="BKMK_RecreateMatchingPolicy"></a>Recréer une stratégie de qualité de service de stockage correspondante  
 Si une stratégie a été accidentellement supprimée, vous pouvez en créer une autre à l’aide de l’ancien PolicyId.  Tout d’abord, obtenez le PolicyId nécessaire  
 
 ```PowerShell
@@ -629,7 +629,7 @@ TR20-VMM          Ok          33         666              10     Ok BOOT.VHDX
 WinOltp1          Ok          25         500               0     Ok 9914.0.AMD64FRE.WINMA...  
 ```  
 
-#### <a name="BKMK_RemovePolicyFromVM"></a>Supprimer les stratégies QoS de stockage  
+#### <a name="remove-storage-qos-policies"></a><a name="BKMK_RemovePolicyFromVM"></a>Supprimer les stratégies QoS de stockage  
 
 Si la stratégie a été intentionnellement supprimée, ou si une machine virtuelle a été importée avec une stratégie dont vous n’avez pas besoin, elle peut être supprimée.  
 
@@ -667,7 +667,7 @@ WinOltp1                0           0            1811     Ok IOMETER.VHDX
 WinOltp1                0           0               0     Ok BOOT.VHDX  
 ```  
 
-### <a name="BKMK_VMsThatDoNotMeetStorageQoSPoilicies"></a>Rechercher les machines virtuelles qui ne répondent pas aux stratégies QoS de stockage  
+### <a name="find-virtual-machines-that-are-not-meeting-storage-qos-policies"></a><a name="BKMK_VMsThatDoNotMeetStorageQoSPoilicies"></a>Rechercher les machines virtuelles qui ne répondent pas aux stratégies QoS de stockage  
 L’état **InsufficientThroughput** est affecté à n’importe quel flux qui :  
 
 -   a un nombre minimal d’opérations d’E/S par seconde défini par une stratégie ; et  
@@ -729,7 +729,7 @@ MaximumIops        : 20000
 MinimumIops        : 15000  
 ```  
 
-## <a name="BKMK_Health"></a>Surveiller l’intégrité avec la qualité de service de stockage  
+## <a name="monitor-health-using-storage-qos"></a><a name="BKMK_Health"></a>Surveiller l’intégrité avec la qualité de service de stockage  
 Le nouveau service d’intégrité simplifie l’analyse du cluster de stockage, en fournissant un emplacement unique pour rechercher des événements pouvant être actionnés dans les nœuds. Cette section décrit comment analyser l’intégrité de votre cluster de stockage à l’aide de l’applet de commande `debug-storagesubsystem`.  
 
 ### <a name="view-storage-status-with-debug-storagesubsystem"></a>Afficher l’état de stockage avec Debug-StorageSubSystem  
@@ -823,7 +823,7 @@ System Center Virtual Machine Manager peut être utilisé pour appliquer des str
 
 Si un flux atteint le maximum d’une stratégie, que vous modifiez la stratégie pour lui affecter une valeur supérieure ou inférieure et que vous définissez immédiatement la latence/les E/S par seconde/la bande passante des flux à l’aide des applets de commande PowerShell, jusqu’à 5 minutes peuvent être nécessaires pour voir les effets globaux de la modification de stratégie sur les flux.  Les nouvelles limites sont valables en quelques secondes, mais l’applet de commande **Get-StorgeQoSFlow** PowerShell utilise une moyenne de chaque compteur avec une fenêtre glissante de 5 minutes.  Sinon, si une valeur était affichée quand vous avez exécuté l’applet de commande PowerShell plusieurs fois d’affilée, vous pouvez constater des valeurs très différentes, car les valeurs relatives aux E/S par seconde et latences peuvent varier considérablement d’une seconde à l’autre.
 
-### <a name="BKMK_Updates"></a>Quelles nouvelles fonctionnalités ont été ajoutées dans Windows Server 2016
+### <a name="what-new-functionality-was-added-in-windows-server-2016"></a><a name="BKMK_Updates"></a>Quelles nouvelles fonctionnalités ont été ajoutées dans Windows Server 2016
 
 Dans Windows Server 2016, les types de stratégies de qualité de service de stockage ont été renommés.  Le nom du type de stratégie **MultiInstance** est remplacé par **Dedicated** et celui de **SingleInstance** est remplacé par **Aggregated**. Le comportement de gestion des stratégies Dedicated est également modifié : les fichiers VHD/VHDX dans la même machine virtuelle auxquels la même stratégie **Dedicated** est appliquée ne partagent pas les allocations d’E/S.  
 

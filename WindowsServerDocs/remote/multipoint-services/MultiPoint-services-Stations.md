@@ -1,24 +1,20 @@
 ---
 title: Stations MultiPoint
 description: En savoir plus sur les stations dans MultiPoint services, y compris les différentes options pour les utilisateurs
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f9f9d618-ccfe-41ea-a52c-00c3c7adb51a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 7b8f757d552bf54cd7f4eed0783ba8e0062b9d30
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 3bcdd2d3f7492b29ecf92c59714f1d93b910c9b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322801"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853422"
 ---
 # <a name="multipoint--stations"></a>Stations MultiPoint
 Dans un environnement de système MultiPoint services, les *stations* sont les points de terminaison utilisateur pour la connexion à l’ordinateur qui exécute multipoint services. Chaque station fournit à l’utilisateur une expérience Windows 10 indépendante. Les types de stations suivants sont pris en charge :  
@@ -48,7 +44,7 @@ L’ordinateur qui exécute MultiPoint services peut contenir plusieurs cartes v
   
 **Figure 1** Système MultiPoint services avec quatre stations connectées directement à la vidéo  
   
-### <a name="BKMK_PS2stations"></a>Stations PS/2  
+### <a name="ps2-stations"></a><a name="BKMK_PS2stations"></a>Stations PS/2  
 Avec MultiPoint services, vous pouvez mapper le clavier et la souris PS/2 sur la carte mère à un moniteur connecté directement à la vidéo pour créer une station PS/2. Les données audio analogiques haute définition sur la carte mère sont les données audio associées à ce type de station. Cela ne s’applique pas aux ordinateurs où il n’y a pas de prises Jacks PS/2 sur la carte mère.  
   
 ## <a name="usb-zero-client-connected-stations"></a>Stations USB-zéro-connectées au client  
@@ -113,7 +109,7 @@ Après le fractionnement d’une station, un utilisateur peut se connecter à la
   
 **Figure 4** Système MultiPoint services avec des stations d’écran fractionnées  
   
-## <a name="BKMK_StationTypeComparison"></a>Comparaison du type de station  
+## <a name="station-type-comparison"></a><a name="BKMK_StationTypeComparison"></a>Comparaison du type de station  
   
 ||Vidéo directe connectée|Client USB à connexion nulle|Connexion RDP-sur-LAN|  
 |-|--------------------------|-----------------------------|----------------------------|  

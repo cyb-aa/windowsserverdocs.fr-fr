@@ -1,6 +1,5 @@
 ---
 title: Récupération de la forêt Active Directory-sauvegarde d’un serveur complet
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 9238cb27-0020-42f7-90d6-fcebf7e3c0bc
 ms.technology: identity-adds
-ms.openlocfilehash: 14aa7abc19573b76ebc144cb6dea5f510b45e269
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 321f927a3efc4f2391daff92ac4c8b7acb47c055
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369350"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824280"
 ---
 # <a name="ad-forest-recovery---backing-up-the-system-state-data"></a>Récupération de la forêt Active Directory-sauvegarde des données d’État du système  
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Utilisez la procédure suivante pour effectuer une sauvegarde de l’état du système sur un contrôleur de réseau à l’aide de Sauvegarde Windows Server ou de Wbadmin. exe.  
 

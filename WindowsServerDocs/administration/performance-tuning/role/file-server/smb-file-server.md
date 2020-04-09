@@ -5,14 +5,14 @@ ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
-ms.author: NedPyle; Danlo; DKruse
+ms.author: nedpyle; danlo; dkruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 918d21139a068da1a46fbda1fa5034e14c8379c0
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 89017686801501593c51245d44bf88a6ecf4baf6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947064"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851822"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Réglage des performances pour les serveurs de fichiers SMB
 
@@ -106,7 +106,7 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
   Les valeurs par défaut sont 512 et 8192, respectivement. Ces paramètres permettent au serveur de limiter de manière dynamique la concurrence des opérations du client dans les limites spécifiées. Certains clients peuvent augmenter le débit avec des limites de concurrence plus élevées, par exemple, en copiant des fichiers sur des liaisons à bande passante élevée et à latence élevée.
     
   > [!TIP]
-  > Avant Windows 10 et Windows Server 2016, le nombre de crédits accordés au client variait de façon dynamique entre Smb2CreditsMin et Smb2CreditsMax en fonction d’un algorithme qui tentait de déterminer le nombre optimal de crédits à accorder en fonction de la latence du réseau. et l’utilisation de crédit. Dans Windows 10 et Windows Server 2016, le serveur SMB a été remplacé par le fait d’accorder sans condition des crédits à la demande jusqu’au nombre maximal de crédits configuré. Dans le cadre de cette modification, le mécanisme de limitation des crédits, qui réduit la taille de la fenêtre de crédit de chaque connexion lorsque le serveur est soumis à une sollicitation de la mémoire, a été supprimé. L’événement de mémoire insuffisante du noyau qui a déclenché la limitation est signalé uniquement lorsque la mémoire du serveur est trop faible (< quelques Mo) comme étant inutile. Étant donné que le serveur ne réduit plus les fenêtres de crédit, le paramètre Smb2CreditsMin n’est plus nécessaire et est maintenant ignoré.
+  > Avant Windows 10 et Windows Server 2016, le nombre de crédits accordés au client variait de façon dynamique entre Smb2CreditsMin et Smb2CreditsMax en fonction d’un algorithme qui tentait de déterminer le nombre optimal de crédits à accorder en fonction de la latence du réseau et de l’utilisation du crédit. Dans Windows 10 et Windows Server 2016, le serveur SMB a été remplacé par le fait d’accorder sans condition des crédits à la demande jusqu’au nombre maximal de crédits configuré. Dans le cadre de cette modification, le mécanisme de limitation des crédits, qui réduit la taille de la fenêtre de crédit de chaque connexion lorsque le serveur est soumis à une sollicitation de la mémoire, a été supprimé. L’événement de mémoire insuffisante du noyau qui a déclenché la limitation est signalé uniquement lorsque la mémoire du serveur est trop faible (< quelques Mo) comme étant inutile. Étant donné que le serveur ne réduit plus les fenêtres de crédit, le paramètre Smb2CreditsMin n’est plus nécessaire et est maintenant ignoré.
   > 
   > Vous pouvez surveiller les partages de client SMB\\les blocages de crédit pour voir s’il existe des problèmes avec les crédits.
 
@@ -142,13 +142,13 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
   HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
   ```
 
-  La valeur par défaut est 512. Ce paramètre limite le nombre de commandes SMB asynchrones simultanées autorisées sur une seule connexion. Certains cas (par exemple, lorsqu’il existe un serveur frontal avec un serveur IIS principal) requièrent une grande quantité d’accès concurrentiel (pour les demandes de notification de modification de fichier, en particulier). La valeur de cette entrée peut être augmentée pour prendre en charge ces cas.
+  La valeur par défaut est 512. Ce paramètre limite le nombre de commandes SMB asynchrones simultanées autorisées sur une seule connexion. Certains cas (par exemple, lorsqu’il existe un serveur frontal avec un serveur IIS principal) requièrent une grande quantité d’accès concurrentiel (pour les demandes de notification de modification de fichier, en particulier). La valeur de cette entrée peut être augmentée pour prendre en charge ces cas.
 
 ### <a name="smb-server-tuning-example"></a>Exemple de paramétrage de serveur SMB
 
 Les paramètres suivants peuvent optimiser un ordinateur pour les performances des serveurs de fichiers dans de nombreux cas. Les paramètres ne sont pas optimaux ni appropriés sur tous les ordinateurs. Vous devez évaluer l’impact de ces paramètres spécifiques avant de les appliquer.
 
-| Paramètre                       | Value | Par défaut |
+| Paramètre                       | Valeur | Default |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |

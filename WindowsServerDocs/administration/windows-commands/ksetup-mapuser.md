@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup : mapuser'
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 84113e6e-89ff-488a-9cd0-f14bbf23b543
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b80538999c364e9ed10ca0ed43387f603ac9ad3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f61c67fa21eccb77601b78aed51791259d609c5e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374979"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841482"
 ---
 # <a name="ksetupmapuser"></a>Ksetup : mapuser
 
@@ -32,7 +28,7 @@ Mappe le nom d’un principal Kerberos à un compte. Pour obtenir des exemples d
 ksetup /mapuser <Principal> <Account>
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |  Paramètre   |                                                   Description                                                   |
 |--------------|-----------------------------------------------------------------------------------------------------------------|
@@ -51,7 +47,7 @@ Utilisez **Ksetup** sans paramètres ou arguments pour voir les paramètres mapp
 
 Chaque fois que des modifications sont apportées à l’centre de distribution de clés externe (KDC) et à la configuration du domaine, un redémarrage de l’ordinateur sur lequel le paramètre a été modifié est nécessaire.
 
-## <a name="BKMK_Examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_Examples></a>Illustre
 
 Mappez le compte de Mike Danseglio dans le domaine Kerberos CONTOSO au compte invité sur cet ordinateur, en lui accordant tous les privilèges d’un membre du compte invité intégré sans avoir à s’authentifier sur cet ordinateur :
 ```
@@ -70,7 +66,7 @@ Mappez tous les comptes du domaine Kerberos CONTOSO à un compte existant portan
 ksetup /mapuser * *
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Ksetup](ksetup.md)

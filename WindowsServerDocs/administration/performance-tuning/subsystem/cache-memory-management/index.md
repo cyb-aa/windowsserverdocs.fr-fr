@@ -4,15 +4,15 @@ description: Optimisation des performances pour les sous-systèmes Gestion de la
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
-ms.author: Pavel; ATales
+ms.author: pavel; atales
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: c914768378303b8a36cb2e3ec468e853296249a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d9b43b418f2f2ddee0e5b064c4a4e2b5d19a4520
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370020"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851672"
 ---
 # <a name="performance-tuning-cache-and-memory-manager"></a>Optimisation des performances pour Gestion de la mémoire et du cache
 

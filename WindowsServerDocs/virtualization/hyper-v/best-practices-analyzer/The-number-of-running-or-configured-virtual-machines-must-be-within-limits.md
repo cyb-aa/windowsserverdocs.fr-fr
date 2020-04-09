@@ -2,30 +2,29 @@
 title: Le nombre d’ordinateurs virtuels en cours d’exécution ou configurés doit être compris dans les limites de prise en charge
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 9d3c4aa3-8416-46ec-a253-26dc98088d7b
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 56d7fd528d7fda20dbdbb16a6262bb072f053ef0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 49013d6a4c9dda6e79d6a803bae0f5641d826817
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364628"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854622"
 ---
 # <a name="the-number-of-running-or-configured-virtual-machines-must-be-within-supported-limits"></a>Le nombre d’ordinateurs virtuels en cours d’exécution ou configurés doit être compris dans les limites de prise en charge
 
->S'applique à : Windows Server 2016
+>S’applique à Windows Server 2016
 
 Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
 |**Va**|Error  
 |**Catégorie**|Configuration|  
@@ -38,7 +37,7 @@ Dans les sections suivantes, l’italique indique le texte qui apparaît dans l�
 ## <a name="impact"></a>Impact  
 *Microsoft ne prend pas en charge le nombre actuel de machines virtuelles en cours d’exécution ou configurées sur ce serveur.*  
   
-## <a name="resolution"></a>Résolution :  
+## <a name="resolution"></a>Résolution  
 *Déplacer un ou plusieurs ordinateurs virtuels vers un autre serveur.*  
   
 Pour plus d’informations sur les configurations maximales prises en charge pour Hyper-V, telles que le nombre d’ordinateurs virtuels en cours d’exécution, consultez [planifier l’extensibilité d’Hyper-v dans Windows Server 2016](../plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md).  

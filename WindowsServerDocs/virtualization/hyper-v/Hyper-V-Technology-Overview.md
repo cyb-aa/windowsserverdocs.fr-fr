@@ -2,21 +2,19 @@
 title: Présentation de la technologie Hyper-V
 description: Décrit ce qu’est Hyper-V, comment l’utiliser, les fonctionnalités clés et les utilisations courantes.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac069fed-7bf5-4cc3-aff5-25a2766040b8
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 11/29/2016
-ms.openlocfilehash: 053f92f1ef07a2e574c93412626ee792d4d982e3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d21bec24a22607213771bdad0b48df18fd88eb4d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366784"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853242"
 ---
 # <a name="hyper-v-technology-overview"></a>Présentation de la technologie Hyper-V
 

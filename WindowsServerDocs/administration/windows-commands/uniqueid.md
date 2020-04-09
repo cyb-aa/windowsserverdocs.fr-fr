@@ -1,28 +1,22 @@
 ---
 title: quei
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour UniqueId, qui affiche ou définit l’identificateur de table de partition GUID (GPT) ou la signature d’enregistrement de démarrage principal (MBR) pour le disque ayant le focus.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64235a4a-b91c-46da-b9b0-68ee90571c2a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 64f097766daa4c87ec84f42dd53f49792a160bb9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 29d7bf0498e76d5192e986aadabb77d575a8102b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71363910"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832312"
 ---
 # <a name="uniqueid"></a>quei
-
-
 
 Affiche ou définit l’identificateur de table de partition GUID (GPT) ou la signature d’enregistrement de démarrage principal (MBR) pour le disque qui a le focus.
 
@@ -35,11 +29,11 @@ Affiche ou définit l’identificateur de table de partition GUID (GPT) ou la si
 uniqueid disk [id={<dword> | <GUID>}] [noerr]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |  Paramètre   |                                                                                             Description                                                                                              |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID = {\<dword > |                                                                                               <GUID>}                                                                                                |
+| ID = {\<DWORD > |                                                                                               <GUID>}                                                                                                |
 |    noerr     | À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur. |
 
 ## <a name="remarks"></a>Notes
@@ -47,7 +41,7 @@ uniqueid disk [id={<dword> | <GUID>}] [noerr]
 -   Cette commande fonctionne sur des disques de base et dynamiques.
 -   Pour que cette commande aboutisse, vous devez sélectionner un disque. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour afficher la signature du disque MBR avec le focus, tapez :
 ```
@@ -62,5 +56,5 @@ Pour définir l’identificateur du disque GPT ayant le focus sur baf784e7-6bbd-
 uniqueid disk id=baf784e7-6bbd-4cfb-aaac-e86c96e166ee
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 

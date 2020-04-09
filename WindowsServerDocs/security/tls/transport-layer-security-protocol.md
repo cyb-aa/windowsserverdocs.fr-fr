@@ -1,28 +1,24 @@
 ---
 title: Protocole TLS (Transport Layer Security)
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-tls-ssl
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: de510bb0-a9f6-4bbe-8f8a-8dd7473bbae8
 author: justinha
 ms.author: justinha
-manager: brianlic-msft
+manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: aca2db3ae5bf424dd0f855d24c1ef771039c8b14
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3884d80d1d2f5465e5f3daf708af57b35fab6bd8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403379"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853602"
 ---
 # <a name="transport-layer-security-protocol"></a>Protocole TLS (Transport Layer Security)
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
 
 Cette rubrique destinée aux professionnels de l’informatique décrit le fonctionnement du protocole TLS (Transport Layer Security) et fournit des liens vers les RFC IETF pour TLS 1,0, TLS 1,1 et TLS 1,2.
 
@@ -45,7 +41,7 @@ Le SSP Schannel implémente les protocoles TLS et SSL sans modification. Le prot
 
 -   Protocole d’enregistrement TLS
 
--   Les protocoles de négociation TLS : \- modifier le protocole d’alerte \- du protocole de spécification du chiffrement
+-   Protocoles de négociation TLS : \- modifier le protocole de chiffrement des spécifications \- protocole d’alerte
 
 -   Calculs de chiffrement
 
@@ -59,7 +55,7 @@ Le SSP Schannel implémente les protocoles TLS et SSL sans modification. Le prot
 
 [RFC 2246-le protocole TLS version 1,0](http://tools.ietf.org/html/rfc2246)
 
-## <a name="BKMK_SessionResumption"></a>Reprise de session TLS
+## <a name="tls-session-resumption"></a><a name="BKMK_SessionResumption"></a>Reprise de session TLS
 Introduite dans Windows Server 2012 R2, le SSP Schannel a implémenté la partie côté serveur de la reprise de session TLS. L’implémentation côté client de RFC 5077 a été ajoutée dans Windows 8.
 
 Les périphériques qui connectent fréquemment TLS aux serveurs doivent se reconnecter. La reprise de session TLS réduit le coût d’établissement des connexions TLS, car la reprise implique une négociation TLS abrégée. Cela facilite les tentatives de reprise en permettant à un groupe de serveurs TLS de reprendre les sessions TLS de l’autre. Cette modification offre les économies suivantes pour tout client TLS qui prend en charge RFC 5077, y compris les appareils Windows Phone et Windows RT :
@@ -72,12 +68,12 @@ Les périphériques qui connectent fréquemment TLS aux serveurs doivent se reco
 
 Pour plus d’informations sur la reprise de session TLS sans état, consultez le document IETF [RFC 5077](http://www.ietf.org/rfc/rfc5077).
 
-## <a name="BKMK_AppProtocolNego"></a>Négociation de protocole d’application
+## <a name="application-protocol-negotiation"></a><a name="BKMK_AppProtocolNego"></a>Négociation de protocole d’application
  Windows Server 2012 R2 et Windows 8.1 introduit la prise en charge qui autorise la négociation du protocole d’application TLS côté client. Les applications peuvent tirer parti des protocoles dans le cadre du développement HTTP 2,0 standard, et les utilisateurs peuvent accéder aux services en ligne tels que Google et Twitter à l’aide d’applications exécutant le protocole SPDY.
 
 Pour plus d’informations sur le fonctionnement de la négociation de protocole d’application, consultez la rubrique [Extension de la négociation de protocole à la couche d’application Transport Layer Security (TLS)](http://tools.ietf.org/search/draft-ietf-tls-applayerprotoneg-05).
 
-## <a name="BKMK_SNI"></a>Prise en charge TLS pour les extensions de Indication du nom du serveur
+## <a name="tls-support-for-server-name-indication-extensions"></a><a name="BKMK_SNI"></a>Prise en charge TLS pour les extensions de Indication du nom du serveur
 La fonctionnalité d’indication du nom de serveur étend les protocoles SSL et TLS pour permettre l’identification correcte du serveur lorsque de nombreuses images virtuelles s’exécutent sur un serveur unique. Dans un scénario d’hébergement virtuel, plusieurs domaines (chacun disposant de son propre certificat potentiellement distinct) sont hébergés sur un serveur. Dans ce cas, le serveur n’a aucun moyen de savoir à l’avance quel certificat envoyer au client. SNI permet au client d’informer le domaine cible plus tôt dans le protocole et cela permet au serveur de sélectionner correctement le certificat approprié.
 
 Ces fonctionnalités supplémentaires :

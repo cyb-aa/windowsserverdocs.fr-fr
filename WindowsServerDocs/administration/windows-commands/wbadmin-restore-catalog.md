@@ -1,24 +1,20 @@
 ---
 title: WBADMIN RESTORE CATALOG
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour WBADMIN RESTORE CATALOG, qui récupère un catalogue de sauvegarde de l’ordinateur local à partir d’un emplacement de stockage que vous spécifiez.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ce1e24a0-821d-4353-b09d-8f82c5c4ad56
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0d646440ca9b30f9fa30fb1ac3ff08458b8e44d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ce9182e4e405b1538277db25f06b6a49d7240f9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362326"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829702"
 ---
 # <a name="wbadmin-restore-catalog"></a>WBADMIN RESTORE CATALOG
 
@@ -39,7 +35,7 @@ wbadmin restore catalog
 [-quiet]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -51,7 +47,7 @@ wbadmin restore catalog
 
 Si l’emplacement (disque, DVD ou dossier partagé distant) dans lequel vous stockez vos sauvegardes est endommagé ou perdu et ne peut pas être utilisé pour restaurer le catalogue de sauvegarde, utilisez **Wbadmin Delete Catalog** pour supprimer le catalogue endommagé. Dans ce cas, vous devez créer une nouvelle sauvegarde une fois votre catalogue de sauvegarde supprimé.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour restaurer un catalogue à partir d’une sauvegarde stockée sur le disque d :, tapez :
 ```
@@ -62,8 +58,8 @@ Pour restaurer un catalogue à partir d’une sauvegarde stockée dans le dossie
 wbadmin restore catalog -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Applet [de commande Restore-WBCatalog](https://technet.microsoft.com/library/jj902437.aspx)

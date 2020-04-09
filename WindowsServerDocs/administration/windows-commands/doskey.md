@@ -1,24 +1,20 @@
 ---
 title: doskey
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4874fd43-d5ea-45f3-ae24-388ae925ed76
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d45a2ddfeba7ec136add07eac11c3a8522ef872b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 72a5a362a225f57245a015de43a7538928c0937e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377690"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845262"
 ---
 # <a name="doskey"></a>doskey
 
@@ -34,7 +30,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/insert | /overstrike] [/exename=<ExeName>] [/macrofile=<FileName>] [<MacroName>=[<Text>]]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |       Paramètre        |                                                                                                                          Description                                                                                                                           |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -64,8 +60,8 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   |------------|-----------------------------------------------------------------------|
   |  Haut  |  Rappelle la commande que vous avez utilisée avant celle qui est affichée.  |
   | Bas |  Rappelle la commande que vous avez utilisée après celle qui est affichée.   |
-  |  Page précédente   |    Rappelle la première commande que vous avez utilisée dans la session active.    |
-  | Page suivante  | Rappelle la commande la plus récente que vous avez utilisée dans la session active. |
+  |  PAGE PRÉCÉDENTE   |    Rappelle la première commande que vous avez utilisée dans la session active.    |
+  | PAGE SUIVANTE  | Rappelle la commande la plus récente que vous avez utilisée dans la session active. |
 
 
 - Modification de la ligne de commande
@@ -93,7 +89,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   |         ALT+F7         |                                                                                                                          Supprime toutes les commandes stockées en mémoire pour le tampon d’historique actuel.                                                                                                                          |
   |           F8           |                                                                                                           Affiche toutes les commandes dans la mémoire tampon de l’historique qui commencent par les caractères de la commande actuelle.                                                                                                            |
   |           F9           |                                             Vous invite à entrer un numéro de commande de tampon d’historique, puis affiche la commande associée au nombre que vous spécifiez. Appuyez sur entrée pour exécuter la commande. Pour afficher tous les nombres et leurs commandes associées, appuyez sur F7.                                             |
-  |        ALT + F10         |                                                                                                                                             Supprime toutes les définitions de macros.                                                                                                                                              |
+  |        ALT+F10         |                                                                                                                                             Supprime toutes les définitions de macros.                                                                                                                                              |
 
 
 - Utilisation de **doskey** dans un programme
@@ -116,7 +112,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   Vous pouvez utiliser DOSKEY. exe pour créer des macros qui exécutent une ou plusieurs commandes. Le tableau suivant répertorie les caractères spéciaux que vous pouvez utiliser pour contrôler les opérations de commande lorsque vous définissez une macro.  
 
-  |   Symbole   |                                                                                                                                                                               Description                                                                                                                                                                               |
+  |   Caractère   |                                                                                                                                                                               Description                                                                                                                                                                               |
   |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   |   $G ou $g    |                                                                                   Redirige la sortie. Utilisez l’un de ces caractères spéciaux pour envoyer la sortie vers un appareil ou un fichier plutôt que vers l’écran. Ce caractère est équivalent au symbole de redirection pour la sortie ( **>** ).                                                                                    |
   | $G $ G ou $g $ g  |                                                         Ajoute la sortie à la fin d’un fichier. Utilisez l’un ou l’autre de ces deux caractères pour ajouter la sortie à un fichier existant au lieu de remplacer les données du fichier. Ces caractères doubles sont équivalents au symbole de redirection d’ajout pour la sortie ( **>>** ).                                                         |
@@ -143,7 +139,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   doskey <MacroName> =
   ```
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Les options de ligne de commande **/macros** et **/History** sont utiles pour créer des programmes batch afin d’enregistrer des macros et des commandes. Par exemple, pour stocker toutes les macros **doskey** actuelles, tapez :
 ```
@@ -196,6 +192,6 @@ Pour supprimer une macro appelée Vlist, tapez :
 doskey vlist =
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

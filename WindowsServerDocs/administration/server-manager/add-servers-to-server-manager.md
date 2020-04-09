@@ -1,12 +1,8 @@
 ---
 title: Ajouter des serveurs au Gestionnaire de serveur
 description: Gestionnaire de serveur
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aab895f2-fe4d-4408-b66b-cdeadbd8969e
 author: coreyp-at-msft
@@ -14,12 +10,12 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: ad30a8f1c4c1e0aa317512eb68fffbd76413175b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f7b5a5b358fa2df54777e0f1f88b1e86a7dafd80
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383258"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851572"
 ---
 # <a name="add-servers-to-server-manager"></a>Ajouter des serveurs au Gestionnaire de serveur
 
@@ -30,7 +26,7 @@ Dans Windows Server, vous pouvez gérer plusieurs serveurs distants à l’aide 
 Cette rubrique explique comment ajouter des serveurs au pool de serveurs du Gestionnaire de serveur.
 
 > [!NOTE]
-> Dans nos tests, le Gestionnaire de serveur dans Windows Server 2012 et les versions ultérieures de Windows Server permet de gérer jusqu’à 100 serveurs qui sont configurés avec une charge de travail classique. Le nombre de serveurs que vous pouvez gérer en utilisant une console du Gestionnaire de serveur unique peut varier en fonction de la quantité de données que vous demandez aux serveurs gérés ainsi que des ressources matérielles et réseau disponibles pour l’ordinateur exécutant le Gestionnaire de serveur. Lorsque la quantité de données à afficher est sur le point d’atteindre la capacité des ressources de cet ordinateur, vous pouvez être confronté à des réactions lentes du Gestionnaire de serveur ainsi qu’à des retards dans la réalisation des actualisations. Pour augmenter le nombre de serveurs que vous pouvez gérer à l’aide du Gestionnaire de serveur, nous vous conseillons de limiter la quantité de données d’événement que le Gestionnaire de serveur obtient de vos serveurs gérés en utilisant les paramètres de la boîte de dialogue **Configurer les données d’événement**. Configurer les données d’événement peut être ouverte à partir du menu **Tâches** dans la vignette **Événements** . Si vous devez gérer un très grand nombre de serveurs dans votre organisation, nous vous recommandons d’évaluer des produits de la [suite Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
+> Dans nos tests, le Gestionnaire de serveur dans Windows Server 2012 et les versions ultérieures de Windows Server permet de gérer jusqu’à 100 serveurs qui sont configurés avec une charge de travail classique. Le nombre de serveurs que vous pouvez gérer en utilisant une console du Gestionnaire de serveur unique peut varier en fonction de la quantité de données que vous demandez aux serveurs gérés ainsi que des ressources matérielles et réseau disponibles pour l’ordinateur exécutant le Gestionnaire de serveur. Lorsque la quantité de données à afficher est sur le point d’atteindre la capacité des ressources de cet ordinateur, vous pouvez être confronté à des réactions lentes du Gestionnaire de serveur ainsi qu’à des retards dans la réalisation des actualisations. Pour augmenter le nombre de serveurs que vous pouvez gérer à l’aide du Gestionnaire de serveur, nous vous conseillons de limiter la quantité de données d’événement que le Gestionnaire de serveur obtient de vos serveurs gérés en utilisant les paramètres de la boîte de dialogue **Configurer les données d’événement**. Configurer les données d’événement peut être ouverte à partir du menu **Tâches** dans la vignette **Événements**. Si vous devez gérer un très grand nombre de serveurs dans votre organisation, nous vous recommandons d’évaluer des produits de la [suite Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
 > 
 > Le Gestionnaire de serveur peut recevoir uniquement des informations sur l’état en ligne ou hors connexion en provenance de serveurs exécutant Windows Server 2003. Vous pouvez utiliser le Gestionnaire de serveur pour effectuer des tâches de gestion sur les serveurs qui exécutent Windows Server 2008 R2 ou Windows Server 2008, mais vous ne pouvez pas ajouter de rôles ni de fonctionnalités aux serveurs qui exécutent Windows Server 2008 R2, Windows Server 2008 ou Windows Server 2003.
 > 
@@ -42,10 +38,10 @@ Cette rubrique contient les sections suivantes.
 
 -   [Fournir des informations d’identification avec la commande gérer en tant que](#BKMK_creds)
 
-## <a name="BKMK_creds"></a>Fournir des informations d’identification avec la commande gérer en tant que
-Lorsque vous ajoutez des serveurs distants au Gestionnaire de serveur, certains des serveurs que vous ajoutez peuvent nécessiter des informations d’identification de compte utilisateur différentes à des fins d’accès ou de gestion. Pour spécifier des informations d’identification relatives à un serveur géré qui diffèrent de celles que vous utilisez pour vous connecter à l’ordinateur sur lequel vous exécutez le Gestionnaire de serveur, utilisez la commande **Gérer en tant que** après avoir ajouté un serveur au Gestionnaire de serveur, qui est accessible en cliquant avec le bouton droit sur l’entrée d’un serveur géré dans la vignette **Serveurs** d’une page d’accueil de rôle ou de groupe. Cliquez sur **Gérer en tant que** pour ouvrir la boîte de dialogue **Sécurité Windows** , dans laquelle vous pouvez indiquer un nom d’utilisateur disposant de droits d’accès sur le serveur géré, selon l’un des formats suivants.
+## <a name="provide-credentials-with-the-manage-as-command"></a><a name=BKMK_creds></a>Fournir des informations d’identification avec la commande gérer en tant que
+Lorsque vous ajoutez des serveurs distants au Gestionnaire de serveur, certains des serveurs que vous ajoutez peuvent nécessiter des informations d’identification de compte utilisateur différentes à des fins d’accès ou de gestion. Pour spécifier des informations d’identification relatives à un serveur géré qui diffèrent de celles que vous utilisez pour vous connecter à l’ordinateur sur lequel vous exécutez le Gestionnaire de serveur, utilisez la commande **Gérer en tant que** après avoir ajouté un serveur au Gestionnaire de serveur, qui est accessible en cliquant avec le bouton droit sur l’entrée d’un serveur géré dans la vignette **Serveurs** d’une page d’accueil de rôle ou de groupe. Cliquez sur **Gérer en tant que** pour ouvrir la boîte de dialogue **Sécurité Windows**, dans laquelle vous pouvez indiquer un nom d’utilisateur disposant de droits d’accès sur le serveur géré, selon l’un des formats suivants.
 
--   *Nom d'utilisateur*
+-   *Nom d’utilisateur*
 
 -   *Nom d’utilisateur*@example.domain.com
 
@@ -64,7 +60,7 @@ Après avoir ajouté des serveurs à gérer en suivant les procédures décrites
 > [!NOTE]
 > Les rôles et fonctionnalités ne prenant pas en charge la commande **Gérer en tant que** incluent les Services Bureau à distance (RDS) et le serveur de gestion des adresses IP (IPAM). Si vous ne pouvez pas gérer les Services Bureau à distance (RDS) ou le serveur de gestion des adresses IP (IPAM) à l’aide des mêmes informations d’identification utilisées sur l’ordinateur sur lequel le Gestionnaire de serveur s’exécute, essayez d’ajouter le compte que vous utilisez généralement pour gérer ces serveurs à distance au groupe Administrateurs sur l’ordinateur qui exécute le Gestionnaire de serveur. Puis, ouvrez une session sur l’ordinateur qui exécute le Gestionnaire de serveur avec le compte que vous utilisez pour gérer le serveur distant qui exécute les Services Bureau à distance ou IPAM.
 
-## <a name="BKMK_add"></a>Ajouter des serveurs à gérer
+## <a name="add-servers-to-manage"></a><a name=BKMK_add></a>Ajouter des serveurs à gérer
 Vous pouvez ajouter des serveurs à administrer avec le Gestionnaire de serveur à l’aide de l’une des trois méthodes proposées dans la boîte de dialogue **Ajouter des serveurs**.
 
 -   **Active Directory Domain Services** ajoute des serveurs à gérer qu’Active Directory trouve dans le même domaine que l’ordinateur local.
@@ -83,11 +79,11 @@ Vous pouvez ajouter des serveurs à administrer avec le Gestionnaire de serveur 
 
 2.  Dans le menu **Gérer**, cliquez sur **Ajouter des serveurs**.
 
-3.  Effectuez l’une des opérations suivantes :
+3.  Effectuez l'une des opérations suivantes :
 
     -   Sous l’onglet **Active Directory**, sélectionnez des serveurs qui se trouvent dans le domaine actif. Appuyez sur **Ctrl** pendant que vous sélectionnez plusieurs serveurs. Cliquez sur la flèche Droite pour déplacer les serveurs sélectionnés vers la liste **sélectionné**.
 
-    -   Sous l’onglet **DNS** , tapez les premiers caractères d’un nom d’ordinateur ou d’une adresse IP, puis appuyez sur **Entrée** ou cliquez sur **Rechercher**. Choisissez les serveurs à ajouter, puis cliquez sur la flèche Droite.
+    -   Sous l’onglet **DNS**, tapez les premiers caractères d’un nom d’ordinateur ou d’une adresse IP, puis appuyez sur **Entrée** ou cliquez sur **Rechercher**. Choisissez les serveurs à ajouter, puis cliquez sur la flèche Droite.
 
     -   Sous l’onglet **importer**, naviguez jusqu’à un fichier texte qui contient les noms DNS ou adresses IP des ordinateurs que vous souhaitez afficher, un nom ou une adresse IP par ligne.
 
@@ -129,7 +125,7 @@ Ces erreurs ou des erreurs similaires peuvent se produire dans les conditions su
 3.  > [!IMPORTANT]
     > L’exécution de l’applet de commande à cette étape a pour effet de remplacer les mesures de Contrôle de compte d’utilisateur (UAC) qui empêchent l’exécution de processus élevés sur les ordinateurs de groupe de travail, sauf si le compte Administrateur ou Système intégré exécute ces processus. L’applet de commande permet aux membres du groupe Administrateurs de gérer le serveur de groupe de travail sans se connecter via le compte Administrateur intégré. En autorisant des utilisateurs supplémentaires à gérer le serveur de groupe de travail, vous pouvez réduire la sécurité de ce dernier. Cette opération est néanmoins plus sûre que de fournir les informations d’identification d’un compte Administrateur intégré à une multitude possible de personnes chargées de gérer le serveur de groupe de travail.
 
-    Pour outrepasser les restrictions liées au contrôle de compte d’utilisateur (UAC) relatives à l’exécution de processus élevés sur les ordinateurs de groupe de travail, créez une entrée de Registre nommée **LocalAccountTokenFilterPolicy** sur l’ordinateur de groupe de travail en exécutant l’applet de commande suivante.
+    Pour outrepasser les restrictions du contrôle de compte d’utilisateur relatives à l’exécution de processus élevés sur les ordinateurs de groupe de travail, créez une entrée de Registre nommée **LocalAccountTokenFilterPolicy** sur l’ordinateur de groupe de travail en exécutant l’applet de commande suivante.
 
     ```
     New-ItemProperty -Name LocalAccountTokenFilterPolicy -path HKLM:\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System -propertytype DWord -value 1
@@ -137,7 +133,7 @@ Ces erreurs ou des erreurs similaires peuvent se produire dans les conditions su
 
 4.  Sur l’ordinateur sur lequel vous exécutez le Gestionnaire de serveur, ouvrez la page **Tous les serveurs**.
 
-5.  Si l’ordinateur qui exécute le Gestionnaire de serveur et le serveur de groupe de travail cible appartiennent au même groupe de travail, passez à la dernière étape. Si les deux ordinateurs n’appartiennent pas au même groupe de travail, cliquez avec le bouton droit sur le serveur de groupe de travail cible dans la vignette **Serveurs** , puis cliquez sur **Gérer en tant que**.
+5.  Si l’ordinateur qui exécute le Gestionnaire de serveur et le serveur de groupe de travail cible appartiennent au même groupe de travail, passez à la dernière étape. Si les deux ordinateurs n’appartiennent pas au même groupe de travail, cliquez avec le bouton droit sur le serveur de groupe de travail cible dans la vignette **Serveurs**, puis cliquez sur **Gérer en tant que**.
 
 6.  Connectez-vous au serveur de groupe de travail à l‘aide du compte Administrateur intégré de ce dernier.
 

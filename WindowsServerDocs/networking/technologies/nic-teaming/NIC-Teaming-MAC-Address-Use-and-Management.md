@@ -2,22 +2,18 @@
 title: Gestion et utilisation des adresses MAC d'association de cartes réseau
 description: Quand vous configurez une association de cartes réseau avec le mode indépendant du commutateur et le hachage d’adresse ou la distribution de charge dynamique, l’équipe utilise l’adresse MAC (Media Access Control) du membre de l’équipe de carte réseau principale sur le trafic sortant. Le membre de l’Association de cartes réseau principale est une carte réseau sélectionnée par le système d’exploitation à partir de l’ensemble initial des membres de l’équipe.
 manager: dougkim
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-nict
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 26d105e0-afc3-44b5-bb5e-0c884a4c5d62
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: d8e7130d5774c19cc3d51045786bfef319cf7d16
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: a1671b16bdadfcd159bc728f2d39ec45ad82fc0f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316432"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854722"
 ---
 # <a name="nic-teaming-mac-address-use-and-management"></a>Gestion et utilisation des adresses MAC d'association de cartes réseau
 

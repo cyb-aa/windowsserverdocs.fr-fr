@@ -1,24 +1,20 @@
 ---
 title: Partager des fichiers
 description: Découvrez comment partager des fichiers dans MultiPoint services à l’aide de dossiers partagés et du réseau
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5e138e01-39e3-4d60-ad3c-5a33b1e0b076
 author: lizap
 manager: dongill
 ms.date: 08/04/2016
 ms.author: elizapo
-ms.openlocfilehash: f050691603ed0989ab3b0ea3aac34a5fd74e1fbd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db2707803a6be2db83ac574e7b50c8698d6bd0b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394986"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855612"
 ---
 # <a name="share-files"></a>Partager des fichiers
 Vous pouvez partager du contenu avec d’autres utilisateurs MultiPoint Services en stockant le contenu dans un dossier public dans l’Explorateur Windows. Dans un système MultiPoint Services, la totalité du contenu stocké dans les dossiers publics dans l’Explorateur Windows est accessible à tous les utilisateurs du système MultiPoint Services.  

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 68979914-8a1c-465a-bd37-08df30722d69
 title: Mappage de vos objectifs de déploiement sur une conception AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ca10f8e784fea3b99a60b2117f65ba1ccaf6501e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4154f46bdb1a7b3a2c81eba6882a6a095a16ee45
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359086"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853052"
 ---
 # <a name="mapping-your-deployment-goals-to-an-ad-fs-design"></a>Mappage de vos objectifs de déploiement sur une conception AD FS
 

@@ -1,36 +1,32 @@
 ---
 title: logman create API
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2ecc0a75-2613-464a-8616-c5dc404bb736
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 512602213fcfd95770af0e27b721a589ed489771
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3beca5ddafcb1d4fbfc6fbe179e219553f7acaf8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374598"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840912"
 ---
 # <a name="logman-create-api"></a>logman create API
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-créer un collecteur de données de suivi d’API.  
+Créer un collecteur de données de suivi d’API.  
 
 ## <a name="syntax"></a>Syntaxe  
 ```  
 logman create api <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
 
 |                    Paramètre                     |                                                                               Description                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,7 +59,7 @@ logman create api <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Notes  
 Où [-] est listé, un extra-inverse l’option.  
-## <a name="BKMK_examples"></a>Illustre  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
 La commande suivante crée un compteur de trace API appelé trace_notepad pour le fichier exécutable c:\windows\notepad.exe et renvoie les résultats dans le fichier c:\Notepad.etl.  
 ```  
 logman create api trace_notepad -exe c:\windows\notepad.exe -o c:\notepad.etl  
@@ -76,5 +72,5 @@ La commande suivante crée un compteur de trace API appelé trace_notepad pour l
 ```  
 logman create api trace_notepad -exe c:\windows\notepad.exe -exapis kernel32.dll!TlsGetValue  
 ```  
-#### <a name="additional-references"></a>Références supplémentaires  
+## <a name="additional-references"></a>Références supplémentaires  
 [logman](logman.md)  

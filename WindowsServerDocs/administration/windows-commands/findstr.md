@@ -1,24 +1,20 @@
 ---
 title: findstr
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c2d803fb-4cd2-46a1-a1b7-6f5e0249c418
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 547a0abf658ef826cca8c87d451144181f8dac7d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dbdc1b741b5934f53340bda773909fb5035e449b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377187"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844632"
 ---
 # <a name="findstr"></a>findstr
 
@@ -32,7 +28,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] [/c:<String>] [/g:<File>] [/d:<DirList>] [/a:<ColorAttribute>] [/off[line]] <Strings> [<Drive>:][<Path>]<FileName>[ ...]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -84,7 +80,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   .*
   ``` 
 
-  Utilisez l’expression suivante dans le cadre d’une expression plus grande pour faire correspondre n’importe quelle chaîne commençant par « b » et se terminant par « ING » : 
+  Utilisez l’expression suivante dans le cadre d’une expression plus grande pour faire correspondre n’importe quelle chaîne commençant par b et se terminant par ING : 
 
   ```
   b.*ing
@@ -94,19 +90,19 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 
 Utilisez des espaces pour séparer plusieurs chaînes de recherche, sauf si l’argument est préfixé avec **/c**.
 
-Pour rechercher « Hello » ou « y » dans le fichier x. y, tapez :
+Pour rechercher Hello ou dans le fichier x. y, tapez :
 
 ```
-findstr "hello there" x.y 
+findstr hello there x.y 
 ```
 
 Pour rechercher « Bonjour » dans le fichier x. y, tapez :
 
 ```
-findstr /c:"hello there" x.y 
+findstr /c:hello there x.y 
 ```
 
-Pour rechercher toutes les occurrences du mot « Windows » (avec une lettre majuscule initiale W) dans le fichier proposition. txt, tapez :
+Pour rechercher toutes les occurrences du mot Windows (avec une lettre majuscule initiale W) dans le fichier proposition. txt, tapez :
 
 ```
 findstr Windows proposal.txt 
@@ -118,10 +114,10 @@ Pour rechercher dans tous les fichiers du répertoire actif et dans tous les sou
 findstr /s /i Windows *.* 
 ```
 
-Pour rechercher toutes les occurrences de lignes qui commencent par « FOR » et qui sont précédées de zéro ou de plusieurs espaces (comme dans une boucle de programme informatique) et pour afficher le numéro de ligne où chaque occurrence est trouvée, tapez :
+Pour rechercher toutes les occurrences de lignes qui commencent par pour et sont précédées de zéro ou de plusieurs espaces (comme dans une boucle de programme informatique) et pour afficher le numéro de ligne où chaque occurrence est trouvée, tapez :
 
 ```
-findstr /b /n /r /c:"^ *FOR" *.bas 
+findstr /b /n /r /c:^ *FOR *.bas 
 ```
 
 Pour rechercher plusieurs chaînes dans un ensemble de fichiers, créez un fichier texte qui contient chaque critère de recherche sur une ligne distincte. Vous pouvez également répertorier les fichiers exacts que vous souhaitez rechercher dans un fichier texte. Par exemple, pour utiliser les critères de recherche dans le fichier StringList. txt, recherchez les fichiers listés dans filelist. txt, puis stockez les résultats dans le fichier results. out, tapez :
@@ -130,18 +126,18 @@ Pour rechercher plusieurs chaînes dans un ensemble de fichiers, créez un fichi
 findstr /g:stringlist.txt /f:filelist.txt > results.out 
 ```
 
-Pour répertorier chaque fichier contenant le mot « Computer » dans le répertoire actif et tous les sous-répertoires, quel que soit le cas, tapez :
+Pour répertorier chaque fichier contenant le mot ordinateur dans le répertoire actif et tous ses sous-répertoires, quel que soit le cas, tapez :
 
 ```
-findstr /s /i /m "\<computer\>" *.*
+findstr /s /i /m \<computer\> *.*
 ```
 
-Pour répertorier chaque fichier contenant le mot « ordinateur » et tous les autres mots qui commencent par « COMP » (par exemple, « compliment » et « compétition »), tapez :
+Pour répertorier chaque fichier contenant le mot ordinateur et tous les autres mots qui commencent par COMP, (par exemple compliment et en concurrence), tapez :
 
 ```
-findstr /s /i /m "\<comp.*" *.*
+findstr /s /i /m \<comp.* *.*
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

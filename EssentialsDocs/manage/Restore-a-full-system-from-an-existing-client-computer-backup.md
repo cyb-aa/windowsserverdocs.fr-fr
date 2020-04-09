@@ -1,23 +1,19 @@
 ---
 title: Restaurer un système complet à partir d’une sauvegarde d’ordinateur client existante
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 47e498a6-1b71-47de-88f6-8c13c221d108
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b9629f41c4e8eb707b19914a297d9d8b88c6aead
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 37e4d45f6bd34d77fbbf3cbabcd66a776b624c19
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310656"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852642"
 ---
 # <a name="restore-a-full-system-from-an-existing-client-computer-backup"></a>Restaurer un système complet à partir d’une sauvegarde d’ordinateur client existante
 
@@ -91,7 +87,7 @@ ms.locfileid: "80310656"
  La sauvegarde des systèmes RAID (Redundant Array of Independent Disks, matrice redondante de disques indépendants) et des disques dynamiques n'est pas prise en charge.  
   
 ##  <a name="how-does-the-system-restore-environment-work"></a><a name="BKMK_HowDoes"></a>Comment fonctionne l’environnement de restauration du système ?  
- Le support de restauration du système fourni avec Windows ServerÂ® 2012 Essentials installe environnement de préinstallation Windows (WinPE) (Windows PE) sur l’ordinateur. Windows PE remplace l'environnement MS-DOS et contient les fichiers programmes principaux pour Windows. Dans Windows Server Essentials, deux méthodes sont prises en charge pour restaurer un système : à l’aide du service de restauration de client, qui utilise un réseau et qui ne repose pas sur un support ou sur un disque mémoire flash USB.  
+ Le support de restauration du système fourni avec Windows ServerÂ&reg; 2012 Essentials installe environnement de préinstallation Windows (WinPE) (Windows PE) sur l’ordinateur. Windows PE remplace l'environnement MS-DOS et contient les fichiers programmes principaux pour Windows. Dans Windows Server Essentials, deux méthodes sont prises en charge pour restaurer un système : à l’aide du service de restauration de client, qui utilise un réseau et qui ne repose pas sur un support ou sur un disque mémoire flash USB.  
   
 > [!NOTE]
 >  Windows PE ne prend pas en charge les connexions sans fil. Pour cette raison, l'ordinateur en cours de restauration doit être connecté physiquement au réseau de petite entreprise  

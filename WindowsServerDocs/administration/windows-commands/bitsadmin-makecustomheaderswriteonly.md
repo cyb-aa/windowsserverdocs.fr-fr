@@ -1,40 +1,47 @@
 ---
 title: Bitsadmin makecustomheaderswriteonly
-description: Rubrique relative aux commandes Windows pour **Bitsadmin makecustomheaderswriteonly** -rendre les en-têtes HTTP personnalisés d’un travail en écriture seule (ne peut pas être annulé).
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour **Bitsadmin makecustomheaderswriteonly**, qui rend les en-têtes HTTP personnalisés d’un travail en écriture seule.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 64bf048ddc76ad1d751509e95d09403db1de7883
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9183b1b5de51020c5c6d2efad2c0a788d158a183
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381032"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850242"
 ---
 # <a name="bitsadmin-makecustomheaderswriteonly"></a>Bitsadmin makecustomheaderswriteonly
 
-Rendre les en-têtes HTTP personnalisés d’un travail en écriture seule (ne peut pas être annulé).
+Rendre les en-têtes HTTP personnalisés d’un travail en écriture seule.
+
+> [!Important]
+> Cette action ne peut pas être annulée.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /MakeCustomHeadersWriteOnly <Job>
+bitsadmin /makecustomheaderswriteonly <job>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom complet ou GUID du travail|
+| Paramètre | Description |
+| -------------- | -------------- |
+| le travail | Nom complet ou GUID du travail. |
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+L’exemple suivant rend les en-têtes HTTP personnalisés en écriture seule pour le travail nommé *myDownloadJob*.
+
+```
+C:\>bitsadmin /makecustomheaderswriteonly myDownloadJob
+```
+
+## <a name="additional-references"></a>Références supplémentaires
+
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

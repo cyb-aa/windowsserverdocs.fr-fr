@@ -2,22 +2,18 @@
 title: Étape 4 vérifier le cluster
 description: Cette rubrique fait partie du guide déployer l’accès à distance dans un cluster dans Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f22dcf10-b453-4664-a9ef-e40e95c72f63
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 16a31e5435bcb3f0fa3a332bba0e767beb913c08
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: c31db158856eb3c3881a36c29e40d1227116201f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308204"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855262"
 ---
 # <a name="step-4-verify-the-cluster"></a>Étape 4 vérifier le cluster
 

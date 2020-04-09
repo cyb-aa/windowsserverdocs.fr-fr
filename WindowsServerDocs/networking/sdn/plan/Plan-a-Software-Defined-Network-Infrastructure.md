@@ -1,25 +1,20 @@
 ---
 title: Planifier une infrastructure SDN (Software Defined Networking)
 description: Cette rubrique fournit des informations sur la façon de planifier le déploiement de votre infrastructure SDN (Software Defined Network).
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: virtual-network
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/10/2018
-ms.openlocfilehash: 83f94d3770c475fca7f5d4b8cc2f5a5ade1a20d7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 1542ff2c81ec0b6b4bc598dd5039578a67d0fc3e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317465"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854402"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planifier une infrastructure SDN (Software Defined Networking)
 
@@ -238,7 +233,7 @@ Le tableau suivant indique la configuration matérielle et logicielle minimale r
 
 Host|Configuration matérielle requise|Configuration logicielle requise|  
 --------|-------------------------|-------------------------  
-|Hôte Hyper-v physique|PROCESSEUR 4 cœurs 2,66 GHz<br /><br />32 Go de RAM<br /><br />300 Go d’espace disque<br /><br />carte réseau physique 1 Go/s (ou plus rapide)|Système d’exploitation : Windows Server 2016<br /><br />Rôle Hyper-V installé|  
+|Hôte Hyper-v physique|PROCESSEUR 4 cœurs 2,66 GHz<p>32 Go de RAM<p>300 Go d’espace disque<p>carte réseau physique 1 Go/s (ou plus rapide)|Système d’exploitation : Windows Server 2016<p>Rôle Hyper-V installé|  
 
 
 **Configuration requise pour le rôle d’ordinateur virtuel de l’infrastructure SDN**  
@@ -247,8 +242,8 @@ Role|exigences relatives aux processeurs virtuels|Mémoire requise|Configuration
 --------|---------------------|-----------------------|---------------------  
 |Contrôleur de réseau (trois nœuds)|4 processeurs virtuels|4 Go min (8 Go recommandés)|75 Go pour le lecteur de système d’exploitation  
 |SLB/MUX (trois nœuds)|8 processeurs virtuels|8 Go recommandés|75 Go pour le lecteur de système d’exploitation  
-|Passerelle du serveur d’accès à distance<br /><br />(pool unique de trois passerelles de nœud, deux actives, une passive)|8 processeurs virtuels|8 Go recommandés|75 Go pour le lecteur de système d’exploitation  
-|Routeur BGP de la passerelle RAS pour l’homologation SLB/MUX<br /><br />(vous pouvez également utiliser le commutateur comme routeur BGP)|2 processeurs virtuels|2 Go|75 Go pour le lecteur de système d’exploitation|  
+|Passerelle du serveur d’accès à distance<p>(pool unique de trois passerelles de nœud, deux actives, une passive)|8 processeurs virtuels|8 Go recommandés|75 Go pour le lecteur de système d’exploitation  
+|Routeur BGP de la passerelle RAS pour l’homologation SLB/MUX<p>(vous pouvez également utiliser le commutateur comme routeur BGP)|2 processeurs virtuels|2 Go|75 Go pour le lecteur de système d’exploitation|  
 
 
 Si vous utilisez VMM pour le déploiement, des ressources de machine virtuelle d’infrastructure supplémentaires sont requises pour VMM et d’autres infrastructures non SDN. Pour plus d’informations, consultez [recommandations matérielles minimales pour System Center Technical Preview.](https://technet.microsoft.com/library/dn997303.aspx)  

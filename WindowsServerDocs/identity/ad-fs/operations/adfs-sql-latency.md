@@ -8,12 +8,12 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e5e90119066285ae8e04b392a13ab1a38488f5ee
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: b0881bff3455b471b0e51e960e1b0e522508a8b3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265751"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854862"
 ---
 # <a name="fine-tuning-sql-and-addressing-latency-issues-with-ad-fs"></a>Optimisation de SQL et résolution des problèmes de latence avec AD FS
 Dans une mise à jour de [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) , nous avons introduit les améliorations suivantes pour réduire la latence de la base de données croisée. Une prochaine mise à jour de AD FS 2019 comprendra ces améliorations.
@@ -65,7 +65,7 @@ Pour les configurations antérieures de plusieurs centres de données, AD FS n�
 Pour réduire la latence entre les centres de l’entreprise, un administrateur AD FS peut désormais déployer plusieurs instances de base de base de l’artefact, puis modifier le fichier de configuration d’un nœud de AD FS pour qu’il pointe vers différentes instances de base de base de l’artefact. La chaîne de connexion de la base de données des artefacts peut être fournie dans le fichier de configuration, autorisant une base de données d’artefacts par nœud. Si la chaîne de connexion n’est pas présente dans le fichier de configuration, le nœud revient à la conception précédente pour utiliser la base de données d’artefacts qui est présente dans la base de données de configuration.  
 Les environnements hybrides sont également pris en charge avec cette configuration.  
 
-### <a name="requirements"></a>Configuration requise : 
+### <a name="requirements"></a>Conditions requises : 
 Avant de configurer la prise en charge de plusieurs bases de données d’artefacts, exécutez une mise à jour sur tous les nœuds et mettez à jour les binaires, car les appels à plusieurs nœuds se produisent par le biais de cette fonctionnalité. 
   1. Générer un script de déploiement pour créer la base de connaissances d’artefacts : pour déployer plusieurs instances de base de connaissances d’artefacts, un administrateur doit générer le script de déploiement SQL pour la base de connaissances de l’artefact. Dans le cadre de cette mise à jour, l’applet de commande `Export-AdfsDeploymentSQLScript`existante a été mise à jour pour éventuellement prendre un paramètre spécifiant la base de données AD FS pour laquelle générer un script de déploiement SQL. 
  

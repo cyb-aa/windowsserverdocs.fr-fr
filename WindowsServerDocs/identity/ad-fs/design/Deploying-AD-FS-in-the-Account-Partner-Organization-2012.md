@@ -1,7 +1,6 @@
 ---
 ms.assetid: 9aaca9c5-ce44-495c-aad6-61aede87a83f
 title: Déploiement des services AD FS dans l’organisation du partenaire de compte
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 62d7549f124b96cd7addf7e54cc5d0c1d9897098
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 94446ddd8d33c18b6166870a34b65c997d1644ac
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408125"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853202"
 ---
 # <a name="deploying-ad-fs-in-the-account-partner-organization"></a>Déploiement des services AD FS dans l’organisation du partenaire de compte
 

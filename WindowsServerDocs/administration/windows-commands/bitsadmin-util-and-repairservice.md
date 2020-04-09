@@ -1,28 +1,24 @@
 ---
 title: Bitsadmin util et REPAIRSERVICE
-description: Rubrique relative aux commandes Windows pour **Bitsadmin util et REPAIRSERVICE** -Command permettant de résoudre les problèmes connus liés aux différentes versions du service bits.
-ms.custom: na
+description: La rubrique commandes Windows pour Bitsadmin util et REPAIRSERVICE, qui corrige les problèmes connus dans les différentes versions du service BITS.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2ac7baeb-4340-4186-bfcb-66478195378d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ab06ac9c784cfa438eb285c28f0e661cf4b8302
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: aaaa6edab22031dc53d266984bb669634e3bb362
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380280"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848892"
 ---
 # <a name="bitsadmin-util-and-repairservice"></a>Bitsadmin util et REPAIRSERVICE
 
-Si le service BITS ne parvient pas à démarrer, utilisez ce commutateur pour résoudre les problèmes connus liés aux différentes versions de BITS.
+Si le service BITS ne parvient pas à démarrer, utilisez ce commutateur pour résoudre les problèmes connus dans différentes versions de BITS.
 
 **BITSAdmin 1,5 et versions antérieures :**  pas pris en charge.
 
@@ -32,7 +28,7 @@ Si le service BITS ne parvient pas à démarrer, utilisez ce commutateur pour r�
 bitsadmin /Util /RepairService [/Force]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -48,13 +44,13 @@ Ce commutateur résout les erreurs liées à une configuration de service incorr
 > [!IMPORTANT]
 > Cette commande n’est pas prise en charge sur Windows Vista.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 L’exemple suivant répare la configuration du service BITS.
 ```
 C:\>bitsadmin /Util /RepairService
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

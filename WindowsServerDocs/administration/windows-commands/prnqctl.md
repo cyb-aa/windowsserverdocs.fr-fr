@@ -1,24 +1,20 @@
 ---
 title: prnqctl
 description: Imprimez une page de test, interrompez ou reprenez une imprimante.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8df9dfa7-984c-4276-bb7d-e7675e7c399e jpjofre
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 189b344dc0c4f587ba7a6382c481304242e22c74
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d07d8caa0568b26f5edc16258085a59ecdafcf4e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372040"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837202"
 ---
 # <a name="prnqctl"></a>prnqctl
 
@@ -31,7 +27,7 @@ Imprime une page de test, interrompt ou reprend une imprimante et efface une fil
 cscript Prnqctl {-z | -m | -e | -x | -?} [-s <ServerName>]   
 [-p <printerName>] [-u <UserName>] [-w <Password>]  
 ```  
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
 
 |Paramètre|Description|  
 |-------|--------|  
@@ -51,7 +47,7 @@ cscript Prnqctl {-z | -m | -e | -x | -?} [-s <ServerName>]
   ```  
 - Si les informations que vous fournissez contiennent des espaces, utilisez des guillemets autour du texte (par exemple, `"computer Name"`).  
 
-## <a name="BKMK_examples"></a>Illustre  
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre  
 Pour imprimer une page de test sur l’imprimante Laserprinter1 partagée par l’ordinateur \\\Server1, tapez :  
 ```  
 cscript Prnqctl -e -s Server1 -p Laserprinter1  
@@ -65,6 +61,6 @@ Pour annuler tous les travaux d’impression sur l’imprimante Laserprinter1 su
 cscript Prnqctl -x -p Laserprinter1  
 ```  
 
-#### <a name="additional-references"></a>Références supplémentaires  
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Références supplémentaires  
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
 [imprimer la référence des commandes](print-command-reference.md)  

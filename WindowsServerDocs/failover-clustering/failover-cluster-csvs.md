@@ -5,15 +5,16 @@ ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: da0f541c34c7f8687822bec365364fdd406fa3c3
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 1d275e0379b5374899437bcf1f0387b304350840
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322691"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827742"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Utiliser des volumes partagés de cluster dans un cluster de basculement
 
@@ -31,7 +32,7 @@ Le format CSV fournit un système de fichiers en cluster à usage général, qui
 
 Dans Windows Server 2012, la fonctionnalité CSV a été considérablement améliorée. Par exemple, les dépendances vis-à-vis des services de domaine Active Directory ont été éliminées. Les améliorations fonctionnelles apportées à **chkdsk**sont désormais prises en charge, tout comme l’interopérabilité avec les applications antivirus et de sauvegarde et l’intégration avec les fonctionnalités de stockage générales, telles que les volumes chiffrés par BitLocker et les espaces de stockage. Pour obtenir une vue d’ensemble de la fonctionnalité de volume partagé de cluster qui a été introduite dans Windows Server 2012, voir [Nouveautés du clustering de basculement dans Windows server 2012 \[Redirigé\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
-Windows Server 2012 R2 introduit des fonctionnalités supplémentaires, telles que la propriété du volume partagé de cluster distribué, une résilience accrue grâce à la disponibilité du service serveur, une plus grande souplesse dans la quantité de mémoire physique que vous pouvez allouer au cache de volume partagé de cluster, mieux capacité et l’interopérabilité améliorée qui incluent la prise en charge de ReFS et de la déduplication. Pour plus d’informations, consultez [Nouveautés du clustering de basculement](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
+Windows Server 2012 R2 introduit des fonctionnalités supplémentaires, telles que la propriété du volume partagé de cluster distribué, une résilience accrue grâce à la disponibilité du service serveur, une plus grande souplesse dans la quantité de mémoire physique que vous pouvez allouer au cache de volume partagé de cluster, une meilleure capacité et une interopérabilité améliorée qui inclut la prise en charge des références et de la déduplication. Pour plus d’informations, consultez [Nouveautés du clustering de basculement](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
 > [!NOTE]
 > Pour plus d’informations sur l’utilisation de la déduplication de données sur un volume partagé de cluster dans le cadre de scénarios d’infrastructure VDI (Virtual Desktop Infrastructure), consultez les billets de blog [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) et [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx).
@@ -65,7 +66,7 @@ Pour obtenir une vue d’ensemble de la configuration requise pour les composant
 
 #### <a name="about-io-synchronization-and-io-redirection-in-csv-communication"></a>À propos de la synchronisation et de la redirection des E/S dans le cadre de la communication des volumes partagés de cluster
 
-- **Synchronisation des e/s**: les volumes partagés de cluster permettent à plusieurs nœuds d’avoir un accès en lecture-écriture simultané au même stockage partagé. Quand un nœud exécute une entrée/sortie (E/S) de disque sur un volume partagé de cluster, le nœud communique directement avec le stockage, par exemple, via un réseau de zone de stockage (SAN). Cependant, à tout moment, un seul nœud (appelé « nœud coordinateur ») est « propriétaire » de la ressource de disque physique associée au numéro d'unité logique. Le nœud coordinateur d'un volume partagé de cluster s'affiche dans le Gestionnaire du cluster de basculement en tant que **Nœud propriétaire** sous **Disques**. Il apparaît également dans la sortie de l’applet de commande Windows PowerShell [ClusterSharedVolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) .
+- **Synchronisation des e/s**: les volumes partagés de cluster permettent à plusieurs nœuds d’avoir un accès en lecture-écriture simultané au même stockage partagé. Quand un nœud exécute une entrée/sortie (E/S) de disque sur un volume partagé de cluster, le nœud communique directement avec le stockage, par exemple, via un réseau de zone de stockage (SAN). Toutefois, à tout moment, un seul nœud (appelé « nœud coordinateur ») « possède » la ressource de disque physique associée au numéro d’unité logique (LUN). Le nœud coordinateur d'un volume partagé de cluster s'affiche dans le Gestionnaire du cluster de basculement en tant que **Nœud propriétaire** sous **Disques**. Il apparaît également dans la sortie de l’applet de commande Windows PowerShell [ClusterSharedVolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) .
 
   >[!NOTE]
   >Dans Windows Server 2012 R2, la propriété CSV est répartie uniformément entre les nœuds de cluster de basculement en fonction du nombre de volumes CSV détenus par chaque nœud. De plus, la propriété subit un rééquilibrage automatique dans certaines situations : basculement d'un volume partagé de cluster, un nœud qui rejoint le cluster, ajout d'un nœud au cluster, redémarrage d'un nœud du cluster ou démarrage du cluster de basculement après avoir été arrêté.

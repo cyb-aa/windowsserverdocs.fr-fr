@@ -1,7 +1,6 @@
 ---
 ms.assetid: d04dd17e-a843-46fd-8711-0039918f92d9
 title: Implémentation de votre plan de conception AD FS
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,18 +8,18 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6306b87dd06774bfde5ffc3ff98818d47d0c858f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee822ef94e2723a4ce20e456a5507f572f038a93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408373"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855412"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implémentation de votre plan de conception AD FS
 
 Les conditions et exigences environnementales suivantes sont des facteurs importants dans l’implémentation de votre Services ADFS \(AD FS plan de conception de\) :  
   
--   **Partenaires pris en charge :** En général, vous utilisez AD FS pour travailler avec des organisations partenaires. Pour établir la Fédération des identités, déterminez les organisations avec lesquelles vous souhaitez former un partenariat. Après la mise en place d’un déploiement de AD FS de référence, l’utilisation de partenaires implique l’ajout de partenaires, la suppression de partenaires et la mise à jour des informations de partenaire. Les modifications apportées aux partenariats peuvent se produire pour diverses raisons. Par exemple, votre déploiement AD FS peut nécessiter des mises à jour de partenariat si votre partenaire change de manière significative son entreprise, si votre organisation fait partie d’une plus grande organisation ou d’une Fédération d’organisations, ou si votre organisation est acquise par une autre entreprise. Dans tout scénario dans lequel vous fédérer des identités à partir de plusieurs domaines, vous devez connaître les domaines \(partenaires\) que vous prenez actuellement en charge et tous les domaines supplémentaires qui représentent des partenaires potentiels.  
+-   **Partenaires pris en charge :** En général, vous utilisez AD FS pour travailler avec des organisations partenaires. Pour établir la Fédération des identités, déterminez les organisations avec lesquelles vous souhaitez former un partenariat. Après la mise en place d’un déploiement de AD FS de référence, l’utilisation de partenaires implique l’ajout de partenaires, la suppression de partenaires et la mise à jour des informations de partenaire. Les modifications apportées aux partenariats peuvent se produire pour diverses raisons. Par exemple, votre déploiement AD FS peut nécessiter des mises à jour de partenariat si votre partenaire change de manière significative son entreprise, si votre organisation fait partie d’une plus grande organisation ou d’une Fédération d’organisations, ou si votre organisation est acquise par une autre société. Dans tout scénario dans lequel vous fédérer des identités à partir de plusieurs domaines, vous devez connaître les domaines \(partenaires\) que vous prenez actuellement en charge et tous les domaines supplémentaires qui représentent des partenaires potentiels.  
   
 -   **Types d’applications et de services pris en charge :** Certaines applications et certains services requièrent l’accès aux ressources du système d’exploitation, tandis que d’autres sont « compatibles avec les revendications ». Il est important de comprendre les types d’applications et de services pris en charge par AD FS afin que vous puissiez formuler des exigences d’administration.  
   

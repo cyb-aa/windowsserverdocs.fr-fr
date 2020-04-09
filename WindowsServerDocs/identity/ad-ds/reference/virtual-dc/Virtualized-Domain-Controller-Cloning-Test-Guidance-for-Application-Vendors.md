@@ -1,7 +1,6 @@
 ---
 ms.assetid: fde99b44-cb9f-49bf-b888-edaeabe6b88d
 title: Aide relative aux tests de clonage des contrôleurs de domaine virtualisés pour les fournisseurs d’applications
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4926fabe255f964b6d39e6c39c5e794a37423111
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: 7273c59022edf4b03276a9e26c8291849ef93b40
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517464"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853992"
 ---
 # <a name="virtualized-domain-controller-cloning-test-guidance-for-application-vendors"></a>Aide relative aux tests de clonage des contrôleurs de domaine virtualisés pour les fournisseurs d’applications
 
 >S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique explique ce que les fournisseurs d’applications doivent prendre en compte pour garantir que leur application continue de fonctionner comme prévu après la fin du processus de clonage du contrôleur de domaine virtualisé. Il couvre les aspects du processus de clonage qui intéressent les fournisseurs d’applications et les scénarios susceptibles de justifier des tests supplémentaires. Les fournisseurs d’applications qui ont validé que leur application fonctionne sur les contrôleurs de domaine virtualisés qui ont été clonés sont encouragés à répertorier le nom de l’application dans le contenu de la communauté en bas de cette rubrique, ainsi qu’un lien vers votre site Web de l’organisation où les utilisateurs peuvent en savoir plus sur la validation.
+Cette rubrique explique ce que les fournisseurs d’applications doivent prendre en compte pour garantir que leur application continue de fonctionner comme prévu après la fin du processus de clonage du contrôleur de domaine virtualisé. Il couvre les aspects du processus de clonage qui intéressent les fournisseurs d’applications et les scénarios susceptibles de justifier des tests supplémentaires. Les fournisseurs d’applications qui ont validé que leur application fonctionne sur les contrôleurs de domaine virtualisés qui ont été clonés sont encouragés à répertorier le nom de l’application dans le contenu de la communauté en bas de cette rubrique, ainsi qu’un lien vers le site Web de votre organisation où les utilisateurs peuvent en savoir plus sur la validation.
 
 ## <a name="overview-of-virtualized-dc-cloning"></a>Vue d’ensemble du clonage de contrôleur de courant virtuel
 Le processus de clonage des contrôleurs de domaine virtualisés est décrit en détail dans [Introduction à la Active Directory Domain Services (AD DS) virtualisation (niveau 100)](https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) et informations techniques de référence sur les [contrôleurs de domaine virtualisés (niveau 300)](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/virtualized-domain-controller-technical-reference--level-300-). Du point de vue du fournisseur de l’application, les considérations à prendre en compte lors de l’évaluation de l’impact du clonage sur votre application sont les suivantes :

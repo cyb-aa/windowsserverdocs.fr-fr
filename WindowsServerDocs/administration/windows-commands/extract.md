@@ -1,26 +1,22 @@
 ---
-title: extraire
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+title: extract
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 20dab03e-f6e1-4eb8-b8a1-fd6f1d97ee83
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 967f08e271019cc33970419179c9ddbf902b1882
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d66682126f1cc3c924c42b4605a537a997e8ac52
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377259"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844772"
 ---
-# <a name="extract"></a>extraire
+# <a name="extract"></a>extract
 
 
 
@@ -32,7 +28,7 @@ EXTRACT [/Y] source [newname]
 EXTRACT [/Y] /C source destination
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -47,6 +43,6 @@ EXTRACT [/Y] /C source destination
 |/L Rép|Emplacement dans lequel placer les fichiers extraits (le répertoire par défaut est le répertoire actif).|
 |/Y|Ne pas demander confirmation avant de remplacer un fichier existant.|
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

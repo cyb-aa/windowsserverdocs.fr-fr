@@ -1,7 +1,6 @@
 ---
 ms.assetid: c4d83dd3-2846-4658-8b9c-93901ee69766
 title: Déploiement de serveurs de fédération
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 785dcad4ac8e03cc59730fb533e30a001569dd63
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9e66c513c34658c40152cd7b622a1818e7198e47
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359631"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855562"
 ---
 # <a name="deploying-federation-servers"></a>Déploiement de serveurs de fédération
 

@@ -1,29 +1,25 @@
 ---
 title: Migrer Windows Server Essentials vers un nouveau matériel
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f695ae90-3160-407b-bebf-9e460f22c86d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 53064a2e9de9c78f41117f73619cf74496f0a285
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ac55c523f05128715ac76cf538375987ab764b5b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318948"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852532"
 ---
 # <a name="migrate-windows-server-essentials-to-new-hardware"></a>Migrer Windows Server Essentials vers un nouveau matériel
 
 >S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Ce guide explique comment migrer un domaine Windows Server® 2012 Essentials existant vers Windows Server Essentials sur un nouveau matériel, puis comment migrer les paramètres et les données. Ce guide explique également comment supprimer votre serveur existant du réseau Windows Server Essentials une fois la migration terminée.  
+Ce guide explique comment migrer un domaine Windows Server&reg; 2012 Essentials existant vers Windows Server Essentials sur un nouveau matériel, puis comment migrer les paramètres et les données. Ce guide explique également comment supprimer votre serveur existant du réseau Windows Server Essentials une fois la migration terminée.  
   
 > [!NOTE]
 >  Pour éviter des problèmes pendant la migration, l’équipe de développement de produit Windows Server Essentials vous conseille vivement de lire ce document avant de commencer la migration.  

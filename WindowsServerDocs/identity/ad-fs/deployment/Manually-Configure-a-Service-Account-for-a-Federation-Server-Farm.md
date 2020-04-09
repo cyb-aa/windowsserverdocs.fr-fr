@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5a1ae56b-adcb-447e-9e34-c0629d7cb241
 title: Configurer manuellement un compte de service pour une batterie de serveurs de fédération
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8240903b3c446d4f02ca93dc053e520480f5e8ca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c30215f5f8e39bb97452fccaaef8d1bb0469dc31
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359491"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855342"
 ---
 # <a name="manually-configure-a-service-account-for-a-federation-server-farm"></a>Configurer manuellement un compte de service pour une batterie de serveurs de fédération
 
@@ -24,13 +23,13 @@ Si vous envisagez de configurer un environnement de batterie de serveurs de Féd
 > À partir de AD FS 3,0 (Windows Server 2012 R2), AD FS prend en charge l’utilisation d’un [compte de service géré de groupe](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) \(gMSA\) comme compte de service.  Il s’agit de l’option recommandée, car elle élimine la nécessité de gérer le mot de passe du compte de service au fil du temps.  Ce document décrit l’autre cas d’utilisation d’un compte de service traditionnel, par exemple dans les domaines qui exécutent toujours un niveau fonctionnel de domaine Windows Server 2008 R2 ou antérieur \(\)DFL.
 
 > [!NOTE]  
-> Vous ne devez exécuter les tâches de cette procédure qu’une seule fois pour l’ensemble de la batterie de serveurs de fédération. Plus tard, lorsque vous créerez un serveur de Fédération à l’aide de l’Assistant Configuration du serveur de fédération AD FS, vous devez spécifier ce même compte sur la page de l’Assistant **compte de service** sur chaque serveur de Fédération de la batterie de serveurs.  
+> Vous ne devez exécuter les tâches de cette procédure qu’une seule fois pour l’ensemble de la batterie de serveurs de fédération. Par la suite, quand vous créerez un serveur de fédération à l'aide de l'Assistant Configuration du serveur de fédération AD FS, vous devrez spécifier ce même compte dans la page de l'Assistant **Compte de service** de chaque serveur de fédération de la batterie.  
   
 #### <a name="create-a-dedicated-service-account"></a>Créer un compte de service dédié  
   
 1.  Créez un compte de service\/utilisateur dédié dans la forêt Active Directory qui se trouve dans l’organisation du fournisseur d’identité. Ce compte est nécessaire pour que le protocole d’authentification Kerberos fonctionne dans un scénario de batterie de serveurs et permette de passer\-via l’authentification sur chacun des serveurs de Fédération. Utilisez ce compte uniquement dans le cadre de la batterie de serveurs de Fédération.  
   
-2.  Modifiez les propriétés du compte d'utilisateur, puis cochez la case **Le mot de passe n'expire jamais**. Cela garantit que ce compte de service pourra continuer d'être utilisé même en cas de changement de mot de passe du domaine.  
+2.  Modifiez les propriétés du compte d'utilisateur, puis cochez la case **Le mot de passe n'expire jamais**. Cette action garantit que le fonctionnement du compte de service n’est pas interrompu comme conséquence des modifications requises du mot de passe du domaine.  
   
     > [!NOTE]  
     > L'utilisation du compte de service réseau pour ce compte dédié entraînera aléatoirement des échecs lors de tentatives d'accès réalisées via l'authentification intégrée de Windows, car les tickets Kerberos ne pourront pas être validés d'un serveur à l'autre.  

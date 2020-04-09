@@ -1,20 +1,20 @@
 ---
 title: Mise en réseau SDN (Software Defined Networking)
 description: La mise en réseau SDN (Software Defined Networking) fournit une méthode pour configurer et gérer les périphériques réseau physiques et virtuels tels que les routeurs, les commutateurs et les passerelles de votre centre de données de manière centralisée. Utilisez cette rubrique pour en savoir plus sur les technologies SDN (Software Defined Networking) fournies dans Windows Server, System Center et Microsoft Azure.
-manager: dougkim
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9a1ea73c-20cd-42c5-95ad-b003b9cc6d64
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/09/2018
-ms.openlocfilehash: a1283c6afcebe7b6abc12f9847865d6305bd3f2c
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 355375b17132a46f070d5ef34cd6ea02a36868e0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317276"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854332"
 ---
 # <a name="sdn-in-windows-server-overview"></a>Vue d'ensemble du SDN dans Windows Server
 

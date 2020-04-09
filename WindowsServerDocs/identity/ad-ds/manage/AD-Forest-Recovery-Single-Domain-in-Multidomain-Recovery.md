@@ -1,6 +1,5 @@
 ---
 title: Récupération de forêt Active Directory-récupération d’un domaine unique dans une forêt à plusieurs domaines
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 267541be-2ea7-4af6-ab34-8b5a3fedee2d
 ms.technology: identity-adds
-ms.openlocfilehash: 2582ffacb169b59692c0510469131b58be09d5f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13153358f50302de722109bfe101911e3bac4708
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368934"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823442"
 ---
 # <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>Récupération de forêt Active Directory-récupération d’un domaine unique dans une forêt à plusieurs domaines
 
->S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+>S’applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
 Il peut arriver qu’il soit nécessaire de récupérer un seul domaine au sein d’une forêt comportant plusieurs domaines, plutôt qu’une récupération complète de la forêt. Cette rubrique traite des considérations relatives à la récupération d’un domaine unique et aux stratégies possibles pour la récupération.  
   

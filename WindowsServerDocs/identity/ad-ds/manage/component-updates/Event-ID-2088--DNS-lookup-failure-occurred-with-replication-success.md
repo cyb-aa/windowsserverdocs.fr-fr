@@ -1,7 +1,6 @@
 ---
 ms.assetid: 0fd7b6aa-3e50-45a3-a3a6-56982844363e
 title: ID d’événement 2088-échec de la recherche DNS avec succès de la réplication
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d51cbcc93a8decbcb72a1e91854a09345507511d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f84fd7be45995e9e0b318b42c8b4152af244a9da
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368908"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823052"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>ID d’événement 2088 : Une défaillance de la recherche DNS s’est produite avec la réplication
 
@@ -54,7 +53,7 @@ Chemin du Registre : client RPC HKLM\System\CurrentControlSet\Services\NTDS\Dia
 
 Action de l’utilisateur : 
 
-1) Si le contrôleur de domaine source n’est plus opérationnel ou que son système d’exploitation a été réinstallé avec un autre nom d’ordinateur ou GUID d’objet NTDSDSA, supprimez les métadonnées du contrôleur de domaine source avec Ntdsutil. exe, en suivant les étapes décrites dans l’article MSKB 216498. 
+1) Si le contrôleur de domaine source n’est plus opérationnel ou que son système d’exploitation a été réinstallé avec un autre nom d’ordinateur ou GUID d’objet NTDSDSA, supprimez les métadonnées du contrôleur de domaine source avec Ntdsutil. exe, en suivant les étapes décrites dans l’article 216498 de MSKB. 
 
 2) Confirmez que le contrôleur de domaine source exécute Active Directory et qu’il est accessible sur le réseau en tapant « net view \\&lt;nom du contrôleur de domaine source&gt;» ou « ping &lt;nom du contrôleur de domaine source&gt;». 
 

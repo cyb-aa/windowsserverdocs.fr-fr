@@ -1,7 +1,6 @@
 ---
 ms.assetid: f775cbda-a75d-439d-9aa7-82f3bc8dc932
 title: Batterie de serveurs de fédération utilisant la base de données interne Windows
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b0a84940018a0e71aaa1b47c7af3aba5966fe0ae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 926848f9d39a4e00cb30a6bbde5aecee0ef31043
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408059"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853082"
 ---
 # <a name="federation-server-farm-using-wid"></a>Batterie de serveurs de fédération utilisant la base de données interne Windows
 

@@ -1,23 +1,19 @@
 ---
 title: Gérer les VPN dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc2b264a-b9a8-4114-9f7b-8604f77096e5
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a00a56acfe5c89c5905bf0fbff31f7fb187b72a4
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 38c0b0e7bfc29f0b7717cd18a103ae068bbb259b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311014"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852692"
 ---
 # <a name="manage-vpn-in-windows-server-essentials"></a>Gérer les VPN dans Windows Server Essentials
 

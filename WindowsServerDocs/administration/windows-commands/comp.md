@@ -1,28 +1,22 @@
 ---
 title: comp
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique relative aux commandes Windows pour COMP, qui compare le contenu de deux fichiers ou ensembles de fichiers octet par octet.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 40319d23-704d-4da1-be93-8259547275d0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84604cea36b0b4c9543a7169002551c0da4f0493
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f61743b55f38cfdebb17506368609895f48b4f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379257"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847452"
 ---
 # <a name="comp"></a>comp
-
-
 
 Compare le contenu de deux fichiers ou ensembles de fichiers octet par octet. S’il est utilisé sans paramètres, **COMP** vous invite à entrer les fichiers à comparer.
 
@@ -34,7 +28,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -91,7 +85,7 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
     Pour comparer d’autres fichiers, appuyez sur o. La commande **COMP** vous invite à entrer les emplacements et les noms des nouveaux fichiers. Pour arrêter les comparaisons, appuyez sur N. Lorsque vous appuyez sur o, **COMP** vous invite à indiquer les options de ligne de commande à utiliser. Si vous ne spécifiez pas d’options de ligne de commande, **COMP** utilise celles que vous avez spécifiées précédemment.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour comparer le contenu du répertoire C:\Reports avec le répertoire de sauvegarde \\\\Sales\Backup\April, tapez :
 ```
@@ -102,6 +96,6 @@ Pour comparer les dix premières lignes des fichiers texte dans le répertoire \
 comp \invoice\*.txt \invoice\backup\*.txt /n=10 /d
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

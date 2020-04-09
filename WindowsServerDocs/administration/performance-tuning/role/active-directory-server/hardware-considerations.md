@@ -4,15 +4,15 @@ description: Considérations matérielles dans le réglage des performances Acti
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
+ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e9b121036d33bc36cabb92ca682407bc2382fca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c40faca06668adf6fd29a5e4e753e5790b8104b7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355099"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851912"
 ---
 # <a name="hardware-considerations-in-adds-performance-tuning"></a>Considérations matérielles dans ajoute l’optimisation des performances 
 
@@ -27,7 +27,7 @@ Active Directory met en cache la plus grande partie de la base de données que l
 
     -   Pour connaître les limitations des plateformes héritées, consultez [utilisation de la mémoire par le processus Lsass. exe sur les contrôleurs de domaine qui exécutent le serveur Windows server 2003 ou windows 2000](https://support.microsoft.com/kb/308356).
 
-    -   Utilisez le compteur\\de performances durée de vie moyenne du cache en attente &gt; à long terme de la mémoire (s) 30 minutes.
+    -   Utilisez le compteur de performances durée de vie moyenne du cache en attente\\à long terme &gt; 30 minutes.
 
 -   Placez le système d’exploitation, les journaux et la base de données sur des volumes distincts. Si la totalité ou la majorité de la DIT peut être mise en cache, une fois le cache chauffé et dans un état stable, cela devient moins pertinent et offre un peu plus de flexibilité dans la disposition du stockage. Dans les scénarios où la DIT entière ne peut pas être mise en cache, l’importance du fractionnement du système d’exploitation, des journaux et de la base de données sur des volumes distincts devient plus importante.
 
@@ -41,13 +41,13 @@ Active Directory met en cache la plus grande partie de la base de données que l
 
 -   Examinez les performances du sous-système de disque individuellement pour chaque volume. La plupart des Active Directory les scénarios sont principalement basés sur la lecture, donc les statistiques sur le volume qui héberge la DIT sont les plus importantes à inspecter. Toutefois, n’oubliez pas de surveiller le reste des lecteurs, y compris le système d’exploitation et les lecteurs de fichiers journaux. Pour déterminer si le contrôleur de domaine est correctement configuré pour éviter le goulot d’étranglement au niveau des performances, consultez la section sur les sous-systèmes de stockage pour obtenir des recommandations sur le stockage des normes. Dans de nombreux environnements, la philosophie consiste à s’assurer qu’il y a suffisamment d’espace pour supporter les pics ou les pics de charge. Ces seuils sont des seuils d’avertissement où la salle de la tête pour gérer les surtensions ou les pics de charge est limitée et les réactivités du client sont dégradées. En bref, le dépassement de ces seuils n’est pas défectueux à long terme (5 à 15 minutes, plusieurs fois par jour). Toutefois, un système qui s’exécute avec ces types de statistiques n’est pas entièrement Caching et peut être plus ou moins sollicité et doit être examiné.
 
-    -   Base de données&gt; d’e/s base de\\données = = instances (LSASS/ntdsa) &lt; latence moyenne des lectures d’e/s 15ms
+    -   Base de données = = instances de&gt; (LSASS/NTDSA)\\latence moyenne des lectures de base de données e/s &lt; 15ms
 
-    -   Base de données&gt; = = instances (LSASS/\\ntdsa) lectures d’e/s &lt; de base de données/s 10
+    -   Base de données = =&gt; instances (LSASS/NTDSA)\\lectures d’e/s de base de données/s &lt; 10
 
-    -   Base de données&gt; = = instances (LSASS/\\ntdsa) latence moyenne des &lt; écritures de journal des e/s (10 ms)
+    -   Base de données = = instances de&gt; (LSASS/NTDSA)\\latence moyenne des écritures de journal des e/s &lt; 10 ms
 
-    -   Base de données&gt; = = instances (LSASS/\\ntdsa) écritures du journal des e/s/s : informations uniquement.
+    -   Base de données = =&gt; instances (LSASS/NTDSA)\\écritures du journal des e/s/s : informations uniquement.
 
         Pour maintenir la cohérence des données, toutes les modifications doivent être écrites dans le journal. Il n’y a pas de bon ou mauvais nombre ici, il s’agit uniquement d’une mesure de la quantité de stockage prise en charge.
 
@@ -55,13 +55,13 @@ Active Directory met en cache la plus grande partie de la base de données que l
 
 ## <a name="dont-over-tax-the-processors"></a>Ne surchargez pas les processeurs
 
-Les processeurs qui n’ont pas suffisamment de cycles libres peuvent entraîner des temps d’attente importants sur l’obtention des threads sur le processeur pour l’exécution. Dans de nombreux environnements, la philosophie consiste à s’assurer qu’il y a suffisamment d’espace pour gérer les pics ou les pics de charge afin de réduire l’impact sur la réactivité du client dans ces scénarios. En bref, le dépassement des seuils ci-dessous n’est pas un problème à long terme (5 à 15 minutes, plusieurs fois par jour). Toutefois, un système qui s’exécute avec ces types de statistiques ne fournit pas de salle de tête pour gérer les charges anormales et peut facilement être placé dans un sur des s imposés. cenario. Les dépenses de systèmes qui dépassent les seuils doivent être étudiées pour réduire les charges du processeur.
+Les processeurs qui n’ont pas suffisamment de cycles libres peuvent entraîner des temps d’attente importants sur l’obtention des threads sur le processeur pour l’exécution. Dans de nombreux environnements, la philosophie consiste à s’assurer qu’il y a suffisamment d’espace pour gérer les pics ou les pics de charge afin de réduire l’impact sur la réactivité du client dans ces scénarios. En bref, le dépassement des seuils ci-dessous n’est pas un problème à long terme (5 à 15 minutes, plusieurs fois par jour). Toutefois, un système exécuté avec ces types de statistiques ne fournit pas de salle de tête pour gérer les charges anormales et peut facilement être placé dans un scénario de plus en moins taxé. Les dépenses de systèmes qui dépassent les seuils doivent être étudiées pour réduire les charges du processeur.
 
 -   Pour plus d’informations sur la sélection d’un processeur, consultez [réglage des performances pour le matériel du serveur](../../hardware/index.md).
 
 -   Ajouter du matériel, optimiser la charge, diriger les clients ailleurs ou supprimer la charge de l’environnement afin de réduire la charge de l’UC.
 
--   Utilisez les informations du processeur (\_Total) \\% utilisation du processeur &lt; 60% compteur de performances.
+-   Utilisez le compteur de performance informations sur le processeur (total\_)\\% utilisation du processeur &lt; 60%.
 
 ## <a name="avoid-overloading-the-network-adapter"></a>Éviter de surcharger la carte réseau
 
@@ -69,7 +69,7 @@ Tout comme avec les processeurs, une utilisation excessive de la carte réseau e
 
 -   Pour plus d’informations sur la façon de régler le sous-système réseau, consultez [réglage des performances pour les sous-systèmes réseau](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md).
 
--   Utilisez le compteur de performances\*compare l’interface réseau ()\\octets envoyés/\*s\\avec l’interface réseau () Current bandwidth. Le ratio doit être inférieur à 60% utilisé.
+-   Utilisez la l’interface réseau de comparaison (\*)\\octets envoyés/s avec l’interface réseau (\*)\\compteur de performances bande passante actuelle. Le ratio doit être inférieur à 60% utilisé.
 
 ## <a name="see-also"></a>Voir aussi
 - [Réglage des performances Active Directory serveurs](index.md)

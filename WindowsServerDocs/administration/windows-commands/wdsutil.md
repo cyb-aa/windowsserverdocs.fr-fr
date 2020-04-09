@@ -1,32 +1,28 @@
 ---
 title: wdsutil
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour WDSUTIL, qui est un utilitaire de ligne de commande utilisé pour gérer votre serveur des services de déploiement Windows.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a1965a0-8677-40cc-9495-30ae806808d1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0072008c4af32f05c9924cf85c0559cd924cff7c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f57411c1b000355940772003c7ac5343c82838cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362201"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829437"
 ---
 # <a name="wdsutil"></a>wdsutil
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 WDSUTIL est un utilitaire de ligne de commande utilisé pour gérer votre serveur des services de déploiement Windows. Pour exécuter ces commandes, cliquez sur **Démarrer**, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.  
-## <a name="commands"></a>Commandes  
-|Command|Description|  
+## <a name="commands"></a>Commands  
+|Commande|Description|  
 |------|--------|  
 |[Utilisation de la commande Add](using-the-add-command.md)|Ajoute des objets ou prédéfinis des ordinateurs.|  
 |[Utilisation de la commande Approve-AutoaddDevices](using-the-approve-autoadddevices-command.md)|Approuve les ordinateurs qui sont en attente de l’approbation de l’administrateur.|  

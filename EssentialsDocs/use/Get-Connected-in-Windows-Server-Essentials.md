@@ -1,23 +1,19 @@
 ---
 title: Connexion dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 05/07/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 149a5d34-43b7-4b9e-99e7-9f2294ab9ddb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 14acbff8b538224546884e5bb51c40a22b8849b4
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7591efcc896dd382afd50cf0e360e28e0cb08f3e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318553"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852152"
 ---
 # <a name="get-connected-in-windows-server-essentials"></a>Connexion dans Windows Server Essentials
 
@@ -448,7 +444,7 @@ ms.locfileid: "80318553"
     > [!NOTE]
     >  Lorsque vous vous connectez à un ordinateur qui exécute Windows 8 pour la première fois à l’aide de votre compte réseau, une fois la connexion au serveur effectuée, des instructions relatives à la migration de fichiers et d’applications à partir de l’ancien compte d’utilisateur s’affichent. Suivez les instructions à la page **Comment effectuer une migration des fichiers et des applications depuis mon ancien compte utilisateur ?** pour migrer tous les fichiers et applications vers le compte utilisateur réseau.  
 
-9. Une fois que l’ordinateur est correctement connecté au serveur, les raccourcis vers le connecteur barre et le tableau de bord du serveur s’affichent dans le menu Démarrer, qui peut être utilisé comme suit (si votre ordinateur exécute Windows 8, Windows 8.1 ou Windows 10, le tableau de bord et le connecteur Barre sera disponible à partir de l’écran d’accueil de l’ordinateur) :  
+9. Une fois l’ordinateur connecté au serveur, les raccourcis vers le connecteur barre et le tableau de bord du serveur s’affichent dans le menu Démarrer, qui peut être utilisé comme suit (si votre ordinateur exécute Windows 8, Windows 8.1 ou Windows 10, le tableau de bord et le connecteur barre seront disponibles à partir de l’écran d’accueil de l’ordinateur) :  
 
     -   Si votre ordinateur exécute Windows 8, Windows 8.1 ou Windows 10, le tableau de bord et le connecteur barre peuvent faire l’objet d’une recherche en tant qu’application.  
 

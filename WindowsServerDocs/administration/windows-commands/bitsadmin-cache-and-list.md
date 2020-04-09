@@ -1,44 +1,39 @@
 ---
 title: cache et liste Bitsadmin
-description: La rubrique commandes Windows pour **Bitsadmin cache et List** -répertorie toutes les entrées de cache.
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour le **cache et la liste Bitsadmin**, qui répertorie toutes les entrées de cache.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9b4d10a6-42f8-487c-9f0b-65bc15682b7e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dca3d4f4d2c71c2c7e2065f144d7b1e8e5a600a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8400c0111f88f9f20a0766bbeb682db76b9d1444
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381962"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850862"
 ---
 # <a name="bitsadmin-cache-and-list"></a>cache et liste Bitsadmin
-
-
 
 Répertorie toutes les entrées de cache.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-bitsadmin /Cache /List [/Verbose] 
+bitsadmin /cache /list [/verbose]
 ```
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 L’exemple suivant répertorie toutes les entrées de cache dans un format détaillé.
+
 ```
-C:\> bitsadmin /Cache /List /Verbose
+C:\> bitsadmin /cache /list /verbose
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

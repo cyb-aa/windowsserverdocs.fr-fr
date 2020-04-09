@@ -1,6 +1,5 @@
 ---
 title: Mise à niveau vers AD FS dans Windows Server 2016 avec SQL Server
-description: ''
 author: billmath
 manager: mtillman
 ms.date: 04/11/2018
@@ -9,12 +8,12 @@ ms.prod: windows-server
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: dd843724faf1c7a8101def84091484a5e7f7900f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e9488357eecb4a2093d6989e4ebfcc195ce68567
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408230"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854002"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>Mise à niveau vers AD FS dans Windows Server 2016 avec SQL Server
 
@@ -33,7 +32,7 @@ Un serveur Windows Server 2016 AD FS peut être ajouté à une batterie de serve
 
 -   Les administrateurs peuvent ajouter de nouveaux serveurs de Fédération Windows Server 2016 à une batterie de serveurs Windows Server 2012 R2 existante.  Par conséquent, la batterie de serveurs est en mode mixte et utilise le niveau de comportement de la batterie de serveurs Windows Server 2012 R2.  Pour garantir un comportement cohérent dans l’ensemble de la batterie de serveurs, les nouvelles fonctionnalités de Windows Server 2016 ne peuvent pas être configurées ou utilisées dans ce mode.  
 
--   Une fois que tous les serveurs de Fédération Windows Server 2012 R2 ont été supprimés de la batterie en mode mixte et, dans le cas d’une batterie de serveurs WID, l’un des nouveaux serveurs de Fédération Windows Servers 2016 a été promu au rôle de nœud principal, l’administrateur peut alors déclencher l’FBL à partir de Win Windows Server 2012 R2 vers Windows Server 2016.  Par conséquent, les nouvelles fonctionnalités de AD FS Windows Server 2016 peuvent ensuite être configurées et utilisées.  
+-   Une fois que tous les serveurs de Fédération Windows Server 2012 R2 ont été supprimés de la batterie en mode mixte et, dans le cas d’une batterie de serveurs WID, l’un des nouveaux serveurs de Fédération Windows Servers 2016 a été promu au rôle de nœud principal, l’administrateur peut alors déclencher l’FBL à partir de Windows Server 2012 R2 vers Windows Server 2016.  Par conséquent, les nouvelles fonctionnalités de AD FS Windows Server 2016 peuvent ensuite être configurées et utilisées.  
 
 -   En raison de la fonctionnalité de batterie de serveurs mixte, AD FS les organisations Windows Server 2012 R2 cherchant à effectuer une mise à niveau vers Windows Server 2016 n’auront pas besoin de déployer une batterie de serveurs entièrement nouvelle, d’exporter et d’importer des données de configuration.  Au lieu de cela, ils peuvent ajouter des nœuds Windows Server 2016 à une batterie de serveurs existante alors qu’il est en ligne et ne subir que les temps d’arrêt relativement brefs inhérents à l’augmentation de FBL.  
 
@@ -73,7 +72,7 @@ Le diagramme architectural suivant montre l’installation qui a été utilisée
 
 1.  Sur le serveur Windows Server 2012 R2 AD FS dans Gestionnaire de serveur Utilisez **supprimer des rôles et des fonctionnalités** sous **gérer**.
 ![supprimer le serveur](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove1.png)
-2.  Dans l'écran **Avant de commencer** , cliquez sur **Suivant**.
+2.  Dans l'écran **Avant de commencer**, cliquez sur **Suivant**.
 3.  Dans l’écran **sélection du serveur** , cliquez sur **suivant**.
 4.  Dans l’écran **rôles de serveurs** , désactivez la case à cocher en regard de **services ADFS** , puis cliquez sur **suivant**.
 ![supprimer le serveur](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove2.png)

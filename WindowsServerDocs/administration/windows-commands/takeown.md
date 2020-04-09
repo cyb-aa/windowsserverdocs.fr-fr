@@ -1,24 +1,20 @@
 ---
 title: takeown
 description: Apprenez à obtenir l’accès à un fichier en devenant le propriétaire du fichier.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0683cd65-a6db-4cab-962b-45a0ff61f43c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08804db36357c3d1d1efa7243b338bd85d5c48e2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: af6952b8c4c14a717f7904ee0b77bf6ec9f5030e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383761"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80833443"
 ---
 # <a name="takeown"></a>takeown
 
@@ -32,7 +28,7 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 takeown [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <File name> [/a] [/r [/d {Y|N}]]
 ```
 
-### <a name="parameters"></a>Paramètres
+#### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -52,13 +48,13 @@ takeown [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <File n
 -   Modèles mixtes utilisant ( **?** et **&#42;** ) ne sont pas pris en charge par la commande **takeown** .
 -   Après avoir supprimé le verrou avec **takeown**, vous devrez peut-être utiliser l’Explorateur Windows ou la commande **cacls** pour vous accorder des autorisations d’accès complètes aux fichiers et aux répertoires avant de pouvoir les supprimer. Pour plus d’informations sur **cacls**, consultez « Références supplémentaires » à la fin de cette rubrique.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 
 Pour prendre possession d’un fichier nommé Lostfile, tapez :
 ```
 takeown /f lostfile
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: e1f2ce2d-b24f-4ccd-8add-9e69419fc6c1
 title: Importer un certificat d'authentification serveur sur le site web par défaut
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: b1c602d0cdfa562469419de223f5691ec2ff4527
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f02358167b024247f934a46218028575e393ba9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359564"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855402"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importer un certificat d'authentification serveur sur le site web par défaut
 
@@ -27,9 +26,9 @@ Si vous configurez une batterie de serveurs, assurez-vous d'effectuer exactement
 > [!NOTE]  
 > Le\-du composant logiciel enfichable Gestion de AD FS dans fait référence aux certificats d’authentification serveur pour les serveurs de Fédération en tant que certificats de communication de service.  
   
-Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs** ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>Pour importer un certificat d'authentification serveur sur le site web par défaut  
+### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>Pour importer un certificat d’authentification serveur sur le site Web par défaut  
   
 1.  Dans l’écran d' **Accueil** , tapez**Internet Information Services \(IIS\) Manager**, puis appuyez sur entrée.  
   
@@ -39,7 +38,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
   
 4.  Dans le volet **Actions**, cliquez sur **Importer**.  
   
-5.  Dans la boîte de dialogue **Importer un certificat** , cliquez sur **...** .  
+5.  Dans la boîte de dialogue **Importer un certificat** , cliquez sur **...** de l'ordinateur.  
   
 6.  Recherchez le fichier de certificat pfx, mettez-le en surbrillance, puis cliquez sur **Ouvrir**.  
   

@@ -1,24 +1,20 @@
 ---
 title: pnputil
 description: Découvrez comment gérer le magasin de pilotes avec l’utilitaire PnPutil. exe.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fab686b8-09d3-4f6c-afa2-630e6036f44c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: f20c60bfd9ae33497dd356c7797b9fb1d2b51d18
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 134e6ce4b1fc44450047de3287b7daac67da4b6a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372291"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837512"
 ---
 # <a name="pnputil"></a>pnputil
 
@@ -30,7 +26,7 @@ PnPUtil. exe est un utilitaire de ligne de commande que vous pouvez utiliser pou
 pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -45,7 +41,7 @@ pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 ## <a name="examples"></a>Exemples
 
 -   PnPUtil. exe-a a:\usbcam\USBCAM. INF ajoute le fichier INF spécifié par USBCAM. FICHIER
--   PnPUtil. exe-a c:\ drivers\*.inf ajoute tous les fichiers INF dans c:\drivers\
+-   PnPUtil. exe-a c:\drivers\*. inf ajoute tous les fichiers INF dans c:\drivers\
 -   PnPUtil. exe-i-a a:\usbcam\USBCAM. INF ajoute et installe le pilote spécifié.
 -   PnPUtil. exe – e énumère tous les pilotes tiers.
 -   PnPUtil. exe-d Oem0. inf supprime le spécifié.
@@ -53,6 +49,6 @@ pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Popd](popd.md)

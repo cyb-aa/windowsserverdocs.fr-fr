@@ -1,28 +1,22 @@
 ---
 title: del
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: La rubrique commandes Windows pour del, qui supprime un ou plusieurs fichiers.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 346eede2-2085-44f5-9936-6877b5d5a833
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e569443a56646862c7a2c9fbd2c599cede941a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7069ee50a810296d31e1a034b24955299918020a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378702"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846662"
 ---
 # <a name="del"></a>del
-
-
 
 Supprime un ou plusieurs fichiers. Cette commande est identique à la commande **Erase** .
 
@@ -35,7 +29,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -51,11 +45,12 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 > [!CAUTION]
 > Si vous utilisez **del** pour supprimer un fichier de votre disque, vous ne pouvez pas le récupérer.
-> -   Si vous utilisez **/p**, **del** affiche le nom d’un fichier et envoie le message suivant :
+
+-   Si vous utilisez **/p**, **del** affiche le nom d’un fichier et envoie le message suivant :
 
     `FileName, Delete (Y/N)?`
 
-    To confirm the deletion, press Y. To cancel the deletion and display the next file name (that is, if you specified a group of files), press N. To stop the **del** command, press CTRL+C.
+    Pour confirmer la suppression, appuyez sur o. Pour annuler la suppression et afficher le nom de fichier suivant (autrement dit, si vous avez spécifié un groupe de fichiers), appuyez sur N. Pour arrêter la commande **del** , appuyez sur Ctrl + C.
 - Si vous désactivez les extensions de commande, **/s** affiche les noms de tous les fichiers qui n’ont pas été trouvés au lieu d’afficher les noms des fichiers en cours de suppression (autrement dit, le comportement est inversé).
 - Si vous spécifiez un dossier dans *noms*, tous les fichiers du dossier sont supprimés. Par exemple, la commande suivante supprime tous les fichiers dans le dossier \work :  
   ```
@@ -73,9 +68,10 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 > [!NOTE]
 > Avant d’utiliser des caractères génériques avec la commande **del** , utilisez les mêmes caractères génériques avec la commande **dir** pour répertorier tous les fichiers qui seront supprimés.
-> -   La commande **del** , avec des paramètres différents, est disponible à partir de la console de récupération.
 
-## <a name="BKMK_examples"></a>Illustre
+-   La commande **del** , avec des paramètres différents, est disponible à partir de la console de récupération.
+
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour supprimer tous les fichiers d’un dossier nommé test sur le lecteur C, tapez l’un des éléments suivants :
 ```
@@ -91,6 +87,6 @@ Pour supprimer tous les fichiers en lecture seule dans le répertoire actif, tap
 del /a:r *.*
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

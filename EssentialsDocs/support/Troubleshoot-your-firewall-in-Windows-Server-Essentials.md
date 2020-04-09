@@ -1,23 +1,19 @@
 ---
 title: Résoudre les problèmes liés à votre pare-feu dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 51d94b67-8b9b-4159-80dd-f652d73a43cb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 15a2361284d041898d9ad7240643fdb55aa5b866
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 1ff27915f3d6c92416ed22b7e143bdc1cf3b385f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318584"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853182"
 ---
 # <a name="troubleshoot-your-firewall-in-windows-server-essentials"></a>Résoudre les problèmes liés à votre pare-feu dans Windows Server Essentials
  

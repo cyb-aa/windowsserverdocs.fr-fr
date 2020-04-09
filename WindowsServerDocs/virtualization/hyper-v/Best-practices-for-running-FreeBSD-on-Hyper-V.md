@@ -2,25 +2,23 @@
 title: Meilleures pratiques pour exécuter FreeBSD sur Hyper-V
 description: Fournit des recommandations pour l’exécution de FreeBSD sur des machines virtuelles
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0c66f1c8-2606-43a3-b4cc-166acaaf2d2a
 author: shirgall
 ms.author: kathydav
 ms.date: 01/09/2017
-ms.openlocfilehash: 1d284b38e1bdb642aa40ecbb8e82caa7712f7aad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18f59020ed4878e9a54150dcda18bca3da1dd614
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365630"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853282"
 ---
 # <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Meilleures pratiques pour exécuter FreeBSD sur Hyper-V
 
->S'applique à : Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
+>S’applique à : Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
 Cette rubrique contient une liste de recommandations pour l’exécution de FreeBSD en tant que système d’exploitation invité sur un ordinateur virtuel Hyper-V.
 
@@ -62,7 +60,7 @@ Au démarrage, les nœuds d’appareil sont créés à mesure que de nouveaux p�
    # exit
    ```
 
-   Vous trouverez des informations supplémentaires sur les étiquettes GEOM à l’adresse suivante : [Étiquetage des périphériques de disque](https://www.freebsd.org/doc/handbook/geom-glabel.html).
+   Vous trouverez des informations supplémentaires sur les étiquettes GEOM à l’adresse suivante : [étiquetage des périphériques de disque](https://www.freebsd.org/doc/handbook/geom-glabel.html).
 
 3. Le système se poursuit avec le démarrage multi-utilisateur. Une fois le démarrage terminé, modifiez/etc/fstab et remplacez les noms des appareils conventionnels par leurs étiquettes respectives. Le/etc/fstab final se présente comme suit :
 

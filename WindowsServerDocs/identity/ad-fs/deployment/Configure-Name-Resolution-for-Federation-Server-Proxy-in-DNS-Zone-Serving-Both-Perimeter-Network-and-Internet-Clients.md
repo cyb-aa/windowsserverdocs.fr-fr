@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1a6740e6-5b6d-41f8-9ec4-32cdbee3e1bb
 title: Configurer la résolution de noms pour un serveur proxy de fédération dans une zone DNS desservant le réseau de périmètre et les clients Internet
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 118c03ada32d3cd5b198ecd238078984a38df0db
-ms.sourcegitcommit: 8fbd2d877612a9feb02d7d91ed0372d7cd441d5c
+ms.openlocfilehash: 487ba9d90043ada0d401d7e5a9d02872e1872b7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71359832"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854932"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-both-the-perimeter-network-and-internet-clients"></a>Configurer la résolution de noms pour un serveur proxy de fédération dans une zone DNS desservant le réseau de périmètre et les clients Internet
 
@@ -52,7 +51,7 @@ Pour mener à bien cette procédure, il faut appartenir au groupe **Administrate
 Pour que les demandes des clients Internet puissent être traitées correctement par le serveur proxy de Fédération et atteindre le serveur de Fédération une fois qu’elles ont été résolues par la zone DNS Internet, vous devez créer un ordinateur hôte \(un\) enregistrement de ressource dans la zone DNS du périmètre. Cet enregistrement de ressource résout le nom d’hôte du serveur de Fédération de compte \(par exemple, FS. fabrikam.com\) à l’adresse IP du serveur de Fédération de compte \(par exemple, 192.168.1.4\) dans le réseau d’entreprise.  
   
 > [!NOTE]  
-> Il est supposé que vous utilisez un serveur DNS exécutant Windows 2000 Server, Windows Server 2003, Windows Server 2008 ou Windows Server® 2012 avec le service serveur DNS pour contrôler la zone DNS du périmètre.  
+> Il est supposé que vous utilisez un serveur DNS exécutant Windows 2000 Server, Windows Server 2003, Windows Server 2008 ou Windows Server&reg; 2012 avec le service serveur DNS pour contrôler la zone DNS du périmètre.  
   
 Pour mener à bien cette procédure, il faut appartenir au groupe **Administrateurs** ou à un groupe équivalent.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -62,7 +61,7 @@ Pour mener à bien cette procédure, il faut appartenir au groupe **Administrate
   
 2.  Dans l’arborescence de la console, cliquez avec le bouton droit\-sur la zone de recherche directe applicable, puis cliquez sur **nouvel hôte \(A ou AAAA\)** .  
   
-3.  Dans **nom**, tapez uniquement le nom d’ordinateur du serveur de Fédération. Par exemple, pour le FQDN fs.fabrikam.com, tapez **fs**.  
+3.  Dans **nom**, tapez uniquement le nom d’ordinateur du serveur de Fédération. Par exemple, pour le nom de domaine complet fs.fabrikam.com, tapez **fs**.  
   
 4.  Dans la zone de texte **adresse IP** , tapez l’adresse IP du serveur de Fédération dans le réseau d’entreprise, par exemple 192.168.1.4.  
   

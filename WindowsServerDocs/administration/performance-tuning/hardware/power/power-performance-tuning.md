@@ -4,15 +4,15 @@ description: Réglage de la gestion de l’alimentation du processeur (PPM) pour
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f1d5e2f3f17c40f262b8cea98c04e3347790ba8
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 1457328a151c87d2d4cb41c4ee91b4759f4fb8e2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001824"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851992"
 ---
 # <a name="power-and-performance-tuning"></a>Réglage de l’alimentation et des performances
 
@@ -100,7 +100,7 @@ Turbo est activé pour les modes de gestion de l’alimentation hautes performan
 > [!Note]
 > Le registre EPB est uniquement pris en charge dans les processeurs Intel Westmere et versions ultérieures.
 
-Pour les processeurs Intel Nehalem et AMD, Turbo est désactivé par défaut sur les plateformes basées sur l’État P. Toutefois, si un système prend en charge le contrôle de performance du processeur collaboratif (CPPC), qui est un nouveau mode de communication des performances entre le système d’exploitation et le matériel (défini dans ACPI 5,0), Turbo peut être engagé si le système d’exploitation Windows le système demande dynamiquement le matériel pour fournir les niveaux de performances les plus élevés possibles.
+Pour les processeurs Intel Nehalem et AMD, Turbo est désactivé par défaut sur les plateformes basées sur l’État P. Toutefois, si un système prend en charge le contrôle de performance du processeur collaboratif (CPPC), qui est un nouveau mode de communication des performances entre le système d’exploitation et le matériel (défini dans ACPI 5,0), Turbo peut être engagé si le système d’exploitation Windows demande le matériel pour fournir les niveaux de performances les plus élevés possibles.
 
 Pour activer ou désactiver la fonctionnalité Turbo Boost, le paramètre du mode de renforcement des performances du processeur doit être configuré par l’administrateur ou par les paramètres de paramètre par défaut pour le mode de gestion de l’alimentation choisi. Le mode d’amélioration des performances du processeur a cinq valeurs autorisées, comme indiqué dans le tableau 5.
 
@@ -112,11 +112,11 @@ Dans Windows Server 2016, la valeur par défaut du mode Boost est 3.
 
 | **Nom** | **Comportement basé sur l’État P** | **Comportement de CPPC** |
 |--------------------------|------------------------|-------------------|
-| 0 (désactivé) | Désactivée | Désactivée |
-| 1 (activé) | Enabled | Activation efficace |
-| 2 (agressif) | Enabled | Façon |
+| 0 (désactivé) | Désactivé | Désactivé |
+| 1 (activé) | Activé | Activation efficace |
+| 2 (agressif) | Activé | Aggressive |
 | 3 (activé efficacement) | Efficace | Activation efficace |
-| 4 (efficacité agressive) | Efficace | Façon |
+| 4 (efficacité agressive) | Efficace | Aggressive |
 
  
 Les commandes suivantes activent le mode d’amélioration des performances du processeur sur le mode de gestion de l’alimentation actuel (spécifiez la stratégie à l’aide d’un alias GUID) :
@@ -191,7 +191,7 @@ Pour la plupart des serveurs, le comportement de parking central par défaut fou
 
 Si votre serveur a des exigences spécifiques en matière de parking, vous pouvez contrôler le nombre de cœurs disponibles pour le stationnement à l’aide du paramètre **Core performance Core maximum cœurs** ou du paramètre Core **performance Core Park minimum cores** dans Windows Server 2016.
 
-Un scénario dans lequel le parking central n’est pas toujours optimal est lorsqu’il y a un ou plusieurs threads actifs affinité à un sous-ensemble non négligeable d’UC dans un nœud NUMA (autrement dit, plus d’un processeur, mais inférieur à l’ensemble des processeurs du nœud). Lorsque l’algorithme de parking principal choisit les cœurs à déparcer (en supposant une augmentation de l’intensité de la charge de travail), il n’est pas toujours possible de choisir les cœurs au sein du sous-ensemble affinité actif (ou sous-ensembles) à désinstaller, ce qui peut finir par le désinstallation des cœurs qui ne seront pas réellement utilisé.
+Un scénario dans lequel le parking central n’est pas toujours optimal est lorsqu’il y a un ou plusieurs threads actifs affinité à un sous-ensemble non négligeable d’UC dans un nœud NUMA (autrement dit, plus d’un processeur, mais inférieur à l’ensemble des processeurs du nœud). Lorsque l’algorithme de parking principal choisit les cœurs à déparcer (en supposant qu’une augmentation de l’intensité de la charge de travail se produit), il ne peut pas toujours sélectionner les cœurs au sein du sous-ensemble affinité actif (ou sous-ensembles) pour le désinstaller, ce qui peut finir par désinstaller les cœurs qui ne seront pas réellement utilisés.
 
 Les valeurs de ces paramètres sont des pourcentages compris entre 0 et 100. Le paramètre **nombre maximal** de cœurs de la performance du processeur gère le pourcentage maximal de cœurs pouvant être désimmobilisés (disponibles pour l’exécution des threads) à tout moment, tandis que le paramètre **performances du processeur cœurs du parking minimum** contrôle le pourcentage minimal de cœurs pouvant être désimmobilisés. Pour désactiver le parking central, définissez le paramètre **Core performance Core Park minimum cœurs** sur 100 pour cent à l’aide des commandes suivantes :
 
@@ -220,7 +220,7 @@ Powercfg -setacvalueindex scheme_current sub_processor DISTRIBUTEUTIL 0
 Powercfg -setactive scheme_current
 ```
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 - [Considérations relatives aux performances matérielles du serveur](../index.md)
 - [Considérations relatives à la puissance du matériel du serveur](../power.md)
 - [Réglage de la gestion de la puissance du processeur](processor-power-management-tuning.md)

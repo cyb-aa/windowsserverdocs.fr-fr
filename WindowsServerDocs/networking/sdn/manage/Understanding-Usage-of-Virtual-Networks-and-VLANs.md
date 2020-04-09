@@ -1,24 +1,20 @@
 ---
 title: Comprendre l’utilisation des réseaux virtuels et des réseaux locaux virtuels
 description: Dans cette rubrique, vous allez découvrir les réseaux virtuels de virtualisation de réseau Hyper-V et leurs différences par rapport aux réseaux locaux virtuels (VLAN). Avec la virtualisation de réseau Hyper-V, vous créez des réseaux virtuels de superposition, également appelés réseaux virtuels.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 84ac2458-3fcf-4c4f-acfe-6105443dd83f
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/26/2018
-ms.openlocfilehash: 1faf0112953146959ce2ec587c083c9ae9fed9c5
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 56e90966d38b8a138dd8781863a4eaad1db639fb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317611"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854482"
 ---
 # <a name="understand-the-usage-of-virtual-networks-and-vlans"></a>Comprendre l’utilisation des réseaux virtuels et des réseaux locaux virtuels
 

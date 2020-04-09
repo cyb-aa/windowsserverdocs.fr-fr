@@ -1,24 +1,20 @@
 ---
 title: sélectionner vdisk
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8808872a-3523-4205-a6c6-83fa738ee37a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1bfa6450d1704cde1e5ff2a50a8e3b61a30d0766
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 65e186413bebbf467cd4c2033d274badd1fbea80
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384188"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834742"
 ---
 # <a name="select-vdisk"></a>sélectionner vdisk
 
@@ -35,23 +31,23 @@ sélectionne le disque dur virtuel spécifié \(\) VHD et décale le focus vers 
 select vdisk file=<full path> [noerr]  
 ```  
   
-## <a name="parameters"></a>Paramètres  
+### <a name="parameters"></a>Paramètres  
   
 |Paramètre|Description|  
 |-------|--------|  
 |<full path> de\=de fichiers|Spécifie le chemin d’accès complet et le nom de fichier d’un fichier VHD existant.|  
 |noerr|Utilisé uniquement pour les scripts. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|  
   
-## <a name="BKMK_examples"></a>Illustre  
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre  
 Pour déplacer le focus sur le disque dur virtuel nommé test. vhd, tapez :  
   
 ```  
-select vdisk file="c:\test\test.vhd"  
+select vdisk file=c:\test\test.vhd  
 ```  
   
-#### <a name="additional-references"></a>Références supplémentaires  
+## <a name="additional-references"></a>Références supplémentaires  
   
--   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 -   [attacher vdisk](attach-vdisk.md)  
   

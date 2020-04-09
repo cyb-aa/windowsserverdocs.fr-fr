@@ -1,24 +1,21 @@
 ---
 title: Réglage des performances des cartes réseau
 description: Cette rubrique fait partie du Guide d’optimisation des performances du sous-système réseau pour Windows Server 2016.
-audience: Admin
-ms.custom:
-- CI ID 111485
-- CSSTroubleshoot
+audience: Admin - CI ID 111485 - CSSTroubleshoot
 ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: dcscontentpm
-ms.author: lizross
+ms.author: v-tea
 author: Teresa-Motiv
 ms.date: 12/23/2019
-ms.openlocfilehash: f802804d64b3047a2612b7f346de03aff61c30cd
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: dec88eb81227b62cd0a0ca90810b2598b8f9fd52
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316539"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854742"
 ---
 # <a name="performance-tuning-network-adapters"></a>Réglage des performances des cartes réseau
 
@@ -237,7 +234,7 @@ Vous pouvez définir le réglage automatique de la fenêtre de réception sur l�
 |Désactivé |Aucun facteur d’échelle disponible |Définissez la valeur par défaut de la fenêtre de réception TCP. |
 |Restricted (Restreint) |0x4 (facteur d’échelle de 4) |Définissez la taille de la fenêtre de réception TCP au-delà de sa valeur par défaut, mais Limitez cette croissance dans certains scénarios. |
 |Hautement restreint |0X2 (facteur d’échelle de 2) |Définissez la taille de la fenêtre de réception TCP au-delà de sa valeur par défaut, mais faites-le très prudentment. |
-|pratiqué |0xE (facteur d’échelle de 14) |Définissez la taille de la fenêtre de réception TCP pour s’adapter aux scénarios extrêmes. |
+|Pratiqué |0xE (facteur d’échelle de 14) |Définissez la taille de la fenêtre de réception TCP pour s’adapter aux scénarios extrêmes. |
 
 Si vous utilisez une application pour capturer des paquets réseau, l’application doit signaler les données qui ressemblent à ce qui suit pour les différents paramètres de niveau de réglage automatique de la fenêtre.
 

@@ -1,24 +1,20 @@
 ---
 title: Clustering invité dans un réseau virtuel
 description: Les machines virtuelles connectées à un réseau virtuel sont uniquement autorisées à utiliser les adresses IP affectées par le contrôleur de réseau pour communiquer sur le réseau.  Les technologies de clustering qui requièrent une adresse IP flottante, telles que le clustering de basculement Microsoft, nécessitent des étapes supplémentaires pour fonctionner correctement.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8e9e5c81-aa61-479e-abaf-64c5e95f90dc
 ms.author: grcusanz
-author: eross-msft
+author: AnirbanPaul
 ms.date: 08/26/2018
-ms.openlocfilehash: 200d53d856d4b37daffde0c6213ec4f5eb26773d
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 6889b58f5d49a4932ef8277b11e1002e85606f3f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317574"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854452"
 ---
 # <a name="guest-clustering-in-a-virtual-network"></a>Clustering invité dans un réseau virtuel
 
@@ -146,7 +142,7 @@ Vous pouvez utiliser les étapes suivantes pour configurer un cluster de bascule
    
    $ClusterNetworkName = "Cluster Network 1"
    $IPResourceName =  
-   $ILBIP = “192.168.2.100” 
+   $ILBIP = "192.168.2.100" 
 
    $nodes = @("DB1", "DB2")
    ```

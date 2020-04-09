@@ -4,15 +4,15 @@ description: Écriture de scripts pour les performances dans PowerShell
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: JasonSh
+ms.author: jasonsh
 author: lzybkr
 ms.date: 10/16/2017
-ms.openlocfilehash: 2898cf5ee965da77c9f6a3473e55c1cee6b53f2b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f22a4f1ba5c0f048e2aa01c744feb3b2b83007a0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71354979"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851922"
 ---
 # <a name="powershell-scripting-performance-considerations"></a>Considérations sur les performances des scripts PowerShell
 
@@ -43,7 +43,7 @@ En fonction du scénario, la redirection de fichiers introduit un peu de surchar
 $arrayList.Add($item) | Out-Null
 ```
 
-La canalisation vers `Out-Null` présente une surcharge importante par rapport aux alternatives.
+La canalisation vers `Out-Null` a une surcharge importante par rapport aux alternatives.
 Elle doit être évitée dans le code sensible aux performances.
 
 ```PowerShell
@@ -53,8 +53,8 @@ $null = . {
 }
 ```
 
-L’introduction d’un bloc de script et son appel (à l’aide de la source de points ou autrement) l’assignation du résultat à `$null` est une technique pratique pour supprimer la sortie d’un grand bloc de script.
-Cette technique s’exécute approximativement, ainsi que le canalisation vers `Out-Null`, et doit être évitée dans le script sensible aux performances.
+L’introduction d’un bloc de script et son appel (à l’aide de l’approvisionnement en points ou autrement), puis l’assignation du résultat à `$null` est une technique pratique pour supprimer la sortie d’un grand bloc de script.
+Cette technique s’exécute approximativement, de même que le canalisation à `Out-Null` et doit être évitée dans les scripts sensibles aux performances.
 La surcharge supplémentaire de cet exemple provient de la création et de l’appel d’un bloc de script qui était auparavant un script inline.
 
 
@@ -84,7 +84,7 @@ $results.AddRange((Do-SomethingElse))
 $results
 ```
 
-Si vous avez besoin d’un tableau, vous pouvez utiliser votre propre `ArrayList` et appeler simplement `ArrayList.ToArray` lorsque vous souhaitez le tableau.
+Si vous avez besoin d’un tableau, vous pouvez utiliser vos propres `ArrayList` et appeler simplement `ArrayList.ToArray` quand vous souhaitez le tableau.
 Vous pouvez également laisser PowerShell créer les `ArrayList` et `Array` pour vous :
 
 ```PowerShell
@@ -95,7 +95,7 @@ $results = @(
 ```
 
 Dans cet exemple, PowerShell crée un `ArrayList` pour stocker les résultats écrits dans le pipeline à l’intérieur de l’expression de tableau.
-Juste avant d’assigner à `$results`, PowerShell convertit le `ArrayList` en un `object[]`.
+Juste avant d’assigner à `$results`, PowerShell convertit le `ArrayList` en `object[]`.
 
 ## <a name="processing-large-files"></a>Traitement des rapport sur les fichiers volumineux
 
@@ -129,7 +129,7 @@ finally
 
 Il est généralement considéré comme une mauvaise pratique d’écrire la sortie directement dans la console, mais dans la mesure du logique, de nombreux scripts utilisent `Write-Host`.
 
-Si vous devez écrire de nombreux messages dans la console, `Write-Host` peut être un ordre de grandeur plus lent que `[Console]::WriteLine()`. Toutefois, sachez que `[Console]::WriteLine()` n’est qu’une alternative appropriée pour des hôtes spécifiques comme PowerShell. exe ou Powershell_ise. exe. il n’est pas garanti qu’il fonctionne sur tous les ordinateurs hôtes.
+Si vous devez écrire de nombreux messages dans la console, `Write-Host` peut être un ordre de grandeur plus lent que `[Console]::WriteLine()`. Toutefois, sachez que `[Console]::WriteLine()` n’est qu’une alternative appropriée pour des hôtes spécifiques comme PowerShell. exe ou powershell_ise. exe. il n’est pas garanti qu’il fonctionne sur tous les ordinateurs hôtes.
 
 Au lieu d’utiliser `Write-Host`, envisagez d’utiliser [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output?view=powershell-5.1).
 

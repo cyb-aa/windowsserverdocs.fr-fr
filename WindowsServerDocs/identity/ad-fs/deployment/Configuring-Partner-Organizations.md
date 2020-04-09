@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4d002764-58b4-4137-9c86-1e55b02e07ce
 title: Configuration des organisations partenaires
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 575d7e3fc97496c3f7c147220fe342add66517c3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ac83d9754365f3ceea5b363af4df93862bdb59e6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408397"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855492"
 ---
 # <a name="configuring-partner-organizations"></a>Configuration des organisations partenaires
 
@@ -28,7 +27,7 @@ Un partenaire de compte est l’organisation dans la relation d’approbation de
   
 En d’autres termes, un partenaire de compte représente l’organisation dont les utilisateurs le compte\-serveur de Fédération côté serveur émet des jetons de sécurité. Le serveur de Fédération dans l’organisation partenaire de compte authentifie les utilisateurs locaux et crée des jetons de sécurité utilisés par le partenaire de ressource pour prendre des décisions d’autorisation.  
   
-En ce qui concerne les magasins d’attributs, le partenaire de compte dans AD FS est conceptuellement équivalent à une seule forêt Active Directory dont les comptes ont besoin d’accéder aux ressources qui se trouvent physiquement dans une autre forêt. Les comptes de cette forêt peuvent accéder aux ressources de la forêt de ressources uniquement lorsqu’une relation d’approbation externe ou de forêt existe entre les deux forêts et que les ressources auxquelles les utilisateurs essaient d’accéder ont été définies avec l’autorisation appropriée. autorisations.  
+En ce qui concerne les magasins d’attributs, le partenaire de compte dans AD FS est conceptuellement équivalent à une seule forêt Active Directory dont les comptes ont besoin d’accéder aux ressources qui se trouvent physiquement dans une autre forêt. Les comptes de cette forêt peuvent accéder aux ressources de la forêt de ressources uniquement lorsqu’une relation d’approbation externe ou de forêt existe entre les deux forêts et que les ressources auxquelles les utilisateurs essaient d’accéder ont été définies avec les autorisations d’autorisation appropriées.  
   
 ## <a name="about-resource-partner-organizations"></a>À propos des organisations partenaires de ressources  
 Le partenaire de ressource est l’organisation dans un déploiement AD FS où se trouvent les serveurs Web. Le partenaire de ressource approuve le partenaire de compte pour authentifier les utilisateurs. Par conséquent, pour prendre des décisions d’autorisation, le partenaire de ressource consomme les revendications qui sont empaquetées dans des jetons de sécurité provenant d’utilisateurs du partenaire de compte.  

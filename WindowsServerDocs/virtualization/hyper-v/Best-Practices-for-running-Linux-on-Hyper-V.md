@@ -2,25 +2,23 @@
 title: Meilleures pratiques pour l’exécution de Linux sur Hyper-V
 description: Fournit des recommandations pour l’exécution de Linux sur une machine virtuelle
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
 ms.date: 3/1/2019
-ms.openlocfilehash: 3488bbc1e295a68befc7044b83379bd65a5f28df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7baf71af401b8318ccd136fe12d6eb810cf9434e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365568"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853302"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>Meilleures pratiques pour l’exécution de Linux sur Hyper-V
 
->S'applique à : Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
+>S’applique à : Windows Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
 Cette rubrique contient une liste de recommandations relatives à l’exécution d’une machine virtuelle Linux sur Hyper-V.
 
@@ -74,7 +72,7 @@ Les machines virtuelles Linux qui seront déployées à l’aide du clustering d
 
 ## <a name="use-hyper-v-specific-network-adapters-not-the-legacy-network-adapter"></a>Utiliser des cartes réseau spécifiques à Hyper-V, et non la carte réseau héritée
 
-Configurez et utilisez la carte Ethernet virtuelle, qui est une carte réseau spécifique à Hyper-V avec des performances améliorées. Si des cartes réseau spécifiques à l’ancien et à Hyper-V sont attachées à une machine virtuelle, les noms de réseau dans la sortie de **ifconfig-a** peuvent afficher des valeurs aléatoires telles que **_tmp12000801310**. Pour éviter ce problème, supprimez toutes les cartes réseau héritées lors de l’utilisation de cartes réseau spécifiques à Hyper-V dans une machine virtuelle Linux.
+Configurez et utilisez la carte Ethernet virtuelle, qui est une carte réseau spécifique à Hyper-V avec des performances améliorées. Si des cartes réseau spécifiques à l’ancien et à Hyper-V sont attachées à une machine virtuelle, les noms de réseau dans la sortie de **ifconfig-a** peuvent afficher des valeurs aléatoires comme **_tmp12000801310**. Pour éviter ce problème, supprimez toutes les cartes réseau héritées lors de l’utilisation de cartes réseau spécifiques à Hyper-V dans une machine virtuelle Linux.
 
 ## <a name="use-io-scheduler-noop-for-better-disk-io-performance"></a>Utiliser le planificateur d’e/s NOOP pour améliorer les performances d’e/s disque
 

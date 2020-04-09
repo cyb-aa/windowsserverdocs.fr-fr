@@ -1,32 +1,28 @@
 ---
 title: Déterminer la liste d’autorisation/exclusion et l’inventaire des applications pour les stratégies de restriction logicielle
 description: Sécurité de Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0abb73b6-b5d8-4505-8ab1-2f29e4bf0411
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 4ddea6daeb2150bd9fd3131a8457a6a4b408cfc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7609ebb0fdcb6d429cd40d99399eaaedb732df08
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357661"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855092"
 ---
 # <a name="determine-allow-deny-list-and-application-inventory-for-software-restriction-policies"></a>Déterminer la liste d’autorisation/exclusion et l’inventaire des applications pour les stratégies de restriction logicielle
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique destinée aux professionnels de l’informatique fournit des instructions sur la création d’une liste verte et d’exclusion pour les applications qui doivent être gérées par les stratégies de restriction logicielle (SRP) à partir de Windows Server 2008 et Windows Vista.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 La fonctionnalité Stratégies de restriction logicielle est une fonctionnalité fondée sur les stratégies de groupe qui identifie les programmes logiciels s’exécutant sur les ordinateurs d’un domaine et qui contrôle la capacité de ces programmes à s’exécuter. Les stratégies de restriction logicielle peuvent aussi contribuer à créer une configuration fortement restreinte pour vos ordinateurs, dans laquelle seule l’exécution d’applications clairement identifiées est autorisée. Celles-ci sont intégrées à Microsoft Active Directory Domain Services et stratégie de groupe mais peuvent également être configurées sur des ordinateurs autonomes. Pour un point de départ pour les SRP, consultez [stratégies de restriction logicielle](software-restriction-policies.md).
 
 À compter de Windows Server 2008 R2 et Windows 7, il est possible d’utiliser Windows AppLocker à la place ou en collaboration avec les stratégies de restriction logicielle pour une partie de votre stratégie de contrôle des applications.
@@ -37,8 +33,8 @@ Pour plus d’informations sur la façon d’accomplir des tâches spécifiques 
 
 -   [Utiliser des stratégies de restriction logicielle pour aider à protéger votre ordinateur contre un virus de courrier électronique](use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus.md)
 
-### <a name="what-default-rule-to-choose-allow-or-deny"></a>Quelle règle par défaut choisir : Autoriser ou refuser
-Les stratégies de restriction logicielle peuvent être déployées dans l’un des deux modes qui constituent la base de votre règle par défaut : Liste verte ou liste d’exclusion. Vous pouvez créer une stratégie qui identifie toutes les applications qui sont autorisées à s’exécuter dans votre environnement. la règle par défaut dans votre stratégie est restreinte et bloquera toutes les applications que vous n’autorisez pas à exécuter de manière explicite. Ou vous pouvez créer une stratégie qui identifie toutes les applications qui ne peuvent pas s’exécuter ; la règle par défaut est sans restriction et restreint uniquement les applications que vous avez explicitement listées.
+### <a name="what-default-rule-to-choose-allow-or-deny"></a>Quelle règle par défaut choisir : autoriser ou refuser
+Les stratégies de restriction logicielle peuvent être déployées dans l’un des deux modes qui constituent la base de votre règle par défaut : liste verte ou liste d’exclusion. Vous pouvez créer une stratégie qui identifie toutes les applications qui sont autorisées à s’exécuter dans votre environnement. la règle par défaut dans votre stratégie est restreinte et bloquera toutes les applications que vous n’autorisez pas à exécuter de manière explicite. Ou vous pouvez créer une stratégie qui identifie toutes les applications qui ne peuvent pas s’exécuter ; la règle par défaut est sans restriction et restreint uniquement les applications que vous avez explicitement listées.
 
 > [!IMPORTANT]
 > Le mode liste de refus peut être une stratégie de maintenance élevée pour votre organisation en ce qui concerne le contrôle d’application. La création et la maintenance d’une liste en constante évolution qui empêche tous les logiciels malveillants et autres applications problématiques seraient fastidieuses et sujettes à des erreurs.
@@ -52,9 +48,9 @@ Pour utiliser efficacement la règle autoriser les valeurs par défaut, vous dev
 
 2.  Créez la valeur de Registre suivante pour activer la fonctionnalité de journalisation avancée et définir le chemin d’accès à l’emplacement où le fichier journal doit être écrit.
 
-    **"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Safer\ CodeIdentifiers"**
+    **« HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\Safer\ CodeIdentifiers »**
 
-    Valeur de chaîne : *NameLogFile chemin d’accès à NameLogFile*
+    Valeur de chaîne : *chemin d’accès NameLogFile à NameLogFile*
 
     Étant donné que le SRP évalue toutes les applications lors de son exécution, une entrée est écrite dans le fichier journal *NameLogFile* chaque fois que l’application est exécutée.
 

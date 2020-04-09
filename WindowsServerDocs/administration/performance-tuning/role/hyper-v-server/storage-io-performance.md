@@ -4,15 +4,15 @@ description: Considérations sur les performances des e/s de stockage dans le r�
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c5a7b667f24ee929a80010dc51508033f991ed5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 83b22c47cb23b02bb9984e03d78fcae93be1ca0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370061"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851812"
 ---
 # <a name="hyper-v-storage-io-performance"></a>Performances des e/s de stockage Hyper-V
 
@@ -20,7 +20,7 @@ Cette section décrit les différentes options et considérations à prendre en 
 
 ## <a name="virtual-controllers"></a>Contrôleurs virtuels
 
-Hyper-V offre trois types de contrôleurs virtuels : Les adaptateurs de bus hôte virtuel, SCSI et IDE.
+Hyper-V offre trois types de contrôleurs virtuels : IDE, SCSI et adaptateurs de bus hôte virtuel (HBA).
 
 ## <a name="ide"></a>IDE
 
@@ -160,7 +160,7 @@ Le disque dur virtuel pointe vers un fichier de disque dur virtuel parent. Les �
 
 ## <a name="block-size-considerations"></a>Considérations relatives à la taille des blocs
 
-La taille des blocs peut avoir un impact significatif sur les performances. Il est préférable de faire correspondre la taille du bloc aux modèles d’allocation de la charge de travail qui utilise le disque. Par exemple, si une application alloue des segments de 16 Mo, il serait optimal d’avoir une taille de bloc de disque dur virtuel de 16 Mo. Une taille de bloc &gt;de 2 Mo est possible uniquement sur les disques durs virtuels avec le format VHDX. Le fait d’avoir une taille de bloc supérieure à celle du modèle d’allocation pour une charge de travail d’e/s aléatoire augmente considérablement l’utilisation de l’espace sur l’hôte.
+La taille des blocs peut avoir un impact significatif sur les performances. Il est préférable de faire correspondre la taille du bloc aux modèles d’allocation de la charge de travail qui utilise le disque. Par exemple, si une application alloue des segments de 16 Mo, il serait optimal d’avoir une taille de bloc de disque dur virtuel de 16 Mo. Une taille de bloc de &gt;2 Mo est possible uniquement sur les disques durs virtuels au format VHDX. Le fait d’avoir une taille de bloc supérieure à celle du modèle d’allocation pour une charge de travail d’e/s aléatoire augmente considérablement l’utilisation de l’espace sur l’hôte.
 
 ## <a name="sector-size-implications"></a>Implications de la taille des secteurs
 
@@ -244,7 +244,7 @@ Les améliorations clés suivantes introduites en premier dans la pile de stocka
 
 -   Un mécanisme d’achèvement d’e/s plus efficace implique la distribution des interruptions entre les processeurs virtuels pour éviter les interruptions de l’interprocesseur.
 
-Introduite dans Windows Server 2012, il existe quelques entrées de Registre, situées au\\niveau\\de\\HKLM System\\CurrentControlSet Enum\\VMBUS {\\ID d’appareil} {ID d’instance}\\StorChannel, qui permet d’ajuster le nombre de canaux. Ils alignent également les processeurs virtuels qui gèrent les terminaisons d’e/s sur les processeurs virtuels affectés par l’application en tant que processeurs d’e/s. Les paramètres du Registre sont configurés sur une base par adaptateur sur la clé matérielle de l’appareil.
+Introduite dans Windows Server 2012, il existe quelques entrées de Registre, situées dans HKLM\\System\\CurrentControlSet\\enum\\VMBUS\\{Device ID}\\{ID d’instance}\\StorChannel, qui permet d’ajuster le nombre de canaux. Ils alignent également les processeurs virtuels qui gèrent les terminaisons d’e/s sur les processeurs virtuels affectés par l’application en tant que processeurs d’e/s. Les paramètres du Registre sont configurés sur une base par adaptateur sur la clé matérielle de l’appareil.
 
 -   **ChannelCount (DWORD)** Nombre total de canaux à utiliser, avec un maximum de 16. Par défaut, il s’agit d’un plafond, qui est le nombre de processeurs virtuels/16.
 
@@ -262,7 +262,7 @@ Hyper-V dans Windows Server 2012 et versions ultérieures prend en charge les op
 
 Les fichiers de disque dur virtuel existent en tant que fichiers sur un volume de stockage et ils partagent de l’espace disponible avec d’autres fichiers. Étant donné que la taille de ces fichiers a tendance à être importante, l’espace qu’ils utilisent peut croître rapidement. La demande d’un stockage physique plus grand affecte le budget du matériel informatique. Il est important d’optimiser l’utilisation du stockage physique autant que possible.
 
-Avant Windows Server 2012, lorsque les applications suppriment du contenu au sein d’un disque dur virtuel, ce qui a entraîné l’abandon de l’espace de stockage du contenu, la pile de stockage Windows dans le système d’exploitation invité et l’hôte Hyper-V avaient des limitations qui l’empêchaient. informations transmises au disque dur virtuel et au périphérique de stockage physique. Cela empêchait la pile de stockage Hyper-V d’optimiser l’utilisation de l’espace par les fichiers de disque virtuel basés sur VHD. Le dispositif de stockage sous-jacent empêchait également la récupération de l’espace occupé par les données supprimées.
+Avant Windows Server 2012, lorsque les applications suppriment du contenu au sein d’un disque dur virtuel, ce qui a entraîné l’abandon de l’espace de stockage du contenu, la pile de stockage Windows dans le système d’exploitation invité et l’ordinateur hôte Hyper-V ont des limitations empêchant ces informations d’être communiquées au disque dur virtuel et au périphérique de stockage physique. Cela empêchait la pile de stockage Hyper-V d’optimiser l’utilisation de l’espace par les fichiers de disque virtuel basés sur VHD. Le dispositif de stockage sous-jacent empêchait également la récupération de l’espace occupé par les données supprimées.
 
 À partir de Windows Server 2012, Hyper-V prend en charge les notifications de mappage, ce qui permet aux fichiers VHDX d’être plus efficaces pour représenter les données qu’il contient. Cela réduit la taille des fichiers et permet au périphérique de stockage physique sous-jacent de récupérer l’espace inutilisé.
 

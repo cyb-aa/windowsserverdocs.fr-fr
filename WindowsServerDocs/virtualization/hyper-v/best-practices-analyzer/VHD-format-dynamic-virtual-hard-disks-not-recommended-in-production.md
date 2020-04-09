@@ -2,20 +2,19 @@
 title: Les disques durs virtuels dynamiques au format VHD ne sont pas recommandés pour les machines virtuelles qui exécutent des charges de travail serveur dans un environnement de production
 description: Version en ligne du texte de cette règle de Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 324a60a0-1d15-4ef2-9f17-23cbd2eb42ce
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: bf5464208fc145a31571f01822bb5ba54efe89c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 195bc4c85d380c8f0b15b27d042b30491f635d5d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364591"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854172"
 ---
 # <a name="vhd-format-dynamic-virtual-hard-disks-are-not-recommended-for-virtual-machines-that-run-server-workloads-in-a-production-environment"></a>Les disques durs virtuels dynamiques au format VHD ne sont pas recommandés pour les machines virtuelles qui exécutent des charges de travail serveur dans un environnement de production
 
@@ -25,9 +24,9 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
   
 |Propriété|Détails|  
 |-|-|  
-|**Système d'exploitation**|Windows Server 2016|  
+|**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Va**|Warning|  
+|**Va**|Avertissement|  
 |**Catégorie**|Configuration|  
   
 Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.
@@ -35,7 +34,7 @@ Dans les sections suivantes, l’italique indique le texte de l’interface util
 ## <a name="issue"></a>**Problème**  
 *Une ou plusieurs machines virtuelles utilisent des disques durs virtuels de taille dynamique au format VHD.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Effet**  
 *Les disques durs virtuels dynamiques au format VHD peuvent rencontrer des problèmes de cohérence en cas de panne de courant. Des problèmes de cohérence peuvent se produire si le disque physique effectue une mise à jour incomplète ou incorrecte d’un secteur dans un fichier. vhd en cours de modification en cas de panne de courant. Cela affecte les machines virtuelles suivantes :*  
   
 \<liste des machines virtuelles >  

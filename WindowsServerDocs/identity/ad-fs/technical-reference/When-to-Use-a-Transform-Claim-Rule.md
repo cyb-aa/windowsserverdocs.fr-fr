@@ -1,7 +1,6 @@
 ---
 ms.assetid: 77aa61bf-9c04-4889-a5d2-6f45bc1b8bd2
 title: Quand utiliser une règle de revendication de transformation
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b7cdf68783db1b6b775209e4e42dc6b6ccf0e1b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2b69156d1e2825f4287112735493ebc5cc8469d2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385421"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853782"
 ---
 # <a name="when-to-use-a-transform-claim-rule"></a>Quand utiliser une règle de revendication de transformation
 Vous pouvez utiliser cette règle dans Services ADFS \(AD FS\) lorsque vous devez mapper un type de revendication entrante à un type de revendication sortante, puis appliquer une action qui détermine la sortie qui doit se produire en fonction des valeurs provenant de la revendication entrante. Lorsque vous utilisez cette règle, vous transmettez ou transformez les revendications qui correspondent à la logique de règle suivante, en fonction des options que vous configurez dans la règle, comme décrit dans le tableau suivant :  
@@ -79,10 +78,10 @@ Pour plus d’instructions sur la création de ce modèle, consultez [créer une
 Si la revendication sortante doit être construite à partir du contenu de plusieurs revendications entrantes, vous devez utiliser une règle personnalisée à la place. Si la valeur de revendication de la revendication sortante doit être basée sur la valeur de la revendication entrante, mais avec du contenu supplémentaire, vous devez également utiliser une règle personnalisée dans ce contexte. Pour plus d'informations, voir [When to Use a Custom Claim Rule](When-to-Use-a-Custom-Claim-Rule.md).  
   
 ### <a name="examples-of-how-to-construct-a-transform-rule-syntax"></a>Exemples montrant comment construire une syntaxe de règle de transformation  
-Lorsque vous utilisez la syntaxe du langage de règles de revendication pour transformer les revendications, vous pouvez définir une propriété de la revendication transformée sur une nouvelle valeur littérale. Par exemple, la règle suivante modifie la valeur des revendications de rôle de « Administrateurs » en « root » tout en conservant le même type de revendication :  
+Lorsque vous utilisez la syntaxe du langage de règles de revendication pour transformer les revendications, vous pouvez définir une propriété de la revendication transformée sur une nouvelle valeur littérale. Par exemple, la règle suivante modifie la valeur des revendications de rôle de « Administrators » en « root » tout en conservant le même type de revendication :  
   
 ```  
-c:[type == “https://schemas.microsoft.com/ws/2008/06/identity/claims/role”, value == “Administrators”]  => issue(type = c.type, value = “root”);  
+c:[type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/role", value == "Administrators"]  => issue(type = c.type, value = "root");  
 ```  
   
 Les expressions régulières peuvent également servir aux transformations de revendication. Par exemple, la règle suivante définit le domaine dans les revendications de nom d’utilisateur Windows au format utilisateur de domaine\\sur FABRIKAM :  
@@ -97,7 +96,7 @@ Les transformations de revendications peuvent être appliquées de façon sélec
 |Propriété de revendication|Description|  
 |------------------|---------------|  
 |Type, Value, ValueType|Ces propriétés servent fréquemment aux affectations. Au minimum, le type et la valeur doivent être spécifiés pour la revendication transformée résultante.|  
-|Émetteur|Tandis que le langage des règles de revendication permet la définition de l’émetteur (Issuer) de la demande, cela n’est généralement pas recommandé. L’émetteur de la revendication n’est pas sérialisé dans le jeton. À la réception d’un jeton, la propriété Issuer de toutes les revendications prend la valeur de l’identificateur du serveur FS (Federation Server) qui a signé le jeton. Par conséquent, la définition de l’émetteur d’une revendication dans les règles n’aura aucun effet sur le contenu du jeton et le paramètre est perdu une fois que la revendication est empaquetée dans un jeton. Le seul scénario qui justifie la définition de l’émetteur d’une revendication est le suivant : si elle prend une valeur spécifique dans l’ensemble de règles du fournisseur de revendications et que l’ensemble de règles de la partie de confiance a été créé avec des règles faisant référence à cette valeur spécifique. Si la propriété Issuer n’est pas définie explicitement dans une règle de revendication, le moteur d’émission des revendications lui affecte la valeur « LOCAL AUTHORITY ».|  
+|Émetteur|Tandis que le langage des règles de revendication permet la définition de l’émetteur (Issuer) de la demande, cela n’est généralement pas recommandé. L’émetteur de la revendication n’est pas sérialisé dans le jeton. À la réception d’un jeton, la propriété Issuer de toutes les revendications prend la valeur de l’identificateur du serveur FS (Federation Server) qui a signé le jeton. Par conséquent, la définition de l’émetteur d’une revendication dans les règles n’aura aucun effet sur le contenu du jeton et le paramètre est perdu une fois que la revendication est empaquetée dans un jeton. Le seul scénario qui justifie la définition de l’émetteur d’une revendication est le suivant : si elle prend une valeur spécifique dans l’ensemble de règles du fournisseur de revendications et que l’ensemble de règles de la partie de confiance a été créé avec des règles faisant référence à cette valeur spécifique. Si la propriété de l’émetteur n’est pas explicitement définie sur une valeur dans une règle de revendication, le moteur d’émission de revendications lui affecte la valeur « LOCAL AUTHORITY ».|  
 |Émetteur d’origine|Comme pour la propriété Issuer, OriginalIssuer ne doit généralement pas avoir une valeur explicitement affectée. Contrairement à la propriété Issuer, OriginalIssuer est sérialisée dans le jeton, mais les attentes des consommateurs de jeton impliquent que, si une valeur lui est affectée, elle contient l’identificateur du serveur FS (Federation Server) qui a émis la revendication initiale.|  
 |Propriétés|Comme indiqué dans la section précédente, le jeu de propriétés de la revendication n’est pas conservé dans le jeton. Ainsi, les affectations aux propriétés doivent être effectuées uniquement si des stratégies locales sous-jacentes vont référencer les informations stockées dans la propriété.|  
   

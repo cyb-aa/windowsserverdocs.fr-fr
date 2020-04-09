@@ -1,24 +1,20 @@
 ---
 title: mountvol
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fea8ad4d-f04a-4aaa-a3e5-75931e867b39
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a3de8e5744c50acff3fdad0c7cf1dabf14fb144
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 34a98a273274f7982bfdd970710c04178fed4f5a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373576"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839382"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -40,7 +36,7 @@ mountvol [/n | /e]
 mountvol <Drive>: /s
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
@@ -58,16 +54,16 @@ mountvol <Drive>: /s
 ## <a name="remarks"></a>Notes
 
 -   **Mountvol** vous permet de lier des volumes sans nécessiter de lettre de lecteur.
--   Les volumes démontés à l’aide de **/p** sont répertoriés dans la liste des volumes comme « non montés tant qu’un point de montage de volume n’a pas été créé ». Si le volume a plusieurs points de montage, utilisez **/d** pour supprimer les points de montage supplémentaires avant d’utiliser **/p**. Vous pouvez rendre le volume de base montable à nouveau en affectant un point de montage de volume.
+-   Les volumes démontés à l’aide de **/p** sont répertoriés dans la liste des volumes comme non montés jusqu’à ce qu’un point de montage de volume soit créé. Si le volume a plusieurs points de montage, utilisez **/d** pour supprimer les points de montage supplémentaires avant d’utiliser **/p**. Vous pouvez rendre le volume de base montable à nouveau en affectant un point de montage de volume.
 -   Si vous devez étendre votre espace de volume sans reformater ou remplacer un disque dur, vous pouvez ajouter un chemin d’accès de montage à un autre volume. L’avantage de l’utilisation d’un seul volume avec plusieurs chemins de montage est que vous pouvez accéder à tous les volumes locaux à l’aide d’une seule lettre de lecteur (par exemple `C:`). Vous n’avez pas besoin de vous souvenir du volume qui correspond à la lettre de lecteur, même si vous pouvez toujours monter des volumes locaux et leur attribuer des lettres de lecteur.
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name=BKMK_examples></a>Illustre
 
 Pour créer un point de montage, tapez :
 ```
 mountvol \sysmount \\?\Volume\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

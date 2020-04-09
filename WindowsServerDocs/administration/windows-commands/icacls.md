@@ -1,24 +1,20 @@
 ---
 title: icacls
-description: 'Rubrique relative aux commandes Windows pour * * * *- '
-ms.custom: na
+description: Rubrique relative aux commandes Windows pour * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 403edfcc-328a-479d-b641-80c290ccf73e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 494c87073cfd78c7f5e17c72d4c65bec33a49b98
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 59d10b9ed681b7e0af120798dde9f200182d67d3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375491"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842262"
 ---
 # <a name="icacls"></a>icacls
 
@@ -33,13 +29,13 @@ icacls <FileName> [/grant[:r] <Sid>:<Perm>[...]] [/deny <Sid>:<Perm>[...]] [/rem
 icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c] [/l] [/q]]
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
 |Nom de fichier \<>|Spécifie le fichier pour lequel afficher les DACL.|
 |Répertoire \<>|Spécifie le répertoire pour lequel afficher les DACL.|
-|commutateur|Exécute l’opération sur tous les fichiers spécifiés dans le répertoire actif et ses sous-répertoires.|
+|/t|Exécute l’opération sur tous les fichiers spécifiés dans le répertoire actif et ses sous-répertoires.|
 |/c|Poursuit l’opération en dépit des erreurs de fichier. Les messages d’erreur s’affichent toujours.|
 |/l|Effectue l’opération sur un lien symbolique par rapport à sa destination.|
 |/q|Supprime les messages de réussite.|
@@ -141,18 +137,18 @@ Pour restaurer les listes DACL pour chaque fichier dans ACLFile qui existe dans 
 icacls c:\windows\ /restore aclfile
 ```
 
-Pour accorder à l’utilisateur User1 les autorisations de suppression et d’écriture DAC dans un fichier nommé « Test1 », tapez :
+Pour accorder à l’utilisateur User1 les autorisations de suppression et d’écriture DAC dans un fichier nommé Test1, tapez :
 
 ```
 icacls test1 /grant User1:(d,wdac)
 ```
 
-Pour accorder à l’utilisateur défini par le SID S-1-1-0 des autorisations de suppression et d’écriture de DAC dans un fichier nommé « test2 », tapez :
+Pour accorder à l’utilisateur les autorisations S-1-1-0 supprimer et écrire DAC dans un fichier nommé test2, tapez :
 
 ```
 icacls test2 /grant *S-1-1-0:(d,wdac)
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 472c3b91285810ac1ff528da24de50533bae526d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 56e27c386451c561de8f62e523e2d1e59a8ce84c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376942"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844302"
 ---
 # <a name="fsutil-fsinfo"></a>Fsutil fsinfo
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -33,20 +33,20 @@ fsutil fsinfo [statistics] <VolumePath>
 fsutil fsinfo [volumeinfo] <RootPath>
 ```
 
-## <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |-------------|---------------|
-|durs|Répertorie tous les lecteurs de l’ordinateur.|
+|lecteurs|Répertorie tous les lecteurs de l’ordinateur.|
 |DriveType|Interroge un lecteur et répertorie son type, par exemple lecteur de CD-ROM.|
 |NTFSInfo|Répertorie les informations de volume spécifiques à NTFS pour le volume spécifié, telles que le nombre de secteurs, le nombre total de clusters, les clusters libres et le début et la fin de la zone MFT.|
 |sectorinfo|Répertorie des informations sur la taille et l’alignement des secteurs du matériel.|
-|portent|Répertorie les statistiques du système de fichiers pour le volume spécifié, telles que les métadonnées, le fichier journal et les lectures et écritures MFT.|
+|statistiques|Répertorie les statistiques du système de fichiers pour le volume spécifié, telles que les métadonnées, le fichier journal et les lectures et écritures MFT.|
 |volumeinfo|Répertorie des informations sur le volume spécifié, telles que le système de fichiers, et indique si le volume prend en charge les noms de fichiers sensibles à la casse, Unicode dans les noms de fichiers, les quotas de disque ou s’il s’agit d’un volume DirectAccess (DAX).|
 |< « VolumePath » >|Spécifie la lettre de lecteur (suivie d’un signe deux-points).|
 |< « RootPathname » >|Spécifie la lettre de lecteur (suivie d’un signe deux-points) du lecteur racine.|
 
-## <a name="BKMK_examples"></a>Illustre
+## <a name="examples"></a><a name="BKMK_examples"></a>Illustre
 Pour répertorier tous les lecteurs de l’ordinateur, tapez :
 
 ```
@@ -153,8 +153,8 @@ UserFileReadBytes :    1305244512
 LogFileWriteBytes :    180936704       
 ```
 
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [fsutil](Fsutil.md)
 
 

@@ -1,29 +1,25 @@
 ---
 title: Gérer l'accès web à distance dans Windows Server Essentials
 description: Décrit comment utiliser Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f3ea40fa-b6ba-4d66-b754-221ca6271387
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6f4277637ed0f721b0cae12c15086a59ac6190fc
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 3457eb28c05bd79f0de3a982da77ca01ffe9b52d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311159"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852762"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Gérer l'accès web à distance dans Windows Server Essentials
 
 >S’applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Les Accès web distants dans Windows Server Essentials, ou dans Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, fournissent une expérience de navigateur simplifiée et conviviale pour accéder aux applications et aux données à partir de quasiment n’importe où que vous disposiez d’une connexion Internet et que vous utilisez presque n’importe quel appareil. Pour utiliser la fonctionnalité d’accès web à distance, vous devez d’abord l’activer à l’aide de l’Assistant Configurer l’accès en tout lieu, puis configurer vos routeur et nom de domaine.  
+ Les Accès web distants dans Windows Server Essentials, ou dans Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, fournissent une expérience de navigateur simplifiée et conviviale pour accéder aux applications et aux données à partir de pratiquement n’importe quel endroit où vous disposez d’une connexion Internet et à l’aide de presque tous les appareils. Pour utiliser la fonctionnalité d’accès web à distance, vous devez d’abord l’activer à l’aide de l’Assistant Configurer l’accès en tout lieu, puis configurer vos routeur et nom de domaine.  
   
 ## <a name="in-this-topic"></a>Dans cette rubrique  
   

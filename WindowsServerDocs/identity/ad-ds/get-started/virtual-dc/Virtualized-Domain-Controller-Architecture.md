@@ -1,7 +1,6 @@
 ---
 ms.assetid: 341614c6-72c2-444f-8b92-d2663aab7070
 title: Architecture des contrôleurs de domaine virtualisés
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e8673b9e66a0aa3b6bea89b91ae5022efb26c65c
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: fa8645198374d91911f8ec7dc15f04bea4865e38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323151"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824442"
 ---
 # <a name="virtualized-domain-controller-architecture"></a>Architecture des contrôleurs de domaine virtualisés
 
@@ -26,7 +25,7 @@ Cette rubrique décrit l'architecture du clonage et de la restauration sécuris�
   
 -   [Architecture de la restauration sécurisée des contrôleurs de domaine virtualisés](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
   
-## <a name="BKMK_CloneArch"></a>Architecture de clonage des contrôleurs de domaine virtualisés  
+## <a name="virtualized-domain-controller-cloning-architecture"></a><a name="BKMK_CloneArch"></a>Architecture de clonage des contrôleurs de domaine virtualisés  
   
 ### <a name="overview"></a>Overview  
 Le clonage d'un contrôleur de domaine virtualisé repose sur la plateforme de l'hyperviseur pour exposer un identificateur appelé **ID de génération d'ordinateur virtuel** pour détecter la création d'un ordinateur virtuel. AD DS stocke d'abord la valeur de cet identifiant dans sa base de données (NTDS.DIT) durant la promotion du contrôleur de domaine. Quand l'ordinateur virtuel démarre, la valeur actuelle de l'ID de génération d'ordinateur virtuel de l'ordinateur virtuel est comparée à la valeur contenue dans la base de données. Si les deux valeurs sont différentes, le contrôleur de domaine réinitialise l'ID d'appel et supprime le pool RID, ce qui empêche ainsi la réutilisation de la valeur USN ou la création potentielle de principaux de sécurité dupliqués. Le contrôleur de domaine recherche ensuite un fichier DCCloneConfig.xml dans les emplacements décrits à l'étape 3 dans [Processus détaillé du clonage](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneProcessDetails). S'il trouve un fichier DCCloneConfig.xml, il en conclut qu'il est déployé en tant que clone. Il démarre donc le clonage pour s'approvisionner en tant que contrôleur de domaine supplémentaire en effectuant une nouvelle promotion à l'aide du contenu existant de NTDS.DIT et de SYSVOL, copié à partir du média source.  
@@ -35,7 +34,7 @@ Dans un environnement mixte où seuls certains hyperviseurs prennent en charge l
   
 Si le média clone est déployé sur un hyperviseur qui prend en charge l'ID de génération d'ordinateur virtuel mais qu'aucun fichier DCCloneConfig.xml n'est fourni, quand le contrôleur de domaine détecte un changement d'ID de génération d'ordinateur virtuel entre son fichier DIT et celui du nouvel ordinateur virtuel, il déclenche des dispositifs de protection pour empêcher la réutilisation de la valeur USN et la duplication des SID. Cependant, le clonage n'est pas lancé. Ainsi, le contrôleur de domaine secondaire continue de s'exécuter sous la même identité que le contrôleur de domaine source. Ce contrôleur de domaine secondaire doit être supprimé du réseau le plus tôt possible pour éviter toute incohérence dans l'environnement. Pour plus d’informations sur la façon de récupérer ce contrôleur de domaine secondaire tout en veillant à ce que les mises à jour soient répliquées en sortie, voir l’article n° [2742970](https://support.microsoft.com/kb/2742970)dans la Base de connaissances Microsoft.  
   
-### <a name="BKMK_CloneProcessDetails"></a>Clonage du traitement détaillé  
+### <a name="cloning-detailed-processing"></a><a name="BKMK_CloneProcessDetails"></a>Clonage du traitement détaillé  
 Le schéma suivant illustre l'architecture d'une opération de clonage initiale et d'une opération de nouvelle tentative de clonage. Ces processus sont expliqués de manière détaillée plus loin dans cette rubrique.  
   
 **Opération de clonage initiale**  
@@ -142,7 +141,7 @@ Les étapes suivantes expliquent le processus de manière plus détaillée :
   
 26. L'invité redémarre. Il est désormais un contrôleur de domaine de publication normal.  
   
-## <a name="BKMK_SafeRestoreArch"></a>Architecture de la restauration sécurisée des contrôleurs de domaine virtualisés  
+## <a name="virtualized-domain-controller-safe-restore-architecture"></a><a name="BKMK_SafeRestoreArch"></a>Architecture de la restauration sécurisée des contrôleurs de domaine virtualisés  
   
 ### <a name="overview"></a>Overview  
 AD DS repose sur la plateforme de l'hyperviseur pour exposer un identificateur appelé **ID de génération d'ordinateur virtuel** pour détecter la restauration de capture instantanée d'un ordinateur virtuel. AD DS stocke d'abord la valeur de cet identifiant dans sa base de données (NTDS.DIT) durant la promotion du contrôleur de domaine. Quand un administrateur restaure l'ordinateur virtuel à partir d'une capture instantanée précédente, la valeur actuelle de l'ID de génération d'ordinateur virtuel de l'ordinateur virtuel est comparée à la valeur contenue dans la base de données. Si les deux valeurs sont différentes, le contrôleur de domaine réinitialise l'ID d'appel et supprime le pool RID, ce qui empêche ainsi la réutilisation de la valeur USN ou la création potentielle de principaux de sécurité dupliqués. Une restauration sécurisée peut se produire dans deux cas de figure :  

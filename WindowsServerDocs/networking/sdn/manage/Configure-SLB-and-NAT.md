@@ -1,24 +1,20 @@
 ---
 title: Configurer l’équilibreur de charge logicielle pour l’équilibrage de charge et la traduction d’adresses réseau (NAT)
 description: Cette rubrique fait partie du Guide de mise en réseau à définition logicielle sur la gestion des charges de travail client et des réseaux virtuels dans Windows Server 2016.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: a12d9a1ea953b587918fed8367ee21626697e256
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 8728ea8732c762003a2bd356d00b9776c82eb481
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309889"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854542"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>Configurer l’équilibreur de charge logicielle pour l’équilibrage de charge et la traduction d’adresses réseau (NAT)
 
